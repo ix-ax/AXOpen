@@ -75,7 +75,12 @@ public class BuildContext : FrostingContext
 
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
     {
-        ("core", "ix.framework.core")
+        ("core", "ix.framework.core"),        
+    };
+
+    public IEnumerable<(string folder, string name)> Integrations { get; } = new[]
+    {
+        ("integrations", "ix.integrations"),        
     };
 
     public string GetAxFolder((string folder, string name) library)

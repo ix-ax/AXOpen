@@ -64,6 +64,7 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
     public override void Run(BuildContext context)
     {
         context.Libraries.ToList().ForEach(lib => context.ApaxClean(lib));
+        context.Integrations.ToList().ForEach(integration => context.ApaxClean(integration));
         context.DotNetClean(Path.Combine(context.RootDir, "ix.framework.sln"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity});
         context.CleanDirectory(context.Artifacts);       
     }
@@ -122,6 +123,9 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             context.ApaxBuild(lib);
         });
 
+        context.Integrations.ToList().ForEach(proj => context.ApaxInstall(proj));
+        context.Integrations.ToList().ForEach(proj => context.ApaxBuild(proj));
+
         context.DotNetBuild(Path.Combine(context.RootDir, "ix.framework.sln"), context.DotNetBuildSettings);
     }
 }
@@ -140,6 +144,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         }
 
         context.Libraries.ToList().ForEach(lib => context.ApaxTest(lib));
+        context.Integrations.ToList().ForEach(proj => context.ApaxTest(proj));
         context.DotNetTest(Path.Combine(context.RootDir, "ix.framework.sln"), context.DotNetTestSettings);
     }
 }
