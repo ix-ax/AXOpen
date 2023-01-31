@@ -3,7 +3,7 @@ name: Question
 about: Ask question
 title: "[QUESTION]"
 labels: question
-assignees: PTKu
+assignees: ix-ax
 
 ---
 
