@@ -1,0 +1,7 @@
+name: "inxton.ix"
+version: 0.1.0
+type: workspace
+dependencies:
+  "@ax/opcua-server-config": ^0.2.1
+  "ix.core": ^0.0.0
+  "ix.abstractions": ^0.0.0

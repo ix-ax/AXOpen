@@ -1,0 +1,12 @@
+.apax
+.env
+bin
+
+obj
+testresult
+
+*.exe
+*.dll
+
+# ignore generated cs files
+*.g.cs

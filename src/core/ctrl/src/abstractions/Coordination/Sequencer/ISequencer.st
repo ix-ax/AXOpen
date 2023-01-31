@@ -1,0 +1,4 @@
+NAMESPACE ix.framework.core
+    INTERFACE INTERNAL ISequencer EXTENDS ICoordinator
+    END_INTERFACE  
+END_NAMESPACE

@@ -1,0 +1,21 @@
+name: "@ix-ax/ix.framework.core"
+version       : '0.1.0-alpha.68'
+type: lib
+targets:
+  - "1500"
+  - llvm
+  - axunit
+  - axunit-llvm
+files:
+  - src
+devDependencies:
+  "@ax/sdk": 3.0.8
+repository: 
+  type: "git"
+  url: "https://github.com/PTKu/ix.framework.git"
+license: "https://github.com/PTKu/ix.framework/blob/dev/license"
+homepage: "https://github.com/PTKu/ix.framework"
+
+scripts:
+  postbuild:                
+      - dotnet ixc

@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "ix.framework.sln",
+    "projects": [
+      "core\\src\\ix.framework.core.blazor\\ix.framework.core.blazor.csproj",
+      "core\\src\\ix.framework.core\\ix.framework.core.csproj"
+    ]
+  }
+}

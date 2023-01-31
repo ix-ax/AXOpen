@@ -1,0 +1,40 @@
+﻿@namespace ix.framework.core
+@inherits RenderableComplexComponentBase<CommandTask>
+<div class="container text-center">
+
+    @if (IsTaskRunning)
+    {
+        <button class="btn @ButtonClass " type="button" @onclick="@ExecuteTask">
+            <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+            <span>@Component.AttributeName</span>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        </button>
+    }
+    else
+    {
+        <button class="btn @ButtonClass" type="button" disabled="@Component.IsDisabled.Cyclic" @onclick="@ExecuteTask">
+            <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+            <span>@Component.AttributeName</span>
+            <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+        </button>
+    }
+</div>
+
+@code
+{
+    protected void ExecuteTask()
+    {
+        Component.RemoteInvoke.Cyclic = true;
+    }
+
+    public bool HasError => Component.Status.Cyclic == 10;
+    
+    public string ButtonClass => HasError ? "btn-danger" : "btn-primary";
+
+    public bool IsTaskRunning => Component.Status.Cyclic == 3;
+
+    protected override void OnInitialized()
+    {
+        UpdateValuesOnChange(Component);
+    }
+}

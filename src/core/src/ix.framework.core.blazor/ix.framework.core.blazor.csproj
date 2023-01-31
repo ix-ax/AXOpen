@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>ix.framework.core</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\peto.kurhajec\.nuget\packages\ix.presentation.blazor.controls\0.6.0-alpha.18\contentFiles\any\net7.0\Styles\custom.scss" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Ix.Presentation.Blazor" Version="0.13.0-alpha.32" />
+    <PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.0-alpha.32" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ix.framework.core\ix.framework.core.csproj" />
+  </ItemGroup>
+
+</Project>

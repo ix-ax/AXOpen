@@ -1,0 +1,25 @@
+﻿@namespace ix.framework.core
+@inherits RenderableComplexComponentBase<Step>
+
+
+    <div class="container text-left">
+        <div class="row">
+            <div class="col">
+                @Component.Description
+            </div>
+            <div class="col">
+                @Component.Order.Cyclic
+            </div>
+        <div class="col">
+            @Component.IsActive.Cyclic
+        </div>
+        </div>
+    </div>
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        UpdateValuesOnChange(Component);
+    }
+}

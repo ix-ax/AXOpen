@@ -1,0 +1,1 @@
+dotnet watch --project ..\integration.blazor\integration.blazor.csproj
