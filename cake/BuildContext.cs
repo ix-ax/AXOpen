@@ -148,7 +148,7 @@ public static class Apax
     {
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments = "pack",
+            Arguments = "test",
             WorkingDirectory = context.GetAxFolder(lib),
             RedirectStandardOutput = false,
             RedirectStandardError = false,

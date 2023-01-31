@@ -108,16 +108,33 @@ NAMESPACE ix.core.sequencer_tests
             _context.Close();
         END_METHOD
 
-        METHOD PRIVATE ExecuteSequenceUpToStep_3
+        METHOD PRIVATE ExecuteSequence
+            VAR_INPUT
+                CompleteStep : BOOL;
+                CompleteSequence : BOOL;
+            END_VAR
+
             THIS.PrepareSequence();
 
             _context.Open();
             _sequencer.Open();
-            _step_1.Execute(_sequencer);
-            _sequencer.MoveNext();
-            _step_2.Execute(_sequencer);
-            _sequencer.MoveNext();
-            _step_3.Execute(_sequencer);
+
+            IF _step_1.Execute(_sequencer) THEN
+                IF CompleteStep THEN
+                    _sequencer.MoveNext();
+                END_IF;
+            END_IF;
+            IF _step_2.Execute(_sequencer) THEN
+                IF CompleteStep THEN
+                    _sequencer.MoveNext();
+                END_IF;
+            END_IF;
+            IF _step_3.Execute(_sequencer) THEN
+                IF CompleteSequence THEN
+                    _sequencer.CompleteSequence();
+                END_IF;
+            END_IF;
+            _context.Close();
         END_METHOD
        
         {Test}
@@ -605,7 +622,7 @@ NAMESPACE ix.core.sequencer_tests
         
         {Test}        
         METHOD PUBLIC CompleteSequence_should_set_currently_executed_step_to_Done
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             Assert.Equal(FALSE, _step_3.IsDone());
             _sequencer.CompleteSequence();
             Assert.Equal(TRUE, _step_3.IsDone());
@@ -613,7 +630,7 @@ NAMESPACE ix.core.sequencer_tests
 
         {Test}        
         METHOD PUBLIC CompleteSequence_should_reset_the_Busy_state_of_the_currently_executed_step
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             Assert.Equal(TRUE, _step_3.IsBusy());
             _sequencer.CompleteSequence();
             Assert.Equal(FALSE, _step_3.IsBusy());
@@ -621,21 +638,21 @@ NAMESPACE ix.core.sequencer_tests
 
         {Test}        
         METHOD PUBLIC CompleteSequence_should_set_the_Current_Order_to_1
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.CompleteSequence();
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
         END_METHOD
 
         {Test}        
         METHOD PUBLIC CompleteSequence_should_set_the_coordinator_state_to_Idle
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.CompleteSequence();
             Assert.Equal(TRUE, THIS.Equal(CoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
         END_METHOD
 
         {Test}        
         METHOD PUBLIC CompleteSequence_should_set_the_first_step_in_the_sequence_as_active_after_two_PLC_cycle
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             Assert.Equal(TRUE, _step_3.IsBusy());
             _sequencer.CompleteSequence();
             _context.Close();
@@ -763,7 +780,7 @@ NAMESPACE ix.core.sequencer_tests
 
         {Test}        
         METHOD PUBLIC sequence_should_be_in_configuring_state_after_complete_sequence_and_all_steps_should_be_restored
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.CompleteSequence();
             _context.Close();
 
@@ -842,7 +859,7 @@ NAMESPACE ix.core.sequencer_tests
         
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_currently_executed_step_to_Done
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.SetSequenceMode(eSequenceMode#RunOnce);
             Assert.Equal(FALSE, _step_3.IsDone());
             _sequencer.CompleteSequence();
@@ -851,7 +868,7 @@ NAMESPACE ix.core.sequencer_tests
 
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_reset_the_Busy_state_of_the_currently_executed_step
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.SetSequenceMode(eSequenceMode#RunOnce);
             Assert.Equal(TRUE, _step_3.IsBusy());
             _sequencer.CompleteSequence();
@@ -860,7 +877,7 @@ NAMESPACE ix.core.sequencer_tests
 
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_the_Current_Order_to_1
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.SetSequenceMode(eSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
@@ -868,32 +885,25 @@ NAMESPACE ix.core.sequencer_tests
 
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_the_coordinator_state_to_Idle
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.SetSequenceMode(eSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             Assert.Equal(TRUE, THIS.Equal(CoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
         END_METHOD
 
         {Test}        
-        METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_the_first_step_in_the_sequence_as_active_in_the_next_PLC_cycle
-            THIS.ExecuteSequenceUpToStep_3();
+        METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_the_CurrentOrder_to_1
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.SetSequenceMode(eSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             _context.Close();
 
-            _context.Open();
-            _sequencer.Open();
-
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
-            Assert.Equal(TRUE , _step_1.IsActive);              
-            _context.Close();
+            Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
         END_METHOD
 
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_stops_the_execution_of_the_active_step_in_the_next_PLC_cycles
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.SetSequenceMode(eSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             _context.Close();
@@ -915,7 +925,7 @@ NAMESPACE ix.core.sequencer_tests
 
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_coordinator_state_should_stay_in_Idle_in_the_next_PLC_cycles
-            THIS.ExecuteSequenceUpToStep_3();
+            THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.SetSequenceMode(eSequenceMode#RunOnce);
             _sequencer.CompleteSequence();
             _context.Close();
@@ -936,6 +946,539 @@ NAMESPACE ix.core.sequencer_tests
             Assert.Equal(TRUE, THIS.Equal(CoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             _context.Close();
         END_METHOD
+
+        {Test}        
+        METHOD PUBLIC should_return_number_of_steps_in_our_case_three
+            THIS.ExecuteSequence(TRUE,FALSE);
+            Assert.Equal(ULINT#3, _sequencer.GetNumberOfConfiguredSteps());
+        END_METHOD
+        
+        {Test}        
+        METHOD PUBLIC all_stepping_commands_should_be_disabled_when_StepByStep_mode_is_not_running
+            THIS.ExecuteSequence(TRUE,FALSE);
+            Assert.Equal(TRUE,_sequencer.StepForwardCommand.IsDisabled);
+            Assert.Equal(TRUE,_sequencer.StepIn.IsDisabled);
+            Assert.Equal(TRUE,_sequencer.StepBackwardCommand.IsDisabled);
+        END_METHOD
+        
+        {Test}        
+        METHOD PUBLIC all_stepping_commands_should_be_disabled_when_Sequencer_is_not_running_mode
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.Equal(_sequencer.GetSteppingMode(), eSteppingMode#StepByStep));
+            THIS.PrepareSequence();
+            Assert.Equal(TRUE, THIS.Equal(CoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
+            Assert.Equal(TRUE,_sequencer.StepForwardCommand.IsDisabled);
+            Assert.Equal(TRUE,_sequencer.StepIn.IsDisabled);
+            Assert.Equal(TRUE,_sequencer.StepBackwardCommand.IsDisabled);
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepForward_and_StepIn_commands_should_not_be_disabled_when_Sequencer_is_running_mode
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.Equal(_sequencer.GetSteppingMode(), eSteppingMode#StepByStep));
+            THIS.ExecuteSequence(TRUE,TRUE);
+            Assert.Equal(TRUE, THIS.Equal(CoordinatorStates#Running , _sequencer.GetCoordinatorState()));
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsDisabled);
+            Assert.Equal(FALSE,_sequencer.StepIn.IsDisabled);
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepBackward_command_should_not_be_disabled_when_Sequencer_is_running_mode_and_CurrentOrder_is_greather_then_one
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.Equal(_sequencer.GetSteppingMode(), eSteppingMode#StepByStep));
+            THIS.ExecuteSequence(TRUE,TRUE);
+            _sequencer.RequestStep(_step_2);
+            THIS.ExecuteSequence(TRUE,TRUE);
+            Assert.Equal(TRUE, THIS.Equal(CoordinatorStates#Running , _sequencer.GetCoordinatorState()));
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsDisabled);
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepInCommand_should_invoke_the_current_step
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.Equal(_sequencer.GetSteppingMode(), eSteppingMode#StepByStep));
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
+            Assert.Equal(TRUE,_step_1.IsActive);
+            Assert.Equal(TRUE,_step_1.IsReady());
+            Assert.Equal(FALSE,_step_1.IsBusy());
+            Assert.Equal(FALSE,_step_1.IsDone());
+            Assert.Equal(FALSE,_sequencer.StepIn.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
+
+            // Act
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            // Assert
+            Assert.Equal(TRUE ,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(TRUE ,_step_1.IsBusy());
+            Assert.Equal(FALSE,_step_1.IsDone());
+            Assert.Equal(TRUE ,_sequencer.StepIn.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepInCommand_should_invoke_the_current_step_if_Current_step_is_Done_StepIn_should_be_also_Done
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.Equal(_sequencer.GetSteppingMode(), eSteppingMode#StepByStep));
+            THIS.ExecuteSequence(TRUE,FALSE);
+            Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
+            Assert.Equal(TRUE,_step_1.IsActive);
+            Assert.Equal(TRUE,_step_1.IsReady());
+            Assert.Equal(FALSE,_step_1.IsBusy());
+            Assert.Equal(FALSE,_step_1.IsDone());
+            Assert.Equal(FALSE,_sequencer.StepIn.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
+
+            // Act
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(TRUE,FALSE);
+
+            // Assert
+            Assert.Equal(FALSE,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(FALSE,_step_1.IsBusy());
+            Assert.Equal(TRUE ,_step_1.IsDone());
+            Assert.Equal(FALSE,_sequencer.StepIn.IsBusy());
+            Assert.Equal(TRUE ,_sequencer.StepIn.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC when_step_by_step_mode_is_switched_on_during_any_step_execution_this_step_should_continue_its_execution
+            // Arrange
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
+            Assert.Equal(TRUE ,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(TRUE ,_step_1.IsBusy());
+            Assert.Equal(FALSE,_step_1.IsDone());
+
+            Assert.Equal(FALSE,_step_2.IsActive);
+            Assert.Equal(FALSE,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+
+            // Act
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            Assert.Equal(TRUE ,THIS.Equal(_sequencer.GetSteppingMode(), eSteppingMode#StepByStep));
+            THIS.ExecuteSequence(TRUE,FALSE);
+
+            // Assert
+            Assert.Equal(FALSE,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(FALSE,_step_1.IsBusy());
+            Assert.Equal(TRUE ,_step_1.IsDone());
+
+            Assert.Equal(TRUE ,_step_2.IsActive);
+            Assert.Equal(TRUE ,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepForward
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(TRUE ,_sequencer.StepForwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsDone());
+            
+            Assert.Equal(FALSE,_sequencer.StepIn.IsReady());
+            Assert.Equal(TRUE ,_sequencer.StepIn.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
+
+            Assert.Equal(TRUE ,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(TRUE ,_step_1.IsBusy());
+            Assert.Equal(FALSE,_step_1.IsDone());
+
+            Assert.Equal(FALSE,_step_2.IsActive);
+            Assert.Equal(FALSE,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+
+            _previousOrder := _sequencer.CurrentOrder;
+            
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepForwardCommand.Invoke();
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsDone());
+            _step_1.Execute(_sequencer);
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
+            Assert.Equal(TRUE ,_sequencer.StepForwardCommand.IsDone());
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+
+            // Assert
+            Assert.Equal(FALSE,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(FALSE,_step_1.IsBusy());
+            Assert.Equal(FALSE,_step_1.IsDone());
+
+            Assert.Equal(TRUE ,_step_2.IsActive);
+            Assert.Equal(TRUE ,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+
+            Assert.Equal(_previousOrder + ULINT#1  ,_sequencer.CurrentOrder);
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepForward_should_restore_the_currently_executing_step
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(TRUE ,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(TRUE ,_step_1.IsBusy());
+            Assert.Equal(FALSE,_step_1.IsDone());
+
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepForwardCommand.Invoke();
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+            _context.Close();
+
+            // Assert
+            Assert.Equal(FALSE,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(FALSE,_step_1.IsBusy());
+            Assert.Equal(FALSE,_step_1.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepForward_should_prepare_following_step_to_be_ready_to_execute
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(FALSE,_step_2.IsActive);
+            Assert.Equal(FALSE,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepForwardCommand.Invoke();
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+
+            // Assert
+            Assert.Equal(TRUE ,_step_2.IsActive);
+            Assert.Equal(TRUE ,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepForward_command_should_be_in_done_state_after_succesfull_execution
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(TRUE ,_sequencer.StepForwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsDone());
+            
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepForwardCommand.Invoke();
+
+            //Assert
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsDone());
+            _step_1.Execute(_sequencer);
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
+            Assert.Equal(TRUE ,_sequencer.StepForwardCommand.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepForward_command_should_increment_Current_order_if_its_value_is_lower_then_number_of_steps
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _previousOrder := _sequencer.CurrentOrder;
+
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepForwardCommand.Invoke();
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+            _context.Close();
+            
+            //Assert
+            Assert.Equal(_previousOrder + ULINT#1,_sequencer.CurrentOrder);
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepForward_command_should_not_increment_Current_order_if_its_value_is_equal_to_number_of_steps
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.RequestStep(_step_3);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _previousOrder := _sequencer.CurrentOrder;
+
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepForwardCommand.Invoke();
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+            _context.Close();
+            
+            //Assert
+            Assert.Equal(_previousOrder,_sequencer.CurrentOrder);
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepForward_command_should_be_disabled_when_CurrentOrder_is_equal_to_last_step_order
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.RequestStep(_step_3);
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(ULINT#3,_sequencer.CurrentOrder);
+            Assert.Equal(TRUE ,_sequencer.StepForwardCommand.IsDisabled);
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepBackward
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.RequestStep(_step_3);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(TRUE ,_sequencer.StepBackwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsDone());
+            
+            Assert.Equal(FALSE,_sequencer.StepIn.IsReady());
+            Assert.Equal(TRUE ,_sequencer.StepIn.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
+
+            Assert.Equal(TRUE ,_step_3.IsActive);
+            Assert.Equal(FALSE,_step_3.IsReady());
+            Assert.Equal(TRUE ,_step_3.IsBusy());
+            Assert.Equal(FALSE,_step_3.IsDone());
+
+            Assert.Equal(FALSE,_step_2.IsActive);
+            Assert.Equal(FALSE,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+
+            _previousOrder := _sequencer.CurrentOrder;
+            
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepBackwardCommand.Invoke();
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsDone());
+            _step_1.Execute(_sequencer);
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
+            Assert.Equal(TRUE ,_sequencer.StepBackwardCommand.IsDone());
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+
+            // Assert
+            Assert.Equal(FALSE,_step_3.IsActive);
+            Assert.Equal(FALSE,_step_3.IsReady());
+            Assert.Equal(FALSE,_step_3.IsBusy());
+            Assert.Equal(FALSE,_step_3.IsDone());
+
+            Assert.Equal(TRUE ,_step_2.IsActive);
+            Assert.Equal(TRUE ,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+
+            Assert.Equal(_previousOrder - ULINT#1  ,_sequencer.CurrentOrder);
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepBackward_should_restore_the_currently_executing_step
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.RequestStep(_step_3);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(TRUE ,_step_3.IsActive);
+            Assert.Equal(FALSE,_step_3.IsReady());
+            Assert.Equal(TRUE ,_step_3.IsBusy());
+            Assert.Equal(FALSE,_step_3.IsDone());
+
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepBackwardCommand.Invoke();
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+
+            // Assert
+            Assert.Equal(FALSE,_step_3.IsActive);
+            Assert.Equal(FALSE,_step_3.IsReady());
+            Assert.Equal(FALSE,_step_3.IsBusy());
+            Assert.Equal(FALSE,_step_3.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepBackward_should_prepare_previous_step_to_be_ready_to_execute
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.RequestStep(_step_3);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(FALSE,_step_2.IsActive);
+            Assert.Equal(FALSE,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+            
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepBackwardCommand.Invoke();
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+
+            // Assert
+            Assert.Equal(TRUE ,_step_2.IsActive);
+            Assert.Equal(TRUE ,_step_2.IsReady());
+            Assert.Equal(FALSE,_step_2.IsBusy());
+            Assert.Equal(FALSE,_step_2.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepBackward_command_should_be_in_done_state_after_succesfull_execution
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.RequestStep(_step_3);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(TRUE ,_sequencer.StepBackwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsDone());
+
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepBackwardCommand.Invoke();
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+
+            // Assert
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
+            Assert.Equal(TRUE ,_sequencer.StepBackwardCommand.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepBackward_command_should_decrement_Current_order_if_its_value_is_higher_then_one
+            VAR
+                _previousOrder : ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.RequestStep(_step_3);
+            _sequencer.StepIn.Invoke();
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            _previousOrder := _sequencer.CurrentOrder;
+            
+            // Act
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.StepBackwardCommand.Invoke();
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+
+            // Assert
+            Assert.Equal(_previousOrder - ULINT#1  ,_sequencer.CurrentOrder);
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC StepBackward_command_should_be_disabled_when_CurrentOrder_is_equal_to_last_step_order
+            _sequencer.SetSteppingMode(eSteppingMode#StepByStep);
+            THIS.ExecuteSequence(FALSE,FALSE);
+
+            Assert.Equal(ULINT#1,_sequencer.CurrentOrder);
+            Assert.Equal(TRUE ,_sequencer.StepBackwardCommand.IsDisabled);
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsReady());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
+            Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsDone());
+        END_METHOD
+
     END_CLASS  
 END_NAMESPACE
 

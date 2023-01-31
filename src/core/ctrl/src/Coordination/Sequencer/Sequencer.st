@@ -11,7 +11,8 @@ NAMESPACE ix.framework.core
             StepBackwardCommand : CommandTask;
         END_VAR   
         VAR PRIVATE
-            _configurationFlowOrder : ULINT;    
+            _configurationFlowOrder : ULINT;   
+            _numberOfConfiguredSteps : ULINT;   
             _coordinatorState : CoordinatorStates;
             _step : IStep;
             _steppingMode : eSteppingMode;
@@ -27,12 +28,16 @@ NAMESPACE ix.framework.core
         ///</summary>
         METHOD PUBLIC Open 
             IF SUPER.Execute() THEN
-                IF THIS.InvalidContext() THEN RETURN; END_IF;         
+                IF THIS. InvalidContext() THEN RETURN; END_IF;         
                 _openCycleCounter := THIS.GetContext().OpenCycleCount();
                 CASE _coordinatorState OF
                     CoordinatorStates#Idle :
                         _configurationFlowOrder := ULINT#0;
+                        _numberOfConfiguredSteps := ULINT#0;
                         _coordinatorState := CoordinatorStates#Configuring;
+                        StepForwardCommand.Initialize(THIS.GetContext());
+                        StepIn.Initialize(THIS.GetContext());
+                        StepBackwardCommand.Initialize(THIS.GetContext());
                     CoordinatorStates#Configuring :
                         CurrentOrder := ULINT#1;
                         _coordinatorState := CoordinatorStates#Running;
@@ -40,65 +45,6 @@ NAMESPACE ix.framework.core
             END_IF;
         END_METHOD    
         
-        ///<summary>
-        /// Completes (finishes) the execution of this sequencer.                
-        /// Returns the `order of execution` pointer to the first step of the sequence.
-        ///</summary>
-        METHOD PUBLIC CompleteSequence   
-            IF SUPER.Execute() THEN
-                IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
-                    IF _coordinatorState = CoordinatorStates#Running THEN
-                    _step.DoneWhen(TRUE);
-                    _coordinatorState := CoordinatorStates#Idle;
-                    CurrentOrder := ULINT#1;
-                    SUPER.DoneWhen(_sequenceMode =eSequenceMode#RunOnce);
-                    // Finalize the StepIn Command in a case of step mode
-                    StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
-                END_IF;
-            END_IF;
-        END_METHOD    
-        
-        ///<summary>
-        /// Moves the execution to the next step.                        
-        ///</summary>
-        METHOD PUBLIC MoveNext 
-            IF SUPER.Execute() THEN
-                IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
-                IF _coordinatorState = CoordinatorStates#Running THEN
-                    _step.DoneWhen(TRUE);
-                    CurrentOrder := CurrentOrder + ULINT#1;
-                    // Finalize the StepIn Command in a case of step mode
-                    StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
-                END_IF;
-            END_IF;
-        END_METHOD
-
-        ///<summary>
-        /// Gets the state of the coordinator                        
-        ///</summary>
-        METHOD PUBLIC GetCoordinatorState : CoordinatorStates           
-            GetCoordinatorState := _coordinatorState;
-        END_METHOD    
-
-        ///<summary>
-        /// Terminates the currently executed step and initiates the RequestedStep to be executed
-        ///</summary>
-        METHOD PUBLIC RequestStep
-            VAR_INPUT
-                RequestedStep : IStep;
-            END_VAR
-            IF SUPER.Execute() THEN
-                IF THIS.InvalidContext(RequestedStep) THEN RETURN; END_IF;         
-                IF RequestedStep.GetStepOrder() <> ULINT#0 AND
-                    _coordinatorState = CoordinatorStates#Running THEN
-                    _step.DoneWhen(TRUE);
-                    CurrentOrder := RequestedStep.GetStepOrder();
-                    // Finalize the StepIn Command in a case of step mode
-                    StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
-                END_IF;
-            END_IF;
-        END_METHOD
-
         ///<summary>
         /// Returns `TRUE` if the specified step is currently executing.
         ///</summary>
@@ -114,7 +60,42 @@ NAMESPACE ix.framework.core
                 _step := step;
 
                 THIS.DetermineOrder(step);   
-                
+
+                // Stepping inside the sequence
+                IF _coordinatorState = CoordinatorStates#Running THEN
+                    // Stepping is possible only in StepByStepMode
+                    IF _steppingMode = eSteppingMode#StepByStep THEN
+                        // Stepping Forwards and Backwards commands cannot be executed simultaneously
+                        StepForwardCommand.IsDisabled := StepBackwardCommand.IsBusy() 
+                                                            // Stepping Forwards disabled from last step
+                                                            OR CurrentOrder >= _numberOfConfiguredSteps;
+                        StepIn.IsDisabled :=  FALSE;
+                        StepBackwardCommand.IsDisabled := StepForwardCommand.IsBusy() 
+                                                            // Stepping Backwards disabled from first step
+                                                            OR CurrentOrder <= ULINT#1;
+                        // StepForward command increments the CurrentOrder just to a maximum value of _numberOfConfiguredSteps 
+                        IF StepForwardCommand.Execute() THEN
+                            IF CurrentOrder < _numberOfConfiguredSteps THEN
+                                THIS.RestoreCurrentStep();
+                                CurrentOrder := CurrentOrder + ULINT#1;
+                            END_IF;
+                            StepForwardCommand.DoneWhen(TRUE);
+                        END_IF;
+                        // StepBackward command decrements the CurrentOrder just to a minimum value of 1 
+                        IF StepBackwardCommand.Execute() THEN
+                            IF CurrentOrder > ULINT#1 THEN
+                                THIS.RestoreCurrentStep();
+                                CurrentOrder := CurrentOrder - ULINT#1;
+                            END_IF;
+                            StepBackwardCommand.DoneWhen(TRUE);
+                        END_IF;
+                    ELSE
+                        THIS.DisableAllSteppingComands();
+                    END_IF;
+                ELSE
+                    THIS.DisableAllSteppingComands();
+                END_IF;
+               
                 IF _coordinatorState = CoordinatorStates#Running AND (CurrentOrder = step.GetStepOrder()) AND step.IsCalledJustOnceInThisPlcCycle() THEN
                     IF Enable THEN
                         step.SetIsActive(TRUE);
@@ -146,8 +127,70 @@ NAMESPACE ix.framework.core
 
                 Execute := step.Execute();                                                              
             END_IF;
-    END_METHOD
-                  
+        END_METHOD
+                
+        ///<summary>
+        /// Moves the execution to the next step.                        
+        ///</summary>
+        METHOD PUBLIC MoveNext 
+            IF SUPER.Execute() THEN
+                IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
+                IF _coordinatorState = CoordinatorStates#Running THEN
+                    _step.DoneWhen(TRUE);
+                    _step.SetIsActive(FALSE);
+                    CurrentOrder := CurrentOrder + ULINT#1;
+                    // Finalize the StepIn Command in a case of step mode
+                    StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
+                END_IF;
+            END_IF;
+        END_METHOD
+
+        ///<summary>
+        /// Terminates the currently executed step and initiates the RequestedStep to be executed
+        ///</summary>
+        METHOD PUBLIC RequestStep
+            VAR_INPUT
+                RequestedStep : IStep;
+            END_VAR
+            IF SUPER.Execute() THEN
+                IF THIS.InvalidContext(RequestedStep) THEN RETURN; END_IF;         
+                IF RequestedStep.GetStepOrder() <> ULINT#0 AND
+                    _coordinatorState = CoordinatorStates#Running THEN
+                    _step.DoneWhen(TRUE);
+                    _step.SetIsActive(FALSE);
+                    CurrentOrder := RequestedStep.GetStepOrder();
+                    // Finalize the StepIn Command in a case of step mode
+                    StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
+                END_IF;
+            END_IF;
+        END_METHOD
+
+        ///<summary>
+        /// Completes (finishes) the execution of this sequencer.                
+        /// Returns the `order of execution` pointer to the first step of the sequence.
+        ///</summary>
+        METHOD PUBLIC CompleteSequence   
+            IF SUPER.Execute() THEN
+                IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
+                    IF _coordinatorState = CoordinatorStates#Running THEN
+                    _step.DoneWhen(TRUE);
+                    _step.SetIsActive(FALSE);
+                    _coordinatorState := CoordinatorStates#Idle;
+                    CurrentOrder := ULINT#1;
+                    SUPER.DoneWhen(_sequenceMode =eSequenceMode#RunOnce);
+                    // Finalize the StepIn Command in a case of step mode
+                    StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
+                END_IF;
+            END_IF;
+        END_METHOD    
+        
+        ///<summary>
+        /// Gets the state of the coordinator                        
+        ///</summary>
+        METHOD PUBLIC GetCoordinatorState : CoordinatorStates           
+            GetCoordinatorState := _coordinatorState;
+        END_METHOD    
+
         ///<summary>
         /// Sets the stepping mode of the sequencer                        
         ///</summary>
@@ -191,6 +234,7 @@ NAMESPACE ix.framework.core
                 step.Restore();
                 _step := step;
                 _configurationFlowOrder := _configurationFlowOrder + ULINT#1;
+                _numberOfConfiguredSteps := _configurationFlowOrder;
 
                 step.SetStepOrder(THIS,_configurationFlowOrder);
                 IF NOT step.IsCalledJustOnceInThisPlcCycle() THEN 
@@ -201,6 +245,15 @@ NAMESPACE ix.framework.core
                         
             DetermineOrder := step.GetStepOrder();            
         END_METHOD      
+        
+        METHOD PUBLIC GetNumberOfConfiguredSteps : ULINT
+            IF _coordinatorState = CoordinatorStates#Running THEN
+                _numberOfConfiguredSteps := _configurationFlowOrder;
+                GetNumberOfConfiguredSteps := _numberOfConfiguredSteps;
+            ELSE
+                GetNumberOfConfiguredSteps := ULINT#0;
+            END_IF;
+        END_METHOD  
         
         METHOD PROTECTED InvalidContext : BOOL
             IF THIS.GetContext() = NULL THEN 
@@ -221,6 +274,24 @@ NAMESPACE ix.framework.core
             ELSE
                 InvalidContext := FALSE;
             END_IF;
+        END_METHOD
+       
+        METHOD INTERNAL DisableAllSteppingComands 
+            StepForwardCommand.IsDisabled := TRUE;
+            StepIn.IsDisabled := TRUE;
+            StepBackwardCommand.IsDisabled := TRUE;
+        END_METHOD
+
+        METHOD INTERNAL RestoreCurrentStep 
+            // Restore current step if running
+            IF _step.IsBusy() THEN
+                _step.Restore();
+            END_IF;
+            // Restore step in command if running, otherwise this commnad will be executed on the following step
+            IF StepIn.IsBusy() THEN
+                StepIn.Restore();
+            END_IF;
+            _step.SetIsActive(FALSE);
         END_METHOD
         
     END_CLASS    
