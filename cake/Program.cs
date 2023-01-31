@@ -93,32 +93,10 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
 [IsDependentOn(typeof(ProvisionTask))]
 public sealed class BuildTask : FrostingTask<BuildContext>
 {
-
-    private void UpdateApaxVersion(string file, string version)
-    {
-        var sb = new StringBuilder();
-        foreach (var line in System.IO.File.ReadLines(file))
-        {
-            var newLine = line;
-
-            if (line.Trim().StartsWith("version"))
-            {
-                var semicPosition = line.IndexOf(":");
-                var lenght = line.Length - semicPosition;
-
-                newLine = $"{line.Substring(0, semicPosition)} : '{version}'";
-            }
-            sb.AppendLine(newLine);
-        }
-
-        System.IO.File.WriteAllText(file, sb.ToString());
-    }
-
     public override void Run(BuildContext context)
     {
         context.Libraries.ToList().ForEach(lib => 
         {
-            UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
             context.ApaxInstall(lib);
             context.ApaxBuild(lib);
         });
@@ -153,6 +131,26 @@ public sealed class TestsTask : FrostingTask<BuildContext>
 [IsDependentOn(typeof(TestsTask))]
 public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 {
+    private void UpdateApaxVersion(string file, string version)
+    {
+        var sb = new StringBuilder();
+        foreach (var line in System.IO.File.ReadLines(file))
+        {
+            var newLine = line;
+
+            if (line.Trim().StartsWith("version"))
+            {
+                var semicPosition = line.IndexOf(":");
+                var lenght = line.Length - semicPosition;
+
+                newLine = $"{line.Substring(0, semicPosition)} : '{version}'";
+            }
+            sb.AppendLine(newLine);
+        }
+
+        System.IO.File.WriteAllText(file, sb.ToString());
+    }
+
     public override void Run(BuildContext context)
     {
         if (!context.BuildParameters.DoPublish)
@@ -161,7 +159,11 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
             return;
         }
 
-        context.Libraries.ToList().ForEach(lib => context.ApaxPack(lib));
+        context.Libraries.ToList().ForEach(lib =>
+        {
+            UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
+            context.ApaxPack(lib);
+        });
 
         PackPackages(context, Path.Combine(context.RootDir, "ix.framework-packable-only.slnf"));
     }
