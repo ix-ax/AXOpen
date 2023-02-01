@@ -113,3 +113,130 @@ Object is the base class for any other classes of ix.framework. It provides acce
         END_METHOD
     END_CLASS
 ~~~
+
+## CommandTask
+Command task is a class providing basic asynchronous task execution. CommandTask extends from object, so before using it, it needs to be initialized to set the proper context. 
+
+**CommandTask initialization within a context**
+
+~~~iecst
+    CLASS CommandTaskExample EXTENDS Context         
+        VAR PUBLIC
+            _myCommandTask : CommandTask;
+            _myCounter : ULINT;
+        END_VAR
+    
+        METHOD PUBLIC Initialize
+            // Initialization of the context needs to be called first
+            // It does not need to be called cyclically, just once
+            _myCommandTask.Initialize(THIS);
+        END_METHOD
+    END_CLASS  
+~~~
+
+There are two key methods for managing the task:
+
+[-] `Invoke()` call to fire the execution of the task (can be called fire&forget or cyclically)
+
+[-] `Execute()` method must be called cyclically (typically in the body of a FB). The method returns TRUE when required the execution from a call of Invoke method until the task enters Done state.
+
+```mermaid
+flowchart TD
+    classDef states fill:#C4d93f,stroke:#0a319e,stroke-width:4px
+    classDef actions fill:#ff4b27,stroke:#0a319e,stroke-width:4px
+
+    s1((Ready))
+    s2((Kicking))
+    s3((Busy))
+    s4((Done))
+    s5((Error))
+    a1("Invoke()#128258;")
+    a2("Execute()#128260;")
+    a3("DoneWhen(TRUE)#128258;")
+    a4("ThrowWhen(TRUE)#128258;")
+    a5("NOT Invoke() call for at least two Context cycles#128260;")
+    a6("Restore()#128258;")
+
+    subgraph  
+        s1:::states --> a1:::actions --> s2:::states --> a2:::actions --> s3:::states --> a3:::actions --> s4:::states --> a5:::actions --> a1:::actions
+    end
+    subgraph   
+        s3:::states --> a4:::actions
+        a4:::actions --> s5:::states --> a6:::actions --> s1:::states 
+    end
+
+    subgraph   
+        s((State)):::states
+        ac("Action #128260;:called cyclically"):::actions
+        as("Action #128258;:single or cyclical call "):::actions
+    end
+```
+~~~iecst
+    CLASS CommandTaskExample EXTENDS Context         
+        VAR PUBLIC
+            _myCommandTask : CommandTask;
+            _myCounter : ULINT;
+        END_VAR
+    
+        METHOD PUBLIC Initialize
+            // Initialization of the context needs to be called first
+            // It does not need to be called cyclically, just once
+            _myCommandTask.Initialize(THIS);
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE Main
+            // Cyclicall call of the Execute
+            IF _myCommandTask.Execute() THEN
+                _myCounter := _myCounter + ULINT#1;
+                _myCommandTask.DoneWhen(_myCounter = ULINT#100);
+            END_IF;
+        END_METHOD
+    END_CLASS  
+~~~
+
+The task executes upon the Invoke method call. Invoke fires the execution of Execute logic upon the first call, and it does not need cyclical calling.
+
+~~~iecst
+    _myCommandTask.Invoke();
+~~~
+
+`Invoke()` method returns ICommandTaskState with the following members:
+
+ IsBusy indicates the execution started and is running.
+ IsDone indicates the execution completed with success.
+ HasError indicates the execution terminated with a failure.
+
+~~~iecst
+            // Wait for CommandTask to Complete 
+            IF _myCommandTask.Invoke().IsDone() THEN
+                ; //Do something
+            END_IF;
+            // ALTERNATIVELY
+            _myCommandTask.Invoke();
+            IF _myCommandTask.IsDone() THEN
+                ; //Do something ALTERNATIV
+            END_IF;
+~~~
+
+~~~iecst
+            // Make sure that the command task is executing 
+            IF _myCommandTask.Invoke().IsBusy() THEN
+                ; //Do something
+            END_IF;
+~~~
+
+~~~iecst
+            // Check for command task's error 
+            IF _myCommandTask.Invoke().HasError() THEN
+                ; //Do something
+            END_IF;
+~~~
+
+The command task could be started only from the Ready by calling the `Invoke()` method in the same Context cycle as the `Execute()` method is called, regardless the order of the methods calls. After command task completion, the state of the command task will remain in Done, unless:
+
+1.) Command task's Restore method is called (command task changes it's state to Ready state).
+
+2.) Invoke method is not called for two or more cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the Kicking state.
+
+
+The command task may finish also in an Error state. In that case, the only possibility to get out of this state is by calling the method `Restore()`.
