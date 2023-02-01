@@ -1,0 +1,29 @@
+flowchart TD
+    classDef states fill:#C4d93f,stroke:#0a319e,stroke-width:4px
+    classDef actions fill:#ff4b27,stroke:#0a319e,stroke-width:4px
+
+    s1((Ready))
+    s2((Kicking))
+    s3((Busy))
+    s4((Done))
+    s5((Error))
+    a1("Invoke()#128258;")
+    a2("Execute()#128260;")
+    a3("DoneWhen(TRUE)#128258;")
+    a4("ThrowWhen(TRUE)#128258;")
+    a5("NOT Invoke() call for at least two Context cycles#128260;")
+    a6("Restore()#128258;")
+
+    subgraph  
+        s1:::states --> a1:::actions --> s2:::states --> a2:::actions --> s3:::states --> a3:::actions --> s4:::states --> a5:::actions --> a1:::actions
+    end
+    subgraph   
+        s3:::states --> a4:::actions
+        a4:::actions --> s5:::states --> a6:::actions --> s1:::states 
+    end
+
+    subgraph   
+        s((State)):::states
+        ac("Action #128260;:called cyclically"):::actions
+        as("Action #128258;:single or cyclical call "):::actions
+    end
