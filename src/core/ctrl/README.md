@@ -36,7 +36,7 @@ When you call `Execute` method on an instance of a context, it will ensure openi
   flowchart LR
     id1(Open)-->id2(#Main*)-->id3(Close)-->id1(Open)
     style id1 fill:#fff,stroke:#333,stroke-width:2px
-    style id2 fill:#000,stroke:#f66,stroke-width:2px
+    style id2 fill:#000,stroke:#f66,stroke-width:2px,color:#fff
     style id3 fill:#fff,stroke:#333,stroke-width:4px
 
 ```
