@@ -48,7 +48,7 @@ Base class for the context is `ix.core.Context`. The entry point of call executi
  
  **How to extend Context class**
 
-~~~iecst
+~~~SmallTalk
 
 USING ix.core
 
@@ -63,7 +63,7 @@ Cyclical call of the context logic (`Main` method) is ensured when context `Exec
 
 **How to start context's execution**
 
-~~~iecst
+~~~SmallTalk
 PROGRAM MyProgram
     VAR
         _myContext : MyContext;
@@ -144,8 +144,8 @@ There are two key methods for managing the command:
 
 ```mermaid
 flowchart TD
-    classDef states fill:#C4d93f,stroke:#0a319e,stroke-width:4px,color:#0a319e
-    classDef actions fill:#ff4b27,stroke:#0a319e,stroke-width:4px,color:#0a319e
+    classDef states fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+    classDef actions fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
 
     s1((Ready))
     s2((Kicking))
@@ -243,3 +243,117 @@ The command task can be started only from the `Ready` state by calling the `Invo
 
 
 The command task may finish also in an `Error` state. In that case, the only possibility to get out of `Error` state is by calling the `Restore()` method.
+
+
+## Step
+
+Step is an extension class of the CommandTask and provides the basics for the coordinated controlled execution of the task in the desired order based on the coordination mechanism used.
+
+Step contains the `Execute()` method so as its base class overloaded and extended by following parameters:
+[-] coord (mandatory): instance of the coordination controlling the execution of the step.
+[-] Enable (optional): if this value is `FALSE`, step body is not executed and the current order of the execution is incremented. 
+[-] Description (optional): step description text describing the action the step is providing.
+
+Step class contains following public members:
+    Order: Order of the step in the coordination.
+        This value can be set by calling the method `SetStepOrder()` and read by the method `GetStepOrder()`.
+    StepDescription: step description text describing the action the step is providing.
+        This value can be set by calling the `Execute()` method with `Description` parameter.
+    IsActive: if `TRUE`, the step is currently executing, or is in the order of the execution, otherwise `FALSE`. 
+            This value can be set by calling the method `SetIsActive()` and read by the method `GetIsActive()`.                   
+    IsEnabled: if `FALSE`, step body is not executed and the current order of the execution is incremented.    
+            This value can be set by calling the method `SetIsEnabled()` or  calling the `Execute()` method with `Enable` parameter and read by the method `GetIsEnabled()`.                      
+
+
+## Sequencer
+    Sequencer is a cordinator class provides triggering the steps inside the sequence in the order they are written.
+
+    Sequencer extends from CommandTask so it also has to be initialized by calling its `Initialize()` method and started using its `Invoke()` method.
+    
+    Sequencer contains following methods:
+        `Open()`: this method must be called cyclically before any logic. 
+            It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the sequencer is in the configuring state. From the second context cycle after the sequencer has been invoked the sequencer change its state to running and starts the execution from the first step upto the last one. When sequencer is in running state, order of the step cannot be changed. 
+        `MoveNext()`: Terminates the currently executed step and moves the 
+            sequencer's pointer to the next step in order of execution.
+        `RequestStep()`: Terminates the currently executed step and set the sequencer's pointer to the order of the `RequestedStep`.
+			When the order of the `RequestedStep` is higher than the order of the currently finished step (the requested step is "after" the current one)
+			the requested step is started in the same context cycle.
+			When the order of the `RequestedStep` is lower than the order of the currently finished step (the requested step is "before" the current one)
+			the requested step is started in the next context cycle.
+        `CompleteSequence()`: Terminates the currently executed step, completes (finishes) the execution of this sequencer 
+            and set the coordination state to Idle. If the `SequenceMode` of the sequencer is set to `Cyclic`, following `Open()` method call in the next context cycle switch it again into the configuring state, reasign the order of the individual steps (even if the orders have been changed) and subsequently set sequencer back into the running state. 
+            If the `SequenceMode` of the sequencer is set to `RunOnce`, terminates also execution of the sequencer itself.
+        `GetCoordinatorState()': Returns the current state of the sequencer. 
+            `Idle`
+            `Configuring`: assigning the orders to the steps, no step is executed.
+            `Running`: orders to the steps are already assigned, step is executed.
+        `SetSteppingMode()`: Sets the stepping mode of the sequencer. Following values are possible.
+            `None`:
+            `StepByStep`: if this mode is choosen, each step needs to be started by the invocation of the `StepIn` commmand.
+            `Continous`: if this mode is choosen (default), each step is started automaticcaly after the previous one has been completed.
+        `GetSteppingMode()`: Gets the current stepping mode of the sequencer. 
+        `SetSequenceMode()`: Sets the sequence mode of the sequencer. Following values are possible.
+            `None`:
+            `RunOnce`: if this mode is choosen, after calling the method `CompleteSequence()` the execution of the sequence is terminated.
+            `Continous`: if this mode is choosen (default), after calling the method `CompleteSequence()` the execution of the sequence is "reordered" and started from beginning.
+        `GetSequenceMode()`: Gets the current sequence mode of the sequencer. 
+        `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
+
+
+~~~SmallTalk
+    CLASS SequencerExample EXTENDS Context
+        VAR PUBLIC
+            _mySequencer : Sequencer;
+            _step_1 : Step;
+            _step_2 : Step;
+            _step_3 : Step;
+            _myCounter : ULINT;
+        END_VAR
+    
+        METHOD PUBLIC Initialize
+            // Initialization of the context needs to be called first
+            // It does not need to be called cyclically, just once
+            _mySequencer.Initialize(THIS);
+            _step_1.Initialize(THIS);
+            _step_2.Initialize(THIS);
+            _step_3.Initialize(THIS);
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE Main
+            _mySequencer.Open();
+
+            // Example of the most simple use of Execute() method of step class, only with coordinator defined. 
+            IF _step_1.Execute(_mySequencer) THEN
+                // do something
+                _myCounter := _myCounter + ULINT#1;
+                IF (_myCounter MOD ULINT#5) = ULINT#0 THEN
+                    // continue to the next step of the sequence
+                    _mySequencer.MoveNext();
+                END_IF;
+            END_IF;
+
+            // Example of use of the Execute() method of step class with Enable condition.
+            // This step is going to be executed just in the first run of the sequence,
+            // as during the second run, the Enable parameter will have the value of FALSE.
+            IF _step_2.Execute(coord := _mySequencer, Enable := _myCounter <= ULINT#20) THEN
+                _myCounter := _myCounter + ULINT#1;
+                IF _myCounter = ULINT#20 THEN
+                    // Jumping to step 1. As it is jumping backwards, the execution of step 1  
+                    // is going to be started in the next context cycle.
+                    _mySequencer.RequestStep(_step_1);
+                END_IF;
+            END_IF;
+
+            // Example of use of the Execute() method of step class with all three parameters defined.
+            IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := 'This is a description of the step 3' ) THEN
+                _myCounter := _myCounter + ULINT#1;
+                IF (_myCounter MOD ULINT#7) = ULINT#0 THEN
+                    // Finalize the sequence and initiate the execution from the first step.
+                    _mySequencer.CompleteSequence();
+                END_IF;
+            END_IF;
+        END_METHOD   
+    END_CLASS
+~~~
+
+    
