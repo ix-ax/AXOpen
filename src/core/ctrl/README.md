@@ -266,6 +266,7 @@ Step class contains following public members:
 
 
 ## Sequencer
+
     Sequencer is a cordinator class provides triggering the steps inside the sequence in the order they are written.
 
     Sequencer extends from CommandTask so it also has to be initialized by calling its `Initialize()` method and started using its `Invoke()` method.
