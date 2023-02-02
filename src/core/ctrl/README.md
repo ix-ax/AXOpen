@@ -255,13 +255,13 @@ Step contains the `Execute()` method so as its base class overloaded and extende
 [-] Description (optional): step description text describing the action the step is providing.
 
 Step class contains following public members:
-    Order: Order of the step in the coordination.
+ -Order: Order of the step in the coordination.
         This value can be set by calling the method `SetStepOrder()` and read by the method `GetStepOrder()`.
-    StepDescription: step description text describing the action the step is providing.
+ -StepDescription: step description text describing the action the step is providing.
         This value can be set by calling the `Execute()` method with `Description` parameter.
-    IsActive: if `TRUE`, the step is currently executing, or is in the order of the execution, otherwise `FALSE`. 
+ -IsActive: if `TRUE`, the step is currently executing, or is in the order of the execution, otherwise `FALSE`. 
             This value can be set by calling the method `SetIsActive()` and read by the method `GetIsActive()`.                   
-    IsEnabled: if `FALSE`, step body is not executed and the current order of the execution is incremented.    
+ -IsEnabled: if `FALSE`, step body is not executed and the current order of the execution is incremented.    
             This value can be set by calling the method `SetIsEnabled()` or  calling the `Execute()` method with `Enable` parameter and read by the method `GetIsEnabled()`.                      
 
 
@@ -272,33 +272,33 @@ Sequencer is a cordinator class provides triggering the steps inside the sequenc
 Sequencer extends from CommandTask so it also has to be initialized by calling its `Initialize()` method and started using its `Invoke()` method.
     
 Sequencer contains following methods:
-    `Open()`: this method must be called cyclically before any logic. 
+ -`Open()`: this method must be called cyclically before any logic. 
         It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the sequencer is in the configuring state. From the second context cycle after the sequencer has been invoked the sequencer change its state to running and starts the execution from the first step upto the last one. When sequencer is in running state, order of the step cannot be changed. 
-    `MoveNext()`: Terminates the currently executed step and moves the 
+ -`MoveNext()`: Terminates the currently executed step and moves the 
         sequencer's pointer to the next step in order of execution.
-    `RequestStep()`: Terminates the currently executed step and set the sequencer's pointer to the order of the `RequestedStep`.
+ -`RequestStep()`: Terminates the currently executed step and set the sequencer's pointer to the order of the `RequestedStep`.
 		When the order of the `RequestedStep` is higher than the order of the currently finished step (the requested step is "after" the current one)
 		the requested step is started in the same context cycle.
 		When the order of the `RequestedStep` is lower than the order of the currently finished step (the requested step is "before" the current one)
 		the requested step is started in the next context cycle.
-    `CompleteSequence()`: Terminates the currently executed step, completes (finishes) the execution of this sequencer 
+ -`CompleteSequence()`: Terminates the currently executed step, completes (finishes) the execution of this sequencer 
         and set the coordination state to Idle. If the `SequenceMode` of the sequencer is set to `Cyclic`, following `Open()` method call in the next context cycle switch it again into the configuring state, reasign the order of the individual steps (even if the orders have been changed) and subsequently set sequencer back into the running state. 
         If the `SequenceMode` of the sequencer is set to `RunOnce`, terminates also execution of the sequencer itself.
-    `GetCoordinatorState()': Returns the current state of the sequencer. 
+ -`GetCoordinatorState()': Returns the current state of the sequencer. 
         `Idle`
         `Configuring`: assigning the orders to the steps, no step is executed.
         `Running`: orders to the steps are already assigned, step is executed.
-    `SetSteppingMode()`: Sets the stepping mode of the sequencer. Following values are possible.
+ -`SetSteppingMode()`: Sets the stepping mode of the sequencer. Following values are possible.
         `None`:
         `StepByStep`: if this mode is choosen, each step needs to be started by the invocation of the `StepIn` commmand.
         `Continous`: if this mode is choosen (default), each step is started automaticcaly after the previous one has been completed.
-    `GetSteppingMode()`: Gets the current stepping mode of the sequencer. 
-    `SetSequenceMode()`: Sets the sequence mode of the sequencer. Following values are possible.
+ -`GetSteppingMode()`: Gets the current stepping mode of the sequencer. 
+ -`SetSequenceMode()`: Sets the sequence mode of the sequencer. Following values are possible.
         `None`:
         `RunOnce`: if this mode is choosen, after calling the method `CompleteSequence()` the execution of the sequence is terminated.
         `Continous`: if this mode is choosen (default), after calling the method `CompleteSequence()` the execution of the sequence is "reordered" and started from beginning.
-    `GetSequenceMode()`: Gets the current sequence mode of the sequencer. 
-    `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
+ -`GetSequenceMode()`: Gets the current sequence mode of the sequencer. 
+ -`GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
 
 
 ~~~SmallTalk
