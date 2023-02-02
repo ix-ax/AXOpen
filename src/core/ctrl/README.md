@@ -279,14 +279,14 @@ Sequencer contains following methods:
     - `Configuring`: assigning the orders to the steps, no step is executed.
     - `Running`: orders to the steps are already assigned, step is executed.
 - `SetSteppingMode()`: Sets the stepping mode of the sequencer. Following values are possible.
--- `None`:
--- `StepByStep`: if this mode is choosen, each step needs to be started by the invocation of the `StepIn` commmand.
--- `Continous`: if this mode is choosen (default), each step is started automaticcaly after the previous one has been completed.
+    - `None`:
+    - `StepByStep`: if this mode is choosen, each step needs to be started by the invocation of the `StepIn` commmand.
+    - `Continous`: if this mode is choosen (default), each step is started automaticcaly after the previous one has been completed.
 - `GetSteppingMode()`: Gets the current stepping mode of the sequencer. 
 - `SetSequenceMode()`: Sets the sequence mode of the sequencer. Following values are possible.
--- `None`:
--- `RunOnce`: if this mode is choosen, after calling the method `CompleteSequence()` the execution of the sequence is terminated.
--- `Continous`: if this mode is choosen (default), after calling the method `CompleteSequence()` the execution of the sequence is "reordered" and started from beginning.
+    - `None`:
+    - `RunOnce`: if this mode is choosen, after calling the method `CompleteSequence()` the execution of the sequence is terminated.
+    - `Continous`: if this mode is choosen (default), after calling the method `CompleteSequence()` the execution of the sequence is "reordered" and started from beginning.
 - `GetSequenceMode()`: Gets the current sequence mode of the sequencer. 
 - `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
 
