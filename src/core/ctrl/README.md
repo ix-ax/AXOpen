@@ -136,11 +136,9 @@ Command task provides basic task execution. CommandTask needs to be initialized 
 
 There are two key methods for managing the command:
 
-[-] `Invoke()` fires the execution of the command (can be called fire&forget or cyclically)
-
-[-] `Execute()` method must be called cyclically. The method returns `TRUE` when the command is required to run until enters `Done` state or terminates in error.
-
-[-] `Restore()` acts as reset of the command (sets the state into `Ready` state).
+- `Invoke()` fires the execution of the command (can be called fire&forget or cyclically)
+- `Execute()` method must be called cyclically. The method returns `TRUE` when the command is required to run until enters `Done` state or terminates in error.
+- `Restore()` acts as reset of the command (sets the state into `Ready` state).
 
 ```mermaid
 flowchart TD
