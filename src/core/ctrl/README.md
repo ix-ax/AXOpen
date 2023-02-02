@@ -275,9 +275,9 @@ Sequencer contains following methods:
 - `RequestStep()`: Terminates the currently executed step and set the sequencer's pointer to the order of the `RequestedStep`. When the order of the `RequestedStep` is higher than the order of the currently finished step (the requested step is "after" the current one) the requested step is started in the same context cycle. When the order of the `RequestedStep` is lower than the order of the currently finished step (the requested step is "before" the current one) the requested step is started in the next context cycle.
 - `CompleteSequence()`: Terminates the currently executed step, completes (finishes) the execution of this sequencer and set the coordination state to Idle. If the `SequenceMode` of the sequencer is set to `Cyclic`, following `Open()` method call in the next context cycle switch it again into the configuring state, reasign the order of the individual steps (even if the orders have been changed) and subsequently set sequencer back into the running state. If the `SequenceMode` of the sequencer is set to `RunOnce`, terminates also execution of the sequencer itself.
 - `GetCoordinatorState()': Returns the current state of the sequencer. 
--- `Idle`
--- `Configuring`: assigning the orders to the steps, no step is executed.
--- `Running`: orders to the steps are already assigned, step is executed.
+    - `Idle`
+    - `Configuring`: assigning the orders to the steps, no step is executed.
+    - `Running`: orders to the steps are already assigned, step is executed.
 - `SetSteppingMode()`: Sets the stepping mode of the sequencer. Following values are possible.
 -- `None`:
 -- `StepByStep`: if this mode is choosen, each step needs to be started by the invocation of the `StepIn` commmand.
