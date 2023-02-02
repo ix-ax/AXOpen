@@ -144,8 +144,8 @@ There are two key methods for managing the command:
 
 ```mermaid
 flowchart TD
-    classDef states fill:#C4d93f,stroke:#0a319e,stroke-width:4px
-    classDef actions fill:#ff4b27,stroke:#0a319e,stroke-width:4px
+    classDef states fill:#C4d93f,stroke:#0a319e,stroke-width:4px,color:#0a319e
+    classDef actions fill:#ff4b27,stroke:#0a319e,stroke-width:4px,color:#0a319e
 
     s1((Ready))
     s2((Kicking))
