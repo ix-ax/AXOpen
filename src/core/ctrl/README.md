@@ -250,19 +250,17 @@ The command task may finish also in an `Error` state. In that case, the only pos
 Step is an extension class of the CommandTask and provides the basics for the coordinated controlled execution of the task in the desired order based on the coordination mechanism used.
 
 Step contains the `Execute()` method so as its base class overloaded and extended by following parameters:
-[-] coord (mandatory): instance of the coordination controlling the execution of the step.
-[-] Enable (optional): if this value is `FALSE`, step body is not executed and the current order of the execution is incremented. 
-[-] Description (optional): step description text describing the action the step is providing.
+
+- coord (mandatory): instance of the coordination controlling the execution of the step.
+- Enable (optional): if this value is `FALSE`, step body is not executed and the current order of the execution is incremented. 
+- Description (optional): step description text describing the action the step is providing.
 
 Step class contains following public members:
- -Order: Order of the step in the coordination.
-        This value can be set by calling the method `SetStepOrder()` and read by the method `GetStepOrder()`.
- -StepDescription: step description text describing the action the step is providing.
-        This value can be set by calling the `Execute()` method with `Description` parameter.
- -IsActive: if `TRUE`, the step is currently executing, or is in the order of the execution, otherwise `FALSE`. 
-            This value can be set by calling the method `SetIsActive()` and read by the method `GetIsActive()`.                   
- -IsEnabled: if `FALSE`, step body is not executed and the current order of the execution is incremented.    
-            This value can be set by calling the method `SetIsEnabled()` or  calling the `Execute()` method with `Enable` parameter and read by the method `GetIsEnabled()`.                      
+
+- Order: Order of the step in the coordination. This value can be set by calling the method `SetStepOrder()` and read by the method `GetStepOrder()`.
+- StepDescription: step description text describing the action the step is providing. This value can be set by calling the `Execute()` method with `Description` parameter.
+- IsActive: if `TRUE`, the step is currently executing, or is in the order of the execution, otherwise `FALSE`. This value can be set by calling the method `SetIsActive()` and read by the method `GetIsActive()`.                   
+- IsEnabled: if `FALSE`, step body is not executed and the current order of the execution is incremented. This value can be set by calling the method `SetIsEnabled()` or  calling the `Execute()` method with `Enable` parameter and read by the method `GetIsEnabled()`.                      
 
 
 ## Sequencer
@@ -272,7 +270,7 @@ Sequencer is a cordinator class provides triggering the steps inside the sequenc
 Sequencer extends from CommandTask so it also has to be initialized by calling its `Initialize()` method and started using its `Invoke()` method.
     
 Sequencer contains following methods:
- -`Open()`: this method must be called cyclically before any logic. 
+- `Open()`: this method must be called cyclically before any logic. 
         It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the sequencer is in the configuring state. From the second context cycle after the sequencer has been invoked the sequencer change its state to running and starts the execution from the first step upto the last one. When sequencer is in running state, order of the step cannot be changed. 
  -`MoveNext()`: Terminates the currently executed step and moves the 
         sequencer's pointer to the next step in order of execution.
