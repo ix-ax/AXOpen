@@ -1,0 +1,70 @@
+﻿<div class="card bg-light shadow">
+    <div class="card-header" @onclick='() => Collapse()'>
+        <div class="d-flex align-items-center">
+            <div class="p-2">
+                CurrentStepID
+            </div>
+            <div class="p-2">
+                CurrentStepDescription
+            </div>
+            <div class="p-2">
+                Component
+            </div>
+            <span class="ms-auto oi oi-chevron-top @(_isCollapsed ? "open" : "")" aria-hidden="true"></span>
+        </div>
+    </div>
+    <ul class="list-group list-group-flush @(_isCollapsed ? "collapse" : null)">
+        <li class="list-group-item">
+            <StepController />
+        </li>
+        <li class="list-group-item">
+            <table class="table mt-1">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>100</td>
+                        <td>First step</td>
+                        <td>00.00.00</td>
+                    </tr>
+                    <tr class="bg-primary text-white">
+                        <th scope="row">2</th>
+                        <td>200</td>
+                        <td>Second step</td>
+                        <td>00.00.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>250</td>
+                        <td>Third step</td>
+                        <td>00.00.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>400</td>
+                        <td>Fifth step</td>
+                        <td>00.00.00</td>
+                    </tr>
+                </tbody>
+            </table>
+        </li>
+    </ul>
+
+    @*Paraler sequence*@
+</div>
+
+@code {
+    private bool _isCollapsed = true;
+
+    private void Collapse()
+    {
+        _isCollapsed = !_isCollapsed;
+    }
+}

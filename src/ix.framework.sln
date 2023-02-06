@@ -27,6 +27,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{CE0F4E49
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "integration.tests", "integrations\tests\integration.tests\integration.tests.csproj", "{CBF99DDB-49EF-4060-A398-91461B40A0C1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app_draft", "app_draft", "{7170C206-4E01-4C5E-B84F-78F91E82F06A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix-draft-blazor", "draft\ix-draft-blazor\ix-draft-blazor.csproj", "{FADEA385-6AB5-4818-9B80-E72714C66CF9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,10 @@ Global
 		{CBF99DDB-49EF-4060-A398-91461B40A0C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBF99DDB-49EF-4060-A398-91461B40A0C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBF99DDB-49EF-4060-A398-91461B40A0C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FADEA385-6AB5-4818-9B80-E72714C66CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FADEA385-6AB5-4818-9B80-E72714C66CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FADEA385-6AB5-4818-9B80-E72714C66CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FADEA385-6AB5-4818-9B80-E72714C66CF9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +80,7 @@ Global
 		{00D94EC7-3335-4CD4-B1B3-654566B16275} = {FFD509A8-8D3C-4756-9B2E-10A063A246E9}
 		{CE0F4E49-A685-4518-87A3-EE17D0547004} = {1B6B8078-53BF-4953-A7BE-79B0ADE6E9BB}
 		{CBF99DDB-49EF-4060-A398-91461B40A0C1} = {CE0F4E49-A685-4518-87A3-EE17D0547004}
+		{FADEA385-6AB5-4818-9B80-E72714C66CF9} = {7170C206-4E01-4C5E-B84F-78F91E82F06A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

@@ -1,0 +1,21 @@
+﻿.oi {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: central;
+}
+
+.oi-chevron-top {
+    top: -2px;
+}
+
+.oi-chevron-top {
+    transform: rotate(0deg);
+    transition: transform .2s linear;
+    transform-origin: 25.3% 62%;
+}
+
+    .oi-chevron-top.open {
+        transform: rotate(180deg);
+        transition: transform .2s linear;
+        transform-origin: 25.3% 62%;
+    }

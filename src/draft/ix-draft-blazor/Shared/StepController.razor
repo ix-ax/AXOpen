@@ -1,0 +1,16 @@
+﻿<button type="button" class="btn btn-primary w-100" @onclick='() => Collapse()'>@(_isCollapsed ? "Enter step mode" : "Abandon step mode")</button>
+
+<div class="row bg-light rounded-bottom py-2 @(_isCollapsed ? "collapse" : null)">
+    <button type="button" class="btn btn-primary col mx-2">&lt;&lt;</button>
+    <button type="button" class="btn btn-primary col mx-2">Step in</button>
+    <button type="button" class="btn btn-primary col mx-2">&gt;&gt;</button>
+</div>
+
+@code {
+    private bool _isCollapsed = true;
+
+    private void Collapse()
+    {
+        _isCollapsed = !_isCollapsed;
+    }
+}
