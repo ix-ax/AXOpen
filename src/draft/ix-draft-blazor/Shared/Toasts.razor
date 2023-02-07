@@ -36,6 +36,10 @@
     </div>
 </div>
 
+<button class="btn btn-primary" type="button" @onclick='Toast'>
+    Add toast
+</button>
+
 <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
     Toggle static offcanvas
 </button>
@@ -55,3 +59,13 @@
         </div>
     </div>
 </div>
+
+@code {
+    [Inject]
+    private ToastManager toastManager { get; set; }
+
+    public void Toast()
+    {
+        toastManager.addToast("info", "hej");
+    }
+}

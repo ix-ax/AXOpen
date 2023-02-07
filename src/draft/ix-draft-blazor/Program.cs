@@ -1,3 +1,4 @@
+using ix_draft_blazor;
 using ix_draft_blazor.Areas.Identity;
 using ix_draft_blazor.Data;
 using Microsoft.AspNetCore.Components;
@@ -20,6 +21,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
+builder.Services.AddScoped<ToastManager>();
 
 var app = builder.Build();
 
