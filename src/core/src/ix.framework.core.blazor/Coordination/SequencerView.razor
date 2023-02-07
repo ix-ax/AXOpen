@@ -1,24 +1,28 @@
 ﻿@namespace ix.framework.core
 @inherits RenderableComplexComponentBase<Sequencer>
 
-<div class="container-lg">
-    <div class="row">
-        <div class="col">
-            <RenderableContentControl Presentation="Base"
-            Context="@Component.StepBackwardCommand" />
-        </div>
-        <div class="col">
-            <RenderableContentControl Presentation="Base"
-                                      Context="@Component.StepIn" />
-        </div>
-        <div class="col">
-            <RenderableContentControl Presentation="Base"
-                                      Context="@Component.StepForwardCommand" />
-        </div>
+<button type="button" class="btn btn-primary w-100" @onclick='() => Collapse()'>@(_isCollapsed ? "Enter step mode" : "Abandon step mode")</button>
+
+<div class="row bg-light rounded-bottom py-2 @(_isCollapsed ? "collapse" : null)">
+    <div class="col">
+        <RenderableContentControl Presentation="Base" Context="@Component.StepBackwardCommand" />
+    </div>
+    <div class="col">
+        <RenderableContentControl Presentation="Base" Context="@Component.StepIn" />
+    </div>
+    <div class="col">
+        <RenderableContentControl Presentation="Base" Context="@Component.StepForwardCommand" />
     </div>
 </div>
 
 @code {
+    private bool _isCollapsed = true;
+
+    private void Collapse()
+    {
+        _isCollapsed = !_isCollapsed;
+    }
+
     protected override void OnInitialized()
     {
         UpdateValuesOnChange(Component);

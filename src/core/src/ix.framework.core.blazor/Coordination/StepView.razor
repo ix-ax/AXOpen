@@ -2,19 +2,19 @@
 @inherits RenderableComplexComponentBase<Step>
 
 
-    <div class="container text-left">
-        <div class="row">
-            <div class="col">
-                @Component.Description
-            </div>
-            <div class="col">
-                @Component.Order.Cyclic
-            </div>
+<div class="container text-left">
+    <div class="row">
+        <div class="col">
+            @Component.Description
+        </div>
+        <div class="col">
+            @Component.Order.Cyclic
+        </div>
         <div class="col">
             @Component.IsActive.Cyclic
         </div>
-        </div>
     </div>
+</div>
 
 
 @code {

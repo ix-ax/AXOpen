@@ -12,12 +12,10 @@
     <None Remove="Pages\Index.razor.css" />
     <None Remove="Shared\Menu\ExpandableMenuItem.razor.css" />
     <None Remove="Shared\Menu\MenuItem.razor.css" />
-    <None Remove="Shared\Sequencer.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Pages\Index.razor.css" />
-    <Content Include="Shared\Sequencer.razor.css" />
     <Content Include="Shared\Menu\MenuItem.razor.css" />
     <Content Include="Shared\Menu\ExpandableMenuItem.razor.css" />
   </ItemGroup>

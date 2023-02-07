@@ -1,0 +1,53 @@
+﻿@namespace core.draft
+@using core
+@inherits RenderableComplexComponentBase<SequencerExample>
+
+<div class="card bg-light shadow">
+    <div class="card-header" @onclick='() => Collapse()'>
+        <div class="d-flex align-items-center">
+            <div class="p-2">
+                CurrentStepID
+            </div>
+            <div class="p-2">
+                CurrentStepDescription
+            </div>
+            <div class="p-2">
+                Component
+            </div>
+            <span class="ms-auto oi oi-chevron-top @(_isCollapsed ? "open" : "")" aria-hidden="true"></span>
+        </div>
+    </div>
+    <ul class="list-group list-group-flush @(_isCollapsed ? "collapse" : null)">
+        <li class="list-group-item">
+            <RenderableContentControl Presentation="Base" Context="@Component.coord" />
+        </li>
+        <li class="list-group-item">
+            <table class="table mt-1">
+                <thead>
+                    <tr>
+                        <th scope="col">Description</th>
+                        <th scope="col">Order</th>
+                        <th scope="col">IsActive</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <RenderableContentControl Presentation="Base" Context="@Component.step_1" />
+                    <RenderableContentControl Presentation="Base" Context="@Component.step_2" />
+                    <RenderableContentControl Presentation="Base" Context="@Component.step_3" />
+                    <RenderableContentControl Presentation="Base" Context="@Component.step_4" />
+                </tbody>
+            </table>
+        </li>
+    </ul>
+
+    @*Paraler sequence*@
+</div>
+
+@code {
+    private bool _isCollapsed = true;
+
+    private void Collapse()
+    {
+        _isCollapsed = !_isCollapsed;
+    }
+}

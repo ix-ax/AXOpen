@@ -1,5 +1,7 @@
 ﻿@page "/control"
+@using intergrations;
 
 <PageTitle>Control</PageTitle>
 
-<Sequencer />
+<RenderableContentControl Presentation="Base"
+                          Context="@Entry.Plc.Draft.ixcoreSequencers" />
