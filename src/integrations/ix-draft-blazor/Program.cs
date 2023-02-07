@@ -1,3 +1,5 @@
+using intergrations;
+using Ix.Presentation.Blazor.Services;
 using ix_draft_blazor;
 using ix_draft_blazor.Areas.Identity;
 using ix_draft_blazor.Data;
@@ -22,6 +24,10 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<ToastManager>();
+
+builder.Services.AddIxBlazorServices();
+
+Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 100;
 
 var app = builder.Build();
 

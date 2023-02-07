@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -29,6 +29,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2" />
     <PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.0-preview.67" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\core\src\ix.framework.core.blazor\ix.framework.core.blazor.csproj" />
+    <ProjectReference Include="..\ix.integrations\integrations.csproj" />
   </ItemGroup>
 
 </Project>

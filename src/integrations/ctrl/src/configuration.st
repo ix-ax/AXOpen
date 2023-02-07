@@ -11,6 +11,9 @@ CONFIGURATION MyConfiguration
         {#ix-set:AttributeName = "If counting PLC is alive"}
         I_am_alive : ULINT;
         
+        // Draft
+        Draft : core.draft.MainDraft;
+
         // Issues
         gh_ptku_8 : Layouts.Tabbed.weather;
     END_VAR

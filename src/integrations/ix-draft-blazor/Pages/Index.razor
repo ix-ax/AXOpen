@@ -1,4 +1,5 @@
 ﻿@page "/"
+@using intergrations;
 
 <PageTitle>Index</PageTitle>
 
@@ -7,6 +8,15 @@
 Welcome to your new app.
 
 <SurveyPrompt Title="How is Blazor working for you?" />
+
+
+
+
+
+
+
+<RenderableContentControl Presentation="Control"
+                          Context="@Entry.Plc.Draft" />
 
 <div class="row">
     <div class="card bg-light shadow m-3 col-xl-4 p-0" style="max-width: 25rem;">

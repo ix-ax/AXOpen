@@ -2,11 +2,11 @@
 	"folders": [
 		{
 			"name": "integrations",
-			"path": "integrations\\ctrl"
+			"path": "integrations/ctrl"
 		},
 		{
 			"name": "core",
-			"path": "core\\ctrl"
+			"path": "core/ctrl"
 		}
 	],
 	"settings": {}
