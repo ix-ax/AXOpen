@@ -160,6 +160,7 @@ NAMESPACE ix.framework.core
             Status := eCommandTaskState#Ready; 
             THIS.UpdateState();
             Restore := THIS;
+            THIS.OnRestore();
         END_METHOD    
             
         ///<summary>
@@ -173,6 +174,7 @@ NAMESPACE ix.framework.core
               
             IF Condition AND Status = eCommandTaskState#Busy THEN   
                 Status := eCommandTaskState#Done;
+                THIS.OnDone();
             END_IF;    
         END_METHOD
 
@@ -194,7 +196,12 @@ NAMESPACE ix.framework.core
 
             IF(Status = eCommandTaskState#Kicking) THEN
                 Status := eCommandTaskState#Busy;
+                THIS.OnStart();
             END_IF;    
+
+            IF(Status = eCommandTaskState#Error) THEN
+                THIS.WhileError();
+            END_IF;   
 
             THIS.UpdateState();
             Execute := Status = eCommandTaskState#Busy;
@@ -210,7 +217,9 @@ NAMESPACE ix.framework.core
             END_VAR
 
             IF(HasErrorState) THEN
-                Status := eCommandTaskState#Error;                
+                Status := eCommandTaskState#Error;           
+                THIS.OnError();  
+                THIS.WhileError();   
             END_IF;    
         END_METHOD    
     
@@ -230,5 +239,57 @@ NAMESPACE ix.framework.core
         METHOD PUBLIC GetIsDisabled : BOOL
             GetIsDisabled := IsDisabled;
         END_METHOD
+    
+        ///<summary>
+        /// Aborts the execution of this task and restores the ready state.
+        ///</summary>
+        METHOD PUBLIC Abort 
+            IF THIS.Status = eCommandTaskState#Busy THEN
+                THIS.OnAbort();
+                THIS.Restore();
+            END_IF;
+        END_METHOD
+    
+        ///<summary>
+        /// Executes once when the task is aborted.
+        ///</summary>
+        METHOD PROTECTED OnAbort 
+            ;
+        END_METHOD
+
+        ///<summary>
+        /// Executes once when the task reaches the `Done` state.
+        ///</summary>
+        METHOD PROTECTED OnDone 
+            ;
+        END_METHOD
+    
+        ///<summary>
+        /// Executes once when the task reaches the `Error` state.
+        ///</summary>
+        METHOD PROTECTED OnError 
+            ;
+        END_METHOD
+    
+        ///<summary>
+        /// Executes once when the task is restored.
+        ///</summary>
+        METHOD PROTECTED OnRestore 
+            ;
+        END_METHOD
+    
+        ///<summary>
+        /// Executes once when the task starts (at the moment of transition from the `Kicking` state into the `Busy` state).
+        ///</summary>
+        METHOD PROTECTED OnStart 
+            ;
+        END_METHOD
+    
+        ///<summary>
+        /// Executes repeatedly while the task is in `Error` state (and `Execute()` method is called).
+        ///</summary>
+        METHOD PROTECTED WhileError 
+            ;
+        END_METHOD    
     END_CLASS    
-END_NAMESPACE    
+END_NAMESPACE

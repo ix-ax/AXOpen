@@ -12,11 +12,11 @@ Context encapsulates entire application or application units. Any solution may c
 
 
 ```mermaid
-  classDiagram
+  classDiagram 
     class Context{
         #Main()*
         +Execute()
-    }
+    }     
 ```
 
 In its basic implementation context has relatively simple interface. The main method is the method where we place all calls of our sub-routines. **In other words the `Main` is the root of the call tree of our program.**
@@ -34,11 +34,9 @@ When you call `Execute` method on an instance of a context, it will ensure openi
 
 ```mermaid
   flowchart LR
-    id1(Open)-->id2(#Main*)-->id3(Close)-->id1(Open)
-    style id1 fill:#fff,stroke:#333,stroke-width:2px
-    style id2 fill:#000,stroke:#f66,stroke-width:2px,color:#fff
-    style id3 fill:#fff,stroke:#333,stroke-width:4px
-
+    classDef run fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+    classDef main fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                                                                           
+    id1(Open):::run-->id2(#Main*):::main-->id3(Close):::run-->id1
 ```
 
 ### How to use context
@@ -138,39 +136,78 @@ There are two key methods for managing the command:
 
 - `Invoke()` fires the execution of the command (can be called fire&forget or cyclically)
 - `Execute()` method must be called cyclically. The method returns `TRUE` when the command is required to run until enters `Done` state or terminates in error.
-- `Restore()` acts as reset of the command (sets the state into `Ready` state).
+
+For termination of the execution of the command task there are following methods:
+- `DoneWhen(Done_Condition)` - terminates the execution of the command task and enters the `Done` state when the `Done_Condition` is `TRUE`.
+- `ThrowWhen(Error_Condition)` - terminates the execution of the command task and enters the `Error` state when the `Error_Condition` is `TRUE`.
+- `Abort()` - terminates the execution of the command task and enters the `Ready` state if the command task is in the `Busy` state, otherwise does nothing.
+
+To reset the command task from any state in any moment ther is following method:
+- `Restore()` acts as reset of the command (sets the state into `Ready` state from any state of the command task).
+
+Moreover, there are six more "event-like" methods that are called when a specific event occurs (see the chart below). 
 
 ```mermaid
 flowchart TD
     classDef states fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
     classDef actions fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+    classDef events fill:#80FF00,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
 
-    s1((Ready))
-    s2((Kicking))
-    s3((Busy))
-    s4((Done))
-    s5((Error))
-    a1("Invoke()#128258;")
-    a2("Execute()#128260;")
-    a3("DoneWhen(TRUE)#128258;")
-    a4("ThrowWhen(TRUE)#128258;")
-    a5("NOT Invoke() call for at least two Context cycles#128260;")
-    a6("Restore()#128258;")
-
-    subgraph  
-        s1:::states --> a1:::actions --> s2:::states --> a2:::actions --> s3:::states --> a3:::actions --> s4:::states --> a5:::actions --> a1:::actions
-    end
-    subgraph   
-        s3:::states --> a4:::actions
-        a4:::actions --> s5:::states --> a6:::actions --> s1:::states 
-    end
-
-    subgraph   
+    s1((Ready)):::states
+    s2((Kicking)):::states
+    s3((Busy)):::states
+    s4((Done)):::states
+    s5((Error)):::states
+    a1("Invoke()#128258;"):::actions
+    a2("Execute()#128260;"):::actions
+    a3("DoneWhen(TRUE)#128258;"):::actions
+    a4("ThrowWhen(TRUE)#128258;"):::actions
+    a5("NOT Invoke() call for at<br>least two Context cycles#128260;"):::actions
+    a6("Restore()#128258;"):::actions
+    a7("Abort()#128258;"):::actions
+    e1{{"OnStart()#128258;"}}:::events
+    e2{{"OnError()#128258;"}}:::events
+    e3{{"WhileError()#128260;"}}:::events
+    e4{{"OnDone()#128258;"}}:::events
+    e5{{"OnAbort()#128258;"}}:::events
+    e6{{"OnRestore()#128258;"}}:::events
+    
+    subgraph legend[" "]
+        direction LR
         s((State)):::states
-        ac("Action #128260;:called cyclically"):::actions
-        as("Action #128258;:single or cyclical call "):::actions
+        ac("Action #128260;:called<br>cyclically"):::actions
+        as("Action #128258;:single<br>or cyclical call "):::actions
+        ec{{"Event #128260;:called<br>cyclically"}}:::events
+        es{{"Event #128258;:triggered<br>once "}}:::events
+    end
+    
+    subgraph chart[" "]
+        direction TB
+        s1
+        s1-->a1
+        a1-->s2
+        s2-->a2
+        s3-->a3
+        s3-->a7
+        a7-->e5
+        a7-->a6
+        a3-->s4
+        s4--->a5
+        a5-->a1
+        a2-->s3
+        s3--->a4
+        a4-->s5
+        s5-->a6
+        a6-->e6
+        a2-->e1
+        a4-->e2
+        a4-->e3
+        a3-->e4
+        a6-->s1
     end
 ```
+
+Example of using CommandTask:
 ~~~SmallTalk
     CLASS CommandTaskExample EXTENDS Context         
         VAR PUBLIC
@@ -237,12 +274,56 @@ The command task can be started only from the `Ready` state by calling the `Invo
 
 1.) Command task's `Restore` method is called (command task changes it's state to `Ready` state).
 
-2.) `Invoke` method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the Kicking state.
+2.) `Invoke` method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the `Kicking` state.
 
 
 The command task may finish also in an `Error` state. In that case, the only possibility to get out of `Error` state is by calling the `Restore()` method.
 
+To implement any of the already mentioned "event-like" methods the new class that extends from the command task needs to be created. The required method with `PROTECTED OVERRIDE` access modifier needs to be created as well, and the custom logic needs to be placed in.
+These methods are:
+- `OnAbort()` - executes once when the task is aborted.
+- `OnDone()` - executes once when the task reaches the `Done` state.
+- `OnError()` - executes once when the task reaches the `Error` state.
+- `OnRestore()` - executes once when the task is restored.
+- `OnStart()` - executes once when the task starts (at the moment of transition from the `Kicking` state into the `Busy` state).
+- `WhileError()` - executes repeatedly while the task is in `Error` state (and `Execute()` method is called).
 
+Example of implementing "event-like" methods:
+~~~SmallTalk
+    CLASS MyCommandTask Extends CommandTask
+        VAR
+            OnAbortCounter : ULINT;
+            OnDoneCounter : ULINT;
+            OnErrorCounter : ULINT;
+            OnRestoreCounter : ULINT;
+            OnStartCounter : ULINT;
+            WhileErrorCounter : ULINT;
+        END_VAR
+        METHOD PROTECTED OVERRIDE OnAbort 
+            OnAbortCounter := OnAbortCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnDone 
+            OnDoneCounter := OnDoneCounter + ULINT#1;
+        END_METHOD
+    
+        METHOD PROTECTED OVERRIDE OnError 
+            OnErrorCounter := OnErrorCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnRestore 
+            OnRestoreCounter := OnRestoreCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnStart 
+            OnStartCounter := OnStartCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE WhileError 
+            WhileErrorCounter := WhileErrorCounter + ULINT#1;
+        END_METHOD    
+    END_CLASS
+~~~
 ## Step
 
 Step is an extension class of the CommandTask and provides the basics for the coordinated controlled execution of the task in the desired order based on the coordination mechanism used.
