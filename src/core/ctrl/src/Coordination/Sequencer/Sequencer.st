@@ -1,5 +1,4 @@
 NAMESPACE ix.framework.core
-    // CLASS Sequencer EXTENDS Object IMPLEMENTS ISequencer
     CLASS Sequencer EXTENDS CommandTask IMPLEMENTS ISequencer
         VAR PUBLIC                  
             CurrentOrder : ULINT;
@@ -45,10 +44,7 @@ NAMESPACE ix.framework.core
             END_IF;
         END_METHOD    
         
-        ///<summary>
-        /// Returns `TRUE` if the specified step is currently executing.
-        ///</summary>
-        METHOD PUBLIC Execute : BOOL
+        METHOD INTERNAL Execute : BOOL
             VAR_INPUT
                 step : IStep;                
                 Enable : BOOL;
@@ -166,13 +162,13 @@ NAMESPACE ix.framework.core
         END_METHOD
 
         ///<summary>
-        /// Completes (finishes) the execution of this sequencer.                
-        /// Returns the `order of execution` pointer to the first step of the sequence.
+        /// Completes (finishes) the execution of this sequencer and set the coordination state to Idle.               
+        /// If the `SequenceMode` of the sequencer is set to `RunOnce`, terminates also execution of the sequencer itself.
         ///</summary>
         METHOD PUBLIC CompleteSequence   
             IF SUPER.Execute() THEN
                 IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
-                    IF _coordinatorState = CoordinatorStates#Running THEN
+                IF _coordinatorState = CoordinatorStates#Running THEN
                     _step.DoneWhen(TRUE);
                     _step.SetIsActive(FALSE);
                     _coordinatorState := CoordinatorStates#Idle;
@@ -246,6 +242,9 @@ NAMESPACE ix.framework.core
             DetermineOrder := step.GetStepOrder();            
         END_METHOD      
         
+        ///<summary>
+        /// Gets the number of the configured steps in the sequence.                        
+        ///</summary>
         METHOD PUBLIC GetNumberOfConfiguredSteps : ULINT
             IF _coordinatorState = CoordinatorStates#Running THEN
                 _numberOfConfiguredSteps := _configurationFlowOrder;
@@ -276,13 +275,13 @@ NAMESPACE ix.framework.core
             END_IF;
         END_METHOD
        
-        METHOD INTERNAL DisableAllSteppingComands 
+        METHOD PROTECTED DisableAllSteppingComands 
             StepForwardCommand.IsDisabled := TRUE;
             StepIn.IsDisabled := TRUE;
             StepBackwardCommand.IsDisabled := TRUE;
         END_METHOD
 
-        METHOD INTERNAL RestoreCurrentStep 
+        METHOD PROTECTED RestoreCurrentStep 
             // Restore current step if running
             IF _step.IsBusy() THEN
                 _step.Restore();
@@ -293,7 +292,6 @@ NAMESPACE ix.framework.core
             END_IF;
             _step.SetIsActive(FALSE);
         END_METHOD
-        
     END_CLASS    
 END_NAMESPACE
 
