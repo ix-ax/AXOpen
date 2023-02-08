@@ -1,3 +1,5 @@
+USING AxUnit;
+USING AxUnit;
 USING ix.core;
 USING AxUnit;
 USING ix.framework.core;
@@ -29,19 +31,106 @@ NAMESPACE ix.core.commands_tests
             _identityCounter := _identityCounter + ULINT#1;
             CreateIdentity := _identityCounter;
         END_METHOD 
-   END_CLASS      
+    END_CLASS      
+
+    CLASS MyCommandTask Extends CommandTask
+        VAR
+            OnAbortCounter : ULINT;
+            OnDoneCounter : ULINT;
+            OnErrorCounter : ULINT;
+            OnRestoreCounter : ULINT;
+            OnStartCounter : ULINT;
+            WhileErrorCounter : ULINT;
+        END_VAR
+        METHOD PROTECTED OVERRIDE OnAbort 
+            OnAbortCounter := OnAbortCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnDone 
+            OnDoneCounter := OnDoneCounter + ULINT#1;
+        END_METHOD
+    
+        METHOD PROTECTED OVERRIDE OnError 
+            OnErrorCounter := OnErrorCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnRestore 
+            OnRestoreCounter := OnRestoreCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnStart 
+            OnStartCounter := OnStartCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE WhileError 
+            WhileErrorCounter := WhileErrorCounter + ULINT#1;
+        END_METHOD    
+ 
+        METHOD PUBLIC GetOnAbortCounter : ULINT
+            GetOnAbortCounter := OnAbortCounter;
+        END_METHOD
+
+        METHOD PUBLIC GetOnDoneCounter : ULINT
+            GetOnDoneCounter := OnDoneCounter;
+        END_METHOD
+    
+        METHOD PUBLIC GetOnErrorCounter : ULINT
+            GetOnErrorCounter := OnErrorCounter;
+        END_METHOD
+
+        METHOD PUBLIC GetOnRestoreCounter : ULINT
+            GetOnRestoreCounter := OnRestoreCounter;
+        END_METHOD
+
+        METHOD PUBLIC GetOnStartCounter : ULINT
+            GetOnStartCounter := OnStartCounter;
+        END_METHOD
+
+        METHOD PUBLIC GetWhileErrorCounter : ULINT
+            GetWhileErrorCounter := WhileErrorCounter;
+        END_METHOD    
+    END_CLASS
 
     {TestFixture}
     CLASS CommandTaskUnitTests 
         VAR PROTECTED
            _context : TestContext;
-           command : CommandTask;
+           command : MyCommandTask;
            expState:  eCommandTaskState;
            actState:  eCommandTaskState;
+           initValue : ULINT;
         END_VAR    
+
         METHOD PRIVATE Initialize
             command.Initialize(_context);
         END_METHOD
+
+        METHOD PRIVATE InitializeInvokeExecute
+            command.Initialize(_context);
+            _context.Open();
+            command.Invoke();
+            command.Execute();
+            _context.Close();            
+        END_METHOD
+
+        METHOD PRIVATE InitializeInvokeExecuteThrowWhen
+            command.Initialize(_context);
+            _context.Open();
+            command.Invoke();
+            command.Execute();
+            command.ThrowWhen(TRUE);
+            _context.Close();            
+        END_METHOD
+
+        METHOD PRIVATE InitializeInvokeExecuteDoneWhen
+            command.Initialize(_context);
+            _context.Open();
+            command.Invoke();
+            command.Execute();
+            command.DoneWhen(TRUE);
+            _context.Close();            
+        END_METHOD
+
         METHOD Equal : BOOL
             VAR_INPUT
                  expected:  eCommandTaskState;
@@ -367,7 +456,239 @@ NAMESPACE ix.core.commands_tests
             Assert.Equal(TRUE ,command.Execute());
             Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Busy,command.GetState()));
             _context.Close();
-        END_METHOD        
+        END_METHOD  
+        
+        {Test}
+        METHOD PUBLIC onstart_should_be_triggered_by_invoke_followed_by_execute
+            initValue := command.GetOnStartCounter();
+            THIS.Initialize();
+            _context.Open();
+            command.Invoke();
+            command.Execute();
+            Assert.Equal(initValue + ULINT#1,command.GetOnStartCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC onstart_should_not_be_called_when_command_task_is_already_executing
+            THIS.InitializeInvokeExecute();
+            initValue := command.GetOnStartCounter();
+
+            _context.Open();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnStartCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC ondone_should_be_triggered_when_command_task_enters_the_done_state
+            THIS.InitializeInvokeExecute();
+            initValue := command.GetOnDoneCounter();
+
+            _context.Open();
+            command.DoneWhen(TRUE);
+            Assert.Equal(initValue + ULINT#1,command.GetOnDoneCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC ondone_should_not_be_called_when_command_task_is_already_in_the_done_state
+            THIS.InitializeInvokeExecute();
+            _context.Open();
+            command.DoneWhen(TRUE);
+            _context.Close();
+            initValue := command.GetOnDoneCounter();
+
+            _context.Open();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnDoneCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC onerror_should_be_triggered_when_command_task_enters_the_error_state
+            THIS.InitializeInvokeExecute();
+            initValue := command.GetOnErrorCounter();
+
+            _context.Open();
+            command.ThrowWhen(TRUE);
+            Assert.Equal(initValue + ULINT#1,command.GetOnErrorCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC onerror_should_not_be_called_when_command_task_is_already_in_the_error_state
+            THIS.InitializeInvokeExecute();
+            _context.Open();
+            command.ThrowWhen(TRUE);
+            _context.Close();
+            initValue := command.GetOnErrorCounter();
+
+            _context.Open();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnErrorCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC while_error_should_be_triggered_when_command_task_enters_the_error_state
+            THIS.InitializeInvokeExecute();
+            initValue := command.GetWhileErrorCounter();
+
+            _context.Open();
+            command.ThrowWhen(TRUE);
+            Assert.Equal(initValue + ULINT#1,command.GetWhileErrorCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC while_error_should_be_called_also_when_command_task_is_already_in_the_error_state
+            THIS.InitializeInvokeExecute();
+            _context.Open();
+            command.ThrowWhen(TRUE);
+            _context.Close();
+            initValue := command.GetWhileErrorCounter();
+
+            _context.Open();
+            command.Execute();
+            Assert.Equal(initValue + ULINT#1,command.GetWhileErrorCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC abort_method_call_should_trigger_the_onabort_method_when_command_task_is_in_the_busy_state
+            THIS.InitializeInvokeExecute();
+            initValue := command.GetOnAbortCounter();
+
+            _context.Open();
+            command.Abort();
+            Assert.Equal(initValue + ULINT#1,command.GetOnAbortCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC abort_method_call_should_trigger_the_restore_method_when_command_task_is_in_the_busy_state
+            THIS.InitializeInvokeExecute();
+            initValue := command.GetOnRestoreCounter();
+
+            _context.Open();
+            command.Abort();
+            Assert.Equal(initValue + ULINT#1,command.GetOnRestoreCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC onabort_should_not_be_called_when_command_task_was_already_aborted
+            THIS.InitializeInvokeExecute();
+            _context.Open();
+            command.Abort();
+            _context.Close();
+            initValue := command.GetOnAbortCounter();
+
+            _context.Open();
+            command.Abort();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnAbortCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC abort_should_not_affect_the_command_task_in_ready_state_nor_onabort_should_be_triggered
+            THIS.Initialize();
+            _context.Open();
+            command.Restore();
+            _context.Close();
+            initValue := command.GetOnAbortCounter();
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+
+            _context.Open();
+            command.Abort();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnAbortCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC abort_should_not_affect_the_command_task_in_error_state_nor_onabort_should_be_triggered
+            THIS.InitializeInvokeExecuteThrowWhen();
+            initValue := command.GetOnAbortCounter();
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Error,command.GetState()));
+
+            _context.Open();
+            command.Abort();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnAbortCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Error,command.GetState()));
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC abort_should_not_affect_the_command_task_in_done_state_nor_onabort_should_be_triggered
+            THIS.InitializeInvokeExecuteDoneWhen();
+            initValue := command.GetOnAbortCounter();
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Done,command.GetState()));
+
+            _context.Open();
+            command.Abort();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnAbortCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Done,command.GetState()));
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC restore_method_call_should_trigger_the_onrestore_method_when_command_task_is_in_the_busy_state
+            THIS.InitializeInvokeExecute();
+            initValue := command.GetOnRestoreCounter();
+
+            _context.Open();
+            command.Restore();
+            Assert.Equal(initValue + ULINT#1,command.GetOnRestoreCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC restore_method_call_should_trigger_the_onrestore_method_when_command_task_is_in_the_error_state
+            THIS.InitializeInvokeExecuteThrowWhen();
+            initValue := command.GetOnRestoreCounter();
+
+            _context.Open();
+            command.Restore();
+            Assert.Equal(initValue + ULINT#1,command.GetOnRestoreCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC restore_method_call_should_trigger_the_onrestore_method_when_command_task_is_in_the_done_state
+            THIS.InitializeInvokeExecuteDoneWhen();
+            initValue := command.GetOnRestoreCounter();
+
+            _context.Open();
+            command.Restore();
+            Assert.Equal(initValue + ULINT#1,command.GetOnRestoreCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC restore_method_call_should_trigger_the_onrestore_method_when_command_task_is_in_the_ready_state
+            THIS.Initialize();
+            _context.Open();
+            command.Restore();
+            _context.Close();
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+            initValue := command.GetOnRestoreCounter();
+
+            _context.Open();
+            command.Restore();
+            Assert.Equal(initValue + ULINT#1,command.GetOnRestoreCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+            _context.Close();
+        END_METHOD   
+
 
     END_CLASS
 END_NAMESPACE
