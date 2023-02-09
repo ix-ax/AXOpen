@@ -1,25 +1,55 @@
 ﻿@namespace ix.framework.core
+@using Ix.Connector.ValueTypes;
 @inherits RenderableComplexComponentBase<Step>
 
 
     <div class="container text-left">
-        <div class="row">
+        <div class="row @RowClass">
             <div class="col">
                 @Component.Description
             </div>
             <div class="col">
                 @Component.Order.Cyclic
             </div>
-        <div class="col">
-            @Component.IsActive.Cyclic
-        </div>
+            <div class="col">
+                @Component.IsActive.Cyclic
+            </div>
         </div>
     </div>
 
 
 @code {
+    public string RowClass = "bg-white text-dark";
+
     protected override void OnInitialized()
     {
         UpdateValuesOnChange(Component);
+        Component.Status.Subscribe((sender,value) =>
+        {
+            switch ((eCommandTaskState)Component.Status.LastValue)
+            {
+                case eCommandTaskState.Disabled:
+                    RowClass = "bg-secondary text-white";
+                    break;
+                case eCommandTaskState.Ready:
+                    RowClass = "bg-primary text-white";
+                    break;
+                case eCommandTaskState.Kicking:
+                    RowClass = "bg-light text-dark";
+                    break;
+                case eCommandTaskState.Busy:
+                    RowClass = "bg-warning text-dark";
+                    break;
+                case eCommandTaskState.Done:
+                    RowClass = "bg-success text-white";
+                    break;
+                case eCommandTaskState.Error:
+                    RowClass = "bg-danger text-white";
+                    break;
+                default:
+                    RowClass = "bg-white text-dark";
+                    break;
+            }
+        });
     }
 }

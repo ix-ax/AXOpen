@@ -142,10 +142,10 @@ For termination of the execution of the command task there are following methods
 - `ThrowWhen(Error_Condition)` - terminates the execution of the command task and enters the `Error` state when the `Error_Condition` is `TRUE`.
 - `Abort()` - terminates the execution of the command task and enters the `Ready` state if the command task is in the `Busy` state, otherwise does nothing.
 
-To reset the command task from any state in any moment ther is following method:
+To reset the command task from any state in any moment there is following method:
 - `Restore()` acts as reset of the command (sets the state into `Ready` state from any state of the command task).
 
-Moreover, there are six more "event-like" methods that are called when a specific event occurs (see the chart below). 
+Moreover, there are seven more "event-like" methods that are called when a specific event occurs (see the chart below). 
 
 ```mermaid
 flowchart TD
@@ -158,6 +158,7 @@ flowchart TD
     s3((Busy)):::states
     s4((Done)):::states
     s5((Error)):::states
+    s6((Aborted)):::states
     a1("Invoke()#128258;"):::actions
     a2("Execute()#128260;"):::actions
     a3("DoneWhen(TRUE)#128258;"):::actions
@@ -165,6 +166,7 @@ flowchart TD
     a5("NOT Invoke() call for at<br>least two Context cycles#128260;"):::actions
     a6("Restore()#128258;"):::actions
     a7("Abort()#128258;"):::actions
+    a8("Resume()#128258;"):::actions
     e1{{"OnStart()#128258;"}}:::events
     e2{{"OnError()#128258;"}}:::events
     e3{{"WhileError()#128260;"}}:::events
@@ -190,11 +192,13 @@ flowchart TD
         s3-->a3
         s3-->a7
         a7-->e5
-        a7-->a6
+        a7-->s6
+        s6-->a8
+        a8-->s3
         a3-->s4
-        s4--->a5
+        s4---->a5
         a5-->a1
-        a2-->s3
+        a2--->s3
         s3--->a4
         a4-->s5
         s5-->a6
@@ -242,6 +246,7 @@ The task executes upon the `Invoke` method call. `Invoke` fires the execution of
  - `IsBusy` indicates the execution started and is running.
  - `IsDone` indicates the execution completed with success.
  - `HasError` indicates the execution terminated with a failure.
+ - `IsAborted` indicates that the execution of the command task has been aborted. It should continue by calling the method `Resume()`.
 
 ~~~SmallTalk
             // Wait for CommandTask to Complete 
@@ -282,6 +287,7 @@ The command task may finish also in an `Error` state. In that case, the only pos
 To implement any of the already mentioned "event-like" methods the new class that extends from the command task needs to be created. The required method with `PROTECTED OVERRIDE` access modifier needs to be created as well, and the custom logic needs to be placed in.
 These methods are:
 - `OnAbort()` - executes once when the task is aborted.
+- `OnResume()` - executes once when the task is resumed.
 - `OnDone()` - executes once when the task reaches the `Done` state.
 - `OnError()` - executes once when the task reaches the `Error` state.
 - `OnRestore()` - executes once when the task is restored.
@@ -293,6 +299,7 @@ Example of implementing "event-like" methods:
     CLASS MyCommandTask Extends CommandTask
         VAR
             OnAbortCounter : ULINT;
+            OnResumeCounter : ULINT;
             OnDoneCounter : ULINT;
             OnErrorCounter : ULINT;
             OnRestoreCounter : ULINT;
@@ -301,6 +308,10 @@ Example of implementing "event-like" methods:
         END_VAR
         METHOD PROTECTED OVERRIDE OnAbort 
             OnAbortCounter := OnAbortCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnResume 
+            OnResumeCounter := OnResumeCounter + ULINT#1;
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnDone 
