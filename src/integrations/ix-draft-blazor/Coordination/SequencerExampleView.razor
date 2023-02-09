@@ -22,21 +22,24 @@
             <RenderableContentControl Presentation="Base" Context="@Component.coord" />
         </li>
         <li class="list-group-item">
-            <table class="table mt-1">
-                <thead>
-                    <tr>
-                        <th scope="col">Description</th>
-                        <th scope="col">Order</th>
-                        <th scope="col">IsActive</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <RenderableContentControl Presentation="Base" Context="@Component.step_1" />
-                    <RenderableContentControl Presentation="Base" Context="@Component.step_2" />
-                    <RenderableContentControl Presentation="Base" Context="@Component.step_3" />
-                    <RenderableContentControl Presentation="Base" Context="@Component.step_4" />
-                </tbody>
-            </table>
+            <div class="container text-left">
+                <div class="row">
+                    <div class="col">
+                        Description
+                    </div>
+                    <div class="col">
+                        Order
+                    </div>
+                    <div class="col">
+                        IsActive
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <RenderableContentControl Presentation="Base" Context="@Component.step_1" />
+            <RenderableContentControl Presentation="Base" Context="@Component.step_2" />
+            <RenderableContentControl Presentation="Base" Context="@Component.step_3" />
+            <RenderableContentControl Presentation="Base" Context="@Component.step_4" />
         </li>
     </ul>
 

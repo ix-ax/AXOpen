@@ -25,7 +25,7 @@
                 <div class="toast-header @bg">
                     <span class="@icon" aria-hidden="true"></span>
                     <strong class="me-auto">@toast.Title</strong>
-                    <small>@($"{-(toast.Posted - DateTimeOffset.Now).Seconds} secs ago")</small>
+                    <small>@GetTime(toast.Posted)</small>
                     <button type="button" class="btn-close" @onclick="() => this.ClearToast(toast)"></button>
                 </div>
                 <div class="toast-body">
@@ -65,5 +65,22 @@
     private void AddToast()
     {
         ToastService.AddToast("Warning", "Hello World", "Hello from Blazor", 30);
+    }
+
+    private string GetTime(DateTimeOffset time)
+    {
+        var calcTime = -(time - DateTimeOffset.Now);
+        if (calcTime.Seconds < 5)
+        {
+            return "just now";
+        }
+        else if (calcTime.Seconds < 60)
+        {
+            return $"{calcTime.Seconds} secs ago";
+        }
+        else
+        {
+            return $"{calcTime.Minutes} mins ago";
+        }
     }
 }
