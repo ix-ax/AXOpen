@@ -23,7 +23,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddScoped<ToastManager>();
+builder.Services.AddSingleton<ToastService>();
 
 builder.Services.AddIxBlazorServices();
 
