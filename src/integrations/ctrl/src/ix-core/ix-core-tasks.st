@@ -1,21 +1,32 @@
+using ix.framework.core;
 
 NAMESPACE core
-    using ix.framework.core;
+
+    CLASS MyCommandTask EXTENDS CommandTask
+        VAR PUBLIC
+        {#ix-set:AttributeName = "Counter"}
+        _counter : ULINT;
+        END_VAR
+
+        METHOD PROTECTED OVERRIDE OnRestore
+            _counter := ULINT#0;
+        END_METHOD
+    END_CLASS    
 
     CLASS Tasks EXTENDS ix.framework.core.Context
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to execute this command"}
-            _commandTask : CommandTask;
+            _commandTask : MyCommandTask;
             {#ix-set:AttributeName = "If true the command will end in failure."}
             _commandEndsInFailure : BOOL;
         END_VAR    
     
-        VAR a : ULINT; END_VAR
         METHOD PROTECTED OVERRIDE Main
             _commandTask.Initialize(THIS);    
 
-            IF(_commandTask.Execute()) THEN                
-                IF(THIS.OpenCycleCount() MOD ULINT#250 = ULINT#0) THEN
+            IF(_commandTask.Execute()) THEN        
+                _commandTask._counter := _commandTask._counter + ULINT#1;        
+                IF (_commandTask._counter MOD ULINT#250) = ULINT#0 THEN
                     if(_commandEndsInFailure) THEN
                         _commandTask.ThrowWhen(TRUE);    
                     ELSE                            
@@ -24,5 +35,5 @@ NAMESPACE core
                 END_IF;    
             END_IF;    
         END_METHOD
-END_CLASS    
+    END_CLASS    
 END_NAMESPACE

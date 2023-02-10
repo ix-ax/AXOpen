@@ -7,6 +7,7 @@ NAMESPACE ix.framework.core
             Kicking := 2, 
             Busy := 3,
             Done := 4,
+            Aborted := 5,
             Error := 10
         ) := Ready;
     END_TYPE

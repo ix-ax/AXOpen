@@ -4,6 +4,21 @@
 <div class="container-lg">
     <div class="row">
         <div class="col">
+            <ix.framework.core.CommandTaskView Component="@Component" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <RenderableContentControl Presentation="Control"
+                                      Context="@Component.SequenceMode" />
+        </div>
+        <div class="col">
+            <RenderableContentControl Presentation="Control"
+                                      Context="@Component.SteppingMode" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <RenderableContentControl Presentation="Base"
             Context="@Component.StepBackwardCommand" />
         </div>

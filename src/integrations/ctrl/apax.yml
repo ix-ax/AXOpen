@@ -36,6 +36,6 @@ scripts:
   do-it-all:
     - apax install
     - apax build 
-    - apax check+download
+    - apax download
   postbuild:
     - apax ixc

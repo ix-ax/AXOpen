@@ -1,10 +1,14 @@
 NAMESPACE ix.framework.core
     CLASS Sequencer EXTENDS CommandTask IMPLEMENTS ISequencer
         VAR PUBLIC                  
+            {#ix-set:AttributeName = "<#Stepping mode#>"}
+            SteppingMode : eSteppingMode;
+            {#ix-set:AttributeName = "<#Sequence mode#>"}
+            SequenceMode : eSequenceMode;
             CurrentOrder : ULINT;
             {#ix-set:AttributeName = ">>"}
             StepForwardCommand : CommandTask;
-            {#ix-set:AttributeName = "<#Run#>"}
+            {#ix-set:AttributeName = "<#Run step#>"}
             StepIn : CommandTask;
             {#ix-set:AttributeName = "<<"}
             StepBackwardCommand : CommandTask;
@@ -14,8 +18,6 @@ NAMESPACE ix.framework.core
             _numberOfConfiguredSteps : ULINT;   
             _coordinatorState : CoordinatorStates;
             _step : IStep;
-            _steppingMode : eSteppingMode;
-            _sequenceMode : eSequenceMode;
             _openCycleCounter : ULINT;    
             _closeCycleCounter : ULINT;    
         END_VAR     
@@ -60,7 +62,7 @@ NAMESPACE ix.framework.core
                 // Stepping inside the sequence
                 IF _coordinatorState = CoordinatorStates#Running THEN
                     // Stepping is possible only in StepByStepMode
-                    IF _steppingMode = eSteppingMode#StepByStep THEN
+                    IF SteppingMode = eSteppingMode#StepByStep THEN
                         // Stepping Forwards and Backwards commands cannot be executed simultaneously
                         StepForwardCommand.IsDisabled := StepBackwardCommand.IsBusy() 
                                                             // Stepping Forwards disabled from last step
@@ -72,7 +74,7 @@ NAMESPACE ix.framework.core
                         // StepForward command increments the CurrentOrder just to a maximum value of _numberOfConfiguredSteps 
                         IF StepForwardCommand.Execute() THEN
                             IF CurrentOrder < _numberOfConfiguredSteps THEN
-                                THIS.RestoreCurrentStep();
+                                THIS.AbortCurrentStep();
                                 CurrentOrder := CurrentOrder + ULINT#1;
                             END_IF;
                             StepForwardCommand.DoneWhen(TRUE);
@@ -80,7 +82,7 @@ NAMESPACE ix.framework.core
                         // StepBackward command decrements the CurrentOrder just to a minimum value of 1 
                         IF StepBackwardCommand.Execute() THEN
                             IF CurrentOrder > ULINT#1 THEN
-                                THIS.RestoreCurrentStep();
+                                THIS.AbortCurrentStep();
                                 CurrentOrder := CurrentOrder - ULINT#1;
                             END_IF;
                             StepBackwardCommand.DoneWhen(TRUE);
@@ -98,7 +100,7 @@ NAMESPACE ix.framework.core
                     ELSE
                         CurrentOrder := CurrentOrder + ULINT#1;
                         // Finalize the StepIn Command in a case of step mode
-                        StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
+                        StepIn.DoneWhen(SteppingMode = eSteppingMode#StepByStep);
                     END_IF;
                 ELSE
                     step.SetIsActive(FALSE);
@@ -111,10 +113,10 @@ NAMESPACE ix.framework.core
                 END_IF;
                 
                 IF step.GetIsActive() AND (step.IsReady() OR step.IsDone()) THEN
-                    IF (_steppingMode = eSteppingMode#Continous) THEN
+                    IF (SteppingMode = eSteppingMode#Continous) THEN
                         step.Invoke();
                     // Invoke the step in a case of step mode when StepIn Command is invoked
-                    ELSIF (_steppingMode = eSteppingMode#StepByStep) THEN
+                    ELSIF (SteppingMode = eSteppingMode#StepByStep) THEN
                         IF StepIn.Execute() THEN
                             step.Invoke();
                         END_IF;
@@ -136,7 +138,7 @@ NAMESPACE ix.framework.core
                     _step.SetIsActive(FALSE);
                     CurrentOrder := CurrentOrder + ULINT#1;
                     // Finalize the StepIn Command in a case of step mode
-                    StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
+                    StepIn.DoneWhen(SteppingMode = eSteppingMode#StepByStep);
                 END_IF;
             END_IF;
         END_METHOD
@@ -156,7 +158,7 @@ NAMESPACE ix.framework.core
                     _step.SetIsActive(FALSE);
                     CurrentOrder := RequestedStep.GetStepOrder();
                     // Finalize the StepIn Command in a case of step mode
-                    StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
+                    StepIn.DoneWhen(SteppingMode = eSteppingMode#StepByStep);
                 END_IF;
             END_IF;
         END_METHOD
@@ -173,9 +175,9 @@ NAMESPACE ix.framework.core
                     _step.SetIsActive(FALSE);
                     _coordinatorState := CoordinatorStates#Idle;
                     CurrentOrder := ULINT#1;
-                    SUPER.DoneWhen(_sequenceMode =eSequenceMode#RunOnce);
+                    SUPER.DoneWhen(SequenceMode =eSequenceMode#RunOnce);
                     // Finalize the StepIn Command in a case of step mode
-                    StepIn.DoneWhen(_steppingMode = eSteppingMode#StepByStep);
+                    StepIn.DoneWhen(SteppingMode = eSteppingMode#StepByStep);
                 END_IF;
             END_IF;
         END_METHOD    
@@ -185,40 +187,6 @@ NAMESPACE ix.framework.core
         ///</summary>
         METHOD PUBLIC GetCoordinatorState : CoordinatorStates           
             GetCoordinatorState := _coordinatorState;
-        END_METHOD    
-
-        ///<summary>
-        /// Sets the stepping mode of the sequencer                        
-        ///</summary>
-        METHOD PUBLIC SetSteppingMode
-            VAR_INPUT
-                SteppingMode : eSteppingMode;
-            END_VAR
-            _steppingMode := SteppingMode;
-        END_METHOD
-
-        ///<summary>
-        /// Gets the stepping mode of the sequencer                        
-        ///</summary>
-        METHOD PUBLIC GetSteppingMode : eSteppingMode           
-            GetSteppingMode := _steppingMode;
-        END_METHOD    
-
-        ///<summary>
-        /// Sets the sequence mode of the sequencer                        
-        ///</summary>
-        METHOD PUBLIC SetSequenceMode
-            VAR_INPUT
-                SequenceMode : eSequenceMode;
-            END_VAR
-            _sequenceMode := SequenceMode;
-        END_METHOD
-        
-        ///<summary>
-        /// Gets the sequence mode of the sequencer                        
-        ///</summary>
-        METHOD PUBLIC GetSequenceMode : eSequenceMode           
-            GetSequenceMode := _sequenceMode;
         END_METHOD    
 
         METHOD PROTECTED DetermineOrder : ULINT
@@ -281,18 +249,22 @@ NAMESPACE ix.framework.core
             StepBackwardCommand.IsDisabled := TRUE;
         END_METHOD
 
-        METHOD PROTECTED RestoreCurrentStep 
-            // Restore current step if running
+        METHOD PROTECTED AbortCurrentStep 
+            // Abort current step if running
             IF _step.IsBusy() THEN
-                _step.Restore();
+                _step.Abort();
             END_IF;
-            // Restore step in command if running, otherwise this commnad will be executed on the following step
+            // Abort step in command if running, otherwise this command will be executed on the following step
             IF StepIn.IsBusy() THEN
-                StepIn.Restore();
+                StepIn.Abort();
             END_IF;
             _step.SetIsActive(FALSE);
         END_METHOD
+    
+        METHOD PROTECTED OVERRIDE OnRestore 
+            _configurationFlowOrder := ULINT#0;
+            _numberOfConfiguredSteps := ULINT#0;
+            _coordinatorState := CoordinatorStates#Idle;
+        END_METHOD
     END_CLASS    
 END_NAMESPACE
-
-

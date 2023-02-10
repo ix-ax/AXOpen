@@ -20,6 +20,24 @@ NAMESPACE ix.framework.core
             /// When 'TRUE' this command will be invoked.
             ///</summary>
             RemoteInvoke : BOOL;
+
+            ///<summary>
+            /// Remote requests for restore of this command.
+            /// When 'TRUE' this command will be restored.
+            ///</summary>
+            RemoteRestore : BOOL;
+
+            ///<summary>
+            /// Remote requests for abort of this command.
+            /// When 'TRUE' this command will be aborted.
+            ///</summary>
+            RemoteAbort : BOOL;
+
+            ///<summary>
+            /// Remote requests for resume of this command.
+            /// When 'TRUE' this command will be resumed.
+            ///</summary>
+            RemoteResume : BOOL;
         END_VAR    
         
         VAR PRIVATE
@@ -57,6 +75,14 @@ NAMESPACE ix.framework.core
         METHOD PUBLIC IsBusy : BOOL 
             THIS.UpdateState();
             IsBusy := Status = eCommandTaskState#Busy; 
+        END_METHOD
+            
+        ///<summary>
+        /// Gets true when the command is aborted.
+        ///</summary>
+        METHOD PUBLIC IsAborted : BOOL 
+            THIS.UpdateState();
+            IsAborted := Status = eCommandTaskState#Aborted; 
         END_METHOD
             
         ///<summary>
@@ -184,7 +210,10 @@ NAMESPACE ix.framework.core
         ///</summary>    
         METHOD PUBLIC Execute : BOOL            
             IF( RemoteInvoke) THEN THIS.Invoke(); RemoteInvoke := FALSE; END_IF;
-            
+            IF( RemoteRestore) THEN THIS.Restore(); RemoteRestore := FALSE; END_IF;
+            IF( RemoteAbort) THEN THIS.Abort(); RemoteAbort := FALSE; END_IF;
+            IF( RemoteResume) THEN THIS.Resume(); RemoteResume := FALSE; END_IF;
+
             _openCycleCountExecute := THIS.GetContext().OpenCycleCount();
                 
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
@@ -241,12 +270,22 @@ NAMESPACE ix.framework.core
         END_METHOD
     
         ///<summary>
-        /// Aborts the execution of this task and restores the ready state.
+        /// Aborts the execution of the task if running and sets its state to aborted.
         ///</summary>
         METHOD PUBLIC Abort 
             IF THIS.Status = eCommandTaskState#Busy THEN
+                THIS.Status := eCommandTaskState#Aborted;
                 THIS.OnAbort();
-                THIS.Restore();
+            END_IF;
+        END_METHOD
+    
+        ///<summary>
+        /// Resume the execution of the task if aborted and sets its state to busy.
+        ///</summary>
+        METHOD PUBLIC Resume 
+            IF THIS.Status = eCommandTaskState#Aborted THEN
+                THIS.Status := eCommandTaskState#Busy;
+                THIS.OnResume();
             END_IF;
         END_METHOD
     
@@ -254,6 +293,13 @@ NAMESPACE ix.framework.core
         /// Executes once when the task is aborted.
         ///</summary>
         METHOD PROTECTED OnAbort 
+            ;
+        END_METHOD
+
+        ///<summary>
+        /// Executes once when the task is resumed.
+        ///</summary>
+        METHOD PROTECTED OnResume 
             ;
         END_METHOD
 

@@ -36,6 +36,7 @@ NAMESPACE ix.core.commands_tests
     CLASS MyCommandTask Extends CommandTask
         VAR
             OnAbortCounter : ULINT;
+            OnResumeCounter : ULINT;
             OnDoneCounter : ULINT;
             OnErrorCounter : ULINT;
             OnRestoreCounter : ULINT;
@@ -44,6 +45,10 @@ NAMESPACE ix.core.commands_tests
         END_VAR
         METHOD PROTECTED OVERRIDE OnAbort 
             OnAbortCounter := OnAbortCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnResume 
+            OnResumeCounter := OnResumeCounter + ULINT#1;
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnDone 
@@ -68,6 +73,10 @@ NAMESPACE ix.core.commands_tests
  
         METHOD PUBLIC GetOnAbortCounter : ULINT
             GetOnAbortCounter := OnAbortCounter;
+        END_METHOD
+
+        METHOD PUBLIC GetOnResumeCounter : ULINT
+            GetOnResumeCounter := OnResumeCounter;
         END_METHOD
 
         METHOD PUBLIC GetOnDoneCounter : ULINT
@@ -110,6 +119,15 @@ NAMESPACE ix.core.commands_tests
             _context.Open();
             command.Invoke();
             command.Execute();
+            _context.Close();            
+        END_METHOD
+
+        METHOD PRIVATE InitializeInvokeExecuteAbort
+            command.Initialize(_context);
+            _context.Open();
+            command.Invoke();
+            command.Execute();
+            command.Abort();
             _context.Close();            
         END_METHOD
 
@@ -567,13 +585,13 @@ NAMESPACE ix.core.commands_tests
         END_METHOD   
 
         {Test}
-        METHOD PUBLIC abort_method_call_should_trigger_the_restore_method_when_command_task_is_in_the_busy_state
+        METHOD PUBLIC abort_method_call_should_not_trigger_the_restore_method_when_command_task_is_in_the_busy_state
             THIS.InitializeInvokeExecute();
             initValue := command.GetOnRestoreCounter();
 
             _context.Open();
             command.Abort();
-            Assert.Equal(initValue + ULINT#1,command.GetOnRestoreCounter());
+            Assert.Equal(initValue ,command.GetOnRestoreCounter());
             _context.Close();
         END_METHOD   
 
@@ -686,6 +704,88 @@ NAMESPACE ix.core.commands_tests
             command.Restore();
             Assert.Equal(initValue + ULINT#1,command.GetOnRestoreCounter());
             Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+            _context.Close();
+        END_METHOD   
+//******************
+        {Test}
+        METHOD PUBLIC resume_method_call_should_trigger_the_onresume_method_when_command_task_is_in_the_aborted_state
+            THIS.InitializeInvokeExecuteAbort();
+            initValue := command.GetOnResumeCounter();
+
+            _context.Open();
+            command.Resume();
+            Assert.Equal(initValue + ULINT#1,command.GetOnResumeCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC resume_method_call_should_trigger_the_onresume_method_when_command_task_is_in_the_busy_state
+            THIS.InitializeInvokeExecute();
+            initValue := command.GetOnResumeCounter();
+
+            _context.Open();
+            command.Resume();
+            Assert.Equal(initValue,command.GetOnResumeCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC onresume_should_not_be_called_when_command_task_was_already_resumed
+            THIS.InitializeInvokeExecuteAbort();
+            _context.Open();
+            command.Resume();
+            _context.Close();
+            initValue := command.GetOnResumeCounter();
+
+            _context.Open();
+            command.Resume();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnResumeCounter());
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC resume_should_not_affect_the_command_task_in_ready_state_nor_onresume_should_be_triggered
+            THIS.Initialize();
+            _context.Open();
+            command.Restore();
+            _context.Close();
+            initValue := command.GetOnResumeCounter();
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+
+            _context.Open();
+            command.Resume();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnResumeCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Ready,command.GetState()));
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC resume_should_not_affect_the_command_task_in_error_state_nor_onresume_should_be_triggered
+            THIS.InitializeInvokeExecuteThrowWhen();
+            initValue := command.GetOnResumeCounter();
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Error,command.GetState()));
+
+            _context.Open();
+            command.Resume();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnResumeCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Error,command.GetState()));
+            _context.Close();
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC resume_should_not_affect_the_command_task_in_done_state_nor_onresume_should_be_triggered
+            THIS.InitializeInvokeExecuteDoneWhen();
+            initValue := command.GetOnResumeCounter();
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Done,command.GetState()));
+
+            _context.Open();
+            command.Resume();
+            command.Execute();
+            Assert.Equal(initValue,command.GetOnResumeCounter());
+            Assert.Equal(TRUE,THIS.Equal(eCommandTaskState#Done,command.GetState()));
             _context.Close();
         END_METHOD   
 

@@ -10,33 +10,25 @@
         <div class="row">
             <div class="col">
                 <RenderableContentControl Presentation="Control"
-                                          Context="@Entry.Plc.ixcoreTasks"/>
+                                          Context="@Entry.Plc.ixcoreTasks" />
             </div>
             <div class="col">
                 <RenderableContentControl Presentation="Base"
-                                          Context="@Entry.Plc.ixcoreTasks"/>
+                                          Context="@Entry.Plc.ixcoreTasks" />
             </div>
         </div>
     </div>
-    
+
     <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
-       Sequencer with few steps
+        Sequencer with few steps
+        <br />
+        <RenderableContentControl Presentation="Control"
+                                  Context="@Entry.Plc.ixcoreSequencers.Counter" />
     </div>
     <div class="container text-left">
-        <div class="row">
-            <div class="col">
-                <RenderableContentControl Presentation="Control"
-                                          Context="@Entry.Plc.ixcoreSequencers"/>
-            </div>
-            <div class="col">
-                <RenderableContentControl Presentation="Base"
-                                          Context="@Entry.Plc.ixcoreSequencers" />
-            </div>
+        <div class="col">
+            <RenderableContentControl Presentation="Base"
+                                      Context="@Entry.Plc.ixcoreSequencers" />
         </div>
     </div>
 </div>
-
-
-@code {
-
-}
