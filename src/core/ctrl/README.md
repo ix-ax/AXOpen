@@ -376,7 +376,7 @@ Sequencer contains following methods:
 - `SetSequenceMode()`: Sets the sequence mode of the sequencer. Following values are possible.
     - `None`:
     - `RunOnce`: if this mode is choosen, after calling the method `CompleteSequence()` the execution of the sequence is terminated.
-    - `Continous`: if this mode is choosen (default), after calling the method `CompleteSequence()` the execution of the sequence is "reordered" and started from beginning.
+    - `Cyclic`: if this mode is choosen (default), after calling the method `CompleteSequence()` the execution of the sequence is "reordered" and started from beginning.
 - `GetSequenceMode()`: Gets the current sequence mode of the sequencer. 
 - `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
 
