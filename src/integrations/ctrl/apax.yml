@@ -39,3 +39,14 @@ scripts:
     - apax download
   postbuild:
     - apax ixc
+  watch:
+    - dotnet watch --project ..\\integration.blazor\\integration.blazor.csproj
+  rr:
+    - apax build
+    - apax download
+    - apax watch
+  fr:
+    - ..\\scripts\\StartPlcSimAdvCli.exe
+    - apax install
+    - apax rr
+  

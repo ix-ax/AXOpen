@@ -37,16 +37,40 @@ NAMESPACE ix.core.sequencer_tests
 
     END_CLASS  
 
+    CLASS MySequencer EXTENDS Sequencer
+        VAR PRIVATE
+            OnBeforeSequenceStartCounter : ULINT;
+            OnCompleteSequenceCounter : ULINT;
+        END_VAR
+        METHOD PROTECTED OVERRIDE OnBeforeSequenceStart
+            OnBeforeSequenceStartCounter := OnBeforeSequenceStartCounter + ULINT#1;
+        END_METHOD
+        
+        METHOD PROTECTED OVERRIDE OnCompleteSequence
+            OnCompleteSequenceCounter := OnCompleteSequenceCounter + ULINT#1;
+        END_METHOD 
+        
+        METHOD PUBLIC GetOnBeforeSequenceStartCounter : ULINT
+            GetOnBeforeSequenceStartCounter := OnBeforeSequenceStartCounter;
+        END_METHOD
+        
+        METHOD PUBLIC GetOnCompleteSequenceCounter : ULINT
+            GetOnCompleteSequenceCounter := OnCompleteSequenceCounter;
+        END_METHOD
+    END_CLASS
+
+
     {TestFixture}
     CLASS SequencerTests
         VAR PROTECTED        
             _context   : TestContext;
-            _sequencer : Sequencer;
+            _sequencer : MySequencer;
             _step_1    : Step;
             _step_2    : Step;
             _step_3    : Step;
             _orderCounter : ULINT;
             _stepState  :   eCommandTaskState;
+            _counter : ULINT;
         END_VAR    
 
         METHOD Equal : BOOL
@@ -1477,6 +1501,150 @@ NAMESPACE ix.core.sequencer_tests
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsReady());
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsDone());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnBeforeSequenceStart_should_be_triggered_when_sequence_starts
+            THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnBeforeSequenceStartCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnBeforeSequenceStart_should_not_be_triggered_when_sequence_has_been_already_started
+            THIS.ExecuteSequence(FALSE,FALSE);
+            THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(THIS._counter,_sequencer.GetOnBeforeSequenceStartCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnBeforeSequenceStart_should_be_triggered_when_sequence_starts_even_in_step_by_step_mode
+            _sequencer.SteppingMode := eSteppingMode#StepByStep;
+            THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnBeforeSequenceStartCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnBeforeSequenceStart_should_not_be_triggered_when_sequence_has_been_already_started_even_in_step_by_step_mode
+            _sequencer.SteppingMode := eSteppingMode#StepByStep;
+            THIS.ExecuteSequence(FALSE,FALSE);
+            THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(THIS._counter,_sequencer.GetOnBeforeSequenceStartCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnBeforeSequenceStart_should_be_triggered_when_sequence_starts_even_in_run_once_mode
+            _sequencer.SequenceMode := eSequenceMode#RunOnce;
+            THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnBeforeSequenceStartCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnBeforeSequenceStart_should_not_be_triggered_when_sequence_has_been_already_started_even_in_run_once_mode
+            _sequencer.SequenceMode := eSequenceMode#RunOnce;
+            THIS.ExecuteSequence(FALSE,FALSE);
+            THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(THIS._counter,_sequencer.GetOnBeforeSequenceStartCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnBeforeSequenceStart_should_be_triggered_when_sequence_starts_even_in_run_once_mode_and_step_by_step_mode
+            _sequencer.SequenceMode := eSequenceMode#RunOnce;
+            _sequencer.SteppingMode := eSteppingMode#StepByStep;
+            THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnBeforeSequenceStartCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnBeforeSequenceStart_should_not_be_triggered_when_sequence_has_been_already_started_even_in_run_once_mode_and_step_by_step_mode
+            _sequencer.SequenceMode := eSequenceMode#RunOnce;
+            _sequencer.SteppingMode := eSteppingMode#StepByStep;
+            THIS.ExecuteSequence(FALSE,FALSE);
+            THIS._counter :=  _sequencer.GetOnBeforeSequenceStartCounter();
+            THIS.ExecuteSequence(FALSE,FALSE);
+            Assert.Equal(THIS._counter,_sequencer.GetOnBeforeSequenceStartCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnCompleteSequence_should_be_triggered_when_CompleteSequence_is_called
+            THIS.ExecuteSequence(TRUE,FALSE);
+            THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
+            _sequencer.CompleteSequence();
+            Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnCompleteSequenceCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnCompleteSequence_should_not_be_triggered_when_CompleteSequence_was_already_called
+            THIS.ExecuteSequence(TRUE,FALSE);
+            _sequencer.CompleteSequence();
+            THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
+            _sequencer.CompleteSequence();
+            Assert.Equal(THIS._counter,_sequencer.GetOnCompleteSequenceCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnCompleteSequence_should_be_triggered_when_CompleteSequence_is_called_even_in_step_by_step_mode
+            THIS.ExecuteSequence(TRUE,FALSE);
+            _sequencer.SteppingMode := eSteppingMode#StepByStep;
+            THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
+            _sequencer.CompleteSequence();
+            Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnCompleteSequenceCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnCompleteSequence_should_not_be_triggered_when_CompleteSequence_was_already_called_even_in_step_by_step_mode
+            THIS.ExecuteSequence(TRUE,FALSE);
+            _sequencer.SteppingMode := eSteppingMode#StepByStep;
+            _sequencer.CompleteSequence();
+            THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
+            _sequencer.CompleteSequence();
+            Assert.Equal(THIS._counter,_sequencer.GetOnCompleteSequenceCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnCompleteSequence_should_be_triggered_when_CompleteSequence_is_called_even_in_run_once_mode
+            THIS.ExecuteSequence(TRUE,FALSE);
+            _sequencer.SequenceMode := eSequenceMode#RunOnce;
+            THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
+            _sequencer.CompleteSequence();
+            Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnCompleteSequenceCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnCompleteSequence_should_not_be_triggered_when_CompleteSequence_was_already_called_even_in_run_once_mode
+            THIS.ExecuteSequence(TRUE,FALSE);
+            _sequencer.SequenceMode := eSequenceMode#RunOnce;
+            _sequencer.CompleteSequence();
+            THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
+            _sequencer.CompleteSequence();
+            Assert.Equal(THIS._counter,_sequencer.GetOnCompleteSequenceCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnCompleteSequence_should_be_triggered_when_CompleteSequence_is_called_even_in_run_once_mode_and_step_by_step_mode
+            THIS.ExecuteSequence(TRUE,FALSE);
+            _sequencer.SequenceMode := eSequenceMode#RunOnce;
+            _sequencer.SteppingMode := eSteppingMode#StepByStep;
+            THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
+            _sequencer.CompleteSequence();
+            Assert.Equal(THIS._counter + ULINT#1,_sequencer.GetOnCompleteSequenceCounter());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC OnCompleteSequence_should_not_be_triggered_when_CompleteSequence_was_already_called_even_in_run_once_mode_and_step_by_step_mode
+            THIS.ExecuteSequence(TRUE,FALSE);
+            _sequencer.SequenceMode := eSequenceMode#RunOnce;
+            _sequencer.SteppingMode := eSteppingMode#StepByStep;
+            _sequencer.CompleteSequence();
+            THIS._counter :=  _sequencer.GetOnCompleteSequenceCounter();
+            _sequencer.CompleteSequence();
+            Assert.Equal(THIS._counter,_sequencer.GetOnCompleteSequenceCounter());
         END_METHOD
 
     END_CLASS  
