@@ -10,6 +10,7 @@ NAMESPACE ix.framework.core
         METHOD IsReady : BOOL END_METHOD   
         METHOD IsDone : BOOL END_METHOD   
         METHOD IsBusy : BOOL END_METHOD   
+        METHOD HasError : BOOL END_METHOD   
     END_INTERFACE
     INTERFACE INTERNAL ICommandTaskInt 
         METHOD SetIsDisabled  VAR_INPUT Disabled : BOOL; END_VAR END_METHOD
