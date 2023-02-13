@@ -1699,7 +1699,6 @@ NAMESPACE ix.core.sequencer_tests
             Assert.Equal(TRUE,_step_1.IsBusy());
             Assert.Equal(FALSE,_step_1.HasError());
             Assert.Equal(ULINT#2, count);
-
         END_METHOD
     END_CLASS  
 END_NAMESPACE
