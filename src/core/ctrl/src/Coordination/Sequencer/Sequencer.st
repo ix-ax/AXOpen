@@ -40,6 +40,7 @@ NAMESPACE ix.framework.core
                         StepIn.Initialize(THIS.GetContext());
                         StepBackwardCommand.Initialize(THIS.GetContext());
                     CoordinatorStates#Configuring :
+                        THIS.OnBeforeSequenceStart();
                         CurrentOrder := ULINT#1;
                         _coordinatorState := CoordinatorStates#Running;
                 END_CASE;    
@@ -134,7 +135,7 @@ NAMESPACE ix.framework.core
             IF SUPER.Execute() THEN
                 IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
                 IF _coordinatorState = CoordinatorStates#Running THEN
-                    _step.DoneWhen(TRUE);
+                    _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
                     CurrentOrder := CurrentOrder + ULINT#1;
                     // Finalize the StepIn Command in a case of step mode
@@ -154,7 +155,7 @@ NAMESPACE ix.framework.core
                 IF THIS.InvalidContext(RequestedStep) THEN RETURN; END_IF;         
                 IF RequestedStep.GetStepOrder() <> ULINT#0 AND
                     _coordinatorState = CoordinatorStates#Running THEN
-                    _step.DoneWhen(TRUE);
+                    _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
                     CurrentOrder := RequestedStep.GetStepOrder();
                     // Finalize the StepIn Command in a case of step mode
@@ -178,10 +179,24 @@ NAMESPACE ix.framework.core
                     SUPER.DoneWhen(SequenceMode =eSequenceMode#RunOnce);
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eSteppingMode#StepByStep);
+                    THIS.OnCompleteSequence();
                 END_IF;
             END_IF;
         END_METHOD    
-        
+        ///<summary>
+        /// Executes once when the sequence starts.
+        ///</summary>
+        METHOD PROTECTED OnBeforeSequenceStart
+            ;
+            END_METHOD    
+                        
+        ///<summary>
+        /// Executes once when the sequence is completed.
+        ///</summary>
+        METHOD PROTECTED OnCompleteSequence
+        ;
+        END_METHOD    
+            
         ///<summary>
         /// Gets the state of the coordinator                        
         ///</summary>
