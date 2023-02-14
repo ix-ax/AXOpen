@@ -1647,6 +1647,59 @@ NAMESPACE ix.core.sequencer_tests
             Assert.Equal(THIS._counter,_sequencer.GetOnCompleteSequenceCounter());
         END_METHOD
 
+        {Test}        
+        METHOD PUBLIC StepInCommand_should_restore_and_invoke_the_current_step_when_it_was_in_error_state
+            VAR 
+                count :ULINT;
+            END_VAR
+            // Arrange
+            _sequencer.SteppingMode := eSteppingMode#StepByStep;
+            Assert.Equal(TRUE ,THIS.Equal(_sequencer.SteppingMode, eSteppingMode#StepByStep));
+
+            THIS.ExecuteSequence(FALSE,FALSE);
+            _sequencer.StepIn.Invoke();
+
+            THIS.PrepareSequence();
+            _context.Open();
+            _sequencer.Open();
+
+            IF _step_1.Execute(_sequencer) THEN
+                count := count + ULINT#1;
+                _step_1.ThrowWhen(TRUE);
+            END_IF;
+            _step_2.Execute(_sequencer); 
+            _step_3.Execute(_sequencer); 
+            _context.Close();
+
+            Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
+            Assert.Equal(TRUE,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(FALSE,_step_1.IsBusy());
+            Assert.Equal(TRUE,_step_1.HasError());
+            Assert.Equal(ULINT#1, count);
+
+            // Act
+            _sequencer.StepIn.Invoke();
+
+            THIS.PrepareSequence();
+            _context.Open();
+            _sequencer.Open();
+
+            IF _step_1.Execute(_sequencer) THEN
+                count := count + ULINT#1;
+            END_IF;
+            _step_2.Execute(_sequencer); 
+            _step_3.Execute(_sequencer); 
+            _context.Close();
+
+            // Assert
+            Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
+            Assert.Equal(TRUE,_step_1.IsActive);
+            Assert.Equal(FALSE,_step_1.IsReady());
+            Assert.Equal(TRUE,_step_1.IsBusy());
+            Assert.Equal(FALSE,_step_1.HasError());
+            Assert.Equal(ULINT#2, count);
+        END_METHOD
     END_CLASS  
 END_NAMESPACE
 

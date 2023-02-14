@@ -1,5 +1,5 @@
 {#ix-attr:[Container(Layout.Tabs)]}
-{#ix-attr:[Group(Layout.GroupBox)]}
+{#ix-attr:[Group(GroupLayout.GroupBox)]}
 {#ix-set:AttributeName = "This is some structure"}
 CLASS PUBLIC Recipe
     VAR PUBLIC            
@@ -37,7 +37,7 @@ CLASS PUBLIC Measurements
 END_CLASS  
 
 {#ix-attr:[Container(Layout.Wrap)]}
-{#ix-attr:[Group(Layout.GroupBox)]}
+{#ix-attr:[Group(GroupLayout.GroupBox)]}
 CLASS PUBLIC ContinuesValueCheckData
     VAR PUBLIC        
         Min : REAL;

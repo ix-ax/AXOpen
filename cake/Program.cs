@@ -95,14 +95,25 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        context.Libraries.ToList().ForEach(lib => 
+        context.Libraries.ToList().ForEach(lib =>
         {
+            context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
+            context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
             context.ApaxInstall(lib);
             context.ApaxBuild(lib);
+            //context.ApaxIxc(lib);
         });
 
-        context.Integrations.ToList().ForEach(proj => context.ApaxInstall(proj));
-        context.Integrations.ToList().ForEach(proj => context.ApaxBuild(proj));
+        context.Integrations.ToList().ForEach(proj =>
+        {
+            context.UpdateApaxVersion(context.GetApaxFile(proj), GitVersionInformation.SemVer);
+            context.UpdateApaxDependencies(context.GetApaxFile(proj), context.Libraries.Select(p => p.name), GitVersionInformation.SemVer);
+            context.ApaxInstall(proj);
+            context.ApaxBuild(proj);
+            //context.ApaxIxc(proj);
+        });
+        
+       
 
         context.DotNetBuild(Path.Combine(context.RootDir, "ix.framework.sln"), context.DotNetBuildSettings);
     }
@@ -131,25 +142,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
 [IsDependentOn(typeof(TestsTask))]
 public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 {
-    private void UpdateApaxVersion(string file, string version)
-    {
-        var sb = new StringBuilder();
-        foreach (var line in System.IO.File.ReadLines(file))
-        {
-            var newLine = line;
-
-            if (line.Trim().StartsWith("version"))
-            {
-                var semicPosition = line.IndexOf(":");
-                var lenght = line.Length - semicPosition;
-
-                newLine = $"{line.Substring(0, semicPosition)} : '{version}'";
-            }
-            sb.AppendLine(newLine);
-        }
-
-        System.IO.File.WriteAllText(file, sb.ToString());
-    }
+   
 
     public override void Run(BuildContext context)
     {
@@ -159,33 +152,26 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
             return;
         }
 
+        PackApax(context);
+        PackNugets(context);
+    }
+
+    private static void PackApax(BuildContext context)
+    {
         context.Libraries.ToList().ForEach(lib =>
         {
-            UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
             context.ApaxPack(lib);
+            context.ApaxCopyArtifacts(lib);
         });
-
-        PackPackages(context, Path.Combine(context.RootDir, "ix.framework-packable-only.slnf"));
     }
 
-    private static void PackTemplatePackages(BuildContext context, string solutionToPack)
-    {
-        context.DotNetPack(solutionToPack,
-            new Cake.Common.Tools.DotNet.Pack.DotNetPackSettings()
-            {
-                OutputDirectory = Path.Combine(context.Artifacts, @"nugets"),
-                Sources = new List<string>() { Path.Combine(context.Artifacts, "nugets") },
-                NoRestore = false,
-                NoBuild = false,
-            });
-    }
 
-    private static void PackPackages(BuildContext context, string solutionToPack)
+    private static void PackNugets(BuildContext context)
     {
-        context.DotNetPack(solutionToPack, 
+        context.DotNetPack(context.PackableNugetsSlnf, 
             new Cake.Common.Tools.DotNet.Pack.DotNetPackSettings()
         {
-            OutputDirectory = Path.Combine(context.Artifacts, @"nugets"),
+            OutputDirectory = Path.Combine(context.ArtifactsNugets),
             NoRestore = true,
             NoBuild = false,
         });
@@ -206,29 +192,7 @@ public sealed class GenerateApiDocumentationTask : FrostingTask<BuildContext>
 
         if (Helpers.CanReleaseInternal())
         {
-            //GenerateApiDocumentation(context,
-            //    @$"ix.connectors\src\Ix.Connector\bin\{context.DotNetBuildSettings.Configuration}\net6.0\Ix.Connector.dll",
-            //    @"Ix.Connector");
-            //GenerateApiDocumentation(context,
-            //    @$"ix.connectors\src\Ix.Connector.S71500.WebAP\bin\{context.DotNetBuildSettings.Configuration}\net6.0\Ix.Connector.S71500.WebAPI.dll",
-            //    @"Ix.Connector.S71500.WebAPI");
-
-            //GenerateApiDocumentation(context,
-            //    @$"ix.builder\src\IX.Compiler\bin\{context.DotNetBuildSettings.Configuration}\net6.0\IX.Compiler.dll",
-            //    @"IX.Compiler");
-            //GenerateApiDocumentation(context,
-            //    @$"ix.builder\src\IX.Cs.Compiler\bin\{context.DotNetBuildSettings.Configuration}\net6.0\IX.Compiler.Cs.dll",
-            //    @"IX.Compiler.Cs");
-
-            //GenerateApiDocumentation(context,
-            //    @$"ix.abstractions\src\Ix.Abstractions\bin\{context.DotNetBuildSettings.Configuration}\net6.0\Ix.Abstractions.dll",
-            //    @"Ix.Abstractions");
-            //GenerateApiDocumentation(context,
-            //    @$"ix.blazor\src\Ix.Presentation.Blazor\bin\{context.DotNetBuildSettings.Configuration}\net6.0\Ix.Presentation.Blazor.dll",
-            //    @"Ix.Presentation.Blazor");
-            //GenerateApiDocumentation(context,
-            //    @$"ix.blazor\src\Ix.Presentation.Blazor.Controls\bin\{context.DotNetBuildSettings.Configuration}\net6.0\Ix.Presentation.Blazor.Controls.dll",
-            //    @"Ix.Presentation.Blazor.Controls");
+           
         }
     }
 
@@ -251,33 +215,7 @@ public sealed class LicenseComplianceCheckTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        ////var licensedFiles = Directory.EnumerateFiles(Path.Combine(context.RootDir, "apax", ".apax", "packages"),
-        //var licensedFiles = Directory.EnumerateFiles(Path.Combine(context.RootDir, "apax", "stc"),
-        //    "AX.*.*",
-        //    SearchOption.AllDirectories)
-        //    .Select(p => new FileInfo(p));
-
-        //if (licensedFiles.Count() < 5)
-        //    throw new Exception("");
-
-
-        //foreach (var nugetFile in Directory.EnumerateFiles(context.Artifacts, "*.nupkg", SearchOption.AllDirectories))
-        //{
-        //    using (var zip = ZipFile.OpenRead(nugetFile))
-        //    {
-        //        var ouptutDir = Path.Combine(context.Artifacts, "verif");
-        //        zip.ExtractToDirectory(Path.Combine(context.Artifacts, "verif"));
-
-        //        if (Directory.EnumerateFiles(ouptutDir, "*.*", SearchOption.AllDirectories)
-        //            .Select(p => new FileInfo(p))
-        //            .Any(p => licensedFiles.Any(l => l.Name == p.Name)))
-        //        {
-        //            throw new Exception("");
-        //        }
-
-        //        Directory.Delete(ouptutDir, true);
-        //    }
-        //}
+        
     }
 }
 

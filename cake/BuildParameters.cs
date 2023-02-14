@@ -10,7 +10,7 @@ using CommandLine;
 
 public class BuildParameters
 {
-    [Option('t', "do-test", Required = false, Default = false, HelpText = "Runs tests")]
+    [Option('t', "do-test", Required = false, Default = true, HelpText = "Runs tests")]
     public bool DoTest { get; set; }
 
     [Option('d', "do-docs", Required = false, Default = false, HelpText = "Generates documentation")]
