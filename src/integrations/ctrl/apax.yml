@@ -1,13 +1,13 @@
 name: "integrations"
-version: 0.0.0
+version               : '0.1.0-20-complete-build-script-for-ixframework.1'
 type: app
 targets:
   - "1500"
   - plcsim
-# - axunit-llvm
-# - axunit
+  - axunit-llvm
+  - axunit
 dependencies:
-  "@ix-ax/ix.framework.core": '^0.1.0-alpha.0'
+  "@ix-ax/ix.framework.core"            : '0.1.0-20-complete-build-script-for-ixframework.1'
   "@ax/sdk": ^3.0.8
 variables:
   APAX_BUILD_ARGS: [ -d ]

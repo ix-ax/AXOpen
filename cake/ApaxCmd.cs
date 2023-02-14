@@ -61,9 +61,26 @@ public static class ApaxCmd
 
     public static void ApaxTest(this BuildContext context, (string folder, string name) lib)
     {
-        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
             Arguments = "test",
+            WorkingDirectory = context.GetAxFolder(lib),
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        });
+
+        process.WaitForExit();
+
+        if(process.GetExitCode() != 0)
+            throw new TestFailedException();
+    }
+
+    public static void ApaxIxc(this BuildContext context, (string folder, string name) lib)
+    {
+        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = "ixc",
             WorkingDirectory = context.GetAxFolder(lib),
             RedirectStandardOutput = false,
             RedirectStandardError = false,
@@ -74,7 +91,7 @@ public static class ApaxCmd
     public static void ApaxCopyArtifacts(this BuildContext context,  (string folder, string name) lib)
     {
         var libraryFolder = Path.Combine(Path.Combine(context.RootDir, lib.folder), "ctrl");
-        var packageFile = $"ix-ax-{lib.name}-{GitVersionInformation.SemVer}.apax.tgz";
+        var packageFile = $"{context.ApaxRegistry}-{lib.name}-{GitVersionInformation.SemVer}.apax.tgz";
         var sourceFile = Path.Combine(libraryFolder, packageFile);
             
         File.Copy(sourceFile, Path.Combine(context.ArtifactsApax, packageFile));
@@ -95,17 +112,5 @@ public static class ApaxCmd
                 Silent = false
             }).WaitForExit();
         }
-
-
-        //var libraryFolder = Path.Combine(Path.Combine(context.RootDir, lib.folder), "ctrl");
-        //var packageFile = $"ix-ax-{lib.name}-{GitVersionInformation.SemVer}.apax.tgz";
-        //context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
-        //{
-        //    Arguments = $"publish -p {packageFile} -r  https://npm.pkg.github.com",
-        //    WorkingDirectory = libraryFolder,
-        //    RedirectStandardOutput = false,
-        //    RedirectStandardError = false,
-        //    Silent = false
-        //}).WaitForExit();
     }
 }
