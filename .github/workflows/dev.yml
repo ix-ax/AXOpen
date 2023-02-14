@@ -29,6 +29,7 @@ jobs:
     - name: "Run build script"
       env:
           GH_TOKEN : ${{ secrets.GH_TOKEN }}
+          GH_USER : ${{ secrets.GH_USER }}
       run: dotnet run --project cake/Build.csproj --do-test true --do-pack true --test-level 2 --do-publish false
     # - name: Test Report
     #   uses: dorny/test-reporter@v1
