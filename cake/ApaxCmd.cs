@@ -7,6 +7,9 @@
 
 using System.IO;
 using Cake.Core.IO;
+using Ix.Compiler;
+using Microsoft.Win32;
+using Octokit;
 using Path = System.IO.Path;
 
 public static class ApaxCmd
@@ -97,20 +100,34 @@ public static class ApaxCmd
         File.Copy(sourceFile, Path.Combine(context.ArtifactsApax, packageFile));
     }
 
-
     public static void ApaxPublish(this BuildContext context, (string folder, string name) lib)
     {
-
+        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = $"login --registry https://npm.pkg.github.com--username { context.GitHubUser } --password { context.GitHubToken }",
+            WorkingDirectory = context.ArtifactsApax,
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        }).WaitForExit();
+        
         foreach (var apaxPackageFile in Directory.EnumerateFiles(context.ArtifactsApax))
         {
-            context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
                 Arguments = $"publish -p {apaxPackageFile} -r  https://npm.pkg.github.com",
                 WorkingDirectory = context.ArtifactsApax,
                 RedirectStandardOutput = false,
                 RedirectStandardError = false,
                 Silent = false
-            }).WaitForExit();
+            });
+
+            process.WaitForExit();
+            
+            if (process.GetExitCode() != 0)
+            {
+                throw new PublishFailedException();
+            }
         }
     }
 }

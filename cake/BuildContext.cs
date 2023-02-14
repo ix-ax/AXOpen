@@ -137,6 +137,10 @@ public class BuildContext : FrostingContext
         ("integrations", "ix.integrations"),        
     };
 
+    public string GitHubUser { get; } = System.Environment.GetEnvironmentVariable("GH_USER");
+    
+    public string GitHubToken { get; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");
+
     public string GetAxFolder((string folder, string name) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl");
