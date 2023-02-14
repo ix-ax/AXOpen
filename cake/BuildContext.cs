@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Cake.Common.Tools.DotNet;
 using Cake.Common.Tools.DotNet.Build;
@@ -21,6 +22,8 @@ using Path = System.IO.Path;
 
 public class BuildContext : FrostingContext
 {
+
+    public string ApaxRegistry => "ix-ax";
 
     public void UpdateApaxVersion(string file, string version)
     {
@@ -41,9 +44,35 @@ public class BuildContext : FrostingContext
 
         System.IO.File.WriteAllText(file, sb.ToString());
     }
+
+    public void UpdateApaxDependencies(string file, IEnumerable<string> dependencies, string version)
+    {
+        var sb = new StringBuilder();
+        foreach (var line in System.IO.File.ReadLines(file))
+        {
+            var newLine = line;
+
+            foreach (var dependency in dependencies.Select(p => $"\"@{ApaxRegistry}/{p}\""))
+            {
+                if (line.Trim().StartsWith(dependency))
+                {
+                    var semicPosition = line.IndexOf(":");
+                    var lenght = line.Length - semicPosition;
+
+                    newLine = $"{line.Substring(0, semicPosition)} : '{version}'";
+                }
+            }
+
+            sb.AppendLine(newLine);
+        }
+
+        System.IO.File.WriteAllText(file, sb.ToString());
+    }
+
     public string Artifacts  => Path.Combine(Environment.WorkingDirectory.FullPath, "..//artifacts//");
 
     public string ArtifactsApax => EnsureFolder(Path.Combine(Artifacts, "apax"));
+
     public string ArtifactsNugets => EnsureFolder(Path.Combine(Artifacts, "nugets"));
 
     public string PackableNugetsSlnf => Path.Combine(RootDir, "ix.framework-packable-only.slnf");
