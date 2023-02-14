@@ -113,12 +113,15 @@ NAMESPACE ix.framework.core
                     step.SetIsDisabled(NOT step.GetIsActive());
                 END_IF;
                 
-                IF step.GetIsActive() AND (step.IsReady() OR step.IsDone()) THEN
+                IF step.GetIsActive() AND (step.IsReady() OR step.IsDone() OR SteppingMode = eSteppingMode#StepByStep) THEN
                     IF (SteppingMode = eSteppingMode#Continous) THEN
                         step.Invoke();
                     // Invoke the step in a case of step mode when StepIn Command is invoked
                     ELSIF (SteppingMode = eSteppingMode#StepByStep) THEN
                         IF StepIn.Execute() THEN
+                            IF _step.HasError() THEN
+                                _step.Restore();
+                            END_IF;
                             step.Invoke();
                         END_IF;
                     END_IF;

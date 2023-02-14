@@ -12,6 +12,10 @@ namespace intergrations
     {
         public static integrationsTwinController Plc { get; }
             = new(ConnectorAdapterBuilder.Build()
-                .CreateWebApi(System.Environment.GetEnvironmentVariable("AXTARGET"), "Everybody", "", true));       
+                .CreateWebApi(System.Environment.GetEnvironmentVariable("AXTARGET"), "Everybody", "", true));
+
+        //public static integrationsTwinController Plc { get; }
+        //    = new(ConnectorAdapterBuilder.Build()
+        //        .CreateDummy());
     }
 }
