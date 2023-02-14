@@ -146,7 +146,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 
     public override void Run(BuildContext context)
     {
-        if (!context.BuildParameters.DoPublish)
+        if (!context.BuildParameters.DoPack)
         {
             context.Log.Warning($"Skipping packaging.");
             return;
@@ -243,7 +243,7 @@ public sealed class PushPackages : FrostingTask<BuildContext>
                 context.DotNetNuGetPush(nugetFile.FullName,
                     new Cake.Common.Tools.DotNet.NuGet.Push.DotNetNuGetPushSettings()
                     {
-                        ApiKey = Environment.GetEnvironmentVariable("GH_TOKEN"),
+                        ApiKey = context.GitHubToken,
                         Source = "https://nuget.pkg.github.com/ix-ax/index.json",
                         SkipDuplicate = true
                     });
