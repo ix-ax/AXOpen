@@ -9,5 +9,6 @@ namespace ix.framework.core
     public partial class IxComponent
     {        
      
+        
     }
 }
