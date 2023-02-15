@@ -2,7 +2,7 @@ using ix.framework.core;
 
 NAMESPACE core
 
-    CLASS MyCommandTask EXTENDS CommandTask
+    CLASS MyCommandTask EXTENDS IxTask
         VAR PUBLIC
         {#ix-set:AttributeName = "Counter"}
         _counter : ULINT;
@@ -13,7 +13,7 @@ NAMESPACE core
         END_METHOD
     END_CLASS    
 
-    CLASS Tasks EXTENDS ix.framework.core.Context
+    CLASS Tasks EXTENDS ix.framework.core.IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to execute this command"}
             _commandTask : MyCommandTask;

@@ -1,0 +1,84 @@
+﻿@namespace ix.framework.core
+@inherits RenderableComplexComponentBase<IxTask>
+<div class="container text-center">
+
+    <div class="btn-group">
+
+        @if (IsTaskRunning)
+        {
+            <div class="btn @ButtonClass">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <span>@Component.AttributeName</span>
+                <button class="btn btn-close btn-close-white" type="button" @onclick="@AbortTask">
+                </button>
+            </div>
+        }
+        else if (IsTaskAborted)
+        {
+            <button class="btn @ButtonClass" type="button" disabled="@Component.IsDisabled.Cyclic" @onclick="@ResumeTask">
+                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+                <span>@Component.AttributeName</span>
+                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+            </button>
+        }
+        else
+        {
+            <button class="btn @ButtonClass" type="button" disabled="@Component.IsDisabled.Cyclic" @onclick="@InvokeTask">
+                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+                <span>@Component.AttributeName</span>
+                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+            </button>
+        }
+        <button class="btn @ButtonClass" type="button" disabled="@Component.IsDisabled.Cyclic" @onclick="@RestoreTask">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
+                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
+            </svg>
+        </button>
+    </div>
+</div>
+
+@code
+{
+    protected void InvokeTask()
+    {
+        Component.RemoteInvoke.Cyclic = true;
+    }
+    protected void RestoreTask()
+    {
+        Component.RemoteRestore.Cyclic = true;
+    }
+    protected void AbortTask()
+    {
+        Component.RemoteAbort.Cyclic = true;
+    }
+    protected void ResumeTask()
+    {
+        Component.RemoteResume.Cyclic = true;
+    }
+
+    public string ButtonClass = "btn-primary";
+
+    public bool IsTaskRunning => Component.Status.Cyclic == (ushort)eIxTaskState.Busy;
+    public bool IsTaskAborted => Component.Status.Cyclic == (ushort)eIxTaskState.Aborted;
+
+    protected override void OnInitialized()
+    {
+        UpdateValuesOnChange(Component);
+        Component.Status.Subscribe((sender, value) =>
+        {
+            switch ((eIxTaskState)Component.Status.LastValue)
+            {
+                case eIxTaskState.Done:
+                    ButtonClass = "btn-success";
+                    break;
+                case eIxTaskState.Error:
+                    ButtonClass = "btn-danger";
+                    break;
+                default:
+                    ButtonClass = "btn-primary";
+                    break;
+            }
+        });
+    }
+}

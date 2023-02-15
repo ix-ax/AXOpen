@@ -3,77 +3,77 @@ USING AxUnit;
 USING ix.framework.core;
 
 NAMESPACE DocuExamples
-    CLASS CommandTaskExample EXTENDS Context         
+    CLASS IxTaskExample EXTENDS IxContext         
         VAR PUBLIC
-            _myCommandTask : CommandTask;
+            _myTask : IxTask;
             _myCounter : ULINT;
         END_VAR
     
         METHOD PUBLIC Initialize
             // Initialization of the context needs to be called first
             // It does not need to be called cyclically, just once
-            _myCommandTask.Initialize(THIS);
+            _myTask.Initialize(THIS);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
             // Cyclicall call of the Execute
-            IF _myCommandTask.Execute() THEN
+            IF _myTask.Execute() THEN
                 _myCounter := _myCounter + ULINT#1;
-                _myCommandTask.DoneWhen(_myCounter = ULINT#100);
+                _myTask.DoneWhen(_myCounter = ULINT#100);
             END_IF;
         END_METHOD
 
         METHOD Examples
-            // Wait for CommandTask to Complete 
-            IF _myCommandTask.Invoke().IsDone() THEN
+            // Wait for IxTask to Complete 
+            IF _myTask.Invoke().IsDone() THEN
                 ; //Do something
             END_IF;
             // ALTERNATIVELY
-            _myCommandTask.Invoke();
-            IF _myCommandTask.IsDone() THEN
+            _myTask.Invoke();
+            IF _myTask.IsDone() THEN
                 ; //Do something ALTERNATIV
             END_IF;
 
-            // Make sure that the command task is executing 
-            IF _myCommandTask.Invoke().IsBusy() THEN
+            // Make sure that the IxTask is executing 
+            IF _myTask.Invoke().IsBusy() THEN
                 ; //Do something
             END_IF;
 
-            // Check for command task's error 
-            IF _myCommandTask.Invoke().HasError() THEN
+            // Check for IxTask's error 
+            IF _myTask.Invoke().HasError() THEN
                 ; //Do something
             END_IF;
         END_METHOD
     END_CLASS      
 
     {TestFixture}
-    CLASS CommandTaskTest
+    CLASS IxTaskTest
         VAR PROTECTED
-           _MyContext : CommandTaskExample;
+           _MyContext : IxTaskExample;
         END_VAR    
 
         {Test}
-        METHOD PUBLIC counter_inside_command_task_should_have_value_of_100
+        METHOD PUBLIC counter_inside_task_should_have_value_of_100
             VAR
                 cycle : INT;
             END_VAR
             Assert.Equal(ULINT#0,_MyContext._myCounter);
             _MyContext.Initialize();
-            _MyContext._myCommandTask.Invoke();
+            _MyContext._myTask.Invoke();
             FOR cycle := INT#0 TO INT#99 DO
                 _MyContext.Execute();
             END_FOR;
-            Assert.Equal(TRUE,_MyContext._myCommandTask.IsDone());
+            Assert.Equal(TRUE,_MyContext._myTask.IsDone());
             Assert.Equal(ULINT#100,_MyContext._myCounter);
         END_METHOD
     END_CLASS
 
-    CLASS SequencerExample EXTENDS Context
+    CLASS IxSequencerExample EXTENDS IxContext
         VAR PUBLIC
-            _mySequencer : Sequencer;
-            _step_1 : Step;
-            _step_2 : Step;
-            _step_3 : Step;
+            _mySequencer : IxSequencer;
+            _step_1 : IxStep;
+            _step_2 : IxStep;
+            _step_3 : IxStep;
             _myCounter : ULINT;
         END_VAR
     
@@ -89,7 +89,7 @@ NAMESPACE DocuExamples
         METHOD PROTECTED OVERRIDE Main
             _mySequencer.Open();
 
-            // Example of the most simple use of Execute() method of step class, only with coordinator defined. 
+            // Example of the most simple use of Execute() method of step class, only with IxCoordinator defined. 
             IF _step_1.Execute(_mySequencer) THEN
                 // do something
                 _myCounter := _myCounter + ULINT#1;
@@ -123,9 +123,9 @@ NAMESPACE DocuExamples
     END_CLASS
 
     {TestFixture}
-    CLASS SequencerTest
+    CLASS IxSequencerTest
         VAR PROTECTED
-            _MyContext : SequencerExample;
+            _MyContext : IxSequencerExample;
         END_VAR    
 
         {Test}

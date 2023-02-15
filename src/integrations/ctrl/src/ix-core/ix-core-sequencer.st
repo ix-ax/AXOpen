@@ -2,34 +2,34 @@
 NAMESPACE core
     using ix.framework.core;
 
-    CLASS SequencerExample EXTENDS ix.framework.core.Context
+    CLASS SequencerExample EXTENDS ix.framework.core.IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Sequencer example#>"}
-            coord : Sequencer;  
+            coord : IxSequencer;  
             Counter : ULINT;
         END_VAR    
             
         VAR PUBLIC 
             {#ix-set:Description = "Step number one"}
-            step_1 : Step; 
+            step_1 : IxStep; 
             {#ix-set:Description = "Step number two"}
-            step_2 : Step; 
+            step_2 : IxStep; 
             {#ix-set:Description = "Step number three"}
-            step_3 : Step; 
+            step_3 : IxStep; 
             {#ix-set:Description = "Step number four"}
-            step_4 : Step;
+            step_4 : IxStep;
             {#ix-set:Description = "Step number five"}
-            step_5 : Step;
+            step_5 : IxStep;
             {#ix-set:Description = "Step number six"}
-            step_6 : Step;
+            step_6 : IxStep;
             {#ix-set:Description = "Step number seven"}
-            step_7 : Step;
+            step_7 : IxStep;
             {#ix-set:Description = "Step number eight"}
-            step_8 : Step;
+            step_8 : IxStep;
             {#ix-set:Description = "Step number nine"}
-            step_9 : Step;
+            step_9 : IxStep;
             {#ix-set:Description = "Step number ten"}
-            step_10 : Step;
+            step_10 : IxStep;
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main    

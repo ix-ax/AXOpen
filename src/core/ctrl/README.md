@@ -4,11 +4,11 @@
 
 # Basic concepts
 
-## Context
+## IxContext
 
-Context encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any **direct inter-context access to members must be avoided**.
+IxContext encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any **direct inter-context access to members must be avoided**.
 
-**IMPORTANT** Each context must belong to a single PLC task. Multiple contexts can be however running on the same task.
+**IMPORTANT** Each IxContext must belong to a single PLC task. Multiple IxContexts can be however running on the same task.
 
 
 ```mermaid
@@ -19,17 +19,17 @@ Context encapsulates entire application or application units. Any solution may c
     }     
 ```
 
-In its basic implementation context has relatively simple interface. The main method is the method where we place all calls of our sub-routines. **In other words the `Main` is the root of the call tree of our program.**
+In its basic implementation IxContext has relatively simple interface. The main method is the method where we place all calls of our sub-routines. **In other words the `Main` is the root of the call tree of our program.**
 
-`Execute` method runs the context. It must be called cyclically within a program unit that is attached to a cyclic `task`.
+`Execute` method runs the IxContext. It must be called cyclically within a program unit that is attached to a cyclic `task`.
 
-### Why do we need context
+### Why do we need IxContext
 
- `Context` provides counters, object identification and other information about the execution of the program. These information is then used by the objects contained at different levels of the context.
+ `IxContext` provides counters, object identification and other information about the execution of the program. These information is then used by the objects contained at different levels of the IxContext.
 
-### How context works
+### How IxContext works
 
-When you call `Execute` method on an instance of a context, it will ensure opening context, running `Main` method (root of all your program calls) and context closing.
+When you call `Execute` method on an instance of a IxContext, it will ensure opening IxContext, running `Main` method (root of all your program calls) and IxContext closing.
 
 
 ```mermaid
@@ -39,27 +39,27 @@ When you call `Execute` method on an instance of a context, it will ensure openi
     id1(Open):::run-->id2(#Main*):::main-->id3(Close):::run-->id1
 ```
 
-### How to use context
+### How to use IxContext
 
-Base class for the context is `ix.core.Context`. The entry point of call execution of the context is `Main` method. Notice that the `context` class is abstract and cannot be instantiated if not extended. `Main` method must be overridden in derived class notice the use of override keyword and also that the method is `protected` which means the it is visible only from within the `Context` and derived classes.
+Base class for the IxContext is `ix.core.IxContext`. The entry point of call execution of the IxContext is `Main` method. Notice that the `IxContext` class is abstract and cannot be instantiated if not extended. `Main` method must be overridden in derived class notice the use of override keyword and also that the method is `protected` which means the it is visible only from within the `IxContext` and derived classes.
 
  
- **How to extend Context class**
+ **How to extend IxContext class**
 
 ~~~SmallTalk
 
 USING ix.core
 
-CLASS PUBLIC MyContext EXTENDS Context
+CLASS PUBLIC MyContext EXTENDS IxContext
     METHOD PROTECTED OVERRIDE Main
-        // Here goes all your logic for given context.
+        // Here goes all your logic for given IxContext.
     END_METHOD
 END_CLASS
 ~~~
 
-Cyclical call of the context logic (`Main` method) is ensured when context `Execute` method is called. `Execute` method is public therefore accessible and visible to any part of the program that whishes to call it.
+Cyclical call of the IxContext logic (`Main` method) is ensured when IxContext `Execute` method is called. `Execute` method is public therefore accessible and visible to any part of the program that whishes to call it.
 
-**How to start context's execution**
+**How to start IxContext's execution**
 
 ~~~SmallTalk
 PROGRAM MyProgram
@@ -72,25 +72,25 @@ END_PROGRAM
 ~~~
 
 
-## Object
+## IxObject
 
-Object is the base class for any other classes of ix.framework. It provides access to the parent object and the context in which it was initialized.
+IxObject is the base class for any other classes of ix.framework. It provides access to the parent IxObject and the IxContext in which it was initialized.
 
 
 ```mermaid
   classDiagram
     class Object{
-        +Initialize(IContext context)
-        +Initialize(IObject parent)        
+        +Initialize(IIxContext context)
+        +Initialize(IIxObject parent)        
     }     
 ```
 
-**Object initialization within a context**
+**IxObject initialization within a IxContext**
 
 ~~~SmallTalk
-    CLASS PUBLIC MyContext EXTENDS ix.core.Context
+    CLASS PUBLIC MyContext EXTENDS ix.core.IxContext
         VAR
-            _myObject : ix.core.Object;
+            _myObject : ix.core.IxObject;
         END_VAR
         METHOD PROTECTED OVERRIDE Main
             _myObject.Initialize(THIS);            
@@ -98,12 +98,12 @@ Object is the base class for any other classes of ix.framework. It provides acce
     END_CLASS
 ~~~
 
-**Object initialization within another object**
+**IxObject initialization within another IxObject**
 
 ~~~SmallTalk
-    CLASS PUBLIC MyParentObject EXTENDS ix.core.Object
+    CLASS PUBLIC MyParentObject EXTENDS ix.core.IxObject
         VAR
-            _myChildObject : ix.core.Object;
+            _myChildObject : ix.core.IxObject;
         END_VAR
         METHOD PROTECTED OVERRIDE Main
             _myChildObject.Initialize(THIS);            
@@ -111,39 +111,39 @@ Object is the base class for any other classes of ix.framework. It provides acce
     END_CLASS
 ~~~
 
-## CommandTask
+## IxTask
 
-Command task provides basic task execution. CommandTask needs to be initialized to set the proper context.
+IxTask provides basic task execution. IxTask needs to be initialized to set the proper IxContext.
 
-**CommandTask initialization within a context**
+**IxTask initialization within a IxContext**
 
 ~~~SmallTalk
-    CLASS CommandTaskExample EXTENDS Context         
+    CLASS IxTaskExample EXTENDS IxContext         
         VAR PUBLIC
-            _myCommandTask : CommandTask;
+            _myTask : IxTask;
             _myCounter : ULINT;
         END_VAR
     
         METHOD PUBLIC Initialize
-            // Initialization of the context needs to be called before the command is used in the program.
-            // It does not need to be called cyclically.            
-            _myCommandTask.Initialize(THIS);
+            // Initialization of the context needs to be called first
+            // It does not need to be called cyclically, just once
+            _myTask.Initialize(THIS);
         END_METHOD
     END_CLASS  
 ~~~
 
-There are two key methods for managing the command:
+There are two key methods for managing the IxTask:
 
-- `Invoke()` fires the execution of the command (can be called fire&forget or cyclically)
-- `Execute()` method must be called cyclically. The method returns `TRUE` when the command is required to run until enters `Done` state or terminates in error.
+- `Invoke()` fires the execution of the IxTask (can be called fire&forget or cyclically)
+- `Execute()` method must be called cyclically. The method returns `TRUE` when the IxTask is required to run until enters `Done` state or terminates in error.
 
-For termination of the execution of the command task there are following methods:
-- `DoneWhen(Done_Condition)` - terminates the execution of the command task and enters the `Done` state when the `Done_Condition` is `TRUE`.
-- `ThrowWhen(Error_Condition)` - terminates the execution of the command task and enters the `Error` state when the `Error_Condition` is `TRUE`.
-- `Abort()` - terminates the execution of the command task and enters the `Ready` state if the command task is in the `Busy` state, otherwise does nothing.
+For termination of the execution of the IxTask there are following methods:
+- `DoneWhen(Done_Condition)` - terminates the execution of the IxTask and enters the `Done` state when the `Done_Condition` is `TRUE`.
+- `ThrowWhen(Error_Condition)` - terminates the execution of the IxTask and enters the `Error` state when the `Error_Condition` is `TRUE`.
+- `Abort()` - terminates the execution of the IxTask and enters the `Ready` state if the IxTask is in the `Busy` state, otherwise does nothing.
 
-To reset the command task from any state in any moment there is following method:
-- `Restore()` acts as reset of the command (sets the state into `Ready` state from any state of the command task).
+To reset the IxTask from any state in any moment there is following method:
+- `Restore()` acts as reset of the IxTask (sets the state into `Ready` state from any state of the IxTask).
 
 Moreover, there are seven more "event-like" methods that are called when a specific event occurs (see the chart below). 
 
@@ -211,80 +211,79 @@ flowchart TD
     end
 ```
 
-Example of using CommandTask:
+Example of using IxTask:
 ~~~SmallTalk
-    CLASS CommandTaskExample EXTENDS Context         
+    CLASS IxTaskExample EXTENDS IxContext         
         VAR PUBLIC
-            _myCommandTask : CommandTask;
+            _myTask : IxTask;
             _myCounter : ULINT;
         END_VAR
     
         METHOD PUBLIC Initialize
-            // Initialization of the context needs to be called before the command is used in the program.
-            // It does not need to be called cyclically.
-            _myCommandTask.Initialize(THIS);
+            // Initialization of the context needs to be called first
+            // It does not need to be called cyclically, just once
+            _myTask.Initialize(THIS);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
             // Cyclicall call of the Execute
-            IF _myCommandTask.Execute() THEN
+            IF _myTask.Execute() THEN
                 _myCounter := _myCounter + ULINT#1;
-                _myCommandTask.DoneWhen(_myCounter = ULINT#100);
+                _myTask.DoneWhen(_myCounter = ULINT#100);
             END_IF;
         END_METHOD
     END_CLASS  
 ~~~
 
-The task executes upon the `Invoke` method call. `Invoke` fires the execution of `Execute` logic upon the first call, and it does not need cyclical calling.
+The IxTask executes upon the `Invoke` method call. `Invoke` fires the execution of `Execute` logic upon the first call, and it does not need cyclical calling.
 
 ~~~SmallTalk
-    _myCommandTask.Invoke();
+    _myTask.Invoke();
 ~~~
 
-`Invoke()` method returns ICommandTaskState with the following members:
+`Invoke()` method returns IIxTaskState with the following members:
 
  - `IsBusy` indicates the execution started and is running.
  - `IsDone` indicates the execution completed with success.
  - `HasError` indicates the execution terminated with a failure.
- - `IsAborted` indicates that the execution of the command task has been aborted. It should continue by calling the method `Resume()`.
+ - `IsAborted` indicates that the execution of the IxTask has been aborted. It should continue by calling the method `Resume()`.
 
 ~~~SmallTalk
-            // Wait for CommandTask to Complete 
-            IF _myCommandTask.Invoke().IsDone() THEN
+            // Wait for IxTask to Complete 
+            IF _myTask.Invoke().IsDone() THEN
                 ; //Do something
             END_IF;
-            
             // ALTERNATIVELY
-            _myCommandTask.Invoke();
-            IF _myCommandTask.IsDone() THEN
+            _myTask.Invoke();
+            IF _myTask.IsDone() THEN
                 ; //Do something ALTERNATIV
             END_IF;
 ~~~
 
 ~~~SmallTalk
-            // Make sure that the command task is executing 
-            IF _myCommandTask.Invoke().IsBusy() THEN
+            // Make sure that the IxTask is executing 
+            IF _myTask.Invoke().IsBusy() THEN
                 ; //Do something
             END_IF;
 ~~~
 
 ~~~SmallTalk
-            // Check for command task's error 
-            IF _myCommandTask.Invoke().HasError() THEN
+            // Check for IxTask's error 
+            IF _myTask.Invoke().HasError() THEN
                 ; //Do something
             END_IF;
 ~~~
 
-The command task can be started only from the `Ready` state by calling the `Invoke()` method in the same Context cycle as the `Execute()` method is called, regardless the order of the methods calls. After command task completion, the state of the command task will remain in Done, unless:
+The IxTask can be started only from the `Ready` state by calling the `Invoke()` method in the same Context cycle as the `Execute()` method is called, regardless the order of the methods calls. After IxTask completion, the state of the IxTask will remain in Done, unless:
 
-1.) Command task's `Restore` method is called (command task changes it's state to `Ready` state).
+1.) IxTask's `Restore` method is called (IxTask changes it's state to `Ready` state).
 
 2.) `Invoke` method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the `Kicking` state.
 
 
-The command task may finish also in an `Error` state. In that case, the only possibility to get out of `Error` state is by calling the `Restore()` method.
+The IxTask may finish also in an `Error` state. In that case, the only possibility to get out of `Error` state is by calling the `Restore()` method.
 
-To implement any of the already mentioned "event-like" methods the new class that extends from the command task needs to be created. The required method with `PROTECTED OVERRIDE` access modifier needs to be created as well, and the custom logic needs to be placed in.
+To implement any of the already mentioned "event-like" methods the new class that extends from the IxTask needs to be created. The required method with `PROTECTED OVERRIDE` access modifier needs to be created as well, and the custom logic needs to be placed in.
 These methods are:
 - `OnAbort()` - executes once when the task is aborted.
 - `OnResume()` - executes once when the task is resumed.
@@ -337,57 +336,57 @@ Example of implementing "event-like" methods:
 ~~~
 ## Step
 
-Step is an extension class of the CommandTask and provides the basics for the coordinated controlled execution of the task in the desired order based on the coordination mechanism used.
+IxStep is an extension class of the IxTask and provides the basics for the coordinated controlled execution of the task in the desired order based on the coordination mechanism used.
 
-Step contains the `Execute()` method so as its base class overloaded and extended by following parameters:
+IxStep contains the `Execute()` method so as its base class overloaded and extended by following parameters:
 
-- coord (mandatory): instance of the coordination controlling the execution of the step.
-- Enable (optional): if this value is `FALSE`, step body is not executed and the current order of the execution is incremented. 
-- Description (optional): step description text describing the action the step is providing.
+- coord (mandatory): instance of the coordination controlling the execution of the IxStep.
+- Enable (optional): if this value is `FALSE`, IxStep body is not executed and the current order of the execution is incremented. 
+- Description (optional): IxStep description text describing the action the IxStep is providing.
 
-Step class contains following public members:
+IxStep class contains following public members:
 
-- Order: Order of the step in the coordination. This value can be set by calling the method `SetStepOrder()` and read by the method `GetStepOrder()`.
-- StepDescription: step description text describing the action the step is providing. This value can be set by calling the `Execute()` method with `Description` parameter.
-- IsActive: if `TRUE`, the step is currently executing, or is in the order of the execution, otherwise `FALSE`. This value can be set by calling the method `SetIsActive()` and read by the method `GetIsActive()`.                   
-- IsEnabled: if `FALSE`, step body is not executed and the current order of the execution is incremented. This value can be set by calling the method `SetIsEnabled()` or  calling the `Execute()` method with `Enable` parameter and read by the method `GetIsEnabled()`.                      
+- Order: Order of the IxStep in the coordination. This value can be set by calling the method `SetSteoOrder()` and read by the method `GetStepOrder()`.
+- StepDescription: IxStep description text describing the action the IxStep is providing. This value can be set by calling the `Execute()` method with `Description` parameter.
+- IsActive: if `TRUE`, the IxStep is currently executing, or is in the order of the execution, otherwise `FALSE`. This value can be set by calling the method `SetIsActive()` and read by the method `GetIsActive()`.                   
+- IsEnabled: if `FALSE`, IxStep body is not executed and the current order of the execution is incremented. This value can be set by calling the method `SetIsEnabled()` or  calling the `Execute()` method with `Enable` parameter and read by the method `GetIsEnabled()`.                      
 
 
-## Sequencer
+## IxSequencer
 
-Sequencer is a cordinator class provides triggering the steps inside the sequence in the order they are written.
+IxSequencer is an IxCordinator class provides triggering the IxStep-s inside the sequence in the order they are written.
 
-Sequencer extends from CommandTask so it also has to be initialized by calling its `Initialize()` method and started using its `Invoke()` method.
+IxSequencer extends from IxTask so it also has to be initialized by calling its `Initialize()` method and started using its `Invoke()` method.
     
-Sequencer contains following methods:
-- `Open()`: this method must be called cyclically before any logic. It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the sequencer is in the configuring state. From the second context cycle after the sequencer has been invoked the sequencer change its state to running and starts the execution from the first step upto the last one. When sequencer is in running state, order of the step cannot be changed. 
-- `MoveNext()`: Terminates the currently executed step and moves the sequencer's pointer to the next step in order of execution.
-- `RequestStep()`: Terminates the currently executed step and set the sequencer's pointer to the order of the `RequestedStep`. When the order of the `RequestedStep` is higher than the order of the currently finished step (the requested step is "after" the current one) the requested step is started in the same context cycle. When the order of the `RequestedStep` is lower than the order of the currently finished step (the requested step is "before" the current one) the requested step is started in the next context cycle.
-- `CompleteSequence()`: Terminates the currently executed step, completes (finishes) the execution of this sequencer and set the coordination state to Idle. If the `SequenceMode` of the sequencer is set to `Cyclic`, following `Open()` method call in the next context cycle switch it again into the configuring state, reasign the order of the individual steps (even if the orders have been changed) and subsequently set sequencer back into the running state. If the `SequenceMode` of the sequencer is set to `RunOnce`, terminates also execution of the sequencer itself.
-- `GetCoordinatorState()': Returns the current state of the sequencer. 
+IxSequencer contains following methods:
+- `Open()`: this method must be called cyclically before any logic. It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the IxSequencer is in the configuring state. From the second context cycle after the IxSequencer has been invoked the IxSequencer change its state to running and starts the execution from the first step upto the last one. When IxSequencer is in running state, order of the step cannot be changed. 
+- `MoveNext()`: Terminates the currently executed step and moves the IxSequencer's pointer to the next step in order of execution.
+- `RequestStep()`: Terminates the currently executed step and set the IxSequencer's pointer to the order of the `RequestedStep`. When the order of the `RequestedStep` is higher than the order of the currently finished step (the requested step is "after" the current one) the requested step is started in the same context cycle. When the order of the `RequestedStep` is lower than the order of the currently finished step (the requested step is "before" the current one) the requested step is started in the next context cycle.
+- `CompleteSequence()`: Terminates the currently executed step, completes (finishes) the execution of this IxSequencer and set the coordination state to Idle. If the `SequenceMode` of the IxSequencer is set to `Cyclic`, following `Open()` method call in the next context cycle switch it again into the configuring state, reasign the order of the individual steps (even if the orders have been changed) and subsequently set IxSequencer back into the running state. If the `SequenceMode` of the IxSequencer is set to `RunOnce`, terminates also execution of the IxSequencer itself.
+- `GetCoordinatorState()': Returns the current state of the IxSequencer. 
     - `Idle`
     - `Configuring`: assigning the orders to the steps, no step is executed.
     - `Running`: orders to the steps are already assigned, step is executed.
-- `SetSteppingMode()`: Sets the stepping mode of the sequencer. Following values are possible.
+- `SetSteppingMode()`: Sets the stepping mode of the IxSequencer. Following values are possible.
     - `None`:
     - `StepByStep`: if this mode is choosen, each step needs to be started by the invocation of the `StepIn` commmand.
     - `Continous`: if this mode is choosen (default), each step is started automaticcaly after the previous one has been completed.
-- `GetSteppingMode()`: Gets the current stepping mode of the sequencer. 
-- `SetSequenceMode()`: Sets the sequence mode of the sequencer. Following values are possible.
+- `GetSteppingMode()`: Gets the current stepping mode of the IxSequencer. 
+- `SetSequenceMode()`: Sets the sequence mode of the IxSequencer. Following values are possible.
     - `None`:
     - `RunOnce`: if this mode is choosen, after calling the method `CompleteSequence()` the execution of the sequence is terminated.
     - `Cyclic`: if this mode is choosen (default), after calling the method `CompleteSequence()` the execution of the sequence is "reordered" and started from beginning.
-- `GetSequenceMode()`: Gets the current sequence mode of the sequencer. 
+- `GetSequenceMode()`: Gets the current sequence mode of the IxSequencer. 
 - `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
 
 
 ~~~SmallTalk
-    CLASS SequencerExample EXTENDS Context
+    CLASS IxSequencerExample EXTENDS IxContext
         VAR PUBLIC
-            _mySequencer : Sequencer;
-            _step_1 : Step;
-            _step_2 : Step;
-            _step_3 : Step;
+            _mySequencer : IxSequencer;
+            _step_1 : IxStep;
+            _step_2 : IxStep;
+            _step_3 : IxStep;
             _myCounter : ULINT;
         END_VAR
     
@@ -403,7 +402,7 @@ Sequencer contains following methods:
         METHOD PROTECTED OVERRIDE Main
             _mySequencer.Open();
 
-            // Example of the most simple use of Execute() method of step class, only with coordinator defined. 
+            // Example of the most simple use of Execute() method of step class, only with IxCoordinator defined. 
             IF _step_1.Execute(_mySequencer) THEN
                 // do something
                 _myCounter := _myCounter + ULINT#1;
