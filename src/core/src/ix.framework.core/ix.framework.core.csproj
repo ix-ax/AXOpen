@@ -16,4 +16,8 @@
 	<ItemGroup>
 		<Compile Include=".g\**" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include=".g\" />
+	</ItemGroup>
 </Project>
