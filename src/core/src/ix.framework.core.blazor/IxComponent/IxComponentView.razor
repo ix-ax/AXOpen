@@ -1,0 +1,23 @@
+﻿@namespace ix.framework.core
+@using Ix.Connector.ValueTypes;
+@inherits RenderableComplexComponentBase<IxComponent>
+
+
+<div class="container text-left">
+    <div class="row bg-white text-dark">
+        <h1 >
+            dadsa
+        </h1>
+        <div class="col">
+                @Component.AttributeName
+        </div>
+    </div>
+</div>
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        UpdateValuesOnChange(Component);
+    }
+}

@@ -4,16 +4,18 @@ PROGRAM MyProgram
         ixcoreSequencers : core.SequencerExample;
         I_am_alive : ULINT;
         ixcoreTasks : core.Tasks;
+        myPlcComponent : MyPlcComponent;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
     MainContext.Execute();
     ixcoreTasks.Execute();
     ixcoreSequencers.Execute();
+    myPlcComponent.Execute();
 END_PROGRAM
 
 USING ix.framework.core;
 
-CLASS PUBLIC Cylinder EXTENDS ix.framework.core.Object
+CLASS PUBLIC Cylinder EXTENDS ix.framework.core.IxObject
     VAR PUBLIC
         _home : REF_TO BOOL;
         _work : REF_TO BOOL;
@@ -24,22 +26,22 @@ CLASS PUBLIC Cylinder EXTENDS ix.framework.core.Object
 
     VAR PUBLIC
         {#ix-set:AttributeName = "Move Home"}
-        _moveHomeCommand : CommandTask;
+        _moveHomeCommand : IxTask;
         {#ix-set:AttributeName = "Move Work"}
-        _moveWorkCommand : CommandTask;
+        _moveWorkCommand : IxTask;
     END_VAR    
     
-    METHOD PUBLIC MoveHome : ICommandTaskState       
+    METHOD PUBLIC MoveHome : IIxTaskState       
         MoveHome :=_moveHomeCommand.Invoke();
     END_METHOD    
 
-    METHOD PUBLIC MoveWork : ICommandTaskState       
+    METHOD PUBLIC MoveWork : IIxTaskState       
         MoveWork :=_moveWorkCommand.Invoke();
     END_METHOD    
 
     METHOD PUBLIC Initialize        
         VAR_INPUT
-            parent : IContext;
+            parent : IIxContext;
             home : REF_TO BOOL;
             work : REF_TO BOOL;
             moveHome : REF_TO BOOL;
@@ -70,7 +72,7 @@ CLASS PUBLIC Cylinder EXTENDS ix.framework.core.Object
 END_CLASS    
 
 
-CLASS MyContext EXTENDS ix.framework.core.Context
+CLASS MyContext EXTENDS ix.framework.core.IxContext
     VAR PUBLIC 
         _counter : INT; 
         _cylinder1 : Cylinder;   

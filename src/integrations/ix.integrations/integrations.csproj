@@ -16,10 +16,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include=".g\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <ProjectReference Include="..\..\core\src\ix.framework.core\ix.framework.core.csproj" />
 	</ItemGroup>
+
+  <ItemGroup>
+    <Compile Include=".g\**" />
+  </ItemGroup>
 </Project>
