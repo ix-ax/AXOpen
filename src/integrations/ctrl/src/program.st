@@ -4,13 +4,13 @@ PROGRAM MyProgram
         ixcoreSequencers : core.SequencerExample;
         I_am_alive : ULINT;
         ixcoreTasks : core.Tasks;
-        myPlcComponent : MyPlcComponent;
+        myComponentExample : ComponentExample;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
     MainContext.Execute();
     ixcoreTasks.Execute();
     ixcoreSequencers.Execute();
-    myPlcComponent.Execute();
+    myComponentExample.Execute();
 END_PROGRAM
 
 USING ix.framework.core;

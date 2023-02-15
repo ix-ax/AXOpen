@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ix.framework.core
 {
     public partial class IxComponent
-    {
-        
+    {        
+     
     }
 }

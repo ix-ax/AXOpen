@@ -1,8 +1,22 @@
 ﻿@page "/IxCore"
 @using intergrations
+@using ix.framework.core;
 <h3>ix_core</h3>
 
+
 <div class="container">
+    <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+        Simple IxComponent example
+    </div>
+    <div class="container text-left">
+        <div class="col">
+            <IxComponentView Component="@Entry.Plc.myComponentExample"
+                             Collapsed="true"
+                             Presentation="Base-Control" />
+
+        </div>
+    </div>
+    
     <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
         Simple Command Task Button.
     </div>
