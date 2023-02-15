@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.core"
-version          : '0.1.0-20-complete-build-script-for-ixframework.1'
+version                          : '0.1.0-20-complete-build-script-for-ixframework.1'
 type: lib
 targets:
   - "1500"
@@ -12,9 +12,9 @@ devDependencies:
   "@ax/sdk": 3.0.8
 repository: 
   type: "git"
-  url: "https://github.com/PTKu/ix.framework.git"
-license: "https://github.com/PTKu/ix.framework/blob/dev/license"
-homepage: "https://github.com/PTKu/ix.framework"
+  url: "https://github.com/ix-ax/ix.framework.git"
+license: "https://github.com/ix-ax/ix.framework/blob/dev/license"
+homepage: "https://github.com/ix-ax/ix.framework"
 
 scripts:
   postbuild:                

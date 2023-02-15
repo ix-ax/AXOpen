@@ -95,14 +95,25 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        context.Libraries.ToList().ForEach(lib => 
+        context.Libraries.ToList().ForEach(lib =>
         {
+            context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
+            context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
             context.ApaxInstall(lib);
             context.ApaxBuild(lib);
+            //context.ApaxIxc(lib);
         });
 
-        context.Integrations.ToList().ForEach(proj => context.ApaxInstall(proj));
-        context.Integrations.ToList().ForEach(proj => context.ApaxBuild(proj));
+        context.Integrations.ToList().ForEach(proj =>
+        {
+            context.UpdateApaxVersion(context.GetApaxFile(proj), GitVersionInformation.SemVer);
+            context.UpdateApaxDependencies(context.GetApaxFile(proj), context.Libraries.Select(p => p.name), GitVersionInformation.SemVer);
+            context.ApaxInstall(proj);
+            context.ApaxBuild(proj);
+            //context.ApaxIxc(proj);
+        });
+        
+       
 
         context.DotNetBuild(Path.Combine(context.RootDir, "ix.framework.sln"), context.DotNetBuildSettings);
     }
@@ -135,7 +146,7 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 
     public override void Run(BuildContext context)
     {
-        if (!context.BuildParameters.DoPublish)
+        if (!context.BuildParameters.DoPack)
         {
             context.Log.Warning($"Skipping packaging.");
             return;
@@ -149,7 +160,6 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
     {
         context.Libraries.ToList().ForEach(lib =>
         {
-            context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
             context.ApaxPack(lib);
             context.ApaxCopyArtifacts(lib);
         });
@@ -205,33 +215,7 @@ public sealed class LicenseComplianceCheckTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        ////var licensedFiles = Directory.EnumerateFiles(Path.Combine(context.RootDir, "apax", ".apax", "packages"),
-        //var licensedFiles = Directory.EnumerateFiles(Path.Combine(context.RootDir, "apax", "stc"),
-        //    "AX.*.*",
-        //    SearchOption.AllDirectories)
-        //    .Select(p => new FileInfo(p));
-
-        //if (licensedFiles.Count() < 5)
-        //    throw new Exception("");
-
-
-        //foreach (var nugetFile in Directory.EnumerateFiles(context.Artifacts, "*.nupkg", SearchOption.AllDirectories))
-        //{
-        //    using (var zip = ZipFile.OpenRead(nugetFile))
-        //    {
-        //        var ouptutDir = Path.Combine(context.Artifacts, "verif");
-        //        zip.ExtractToDirectory(Path.Combine(context.Artifacts, "verif"));
-
-        //        if (Directory.EnumerateFiles(ouptutDir, "*.*", SearchOption.AllDirectories)
-        //            .Select(p => new FileInfo(p))
-        //            .Any(p => licensedFiles.Any(l => l.Name == p.Name)))
-        //        {
-        //            throw new Exception("");
-        //        }
-
-        //        Directory.Delete(ouptutDir, true);
-        //    }
-        //}
+        
     }
 }
 
@@ -259,7 +243,7 @@ public sealed class PushPackages : FrostingTask<BuildContext>
                 context.DotNetNuGetPush(nugetFile.FullName,
                     new Cake.Common.Tools.DotNet.NuGet.Push.DotNetNuGetPushSettings()
                     {
-                        ApiKey = Environment.GetEnvironmentVariable("GH_TOKEN"),
+                        ApiKey = context.GitHubToken,
                         Source = "https://nuget.pkg.github.com/ix-ax/index.json",
                         SkipDuplicate = true
                     });
