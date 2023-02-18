@@ -10,14 +10,16 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Ix.Connector" Version="0.13.3-alpha.53" />
+		<PackageReference Include="Ix.Connector" Version="0.13.3-alpha.59" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include=".g\" />
 		<Compile Include=".g\**" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include=".g\" />
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
 	</ItemGroup>
 </Project>
