@@ -49,4 +49,5 @@ scripts:
     - ..\\scripts\\StartPlcSimAdvCli.exe
     - apax install
     - apax rr
-  
+  da:
+    - apax do-it-all

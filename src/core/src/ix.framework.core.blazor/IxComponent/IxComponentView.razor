@@ -1,85 +1,55 @@
 ﻿@namespace ix.framework.core
 @using Ix.Connector.ValueTypes;
+@using Ix.Presentation.Blazor.Controls.Layouts.TabControlComponents
 @inherits RenderableComplexComponentBase<IxComponent>
 
 
 <div class="container text-left">
     <label>@Component.AttributeName</label>
     <div class="row">
-        @if (ContainsAlwaysVisibleClass && ContainsExpandableClass)
-        {
-            <div class="row">
-                @if (Collapsed)
-                {
-                    <div class="col-11">
+        <table border="1" width="100%">
+            <col style="width:95%">
+            <col style="width:5%">
+            <tbody>
+                <tr>
+                    <td align="left" style="vertical-align: top;">
                         <RenderableContentControl Presentation="@Presentation" Context="@Header" />
-                    </div>
-                    <div class="col-1">
-                        <button @onclick="@Toggle" class="btn btn-primary" role="button">+</button>
-                    </div>
-                }
-                else
+                    </td>
+                    @if (ContainsDetailsAttribute)
+                    {
+                        <td align="right" style="vertical-align: top;">
+                            <button @onclick="@Toggle" class="btn btn-primary" role="button">@BtnString</button>
+                        </td>                        
+                    }
+                </tr>
+                @if (!Collapsed)
                 {
-                    <div class="col-11">
-                        <RenderableContentControl Presentation="@Presentation" Context="@Header" />
-                    </div>
-                    <div class="col-1">
-                        <button @onclick="@Toggle" class="btn btn-primary" role="button">-</button>
-                    </div>
+                    <TabControl>
+
+                         @foreach (var detailsTab in DetailsTabs)
+                        {
+                                <TabPage Text="@detailsTab.HumanReadable">
+                                    <RenderableContentControl Presentation="@Presentation" Context=@detailsTab/>
+                                </TabPage>
+                          }
+                    </TabControl>
                 }
-            </div>
-
-
-            @if (!Collapsed)
-            {
-                <div class="row">
-                    <RenderableContentControl Presentation="@Presentation" Context="@Details" />
-                </div>
-            }
-        }
-        else if (ContainsAlwaysVisibleClass && !ContainsExpandableClass)
-        {
-            <div class="col">
-                <RenderableContentControl Presentation="@Presentation" Context="@Header" />
-            </div>
-        }
-        else if (!ContainsAlwaysVisibleClass && ContainsExpandableClass)
-        {
-            <div class="row">
-                @if (Collapsed)
-                {
-                    <div class="col">
-                        <button @onclick="@Toggle" class="btn btn-primary" role="button">+</button>
-                    </div>
-                }
-                else
-                {
-                    <div class="col">
-                        <button @onclick="@Toggle" class="btn btn-primary" role="button">-</button>
-                    </div>
-                }
-            </div>
-
-
-            @if (!Collapsed)
-            {
-                <div class="row">
-                    <RenderableContentControl Presentation="@Presentation" Context="@Details" />
-                </div>
-            }
-        }
-        else
-        {
-            <div class="row">
-                No idea why the commented code below does not render
-@*                <RenderableContentControl Presentation="@Presentation" Context="@Component" />*@
-            </div>
-        }
+            </tbody>
+        </table>
     </div>
 </div>
 
 
 @code {
+    private string _btnString= "+";
+    public string BtnString
+    {
+        get 
+        {
+            _btnString = Collapsed ? "+" : "-";
+            return this._btnString;
+        }
+    }
     private string _presentation = "Base";
     [Parameter]
     public string Presentation 
@@ -100,13 +70,9 @@
     [Parameter]
     public bool Collapsed { get { return _collapsed; } set { _collapsed = value; } }
 
-    private bool ContainsAlwaysVisibleClass;
-    private bool ContainsExpandableClass;
-    private bool ContainsTasksClass;
-    private bool ContainsDetailsClass;
-    private bool ContainsSettingsClass;
-    private bool ContainsDiagnosticsClass;
-    private bool ContainsHelpClass;
+    private bool ContainsHeaderAttribute;
+    private bool ContainsDetailsAttribute;
+    private IEnumerable<string> tabNames = new List<string>();
 
     void Toggle()
     {
@@ -115,8 +81,10 @@
 
     protected override void OnInitialized()
     {
-        ContainsAlwaysVisibleClass = this.Component.GetType().GetProperty("AlwaysVisible") != null;
-        ContainsExpandableClass = this.Component.GetType().GetProperty("Expandable") != null;
+        ContainsHeaderAttribute = this.Header.GetKids().Count() != 0;       
+        tabNames = GetAllTabNames(this.Component);
+        ContainsDetailsAttribute = this.DetailsTabs.Count() != 0;
+
 
         UpdateValuesOnChange(Component);
     }

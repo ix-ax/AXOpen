@@ -11,4 +11,33 @@ namespace ix.framework.core
      
         
     }
+
+    
+    public class ComponentHeaderAttribute : Attribute
+    {
+        public ComponentHeaderAttribute()
+        {
+        }
+        public ComponentHeaderAttribute(string tabName)
+        {
+            TabName = tabName;
+        }
+
+        public string TabName { get; }
+    }
+
+    
+    public class ComponentDetailsAttribute : Attribute
+    {
+        public ComponentDetailsAttribute()
+        {
+        }
+
+        public ComponentDetailsAttribute(string tabName)
+        {
+            TabName = tabName;
+        }
+
+        public string TabName { get; }
+    }
 }
