@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.core"
-version                           : '0.1.1-alpha.25'
+version                            : '0.1.1-alpha.26'
 type: lib
 targets:
   - "1500"
