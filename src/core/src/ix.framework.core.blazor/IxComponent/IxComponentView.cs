@@ -152,6 +152,10 @@ namespace ix.framework.core
             {
                return this.GetParent()?.GetConnector();
             }
+
+            public void Poll()
+            {
+            }
         }
         public ITwinObject Header 
         {

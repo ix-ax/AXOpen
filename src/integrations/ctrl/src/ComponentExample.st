@@ -69,7 +69,7 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
         Settings : Settings_ComponentExample;
 
         // Complete structure as a part of the component details tab `Diagnostics` as the attribute [ComponentDetails("Diagnostics")] 
-        // is defined on the class Diagnostics_ComponentExample. 
+        // is defined on the class Diagnostics_ComponentExample. git 
         // All structure members are going to be added to the previous members of the component details tab `Diagnostics`.
         {#ix-set:AttributeName = "Diagnostics"}
         Diagnostics : Diagnostics_ComponentExample;
