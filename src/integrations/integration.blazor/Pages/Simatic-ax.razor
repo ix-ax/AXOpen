@@ -3,6 +3,7 @@
 @using System.Data
 @using System.ComponentModel
 
+
 <PageTitle>simatic-ax</PageTitle>
 
 <h1>Simatic-AX + IX in Blazor</h1>
@@ -19,7 +20,7 @@
     <div class="row">
         <div class="col">
             <RenderableContentControl Presentation="Control-Base"
-                                      Context="@Entry.Plc.I_am_alive" />
+                                      Context="@Entry.Plc.I_am_alive" PollingInterval="100" />
         </div>
         <div class="col">
             <div class="pt-4">

@@ -155,6 +155,7 @@ namespace ix.framework.core
 
             public void Poll()
             {
+                
             }
         }
         public ITwinObject Header 

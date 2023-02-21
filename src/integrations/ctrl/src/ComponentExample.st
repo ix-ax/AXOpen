@@ -15,27 +15,30 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
         // Complete structure as a part of the component header. 
         // All structure members are going to be displayed in the component header.
         {#ix-attr:[Container(Layout.Wrap)]}
-        {#ix-attr:[ComponentHeader()]}
+        {#ix-attr:[ComponentDetails("ForPetoBarancek")]}
         Header : Header_ComponentExample;
+        {#ix-attr:[ComponentDetails("ForPetoBarancek")]}
+        {#ix-set:AttributeName = "Header task 1"}
+        HeaderTask2 : IxTask;
 
         // Two separate tasks as a part of the component header. 
         // These tasks are going to be added to the previous members of the component header.
         {#ix-attr:[ComponentHeader()]}        
         {#ix-set:AttributeName = "Header task 1"}
         HeaderTask1 : IxTask;
-        {#ix-attr:[ComponentHeader()]}
-        {#ix-set:AttributeName = "Header task 2"}
-        HeaderTask2 : IxTask;
+
 
         // Single task as a part of the component details tab `Tasks`. 
         // This task is going to be displayed in the component details tab `Tasks`
         {#ix-attr:[ComponentDetails("Tasks")]}
+        {#ix-attr:[Container(Layout.Stack)]}
         {#ix-set:AttributeName = "Detail task in Tasks tab"}
         DetailTaskInTasksTab : IxTask;
  
         // Complete structure as a part of the component details tab `Tasks`. 
         // All structure members are going to be added to the previous members of the component details tab `Tasks`.
         {#ix-set:AttributeName = "Tasks"}
+        {#ix-attr:[Container(Layout.Stack)]}
         Tasks : Tasks_ComponentExample;
  
         // Complete structure as a part of the component details tab `Status` as the attribute [ComponentDetails("Status")] 
@@ -95,31 +98,12 @@ CLASS PUBLIC Header_ComponentExample
     END_VAR
 END_CLASS
 
-{#ix-attr:[ComponentDetails("Tasks")]}
-{#ix-attr:[Container(Layout.Tabs)]}
-CLASS PUBLIC Expandable_ComponentExample
-    VAR PUBLIC
-        {#ix-set:AttributeName = "Tasks"}
-        Tasks : Tasks_ComponentExample;
-
-        {#ix-set:AttributeName = "Status"}
-        Status : Status_ComponentExample;
-
-        {#ix-set:AttributeName = "Settings"}
-        Settings : Settings_ComponentExample;
-
-        {#ix-set:AttributeName = "Diagnostics"}
-        Diagnostics : Diagnostics_ComponentExample;
-
-        {#ix-set:AttributeName = "Help"}
-        Help : Help_ComponentExample;
-    END_VAR
-END_CLASS
-
-{#ix-attr:[ComponentDetails("Tasks")]}
 {#ix-attr:[Container(Layout.Stack)]}
+{#ix-attr:[ComponentDetails("Tasks")]}
 CLASS PUBLIC Tasks_ComponentExample
     VAR PUBLIC
+        {#ix-set:AttributeName = "Some status value 1"}
+        SomeStatusValue1 : REAL := REAL#45.3;
         {#ix-set:AttributeName = "Some advanced component task 1"}
         SomeAdvancedComponentTask1 : IxTask;
         {#ix-set:AttributeName = "Some advanced component task 2"}

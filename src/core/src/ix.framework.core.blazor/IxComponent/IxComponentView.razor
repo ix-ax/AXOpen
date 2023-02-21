@@ -4,38 +4,37 @@
 @inherits RenderableComplexComponentBase<IxComponent>
 
 
-<div class="container text-left">
-    <label>@Component.AttributeName</label>
-    <div class="row">
-        <table border="1" width="100%">
-            <col style="width:95%">
-            <col style="width:5%">
-            <tbody>
-                <tr>
-                    <td align="left" style="vertical-align: top;">
-                        <RenderableContentControl Presentation="@Presentation" Context="@Header" />
-                    </td>
-                    @if (ContainsDetailsAttribute)
-                    {
-                        <td align="right" style="vertical-align: top;">
-                            <button @onclick="@Toggle" class="btn btn-primary" role="button">@BtnString</button>
-                        </td>                        
-                    }
-                </tr>
-                @if (!Collapsed)
-                {
-                    <TabControl>
+<div class="card">
+    <div class="card-header d-flex">
+       
+        <div class="p-0 w-100"><h5>@Component.AttributeName</h5></div>
+        <div class="p-0 flex-shrink-1">
+            @if (ContainsDetailsAttribute)
+            {
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+                        <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+                    </svg>
+                </button>
+            }
+        </div>
+    </div>
+   
+    <div class="card-body">
+        <RenderableContentControl Presentation="@Presentation" Context="@Header" Class="d-flex align-end" />
+    </div>
 
-                         @foreach (var detailsTab in DetailsTabs)
-                        {
-                                <TabPage Text="@detailsTab.HumanReadable">
-                                    <RenderableContentControl Presentation="@Presentation" Context=@detailsTab/>
-                                </TabPage>
-                          }
-                    </TabControl>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <TabControl>
+                @foreach (var detailsTab in DetailsTabs)
+                {
+                    <TabPage Text="@detailsTab.HumanReadable">
+                        <RenderableContentControl Presentation="@Presentation" Context=@detailsTab   />
+                    </TabPage>
                 }
-            </tbody>
-        </table>
+            </TabControl>
+        </div>
     </div>
 </div>
 

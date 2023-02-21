@@ -1,7 +1,7 @@
 ﻿@namespace ix.framework.core
 @using Ix.Connector.ValueTypes;
 @inherits RenderableComplexComponentBase<IxStep>
-
+@implements IDisposable;
 
 <div class="container text-left">
     <div class="row @RowClass">
@@ -11,14 +11,14 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
                     <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
                 </svg>
-                @Component.Description
+                @Description
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
                     <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
                 </svg>
             }
             else
             {
-                @Component.Description
+                @Description
             }
         </div>
         <div class="col">
@@ -35,35 +35,45 @@
     public string RowClass = "bg-white text-dark";
     public bool IsActive => Component.IsActive.Cyclic == true;
 
+    protected string Description => string.IsNullOrEmpty(Component.Description) ? Component.StepDescription.Cyclic : Component.Description;
+
+    protected void UpdateStepRowColors(object sender, EventArgs e)
+    {
+        switch ((eIxTaskState)Component.Status.LastValue)
+        {
+            case eIxTaskState.Disabled:
+                RowClass = "bg-secondary text-white";
+                break;
+            case eIxTaskState.Ready:
+                RowClass = "bg-primary text-white";
+                break;
+            case eIxTaskState.Kicking:
+                RowClass = "bg-light text-dark";
+                break;
+            case eIxTaskState.Busy:
+                RowClass = "bg-warning text-dark";
+                break;
+            case eIxTaskState.Done:
+                RowClass = "bg-success text-white";
+                break;
+            case eIxTaskState.Error:
+                RowClass = "bg-danger text-white";
+                break;
+            default:
+                RowClass = "bg-white text-dark";
+                break;
+        }
+    }
+
     protected override void OnInitialized()
     {
         UpdateValuesOnChange(Component);
-        Component.Status.Subscribe((sender,value) =>
-        {
-            switch ((eIxTaskState)Component.Status.LastValue)
-            {
-                case eIxTaskState.Disabled:
-                    RowClass = "bg-secondary text-white";
-                    break;
-                case eIxTaskState.Ready:
-                    RowClass = "bg-primary text-white";
-                    break;
-                case eIxTaskState.Kicking:
-                    RowClass = "bg-light text-dark";
-                    break;
-                case eIxTaskState.Busy:
-                    RowClass = "bg-warning text-dark";
-                    break;
-                case eIxTaskState.Done:
-                    RowClass = "bg-success text-white";
-                    break;
-                case eIxTaskState.Error:
-                    RowClass = "bg-danger text-white";
-                    break;
-                default:
-                    RowClass = "bg-white text-dark";
-                    break;
-            }
-        });
+        UpdateStepRowColors(this, new EventArgs());
+        Component.Status.PropertyChanged += UpdateStepRowColors;
+    }
+
+    public void Dispose()
+    {
+        Component.Status.PropertyChanged -= UpdateStepRowColors;
     }
 }
