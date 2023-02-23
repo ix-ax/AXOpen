@@ -1,0 +1,36 @@
+﻿@namespace ix.framework.core
+@inherits RenderableComplexComponentBase<IxSequencer>
+
+<div class="container-lg">
+    <div class="row">
+        <div class="col">
+            <ix.framework.core.IxTaskCommandView Component="@Component" />
+        </div>
+    </div>
+    <div class="row">   
+        <div class="col">
+            <RenderableContentControl Context="@Component.SequenceMode" Presentation="Control" />
+        </div>
+        <div class="col">
+            <RenderableContentControl Context="@Component.SteppingMode" Presentation="Control" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="Command"/>
+        </div>
+        <div class="col">
+            <RenderableContentControl Context="@Component.StepIn" Presentation="Command"/>
+        </div>
+        <div class="col">
+            <RenderableContentControl Context="@Component.StepForwardCommand" Presentation="Command"/>
+        </div>
+    </div>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        UpdateValuesOnChange(Component);
+    }
+}

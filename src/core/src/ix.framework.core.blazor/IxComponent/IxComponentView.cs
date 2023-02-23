@@ -145,7 +145,7 @@ namespace ix.framework.core
 
             public void Poll()
             {
-                
+                this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
             }
         }
         public ITwinObject Header

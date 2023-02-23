@@ -7,11 +7,11 @@
 
             @if (IsTaskRunning)
             {
-                <div class="btn @ButtonClass">
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                <button class="btn @ButtonClass" type="button" disabled="@Component.IsDisabled.Cyclic" @onclick="@AbortTask">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" />
                     <span>@Component.AttributeName</span>
-                    <span class="oi oi-media-pause text-white ms-1 mt-0 me-0 mb-0 p-0" type="button" @onclick="@AbortTask"/>
-                </div>
+                    <span class="oi oi-media-pause text-white ms-1 mt-0 me-0 mb-0 p-0"/>
+                </button>
             }
             else if (IsTaskAborted)
             {

@@ -1,5 +1,6 @@
 ﻿@namespace ix.framework.core
 @using Ix.Connector.ValueTypes
+@using Ix.Connector;
 @using Ix.Presentation.Blazor.Controls.Layouts.TabControlComponents
 @inherits RenderableComplexComponentBase<IxComponent>
 
@@ -18,7 +19,7 @@
     </div>
    
     <div class="card-body">
-        <RenderableContentControl Presentation="@Presentation" Context="@Header" Class="bg-light rounded-3 shadow" LayoutClass="align-items-end"/>
+        <RenderableContentControl Presentation="@CurrentPresentation" Context="@Header" Class="bg-light rounded-3 shadow" LayoutClass="align-items-end"/>
     </div>
 
     @if (ContainsDetailsAttribute)
@@ -31,7 +32,7 @@
                         <TabPage Text="@detailsTab.HumanReadable">
                             <RenderableContentControl 
                             Context=@detailsTab
-                            Presentation="@Presentation"
+                            Presentation="@CurrentPresentation"
                             Class="bg-light rounded-3 shadow"
                             LayoutClass="align-items-end" 
                             LayoutChildrenClass="ms-0"/>
@@ -65,9 +66,25 @@
             }
             else
             {
-                this._presentation = "Display";
+                this._presentation = "Status-Display";
             }
 
+        }
+    }
+
+    private string _currentPresentation = "Base";
+    public string CurrentPresentation
+    {
+        get
+        {
+            return this._currentPresentation;
+        }
+        set
+        {
+            if (!string.IsNullOrEmpty(value))
+            {
+                this._currentPresentation = value;
+            }
         }
     }
 
@@ -75,16 +92,35 @@
     private bool ContainsDetailsAttribute;
     private IEnumerable<string> tabNames = new List<string>();
 
-    protected override void OnInitialized()
+    protected void UpdateServiceMode(object sender, EventArgs e)
     {
+        if (this.Component._isinServiceMode.Cyclic)
+        {
+            CurrentPresentation = Presentation;
+        }
+        else
+        {
+            CurrentPresentation = "Status-Display";
+        }
+    }
+    protected override void OnInitialized()
+    {      
         ContainsHeaderAttribute = this.Header.GetKids().Count() != 0;       
         tabNames = GetAllTabNames(this.Component);
         ContainsDetailsAttribute = this.DetailsTabs.Count() != 0;
         UpdateValuesOnChange(Component);
+        UpdateServiceMode(this, new EventArgs());
+        Component._isinServiceMode.PropertyChanged += UpdateServiceMode;
     }
 
     private void Collapse()
     {
         isCollapsed = !isCollapsed;
+    }
+
+
+    public void Dispose()
+    {
+        Component._isinServiceMode.PropertyChanged -= UpdateServiceMode;
     }
 }

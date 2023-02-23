@@ -9,44 +9,79 @@
         Simple IxComponent example
     </div>
     <div class="container text-left">
+        <div class="row">
         <div class="col">
             <RenderableContentControl Context="@Entry.Plc.myComponentExamples.ServiceMode" Presentation="Control" />
-            <RenderableContentControl Context="@Entry.Plc.myComponentExamples.MyComponent._isinServiceMode" Presentation="Control" />
         </div>
         <div class="col">
-           <IxComponentView Component="@Entry.Plc.myComponentExamples.MyComponent" Presentation="Display" />
+            <RenderableContentControl Context="@Entry.Plc.myComponentExamples.MyComponent._isinServiceMode" Presentation="Display" />
+        </div>
+        </div>
+        <div class="col">
+           <IxComponentView Component="@Entry.Plc.myComponentExamples.MyComponent" Presentation="Command-Control" />
         </div>
     </div>
     
-    <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
-        Simple Command Task Button.
-    </div>
-    <div class="container text-left">
-        <div class="row">
-            <div class="col">
-                <div class="row">
-                    <RenderableContentControl Context="@Entry.Plc.ixcoreTasks"  />
+    <div class="card">
+        <div class="card-header d-flex">
+            <div class="h4 p-0 w-100 mb-4 text-primary border-bottom border-primary">Simple Command Task Example.</div>
+            <div class="p-0 flex-shrink-1">
+               <button class="btn btn-primary" type="button" @onclick="CollapseTaskExample">
+                   <span class="oi oi-chevron-top @(isCollapsedTaskExample ? "open" : "")" aria-hidden="true"></span>
+               </button>
+           </div>
+        </div>
+        <div class="@(isCollapsedTaskExample ? "collapse" : null)">
+            <div class="card card-body">
+                <div class="container text-left">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card ps-2">
+                                <label>Presentation type: Command</label>
+                                <RenderableContentControl Context="@Entry.Plc.ixcoreTasks" Presentation="Command" Class="ps-2" />
+                            </div>
+                            <div class="card ps-2">
+                                <label>Presentation type: Control</label>
+                                <RenderableContentControl Context="@Entry.Plc.ixcoreTasks" Presentation="Control" Class="card m-2 p-2" />
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card ps-2">
+                                <label>Presentation type: Status</label>
+                                <RenderableContentControl Context="@Entry.Plc.ixcoreTasks" Presentation="Status" Class="ps-2" />
+                            </div>
+                            <div class="card ps-2">
+                                <label>Presentation type: Display</label>
+                                <RenderableContentControl Context="@Entry.Plc.ixcoreTasks" Presentation="Display" Class="card m-2 p-2" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="row">
-                    <RenderableContentControl Context="@Entry.Plc.ixcoreTasks" Presentation="Display" />
-                </div>
-            </div>
-            <div class="col">
-                    <RenderableContentControl Context="@Entry.Plc.ixcoreTasks" Presentation="Control" />
             </div>
         </div>
-    </div>
+     </div>
+
+
 
     <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
         Sequencer with few steps
         <br />
-        <RenderableContentControl Presentation="Control"
-                                  Context="@Entry.Plc.ixcoreSequencers.Counter" />
+        <RenderableContentControl Context="@Entry.Plc.ixcoreSequencers.Counter" Presentation="Control" />
     </div>
     <div class="container text-left">
         <div class="col">
-            <RenderableContentControl Presentation="Base"
-                                      Context="@Entry.Plc.ixcoreSequencers"  />
+            <RenderableContentControl Context="@Entry.Plc.ixcoreSequencers" Presentation="Command-Control" />
         </div>
     </div>
 </div>
+
+
+@code {
+    private bool isCollapsedTaskExample = true;
+
+
+        private void CollapseTaskExample()
+    {
+        isCollapsedTaskExample = !isCollapsedTaskExample;
+    }
+}

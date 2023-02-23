@@ -1,7 +1,6 @@
 using ix.framework.core;
 
 NAMESPACE core
-
     CLASS ComponentExamples EXTENDS ix.framework.core.IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Component example name"}
