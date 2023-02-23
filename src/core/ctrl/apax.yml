@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.core"
-version                             : '0.1.2-19-desing-component-base-class.39'
+version                               : '0.1.2-19-desing-component-base-class.43'
 type: lib
 targets:
   - "1500"

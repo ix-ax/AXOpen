@@ -10,10 +10,11 @@
     </div>
     <div class="container text-left">
         <div class="col">
-            <IxComponentView Component="@Entry.Plc.myComponentExample"
-                             Collapsed="true"
-                             Presentation="Base-Control" />
-
+            <RenderableContentControl Context="@Entry.Plc.myComponentExamples.ServiceMode" Presentation="Control" />
+            <RenderableContentControl Context="@Entry.Plc.myComponentExamples.MyComponent._isinServiceMode" Presentation="Control" />
+        </div>
+        <div class="col">
+           <IxComponentView Component="@Entry.Plc.myComponentExamples.MyComponent" Presentation="Display" />
         </div>
     </div>
     
@@ -23,12 +24,15 @@
     <div class="container text-left">
         <div class="row">
             <div class="col">
-                <RenderableContentControl Presentation="Control"
-                                          Context="@Entry.Plc.ixcoreTasks" />
+                <div class="row">
+                    <RenderableContentControl Context="@Entry.Plc.ixcoreTasks"  />
+                </div>
+                <div class="row">
+                    <RenderableContentControl Context="@Entry.Plc.ixcoreTasks" Presentation="Display" />
+                </div>
             </div>
             <div class="col">
-                <RenderableContentControl Presentation="Base"
-                                          Context="@Entry.Plc.ixcoreTasks" />
+                    <RenderableContentControl Context="@Entry.Plc.ixcoreTasks" Presentation="Control" />
             </div>
         </div>
     </div>
@@ -42,7 +46,7 @@
     <div class="container text-left">
         <div class="col">
             <RenderableContentControl Presentation="Base"
-                                      Context="@Entry.Plc.ixcoreSequencers" PollingInterval="1000" />
+                                      Context="@Entry.Plc.ixcoreSequencers"  />
         </div>
     </div>
 </div>

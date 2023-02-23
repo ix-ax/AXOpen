@@ -10,16 +10,16 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
         ;
     END_METHOD
 
+    METHOD PUBLIC OVERRIDE Execute
+        SUPER.Execute();
+    END_METHOD 
 
     VAR PUBLIC
         // Complete structure as a part of the component header. 
         // All structure members are going to be displayed in the component header.
         {#ix-attr:[Container(Layout.Wrap)]}
-        {#ix-attr:[ComponentDetails("ForPetoBarancek")]}
+        {#ix-attr:[ComponentHeader()]}        
         Header : Header_ComponentExample;
-        {#ix-attr:[ComponentDetails("ForPetoBarancek")]}
-        {#ix-set:AttributeName = "Header task 1"}
-        HeaderTask2 : IxTask;
 
         // Two separate tasks as a part of the component header. 
         // These tasks are going to be added to the previous members of the component header.
@@ -27,7 +27,12 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
         {#ix-set:AttributeName = "Header task 1"}
         HeaderTask1 : IxTask;
 
-
+        // Complete structure as a part of the component details tab `Tasks`. 
+        // All structure members are going to be added to the previous members of the component details tab `Tasks`.
+        {#ix-set:AttributeName = "Tasks"}
+        {#ix-attr:[Container(Layout.Stack)]}
+        Tasks : Tasks_ComponentExample;
+ 
         // Single task as a part of the component details tab `Tasks`. 
         // This task is going to be displayed in the component details tab `Tasks`
         {#ix-attr:[ComponentDetails("Tasks")]}
@@ -35,12 +40,12 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
         {#ix-set:AttributeName = "Detail task in Tasks tab"}
         DetailTaskInTasksTab : IxTask;
  
-        // Complete structure as a part of the component details tab `Tasks`. 
-        // All structure members are going to be added to the previous members of the component details tab `Tasks`.
-        {#ix-set:AttributeName = "Tasks"}
-        {#ix-attr:[Container(Layout.Stack)]}
-        Tasks : Tasks_ComponentExample;
- 
+        // Additional separate task as a part of the component header. 
+        // This task is going to be added to the previous members of the component header.
+        {#ix-attr:[ComponentHeader()]}
+        {#ix-set:AttributeName = "Header task 2"}
+        HeaderTask2 : IxTask;
+
         // Complete structure as a part of the component details tab `Status` as the attribute [ComponentDetails("Status")] 
         // is defined on the class Status_ComponentExample. 
         // All structure members are going to be added to the previous members of the component details tab `Status`.
@@ -50,6 +55,7 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
         // Single variable as a part of the component details tab `Status`. 
         // This variable is going to be added to the previous members of the component details tab `Status`.
         {#ix-attr:[ComponentDetails("Status")]}
+        {#ix-attr:[Container(Layout.Stack)]}        
         {#ix-set:AttributeName = "Status string"}
         Status2 : string;
 
@@ -82,6 +88,8 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
         // All structure members are going to be added to the previous members of the component details tab `Help`.
         {#ix-set:AttributeName = "Help"}
         Help : Help_ComponentExample; 
+
+
     END_VAR
 END_CLASS
 

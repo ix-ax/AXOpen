@@ -7,29 +7,29 @@
 
             @if (IsTaskRunning)
             {
-                <div class="btn @ButtonClass">
-                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                    <span>@Component.AttributeName</span>
-                    <span class="oi oi-media-pause text-white ms-1 mt-0 me-0 mb-0 p-0" type="button" @onclick="@AbortTask"/>
-                </div>
+                <button class="btn @ButtonClass" type="button" disabled="true">
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"/>
+                    <span >@Component.AttributeName</span>
+                    <span class="oi oi-media-pause text-white ms-1 mt-0 me-0 mb-0 p-0" type="button"/>
+                </button>
             }
             else if (IsTaskAborted)
             {
-                <button class="btn @ButtonClass" type="button" disabled="@Component.IsDisabled.Cyclic" @onclick="@ResumeTask">
-                    <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+                <button class="btn @ButtonClass" type="button" disabled="true">
+                    <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"/>
                     <span>@Component.AttributeName</span>
                     <span class="oi oi-media-play text-white ms-1 mt-0 me-0 mb-0 p-0" />
                 </button>
             }
             else
             {
-                <button class="btn @ButtonClass" type="button" disabled="@Component.IsDisabled.Cyclic" @onclick="@InvokeTask">
-                    <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"></span>
+                <button class="btn @ButtonClass" type="button" disabled="true">
+                    <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true" />
                     <span>@Component.AttributeName</span>
                     <span class="oi oi-media-play text-white ms-1 mt-0 me-0 mb-0 p-0 invisible" />
                 </button>
             }
-            <button class="btn @ButtonClass" type="button" disabled="@Component.IsDisabled.Cyclic" @onclick="@RestoreTask">
+            <button class="btn @ButtonClass" type="button" disabled="true">
                 <span class="oi oi-reload" aria-hidden="true"></span>
             </button>
         </div>
@@ -37,23 +37,6 @@
 
 @code
 {
-    protected void InvokeTask()
-    {
-        Component.RemoteInvoke.Cyclic = true;
-    }
-    protected void RestoreTask()
-    {
-        Component.RemoteRestore.Cyclic = true;
-    }
-    protected void AbortTask()
-    {
-        Component.RemoteAbort.Cyclic = true;
-    }
-    protected void ResumeTask()
-    {
-        Component.RemoteResume.Cyclic = true;
-    }
-
     public string ButtonClass = "btn-primary";
 
     public bool IsTaskRunning => Component.Status.Cyclic == (ushort)eIxTaskState.Busy;

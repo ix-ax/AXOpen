@@ -1,54 +1,51 @@
 ﻿@namespace ix.framework.core
-@using Ix.Connector.ValueTypes;
+@using Ix.Connector.ValueTypes
 @using Ix.Presentation.Blazor.Controls.Layouts.TabControlComponents
 @inherits RenderableComplexComponentBase<IxComponent>
 
 
 <div class="card">
     <div class="card-header d-flex">
-       
         <div class="p-0 w-100"><h5>@Component.AttributeName</h5></div>
         <div class="p-0 flex-shrink-1">
             @if (ContainsDetailsAttribute)
             {
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
-                        <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
-                    </svg>
+                <button class="btn btn-primary" type="button" @onclick="Collapse">
+                    <span class="oi oi-chevron-top @(isCollapsed ? "open" : "")" aria-hidden="true"></span>
                 </button>
             }
         </div>
     </div>
    
     <div class="card-body">
-        <RenderableContentControl Presentation="@Presentation" Context="@Header" Class="d-flex align-end" />
+        <RenderableContentControl Presentation="@Presentation" Context="@Header" Class="bg-light rounded-3 shadow" LayoutClass="align-items-end"/>
     </div>
 
-    <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-            <TabControl>
-                @foreach (var detailsTab in DetailsTabs)
-                {
-                    <TabPage Text="@detailsTab.HumanReadable">
-                        <RenderableContentControl Presentation="@Presentation" Context=@detailsTab   />
-                    </TabPage>
-                }
-            </TabControl>
+    @if (ContainsDetailsAttribute)
+    {
+        <div class="@(isCollapsed ? "collapse" : null)">
+            <div class="card card-body">
+                <TabControl>
+                    @foreach (var detailsTab in DetailsTabs)
+                    {
+                        <TabPage Text="@detailsTab.HumanReadable">
+                            <RenderableContentControl 
+                            Context=@detailsTab
+                            Presentation="@Presentation"
+                            Class="bg-light rounded-3 shadow"
+                            LayoutClass="align-items-end" 
+                            LayoutChildrenClass="ms-0"/>
+                        </TabPage>
+                    }
+                </TabControl>
+            </div>
         </div>
-    </div>
+    }
 </div>
 
 
 @code {
-    private string _btnString= "+";
-    public string BtnString
-    {
-        get 
-        {
-            _btnString = Collapsed ? "+" : "-";
-            return this._btnString;
-        }
-    }
+    private bool isCollapsed = true;
     private string _presentation = "Base";
     [Parameter]
     public string Presentation 
@@ -59,32 +56,35 @@
         }
         set
         {
-            if (!string.IsNullOrEmpty(value))
+            if (this.Component._isinServiceMode.Cyclic)
             {
-                this._presentation = value;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    this._presentation = value;
+                }
             }
+            else
+            {
+                this._presentation = "Display";
+            }
+
         }
     }
-    private bool _collapsed = true;
-    [Parameter]
-    public bool Collapsed { get { return _collapsed; } set { _collapsed = value; } }
 
     private bool ContainsHeaderAttribute;
     private bool ContainsDetailsAttribute;
     private IEnumerable<string> tabNames = new List<string>();
-
-    void Toggle()
-    {
-        Collapsed = !Collapsed;
-    }
 
     protected override void OnInitialized()
     {
         ContainsHeaderAttribute = this.Header.GetKids().Count() != 0;       
         tabNames = GetAllTabNames(this.Component);
         ContainsDetailsAttribute = this.DetailsTabs.Count() != 0;
-
-
         UpdateValuesOnChange(Component);
+    }
+
+    private void Collapse()
+    {
+        isCollapsed = !isCollapsed;
     }
 }

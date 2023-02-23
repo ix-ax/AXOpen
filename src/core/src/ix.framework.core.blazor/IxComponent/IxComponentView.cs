@@ -1,15 +1,5 @@
 ﻿using Ix.Connector;
-using Ix.Presentation.Blazor.Controls.Layouts.TabControlComponents;
-using Ix.Presentation.Blazor.Controls.RenderableContent;
-using Microsoft.AspNetCore.Components;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Reflection;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ix.framework.core
 {
@@ -158,11 +148,11 @@ namespace ix.framework.core
                 
             }
         }
-        public ITwinObject Header 
+        public ITwinObject Header
         {
-            get 
+            get
             {
-                return new DetailsContext(this.Component, this.Component.GetKids().Where(p => GetAttribute<ComponentHeaderAttribute>(p) != null).ToList());                
+                return new DetailsContext(this.Component, this.Component.GetKids().Where(p => GetAttribute<ComponentHeaderAttribute>(p) != null).ToList());
             }
         }
 
@@ -195,7 +185,6 @@ namespace ix.framework.core
                 return _detailsTabs;
             }
         }
-
     }
 }
 

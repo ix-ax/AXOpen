@@ -8,7 +8,7 @@ CONFIGURATION MyConfiguration
         {#ix-attr:[Container(Layout.Wrap)]}
         MainContext : MyContext;
         Recipe : Recipe;
-        myComponentExample : ComponentExample;
+        myComponentExamples : core.ComponentExamples;
         {#ix-set:AttributeName = "If counting PLC is alive"}
         I_am_alive : ULINT;
         
