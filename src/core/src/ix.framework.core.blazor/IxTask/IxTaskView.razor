@@ -1,0 +1,36 @@
+﻿@namespace ix.framework.core
+@using Ix.Connector;
+@inherits RenderableComplexComponentBase<IxTask>
+@implements IDisposable;
+
+<div class="d-flex align-end me-2 mt-1 mb-1">
+    <div class="btn-group">
+        @if (IsTaskRunning)
+        {
+            <button class="btn @ButtonClass" type="button" disabled="@IsDisabled" @onclick="@AbortTask">
+                <span class="oi oi-media-pause text-white ms-1 mt-0 me-0 mb-0 p-0" />
+                <span>@Description</span>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" />
+            </button>
+        }
+        else if (IsTaskAborted)
+        {
+            <button class="btn @ButtonClass" type="button" disabled="@IsDisabled" @onclick="@ResumeTask">
+                <span class="oi oi-media-play text-white ms-1 mt-0 me-0 mb-0 p-0" />
+                <span>@Description</span>
+                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"/>
+            </button>
+        }
+        else
+        {
+            <button class="btn @ButtonClass" type="button" disabled="@IsDisabled" @onclick="@InvokeTask">
+                <span class="oi oi-media-play text-white ms-1 mt-0 me-0 mb-0 p-0 invisible" />
+                <span>@Description</span>
+                <span class="spinner-border spinner-border-sm invisible" role="status" aria-hidden="true"/>
+            </button>
+        }
+        <button class="btn @ButtonClass" type="button" disabled="@IsDisabled" @onclick="@RestoreTask" hidden="@HideRestoreButton">
+            <span class="oi oi-reload" aria-hidden="true"/>
+        </button>
+    </div>
+</div>

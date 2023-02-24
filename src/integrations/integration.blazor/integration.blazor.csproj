@@ -7,16 +7,12 @@
   </PropertyGroup>
 
 	<ItemGroup>
-    <None Remove="Pages\IxCore.razor.css" />
+    <None Remove="Pages\IxCore - Copy.razor.css" />
     <None Remove="wwwroot\assets\logos\logo-black.png" />
     <None Remove="wwwroot\assets\logos\logo-color.png" />
     <None Remove="wwwroot\assets\logos\logo-no-background.png" />
     <None Remove="wwwroot\assets\logos\logo-white.png" />
   </ItemGroup>
-
-	<ItemGroup>
-	  <Content Include="Pages\IxCore.razor.css" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\core\src\ix.framework.core.blazor\ix.framework.core.blazor.csproj" />

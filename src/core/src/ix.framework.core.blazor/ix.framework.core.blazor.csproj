@@ -12,11 +12,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="IxComponent\IxComponentCommandView.razor.css" />
+    <None Remove="IxComponent\IxComponentStatusView.razor.css" />
     <None Remove="IxComponent\IxComponentView.razor.css" />
+    <None Remove="IxTask\Slim\IxTaskSlimView.razor.css" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="IxComponent\IxComponentView.razor.css" />
+    <Content Include="IxComponent\IxComponentStatusView.razor.css" />
+    <Content Include="IxComponent\IxComponentCommandView.razor.css" />
+    <Content Include="IxTask\Slim\IxTaskSlimView.razor.css" />
   </ItemGroup>
 
 

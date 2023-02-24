@@ -1,0 +1,27 @@
+﻿@namespace ix.framework.core
+@using Ix.Connector.ValueTypes;
+@using Ix.Connector;
+@inherits RenderableComplexComponentBase<IxStep>
+@implements IDisposable;
+
+<div class="container text-left">
+    <div class="row @RowClass">
+        <div class="col">
+            @if (IsControllable)
+            {
+                <IxTaskCommandSlimView Component="@Component" Description="@Description" />
+            }
+          else
+            {
+                <IxTaskStatusSlimView Component="@Component" Description="@Description" HideRestoreButton="true" />
+            }
+        </div>
+        <div class="col">
+            @Component.Order.Cyclic
+        </div>
+        <div class="col">
+            @Component.IsActive.Cyclic
+        </div>
+    </div>
+</div>
+
