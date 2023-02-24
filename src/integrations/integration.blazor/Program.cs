@@ -21,7 +21,7 @@ namespace integration.blazor
 
             Entry.Plc.Connector.BuildAndStart();
 
-            Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.AutoSubscribeUsedVariables;
+            Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

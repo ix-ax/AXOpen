@@ -122,5 +122,6 @@
     public void Dispose()
     {
         Component._isinServiceMode.PropertyChanged -= UpdateServiceMode;
+        Component.StopPolling();
     }
 }

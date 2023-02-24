@@ -106,7 +106,7 @@ namespace ix.framework.core
 
             public IEnumerable<ITwinObject> GetChildren()
             {
-                return _children;
+                return _kids.OfType<ITwinObject>();
             }
 
             private readonly IList<ITwinElement> _kids = new List<ITwinElement>();
@@ -118,9 +118,9 @@ namespace ix.framework.core
 
             private readonly IList<ITwinPrimitive> _primitive = new List<ITwinPrimitive>();
 
-            public IEnumerable<ITwinPrimitive> GetValueTags()
+            public IEnumerable<ITwinPrimitive?> GetValueTags()
             {
-                return _primitive;
+                return _kids.OfType<ITwinPrimitive>();
             }
 
             public void AddChild(ITwinObject twinObject)
