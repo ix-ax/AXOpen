@@ -7,14 +7,16 @@
 <div class="container text-left">
     <div class="row @RowClass">
         <div class="col">
-            @if (IsControllable)
+            @*Left here for the future, just to store the idea that each step could be displayed as an IxTask *@
+@*            @if (IsControllable)
             {
                 <IxTaskCommandView Component="@Component" Description="@Description" />
             }
-          else
+            else
             {
                 <IxTaskStatusView Component="@Component" Description="@Description" HideRestoreButton="true" />
-            }
+            }*@
+            @Description
         </div>
         <div class="col">
             @Component.Order.Cyclic

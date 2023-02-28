@@ -13,7 +13,7 @@ namespace ix.framework.core
 
         private string Description => string.IsNullOrEmpty(Component.Description) ? Component.StepDescription.Cyclic : Component.Description;
 
-        protected void UpdateStepRowColors(object sender, EventArgs e)
+        private void UpdateStepRowColors(object sender, EventArgs e)
         {
             switch ((eIxTaskState)Component.Status.LastValue)
             {
