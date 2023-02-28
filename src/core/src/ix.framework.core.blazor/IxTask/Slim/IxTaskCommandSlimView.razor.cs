@@ -4,34 +4,34 @@ namespace ix.framework.core
 {
     public partial class IxTaskCommandSlimView 
     {
-        private string _description;
+        private string description;
         [Parameter]
         public string Description
         {
             get
             {
-                return _description ?? Component.AttributeName;
+                return description ?? Component.AttributeName;
             }
             set
             {
                 if (!string.IsNullOrEmpty(value)) 
                 {
-                    _description = value;
+                    description = value;
                 }
             }
         }
 
-        private bool _hideRestoreButton;
+        private bool hideRestoreButton;
         [Parameter]
         public bool HideRestoreButton
         {
             get
             {
-                return _hideRestoreButton;
+                return hideRestoreButton;
             }
             set
             {
-                _hideRestoreButton = value;
+                hideRestoreButton = value;
             }
         }
     }
