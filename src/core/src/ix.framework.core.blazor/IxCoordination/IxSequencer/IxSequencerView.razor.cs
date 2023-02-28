@@ -3,21 +3,30 @@ using Microsoft.AspNetCore.Components;
 
 namespace ix.framework.core
 {
-    public partial class IxSequencerView 
+    public partial class IxSequencerView : IDisposable
     {
-        private bool _isControllable;
+        private bool isControllable;
 
         [Parameter]
         public bool IsControllable
         {
             get
             {
-                return _isControllable;
+                return isControllable;
             }
             set
             {
-                _isControllable = value;
+                isControllable = value;
             }
+        }
+
+        protected override void OnInitialized()
+        {
+            UpdateValuesOnChange(Component);
+        }
+        public void Dispose()
+        {
+            Component.StopPolling();
         }
     }
 }

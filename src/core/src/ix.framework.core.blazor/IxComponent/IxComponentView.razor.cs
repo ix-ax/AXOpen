@@ -11,18 +11,18 @@ namespace ix.framework.core
         private bool containsHeaderAttribute;
         private bool containsDetailsAttribute;
         private IEnumerable<string> tabNames = new List<string>();
-        private bool _isControllable;
+        private bool isControllable;
 
         [Parameter]
         public bool IsControllable
         {
             get
             {
-                return _isControllable;
+                return isControllable;
             }
             set
             {
-                _isControllable = value;
+                isControllable = value;
             }
         }
         private IEnumerable<string> GetAllTabNames(ITwinObject twinObject)

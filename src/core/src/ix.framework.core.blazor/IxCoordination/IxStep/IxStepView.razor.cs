@@ -1,16 +1,17 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Ix.Connector;
+using Microsoft.AspNetCore.Components;
 using System.Reflection.Metadata.Ecma335;
 
 namespace ix.framework.core
 {
     public partial class IxStepView
     {
-        private bool _isControllable;
+        private bool isControllable;
 
-        public string RowClass = "bg-white text-dark";
-        public bool IsActive => Component.IsActive.Cyclic == true;
+        private string RowClass = "bg-white text-dark";
+        private bool IsActive => Component.IsActive.Cyclic == true;
 
-        protected string Description => string.IsNullOrEmpty(Component.Description) ? Component.StepDescription.Cyclic : Component.Description;
+        private string Description => string.IsNullOrEmpty(Component.Description) ? Component.StepDescription.Cyclic : Component.Description;
 
         protected void UpdateStepRowColors(object sender, EventArgs e)
         {
@@ -49,6 +50,7 @@ namespace ix.framework.core
 
         public void Dispose()
         {
+            Component.StopPolling();
             Component.Status.PropertyChanged -= UpdateStepRowColors;
         }
 
@@ -57,11 +59,11 @@ namespace ix.framework.core
         {
             get
             {
-                return _isControllable;
+                return isControllable;
             }
             set
             {
-                _isControllable = value;
+                isControllable = value;
             }
         }
     }

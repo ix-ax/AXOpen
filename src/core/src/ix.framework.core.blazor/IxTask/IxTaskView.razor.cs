@@ -5,30 +5,30 @@ namespace ix.framework.core
 {
     public partial class IxTaskView : IDisposable
     {
-        private string _description;
-        protected void InvokeTask()
+        private string description;
+        private bool hideRestoreButton;
+        private void InvokeTask()
         {
             Component.RemoteInvoke.Cyclic = true;
         }
-        protected void RestoreTask()
+        private void RestoreTask()
         {
             Component.RemoteRestore.Cyclic = true;
         }
-        protected void AbortTask()
+        private void AbortTask()
         {
             Component.RemoteAbort.Cyclic = true;
         }
-        protected void ResumeTask()
+        private void ResumeTask()
         {
             Component.RemoteResume.Cyclic = true;
         }
 
-        public string ButtonClass = "btn-primary";
+        private string ButtonClass = "btn-primary";
+        private bool IsTaskRunning => Component.Status.Cyclic == (ushort)eIxTaskState.Busy;
+        private bool IsTaskAborted => Component.Status.Cyclic == (ushort)eIxTaskState.Aborted;
 
-        public bool IsTaskRunning => Component.Status.Cyclic == (ushort)eIxTaskState.Busy;
-        public bool IsTaskAborted => Component.Status.Cyclic == (ushort)eIxTaskState.Aborted;
-
-        protected void UpdateTaskColor(object sender, EventArgs e)
+        private void UpdateTaskColor(object sender, EventArgs e)
         {
             switch ((eIxTaskState)Component.Status.LastValue)
             {
@@ -60,35 +60,33 @@ namespace ix.framework.core
         [Parameter]
         public bool IsDisabled { get; set; }
 
-
         [Parameter]
         public string Description
         {
             get
             {
-                return _description;
+                return description;
             }
             set
             {
                 if (!string.IsNullOrEmpty(value)) 
                 {
-                    _description = value;
+                    description = value;
                 }
             }
                
         }
 
-        private bool _hideRestoreButton;
         [Parameter]
         public bool HideRestoreButton
         {
             get
             {
-                return _hideRestoreButton;
+                return hideRestoreButton;
             }
             set
             {
-                _hideRestoreButton = value;
+                hideRestoreButton = value;
             }
         }
     }
