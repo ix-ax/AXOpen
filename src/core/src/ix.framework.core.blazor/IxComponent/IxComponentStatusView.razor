@@ -1,44 +1,4 @@
 ﻿@namespace ix.framework.core
-@using Ix.Connector.ValueTypes
-@using Ix.Connector;
-@using Ix.Presentation.Blazor.Controls.Layouts.TabControlComponents;
-@inherits  RenderableComplexComponentBase<IxComponent>;
+@inherits RenderableComplexComponentBase<IxComponent>
 
-<div class="card">
-    <div class="card-header d-flex">
-        <div class="p-0 w-100"><h5>@Component.AttributeName</h5></div>
-        <div class="p-0 flex-shrink-1">
-            @if (ContainsDetailsAttribute)
-            {
-                <button class="btn btn-primary" type="button" @onclick="Collapse">
-                    <span class="oi oi-chevron-top @(isCollapsed ? "open" : "")" aria-hidden="true"></span>
-                </button>
-            }
-        </div>
-    </div>
-   
-    <div class="card-body">
-        <RenderableContentControl Presentation="Status-Display" Context="@Header" Class="bg-light rounded-3 shadow" LayoutClass="align-items-end"/>
-    </div>
-
-    @if (ContainsDetailsAttribute)
-    {
-        <div class="@(isCollapsed ? "collapse" : null)">
-            <div class="card card-body">
-                <TabControl>
-                    @foreach (var detailsTab in DetailsTabs)
-                    {
-                        <TabPage Text="@detailsTab.HumanReadable">
-                            <RenderableContentControl 
-                                Context=@detailsTab
-                                Presentation="Status-Display"
-                                Class="bg-light rounded-3 shadow"
-                                LayoutClass="align-items-end" 
-                                LayoutChildrenClass="ms-0"/>
-                        </TabPage>
-                    }
-                </TabControl>
-            </div>
-        </div>
-    }
-</div>
+<IxComponentView Component="@Component" IsControllable="false" />

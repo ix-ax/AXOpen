@@ -1,16 +1,30 @@
 ﻿using Ix.Connector;
+using Microsoft.AspNetCore.Components;
 
 namespace ix.framework.core
 {
 
-    public partial class IxComponentCommandView : IDisposable
+    public partial class IxComponentView : IDisposable
     {
         private bool isCollapsed = true;
         private string currentPresentation = "Status-Display";
         private bool containsHeaderAttribute;
         private bool containsDetailsAttribute;
         private IEnumerable<string> tabNames = new List<string>();
+        private bool _isControllable;
 
+        [Parameter]
+        public bool IsControllable
+        {
+            get
+            {
+                return _isControllable;
+            }
+            set
+            {
+                _isControllable = value;
+            }
+        }
         private IEnumerable<string> GetAllTabNames(ITwinObject twinObject)
         {
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null)
@@ -70,7 +84,7 @@ namespace ix.framework.core
 
         private void UpdateServiceMode(object sender, EventArgs e)
         {
-            if (this.Component._isinServiceMode.Cyclic)
+            if (IsControllable && this.Component._isinServiceMode.Cyclic)
             {
                 currentPresentation = "Command-Control";
             }
