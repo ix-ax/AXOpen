@@ -23,23 +23,21 @@ namespace ix.framework.core
         {
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null);
         }
-     
-        protected ITwinObject Header
+
+        private ITwinObject Header
         {
             get
             {
                 return new DetailsContext(this.Component, this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null).ToList());
             }
         }
-
-        protected IEnumerable<ITwinObject> DetailsTabs
+        private IEnumerable<ITwinObject> DetailsTabs
         {
             get
             {
                 return CreateDetailsTabs();
             }
         }
-
         private IEnumerable<ITwinObject> CreateDetailsTabs()
         {
             IList<ITwinObject> _detailsTabs = new List<ITwinObject>();
@@ -70,7 +68,7 @@ namespace ix.framework.core
             return _detailsTabs;
         }
 
-        protected void UpdateServiceMode(object sender, EventArgs e)
+        private void UpdateServiceMode(object sender, EventArgs e)
         {
             if (this.Component._isinServiceMode.Cyclic)
             {
@@ -81,6 +79,7 @@ namespace ix.framework.core
                 currentPresentation = "Status-Display";
             }
         }
+
         protected override void OnInitialized()
         {
             containsHeaderAttribute = this.Header.GetKids().Count() != 0;
@@ -99,7 +98,7 @@ namespace ix.framework.core
         public void Dispose()
         {
             Component._isinServiceMode.PropertyChanged -= UpdateServiceMode;
-            Component.StopPolling();            
+            Component.StopPolling();
         }
     }
 }

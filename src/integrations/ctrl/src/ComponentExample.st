@@ -12,6 +12,8 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
 
     METHOD PUBLIC OVERRIDE Execute
         SUPER.Execute();
+        Status.SomeStatusValue1 := Status.SomeStatusValue1 * REAL#1.0001;
+        Status.SomeStatusValue2 := Status.SomeStatusValue2 + DINT#1;
     END_METHOD 
 
     VAR PUBLIC
