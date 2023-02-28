@@ -1,6 +1,4 @@
 ﻿using Ix.Connector;
-using Ix.Presentation.Blazor.Controls.RenderableContent;
-using Microsoft.AspNetCore.Components;
 
 namespace ix.framework.core
 {
@@ -8,9 +6,9 @@ namespace ix.framework.core
     public partial class IxComponentCommandView : IDisposable
     {
         private bool isCollapsed = true;
-        private string _currentPresentation = "Base";
-        private bool ContainsHeaderAttribute;
-        private bool ContainsDetailsAttribute;
+        private string currentPresentation = "Status-Display";
+        private bool containsHeaderAttribute;
+        private bool containsDetailsAttribute;
         private IEnumerable<string> tabNames = new List<string>();
 
         private IEnumerable<string> GetAllTabNames(ITwinObject twinObject)
@@ -71,38 +69,23 @@ namespace ix.framework.core
 
             return _detailsTabs;
         }
-              
-        protected string CurrentPresentation
-        {
-            get
-            {
-                return this._currentPresentation;
-            }
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    this._currentPresentation = value;
-                }
-            }
-        }
-      
+
         protected void UpdateServiceMode(object sender, EventArgs e)
         {
             if (this.Component._isinServiceMode.Cyclic)
             {
-                CurrentPresentation = "Command-Control";
+                currentPresentation = "Command-Control";
             }
             else
             {
-                CurrentPresentation = "Status-Display";
+                currentPresentation = "Status-Display";
             }
         }
         protected override void OnInitialized()
         {
-            ContainsHeaderAttribute = this.Header.GetKids().Count() != 0;
+            containsHeaderAttribute = this.Header.GetKids().Count() != 0;
             tabNames = GetAllTabNames(this.Component);
-            ContainsDetailsAttribute = this.DetailsTabs.Count() != 0;
+            containsDetailsAttribute = this.DetailsTabs.Count() != 0;
             UpdateValuesOnChange(Component);
             UpdateServiceMode(this, new EventArgs());
             Component._isinServiceMode.PropertyChanged += UpdateServiceMode;

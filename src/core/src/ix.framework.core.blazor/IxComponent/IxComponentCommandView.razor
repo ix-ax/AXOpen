@@ -8,20 +8,20 @@
     <div class="card-header d-flex">
         <div class="p-0 w-100"><h5>@Component.AttributeName</h5></div>
         <div class="p-0 flex-shrink-1">
-            @if (ContainsDetailsAttribute)
+            @if (containsDetailsAttribute)
             {
                 <button class="btn btn-primary" type="button" @onclick="Collapse">
-                    <span class="oi oi-chevron-top @(isCollapsed ? "open" : "")" aria-hidden="true"></span>
+                    <span class="oi oi-chevron-top @(isCollapsed ? "open" : "")" aria-hidden="true"/>
                 </button>
             }
         </div>
     </div>
    
     <div class="card-body">
-        <RenderableContentControl Presentation="@CurrentPresentation" Context="@Header" Class="bg-light rounded-3 shadow" LayoutClass="align-items-end"/>
+        <RenderableContentControl Presentation="@currentPresentation" Context="@Header" Class="bg-light rounded-3 shadow" LayoutClass="align-items-end" />
     </div>
 
-    @if (ContainsDetailsAttribute)
+    @if (containsDetailsAttribute)
     {
         <div class="@(isCollapsed ? "collapse" : null)">
             <div class="card card-body">
@@ -31,7 +31,7 @@
                         <TabPage Text="@detailsTab.HumanReadable">
                             <RenderableContentControl 
                                 Context=@detailsTab
-                                Presentation="@CurrentPresentation"
+                                Presentation="@currentPresentation"
                                 Class="bg-light rounded-3 shadow"
                                 LayoutClass="align-items-end" 
                                 LayoutChildrenClass="ms-0"/>

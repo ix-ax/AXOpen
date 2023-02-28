@@ -10,7 +10,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Ix.Connector" Version="0.13.3-alpha.66" />
+		<PackageReference Include="Ix.Connector" Version="0.13.3-alpha.71" />
 	</ItemGroup>
 
 	<ItemGroup>
