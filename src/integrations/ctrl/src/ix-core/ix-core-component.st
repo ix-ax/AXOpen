@@ -11,7 +11,7 @@ NAMESPACE core
 
         METHOD PROTECTED OVERRIDE Main   
             MyComponent.Initialize(THIS);
-            MyComponent.Execute();
+            MyComponent.Run(inReal := REAL#1.0001,inDint := DINT#1);
             IF ServiceMode THEN
                 MyComponent.Service();
             END_IF;

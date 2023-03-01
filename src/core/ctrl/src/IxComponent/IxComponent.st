@@ -44,7 +44,7 @@ NAMESPACE ix.framework.core
             _isinServiceMode : BOOL;	
         END_VAR
 
-        METHOD INTERNAL CheckIfIsInServiceMode 
+        METHOD PRIVATE CheckIfIsInServiceMode 
             VAR
                 _myContextCycleCount : ULINT;
             END_VAR
@@ -59,19 +59,28 @@ NAMESPACE ix.framework.core
                 _myContextCycleCount := ULINT#0;
             END_IF;  
         END_METHOD     
-        
-        ///<summary>
-        /// Executes the cycle of this component. This method must be called cyclically inside the context.
-        ///</summary>
-        METHOD PUBLIC Execute
-            THIS.CheckIfIsInServiceMode();
+
+        METHOD PROTECTED Open
+            THIS.CheckIfIsInServiceMode();            
         END_METHOD  
+        
+        METHOD PUBLIC Run
+            THIS.Open();
+            // Place the custom logic here
+            THIS.Close();
+        END_METHOD    
 
-        // {#ix-attr:[Container(Layout.Tabs)]}
-        // {#ix-attr:[Group(GroupLayout.GroupBox)]}
-        // {#ix-set:AttributeName = "This is some structure"}
-
-
-
+        // ///<summary> 
+        // /// Custom logic of the extended IxComponent should be placed here. 
+        // /// Do not call this method explicitly. 
+        // /// Call the method Run instead to ensure that the methods are going to be called in the required order.
+        // ///</summary>
+        // METHOD PROTECTED Main
+        //     ;
+        // END_METHOD     
+        
+        METHOD PROTECTED Close
+            ;
+        END_METHOD  
     END_CLASS    
 END_NAMESPACE

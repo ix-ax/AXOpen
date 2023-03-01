@@ -34,7 +34,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.3-alpha.71" />
+		<PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.3-alpha.73" />
 	</ItemGroup>
 	<!--REF_PCKG_END-->
 	<ItemGroup>

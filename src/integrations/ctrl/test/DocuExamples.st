@@ -61,7 +61,7 @@ NAMESPACE DocuExamples
             _MyContext.Initialize();
             _MyContext._myTask.Invoke();
             FOR cycle := INT#0 TO INT#99 DO
-                _MyContext.Execute();
+                _MyContext.Run();
             END_FOR;
             Assert.Equal(TRUE,_MyContext._myTask.IsDone());
             Assert.Equal(ULINT#100,_MyContext._myCounter);
@@ -137,7 +137,7 @@ NAMESPACE DocuExamples
             _MyContext.Initialize();
             _MyContext._mySequencer.Invoke();
             FOR cycle := INT#1 TO INT#96 DO
-                _MyContext.Execute();
+                _MyContext.Run();
             END_FOR;
             Assert.Equal(TRUE,_MyContext._step_3.IsBusy());
             Assert.Equal(ULINT#97,_MyContext._myCounter);

@@ -10,9 +10,9 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Ix.Abstractions" Version="0.13.3-alpha.71" />
-		<PackageReference Include="Ix.Connector" Version="0.13.3-alpha.71" />
-		<PackageReference Include="Ix.Connector.S71500.WebAPI" Version="0.13.3-alpha.71" />
+		<PackageReference Include="Ix.Abstractions" Version="0.13.3-alpha.73" />
+		<PackageReference Include="Ix.Connector" Version="0.13.3-alpha.73" />
+		<PackageReference Include="Ix.Connector.S71500.WebAPI" Version="0.13.3-alpha.73" />
 	</ItemGroup>
 
 	<ItemGroup>

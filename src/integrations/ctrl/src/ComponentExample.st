@@ -10,10 +10,14 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
         ;
     END_METHOD
 
-    METHOD PUBLIC OVERRIDE Execute
-        SUPER.Execute();
-        Status.SomeStatusValue1 := Status.SomeStatusValue1 * REAL#1.0001;
-        Status.SomeStatusValue2 := Status.SomeStatusValue2 + DINT#1;
+    METHOD PUBLIC Run
+        VAR_INPUT 
+            inReal : REAL;
+            inDint : DINT;
+        END_VAR;
+        THIS.Open();
+        Status.SomeStatusValue1 := Status.SomeStatusValue1 * inReal;
+        Status.SomeStatusValue2 := Status.SomeStatusValue2 + inDint;
     END_METHOD 
 
     VAR PUBLIC
@@ -21,7 +25,7 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
         // All structure members are going to be displayed in the component header.
         {#ix-attr:[Container(Layout.Wrap)]}
         {#ix-attr:[ComponentHeader()]}        
-        Header : Header_ComponentExample;
+        Header : Header_ComponentExample; 
 
         // Two separate tasks as a part of the component header. 
         // These tasks are going to be added to the previous members of the component header.
