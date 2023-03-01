@@ -4,21 +4,22 @@ NAMESPACE ix.framework.core
         ///<summary>
 		/// Executes the logic for manual-maintenance control.   
         ///</summary>   
-        METHOD PUBLIC FINAL Service 
+        METHOD PUBLIC FINAL ActivateManualControl 
             IF NOT IsNullContext(THIS.GetContext()) THEN
-                 _serviceContextCycle := THIS.GetContext().OpenCycleCount();
-                THIS.ServiceMode();
+                 _manualControlContextCycle := THIS.GetContext().OpenCycleCount();
+                THIS.ManualControl();
             ELSE
-                _serviceContextCycle := ULINT#0;        // TODO: some message should inform about this issue
+                _manualControlContextCycle := ULINT#0;        // TODO: some message should inform about this issue
             END_IF;  
         END_METHOD
         
         ///<summary>
-		/// Gets whether the component is in serviceable state. Serviceable state is when `Service` method is called cyclicaly.   
+		/// Gets whether the IxComponent is manually controllable. 
+        /// To make the IxComponent manually controllable, it is necessary to call the `ActivateManualMode()` method cyclically.   
         ///</summary>   
-        METHOD PUBLIC FINAL IsService: BOOL 
-            THIS.CheckIfIsInServiceMode();
-            IsService := _isinServiceMode;
+        METHOD PUBLIC FINAL IsManuallyControllable: BOOL 
+            THIS.CheckIfManualControlIsActivated();
+            IsManuallyControllable := _isManuallyControllable;
         END_METHOD
         
         ///<summary>
@@ -28,40 +29,40 @@ NAMESPACE ix.framework.core
         END_METHOD
 
         ///<summary>
-		/// Custom service (manual, maintenance) logic.
+		/// Custom logic for manual control of the IxComponent.
 		///	This method must be implemented in derived class.
         ///</summary>   
-        METHOD PROTECTED ABSTRACT ServiceMode
+        METHOD PROTECTED ABSTRACT ManualControl
         END_METHOD
 
         VAR PRIVATE
-           _serviceContextCycle : ULINT;	
+           _manualControlContextCycle : ULINT;	
         END_VAR
 
         VAR PUBLIC
-            {attribute addProperty Name "<#Is in service mode#>"}
+            {attribute addProperty Name "<#Is manually controllable#>"}
             {attribute clr [ReadOnly()]}
-            _isinServiceMode : BOOL;	
+            _isManuallyControllable : BOOL;	
         END_VAR
 
-        METHOD PRIVATE CheckIfIsInServiceMode 
+        METHOD PRIVATE CheckIfManualControlIsActivated 
             VAR
                 _myContextCycleCount : ULINT;
             END_VAR
             IF NOT IsNullContext(THIS.GetContext()) THEN
                 _myContextCycleCount := THIS.GetContext().OpenCycleCount();
                 //When component.Service() is called "before" invoking its task _serviceContextCycle is equal to GetContext().OpenCycleCount()
-                _isinServiceMode := _serviceContextCycle = _myContextCycleCount OR 
+                _isManuallyControllable := _manualControlContextCycle = _myContextCycleCount OR 
                 //When component.Service() is called "after" invoking its task (_serviceContextCycle + 1) is equal to GetContext().OpenCycleCount()
-                                (_serviceContextCycle + ULINT#1) = _myContextCycleCount;        
+                                (_manualControlContextCycle + ULINT#1) = _myContextCycleCount;        
             ELSE
-                _isinServiceMode := FALSE;              // TODO: some message should inform about this issue
+                _isManuallyControllable := FALSE;              // TODO: some message should inform about this issue
                 _myContextCycleCount := ULINT#0;
             END_IF;  
         END_METHOD     
 
         METHOD PROTECTED Open
-            THIS.CheckIfIsInServiceMode();            
+            THIS.CheckIfManualControlIsActivated();            
         END_METHOD  
         
         METHOD PUBLIC Run
@@ -70,14 +71,6 @@ NAMESPACE ix.framework.core
             THIS.Close();
         END_METHOD    
 
-        // ///<summary> 
-        // /// Custom logic of the extended IxComponent should be placed here. 
-        // /// Do not call this method explicitly. 
-        // /// Call the method Run instead to ensure that the methods are going to be called in the required order.
-        // ///</summary>
-        // METHOD PROTECTED Main
-        //     ;
-        // END_METHOD     
         
         METHOD PROTECTED Close
             ;

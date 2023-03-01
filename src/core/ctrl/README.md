@@ -379,7 +379,6 @@ IxSequencer contains following methods:
 - `GetSequenceMode()`: Gets the current sequence mode of the IxSequencer. 
 - `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
 
-
 ~~~SmallTalk
     CLASS IxSequencerExample EXTENDS IxContext
         VAR PUBLIC
@@ -443,4 +442,4 @@ IxSequencer contains following methods:
 
 `Restore()` - inside this method, the logic for resetting the IxComponent or restoring it from any state to its initial state should be placed.
 
-`ServiceMode()` - inside this method, the logic for manual operations with the component should be placed. To be able to control the `IxComponent` instance manually, the `Service mode` for this instance has to be active. To ensure this, the method `Service()` of this instance needs to be called cyclically.
+`ManualControl()` - inside this method, the logic for manual operations with the component should be placed. To be able to control the `IxComponent` instance manually, the method `ActivateManualControl()` of this instance needs to be called cyclically.

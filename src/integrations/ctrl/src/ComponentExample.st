@@ -6,7 +6,7 @@ CLASS PUBLIC ComponentExample EXTENDS IxComponent
     METHOD PROTECTED OVERRIDE Restore: IIxTask 
         ;
     END_METHOD
-    METHOD PROTECTED OVERRIDE ServiceMode
+    METHOD PROTECTED OVERRIDE ManualControl
         ;
     END_METHOD
 
