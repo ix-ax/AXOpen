@@ -1,0 +1,863 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class IxTask
+ | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class IxTask
+ | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="IX">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="ix.framework.core.IxTask">
+
+
+  <h1 id="ix_framework_core_IxTask" data-uid="ix.framework.core.IxTask" class="text-break">Class IxTask
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">object</span></div>
+    <div class="level1"><a class="xref" href="ix.framework.core.IxObject.html">IxObject</a></div>
+    <div class="level2"><span class="xref">IxTask</span></div>
+      <div class="level3"><a class="xref" href="ix.framework.core.IxSequencer.html">IxSequencer</a></div>
+      <div class="level3"><a class="xref" href="ix.framework.core.IxStep.html">IxStep</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Ix.Connector.ITwinObject</span></div>
+    <div><span class="xref">Ix.Connector.ITwinElement</span></div>
+    <div><a class="xref" href="ix.framework.core.IIxObject.html">IIxObject</a></div>
+    <div><span class="xref">System.Windows.Input.ICommand</span></div>
+    <div><a class="xref" href="ix.framework.core.IIxTask.html">IIxTask</a></div>
+    <div><a class="xref" href="ix.framework.core.IIxTaskState.html">IIxTaskState</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_OnlineToPlainAsync_Pocos_ix_framework_core_IxObject_">IxObject.OnlineToPlainAsync(IxObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_PlainToOnlineAsync_Pocos_ix_framework_core_IxObject_">IxObject.PlainToOnlineAsync(IxObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_ShadowToPlainAsync_Pocos_ix_framework_core_IxObject_">IxObject.ShadowToPlainAsync(IxObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_PlainToShadowAsync_Pocos_ix_framework_core_IxObject_">IxObject.PlainToShadowAsync(IxObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_GetChildren">IxObject.GetChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_GetKids">IxObject.GetKids()</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_GetValueTags">IxObject.GetValueTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_AddValueTag_Ix_Connector_ITwinPrimitive_">IxObject.AddValueTag(ITwinPrimitive)</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_AddKid_Ix_Connector_ITwinElement_">IxObject.AddKid(ITwinElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_AddChild_Ix_Connector_ITwinObject_">IxObject.AddChild(ITwinObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_Connector">IxObject.Connector</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_GetConnector">IxObject.GetConnector()</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_GetSymbolTail">IxObject.GetSymbolTail()</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_GetParent">IxObject.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_Symbol">IxObject.Symbol</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_AttributeName">IxObject.AttributeName</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_HumanReadable">IxObject.HumanReadable</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_SymbolTail">IxObject.SymbolTail</a>
+    </div>
+    <div>
+      <a class="xref" href="ix.framework.core.IxObject.html#ix_framework_core_IxObject_Parent">IxObject.Parent</a>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <span class="xref">ix</span>.<span class="xref">framework</span>.<a class="xref" href="ix.framework.core.html">core</a></h6>
+  <h6><strong>Assembly</strong>: ix.framework.core.dll</h6>
+  <h5 id="ix_framework_core_IxTask_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class IxTask : IxObject, ITwinObject, ITwinElement, IIxObject, ICommand, IIxTask, IIxTaskState</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask__ctor_Ix_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.%23ctor(Ix.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L24">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask__ctor_" data-uid="ix.framework.core.IxTask.#ctor*"></a>
+  <h4 id="ix_framework_core_IxTask__ctor_Ix_Connector_ITwinObject_System_String_System_String_" data-uid="ix.framework.core.IxTask.#ctor(Ix.Connector.ITwinObject,System.String,System.String)">IxTask(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IxTask(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Ix.Connector.ITwinObject</span></td>
+        <td><span class="parametername">parent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_IsDisabled.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.IsDisabled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L14">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_IsDisabled_" data-uid="ix.framework.core.IxTask.IsDisabled*"></a>
+  <h4 id="ix_framework_core_IxTask_IsDisabled" data-uid="ix.framework.core.IxTask.IsDisabled">IsDisabled</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerBool IsDisabled { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Ix.Connector.ValueTypes.OnlinerBool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_RemoteAbort.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.RemoteAbort%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L20">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_RemoteAbort_" data-uid="ix.framework.core.IxTask.RemoteAbort*"></a>
+  <h4 id="ix_framework_core_IxTask_RemoteAbort" data-uid="ix.framework.core.IxTask.RemoteAbort">RemoteAbort</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerBool RemoteAbort { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Ix.Connector.ValueTypes.OnlinerBool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_RemoteInvoke.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.RemoteInvoke%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L16">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_RemoteInvoke_" data-uid="ix.framework.core.IxTask.RemoteInvoke*"></a>
+  <h4 id="ix_framework_core_IxTask_RemoteInvoke" data-uid="ix.framework.core.IxTask.RemoteInvoke">RemoteInvoke</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerBool RemoteInvoke { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Ix.Connector.ValueTypes.OnlinerBool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_RemoteRestore.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.RemoteRestore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L18">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_RemoteRestore_" data-uid="ix.framework.core.IxTask.RemoteRestore*"></a>
+  <h4 id="ix_framework_core_IxTask_RemoteRestore" data-uid="ix.framework.core.IxTask.RemoteRestore">RemoteRestore</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerBool RemoteRestore { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Ix.Connector.ValueTypes.OnlinerBool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_RemoteResume.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.RemoteResume%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L22">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_RemoteResume_" data-uid="ix.framework.core.IxTask.RemoteResume*"></a>
+  <h4 id="ix_framework_core_IxTask_RemoteResume" data-uid="ix.framework.core.IxTask.RemoteResume">RemoteResume</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerBool RemoteResume { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Ix.Connector.ValueTypes.OnlinerBool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_Status.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.Status%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L10">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_Status_" data-uid="ix.framework.core.IxTask.Status*"></a>
+  <h4 id="ix_framework_core_IxTask_Status" data-uid="ix.framework.core.IxTask.Status">Status</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ReadOnly]
+[EnumeratorDiscriminator(typeof(eIxTaskState))]
+public OnlinerInt Status { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Ix.Connector.ValueTypes.OnlinerInt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_CanExecute_System_Object_.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.CanExecute(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/IxTask/IxTask.cs/#L10">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_CanExecute_" data-uid="ix.framework.core.IxTask.CanExecute*"></a>
+  <h4 id="ix_framework_core_IxTask_CanExecute_System_Object_" data-uid="ix.framework.core.IxTask.CanExecute(System.Object)">CanExecute(object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool CanExecute(object parameter = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">object</span></td>
+        <td><span class="parametername">parameter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_Execute_System_Object_.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.Execute(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/IxTask/IxTask.cs/#L15">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_Execute_" data-uid="ix.framework.core.IxTask.Execute*"></a>
+  <h4 id="ix_framework_core_IxTask_Execute_System_Object_" data-uid="ix.framework.core.IxTask.Execute(System.Object)">Execute(object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Execute(object parameter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">object</span></td>
+        <td><span class="parametername">parameter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_OnlineToPlainAsync.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.OnlineToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L37">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_OnlineToPlainAsync_" data-uid="ix.framework.core.IxTask.OnlineToPlainAsync*"></a>
+  <h4 id="ix_framework_core_IxTask_OnlineToPlainAsync" data-uid="ix.framework.core.IxTask.OnlineToPlainAsync">OnlineToPlainAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IxTask&gt; OnlineToPlainAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.ix.framework.core.IxTask.html">IxTask</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_OnlineToPlainAsync_Pocos_ix_framework_core_IxTask_.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.OnlineToPlainAsync(Pocos.ix.framework.core.IxTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L51">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_OnlineToPlainAsync_" data-uid="ix.framework.core.IxTask.OnlineToPlainAsync*"></a>
+  <h4 id="ix_framework_core_IxTask_OnlineToPlainAsync_Pocos_ix_framework_core_IxTask_" data-uid="ix.framework.core.IxTask.OnlineToPlainAsync(Pocos.ix.framework.core.IxTask)">OnlineToPlainAsync(IxTask)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;IxTask&gt; OnlineToPlainAsync(IxTask plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Pocos.ix.framework.core.IxTask.html">IxTask</a></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.ix.framework.core.IxTask.html">IxTask</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_PlainToOnlineAsync_Pocos_ix_framework_core_IxTask_.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.PlainToOnlineAsync(Pocos.ix.framework.core.IxTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L63">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_PlainToOnlineAsync_" data-uid="ix.framework.core.IxTask.PlainToOnlineAsync*"></a>
+  <h4 id="ix_framework_core_IxTask_PlainToOnlineAsync_Pocos_ix_framework_core_IxTask_" data-uid="ix.framework.core.IxTask.PlainToOnlineAsync(Pocos.ix.framework.core.IxTask)">PlainToOnlineAsync(IxTask)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToOnlineAsync(IxTask plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Pocos.ix.framework.core.IxTask.html">IxTask</a></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">Ix.Connector.ITwinPrimitive</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_PlainToShadowAsync_Pocos_ix_framework_core_IxTask_.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.PlainToShadowAsync(Pocos.ix.framework.core.IxTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L100">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_PlainToShadowAsync_" data-uid="ix.framework.core.IxTask.PlainToShadowAsync*"></a>
+  <h4 id="ix_framework_core_IxTask_PlainToShadowAsync_Pocos_ix_framework_core_IxTask_" data-uid="ix.framework.core.IxTask.PlainToShadowAsync(Pocos.ix.framework.core.IxTask)">PlainToShadowAsync(IxTask)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToShadowAsync(IxTask plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Pocos.ix.framework.core.IxTask.html">IxTask</a></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">Ix.Connector.ITwinPrimitive</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_Poll.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.Poll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L112">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_Poll_" data-uid="ix.framework.core.IxTask.Poll*"></a>
+  <h4 id="ix_framework_core_IxTask_Poll" data-uid="ix.framework.core.IxTask.Poll">Poll()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Poll()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_ShadowToPlainAsync.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.ShadowToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L75">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_ShadowToPlainAsync_" data-uid="ix.framework.core.IxTask.ShadowToPlainAsync*"></a>
+  <h4 id="ix_framework_core_IxTask_ShadowToPlainAsync" data-uid="ix.framework.core.IxTask.ShadowToPlainAsync">ShadowToPlainAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IxTask&gt; ShadowToPlainAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.ix.framework.core.IxTask.html">IxTask</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_ShadowToPlainAsync_Pocos_ix_framework_core_IxTask_.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.ShadowToPlainAsync(Pocos.ix.framework.core.IxTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L88">View Source</a>
+  </span>
+  <a id="ix_framework_core_IxTask_ShadowToPlainAsync_" data-uid="ix.framework.core.IxTask.ShadowToPlainAsync*"></a>
+  <h4 id="ix_framework_core_IxTask_ShadowToPlainAsync_Pocos_ix_framework_core_IxTask_" data-uid="ix.framework.core.IxTask.ShadowToPlainAsync(Pocos.ix.framework.core.IxTask)">ShadowToPlainAsync(IxTask)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;IxTask&gt; ShadowToPlainAsync(IxTask plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Pocos.ix.framework.core.IxTask.html">IxTask</a></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.ix.framework.core.IxTask.html">IxTask</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask_CanExecuteChanged.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask.CanExecuteChanged%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/IxTask/IxTask.cs/#L23">View Source</a>
+  </span>
+  <h4 id="ix_framework_core_IxTask_CanExecuteChanged" data-uid="ix.framework.core.IxTask.CanExecuteChanged">CanExecuteChanged</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler CanExecuteChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Ix.Connector.ITwinObject</span>
+  </div>
+  <div>
+      <span class="xref">Ix.Connector.ITwinElement</span>
+  </div>
+  <div>
+      <a class="xref" href="ix.framework.core.IIxObject.html">IIxObject</a>
+  </div>
+  <div>
+      <span class="xref">System.Windows.Input.ICommand</span>
+  </div>
+  <div>
+      <a class="xref" href="ix.framework.core.IIxTask.html">IIxTask</a>
+  </div>
+  <div>
+      <a class="xref" href="ix.framework.core.IIxTaskState.html">IIxTaskState</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/ix.framework/new/19-desing-component-base-class/apiSpec/new?filename=ix_framework_core_IxTask.md&amp;value=---%0Auid%3A%20ix.framework.core.IxTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/src/core/src/ix.framework.core/.g/Onliners/IxTask/IxTask.g.cs/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

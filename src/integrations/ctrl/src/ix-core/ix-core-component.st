@@ -16,7 +16,7 @@ NAMESPACE core
             {#ix-set:AttributeName = "Very simple component example with header only defined"}
             MyComponentWithHeaderOnly : ComponentHeaderOnlyExample;  
         END_VAR
-
+//<MainExample>
         METHOD PROTECTED OVERRIDE Main   
             MyComponent.Initialize(THIS);
             MyComponent.Run(inReal :=  REAL#1.0001,
@@ -37,5 +37,6 @@ NAMESPACE core
                                             outReal => outHwReal,
                                             outDint => outHwDint);
         END_METHOD
+//</MainExample>
     END_CLASS
 END_NAMESPACE
