@@ -1,6 +1,7 @@
 CONFIGURATION MyConfiguration
     TASK Main(Interval := T#10ms, Priority := 1);
     PROGRAM P1 WITH Main: MyProgram;
+    PROGRAM P2 WITH Main: ProgramExample;
 
     VAR_GLOBAL
         ixcoreTasks : core.Tasks;
