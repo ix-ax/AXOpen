@@ -17,13 +17,13 @@ IxContext encapsulates entire application or application units. Any solution may
   classDiagram
     class Context{
         +Main()*
-        +Execute()        
+        +Run()        
     }     
 ```
 
-In its basic implementation IxContext has relatively simple interface. `Main` is the method where we place all calls of our sub-routines. **In other words the `Main` is the root of the call tree of our program.**
+In its basic implementation IxContext has relatively simple interface. `Main` is the method where we place all calls of our sub-routines. **In other words the `Run` is the root of the call tree of our program.**
 
-`Execute` method runs the IxContext. It must be called cyclically within a program unit that is attached to a cyclic `task`.
+`Run` method runs the IxContext. It must be called cyclically within a program unit that is attached to a cyclic `task`.
 
 ### Why do we need IxContext
 
@@ -31,7 +31,7 @@ In its basic implementation IxContext has relatively simple interface. `Main` is
 
 ### How IxContext works
 
-When you call `Execute` method on an instance of a IxContext, it will ensure opening IxContext, running `Main` method (root of all your program calls) and IxContext closing.
+When you call `Run` method on an instance of a IxContext, it will ensure opening IxContext, running `Main` method (root of all your program calls) and IxContext closing.
 
 
 ```mermaid
@@ -46,36 +46,16 @@ When you call `Execute` method on an instance of a IxContext, it will ensure ope
 Base class for the IxContext is `ix.core.IxContext`. The entry point of call execution of the IxContext is `Main` method. Notice that the `IxContext` class is abstract and cannot be instantiated if not extended. `Main` method must be overridden in derived class notice the use of override keyword and also that the method is `protected` which means the it is visible only from within the `IxContext` and derived classes.
 
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/ix-core/ix-core-component.st?name=MainExample)]
-
-
  **How to extend IxContext class**
 
-~~~SmallTalk
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxContext/IxContextExample.st?name=Declaration)]
 
-USING ix.core
 
-CLASS PUBLIC MyContext EXTENDS IxContext
-    METHOD PROTECTED OVERRIDE Main
-        // Here goes all your logic for given IxContext.
-    END_METHOD
-END_CLASS
-~~~
-
-Cyclical call of the IxContext logic (`Main` method) is ensured when IxContext `Execute` method is called. `Execute` method is public therefore accessible and visible to any part of the program that whishes to call it.
+Cyclical call of the IxContext logic (`Main` method) is ensured when IxContext `Run` method is called. `Run` method is public therefore accessible and visible to any part of the program that whishes to call it.
 
 **How to start IxContext's execution**
 
-~~~SmallTalk
-PROGRAM MyProgram
-    VAR
-        _myContext : MyContext;
-    END_VAR
-
-    _myContext.Execute();
-END_PROGRAM
-~~~
-
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxContext/IxContextExample.st?name=Implementation)]
 
 ## IxObject
 
@@ -91,30 +71,10 @@ IxObject is the base class for any other classes of ix.framework. It provides ac
 ```
 
 **IxObject initialization within a IxContext**
-
-~~~SmallTalk
-    CLASS PUBLIC MyContext EXTENDS ix.core.IxContext
-        VAR
-            _myObject : ix.core.IxObject;
-        END_VAR
-        METHOD PROTECTED OVERRIDE Main
-            _myObject.Initialize(THIS);            
-        END_METHOD
-    END_CLASS
-~~~
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxObject/IxObjectExample.st?name=IxContext)]
 
 **IxObject initialization within another IxObject**
-
-~~~SmallTalk
-    CLASS PUBLIC MyParentObject EXTENDS ix.core.IxObject
-        VAR
-            _myChildObject : ix.core.IxObject;
-        END_VAR
-        METHOD PROTECTED OVERRIDE Main
-            _myChildObject.Initialize(THIS);            
-        END_METHOD
-    END_CLASS
-~~~
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxObject/IxObjectExample.st?name=IxObject)]
 
 ## IxTask
 
@@ -122,20 +82,7 @@ IxTask provides basic task execution. IxTask needs to be initialized to set the 
 
 **IxTask initialization within a IxContext**
 
-~~~SmallTalk
-    CLASS IxTaskExample EXTENDS IxContext         
-        VAR PUBLIC
-            _myTask : IxTask;
-            _myCounter : ULINT;
-        END_VAR
-    
-        METHOD PUBLIC Initialize
-            // Initialization of the context needs to be called first
-            // It does not need to be called cyclically, just once
-            _myTask.Initialize(THIS);
-        END_METHOD
-    END_CLASS  
-~~~
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?range=4-14,55)]
 
 There are two key methods for managing the IxTask:
 
@@ -217,6 +164,9 @@ flowchart TD
 ```
 
 Example of using IxTask:
+
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?range=4-22,55)]
+
 ~~~SmallTalk
     CLASS IxTaskExample EXTENDS IxContext         
         VAR PUBLIC
@@ -242,9 +192,7 @@ Example of using IxTask:
 
 The IxTask executes upon the `Invoke` method call. `Invoke` fires the execution of `Execute` logic upon the first call, and it does not need cyclical calling.
 
-~~~SmallTalk
-    _myTask.Invoke();
-~~~
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskInvoke)]
 
 `Invoke()` method returns IIxTaskState with the following members:
 
@@ -253,31 +201,15 @@ The IxTask executes upon the `Invoke` method call. `Invoke` fires the execution 
  - `HasError` indicates the execution terminated with a failure.
  - `IsAborted` indicates that the execution of the IxTask has been aborted. It should continue by calling the method `Resume()`.
 
-~~~SmallTalk
-            // Wait for IxTask to Complete 
-            IF _myTask.Invoke().IsDone() THEN
-                ; //Do something
-            END_IF;
-            // ALTERNATIVELY
-            _myTask.Invoke();
-            IF _myTask.IsDone() THEN
-                ; //Do something ALTERNATIV
-            END_IF;
-~~~
-
-~~~SmallTalk
-            // Make sure that the IxTask is executing 
-            IF _myTask.Invoke().IsBusy() THEN
-                ; //Do something
-            END_IF;
-~~~
-
-~~~SmallTalk
-            // Check for IxTask's error 
-            IF _myTask.Invoke().HasError() THEN
-                ; //Do something
-            END_IF;
-~~~
+Examples of using:
+Invoking the IxTask and waiting for its completion at the same place.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskInvokeDone)]
+Invoking the IxTask and waiting for its completion at the different places.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskInvokeDoneSeparatelly)]
+Checking if the IxTask is executing.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskRunning)]
+Check for the IxTask's error state. 
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskError)]
 
 The IxTask can be started only from the `Ready` state by calling the `Invoke()` method in the same Context cycle as the `Execute()` method is called, regardless the order of the methods calls. After IxTask completion, the state of the IxTask will remain in Done, unless:
 
@@ -299,46 +231,8 @@ These methods are:
 - `WhileError()` - executes repeatedly while the task is in `Error` state (and `Execute()` method is called).
 
 Example of implementing "event-like" methods:
-~~~SmallTalk
-    CLASS MyCommandTask Extends CommandTask
-        VAR
-            OnAbortCounter : ULINT;
-            OnResumeCounter : ULINT;
-            OnDoneCounter : ULINT;
-            OnErrorCounter : ULINT;
-            OnRestoreCounter : ULINT;
-            OnStartCounter : ULINT;
-            WhileErrorCounter : ULINT;
-        END_VAR
-        METHOD PROTECTED OVERRIDE OnAbort 
-            OnAbortCounter := OnAbortCounter + ULINT#1;
-        END_METHOD
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskEventLikeMethods)]
 
-        METHOD PROTECTED OVERRIDE OnResume 
-            OnResumeCounter := OnResumeCounter + ULINT#1;
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE OnDone 
-            OnDoneCounter := OnDoneCounter + ULINT#1;
-        END_METHOD
-    
-        METHOD PROTECTED OVERRIDE OnError 
-            OnErrorCounter := OnErrorCounter + ULINT#1;
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE OnRestore 
-            OnRestoreCounter := OnRestoreCounter + ULINT#1;
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE OnStart 
-            OnStartCounter := OnStartCounter + ULINT#1;
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE WhileError 
-            WhileErrorCounter := WhileErrorCounter + ULINT#1;
-        END_METHOD    
-    END_CLASS
-~~~
 ## Step
 
 IxStep is an extension class of the IxTask and provides the basics for the coordinated controlled execution of the task in the desired order based on the coordination mechanism used.
