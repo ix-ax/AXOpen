@@ -76,7 +76,7 @@
     "dest": "../docs",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
-    "template": ["default", "templates/material", "templates/mermaid"],
+    "template": ["default", "templates/material", "templates/mermaid", "templates/custom"],
     "postProcessors": [],
     "markdownEngineName": "markdig",
     "noLangKeyword": false,
