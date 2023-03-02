@@ -8,7 +8,7 @@ NAMESPACE core
             {#ix-set:AttributeName = "<#Service mode#>"}
             ServiceMode : BOOL;  
         END_VAR
-
+//<MainExample>
         METHOD PROTECTED OVERRIDE Main   
             MyComponent.Initialize(THIS);
             MyComponent.Execute();
@@ -16,5 +16,6 @@ NAMESPACE core
                 MyComponent.Service();
             END_IF;
         END_METHOD
+//</MainExample>
     END_CLASS
 END_NAMESPACE

@@ -7,6 +7,18 @@
       "commands": [
         "ixc"
       ]
+    },
+    "docfx": {
+      "version": "2.62.1",
+      "commands": [
+        "docfx"
+      ]
+    },
+    "ix.ixd": {
+      "version": "0.13.3-alpha.73",
+      "commands": [
+        "ixd"
+      ]
     }
   }
 }

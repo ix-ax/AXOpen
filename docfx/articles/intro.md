@@ -1,0 +1,1 @@
+[!INCLUDE [<title>](~/index.md)]
