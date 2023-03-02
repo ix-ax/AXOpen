@@ -22,18 +22,21 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "BHvQjuaDzgnIBVhZomWGfbIqkrMJUhNkkOLxHboyi24="
+          "hash": "tsHOliIkkG9Yh3dx96w5z19+wW5wUzcaApbnOCMSxok="
         }
       },
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Conceptual",
       "source_relative_path": "articles/core/README.md",
       "output": {
         ".html": {
           "relative_path": "articles/core/README.html",
-          "hash": "s14rxXPXPNkDinYOKCQCu8zZLdBPOIRElHj7QAFiMLE="
+          "hash": "x30c7O6b7fSsSy9eU+zaSVc0TF8mGfcVsilXwa7ip10="
         }
       },
       "version": ""
@@ -44,7 +47,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "d0s1ymQ2ih4QrfUe1OtTBqmQYe45Dc3AO32uben2+9I="
+          "hash": "RflzzjpRDWxIpIznWqd2d4rGHhxMqH0ex9HC6ttIuzk="
         }
       },
       "version": ""
@@ -56,6 +59,36 @@
         ".html": {
           "relative_path": "articles/toc.html",
           "hash": "agnGDHo3i8jKEJbI6WRw9RM19VkDj4KmMWM/XUHXeo8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/ComplexComponentExample.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/ComplexComponentExample.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/IxComponentExampleHeaderOnlyView.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "images/IxComponentExampleHeaderOnlyView.PNG"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif"
         }
       },
       "version": ""
@@ -136,7 +169,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "rAFePyiY48VK9xSizlsXuxS2dhEKJNQUZqZwhjp0eoo="
+          "hash": "Ugot0Eu+/rf5efQS1M1sUfYfy4fQEaTUsO/XDKGnVtA="
         }
       },
       "version": ""
@@ -147,7 +180,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "f828n5x+QPxXn6A4b2+tHmZqMonahGV+d5KsjLfs/Qw="
+          "hash": "zDfpFhua+bQhnCzz7lZPYki5/8EIWLwXmLxtd/klqjM="
         }
       },
       "version": ""

@@ -1,6 +1,7 @@
 using ix.framework.core;
 
 NAMESPACE IxComponentExamples
+    //<Implementation>
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-set:AttributeName = "IxComponent example name"}
     CLASS PUBLIC IxComponentExample EXTENDS IxComponent 
@@ -15,10 +16,19 @@ NAMESPACE IxComponentExamples
             VAR_INPUT 
                 inReal : REAL;
                 inDint : DINT;
-            END_VAR;
-            THIS.Open();
-            Status.SomeStatusValue1 := Status.SomeStatusValue1 * inReal;
+            END_VAR
+            VAR_OUTPUT
+                outReal : REAL;
+                outDint : DINT;
+            END_VAR
+            // This must be called first.
+            SUPER.Open();
+            // Place the custom logic here.
+            Status.SomeStatusValue1  := Status.SomeStatusValue1  * inReal;
             Status.SomeStatusValue2 := Status.SomeStatusValue2 + inDint;
+
+            outReal := Status.SomeStatusValue1;
+            outDint := Status.SomeStatusValue2;
         END_METHOD 
 
         VAR PUBLIC
@@ -71,12 +81,6 @@ NAMESPACE IxComponentExamples
             {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "Header task 3"}
             HeaderTask3 : IxTask;
-    
-            // Separate task as a part of the component details with no tab name defined. 
-            // This task is going to be displayed inside the last component details tab `Tab name not defined`.
-            {#ix-attr:[ComponentDetails()]}
-            {#ix-set:AttributeName = "Detail task without tab name defined"}
-            DetailTaskWithoutTabName : IxTask;
 
             // Complete structure as a part of the component details tab `Settings` as the attribute [ComponentDetails("Settings")] 
             // is defined on the class Settings_ComponentExample. 
@@ -99,9 +103,9 @@ NAMESPACE IxComponentExamples
 
         END_VAR
     END_CLASS
+   //</Implementation>
 
-
-
+   //<ClassDefinitions>
     CLASS PUBLIC Header_ComponentExample
         VAR PUBLIC
             {#ix-set:AttributeName = "Start"}
@@ -109,7 +113,7 @@ NAMESPACE IxComponentExamples
             {#ix-set:AttributeName = "Stop"}
             Stop : IxTask;
             {#ix-set:AttributeName = "Status"}
-            Status : STRING:='Some status description should be placed here';
+            Status : STRING:='Some status description';
         END_VAR
     END_CLASS
 
@@ -175,4 +179,36 @@ NAMESPACE IxComponentExamples
             SomeHelp : STRING := 'TODO: Provide some help';
         END_VAR
     END_CLASS
+   //</ClassDefinitions>
+
+   //<Using>
+    CLASS ComponentExampleContext EXTENDS ix.framework.core.IxContext
+        VAR PUBLIC
+            {#ix-set:AttributeName = "Component example name"}
+            MyComponent : IxComponentExample;  
+            {#ix-set:AttributeName = "<#Activate manual control#>"}
+            ActivateManualControl : BOOL;  
+
+            inHwReal : REAL := REAL#1.0001;
+            inHwDint : DINT := DINT#1;
+            outHwReal : REAL;
+            outHwDint : DINT;
+
+        END_VAR
+
+        METHOD PROTECTED OVERRIDE Main   
+            // The `Initialize()` method must be called before any other method.
+            MyComponent.Initialize(THIS);
+            // Example of the activation of the manual control. 
+            IF ActivateManualControl THEN
+                MyComponent.ActivateManualControl();
+            END_IF;
+            // Calling the main method `Run` with respective input and output variables. 
+            MyComponent.Run(inReal :=  inHwReal,
+                            inDint :=  inHwDint,
+                            outReal => outHwReal,
+                            outDint => outHwDint);
+        END_METHOD
+    END_CLASS
+   //</Using>
 END_NAMESPACE

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
@@ -35,9 +36,8 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="IX">
-              </a>
-            </div>
+                <p class="text-logo">IX-FRAMEWORK</p>
+              </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -148,13 +148,13 @@ END_CLASS
         _myChildObject  : IxObject;
     END_VAR
     METHOD PROTECTED OVERRIDE Main
-        _myChildObject .Initialize(THIS);            
+        _myChildObject.Initialize(THIS);            
     END_METHOD
 END_CLASS
 </code></pre><h2 id="ixtask">IxTask</h2>
 <p>IxTask provides basic task execution. IxTask needs to be initialized to set the proper IxContext.</p>
 <p><strong>IxTask initialization within a IxContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS IxTaskExample EXTENDS IxContext         
+<pre><code class="lang-smalltalk">CLASS IxTaskDocuExample EXTENDS IxContext         
     VAR PUBLIC
         _myTask : IxTask;
         _myCounter : ULINT;
@@ -246,7 +246,7 @@ END_CLASS
     end
 </code></pre>
 <p>Example of using IxTask:</p>
-<pre><code class="lang-smalltalk">CLASS IxTaskExample EXTENDS IxContext         
+<pre><code class="lang-smalltalk">CLASS IxTaskDocuExample EXTENDS IxContext         
     VAR PUBLIC
         _myTask : IxTask;
         _myCounter : ULINT;
@@ -266,27 +266,6 @@ END_CLASS
         END_IF;
     END_METHOD
 END_CLASS  
-</code></pre>
-<pre><code class="lang-SmallTalk">    CLASS IxTaskExample EXTENDS IxContext         
-        VAR PUBLIC
-            _myTask : IxTask;
-            _myCounter : ULINT;
-        END_VAR
-    
-        METHOD PUBLIC Initialize
-            // Initialization of the context needs to be called first
-            // It does not need to be called cyclically, just once
-            _myTask.Initialize(THIS);
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE Main
-            // Cyclicall call of the Execute
-            IF _myTask.Execute() THEN
-                _myCounter := _myCounter + ULINT#1;
-                _myTask.DoneWhen(_myCounter = ULINT#100);
-            END_IF;
-        END_METHOD
-    END_CLASS  
 </code></pre>
 <p>The IxTask executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and it does not need cyclical calling.</p>
 <pre><code class="lang-smalltalk">_myTask.Invoke();
@@ -424,60 +403,382 @@ END_CLASS
 <li><code>GetSequenceMode()</code>: Gets the current sequence mode of the IxSequencer.</li>
 <li><code>GetNumberOfConfiguredSteps()</code>: Gets the number of the configured steps in the sequence.</li>
 </ul>
-<pre><code class="lang-SmallTalk">    CLASS IxSequencerExample EXTENDS IxContext
-        VAR PUBLIC
-            _mySequencer : IxSequencer;
-            _step_1 : IxStep;
-            _step_2 : IxStep;
-            _step_3 : IxStep;
-            _myCounter : ULINT;
-        END_VAR
-    
-        METHOD PUBLIC Initialize
-            // Initialization of the context needs to be called first
-            // It does not need to be called cyclically, just once
-            _mySequencer.Initialize(THIS);
-            _step_1.Initialize(THIS);
-            _step_2.Initialize(THIS);
-            _step_3.Initialize(THIS);
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE Main
-            _mySequencer.Open();
-
-            // Example of the most simple use of Execute() method of step class, only with IxCoordinator defined. 
-            IF _step_1.Execute(_mySequencer) THEN
-                // do something
-                _myCounter := _myCounter + ULINT#1;
-                IF (_myCounter MOD ULINT#5) = ULINT#0 THEN
-                    // continue to the next step of the sequence
-                    _mySequencer.MoveNext();
-                END_IF;
-            END_IF;
-
-            // Example of use of the Execute() method of step class with Enable condition.
-            // This step is going to be executed just in the first run of the sequence,
-            // as during the second run, the Enable parameter will have the value of FALSE.
-            IF _step_2.Execute(coord := _mySequencer, Enable := _myCounter &lt;= ULINT#20) THEN
-                _myCounter := _myCounter + ULINT#1;
-                IF _myCounter = ULINT#20 THEN
-                    // Jumping to step 1. As it is jumping backwards, the execution of step 1  
-                    // is going to be started in the next context cycle.
-                    _mySequencer.RequestStep(_step_1);
-                END_IF;
-            END_IF;
-
-            // Example of use of the Execute() method of step class with all three parameters defined.
-            IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := 'This is a description of the step 3' ) THEN
-                _myCounter := _myCounter + ULINT#1;
-                IF (_myCounter MOD ULINT#7) = ULINT#0 THEN
-                    // Finalize the sequence and initiate the execution from the first step.
-                    _mySequencer.CompleteSequence();
-                END_IF;
-            END_IF;
-        END_METHOD   
-    END_CLASS
+<h3 id="example-of-using-ixsequencer">Example of using IxSequencer</h3>
+<h4 id="example-of-the-declaration-of-the-ixsequencer-and-ixstep">Example of the declaration of the IxSequencer and IxStep</h4>
+<pre><code class="lang-smalltalk">CLASS IxSequencerDocuExample EXTENDS IxContext
+    VAR PUBLIC
+        _mySequencer : IxSequencer;
+        _step_1 : IxStep;
+        _step_2 : IxStep;
+        _step_3 : IxStep;
+        _myCounter : ULINT;
+    END_VAR
+END_CLASS
+</code></pre><h4 id="initialization">Initialization</h4>
+<p>Initialization of the context needs to be called first. It does not need to be called cyclically, just once.</p>
+<pre><code class="lang-smalltalk">METHOD PUBLIC Initialize
+    _mySequencer.Initialize(THIS);
+    _step_1.Initialize(THIS);
+    _step_2.Initialize(THIS);
+    _step_3.Initialize(THIS);
+END_METHOD
+</code></pre><h4 id="open">Open</h4>
+<p>The <code>Open()</code> method must be called cyclically before any logic.</p>
+<pre><code class="lang-smalltalk">_mySequencer.Open();
+</code></pre><h4 id="step-1">Step</h4>
+<p>Example of the most simple use of the <code>Execute()</code> method of the <code>IxStep</code> class, only with the IxCoordinator defined.</p>
+<pre><code class="lang-smalltalk">IF _step_1.Execute(_mySequencer) THEN
+    // do something
+    _myCounter := _myCounter + ULINT#1;
+    IF (_myCounter MOD ULINT#5) = ULINT#0 THEN
+        // continue to the next step of the sequence
+        _mySequencer.MoveNext();
+    END_IF;
+END_IF;
 </code></pre>
+<p>Example of use of the <code>Execute()</code> method of the <code>IxStep</code> class with the Enable condition.
+This step is going to be executed just in the first run of the sequence, as during the second one, the Enable parameter will have the value of FALSE.</p>
+<pre><code class="lang-smalltalk">IF _step_2.Execute(coord := _mySequencer, Enable := _myCounter &lt;= ULINT#20) THEN
+    _myCounter := _myCounter + ULINT#1;
+    IF _myCounter = ULINT#20 THEN
+        // Jumping to step 1. As it is jumping backwards, the execution of step 1  
+        // is going to be started in the next context cycle.
+        _mySequencer.RequestStep(_step_1);
+    END_IF;
+END_IF;
+</code></pre>
+<p>Example of use of the <code>Execute()</code> method of the <code>IxStep</code> class with all three parameters defined.</p>
+<pre><code class="lang-smalltalk">IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := 'This is a description of the step 3' ) THEN
+    _myCounter := _myCounter + ULINT#1;
+    IF (_myCounter MOD ULINT#7) = ULINT#0 THEN
+        // Finalize the sequence and initiate the execution from the first step.
+        _mySequencer.CompleteSequence();
+    END_IF;
+END_IF;
+</code></pre><h2 id="ixcomponent">IxComponent</h2>
+<p><code>IxComponent</code> is an abstract class extending the IxObject, and it is the base building block for the &quot;hardware-related devices&quot; like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, &quot;virtual devices&quot; like counter, database, etc. <code>IxComponent</code> is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the <code>IxComponent</code> is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory.</p>
+<p><code>Restore()</code> - inside this method, the logic for resetting the IxComponent or restoring it from any state to its initial state should be placed.</p>
+<p><code>ManualControl()</code> - inside this method, the logic for manual operations with the component should be placed. To be able to control the <code>IxComponent</code> instance manually, the method <code>ActivateManualControl()</code> of this instance needs to be called cyclically.</p>
+<p>The base class contains two additional method to deal with the manual control of the <code>IxComponent</code>.
+<code>ActivateManualControl()</code> - when this method is called cyclically, the <code>IxComponent</code> changes its behavior to manually controllable and ensure the call of the <code>ManualControl()</code> method in the derived class.</p>
+<p><code>IsManuallyControllable()</code> -returns <code>TRUE</code> when the <code>IxComponent</code> is manually controllable.</p>
+<p><strong>Layout attributes <code>ComponentHeader</code> and <code>ComponentDetails</code></strong></p>
+<p>The visual view of the extended <code>IxComponent</code> on the UI side could be done both ways. Manually with complete control over the design or by using the auto-rendering mechanism of the <code>RenderableContentControl</code> (TODO add a link to docu of the RenderableContentControl) element, which is, in most cases, more than perfect.
+To take full advantage of the auto-rendering mechanism, the base class has implemented the additional layout attributes <code>ComponentHeader</code> and <code>ComponentDetails(TabName)</code>. The auto-rendered view is divided into two parts: the fixed one and the expandable one.
+All <code>IxComponent</code> members with the <code>ComponentHeader</code> layout attribute defined will be displayed in the fixed part.
+All members with the <code>ComponentDetails(TabName)</code> layout attribute defined will be displayed in the expandable part inside the <code>TabControl</code> with &quot;TabName&quot;.
+All members are added in the order in which they are defined, taking into account their layout attributes like <code>Container(Layout.Wrap)</code> or <code>Container(Layout.Stack)</code>.</p>
+<p><strong>How to implement <code>IxComponent</code></strong></p>
+<p>Example of the implementation very simple <code>IxComponent</code> with members placed only inside the Header.</p>
+<pre><code class="lang-smalltalk">{#ix-attr:[Container(Layout.Stack)]}
+{#ix-set:AttributeName = &quot;IxComponent with header only example&quot;}
+CLASS PUBLIC IxComponentHeaderOnlyExample EXTENDS IxComponent 
+    METHOD PROTECTED OVERRIDE Restore: IIxTask 
+        // Some logic for Restore could be placed here. For Example:
+        valueReal := REAL#1.0;
+        valueDint := DINT#0;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE ManualControl
+        // Some logic for manual control could be placed here.
+        ;
+    END_METHOD
+
+    // Main method of the `IxComponent` that must be 
+    // called inside the `IxContext` cyclically.
+    METHOD PUBLIC Run
+        // Declaration of the input and output variables.
+        // In the case of &quot;hardware-related&quot; `IxComponent`, 
+        // these would be the variables linked to the hardware. 
+        VAR_INPUT 
+            inReal : REAL;
+            inDint : DINT;
+        END_VAR
+        VAR_OUTPUT
+            outReal : REAL;
+            outDint : DINT;
+        END_VAR
+        
+        // This must be called first.
+        SUPER.Open();
+
+        // Place the custom logic here.
+        valueReal := valueReal * inReal;
+        valueDint := valueDint + inDint;
+
+        outReal := valueReal;
+        outDint := valueDint;
+    END_METHOD 
+
+    VAR PUBLIC
+        {#ix-attr:[Container(Layout.Wrap)]}
+        {#ix-attr:[ComponentHeader()]}        
+        {#ix-set:AttributeName = &quot;Real product value&quot;}
+        valueReal : REAL := REAL#1.0; 
+        {#ix-attr:[ComponentHeader()]}        
+        {#ix-set:AttributeName = &quot;Dint sum value&quot;}
+        valueDint : DINT:= DINT#0; 
+    END_VAR
+END_CLASS
+</code></pre>
+<p><strong>How to use <code>IxComponent</code></strong></p>
+<p>The instance of the extended <code>IxComponent</code> must be defined inside the <code>IxContext</code>.</p>
+<pre><code class="lang-smalltalk">CLASS ComponentHeaderOnlyExampleContext EXTENDS ix.framework.core.IxContext
+     VAR PUBLIC
+         {#ix-set:AttributeName = &quot;Very simple component example with header only defined&quot;}
+         MyComponentWithHeaderOnly : IxComponentHeaderOnlyExample;  
+         {#ix-set:AttributeName = &quot;&lt;#Activate manual control#&gt;&quot;}
+         ActivateManualControl : BOOL;  
+
+         inHwReal : REAL := REAL#1.0001;
+         inHwDint : DINT := DINT#1;
+         outHwReal : REAL;
+         outHwDint : DINT;
+
+     END_VAR
+
+     METHOD PROTECTED OVERRIDE Main   
+         // The `Initialize()` method must be called before any other method.
+         MyComponentWithHeaderOnly.Initialize(THIS);
+         // Example of the activation of the manual control. 
+         IF ActivateManualControl THEN
+             MyComponentWithHeaderOnly.ActivateManualControl();
+         END_IF;
+         // Calling the main method `Run` with respective input and output variables. 
+         MyComponentWithHeaderOnly.Run(inReal :=  inHwReal,
+                         inDint :=  inHwDint,
+                         outReal =&gt; outHwReal,
+                         outDint =&gt; outHwDint);
+     END_METHOD
+ END_CLASS
+</code></pre>
+<p>Inside the <code>Main()</code> method of the related <code>IxContext</code> following rules must be applied. The <code>Initialize()</code> method of the extended instance of the <code>IxComponent</code> must be called first.
+The <code>Run()</code> method with the respective input and output variables must be called afterwards.</p>
+<p><strong>How to visualize <code>IxComponent</code></strong></p>
+<p>On the UI side use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>IxComponent</code>.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl 
+    Context=&quot;@Entry.Plc.myComponentHeaderOnlyExample.MyComponentWithHeaderOnly&quot;
+    Presentation=&quot;Command&quot; /&gt;
+</code></pre>
+<p>The rendered result should then looks as follows:
+<img src="../../../images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif"></p>
+<p>In case of more complex <code>IxComponent</code> the most important members should be placed in the fixed part (Header) and the rest of the members should be placed inside the expandable part (Details). The members inside the expandable part should be organize inside the tabs.</p>
+<p><strong>More complex <code>IxComponent</code></strong>
+Example of the implementation more complex <code>IxComponent</code> with members placed also in several tabs inside the expandable part (Details).</p>
+<pre><code class="lang-smalltalk">{#ix-attr:[Container(Layout.Stack)]}
+{#ix-set:AttributeName = &quot;IxComponent example name&quot;}
+CLASS PUBLIC IxComponentExample EXTENDS IxComponent 
+    METHOD PROTECTED OVERRIDE Restore: IIxTask 
+        ;
+    END_METHOD
+    METHOD PROTECTED OVERRIDE ManualControl
+        ;
+    END_METHOD
+
+    METHOD PUBLIC Run
+        VAR_INPUT 
+            inReal : REAL;
+            inDint : DINT;
+        END_VAR
+        VAR_OUTPUT
+            outReal : REAL;
+            outDint : DINT;
+        END_VAR
+        // This must be called first.
+        SUPER.Open();
+        // Place the custom logic here.
+        Status.SomeStatusValue1  := Status.SomeStatusValue1  * inReal;
+        Status.SomeStatusValue2 := Status.SomeStatusValue2 + inDint;
+
+        outReal := Status.SomeStatusValue1;
+        outDint := Status.SomeStatusValue2;
+    END_METHOD 
+
+    VAR PUBLIC
+        // Complete structure as a part of the component header. 
+        // All structure members are going to be displayed in the component header.
+        {#ix-attr:[Container(Layout.Wrap)]}
+        {#ix-attr:[ComponentHeader()]}        
+        Header : Header_ComponentExample; 
+
+        // Two separate tasks as a part of the component header. 
+        // These tasks are going to be added to the previous members of the component header.
+        {#ix-attr:[ComponentHeader()]}        
+        {#ix-set:AttributeName = &quot;Header task 1&quot;}
+        HeaderTask1 : IxTask;
+
+        // Complete structure as a part of the component details tab `Tasks`. 
+        // All structure members are going to be added to the previous members of the component details tab `Tasks`.
+        {#ix-set:AttributeName = &quot;Tasks&quot;}
+        {#ix-attr:[Container(Layout.Stack)]}
+        Tasks : Tasks_ComponentExample;
+
+        // Single task as a part of the component details tab `Tasks`. 
+        // This task is going to be displayed in the component details tab `Tasks`
+        {#ix-attr:[ComponentDetails(&quot;Tasks&quot;)]}
+        {#ix-attr:[Container(Layout.Stack)]}
+        {#ix-set:AttributeName = &quot;Detail task in Tasks tab&quot;}
+        DetailTaskInTasksTab : IxTask;
+
+        // Additional separate task as a part of the component header. 
+        // This task is going to be added to the previous members of the component header.
+        {#ix-attr:[ComponentHeader()]}
+        {#ix-set:AttributeName = &quot;Header task 2&quot;}
+        HeaderTask2 : IxTask;
+
+        // Complete structure as a part of the component details tab `Status` as the attribute [ComponentDetails(&quot;Status&quot;)] 
+        // is defined on the class Status_ComponentExample. 
+        // All structure members are going to be added to the previous members of the component details tab `Status`.
+        {#ix-set:AttributeName = &quot;Status class&quot;}
+        Status :Status_ComponentExample;
+
+        // Single variable as a part of the component details tab `Status`. 
+        // This variable is going to be added to the previous members of the component details tab `Status`.
+        {#ix-attr:[ComponentDetails(&quot;Status&quot;)]}
+        {#ix-attr:[Container(Layout.Stack)]}        
+        {#ix-set:AttributeName = &quot;Status string&quot;}
+        Status2 : string;
+
+        // Additional separate task as a part of the component header. 
+        // This task is going to be added to the previous members of the component header.
+        {#ix-attr:[ComponentHeader()]}
+        {#ix-set:AttributeName = &quot;Header task 3&quot;}
+        HeaderTask3 : IxTask;
+
+        // Complete structure as a part of the component details tab `Settings` as the attribute [ComponentDetails(&quot;Settings&quot;)] 
+        // is defined on the class Settings_ComponentExample. 
+        // All structure members are going to be added to the previous members of the component details tab `Settings`.
+        {#ix-set:AttributeName = &quot;Settings&quot;}
+        Settings : Settings_ComponentExample;
+
+        // Complete structure as a part of the component details tab `Diagnostics` as the attribute [ComponentDetails(&quot;Diagnostics&quot;)] 
+        // is defined on the class Diagnostics_ComponentExample. git 
+        // All structure members are going to be added to the previous members of the component details tab `Diagnostics`.
+        {#ix-set:AttributeName = &quot;Diagnostics&quot;}
+        Diagnostics : Diagnostics_ComponentExample;
+
+        // Complete structure as a part of the component details tab `Help` as the attribute [ComponentDetails(&quot;Help&quot;)] 
+        // is defined on the class Help_ComponentExample. 
+        // All structure members are going to be added to the previous members of the component details tab `Help`.
+        {#ix-set:AttributeName = &quot;Help&quot;}
+        Help : Help_ComponentExample; 
+
+
+    END_VAR
+END_CLASS
+</code></pre>
+<p>For the complex types of the <code>IxComponent</code> it is also recomended to organize partial groups of the members into the classes as it is in this example.</p>
+<pre><code class="lang-smalltalk">CLASS PUBLIC Header_ComponentExample
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;Start&quot;}
+        Start : IxTask;
+        {#ix-set:AttributeName = &quot;Stop&quot;}
+        Stop : IxTask;
+        {#ix-set:AttributeName = &quot;Status&quot;}
+        Status : STRING:='Some status description';
+    END_VAR
+END_CLASS
+
+{#ix-attr:[Container(Layout.Stack)]}
+{#ix-attr:[ComponentDetails(&quot;Tasks&quot;)]}
+CLASS PUBLIC Tasks_ComponentExample
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;Some status value 1&quot;}
+        SomeStatusValue1 : REAL := REAL#45.3;
+        {#ix-set:AttributeName = &quot;Some advanced component task 1&quot;}
+        SomeAdvancedComponentTask1 : IxTask;
+        {#ix-set:AttributeName = &quot;Some advanced component task 2&quot;}
+        SomeAdvancedComponentTask2 : IxTask;
+        {#ix-set:AttributeName = &quot;Some advanced component task 3&quot;}
+        SomeAdvancedComponentTask3 : IxTask;
+        {#ix-set:AttributeName = &quot;Some advanced component task 4&quot;}
+        SomeAdvancedComponentTask4 : IxTask;
+        {#ix-set:AttributeName = &quot;Some advanced component task 5&quot;}
+        SomeAdvancedComponentTask5 : IxTask;
+    END_VAR
+END_CLASS
+
+{#ix-attr:[Container(Layout.Stack)]}
+{#ix-attr:[ComponentDetails(&quot;Status&quot;)]}
+CLASS PUBLIC Status_ComponentExample
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;Some status value 1&quot;}
+        SomeStatusValue1 : REAL := REAL#45.3;
+        {#ix-set:AttributeName = &quot;Some status value 2&quot;}
+        SomeStatusValue2 : DINT := DINT#46587;
+        {#ix-set:AttributeName = &quot;Some status value 3&quot;}
+        SomeStatusValue3 : STRING := 'some description';
+    END_VAR
+END_CLASS
+
+{#ix-attr:[ComponentDetails(&quot;Settings&quot;)]}
+{#ix-attr:[Container(Layout.Stack)]}
+CLASS PUBLIC Settings_ComponentExample
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;Some setting value 1&quot;}
+        SomeSettingValue1 : REAL := REAL#45.3;
+        {#ix-set:AttributeName = &quot;Some setting value 2&quot;}
+        SomeSettingValue2 : DINT := DINT#46587;
+        {#ix-set:AttributeName = &quot;Some setting value 3&quot;}
+        SomeSettingValue3 : STRING := 'some setting';
+    END_VAR
+END_CLASS
+
+{#ix-attr:[ComponentDetails(&quot;Diagnostics&quot;)]}
+{#ix-attr:[Container(Layout.Stack)]}
+CLASS PUBLIC Diagnostics_ComponentExample
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;Some diagnostic message&quot;}
+        SomeDiagnosticMessage : STRING := 'TODO: Some diagnostic message needs to be placed here';
+    END_VAR
+END_CLASS
+
+{#ix-attr:[ComponentDetails(&quot;Help&quot;)]}
+{#ix-attr:[Container(Layout.Stack)]}
+CLASS PUBLIC Help_ComponentExample
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;Some help&quot;}
+        SomeHelp : STRING := 'TODO: Provide some help';
+    END_VAR
+END_CLASS
+</code></pre>
+<p>Instantiate and call the <code>IxComponent</code> instance.</p>
+<pre><code class="lang-smalltalk">CLASS ComponentExampleContext EXTENDS ix.framework.core.IxContext
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;Component example name&quot;}
+        MyComponent : IxComponentExample;  
+        {#ix-set:AttributeName = &quot;&lt;#Activate manual control#&gt;&quot;}
+        ActivateManualControl : BOOL;  
+
+        inHwReal : REAL := REAL#1.0001;
+        inHwDint : DINT := DINT#1;
+        outHwReal : REAL;
+        outHwDint : DINT;
+
+    END_VAR
+
+    METHOD PROTECTED OVERRIDE Main   
+        // The `Initialize()` method must be called before any other method.
+        MyComponent.Initialize(THIS);
+        // Example of the activation of the manual control. 
+        IF ActivateManualControl THEN
+            MyComponent.ActivateManualControl();
+        END_IF;
+        // Calling the main method `Run` with respective input and output variables. 
+        MyComponent.Run(inReal :=  inHwReal,
+                        inDint :=  inHwDint,
+                        outReal =&gt; outHwReal,
+                        outDint =&gt; outHwDint);
+    END_METHOD
+END_CLASS
+</code></pre>
+<p>UI side of the <code>IxComponent</code>.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl 
+    Context=&quot;@Entry.Plc.myComponentExample.MyComponent&quot; 
+    Presentation=&quot;Command&quot; /&gt;
+</code></pre>
+<p>and the rendered result:
+<img src="../../../images/ComplexComponentExample.gif "></p>
 </article>
           </div>
 
