@@ -15,13 +15,13 @@ IxContext encapsulates entire application or application units. Any solution may
   classDiagram 
     class Context{
         #Main()*
-        +Execute()
+        +Run()
     }     
 ```
 
 In its basic implementation IxContext has relatively simple interface. The main method is the method where we place all calls of our sub-routines. **In other words the `Main` is the root of the call tree of our program.**
 
-`Execute` method runs the IxContext. It must be called cyclically within a program unit that is attached to a cyclic `task`.
+`Run` method runs the IxContext. It must be called cyclically within a program unit that is attached to a cyclic `task`.
 
 ### Why do we need IxContext
 
@@ -29,7 +29,7 @@ In its basic implementation IxContext has relatively simple interface. The main 
 
 ### How IxContext works
 
-When you call `Execute` method on an instance of a IxContext, it will ensure opening IxContext, running `Main` method (root of all your program calls) and IxContext closing.
+When you call `Run` method on an instance of a IxContext, it will ensure opening IxContext, running `Main` method (root of all your program calls) and IxContext closing.
 
 
 ```mermaid
@@ -67,7 +67,7 @@ PROGRAM MyProgram
         _myContext : MyContext;
     END_VAR
 
-    _myContext.Execute();
+    _myContext.Run();
 END_PROGRAM
 ~~~
 
@@ -379,7 +379,6 @@ IxSequencer contains following methods:
 - `GetSequenceMode()`: Gets the current sequence mode of the IxSequencer. 
 - `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
 
-
 ~~~SmallTalk
     CLASS IxSequencerExample EXTENDS IxContext
         VAR PUBLIC
@@ -436,4 +435,11 @@ IxSequencer contains following methods:
     END_CLASS
 ~~~
 
-    
+
+## IxComponent
+
+`IxComponent` is an abstract class extending the IxObject, and it is the base building block for the "hardware-related devices" like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, "virtual devices" like counter, database, etc. `IxComponent` is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the `IxComponent` is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory. 
+
+`Restore()` - inside this method, the logic for resetting the IxComponent or restoring it from any state to its initial state should be placed.
+
+`ManualControl()` - inside this method, the logic for manual operations with the component should be placed. To be able to control the `IxComponent` instance manually, the method `ActivateManualControl()` of this instance needs to be called cyclically.

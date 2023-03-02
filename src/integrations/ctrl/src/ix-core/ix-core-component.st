@@ -5,15 +5,15 @@ NAMESPACE core
         VAR PUBLIC
             {#ix-set:AttributeName = "Component example name"}
             MyComponent : ComponentExample;  
-            {#ix-set:AttributeName = "<#Service mode#>"}
-            ServiceMode : BOOL;  
+            {#ix-set:AttributeName = "<#Activate manual control#>"}
+            ActivateManualControl : BOOL;  
         END_VAR
 //<MainExample>
         METHOD PROTECTED OVERRIDE Main   
             MyComponent.Initialize(THIS);
-            MyComponent.Execute();
-            IF ServiceMode THEN
-                MyComponent.Service();
+            MyComponent.Run(inReal := REAL#1.0001,inDint := DINT#1);
+            IF ActivateManualControl THEN
+                MyComponent.ActivateManualControl();
             END_IF;
         END_METHOD
 //</MainExample>

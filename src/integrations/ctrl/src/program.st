@@ -7,10 +7,10 @@ PROGRAM MyProgram
         myComponentExamples : core.ComponentExamples;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
-    MainContext.Execute();
-    ixcoreTasks.Execute();
-    ixcoreSequencers.Execute();
-    myComponentExamples.Execute();
+    MainContext.Run();
+    ixcoreTasks.Run();
+    ixcoreSequencers.Run();
+    myComponentExamples.Run();
 
 END_PROGRAM
 

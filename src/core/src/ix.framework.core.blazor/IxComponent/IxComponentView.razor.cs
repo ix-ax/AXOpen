@@ -84,7 +84,7 @@ namespace ix.framework.core
 
         private void UpdateServiceMode(object sender, EventArgs e)
         {
-            if (IsControllable && this.Component._isinServiceMode.Cyclic)
+            if (IsControllable && this.Component._isManuallyControllable.Cyclic)
             {
                 currentPresentation = "Command-Control";
             }
@@ -101,7 +101,7 @@ namespace ix.framework.core
             containsDetailsAttribute = this.DetailsTabs.Count() != 0;
             UpdateValuesOnChange(Component);
             UpdateServiceMode(this, new EventArgs());
-            Component._isinServiceMode.PropertyChanged += UpdateServiceMode;
+            Component._isManuallyControllable.PropertyChanged += UpdateServiceMode;
         }
 
         private void Collapse()
@@ -111,7 +111,7 @@ namespace ix.framework.core
 
         public void Dispose()
         {
-            Component._isinServiceMode.PropertyChanged -= UpdateServiceMode;
+            Component._isManuallyControllable.PropertyChanged -= UpdateServiceMode;
             Component.StopPolling();
         }
     }
