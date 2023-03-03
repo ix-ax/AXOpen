@@ -82,7 +82,7 @@ IxTask provides basic task execution. IxTask needs to be initialized to set the 
 
 **IxTask initialization within a IxContext**
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?range=4-14,55)]
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskDocuExample.st?range=4-14,55)]
 
 There are two key methods for managing the IxTask:
 
@@ -165,34 +165,11 @@ flowchart TD
 
 Example of using IxTask:
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?range=4-22,55)]
-
-~~~SmallTalk
-    CLASS IxTaskExample EXTENDS IxContext         
-        VAR PUBLIC
-            _myTask : IxTask;
-            _myCounter : ULINT;
-        END_VAR
-    
-        METHOD PUBLIC Initialize
-            // Initialization of the context needs to be called first
-            // It does not need to be called cyclically, just once
-            _myTask.Initialize(THIS);
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE Main
-            // Cyclicall call of the Execute
-            IF _myTask.Execute() THEN
-                _myCounter := _myCounter + ULINT#1;
-                _myTask.DoneWhen(_myCounter = ULINT#100);
-            END_IF;
-        END_METHOD
-    END_CLASS  
-~~~
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskDocuExample.st?range=4-22,55)]
 
 The IxTask executes upon the `Invoke` method call. `Invoke` fires the execution of `Execute` logic upon the first call, and it does not need cyclical calling.
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskInvoke)]
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskDocuExample.st?name=IxTaskInvoke)]
 
 `Invoke()` method returns IIxTaskState with the following members:
 
@@ -203,13 +180,13 @@ The IxTask executes upon the `Invoke` method call. `Invoke` fires the execution 
 
 Examples of using:
 Invoking the IxTask and waiting for its completion at the same place.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskInvokeDone)]
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskDocuExample.st?name=IxTaskInvokeDone)]
 Invoking the IxTask and waiting for its completion at the different places.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskInvokeDoneSeparatelly)]
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskDocuExample.st?name=IxTaskInvokeDoneSeparatelly)]
 Checking if the IxTask is executing.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskRunning)]
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskDocuExample.st?name=IxTaskRunning)]
 Check for the IxTask's error state. 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskError)]
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskDocuExample.st?name=IxTaskError)]
 
 The IxTask can be started only from the `Ready` state by calling the `Invoke()` method in the same Context cycle as the `Execute()` method is called, regardless the order of the methods calls. After IxTask completion, the state of the IxTask will remain in Done, unless:
 
@@ -231,7 +208,7 @@ These methods are:
 - `WhileError()` - executes repeatedly while the task is in `Error` state (and `Execute()` method is called).
 
 Example of implementing "event-like" methods:
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskExample.st?name=IxTaskEventLikeMethods)]
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxTask/IxTaskDocuExample.st?name=IxTaskEventLikeMethods)]
 
 ## Step
 
@@ -278,61 +255,84 @@ IxSequencer contains following methods:
 - `GetSequenceMode()`: Gets the current sequence mode of the IxSequencer. 
 - `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
 
+### Example of using IxSequencer
+#### Example of the declaration of the IxSequencer and IxStep 
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxSequencer/IxSequencerDocuExample.st?range=4-11,60)]
+#### Initialization
+Initialization of the context needs to be called first. It does not need to be called cyclically, just once.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxSequencer/IxSequencerDocuExample.st?name=Initialize)]
+#### Open
+The `Open()` method must be called cyclically before any logic.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxSequencer/IxSequencerDocuExample.st?name=Open)]
+#### Step
+Example of the most simple use of the `Execute()` method of the `IxStep` class, only with the IxCoordinator defined. 
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxSequencer/IxSequencerDocuExample.st?name=SimpleStep)]
+Example of use of the `Execute()` method of the `IxStep` class with the Enable condition. 
+This step is going to be executed just in the first run of the sequence, as during the second one, the Enable parameter will have the value of FALSE.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxSequencer/IxSequencerDocuExample.st?name=EnableStep)]
+Example of use of the `Execute()` method of the `IxStep` class with all three parameters defined.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxSequencer/IxSequencerDocuExample.st?name=FullStep)]
 
-~~~SmallTalk
-    CLASS IxSequencerExample EXTENDS IxContext
-        VAR PUBLIC
-            _mySequencer : IxSequencer;
-            _step_1 : IxStep;
-            _step_2 : IxStep;
-            _step_3 : IxStep;
-            _myCounter : ULINT;
-        END_VAR
-    
-        METHOD PUBLIC Initialize
-            // Initialization of the context needs to be called first
-            // It does not need to be called cyclically, just once
-            _mySequencer.Initialize(THIS);
-            _step_1.Initialize(THIS);
-            _step_2.Initialize(THIS);
-            _step_3.Initialize(THIS);
-        END_METHOD
+## IxComponent
 
-        METHOD PROTECTED OVERRIDE Main
-            _mySequencer.Open();
+`IxComponent` is an abstract class extending the IxObject, and it is the base building block for the "hardware-related devices" like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, "virtual devices" like counter, database, etc. `IxComponent` is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the `IxComponent` is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory. 
 
-            // Example of the most simple use of Execute() method of step class, only with IxCoordinator defined. 
-            IF _step_1.Execute(_mySequencer) THEN
-                // do something
-                _myCounter := _myCounter + ULINT#1;
-                IF (_myCounter MOD ULINT#5) = ULINT#0 THEN
-                    // continue to the next step of the sequence
-                    _mySequencer.MoveNext();
-                END_IF;
-            END_IF;
+`Restore()` - inside this method, the logic for resetting the IxComponent or restoring it from any state to its initial state should be placed.
 
-            // Example of use of the Execute() method of step class with Enable condition.
-            // This step is going to be executed just in the first run of the sequence,
-            // as during the second run, the Enable parameter will have the value of FALSE.
-            IF _step_2.Execute(coord := _mySequencer, Enable := _myCounter <= ULINT#20) THEN
-                _myCounter := _myCounter + ULINT#1;
-                IF _myCounter = ULINT#20 THEN
-                    // Jumping to step 1. As it is jumping backwards, the execution of step 1  
-                    // is going to be started in the next context cycle.
-                    _mySequencer.RequestStep(_step_1);
-                END_IF;
-            END_IF;
+`ManualControl()` - inside this method, the logic for manual operations with the component should be placed. To be able to control the `IxComponent` instance manually, the method `ActivateManualControl()` of this instance needs to be called cyclically.
 
-            // Example of use of the Execute() method of step class with all three parameters defined.
-            IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := 'This is a description of the step 3' ) THEN
-                _myCounter := _myCounter + ULINT#1;
-                IF (_myCounter MOD ULINT#7) = ULINT#0 THEN
-                    // Finalize the sequence and initiate the execution from the first step.
-                    _mySequencer.CompleteSequence();
-                END_IF;
-            END_IF;
-        END_METHOD   
-    END_CLASS
-~~~
+The base class contains two additional method to deal with the manual control of the `IxComponent`. 
+`ActivateManualControl()` - when this method is called cyclically, the `IxComponent` changes its behavior to manually controllable and ensure the call of the `ManualControl()` method in the derived class.
 
-    
+`IsManuallyControllable()` -returns `TRUE` when the `IxComponent` is manually controllable. 
+
+**Layout attributes `ComponentHeader` and `ComponentDetails`**
+
+The visual view of the extended `IxComponent` on the UI side could be done both ways. Manually with complete control over the design or by using the auto-rendering mechanism of the `RenderableContentControl` (TODO add a link to docu of the RenderableContentControl) element, which is, in most cases, more than perfect.
+To take full advantage of the auto-rendering mechanism, the base class has implemented the additional layout attributes `ComponentHeader` and `ComponentDetails(TabName)`. The auto-rendered view is divided into two parts: the fixed one and the expandable one. 
+All `IxComponent` members with the `ComponentHeader` layout attribute defined will be displayed in the fixed part. 
+All members with the `ComponentDetails(TabName)` layout attribute defined will be displayed in the expandable part inside the `TabControl` with "TabName". 
+All members are added in the order in which they are defined, taking into account their layout attributes like `Container(Layout.Wrap)` or `Container(Layout.Stack)`.
+
+**How to implement `IxComponent`**
+
+Example of the implementation very simple `IxComponent` with members placed only inside the Header.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxComponent/IxComponentHeaderOnlyExample.st?name=Implementation)]
+
+**How to use `IxComponent`**
+
+The instance of the extended `IxComponent` must be defined inside the `IxContext`.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxComponent/IxComponentHeaderOnlyExample.st?name=Using)]
+
+Inside the `Main()` method of the related `IxContext` following rules must be applied. The `Initialize()` method of the extended instance of the `IxComponent` must be called first.
+The `Run()` method with the respective input and output variables must be called afterwards.
+
+**How to visualize `IxComponent`**
+
+On the UI side use the `RenderableContentControl` and set its Context according the placement of the instance of the `IxComponent`.
+[!code-csharp[](../../../src/integrations/integration.blazor/Pages/IxCoreComponentHeaderOnlyExample.razor?name=RenderedView)]
+
+The rendered result should then looks as follows:
+<img src="../../../images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif">
+
+In case of more complex `IxComponent` the most important members should be placed in the fixed part (Header) and the rest of the members should be placed inside the expandable part (Details). The members inside the expandable part should be organize inside the tabs.  
+
+**More complex `IxComponent`**
+Example of the implementation more complex `IxComponent` with members placed also in several tabs inside the expandable part (Details).
+
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxComponent/IxComponentExample.st?name=Implementation)]
+
+For the complex types of the `IxComponent` it is also recomended to organize partial groups of the members into the classes as it is in this example.
+
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxComponent/IxComponentExample.st?name=ClassDefinitions)]
+
+Instantiate and call the `IxComponent` instance.
+
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxComponent/IxComponentExample.st?name=Using)]
+
+UI side of the `IxComponent`.
+[!code-csharp[](../../../src/integrations/integration.blazor/Pages/IxCoreComponentExample.razor?name=RenderedView)]
+
+and the rendered result:
+<img src="../../../images/ComplexComponentExample.gif ">
+

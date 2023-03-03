@@ -4,12 +4,13 @@ CONFIGURATION MyConfiguration
     PROGRAM P2 WITH Main: ProgramExample;
 
     VAR_GLOBAL
-        ixcoreTasks : core.Tasks;
-        ixcoreSequencers : core.SequencerExample;
+        ixcoreTasks : IxTaskExamples.Tasks;
+        ixcoreSequencers : IxSequencerExamples.SequencerExample;
         {#ix-attr:[Container(Layout.Wrap)]}
         MainContext : MyContext;
         Recipe : Recipe;
-        myComponentExamples : core.ComponentExamples;
+        myComponentExample : IxComponentExamples.ComponentExampleContext;
+        myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
         {#ix-set:AttributeName = "If counting PLC is alive"}
         I_am_alive : ULINT;
         

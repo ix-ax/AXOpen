@@ -1,7 +1,7 @@
+using ix.framework.core;
 
-NAMESPACE core
-    using ix.framework.core;
-
+NAMESPACE IxSequencerExamples
+ 
     CLASS SequencerExample EXTENDS ix.framework.core.IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Sequencer example#>"}

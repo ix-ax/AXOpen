@@ -1,97 +1,39 @@
-USING ix.framework.core;
+using ix.framework.core;
 
 NAMESPACE IxTaskExamples
-    CLASS IxTaskExample EXTENDS IxContext         
+
+    CLASS MyCommandTask EXTENDS IxTask
         VAR PUBLIC
-            _myTask : IxTask;
-            _myCounter : ULINT;
+        {#ix-set:AttributeName = "Counter"}
+        _counter : ULINT;
         END_VAR
 
-        METHOD PUBLIC Initialize
-            // Initialization of the context needs to be called first
-            // It does not need to be called cyclically, just once
-            _myTask.Initialize(THIS);
+        METHOD PROTECTED OVERRIDE OnRestore
+            _counter := ULINT#0;
         END_METHOD
+    END_CLASS    
 
-        METHOD PROTECTED OVERRIDE Main
-            // Cyclicall call of the Execute
-            IF _myTask.Execute() THEN
-                _myCounter := _myCounter + ULINT#1;
-                _myTask.DoneWhen(_myCounter = ULINT#100);
-            END_IF;
-        END_METHOD
-
-        METHOD Examples
-        //<IxTaskInvokeDone>
-            IF _myTask.Invoke().IsDone() THEN
-                ; //Do something
-            END_IF;
-        //</IxTaskInvokeDone>
-
-        //<IxTaskInvokeDoneSeparatelly>
-            _myTask.Invoke();
-
-            IF _myTask.IsDone() THEN
-                ; //Do something
-            END_IF;
-        //</IxTaskInvokeDoneSeparatelly>
-
-        //<IxTaskRunning>
-             IF _myTask.Invoke().IsBusy() THEN
-                ; //Do something
-            END_IF;
-        //</IxTaskRunning>
-
-        //<IxTaskError>
-            IF _myTask.Invoke().HasError() THEN
-                ; //Do something
-            END_IF;
-        //</IxTaskError>
-
-        //<IxTaskInvoke>
-            _myTask.Invoke();
-        //</IxTaskInvoke>
-        END_METHOD
-    END_CLASS  
-
-    //<IxTaskEventLikeMethods>
-    CLASS MyTaskExample Extends IxTask
-        VAR
-            OnAbortCounter : ULINT;
-            OnResumeCounter : ULINT;
-            OnDoneCounter : ULINT;
-            OnErrorCounter : ULINT;
-            OnRestoreCounter : ULINT;
-            OnStartCounter : ULINT;
-            WhileErrorCounter : ULINT;
-        END_VAR
-        METHOD PROTECTED OVERRIDE OnAbort 
-            OnAbortCounter := OnAbortCounter + ULINT#1;
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE OnResume 
-            OnResumeCounter := OnResumeCounter + ULINT#1;
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE OnDone 
-            OnDoneCounter := OnDoneCounter + ULINT#1;
-        END_METHOD
+    CLASS Tasks EXTENDS ix.framework.core.IxContext
+        VAR PUBLIC
+            {#ix-set:AttributeName = "Click to execute this command"}
+            _commandTask : MyCommandTask;
+            {#ix-set:AttributeName = "If true the command will end in failure."}
+            _commandEndsInFailure : BOOL;
+        END_VAR    
     
-        METHOD PROTECTED OVERRIDE OnError 
-            OnErrorCounter := OnErrorCounter + ULINT#1;
-        END_METHOD
+        METHOD PROTECTED OVERRIDE Main
+            _commandTask.Initialize(THIS);    
 
-        METHOD PROTECTED OVERRIDE OnRestore 
-            OnRestoreCounter := OnRestoreCounter + ULINT#1;
+            IF(_commandTask.Execute()) THEN        
+                _commandTask._counter := _commandTask._counter + ULINT#1;        
+                IF (_commandTask._counter MOD ULINT#250) = ULINT#0 THEN
+                    if(_commandEndsInFailure) THEN
+                        _commandTask.ThrowWhen(TRUE);    
+                    ELSE                            
+                        _commandTask.DoneWhen(TRUE);
+                    END_IF;    
+                END_IF;    
+            END_IF;    
         END_METHOD
-
-        METHOD PROTECTED OVERRIDE OnStart 
-            OnStartCounter := OnStartCounter + ULINT#1;
-        END_METHOD
-
-        METHOD PROTECTED OVERRIDE WhileError 
-            WhileErrorCounter := WhileErrorCounter + ULINT#1;
-        END_METHOD           
-    END_CLASS
-    //</IxTaskEventLikeMethods>
+    END_CLASS    
 END_NAMESPACE
