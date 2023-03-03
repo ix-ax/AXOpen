@@ -1,5 +1,6 @@
-- name: IX
+- name: ARTICLES
   href: articles/intro.md
 - name: API
   href: api/
-  homepage: index.md
+# - name: PLC API
+#   href: apictrl/

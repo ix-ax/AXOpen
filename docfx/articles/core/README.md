@@ -1,4 +1,4 @@
-# **ix.core**
+# **ix.framework.core**
 
 **ix.core** provides basic blocks for building ix.framework applications.
 
