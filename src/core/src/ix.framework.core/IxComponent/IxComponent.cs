@@ -7,7 +7,37 @@ using System.Threading.Tasks;
 namespace ix.framework.core
 {
     public partial class IxComponent
-    {
+    {        
+     
         
+    }
+
+    
+    public class ComponentHeaderAttribute : Attribute
+    {
+        public ComponentHeaderAttribute()
+        {
+        }
+        public ComponentHeaderAttribute(string tabName)
+        {
+            TabName = tabName;
+        }
+
+        public string TabName { get; }
+    }
+
+    
+    public class ComponentDetailsAttribute : Attribute
+    {
+        public ComponentDetailsAttribute()
+        {
+        }
+
+        public ComponentDetailsAttribute(string tabName)
+        {
+            TabName = tabName;
+        }
+
+        public string TabName { get; }
     }
 }

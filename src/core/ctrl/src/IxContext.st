@@ -27,9 +27,9 @@ NAMESPACE ix.framework.core
         END_METHOD
 
         ///<summary>
-        /// Executes the cycle of this context. This method must be called cyclically in a PLC task.
+        /// Runs the cycle of this context. This method must be called cyclically in a PLC task.
         ///</summary>
-        METHOD PUBLIC Execute
+        METHOD PUBLIC Run
             THIS.Open(); 
             THIS.Main();
             THIS.Close();

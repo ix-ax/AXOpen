@@ -1,16 +1,19 @@
 PROGRAM MyProgram
     VAR_EXTERNAL
         MainContext : MyContext;
-        ixcoreSequencers : core.SequencerExample;
+        ixcoreSequencers : IxSequencerExamples.SequencerExample;
         I_am_alive : ULINT;
-        ixcoreTasks : core.Tasks;
-        myPlcComponent : MyPlcComponent;
+        ixcoreTasks : IxTaskExamples.Tasks;
+        myComponentExample : IxComponentExamples.ComponentExampleContext;
+        myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
-    MainContext.Execute();
-    ixcoreTasks.Execute();
-    ixcoreSequencers.Execute();
-    myPlcComponent.Execute();
+    MainContext.Run();
+    ixcoreTasks.Run();
+    ixcoreSequencers.Run();
+    myComponentExample.Run();
+    myComponentHeaderOnlyExample.Run();
+
 END_PROGRAM
 
 USING ix.framework.core;

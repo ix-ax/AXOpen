@@ -11,6 +11,17 @@
     <Content Remove="C:\Users\peto.kurhajec\.nuget\packages\ix.presentation.blazor.controls\0.6.0-alpha.18\contentFiles\any\net7.0\Styles\custom.scss" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="IxComponent\IxComponentCommandView - Copy.razor.css" />
+    <None Remove="IxComponent\IxComponentCommandView.razor.css" />
+    <None Remove="IxComponent\IxComponentStatusView.razor.css" />
+    <None Remove="IxComponent\IxComponentView.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="IxComponent\IxComponentView.razor.css" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -21,8 +32,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Ix.Presentation.Blazor" Version="0.13.3-alpha.61" />
-    <PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.3-alpha.61" />
+    <PackageReference Include="Ix.Presentation.Blazor" Version="0.13.4-alpha.85" />
+    <PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.4-alpha.85" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
   </ItemGroup>
 

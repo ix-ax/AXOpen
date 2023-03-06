@@ -18,7 +18,7 @@ NAMESPACE ix.core.IxContext_Tests
         METHOD PUBLIC should_increment_counters_on_execute
             Assert.Equal(actual := ULINT#0, expected := _context.OpenCycleCount());
             Assert.Equal(actual := ULINT#0, expected := _context.ClosedCycleCount());
-            _context.Execute();
+            _context.Run();
             Assert.Equal(actual := ULINT#1, expected := _context.OpenCycleCount());
             Assert.Equal(actual := ULINT#1, expected := _context.ClosedCycleCount());
         END_METHOD

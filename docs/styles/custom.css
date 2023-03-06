@@ -1,0 +1,13 @@
+.text-logo{
+  font-weight: bold;
+  font-size: large;
+  margin:15px;
+  color:#FFFFFF;
+  background-color: #24A8DF;
+}
+
+.text-logo:hover{
+  background: -webkit-linear-gradient(#24A8DF,#FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

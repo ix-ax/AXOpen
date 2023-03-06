@@ -15,13 +15,13 @@ IxContext encapsulates entire application or application units. Any solution may
   classDiagram 
     class Context{
         #Main()*
-        +Execute()
+        +Run()
     }     
 ```
 
 In its basic implementation IxContext has relatively simple interface. The main method is the method where we place all calls of our sub-routines. **In other words the `Main` is the root of the call tree of our program.**
 
-`Execute` method runs the IxContext. It must be called cyclically within a program unit that is attached to a cyclic `task`.
+`Run` method runs the IxContext. It must be called cyclically within a program unit that is attached to a cyclic `task`.
 
 ### Why do we need IxContext
 
@@ -29,7 +29,7 @@ In its basic implementation IxContext has relatively simple interface. The main 
 
 ### How IxContext works
 
-When you call `Execute` method on an instance of a IxContext, it will ensure opening IxContext, running `Main` method (root of all your program calls) and IxContext closing.
+When you call `Run` method on an instance of a IxContext, it will ensure opening IxContext, running `Main` method (root of all your program calls) and IxContext closing.
 
 
 ```mermaid
@@ -67,7 +67,7 @@ PROGRAM MyProgram
         _myContext : MyContext;
     END_VAR
 
-    _myContext.Execute();
+    _myContext.Run();
 END_PROGRAM
 ~~~
 
@@ -379,7 +379,6 @@ IxSequencer contains following methods:
 - `GetSequenceMode()`: Gets the current sequence mode of the IxSequencer. 
 - `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
 
-
 ~~~SmallTalk
     CLASS IxSequencerExample EXTENDS IxContext
         VAR PUBLIC
@@ -436,4 +435,99 @@ IxSequencer contains following methods:
     END_CLASS
 ~~~
 
-    
+
+## IxComponent
+
+`IxComponent` is an abstract class extending the IxObject, and it is the base building block for the "hardware-related devices" like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, "virtual devices" like counter, database, etc. `IxComponent` is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the `IxComponent` is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory. 
+
+`Restore()` - inside this method, the logic for resetting the IxComponent or restoring it from any state to its initial state should be placed.
+
+`ManualControl()` - inside this method, the logic for manual operations with the component should be placed. To be able to control the `IxComponent` instance manually, the method `ActivateManualControl()` of this instance needs to be called cyclically.
+
+The base class contains two additional method to deal with the manual control of the `IxComponent`. 
+`ActivateManualControl()` - when this method is called cyclically, the `IxComponent` changes its behavior to manually controllable and ensure the call of the `ManualControl()` method in the derived class.
+
+`IsManuallyControllable()` -returns `TRUE` when the `IxComponent` is manually controllable. 
+
+**Layout attributes `ComponentHeader` and `ComponentDetails`**
+
+The visual view of the extended `IxComponent` on the UI side could be done both ways. Manually with complete control over the design or by using the auto-rendering mechanism of the `RenderableContentControl` (TODO add a link to docu of the RenderableContentControl) element, which is, in most cases, more than perfect.
+To take full advantage of the auto-rendering mechanism, the base class has implemented the additional layout attributes `ComponentHeader` and `ComponentDetails(TabName)`. The auto-rendered view is divided into two parts: the fixed one and the expandable one. 
+All `IxComponent` members with the `ComponentHeader` layout attribute defined will be displayed in the fixed part. 
+All members with the `ComponentDetails(TabName)` layout attribute defined will be displayed in the expandable part inside the `TabControl` with "TabName". 
+All members are added in the order in which they are defined, taking into account their layout attributes like `Container(Layout.Wrap)` or `Container(Layout.Stack)`.
+
+**How to implement `IxComponent`**
+
+Example of the implementation very simple `IxComponent` with members placed only inside the Header.
+~~~SmallTalk
+using ix.framework.core;
+
+{#ix-attr:[Container(Layout.Stack)]}
+{#ix-set:AttributeName = "Component with header only example"}
+CLASS PUBLIC ComponentHeaderOnlyExample EXTENDS IxComponent 
+    METHOD PROTECTED OVERRIDE Restore: IIxTask 
+        // Some logic for Restore could be placed here.
+        // For Example:
+        valueReal := REAL#0.0;
+        valueDint := DINT#0;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE ManualControl
+        // Some logic for manual control could be placed here.
+        ;
+    END_METHOD
+
+    // Main method of the `IxComponent` that needs to be called inside the `IxContext` cyclically.
+    METHOD PUBLIC Run
+        // Declaration of the input and output variables.
+        // In the case of "hardware-related" `IxComponent`, 
+        // these would be the variables linked to the hardware. 
+        VAR_INPUT 
+            inReal : REAL;
+            inDint : DINT;
+        END_VAR
+        VAR_OUTPUT
+            outReal : REAL;
+            outDint : DINT;
+        END_VAR
+        
+        // This must be called first.
+        SUPER.Open();
+
+        // Place the custom logic here.
+        valueReal := valueReal * inReal;
+        valueDint := valueDint + inDint;
+
+        outReal := valueReal;
+        outDint := valueDint;
+    END_METHOD 
+
+    VAR PUBLIC
+        {#ix-attr:[Container(Layout.Wrap)]}
+        {#ix-attr:[ComponentHeader()]}        
+        {#ix-set:AttributeName = "Real product value"}
+        valueReal : REAL := REAL#1.0; 
+        {#ix-attr:[ComponentHeader()]}        
+        {#ix-set:AttributeName = "Dint sum value"}
+        valueDint : DINT:= DINT#0; 
+    END_VAR
+END_CLASS
+~~~
+
+**How to use `IxComponent`**
+
+The instance of the extended `IxComponent` must be defined inside the `IxContext`.
+~~~SmallTalk
+.....................EXTENDS ix.framework.core.IxContext
+        VAR PUBLIC
+            {#ix-set:AttributeName = "Very simple component example with header only defined"}
+            MyComponentWithHeaderOnly : ComponentHeaderOnlyExample;  
+        END_VAR
+~~~
+
+Inside the `Main()` method of the related `IxContext` following rules must be applied. The `Initialize()` method of the extended instance of the `IxComponent` must be called first.
+The `Run()` method with the respective input and output variables must be called afterwards.
+~~~SmallTalk
+
+~~~
