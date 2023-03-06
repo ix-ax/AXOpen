@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class IxContext
+    <title>Interface IIxStep
  | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class IxContext
+    <meta name="title" content="Interface IIxStep
  | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
@@ -78,108 +78,29 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="plc.ix.framework.core.IxContext">
+            <article class="content wrap" id="_content" data-uid="plc.ix.framework.core.IIxStep">
 
 
-  <h1 id="plc_ix_framework_core_IxContext" data-uid="plc.ix.framework.core.IxContext" class="text-break">Class IxContext
+  <h1 id="plc_ix_framework_core_IIxStep" data-uid="plc.ix.framework.core.IIxStep" class="text-break">Interface IIxStep
 </h1>
-  <div class="markdown level0 summary"><p>Provides base for contextualized entry of <code>ix.framework</code> application.This class is abstract and must be inherited.</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">IxContext</span></div>
-  </div>
-  <h6><strong>Namespace</strong>: <span class="xref">core</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="plc.ix.framework.core.html">core</a></h6>
   <h6><strong>Assembly</strong>: @ix-ax/ix.framework.core.dll</h6>
-  <h5 id="plc_ix_framework_core_IxContext_syntax">Syntax</h5>
+  <h5 id="plc_ix_framework_core_IIxStep_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">CLASS IxContext</code></pre>
+    <pre><code class="lang-csharp hljs">INTERFACE IIxStep</code></pre>
   </div>
-  <h3 id="properties">Properties
-</h3>
-
-
-  <h4 id="plc_ix_framework_core_IxContext__openCounter" data-uid="plc.ix.framework.core.IxContext._openCounter">_openCounter</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">_openCounter : ULINT</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_ix_framework_core_IxContext__closeCounter" data-uid="plc.ix.framework.core.IxContext._closeCounter">_closeCounter</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">_closeCounter : ULINT</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_ix_framework_core_IxContext__identityCounter" data-uid="plc.ix.framework.core.IxContext._identityCounter">_identityCounter</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">_identityCounter : ULINT</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
 </h3>
 
 
-  <h4 id="plc_ix_framework_core_IxContext_Open__" data-uid="plc.ix.framework.core.IxContext.Open()">Open</h4>
+  <h4 id="plc_ix_framework_core_IIxStep_GetStepOrder__" data-uid="plc.ix.framework.core.IIxStep.GetStepOrder()">GetStepOrder</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private ULINT Open()</code></pre>
+    <pre><code class="lang-csharp hljs">Public ULINT GetStepOrder()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -198,71 +119,43 @@
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IxContext_Close__" data-uid="plc.ix.framework.core.IxContext.Close()">Close</h4>
+  <h4 id="plc_ix_framework_core_IIxStep_SetStepOrder_IIxCoordinator_ULINT_" data-uid="plc.ix.framework.core.IIxStep.SetStepOrder(IIxCoordinator,ULINT)">SetStepOrder</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private ULINT Close()</code></pre>
+    <pre><code class="lang-csharp hljs">Public VOID SetStepOrder(in ix.framework.core.IIxCoordinator coord,in ULINT StepOrder)</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td></td>
+        <td><span class="parametername">coord</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><span class="parametername">StepOrder</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IxContext_Run__" data-uid="plc.ix.framework.core.IxContext.Run()">Run</h4>
-  <div class="markdown level1 summary"><p>Runs the cycle of this context. This method must be called cyclically in a PLC task.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID Run()</code></pre>
-  </div>
-
-
-  <h4 id="plc_ix_framework_core_IxContext_OpenCycleCount__" data-uid="plc.ix.framework.core.IxContext.OpenCycleCount()">OpenCycleCount</h4>
-  <div class="markdown level1 summary"><p>Gets the value of current context cycle counter.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public ULINT OpenCycleCount()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_ix_framework_core_IxContext_ClosedCycleCount__" data-uid="plc.ix.framework.core.IxContext.ClosedCycleCount()">ClosedCycleCount</h4>
+  <h4 id="plc_ix_framework_core_IIxStep_IsCalledJustOnceInThisPlcCycle__" data-uid="plc.ix.framework.core.IIxStep.IsCalledJustOnceInThisPlcCycle()">IsCalledJustOnceInThisPlcCycle</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public ULINT ClosedCycleCount()</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL IsCalledJustOnceInThisPlcCycle()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -281,36 +174,38 @@
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IxContext_CreateIdentity__" data-uid="plc.ix.framework.core.IxContext.CreateIdentity()">CreateIdentity</h4>
+  <h4 id="plc_ix_framework_core_IIxStep_SetIsActive_BOOL_" data-uid="plc.ix.framework.core.IIxStep.SetIsActive(BOOL)">SetIsActive</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public ULINT CreateIdentity()</code></pre>
+    <pre><code class="lang-csharp hljs">Public VOID SetIsActive(in BOOL Active)</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td></td>
+        <td><span class="parametername">Active</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IxContext_PeekIdentity__" data-uid="plc.ix.framework.core.IxContext.PeekIdentity()">PeekIdentity</h4>
+  <h4 id="plc_ix_framework_core_IIxStep_GetIsActive__" data-uid="plc.ix.framework.core.IIxStep.GetIsActive()">GetIsActive</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public ULINT PeekIdentity()</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL GetIsActive()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -329,14 +224,54 @@
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IxContext_Main__" data-uid="plc.ix.framework.core.IxContext.Main()">Main</h4>
-  <div class="markdown level1 summary"><p>The entry point for the context. The call tree of the context start here and all the logic of given contextmust be placed here.This method must be overridden in derived class.</p>
-</div>
+  <h4 id="plc_ix_framework_core_IIxStep_SetIsEnabled_BOOL_" data-uid="plc.ix.framework.core.IIxStep.SetIsEnabled(BOOL)">SetIsEnabled</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID Main()</code></pre>
+    <pre><code class="lang-csharp hljs">Public VOID SetIsEnabled(in BOOL Enabled)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td><span class="parametername">Enabled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_ix_framework_core_IIxStep_GetIsEnabled__" data-uid="plc.ix.framework.core.IIxStep.GetIsEnabled()">GetIsEnabled</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL GetIsEnabled()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
 

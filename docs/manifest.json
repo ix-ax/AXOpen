@@ -18,28 +18,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Ix.Connector.ITwinElementExtensions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Ix.Connector.ITwinElementExtensions.html",
-          "hash": "fAXi35cPXkHbdZboapECJpnMcV22BqXO4C3wCcDHTzs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Ix.Connector.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Ix.Connector.html",
-          "hash": "65UDMcfWuvnriUgZKdKb73IdIwB6lG2a/9qzVlcu/84="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/Pocos.ix.framework.core.IIxComponent.yml",
       "output": {
         ".html": {
@@ -73,22 +51,22 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxObject.yml",
+      "source_relative_path": "api/Pocos.ix.framework.core.IIxManuallyControllable.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxObject.html",
-          "hash": "oMVQo5fT65VtrGqRFYoVorMhhhwMDOe5BKzvhucCt8M="
+          "relative_path": "api/Pocos.ix.framework.core.IIxManuallyControllable.html",
+          "hash": "BLtuW/L046/TfM/Kor7WzwlMcdpXlg4RwkfEw0oDEEw="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxServiceable.yml",
+      "source_relative_path": "api/Pocos.ix.framework.core.IIxObject.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxServiceable.html",
-          "hash": "EnXG32RSdBho2PGR0JCJsTI7eftpHNsKCk/ze7z2zN4="
+          "relative_path": "api/Pocos.ix.framework.core.IIxObject.html",
+          "hash": "oMVQo5fT65VtrGqRFYoVorMhhhwMDOe5BKzvhucCt8M="
         }
       },
       "version": ""
@@ -132,7 +110,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Pocos.ix.framework.core.IxComponent.html",
-          "hash": "ggQJ5IwnYtcEkiTVj2+BfrtQzn7tj+kTiCVAY0Yvql8="
+          "hash": "49PZQwKbV+WY4/8NneqcPBd5lu1FDmEly28oObq5PQU="
         }
       },
       "version": ""
@@ -209,7 +187,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Pocos.ix.framework.core.html",
-          "hash": "z8vZB2b44wkIA0hqTGOGRQenHIDBj+glYfxRea6i06Q="
+          "hash": "3JwKWi7JFk6zW8Q1HZq7uMFETszh7if6d4VimbaAL44="
         }
       },
       "version": ""
@@ -267,7 +245,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ix.framework.core.DetailsContext.html",
-          "hash": "hWvMKKW5LbX9sRxmLkXcqNvUEuEL+obadyp68rhCxVU="
+          "hash": "GVa8gtDM2G0tQ2zuYZvhJQ8lmgR5IiNLG9FLbCwVN2M="
         }
       },
       "version": ""
@@ -307,22 +285,22 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxObject.yml",
+      "source_relative_path": "api/ix.framework.core.IIxManuallyControllable.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxObject.html",
-          "hash": "cFB2xsnyIOcILvz6y8KKVAxmr9OulXsCntMc6qeaDUU="
+          "relative_path": "api/ix.framework.core.IIxManuallyControllable.html",
+          "hash": "a2qSEm8kr/Rm5Kub4Hv0hJZDZtppUAPBL6k1hCc0Sz0="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxServiceable.yml",
+      "source_relative_path": "api/ix.framework.core.IIxObject.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxServiceable.html",
-          "hash": "rIXIMgrsNC8ukG47/bfmV9s2/mEgzTiRXYzNlL9ET6o="
+          "relative_path": "api/ix.framework.core.IIxObject.html",
+          "hash": "cFB2xsnyIOcILvz6y8KKVAxmr9OulXsCntMc6qeaDUU="
         }
       },
       "version": ""
@@ -366,7 +344,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ix.framework.core.IxComponent.html",
-          "hash": "2RnGnww0c9b1jYUYBJaAWMlyOVJ9CvRspVK7Hfgtasg="
+          "hash": "Zw16veqeAsjYTD9zlPTI/NQ7bsewOovXK6Nn8gfAb98="
         }
       },
       "version": ""
@@ -619,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/ix.framework.core.html",
-          "hash": "ZAntnR3Mi19kQ0P1vkdmLF6klezBqNMNvqwKQk02q0k="
+          "hash": "KKUYD54W6ARiB8CCF47jpHSH91SUcSOV7fQ8fCaPFfU="
         }
       },
       "version": ""
@@ -630,7 +608,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "/yJT++GzLif9qP7J9lWLVk3Ri+Si5aabmqzuaZMcy/U="
+          "hash": "jS4earOlJ5dB68NyamlWfxeooJ6ZHFzI1OfCzdBxUTI="
         }
       },
       "version": ""
@@ -648,264 +626,242 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.CoordinatorStates.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.CoordinatorStates.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.CoordinatorStates.html",
-          "hash": "YGZBgk+3ckAaAMmp6xQfjp76nuOu8i6dGc2atvRIdnw="
+          "relative_path": "apictrl/plc.ix.framework.core.CoordinatorStates.html",
+          "hash": "VBpJkqWcsDJKWJ6ddI0HecXshwtQA0hlgyT2YQTGfls="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxComponent.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxComponent.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxComponent.html",
-          "hash": "UFgJlfRdrwWydCVdrqIA9n7Uik7SaGiQq+TGiKyT+lU="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxComponent.html",
+          "hash": "4IyBWIg3L3EmjwSgyDxIXDvMoZ5LUZxeS0L8IhzjOew="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxContext.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxContext.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxContext.html",
-          "hash": "Zq4ImZTu+njXA2nMuzUqccwAbMyAWFqPs/mNkmneOjA="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxContext.html",
+          "hash": "iMxJ5NGFZqUy8LBoHUkYAFEwMWXMtVxubQgU8Gf+4Ow="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxCoordinator.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxCoordinator.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxCoordinator.html",
-          "hash": "HPwgeOFP0czHlQ/GeUb5aVxGc5LeYzx6M0BFj3krrEg="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxCoordinator.html",
+          "hash": "QNAHFpYjRDIO519vWdSpGeqdJZ8toKruUu26RNgPzKA="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxManuallyControllable.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxManuallyControllable.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxManuallyControllable.html",
-          "hash": "sScSMBLoom9wZXlD1b4aU68c0cXrlCg+AAzk88sAVcM="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxManuallyControllable.html",
+          "hash": "zVrA5PhWRGf7HIRuk8cWg6DFWsqN1vZ6RWLZBiS0k8M="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxObject.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxObject.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxObject.html",
-          "hash": "BEPuJw1I/j5P/bp00f7Sm3D/RHmxSrlTkAfzHdJ+lx4="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxObject.html",
+          "hash": "X4lZWYgbBtF4z8VVVRaIpqEmXm/hxVngynO6rs9JaMU="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxSequencer.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxSequencer.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxSequencer.html",
-          "hash": "SN5sKXr+TmRSYJZRoCa70u0pXFdoY71SkjqmcyAw8PQ="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxSequencer.html",
+          "hash": "CSYZHdf2v5+7ZIDSxpM+NBr1TMKSrpuZ+1z8LBxNcvM="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxStep.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxStep.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxStep.html",
-          "hash": "OjLRlBOhKHF7pOvL/mV0Ccu/mw1zZEkhCdPRtap+3xk="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxStep.html",
+          "hash": "ChIkwj8gbP22j1Ws2k3aktTo3lcbFZHpcxflttKaadE="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxTask.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxTask.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxTask.html",
-          "hash": "eeMoXyU9Dez6BbTZfX5QT6PIUe3UhnLG3WRqTUEgoKI="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxTask.html",
+          "hash": "TUJmjW7NkuMML6Q1PlcthuYD0LhGCyachIdzqVBSdTU="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxTaskInt.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxTaskInt.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxTaskInt.html",
-          "hash": "A5mHm1p1DxFv+kZDm0hRVCP7LE2CbYylIFTAtp5AM3I="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxTaskInt.html",
+          "hash": "Kggw2rWVpmEljSAZHsZnhnpj0V7g1zVmtZweQBQAJ68="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IIxTaskState.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IIxTaskState.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IIxTaskState.html",
-          "hash": "zKBkWc/BD9USiJvkTLGTIfVRr9BhTazLyVszrjUuo4w="
+          "relative_path": "apictrl/plc.ix.framework.core.IIxTaskState.html",
+          "hash": "gRqcoVrRKcxPk9P1LsVOGNXSuHNH2N6tr6tJ19Ei7ZI="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IxComponent.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IxComponent.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IxComponent.html",
-          "hash": "vhB6cuYHEqEAVgB/BjAiVVaOg4ltddW6YJkYeRhlQzA="
+          "relative_path": "apictrl/plc.ix.framework.core.IxComponent.html",
+          "hash": "AZRqhQ+ohVoPqqYi6IRG4HbJ4a8UftcrCIVltifqo1w="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IxContext.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IxContext.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IxContext.html",
-          "hash": "whccg3Nw0bz7p+5Spr6guWoubEj56ZVN49iNZ0j5aIo="
+          "relative_path": "apictrl/plc.ix.framework.core.IxContext.html",
+          "hash": "/52OgtH/IioXrIGWxIHdJIJNQGcEjvZlTJTzhLjSKS0="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IxObject.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IxObject.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IxObject.html",
-          "hash": "MB0C5o8YuE1jKKaAF74sfQmK/Crej0xI9Y5a19TpYCE="
+          "relative_path": "apictrl/plc.ix.framework.core.IxObject.html",
+          "hash": "QV+3GxALA+92rAVQJVzgjkm4npJLxtPkoOdSxkKMLZU="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IxSequencer.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IxSequencer.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IxSequencer.html",
-          "hash": "5hDiRieDcHbnJKol6wxRBCJnvPAQWn2eC2eJc0UhVuY="
+          "relative_path": "apictrl/plc.ix.framework.core.IxSequencer.html",
+          "hash": "BTUg3EwC7DbhVelDVJTMF8pip6uj28kwll0y/ao4iak="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IxStep.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IxStep.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IxStep.html",
-          "hash": "XLd3xXUG3C8WyUUVk2Z7BF387mVJsCORebRuYnHPoFQ="
+          "relative_path": "apictrl/plc.ix.framework.core.IxStep.html",
+          "hash": "V+EHZXJWYidXvYd9KpW9DE7wRWAecAQRrjKNkKjE2Ak="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.IxTask.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.IxTask.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.IxTask.html",
-          "hash": "OPdbiiVHXp/JVgG1xks44QN0wuo1GpOY08uzsvUcLW0="
+          "relative_path": "apictrl/plc.ix.framework.core.IxTask.html",
+          "hash": "U9wiHgSz9EX1L7cVGwgZAjrfhNTP/Hml8G9jQgIBAmQ="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core._NULL_CONTEXT.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core._NULL_CONTEXT.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core._NULL_CONTEXT.html",
-          "hash": "jSguwNGjcbyr5Bl+oGhB54ktNf6kmjI2udtjKvI3LDs="
+          "relative_path": "apictrl/plc.ix.framework.core._NULL_CONTEXT.html",
+          "hash": "14TCg3TOY8gAQkQeflZW+cNMt44LsPiide6mAZ5GLnM="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.eIxSequenceMode.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.eIxSequenceMode.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.eIxSequenceMode.html",
-          "hash": "xu4KjNUMyD0owQ8+cojlgAV8kQVCNAxWip3lnNxnUUg="
+          "relative_path": "apictrl/plc.ix.framework.core.eIxSequenceMode.html",
+          "hash": "Z/xlQ0rKaM5HNP/2ONf+NrIDsnsIx91ekvUYR2FVhvA="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.eIxSteppingMode.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.eIxSteppingMode.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.eIxSteppingMode.html",
-          "hash": "T+P8LZEVJ95+G2N9IiPOl3JJIDo9wzLLnW/10rO8okk="
+          "relative_path": "apictrl/plc.ix.framework.core.eIxSteppingMode.html",
+          "hash": "1liCRYcEOXSoDVZ8TwH97dHOqV6I5xfQEaITHXKvQp0="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.eIxTaskState.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.eIxTaskState.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.eIxTaskState.html",
-          "hash": "X7lNeIS+xdrZwac6vFHJCpCTA63N5Bohw5BHO8VQ2xI="
+          "relative_path": "apictrl/plc.ix.framework.core.eIxTaskState.html",
+          "hash": "O5UtFaHAIEBWpZm/C03ZnWYMhAy1t7xpPF5cM91F87k="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.core.yml",
+      "source_relative_path": "apictrl/plc.ix.framework.core.yml",
       "output": {
         ".html": {
-          "relative_path": "apictrl/ix.framework.core.html",
-          "hash": "xCCP57eC/g9KjYIkpp07rV3AoniFZt/f6hfjGezA+s4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.framework.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/ix.framework.html",
-          "hash": "t7eHvSMiU5HSbWtCoIBk3AY8HjEbXKe0Yl4FRSrU0uY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/ix.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/ix.html",
-          "hash": "4m3lliZ9h+YkuVhfNLCvX09k4tI1KEQfQ7IG3Rszls8="
+          "relative_path": "apictrl/plc.ix.framework.core.html",
+          "hash": "KY0pBvGUNavtHXZhC0N/bksyUlVbayOsaEbsgIUZeDE="
         }
       },
       "version": ""
@@ -916,7 +872,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/toc.html",
-          "hash": "6MAIuHI67LwcK+yuswk0sZfgUGn5WhICpukq4doFdBs="
+          "hash": "+VPPjgoeMr1u3wHPBUj4IKuhepOkBMWATkzZnMstMa4="
         }
       },
       "version": ""
@@ -1074,7 +1030,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "Qf9LBJgFuosFGdpFbDe8axEIVeHQmjDeX8c5ksFGUuI="
+          "hash": "Hr1PQ57vbT7gU2tBjehdbzGoSJplCEdQ+Jh2Uq0d0sY="
         }
       },
       "version": ""

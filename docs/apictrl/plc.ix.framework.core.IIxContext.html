@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IIxStep
+    <title>Interface IIxContext
  | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IIxStep
+    <meta name="title" content="Interface IIxContext
  | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
@@ -78,29 +78,29 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="plc.ix.framework.core.IIxStep">
+            <article class="content wrap" id="_content" data-uid="plc.ix.framework.core.IIxContext">
 
 
-  <h1 id="plc_ix_framework_core_IIxStep" data-uid="plc.ix.framework.core.IIxStep" class="text-break">Interface IIxStep
+  <h1 id="plc_ix_framework_core_IIxContext" data-uid="plc.ix.framework.core.IIxContext" class="text-break">Interface IIxContext
 </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <span class="xref">core</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="plc.ix.framework.core.html">core</a></h6>
   <h6><strong>Assembly</strong>: @ix-ax/ix.framework.core.dll</h6>
-  <h5 id="plc_ix_framework_core_IIxStep_syntax">Syntax</h5>
+  <h5 id="plc_ix_framework_core_IIxContext_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">INTERFACE IIxStep</code></pre>
+    <pre><code class="lang-csharp hljs">INTERFACE IIxContext</code></pre>
   </div>
   <h3 id="methods">Methods
 </h3>
 
 
-  <h4 id="plc_ix_framework_core_IIxStep_GetStepOrder__" data-uid="plc.ix.framework.core.IIxStep.GetStepOrder()">GetStepOrder</h4>
+  <h4 id="plc_ix_framework_core_IIxContext_CreateIdentity__" data-uid="plc.ix.framework.core.IIxContext.CreateIdentity()">CreateIdentity</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public ULINT GetStepOrder()</code></pre>
+    <pre><code class="lang-csharp hljs">Public ULINT CreateIdentity()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -119,143 +119,12 @@
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IIxStep_SetStepOrder_IIxCoordinator_ULINT_" data-uid="plc.ix.framework.core.IIxStep.SetStepOrder(IIxCoordinator,ULINT)">SetStepOrder</h4>
+  <h4 id="plc_ix_framework_core_IIxContext_OpenCycleCount__" data-uid="plc.ix.framework.core.IIxContext.OpenCycleCount()">OpenCycleCount</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID SetStepOrder(in ix.framework.core.IIxCoordinator coord,in ULINT StepOrder)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td><span class="parametername">coord</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><span class="parametername">StepOrder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_ix_framework_core_IIxStep_IsCalledJustOnceInThisPlcCycle__" data-uid="plc.ix.framework.core.IIxStep.IsCalledJustOnceInThisPlcCycle()">IsCalledJustOnceInThisPlcCycle</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL IsCalledJustOnceInThisPlcCycle()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_ix_framework_core_IIxStep_SetIsActive_BOOL_" data-uid="plc.ix.framework.core.IIxStep.SetIsActive(BOOL)">SetIsActive</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID SetIsActive(in BOOL Active)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td><span class="parametername">Active</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_ix_framework_core_IIxStep_GetIsActive__" data-uid="plc.ix.framework.core.IIxStep.GetIsActive()">GetIsActive</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL GetIsActive()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_ix_framework_core_IIxStep_SetIsEnabled_BOOL_" data-uid="plc.ix.framework.core.IIxStep.SetIsEnabled(BOOL)">SetIsEnabled</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID SetIsEnabled(in BOOL Enabled)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td><span class="parametername">Enabled</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_ix_framework_core_IIxStep_GetIsEnabled__" data-uid="plc.ix.framework.core.IIxStep.GetIsEnabled()">GetIsEnabled</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL GetIsEnabled()</code></pre>
+    <pre><code class="lang-csharp hljs">Public ULINT OpenCycleCount()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">

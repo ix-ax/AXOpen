@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IIxTaskState
+    <title>Class IxComponent
  | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IIxTaskState
+    <meta name="title" content="Class IxComponent
  | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
@@ -78,29 +78,114 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="plc.ix.framework.core.IIxTaskState">
+            <article class="content wrap" id="_content" data-uid="plc.ix.framework.core.IxComponent">
 
 
-  <h1 id="plc_ix_framework_core_IIxTaskState" data-uid="plc.ix.framework.core.IIxTaskState" class="text-break">Interface IIxTaskState
+  <h1 id="plc_ix_framework_core_IxComponent" data-uid="plc.ix.framework.core.IxComponent" class="text-break">Class IxComponent
 </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <span class="xref">core</span></h6>
-  <h6><strong>Assembly</strong>: @ix-ax/ix.framework.core.dll</h6>
-  <h5 id="plc_ix_framework_core_IIxTaskState_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">INTERFACE IIxTaskState</code></pre>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="plc.ix.framework.core.IxObject.html">IxObject</a></div>
+    <div class="level1"><span class="xref">IxComponent</span></div>
   </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="plc.ix.framework.core.IIxComponent.html">IIxComponent</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_GetIdentity__">GetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_GetContext__">GetContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_Initialize_IIxObject_">Initialize(IIxObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_Initialize_IIxContext_">Initialize(IIxContext)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="plc.ix.framework.core.html">core</a></h6>
+  <h6><strong>Assembly</strong>: @ix-ax/ix.framework.core.dll</h6>
+  <h5 id="plc_ix_framework_core_IxComponent_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS IxComponent</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <h4 id="plc_ix_framework_core_IxComponent__manualControlContextCycle" data-uid="plc.ix.framework.core.IxComponent._manualControlContextCycle">_manualControlContextCycle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_manualControlContextCycle : ULINT</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_ix_framework_core_IxComponent__isManuallyControllable" data-uid="plc.ix.framework.core.IxComponent._isManuallyControllable">_isManuallyControllable</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_isManuallyControllable : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
 
 
-  <h4 id="plc_ix_framework_core_IIxTaskState_IsDone__" data-uid="plc.ix.framework.core.IIxTaskState.IsDone()">IsDone</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="plc_ix_framework_core_IxComponent_ActivateManualControl__" data-uid="plc.ix.framework.core.IxComponent.ActivateManualControl()">ActivateManualControl</h4>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.ix.framework.core.IxComponent.yml" sourcestartlinenumber="1">Executes the logic for manual-maintenance control.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL IsDone()</code></pre>
+    <pre><code class="lang-csharp hljs">Public VOID ActivateManualControl()</code></pre>
+  </div>
+
+
+  <h4 id="plc_ix_framework_core_IxComponent_IsManuallyControllable__" data-uid="plc.ix.framework.core.IxComponent.IsManuallyControllable()">IsManuallyControllable</h4>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.ix.framework.core.IxComponent.yml" sourcestartlinenumber="1">Gets whether the IxComponent is manually controllable.To make the IxComponent manually controllable, it is necessary to call the <code sourcefile="apictrl/plc.ix.framework.core.IxComponent.yml" sourcestartlinenumber="1">ActivateManualMode()</code> method cyclically.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL IsManuallyControllable()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -119,12 +204,49 @@
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IIxTaskState_IsBusy__" data-uid="plc.ix.framework.core.IIxTaskState.IsBusy()">IsBusy</h4>
+  <h4 id="plc_ix_framework_core_IxComponent_CheckIfManualControlIsActivated__" data-uid="plc.ix.framework.core.IxComponent.CheckIfManualControlIsActivated()">CheckIfManualControlIsActivated</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL IsBusy()</code></pre>
+    <pre><code class="lang-csharp hljs">Private VOID CheckIfManualControlIsActivated()</code></pre>
+  </div>
+
+
+  <h4 id="plc_ix_framework_core_IxComponent_Open__" data-uid="plc.ix.framework.core.IxComponent.Open()">Open</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID Open()</code></pre>
+  </div>
+
+
+  <h4 id="plc_ix_framework_core_IxComponent_Run__" data-uid="plc.ix.framework.core.IxComponent.Run()">Run</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Run()</code></pre>
+  </div>
+
+
+  <h4 id="plc_ix_framework_core_IxComponent_Close__" data-uid="plc.ix.framework.core.IxComponent.Close()">Close</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID Close()</code></pre>
+  </div>
+
+
+  <h4 id="plc_ix_framework_core_IxComponent_Restore__" data-uid="plc.ix.framework.core.IxComponent.Restore()">Restore</h4>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.ix.framework.core.IxComponent.yml" sourcestartlinenumber="1">Restores this instance. This method must be implemented in derived class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected ix.framework.core.IIxTask Restore()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -143,52 +265,18 @@
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IIxTaskState_IsAborted__" data-uid="plc.ix.framework.core.IIxTaskState.IsAborted()">IsAborted</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="plc_ix_framework_core_IxComponent_ManualControl__" data-uid="plc.ix.framework.core.IxComponent.ManualControl()">ManualControl</h4>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.ix.framework.core.IxComponent.yml" sourcestartlinenumber="1">Custom logic for manual control of the IxComponent.This method must be implemented in derived class.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL IsAborted()</code></pre>
+    <pre><code class="lang-csharp hljs">Protected VOID ManualControl()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_ix_framework_core_IIxTaskState_HasError__" data-uid="plc.ix.framework.core.IIxTaskState.HasError()">HasError</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL HasError()</code></pre>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="plc.ix.framework.core.IIxComponent.html">IIxComponent</a>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 </article>
           </div>
 
