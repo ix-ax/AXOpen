@@ -2537,6 +2537,14 @@ references:
   isSpec: "True"
   fullName: ix.framework.core.IxTaskView.OnInitialized
   nameWithType: IxTaskView.OnInitialized
+- uid: plc.ix
+  name: ix
+  href: apictrl/plc.ix.html
+  fullName: ix
+- uid: plc.ix.framework
+  name: framework
+  href: apictrl/plc.ix.framework.html
+  fullName: framework
 - uid: plc.ix.framework.core
   name: core
   href: apictrl/plc.ix.framework.core.html

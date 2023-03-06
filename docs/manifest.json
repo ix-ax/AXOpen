@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "7Qvsy2/tIfudxoIS48O2MayNut1EAmI2SUBQy5NkfXQ="
+          "hash": "MIIXUvb2mMQJNgFK6QOM1rHERYgDGnMIfvTee8J/6Gg="
         }
       },
       "version": ""
@@ -619,7 +619,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/index.html",
-          "hash": "IfzP/N4I2JuuGsPCLOitOpzvodlYAjZC4+QYx9FyYlo="
+          "hash": "WiZDkznPbwUy0OlM2HbmxFSznSWO9eDzBmvH4bmE9cw="
         }
       },
       "version": ""
@@ -630,7 +630,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.CoordinatorStates.html",
-          "hash": "VBpJkqWcsDJKWJ6ddI0HecXshwtQA0hlgyT2YQTGfls="
+          "hash": "JC6BD0PSSbB6RQX5/OaZokY2fU/x0wppCw8BToqpNZ4="
         }
       },
       "version": ""
@@ -641,7 +641,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxComponent.html",
-          "hash": "4IyBWIg3L3EmjwSgyDxIXDvMoZ5LUZxeS0L8IhzjOew="
+          "hash": "UFgJlfRdrwWydCVdrqIA9n7Uik7SaGiQq+TGiKyT+lU="
         }
       },
       "version": ""
@@ -652,7 +652,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxContext.html",
-          "hash": "iMxJ5NGFZqUy8LBoHUkYAFEwMWXMtVxubQgU8Gf+4Ow="
+          "hash": "Zq4ImZTu+njXA2nMuzUqccwAbMyAWFqPs/mNkmneOjA="
         }
       },
       "version": ""
@@ -663,7 +663,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxCoordinator.html",
-          "hash": "QNAHFpYjRDIO519vWdSpGeqdJZ8toKruUu26RNgPzKA="
+          "hash": "HPwgeOFP0czHlQ/GeUb5aVxGc5LeYzx6M0BFj3krrEg="
         }
       },
       "version": ""
@@ -674,7 +674,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxManuallyControllable.html",
-          "hash": "zVrA5PhWRGf7HIRuk8cWg6DFWsqN1vZ6RWLZBiS0k8M="
+          "hash": "sScSMBLoom9wZXlD1b4aU68c0cXrlCg+AAzk88sAVcM="
         }
       },
       "version": ""
@@ -685,7 +685,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxObject.html",
-          "hash": "X4lZWYgbBtF4z8VVVRaIpqEmXm/hxVngynO6rs9JaMU="
+          "hash": "BEPuJw1I/j5P/bp00f7Sm3D/RHmxSrlTkAfzHdJ+lx4="
         }
       },
       "version": ""
@@ -696,7 +696,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxSequencer.html",
-          "hash": "CSYZHdf2v5+7ZIDSxpM+NBr1TMKSrpuZ+1z8LBxNcvM="
+          "hash": "SN5sKXr+TmRSYJZRoCa70u0pXFdoY71SkjqmcyAw8PQ="
         }
       },
       "version": ""
@@ -707,7 +707,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxStep.html",
-          "hash": "ChIkwj8gbP22j1Ws2k3aktTo3lcbFZHpcxflttKaadE="
+          "hash": "OjLRlBOhKHF7pOvL/mV0Ccu/mw1zZEkhCdPRtap+3xk="
         }
       },
       "version": ""
@@ -718,7 +718,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxTask.html",
-          "hash": "TUJmjW7NkuMML6Q1PlcthuYD0LhGCyachIdzqVBSdTU="
+          "hash": "eeMoXyU9Dez6BbTZfX5QT6PIUe3UhnLG3WRqTUEgoKI="
         }
       },
       "version": ""
@@ -729,7 +729,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxTaskInt.html",
-          "hash": "Kggw2rWVpmEljSAZHsZnhnpj0V7g1zVmtZweQBQAJ68="
+          "hash": "A5mHm1p1DxFv+kZDm0hRVCP7LE2CbYylIFTAtp5AM3I="
         }
       },
       "version": ""
@@ -740,7 +740,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IIxTaskState.html",
-          "hash": "gRqcoVrRKcxPk9P1LsVOGNXSuHNH2N6tr6tJ19Ei7ZI="
+          "hash": "zKBkWc/BD9USiJvkTLGTIfVRr9BhTazLyVszrjUuo4w="
         }
       },
       "version": ""
@@ -751,7 +751,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IxComponent.html",
-          "hash": "AZRqhQ+ohVoPqqYi6IRG4HbJ4a8UftcrCIVltifqo1w="
+          "hash": "gOaRYGS0OAO4cMKXnibwDE3B06Q5F2AKqLLXEjJIMFo="
         }
       },
       "version": ""
@@ -762,7 +762,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IxContext.html",
-          "hash": "/52OgtH/IioXrIGWxIHdJIJNQGcEjvZlTJTzhLjSKS0="
+          "hash": "Oll4vsMHa8W42L4QKCHtQHMKFROY5HCuoSoFnowkDaU="
         }
       },
       "version": ""
@@ -773,7 +773,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IxObject.html",
-          "hash": "QV+3GxALA+92rAVQJVzgjkm4npJLxtPkoOdSxkKMLZU="
+          "hash": "ZTFofrshEFXJLwXP/zy++2XlGoaDMmieJRi/LB01h/Y="
         }
       },
       "version": ""
@@ -784,7 +784,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IxSequencer.html",
-          "hash": "BTUg3EwC7DbhVelDVJTMF8pip6uj28kwll0y/ao4iak="
+          "hash": "f5uTrTD7Kcir4jduYkkNN1oEvASihkZ3aEzniwilj3A="
         }
       },
       "version": ""
@@ -795,7 +795,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IxStep.html",
-          "hash": "V+EHZXJWYidXvYd9KpW9DE7wRWAecAQRrjKNkKjE2Ak="
+          "hash": "aE4rjIhUJgr3kZrhXuiYV+kILZYQQjlk7+3+Iv09Cds="
         }
       },
       "version": ""
@@ -806,7 +806,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.IxTask.html",
-          "hash": "U9wiHgSz9EX1L7cVGwgZAjrfhNTP/Hml8G9jQgIBAmQ="
+          "hash": "AdsoBhrZl4BIxJStvHr9IpDYzD+AF6J4nL6hMLGhD1k="
         }
       },
       "version": ""
@@ -817,7 +817,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core._NULL_CONTEXT.html",
-          "hash": "14TCg3TOY8gAQkQeflZW+cNMt44LsPiide6mAZ5GLnM="
+          "hash": "baJhhE755IATp45Xvb94bezPFm6vkdVA0JEnfAxh3AU="
         }
       },
       "version": ""
@@ -828,7 +828,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.eIxSequenceMode.html",
-          "hash": "Z/xlQ0rKaM5HNP/2ONf+NrIDsnsIx91ekvUYR2FVhvA="
+          "hash": "tPzSSWGI/J4iP8vE4IrYTe74Nds5GFFEHEm2joAKNgw="
         }
       },
       "version": ""
@@ -839,7 +839,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.eIxSteppingMode.html",
-          "hash": "1liCRYcEOXSoDVZ8TwH97dHOqV6I5xfQEaITHXKvQp0="
+          "hash": "3c5g+DZU6WMu7mXyBol1PAPhop30UDfNHDxMF9JJzk0="
         }
       },
       "version": ""
@@ -850,7 +850,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.ix.framework.core.eIxTaskState.html",
-          "hash": "O5UtFaHAIEBWpZm/C03ZnWYMhAy1t7xpPF5cM91F87k="
+          "hash": "lamviby/A807tq5jUpaBL3eVJifm/b6CleGH6R4zudI="
         }
       },
       "version": ""
@@ -867,12 +867,34 @@
       "version": ""
     },
     {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.ix.framework.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.ix.framework.html",
+          "hash": "V8ERyEpAT7LEG1K16Snw96+L/G6lNGCfCmRdqy/yk7s="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.ix.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.ix.html",
+          "hash": "QYUA7rgot8rHVeatr7VQMId2rblxKPtECp415gxS8BA="
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "apictrl/toc.yml",
       "output": {
         ".html": {
           "relative_path": "apictrl/toc.html",
-          "hash": "+VPPjgoeMr1u3wHPBUj4IKuhepOkBMWATkzZnMstMa4="
+          "hash": "MlbR9VWT5TIU8Pn5jKjhIeNci8WU209TPiRg6/cmZuw="
         }
       },
       "version": ""
@@ -886,7 +908,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/README.html",
-          "hash": "+85kQAsghNSCEYyzBkT+Ovhhukz5vow1NuE5aXAfyqI="
+          "hash": "R0GJmcLfKoLaNxFR5ZDey0Yv3PDa2m1UcyBPWSXohwM="
         }
       },
       "version": ""
@@ -897,7 +919,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "XaPyysA+iME21ikg5LNiIBzlQo3G2HWqfbEIstt0lu4="
+          "hash": "kXoc3m+OjBBdzHxG0bXHrlEfAl2BvgCbijMRpX1VWyc="
         }
       },
       "version": ""
@@ -1019,7 +1041,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "4m3OgQ72Dpm+iryCvCcZcbM7QkD1dZGFm4q78obzVy0="
+          "hash": "iCeHobV6ngxpQWz/2JGu+agyb1FdA9MoWXKK70M0sPo="
         }
       },
       "version": ""
@@ -1030,7 +1052,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "Hr1PQ57vbT7gU2tBjehdbzGoSJplCEdQ+Jh2Uq0d0sY="
+          "hash": "y91Gl0kkaK6npaHiAFzB5Y28eIMyUNUZqgjWWT3YIt0="
         }
       },
       "version": ""

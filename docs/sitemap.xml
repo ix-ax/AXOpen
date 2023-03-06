@@ -2,475 +2,487 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/index.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core._Imports.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core._NULL_CONTEXT.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.ComponentDetailsAttribute.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.ComponentHeaderAttribute.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.CoordinatorStates.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.DetailsContext.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.eIxSequenceMode.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.eIxSteppingMode.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.eIxTaskState.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IIxComponent.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IIxContext.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IIxCoordinator.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IIxManuallyControllable.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IIxObject.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IIxStep.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IIxTask.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IIxTaskState.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxComponent.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxComponentCommandView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxComponentStatusView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxComponentView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxContext.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxObject.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxSequencer.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxSequencerCommandView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxSequencerStatusView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxSequencerView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxStep.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxStepCommandView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxStepStatusView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxStepView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxTask.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxTaskCommandView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxTaskStatusView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.IxTaskView.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/ix.framework.core.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core._NULL_CONTEXT.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IIxComponent.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IIxContext.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IIxCoordinator.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IIxManuallyControllable.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IIxObject.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IIxStep.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IIxTask.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IIxTaskState.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IxComponent.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IxContext.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IxObject.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IxSequencer.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IxStep.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.IxTask.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/api/Pocos.ix.framework.core.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/index.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core._NULL_CONTEXT.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.CoordinatorStates.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.eIxSequenceMode.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.eIxSteppingMode.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.eIxTaskState.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxComponent.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxContext.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxCoordinator.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxManuallyControllable.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxObject.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxSequencer.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxStep.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxTask.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxTaskInt.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IIxTaskState.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IxComponent.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IxContext.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IxObject.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IxSequencer.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IxStep.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.IxTask.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.core.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.framework.html</loc>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://ix-ax.github.io/ix.framework/apictrl/plc.ix.html</loc>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/articles/core/README.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/articles/intro.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://ix-ax.github.io/ix.framework/index.html</loc>
-    <lastmod>2023-03-06T11:34:01+01:00</lastmod>
+    <lastmod>2023-03-06T12:23:35+01:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.1</priority>
   </url>
