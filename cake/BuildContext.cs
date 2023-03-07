@@ -54,7 +54,7 @@ public class BuildContext : FrostingContext
 
             foreach (var dependency in dependencies.Select(p => $"\"@{ApaxRegistry}/{p}\""))
             {
-                if (line.Trim().StartsWith(dependency))
+                if (line.Trim().StartsWith($"\"@{ApaxRegistry}/") && line.Contains(":"))
                 {
                     var semicPosition = line.IndexOf(":");
                     var lenght = line.Length - semicPosition;
@@ -129,7 +129,8 @@ public class BuildContext : FrostingContext
 
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
     {
-        ("core", "ix.framework.core"),        
+        ("core", "ix.framework.core"),
+        ("data", "ix.framework.data"),
     };
 
     public IEnumerable<(string folder, string name)> Integrations { get; } = new[]

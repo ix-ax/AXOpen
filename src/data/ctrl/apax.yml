@@ -1,4 +1,4 @@
-name: "@ix-ax/ix.framework.core"
+name: "@ix-ax/ix.framework.data"
 version                                      : '0.1.2-34-Prepare-project-for-IxData.40'
 type: lib
 targets:
@@ -8,6 +8,8 @@ targets:
   - axunit-llvm
 files:
   - src
+dependencies:
+  "@ix-ax/ix.framework.core"  : '0.1.2-34-Prepare-project-for-IxData.40'  
 devDependencies:
   "@ax/sdk": 3.0.8
 repository: 
