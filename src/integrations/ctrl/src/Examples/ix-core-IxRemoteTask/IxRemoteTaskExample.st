@@ -24,7 +24,8 @@ NAMESPACE IxRemoteTaskExamples
     CLASS RemoteTasks EXTENDS ix.framework.core.IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to execute this command"}
-            _remoteTask : MyRemoteTask;  
+            _remoteTask : MyRemoteTask;
+            {#ix-set:AttributeName = "Trigger from PLC"}  
             _remoteTaskInvokeFromPlc : BOOL;     
             _doneCounter : INT;
         END_VAR    

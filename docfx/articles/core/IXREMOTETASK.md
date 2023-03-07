@@ -39,7 +39,16 @@ The `IxRemoteTask` executes upon the `Invoke` method call. `Invoke` fires the ex
  - `HasError` indicates the execution terminated with a failure.
  - `IsAborted` indicates that the execution of the IxTask has been aborted. It should continue by calling the method `Resume()`.
 
-Examples of usage:
+## Task initialization in .NET
+
+[!code-csharp[](../../../src/integrations/integration.blazor/Program.cs?name=InitializeRemoteTask)]
+
+In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.
+
+<img src="~/images/remote_exect.gif ">
+
+
+## Executing from PLC
 
 Invoking the IxRemoteTask and waiting for its completion at the same place.
 [!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/ix-core-IxRemoteTask/IxRemoteTaskDocuExample.st?name=IxTaskInvokeDone)]
