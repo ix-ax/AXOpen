@@ -21,6 +21,8 @@ namespace integration.blazor
 
             Entry.Plc.Connector.BuildAndStart();
 
+            Entry.Plc.ixcore_remote_tasks._remoteTask.Initialize(() => Console.WriteLine($"Remote task executed PLC sent this string: '{Entry.Plc.ixcore_remote_tasks._remoteTask.Message.GetAsync().Result} : {Entry.Plc.ixcore_remote_tasks._remoteTask.Counter.GetAsync().Result}'"));
+
             Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
             var app = builder.Build();
 

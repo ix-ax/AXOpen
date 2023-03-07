@@ -6,6 +6,7 @@ PROGRAM MyProgram
         ixcoreTasks : IxTaskExamples.Tasks;
         myComponentExample : IxComponentExamples.ComponentExampleContext;
         myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
+        ixcore_remote_tasks : IxRemoteTaskExamples.RemoteTasks;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
     MainContext.Run();
@@ -13,6 +14,7 @@ PROGRAM MyProgram
     ixcoreSequencers.Run();
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
+    ixcore_remote_tasks.Run();
 
 END_PROGRAM
 
