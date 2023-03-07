@@ -930,15 +930,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "articles/core/IXCOMPONENT.md",
       "output": {
         ".html": {
           "relative_path": "articles/core/IXCOMPONENT.html",
-          "hash": "KAzQ05o5UM3G8Qxgj1/AxLng+btX/OQorFR1CX+Mkmw="
+          "hash": "G1bUEiVfz5MyHMmrV2Vmq2v0dv5Yxi0y9coiedsz03s="
         }
       },
       "version": ""
@@ -1010,15 +1007,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "articles/core/README.md",
       "output": {
         ".html": {
           "relative_path": "articles/core/README.html",
-          "hash": "G++1VWvoqW/rNjsfD8a9lvG2pdXMEF47UlBKkdpJL/I="
+          "hash": "dN3GBFiNl3j+UO4IyMkvhiNpQhFKMcUuHkxSHpgitMw="
         }
       },
       "version": ""
