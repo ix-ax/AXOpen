@@ -38,7 +38,8 @@ On the UI side use the `RenderableContentControl` and set its Context according 
 [!code-csharp[](../../../src/integrations/integration.blazor/Pages/IxCoreComponentHeaderOnlyExample.razor?name=RenderedView)]
 
 The rendered result should then looks as follows:
-<img src="~/images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif">
+
+![Alt text](~/images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif)
 
 In case of more complex `IxComponent` the most important members should be placed in the fixed part (Header) and the rest of the members should be placed inside the expandable part (Details). The members inside the expandable part should be organize inside the tabs.  
 
@@ -59,4 +60,5 @@ UI side of the `IxComponent`.
 [!code-csharp[](../../../src/integrations/integration.blazor/Pages/IxCoreComponentExample.razor?name=RenderedView)]
 
 and the rendered result:
-<img src="~/images/ComplexComponentExample.gif ">
+
+![Alt text](~/images/ComplexComponentExample.gif)
