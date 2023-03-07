@@ -54,7 +54,7 @@ public class BuildContext : FrostingContext
 
             foreach (var dependency in dependencies.Select(p => $"\"@{ApaxRegistry}/{p}\""))
             {
-                if (line.Trim().StartsWith(dependency))
+                if (line.Trim().StartsWith($"\"@{ApaxRegistry}/") && line.Contains(":"))
                 {
                     var semicPosition = line.IndexOf(":");
                     var lenght = line.Length - semicPosition;
