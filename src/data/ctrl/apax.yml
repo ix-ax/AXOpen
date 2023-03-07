@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.data"
-version                               : '0.1.2-19-desing-component-base-class.43'
+version                                  : '0.1.2-34-Prepare-project-for-IxData.38'
 type: lib
 targets:
   - "1500"
@@ -9,7 +9,7 @@ targets:
 files:
   - src
 dependencies:
-   "@ix-ax/ix.framework.core": '0.1.2-19-desing-component-base-class.43'  
+  "@ix-ax/ix.framework.core"  : '0.1.2-34-Prepare-project-for-IxData.38'  
 devDependencies:
   "@ax/sdk": 3.0.8
 repository: 
