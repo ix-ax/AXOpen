@@ -13,6 +13,7 @@ namespace ix.framework.core
         }
         private void RestoreTask()
         {
+            (this.Component as IxRemoteTask)?.ResetExecution();
             Component.RemoteRestore.Cyclic = true;
         }
         private void AbortTask()

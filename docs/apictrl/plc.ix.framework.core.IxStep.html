@@ -87,8 +87,8 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/ix.framework.core.IxTask.html">IxTask</a></div>
-    <div class="level1"><a class="xref" href="../api/ix.framework.core.IxObject.html">IxObject</a></div>
+    <div class="level0"><a class="xref" href="plc.ix.framework.core.IxTask.html">IxTask</a></div>
+    <div class="level1"><a class="xref" href="plc.ix.framework.core.IxObject.html">IxObject</a></div>
     <div class="level2"><span class="xref">IxStep</span></div>
   </div>
   <div class="implements">
@@ -115,6 +115,9 @@
     </div>
     <div>
       <a class="xref" href="plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_RemoteResume">RemoteResume</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_StartSignature">StartSignature</a>
     </div>
     <div>
       <a class="xref" href="plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_GetState__">GetState()</a>
@@ -216,7 +219,7 @@
       <a class="xref" href="plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_Initialize_IIxContext_">Initialize(IIxContext)</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">core</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="plc.ix.framework.core.html">plc.ix.framework.core</a></h6>
   <h6><strong>Assembly</strong>: @ix-ax/ix.framework.core.dll</h6>
   <h5 id="plc_ix_framework_core_IxStep_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -438,7 +441,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">ULINT</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -451,7 +454,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID SetStepOrder(in ix.framework.core.IIxCoordinator coord,in ULINT StepOrder)</code></pre>
+    <pre><code class="lang-csharp hljs">Public VOID SetStepOrder(in plc.ix.framework.core.IIxCoordinator coord,in plc.ULINT StepOrder)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -464,13 +467,28 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><a class="xref" href="plc.ix.framework.core.IIxCoordinator.html">IIxCoordinator</a></td>
         <td><span class="parametername">coord</span></td>
         <td></td>
       </tr>
       <tr>
-        <td></td>
+        <td><span class="xref">ULINT</span></td>
         <td><span class="parametername">StepOrder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
         <td></td>
       </tr>
     </tbody>
@@ -495,7 +513,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -508,7 +526,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL Execute(in ix.framework.core.IIxCoordinator coord)</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL Execute(in plc.ix.framework.core.IIxCoordinator coord)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -521,7 +539,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><a class="xref" href="plc.ix.framework.core.IIxCoordinator.html">IIxCoordinator</a></td>
         <td><span class="parametername">coord</span></td>
         <td></td>
       </tr>
@@ -537,7 +555,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -550,7 +568,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL Execute(in ix.framework.core.IIxCoordinator coord,in BOOL Enable)</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL Execute(in plc.ix.framework.core.IIxCoordinator coord,in plc.BOOL Enable)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -563,12 +581,12 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><a class="xref" href="plc.ix.framework.core.IIxCoordinator.html">IIxCoordinator</a></td>
         <td><span class="parametername">coord</span></td>
         <td></td>
       </tr>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td><span class="parametername">Enable</span></td>
         <td></td>
       </tr>
@@ -584,7 +602,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -597,7 +615,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL Execute(in ix.framework.core.IIxCoordinator coord,in BOOL Enable,in STRING[120] Description)</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL Execute(in plc.ix.framework.core.IIxCoordinator coord,in plc.BOOL Enable,in plc.STRING[120] Description)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -610,17 +628,17 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><a class="xref" href="plc.ix.framework.core.IIxCoordinator.html">IIxCoordinator</a></td>
         <td><span class="parametername">coord</span></td>
         <td></td>
       </tr>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td><span class="parametername">Enable</span></td>
         <td></td>
       </tr>
       <tr>
-        <td></td>
+        <td><span class="xref">STRING[120]</span></td>
         <td><span class="parametername">Description</span></td>
         <td></td>
       </tr>
@@ -636,7 +654,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -649,7 +667,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL Execute(in ix.framework.core.IIxCoordinator coord,in STRING[120] Description)</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL Execute(in plc.ix.framework.core.IIxCoordinator coord,in plc.STRING[120] Description)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -662,12 +680,12 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><a class="xref" href="plc.ix.framework.core.IIxCoordinator.html">IIxCoordinator</a></td>
         <td><span class="parametername">coord</span></td>
         <td></td>
       </tr>
       <tr>
-        <td></td>
+        <td><span class="xref">STRING[120]</span></td>
         <td><span class="parametername">Description</span></td>
         <td></td>
       </tr>
@@ -683,7 +701,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -697,37 +715,6 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID CountCallsOfTheExecuteMethod()</code></pre>
   </div>
-
-
-  <h4 id="plc_ix_framework_core_IxStep_ExecuteInternal_IIxCoordinator_BOOL_" data-uid="plc.ix.framework.core.IxStep.ExecuteInternal(IIxCoordinator,BOOL)">ExecuteInternal</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected BOOL ExecuteInternal(in ix.framework.core.IIxCoordinator coord,in BOOL Enable)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td><span class="parametername">coord</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td><span class="parametername">Enable</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -745,13 +732,12 @@
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IxStep_SetIsActive_BOOL_" data-uid="plc.ix.framework.core.IxStep.SetIsActive(BOOL)">SetIsActive</h4>
-  <div class="markdown level1 summary"><p>Sets the value of the <code>IsActive</code> variable</p>
-</div>
+  <h4 id="plc_ix_framework_core_IxStep_ExecuteInternal_IIxCoordinator_BOOL_" data-uid="plc.ix.framework.core.IxStep.ExecuteInternal(IIxCoordinator,BOOL)">ExecuteInternal</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID SetIsActive(in BOOL Active)</code></pre>
+    <pre><code class="lang-csharp hljs">Protected BOOL ExecuteInternal(in plc.ix.framework.core.IIxCoordinator coord,in plc.BOOL Enable)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -764,8 +750,70 @@
     </thead>
     <tbody>
       <tr>
+        <td><a class="xref" href="plc.ix.framework.core.IIxCoordinator.html">IIxCoordinator</a></td>
+        <td><span class="parametername">coord</span></td>
         <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">Enable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_ix_framework_core_IxStep_SetIsActive_BOOL_" data-uid="plc.ix.framework.core.IxStep.SetIsActive(BOOL)">SetIsActive</h4>
+  <div class="markdown level1 summary"><p>Sets the value of the <code>IsActive</code> variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID SetIsActive(in plc.BOOL Active)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
         <td><span class="parametername">Active</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
         <td></td>
       </tr>
     </tbody>
@@ -790,7 +838,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -803,7 +851,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID SetIsEnabled(in BOOL Enabled)</code></pre>
+    <pre><code class="lang-csharp hljs">Public VOID SetIsEnabled(in plc.BOOL Enabled)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -816,8 +864,23 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td><span class="parametername">Enabled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
         <td></td>
       </tr>
     </tbody>
@@ -842,7 +905,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>

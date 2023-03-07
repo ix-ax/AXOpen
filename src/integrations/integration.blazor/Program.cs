@@ -20,7 +20,7 @@ namespace integration.blazor
             builder.Services.AddIxBlazorServices();
 
             Entry.Plc.Connector.BuildAndStart();
-
+            
             Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
             var app = builder.Build();
 
@@ -41,9 +41,14 @@ namespace integration.blazor
             app.MapBlazorHub();
             app.MapFallbackToPage("/_Host");
 
+            #region InitializeRemoteTask
+            Entry.Plc.ixcore_remote_tasks._remoteTask.Initialize(() => Console.WriteLine($"Remote task executed PLC sent this string: '{Entry.Plc.ixcore_remote_tasks._remoteTask.Message.GetAsync().Result}'"));
+            #endregion
+
             app.Run();
 
-            
+
+
         }
     }
 }

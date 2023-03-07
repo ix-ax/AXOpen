@@ -87,8 +87,8 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="../api/ix.framework.core.IxTask.html">IxTask</a></div>
-    <div class="level1"><a class="xref" href="../api/ix.framework.core.IxObject.html">IxObject</a></div>
+    <div class="level0"><a class="xref" href="plc.ix.framework.core.IxTask.html">IxTask</a></div>
+    <div class="level1"><a class="xref" href="plc.ix.framework.core.IxObject.html">IxObject</a></div>
     <div class="level2"><span class="xref">IxSequencer</span></div>
   </div>
   <div class="implements">
@@ -116,6 +116,9 @@
     </div>
     <div>
       <a class="xref" href="plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_RemoteResume">RemoteResume</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_StartSignature">StartSignature</a>
     </div>
     <div>
       <a class="xref" href="plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_GetState__">GetState()</a>
@@ -217,7 +220,7 @@
       <a class="xref" href="plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_Initialize_IIxContext_">Initialize(IIxContext)</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <span class="xref">core</span></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="plc.ix.framework.core.html">plc.ix.framework.core</a></h6>
   <h6><strong>Assembly</strong>: @ix-ax/ix.framework.core.dll</h6>
   <h5 id="plc_ix_framework_core_IxSequencer_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -525,6 +528,21 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public VOID Open()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <h4 id="plc_ix_framework_core_IxSequencer_Execute_IIxStep_BOOL_" data-uid="plc.ix.framework.core.IxSequencer.Execute(IIxStep,BOOL)">Execute</h4>
@@ -532,7 +550,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Internal BOOL Execute(in ix.framework.core.IIxStep step,in BOOL Enable)</code></pre>
+    <pre><code class="lang-csharp hljs">Internal BOOL Execute(in plc.ix.framework.core.IIxStep step,in plc.BOOL Enable)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -545,13 +563,80 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><a class="xref" href="plc.ix.framework.core.IIxStep.html">IIxStep</a></td>
         <td><span class="parametername">step</span></td>
         <td></td>
       </tr>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td><span class="parametername">Enable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_ix_framework_core_IxSequencer_MoveNext__" data-uid="plc.ix.framework.core.IxSequencer.MoveNext()">MoveNext</h4>
+  <div class="markdown level1 summary"><p>Moves the execution to the next step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID MoveNext()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_ix_framework_core_IxSequencer_RequestStep_IIxStep_" data-uid="plc.ix.framework.core.IxSequencer.RequestStep(IIxStep)">RequestStep</h4>
+  <div class="markdown level1 summary"><p>Terminates the currently executed step and initiates the RequestedStep to be executed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID RequestStep(in plc.ix.framework.core.IIxStep RequestedStep)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.ix.framework.core.IIxStep.html">IIxStep</a></td>
+        <td><span class="parametername">RequestedStep</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -573,43 +658,6 @@
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IxSequencer_MoveNext__" data-uid="plc.ix.framework.core.IxSequencer.MoveNext()">MoveNext</h4>
-  <div class="markdown level1 summary"><p>Moves the execution to the next step.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID MoveNext()</code></pre>
-  </div>
-
-
-  <h4 id="plc_ix_framework_core_IxSequencer_RequestStep_IIxStep_" data-uid="plc.ix.framework.core.IxSequencer.RequestStep(IIxStep)">RequestStep</h4>
-  <div class="markdown level1 summary"><p>Terminates the currently executed step and initiates the RequestedStep to be executed</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID RequestStep(in ix.framework.core.IIxStep RequestedStep)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td><span class="parametername">RequestedStep</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
   <h4 id="plc_ix_framework_core_IxSequencer_CompleteSequence__" data-uid="plc.ix.framework.core.IxSequencer.CompleteSequence()">CompleteSequence</h4>
   <div class="markdown level1 summary"><p>Completes (finishes) the execution of this sequencer and set the coordination state to Idle.If the <code>SequenceMode</code> of the sequencer is set to <code>RunOnce</code>, terminates also execution of the sequencer itself.</p>
 </div>
@@ -618,6 +666,21 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public VOID CompleteSequence()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <h4 id="plc_ix_framework_core_IxSequencer_OnBeforeSequenceStart__" data-uid="plc.ix.framework.core.IxSequencer.OnBeforeSequenceStart()">OnBeforeSequenceStart</h4>
@@ -628,6 +691,21 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID OnBeforeSequenceStart()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <h4 id="plc_ix_framework_core_IxSequencer_OnCompleteSequence__" data-uid="plc.ix.framework.core.IxSequencer.OnCompleteSequence()">OnCompleteSequence</h4>
@@ -638,6 +716,21 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID OnCompleteSequence()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <h4 id="plc_ix_framework_core_IxSequencer_GetCoordinatorState__" data-uid="plc.ix.framework.core.IxSequencer.GetCoordinatorState()">GetCoordinatorState</h4>
@@ -658,7 +751,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><a class="xref" href="plc.ix.framework.core.CoordinatorStates.html">CoordinatorStates</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -670,7 +763,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected ULINT DetermineOrder(in ix.framework.core.IIxStep step)</code></pre>
+    <pre><code class="lang-csharp hljs">Protected ULINT DetermineOrder(in plc.ix.framework.core.IIxStep step)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -683,7 +776,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><a class="xref" href="plc.ix.framework.core.IIxStep.html">IIxStep</a></td>
         <td><span class="parametername">step</span></td>
         <td></td>
       </tr>
@@ -699,7 +792,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">ULINT</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -724,7 +817,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">ULINT</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -748,7 +841,7 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -760,7 +853,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected BOOL InvalidContext(in ix.framework.core.IIxStep step)</code></pre>
+    <pre><code class="lang-csharp hljs">Protected BOOL InvalidContext(in plc.ix.framework.core.IIxStep step)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -773,12 +866,36 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><a class="xref" href="plc.ix.framework.core.IIxStep.html">IIxStep</a></td>
         <td><span class="parametername">step</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_ix_framework_core_IxSequencer_DisableAllSteppingComands__" data-uid="plc.ix.framework.core.IxSequencer.DisableAllSteppingComands()">DisableAllSteppingComands</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID DisableAllSteppingComands()</code></pre>
+  </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -796,15 +913,6 @@
   </table>
 
 
-  <h4 id="plc_ix_framework_core_IxSequencer_DisableAllSteppingComands__" data-uid="plc.ix.framework.core.IxSequencer.DisableAllSteppingComands()">DisableAllSteppingComands</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID DisableAllSteppingComands()</code></pre>
-  </div>
-
-
   <h4 id="plc_ix_framework_core_IxSequencer_AbortCurrentStep__" data-uid="plc.ix.framework.core.IxSequencer.AbortCurrentStep()">AbortCurrentStep</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
@@ -812,6 +920,21 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID AbortCurrentStep()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <h4 id="plc_ix_framework_core_IxSequencer_OnRestore__" data-uid="plc.ix.framework.core.IxSequencer.OnRestore()">OnRestore</h4>
@@ -821,6 +944,21 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID OnRestore()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="plc.ix.framework.core.IIxSequencer.html">IIxSequencer</a>

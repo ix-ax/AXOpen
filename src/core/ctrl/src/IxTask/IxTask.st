@@ -38,6 +38,11 @@ NAMESPACE ix.framework.core
             /// When 'TRUE' this task will be resumed.
             ///</summary>
             RemoteResume : BOOL;
+
+            ///<summary>
+            /// Contains contex cycle number when this task started.            
+            ///</summary>           
+            StartSignature : ULINT;
         END_VAR    
         
         VAR PRIVATE
@@ -224,7 +229,9 @@ NAMESPACE ix.framework.core
             END_IF;
 
             IF(Status = eIxTaskState#Kicking) THEN
-                Status := eIxTaskState#Busy;
+                Status := eIxTaskState#Busy; 
+                // Don't touch this, it is used for remote execs.
+                StartSignature := THIS.GetContext().OpenCycleCount();               
                 THIS.OnStart();
             END_IF;    
 
