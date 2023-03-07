@@ -19,7 +19,7 @@ public class BuildParameters
     [Option('k', "do-pack", Required = false, Default = false, HelpText = "Creates packages")]
     public bool DoPack { get; set; }
 
-    [Option('p', "do-publish", Required = false, Default = false, HelpText = "Publishes packages")]
+    [Option('p', "do-publish", Required = false, Default = true, HelpText = "Publishes packages")]
     public bool DoPublish { get; set; }
 
     [Option('c', "configuration", Required = false, Default = "Release", HelpText = "Configuration")]

@@ -234,7 +234,7 @@ public sealed class PushPackages : FrostingTask<BuildContext>
 
         if (Helpers.CanReleaseInternal())
         {
-            context.Libraries.ToList().ForEach(lib => context.ApaxPublish(lib));
+            context.ApaxPublish();
        
 
         foreach (var nugetFile in Directory.EnumerateFiles(Path.Combine(context.Artifacts, @"nugets"), "*.nupkg")

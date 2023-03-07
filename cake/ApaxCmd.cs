@@ -100,7 +100,7 @@ public static class ApaxCmd
         File.Copy(sourceFile, Path.Combine(context.ArtifactsApax, packageFile));
     }
 
-    public static void ApaxPublish(this BuildContext context, (string folder, string name) lib)
+    public static void ApaxPublish(this BuildContext context)
     {
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
