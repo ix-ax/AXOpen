@@ -966,15 +966,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Conceptual",
       "source_relative_path": "articles/core/IXREMOTETASK.md",
       "output": {
         ".html": {
           "relative_path": "articles/core/IXREMOTETASK.html",
-          "hash": "R4INQD3QUCsXZUHfuFwVzDsM6BdjBn7bEguetsfyMh8="
+          "hash": "p4oHba9vS2ZTEX45xJTp9iH2EEI7u1I2l07znJU2WyE="
         }
       },
       "version": ""
@@ -1021,7 +1018,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/README.html",
-          "hash": "HUvLme80uQFAHEOsaokoNDCItOoZYgC7cg2mRPRXIAQ="
+          "hash": "G++1VWvoqW/rNjsfD8a9lvG2pdXMEF47UlBKkdpJL/I="
         }
       },
       "version": ""

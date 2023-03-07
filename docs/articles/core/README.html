@@ -396,7 +396,7 @@ END_CLASS
 <pre><code class="lang-csharp">Entry.Plc.ixcore_remote_tasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.ixcore_remote_tasks._remoteTask.Message.GetAsync().Result}'&quot;));
 </code></pre>
 <p>In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.</p>
-<img src="../../images/remote_exect.gif%20">
+<p><img src="../../images/remote_exect.gif" alt="Alt text"></p>
 <h2 id="executing-from-plc">Executing from PLC</h2>
 <p>Invoking the IxRemoteTask and waiting for its completion at the same place.</p>
 <pre><code class="lang-smalltalk">IF(_remoteTask.Invoke('hello').IsDone()) THEN

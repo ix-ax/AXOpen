@@ -45,7 +45,7 @@ The `IxRemoteTask` executes upon the `Invoke` method call. `Invoke` fires the ex
 
 In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.
 
-<img src="~/images/remote_exect.gif ">
+![Alt text](~/images/remote_exect.gif)
 
 
 ## Executing from PLC
