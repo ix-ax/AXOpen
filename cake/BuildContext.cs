@@ -129,7 +129,8 @@ public class BuildContext : FrostingContext
 
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
     {
-        ("core", "ix.framework.core"),        
+        ("core", "ix.framework.core"),
+        ("data", "ix.framework.data"),
     };
 
     public IEnumerable<(string folder, string name)> Integrations { get; } = new[]
