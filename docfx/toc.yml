@@ -2,5 +2,5 @@
   href: articles/intro.md
 - name: API
   href: api/
-# - name: PLC API
-#   href: apictrl/
+- name: PLC API
+  href: apictrl/

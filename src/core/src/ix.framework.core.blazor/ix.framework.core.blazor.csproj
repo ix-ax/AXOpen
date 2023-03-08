@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net7.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>ix.framework.core</RootNamespace>
@@ -32,9 +32,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Ix.Presentation.Blazor" Version="0.13.4-alpha.81" />
-    <PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.4-alpha.81" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
+    <PackageReference Include="Ix.Presentation.Blazor" Version="0.13.4-alpha.86" />
+    <PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.4-alpha.86" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup>

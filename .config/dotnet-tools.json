@@ -3,19 +3,19 @@
   "isRoot": true,
   "tools": {
     "ix.ixc": {
-      "version": "0.13.4-alpha.83",
+      "version": "0.13.4-alpha.86",
       "commands": [
         "ixc"
       ]
     },
     "docfx": {
-      "version": "2.62.1",
+      "version": "2.62.2",
       "commands": [
         "docfx"
       ]
     },
     "ix.ixd": {
-      "version": "0.13.4-alpha.83",
+      "version": "0.13.4-alpha.86",
       "commands": [
         "ixd"
       ]

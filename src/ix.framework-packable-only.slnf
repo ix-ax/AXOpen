@@ -3,7 +3,9 @@
     "path": "ix.framework.sln",
     "projects": [
       "core\\src\\ix.framework.core.blazor\\ix.framework.core.blazor.csproj",
-      "core\\src\\ix.framework.core\\ix.framework.core.csproj"
+      "core\\src\\ix.framework.core\\ix.framework.core.csproj",
+      "data\\src\\ix.framework.data.blazor\\ix.framework.data.blazor.csproj",
+      "data\\src\\ix.framework.data\\ix.framework.data.csproj"
     ]
   }
 }

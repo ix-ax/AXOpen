@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.core"
-version                               : '0.1.2-19-desing-component-base-class.43'
+version      : '0.1.4-40--NEW-FEATURE-ix-core-add-implementation-of-remote-task.43'
 type: lib
 targets:
   - "1500"
@@ -10,12 +10,12 @@ files:
   - src
 devDependencies:
   "@ax/sdk": 3.0.8
-repository: 
+repository:
   type: "git"
   url: "https://github.com/ix-ax/ix.framework.git"
 license: "https://github.com/ix-ax/ix.framework/blob/dev/license"
 homepage: "https://github.com/ix-ax/ix.framework"
 
 scripts:
-  postbuild:                
-      - dotnet ixc
+  postbuild:
+    - dotnet ixc

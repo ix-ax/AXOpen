@@ -1,6 +1,7 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+<<<<<<< HEAD
 - uid: Ix.Connector
   name: Ix.Connector
   href: api/Ix.Connector.html
@@ -42,6 +43,8 @@ references:
   isSpec: "True"
   fullName: Ix.Connector.ITwinElementExtensions.GetPropertyViaSymbol
   nameWithType: ITwinElementExtensions.GetPropertyViaSymbol
+=======
+>>>>>>> dev
 - uid: ix.framework.core
   name: ix.framework.core
   href: api/ix.framework.core.html
@@ -812,18 +815,30 @@ references:
   commentId: T:ix.framework.core.IIxCoordinator
   fullName: ix.framework.core.IIxCoordinator
   nameWithType: IIxCoordinator
+<<<<<<< HEAD
+=======
+- uid: ix.framework.core.IIxManuallyControllable
+  name: IIxManuallyControllable
+  href: api/ix.framework.core.IIxManuallyControllable.html
+  commentId: T:ix.framework.core.IIxManuallyControllable
+  fullName: ix.framework.core.IIxManuallyControllable
+  nameWithType: IIxManuallyControllable
+>>>>>>> dev
 - uid: ix.framework.core.IIxObject
   name: IIxObject
   href: api/ix.framework.core.IIxObject.html
   commentId: T:ix.framework.core.IIxObject
   fullName: ix.framework.core.IIxObject
   nameWithType: IIxObject
+<<<<<<< HEAD
 - uid: ix.framework.core.IIxServiceable
   name: IIxServiceable
   href: api/ix.framework.core.IIxServiceable.html
   commentId: T:ix.framework.core.IIxServiceable
   fullName: ix.framework.core.IIxServiceable
   nameWithType: IIxServiceable
+=======
+>>>>>>> dev
 - uid: ix.framework.core.IIxStep
   name: IIxStep
   href: api/ix.framework.core.IIxStep.html
@@ -848,6 +863,7 @@ references:
   commentId: T:ix.framework.core.IxComponent
   fullName: ix.framework.core.IxComponent
   nameWithType: IxComponent
+<<<<<<< HEAD
 - uid: ix.framework.core.IxComponent._isinServiceMode
   name: _isinServiceMode
   href: api/ix.framework.core.IxComponent.html#ix_framework_core_IxComponent__isinServiceMode
@@ -861,6 +877,21 @@ references:
   isSpec: "True"
   fullName: ix.framework.core.IxComponent._isinServiceMode
   nameWithType: IxComponent._isinServiceMode
+=======
+- uid: ix.framework.core.IxComponent._isManuallyControllable
+  name: _isManuallyControllable
+  href: api/ix.framework.core.IxComponent.html#ix_framework_core_IxComponent__isManuallyControllable
+  commentId: P:ix.framework.core.IxComponent._isManuallyControllable
+  fullName: ix.framework.core.IxComponent._isManuallyControllable
+  nameWithType: IxComponent._isManuallyControllable
+- uid: ix.framework.core.IxComponent._isManuallyControllable*
+  name: _isManuallyControllable
+  href: api/ix.framework.core.IxComponent.html#ix_framework_core_IxComponent__isManuallyControllable_
+  commentId: Overload:ix.framework.core.IxComponent._isManuallyControllable
+  isSpec: "True"
+  fullName: ix.framework.core.IxComponent._isManuallyControllable
+  nameWithType: IxComponent._isManuallyControllable
+>>>>>>> dev
 - uid: ix.framework.core.IxComponent.#ctor(Ix.Connector.ITwinObject,System.String,System.String)
   name: IxComponent(ITwinObject, string, string)
   href: api/ix.framework.core.IxComponent.html#ix_framework_core_IxComponent__ctor_Ix_Connector_ITwinObject_System_String_System_String_
@@ -1647,6 +1678,252 @@ references:
   isSpec: "True"
   fullName: ix.framework.core.IxObject.SymbolTail
   nameWithType: IxObject.SymbolTail
+<<<<<<< HEAD
+=======
+- uid: ix.framework.core.IxRemoteTask
+  name: IxRemoteTask
+  href: api/ix.framework.core.IxRemoteTask.html
+  commentId: T:ix.framework.core.IxRemoteTask
+  fullName: ix.framework.core.IxRemoteTask
+  nameWithType: IxRemoteTask
+- uid: ix.framework.core.IxRemoteTask.#ctor(Ix.Connector.ITwinObject,System.String,System.String)
+  name: IxRemoteTask(ITwinObject, string, string)
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask__ctor_Ix_Connector_ITwinObject_System_String_System_String_
+  commentId: M:ix.framework.core.IxRemoteTask.#ctor(Ix.Connector.ITwinObject,System.String,System.String)
+  name.vb: New(ITwinObject, String, String)
+  fullName: ix.framework.core.IxRemoteTask.IxRemoteTask(Ix.Connector.ITwinObject, string, string)
+  fullName.vb: ix.framework.core.IxRemoteTask.New(Ix.Connector.ITwinObject, String, String)
+  nameWithType: IxRemoteTask.IxRemoteTask(ITwinObject, string, string)
+  nameWithType.vb: IxRemoteTask.New(ITwinObject, String, String)
+- uid: ix.framework.core.IxRemoteTask.#ctor*
+  name: IxRemoteTask
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask__ctor_
+  commentId: Overload:ix.framework.core.IxRemoteTask.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ix.framework.core.IxRemoteTask.IxRemoteTask
+  fullName.vb: ix.framework.core.IxRemoteTask.New
+  nameWithType: IxRemoteTask.IxRemoteTask
+  nameWithType.vb: IxRemoteTask.New
+- uid: ix.framework.core.IxRemoteTask.DeInitialize
+  name: DeInitialize()
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_DeInitialize
+  commentId: M:ix.framework.core.IxRemoteTask.DeInitialize
+  fullName: ix.framework.core.IxRemoteTask.DeInitialize()
+  nameWithType: IxRemoteTask.DeInitialize()
+- uid: ix.framework.core.IxRemoteTask.DeInitialize*
+  name: DeInitialize
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_DeInitialize_
+  commentId: Overload:ix.framework.core.IxRemoteTask.DeInitialize
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.DeInitialize
+  nameWithType: IxRemoteTask.DeInitialize
+- uid: ix.framework.core.IxRemoteTask.DoneSignature
+  name: DoneSignature
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_DoneSignature
+  commentId: P:ix.framework.core.IxRemoteTask.DoneSignature
+  fullName: ix.framework.core.IxRemoteTask.DoneSignature
+  nameWithType: IxRemoteTask.DoneSignature
+- uid: ix.framework.core.IxRemoteTask.DoneSignature*
+  name: DoneSignature
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_DoneSignature_
+  commentId: Overload:ix.framework.core.IxRemoteTask.DoneSignature
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.DoneSignature
+  nameWithType: IxRemoteTask.DoneSignature
+- uid: ix.framework.core.IxRemoteTask.ExceptionMessage
+  name: ExceptionMessage
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_ExceptionMessage
+  commentId: P:ix.framework.core.IxRemoteTask.ExceptionMessage
+  fullName: ix.framework.core.IxRemoteTask.ExceptionMessage
+  nameWithType: IxRemoteTask.ExceptionMessage
+- uid: ix.framework.core.IxRemoteTask.ExceptionMessage*
+  name: ExceptionMessage
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_ExceptionMessage_
+  commentId: Overload:ix.framework.core.IxRemoteTask.ExceptionMessage
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.ExceptionMessage
+  nameWithType: IxRemoteTask.ExceptionMessage
+- uid: ix.framework.core.IxRemoteTask.Initialize(System.Action)
+  name: Initialize(Action)
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_Initialize_System_Action_
+  commentId: M:ix.framework.core.IxRemoteTask.Initialize(System.Action)
+  fullName: ix.framework.core.IxRemoteTask.Initialize(System.Action)
+  nameWithType: IxRemoteTask.Initialize(Action)
+- uid: ix.framework.core.IxRemoteTask.Initialize(System.Func{System.Boolean})
+  name: Initialize(Func<bool>)
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_Initialize_System_Func_System_Boolean__
+  commentId: M:ix.framework.core.IxRemoteTask.Initialize(System.Func{System.Boolean})
+  name.vb: Initialize(Func(Of Boolean))
+  fullName: ix.framework.core.IxRemoteTask.Initialize(System.Func<bool>)
+  fullName.vb: ix.framework.core.IxRemoteTask.Initialize(System.Func(Of Boolean))
+  nameWithType: IxRemoteTask.Initialize(Func<bool>)
+  nameWithType.vb: IxRemoteTask.Initialize(Func(Of Boolean))
+- uid: ix.framework.core.IxRemoteTask.Initialize*
+  name: Initialize
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_Initialize_
+  commentId: Overload:ix.framework.core.IxRemoteTask.Initialize
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.Initialize
+  nameWithType: IxRemoteTask.Initialize
+- uid: ix.framework.core.IxRemoteTask.InitializeExclusively(System.Action)
+  name: InitializeExclusively(Action)
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_InitializeExclusively_System_Action_
+  commentId: M:ix.framework.core.IxRemoteTask.InitializeExclusively(System.Action)
+  fullName: ix.framework.core.IxRemoteTask.InitializeExclusively(System.Action)
+  nameWithType: IxRemoteTask.InitializeExclusively(Action)
+- uid: ix.framework.core.IxRemoteTask.InitializeExclusively(System.Func{System.Boolean})
+  name: InitializeExclusively(Func<bool>)
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_InitializeExclusively_System_Func_System_Boolean__
+  commentId: M:ix.framework.core.IxRemoteTask.InitializeExclusively(System.Func{System.Boolean})
+  name.vb: InitializeExclusively(Func(Of Boolean))
+  fullName: ix.framework.core.IxRemoteTask.InitializeExclusively(System.Func<bool>)
+  fullName.vb: ix.framework.core.IxRemoteTask.InitializeExclusively(System.Func(Of Boolean))
+  nameWithType: IxRemoteTask.InitializeExclusively(Func<bool>)
+  nameWithType.vb: IxRemoteTask.InitializeExclusively(Func(Of Boolean))
+- uid: ix.framework.core.IxRemoteTask.InitializeExclusively*
+  name: InitializeExclusively
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_InitializeExclusively_
+  commentId: Overload:ix.framework.core.IxRemoteTask.InitializeExclusively
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.InitializeExclusively
+  nameWithType: IxRemoteTask.InitializeExclusively
+- uid: ix.framework.core.IxRemoteTask.IsInitialized
+  name: IsInitialized
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_IsInitialized
+  commentId: P:ix.framework.core.IxRemoteTask.IsInitialized
+  fullName: ix.framework.core.IxRemoteTask.IsInitialized
+  nameWithType: IxRemoteTask.IsInitialized
+- uid: ix.framework.core.IxRemoteTask.IsInitialized*
+  name: IsInitialized
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_IsInitialized_
+  commentId: Overload:ix.framework.core.IxRemoteTask.IsInitialized
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.IsInitialized
+  nameWithType: IxRemoteTask.IsInitialized
+- uid: ix.framework.core.IxRemoteTask.OnlineToPlainAsync
+  name: OnlineToPlainAsync()
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_OnlineToPlainAsync
+  commentId: M:ix.framework.core.IxRemoteTask.OnlineToPlainAsync
+  fullName: ix.framework.core.IxRemoteTask.OnlineToPlainAsync()
+  nameWithType: IxRemoteTask.OnlineToPlainAsync()
+- uid: ix.framework.core.IxRemoteTask.OnlineToPlainAsync(Pocos.ix.framework.core.IxRemoteTask)
+  name: OnlineToPlainAsync(IxRemoteTask)
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_OnlineToPlainAsync_Pocos_ix_framework_core_IxRemoteTask_
+  commentId: M:ix.framework.core.IxRemoteTask.OnlineToPlainAsync(Pocos.ix.framework.core.IxRemoteTask)
+  fullName: ix.framework.core.IxRemoteTask.OnlineToPlainAsync(Pocos.ix.framework.core.IxRemoteTask)
+  nameWithType: IxRemoteTask.OnlineToPlainAsync(IxRemoteTask)
+- uid: ix.framework.core.IxRemoteTask.OnlineToPlainAsync*
+  name: OnlineToPlainAsync
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_OnlineToPlainAsync_
+  commentId: Overload:ix.framework.core.IxRemoteTask.OnlineToPlainAsync
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.OnlineToPlainAsync
+  nameWithType: IxRemoteTask.OnlineToPlainAsync
+- uid: ix.framework.core.IxRemoteTask.PlainToOnlineAsync(Pocos.ix.framework.core.IxRemoteTask)
+  name: PlainToOnlineAsync(IxRemoteTask)
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_PlainToOnlineAsync_Pocos_ix_framework_core_IxRemoteTask_
+  commentId: M:ix.framework.core.IxRemoteTask.PlainToOnlineAsync(Pocos.ix.framework.core.IxRemoteTask)
+  fullName: ix.framework.core.IxRemoteTask.PlainToOnlineAsync(Pocos.ix.framework.core.IxRemoteTask)
+  nameWithType: IxRemoteTask.PlainToOnlineAsync(IxRemoteTask)
+- uid: ix.framework.core.IxRemoteTask.PlainToOnlineAsync*
+  name: PlainToOnlineAsync
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_PlainToOnlineAsync_
+  commentId: Overload:ix.framework.core.IxRemoteTask.PlainToOnlineAsync
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.PlainToOnlineAsync
+  nameWithType: IxRemoteTask.PlainToOnlineAsync
+- uid: ix.framework.core.IxRemoteTask.PlainToShadowAsync(Pocos.ix.framework.core.IxRemoteTask)
+  name: PlainToShadowAsync(IxRemoteTask)
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_PlainToShadowAsync_Pocos_ix_framework_core_IxRemoteTask_
+  commentId: M:ix.framework.core.IxRemoteTask.PlainToShadowAsync(Pocos.ix.framework.core.IxRemoteTask)
+  fullName: ix.framework.core.IxRemoteTask.PlainToShadowAsync(Pocos.ix.framework.core.IxRemoteTask)
+  nameWithType: IxRemoteTask.PlainToShadowAsync(IxRemoteTask)
+- uid: ix.framework.core.IxRemoteTask.PlainToShadowAsync*
+  name: PlainToShadowAsync
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_PlainToShadowAsync_
+  commentId: Overload:ix.framework.core.IxRemoteTask.PlainToShadowAsync
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.PlainToShadowAsync
+  nameWithType: IxRemoteTask.PlainToShadowAsync
+- uid: ix.framework.core.IxRemoteTask.Poll
+  name: Poll()
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_Poll
+  commentId: M:ix.framework.core.IxRemoteTask.Poll
+  fullName: ix.framework.core.IxRemoteTask.Poll()
+  nameWithType: IxRemoteTask.Poll()
+- uid: ix.framework.core.IxRemoteTask.Poll*
+  name: Poll
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_Poll_
+  commentId: Overload:ix.framework.core.IxRemoteTask.Poll
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.Poll
+  nameWithType: IxRemoteTask.Poll
+- uid: ix.framework.core.IxRemoteTask.PropertyChanged
+  name: PropertyChanged
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_PropertyChanged
+  commentId: E:ix.framework.core.IxRemoteTask.PropertyChanged
+  fullName: ix.framework.core.IxRemoteTask.PropertyChanged
+  nameWithType: IxRemoteTask.PropertyChanged
+- uid: ix.framework.core.IxRemoteTask.RemoteExceptionDetails
+  name: RemoteExceptionDetails
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_RemoteExceptionDetails
+  commentId: P:ix.framework.core.IxRemoteTask.RemoteExceptionDetails
+  fullName: ix.framework.core.IxRemoteTask.RemoteExceptionDetails
+  nameWithType: IxRemoteTask.RemoteExceptionDetails
+- uid: ix.framework.core.IxRemoteTask.RemoteExceptionDetails*
+  name: RemoteExceptionDetails
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_RemoteExceptionDetails_
+  commentId: Overload:ix.framework.core.IxRemoteTask.RemoteExceptionDetails
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.RemoteExceptionDetails
+  nameWithType: IxRemoteTask.RemoteExceptionDetails
+- uid: ix.framework.core.IxRemoteTask.RemoteExecutionException
+  name: RemoteExecutionException
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_RemoteExecutionException
+  commentId: P:ix.framework.core.IxRemoteTask.RemoteExecutionException
+  fullName: ix.framework.core.IxRemoteTask.RemoteExecutionException
+  nameWithType: IxRemoteTask.RemoteExecutionException
+- uid: ix.framework.core.IxRemoteTask.RemoteExecutionException*
+  name: RemoteExecutionException
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_RemoteExecutionException_
+  commentId: Overload:ix.framework.core.IxRemoteTask.RemoteExecutionException
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.RemoteExecutionException
+  nameWithType: IxRemoteTask.RemoteExecutionException
+- uid: ix.framework.core.IxRemoteTask.ResetExecution
+  name: ResetExecution()
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_ResetExecution
+  commentId: M:ix.framework.core.IxRemoteTask.ResetExecution
+  fullName: ix.framework.core.IxRemoteTask.ResetExecution()
+  nameWithType: IxRemoteTask.ResetExecution()
+- uid: ix.framework.core.IxRemoteTask.ResetExecution*
+  name: ResetExecution
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_ResetExecution_
+  commentId: Overload:ix.framework.core.IxRemoteTask.ResetExecution
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.ResetExecution
+  nameWithType: IxRemoteTask.ResetExecution
+- uid: ix.framework.core.IxRemoteTask.ShadowToPlainAsync
+  name: ShadowToPlainAsync()
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_ShadowToPlainAsync
+  commentId: M:ix.framework.core.IxRemoteTask.ShadowToPlainAsync
+  fullName: ix.framework.core.IxRemoteTask.ShadowToPlainAsync()
+  nameWithType: IxRemoteTask.ShadowToPlainAsync()
+- uid: ix.framework.core.IxRemoteTask.ShadowToPlainAsync(Pocos.ix.framework.core.IxRemoteTask)
+  name: ShadowToPlainAsync(IxRemoteTask)
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_ShadowToPlainAsync_Pocos_ix_framework_core_IxRemoteTask_
+  commentId: M:ix.framework.core.IxRemoteTask.ShadowToPlainAsync(Pocos.ix.framework.core.IxRemoteTask)
+  fullName: ix.framework.core.IxRemoteTask.ShadowToPlainAsync(Pocos.ix.framework.core.IxRemoteTask)
+  nameWithType: IxRemoteTask.ShadowToPlainAsync(IxRemoteTask)
+- uid: ix.framework.core.IxRemoteTask.ShadowToPlainAsync*
+  name: ShadowToPlainAsync
+  href: api/ix.framework.core.IxRemoteTask.html#ix_framework_core_IxRemoteTask_ShadowToPlainAsync_
+  commentId: Overload:ix.framework.core.IxRemoteTask.ShadowToPlainAsync
+  isSpec: "True"
+  fullName: ix.framework.core.IxRemoteTask.ShadowToPlainAsync
+  nameWithType: IxRemoteTask.ShadowToPlainAsync
+>>>>>>> dev
 - uid: ix.framework.core.IxSequencer
   name: IxSequencer
   href: api/ix.framework.core.IxSequencer.html
@@ -2391,6 +2668,22 @@ references:
   isSpec: "True"
   fullName: ix.framework.core.IxTask.ShadowToPlainAsync
   nameWithType: IxTask.ShadowToPlainAsync
+<<<<<<< HEAD
+=======
+- uid: ix.framework.core.IxTask.StartSignature
+  name: StartSignature
+  href: api/ix.framework.core.IxTask.html#ix_framework_core_IxTask_StartSignature
+  commentId: P:ix.framework.core.IxTask.StartSignature
+  fullName: ix.framework.core.IxTask.StartSignature
+  nameWithType: IxTask.StartSignature
+- uid: ix.framework.core.IxTask.StartSignature*
+  name: StartSignature
+  href: api/ix.framework.core.IxTask.html#ix_framework_core_IxTask_StartSignature_
+  commentId: Overload:ix.framework.core.IxTask.StartSignature
+  isSpec: "True"
+  fullName: ix.framework.core.IxTask.StartSignature
+  nameWithType: IxTask.StartSignature
+>>>>>>> dev
 - uid: ix.framework.core.IxTask.Status
   name: Status
   href: api/ix.framework.core.IxTask.html#ix_framework_core_IxTask_Status
@@ -2578,6 +2871,7 @@ references:
   isSpec: "True"
   fullName: ix.framework.core.IxTaskView.OnInitialized
   nameWithType: IxTaskView.OnInitialized
+<<<<<<< HEAD
 - uid: plc.ix
   name: ix
   href: apictrl/ix.html
@@ -3261,6 +3555,779 @@ references:
 - uid: plc.ix.framework.core.IxTask.WhileError()
   name: WhileError
   href: apictrl/ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_WhileError__
+=======
+- uid: ix.framework.core.MultipleRemoteCallInitializationException
+  name: MultipleRemoteCallInitializationException
+  href: api/ix.framework.core.MultipleRemoteCallInitializationException.html
+  commentId: T:ix.framework.core.MultipleRemoteCallInitializationException
+  fullName: ix.framework.core.MultipleRemoteCallInitializationException
+  nameWithType: MultipleRemoteCallInitializationException
+- uid: ix.framework.core.MultipleRemoteCallInitializationException.#ctor
+  name: MultipleRemoteCallInitializationException()
+  href: api/ix.framework.core.MultipleRemoteCallInitializationException.html#ix_framework_core_MultipleRemoteCallInitializationException__ctor
+  commentId: M:ix.framework.core.MultipleRemoteCallInitializationException.#ctor
+  name.vb: New()
+  fullName: ix.framework.core.MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException()
+  fullName.vb: ix.framework.core.MultipleRemoteCallInitializationException.New()
+  nameWithType: MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException()
+  nameWithType.vb: MultipleRemoteCallInitializationException.New()
+- uid: ix.framework.core.MultipleRemoteCallInitializationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name: MultipleRemoteCallInitializationException(SerializationInfo, StreamingContext)
+  href: api/ix.framework.core.MultipleRemoteCallInitializationException.html#ix_framework_core_MultipleRemoteCallInitializationException__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
+  commentId: M:ix.framework.core.MultipleRemoteCallInitializationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name.vb: New(SerializationInfo, StreamingContext)
+  fullName: ix.framework.core.MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  fullName.vb: ix.framework.core.MultipleRemoteCallInitializationException.New(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  nameWithType: MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException(SerializationInfo, StreamingContext)
+  nameWithType.vb: MultipleRemoteCallInitializationException.New(SerializationInfo, StreamingContext)
+- uid: ix.framework.core.MultipleRemoteCallInitializationException.#ctor(System.String,System.Exception)
+  name: MultipleRemoteCallInitializationException(string, Exception)
+  href: api/ix.framework.core.MultipleRemoteCallInitializationException.html#ix_framework_core_MultipleRemoteCallInitializationException__ctor_System_String_System_Exception_
+  commentId: M:ix.framework.core.MultipleRemoteCallInitializationException.#ctor(System.String,System.Exception)
+  name.vb: New(String, Exception)
+  fullName: ix.framework.core.MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException(string, System.Exception)
+  fullName.vb: ix.framework.core.MultipleRemoteCallInitializationException.New(String, System.Exception)
+  nameWithType: MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException(string, Exception)
+  nameWithType.vb: MultipleRemoteCallInitializationException.New(String, Exception)
+- uid: ix.framework.core.MultipleRemoteCallInitializationException.#ctor(System.String)
+  name: MultipleRemoteCallInitializationException(string)
+  href: api/ix.framework.core.MultipleRemoteCallInitializationException.html#ix_framework_core_MultipleRemoteCallInitializationException__ctor_System_String_
+  commentId: M:ix.framework.core.MultipleRemoteCallInitializationException.#ctor(System.String)
+  name.vb: New(String)
+  fullName: ix.framework.core.MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException(string)
+  fullName.vb: ix.framework.core.MultipleRemoteCallInitializationException.New(String)
+  nameWithType: MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException(string)
+  nameWithType.vb: MultipleRemoteCallInitializationException.New(String)
+- uid: ix.framework.core.MultipleRemoteCallInitializationException.#ctor*
+  name: MultipleRemoteCallInitializationException
+  href: api/ix.framework.core.MultipleRemoteCallInitializationException.html#ix_framework_core_MultipleRemoteCallInitializationException__ctor_
+  commentId: Overload:ix.framework.core.MultipleRemoteCallInitializationException.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: ix.framework.core.MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException
+  fullName.vb: ix.framework.core.MultipleRemoteCallInitializationException.New
+  nameWithType: MultipleRemoteCallInitializationException.MultipleRemoteCallInitializationException
+  nameWithType.vb: MultipleRemoteCallInitializationException.New
+- uid: plc.ix.framework.core
+  name: plc.ix.framework.core
+  href: apictrl/plc.ix.framework.core.html
+  fullName: core
+- uid: plc.ix.framework.core._NULL_CONTEXT
+  name: _NULL_CONTEXT
+  href: apictrl/plc.ix.framework.core._NULL_CONTEXT.html
+  fullName: _NULL_CONTEXT
+- uid: plc.ix.framework.core._NULL_CONTEXT.CreateIdentity()
+  name: CreateIdentity
+  href: apictrl/plc.ix.framework.core._NULL_CONTEXT.html#plc_ix_framework_core__NULL_CONTEXT_CreateIdentity__
+  fullName: CreateIdentity
+- uid: plc.ix.framework.core._NULL_CONTEXT.OpenCycleCount()
+  name: OpenCycleCount
+  href: apictrl/plc.ix.framework.core._NULL_CONTEXT.html#plc_ix_framework_core__NULL_CONTEXT_OpenCycleCount__
+  fullName: OpenCycleCount
+- uid: plc.ix.framework.core.CoordinatorStates
+  name: CoordinatorStates
+  href: apictrl/plc.ix.framework.core.CoordinatorStates.html
+  fullName: CoordinatorStates
+- uid: plc.ix.framework.core.eIxSequenceMode
+  name: eIxSequenceMode
+  href: apictrl/plc.ix.framework.core.eIxSequenceMode.html
+  fullName: eIxSequenceMode
+- uid: plc.ix.framework.core.eIxSteppingMode
+  name: eIxSteppingMode
+  href: apictrl/plc.ix.framework.core.eIxSteppingMode.html
+  fullName: eIxSteppingMode
+- uid: plc.ix.framework.core.eIxTaskState
+  name: eIxTaskState
+  href: apictrl/plc.ix.framework.core.eIxTaskState.html
+  fullName: eIxTaskState
+- uid: plc.ix.framework.core.IIxComponent
+  name: IIxComponent
+  href: apictrl/plc.ix.framework.core.IIxComponent.html
+  fullName: IIxComponent
+- uid: plc.ix.framework.core.IIxContext
+  name: IIxContext
+  href: apictrl/plc.ix.framework.core.IIxContext.html
+  fullName: IIxContext
+- uid: plc.ix.framework.core.IIxContext.CreateIdentity()
+  name: CreateIdentity
+  href: apictrl/plc.ix.framework.core.IIxContext.html#plc_ix_framework_core_IIxContext_CreateIdentity__
+  fullName: CreateIdentity
+- uid: plc.ix.framework.core.IIxContext.OpenCycleCount()
+  name: OpenCycleCount
+  href: apictrl/plc.ix.framework.core.IIxContext.html#plc_ix_framework_core_IIxContext_OpenCycleCount__
+  fullName: OpenCycleCount
+- uid: plc.ix.framework.core.IIxCoordinator
+  name: IIxCoordinator
+  href: apictrl/plc.ix.framework.core.IIxCoordinator.html
+  fullName: IIxCoordinator
+- uid: plc.ix.framework.core.IIxCoordinator.GetCoordinatorState()
+  name: GetCoordinatorState
+  href: apictrl/plc.ix.framework.core.IIxCoordinator.html#plc_ix_framework_core_IIxCoordinator_GetCoordinatorState__
+  fullName: GetCoordinatorState
+- uid: plc.ix.framework.core.IIxManuallyControllable
+  name: IIxManuallyControllable
+  href: apictrl/plc.ix.framework.core.IIxManuallyControllable.html
+  fullName: IIxManuallyControllable
+- uid: plc.ix.framework.core.IIxManuallyControllable.ActivateManualControl()
+  name: ActivateManualControl
+  href: apictrl/plc.ix.framework.core.IIxManuallyControllable.html#plc_ix_framework_core_IIxManuallyControllable_ActivateManualControl__
+  fullName: ActivateManualControl
+- uid: plc.ix.framework.core.IIxManuallyControllable.IsManuallyControllable()
+  name: IsManuallyControllable
+  href: apictrl/plc.ix.framework.core.IIxManuallyControllable.html#plc_ix_framework_core_IIxManuallyControllable_IsManuallyControllable__
+  fullName: IsManuallyControllable
+- uid: plc.ix.framework.core.IIxObject
+  name: IIxObject
+  href: apictrl/plc.ix.framework.core.IIxObject.html
+  fullName: IIxObject
+- uid: plc.ix.framework.core.IIxObject.GetContext()
+  name: GetContext
+  href: apictrl/plc.ix.framework.core.IIxObject.html#plc_ix_framework_core_IIxObject_GetContext__
+  fullName: GetContext
+- uid: plc.ix.framework.core.IIxObject.GetIdentity()
+  name: GetIdentity
+  href: apictrl/plc.ix.framework.core.IIxObject.html#plc_ix_framework_core_IIxObject_GetIdentity__
+  fullName: GetIdentity
+- uid: plc.ix.framework.core.IIxSequencer
+  name: IIxSequencer
+  href: apictrl/plc.ix.framework.core.IIxSequencer.html
+  fullName: IIxSequencer
+- uid: plc.ix.framework.core.IIxStep
+  name: IIxStep
+  href: apictrl/plc.ix.framework.core.IIxStep.html
+  fullName: IIxStep
+- uid: plc.ix.framework.core.IIxStep.GetIsActive()
+  name: GetIsActive
+  href: apictrl/plc.ix.framework.core.IIxStep.html#plc_ix_framework_core_IIxStep_GetIsActive__
+  fullName: GetIsActive
+- uid: plc.ix.framework.core.IIxStep.GetIsEnabled()
+  name: GetIsEnabled
+  href: apictrl/plc.ix.framework.core.IIxStep.html#plc_ix_framework_core_IIxStep_GetIsEnabled__
+  fullName: GetIsEnabled
+- uid: plc.ix.framework.core.IIxStep.GetStepOrder()
+  name: GetStepOrder
+  href: apictrl/plc.ix.framework.core.IIxStep.html#plc_ix_framework_core_IIxStep_GetStepOrder__
+  fullName: GetStepOrder
+- uid: plc.ix.framework.core.IIxStep.IsCalledJustOnceInThisPlcCycle()
+  name: IsCalledJustOnceInThisPlcCycle
+  href: apictrl/plc.ix.framework.core.IIxStep.html#plc_ix_framework_core_IIxStep_IsCalledJustOnceInThisPlcCycle__
+  fullName: IsCalledJustOnceInThisPlcCycle
+- uid: plc.ix.framework.core.IIxStep.SetIsActive(BOOL)
+  name: SetIsActive
+  href: apictrl/plc.ix.framework.core.IIxStep.html#plc_ix_framework_core_IIxStep_SetIsActive_BOOL_
+  fullName: SetIsActive
+- uid: plc.ix.framework.core.IIxStep.SetIsEnabled(BOOL)
+  name: SetIsEnabled
+  href: apictrl/plc.ix.framework.core.IIxStep.html#plc_ix_framework_core_IIxStep_SetIsEnabled_BOOL_
+  fullName: SetIsEnabled
+- uid: plc.ix.framework.core.IIxStep.SetStepOrder(IIxCoordinator,ULINT)
+  name: SetStepOrder
+  href: apictrl/plc.ix.framework.core.IIxStep.html#plc_ix_framework_core_IIxStep_SetStepOrder_IIxCoordinator_ULINT_
+  fullName: SetStepOrder
+- uid: plc.ix.framework.core.IIxTask
+  name: IIxTask
+  href: apictrl/plc.ix.framework.core.IIxTask.html
+  fullName: IIxTask
+- uid: plc.ix.framework.core.IIxTask.Abort()
+  name: Abort
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_Abort__
+  fullName: Abort
+- uid: plc.ix.framework.core.IIxTask.DoneWhen(BOOL)
+  name: DoneWhen
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_DoneWhen_BOOL_
+  fullName: DoneWhen
+- uid: plc.ix.framework.core.IIxTask.Execute()
+  name: Execute
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_Execute__
+  fullName: Execute
+- uid: plc.ix.framework.core.IIxTask.HasError()
+  name: HasError
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_HasError__
+  fullName: HasError
+- uid: plc.ix.framework.core.IIxTask.Invoke()
+  name: Invoke
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_Invoke__
+  fullName: Invoke
+- uid: plc.ix.framework.core.IIxTask.IsBusy()
+  name: IsBusy
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_IsBusy__
+  fullName: IsBusy
+- uid: plc.ix.framework.core.IIxTask.IsDone()
+  name: IsDone
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_IsDone__
+  fullName: IsDone
+- uid: plc.ix.framework.core.IIxTask.IsReady()
+  name: IsReady
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_IsReady__
+  fullName: IsReady
+- uid: plc.ix.framework.core.IIxTask.Restore()
+  name: Restore
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_Restore__
+  fullName: Restore
+- uid: plc.ix.framework.core.IIxTask.Resume()
+  name: Resume
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_Resume__
+  fullName: Resume
+- uid: plc.ix.framework.core.IIxTask.ThrowWhen(BOOL)
+  name: ThrowWhen
+  href: apictrl/plc.ix.framework.core.IIxTask.html#plc_ix_framework_core_IIxTask_ThrowWhen_BOOL_
+  fullName: ThrowWhen
+- uid: plc.ix.framework.core.IIxTaskInt
+  name: IIxTaskInt
+  href: apictrl/plc.ix.framework.core.IIxTaskInt.html
+  fullName: IIxTaskInt
+- uid: plc.ix.framework.core.IIxTaskInt.GetIsDisabled()
+  name: GetIsDisabled
+  href: apictrl/plc.ix.framework.core.IIxTaskInt.html#plc_ix_framework_core_IIxTaskInt_GetIsDisabled__
+  fullName: GetIsDisabled
+- uid: plc.ix.framework.core.IIxTaskInt.SetIsDisabled(BOOL)
+  name: SetIsDisabled
+  href: apictrl/plc.ix.framework.core.IIxTaskInt.html#plc_ix_framework_core_IIxTaskInt_SetIsDisabled_BOOL_
+  fullName: SetIsDisabled
+- uid: plc.ix.framework.core.IIxTaskState
+  name: IIxTaskState
+  href: apictrl/plc.ix.framework.core.IIxTaskState.html
+  fullName: IIxTaskState
+- uid: plc.ix.framework.core.IIxTaskState.HasError()
+  name: HasError
+  href: apictrl/plc.ix.framework.core.IIxTaskState.html#plc_ix_framework_core_IIxTaskState_HasError__
+  fullName: HasError
+- uid: plc.ix.framework.core.IIxTaskState.IsAborted()
+  name: IsAborted
+  href: apictrl/plc.ix.framework.core.IIxTaskState.html#plc_ix_framework_core_IIxTaskState_IsAborted__
+  fullName: IsAborted
+- uid: plc.ix.framework.core.IIxTaskState.IsBusy()
+  name: IsBusy
+  href: apictrl/plc.ix.framework.core.IIxTaskState.html#plc_ix_framework_core_IIxTaskState_IsBusy__
+  fullName: IsBusy
+- uid: plc.ix.framework.core.IIxTaskState.IsDone()
+  name: IsDone
+  href: apictrl/plc.ix.framework.core.IIxTaskState.html#plc_ix_framework_core_IIxTaskState_IsDone__
+  fullName: IsDone
+- uid: plc.ix.framework.core.IsNullContext(IIxContext)
+  name: IsNullContext
+  href: apictrl/plc.ix.framework.core.IsNullContext(IIxContext).html
+  fullName: IsNullContext
+- uid: plc.ix.framework.core.IxComponent
+  name: IxComponent
+  href: apictrl/plc.ix.framework.core.IxComponent.html
+  fullName: IxComponent
+- uid: plc.ix.framework.core.IxComponent._isManuallyControllable
+  name: _isManuallyControllable
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent__isManuallyControllable
+  fullName: _isManuallyControllable
+- uid: plc.ix.framework.core.IxComponent._manualControlContextCycle
+  name: _manualControlContextCycle
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent__manualControlContextCycle
+  fullName: _manualControlContextCycle
+- uid: plc.ix.framework.core.IxComponent.ActivateManualControl()
+  name: ActivateManualControl
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent_ActivateManualControl__
+  fullName: ActivateManualControl
+- uid: plc.ix.framework.core.IxComponent.CheckIfManualControlIsActivated()
+  name: CheckIfManualControlIsActivated
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent_CheckIfManualControlIsActivated__
+  fullName: CheckIfManualControlIsActivated
+- uid: plc.ix.framework.core.IxComponent.Close()
+  name: Close
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent_Close__
+  fullName: Close
+- uid: plc.ix.framework.core.IxComponent.IsManuallyControllable()
+  name: IsManuallyControllable
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent_IsManuallyControllable__
+  fullName: IsManuallyControllable
+- uid: plc.ix.framework.core.IxComponent.ManualControl()
+  name: ManualControl
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent_ManualControl__
+  fullName: ManualControl
+- uid: plc.ix.framework.core.IxComponent.Open()
+  name: Open
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent_Open__
+  fullName: Open
+- uid: plc.ix.framework.core.IxComponent.Restore()
+  name: Restore
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent_Restore__
+  fullName: Restore
+- uid: plc.ix.framework.core.IxComponent.Run()
+  name: Run
+  href: apictrl/plc.ix.framework.core.IxComponent.html#plc_ix_framework_core_IxComponent_Run__
+  fullName: Run
+- uid: plc.ix.framework.core.IxContext
+  name: IxContext
+  href: apictrl/plc.ix.framework.core.IxContext.html
+  fullName: IxContext
+- uid: plc.ix.framework.core.IxContext._closeCounter
+  name: _closeCounter
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext__closeCounter
+  fullName: _closeCounter
+- uid: plc.ix.framework.core.IxContext._identityCounter
+  name: _identityCounter
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext__identityCounter
+  fullName: _identityCounter
+- uid: plc.ix.framework.core.IxContext._openCounter
+  name: _openCounter
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext__openCounter
+  fullName: _openCounter
+- uid: plc.ix.framework.core.IxContext.Close()
+  name: Close
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext_Close__
+  fullName: Close
+- uid: plc.ix.framework.core.IxContext.ClosedCycleCount()
+  name: ClosedCycleCount
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext_ClosedCycleCount__
+  fullName: ClosedCycleCount
+- uid: plc.ix.framework.core.IxContext.CreateIdentity()
+  name: CreateIdentity
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext_CreateIdentity__
+  fullName: CreateIdentity
+- uid: plc.ix.framework.core.IxContext.Main()
+  name: Main
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext_Main__
+  fullName: Main
+- uid: plc.ix.framework.core.IxContext.Open()
+  name: Open
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext_Open__
+  fullName: Open
+- uid: plc.ix.framework.core.IxContext.OpenCycleCount()
+  name: OpenCycleCount
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext_OpenCycleCount__
+  fullName: OpenCycleCount
+- uid: plc.ix.framework.core.IxContext.PeekIdentity()
+  name: PeekIdentity
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext_PeekIdentity__
+  fullName: PeekIdentity
+- uid: plc.ix.framework.core.IxContext.Run()
+  name: Run
+  href: apictrl/plc.ix.framework.core.IxContext.html#plc_ix_framework_core_IxContext_Run__
+  fullName: Run
+- uid: plc.ix.framework.core.IxObject
+  name: IxObject
+  href: apictrl/plc.ix.framework.core.IxObject.html
+  fullName: IxObject
+- uid: plc.ix.framework.core.IxObject._context
+  name: _context
+  href: apictrl/plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject__context
+  fullName: _context
+- uid: plc.ix.framework.core.IxObject._identity
+  name: _identity
+  href: apictrl/plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject__identity
+  fullName: _identity
+- uid: plc.ix.framework.core.IxObject._parent
+  name: _parent
+  href: apictrl/plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject__parent
+  fullName: _parent
+- uid: plc.ix.framework.core.IxObject.GetContext()
+  name: GetContext
+  href: apictrl/plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_GetContext__
+  fullName: GetContext
+- uid: plc.ix.framework.core.IxObject.GetIdentity()
+  name: GetIdentity
+  href: apictrl/plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_GetIdentity__
+  fullName: GetIdentity
+- uid: plc.ix.framework.core.IxObject.Initialize(IIxContext)
+  name: Initialize
+  href: apictrl/plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_Initialize_IIxContext_
+  fullName: Initialize
+- uid: plc.ix.framework.core.IxObject.Initialize(IIxObject)
+  name: Initialize
+  href: apictrl/plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_Initialize_IIxObject_
+  fullName: Initialize
+- uid: plc.ix.framework.core.IxObject.NULL_CONTEXT
+  name: NULL_CONTEXT
+  href: apictrl/plc.ix.framework.core.IxObject.html#plc_ix_framework_core_IxObject_NULL_CONTEXT
+  fullName: NULL_CONTEXT
+- uid: plc.ix.framework.core.IxRemoteTask
+  name: IxRemoteTask
+  href: apictrl/plc.ix.framework.core.IxRemoteTask.html
+  fullName: IxRemoteTask
+- uid: plc.ix.framework.core.IxRemoteTask.DoneSignature
+  name: DoneSignature
+  href: apictrl/plc.ix.framework.core.IxRemoteTask.html#plc_ix_framework_core_IxRemoteTask_DoneSignature
+  fullName: DoneSignature
+- uid: plc.ix.framework.core.IxRemoteTask.DoneWhen(BOOL)
+  name: DoneWhen
+  href: apictrl/plc.ix.framework.core.IxRemoteTask.html#plc_ix_framework_core_IxRemoteTask_DoneWhen_BOOL_
+  fullName: DoneWhen
+- uid: plc.ix.framework.core.IxRemoteTask.ExceptionMessage
+  name: ExceptionMessage
+  href: apictrl/plc.ix.framework.core.IxRemoteTask.html#plc_ix_framework_core_IxRemoteTask_ExceptionMessage
+  fullName: ExceptionMessage
+- uid: plc.ix.framework.core.IxRemoteTask.Execute()
+  name: Execute
+  href: apictrl/plc.ix.framework.core.IxRemoteTask.html#plc_ix_framework_core_IxRemoteTask_Execute__
+  fullName: Execute
+- uid: plc.ix.framework.core.IxRemoteTask.GetStartSignature()
+  name: GetStartSignature
+  href: apictrl/plc.ix.framework.core.IxRemoteTask.html#plc_ix_framework_core_IxRemoteTask_GetStartSignature__
+  fullName: GetStartSignature
+- uid: plc.ix.framework.core.IxRemoteTask.IsInitialized
+  name: IsInitialized
+  href: apictrl/plc.ix.framework.core.IxRemoteTask.html#plc_ix_framework_core_IxRemoteTask_IsInitialized
+  fullName: IsInitialized
+- uid: plc.ix.framework.core.IxRemoteTask.SetDoneSignature()
+  name: SetDoneSignature
+  href: apictrl/plc.ix.framework.core.IxRemoteTask.html#plc_ix_framework_core_IxRemoteTask_SetDoneSignature__
+  fullName: SetDoneSignature
+- uid: plc.ix.framework.core.IxRemoteTask.ThrowWhen(BOOL)
+  name: ThrowWhen
+  href: apictrl/plc.ix.framework.core.IxRemoteTask.html#plc_ix_framework_core_IxRemoteTask_ThrowWhen_BOOL_
+  fullName: ThrowWhen
+- uid: plc.ix.framework.core.IxSequencer
+  name: IxSequencer
+  href: apictrl/plc.ix.framework.core.IxSequencer.html
+  fullName: IxSequencer
+- uid: plc.ix.framework.core.IxSequencer._closeCycleCounter
+  name: _closeCycleCounter
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer__closeCycleCounter
+  fullName: _closeCycleCounter
+- uid: plc.ix.framework.core.IxSequencer._configurationFlowOrder
+  name: _configurationFlowOrder
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer__configurationFlowOrder
+  fullName: _configurationFlowOrder
+- uid: plc.ix.framework.core.IxSequencer._coordinatorState
+  name: _coordinatorState
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer__coordinatorState
+  fullName: _coordinatorState
+- uid: plc.ix.framework.core.IxSequencer._numberOfConfiguredSteps
+  name: _numberOfConfiguredSteps
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer__numberOfConfiguredSteps
+  fullName: _numberOfConfiguredSteps
+- uid: plc.ix.framework.core.IxSequencer._openCycleCounter
+  name: _openCycleCounter
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer__openCycleCounter
+  fullName: _openCycleCounter
+- uid: plc.ix.framework.core.IxSequencer._step
+  name: _step
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer__step
+  fullName: _step
+- uid: plc.ix.framework.core.IxSequencer.AbortCurrentStep()
+  name: AbortCurrentStep
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_AbortCurrentStep__
+  fullName: AbortCurrentStep
+- uid: plc.ix.framework.core.IxSequencer.CompleteSequence()
+  name: CompleteSequence
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_CompleteSequence__
+  fullName: CompleteSequence
+- uid: plc.ix.framework.core.IxSequencer.CurrentOrder
+  name: CurrentOrder
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_CurrentOrder
+  fullName: CurrentOrder
+- uid: plc.ix.framework.core.IxSequencer.DetermineOrder(IIxStep)
+  name: DetermineOrder
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_DetermineOrder_IIxStep_
+  fullName: DetermineOrder
+- uid: plc.ix.framework.core.IxSequencer.DisableAllSteppingComands()
+  name: DisableAllSteppingComands
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_DisableAllSteppingComands__
+  fullName: DisableAllSteppingComands
+- uid: plc.ix.framework.core.IxSequencer.Execute(IIxStep,BOOL)
+  name: Execute
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_Execute_IIxStep_BOOL_
+  fullName: Execute
+- uid: plc.ix.framework.core.IxSequencer.GetCoordinatorState()
+  name: GetCoordinatorState
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_GetCoordinatorState__
+  fullName: GetCoordinatorState
+- uid: plc.ix.framework.core.IxSequencer.GetNumberOfConfiguredSteps()
+  name: GetNumberOfConfiguredSteps
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_GetNumberOfConfiguredSteps__
+  fullName: GetNumberOfConfiguredSteps
+- uid: plc.ix.framework.core.IxSequencer.InvalidContext()
+  name: InvalidContext
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_InvalidContext__
+  fullName: InvalidContext
+- uid: plc.ix.framework.core.IxSequencer.InvalidContext(IIxStep)
+  name: InvalidContext
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_InvalidContext_IIxStep_
+  fullName: InvalidContext
+- uid: plc.ix.framework.core.IxSequencer.MoveNext()
+  name: MoveNext
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_MoveNext__
+  fullName: MoveNext
+- uid: plc.ix.framework.core.IxSequencer.OnBeforeSequenceStart()
+  name: OnBeforeSequenceStart
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_OnBeforeSequenceStart__
+  fullName: OnBeforeSequenceStart
+- uid: plc.ix.framework.core.IxSequencer.OnCompleteSequence()
+  name: OnCompleteSequence
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_OnCompleteSequence__
+  fullName: OnCompleteSequence
+- uid: plc.ix.framework.core.IxSequencer.OnRestore()
+  name: OnRestore
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_OnRestore__
+  fullName: OnRestore
+- uid: plc.ix.framework.core.IxSequencer.Open()
+  name: Open
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_Open__
+  fullName: Open
+- uid: plc.ix.framework.core.IxSequencer.RequestStep(IIxStep)
+  name: RequestStep
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_RequestStep_IIxStep_
+  fullName: RequestStep
+- uid: plc.ix.framework.core.IxSequencer.SequenceMode
+  name: SequenceMode
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_SequenceMode
+  fullName: SequenceMode
+- uid: plc.ix.framework.core.IxSequencer.StepBackwardCommand
+  name: StepBackwardCommand
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_StepBackwardCommand
+  fullName: StepBackwardCommand
+- uid: plc.ix.framework.core.IxSequencer.StepForwardCommand
+  name: StepForwardCommand
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_StepForwardCommand
+  fullName: StepForwardCommand
+- uid: plc.ix.framework.core.IxSequencer.StepIn
+  name: StepIn
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_StepIn
+  fullName: StepIn
+- uid: plc.ix.framework.core.IxSequencer.SteppingMode
+  name: SteppingMode
+  href: apictrl/plc.ix.framework.core.IxSequencer.html#plc_ix_framework_core_IxSequencer_SteppingMode
+  fullName: SteppingMode
+- uid: plc.ix.framework.core.IxStep
+  name: IxStep
+  href: apictrl/plc.ix.framework.core.IxStep.html
+  fullName: IxStep
+- uid: plc.ix.framework.core.IxStep._isCalledJustOnceInThisPlcCycle
+  name: _isCalledJustOnceInThisPlcCycle
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep__isCalledJustOnceInThisPlcCycle
+  fullName: _isCalledJustOnceInThisPlcCycle
+- uid: plc.ix.framework.core.IxStep._multipleStepCallInThisPlcCycle
+  name: _multipleStepCallInThisPlcCycle
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep__multipleStepCallInThisPlcCycle
+  fullName: _multipleStepCallInThisPlcCycle
+- uid: plc.ix.framework.core.IxStep._noStepCallInPreviousPlcCycle
+  name: _noStepCallInPreviousPlcCycle
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep__noStepCallInPreviousPlcCycle
+  fullName: _noStepCallInPreviousPlcCycle
+- uid: plc.ix.framework.core.IxStep._openCycleCount
+  name: _openCycleCount
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep__openCycleCount
+  fullName: _openCycleCount
+- uid: plc.ix.framework.core.IxStep.CountCallsOfTheExecuteMethod()
+  name: CountCallsOfTheExecuteMethod
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_CountCallsOfTheExecuteMethod__
+  fullName: CountCallsOfTheExecuteMethod
+- uid: plc.ix.framework.core.IxStep.Execute(IIxCoordinator,BOOL,STRING[120])
+  name: Execute
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_Execute_IIxCoordinator_BOOL_STRING_120__
+  fullName: Execute
+- uid: plc.ix.framework.core.IxStep.Execute(IIxCoordinator,BOOL)
+  name: Execute
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_Execute_IIxCoordinator_BOOL_
+  fullName: Execute
+- uid: plc.ix.framework.core.IxStep.Execute(IIxCoordinator,STRING[120])
+  name: Execute
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_Execute_IIxCoordinator_STRING_120__
+  fullName: Execute
+- uid: plc.ix.framework.core.IxStep.Execute(IIxCoordinator)
+  name: Execute
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_Execute_IIxCoordinator_
+  fullName: Execute
+- uid: plc.ix.framework.core.IxStep.ExecuteInternal(IIxCoordinator,BOOL)
+  name: ExecuteInternal
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_ExecuteInternal_IIxCoordinator_BOOL_
+  fullName: ExecuteInternal
+- uid: plc.ix.framework.core.IxStep.GetIsActive()
+  name: GetIsActive
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_GetIsActive__
+  fullName: GetIsActive
+- uid: plc.ix.framework.core.IxStep.GetIsEnabled()
+  name: GetIsEnabled
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_GetIsEnabled__
+  fullName: GetIsEnabled
+- uid: plc.ix.framework.core.IxStep.GetStepOrder()
+  name: GetStepOrder
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_GetStepOrder__
+  fullName: GetStepOrder
+- uid: plc.ix.framework.core.IxStep.IsActive
+  name: IsActive
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_IsActive
+  fullName: IsActive
+- uid: plc.ix.framework.core.IxStep.IsCalledJustOnceInThisPlcCycle()
+  name: IsCalledJustOnceInThisPlcCycle
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_IsCalledJustOnceInThisPlcCycle__
+  fullName: IsCalledJustOnceInThisPlcCycle
+- uid: plc.ix.framework.core.IxStep.IsEnabled
+  name: IsEnabled
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_IsEnabled
+  fullName: IsEnabled
+- uid: plc.ix.framework.core.IxStep.Order
+  name: Order
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_Order
+  fullName: Order
+- uid: plc.ix.framework.core.IxStep.SetIsActive(BOOL)
+  name: SetIsActive
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_SetIsActive_BOOL_
+  fullName: SetIsActive
+- uid: plc.ix.framework.core.IxStep.SetIsEnabled(BOOL)
+  name: SetIsEnabled
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_SetIsEnabled_BOOL_
+  fullName: SetIsEnabled
+- uid: plc.ix.framework.core.IxStep.SetStepOrder(IIxCoordinator,ULINT)
+  name: SetStepOrder
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_SetStepOrder_IIxCoordinator_ULINT_
+  fullName: SetStepOrder
+- uid: plc.ix.framework.core.IxStep.StepDescription
+  name: StepDescription
+  href: apictrl/plc.ix.framework.core.IxStep.html#plc_ix_framework_core_IxStep_StepDescription
+  fullName: StepDescription
+- uid: plc.ix.framework.core.IxTask
+  name: IxTask
+  href: apictrl/plc.ix.framework.core.IxTask.html
+  fullName: IxTask
+- uid: plc.ix.framework.core.IxTask._openCycleCountExecute
+  name: _openCycleCountExecute
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask__openCycleCountExecute
+  fullName: _openCycleCountExecute
+- uid: plc.ix.framework.core.IxTask._openCycleCountInvoke
+  name: _openCycleCountInvoke
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask__openCycleCountInvoke
+  fullName: _openCycleCountInvoke
+- uid: plc.ix.framework.core.IxTask.Abort()
+  name: Abort
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_Abort__
+  fullName: Abort
+- uid: plc.ix.framework.core.IxTask.DoneWhen(BOOL)
+  name: DoneWhen
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_DoneWhen_BOOL_
+  fullName: DoneWhen
+- uid: plc.ix.framework.core.IxTask.Execute()
+  name: Execute
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_Execute__
+  fullName: Execute
+- uid: plc.ix.framework.core.IxTask.GetIsDisabled()
+  name: GetIsDisabled
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_GetIsDisabled__
+  fullName: GetIsDisabled
+- uid: plc.ix.framework.core.IxTask.GetState()
+  name: GetState
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_GetState__
+  fullName: GetState
+- uid: plc.ix.framework.core.IxTask.HasError()
+  name: HasError
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_HasError__
+  fullName: HasError
+- uid: plc.ix.framework.core.IxTask.Invoke()
+  name: Invoke
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_Invoke__
+  fullName: Invoke
+- uid: plc.ix.framework.core.IxTask.IsAborted()
+  name: IsAborted
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_IsAborted__
+  fullName: IsAborted
+- uid: plc.ix.framework.core.IxTask.IsBusy()
+  name: IsBusy
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_IsBusy__
+  fullName: IsBusy
+- uid: plc.ix.framework.core.IxTask.IsDisabled
+  name: IsDisabled
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_IsDisabled
+  fullName: IsDisabled
+- uid: plc.ix.framework.core.IxTask.IsDone()
+  name: IsDone
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_IsDone__
+  fullName: IsDone
+- uid: plc.ix.framework.core.IxTask.IsExecuteCalledInThisPlcCycle()
+  name: IsExecuteCalledInThisPlcCycle
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_IsExecuteCalledInThisPlcCycle__
+  fullName: IsExecuteCalledInThisPlcCycle
+- uid: plc.ix.framework.core.IxTask.IsInvokeCalledInThisPlcCycle()
+  name: IsInvokeCalledInThisPlcCycle
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_IsInvokeCalledInThisPlcCycle__
+  fullName: IsInvokeCalledInThisPlcCycle
+- uid: plc.ix.framework.core.IxTask.IsNewExecuteCall()
+  name: IsNewExecuteCall
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_IsNewExecuteCall__
+  fullName: IsNewExecuteCall
+- uid: plc.ix.framework.core.IxTask.IsNewInvokeCall()
+  name: IsNewInvokeCall
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_IsNewInvokeCall__
+  fullName: IsNewInvokeCall
+- uid: plc.ix.framework.core.IxTask.IsReady()
+  name: IsReady
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_IsReady__
+  fullName: IsReady
+- uid: plc.ix.framework.core.IxTask.OnAbort()
+  name: OnAbort
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_OnAbort__
+  fullName: OnAbort
+- uid: plc.ix.framework.core.IxTask.OnDone()
+  name: OnDone
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_OnDone__
+  fullName: OnDone
+- uid: plc.ix.framework.core.IxTask.OnError()
+  name: OnError
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_OnError__
+  fullName: OnError
+- uid: plc.ix.framework.core.IxTask.OnRestore()
+  name: OnRestore
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_OnRestore__
+  fullName: OnRestore
+- uid: plc.ix.framework.core.IxTask.OnResume()
+  name: OnResume
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_OnResume__
+  fullName: OnResume
+- uid: plc.ix.framework.core.IxTask.OnStart()
+  name: OnStart
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_OnStart__
+  fullName: OnStart
+- uid: plc.ix.framework.core.IxTask.RemoteAbort
+  name: RemoteAbort
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_RemoteAbort
+  fullName: RemoteAbort
+- uid: plc.ix.framework.core.IxTask.RemoteInvoke
+  name: RemoteInvoke
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_RemoteInvoke
+  fullName: RemoteInvoke
+- uid: plc.ix.framework.core.IxTask.RemoteRestore
+  name: RemoteRestore
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_RemoteRestore
+  fullName: RemoteRestore
+- uid: plc.ix.framework.core.IxTask.RemoteResume
+  name: RemoteResume
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_RemoteResume
+  fullName: RemoteResume
+- uid: plc.ix.framework.core.IxTask.Restore()
+  name: Restore
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_Restore__
+  fullName: Restore
+- uid: plc.ix.framework.core.IxTask.Resume()
+  name: Resume
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_Resume__
+  fullName: Resume
+- uid: plc.ix.framework.core.IxTask.SetIsDisabled(BOOL)
+  name: SetIsDisabled
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_SetIsDisabled_BOOL_
+  fullName: SetIsDisabled
+- uid: plc.ix.framework.core.IxTask.StartSignature
+  name: StartSignature
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_StartSignature
+  fullName: StartSignature
+- uid: plc.ix.framework.core.IxTask.Status
+  name: Status
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_Status
+  fullName: Status
+- uid: plc.ix.framework.core.IxTask.ThrowWhen(BOOL)
+  name: ThrowWhen
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_ThrowWhen_BOOL_
+  fullName: ThrowWhen
+- uid: plc.ix.framework.core.IxTask.UpdateState()
+  name: UpdateState
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_UpdateState__
+  fullName: UpdateState
+- uid: plc.ix.framework.core.IxTask.WasExecuteCalledInPreviousPlcCycle()
+  name: WasExecuteCalledInPreviousPlcCycle
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_WasExecuteCalledInPreviousPlcCycle__
+  fullName: WasExecuteCalledInPreviousPlcCycle
+- uid: plc.ix.framework.core.IxTask.WasInvokeCalledInPreviousPlcCycle()
+  name: WasInvokeCalledInPreviousPlcCycle
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_WasInvokeCalledInPreviousPlcCycle__
+  fullName: WasInvokeCalledInPreviousPlcCycle
+- uid: plc.ix.framework.core.IxTask.WhileError()
+  name: WhileError
+  href: apictrl/plc.ix.framework.core.IxTask.html#plc_ix_framework_core_IxTask_WhileError__
+>>>>>>> dev
   fullName: WhileError
 - uid: Pocos.ix.framework.core
   name: Pocos.ix.framework.core
@@ -3292,18 +4359,30 @@ references:
   commentId: T:Pocos.ix.framework.core.IIxCoordinator
   fullName: Pocos.ix.framework.core.IIxCoordinator
   nameWithType: IIxCoordinator
+<<<<<<< HEAD
+=======
+- uid: Pocos.ix.framework.core.IIxManuallyControllable
+  name: IIxManuallyControllable
+  href: api/Pocos.ix.framework.core.IIxManuallyControllable.html
+  commentId: T:Pocos.ix.framework.core.IIxManuallyControllable
+  fullName: Pocos.ix.framework.core.IIxManuallyControllable
+  nameWithType: IIxManuallyControllable
+>>>>>>> dev
 - uid: Pocos.ix.framework.core.IIxObject
   name: IIxObject
   href: api/Pocos.ix.framework.core.IIxObject.html
   commentId: T:Pocos.ix.framework.core.IIxObject
   fullName: Pocos.ix.framework.core.IIxObject
   nameWithType: IIxObject
+<<<<<<< HEAD
 - uid: Pocos.ix.framework.core.IIxServiceable
   name: IIxServiceable
   href: api/Pocos.ix.framework.core.IIxServiceable.html
   commentId: T:Pocos.ix.framework.core.IIxServiceable
   fullName: Pocos.ix.framework.core.IIxServiceable
   nameWithType: IIxServiceable
+=======
+>>>>>>> dev
 - uid: Pocos.ix.framework.core.IIxStep
   name: IIxStep
   href: api/Pocos.ix.framework.core.IIxStep.html
@@ -3328,6 +4407,7 @@ references:
   commentId: T:Pocos.ix.framework.core.IxComponent
   fullName: Pocos.ix.framework.core.IxComponent
   nameWithType: IxComponent
+<<<<<<< HEAD
 - uid: Pocos.ix.framework.core.IxComponent._isinServiceMode
   name: _isinServiceMode
   href: api/Pocos.ix.framework.core.IxComponent.html#Pocos_ix_framework_core_IxComponent__isinServiceMode
@@ -3341,6 +4421,21 @@ references:
   isSpec: "True"
   fullName: Pocos.ix.framework.core.IxComponent._isinServiceMode
   nameWithType: IxComponent._isinServiceMode
+=======
+- uid: Pocos.ix.framework.core.IxComponent._isManuallyControllable
+  name: _isManuallyControllable
+  href: api/Pocos.ix.framework.core.IxComponent.html#Pocos_ix_framework_core_IxComponent__isManuallyControllable
+  commentId: P:Pocos.ix.framework.core.IxComponent._isManuallyControllable
+  fullName: Pocos.ix.framework.core.IxComponent._isManuallyControllable
+  nameWithType: IxComponent._isManuallyControllable
+- uid: Pocos.ix.framework.core.IxComponent._isManuallyControllable*
+  name: _isManuallyControllable
+  href: api/Pocos.ix.framework.core.IxComponent.html#Pocos_ix_framework_core_IxComponent__isManuallyControllable_
+  commentId: Overload:Pocos.ix.framework.core.IxComponent._isManuallyControllable
+  isSpec: "True"
+  fullName: Pocos.ix.framework.core.IxComponent._isManuallyControllable
+  nameWithType: IxComponent._isManuallyControllable
+>>>>>>> dev
 - uid: Pocos.ix.framework.core.IxContext
   name: IxContext
   href: api/Pocos.ix.framework.core.IxContext.html
@@ -3353,6 +4448,54 @@ references:
   commentId: T:Pocos.ix.framework.core.IxObject
   fullName: Pocos.ix.framework.core.IxObject
   nameWithType: IxObject
+<<<<<<< HEAD
+=======
+- uid: Pocos.ix.framework.core.IxRemoteTask
+  name: IxRemoteTask
+  href: api/Pocos.ix.framework.core.IxRemoteTask.html
+  commentId: T:Pocos.ix.framework.core.IxRemoteTask
+  fullName: Pocos.ix.framework.core.IxRemoteTask
+  nameWithType: IxRemoteTask
+- uid: Pocos.ix.framework.core.IxRemoteTask.DoneSignature
+  name: DoneSignature
+  href: api/Pocos.ix.framework.core.IxRemoteTask.html#Pocos_ix_framework_core_IxRemoteTask_DoneSignature
+  commentId: P:Pocos.ix.framework.core.IxRemoteTask.DoneSignature
+  fullName: Pocos.ix.framework.core.IxRemoteTask.DoneSignature
+  nameWithType: IxRemoteTask.DoneSignature
+- uid: Pocos.ix.framework.core.IxRemoteTask.DoneSignature*
+  name: DoneSignature
+  href: api/Pocos.ix.framework.core.IxRemoteTask.html#Pocos_ix_framework_core_IxRemoteTask_DoneSignature_
+  commentId: Overload:Pocos.ix.framework.core.IxRemoteTask.DoneSignature
+  isSpec: "True"
+  fullName: Pocos.ix.framework.core.IxRemoteTask.DoneSignature
+  nameWithType: IxRemoteTask.DoneSignature
+- uid: Pocos.ix.framework.core.IxRemoteTask.ExceptionMessage
+  name: ExceptionMessage
+  href: api/Pocos.ix.framework.core.IxRemoteTask.html#Pocos_ix_framework_core_IxRemoteTask_ExceptionMessage
+  commentId: P:Pocos.ix.framework.core.IxRemoteTask.ExceptionMessage
+  fullName: Pocos.ix.framework.core.IxRemoteTask.ExceptionMessage
+  nameWithType: IxRemoteTask.ExceptionMessage
+- uid: Pocos.ix.framework.core.IxRemoteTask.ExceptionMessage*
+  name: ExceptionMessage
+  href: api/Pocos.ix.framework.core.IxRemoteTask.html#Pocos_ix_framework_core_IxRemoteTask_ExceptionMessage_
+  commentId: Overload:Pocos.ix.framework.core.IxRemoteTask.ExceptionMessage
+  isSpec: "True"
+  fullName: Pocos.ix.framework.core.IxRemoteTask.ExceptionMessage
+  nameWithType: IxRemoteTask.ExceptionMessage
+- uid: Pocos.ix.framework.core.IxRemoteTask.IsInitialized
+  name: IsInitialized
+  href: api/Pocos.ix.framework.core.IxRemoteTask.html#Pocos_ix_framework_core_IxRemoteTask_IsInitialized
+  commentId: P:Pocos.ix.framework.core.IxRemoteTask.IsInitialized
+  fullName: Pocos.ix.framework.core.IxRemoteTask.IsInitialized
+  nameWithType: IxRemoteTask.IsInitialized
+- uid: Pocos.ix.framework.core.IxRemoteTask.IsInitialized*
+  name: IsInitialized
+  href: api/Pocos.ix.framework.core.IxRemoteTask.html#Pocos_ix_framework_core_IxRemoteTask_IsInitialized_
+  commentId: Overload:Pocos.ix.framework.core.IxRemoteTask.IsInitialized
+  isSpec: "True"
+  fullName: Pocos.ix.framework.core.IxRemoteTask.IsInitialized
+  nameWithType: IxRemoteTask.IsInitialized
+>>>>>>> dev
 - uid: Pocos.ix.framework.core.IxSequencer
   name: IxSequencer
   href: api/Pocos.ix.framework.core.IxSequencer.html
@@ -3566,6 +4709,22 @@ references:
   isSpec: "True"
   fullName: Pocos.ix.framework.core.IxTask.RemoteResume
   nameWithType: IxTask.RemoteResume
+<<<<<<< HEAD
+=======
+- uid: Pocos.ix.framework.core.IxTask.StartSignature
+  name: StartSignature
+  href: api/Pocos.ix.framework.core.IxTask.html#Pocos_ix_framework_core_IxTask_StartSignature
+  commentId: P:Pocos.ix.framework.core.IxTask.StartSignature
+  fullName: Pocos.ix.framework.core.IxTask.StartSignature
+  nameWithType: IxTask.StartSignature
+- uid: Pocos.ix.framework.core.IxTask.StartSignature*
+  name: StartSignature
+  href: api/Pocos.ix.framework.core.IxTask.html#Pocos_ix_framework_core_IxTask_StartSignature_
+  commentId: Overload:Pocos.ix.framework.core.IxTask.StartSignature
+  isSpec: "True"
+  fullName: Pocos.ix.framework.core.IxTask.StartSignature
+  nameWithType: IxTask.StartSignature
+>>>>>>> dev
 - uid: Pocos.ix.framework.core.IxTask.Status
   name: Status
   href: api/Pocos.ix.framework.core.IxTask.html#Pocos_ix_framework_core_IxTask_Status

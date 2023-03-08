@@ -7,6 +7,10 @@
 		{
 			"name": "core",
 			"path": "core\\ctrl"
+		},
+		{
+			"name": "data",
+			"path": "data\\ctrl"
 		}
 	],
 	"settings": {}

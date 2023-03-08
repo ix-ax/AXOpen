@@ -81,7 +81,7 @@
 
 <p><strong>ix.core</strong> provides basic blocks for building ix.framework applications.</p>
 <h1 id="basic-concepts">Basic concepts</h1>
-<h2 id="ixcontext">IxContext</h2>
+<h1 id="ixcontext">IxContext</h1>
 <p>IxContext encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any <strong>direct inter-context access to members must be avoided</strong>.</p>
 <div class="NOTE">
 <h5>Note</h5>
@@ -95,16 +95,16 @@
 </code></pre>
 <p>In its basic implementation IxContext has relatively simple interface. <code>Main</code> is the method where we place all calls of our sub-routines. <strong>In other words the <code>Run</code> is the root of the call tree of our program.</strong></p>
 <p><code>Run</code> method runs the IxContext. It must be called cyclically within a program unit that is attached to a cyclic <code>task</code>.</p>
-<h3 id="why-do-we-need-ixcontext">Why do we need IxContext</h3>
+<h2 id="why-do-we-need-ixcontext">Why do we need IxContext</h2>
 <p><code>IxContext</code> provides counters, object identification and other information about the execution of the program. These information is then used by the objects contained at different levels of the IxContext.</p>
-<h3 id="how-ixcontext-works">How IxContext works</h3>
+<h2 id="how-ixcontext-works">How IxContext works</h2>
 <p>When you call <code>Run</code> method on an instance of a IxContext, it will ensure opening IxContext, running <code>Main</code> method (root of all your program calls) and IxContext closing.</p>
 <pre><code class="lang-mermaid">  flowchart LR
     classDef run fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
     classDef main fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                                                                           
     id1(Open):::run--&gt;id2(#Main*):::main--&gt;id3(Close):::run--&gt;id1
 </code></pre>
-<h3 id="how-to-use-ixcontext">How to use IxContext</h3>
+<h2 id="how-to-use-ixcontext">How to use IxContext</h2>
 <p>Base class for the IxContext is <code>ix.core.IxContext</code>. The entry point of call execution of the IxContext is <code>Main</code> method. Notice that the <code>IxContext</code> class is abstract and cannot be instantiated if not extended. <code>Main</code> method must be overridden in derived class notice the use of override keyword and also that the method is <code>protected</code> which means the it is visible only from within the <code>IxContext</code> and derived classes.</p>
 <p><strong>How to extend IxContext class</strong></p>
 <pre><code class="lang-smalltalk">CLASS PUBLIC IxContextExample EXTENDS IxContext
@@ -124,7 +124,7 @@ END_CLASS
     MyContext.Run();
 
 END_PROGRAM
-</code></pre><h2 id="ixobject">IxObject</h2>
+</code></pre><h1 id="ixobject">IxObject</h1>
 <p>IxObject is the base class for any other classes of ix.framework. It provides access to the parent IxObject and the IxContext in which it was initialized.</p>
 <pre><code class="lang-mermaid">  classDiagram
     class Object{
@@ -151,7 +151,7 @@ END_CLASS
         _myChildObject.Initialize(THIS);            
     END_METHOD
 END_CLASS
-</code></pre><h2 id="ixtask">IxTask</h2>
+</code></pre><h1 id="ixtask">IxTask</h1>
 <p>IxTask provides basic task execution. IxTask needs to be initialized to set the proper IxContext.</p>
 <p><strong>IxTask initialization within a IxContext</strong></p>
 <pre><code class="lang-smalltalk">CLASS IxTaskDocuExample EXTENDS IxContext         
@@ -354,7 +354,76 @@ These methods are:</p>
         WhileErrorCounter := WhileErrorCounter + ULINT#1;
     END_METHOD           
 END_CLASS
-</code></pre><h2 id="step">Step</h2>
+</code></pre><h1 id="ixremotetask">IxRemoteTask</h1>
+<p><code>IxRemoteTask</code> provides task execution, where the execution of the task is deferred to .NET environment. IxRemoteTask derives from <a href="IXTASK.html">IxTask</a>.</p>
+<p><code>IxRemoteTask</code> needs to be initialized to set the proper IxContext.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The deferred execution in .NET environment is not hard-real time nor deterministic. You would typically use the IxRemoteTask when it would be hard to achieve a goal in the PLC, but you can delegate the access to the non-hard-real and nondeterministic environment. Examples of such use would be database access, complex calculations, and email sending.</p>
+</div>
+<p><strong>IxTask initialization within a IxContext</strong></p>
+<pre><code class="lang-smalltalk">_remoteTask.Initialize(THIS); // THIS = IIContext 
+</code></pre>
+<p>There are two key methods for managing the IxTask:</p>
+<ul>
+<li><code>Invoke()</code> fires the execution of the IxTask (can be called fire&amp;forget or cyclically)</li>
+<li><code>Execute()</code> method must be called cyclically. <em>In contrast to <code>IxTask</code> the method does not execute any logic. You will need to call the <code>Execute</code> method cyclically which will deffer the logic execution in .NET environment.</em></li>
+</ul>
+<p>There are the following differences in behavior of DoneWhen and ThrowWhen methods:</p>
+<ul>
+<li><em><code>DoneWhen(Done_Condition)</code></em> - Unlike IxTask <strong>Done condition is handled internally. It does not have an effect.</strong></li>
+<li><em><code>ThrowWhen(Error_Condition)</code></em> - Unlike IxTask <strong>Exception emission is handled internally. It does not have an effect.</strong></li>
+</ul>
+<p>For termination of the execution of the IxRemoteTask there are the following methods:</p>
+<ul>
+<li><code>Abort()</code> - terminates the execution of the IxTask and enters the <code>Ready</code> state if the IxTask is in the <code>Busy</code> state; otherwise does nothing.</li>
+</ul>
+<p>To reset the IxRemoteTask from any state at any moment, there is the following method:</p>
+<ul>
+<li><code>Restore()</code> acts as a reset of the IxRemoteTask (sets the state into <code>Ready</code> from any state of the IxTask).</li>
+</ul>
+<p>The <code>IxRemoteTask</code> executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and <code>Invoke</code> does not need cyclical calling.</p>
+<pre><code class="lang-smalltalk">_remoteTask.Invoke('hello');                            
+</code></pre>
+<p><code>Invoke()</code> method returns IIxTaskState with the following members:</p>
+<ul>
+<li><code>IsBusy</code> indicates the execution started and is running.</li>
+<li><code>IsDone</code> indicates the execution completed with success.</li>
+<li><code>HasError</code> indicates the execution terminated with a failure.</li>
+<li><code>IsAborted</code> indicates that the execution of the IxTask has been aborted. It should continue by calling the method <code>Resume()</code>.</li>
+</ul>
+<h2 id="task-initialization-in-net">Task initialization in .NET</h2>
+<pre><code class="lang-csharp">Entry.Plc.ixcore_remote_tasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.ixcore_remote_tasks._remoteTask.Message.GetAsync().Result}'&quot;));
+</code></pre>
+<p>In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.</p>
+<p><img src="../../images/remote_exect.gif" alt="Alt text"></p>
+<h2 id="executing-from-plc">Executing from PLC</h2>
+<p>Invoking the IxRemoteTask and waiting for its completion at the same place.</p>
+<pre><code class="lang-smalltalk">IF(_remoteTask.Invoke('hello').IsDone()) THEN
+    _doneCounter := _doneCounter + 1; 
+END_IF;    
+</code></pre>
+<p>Invoking the IxRemoteTask and waiting for its completion at the different places.</p>
+<pre><code class="lang-smalltalk">
+// Fire &amp; Forget
+_remoteTask.Invoke('hello');
+
+// What for done somwhere else
+IF(_remoteTask.IsDone()) THEN
+    _doneCounter := _doneCounter + 1; 
+END_IF;    
+
+</code></pre>
+<p>Checking if the IxRemoteTask is executing.</p>
+<pre><code class="lang-smalltalk">IF(_remoteTask.IsBusy()) THEN
+    ;// Do something after task started
+END_IF;   
+</code></pre>
+<p>Check for the IxRemoteTask's error state.</p>
+<pre><code class="lang-smalltalk">IF(_remoteTask.HasError()) THEN
+    ;// Do something when an exception occurs on remote task.
+END_IF;   
+</code></pre><h1 id="ixstep">IxStep</h1>
 <p>IxStep is an extension class of the IxTask and provides the basics for the coordinated controlled execution of the task in the desired order based on the coordination mechanism used.</p>
 <p>IxStep contains the <code>Execute()</code> method so as its base class overloaded and extended by following parameters:</p>
 <ul>
@@ -369,7 +438,7 @@ END_CLASS
 <li>IsActive: if <code>TRUE</code>, the IxStep is currently executing, or is in the order of the execution, otherwise <code>FALSE</code>. This value can be set by calling the method <code>SetIsActive()</code> and read by the method <code>GetIsActive()</code>.</li>
 <li>IsEnabled: if <code>FALSE</code>, IxStep body is not executed and the current order of the execution is incremented. This value can be set by calling the method <code>SetIsEnabled()</code> or  calling the <code>Execute()</code> method with <code>Enable</code> parameter and read by the method <code>GetIsEnabled()</code>.</li>
 </ul>
-<h2 id="ixsequencer">IxSequencer</h2>
+<h1 id="ixsequencer">IxSequencer</h1>
 <p>IxSequencer is an IxCordinator class provides triggering the IxStep-s inside the sequence in the order they are written.</p>
 <p>IxSequencer extends from IxTask so it also has to be initialized by calling its <code>Initialize()</code> method and started using its <code>Invoke()</code> method.</p>
 <p>IxSequencer contains following methods:</p>
@@ -425,7 +494,7 @@ END_METHOD
 </code></pre><h4 id="open">Open</h4>
 <p>The <code>Open()</code> method must be called cyclically before any logic.</p>
 <pre><code class="lang-smalltalk">_mySequencer.Open();
-</code></pre><h4 id="step-1">Step</h4>
+</code></pre><h4 id="step">Step</h4>
 <p>Example of the most simple use of the <code>Execute()</code> method of the <code>IxStep</code> class, only with the IxCoordinator defined.</p>
 <pre><code class="lang-smalltalk">IF _step_1.Execute(_mySequencer) THEN
     // do something
@@ -455,7 +524,7 @@ END_IF;
         _mySequencer.CompleteSequence();
     END_IF;
 END_IF;
-</code></pre><h2 id="ixcomponent">IxComponent</h2>
+</code></pre><h1 id="ixcomponent">IxComponent</h1>
 <p><code>IxComponent</code> is an abstract class extending the IxObject, and it is the base building block for the &quot;hardware-related devices&quot; like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, &quot;virtual devices&quot; like counter, database, etc. <code>IxComponent</code> is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the <code>IxComponent</code> is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory.</p>
 <p><code>Restore()</code> - inside this method, the logic for resetting the IxComponent or restoring it from any state to its initial state should be placed.</p>
 <p><code>ManualControl()</code> - inside this method, the logic for manual operations with the component should be placed. To be able to control the <code>IxComponent</code> instance manually, the method <code>ActivateManualControl()</code> of this instance needs to be called cyclically.</p>
@@ -560,8 +629,8 @@ The <code>Run()</code> method with the respective input and output variables mus
     Context=&quot;@Entry.Plc.myComponentHeaderOnlyExample.MyComponentWithHeaderOnly&quot;
     Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>The rendered result should then looks as follows:
-<img src="../../../images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif"></p>
+<p>The rendered result should then looks as follows:</p>
+<p><img src="../../images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif" alt="Alt text"></p>
 <p>In case of more complex <code>IxComponent</code> the most important members should be placed in the fixed part (Header) and the rest of the members should be placed inside the expandable part (Details). The members inside the expandable part should be organize inside the tabs.</p>
 <p><strong>More complex <code>IxComponent</code></strong>
 Example of the implementation more complex <code>IxComponent</code> with members placed also in several tabs inside the expandable part (Details).</p>
@@ -777,8 +846,8 @@ END_CLASS
     Context=&quot;@Entry.Plc.myComponentExample.MyComponent&quot; 
     Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>and the rendered result:
-<img src="../../../images/ComplexComponentExample.gif "></p>
+<p>and the rendered result:</p>
+<p><img src="../../images/ComplexComponentExample.gif" alt="Alt text"></p>
 </article>
           </div>
 
@@ -787,7 +856,7 @@ END_CLASS
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/19-desing-component-base-class/docfx/articles/core/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/ix.framework/blob/dev/docfx/articles/core/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

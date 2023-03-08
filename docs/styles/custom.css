@@ -7,7 +7,7 @@
 }
 
 .text-logo:hover{
-  background: -webkit-linear-gradient(#24A8DF,#24A8DF);
+  background: -webkit-linear-gradient(#24A8DF,#FFFFFF);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

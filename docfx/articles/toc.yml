@@ -2,3 +2,18 @@
   href: intro.md
 - name: ix.framework.core
   href: ~/articles/core/README.md  
+  items:
+  - name: Context
+    href: ~/articles/core/IXCONTEXT.md
+  - name: Object
+    href: ~/articles/core/IXOBJECT.md
+  - name: Task
+    href: ~/articles/core/IXTASK.md
+  - name: Remote Task
+    href: ~/articles/core/IXREMOTETASK.md  
+  - name: Step
+    href: ~/articles/core/IXSTEP.md
+  - name: Sequencer
+    href: ~/articles/core/IXSEQUENCER.md  
+  - name: Component
+    href: ~/articles/core/IXCOMPONENT.md  
