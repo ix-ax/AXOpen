@@ -3,7 +3,7 @@ using intergrations;
 using Ix.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-
+using ix.framework.core.DependencyInjection;
 namespace integration.blazor
 {
     public class Program
@@ -19,6 +19,7 @@ namespace integration.blazor
             
             builder.Services.AddIxBlazorServices();
 
+            builder.Services.RegisterIxDataServices();
             Entry.Plc.Connector.BuildAndStart();
             
             Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
