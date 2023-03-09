@@ -1,4 +1,5 @@
-﻿using ix.framework.core.Interfaces;
+﻿using ix.ax.core.blazor;
+using ix.framework.core.Interfaces;
 using ix.framework.core.ViewModels;
 using ix.framework.data;
 using Ix.Presentation;
@@ -33,7 +34,6 @@ namespace ix.framework.data
 
         private void CreateBrowsable(DataExchange dataExchangeObject)
         {
-
             try
             {
                 var DataPropertyInfo = dataExchangeObject.GetType().GetProperty("_data");
@@ -54,13 +54,16 @@ namespace ix.framework.data
                     throw new Exception($"{dataExchangeObject.GetType().ToString()} must implement member '_data' that inherits from {nameof(DataEntity)}.");
                 }
 
+
                 var dataOfType = DataPropertyInfo.PropertyType.Name;
                 var dataNameSpace = DataPropertyInfo.PropertyType.Namespace;
+                var dataAssembly = DataPropertyInfo.PropertyType.Assembly.ManifestModule.Name;
+                if (dataAssembly.LastIndexOf(".") >= 0)
+                    dataAssembly = dataAssembly.Substring(0, dataAssembly.LastIndexOf("."));
 
 
                 MethodInfo method = typeof(IxDataViewModel).GetMethod("Create");
-                //TODO - find correct generictypename
-                var genericTypeName = $"{dataNameSpace},{dataOfType}, {dataNameSpace}Connector";
+                var genericTypeName = $"Pocos.{dataNameSpace}.{dataOfType}, {dataAssembly}";
                 var genericType = Type.GetType(genericTypeName);
 
                 if (genericType == null)

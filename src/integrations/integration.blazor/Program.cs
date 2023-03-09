@@ -5,6 +5,8 @@ using Ix.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ix.framework.core.DependencyInjection;
+using static System.Formats.Asn1.AsnWriter;
+
 namespace integration.blazor
 {
     public class Program
@@ -26,6 +28,10 @@ namespace integration.blazor
             Entry.Plc.Connector.BuildAndStart();
             
             Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
+            
+            Entry.Plc.process_data_manager.InitializeRepository(
+                TcoData.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(@"C:\TcOpen\Data\ProcessData")));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

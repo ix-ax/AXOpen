@@ -17,6 +17,7 @@
 	<ItemGroup>
 		<ProjectReference Include="..\..\core\src\ix.framework.core.blazor\ix.framework.core.blazor.csproj" />
 		<ProjectReference Include="..\..\data\src\ix.framework.data.blazor\ix.framework.data.blazor.csproj" />
+		<ProjectReference Include="..\..\data\src\repositories\Json\Ix.Framework.Data.Json.csproj" />
 		<ProjectReference Include="..\ix.integrations\integrations.csproj" />
 	</ItemGroup>
 

@@ -11,38 +11,38 @@
 else
 {
 
-@*<p>@Vm.myProperty</p>*@
+    @*<p>@Vm.myProperty</p>
 
-@*<button class="btn-primary" @onclick="() => Vm.ChangePropCommand.Execute(true)" >Chnage prop</button>*@
-    @*<button class="btn-primary" @onclick="() => Vm.ChangeProp()">Chnage prop</button>*@
+<button class="btn-primary" @onclick="() => Vm.ChangePropCommand.Execute(true)" >Chnage prop</button>
+    <button class="btn-primary" @onclick="() => Vm.ChangeProp()">Chnage prop</button>
+*@
 
 
-
-@*<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">First</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Vm.PropNames)
-        {
+    <table class="table">
+        <thead>
             <tr>
-                <td>@item</td>
+                <th scope="col">First</th>
             </tr>
-        }
-       
-    </tbody>
-</table>*@
+        </thead>
+        <tbody>
+            @foreach (var item in Vm.DataExchange.GetKids())
+            {
+                <tr>
+                    <td>@item.HumanReadable</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
 
 }
 @code {
 
     [Parameter]
-    public IDataViewModel Vm {get; set;}
+    public IDataViewModel Vm { get; set; }
 
     protected override void OnInitialized()
     {
-        base.OnInitialized();   
+        base.OnInitialized();
     }
 }
