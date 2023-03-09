@@ -1,5 +1,6 @@
 using integration.blazor.Data;
 using intergrations;
+using ix.framework.core.blazor.Toaster;
 using Ix.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
@@ -18,6 +19,8 @@ namespace integration.blazor
             builder.Services.AddSingleton<WeatherForecastService>();
             
             builder.Services.AddIxBlazorServices();
+
+            builder.Services.AddSingleton<ToastService>();
 
             Entry.Plc.Connector.BuildAndStart();
             
