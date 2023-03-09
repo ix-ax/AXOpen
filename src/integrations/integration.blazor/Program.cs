@@ -4,7 +4,7 @@ using ix.framework.core.blazor.Toaster;
 using Ix.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-
+using ix.framework.core.DependencyInjection;
 namespace integration.blazor
 {
     public class Program
@@ -20,6 +20,7 @@ namespace integration.blazor
             
             builder.Services.AddIxBlazorServices();
 
+            builder.Services.RegisterIxDataServices();
             builder.Services.AddSingleton<ToastService>();
 
             Entry.Plc.Connector.BuildAndStart();
