@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.core"
-version            : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.45'
+version             : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.49'
 type: lib
 targets:
   - "1500"
