@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ix.framework.data;
+using System.Collections.ObjectModel;
 
 namespace ix.framework.core.ViewModels
 {
@@ -27,7 +28,7 @@ namespace ix.framework.core.ViewModels
         {
             this.DataExchange = dataExchange;
             DataBrowser = CreateBrowsable(repository);
-            //FillObservableRecords();
+            FillObservableRecords();
         }
 
         private DataBrowser<T> CreateBrowsable(IRepository<T> repository)
@@ -38,5 +39,41 @@ namespace ix.framework.core.ViewModels
         public DataBrowser<T> DataBrowser { get; set; }
         public DataExchange DataExchange { get; }
 
+        readonly List<IBrowsableDataObject> observableRecords = new();
+        public List<IBrowsableDataObject> ObservableRecords
+        {
+            get
+            {
+                return observableRecords;
+            }
+        }
+
+        internal void FillObservableRecords()
+        {
+            ObservableRecords.Clear();
+
+            foreach (var item in DataBrowser.Records)
+            {
+                ObservableRecords.Add(item);
+            }
+        }
+
+        public void CreateNew()
+        {
+            var plainer = ((dynamic)DataExchange)._data.CreatePlainerType();
+            plainer._EntityId = "10";
+            try
+            {
+                DataBrowser.AddRecord(plainer);
+            }
+            catch (DuplicateIdException)
+            {
+
+            }
+
+            var plain = DataBrowser.FindById(plainer._EntityId);
+            ((dynamic)DataExchange)._data.CopyPlainToShadow(plain);
+            FillObservableRecords();
+        }
     }
 }

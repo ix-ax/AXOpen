@@ -28,7 +28,7 @@ namespace integration.blazor
             Entry.Plc.Connector.BuildAndStart();
             
             Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
-            
+
             Entry.Plc.process_data_manager.InitializeRepository(
                 TcoData.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(@"C:\TcOpen\Data\ProcessData")));
 

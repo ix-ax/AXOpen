@@ -11,5 +11,8 @@ namespace ix.framework.core.Interfaces
     public interface IDataViewModel
     {
         DataExchange DataExchange { get; }
+        List<Ix.Base.Data.IBrowsableDataObject> ObservableRecords { get; }
+
+        void CreateNew();
     }
 }

@@ -2,6 +2,7 @@
 @using CommunityToolkit.Mvvm.ComponentModel;
 @using ix.framework.core.Interfaces;
 @using ix.framework.core.ViewModels;
+
 <h3>IxDataView</h3>
 
 @if (Vm == null)
@@ -25,15 +26,17 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Vm.DataExchange.GetKids())
+            @foreach (var item in Vm.ObservableRecords)
             {
                 <tr>
-                    <td>@item.HumanReadable</td>
+                    <td>@item.DataEntityId</td>
                 </tr>
             }
 
         </tbody>
     </table>
+
+    <button type="button" class="btn btn-primary" @onclick="() => Vm.CreateNew()">Create new item</button>
 
 }
 @code {
