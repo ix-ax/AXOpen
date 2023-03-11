@@ -32,6 +32,9 @@ namespace integration.blazor
             Entry.Plc.process_data_manager.InitializeRepository(
                 TcoData.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(@"C:\TcOpen\Data\ProcessData")));
 
+            Entry.Plc.MainContext.process_data_manager_remote_exec.InitializeRemoteDataExchange(
+                TcoData.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(@"C:\TcOpen\Data\ProcessData\Remotes")));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

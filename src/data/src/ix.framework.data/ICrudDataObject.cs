@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using Ix.Connector;
 using Ix.Connector.ValueTypes;
 
 namespace ix.framework.data
 {
-    public interface ICrudDataObject
+    public interface ICrudDataObject 
     {       
         OnlinerString DataEntityId { get; }        
         ValueChangeTracker ChangeTracker { get; }

@@ -3,9 +3,13 @@ USING ix.framework.core;
 NAMESPACE ix.framework.data 
     CLASS DataExchange EXTENDS IxObject
         VAR PUBLIC
+           {#ix-set:AttributeName =  "<#Create#>"} 
            CreateTask  : DataExchangeTask; 
+           {#ix-set:AttributeName =  "<#Read#>"} 
            ReadTask    : DataExchangeTask;
+           {#ix-set:AttributeName =  "<#Update#>"} 
            UpdateTask  : DataExchangeTask;
+           {#ix-set:AttributeName =  "<#Delete#>"} 
            DeleteTask  : DataExchangeTask;
         END_VAR
         

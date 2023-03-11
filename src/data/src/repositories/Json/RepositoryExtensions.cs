@@ -3,7 +3,7 @@ using Ix.Base.Data;
 using Ix.Framework.Data;
 using Ix.Framework.Data.Json;
 
-namespace TcoData.Repository.Json
+namespace Ix.Repository.Json
 {
     public static class Repository
     {

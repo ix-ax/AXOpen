@@ -4,6 +4,7 @@ using ix.framework.data;
 using Ix.Connector;
 using Ix.Base.Data;
 
+
 namespace ix.framework.data
 {
 
@@ -13,7 +14,7 @@ namespace ix.framework.data
         public IDataExchangeOperations DataExchangeOperations { get; set; }
         private dynamic _onliner;
 
-        protected dynamic Onliner
+        protected ICrudDataObject Onliner
         {
             get
             {
@@ -81,9 +82,9 @@ namespace ix.framework.data
         private bool Create()
         {
             CreateTask.ReadAsync().Wait();
-            Onliner.DataEntityIdentifier.SetAsynch(CreateTask.DataEntityIdentifier.LastValue).Wait();
-            var cloned = this.Onliner.CreatePlainerType();
-            this.Onliner.FlushOnlineToPlain(cloned);
+            Onliner.DataEntityId.SetAsync(CreateTask.DataEntityIdentifier.LastValue).Wait();
+            var cloned = this.Onliner.CreateEmptyPoco();
+            this.Onliner.OnlineToPlainAsync(cloned).Wait();
             try
             {
                 _repository.Create(CreateTask.DataEntityIdentifier.LastValue, cloned);
@@ -133,8 +134,8 @@ namespace ix.framework.data
 
             try
             {
-                var record = _repository.Read(ReadTask.DataEntityIdentifier.LastValue);
-                Onliner.FlushPlainToOnline(record);
+                object record = _repository.Read(ReadTask.DataEntityIdentifier.LastValue);
+                Onliner.PlainToOnlineAsync(record).Wait();
                 return true;
             }
             catch (Exception exception)
@@ -145,9 +146,9 @@ namespace ix.framework.data
         private bool Update()
         {
             UpdateTask.ReadAsync().Wait();
-            Onliner.DataEntityIdentifier.SetAsynch(UpdateTask.DataEntityIdentifier.LastValue).Wait();
-            var cloned = this.Onliner.CreatePlainerType();
-            this.Onliner.FlushOnlineToPlain(cloned);
+            Onliner.DataEntityId.SetAsync(UpdateTask.DataEntityIdentifier.LastValue).Wait();
+            var cloned = this.Onliner.CreateEmptyPoco();
+            this.Onliner.OnlineToPlainAsync(cloned).Wait();
             try
             {
                 _repository.Update(UpdateTask.DataEntityIdentifier.Cyclic, cloned);

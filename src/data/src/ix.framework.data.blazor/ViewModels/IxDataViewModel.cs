@@ -60,20 +60,31 @@ namespace ix.framework.core.ViewModels
 
         public void CreateNew()
         {
-            var plainer = ((dynamic)DataExchange)._data.CreatePlainerType();
-            plainer._EntityId = "10";
+            var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
+
+            if (plainer == null)
+                throw new WrongTypeOfDataObjectException(
+                    $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
             try
             {
-                DataBrowser.AddRecord(plainer);
+                DataBrowser.AddRecord((dynamic)plainer);
             }
             catch (DuplicateIdException)
             {
 
             }
 
-            var plain = DataBrowser.FindById(plainer._EntityId);
-            ((dynamic)DataExchange)._data.CopyPlainToShadow(plain);
+            var plain = DataBrowser.FindById(plainer.DataEntityId);
+            ((dynamic)DataExchange)._data.PlainToShadowAsync(plain).Wait();
             FillObservableRecords();
+        }
+    }
+
+    public class WrongTypeOfDataObjectException : Exception
+    {
+        public WrongTypeOfDataObjectException(string message) : base(message)
+        {
+            
         }
     }
 }
