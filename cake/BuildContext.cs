@@ -112,7 +112,6 @@ public class BuildContext : FrostingContext
         {
             Verbosity = buildParameters.Verbosity,
             Configuration = buildParameters.Configuration,
-            Framework = "net6.0",
             NoRestore = true,
             NoBuild = true
 
