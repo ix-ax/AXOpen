@@ -20,14 +20,14 @@ namespace ix.framework.data
         }
 
 
-        public static async Task<object> OnlineToPlainAsync(this ICrudDataObject twin, object plain)
+        public static async Task<object> OnlineToPlainAsync(this ICrudDataObject twin)
         {
-            return await ((dynamic)twin).OnlineToPlainAsync(plain);
+            return await ((dynamic)twin).OnlineToPlainAsync();
         }
 
         public static async Task<object> PlainToOnlineAsync(this ICrudDataObject twin, object plain)
         {
-            return await ((dynamic)twin).OnlineToPlainAsync(plain);
+            return await ((dynamic)twin).PlainToOnlineAsync((dynamic)plain);
         }
 
 

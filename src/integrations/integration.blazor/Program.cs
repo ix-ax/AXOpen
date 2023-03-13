@@ -33,7 +33,7 @@ namespace integration.blazor
                 Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(@"C:\TcOpen\Data\ProcessData")));
 
             Entry.Plc.MainContext.process_data_manager_remote_exec.InitializeRemoteDataExchange(
-                Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(@"C:\TcOpen\Data\ProcessData\Remotes")));
+                Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(@"C:\TcOpen\Data\ProcessData")));
 
             var app = builder.Build();
 

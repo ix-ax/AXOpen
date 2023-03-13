@@ -83,8 +83,8 @@ namespace ix.framework.data
         {
             CreateTask.ReadAsync().Wait();
             Onliner.DataEntityId.SetAsync(CreateTask.DataEntityIdentifier.LastValue).Wait();
-            var cloned = this.Onliner.CreateEmptyPoco();
-            this.Onliner.OnlineToPlainAsync(cloned).Wait();
+            var cloned = this.Onliner.OnlineToPlainAsync().Result;
+
             try
             {
                 _repository.Create(CreateTask.DataEntityIdentifier.LastValue, cloned);
@@ -147,8 +147,7 @@ namespace ix.framework.data
         {
             UpdateTask.ReadAsync().Wait();
             Onliner.DataEntityId.SetAsync(UpdateTask.DataEntityIdentifier.LastValue).Wait();
-            var cloned = this.Onliner.CreateEmptyPoco();
-            this.Onliner.OnlineToPlainAsync(cloned).Wait();
+            var cloned = this.Onliner.OnlineToPlainAsync().Result;
             try
             {
                 _repository.Update(UpdateTask.DataEntityIdentifier.Cyclic, cloned);
