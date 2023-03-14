@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\data\src\repositories\Json\Ix.Framework.Data.Json.csproj" />
     <ProjectReference Include="..\..\ix.integrations\integrations.csproj" />
   </ItemGroup>
 
