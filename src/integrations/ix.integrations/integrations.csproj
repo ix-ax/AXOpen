@@ -26,5 +26,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\core\src\ix.framework.core\_ix-ax_ix.framework.core.csproj" />
     <ProjectReference Include="..\..\data\src\ix.framework.data\_ix-ax_ix.framework.data.csproj" />
+    <ProjectReference Include="..\..\data\src\repositories\InMemory\Ix.Framework.Data.InMemory.csproj" />
+    <ProjectReference Include="..\..\probers\src\ix.framework.probers\_ix-ax_ix.framework.probers.csproj" />
   </ItemGroup>
 </Project>

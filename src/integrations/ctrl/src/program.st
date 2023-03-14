@@ -7,7 +7,9 @@ PROGRAM MyProgram
         myComponentExample : IxComponentExamples.ComponentExampleContext;
         myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
         ixcore_remote_tasks : IxRemoteTaskExamples.RemoteTasks;
-        
+
+        // Integration test
+        Integrations : IntegrationTests.Integrations;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
     MainContext.Run();
@@ -16,6 +18,9 @@ PROGRAM MyProgram
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
     ixcore_remote_tasks.Run();   
+
+    // Integration tests
+    Integrations.Run();       
 END_PROGRAM
 
 

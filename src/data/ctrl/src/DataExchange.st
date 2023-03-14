@@ -52,5 +52,12 @@ NAMESPACE ix.framework.data
             END_VAR
             Delete := DeleteTask.Invoke(Identifier);
         END_METHOD 
+
+        METHOD PUBLIC Restore
+            CreateTask.Restore();            
+            ReadTask.Restore();
+            UpdateTask.Restore();
+            DeleteTask.Restore();
+        END_METHOD    
     END_CLASS    
 END_NAMESPACE

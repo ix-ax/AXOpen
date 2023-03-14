@@ -68,6 +68,7 @@ namespace ix.framework.data
             ReadTask.InitializeExclusively(Read);
             UpdateTask.InitializeExclusively(Update);
             DeleteTask.InitializeExclusively(Delete);
+            // this.WriteAsync().Wait();
             //_idExistsTask.InitializeExclusively(Exists);
             //_createOrUpdateTask.Initialize(CreateOrUpdate);
         }

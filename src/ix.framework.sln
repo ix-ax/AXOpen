@@ -57,6 +57,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Data.MongoDb",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Data.RavenDb", "data\src\repositories\RavenDb\TcOpen.Inxton.RavenDb\Ix.Framework.Data.RavenDb.csproj", "{EB42C020-C1FA-4280-B8D8-137146534CDC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "probers", "probers", "{E8D1AF35-C810-4717-BDA9-B1FF352FE353}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8BF234AB-B683-43B7-97A3-9D88FDD03129}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D48B76D7-B4E1-4098-B69F-6F4EFB94BC62}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_ix-ax_ix.framework.probers", "probers\src\ix.framework.probers\_ix-ax_ix.framework.probers.csproj", "{1B857C1D-45C3-4EA6-8493-0F9015C41AB9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.framework.probers.tests", "probers\tests\ix.famework.probers.tests\ix.framework.probers.tests.csproj", "{BE3862C3-A01B-4FEB-A774-EB587E39B715}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -119,6 +129,14 @@ Global
 		{EB42C020-C1FA-4280-B8D8-137146534CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB42C020-C1FA-4280-B8D8-137146534CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB42C020-C1FA-4280-B8D8-137146534CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B857C1D-45C3-4EA6-8493-0F9015C41AB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B857C1D-45C3-4EA6-8493-0F9015C41AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B857C1D-45C3-4EA6-8493-0F9015C41AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B857C1D-45C3-4EA6-8493-0F9015C41AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE3862C3-A01B-4FEB-A774-EB587E39B715}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE3862C3-A01B-4FEB-A774-EB587E39B715}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE3862C3-A01B-4FEB-A774-EB587E39B715}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE3862C3-A01B-4FEB-A774-EB587E39B715}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,6 +165,10 @@ Global
 		{05446123-88DD-4304-9F6E-174CF5E516FF} = {3EFF6571-0A63-49A6-9696-F2071CE7AD62}
 		{209EA9FF-1F18-4F7D-A710-BE0D3E04F62E} = {3EFF6571-0A63-49A6-9696-F2071CE7AD62}
 		{EB42C020-C1FA-4280-B8D8-137146534CDC} = {3EFF6571-0A63-49A6-9696-F2071CE7AD62}
+		{8BF234AB-B683-43B7-97A3-9D88FDD03129} = {E8D1AF35-C810-4717-BDA9-B1FF352FE353}
+		{D48B76D7-B4E1-4098-B69F-6F4EFB94BC62} = {E8D1AF35-C810-4717-BDA9-B1FF352FE353}
+		{1B857C1D-45C3-4EA6-8493-0F9015C41AB9} = {8BF234AB-B683-43B7-97A3-9D88FDD03129}
+		{BE3862C3-A01B-4FEB-A774-EB587E39B715} = {D48B76D7-B4E1-4098-B69F-6F4EFB94BC62}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

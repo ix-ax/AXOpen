@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 
@@ -9,11 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Probers\**" />
+    <EmbeddedResource Remove="Probers\**" />
+    <None Remove="Probers\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
-    <PackageReference Include="Siemens.Simatic.S7.Webserver.API" Version="2.1.4" />
     <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="Ix.Connector.S71500.WebAPI" Version="0.13.4-alpha.93" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	    <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="coverlet.collector" Version="3.2.0">
@@ -23,8 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\data\src\repositories\Json\Ix.Framework.Data.Json.csproj" />
-    <ProjectReference Include="..\..\ix.integrations\integrations.csproj" />
+    <ProjectReference Include="..\..\src\ix.framework.probers\_ix-ax_ix.framework.probers.csproj" />
   </ItemGroup>
 
 </Project>

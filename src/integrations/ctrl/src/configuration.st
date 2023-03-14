@@ -20,5 +20,8 @@ CONFIGURATION MyConfiguration
        
         // Issues
         gh_ptku_8 : Layouts.Tabbed.weather;
+
+        // Integration tests
+        Integrations : IntegrationTests.Integrations;
     END_VAR
 END_CONFIGURATION
