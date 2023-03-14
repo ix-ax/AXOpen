@@ -20,7 +20,8 @@ CONFIGURATION MyConfiguration
        
         // Issues
         gh_ptku_8 : Layouts.Tabbed.weather;
-
+        GH_IXF_51 : GH_IXF_51.Integrations;
+        
         // Integration tests
         Integrations : IntegrationTests.Integrations;
     END_VAR

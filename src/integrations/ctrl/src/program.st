@@ -10,6 +10,9 @@ PROGRAM MyProgram
 
         // Integration test
         Integrations : IntegrationTests.Integrations;
+
+        // Issues
+        GH_IXF_51 : GH_IXF_51.Integrations;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
     MainContext.Run();
@@ -20,7 +23,10 @@ PROGRAM MyProgram
     ixcore_remote_tasks.Run();   
 
     // Integration tests
-    Integrations.Run();       
+    Integrations.Run();     
+    
+    // Issues
+    GH_IXF_51.Run();
 END_PROGRAM
 
 
