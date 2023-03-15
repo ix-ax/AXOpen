@@ -33,8 +33,12 @@ NAMESPACE ix.framework.core
             Execute := SUPER.Execute();            
 
             IF(Execute) THEN
-                SUPER.ThrowWhen(ExceptionMessage <> '' OR NOT IsInitialized);            
+                SUPER.ThrowWhen(ExceptionMessage <> '' OR NOT IsInitialized, ExceptionMessage);                                 
                 SUPER.DoneWhen(StartSignature = DoneSignature);            
+            END_IF;    
+
+            IF THIS.HasError() AND NOT IsInitialized THEN
+                THIS.ExceptionMessage := 'THE REMOTE TASK IS NOT INITIALIZED';       
             END_IF;    
         END_METHOD  
         
