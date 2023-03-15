@@ -139,7 +139,7 @@ NAMESPACE ix.core.IxTask_Tests
             myTask.ThrowWhen(TRUE);
             _context.Close();            
         END_METHOD
-
+        
         METHOD PRIVATE InitializeInvokeExecuteDoneWhen
             myTask.Initialize(_context);
             _context.Open();
@@ -263,6 +263,27 @@ NAMESPACE ix.core.IxTask_Tests
             actState := myTask.GetState();
             Assert.Equal(TRUE,THIS.Equal(expState, actState));           
         END_METHOD
+
+        {Test}
+        METHOD PUBLIC ThrowWhen_should_add_error_details
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            expState := eIxTaskState#Error;
+            // Act/Assert 
+            myTask.Invoke();          
+            IF myTask.Execute() THEN
+                myTask.ThrowWhen(TRUE, 'this is the reson of failure...');
+            END_IF;
+            actState := myTask.GetState();
+            Assert.Equal(TRUE,THIS.Equal(expState, actState));     
+            Assert.Equal('this is the reson of failure...', myTask.ErrorDetails);         
+            Assert.Equal('this is the reson of failure...', myTask.GetErrorDetails());    
+            myTask.Restore();
+            Assert.Equal('', myTask.ErrorDetails);         
+            Assert.Equal('', myTask.GetErrorDetails());    
+        END_METHOD
+
 
         {Test}
         METHOD PUBLIC should_have_error_state_when_busy_and_thrown_when_is_called_with_true

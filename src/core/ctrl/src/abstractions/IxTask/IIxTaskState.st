@@ -3,6 +3,7 @@ NAMESPACE ix.framework.core
         METHOD IsDone : BOOL END_METHOD
         METHOD IsBusy : BOOL END_METHOD
         METHOD IsAborted : BOOL END_METHOD
-        METHOD HasError : BOOL END_METHOD    
+        METHOD HasError : BOOL END_METHOD   
+        METHOD GetErrorDetails : STRING[254] END_METHOD   
     END_INTERFACE
 END_NAMESPACE        
