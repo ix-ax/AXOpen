@@ -22,6 +22,21 @@ NAMESPACE ix.framework.core
     END_CLASS    
 
     ///<summary>
+    /// Provides an empty object for uninitialized objects.
+    ///</summary>
+    CLASS PUBLIC _NULL_OBJECT IMPLEMENTS IIxObject
+        VAR PRIVATE
+            NULL_CONTEXT : _NULL_CONTEXT;
+        END_VAR    
+        METHOD PUBLIC GetIdentity : ULINT 
+            GetIdentity := ULINT#0; 
+        END_METHOD   
+        METHOD PUBLIC GetContext : IIxContext 
+            GetContext := NULL_CONTEXT; 
+        END_METHOD
+    END_CLASS    
+
+    ///<summary>
     /// Provides base class for all classes of `ix.framework`.
     ///</summary>
     CLASS PUBLIC IxObject IMPLEMENTS IIxObject
@@ -36,8 +51,9 @@ NAMESPACE ix.framework.core
             _context    : IIxContext;
         END_VAR  
         
-        VAR PRIVATE
+        VAR PRIVATE            
             NULL_CONTEXT : _NULL_CONTEXT;
+            NULL_OBJECT : _NULL_OBJECT;
         END_VAR
 
         ///<summary>
@@ -55,6 +71,17 @@ NAMESPACE ix.framework.core
                 GetContext := _context;
             ELSE
                 GetContext := NULL_CONTEXT;    
+            END_IF;    
+        END_METHOD
+
+        ///<summary>
+        /// Gets parent in which this object was initialized.
+        ///</summary>
+        METHOD PUBLIC GetParent : IIxObject
+            IF(_context <> NULL) THEN
+                GetParent := _parent;
+            ELSE
+                GetParent := NULL_OBJECT;    
             END_IF;    
         END_METHOD
 
