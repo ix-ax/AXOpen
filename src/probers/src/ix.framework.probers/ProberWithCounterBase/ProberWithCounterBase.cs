@@ -18,6 +18,18 @@ namespace ix.framework.probers
         {
             await this.Restore();
 
+            while (true)
+            {
+                var state = (eIxTaskState)await Status.GetAsync();
+
+                if (state == eIxTaskState.Ready && !this.RemoteRestore.GetAsync().Result)
+                {
+                    break;
+                }
+
+                Task.Delay(1).Wait();
+            }
+
             await this.RequredNumberOfCycles.SetAsync(numberOfCycles);
             
             this.Execute();
@@ -32,10 +44,10 @@ namespace ix.framework.probers
 
                 if (state == eIxTaskState.Error)
                 {
-                    throw new Exception(await this.FailureDescription.GetAsync());
+                    throw new Exception(await this.ErrorDetails.GetAsync());
                 }
 
-                Task.Delay(100).Wait();
+                Task.Delay(10).Wait();
             }
         }
 }

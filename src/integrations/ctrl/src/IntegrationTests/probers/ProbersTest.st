@@ -9,12 +9,9 @@ CLASS ProbersTestContext EXTENDS IxContext
         ProbeWithCounterTests : ProbeWithCounterTests;
         ProbeWithEndConditionTests : ProberWithCompletedConditionTests;
     END_VAR
-    METHOD PROTECTED OVERRIDE Main  
-        ProbeWithCounterTests.Initialize(THIS);       
-        ProbeWithCounterTests.Run();
-
-        ProbeWithEndConditionTests.Initialize(THIS);       
-        ProbeWithEndConditionTests.Run();
+    METHOD PROTECTED OVERRIDE Main              
+        ProbeWithCounterTests.Run(THIS);          
+        ProbeWithEndConditionTests.Run(THIS);
     END_METHOD
 END_CLASS
 

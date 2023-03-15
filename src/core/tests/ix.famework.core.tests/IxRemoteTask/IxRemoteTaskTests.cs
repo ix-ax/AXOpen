@@ -92,7 +92,8 @@ namespace ix.framework.core.Tests
 
             Assert.Equal(0Ul, await sut.StartSignature.GetAsync());
             Assert.Equal(0Ul, await sut.DoneSignature.GetAsync());
-            Assert.Equal(string.Empty, await sut.ExceptionMessage.GetAsync());
+            Assert.Equal(string.Empty, await sut.ErrorDetails.GetAsync());
+            Assert.False(await sut.HasRemoteException.GetAsync());
             Assert.False(sut.IsRunning);
         
         }

@@ -1,7 +1,7 @@
 USING ix.framework.core;
 
 NAMESPACE ix.framework.data 
-    CLASS DataExchange EXTENDS IxObject
+    CLASS DataExchange EXTENDS IxObject IMPLEMENTS IDataExchange
         VAR PUBLIC
            {#ix-set:AttributeName =  "<#Create#>"} 
            CreateTask  : DataExchangeTask; 
@@ -13,7 +13,7 @@ NAMESPACE ix.framework.data
            DeleteTask  : DataExchangeTask;
         END_VAR
         
-        METHOD PUBLIC Run 
+        METHOD PRIVATE Run
             CreateTask.Initialize(THIS);            
             ReadTask.Initialize(THIS);
             UpdateTask.Initialize(THIS);
@@ -23,6 +23,22 @@ NAMESPACE ix.framework.data
             ReadTask.Execute();
             UpdateTask.Execute();
             DeleteTask.Execute();
+        END_METHOD    
+
+        METHOD PUBLIC Run 
+            VAR_INPUT
+                Parent : IIxObject;
+            END_VAR    
+            THIS.Initialize(Parent);
+            THIS.Run();
+        END_METHOD
+
+        METHOD PUBLIC Run 
+            VAR_INPUT
+                Context : IIxContext;
+            END_VAR    
+            THIS.Initialize(Context);
+            THIS.Run();
         END_METHOD
 
         METHOD PUBLIC Create : IIxTaskState

@@ -17,22 +17,35 @@ namespace ix.framework.probers
         {
             await this.Restore();
 
+            while (true)
+            {
+                var state = (eIxTaskState)await Status.GetAsync();
+
+                if (state == eIxTaskState.Ready && !this.RemoteRestore.GetAsync().Result)
+                {
+                    break;
+                }
+
+                Task.Delay(1).Wait();
+            }
+
             this.Execute();
 
             while (true)
             {
                 var state = (eIxTaskState)await Status.GetAsync();
-                if (state == eIxTaskState.Done)
+                if (state == eIxTaskState.Done && !this.RemoteInvoke.GetAsync().Result)
                 {
                     break;
                 }
 
-                if (state == eIxTaskState.Error)
+                if (state == eIxTaskState.Error && !this.RemoteInvoke.GetAsync().Result)
                 {
-                    throw new Exception(await this.FailureDescription.GetAsync());
+                    var failureDescription = await this.ErrorDetails.GetAsync();
+                    throw new Exception(failureDescription);
                 }
 
-                Task.Delay(100).Wait();
+                Task.Delay(1).Wait();
             }
         }
 }

@@ -67,6 +67,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_ix-ax_ix.framework.probers
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.framework.probers.tests", "probers\tests\ix.famework.probers.tests\ix.framework.probers.tests.csproj", "{BE3862C3-A01B-4FEB-A774-EB587E39B715}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Repository.Integration.Tests", "data\tests\Ix.Framework.Repository.Integration.Tests\Ix.Framework.Repository.Integration.Tests.csproj", "{1F70E59A-4E0D-4D0F-A954-F7BB22C0E021}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +139,10 @@ Global
 		{BE3862C3-A01B-4FEB-A774-EB587E39B715}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE3862C3-A01B-4FEB-A774-EB587E39B715}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE3862C3-A01B-4FEB-A774-EB587E39B715}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F70E59A-4E0D-4D0F-A954-F7BB22C0E021}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F70E59A-4E0D-4D0F-A954-F7BB22C0E021}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F70E59A-4E0D-4D0F-A954-F7BB22C0E021}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F70E59A-4E0D-4D0F-A954-F7BB22C0E021}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -169,6 +175,7 @@ Global
 		{D48B76D7-B4E1-4098-B69F-6F4EFB94BC62} = {E8D1AF35-C810-4717-BDA9-B1FF352FE353}
 		{1B857C1D-45C3-4EA6-8493-0F9015C41AB9} = {8BF234AB-B683-43B7-97A3-9D88FDD03129}
 		{BE3862C3-A01B-4FEB-A774-EB587E39B715} = {D48B76D7-B4E1-4098-B69F-6F4EFB94BC62}
+		{1F70E59A-4E0D-4D0F-A954-F7BB22C0E021} = {0E97F83F-9AC9-431D-9FC2-4966874E273D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

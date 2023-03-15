@@ -18,9 +18,10 @@ PROGRAM MyProgram
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
     ixcore_remote_tasks.Run();   
-
+    
     // Integration tests
-    Integrations.Run();       
+    Integrations.Run();      
+    
 END_PROGRAM
 
 
@@ -33,9 +34,8 @@ CLASS MyContext EXTENDS ix.framework.core.IxContext
         THIS.DataExchangeTests();
     END_METHOD
 
-    METHOD DataExchangeTests : Int       
-        process_data_manager_remote_exec.Initialize(THIS);
-        process_data_manager_remote_exec.Run();   
+    METHOD DataExchangeTests : Int               
+        process_data_manager_remote_exec.Run(THIS);   
         
         IF(process_data_manager_remote_exec._create) THEN
             IF(process_data_manager_remote_exec.Create(process_data_manager_remote_exec._identifier).IsDone()) THEN

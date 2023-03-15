@@ -1,5 +1,6 @@
 using integration.blazor.Data;
 using intergrations;
+using Ix.Connector;
 using ix.framework.core.blazor.Toaster;
 using Ix.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
@@ -26,7 +27,9 @@ namespace integration.blazor
             builder.Services.AddSingleton<ToastService>();
 
             Entry.Plc.Connector.BuildAndStart();
-            
+
+            Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+
             Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
 
             Entry.Plc.process_data_manager.InitializeRepository(

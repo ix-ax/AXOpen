@@ -2,7 +2,26 @@
 <h3>IxData</h3>
 
 @*<RenderableContentControl Context="Entry.Plc.MainContext.process_data_manager_remote_exec" Presentation="Command-Control"></RenderableContentControl>*@
-<RenderableContentControl Context="Entry.Plc.Integrations.DataExchangeTestsContext" Presentation="Control"></RenderableContentControl>
+<RenderableContentControl Context="Entry.Plc.Integrations.DM" Presentation="Command-Control"></RenderableContentControl>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Create</a>
+        <RenderableContentControl Context="Entry.Plc.Integrations.DataExchangeLightTestsContext.CreateTest" Presentation="Control"></RenderableContentControl>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Read</a>
+        <RenderableContentControl Context="Entry.Plc.Integrations.DataExchangeLightTestsContext.ReadTest" Presentation="Control"></RenderableContentControl>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Update</a>
+        <RenderableContentControl Context="Entry.Plc.Integrations.DataExchangeLightTestsContext.UpdateTest" Presentation="Control"></RenderableContentControl>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link">Delete</a>
+        <RenderableContentControl Context="Entry.Plc.Integrations.DataExchangeLightTestsContext.DeleteTest" Presentation="Control"></RenderableContentControl>
+    </li>
+</ul>
 @code {
 
 }

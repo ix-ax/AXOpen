@@ -15,19 +15,6 @@ namespace ix.framework.core
         public async Task<bool> Restore()
         {
            await this.RemoteRestore.SetAsync(true);
-
-           while (true)
-           {
-               var state = (eIxTaskState)await Status.GetAsync();
-               
-               if (state == eIxTaskState.Ready)
-               {
-                   break;
-               }
-
-               Task.Delay(100).Wait();
-           }
-
            return true;
         }
 
