@@ -19,6 +19,8 @@ NAMESPACE ix.framework.core
     CLASS PUBLIC _NULL_CONTEXT IMPLEMENTS IIxContext
         METHOD PUBLIC CreateIdentity : ULINT CreateIdentity := ULINT#0; END_METHOD
         METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                             
+        METHOD PUBLIC Environment : IIxContextEnvironment ; END_METHOD
+        METHOD PUBLIC RealTimeClock : IIxRtc ; END_METHOD
     END_CLASS    
 
     ///<summary>

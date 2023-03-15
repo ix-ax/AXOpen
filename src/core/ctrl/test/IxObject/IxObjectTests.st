@@ -38,7 +38,7 @@ NAMESPACE ix.core.IxObject_Tests
 
             // Arrange
             sut := REF(_assign_identity_on_init);
-            expectedIdentity := this.GetContext().CreateIdentity() + ULINT#1;
+            expectedIdentity := THIS.GetContext().CreateIdentity() + ULINT#1;
 
             // Act/Assert           
             sut^.Initialize(THIS);
@@ -54,7 +54,7 @@ NAMESPACE ix.core.IxObject_Tests
             
             // Arrange
             sut := REF(_not_assign_identity_repeated_init);
-            expectedIdentity := this.GetContext().CreateIdentity() + ULINT#1;
+            expectedIdentity := THIS.GetContext().CreateIdentity() + ULINT#1;
             
             // Act/Assert
             sut^.Initialize(THIS);

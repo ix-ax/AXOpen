@@ -31,6 +31,8 @@ NAMESPACE ix.core.IxTask_Tests
             _identityCounter := _identityCounter + ULINT#1;
             CreateIdentity := _identityCounter;
         END_METHOD 
+        METHOD PUBLIC Environment : IIxContextEnvironment ; END_METHOD
+        METHOD PUBLIC RealTimeClock : IIxRtc ; END_METHOD
     END_CLASS      
 
     CLASS MyTask Extends IxTask
@@ -175,7 +177,7 @@ NAMESPACE ix.core.IxTask_Tests
             expState := eIxTaskState#Ready;
             // Act/Assert   
             THIS.Initialize();        
-            Assert.Equal(TRUE, this.Equal(expState, myTask.GetState()));
+            Assert.Equal(TRUE, THIS.Equal(expState, myTask.GetState()));
         END_METHOD
 
         {Test}
@@ -186,7 +188,7 @@ NAMESPACE ix.core.IxTask_Tests
             expState := eIxTaskState#Kicking;
             // Act/Assert           
             myTask.Invoke();
-            Assert.Equal(TRUE, this.Equal(expState, myTask.GetState()));
+            Assert.Equal(TRUE, THIS.Equal(expState, myTask.GetState()));
         END_METHOD
 
         {Test}
