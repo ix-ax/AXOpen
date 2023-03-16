@@ -6,6 +6,9 @@
 // Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
 
 using System.IO;
+using System.Linq;
+using Cake.Common.Tools.ILMerge;
+using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Ix.Compiler;
 using Microsoft.Win32;
@@ -26,6 +29,11 @@ public static class ApaxCmd
         }).WaitForExit();
     }
 
+    public static void ApaxInstall(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        context.ApaxInstall((app.folder, app.name));
+    }
+
     public static void ApaxClean(this BuildContext context, (string folder, string name) lib)
     {
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
@@ -38,6 +46,11 @@ public static class ApaxCmd
         }).WaitForExit();
     }
 
+    public static void ApaxClean(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        context.ApaxClean((app.folder, app.name));
+    }
+
     public static void ApaxBuild(this BuildContext context, (string folder, string name) lib)
     {
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
@@ -48,6 +61,11 @@ public static class ApaxCmd
             RedirectStandardError = false,
             Silent = false
         }).WaitForExit();
+    }
+
+    public static void ApaxBuild(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        context.ApaxBuild((app.folder, app.name));
     }
 
     public static void ApaxPack(this BuildContext context, (string folder, string name) lib)
@@ -75,8 +93,23 @@ public static class ApaxCmd
 
         process.WaitForExit();
 
-        if(process.GetExitCode() != 0)
+        var exitcode = process.GetExitCode();
+        context.Log.Information($"apax test exited with '{exitcode}'");
+
+        foreach (var resultFile in Directory.EnumerateFiles(context.GetAxTestResultsFolder(context.GetAxFolder(lib)), "*.xml").Select(p => new FileInfo(p)))
+        {
+            File.Copy(resultFile.FullName, Path.Combine(context.TestResultsCtrl, $"controller_{lib.name}_{resultFile.Name}.xml"));
+        }
+
+        if (exitcode != 0)
+        {
             throw new TestFailedException();
+        }
+    }
+
+    public static void ApaxTest(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        context.ApaxTest((app.folder, app.name));
     }
 
     public static void ApaxIxc(this BuildContext context, (string folder, string name) lib)
@@ -129,5 +162,20 @@ public static class ApaxCmd
                 throw new PublishFailedException();
             }
         }
+    }
+
+    public static void ApaxDownload(this BuildContext context, 
+                                        (string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = $" sld -t {app.targetIp} -i {app.targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+            WorkingDirectory = context.GetAxFolder(app),
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        });
+
+        process.WaitForExit();
     }
 }

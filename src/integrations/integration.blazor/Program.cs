@@ -1,8 +1,12 @@
 using integration.blazor.Data;
 using intergrations;
+using Ix.Connector;
+using ix.framework.core.blazor.Toaster;
 using Ix.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using ix.framework.core.DependencyInjection;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace integration.blazor
 {
@@ -19,9 +23,21 @@ namespace integration.blazor
             
             builder.Services.AddIxBlazorServices();
 
+            builder.Services.RegisterIxDataServices();
+            builder.Services.AddSingleton<ToastService>();
+
             Entry.Plc.Connector.BuildAndStart();
-            
+
+            Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+
             Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
+
+            var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+
+            // Entry.Plc.process_data_manager.InitializeRepository(repository);
+
+            Entry.Plc.MainContext.process_data_manager.InitializeRemoteDataExchange(repository);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

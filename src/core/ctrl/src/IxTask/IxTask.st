@@ -43,6 +43,11 @@ NAMESPACE ix.framework.core
             /// Contains contex cycle number when this task started.            
             ///</summary>           
             StartSignature : ULINT;
+
+            ///<summary>
+            /// Contains details about the error.            
+            ///</summary>                       
+            ErrorDetails : STRING[254];
         END_VAR    
         
         VAR PRIVATE
@@ -57,6 +62,10 @@ NAMESPACE ix.framework.core
             THIS.UpdateState();
             GetState := Status;
         END_METHOD
+
+        METHOD PUBLIC GetErrorDetails : STRING[254]
+            GetErrorDetails := ErrorDetails;            
+        END_METHOD    
 
         ///<summary>
         /// Gets true when the task is ready.
@@ -189,6 +198,7 @@ NAMESPACE ix.framework.core
         ///</summary>    
         METHOD PUBLIC Restore : IIxTaskState
             Status := eIxTaskState#Ready; 
+            ErrorDetails := '';   
             THIS.UpdateState();
             Restore := THIS;
             THIS.OnRestore();
@@ -231,7 +241,7 @@ NAMESPACE ix.framework.core
             IF(Status = eIxTaskState#Kicking) THEN
                 Status := eIxTaskState#Busy; 
                 // Don't touch this, it is used for remote execs.
-                StartSignature := THIS.GetContext().OpenCycleCount();               
+                StartSignature := THIS.GetContext().OpenCycleCount();                           
                 THIS.OnStart();
             END_IF;    
 
@@ -259,6 +269,21 @@ NAMESPACE ix.framework.core
             END_IF;    
         END_METHOD    
     
+         ///<summary>
+        /// Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`
+        /// task in error state stops its execution.
+        ///</summary>    
+        METHOD PUBLIC ThrowWhen
+            VAR_INPUT
+                HasErrorState : BOOL;
+                ErrorDescription : STRING[254];
+            END_VAR
+            THIS.ThrowWhen(HasErrorState);
+            IF(HasErrorState) THEN
+                ErrorDetails :=  ErrorDescription;   
+            END_IF;            
+        END_METHOD    
+
         ///<summary>
         /// Sets the value of the `IsDisabled` variable
         ///</summary>

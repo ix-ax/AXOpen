@@ -1,0 +1,151 @@
+﻿@namespace ix.framework.data
+@using CommunityToolkit.Mvvm.ComponentModel;
+@using ix.framework.core.Interfaces;
+@using ix.framework.core.ViewModels;
+
+<h3>IxDataView</h3>
+
+@if (Vm == null)
+{
+    <h5>Loading...</h5>
+}
+else
+{
+    <div class="d-flex">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Create</button>
+        <div class="dropdown d-flex ms-auto">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Exact match</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item active">Exact match</a></li>
+                <li><a class="dropdown-item">Match</a></li>
+            </ul>
+        </div>
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <div class="btn-group">
+            <button class="btn btn-secondary" type="button" name="paginationSwitch" aria-label="Hide/Show pagination" title="Hide/Show pagination">
+                <i class="oi oi-caret-bottom"></i>
+            </button>
+            <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh">
+                <i class="oi oi-loop-circular"></i>
+            </button>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr class="text-center">
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Operate</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Vm.IsBusy)
+            {
+                <h1>LOADING</h1>
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            }
+            else
+            {
+                @foreach (var item in Vm.Records)
+                {
+                    <tr class="text-center" data-bs-toggle="modal" href="#viewModal">
+                        <td>@item.DataEntityId</td>
+                        <td>@item.ToString()</td>
+                        <td>
+                            <a class="remove" title="Remove"><i class="oi oi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+    <div class="d-flex">
+        <div class="dropdown">
+            Showing 1 to 10 of 792 rows
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">5</button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item active">5</a></li>
+                <li><a class="dropdown-item">10</a></li>
+                <li><a class="dropdown-item">25</a></li>
+                <li><a class="dropdown-item">50</a></li>
+                <li><a class="dropdown-item">100</a></li>
+                <li><a class="dropdown-item">All</a></li>
+            </ul>
+            rows per page
+        </div>
+        <nav class="ms-auto">
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <button type="button" class="btn btn-primary" @onclick="() => Vm.CreateNew()">Create new item</button>
+
+}
+
+<div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Create new item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Item</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public IDataViewModel Vm { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        //Vm.FillObservableRecordsAsync();
+       // Vm.PropertyChanged += (sender, e) => StateHasChanged();
+        return base.OnInitializedAsync();
+    }
+}

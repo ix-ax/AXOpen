@@ -1,0 +1,51 @@
+name: "@ix-ax/ix.framework.probers"
+version                        : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.82'
+type: lib
+targets:
+  - "1500"
+  - llvm
+  - axunit
+  - axunit-llvm
+  - plcsim
+files:
+  - src
+dependencies:
+  "@ix-ax/ix.framework.core"                        : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.82'
+devDependencies:
+  "@ax/sdk": 3.0.8
+variables:
+  APAX_BUILD_ARGS: [ -d ]  
+repository:
+  type: "git"
+  url: "https://github.com/ix-ax/ix.framework.git"
+license: "https://github.com/ix-ax/ix.framework/blob/dev/license"
+homepage: "https://github.com/ix-ax/ix.framework"
+
+scripts:
+  ixc:
+    - dotnet tool restore
+    - dotnet ixc
+  download:
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r --default-server-interface
+  check+download: |
+    if [ $AXTARGET ]; then
+      if [ $AXTARGETPLATFORMINPUT ]; then
+        if ping -n 1 $AXTARGET &> /dev/null; then
+          echo "Downloading from:" $AXTARGETPLATFORMINPUT "=>" $AXTARGET
+          apax download
+        else
+          echo "Target with IP address:" $AXTARGET "is not accessible. No download is going to be performed!!!"
+        fi
+      else
+        echo "Environment variable AXTARGETPLATFORMINPUT not defined!!!"
+      fi
+    else
+      echo "Environment variable AXTARGET not defined!!!"
+    fi
+  do-it-all:
+    - apax install
+    - apax build
+    - apax download
+  postbuild:
+    - apax ixc

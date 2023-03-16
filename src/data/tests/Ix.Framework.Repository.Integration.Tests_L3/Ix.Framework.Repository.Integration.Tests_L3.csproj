@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<IsPackable>false</IsPackable>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	</PropertyGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="nunit" Version="3.13.3" />
+		<PackageReference Include="JunitXml.TestLogger" Version="3.0.124" />
+	<PackageReference Include="NUnit3TestAdapter" Version="4.4.2" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0-preview-20230223-05" />
+		<PackageReference Include="RavenDB.Embedded" Version="5.3.108" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<None Update="xunit.runner.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\repositories\MongoDb\Ix.Framework.Data.MongoDb.csproj" />
+	  <ProjectReference Include="..\..\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\Ix.Framework.Data.RavenDb.csproj" />
+	</ItemGroup>
+</Project>

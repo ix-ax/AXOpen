@@ -3,14 +3,17 @@
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<PackageId>ix.framework.probers</PackageId>
+		<RootNamespace>ix.framework.probers</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="GitVersion.MsBuild" Version="5.12.0">
+		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Ix.Connector" Version="0.13.4-alpha.86" />
+		<PackageReference Include="Ix.Connector" Version="0.13.4-alpha.93" />
+		<PackageReference Include="Ix.Connector.S71500.WebAPI" Version="0.13.4-alpha.93" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -21,5 +24,9 @@
 	<ItemGroup>
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\core\src\ix.framework.core\_ix-ax_ix.framework.core.csproj" />
 	</ItemGroup>
 </Project>

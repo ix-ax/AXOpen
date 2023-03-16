@@ -11,6 +11,10 @@
 		{
 			"name": "data",
 			"path": "data\\ctrl"
+		},
+		{
+			"name": "probers",
+			"path": "probers\\ctrl"
 		}
 	],
 	"settings": {}
