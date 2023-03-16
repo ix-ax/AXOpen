@@ -155,6 +155,11 @@ public class BuildContext : FrostingContext
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl");
     }
 
+    public string GetAxTestResultsFolder(string axFolder)
+    {
+        return Path.Combine(axFolder, "testresult");
+    }
+
     public string GetAxFolder((string folder, string name, string targetIp, string targetPlatform) app)
     {
         return GetAxFolder((app.folder, app.name));

@@ -6,6 +6,7 @@
 // Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
 
 using System.IO;
+using System.Linq;
 using Cake.Common.Tools.ILMerge;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
@@ -94,6 +95,12 @@ public static class ApaxCmd
 
         var exitcode = process.GetExitCode();
         context.Log.Information($"apax test exited with '{exitcode}'");
+
+        foreach (var resultFile in Directory.EnumerateFiles(context.GetAxTestResultsFolder(context.GetAxFolder(lib)), "*.xml").Select(p => new FileInfo(p)))
+        {
+            File.Copy(resultFile.FullName, Path.Combine(context.TestResults, $"controller_{lib.name}_{resultFile.Name}.xml") );
+        }
+
         if (exitcode != 0)
         {
             throw new TestFailedException();
