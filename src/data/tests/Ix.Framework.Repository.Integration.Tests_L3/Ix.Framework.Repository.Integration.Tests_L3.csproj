@@ -22,9 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\repositories\InMemory\Ix.Framework.Data.InMemory.csproj" />
-	  <ProjectReference Include="..\..\src\repositories\Json\Ix.Framework.Data.Json.csproj" />
 	  <ProjectReference Include="..\..\src\repositories\MongoDb\Ix.Framework.Data.MongoDb.csproj" />
-	  <ProjectReference Include="..\..\src\repositories\RavenDb\TcOpen.Inxton.RavenDb\Ix.Framework.Data.RavenDb.csproj" />
+	  <ProjectReference Include="..\..\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\Ix.Framework.Data.RavenDb.csproj" />
 	</ItemGroup>
 </Project>
