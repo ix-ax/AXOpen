@@ -3,7 +3,7 @@
     "path": "ix.framework.sln",
     "projects": [
       "core\\tests\\ix.famework.core.tests\\ix.framework.core.tests.csproj",
-      "data\\tests\\Ix.Framework.Repository.Integration.Tests\\Ix.Framework.Repository.Integration.Tests.csproj",
+      "data\\tests\\Ix.Framework.Repository.Integration.Tests_L1\\Ix.Framework.Repository.Integration.Tests_L1.csproj",
       "data\\tests\\ix.famework.data.tests\\ix.framework.data.tests.csproj"
     ]
   }

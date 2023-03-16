@@ -1,8 +1,8 @@
 ﻿using Ix.Base.Data;
 using Ix.Framework.Data;
-using Ix.Framework.RavenDb;
 using System.IO;
 using System.Reflection;
+using Ix.Framework.Data.RavenDb;
 using Raven.Embedded;
 
 namespace Ix.Framework.Repository.Integration.Tests

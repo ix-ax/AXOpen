@@ -33,7 +33,6 @@ namespace ix.framework.data
             try
             {
                 // TODO: determine current user name
-                //userName = TcOpen.Inxton.Local.Security.SecurityManager.Manager.Principal.Identity.Name;
             }
             catch
             {
@@ -55,7 +54,7 @@ namespace ix.framework.data
         {
             foreach (var change in Changes)
             {
-                //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User '{change.UserName}' changed value of '{change.ValueTag.Symbol}' from '{change.OldValue}' to '{change.NewValue}' {{@payload}}", change);                
+                // TODO: Log value change
             }
 
             if (DataObject.Changes == null)

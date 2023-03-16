@@ -6,7 +6,8 @@ using Ix.Base.Data;
 using Ix.Connector;
 using Ix.Framework.Data.InMemory;
 using Ix.Framework.Data.Json;
-using Ix.Framework.RavenDb;
+using Ix.Framework.Data.MongoDb;
+using Ix.Framework.Data.RavenDb;
 using Pocos.IntegrationLightDirect;
 using Raven.Embedded;
 
@@ -142,9 +143,9 @@ namespace integrations.data
         }
     }
 
-    public class DataExchangeTestBaseInMemory : DataExchangeTestBase
+    public class DataExchangeTestInMemory : DataExchangeTestBase
     {
-        public DataExchangeTestBaseInMemory() : base()
+        public DataExchangeTestInMemory() : base()
         {
             Remoting.KickOff();
             this.Repository = new InMemoryRepository<DataSet>(new());
@@ -157,9 +158,9 @@ namespace integrations.data
         }
     }
 
-    public class DataExchangeTestBaseJson : DataExchangeTestBase
+    public class DataExchangeTestJson : DataExchangeTestBase
     {
-        public DataExchangeTestBaseJson() : base()
+        public DataExchangeTestJson() : base()
         {
             Remoting.KickOff();
             var assemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
@@ -180,9 +181,9 @@ namespace integrations.data
         }
     }
 
-    public class DataExchangeTestBaseRaven : DataExchangeTestBase
+    public class DataExchangeTestRaven : DataExchangeTestBase
     {
-        public DataExchangeTestBaseRaven() : base()
+        public DataExchangeTestRaven() : base()
         {
             Remoting.KickOff();
             this.Repository = new RavenDbRepository<DataSet>(new RavenDbRepositorySettings<DataSet>(new string[] { "http://localhost:8080" }, "TestDataBase", "", "credentials"));

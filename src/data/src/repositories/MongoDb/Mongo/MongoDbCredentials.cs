@@ -22,7 +22,7 @@
     /// <code>
     ///     db.createUser(
     ///       {
-    ///         user: "TcOpenAdmin",
+    ///         user: "Admin",
     ///         pwd: "changeMeToAStrongPassword",
     ///         roles: [ "root" ]   
     ///       }
@@ -37,9 +37,9 @@
     /// You should get something like this
     /// <code>
     ///     {
-    ///         "_id" : "admin.TcOpenAdmin",
+    ///         "_id" : "admin.Admin",
     ///         "userId" : UUID("78617a69-1b33-407d-97a8-4efe7cbaacf8"),
-    ///         "user" : "TcOpenAdmin",
+    ///         "user" : "Admin",
     ///         "db" : "admin",
     ///         "roles" : [
     ///                 {
