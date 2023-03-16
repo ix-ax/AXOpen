@@ -400,3 +400,4 @@ FodyWeavers.xsd
 
 artifacts/
 .idea/
+/src/integrations/integration.blazor/Data/processdata
