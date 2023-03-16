@@ -32,11 +32,11 @@ namespace integration.blazor
 
             Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
 
-            Entry.Plc.process_data_manager.InitializeRepository(
-                Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata"))));
+            var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
 
-            Entry.Plc.MainContext.process_data_manager_remote_exec.InitializeRemoteDataExchange(
-                Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata"))));
+            // Entry.Plc.process_data_manager.InitializeRepository(repository);
+
+            Entry.Plc.MainContext.process_data_manager.InitializeRemoteDataExchange(repository);
 
             var app = builder.Build();
 

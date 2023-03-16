@@ -7,7 +7,7 @@ PROGRAM MyProgram
         myComponentExample : IxComponentExamples.ComponentExampleContext;
         myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
         ixcore_remote_tasks : IxRemoteTaskExamples.RemoteTasks;
-        process_data_manager: ixDataExamples.IxProcessDataManager;
+        
 
 
         // Integration test
@@ -20,7 +20,7 @@ PROGRAM MyProgram
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
     ixcore_remote_tasks.Run();   
-    process_data_manager.Run(MainContext);
+    
     // Integration tests
     Integrations.Run();      
     
@@ -29,7 +29,7 @@ END_PROGRAM
 
 CLASS MyContext EXTENDS ix.framework.core.IxContext    
     VAR PUBLIC         
-        process_data_manager_remote_exec: ixDataExamples.IxProcessDataManager;
+        process_data_manager: ixDataExamples.IxProcessDataManager;
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main        
@@ -37,29 +37,29 @@ CLASS MyContext EXTENDS ix.framework.core.IxContext
     END_METHOD
 
     METHOD DataExchangeTests : Int               
-        process_data_manager_remote_exec.Run(THIS);   
+        process_data_manager.Run(THIS);   
         
-        IF(process_data_manager_remote_exec._create) THEN
-            IF(process_data_manager_remote_exec.Create(process_data_manager_remote_exec._identifier).IsDone()) THEN
-                process_data_manager_remote_exec._create := FALSE;
+        IF(process_data_manager._create) THEN
+            IF(process_data_manager.Create(process_data_manager._identifier).IsDone()) THEN
+                process_data_manager._create := FALSE;
             END_IF;    
         END_IF;   
         
-        IF(process_data_manager_remote_exec._read) THEN
-            IF(process_data_manager_remote_exec.Read(process_data_manager_remote_exec._identifier).IsDone()) THEN
-                process_data_manager_remote_exec._read := FALSE;
+        IF(process_data_manager._read) THEN
+            IF(process_data_manager.Read(process_data_manager._identifier).IsDone()) THEN
+                process_data_manager._read := FALSE;
             END_IF;    
         END_IF;  
 
-        IF(process_data_manager_remote_exec._update) THEN
-            IF(process_data_manager_remote_exec.Update(process_data_manager_remote_exec._identifier).IsDone()) THEN
-                process_data_manager_remote_exec._update := FALSE;
+        IF(process_data_manager._update) THEN
+            IF(process_data_manager.Update(process_data_manager._identifier).IsDone()) THEN
+                process_data_manager._update := FALSE;
             END_IF;    
         END_IF;  
 
-        IF(process_data_manager_remote_exec._delete) THEN
-            IF(process_data_manager_remote_exec.Delete(process_data_manager_remote_exec._identifier).IsDone()) THEN
-                process_data_manager_remote_exec._delete := FALSE;
+        IF(process_data_manager._delete) THEN
+            IF(process_data_manager.Delete(process_data_manager._identifier).IsDone()) THEN
+                process_data_manager._delete := FALSE;
             END_IF;    
         END_IF; 
     END_METHOD
