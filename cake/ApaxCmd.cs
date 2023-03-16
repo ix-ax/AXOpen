@@ -98,7 +98,7 @@ public static class ApaxCmd
 
         foreach (var resultFile in Directory.EnumerateFiles(context.GetAxTestResultsFolder(context.GetAxFolder(lib)), "*.xml").Select(p => new FileInfo(p)))
         {
-            File.Copy(resultFile.FullName, Path.Combine(context.TestResults, $"controller_{lib.name}_{resultFile.Name}.xml") );
+            File.Copy(resultFile.FullName, Path.Combine(context.TestResultsCtrl, $"controller_{lib.name}_{resultFile.Name}.xml"));
         }
 
         if (exitcode != 0)
