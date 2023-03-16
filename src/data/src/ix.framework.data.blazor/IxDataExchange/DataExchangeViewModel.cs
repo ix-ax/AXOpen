@@ -14,9 +14,6 @@ namespace ix.framework.data
 {
     public class DataExchangeViewModel : RenderableViewModelBase
     {
-
-
-
         public IDataViewModel DataViewModel
         {
             get;

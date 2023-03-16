@@ -9,6 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using Cake.Common.Tools.DotNet;
 using Cake.Common.Tools.DotNet.Build;
@@ -17,7 +18,9 @@ using Cake.Common.Tools.DotNet.Run;
 using Cake.Common.Tools.DotNet.Test;
 using Cake.Core;
 using Cake.Frosting;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Polly;
+using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
 
 public class BuildContext : FrostingContext
@@ -91,6 +94,10 @@ public class BuildContext : FrostingContext
 
     public BuildParameters BuildParameters { get; }
 
+    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net6.0", "net7.0" };
+
+    public string TestResults => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResults//");
+
     public BuildContext(ICakeContext context, BuildParameters buildParameters)
         : base(context)
     {
@@ -131,11 +138,12 @@ public class BuildContext : FrostingContext
     {
         ("core", "ix.framework.core"),
         ("data", "ix.framework.data"),
+        ("probers", "ix.framework.probers"),
     };
 
-    public IEnumerable<(string folder, string name)> Integrations { get; } = new[]
+    public IEnumerable<(string folder, string name, string targetIp, string targetPlatform)> Integrations { get; } = new[]
     {
-        ("integrations", "ix.integrations"),        
+        ("integrations", "ix.integrations", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),        
     };
 
     public string GitHubUser { get; } = System.Environment.GetEnvironmentVariable("GH_USER");
@@ -147,9 +155,19 @@ public class BuildContext : FrostingContext
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl");
     }
 
+    public string GetAxFolder((string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        return GetAxFolder((app.folder, app.name));
+    }
+
     public string GetApaxFile((string folder, string name) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl", "apax.yml");
+    }
+
+    public string GetApaxFile((string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        return GetApaxFile((app.folder, app.name));
     }
 
     public string EnsureFolder(string path)

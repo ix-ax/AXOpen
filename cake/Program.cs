@@ -16,6 +16,7 @@ using System.Management.Automation;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Build.FilteredSolution;
 using Cake.Common;
 using Cake.Common.IO;
 using Cake.Common.Tools.DotNet;
@@ -132,12 +133,39 @@ public sealed class TestsTask : FrostingTask<BuildContext>
             return;
         }
 
-        context.Libraries.ToList().ForEach(lib => context.ApaxTest(lib));
-        context.Integrations.ToList().ForEach(proj => context.ApaxTest(proj));
+        context.Libraries.ToList().ForEach(context.ApaxTest);
+        context.Integrations.ToList().ForEach(context.ApaxTest);
 
-        //context.DotNetTest(Path.Combine(context.RootDir, "ix.framework-L1-tests.slnf"), context.DotNetTestSettings);
+        if (context.BuildParameters.TestLevel == 1)
+        {
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "ix.framework-L1-tests.slnf"));
+        }
+        else if (context.BuildParameters.TestLevel == 2)
+        {
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "ix.framework-L2-tests.slnf"));
+        }
+        else
+        {
+            context.Integrations.ToList().ForEach(context.ApaxDownload);
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "ix.framework-L2-tests.slnf"));
+        }
 
         context.Log.Information("Tests done.");
+    }
+
+    private static void RunTestsFromFilteredSolution(BuildContext context, string filteredSolutionFile)
+    {
+        foreach (var project in FilteredSolution.Parse(filteredSolutionFile).solution.projects
+                     .Select(p => new FileInfo(Path.Combine(context.RootDir, p)))
+                     .Where(p => p.Name.ToUpperInvariant().Contains("TEST")))
+        {
+            foreach (var framework in context.TargetFrameworks)
+            {
+                context.DotNetTestSettings.VSTestReportPath = Path.Combine(context.TestResults, $"{project.Name}_{framework}.xml");
+                context.DotNetTestSettings.Framework = framework;
+                context.DotNetTest(Path.Combine(project.FullName), context.DotNetTestSettings);
+            }
+        }
     }
 }
 

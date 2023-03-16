@@ -7,6 +7,8 @@ PROGRAM MyProgram
         myComponentExample : IxComponentExamples.ComponentExampleContext;
         myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
         ixcore_remote_tasks : IxRemoteTaskExamples.RemoteTasks;
+        process_data_manager: ixDataExamples.IxProcessDataManager;
+
 
         // Integration test
         Integrations : IntegrationTests.Integrations;
@@ -18,7 +20,7 @@ PROGRAM MyProgram
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
     ixcore_remote_tasks.Run();   
-    
+    process_data_manager.Run(MainContext);
     // Integration tests
     Integrations.Run();      
     
