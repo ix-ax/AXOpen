@@ -98,6 +98,8 @@ public class BuildContext : FrostingContext
 
     public string TestResults => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResults//");
 
+    public string TestResultsCtrl => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResultsCtrl//");
+
     public BuildContext(ICakeContext context, BuildParameters buildParameters)
         : base(context)
     {
