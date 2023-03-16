@@ -134,9 +134,6 @@ public sealed class TestsTask : FrostingTask<BuildContext>
             return;
         }
 
-        context.Libraries.ToList().ForEach(context.ApaxTest);
-        context.Integrations.ToList().ForEach(context.ApaxTest);
-
         if (context.BuildParameters.TestLevel == 1)
         {
             RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "ix.framework-L1-tests.slnf"));
@@ -150,6 +147,9 @@ public sealed class TestsTask : FrostingTask<BuildContext>
             context.Integrations.ToList().ForEach(context.ApaxDownload);
             RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "ix.framework-L2-tests.slnf"));
         }
+
+        context.Libraries.ToList().ForEach(context.ApaxTest);
+        context.Integrations.ToList().ForEach(context.ApaxTest);
 
         context.Log.Information("Tests done.");
     }
