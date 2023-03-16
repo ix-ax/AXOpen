@@ -41,15 +41,25 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Vm.ObservableRecords)
+            @if (Vm.IsBusy)
             {
-                <tr class="text-center" data-bs-toggle="modal" href="#viewModal">
-                    <td>@item.DataEntityId</td>
-                    <td>@item.ToString()</td>
-                    <td>
-                        <a class="remove" title="Remove"><i class="oi oi-trash"></i></a>
-                    </td>
-                </tr>
+                <h1>LOADING</h1>
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            }
+            else
+            {
+                @foreach (var item in Vm.Records)
+                {
+                    <tr class="text-center" data-bs-toggle="modal" href="#viewModal">
+                        <td>@item.DataEntityId</td>
+                        <td>@item.ToString()</td>
+                        <td>
+                            <a class="remove" title="Remove"><i class="oi oi-trash"></i></a>
+                        </td>
+                    </tr>
+                }
             }
 
         </tbody>
@@ -132,8 +142,10 @@ else
     [Parameter]
     public IDataViewModel Vm { get; set; }
 
-    protected override void OnInitialized()
+    protected override Task OnInitializedAsync()
     {
-        base.OnInitialized();
+        //Vm.FillObservableRecordsAsync();
+       // Vm.PropertyChanged += (sender, e) => StateHasChanged();
+        return base.OnInitializedAsync();
     }
 }

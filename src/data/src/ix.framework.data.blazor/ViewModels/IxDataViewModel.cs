@@ -10,24 +10,28 @@ using System.Text;
 using System.Threading.Tasks;
 using ix.framework.data;
 using System.Collections.ObjectModel;
+using System.Runtime.CompilerServices;
 
 namespace ix.framework.core.ViewModels
 {
-    public class IxDataViewModel
+    public class IxDataViewModel : ObservableObject
     {
         public static IxDataViewModel<T> Create<T>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new()
         {
             return new IxDataViewModel<T>(repository, dataExchange);
+            
         }
     }
 
-    public class IxDataViewModel<T> : IDataViewModel where T : IBrowsableDataObject, new()
+    public partial class IxDataViewModel<T> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() 
     {
 
         public IxDataViewModel(IRepository<T> repository, DataExchange dataExchange) : base()
         {
+    
             this.DataExchange = dataExchange;
             DataBrowser = CreateBrowsable(repository);
+            Records = new ObservableCollection<IBrowsableDataObject>();
             FillObservableRecords();
         }
 
@@ -39,23 +43,41 @@ namespace ix.framework.core.ViewModels
         public DataBrowser<T> DataBrowser { get; set; }
         public DataExchange DataExchange { get; }
 
-        readonly List<IBrowsableDataObject> observableRecords = new();
-        public List<IBrowsableDataObject> ObservableRecords
-        {
-            get
-            {
-                return observableRecords;
-            }
-        }
 
+        public ObservableCollection<IBrowsableDataObject> Records { get; set; }
+
+        //ObservableCollection<IBrowsableDataObject> IDataViewModel.Records => throw new NotImplementedException();
+        public int Limit { get; set; } = 10;
+        public string FilterById { get; set; } = "";
+        public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
+        public long FilteredCount { get; set; }
+        public int Page { get; set; } = 0;
+
+
+        //public Task FillObservableRecordsAsync()
+        //{
+
+        //    IsBusy = true;
+        //    //let another thread to load records, we need main thread to show loading symbol in blazor page
+        //    var records = Task.Run(() => FillObservableRecords());
+
+        //    IsBusy = false;
+        //    return records;
+
+        //}
+        [ObservableProperty]
+        public bool isBusy;
         internal void FillObservableRecords()
         {
-            ObservableRecords.Clear();
-
+            Records.Clear();
+            DataBrowser.Filter(FilterById, Limit, Page * Limit, SearchMode);
+         
             foreach (var item in DataBrowser.Records)
             {
-                ObservableRecords.Add(item);
+                Records.Add(item);
             }
+
+           
         }
 
         public void CreateNew()
