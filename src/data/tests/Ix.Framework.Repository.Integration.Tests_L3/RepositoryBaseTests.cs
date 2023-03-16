@@ -410,9 +410,6 @@ namespace Ix.Framework.Repository.Integration.Tests
         [Test()]
         public void AlteredStructureTest()
         {
-            if (this is InMemoryRepositoryTests)
-                return;
-
             //-- Arrange
             var testObject = new DataTestObject() { Name = "Pepo", DateOfBirth = DateTime.Now, Age = 15, _Created = new DateTime() };
             var testObject1 = new DataTestObject() { Name = "Pepo1", DateOfBirth = DateTime.Now, Age = 15, _Created = new DateTime() };
