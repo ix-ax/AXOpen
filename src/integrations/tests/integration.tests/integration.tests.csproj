@@ -28,7 +28,13 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
+	<ItemGroup>
+		<None Update="xunit.runner.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
     <ProjectReference Include="..\..\..\data\src\repositories\Json\Ix.Framework.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\MongoDb\Ix.Framework.Data.MongoDb.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\Ix.Framework.Data.RavenDb.csproj" />

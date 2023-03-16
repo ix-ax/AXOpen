@@ -19,6 +19,11 @@
 		<PackageReference Include="RavenDB.Embedded" Version="5.3.108" />
   </ItemGroup>
 
+	<ItemGroup>
+		<None Update="xunit.runner.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\repositories\InMemory\Ix.Framework.Data.InMemory.csproj" />

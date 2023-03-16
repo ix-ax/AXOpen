@@ -25,6 +25,12 @@
     </PackageReference>
   </ItemGroup>
 
+	<ItemGroup>
+		<None Update="xunit.runner.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\src\ix.framework.core\_ix-ax_ix.framework.core.csproj" />
   </ItemGroup>
