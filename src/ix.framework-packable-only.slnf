@@ -10,7 +10,8 @@
       "data\\src\\repositories\\InMemory\\Ix.Framework.Data.InMemory.csproj",
       "data\\src\\repositories\\Json\\Ix.Framework.Data.Json.csproj",
       "data\\src\\repositories\\MongoDb\\Ix.Framework.Data.MongoDb.csproj",
-      "data\\src\\repositories\\RavenDb\\TcOpen.Inxton.RavenDb\\Ix.Framework.Data.RavenDb.csproj"
+      "data\\src\\repositories\\RavenDb\\Ix.Framework.Data.RavenDb\\Ix.Framework.Data.RavenDb.csproj",
+      "probers\\src\\ix.framework.probers\\_ix-ax_ix.framework.probers.csproj"
     ]
   }
 }

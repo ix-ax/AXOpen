@@ -67,7 +67,8 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
         context.Libraries.ToList().ForEach(lib => context.ApaxClean(lib));
         context.Integrations.ToList().ForEach(integration => context.ApaxClean(integration));
         context.DotNetClean(Path.Combine(context.RootDir, "ix.framework.sln"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity});
-        context.CleanDirectory(context.Artifacts);       
+        context.CleanDirectory(context.Artifacts);
+        context.CleanDirectory(context.TestResults);
     }
 }
 

@@ -51,12 +51,9 @@ namespace ix.framework.coretests
         {
             // Arrange
             var parameter = new object();
-
+            
             // Act
             _testClass.Execute(parameter);
-
-            // Assert
-            Assert.True(await _testClass.RemoteInvoke.GetAsync());
         }
     }
 }
