@@ -32,7 +32,6 @@ namespace ix.framework.core.ViewModels
             this.DataExchange = dataExchange;
             DataBrowser = CreateBrowsable(repository);
             Records = new ObservableCollection<IBrowsableDataObject>();
-            FillObservableRecords();
         }
 
         private DataBrowser<T> CreateBrowsable(IRepository<T> repository)
@@ -46,7 +45,6 @@ namespace ix.framework.core.ViewModels
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; }
 
-        //ObservableCollection<IBrowsableDataObject> IDataViewModel.Records => throw new NotImplementedException();
         public int Limit { get; set; } = 10;
         public string FilterById { get; set; } = "";
         public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
@@ -54,20 +52,20 @@ namespace ix.framework.core.ViewModels
         public int Page { get; set; } = 0;
 
 
-        //public Task FillObservableRecordsAsync()
-        //{
+        public Task FillObservableRecordsAsync()
+        {
 
-        //    IsBusy = true;
-        //    //let another thread to load records, we need main thread to show loading symbol in blazor page
-        //    var records = Task.Run(() => FillObservableRecords());
+            //let another thread to load records, we need main thread to show loading symbol in blazor page
+            return Task.Run(() => {
+                IsBusy = true;
+                FillObservableRecords();
+                IsBusy = false;
+            });
 
-        //    IsBusy = false;
-        //    return records;
-
-        //}
-        [ObservableProperty]
-        public bool isBusy;
-        internal void FillObservableRecords()
+        }
+ 
+        public bool IsBusy { get; set; }
+        public void FillObservableRecords()
         {
             Records.Clear();
             DataBrowser.Filter(FilterById, Limit, Page * Limit, SearchMode);
@@ -76,14 +74,16 @@ namespace ix.framework.core.ViewModels
             {
                 Records.Add(item);
             }
-
            
         }
-
+        public string DataEntityId { get; set; }
         public void CreateNew()
         {
             var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
-
+            if (DataEntityId != null)
+            {
+                plainer.DataEntityId = DataEntityId;
+            }
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
@@ -99,6 +99,22 @@ namespace ix.framework.core.ViewModels
             var plain = DataBrowser.FindById(plainer.DataEntityId);
             ((dynamic)DataExchange)._data.PlainToShadowAsync(plain).Wait();
             FillObservableRecords();
+            DataEntityId = null;
+        }
+
+
+        public async Task Filter()
+        {
+            await FillObservableRecordsAsync();
+        }
+
+        public async Task RefreshFilter()
+        {
+            Limit = 10;
+            FilterById = "";
+            SearchMode = eSearchMode.Exact;
+            Page = 0;
+            await FillObservableRecordsAsync();
         }
     }
 

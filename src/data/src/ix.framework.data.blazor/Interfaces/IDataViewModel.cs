@@ -17,7 +17,16 @@ namespace ix.framework.core.Interfaces
 
         ObservableCollection<IBrowsableDataObject> Records { get; set; }
 
-        //Task FillObservableRecordsAsync();
+        Task FillObservableRecordsAsync();
+        Task Filter();
+        Task RefreshFilter();
+        string DataEntityId { get; set; }
+        int Limit { get; set; }
+        string FilterById { get; set; }
+        eSearchMode SearchMode { get; set; }
+        long FilteredCount { get; set; }
+        int Page { get; set; }
+
         bool IsBusy { get; set; }
 
         void CreateNew();
