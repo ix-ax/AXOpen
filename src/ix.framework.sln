@@ -79,7 +79,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{281D9B0C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_ix-ax_ix.framework.messaging", "messaging\src\ix.framework.messaging\_ix-ax_ix.framework.messaging.csproj", "{2D2D7744-69CE-4912-84C2-D8FD384F11FB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.framework.core.messaging", "messaging\src\ix.framework.messaging.blazor\ix.framework.core.messaging.csproj", "{C5E7E83F-5C6A-46A1-BF2A-8BECD7736321}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.framework.messaging.blazor", "messaging\src\ix.framework.messaging.blazor\ix.framework.messaging.blazor.csproj", "{C5E7E83F-5C6A-46A1-BF2A-8BECD7736321}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.framework.messaging.tests", "messaging\tests\ix.famework.messaging.tests\ix.framework.messaging.tests.csproj", "{655988E7-E9CB-44FD-ADAB-8C6204361E34}"
 EndProject

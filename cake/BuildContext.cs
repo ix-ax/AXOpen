@@ -138,11 +138,11 @@ public class BuildContext : FrostingContext
 
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
     {
+        ("utils", "ix.framework.utils"),
         ("core", "ix.framework.core"),
+        ("messaging", "ix.framework.messaging"),
         ("data", "ix.framework.data"),
         ("probers", "ix.framework.probers"),
-        ("messaging", "ix.framework.messaging"),
-        ("utils", "ix.framework.utils"),
     };
 
     public IEnumerable<(string folder, string name, string targetIp, string targetPlatform)> Integrations { get; } = new[]

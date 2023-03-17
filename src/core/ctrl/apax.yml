@@ -1,20 +1,15 @@
 name: "@ix-ax/ix.framework.core"
-version                                    : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.89'
+version                                              : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.93'
 type: lib
 targets:
-  - "1500"
-  - llvm
-  - axunit
+#  - "1500"
+#  - llvm
+#  - axunit
   - axunit-llvm
 files:
   - src
 devDependencies:
   "@ax/sdk": 3.0.8
-repository:
-  type: "git"
-  url: "https://github.com/ix-ax/ix.framework.git"
-license: "https://github.com/ix-ax/ix.framework/blob/dev/license"
-homepage: "https://github.com/ix-ax/ix.framework"
 
 scripts:
   postbuild:

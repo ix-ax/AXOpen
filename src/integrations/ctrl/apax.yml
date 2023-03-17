@@ -1,15 +1,15 @@
 name: "integrations"
-version                                      : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.89'
+version                                             : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.93'
 type: app
 targets:
-  - "1500"
-  - plcsim
+#  - "1500"
+#  - llvm
+#  - axunit
   - axunit-llvm
-  - axunit
 dependencies:
-  "@ix-ax/ix.framework.core"                                       : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.89'
-  "@ix-ax/ix.framework.data"                                       : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.89'
-  "@ix-ax/ix.framework.probers"                                    : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.89'
+  "@ix-ax/ix.framework.core"                                              : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.93'
+  "@ix-ax/ix.framework.data"                                              : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.93'
+  "@ix-ax/ix.framework.probers"                                           : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.93'
   "@ax/sdk": ^3.0.11
 variables:
   APAX_BUILD_ARGS: [ -d ]

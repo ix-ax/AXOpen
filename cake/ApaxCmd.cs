@@ -14,12 +14,14 @@ using Cake.Core.IO;
 using Ix.Compiler;
 using Microsoft.Win32;
 using Octokit;
+using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
 
 public static class ApaxCmd
 {
     public static void ApaxInstall(this BuildContext context, (string folder, string name) lib)
     {
+        context.Log.Information($"apax install started for '{lib.folder} : {lib.name}'");
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
             Arguments = "install -L",
@@ -54,6 +56,7 @@ public static class ApaxCmd
 
     public static void ApaxBuild(this BuildContext context, (string folder, string name) lib)
     {
+        context.Log.Information($"apax build started for '{lib.folder} : {lib.name}'");
         var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
             Arguments = "build",
@@ -65,7 +68,7 @@ public static class ApaxCmd
 
         process.WaitForExit();
         var exitcode = process.GetExitCode();
-        context.Log.Information($"apax test exited with '{exitcode}'");
+        context.Log.Information($"apax build exited with '{exitcode}'");
 
         if (exitcode != 0)
         {
