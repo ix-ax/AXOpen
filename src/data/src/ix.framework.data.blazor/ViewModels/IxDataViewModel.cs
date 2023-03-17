@@ -67,7 +67,7 @@ namespace ix.framework.core.ViewModels
         //}
         [ObservableProperty]
         public bool isBusy;
-        internal void FillObservableRecords()
+        public void FillObservableRecords()
         {
             Records.Clear();
             DataBrowser.Filter(FilterById, Limit, Page * Limit, SearchMode);
