@@ -22,13 +22,18 @@ else
             </ul>
         </div>
         <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @bind="Vm.FilterById" >
+            <button class="btn btn-secondary" type="button" name="searchbutton" @onclick="()=> Vm.Filter()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+            </button>
         </form>
         <div class="btn-group">
             <button class="btn btn-secondary" type="button" name="paginationSwitch" aria-label="Hide/Show pagination" title="Hide/Show pagination">
                 <i class="oi oi-caret-bottom"></i>
             </button>
-            <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="@(() => Vm.FillObservableRecords())">
+            <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="@(() => Vm.RefreshFilter())">
                 <i class="oi oi-loop-circular"></i>
             </button>
         </div>
@@ -44,10 +49,24 @@ else
         <tbody>
             @if (Vm.IsBusy)
             {
-                <h1>LOADING</h1>
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
+
+                <tr class="text-center">
+                    <td colspan="3">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </td>
+                </tr>
+               
+            }
+            else if(!Vm.Records.Any())
+            {
+                <tr class="text-center">
+                    <td colspan="3">
+                        <h3 >Collection is empty</h3>
+                    </td>
+                </tr>
+                
             }
             else
             {
@@ -140,7 +159,7 @@ else
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" id="name" @bind="Vm.DataEntityId">
                 </div>
             </div>
             <div class="modal-footer">
@@ -181,10 +200,10 @@ else
         return r < 0 ? r + m : r;
     }
 
-    protected override Task OnInitializedAsync()
+
+
+    protected override async Task OnInitializedAsync()
     {
-        //Vm.FillObservableRecordsAsync();
-        // Vm.PropertyChanged += (sender, e) => StateHasChanged();
-        return base.OnInitializedAsync();
+        await Vm.FillObservableRecordsAsync();
     }
 }
