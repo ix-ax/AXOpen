@@ -34,7 +34,6 @@ namespace ix.framework.core.ViewModels
             this.DataExchange = dataExchange;
             DataBrowser = CreateBrowsable(repository);
             Records = new ObservableCollection<IBrowsableDataObject>();
-            FillObservableRecords();
         }
 
         private DataBrowser<T> CreateBrowsable(IRepository<T> repository)
@@ -48,30 +47,28 @@ namespace ix.framework.core.ViewModels
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; }
 
-        //ObservableCollection<IBrowsableDataObject> IDataViewModel.Records => throw new NotImplementedException();
         public int Limit { get; set; } = 10;
         public string FilterById { get; set; } = "";
         public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
         public long FilteredCount { get; set; }
         public int Page { get; set; } = 0;
         public string SelectedItemId { get; set; }
-        [Inject]
-        private ToastService toastService { get; set; }
+        public string CreateItemId { get; set; }
 
+        public bool IsBusy { get; set; }
 
-        //public Task FillObservableRecordsAsync()
-        //{
+        public Task FillObservableRecordsAsync()
+        {
 
-        //    IsBusy = true;
-        //    //let another thread to load records, we need main thread to show loading symbol in blazor page
-        //    var records = Task.Run(() => FillObservableRecords());
+            //let another thread to load records, we need main thread to show loading symbol in blazor page
+            return Task.Run(async () => {
+                IsBusy = true;
+                FillObservableRecords();
+                IsBusy = false;
+            });
 
-        //    IsBusy = false;
-        //    return records;
-
-        //}
-        [ObservableProperty]
-        public bool isBusy;
+        }
+        
         public void FillObservableRecords()
         {
             Records.Clear();
@@ -81,11 +78,24 @@ namespace ix.framework.core.ViewModels
             {
                 Records.Add(item);
             }
-
            
         }
 
-        public void CreateNew(string? DataEntityId = null)
+        public async Task Filter()
+        {
+            await FillObservableRecordsAsync();
+        }
+
+        public async Task RefreshFilter()
+        {
+            Limit = 10;
+            FilterById = "";
+            SearchMode = eSearchMode.Exact;
+            Page = 0;
+            await FillObservableRecordsAsync();
+        }
+
+        public void CreateNew()
         {
             var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
 
@@ -93,8 +103,8 @@ namespace ix.framework.core.ViewModels
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
 
-            if(DataEntityId != null)
-                plainer.DataEntityId = DataEntityId;
+            if (CreateItemId != null)
+                plainer.DataEntityId = CreateItemId;
 
             try
             {
@@ -108,10 +118,10 @@ namespace ix.framework.core.ViewModels
             var plain = DataBrowser.FindById(plainer.DataEntityId);
             ((dynamic)DataExchange)._data.PlainToShadowAsync(plain).Wait();
             FillObservableRecords();
-            toastService.AddToast("info", "Create", "Successfuly created item!", 10);
+            CreateItemId = null;
         }
 
-        public void Delete(string DataEntityId)
+        public void Delete()
         {
             var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
 
@@ -119,7 +129,7 @@ namespace ix.framework.core.ViewModels
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
 
-            plainer.DataEntityId = DataEntityId;
+            plainer.DataEntityId = SelectedItemId;
 
             DataBrowser.Delete((dynamic)plainer);
             FillObservableRecords();

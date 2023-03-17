@@ -17,20 +17,21 @@ namespace ix.framework.core.Interfaces
 
         ObservableCollection<IBrowsableDataObject> Records { get; set; }
 
-        //Task FillObservableRecordsAsync();
-        void FillObservableRecords();
-
+        Task FillObservableRecordsAsync();
+        Task Filter();
+        Task RefreshFilter();
         int Limit { get; set; }
         string FilterById { get; set; }
         eSearchMode SearchMode { get; set; }
         long FilteredCount { get; set; }
         int Page { get; set; }
         string SelectedItemId { get; set; }
+        string CreateItemId { get; set; }
 
         bool IsBusy { get; set; }
 
-        void CreateNew(string? DataEntityId = null);
-        void Delete(string DataEntityId);
+        void CreateNew();
+        void Delete();
         void Copy();
         void Edit();
         void SendToPlc();

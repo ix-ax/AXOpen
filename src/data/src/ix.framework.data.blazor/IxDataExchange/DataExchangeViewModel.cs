@@ -1,8 +1,10 @@
 ﻿using ix.ax.core.blazor;
+using ix.framework.core.blazor.Toaster;
 using ix.framework.core.Interfaces;
 using ix.framework.core.ViewModels;
 using ix.framework.data;
 using Ix.Presentation;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
