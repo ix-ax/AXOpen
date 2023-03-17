@@ -36,8 +36,7 @@ else
     <table class="table table-hover">
         <thead>
             <tr class="text-center">
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
+                <th scope="col">DataEntityId</th>
                 <th scope="col">Operate</th>
             </tr>
         </thead>
@@ -53,11 +52,10 @@ else
             {
                 @foreach (var item in Vm.Records)
                 {
-                    <tr class="text-center" data-bs-toggle="modal" href="#viewModal">
-                        <td>@item.DataEntityId</td>
-                        <td>@item.ToString()</td>
+                    <tr class="text-center">
+                        <td data-bs-toggle="modal" href="#viewModal" @onclick="@(() => Vm.SelectedItemId = item.DataEntityId)">@item.DataEntityId</td>
                         <td>
-                            <a class="remove" title="Remove"><i class="oi oi-trash"></i></a>
+                            <a class="remove cursor-pointer" title="Remove" data-bs-toggle="modal" data-bs-target="#deleteModal" @onclick="@(() => Vm.SelectedItemId = item.DataEntityId)"><i class="oi oi-trash"></i></a>
                         </td>
                     </tr>
                 }
@@ -131,7 +129,7 @@ else
 }
 
 <div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Create new item</h1>
@@ -139,30 +137,70 @@ else
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name">
+                    <label for="DataEntityId" class="form-label">DataEntityId</label>
+                    <input type="text" class="form-control" id="DataEntityId" @bind-value="DataEntityId">
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.CreateNew()">Create</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick='() => { Vm.CreateNew(DataEntityId); DataEntityId = ""; }'>Create</button>
             </div>
         </div>
     </div>
 </div>
 
 <div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Item</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedItemId</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Copy()">Copy</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.FromPlc()">From PLC</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedItemId</h1>
+                <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="DataEntityId" class="form-label">DataEntityId</label>
+                    <input type="text" class="form-control" id="DataEntityId" @bind-value="Vm.SelectedItemId">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Edit()">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete @Vm.SelectedItemId?</h1>
+                <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="() => Vm.Delete(Vm.SelectedItemId)">Delete</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal">Close</button>
             </div>
         </div>
     </div>
@@ -174,6 +212,7 @@ else
     public IDataViewModel Vm { get; set; }
 
     private int MaxPage { get { return Vm.Records.Count % Vm.Limit == 0 ? Vm.Records.Count / Vm.Limit - 1 : Vm.Records.Count / Vm.Limit; } }
+    private string DataEntityId { get; set; }
 
     public int mod(int x, int m)
     {

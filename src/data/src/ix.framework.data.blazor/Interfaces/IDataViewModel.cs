@@ -25,10 +25,16 @@ namespace ix.framework.core.Interfaces
         eSearchMode SearchMode { get; set; }
         long FilteredCount { get; set; }
         int Page { get; set; }
+        string SelectedItemId { get; set; }
 
         bool IsBusy { get; set; }
 
-        void CreateNew();
+        void CreateNew(string? DataEntityId = null);
+        void Delete(string DataEntityId);
+        void Copy();
+        void Edit();
+        void SendToPlc();
+        void FromPlc();
 
         event PropertyChangedEventHandler? PropertyChanged;
     }

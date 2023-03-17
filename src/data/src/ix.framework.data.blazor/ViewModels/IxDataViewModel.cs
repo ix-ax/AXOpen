@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using ix.framework.data;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
+using ix.framework.core.blazor.Toaster;
+using Microsoft.AspNetCore.Components;
 
 namespace ix.framework.core.ViewModels
 {
@@ -52,6 +54,9 @@ namespace ix.framework.core.ViewModels
         public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
         public long FilteredCount { get; set; }
         public int Page { get; set; } = 0;
+        public string SelectedItemId { get; set; }
+        [Inject]
+        private ToastService toastService { get; set; }
 
 
         //public Task FillObservableRecordsAsync()
@@ -80,13 +85,17 @@ namespace ix.framework.core.ViewModels
            
         }
 
-        public void CreateNew()
+        public void CreateNew(string? DataEntityId = null)
         {
             var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
 
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
+
+            if(DataEntityId != null)
+                plainer.DataEntityId = DataEntityId;
+
             try
             {
                 DataBrowser.AddRecord((dynamic)plainer);
@@ -99,6 +108,74 @@ namespace ix.framework.core.ViewModels
             var plain = DataBrowser.FindById(plainer.DataEntityId);
             ((dynamic)DataExchange)._data.PlainToShadowAsync(plain).Wait();
             FillObservableRecords();
+            toastService.AddToast("info", "Create", "Successfuly created item!", 10);
+        }
+
+        public void Delete(string DataEntityId)
+        {
+            var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
+
+            if (plainer == null)
+                throw new WrongTypeOfDataObjectException(
+                    $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
+
+            plainer.DataEntityId = DataEntityId;
+
+            DataBrowser.Delete((dynamic)plainer);
+            FillObservableRecords();
+        }
+
+        public void Copy()
+        {
+            var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
+
+            if (plainer == null)
+                throw new WrongTypeOfDataObjectException(
+                    $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
+
+            //plainer.CopyShadowToPlain(((dynamic)DataExchange)._data);
+
+            try
+            {
+                DataBrowser.AddRecord((dynamic)plainer);
+            }
+            catch (DuplicateIdException)
+            {
+
+            }
+            var plain = DataBrowser.FindById(plainer.DataEntityId);
+            ((dynamic)DataExchange)._data.PlainToShadowAsync(plain);
+            FillObservableRecords();
+        }
+
+        public void Edit()
+        {
+            var a = ((dynamic)DataExchange)._data.CreatePlainerType();
+            a.CopyShadowToPlain(((dynamic)DataExchange)._data);
+            DataBrowser.UpdateRecord(a);
+            FillObservableRecords();
+        }
+
+        public void SendToPlc()
+        {
+            //((dynamic)DataExchange)._data.FlushPlainToOnline((dynamic)this.SelectedRecord);
+            ////}, $"{((dynamic)DataExchange)._data._EntityId}", () => MessageBox.Show($"{strings.LoadToController} '{((dynamic)this.SelectedRecord)._EntityId}'?", "Data", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes);
+            //LogCommand("SendToPlc");
+        }
+
+        public void FromPlc()
+        {
+            //var plainer = ((dynamic)DataExchange)._data.CreatePlainerType();
+            //((dynamic)DataExchange)._data.FlushOnlineToPlain(plainer);
+            //plainer._EntityId = $"{DataHelpers.CreateUid().ToString()}";
+            //DataBrowser.AddRecord(plainer);
+            //var plain = DataBrowser.FindById(plainer._EntityId);
+            //((dynamic)DataExchange)._data.CopyPlainToShadow(plain);
+            //FillObservableRecords();
+            //SelectedRecord = plain;
+            //this.Mode = ViewMode.Edit;
+            //ViewModeEdit();
+            //LogCommand("LoadFromPlc");
         }
     }
 
