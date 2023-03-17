@@ -141,6 +141,8 @@ public class BuildContext : FrostingContext
         ("core", "ix.framework.core"),
         ("data", "ix.framework.data"),
         ("probers", "ix.framework.probers"),
+        ("messaging", "ix.framework.messaging"),
+        ("utils", "ix.framework.utils"),
     };
 
     public IEnumerable<(string folder, string name, string targetIp, string targetPlatform)> Integrations { get; } = new[]

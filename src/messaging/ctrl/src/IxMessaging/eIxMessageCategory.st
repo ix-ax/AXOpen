@@ -62,7 +62,7 @@ NAMESPACE ix.framework.core
             
             ///<summary>
             /// Critical error. 
-            /// Use this category when a critical error occured, that is not recoverable by the means of software (reset/restore) and but device still operates under such conditions; a detailed inspection and an expert action is required.
+            /// Use this category when a critical error occured, that is not recoverable by the means of software (reset/restore) but device still operates under such conditions; a detailed inspection and an expert action is required.
             ///</summary>
             Critical := 1000,
             

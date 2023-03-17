@@ -1,5 +1,6 @@
 USING System.Strings;
 USING System.DateTime;
+USING ix.framework.utils;
 
 NAMESPACE ix.framework.core
 	/// <summary>
@@ -47,6 +48,14 @@ NAMESPACE ix.framework.core
 			{#ix-attr:[CompilerOmits()]} 
 			_conflictingStringBuilder : StringBuilder;
 		END_VAR
+
+
+		/// <summary>
+		/// Gets the Most Importatn Message of this messenger.
+		/// </summary>		
+		METHOD PUBLIC GetMime : IxMessage			
+			GetMime := THIS._mime;
+		END_METHOD
 
 		/// <summary>
 		/// Categorizes and creates the message as 'debug'.								 
@@ -285,22 +294,13 @@ NAMESPACE ix.framework.core
 				Category : eIxMessageCategory;	
 			END_VAR
 
-			IF NOT(_Parent = NULL) THEN
-				IF NOT(_Parent.GetContext() = NULL) THEN
-					IF NOT(_Parent.GetContext().RealTimeClock() = NULL) THEN
-						IF NOT(_Parent.GetContext().Environment() = NULL) THEN
-							IF NOT(_Parent.GetContext().Environment().Messaging() = NULL) THEN
-								Compose.TimeStamp :=  _Parent.GetContext().RealTimeClock().NowUTC();	
-								Compose.Text := Message;
-								Compose.Identity := _Parent.GetIdentity();
-								Compose.Category := Category;
-								Compose.Cycle := _Parent.GetContext().OpenCycleCount();
-								Compose.MessageDigest := THIS.Digest(Message, _Parent.GetContext().Environment().Messaging().GetMessageDigestMethod());
-							END_IF;
-						END_IF;
-					END_IF;
-				END_IF;
-			END_IF;
+					//Compose.TimeStamp :=  _Parent.GetContext().RealTimeClock().NowUTC();	
+					Compose.Text := Message;
+					Compose.Identity := _Parent.GetIdentity();
+					Compose.Category := Category;
+					Compose.Cycle := _Parent.GetContext().OpenCycleCount();
+					//Compose.MessageDigest := THIS.Digest(Message, _Parent.GetContext().Environment().Messaging().GetMessageDigestMethod());
+		
 		END_METHOD
 
 		METHOD PRIVATE Digest: DWORD
@@ -405,14 +405,11 @@ NAMESPACE ix.framework.core
 			
 			_condition := eIxMessageCondition#Unconditional;
 
-			IF NOT(_Parent = NULL) THEN
-				IF NOT(_Parent.GetContext() = NULL) THEN
-					IF NOT(_Parent.GetContext().Environment() = NULL) THEN
-						IF _Parent.GetContext().Environment().Messaging() = NULL THEN
-							IF(Category < _Parent.GetContext().Environment().Messaging().GetMinLevel()
-								OR _Parent.GetContext().Environment().Messaging().IsSuspended()) THEN
-									RETURN;
-							END_IF; 	
+		
+							// IF(Category < _Parent.GetContext().Environment().Messaging().GetMinLevel()
+							// 	OR _Parent.GetContext().Environment().Messaging().IsSuspended()) THEN
+							// 		RETURN;
+							// END_IF; 	
 								
 							IF (NOT _mime.Pinned) THEN 
 								_mime.PerCycleCount := _mime.PerCycleCount + USINT#1;
@@ -440,12 +437,7 @@ NAMESPACE ix.framework.core
 								END_IF;
 							END_IF;	
 						
-							_pinnable := TRUE;
-						END_IF;
-					END_IF;	
-				END_IF;
-			END_IF;
-
+							_pinnable := TRUE;						
 		END_METHOD
     
 		METHOD PUBLIC StringBuilder : REF_TO StringBuilder

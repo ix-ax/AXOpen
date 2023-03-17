@@ -1,12 +1,16 @@
 {
 	"folders": [
 		{
-			"name": "integrations",
-			"path": "integrations\\ctrl"
+			"name": "messaging",
+			"path": "messaging\\ctrl"
 		},
 		{
 			"name": "core",
 			"path": "core\\ctrl"
+		},
+		{
+			"name": "integrations",
+			"path": "integrations\\ctrl"
 		},
 		{
 			"name": "data",
@@ -15,6 +19,10 @@
 		{
 			"name": "probers",
 			"path": "probers\\ctrl"
+		},
+		{
+			"name": "utils",
+			"path": "utils\\ctrl"
 		}
 	],
 	"settings": {}

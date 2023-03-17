@@ -7,9 +7,7 @@ NAMESPACE ix.framework.core
         VAR PRIVATE                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
-            _identityCounter : ULINT;
-            _environment : IxContextEnvironment;	            
-            _rtc : IxRtc;	            
+            _identityCounter : ULINT;                     
         END_VAR       
 
         ///<summary>
@@ -27,15 +25,7 @@ NAMESPACE ix.framework.core
         METHOD PRIVATE Close : ULINT
             _closeCounter := _closeCounter + ULINT#1;
         END_METHOD
-
-        METHOD PUBLIC Environment : IIxContextEnvironment
-            Environment := _environment;
-        END_METHOD   
-
-        METHOD PUBLIC RealTimeClock : IIxRtc 
-            RealTimeClock := _rtc;
-        END_METHOD
-
+           
         ///<summary>
         /// Runs the cycle of this context. This method must be called cyclically in a PLC task.
         ///</summary>
@@ -49,8 +39,7 @@ NAMESPACE ix.framework.core
         /// Gets the value of current context cycle counter.
         ///</summary>
         METHOD PUBLIC OpenCycleCount : ULINT
-            OpenCycleCount := _openCounter;
-            _rtc.UpdateInternal();
+            OpenCycleCount := _openCounter;         
         END_METHOD
                 
         METHOD PUBLIC ClosedCycleCount : ULINT

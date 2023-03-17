@@ -242,7 +242,7 @@ NAMESPACE ix.framework.core
 		// 	Append ?= REF(THIS);
 		// END_METHOD
 
-		METHOD PUBLIC AsString : STRING[IxIntConstants#MAX_MESSAGE_TEXT_LENGHT]
+		METHOD PUBLIC AsString : STRING[254]
 			AsString := _workString;
 		END_METHOD
     END_CLASS

@@ -1,7 +1,7 @@
 USING Siemens.Simatic.S71500.Clocks;
 
 NAMESPACE ix.framework.core   
-    CLASS IxRtc IMPLEMENTS IIxRtc       
+    CLASS IxRtc        
         VAR PRIVATE            
             _NowUTC : LDATE_AND_TIME;
          END_VAR 

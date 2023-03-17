@@ -5,6 +5,7 @@
 // https://github.com/ix-ax/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
 
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Cake.Common.Tools.ILMerge;
@@ -53,14 +54,23 @@ public static class ApaxCmd
 
     public static void ApaxBuild(this BuildContext context, (string folder, string name) lib)
     {
-        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
             Arguments = "build",
             WorkingDirectory = context.GetAxFolder(lib),
             RedirectStandardOutput = false,
             RedirectStandardError = false,
             Silent = false
-        }).WaitForExit();
+        });
+
+        process.WaitForExit();
+        var exitcode = process.GetExitCode();
+        context.Log.Information($"apax test exited with '{exitcode}'");
+
+        if (exitcode != 0)
+        {
+            throw new BuildFailedException();
+        }
     }
 
     public static void ApaxBuild(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)

@@ -30,8 +30,7 @@ NAMESPACE ix.core.IxTask_Tests
         METHOD PUBLIC CreateIdentity : ULINT            
             _identityCounter := _identityCounter + ULINT#1;
             CreateIdentity := _identityCounter;
-        END_METHOD 
-        METHOD PUBLIC Environment : IIxContextEnvironment ; END_METHOD
+        END_METHOD         
         METHOD PUBLIC RealTimeClock : IIxRtc ; END_METHOD
     END_CLASS      
 
