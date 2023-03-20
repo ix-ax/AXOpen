@@ -84,6 +84,7 @@ namespace ix.framework.core.ViewModels
 
         public async Task Filter()
         {
+            Page = 0;
             await FillObservableRecordsAsync();
         }
 

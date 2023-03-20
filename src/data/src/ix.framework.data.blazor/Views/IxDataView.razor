@@ -16,26 +16,23 @@ else
 {
     <div class="d-flex">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Create</button>
-        <div class="dropdown d-flex ms-auto">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SearchMode</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => Vm.SearchMode = Ix.Base.Data.eSearchMode.Exact">Exact</a></li>
-                <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => Vm.SearchMode = Ix.Base.Data.eSearchMode.Contains">Contains</a></li>
-                <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => Vm.SearchMode = Ix.Base.Data.eSearchMode.StartsWith">Starts With</a></li>
-            </ul>
-        </div>
-        <form class="d-flex" role="search">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search" @bind="Vm.FilterById">
-        </form>
-        <div class="btn-group">
-            <button class="btn btn-secondary" type="button" name="searchbutton" @onclick="() => Vm.Filter()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-            </button>
-            <button class="btn btn-secondary" type="button" name="paginationSwitch" aria-label="Hide/Show pagination" title="Hide/Show pagination">
-                <i class="oi oi-caret-bottom"></i>
-            </button>
+        <div class="btn-group ms-auto" role="group">
+            <div class="btn-group" role="group">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SearchMode</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Exact)">Exact</a></li>
+                    <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Contains)">Contains</a></li>
+                    <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.StartsWith)">Starts With</a></li>
+                </ul>
+            </div>
+            <form @onsubmit="() => Vm.Filter()" class="btn-group">
+                <input type="search" class="form-control" placeholder="Search" aria-label="Search" @bind="Vm.FilterById">
+                <button class="btn btn-secondary" type="submit" name="searchbutton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </form>
             <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="() => Vm.FillObservableRecordsAsync()">
                 <i class="oi oi-loop-circular"></i>
             </button>
@@ -94,8 +91,6 @@ else
                 <li><a class="dropdown-item @(Vm.Limit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(10)">10</a></li>
                 <li><a class="dropdown-item @(Vm.Limit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(25)">25</a></li>
                 <li><a class="dropdown-item @(Vm.Limit == 50 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(50)">50</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 100 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(100)">100</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 999 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(999)">All</a></li>
             </ul>
             rows per page
         </div>
@@ -178,6 +173,7 @@ else
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowDisplay"></RenderableContentControl>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
@@ -241,6 +237,13 @@ else
     {
         int r = x % m;
         return r < 0 ? r + m : r;
+    }
+
+    private async Task setSearchModeAsync(Ix.Base.Data.eSearchMode searchMode)
+    {
+        Vm.SearchMode = searchMode;
+
+        await Vm.FillObservableRecordsAsync();
     }
 
     private async Task setLimitAsync(int limit)
