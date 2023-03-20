@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Ix.Connector;
 using ix.framework.data;
+using Ix.Base.Data;
 
 namespace ix.framework.data
 {
@@ -14,7 +15,7 @@ namespace ix.framework.data
         }
 
 
-        public List<ValueChangeItem> Changes { get; set; }
+        public List<ValueChangeItem> Changes { get; set; }              
     }
 
 }

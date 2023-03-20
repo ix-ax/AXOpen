@@ -14,6 +14,7 @@ using System.Runtime.CompilerServices;
 using ix.framework.core.blazor.Toaster;
 using Microsoft.AspNetCore.Components;
 using CommunityToolkit.Mvvm.Messaging;
+using Ix.Connector;
 
 namespace ix.framework.core.ViewModels
 {
@@ -140,32 +141,32 @@ namespace ix.framework.core.ViewModels
 
         public void Copy()
         {
-            var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
+            var plainer = DataExchange.Data.ShadowToPlain();
 
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
-
-            //plainer.CopyShadowToPlain(((dynamic)DataExchange)._data);
-            
+                      
             try
             {
-                DataBrowser.AddRecord((dynamic)plainer);
+                DataBrowser.AddRecord((T)plainer);
             }
             catch (DuplicateIdException)
             {
 
             }
-            var plain = DataBrowser.FindById(plainer.DataEntityId);
-            DataExchange.Data.PlainToShadow(plain);
+           //var plain = DataBrowser.FindById(plainer.DataEntityId);
+           // DataExchange.Data.PlainToShadow(plain);
             FillObservableRecords();
         }
 
         public void Edit()
         {
-            var a = ((dynamic)DataExchange)._data.CreatePlainerType();
-            a.CopyShadowToPlain(((dynamic)DataExchange)._data);
-            DataBrowser.UpdateRecord(a);
+
+            //var a = ((dynamic)DataExchange)._data.CreatePlainerType();
+            //a.CopyShadowToPlain(((dynamic)DataExchange)._data);
+            IBrowsableDataObject a = DataExchange.Data.ShadowToPlain() as IBrowsableDataObject;
+            DataBrowser.UpdateRecord((T)a);
             FillObservableRecords();
         }
 
