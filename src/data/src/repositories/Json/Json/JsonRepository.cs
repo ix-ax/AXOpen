@@ -116,7 +116,7 @@ namespace Ix.Framework.Data.Json
 
             if (string.IsNullOrEmpty(identifier) || string.IsNullOrWhiteSpace(identifier) || identifier == "*")
             {
-                foreach (var item in Directory.EnumerateFiles(this.Location))
+                foreach (var item in Directory.EnumerateFiles(this.Location).Skip(skip).Take(limit))
                 {
                     filetered.Add(this.Load(new FileInfo(item).Name, typeof(T)));
                 }
@@ -139,7 +139,7 @@ namespace Ix.Framework.Data.Json
                         break;
                 }
                 
-                foreach (var item in files)
+                foreach (var item in files.Skip(skip).Take(limit))
                 {
                     filetered.Add(this.Load(new FileInfo(item).Name, typeof(T)));
                 }
@@ -151,7 +151,7 @@ namespace Ix.Framework.Data.Json
 
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
         {
-            if (id == "*")
+            if (string.IsNullOrEmpty(id) || string.IsNullOrWhiteSpace(id) || id == "*")
             {
                 return Directory.EnumerateFiles(this.Location).Count();
             }

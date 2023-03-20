@@ -1,4 +1,5 @@
-﻿using System.Timers;
+﻿using CommunityToolkit.Mvvm.Messaging;
+using System.Timers;
 
 namespace ix.framework.core.blazor.Toaster
 {
@@ -15,11 +16,23 @@ namespace ix.framework.core.blazor.Toaster
             Timer.AutoReset = true;
             Timer.Elapsed += TimerElapsed;
             Timer.Start();
+
+
+            WeakReferenceMessenger.Default.Register<ToastMessage>(this, (r, m) =>
+            {
+                AddToast(m.Value);
+            });
         }
 
         public void AddToast(string type, string title, string message, int time)
         {
-            ToastsList.Add(new Toast(type, title, message, DateTimeOffset.Now.AddSeconds(time)));
+            ToastsList.Add(new Toast(type, title, message, time));
+            ToasterChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        public void AddToast(Toast toast)
+        {
+            ToastsList.Add(toast);
             ToasterChanged?.Invoke(this, EventArgs.Empty);
         }
 

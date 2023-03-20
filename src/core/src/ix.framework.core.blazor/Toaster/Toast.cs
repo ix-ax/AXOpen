@@ -1,4 +1,6 @@
-﻿namespace ix.framework.core.blazor.Toaster
+﻿using CommunityToolkit.Mvvm.Messaging.Messages;
+
+namespace ix.framework.core.blazor.Toaster
 {
     public class Toast
     {
@@ -9,12 +11,12 @@
         public DateTimeOffset TimeToBurn { get; set; } = DateTimeOffset.Now.AddSeconds(30);
         public DateTimeOffset Posted = DateTimeOffset.Now;
 
-        public Toast(string type, string title, string message, DateTimeOffset timeToBurn)
+        public Toast(string type, string title, string message, int time)
         {
             Type = type;
             Title = title;
             Message = message;
-            TimeToBurn = timeToBurn;
+            TimeToBurn = DateTimeOffset.Now.AddSeconds(time);
         }
     }
 }

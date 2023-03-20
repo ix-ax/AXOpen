@@ -1,4 +1,5 @@
-﻿using ix.framework.core.ViewModels;
+﻿using ix.framework.core.blazor.Toaster;
+using ix.framework.core.ViewModels;
 using ix.framework.data;
 using Ix.Base.Data;
 using System;

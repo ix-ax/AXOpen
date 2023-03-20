@@ -13,6 +13,7 @@ using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using ix.framework.core.blazor.Toaster;
 using Microsoft.AspNetCore.Components;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace ix.framework.core.ViewModels
 {
@@ -78,7 +79,7 @@ namespace ix.framework.core.ViewModels
             {
                 Records.Add(item);
             }
-           
+            FilteredCount = DataBrowser.FilteredCount(FilterById, SearchMode);
         }
 
         public async Task Filter()
@@ -109,10 +110,11 @@ namespace ix.framework.core.ViewModels
             try
             {
                 DataBrowser.AddRecord((dynamic)plainer);
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Item was successfully created!", 30)));
             }
             catch (DuplicateIdException)
             {
-
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 30)));
             }
 
             var plain = DataBrowser.FindById(plainer.DataEntityId);
@@ -132,6 +134,7 @@ namespace ix.framework.core.ViewModels
             plainer.DataEntityId = SelectedItemId;
 
             DataBrowser.Delete((dynamic)plainer);
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 30)));
             FillObservableRecords();
         }
 
