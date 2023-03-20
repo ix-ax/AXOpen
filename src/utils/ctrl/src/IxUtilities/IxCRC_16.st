@@ -43,7 +43,6 @@ NAMESPACE ix.framework.utils
 		END_IF;
 
 		FOR i := UINT#1 TO maxIndex BY UINT#1 DO
-			// crc := SHL(crc, 8) XOR CRC_TABLE[SHR(crc, 8) XOR bByte];
 			crc := ixXor(SHL(crc, UINT#8),CRC_TABLE[TO_INT(ixXor(SHR(crc, UINT#8) , serialized[i]))]);
 		END_FOR;
 

@@ -10,8 +10,7 @@ NAMESPACE ix.framework.core
             NowUTC := _NowUTC;
         END_METHOD
 		METHOD PROTECTED Update  
-            //GetSystemDateTime(value => _NowUTC);
-            ;
+            GetSystemDateTime(value => _NowUTC);
         END_METHOD
 
         METHOD INTERNAL UpdateInternal  

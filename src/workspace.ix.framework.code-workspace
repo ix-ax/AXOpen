@@ -1,6 +1,10 @@
 {
 	"folders": [
 		{
+			"name": "utils",
+			"path": "utils\\ctrl"
+		},
+		{
 			"name": "messaging",
 			"path": "messaging\\ctrl"
 		},
@@ -19,10 +23,6 @@
 		{
 			"name": "probers",
 			"path": "probers\\ctrl"
-		},
-		{
-			"name": "utils",
-			"path": "utils\\ctrl"
 		}
 	],
 	"settings": {}
