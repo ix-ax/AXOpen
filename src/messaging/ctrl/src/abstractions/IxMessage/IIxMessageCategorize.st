@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE ix.framework.messaging
     INTERFACE IIxMessageCategorize 
 		/// <summary>
         /// Categorizes and creates the message as 'debug'.								 

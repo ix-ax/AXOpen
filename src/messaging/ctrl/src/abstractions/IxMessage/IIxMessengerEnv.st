@@ -1,4 +1,6 @@
-NAMESPACE ix.framework.core
+USING ix.framework.utils;
+
+NAMESPACE ix.framework.messaging
     INTERFACE IIxMessengerEnv 
 		/// <summary>
 		/// Gets whether the messaging is suspended at this point in program.					

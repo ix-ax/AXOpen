@@ -1,8 +1,9 @@
 USING System.Strings;
 USING System.DateTime;
 USING ix.framework.utils;
+using ix.framework.core;
 
-NAMESPACE ix.framework.core
+NAMESPACE ix.framework.messaging
 	/// <summary>
 	/// Provides mechanism for delivering static messages to the supervising applications (SCADA/HMI).	
 	/// 	<remarks>			

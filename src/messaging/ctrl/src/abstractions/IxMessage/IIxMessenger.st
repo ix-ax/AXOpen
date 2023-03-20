@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE ix.framework.messaging
     INTERFACE IIxMessenger 
 		/// <summary>
 		/// Clears the message content.

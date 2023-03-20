@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE ix.framework.messaging
     INTERFACE IIxMessageTextBuilder 
 		/// <summary>			
 		/// Appends string to the message text. 

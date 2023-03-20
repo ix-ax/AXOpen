@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE ix.framework.messaging
     ///<summary>
     /// Complete message details including time stamp, message text, message category, identity of the message provider, context cycle in which the message was posted.
     ///</summary>

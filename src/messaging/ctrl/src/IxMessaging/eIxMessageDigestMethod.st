@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE ix.framework.messaging
     /// <summary>
     /// Message digest methods used to create fingerprint of a message.							
     /// </summary>			

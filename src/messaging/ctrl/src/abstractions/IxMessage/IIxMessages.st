@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE ix.framework.messaging
     INTERFACE IIxMessages 
 	    /// <summary>
 		/// Adds message of 'debug' category to the message queue.				 

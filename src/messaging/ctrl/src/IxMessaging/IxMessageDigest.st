@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE ix.framework.messaging
     CLASS PUBLIC IxMessageDigest
         VAR PUBLIC            
             Digest : DWORD;
