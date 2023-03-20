@@ -12,6 +12,6 @@
 	  </PackageReference>
 	  <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.7" />
-    <PackageReference Include="Ix.Connector" Version="0.13.4-alpha.93" />
+    <PackageReference Include="Ix.Connector" Version="0.13.4-alpha.95" />
   </ItemGroup>
 </Project>
