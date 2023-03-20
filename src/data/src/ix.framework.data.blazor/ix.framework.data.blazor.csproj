@@ -29,8 +29,8 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Ix.Presentation.Blazor" Version="0.13.4-alpha.93" />
-    <PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.4-alpha.93" />
+    <PackageReference Include="Ix.Presentation.Blazor" Version="0.13.4-alpha.94" />
+    <PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.13.4-alpha.94" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.3" />
   </ItemGroup>
 

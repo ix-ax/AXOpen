@@ -97,7 +97,7 @@ namespace ix.framework.core.ViewModels
         }
 
         public void CreateNew()
-        {
+        {            
             var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
 
             if (plainer == null)
@@ -118,7 +118,7 @@ namespace ix.framework.core.ViewModels
             }
 
             var plain = DataBrowser.FindById(plainer.DataEntityId);
-            ((dynamic)DataExchange)._data.PlainToShadowAsync(plain).Wait();
+            DataExchange.Data.PlainToShadow(plain);
             FillObservableRecords();
             CreateItemId = null;
         }
@@ -147,7 +147,7 @@ namespace ix.framework.core.ViewModels
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
 
             //plainer.CopyShadowToPlain(((dynamic)DataExchange)._data);
-
+            
             try
             {
                 DataBrowser.AddRecord((dynamic)plainer);
@@ -157,7 +157,7 @@ namespace ix.framework.core.ViewModels
 
             }
             var plain = DataBrowser.FindById(plainer.DataEntityId);
-            ((dynamic)DataExchange)._data.PlainToShadowAsync(plain);
+            DataExchange.Data.PlainToShadow(plain);
             FillObservableRecords();
         }
 

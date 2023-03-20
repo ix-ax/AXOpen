@@ -71,7 +71,7 @@ namespace ix.framework.data
                 }
 
                 MethodInfo generic = method.MakeGenericMethod(genericType);
-                DataViewModel = (IDataViewModel)generic.Invoke(null, new object[] { dataExchangeObject.GetRepository(), dataExchangeObject });
+                DataViewModel = (IDataViewModel)generic.Invoke(null, new object[] { dataExchangeObject.GetRepository(), dataExchangeObject});
 
             }
             catch
