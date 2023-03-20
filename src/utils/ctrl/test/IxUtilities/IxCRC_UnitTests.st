@@ -1,7 +1,5 @@
 USING AxUnit;
-USING AxUnit;
 USING ix.core;
-USING AxUnit;
 USING ix.framework.utils;
 
 NAMESPACE ix.core.IxUtilities_Tests

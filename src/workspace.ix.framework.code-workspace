@@ -1,6 +1,10 @@
 {
 	"folders": [
 		{
+			"name": "integrations",
+			"path": "integrations\\ctrl"
+		},
+		{
 			"name": "utils",
 			"path": "utils\\ctrl"
 		},
@@ -11,10 +15,6 @@
 		{
 			"name": "core",
 			"path": "core\\ctrl"
-		},
-		{
-			"name": "integrations",
-			"path": "integrations\\ctrl"
 		},
 		{
 			"name": "data",
