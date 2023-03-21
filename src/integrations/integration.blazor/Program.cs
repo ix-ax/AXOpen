@@ -32,7 +32,10 @@ namespace integration.blazor
 
             Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
 
+
             var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+            //inherited IxProductionData
+            //var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionDataInherited>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
 
             // Entry.Plc.process_data_manager.InitializeRepository(repository);
 

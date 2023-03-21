@@ -19,6 +19,18 @@ namespace ix.framework.data
             return this.Onliner as T;
         }
 
+        private IDataEntity data;
+
+        public IDataEntity Data
+        {
+            get 
+            { 
+                return (IDataEntity)Onliner; 
+            }
+            
+        }
+
+
         protected ICrudDataObject Onliner
         {
             get

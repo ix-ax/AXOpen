@@ -56,7 +56,10 @@ namespace Ix.Base.Data
         }
         public IEnumerable<T> FindByCreatedRange(DateTime start, DateTime end) { return null; }
         public IEnumerable<T> FindByModifiedRange(DateTime start, DateTime end) { return null; }
-        public void AddRecord(T data) { Repository.Create((data).DataEntityId, data); }
+        public void AddRecord(T data) 
+        { 
+            Repository.Create((data).DataEntityId, data); 
+        }
        
         public IEnumerable<DataItemValidation> UpdateRecord(T data)
         {

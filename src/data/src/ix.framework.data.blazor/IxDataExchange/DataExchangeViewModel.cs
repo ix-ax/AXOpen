@@ -3,6 +3,7 @@ using ix.framework.core.blazor.Toaster;
 using ix.framework.core.Interfaces;
 using ix.framework.core.ViewModels;
 using ix.framework.data;
+using Ix.Base.Data;
 using Ix.Presentation;
 using Microsoft.AspNetCore.Components;
 using System;
@@ -64,6 +65,9 @@ namespace ix.framework.data
                 MethodInfo method = typeof(IxDataViewModel).GetMethod("Create");
                 var genericTypeName = $"Pocos.{dataNameSpace}.{dataOfType}, {dataAssembly}";
                 var genericType = Type.GetType(genericTypeName);
+                //var genericTypeName2 = $"{dataNameSpace}.{dataOfType}, {dataAssembly}";
+                //Type genericType2 = Type.GetType(genericTypeName2);
+                //var genericType2 = Type.GetType("IBrowsableDataObject");
 
                 if (genericType == null)
                 {

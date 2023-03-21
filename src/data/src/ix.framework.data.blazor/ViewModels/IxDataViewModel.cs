@@ -20,23 +20,26 @@ namespace ix.framework.core.ViewModels
 {
     public class IxDataViewModel : ObservableObject
     {
-        public static IxDataViewModel<T, O> Create<T, O>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new() where O : class
+        public static IxDataViewModel<T> Create<T>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new() 
         {
-            return new IxDataViewModel<T, O>(repository, dataExchange);
+            return new IxDataViewModel<T>(repository, dataExchange);
             
         }
     }
 
-    public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() 
+    public partial class IxDataViewModel<T> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() 
     {
 
         public IxDataViewModel(IRepository<T> repository, DataExchange dataExchange) : base()
-        {
+        { 
     
             this.DataExchange = dataExchange;
             DataBrowser = CreateBrowsable(repository);
             Records = new ObservableCollection<IBrowsableDataObject>();
+            _data = DataExchange.Data as DataEntity;
         }
+
+        private DataEntity _data { get; }
 
         private DataBrowser<T> CreateBrowsable(IRepository<T> repository)
         {
@@ -47,17 +50,7 @@ namespace ix.framework.core.ViewModels
         public DataExchange DataExchange { get; }
 
 
-        public ObservableCollection<IBrowsableDataObject> Records { get; set; }
-
-        public int Limit { get; set; } = 10;
-        public string FilterById { get; set; } = "";
-        public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
-        public long FilteredCount { get; set; }
-        public int Page { get; set; } = 0;
-        public string SelectedItemId { get; set; }
-        public string CreateItemId { get; set; }
-
-        public bool IsBusy { get; set; }
+      
 
         public Task FillObservableRecordsAsync()
         {
@@ -99,9 +92,9 @@ namespace ix.framework.core.ViewModels
         }
 
         public void CreateNew()
-        {            
-            var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
-
+        {
+            var data = _data as DataEntity;
+            var plainer = data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
             
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
@@ -112,7 +105,7 @@ namespace ix.framework.core.ViewModels
 
             try
             {
-                DataBrowser.AddRecord((dynamic)plainer);
+                DataBrowser.AddRecord((T)plainer);
                 WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Item was successfully created!", 30)));
             }
             catch (DuplicateIdException)
@@ -121,22 +114,23 @@ namespace ix.framework.core.ViewModels
             }
 
             var plain = DataBrowser.FindById(plainer.DataEntityId);
-            DataExchange.GetData<O>().PlainToShadow(plain);
+            data.PlainToShadow(plain);
             FillObservableRecords();
             CreateItemId = null;
         }
 
         public void Delete()
         {
-            var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
-
+            var data = _data as DataEntity;
+            var plainer = data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
+            
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
 
             plainer.DataEntityId = SelectedItemId;
 
-            DataBrowser.Delete((dynamic)plainer);
+            DataBrowser.Delete((T)plainer);
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 30)));
             FillObservableRecords();
         }
@@ -145,22 +139,32 @@ namespace ix.framework.core.ViewModels
 
         public void Copy()
         {
-            var plainer = DataExchange.GetData<T>() .Data.ShadowToPlain<T>();
+            //var plainer = null;//DataExchange.GetData<T>() .Data.ShadowToPlain<T>();
+            var data = _data as DataEntity;
+
+            var plainer = data.ShadowToPlain<Pocos.ix.framework.data.DataEntity>();
+
+            var plainerEmpty = data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
+
+            plainerEmpty = plainer;
+            //var myplain = (T)plainer;
+
+            plainer.DataEntityId = SelectedItemId;
 
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
-                      
+
             try
             {
-                DataBrowser.AddRecord((T)plainer);
+               DataBrowser.AddRecord((T)plainerEmpty);
             }
             catch (DuplicateIdException)
             {
 
             }
-           //var plain = DataBrowser.FindById(plainer.DataEntityId);
-           // DataExchange.Data.PlainToShadow(plain);
+            //var plain = DataBrowser.FindById(plainer.DataEntityId);
+            //data.PlainToShadow(plain);
             FillObservableRecords();
         }
 
@@ -169,8 +173,8 @@ namespace ix.framework.core.ViewModels
 
             //var a = ((dynamic)DataExchange)._data.CreatePlainerType();
             //a.CopyShadowToPlain(((dynamic)DataExchange)._data);
-            IBrowsableDataObject a = DataExchange.GetData<O>().ShadowToPlain<T>() as IBrowsableDataObject;
-            DataBrowser.UpdateRecord((T)a);
+            //IBrowsableDataObject a = DataExchange.GetData<O>().ShadowToPlain<T>() as IBrowsableDataObject;
+            //DataBrowser.UpdateRecord((T)a);
             FillObservableRecords();
         }
 
@@ -195,6 +199,18 @@ namespace ix.framework.core.ViewModels
             //ViewModeEdit();
             //LogCommand("LoadFromPlc");
         }
+
+        public ObservableCollection<IBrowsableDataObject> Records { get; set; }
+
+        public int Limit { get; set; } = 10;
+        public string FilterById { get; set; } = "";
+        public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
+        public long FilteredCount { get; set; }
+        public int Page { get; set; } = 0;
+        public string SelectedItemId { get; set; }
+        public string CreateItemId { get; set; }
+
+        public bool IsBusy { get; set; }
     }
 
     public class WrongTypeOfDataObjectException : Exception
