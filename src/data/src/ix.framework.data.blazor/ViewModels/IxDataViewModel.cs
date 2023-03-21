@@ -20,14 +20,14 @@ namespace ix.framework.core.ViewModels
 {
     public class IxDataViewModel : ObservableObject
     {
-        public static IxDataViewModel<T> Create<T>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new()
+        public static IxDataViewModel<T, O> Create<T, O>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new() where O : class
         {
-            return new IxDataViewModel<T>(repository, dataExchange);
+            return new IxDataViewModel<T, O>(repository, dataExchange);
             
         }
     }
 
-    public partial class IxDataViewModel<T> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() 
+    public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() 
     {
 
         public IxDataViewModel(IRepository<T> repository, DataExchange dataExchange) : base()
@@ -102,6 +102,7 @@ namespace ix.framework.core.ViewModels
         {            
             var plainer = ((dynamic)DataExchange)._data.CreateEmptyPoco() as Pocos.ix.framework.data.IDataEntity;
 
+            
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
@@ -120,7 +121,7 @@ namespace ix.framework.core.ViewModels
             }
 
             var plain = DataBrowser.FindById(plainer.DataEntityId);
-            DataExchange.Data.PlainToShadow(plain);
+            DataExchange.GetData<O>().PlainToShadow(plain);
             FillObservableRecords();
             CreateItemId = null;
         }
@@ -140,9 +141,11 @@ namespace ix.framework.core.ViewModels
             FillObservableRecords();
         }
 
+        
+
         public void Copy()
         {
-            var plainer = DataExchange.Data.ShadowToPlain();
+            var plainer = DataExchange.GetData<T>() .Data.ShadowToPlain<T>();
 
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
@@ -166,7 +169,7 @@ namespace ix.framework.core.ViewModels
 
             //var a = ((dynamic)DataExchange)._data.CreatePlainerType();
             //a.CopyShadowToPlain(((dynamic)DataExchange)._data);
-            IBrowsableDataObject a = DataExchange.Data.ShadowToPlain() as IBrowsableDataObject;
+            IBrowsableDataObject a = DataExchange.GetData<O>().ShadowToPlain<T>() as IBrowsableDataObject;
             DataBrowser.UpdateRecord((T)a);
             FillObservableRecords();
         }

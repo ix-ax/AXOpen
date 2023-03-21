@@ -14,7 +14,11 @@ namespace ix.framework.data
         public IDataExchangeOperations DataExchangeOperations { get; set; }
         private dynamic _onliner;
 
-        public ITwinObject Data { get { return Onliner as ITwinObject; } }
+        public T GetData<T>() where T : class 
+        {
+            return this.Onliner as T;
+        }
+
         protected ICrudDataObject Onliner
         {
             get
