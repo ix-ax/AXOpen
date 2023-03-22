@@ -15,6 +15,7 @@ using ix.framework.core.blazor.Toaster;
 using Microsoft.AspNetCore.Components;
 using CommunityToolkit.Mvvm.Messaging;
 using Ix.Connector;
+using System.Threading.Channels;
 
 namespace ix.framework.core.ViewModels
 {
@@ -54,7 +55,48 @@ namespace ix.framework.core.ViewModels
         public DataExchange DataExchange { get; }
 
 
-      
+        List<ValueChangeItem> changes;
+        public List<ValueChangeItem> Changes
+        {
+            get
+            {
+                return changes;
+            }
+            set
+            {
+                changes = value;
+            }
+        }
+
+        IBrowsableDataObject selectedRecord;
+        public IBrowsableDataObject SelectedRecord
+        {
+            get
+            {
+                return selectedRecord;
+            }
+
+            set
+            {
+                if (selectedRecord == value)
+                {
+                    return;
+                }
+
+                ((ICrudDataObject)Data).ChangeTracker.StopObservingChanges();
+                selectedRecord = value;
+                if (value != null)
+                {
+                    Data.PlainToShadow(value);
+                    ((ICrudDataObject)Data).Changes = ((Pocos.ix.framework.data.IDataEntity)selectedRecord).Changes;
+                    Changes = ((ICrudDataObject)Data).Changes;
+                }
+
+                ((ICrudDataObject)Data).ChangeTracker.StartObservingChanges();
+
+            }
+        }
+
 
         public Task FillObservableRecordsAsync()
         {
@@ -97,7 +139,6 @@ namespace ix.framework.core.ViewModels
 
         public void CreateNew()
         {
-            //var data = _data as ITwinObject;
             var plainer = Data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
             
             if (plainer == null)
@@ -132,7 +173,7 @@ namespace ix.framework.core.ViewModels
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
 
-            plainer.DataEntityId = SelectedItemId;
+            plainer.DataEntityId = SelectedRecord.DataEntityId;
 
             DataBrowser.Delete((T)plainer);
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 30)));
@@ -145,7 +186,7 @@ namespace ix.framework.core.ViewModels
         {
 
             var plainer = Data.ShadowToPlain<T>();
-            plainer.DataEntityId =  $"Copy of {SelectedItemId}"; ;
+            plainer.DataEntityId =  $"Copy of {SelectedRecord.DataEntityId}"; ;
 
 
             if (plainer == null)
@@ -167,10 +208,10 @@ namespace ix.framework.core.ViewModels
 
         public void Edit()
         {
-            var data = _data as ITwinObject;
-            var plainer = data.ShadowToPlain<T>();
-            ((ICrudDataObject)data).ChangeTracker.SaveObservedChanges(plainer);
-            DataBrowser.UpdateRecord((T)plainer);
+            var plainer = Data.ShadowToPlain<T>();
+            //Selecte
+            ((ICrudDataObject)Data).ChangeTracker.SaveObservedChanges(plainer);
+            DataBrowser.UpdateRecord(plainer);
             FillObservableRecords();
         }
 
@@ -203,7 +244,6 @@ namespace ix.framework.core.ViewModels
         public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
         public long FilteredCount { get; set; }
         public int Page { get; set; } = 0;
-        public string SelectedItemId { get; set; }
         public string CreateItemId { get; set; }
 
         public bool IsBusy { get; set; }

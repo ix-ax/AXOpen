@@ -17,7 +17,7 @@ namespace ix.framework.core.Interfaces
         DataExchange DataExchange { get; }
 
         ObservableCollection<IBrowsableDataObject> Records { get; set; }
-
+        IBrowsableDataObject SelectedRecord { get; set; }
         Task FillObservableRecordsAsync();
         Task Filter();
         Task RefreshFilter();
@@ -26,7 +26,6 @@ namespace ix.framework.core.Interfaces
         eSearchMode SearchMode { get; set; }
         long FilteredCount { get; set; }
         int Page { get; set; }
-        string SelectedItemId { get; set; }
         string CreateItemId { get; set; }
 
         bool IsBusy { get; set; }
