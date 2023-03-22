@@ -20,14 +20,15 @@ namespace ix.framework.core.ViewModels
 {
     public class IxDataViewModel : ObservableObject
     {
-        public static IxDataViewModel<T> Create<T>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new() 
+        public static IxDataViewModel<T,O> Create<T,O>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new() 
+            where O : class
         {
-            return new IxDataViewModel<T>(repository, dataExchange);
+            return new IxDataViewModel<T,O>(repository, dataExchange);
             
         }
     }
 
-    public partial class IxDataViewModel<T> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() 
+    public partial class IxDataViewModel<T,O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() where O : class
     {
 
         public IxDataViewModel(IRepository<T> repository, DataExchange dataExchange) : base()
@@ -36,10 +37,13 @@ namespace ix.framework.core.ViewModels
             this.DataExchange = dataExchange;
             DataBrowser = CreateBrowsable(repository);
             Records = new ObservableCollection<IBrowsableDataObject>();
-            _data = DataExchange.Data as DataEntity;
+            _data = DataExchange.GetData<O>();
+            
         }
 
-        private DataEntity _data { get; }
+        private O _data { get; }
+
+        public ITwinObject Data { get => (ITwinObject)_data; }
 
         private DataBrowser<T> CreateBrowsable(IRepository<T> repository)
         {
@@ -93,8 +97,8 @@ namespace ix.framework.core.ViewModels
 
         public void CreateNew()
         {
-            var data = _data as DataEntity;
-            var plainer = data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
+            //var data = _data as ITwinObject;
+            var plainer = Data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
             
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
@@ -114,7 +118,7 @@ namespace ix.framework.core.ViewModels
             }
 
             var plain = DataBrowser.FindById(plainer.DataEntityId);
-            data.PlainToShadow(plain);
+            Data.PlainToShadow(plain);
             FillObservableRecords();
             CreateItemId = null;
         }
@@ -139,17 +143,10 @@ namespace ix.framework.core.ViewModels
 
         public void Copy()
         {
-            //var plainer = null;//DataExchange.GetData<T>() .Data.ShadowToPlain<T>();
-            var data = _data as DataEntity;
 
-            var plainer = data.ShadowToPlain<Pocos.ix.framework.data.DataEntity>();
+            var plainer = Data.ShadowToPlain<T>();
+            plainer.DataEntityId =  $"Copy of {SelectedItemId}"; ;
 
-            var plainerEmpty = data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
-
-            plainerEmpty = plainer;
-            //var myplain = (T)plainer;
-
-            plainer.DataEntityId = SelectedItemId;
 
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
@@ -157,24 +154,23 @@ namespace ix.framework.core.ViewModels
 
             try
             {
-               DataBrowser.AddRecord((T)plainerEmpty);
+               DataBrowser.AddRecord((T)plainer);
             }
             catch (DuplicateIdException)
             {
 
             }
-            //var plain = DataBrowser.FindById(plainer.DataEntityId);
-            //data.PlainToShadow(plain);
+            var foundPlain = DataBrowser.FindById(plainer.DataEntityId);
+            Data.PlainToShadow(foundPlain);
             FillObservableRecords();
         }
 
         public void Edit()
         {
-
-            //var a = ((dynamic)DataExchange)._data.CreatePlainerType();
-            //a.CopyShadowToPlain(((dynamic)DataExchange)._data);
-            //IBrowsableDataObject a = DataExchange.GetData<O>().ShadowToPlain<T>() as IBrowsableDataObject;
-            //DataBrowser.UpdateRecord((T)a);
+            var data = _data as ITwinObject;
+            var plainer = data.ShadowToPlain<T>();
+            ((ICrudDataObject)data).ChangeTracker.SaveObservedChanges(plainer);
+            DataBrowser.UpdateRecord((T)plainer);
             FillObservableRecords();
         }
 

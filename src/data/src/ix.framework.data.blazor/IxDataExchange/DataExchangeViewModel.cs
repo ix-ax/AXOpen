@@ -65,16 +65,15 @@ namespace ix.framework.data
                 MethodInfo method = typeof(IxDataViewModel).GetMethod("Create");
                 var genericTypeName = $"Pocos.{dataNameSpace}.{dataOfType}, {dataAssembly}";
                 var genericType = Type.GetType(genericTypeName);
-                //var genericTypeName2 = $"{dataNameSpace}.{dataOfType}, {dataAssembly}";
-                //Type genericType2 = Type.GetType(genericTypeName2);
-                //var genericType2 = Type.GetType("IBrowsableDataObject");
+                var genericTypeName2 = $"{dataNameSpace}.{dataOfType}, {dataAssembly}";
+                Type genericType2 = Type.GetType(genericTypeName2);
 
                 if (genericType == null)
                 {
                     throw new Exception($"Could not retrieve {genericTypeName} when creating browsable object.");
                 }
 
-                MethodInfo generic = method.MakeGenericMethod(genericType);
+                MethodInfo generic = method.MakeGenericMethod(genericType, genericType2);
                 DataViewModel = (IDataViewModel)generic.Invoke(null, new object[] { dataExchangeObject.GetRepository(), dataExchangeObject});
 
             }

@@ -16,19 +16,14 @@ namespace ix.framework.data
 
         public T GetData<T>() where T : class 
         {
-            return this.Onliner as T;
+            return (T)this.Onliner;
         }
 
-        private IDataEntity data;
-
-        public IDataEntity Data
+        public ITwinObject Data
         {
-            get 
-            { 
-                return (IDataEntity)Onliner; 
-            }
-            
+            get { return (ITwinObject)this.Onliner; }
         }
+
 
 
         protected ICrudDataObject Onliner
