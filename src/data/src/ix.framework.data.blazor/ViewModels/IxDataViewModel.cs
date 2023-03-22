@@ -21,30 +21,31 @@ namespace ix.framework.core.ViewModels
 {
     public class IxDataViewModel : ObservableObject
     {
-        public static IxDataViewModel<T,O> Create<T,O>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new() 
+        public static IxDataViewModel<T, O> Create<T, O>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new()
             where O : class
         {
-            return new IxDataViewModel<T,O>(repository, dataExchange);
-            
+            return new IxDataViewModel<T, O>(repository, dataExchange);
+
         }
     }
 
-    public partial class IxDataViewModel<T,O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() where O : class
+    public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() where O : class
     {
 
         public IxDataViewModel(IRepository<T> repository, DataExchange dataExchange) : base()
-        { 
-    
+        {
+
             this.DataExchange = dataExchange;
             DataBrowser = CreateBrowsable(repository);
             Records = new ObservableCollection<IBrowsableDataObject>();
             _data = DataExchange.GetData<O>();
-            
+
         }
 
         private O _data { get; }
 
         public ITwinObject Data { get => (ITwinObject)_data; }
+        public ICrudDataObject CrudData { get => (ICrudDataObject)_data; }
 
         private DataBrowser<T> CreateBrowsable(IRepository<T> repository)
         {
@@ -83,16 +84,16 @@ namespace ix.framework.core.ViewModels
                     return;
                 }
 
-                ((ICrudDataObject)Data).ChangeTracker.StopObservingChanges();
+                CrudData.ChangeTracker.StopObservingChanges();
                 selectedRecord = value;
                 if (value != null)
                 {
                     Data.PlainToShadow(value);
-                    ((ICrudDataObject)Data).Changes = ((Pocos.ix.framework.data.IDataEntity)selectedRecord).Changes;
-                    Changes = ((ICrudDataObject)Data).Changes;
+                    CrudData.Changes = ((Pocos.ix.framework.data.IDataEntity)selectedRecord).Changes;
+                    Changes = CrudData.Changes;
                 }
 
-                ((ICrudDataObject)Data).ChangeTracker.StartObservingChanges();
+                CrudData.ChangeTracker.StartObservingChanges();
 
             }
         }
@@ -102,19 +103,20 @@ namespace ix.framework.core.ViewModels
         {
 
             //let another thread to load records, we need main thread to show loading symbol in blazor page
-            return Task.Run(async () => {
+            return Task.Run(async () =>
+            {
                 IsBusy = true;
                 FillObservableRecords();
                 IsBusy = false;
             });
 
         }
-        
+
         public void FillObservableRecords()
         {
             Records.Clear();
             DataBrowser.Filter(FilterById, Limit, Page * Limit, SearchMode);
-         
+
             foreach (var item in DataBrowser.Records)
             {
                 Records.Add(item);
@@ -140,7 +142,7 @@ namespace ix.framework.core.ViewModels
         public void CreateNew()
         {
             var plainer = Data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
-            
+
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
@@ -151,11 +153,11 @@ namespace ix.framework.core.ViewModels
             try
             {
                 DataBrowser.AddRecord((T)plainer);
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Item was successfully created!", 30)));
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Item was successfully created!", 10000)));
             }
             catch (DuplicateIdException)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 30)));
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
             }
 
             var plain = DataBrowser.FindById(plainer.DataEntityId);
@@ -166,9 +168,8 @@ namespace ix.framework.core.ViewModels
 
         public void Delete()
         {
-            var data = _data as DataEntity;
-            var plainer = data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
-            
+            var plainer = Data.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
+
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
                     $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
@@ -176,18 +177,16 @@ namespace ix.framework.core.ViewModels
             plainer.DataEntityId = SelectedRecord.DataEntityId;
 
             DataBrowser.Delete((T)plainer);
-            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 30)));
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 10)));
             FillObservableRecords();
         }
 
-        
+
 
         public void Copy()
         {
-
             var plainer = Data.ShadowToPlain<T>();
-            plainer.DataEntityId =  $"Copy of {SelectedRecord.DataEntityId}"; ;
-
+            plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}"; ;
 
             if (plainer == null)
                 throw new WrongTypeOfDataObjectException(
@@ -195,11 +194,12 @@ namespace ix.framework.core.ViewModels
 
             try
             {
-               DataBrowser.AddRecord((T)plainer);
+                DataBrowser.AddRecord((T)plainer);
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Copied!", "Item was successfully copied!", 10)));
             }
             catch (DuplicateIdException)
             {
-
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
             }
             var foundPlain = DataBrowser.FindById(plainer.DataEntityId);
             Data.PlainToShadow(foundPlain);
@@ -209,32 +209,26 @@ namespace ix.framework.core.ViewModels
         public void Edit()
         {
             var plainer = Data.ShadowToPlain<T>();
-            //Selecte
-            ((ICrudDataObject)Data).ChangeTracker.SaveObservedChanges(plainer);
+            CrudData.ChangeTracker.SaveObservedChanges(plainer);
             DataBrowser.UpdateRecord(plainer);
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Edited!", "Item was successfully edited!", 10)));
             FillObservableRecords();
         }
 
         public void SendToPlc()
         {
-            //((dynamic)DataExchange)._data.FlushPlainToOnline((dynamic)this.SelectedRecord);
-            ////}, $"{((dynamic)DataExchange)._data._EntityId}", () => MessageBox.Show($"{strings.LoadToController} '{((dynamic)this.SelectedRecord)._EntityId}'?", "Data", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes);
-            //LogCommand("SendToPlc");
+            Data.PlainToOnline(SelectedRecord);
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
         }
 
         public void FromPlc()
         {
-            //var plainer = ((dynamic)DataExchange)._data.CreatePlainerType();
-            //((dynamic)DataExchange)._data.FlushOnlineToPlain(plainer);
-            //plainer._EntityId = $"{DataHelpers.CreateUid().ToString()}";
-            //DataBrowser.AddRecord(plainer);
-            //var plain = DataBrowser.FindById(plainer._EntityId);
-            //((dynamic)DataExchange)._data.CopyPlainToShadow(plain);
-            //FillObservableRecords();
-            //SelectedRecord = plain;
-            //this.Mode = ViewMode.Edit;
-            //ViewModeEdit();
-            //LogCommand("LoadFromPlc");
+            var plainer = Data.OnlineToPlain<T>();
+            DataBrowser.AddRecord((T)plainer);
+            var plain = DataBrowser.FindById(plainer.DataEntityId);
+            Data.PlainToShadow(plain);
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
+            FillObservableRecords();
         }
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; }
@@ -253,7 +247,7 @@ namespace ix.framework.core.ViewModels
     {
         public WrongTypeOfDataObjectException(string message) : base(message)
         {
-            
+
         }
     }
 }
