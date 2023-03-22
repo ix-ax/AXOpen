@@ -48,6 +48,12 @@ namespace ix.framework.core.blazor.Toaster
             ToasterChanged?.Invoke(this, EventArgs.Empty);
         }
 
+        public void RemoveAllToast()
+        {
+            ToastsList.Clear();
+            ToasterChanged?.Invoke(this, EventArgs.Empty);
+        }
+
         private void ClearBurntToast()
         {
             var toastsToDelete = ToastsList.Where(item => item.TimeToBurn < DateTimeOffset.Now).ToList();

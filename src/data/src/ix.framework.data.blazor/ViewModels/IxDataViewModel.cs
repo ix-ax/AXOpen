@@ -153,7 +153,7 @@ namespace ix.framework.core.ViewModels
             try
             {
                 DataBrowser.AddRecord((T)plainer);
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Item was successfully created!", 10000)));
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Item was successfully created!", 10)));
             }
             catch (DuplicateIdException)
             {

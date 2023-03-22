@@ -1,5 +1,5 @@
 ﻿@namespace ix.framework.core.blazor.Toaster
-@if (toastService.GetToasts() != null)
+@if (toastService.GetToasts() != null && toastService.GetToasts().Count > 0)
 {
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 100;">
         @foreach (Toast toast in toastService.GetToasts())
@@ -36,6 +36,12 @@
                 <div class="toast-body">
                     @toast.Message
                 </div>
+            </div>
+        }
+        @if (toastService.GetToasts().Count > 1)
+        {
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn-close me-2" style="pointer-events: auto;" title="Close all toasts" @onclick="() => toastService.RemoveAllToast()"></button>
             </div>
         }
     </div>
