@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace ix.framework.data
 {
-    public class DataExchangeViewModel : RenderableViewModelBase
+    public class DataExchangeStatusViewModel : RenderableViewModelBase
     {
         public IDataViewModel DataViewModel
         {

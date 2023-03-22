@@ -15,7 +15,10 @@
 else
 {
     <div class="d-flex">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Create</button>
+        @if (Presentation.Equals("Command"))
+        {
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid">Create</button>
+        }
         <div class="btn-group ms-auto" role="group">
             <div class="btn-group" role="group">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SearchMode</button>
@@ -42,7 +45,10 @@ else
         <thead>
             <tr class="text-center">
                 <th scope="col">DataEntityId</th>
-                <th scope="col">Operate</th>
+                @if (Presentation.Equals("Command"))
+                {
+                    <th scope="col">Operate</th>
+                }
             </tr>
         </thead>
         <tbody>
@@ -72,10 +78,19 @@ else
                 @foreach (var item in Vm.Records.ToList())
                 {
                     <tr class="text-center">
-                        <td data-bs-toggle="modal" href="#viewModal" style="cursor: pointer" @onclick="() => Vm.SelectedItemId = item.DataEntityId">@item.DataEntityId</td>
-                        <td>
-                            <a class="remove" style="cursor: pointer" title="Remove" data-bs-toggle="modal" data-bs-target="#deleteModal" @onclick="() => Vm.SelectedItemId = item.DataEntityId"><i class="oi oi-trash"></i></a>
-                        </td>
+                        <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedItemId = item.DataEntityId">@item.DataEntityId</td>
+                        @if (Presentation.Equals("Command"))
+                        {
+                            <td>
+                                <a class="mx-1" style="cursor: pointer" title="Edit" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => Vm.SelectedItemId = item.DataEntityId">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                    </svg>
+                                </a>
+                                <a class="mx-1" style="cursor: pointer; vertical-align: middle;" title="Remove" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => Vm.SelectedItemId = item.DataEntityId"><i class="oi oi-trash"></i></a>
+                            </td>
+                        }
                     </tr>
                 }
             }
@@ -144,7 +159,7 @@ else
     </div>
 }
 
-<div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="createModal-@ViewGuid" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
@@ -165,7 +180,7 @@ else
     </div>
 </div>
 
-<div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="viewModal-@ViewGuid" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
@@ -176,48 +191,48 @@ else
                 <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowDisplay"></RenderableContentControl>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Copy()">Copy</button>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.FromPlc()">From PLC</button>
+                @if (Presentation.Equals("Command"))
+                {
+                    <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid">Delete</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Copy()">Copy</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid">Edit</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.FromPlc()">From PLC</button>
+                }
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="editModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="editModal-@ViewGuid" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedItemId</h1>
-                <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
-                    <label for="DataEntityId" class="form-label">DataEntityId</label>
-                    <input type="text" class="form-control" id="DataEntityId" @bind-value="Vm.SelectedItemId">
-                </div>
+                <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowControl"></RenderableContentControl>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Edit()">Save</button>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="deleteModal-@ViewGuid" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Delete @Vm.SelectedItemId?</h1>
-                <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid" aria-label="Close"></button>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="() => Vm.Delete()">Delete</button>
-                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid">Close</button>
             </div>
         </div>
     </div>
@@ -228,8 +243,10 @@ else
     [Parameter]
     public IDataViewModel Vm { get; set; }
 
-    [Inject]
-    private ToastService toastService { get; set; }
+    [Parameter]
+    public string Presentation { get; set; }
+
+    private Guid ViewGuid { get; } = new Guid();
 
     private int MaxPage { get { return (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit); } }
 
@@ -266,10 +283,5 @@ else
     protected override async Task OnInitializedAsync()
     {
         await Vm.FillObservableRecordsAsync();
-
-        //WeakReferenceMessenger.Default.Register<ToastMessage>(this, (r, m) =>
-        //{
-        //    toastService.AddToast(m.Value);
-        //});
     }
 }
