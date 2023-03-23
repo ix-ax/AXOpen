@@ -34,8 +34,8 @@ namespace ix.framework.core.Interfaces
         void Delete();
         void Copy();
         void Edit();
-        void SendToPlc();
-        void FromPlc();
+        Task SendToPlc();
+        Task FromPlc();
 
         event PropertyChangedEventHandler? PropertyChanged;
     }

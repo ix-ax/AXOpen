@@ -34,12 +34,14 @@ namespace integration.blazor
 
 
             var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+            var repository2 = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
             //inherited IxProductionData
             //var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionDataInherited>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
 
             // Entry.Plc.process_data_manager.InitializeRepository(repository);
 
             Entry.Plc.MainContext.process_data_manager.InitializeRemoteDataExchange(repository);
+            Entry.Plc.MainContext.test_data_manager.InitializeRemoteDataExchange(repository2);
 
             var app = builder.Build();
 

@@ -30,6 +30,7 @@ END_PROGRAM
 CLASS MyContext EXTENDS ix.framework.core.IxContext    
     VAR PUBLIC         
         process_data_manager: ixDataExamples.IxProcessDataManager;
+        test_data_manager: ixDataExamples.IxTestDataManager;
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main        

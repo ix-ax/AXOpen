@@ -215,18 +215,22 @@ namespace ix.framework.core.ViewModels
             FillObservableRecords();
         }
 
-        public void SendToPlc()
+        public async Task  SendToPlc()
         {
-            Data.PlainToOnline(SelectedRecord);
+            await Task.Run(() => Data.PlainToOnline(SelectedRecord));
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
         }
 
-        public void FromPlc()
+        public async Task FromPlc()
         {
-            var plainer = Data.OnlineToPlain<T>();
-            DataBrowser.AddRecord((T)plainer);
-            var plain = DataBrowser.FindById(plainer.DataEntityId);
-            Data.PlainToShadow(plain);
+            await Task.Run(() =>
+            {
+                var plainer = Data.OnlineToPlain<T>();
+                DataBrowser.AddRecord((T)plainer);
+                var plain = DataBrowser.FindById(plainer.DataEntityId);
+                Data.PlainToShadow(plain);
+            });
+
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
             FillObservableRecords();
         }

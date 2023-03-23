@@ -12,6 +12,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Ix.Abstractions" Version="0.14.0-alpha.67" />
 		<PackageReference Include="Ix.Connector" Version="0.14.0-alpha.67" />
 	</ItemGroup>
 
