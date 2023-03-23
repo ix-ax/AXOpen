@@ -189,7 +189,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
 
         public async Task  SendToPlc()
         {
-            await Task.Run(() => Data.PlainToOnline(SelectedRecord));
+            await Task.Run(() => OnlineData.PlainToOnline(SelectedRecord));
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
         }
 
@@ -197,10 +197,10 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         {
             await Task.Run(() =>
             {
-                var plainer = Data.OnlineToPlain<T>();
+                var plainer = OnlineData.OnlineToPlain<T>();
                 DataBrowser.AddRecord((T)plainer);
                 var plain = DataBrowser.FindById(plainer.DataEntityId);
-                Data.PlainToShadow(plain);
+                OnlineData.PlainToShadow(plain);
             });
 
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
