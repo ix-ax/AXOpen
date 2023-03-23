@@ -24,4 +24,8 @@
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\abstractions\src\ix.framework.abstractions\_ix-ax_ix.framework.abstractions.csproj" />
+	</ItemGroup>
 </Project>

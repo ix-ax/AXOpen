@@ -1,0 +1,74 @@
+{
+  "RecipeName": "default",
+  "String1": "",
+  "Int1": 0,
+  "Bool1": false,
+  "String2": "",
+  "Int2": 0,
+  "Bool2": false,
+  "String3": "",
+  "Int3": 0,
+  "Bool3": false,
+  "TestDataStructude": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "TestDataStructude2": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "TestDataStructude3": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "TestDataStructude4": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "RecordId": null,
+  "Changes": [
+    {
+      "DateTime": "2023-03-23T17:37:16.2059452+01:00",
+      "UserName": "",
+      "ValueTag": {
+        "HumanReadable": "test_data_manager._data.RecipeName",
+        "Symbol": "MainContext.test_data_manager._data.RecipeName"
+      },
+      "OldValue": "",
+      "NewValue": "default"
+    }
+  ],
+  "DataEntityId": "default"
+}

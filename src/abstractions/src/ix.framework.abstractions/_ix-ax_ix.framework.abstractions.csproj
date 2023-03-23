@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>ix.framework.core</PackageId>
-		<RootNamespace>ix.framework.core</RootNamespace>
+		<PackageId>ix.framework.utils</PackageId>
+		<RootNamespace>ix.framework.utils</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -12,7 +12,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Ix.Connector" Version="0.14.0-alpha.70" />
+		<PackageReference Include="Ix.Connector" Version="0.14.0-alpha.67" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -23,9 +23,5 @@
 	<ItemGroup>
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\..\..\abstractions\src\ix.framework.abstractions\_ix-ax_ix.framework.abstractions.csproj" />
 	</ItemGroup>
 </Project>

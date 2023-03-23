@@ -65,7 +65,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
             _selectedRecord = value;
             if (value != null)
             {
-                OnlineData.PlainToShadow(value);
+                OnlineData.PlainToShadow(value).Wait();
                 CrudData.Changes = ((Pocos.ix.framework.data.IDataEntity)_selectedRecord).Changes;
                 Changes = CrudData.Changes;
             }
@@ -81,7 +81,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         return Task.Run(async () =>
         {
             IsBusy = true;
-            await FillObservableRecordsAsync();
+            FillObservableRecords();
             IsBusy = false;
         });
     }
@@ -113,7 +113,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         await FillObservableRecordsAsync();
     }
 
-    public void CreateNew()
+    public async Task CreateNew()
     {
         var plainer = OnlineData.CreatePoco() as Pocos.ix.framework.data.IDataEntity;
 
@@ -135,7 +135,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         }
 
         var plain = DataBrowser.FindById(plainer.DataEntityId);
-        OnlineData.PlainToShadow(plain);
+        await OnlineData.PlainToShadow(plain);
         FillObservableRecords();
         CreateItemId = null;
     }
@@ -155,10 +155,10 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         FillObservableRecords();
     }
 
-    public void Copy()
+    public async Task Copy()
     {
-        var plainer = OnlineData.ShadowToPlain<T>();
-        plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}"; ;
+        var plainer = await OnlineData.ShadowToPlain<T>();
+        plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}";
 
         if (plainer == null)
             throw new WrongTypeOfDataObjectException(
@@ -174,31 +174,31 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
         }
         var foundPlain = DataBrowser.FindById(plainer.DataEntityId);
-        OnlineData.PlainToShadow(foundPlain);
+        await OnlineData.PlainToShadow(foundPlain);
         FillObservableRecords();
     }
 
-    public void Edit()
+    public async Task Edit()
     {
-        var plainer = OnlineData.ShadowToPlain<T>();
+        var plainer = await OnlineData.ShadowToPlain<T>();
         CrudData.ChangeTracker.SaveObservedChanges(plainer);
         DataBrowser.UpdateRecord(plainer);
         WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Edited!", "Item was successfully edited!", 10)));
         FillObservableRecords();
     }
 
-    public void SendToPlc()
+    public async Task SendToPlc()
     {
-        OnlineData.PlainToOnline(SelectedRecord);
+        await OnlineData.PlainToOnline(SelectedRecord);
         WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
     }
 
-    public void FromPlc()
+    public async Task FromPlc()
     {
-        var plainer = OnlineData.OnlineToPlain<T>();
-        DataBrowser.AddRecord((T)plainer);
+        var plainer = await OnlineData.OnlineToPlain<T>();
+        DataBrowser.AddRecord(plainer);
         var plain = DataBrowser.FindById(plainer.DataEntityId);
-        OnlineData.PlainToShadow(plain);
+        await OnlineData.PlainToShadow(plain);
         WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
         FillObservableRecords();
     }

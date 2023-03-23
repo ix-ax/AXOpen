@@ -12,8 +12,8 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Ix.Connector" Version="0.14.0-alpha.67" />
-		<PackageReference Include="Ix.Connector.S71500.WebAPI" Version="0.14.0-alpha.67" />
+		<PackageReference Include="Ix.Connector" Version="0.14.0-alpha.70" />
+		<PackageReference Include="Ix.Connector.S71500.WebAPI" Version="0.14.0-alpha.70" />
 	</ItemGroup>
 
 	<ItemGroup>

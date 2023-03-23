@@ -30,12 +30,12 @@ namespace ix.framework.core.Interfaces
 
         bool IsBusy { get; set; }
 
-        void CreateNew();
+        Task CreateNew();
         void Delete();
-        void Copy();
-        void Edit();
-        void SendToPlc();
-        void FromPlc();
+        Task Copy();
+        Task Edit();
+        Task SendToPlc();
+        Task FromPlc();
 
         event PropertyChangedEventHandler? PropertyChanged;
     }
