@@ -158,7 +158,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
     public void Copy()
     {
         var plainer = OnlineData.ShadowToPlain<T>();
-        plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}"; ;
+        plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}";
 
         if (plainer == null)
             throw new WrongTypeOfDataObjectException(

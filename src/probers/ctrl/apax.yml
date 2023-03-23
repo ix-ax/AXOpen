@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.probers"
-version                             : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.103'
+version                              : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.104'
 type: lib
 targets:
   - "1500"
@@ -10,7 +10,7 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/ix.framework.core"                             : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.103'
+  "@ix-ax/ix.framework.core"                              : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.104'
 devDependencies:
   "@ax/sdk": 3.0.8
 variables:
