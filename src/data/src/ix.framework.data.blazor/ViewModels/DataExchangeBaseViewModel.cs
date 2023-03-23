@@ -57,7 +57,7 @@ namespace ix.framework.core.ViewModels
                     dataAssembly = dataAssembly.Substring(0, dataAssembly.LastIndexOf("."));
 
 
-                MethodInfo method = typeof(IxDataViewModel).GetMethod("Create");
+                MethodInfo method = typeof(IxDataViewModelCreator).GetMethod("Create");
                 var genericTypeNamePoco = $"Pocos.{dataNameSpace}.{dataOfType}, {dataAssembly}";
                 var genericTypePoco = Type.GetType(genericTypeNamePoco);
                 var genericTypeNameBase = $"{dataNameSpace}.{dataOfType}, {dataAssembly}";

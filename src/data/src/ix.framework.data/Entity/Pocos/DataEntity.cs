@@ -6,7 +6,7 @@ namespace Pocos.ix.framework.data
 {
     public partial class DataEntity : IBrowsableDataObject, IDataEntity
     {
-        public dynamic _recordId { get; set; }
+        public dynamic RecordId { get; set; }
 
         List<ValueChangeItem> changes = new List<ValueChangeItem>();
         public List<ValueChangeItem> Changes
