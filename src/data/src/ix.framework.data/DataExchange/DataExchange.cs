@@ -7,12 +7,22 @@ using Ix.Base.Data;
 
 namespace ix.framework.data
 {
-
     public partial class DataExchange
     {
         /// <summary>An interaface which grants access to certain operations in DataExchange viewmodel, like searching by id, invoking search or filling the searchbox</summary>
         public IDataExchangeOperations DataExchangeOperations { get; set; }
+
         private dynamic _onliner;
+
+        public T GetData<T>() where T : class 
+        {
+            return (T)this.Onliner;
+        }
+
+        public ITwinObject Data
+        {
+            get { return (ITwinObject)this.Onliner; }
+        }
 
         protected ICrudDataObject Onliner
         {
@@ -56,8 +66,9 @@ namespace ix.framework.data
             throw new RepositoryNotInitializedException($"Repository '{Symbol}' is not initialized. You must initialize repository by calling " +
                 $"'{nameof(InitializeRepository)}' method with respective parameters.");
 
-        public void InitializeRepository<T>(IRepository repository) where T : IBrowsableDataObject
+        public void InitializeRepository(IRepository repository) 
             => _repository = repository;
+
         public void InitializeRepository<T>(IRepository<T> repository) where T : IBrowsableDataObject
             => _repository = repository as IRepository;
 
@@ -90,8 +101,6 @@ namespace ix.framework.data
             this.InitializeRemoteDataExchange();
         }
 
-        
-
         private bool Create()
         {
             CreateTask.ReadAsync().Wait();
@@ -108,7 +117,6 @@ namespace ix.framework.data
                 throw exception;
             }
         }
-
 
         private bool CreateOrUpdate()
         {
@@ -201,19 +209,19 @@ namespace ix.framework.data
             return true;
         }
 
-        private ITwinObject _onlinerVortex;
-        protected ITwinObject OnlinerVortex
-        {
-            get
-            {
-                if (_onlinerVortex == null)
-                {
-                    _onlinerVortex = (ITwinObject)Onliner;
-                }
+        //private ITwinObject _onlinerVortex;
+        //protected ITwinObject OnlinerVortex
+        //{
+        //    get
+        //    {
+        //        if (_onlinerVortex == null)
+        //        {
+        //            _onlinerVortex = (ITwinObject)Onliner;
+        //        }
 
-                return _onlinerVortex;
-            }
-        }
+        //        return _onlinerVortex;
+        //    }
+        //}
 
 
     }

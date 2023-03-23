@@ -1,6 +1,4 @@
-﻿using ix.ax.core.blazor;
-using ix.framework.core.Interfaces;
-using ix.framework.core.ViewModels;
+﻿using ix.framework.core.Interfaces;
 using ix.framework.data;
 using Ix.Presentation;
 using System;
@@ -10,9 +8,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ix.framework.data
+namespace ix.framework.core.ViewModels
 {
-    public class DataExchangeViewModel : RenderableViewModelBase
+    public class DataExchangeBaseViewModel : RenderableViewModelBase
     {
         public IDataViewModel DataViewModel
         {
@@ -59,16 +57,18 @@ namespace ix.framework.data
                     dataAssembly = dataAssembly.Substring(0, dataAssembly.LastIndexOf("."));
 
 
-                MethodInfo method = typeof(IxDataViewModel).GetMethod("Create");
-                var genericTypeName = $"Pocos.{dataNameSpace}.{dataOfType}, {dataAssembly}";
-                var genericType = Type.GetType(genericTypeName);
+                MethodInfo method = typeof(IxDataViewModelCreator).GetMethod("Create");
+                var genericTypeNamePoco = $"Pocos.{dataNameSpace}.{dataOfType}, {dataAssembly}";
+                var genericTypePoco = Type.GetType(genericTypeNamePoco);
+                var genericTypeNameBase = $"{dataNameSpace}.{dataOfType}, {dataAssembly}";
+                Type genericTypeBase = Type.GetType(genericTypeNameBase);
 
-                if (genericType == null)
+                if (genericTypePoco == null || genericTypeBase == null)
                 {
-                    throw new Exception($"Could not retrieve {genericTypeName} when creating browsable object.");
+                    throw new Exception($"Could not retrieve {genericTypeNamePoco} or {genericTypeNameBase} when creating browsable object.");
                 }
 
-                MethodInfo generic = method.MakeGenericMethod(genericType);
+                MethodInfo generic = method.MakeGenericMethod(genericTypePoco, genericTypeBase);
                 DataViewModel = (IDataViewModel)generic.Invoke(null, new object[] { dataExchangeObject.GetRepository(), dataExchangeObject });
 
             }

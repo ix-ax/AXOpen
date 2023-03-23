@@ -59,7 +59,7 @@ namespace Ix.Framework.Data.MongoDb
                                                    null);
                 }
 
-                data._recordId = ObjectId.GenerateNewId();
+                data.RecordId = ObjectId.GenerateNewId();
 
                 collection.InsertOne(data);
 

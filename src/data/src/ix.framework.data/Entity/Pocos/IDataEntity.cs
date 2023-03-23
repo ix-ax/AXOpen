@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ix.framework.data;
+using Ix.Connector;
 
 namespace Pocos.ix.framework.data
 {

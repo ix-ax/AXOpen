@@ -1,7 +1,10 @@
 ﻿@namespace ix.framework.data
 @using CommunityToolkit.Mvvm.ComponentModel;
+@using CommunityToolkit.Mvvm.Messaging;
 @using ix.framework.core.Interfaces;
 @using ix.framework.core.ViewModels;
+@using ix.framework.core.blazor.Toaster;
+@using ix.framework.core;
 
 <h3>IxDataView</h3>
 
@@ -12,28 +15,28 @@
 else
 {
     <div class="d-flex">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal">Create</button>
-        <div class="dropdown d-flex ms-auto">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SearchMode</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="@(() => Vm.SearchMode = Ix.Base.Data.eSearchMode.Exact)">Exact</a></li>
-                <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="@(() => Vm.SearchMode = Ix.Base.Data.eSearchMode.Contains)">Contains</a></li>
-                <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="@(() => Vm.SearchMode = Ix.Base.Data.eSearchMode.StartsWith)">Starts With</a></li>
-            </ul>
-        </div>
-        <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" @bind="Vm.FilterById" >
-            <button class="btn btn-secondary" type="button" name="searchbutton" @onclick="()=> Vm.Filter()">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                </svg>
-            </button>
-        </form>
-        <div class="btn-group">
-            <button class="btn btn-secondary" type="button" name="paginationSwitch" aria-label="Hide/Show pagination" title="Hide/Show pagination">
-                <i class="oi oi-caret-bottom"></i>
-            </button>
-            <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="@(() => Vm.RefreshFilter())">
+        @if (Presentation.Equals("Command"))
+        {
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid">Create</button>
+        }
+        <div class="btn-group ms-auto" role="group">
+            <div class="btn-group" role="group">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SearchMode</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Exact)">Exact</a></li>
+                    <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Contains)">Contains</a></li>
+                    <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.StartsWith)">Starts With</a></li>
+                </ul>
+            </div>
+            <form @onsubmit="() => Vm.Filter()" class="btn-group">
+                <input type="search" class="form-control" placeholder="Search" aria-label="Search" @bind="Vm.FilterById">
+                <button class="btn btn-secondary" type="submit" name="searchbutton">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                    </svg>
+                </button>
+            </form>
+            <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="() => Vm.FillObservableRecordsAsync()">
                 <i class="oi oi-loop-circular"></i>
             </button>
         </div>
@@ -41,9 +44,11 @@ else
     <table class="table table-hover">
         <thead>
             <tr class="text-center">
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Operate</th>
+                <th scope="col" class="w-75">DataEntityId</th>
+                @if (Presentation.Equals("Command"))
+                {
+                    <th scope="col">Operate</th>
+                }
             </tr>
         </thead>
         <tbody>
@@ -57,27 +62,37 @@ else
                         </div>
                     </td>
                 </tr>
-               
+
             }
-            else if(!Vm.Records.Any())
+            else if (!Vm.Records.Any())
             {
                 <tr class="text-center">
                     <td colspan="3">
-                        <h3 >Collection is empty</h3>
+                        <h3>Collection is empty</h3>
                     </td>
                 </tr>
-                
+
             }
             else
             {
-                @foreach (var item in Vm.Records)
+                @foreach (var item in Vm.Records.ToList())
                 {
-                    <tr class="text-center" data-bs-toggle="modal" href="#viewModal">
-                        <td>@item.DataEntityId</td>
-                        <td>@item.ToString()</td>
-                        <td>
-                            <a class="remove" title="Remove"><i class="oi oi-trash"></i></a>
-                        </td>
+                    <tr class="text-center">
+                        <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
+                        @if (Presentation.Equals("Command"))
+                        {
+                            <td>
+                                <button type="button" class="btn btn-primary px-3 py-0" data-bs-toggle="modal" title="Edit" data-bs-target="#editModal-@ViewGuid" @onclick="() => Vm.SelectedRecord = item">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn btn-danger px-3 py-0" data-bs-toggle="modal" title="Delete" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => Vm.SelectedRecord = item">
+                                    <i class="oi oi-trash"></i>
+                                </button>
+                            </td>
+                        }
                     </tr>
                 }
             }
@@ -86,71 +101,68 @@ else
     </table>
     <div class="d-flex">
         <div class="dropdown">
-            Showing @(((Vm.Page + 1) * Vm.Limit) - @Vm.Limit + 1) to @(((Vm.Page + 1) * Vm.Limit) > Vm.Records.Count ? Vm.Records.Count : ((Vm.Page + 1) * Vm.Limit)) of @Vm.Records.Count rows
+            Showing @(Vm.Page * Vm.Limit + 1) to @(((Vm.Page + 1) * Vm.Limit) > Vm.FilteredCount ? Vm.FilteredCount : ((Vm.Page + 1) * Vm.Limit)) of @Vm.FilteredCount rows
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.Limit</button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item @(Vm.Limit == 5 ? "active" : "")" @onclick="@(() => @Vm.Limit = 5)">5</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 10 ? "active" : "")" @onclick="@(() => @Vm.Limit = 10)">10</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 25 ? "active" : "")" @onclick="@(() => @Vm.Limit = 25)">25</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 50 ? "active" : "")" @onclick="@(() => @Vm.Limit = 50)">50</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 100 ? "active" : "")" @onclick="@(() => @Vm.Limit = 100)">100</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 999 ? "active" : "")" @onclick="@(() => @Vm.Limit = 999)">All</a></li>
+                <li><a class="dropdown-item @(Vm.Limit == 5 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(5)">5</a></li>
+                <li><a class="dropdown-item @(Vm.Limit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(10)">10</a></li>
+                <li><a class="dropdown-item @(Vm.Limit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(25)">25</a></li>
+                <li><a class="dropdown-item @(Vm.Limit == 50 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(50)">50</a></li>
             </ul>
             rows per page
         </div>
         <nav class="ms-auto">
-            @Vm.Page
-            @MaxPage
             <ul class="pagination">
-                <li class="page-item"><a class="page-link" @onclick="@(() => Vm.Page = mod(Vm.Page - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(mod(Vm.Page - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 
-                @if(MaxPage < 7)
+                @if (MaxPage < 7)
                 {
-                    @for(int i = 0; i < MaxPage + 1; i++)
+                    @for (var i = 0; i < MaxPage + 1; i++)
                     {
-                        <li class="page-item @(Vm.Page == i ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = i)">@(i + 1)</a></li>
+                        var j = i;
+                        <li class="page-item @(Vm.Page == i ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(j)">@(i + 1)</a></li>
                     }
                 }
                 else
                 {
-                    <li class="page-item @(@Vm.Page == 0 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = 0)">1</a></li>
+                    <li class="page-item @(Vm.Page == 0 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(0)">1</a></li>
 
                     @if (Vm.Page < 4)
                     {
-                        <li class="page-item @(Vm.Page == 1 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = 1)">2</a></li>
-                        <li class="page-item @(Vm.Page == 2 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = 2)">3</a></li>
-                        <li class="page-item @(Vm.Page == 3 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = 3)">4</a></li>
-                        <li class="page-item @(Vm.Page == 4 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = 4)">5</a></li>
+                        <li class="page-item @(Vm.Page == 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(1)">2</a></li>
+                        <li class="page-item @(Vm.Page == 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(2)">3</a></li>
+                        <li class="page-item @(Vm.Page == 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(3)">4</a></li>
+                        <li class="page-item @(Vm.Page == 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(4)">5</a></li>
                         <li class="page-item disabled"><a class="page-link">...</a></li>
                     }
                     else if (Vm.Page > MaxPage - 4)
                     {
                         <li class="page-item disabled"><a class="page-link">...</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 4 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = MaxPage - 4)">@(MaxPage - 3)</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 3 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = MaxPage - 3)">@(MaxPage - 2)</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 2 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = MaxPage - 2)">@(MaxPage - 1)</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 1 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = MaxPage - 1)">@(MaxPage)</a></li>
+                        <li class="page-item @(Vm.Page == @MaxPage - 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 4)">@(MaxPage - 3)</a></li>
+                        <li class="page-item @(Vm.Page == @MaxPage - 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 3)">@(MaxPage - 2)</a></li>
+                        <li class="page-item @(Vm.Page == @MaxPage - 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 2)">@(MaxPage - 1)</a></li>
+                        <li class="page-item @(Vm.Page == @MaxPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 1)">@(MaxPage)</a></li>
                     }
                     else
                     {
                         <li class="page-item disabled"><a class="page-link">...</a></li>
-                        <li class="page-item @(Vm.Page == Vm.Page - 1 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = Vm.Page - 1)">@(Vm.Page)</a></li>
-                        <li class="page-item @(Vm.Page == Vm.Page ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = Vm.Page)">@(Vm.Page + 1)</a></li>
-                        <li class="page-item @(Vm.Page == Vm.Page + 1 ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = Vm.Page + 1)">@(Vm.Page + 2)</a></li>
+                        <li class="page-item @(Vm.Page == Vm.Page - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page - 1)">@(Vm.Page)</a></li>
+                        <li class="page-item @(Vm.Page == Vm.Page ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page)">@(Vm.Page + 1)</a></li>
+                        <li class="page-item @(Vm.Page == Vm.Page + 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page + 1)">@(Vm.Page + 2)</a></li>
                         <li class="page-item disabled"><a class="page-link">...</a></li>
                     }
 
-                    <li class="page-item @(Vm.Page == @MaxPage ? "active" : "")"><a class="page-link" @onclick="@(() => Vm.Page = MaxPage)">@(MaxPage + 1)</a></li>
+                    <li class="page-item @(Vm.Page == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
                 }
 
-                <li class="page-item"><a class="page-link" @onclick="@(() => Vm.Page = (Vm.Page + 1) % (MaxPage + 1))" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync((Vm.Page + 1) % (MaxPage + 1))" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
             </ul>
         </nav>
     </div>
 }
 
-<div class="modal fade" id="createModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal fade" id="createModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Create new item</h1>
@@ -159,7 +171,7 @@ else
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" @bind="Vm.DataEntityId">
+                    <input type="text" class="form-control" id="name" @bind="Vm.CreateItemId">
                 </div>
             </div>
             <div class="modal-footer">
@@ -170,18 +182,59 @@ else
     </div>
 </div>
 
-<div class="modal fade" id="viewModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
+<div class="modal fade" id="viewModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Item</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowDisplay"></RenderableContentControl>
             </div>
             <div class="modal-footer">
+                @if (Presentation.Equals("Command"))
+                {
+                    <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid">Delete</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Copy()">Copy</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid">Edit</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.FromPlc()">From PLC</button>
+                }
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="editModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
+                <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowControl"></RenderableContentControl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Edit()">Save</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete @Vm.SelectedRecord?.DataEntityId ?</h1>
+                <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid" aria-label="Close"></button>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="() => Vm.Delete()">Delete</button>
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid">Close</button>
             </div>
         </div>
     </div>
@@ -192,15 +245,42 @@ else
     [Parameter]
     public IDataViewModel Vm { get; set; }
 
-    private int MaxPage { get { return Vm.Records.Count % Vm.Limit == 0 ? Vm.Records.Count / Vm.Limit - 1 : Vm.Records.Count / Vm.Limit; } }
+    [Parameter]
+    public string Presentation { get; set; }
 
-    public int mod(int x, int m)
+    private Guid ViewGuid { get; } = new Guid();
+
+    private int MaxPage { get { return (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit); } }
+
+    private int mod(int x, int m)
     {
         int r = x % m;
         return r < 0 ? r + m : r;
     }
 
+    private async Task setSearchModeAsync(Ix.Base.Data.eSearchMode searchMode)
+    {
+        Vm.SearchMode = searchMode;
 
+        await Vm.FillObservableRecordsAsync();
+    }
+
+    private async Task setLimitAsync(int limit)
+    {
+        int oldLimit = Vm.Limit;
+        Vm.Limit = limit;
+
+        Vm.Page = (Vm.Page * oldLimit) / Vm.Limit;
+
+        await Vm.FillObservableRecordsAsync();
+    }
+
+    private async Task setPageAsync(int page)
+    {
+        Vm.Page = page;
+
+        await Vm.FillObservableRecordsAsync();
+    }
 
     protected override async Task OnInitializedAsync()
     {

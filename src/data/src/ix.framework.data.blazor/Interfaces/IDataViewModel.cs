@@ -1,4 +1,5 @@
-﻿using ix.framework.core.ViewModels;
+﻿using ix.framework.core.blazor.Toaster;
+using ix.framework.core.ViewModels;
 using ix.framework.data;
 using Ix.Base.Data;
 using System;
@@ -16,20 +17,25 @@ namespace ix.framework.core.Interfaces
         DataExchange DataExchange { get; }
 
         ObservableCollection<IBrowsableDataObject> Records { get; set; }
-
+        IBrowsableDataObject SelectedRecord { get; set; }
         Task FillObservableRecordsAsync();
         Task Filter();
         Task RefreshFilter();
-        string DataEntityId { get; set; }
         int Limit { get; set; }
         string FilterById { get; set; }
         eSearchMode SearchMode { get; set; }
         long FilteredCount { get; set; }
         int Page { get; set; }
+        string CreateItemId { get; set; }
 
         bool IsBusy { get; set; }
 
         void CreateNew();
+        void Delete();
+        void Copy();
+        void Edit();
+        void SendToPlc();
+        void FromPlc();
 
         event PropertyChangedEventHandler? PropertyChanged;
     }

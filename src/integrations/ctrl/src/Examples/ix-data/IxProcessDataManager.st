@@ -10,6 +10,7 @@ NAMESPACE ixDataExamples
             _update     : BOOL;
             _delete     : BOOL;
             _data       : IxProductionData;
+            // _data       : IxProductionDataInherited;
         END_VAR  
     END_CLASS       
 END_NAMESPACE
