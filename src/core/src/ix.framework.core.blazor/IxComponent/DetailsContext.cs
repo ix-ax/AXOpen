@@ -84,6 +84,26 @@ namespace ix.framework.core
         {
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
         }
+
+        public Task<T> OnlineToPlain<T>()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PlainToOnline<T>(T plain)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> ShadowToPlain<T>()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PlainToShadow<T>(T plain)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

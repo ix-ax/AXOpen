@@ -1,0 +1,84 @@
+{
+  "RecipeName": "dasdasda",
+  "String1": "",
+  "Int1": 0,
+  "Bool1": false,
+  "String2": "",
+  "Int2": 0,
+  "Bool2": false,
+  "String3": "",
+  "Int3": 0,
+  "Bool3": false,
+  "TestDataStructude": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "TestDataStructude2": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "TestDataStructude3": {
+    "RecipeName": "In the  middle of the night",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "TestDataStructude4": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "RecordId": null,
+  "Changes": [
+    {
+      "DateTime": "2023-03-23T17:37:49.7419386+01:00",
+      "UserName": "",
+      "ValueTag": {
+        "HumanReadable": "test_data_manager._data.RecipeName",
+        "Symbol": "MainContext.test_data_manager._data.RecipeName"
+      },
+      "OldValue": "",
+      "NewValue": "dasdasda"
+    },
+    {
+      "DateTime": "2023-03-23T17:36:29.4079747+01:00",
+      "UserName": "",
+      "ValueTag": {
+        "HumanReadable": "test_data_manager._data.TestDataStructude3.RecipeName",
+        "Symbol": "MainContext.test_data_manager._data.TestDataStructude3.RecipeName"
+      },
+      "OldValue": "",
+      "NewValue": "In the  middle of the night"
+    }
+  ],
+  "DataEntityId": "152"
+}
