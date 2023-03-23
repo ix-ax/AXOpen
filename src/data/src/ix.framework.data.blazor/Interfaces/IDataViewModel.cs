@@ -30,10 +30,10 @@ namespace ix.framework.core.Interfaces
 
         bool IsBusy { get; set; }
 
-        void CreateNew();
+        Task CreateNew();
         void Delete();
-        void Copy();
-        void Edit();
+        Task Copy();
+        Task Edit();
         Task SendToPlc();
         Task FromPlc();
 
