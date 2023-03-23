@@ -1,5 +1,3 @@
-USING ix.framework.utils;
-
 NAMESPACE ix.framework.messaging
     INTERFACE IIxMessengerEnv 
 		/// <summary>
@@ -70,7 +68,6 @@ NAMESPACE ix.framework.messaging
 		/// See also <see cref="PlcDocu.TcoCore.TcoMessengerSettings.MinLevel"/>
 		/// </para>
 		/// </summary>	
-		METHOD Suspend END_METHOD
-		METHOD GetStringBuilder : REF_TO StringBuilder END_METHOD
+		METHOD Suspend END_METHOD		
 	END_INTERFACE
 END_NAMESPACE

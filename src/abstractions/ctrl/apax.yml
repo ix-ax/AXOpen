@@ -1,0 +1,11 @@
+name: "ix.framework.abstractions"
+version : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.117'
+type: lib
+targets:
+  - "1500"
+  - llvm
+  - axunit-llvm
+files:
+  - bin
+devDependencies:
+  "@ax/sdk": 3.0.12

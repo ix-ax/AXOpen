@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.data"
-version                                                                                        : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.116'
+version                                                                                         : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.117'
 type: lib
 targets:
 #  - "1500"
@@ -9,7 +9,7 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/ix.framework.core"                                                    : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.116'
+  "@ix-ax/ix.framework.core"                                                     : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.117'
 devDependencies:
   "@ax/sdk": 3.0.8
 
