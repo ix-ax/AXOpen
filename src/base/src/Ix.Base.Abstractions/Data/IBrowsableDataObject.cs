@@ -4,7 +4,7 @@ namespace Ix.Base.Data
 {
     public interface IBrowsableDataObject
     {
-        dynamic _recordId { get; set; }
+        dynamic RecordId { get; set; }
       
         string DataEntityId { get; set; }        
     }

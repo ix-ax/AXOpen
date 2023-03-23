@@ -43,6 +43,9 @@ namespace integration.blazor
             Entry.Plc.MainContext.process_data_manager.InitializeRemoteDataExchange(repository);
             Entry.Plc.MainContext.test_data_manager.InitializeRemoteDataExchange(repository2);
 
+            
+            Entry.Plc.Integrations.DM.InitializeRemoteDataExchange(Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

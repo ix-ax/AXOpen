@@ -26,7 +26,7 @@ namespace Ix.Framework.Repository.Integration.Tests
         public DateTime _Modified { get; set; }
 
         public Guid Uid { get; set; }
-        public object _recordId { get; set; }
+        public object RecordId { get; set; }
 
         public ulong UlongMax { get; set; }
 
@@ -170,7 +170,7 @@ namespace Ix.Framework.Repository.Integration.Tests
         public DateTime _Modified { get; set; }
 
         public Guid Uid { get; set; }
-        public object _recordId { get; set; }
+        public object RecordId { get; set; }
 
         public ulong UlongMax { get; set; }
 

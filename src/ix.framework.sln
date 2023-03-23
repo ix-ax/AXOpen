@@ -71,6 +71,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Data.RavenDb",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Repository.Integration.Tests_L3", "data\tests\Ix.Framework.Repository.Integration.Tests_L3\Ix.Framework.Repository.Integration.Tests_L3.csproj", "{6ED38569-92E2-45D8-A8AF-B1987D4AF6F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "integration.data.blazor.tests", "integrations\tests\integration.data.blazor.tests\integration.data.blazor.tests.csproj", "{BDFC9B7C-B834-48B6-9304-43C0DE6E009B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -149,6 +151,10 @@ Global
 		{6ED38569-92E2-45D8-A8AF-B1987D4AF6F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ED38569-92E2-45D8-A8AF-B1987D4AF6F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ED38569-92E2-45D8-A8AF-B1987D4AF6F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDFC9B7C-B834-48B6-9304-43C0DE6E009B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDFC9B7C-B834-48B6-9304-43C0DE6E009B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDFC9B7C-B834-48B6-9304-43C0DE6E009B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDFC9B7C-B834-48B6-9304-43C0DE6E009B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -183,6 +189,7 @@ Global
 		{3CB1FE79-EF8B-416D-8CA5-18165AB8799B} = {0E97F83F-9AC9-431D-9FC2-4966874E273D}
 		{59B6FDE2-D947-449E-B4A7-A73048B8BD5A} = {3EFF6571-0A63-49A6-9696-F2071CE7AD62}
 		{6ED38569-92E2-45D8-A8AF-B1987D4AF6F5} = {0E97F83F-9AC9-431D-9FC2-4966874E273D}
+		{BDFC9B7C-B834-48B6-9304-43C0DE6E009B} = {CE0F4E49-A685-4518-87A3-EE17D0547004}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

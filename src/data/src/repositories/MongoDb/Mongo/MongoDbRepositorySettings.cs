@@ -149,7 +149,7 @@ namespace Ix.Framework.Data.MongoDb
                 {
                     cm.AutoMap();
                     cm.SetIgnoreExtraElements(true);
-                    cm.SetIdMember(cm.GetMemberMap(c => c._recordId));
+                    cm.SetIdMember(cm.GetMemberMap(c => c.RecordId));
                 });
             }
 

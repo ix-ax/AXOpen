@@ -14,7 +14,6 @@ namespace ix.framework.data
             ChangeTracker = new ValueChangeTracker(this);
         }
 
-
         public List<ValueChangeItem> Changes { get; set; }              
     }
 
