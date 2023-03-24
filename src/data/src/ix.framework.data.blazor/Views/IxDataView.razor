@@ -17,7 +17,8 @@ else
     <div class="d-flex">
         @if (Presentation.Equals("Command"))
         {
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid">Create</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Create"'>Create</button>
+            <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>Load from PLC</button>
         }
         <div class="btn-group ms-auto" role="group">
             <div class="btn-group" role="group">
@@ -165,18 +166,56 @@ else
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Create new item</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                @if (Create.Equals("Create"))
+                {
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create new item</h1>
+                }
+                else if (Create.Equals("Copy"))
+                {
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Copy item</h1>
+                }
+                else if (Create.Equals("LoadFromPLC"))
+                {
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Load item from PLC</h1>
+                }
+
+                @if (Create.Equals("Copy"))
+                {
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid" aria-label="Close"></button>
+                }
+                else
+                {
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                }
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" @bind="Vm.CreateItemId">
+                    <label for="id" class="form-label">Id</label>
+                    <input type="text" class="form-control" id="id" @bind="Vm.CreateItemId">
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.CreateNew()">Create</button>
+                @if (Create.Equals("Copy"))
+                {
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid">Close</button>
+                }
+                else
+                {
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                }
+                
+                @if (Create.Equals("Create"))
+                {
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.CreateNew()">Create</button>
+                }
+                else if (Create.Equals("Copy"))
+                {
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Copy()">Copy</button>
+                }
+                else if (Create.Equals("LoadFromPLC"))
+                {
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.LoadFromPlc()">Load from PLC</button>
+                }
             </div>
         </div>
     </div>
@@ -196,10 +235,9 @@ else
                 @if (Presentation.Equals("Command"))
                 {
                     <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid">Delete</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Copy()">Copy</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Copy"'>Copy</button>
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid">Edit</button>
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.FromPlc()">From PLC</button>
                 }
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
@@ -249,6 +287,7 @@ else
     public string Presentation { get; set; }
 
     private Guid ViewGuid { get; } = new Guid();
+    private string Create { get; set; } = "";
 
     private int MaxPage { get { return (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit); } }
 

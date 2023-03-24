@@ -158,11 +158,19 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
     public async Task Copy()
     {
         var plainer = await OnlineData.ShadowToPlain<T>();
-        plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}";
 
         if (plainer == null)
             throw new WrongTypeOfDataObjectException(
                 $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
+
+        if (CreateItemId != null)
+        {
+            plainer.DataEntityId = CreateItemId;
+        }
+        else
+        {
+            plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}";
+        }
 
         try
         {
@@ -176,6 +184,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         var foundPlain = DataBrowser.FindById(plainer.DataEntityId);
         await OnlineData.PlainToShadow(foundPlain);
         FillObservableRecords();
+        CreateItemId = null;
     }
 
     public async Task Edit()
@@ -193,14 +202,19 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
     }
 
-    public async Task FromPlc()
+    public async Task LoadFromPlc()
     {
         var plainer = await OnlineData.OnlineToPlain<T>();
+
+        if (CreateItemId != null)
+            plainer.DataEntityId = CreateItemId;
+
         DataBrowser.AddRecord(plainer);
         var plain = DataBrowser.FindById(plainer.DataEntityId);
         await OnlineData.PlainToShadow(plain);
         WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
         FillObservableRecords();
+        CreateItemId = null;
     }
 
     public ObservableCollection<IBrowsableDataObject> Records { get; set; }
