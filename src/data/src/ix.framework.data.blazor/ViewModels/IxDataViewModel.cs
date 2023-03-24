@@ -209,10 +209,17 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         if (CreateItemId != null)
             plainer.DataEntityId = CreateItemId;
 
-        DataBrowser.AddRecord(plainer);
+        try
+        {
+            DataBrowser.AddRecord(plainer);
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
+        }
+        catch (DuplicateIdException)
+        {
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
+        }
         var plain = DataBrowser.FindById(plainer.DataEntityId);
         await OnlineData.PlainToShadow(plain);
-        WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
         FillObservableRecords();
         CreateItemId = null;
     }
