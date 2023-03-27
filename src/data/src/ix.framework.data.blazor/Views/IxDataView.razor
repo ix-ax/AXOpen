@@ -14,152 +14,188 @@
 }
 else
 {
-    <div class="d-flex">
-        @if (Presentation.Equals("Command"))
-        {
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Create"'>Create</button>
-            <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>Load from PLC</button>
-        }
-        <div class="btn-group ms-auto" role="group">
-            <div class="btn-group" role="group">
-                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SearchMode</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Exact)">Exact</a></li>
-                    <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Contains)">Contains</a></li>
-                    <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.StartsWith)">Starts With</a></li>
-                </ul>
-            </div>
-            <form @onsubmit="() => Vm.Filter()" class="btn-group">
-                <input type="search" class="form-control" placeholder="Search" aria-label="Search" @bind="Vm.FilterById">
-                <button class="btn btn-secondary" type="submit" name="searchbutton">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                    </svg>
-                </button>
-            </form>
-            <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="() => Vm.FillObservableRecordsAsync()">
-                <i class="oi oi-loop-circular"></i>
-            </button>
-        </div>
-    </div>
-    <table class="table table-hover">
-        <thead>
-            <tr class="text-center">
-                <th scope="col" class="w-75">DataEntityId</th>
-                @if (Presentation.Equals("Command"))
+    <div class="p-1" style="resize: vertical; overflow: auto;">
+        <div class="d-flex">
+            @if (Presentation.Equals("Command"))
+            {
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Create"'>Create</button>
+                <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>Load from PLC</button>
+                @if (CanExport)
                 {
-                    <th scope="col">Operate</th>
+                    <button type="button" class="btn btn-primary ms-2" @onclick="() => Vm.ExportData()">Export</button>
+                    <a download href="/ixdata">Download From Folder</a>
+                    <button type="button" class="btn btn-primary ms-2" @onclick="() => Vm.ImportData()">Import</button>
                 }
-            </tr>
-        </thead>
-        <tbody>
-            @if (Vm.IsBusy)
-            {
-
-                <tr class="text-center">
-                    <td colspan="3">
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </td>
-                </tr>
-
             }
-            else if (!Vm.Records.Any())
-            {
-                <tr class="text-center">
-                    <td colspan="3">
-                        <h3>Collection is empty</h3>
-                    </td>
+            <div class="btn-group ms-auto" role="group">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SearchMode</button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Exact)">Exact</a></li>
+                        <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Contains)">Contains</a></li>
+                        <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.StartsWith)">Starts With</a></li>
+                    </ul>
+                </div>
+                <form @onsubmit="() => Vm.Filter()" class="btn-group">
+                    <input type="search" class="form-control" placeholder="Search" aria-label="Search" @bind="Vm.FilterById">
+                    <button class="btn btn-secondary" type="submit" name="searchbutton">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                </form>
+                <button class="btn btn-secondary" type="button" name="refresh" aria-label="Refresh" title="Refresh" @onclick="() => Vm.FillObservableRecordsAsync()">
+                    <i class="oi oi-loop-circular"></i>
+                </button>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr class="text-start">
+                    <th scope="col">DataEntityId</th>
+                    @if (Presentation.Equals("Command"))
+                    {
+                        <th scope="col">Actions</th>
+                    }
                 </tr>
+            </thead>
+            <tbody>
+                @if (Vm.IsBusy)
+                {
 
-            }
-            else
-            {
-                @foreach (var item in Vm.Records.ToList())
+                    <tr class="text-center">
+                        <td colspan="3">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </td>
+                    </tr>
+
+                }
+                else if (!Vm.Records.Any())
                 {
                     <tr class="text-center">
-                        <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
-                        @if (Presentation.Equals("Command"))
-                        {
-                            <td>
-                                <button type="button" class="btn btn-primary px-3 py-0" data-bs-toggle="modal" title="Edit" data-bs-target="#editModal-@ViewGuid" @onclick="() => Vm.SelectedRecord = item">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-                                    </svg>
-                                </button>
-                                <button type="button" class="btn btn-danger px-3 py-0" data-bs-toggle="modal" title="Delete" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => Vm.SelectedRecord = item">
-                                    <i class="oi oi-trash"></i>
-                                </button>
-                            </td>
-                        }
+                        <td colspan="3">
+                            <h3>Collection is empty</h3>
+                        </td>
                     </tr>
-                }
-            }
 
-        </tbody>
-    </table>
-    <div class="d-flex">
-        <div class="dropdown">
-            Showing @(Vm.Page * Vm.Limit + 1) to @(((Vm.Page + 1) * Vm.Limit) > Vm.FilteredCount ? Vm.FilteredCount : ((Vm.Page + 1) * Vm.Limit)) of @Vm.FilteredCount rows
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.Limit</button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item @(Vm.Limit == 5 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(5)">5</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(10)">10</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(25)">25</a></li>
-                <li><a class="dropdown-item @(Vm.Limit == 50 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(50)">50</a></li>
-            </ul>
-            rows per page
-        </div>
-        <nav class="ms-auto">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(mod(Vm.Page - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-
-                @if (MaxPage < 7)
-                {
-                    @for (var i = 0; i < MaxPage + 1; i++)
-                    {
-                        var j = i;
-                        <li class="page-item @(Vm.Page == i ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(j)">@(i + 1)</a></li>
-                    }
                 }
                 else
                 {
-                    <li class="page-item @(Vm.Page == 0 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(0)">1</a></li>
-
-                    @if (Vm.Page < 4)
+                    @foreach (var item in Vm.Records.ToList())
                     {
-                        <li class="page-item @(Vm.Page == 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(1)">2</a></li>
-                        <li class="page-item @(Vm.Page == 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(2)">3</a></li>
-                        <li class="page-item @(Vm.Page == 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(3)">4</a></li>
-                        <li class="page-item @(Vm.Page == 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(4)">5</a></li>
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
+                        <tr class="text-start @((!ModalDataView && Vm.SelectedRecord == item) ? "table-active" : null)">
+                            @if (ModalDataView)
+                            {
+                                <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
+                            }
+                            else
+                            {
+                                <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
+                            }
+                            @if (Presentation.Equals("Command"))
+                            {
+                                <td>
+                                    <button type="button" class="btn btn-primary px-3 py-0" title="Copy" @onclick="() => { Vm.SelectedRecord = item; Vm.Copy(); }">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
+                                            <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn btn-primary px-3 py-0" data-bs-toggle="modal" title="Edit" data-bs-target="#editModal-@ViewGuid" @onclick="() => Vm.SelectedRecord = item">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="btn btn-danger px-3 py-0" data-bs-toggle="modal" title="Delete" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => Vm.SelectedRecord = item">
+                                        <i class="oi oi-trash"></i>
+                                    </button>
+                                </td>
+                            }
+                        </tr>
                     }
-                    else if (Vm.Page > MaxPage - 4)
+                }
+
+            </tbody>
+        </table>
+        <div class="d-flex">
+            <div class="dropdown">
+                Showing @(Vm.Page * Vm.Limit + 1) to @(((Vm.Page + 1) * Vm.Limit) > Vm.FilteredCount ? Vm.FilteredCount : ((Vm.Page + 1) * Vm.Limit)) of @Vm.FilteredCount rows
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.Limit</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item @(Vm.Limit == 5 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(5)">5</a></li>
+                    <li><a class="dropdown-item @(Vm.Limit == 10 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(10)">10</a></li>
+                    <li><a class="dropdown-item @(Vm.Limit == 25 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(25)">25</a></li>
+                    <li><a class="dropdown-item @(Vm.Limit == 50 ? "active" : "")" style="cursor: pointer" @onclick="() => setLimitAsync(50)">50</a></li>
+                </ul>
+                rows per page
+            </div>
+            <nav class="ms-auto">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(mod(Vm.Page - 1, MaxPage + 1))" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+
+                    @if (MaxPage < 7)
                     {
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 4)">@(MaxPage - 3)</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 3)">@(MaxPage - 2)</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 2)">@(MaxPage - 1)</a></li>
-                        <li class="page-item @(Vm.Page == @MaxPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 1)">@(MaxPage)</a></li>
+                        @for (var i = 0; i < MaxPage + 1; i++)
+                        {
+                            var j = i;
+                            <li class="page-item @(Vm.Page == i ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(j)">@(i + 1)</a></li>
+                        }
                     }
                     else
                     {
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
-                        <li class="page-item @(Vm.Page == Vm.Page - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page - 1)">@(Vm.Page)</a></li>
-                        <li class="page-item @(Vm.Page == Vm.Page ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page)">@(Vm.Page + 1)</a></li>
-                        <li class="page-item @(Vm.Page == Vm.Page + 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page + 1)">@(Vm.Page + 2)</a></li>
-                        <li class="page-item disabled"><a class="page-link">...</a></li>
+                        <li class="page-item @(Vm.Page == 0 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(0)">1</a></li>
+
+                        @if (Vm.Page < 4)
+                        {
+                            <li class="page-item @(Vm.Page == 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(1)">2</a></li>
+                            <li class="page-item @(Vm.Page == 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(2)">3</a></li>
+                            <li class="page-item @(Vm.Page == 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(3)">4</a></li>
+                            <li class="page-item @(Vm.Page == 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(4)">5</a></li>
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                        }
+                        else if (Vm.Page > MaxPage - 4)
+                        {
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                            <li class="page-item @(Vm.Page == @MaxPage - 4 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 4)">@(MaxPage - 3)</a></li>
+                            <li class="page-item @(Vm.Page == @MaxPage - 3 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 3)">@(MaxPage - 2)</a></li>
+                            <li class="page-item @(Vm.Page == @MaxPage - 2 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 2)">@(MaxPage - 1)</a></li>
+                            <li class="page-item @(Vm.Page == @MaxPage - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage - 1)">@(MaxPage)</a></li>
+                        }
+                        else
+                        {
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                            <li class="page-item @(Vm.Page == Vm.Page - 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page - 1)">@(Vm.Page)</a></li>
+                            <li class="page-item @(Vm.Page == Vm.Page ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page)">@(Vm.Page + 1)</a></li>
+                            <li class="page-item @(Vm.Page == Vm.Page + 1 ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(Vm.Page + 1)">@(Vm.Page + 2)</a></li>
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                        }
+
+                        <li class="page-item @(Vm.Page == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
                     }
 
-                    <li class="page-item @(Vm.Page == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
-                }
-
-                <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync((Vm.Page + 1) % (MaxPage + 1))" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-            </ul>
-        </nav>
+                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync((Vm.Page + 1) % (MaxPage + 1))" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
+    @if (!ModalDataView && Vm.SelectedRecord != null)
+    {
+        <div class="border p-2">
+            <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowDisplay"></RenderableContentControl>
+            @if (Presentation.Equals("Command"))
+            {
+                <div class="d-flex justify-content-end mt-3">
+                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Copy"'>Copy</button>
+                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid">Edit</button>
+                    <button type="button" class="btn btn-primary mx-1" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
+                    <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid">Delete</button>
+                </div>
+            }
+        </div>
+    }
+
 }
 
 <div class="modal fade" id="createModal-@ViewGuid" tabindex="-1" aria-hidden="true">
@@ -203,7 +239,7 @@ else
                 {
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 }
-                
+
                 @if (Create.Equals("Create"))
                 {
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.CreateNew()">Create</button>
@@ -285,6 +321,12 @@ else
 
     [Parameter]
     public string Presentation { get; set; }
+
+    [Parameter]
+    public bool ModalDataView { get; set; } = true;
+
+    [Parameter]
+    public bool CanExport { get; set; } = false;
 
     private Guid ViewGuid { get; } = new Guid();
     private string Create { get; set; } = "";

@@ -13,6 +13,7 @@ using Ix.Connector;
 using ix.framework.core.blazor.Toaster;
 using ix.framework.core.Interfaces;
 using ix.framework.data;
+using Microsoft.JSInterop;
 
 namespace ix.framework.core.ViewModels;
 
@@ -26,7 +27,6 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         DataBrowser = CreateBrowsable(repository);
         Records = new ObservableCollection<IBrowsableDataObject>();
         _onlinerData = DataExchange.GetData<O>();
-
     }
 
     private readonly O _onlinerData;
@@ -222,6 +222,52 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         await OnlineData.PlainToShadow(plain);
         FillObservableRecords();
         CreateItemId = null;
+    }
+
+    public void ExportData()
+    {
+        try
+        {
+            var exports = this.DataBrowser.Export(p => true);
+            //var sfd = new SaveFileDialog();
+            //sfd.ShowDialog();
+
+            //using (var sw = new StreamWriter(sfd.FileName))
+            //{
+            //    foreach (var item in exports)
+            //    {
+            //        sw.Write(item + "\r");
+            //    }
+            //}
+        }
+        catch (Exception e)
+        {
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", e.Message, 10)));
+        }
+    }
+
+    public void ImportData()
+    {
+        try
+        {
+            //var ofd = new OpenFileDialog();
+            //ofd.ShowDialog();
+            //var fileName = ofd.FileName;
+
+            //var imports = new List<string>();
+            //foreach (var item in File.ReadAllLines(fileName))
+            //{
+            //    imports.Add(item);
+            //}
+
+
+            //this.DataBrowser.Import(imports);
+            this.FillObservableRecords();
+        }
+        catch (Exception e)
+        {
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", e.Message, 10)));
+        }
     }
 
     public ObservableCollection<IBrowsableDataObject> Records { get; set; }
