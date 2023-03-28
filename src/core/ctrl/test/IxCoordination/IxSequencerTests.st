@@ -1,10 +1,6 @@
 USING AxUnit;
-USING AxUnit;
-USING ix.core.IxContext_Tests;
 USING ix.framework.core;
-USING AxUnit;
-USING ix.framework.core;
-USING AxUnit;
+USING ix.framework.rtc;
 
 NAMESPACE ix.core.IxSequencer_Tests  
     
@@ -34,7 +30,11 @@ NAMESPACE ix.core.IxSequencer_Tests
             _identityCounter := _identityCounter + ULINT#1;
             CreateIdentity := _identityCounter;
         END_METHOD        
-        METHOD PUBLIC RealTimeClock : IIxRtc ; END_METHOD
+
+        METHOD PUBLIC GetRtc : IRtc ; END_METHOD
+
+        METHOD PUBLIC InjectRtc : IRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+    
     END_CLASS  
 
     CLASS MySequencer EXTENDS IxSequencer

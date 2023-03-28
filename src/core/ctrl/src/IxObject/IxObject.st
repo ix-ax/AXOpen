@@ -1,3 +1,5 @@
+USING ix.framework.rtc;
+
 NAMESPACE ix.framework.core
 
     FUNCTION IsNullContext : BOOL
@@ -17,9 +19,14 @@ NAMESPACE ix.framework.core
     /// Provides an empty context for uninitialized objects.
     ///</summary>
     CLASS PUBLIC _NULL_CONTEXT IMPLEMENTS IIxContext
+        VAR PRIVATE            
+            NULL_RTC : _NULL_RTC;
+        END_VAR
+
         METHOD PUBLIC CreateIdentity : ULINT CreateIdentity := ULINT#0; END_METHOD
-        METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                                  
-        METHOD PUBLIC RealTimeClock : IIxRtc ; END_METHOD
+        METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                                         
+        METHOD PUBLIC GetRtc : IRtc GetRtc := NULL_RTC; END_METHOD
+        METHOD PUBLIC InjectRtc : IRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
     END_CLASS    
 
     ///<summary>

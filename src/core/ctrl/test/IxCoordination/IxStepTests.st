@@ -1,4 +1,5 @@
 USING ix.framework.core;
+USING ix.framework.rtc;
 USING AxUnit;
 
 NAMESPACE ix.core.IxStep_Tests        
@@ -28,7 +29,11 @@ NAMESPACE ix.core.IxStep_Tests
             _identityCounter := _identityCounter + ULINT#1;
             CreateIdentity := _identityCounter;
         END_METHOD         
-        METHOD PUBLIC RealTimeClock : IIxRtc ; END_METHOD
+
+        METHOD PUBLIC GetRtc : IRtc ; END_METHOD
+
+        METHOD PUBLIC InjectRtc : IRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+    
     END_CLASS      
 
     {TestFixture}

@@ -1,7 +1,7 @@
 USING System.Strings;
 USING System.DateTime;
 USING ix.framework.utils;
-using ix.framework.core;
+USING ix.framework.core;
 
 NAMESPACE ix.framework.messaging
 	/// <summary>
@@ -61,9 +61,8 @@ NAMESPACE ix.framework.messaging
 		/// <summary>
 		/// Categorizes and creates the message as 'debug'.								 
 		/// </summary>		
-		METHOD PUBLIC AsDebug : IIxMessageProperties
-			// AsDebug := Post(THIS.StringBuilder().AsString(), eIxMessageCategory#Debug);
-			;
+		METHOD PUBLIC AsDebug : IIxMessageProperties				
+			AsDebug := THIS.Post(THIS.StringBuilder()^.AsString(), eIxMessageCategory#Debug);			
 		END_METHOD
 		
 		/// <summary>
@@ -260,12 +259,12 @@ NAMESPACE ix.framework.messaging
 			// As := THIS^;
 			;
 		END_METHOD
-		
+
 		/// <summary>			
 		/// Initiates new message text building for this messenger in fluent-like fashion.
 		/// </summary>		
 		METHOD PUBLIC Build : IIxMessageTextBuilder
-			// THIS^.StringBuilder.Clear();
+			//THIS^.StringBuilder.Clear();
 			// Build := THIS^;
 			;
 		END_METHOD
@@ -339,8 +338,8 @@ NAMESPACE ix.framework.messaging
 			ELSE
 				_condition := eIxMessageCondition#Inactive;
 			END_IF;
-			
-			// OnCondition := THIS^;
+
+			// OnCondition := THIS;
 		END_METHOD
 
 		/// <summary>
