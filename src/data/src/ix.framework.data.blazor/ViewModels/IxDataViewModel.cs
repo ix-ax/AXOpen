@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Ix.Base.Data;
-using Ix.Connector;
+using AXSharp.Connector;
 using ix.framework.core.blazor.Toaster;
 using ix.framework.core.Interfaces;
 using ix.framework.data;

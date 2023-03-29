@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Ix.Base.Data;
 using ix.framework.data;
-using Ix.Connector;
+using AXSharp.Connector;
 
 namespace ix.framework.data
 {

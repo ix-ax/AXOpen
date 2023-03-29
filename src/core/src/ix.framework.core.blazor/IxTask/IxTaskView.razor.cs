@@ -1,4 +1,4 @@
-﻿using Ix.Connector;
+﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 
 namespace ix.framework.core

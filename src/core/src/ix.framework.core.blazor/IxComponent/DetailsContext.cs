@@ -1,4 +1,4 @@
-﻿using Ix.Connector;
+﻿using AXSharp.Connector;
 
 namespace ix.framework.core
 {

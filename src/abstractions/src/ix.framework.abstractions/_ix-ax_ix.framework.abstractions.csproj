@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -12,13 +12,13 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Ix.Connector" Version="0.14.0-alpha.67" />
-	</ItemGroup>
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.79" />
+		</ItemGroup>
 
-	<ItemGroup>
-		<Folder Include=".g\" />
-		<Compile Include=".g\**" />
-	</ItemGroup>
+		<ItemGroup>
+			<Folder Include=".g\" />
+			<Compile Include=".g\**" />
+		</ItemGroup>
 
 	<ItemGroup>
 		<Folder Include=".meta\" />

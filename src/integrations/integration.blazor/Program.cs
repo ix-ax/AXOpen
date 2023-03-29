@@ -1,8 +1,8 @@
 using integration.blazor.Data;
 using intergrations;
-using Ix.Connector;
+using AXSharp.Connector;
 using ix.framework.core.blazor.Toaster;
-using Ix.Presentation.Blazor.Services;
+using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using ix.framework.core.DependencyInjection;
@@ -30,7 +30,7 @@ namespace integration.blazor
 
             Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
 
-            Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
+            Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
 
             var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
