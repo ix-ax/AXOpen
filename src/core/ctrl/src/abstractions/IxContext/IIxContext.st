@@ -4,7 +4,7 @@ NAMESPACE ix.framework.core
         METHOD CreateIdentity : ULINT END_METHOD
         METHOD OpenCycleCount : ULINT END_METHOD          
         METHOD GetRtc : IRtc END_METHOD
-        METHOD InjectRtc : IRtc VAR_INPUT Rtc : IRtc; END_VAR END_METHOD
+        METHOD InjectRtc VAR_INPUT Rtc : IRtc; END_VAR END_METHOD
     END_INTERFACE    
 END_NAMESPACE
 

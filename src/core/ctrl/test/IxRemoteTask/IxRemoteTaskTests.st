@@ -35,7 +35,7 @@ NAMESPACE ix.framework.core
     
         METHOD PUBLIC GetRtc : IRtc ; END_METHOD
 
-        METHOD PUBLIC InjectRtc : IRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
         
     END_CLASS      
    

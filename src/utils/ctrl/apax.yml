@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.utils"
-version              : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.125'
+version                 : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.126'
 type: lib
 targets:
   #  - "1500"

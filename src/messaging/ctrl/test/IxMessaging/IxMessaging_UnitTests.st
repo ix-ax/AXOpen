@@ -5,14 +5,12 @@ USING ix.framework.core;
 USING ix.framework.utils;
 
 NAMESPACE ix.core.IxMessaging_Tests
-    CLASS MessengerTestContext IMPLEMENTS ix.framework.core.IIxContext         
+    CLASS TestContextI IMPLEMENTS ix.framework.core.IIxContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
             _identityCounter : ULINT;
-            _sut : IxMessenger;
         END_VAR       
-        
         METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;
         END_METHOD    
@@ -33,15 +31,41 @@ NAMESPACE ix.core.IxMessaging_Tests
             _identityCounter := _identityCounter + ULINT#1;
             CreateIdentity := _identityCounter;
         END_METHOD        
+
+        VAR PRIVATE            
+            NULL_RTC : _NULL_RTC;
+            _rtc : IRtc;
+        END_VAR
+    
+        METHOD PUBLIC GetRtc : IRtc
+            IF(_rtc <> NULL) THEN
+                GetRtc := _rtc;
+            ELSE
+                GetRtc := NULL_RTC;    
+            END_IF;    
+        END_METHOD
+
+        METHOD PUBLIC InjectRtc
+            VAR_INPUT
+                Rtc : IRtc;
+            END_VAR
+            _rtc := Rtc;
+        END_METHOD
     END_CLASS  
 
+    CLASS TestContextE EXTENDS IxContext
+  
+        METHOD PROTECTED OVERRIDE Main
+            ;
+        END_METHOD
+    END_CLASS
 
     CLASS IxRtcMock IMPLEMENTS IRtc
         VAR PRIVATE 
             _NowUTC : LDATE_AND_TIME;
         END_VAR
 
-        METHOD PUBLIC SetNowUTC : LDATE_AND_TIME
+        METHOD INTERNAL SetNowUTC : LDATE_AND_TIME
             VAR_INPUT
                 Set :  LDATE_AND_TIME;
             END_VAR;
@@ -55,10 +79,36 @@ NAMESPACE ix.core.IxMessaging_Tests
 
     {TestFixture}
     CLASS IxMessenger_UnitTests
+        VAR PRIVATE
+            _suci : TestContextI;
+            _suce : TestContextE;
+            _rtc : IxRtcMock;
+        END_VAR
+
+        METHOD Equal : BOOL
+            VAR_INPUT
+                 expected:  LDATE_AND_TIME;
+                 actual:  LDATE_AND_TIME;
+            END_VAR
+            Equal := expected = actual;
+        END_METHOD    
 
         {Test}
-        METHOD PUBLIC MyTestMethod
-            ; // AxUnit.Assert.Equal(y, x)
+        METHOD PUBLIC rtc_should_pass_through_context
+            VAR 
+                expected : LDATE_AND_TIME;
+                actual : LDATE_AND_TIME;
+            END_VAR
+            //Arrange
+            expected := LDATE_AND_TIME#2012-01-12-15:58:12.123;
+            _rtc.SetNowUTC(expected);
+            actual := _suce.GetRtc().NowUTC();
+            Assert.Equal(FALSE, THIS.Equal(expected,actual));
+            //Act
+            _suce.InjectRtc(_rtc);
+            //Assert
+            actual := _suce.GetRtc().NowUTC();
+            Assert.Equal(TRUE, THIS.Equal(expected,actual));
         END_METHOD
     END_CLASS
 

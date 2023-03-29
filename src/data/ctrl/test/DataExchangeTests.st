@@ -1,4 +1,5 @@
 USING ix.framework.core;
+USING ix.framework.rtc;
 USING AxUnit;
 NAMESPACE ix.framework.data 
     NAMESPACE DataExchangeTests
@@ -28,7 +29,12 @@ NAMESPACE ix.framework.data
                 _identityCounter := _identityCounter + ULINT#1;
                 CreateIdentity := _identityCounter;
             END_METHOD               
-        END_CLASS      
+        
+            METHOD PUBLIC GetRtc : IRtc ; END_METHOD
+
+            METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+                
+        END_CLASS
 
         {TestFixture}
         CLASS DataExchange_Tests

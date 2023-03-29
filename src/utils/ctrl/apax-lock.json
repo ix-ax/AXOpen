@@ -232,11 +232,6 @@
       "@ax/target-mc7plus": "4.2.19"
     }
   },
-  "@ax/simatic-1500-clocks": {
-    "version": "3.0.6",
-    "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-1500-clocks/-/simatic-1500-clocks-3.0.6.tgz",
-    "integrity": "sha512-kh1LWR+jMvYgRjr7RkdNRHX0pJn3KcDl0U2sTxA6CEKvuIBcWPZGsSWYcVyPFORzYTshA7p4oDuxYx4GwnOoKw=="
-  },
   "@ax/sld": {
     "version": "0.13.3",
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/sld/-/sld-0.13.3.tgz",

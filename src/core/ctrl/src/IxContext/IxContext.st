@@ -71,7 +71,7 @@ NAMESPACE ix.framework.core
             END_IF;    
         END_METHOD
 
-        METHOD PUBLIC InjectRtc : IRtc
+        METHOD PUBLIC InjectRtc
             VAR_INPUT
                 Rtc : IRtc;
             END_VAR
