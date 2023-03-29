@@ -242,8 +242,12 @@ NAMESPACE ix.framework.utils
 		// 	Append := THIS;
 		// END_METHOD
 
-		METHOD PUBLIC AsString : STRING[254]
+		METHOD PUBLIC AsString : STRING[254]			
 			AsString := _workString;
+		END_METHOD
+
+		METHOD PUBLIC AsString160 : STRING[160]						
+			AsString160 := _workString;
 		END_METHOD
     END_CLASS
 END_NAMESPACE

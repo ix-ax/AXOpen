@@ -1,7 +1,8 @@
 USING System.Strings;
 USING System.DateTime;
 USING ix.framework.utils;
-using ix.framework.core;
+USING ix.framework.core;
+USING ix.framework.messaging;
 
 NAMESPACE ix.framework.messaging
 	/// <summary>
@@ -19,7 +20,7 @@ NAMESPACE ix.framework.messaging
 	/// 		</note>					
 	/// 	</remarks>			 
 	/// </summary>			
-    CLASS IxMessenger IMPLEMENTS IIxMessenger, IIxMessageProperties, IIxMessageTextBuilder, IIxMessageCategorize
+    CLASS IxMessenger IMPLEMENTS IIxMessenger, IIxMessageProperties, IIxMessageTextBuilder, IIxMessageCategorize, IIxMessages
 		VAR
 			/// <summary>
 			/// 	Most important message of this instance of messenger; stores the most important message from the last context cycle. 
@@ -61,49 +62,43 @@ NAMESPACE ix.framework.messaging
 		/// <summary>
 		/// Categorizes and creates the message as 'debug'.								 
 		/// </summary>		
-		METHOD PUBLIC AsDebug : IIxMessageProperties
-			// AsDebug := Post(THIS.StringBuilder().AsString(), eIxMessageCategory#Debug);
-			;
+		METHOD PUBLIC AsDebug : IIxMessageProperties				
+			AsDebug := THIS.Post(THIS.StringBuilder()^.AsString(), eIxMessageCategory#Debug);			
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'error'.								 
 		/// </summary>		
 		METHOD PUBLIC AsError : IIxMessageProperties
-			// AsDebug := Post(THIS.StringBuilder().AsString(), eIxMessageCategory#Error);
-			;
+			AsError := THIS.Post(THIS.StringBuilder()^.AsString(), eIxMessageCategory#Error);
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'fatal'.								 
 		/// </summary>		
 		METHOD PUBLIC AsFatal : IIxMessageProperties
-			// AsDebug := Post(THIS.StringBuilder().AsString(), eIxMessageCategory#Fatal);
-			;
+			AsFatal := THIS.Post(THIS.StringBuilder()^.AsString(), eIxMessageCategory#Fatal);
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'information'.								 
 		/// </summary>		
 		METHOD PUBLIC AsInfo : IIxMessageProperties
-			// AsDebug := Post(THIS.StringBuilder().AsString(), eIxMessageCategory#Info);
-			;
+			AsInfo := THIS.Post(THIS.StringBuilder()^.AsString(), eIxMessageCategory#Info);
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'trace'.								 
 		/// </summary>		
 		METHOD PUBLIC AsTrace : IIxMessageProperties
-			// AsDebug := Post(THIS.StringBuilder().AsString(), eIxMessageCategory#Trace);
-			;
+			AsTrace := THIS.Post(THIS.StringBuilder()^.AsString(), eIxMessageCategory#Trace);
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'warning'.								 
 		/// </summary>		
 		METHOD PUBLIC AsWarning : IIxMessageProperties
-			// AsDebug := Post(THIS.StringBuilder().AsString(), eIxMessageCategory#Warning);
-			;
+			AsWarning := THIS.Post(THIS.StringBuilder()^.AsString(), eIxMessageCategory#Warning);
 		END_METHOD
 		
 		/// <summary>
@@ -248,26 +243,23 @@ NAMESPACE ix.framework.messaging
 			VAR_INPUT 
 				Text : STRING[IxIntConstants#MAX_MESSAGE_TEXT_LENGHT]; 
 			END_VAR 
-			;
-			// THIS^.StringBuilder.Append(Text);
-			// Append := THIS^;
+			THIS.StringBuilder()^.Append(Text);
+			Append := THIS;
 		END_METHOD
 
 		/// <summary>			
 		/// Gets categorization methods for fluent message builder.
 		/// </summary>	
 		METHOD PUBLIC As : IIxMessageCategorize 
-			// As := THIS^;
-			;
+			As := THIS;
 		END_METHOD
-		
+
 		/// <summary>			
 		/// Initiates new message text building for this messenger in fluent-like fashion.
 		/// </summary>		
 		METHOD PUBLIC Build : IIxMessageTextBuilder
-			// THIS^.StringBuilder.Clear();
-			// Build := THIS^;
-			;
+			THIS.StringBuilder()^.Clear();
+			Build := THIS;
 		END_METHOD
 		
 		/// <summary>
@@ -294,14 +286,13 @@ NAMESPACE ix.framework.messaging
 				/// </summary>			
 				Category : eIxMessageCategory;	
 			END_VAR
-
-					//Compose.TimeStamp :=  _Parent.GetContext().RealTimeClock().NowUTC();	
+					Compose.TimeStamp :=  _Parent.GetContext().GetRtc().NowUTC();
 					Compose.Text := Message;
 					Compose.Identity := _Parent.GetIdentity();
 					Compose.Category := Category;
 					Compose.Cycle := _Parent.GetContext().OpenCycleCount();
-					//Compose.MessageDigest := THIS.Digest(Message, _Parent.GetContext().Environment().Messaging().GetMessageDigestMethod());
-		
+					// Compose.MessageDigest := THIS.Digest(Message, _Parent.GetContext().Environment().Messaging().GetMessageDigestMethod());
+					Compose.MessageDigest := THIS.Digest(Message,eIxMessageDigestMethod#CRC32);
 		END_METHOD
 
 		METHOD PRIVATE Digest: DWORD
@@ -339,8 +330,8 @@ NAMESPACE ix.framework.messaging
 			ELSE
 				_condition := eIxMessageCondition#Inactive;
 			END_IF;
-			
-			// OnCondition := THIS^;
+
+			OnCondition := THIS;
 		END_METHOD
 
 		/// <summary>
@@ -361,7 +352,7 @@ NAMESPACE ix.framework.messaging
 					END_IF;
 				END_IF;
 			END_IF;
-			// Pin := THIS^;
+			Pin := THIS;
 		END_METHOD
 
 		/// <summary>
@@ -448,5 +439,7 @@ NAMESPACE ix.framework.messaging
 				StringBuilder := REF(_conflictingStringBuilder);
 			END_IF;
 		END_METHOD
+	
+		METHOD PUBLIC UnPin ; END_METHOD
 	END_CLASS
 END_NAMESPACE
