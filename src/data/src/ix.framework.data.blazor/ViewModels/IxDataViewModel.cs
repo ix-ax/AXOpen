@@ -13,6 +13,7 @@ using AXSharp.Connector;
 using ix.framework.core.blazor.Toaster;
 using ix.framework.core.Interfaces;
 using ix.framework.data;
+using Microsoft.JSInterop;
 
 namespace ix.framework.core.ViewModels;
 
@@ -26,7 +27,6 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         DataBrowser = CreateBrowsable(repository);
         Records = new ObservableCollection<IBrowsableDataObject>();
         _onlinerData = DataExchange.GetData<O>();
-
     }
 
     private readonly O _onlinerData;
@@ -158,11 +158,19 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
     public async Task Copy()
     {
         var plainer = await OnlineData.ShadowToPlain<T>();
-        plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}";
 
         if (plainer == null)
             throw new WrongTypeOfDataObjectException(
                 $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.ix.framework.data.IDataEntity)}");
+
+        if (CreateItemId != null)
+        {
+            plainer.DataEntityId = CreateItemId;
+        }
+        else
+        {
+            plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}";
+        }
 
         try
         {
@@ -176,6 +184,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         var foundPlain = DataBrowser.FindById(plainer.DataEntityId);
         await OnlineData.PlainToShadow(foundPlain);
         FillObservableRecords();
+        CreateItemId = null;
     }
 
     public async Task Edit()
@@ -193,14 +202,67 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
     }
 
-    public async Task FromPlc()
+    public async Task LoadFromPlc()
     {
         var plainer = await OnlineData.OnlineToPlain<T>();
-        DataBrowser.AddRecord(plainer);
+
+        if (CreateItemId != null)
+            plainer.DataEntityId = CreateItemId;
+
+        try
+        {
+            DataBrowser.AddRecord(plainer);
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
+        }
+        catch (DuplicateIdException)
+        {
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
+        }
         var plain = DataBrowser.FindById(plainer.DataEntityId);
         await OnlineData.PlainToShadow(plain);
-        WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
         FillObservableRecords();
+        CreateItemId = null;
+    }
+
+    public void ExportData()
+    {
+        try
+        {
+            var exports = this.DataBrowser.Export(p => true);
+
+            using (var sw = new StreamWriter("wwwroot/exportData.csv"))
+            {
+                foreach (var item in exports)
+                {
+                    sw.Write(item + "\r");
+                }
+            }
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Exported!", "Data was successfully exported!", 10)));
+        }
+        catch (Exception e)
+        {
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", e.Message, 10)));
+        }
+    }
+
+    public void ImportData()
+    {
+        try
+        {
+            var imports = new List<string>();
+            foreach (var item in File.ReadAllLines("importData.csv"))
+            {
+                imports.Add(item);
+            }
+
+            this.DataBrowser.Import(imports);
+            this.FillObservableRecords();
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Imported!", "Data was successfully imported!", 10)));
+        }
+        catch (Exception e)
+        {
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", e.Message, 10)));
+        }
     }
 
     public ObservableCollection<IBrowsableDataObject> Records { get; set; }

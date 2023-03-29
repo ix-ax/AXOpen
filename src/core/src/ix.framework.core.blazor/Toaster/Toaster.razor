@@ -31,17 +31,24 @@
                     <span class="@icon me-2" aria-hidden="true"></span>
                     <strong class="me-auto">@toast.Title</strong>
                     <small>@GetTime(toast.Posted)</small>
-                    <button type="button" class="btn-close" @onclick="() => this.ClearToast(toast)"></button>
+                    @if (toastService.GetToasts().Count > 2)
+                    {
+                        <div class="dropup">
+                            <button type="button" class="btn-close" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" @onclick="() => toastService.RemoveAllToast()">Close all</a></li>
+                                <li><a class="dropdown-item" @onclick="() => this.ClearToast(toast)">Close</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn-close" @onclick="() => this.ClearToast(toast)"></button>
+                    }
                 </div>
                 <div class="toast-body">
                     @toast.Message
                 </div>
-            </div>
-        }
-        @if (toastService.GetToasts().Count > 1)
-        {
-            <div class="d-flex justify-content-end">
-                <button type="button" class="btn-close me-2" style="pointer-events: auto;" title="Close all toasts" @onclick="() => toastService.RemoveAllToast()"></button>
             </div>
         }
     </div>
@@ -54,17 +61,17 @@
     private string GetTime(DateTimeOffset time)
     {
         var calcTime = -(time - DateTimeOffset.Now);
-        if (calcTime.Seconds < 5)
+        if (calcTime.TotalSeconds < 5)
         {
             return "just now";
         }
-        else if (calcTime.Seconds < 60)
+        else if (calcTime.TotalSeconds < 60)
         {
-            return $"{calcTime.Seconds} secs ago";
+            return $"{Math.Round(calcTime.TotalSeconds)} secs ago";
         }
         else
         {
-            return $"{calcTime.Minutes} mins ago";
+            return $"{Math.Round(calcTime.TotalMinutes)} mins ago";
         }
     }
 }

@@ -35,7 +35,9 @@ namespace ix.framework.core.Interfaces
         Task Copy();
         Task Edit();
         Task SendToPlc();
-        Task FromPlc();
+        Task LoadFromPlc();
+        void ExportData();
+        void ImportData();
 
         event PropertyChangedEventHandler? PropertyChanged;
     }
