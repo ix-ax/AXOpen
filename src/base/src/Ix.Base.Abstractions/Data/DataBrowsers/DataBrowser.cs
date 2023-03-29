@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using Ix.Connector;
 using Ix.Connector.ValueTypes;
+using Ix.Connector.ValueTypes.Online;
 
 namespace Ix.Base.Data
 {   
@@ -116,13 +117,15 @@ namespace Ix.Base.Data
 
         public IEnumerable<string> Export(Expression<Func<T, bool>> expression, char separator = ';')
         {
-            var onliner = typeof(T).Name.Replace("Plain", string.Empty);
+            //var onliner = typeof(T).Name.Replace("Plain", string.Empty);
+            var onliner = typeof(T).FullName.Replace("Pocos.", string.Empty);
 
             var adapter = new Ix.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
             var dummyConnector = adapter.GetConnector(new object[] { });
 
-            var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.Name == onliner);
-            var prototype = Activator.CreateInstance(onlinerType, new object[] { dummyConnector, string.Empty, string.Empty}) as ITwinObject;
+            //var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.Name == onliner);
+            var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.FullName == onliner);
+            var prototype = Activator.CreateInstance(onlinerType, new object[] { dummyConnector, "_data", "_data"}) as ITwinObject;
             var exportables = this.Repository.Queryable.Where(expression);
             var itemExport = new StringBuilder();
             var export = new List<string>();
@@ -150,7 +153,7 @@ namespace Ix.Base.Data
             foreach (var document in exportables)
             {
                 itemExport.Clear();
-                ((dynamic) prototype).CopyPlainToShadow(document);
+                ((dynamic) prototype).PlainToShadow(document);
                 var values = prototype.RetrievePrimitives();
                 foreach (var @value in values)
                 {
@@ -186,17 +189,17 @@ namespace Ix.Base.Data
             var dictionary = new List<ImportItems>();
 
             // Prepare swappable object
-            var onliner = typeof(T).Name.Replace("Plain", string.Empty);
+            var onliner = typeof(T).FullName.Replace("Pocos.", string.Empty);
 
             var adapter = new Ix.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
             var dummyConnector = adapter.GetConnector(new object[] { });
 
-            var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.Name == onliner);
+            var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.FullName == onliner);
 
             ITwinObject prototype;
 
             if(crudDataObject == null)
-                prototype = Activator.CreateInstance(onlinerType, new object[] { dummyConnector, string.Empty, string.Empty }) as ITwinObject;
+                prototype = Activator.CreateInstance(onlinerType, new object[] { dummyConnector, "_data", "_data" }) as ITwinObject;
             else
                 prototype = crudDataObject; 
 
@@ -227,14 +230,14 @@ namespace Ix.Base.Data
 
         private void UpdateDocument(List<ImportItems> dictionary, IEnumerable<ITwinPrimitive> valueTags, ITwinObject prototype)
         {                        
-            string id = dictionary.FirstOrDefault(p => p.Key == "_EntityId").Value;
+            string id = dictionary.FirstOrDefault(p => p.Key.Contains("DataEntityId")).Value;
             var existing = this.Repository.Queryable.Where(p => p.DataEntityId == id).FirstOrDefault();
             if(existing != null)
-            { 
-                ((dynamic)prototype).CopyPlainToShadow(existing);
+            {                 
+                ((dynamic)prototype).PlainToShadow(existing);
             }
 
-            ((dynamic)prototype)._EntityId.Shadow = id;
+            ((dynamic)prototype).DataEntityId.Shadow = id;
 
             if(existing != null) ((dynamic)prototype).ChangeTracker.StartObservingChanges();
             // Swap values to shadow
@@ -257,19 +260,22 @@ namespace Ix.Base.Data
             }
 
             if (existing != null) ((dynamic)prototype).ChangeTracker.StopObservingChanges();
-                                                                       
-                        
+
+
             if (existing != null)
             {
                 ((dynamic)prototype).ChangeTracker.Import(existing);
-                ((dynamic)existing).CopyShadowToPlain((dynamic)prototype);
+
+                //((dynamic)existing).ShadowToPlain((dynamic)prototype);
+                existing.ShadowToPlain1<T>(prototype);
                 this.Repository.Update(existing.DataEntityId, existing);
             }
             else
             {
                 T newRecord = new T();
                 ((dynamic)prototype).ChangeTracker.Import(newRecord);
-                ((dynamic)newRecord).CopyShadowToPlain((dynamic)prototype);
+                //((dynamic)newRecord).ShadowToPlain((dynamic)prototype);
+                newRecord.ShadowToPlain1<T>(prototype);
                 this.Repository.Create(newRecord.DataEntityId, newRecord);
             }            
         }

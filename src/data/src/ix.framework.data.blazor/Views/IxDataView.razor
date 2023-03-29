@@ -1,6 +1,7 @@
 ﻿@namespace ix.framework.data
 @using CommunityToolkit.Mvvm.ComponentModel;
 @using CommunityToolkit.Mvvm.Messaging;
+@using Microsoft.AspNetCore.Components.Forms;
 @using ix.framework.core.Interfaces;
 @using ix.framework.core.ViewModels;
 @using ix.framework.core.blazor.Toaster;
@@ -22,9 +23,8 @@ else
                 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>Load from PLC</button>
                 @if (CanExport)
                 {
-                    <button type="button" class="btn btn-primary ms-2" @onclick="() => Vm.ExportData()">Export</button>
-                    <a download href="/ixdata">Download From Folder</a>
-                    <button type="button" class="btn btn-primary ms-2" @onclick="() => Vm.ImportData()">Import</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick="() => Vm.ExportData()">Export</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid">Import</button>
                 }
             }
             <div class="btn-group ms-auto" role="group">
@@ -314,6 +314,51 @@ else
     </div>
 </div>
 
+<div class="modal fade" id="exportModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Export data</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <a download href="/exportData.csv">Download</a>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="importModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Import data</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">File input</label>
+                    <InputFile class="form-control col-10" id="formFile" OnChange="@LoadFile" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                @if (isLoadingFile)
+                {
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                }
+                <button type="button" class="btn btn-primary @(isLoadingFile || !isFileLoaded ? "disabled" : "")" data-bs-dismiss="modal" @onclick="() => { Vm.ImportData(); isFileLoaded = false; }">Import</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @code {
 
     [Parameter]
@@ -330,6 +375,9 @@ else
 
     private Guid ViewGuid { get; } = new Guid();
     private string Create { get; set; } = "";
+
+    private bool isFileLoaded { get; set; } = false;
+    private bool isLoadingFile { get; set; }
 
     private int MaxPage { get { return (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit); } }
 
@@ -366,5 +414,24 @@ else
     protected override async Task OnInitializedAsync()
     {
         await Vm.FillObservableRecordsAsync();
+    }
+
+    private async Task LoadFile(InputFileChangeEventArgs e)
+    {
+        isLoadingFile = true;
+        isFileLoaded = false;
+
+        try
+        {
+            await using FileStream fs = new("importData.csv", FileMode.Create);
+            await e.File.OpenReadStream().CopyToAsync(fs);
+        }
+        catch (Exception ex)
+        {
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", ex.Message, 10)));
+        }
+
+        isLoadingFile = false;
+        isFileLoaded = true;
     }
 }

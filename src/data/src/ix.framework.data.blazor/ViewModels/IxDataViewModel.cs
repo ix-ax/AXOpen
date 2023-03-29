@@ -229,16 +229,15 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
         try
         {
             var exports = this.DataBrowser.Export(p => true);
-            //var sfd = new SaveFileDialog();
-            //sfd.ShowDialog();
 
-            //using (var sw = new StreamWriter(sfd.FileName))
-            //{
-            //    foreach (var item in exports)
-            //    {
-            //        sw.Write(item + "\r");
-            //    }
-            //}
+            using (var sw = new StreamWriter("wwwroot/exportData.csv"))
+            {
+                foreach (var item in exports)
+                {
+                    sw.Write(item + "\r");
+                }
+            }
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Exported!", "Data was successfully exported!", 10)));
         }
         catch (Exception e)
         {
@@ -250,19 +249,15 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
     {
         try
         {
-            //var ofd = new OpenFileDialog();
-            //ofd.ShowDialog();
-            //var fileName = ofd.FileName;
+            var imports = new List<string>();
+            foreach (var item in File.ReadAllLines("importData.csv"))
+            {
+                imports.Add(item);
+            }
 
-            //var imports = new List<string>();
-            //foreach (var item in File.ReadAllLines(fileName))
-            //{
-            //    imports.Add(item);
-            //}
-
-
-            //this.DataBrowser.Import(imports);
+            this.DataBrowser.Import(imports);
             this.FillObservableRecords();
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Imported!", "Data was successfully imported!", 10)));
         }
         catch (Exception e)
         {
