@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.abstractions"
-version                                                        : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.131'
+version                                                           : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.132'
 type: lib
 targets:
   - "1500"
