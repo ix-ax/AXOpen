@@ -1,5 +1,7 @@
 ﻿@namespace ix.framework.data
 @inherits RenderableViewModelComponentBase<DataExchangeCommandViewModel>
 
-<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDataView="false" CanExport="true"></IxDataView>
-
+<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDataView="false" CanExport="true">
+    <ix.framework.core.IxDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
+    <ix.framework.core.IxDataExchange.ColumnData HeaderName="String 1" BindingValue="String1" />
+</IxDataView>

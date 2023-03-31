@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
+using System.Threading.Tasks;
 using Ix.Connector;
 using Ix.Connector.ValueTypes;
 using Ix.Connector.ValueTypes.Online;
@@ -267,7 +268,7 @@ namespace Ix.Base.Data
                 ((dynamic)prototype).ChangeTracker.Import(existing);
 
                 //((dynamic)existing).ShadowToPlain((dynamic)prototype);
-                existing.ShadowToPlain1<T>(prototype);
+                existing = existing.ShadowToPlain1<T>(prototype);
                 this.Repository.Update(existing.DataEntityId, existing);
             }
             else
@@ -275,7 +276,10 @@ namespace Ix.Base.Data
                 T newRecord = new T();
                 ((dynamic)prototype).ChangeTracker.Import(newRecord);
                 //((dynamic)newRecord).ShadowToPlain((dynamic)prototype);
-                newRecord.ShadowToPlain1<T>(prototype);
+                newRecord = newRecord.ShadowToPlain1<T>(prototype);
+
+                Task.Delay(1000).Wait();
+
                 this.Repository.Create(newRecord.DataEntityId, newRecord);
             }            
         }

@@ -1,0 +1,23 @@
+﻿@using ix.framework.data;
+
+
+@code {
+    [Parameter]
+    public string HeaderName { get; set; }
+
+    [Parameter]
+    public string BindingValue { get; set; }
+
+    [CascadingParameter]
+    public IxDataView DataView { get; set; }
+
+    protected override void OnInitialized()
+    {
+        DataView.AddLine(this);
+    }
+
+    public void Dispose()
+    {
+        DataView.RemoveLine(this);
+    }
+}
