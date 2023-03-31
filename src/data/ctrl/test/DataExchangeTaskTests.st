@@ -34,7 +34,11 @@ NAMESPACE ix.framework.data
 
             METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
                 
-        END_CLASS      
+        
+    METHOD PUBLIC Environment : IIxContextEnvironment
+        ;
+    END_METHOD
+END_CLASS      
 
         {TestFixture}
         CLASS DataExchangeTask_Tests

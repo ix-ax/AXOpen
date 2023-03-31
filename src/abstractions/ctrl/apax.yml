@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.abstractions"
-version                  : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.129'
+version                                                 : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.130'
 type: lib
 targets:
   - "1500"
@@ -9,6 +9,8 @@ files:
   - bin
 devDependencies:
   "@ax/sdk": 3.0.12
+dependencies:
+  "@ix-ax/ix.framework.utils"                   : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.130'
 scripts:  
   postbuild:
     - dotnet ixc

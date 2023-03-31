@@ -1,4 +1,5 @@
 USING ix.framework.rtc;
+USING ix.framework.messaging;
 
 NAMESPACE ix.framework.core
     ///<summary>
@@ -9,8 +10,10 @@ NAMESPACE ix.framework.core
         VAR PRIVATE                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
-            _identityCounter : ULINT;                                 
-        END_VAR       
+            _identityCounter : ULINT;   
+            _messagingLevel : eIxMessageCategory;
+            _environment : IIxContextEnvironment;	
+         END_VAR       
 
         ///<summary>
         /// The entry point for the context. The call tree of the context start here and all the logic of given context 
@@ -77,6 +80,17 @@ NAMESPACE ix.framework.core
             END_VAR
             _rtc := Rtc;
         END_METHOD
+
+        METHOD PUBLIC Environment : IIxContextEnvironment
+            Environment := _environment;
+        END_METHOD
+
+        // METHOD PUBLIC SetContextEnvironment
+        //     VAR_INPUT
+        //         inContextEnvironnment : IIxContextEnvironment;
+        //     END_VAR
+        //     _contextEnvironment := inContextEnvironnment;
+        // END_METHOD
     END_CLASS    
     
     ///<summary>

@@ -5,6 +5,8 @@ NAMESPACE ix.framework.core
         METHOD OpenCycleCount : ULINT END_METHOD          
         METHOD GetRtc : IRtc END_METHOD
         METHOD InjectRtc VAR_INPUT Rtc : IRtc; END_VAR END_METHOD
+        METHOD Environment : IIxContextEnvironment END_METHOD
+        // METHOD SetContextEnvironment VAR_INPUT inContextEnvironnment : IIxContextEnvironment; END_VAR END_METHOD
     END_INTERFACE    
 END_NAMESPACE
 

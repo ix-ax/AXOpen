@@ -1,3 +1,4 @@
+USING ix.framework.core;
 USING System.Strings;
 USING System.DateTime;
 USING ix.framework.utils;
@@ -20,7 +21,7 @@ NAMESPACE ix.framework.messaging
 	/// 		</note>					
 	/// 	</remarks>			 
 	/// </summary>			
-    CLASS IxMessenger IMPLEMENTS IIxMessenger, IIxMessageProperties, IIxMessageTextBuilder, IIxMessageCategorize, IIxMessages
+    CLASS IxMessenger (*EXTENDS IxObject*) IMPLEMENTS IIxMessenger, IIxMessageProperties, IIxMessageTextBuilder, IIxMessageCategorize, IIxMessages
 		VAR
 			/// <summary>
 			/// 	Most important message of this instance of messenger; stores the most important message from the last context cycle. 
@@ -53,7 +54,7 @@ NAMESPACE ix.framework.messaging
 
 
 		/// <summary>
-		/// Gets the Most Importatn Message of this messenger.
+		/// Gets the Most Important Message of this messenger.
 		/// </summary>		
 		METHOD PUBLIC GetMime : IxMessage			
 			GetMime := THIS._mime;
@@ -356,13 +357,20 @@ NAMESPACE ix.framework.messaging
 		END_METHOD
 
 		/// <summary>
-		/// Gets `true` when this messanger is pinned (awaiting acknowledgement in diagnostics view).
+		/// Gets `true` when this messenger is pinned (awaiting acknowledgement in diagnostics view).
 		/// </summary>
 		METHOD PUBLIC IsPinned: BOOL 
 			IsPinned := FALSE;
 			IF _mime.Pinned THEN
 				IsPinned :=  tmpMessageText = _mime.Text;
 			END_IF;
+		END_METHOD
+
+		/// <summary>
+		/// Gets `true` when this messenger is active.
+		/// </summary>
+		METHOD PUBLIC IsActive: BOOL 
+			IsActive := _mime.Cycle = _Parent.GetContext().OpenCycleCount() OR _mime.Pinned ;		
 		END_METHOD
 
 		/// <summary>
@@ -398,10 +406,10 @@ NAMESPACE ix.framework.messaging
 			_condition := eIxMessageCondition#Unconditional;
 
 		
-							// IF(Category < _Parent.GetContext().Environment().Messaging().GetMinLevel()
-							// 	OR _Parent.GetContext().Environment().Messaging().IsSuspended()) THEN
-							// 		RETURN;
-							// END_IF; 	
+							IF(Category < _Parent.GetContext().Environment().Messaging().GetMinLevel()
+								OR _Parent.GetContext().Environment().Messaging().IsSuspended()) THEN
+									RETURN;
+							END_IF; 	
 								
 							IF (NOT _mime.Pinned) THEN 
 								_mime.PerCycleCount := _mime.PerCycleCount + USINT#1;
