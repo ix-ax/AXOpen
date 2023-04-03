@@ -1,4 +1,3 @@
-// Build
 // Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/ix-ax/ix/graphs/contributors
 // See the LICENSE file in the repository root for more information.
@@ -138,7 +137,10 @@ public class BuildContext : FrostingContext
 
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
     {
+        ("abstractions", "ix.framework.abstractions"),
+        ("utils", "ix.framework.utils"),
         ("core", "ix.framework.core"),
+        ("messaging", "ix.framework.messaging"),
         ("data", "ix.framework.data"),
         ("probers", "ix.framework.probers"),
     };

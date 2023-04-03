@@ -1,0 +1,16 @@
+name: "@ix-ax/ix.framework.abstractions"
+version                                                              : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.115'
+type: lib
+targets:
+  - "1500"
+  - llvm
+  - axunit-llvm
+files:
+  - bin
+devDependencies:
+  "@ax/sdk": 3.0.12
+dependencies:
+  "@ax/system-strings": ^4.2.3
+scripts:  
+  postbuild:
+    - dotnet ixc

@@ -5,6 +5,14 @@
 			"path": "integrations\\ctrl"
 		},
 		{
+			"name": "utils",
+			"path": "utils\\ctrl"
+		},
+		{
+			"name": "messaging",
+			"path": "messaging\\ctrl"
+		},
+		{
 			"name": "core",
 			"path": "core\\ctrl"
 		},
@@ -15,6 +23,10 @@
 		{
 			"name": "probers",
 			"path": "probers\\ctrl"
+		},
+		{
+			"name": "abstractions",
+			"path": "abstractions\\ctrl"
 		}
 	],
 	"settings": {}

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<PackageId>ix.framework.messaging</PackageId>
+		<RootNamespace>ix.framework.messaging</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.79" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".g\" />
+		<Compile Include=".g\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\abstractions\src\ix.framework.abstractions\_ix-ax_ix.framework.abstractions.csproj" />
+	</ItemGroup>
+</Project>

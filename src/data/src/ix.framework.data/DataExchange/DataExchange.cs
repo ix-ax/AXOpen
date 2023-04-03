@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using ix.framework.data;
-using Ix.Connector;
+using AXSharp.Connector;
 using Ix.Base.Data;
 
 

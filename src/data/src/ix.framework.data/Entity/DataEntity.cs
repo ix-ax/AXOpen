@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Ix.Connector;
+using AXSharp.Connector;
 using ix.framework.data;
 using Ix.Base.Data;
 

@@ -1,4 +1,4 @@
-using Ix.Connector;
+using AXSharp.Connector;
 using ix.framework.core;
 
 namespace ix.framework.coretests

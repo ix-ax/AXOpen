@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using Ix.Base.Data;
 using Ix.Framework.Data;
-using Ix.Connector;
+using AXSharp.Connector;
 
 namespace Ix.Framework.Repository.Integration.Tests
 {

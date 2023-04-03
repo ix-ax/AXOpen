@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using IntegrationTests;
 using intergrations;
 using Ix.Base.Data;
-using Ix.Connector;
+using AXSharp.Connector;
 using Ix.Framework.Data.InMemory;
 using Ix.Framework.Data.Json;
 using Ix.Framework.Data.MongoDb;
