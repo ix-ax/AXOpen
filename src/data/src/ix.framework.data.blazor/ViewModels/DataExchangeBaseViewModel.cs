@@ -31,22 +31,24 @@ namespace ix.framework.core.ViewModels
         {
             try
             {
-                var DataPropertyInfo = dataExchangeObject.GetType().GetProperty("_data");
+                var properties = dataExchangeObject.GetType().GetProperties();
+                PropertyInfo? DataPropertyInfo = null;
 
-                if (DataPropertyInfo == null)
+                // iterate properties and look for DataEntityAttribute
+                foreach (var prop in properties)
                 {
-                    DataPropertyInfo = dataExchangeObject.GetType().GetProperty("_data", BindingFlags.NonPublic);
+                    var attr = prop.GetCustomAttribute<DataEntityAttribute>();
+                    if (attr != null)
+                    {
+                        DataPropertyInfo = prop;
+                        break;
+                    }
                 }
 
-
+                // if not found, throw exception
                 if (DataPropertyInfo == null)
                 {
-                    DataPropertyInfo = dataExchangeObject.GetType().GetProperty("_data", BindingFlags.NonPublic | BindingFlags.Instance);
-                }
-
-                if (DataPropertyInfo == null)
-                {
-                    throw new Exception($"{dataExchangeObject.GetType().ToString()} must implement member '_data' that inherits from {nameof(DataEntity)}.");
+                    throw new DataEntityAttributeNotFoundException($"{ dataExchangeObject.GetType().ToString()} must implement member, which inherits from {nameof(DataEntity)} and is annotated with {nameof(DataEntityAttribute)}. ");
                 }
 
 
