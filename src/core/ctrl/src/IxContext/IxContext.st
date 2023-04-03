@@ -1,5 +1,5 @@
-USING ix.framework.rtc;
-USING ix.framework.messaging;
+USING AXOpen.Rtc;
+USING AXOpen.Messaging;
 
 NAMESPACE ix.framework.core
     ///<summary>
@@ -11,7 +11,7 @@ NAMESPACE ix.framework.core
             _openCounter : ULINT;
             _closeCounter : ULINT;
             _identityCounter : ULINT;   
-            _messagingLevel : eIxMessageCategory;
+            _messagingLevel : eAxoMessageCategory;
             _environment : IIxContextEnvironment;	
          END_VAR       
 
@@ -63,10 +63,10 @@ NAMESPACE ix.framework.core
 
         VAR PRIVATE            
             NULL_RTC : _NULL_RTC;
-            _rtc : IRtc;
+            _rtc : IAxoRtc;
         END_VAR
     
-        METHOD PUBLIC GetRtc : IRtc
+        METHOD PUBLIC GetRtc : IAxoRtc
             IF(_rtc <> NULL) THEN
                 GetRtc := _rtc;
             ELSE
@@ -76,7 +76,7 @@ NAMESPACE ix.framework.core
 
         METHOD PUBLIC InjectRtc
             VAR_INPUT
-                Rtc : IRtc;
+                Rtc : IAxoRtc;
             END_VAR
             _rtc := Rtc;
         END_METHOD
@@ -96,7 +96,7 @@ NAMESPACE ix.framework.core
     ///<summary>
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
-    CLASS PUBLIC _NULL_RTC IMPLEMENTS IRtc
+    CLASS PUBLIC _NULL_RTC IMPLEMENTS IAxoRtc
         VAR PRIVATE
             _null_time : LDATE_AND_TIME := LDATE_AND_TIME#1970-01-01-00:00:00.000;
         END_VAR

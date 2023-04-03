@@ -137,10 +137,10 @@ public class BuildContext : FrostingContext
 
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
     {
-        ("abstractions", "ix.framework.abstractions"),
-        ("utils", "ix.framework.utils"),
+        ("abstractions", "axopen.abstractions"),
+        ("utils", "axopen.utils"),
         ("core", "ix.framework.core"),
-        ("messaging", "ix.framework.messaging"),
+        ("messaging", "axopen.messaging"),
         ("data", "ix.framework.data"),
         ("probers", "ix.framework.probers"),
     };

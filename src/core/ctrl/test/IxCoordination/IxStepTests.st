@@ -1,5 +1,5 @@
 USING ix.framework.core;
-USING ix.framework.rtc;
+USING AXOpen.Rtc;
 USING AxUnit;
 
 NAMESPACE ix.core.IxStep_Tests        
@@ -30,9 +30,9 @@ NAMESPACE ix.core.IxStep_Tests
             CreateIdentity := _identityCounter;
         END_METHOD         
 
-        METHOD PUBLIC GetRtc : IRtc ; END_METHOD
+        METHOD PUBLIC GetRtc : IAxoRtc ; END_METHOD
 
-        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
     
     
         METHOD PUBLIC Environment : IIxContextEnvironment
