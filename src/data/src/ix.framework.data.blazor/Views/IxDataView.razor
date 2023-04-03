@@ -56,11 +56,17 @@ else
                     <th scope="col">DataEntityId</th>
 
                     <CascadingValue Value="this" IsFixed>
-                        @ChildContent
-                    </CascadingValue>
-                    @foreach(ColumnData column in Columns)
+                    @ChildContent
+                </CascadingValue>
+                @foreach (ColumnData column in Columns)
                     {
-                        <th scope="col">@column.HeaderName</th>
+                        if(column.HeaderName is null || column.HeaderName == "")
+                        {
+                            <th scope="col">@column.BindingValue</th>
+                        } else
+                        {
+                            <th scope="col">@column.HeaderName</th>
+                        }
                     }
 
                     @if (Presentation.Equals("Command"))
@@ -99,17 +105,36 @@ else
                             @if (ModalDataView)
                             {
                                 <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
+
+                                @foreach (ColumnData column in Columns)
+                                {
+                                    if (column.Clicable)
+                                    {
+                                        <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                    }
+                                }
                             }
                             else
                             {
                                 <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
+
+                                @foreach (ColumnData column in Columns)
+                                {
+                                    if (column.Clicable)
+                                    {
+                                        <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                    }
+                                }
                             }
 
-                            @foreach (ColumnData column in Columns)
-                            {
-                                <td>@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
-                            }
-                            
                             @if (Presentation.Equals("Command"))
                             {
                                 <td>

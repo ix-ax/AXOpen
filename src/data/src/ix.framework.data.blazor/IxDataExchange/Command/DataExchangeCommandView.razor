@@ -2,6 +2,6 @@
 @inherits RenderableViewModelComponentBase<DataExchangeCommandViewModel>
 
 <IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDataView="false" CanExport="true">
-    <ix.framework.core.IxDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
-    <ix.framework.core.IxDataExchange.ColumnData HeaderName="String 1" BindingValue="String1" />
+    <ix.framework.core.IxDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" Clicable="false" />
+    <ix.framework.core.IxDataExchange.ColumnData BindingValue="String1" />
 </IxDataView>
