@@ -162,7 +162,8 @@ NAMESPACE IntegrationLightDirect
     END_CLASS
 
     CLASS DataManager EXTENDS ix.framework.data.DataExchange 
-        VAR PUBLIC              
+        VAR PUBLIC     
+            {#ix-attr:[DataEntityAttribute]}         
             _data       : DataSet;
         END_VAR          
     END_CLASS    
