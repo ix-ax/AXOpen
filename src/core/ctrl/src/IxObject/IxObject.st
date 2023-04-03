@@ -27,6 +27,10 @@ NAMESPACE ix.framework.core
         METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                                         
         METHOD PUBLIC GetRtc : IRtc GetRtc := NULL_RTC; END_METHOD
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+        
+        METHOD PUBLIC Environment : IIxContextEnvironment
+            ;
+        END_METHOD
     END_CLASS    
 
     ///<summary>
@@ -128,5 +132,16 @@ NAMESPACE ix.framework.core
             END_IF;
 
         END_METHOD 
-    END_CLASS
+
+        METHOD PUBLIC Environment : IIxContextEnvironment
+            Environment := THIS.GetContext().Environment();
+        END_METHOD
+
+        // METHOD PUBLIC SetContextEnvironment
+        //     VAR_INPUT
+        //         inContextEnvironnment : IIxContextEnvironment;
+        //     END_VAR
+        //     _contextEnvironment := inContextEnvironnment;
+        // END_METHOD
+    END_CLASS    
 END_NAMESPACE    

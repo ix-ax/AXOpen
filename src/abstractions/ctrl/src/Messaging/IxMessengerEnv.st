@@ -1,5 +1,4 @@
 USING ix.framework.utils;
-using ix.framework.core;
 
 NAMESPACE ix.framework.messaging
     CLASS PUBLIC IxMessengerEnv IMPLEMENTS IIxMessengerEnv

@@ -52,7 +52,12 @@ NAMESPACE ix.framework.messaging
             /// <summary>		
             /// Stores message digest of this message text.
             /// </summary>				
-            MessageDigest : DWORD;
+            MessageDigest : DWORD;  
+            
+            // /// <summary>			
+            // /// Indicates that the message is active.
+            // /// </summary>				
+            // IsActive : BOOL;
         END_STRUCT;
     END_TYPE
  END_NAMESPACE

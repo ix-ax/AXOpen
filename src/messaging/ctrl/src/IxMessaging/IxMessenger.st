@@ -1,3 +1,4 @@
+USING ix.framework.core;
 USING System.Strings;
 USING System.DateTime;
 USING ix.framework.utils;
@@ -20,7 +21,7 @@ NAMESPACE ix.framework.messaging
 	/// 		</note>					
 	/// 	</remarks>			 
 	/// </summary>			
-    CLASS IxMessenger IMPLEMENTS IIxMessenger, IIxMessageProperties, IIxMessageTextBuilder, IIxMessageCategorize, IIxMessages
+    CLASS IxMessenger (*EXTENDS IxObject*) IMPLEMENTS IIxMessenger, IIxMessageProperties, IIxMessageTextBuilder, IIxMessageCategorize, IIxMessages
 		VAR
 			/// <summary>
 			/// 	Most important message of this instance of messenger; stores the most important message from the last context cycle. 
@@ -38,7 +39,6 @@ NAMESPACE ix.framework.messaging
 			{#ix-attr:[CompilerOmits()]} 
 			_pinnable : BOOL;		
 		END_VAR
-
 		
 		VAR 
 			{#ix-attr:[CompilerOmits()]} 
@@ -51,9 +51,8 @@ NAMESPACE ix.framework.messaging
 			_conflictingStringBuilder : StringBuilder;
 		END_VAR
 
-
 		/// <summary>
-		/// Gets the Most Importatn Message of this messenger.
+		/// Gets the Most Important Message of this messenger.
 		/// </summary>		
 		METHOD PUBLIC GetMime : IxMessage			
 			GetMime := THIS._mime;
@@ -241,11 +240,220 @@ NAMESPACE ix.framework.messaging
 		/// </remarks>
 		METHOD PUBLIC Append : IIxMessageTextBuilder 
 			VAR_INPUT 
-				Text : STRING[IxIntConstants#MAX_MESSAGE_TEXT_LENGHT]; 
+				Data : BOOL; 
 			END_VAR 
-			THIS.StringBuilder()^.Append(Text);
+			THIS.StringBuilder()^.Append(Data);
 			Append := THIS;
 		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : BYTE; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : WORD; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : DWORD; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : LWORD; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : SINT; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : INT; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : DINT;
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : LINT; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : USINT; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : UINT; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : UDINT; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+	
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : ULINT; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : REAL; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : LREAL; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : TIME; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : LTIME; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : DATE; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : LDATE; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : TIME_OF_DAY; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : LTIME_OF_DAY; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : DATE_AND_TIME; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+		
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : LDATE_AND_TIME; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : CHAR; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		// METHOD PUBLIC Append : IIxMessageTextBuilder 
+		// 	VAR_INPUT 
+		// 		Data : WCHAR; 
+		// 	END_VAR 
+		// 	THIS.StringBuilder()^.Append(Data);
+		// 	Append := THIS;
+		// END_METHOD
+
+		METHOD PUBLIC Append : IIxMessageTextBuilder 
+			VAR_INPUT 
+				Data : STRING[IxIntConstants#MAX_MESSAGE_TEXT_LENGHT]; 
+			END_VAR 
+			THIS.StringBuilder()^.Append(Data);
+			Append := THIS;
+		END_METHOD
+
+		// METHOD PUBLIC Append : IIxMessageTextBuilder 
+		// 	VAR_INPUT 
+		// 		Data : WSTRING[IxIntConstants#MAX_MESSAGE_TEXT_LENGHT]; 
+		// 	END_VAR 
+		// 	THIS.StringBuilder()^.Append(Data);
+		// 	Append := THIS;
+		// END_METHOD
 
 		/// <summary>			
 		/// Gets categorization methods for fluent message builder.
@@ -356,13 +564,20 @@ NAMESPACE ix.framework.messaging
 		END_METHOD
 
 		/// <summary>
-		/// Gets `true` when this messanger is pinned (awaiting acknowledgement in diagnostics view).
+		/// Gets `true` when this messenger is pinned (awaiting acknowledgement in diagnostics view).
 		/// </summary>
 		METHOD PUBLIC IsPinned: BOOL 
 			IsPinned := FALSE;
 			IF _mime.Pinned THEN
 				IsPinned :=  tmpMessageText = _mime.Text;
 			END_IF;
+		END_METHOD
+
+		/// <summary>
+		/// Gets `true` when this messenger is active.
+		/// </summary>
+		METHOD PUBLIC IsActive: BOOL 
+			IsActive := _mime.Cycle = _Parent.GetContext().OpenCycleCount() OR _mime.Pinned ;		
 		END_METHOD
 
 		/// <summary>
@@ -398,10 +613,10 @@ NAMESPACE ix.framework.messaging
 			_condition := eIxMessageCondition#Unconditional;
 
 		
-							// IF(Category < _Parent.GetContext().Environment().Messaging().GetMinLevel()
-							// 	OR _Parent.GetContext().Environment().Messaging().IsSuspended()) THEN
-							// 		RETURN;
-							// END_IF; 	
+							IF(Category < _Parent.GetContext().Environment().Messaging().GetMinLevel()
+								OR _Parent.GetContext().Environment().Messaging().IsSuspended()) THEN
+									RETURN;
+							END_IF; 	
 								
 							IF (NOT _mime.Pinned) THEN 
 								_mime.PerCycleCount := _mime.PerCycleCount + USINT#1;
@@ -440,6 +655,8 @@ NAMESPACE ix.framework.messaging
 			END_IF;
 		END_METHOD
 	
-		METHOD PUBLIC UnPin ; END_METHOD
+		METHOD PUBLIC UnPin 
+			_mime.Pinned := FALSE;
+		END_METHOD
 	END_CLASS
 END_NAMESPACE

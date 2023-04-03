@@ -35,6 +35,10 @@ NAMESPACE ix.core.IxSequencer_Tests
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
     
+    
+        METHOD PUBLIC Environment : IIxContextEnvironment
+            ;
+        END_METHOD
     END_CLASS  
 
     CLASS MySequencer EXTENDS IxSequencer

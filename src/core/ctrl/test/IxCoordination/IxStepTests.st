@@ -34,6 +34,18 @@ NAMESPACE ix.core.IxStep_Tests
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
     
+    
+        METHOD PUBLIC Environment : IIxContextEnvironment
+            ;
+        END_METHOD
+
+        // METHOD PUBLIC SetContextEnvironment
+        //     VAR_INPUT
+        //         inContextEnvironnment : IIxContextEnvironment;
+        //     END_VAR
+
+        //     ;
+        // END_METHOD
     END_CLASS      
 
     {TestFixture}
