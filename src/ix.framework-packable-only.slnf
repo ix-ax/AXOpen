@@ -11,8 +11,10 @@
       "data\\src\\repositories\\Json\\Ix.Framework.Data.Json.csproj",
       "data\\src\\repositories\\MongoDb\\Ix.Framework.Data.MongoDb.csproj",
       "data\\src\\repositories\\RavenDb\\Ix.Framework.Data.RavenDb\\Ix.Framework.Data.RavenDb.csproj",
-      "messaging\\src\\ix.framework.messaging.blazor\\ix.framework.messaging.blazor.csproj",
-      "messaging\\src\\ix.framework.messaging\\ix_ax_ix_framework_messaging.csproj"
+      "messaging\\src\\AXOpen.Messaging.Blazor\\axopen.messaging.blazor.csproj",
+      "messaging\\src\\AXOpen.Messaging\\ix_ax_axopen_messaging.csproj",
+      "probers\\src\\ix.framework.probers\\ix_ax_ix_framework_probers.csproj",
+      "utils\\src\\AXOpen.Utils\\ix-ax_axopen_utils.csproj"
     ]
   }
 }
