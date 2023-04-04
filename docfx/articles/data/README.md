@@ -98,7 +98,7 @@ var storageDir = Path.Combine(Environment.CurrentDirectory, "MyDataExchangeData"
 var repository = Ix.Repository.Json.Repository.Factory(new JsonRepositorySettings<MyData>(storageDir));
 ~~~
 
-Note: MyData should be type from `Pocos`.
+Note: `MyData` should be type from `Pocos`.
 
 Then we will need to associate the repository with the PLC object and initialize the data exchange operations.
 
@@ -135,3 +135,45 @@ END_IF;
 
 ## Data visualisation
 
+With presentation `Command` there are available options for adding, editing and deleting records.
+
+[!Command](/images/Command.png)
+
+If you use `Status` presentation data will be only displayed, without option for manipulated with records.
+
+[!Status](/images/Status.png)
+
+### Custom columns
+
+There is possible to add custom columns if is needed. You must add `ix.framework.core.IxDataExchange.ColumnData` view as child in `IxDataView`. Where must be set `BindingValue` which contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is attribute to make column not clickable, which is clickable by default. Example using all attributes:
+
+~~~
+<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command">
+    <ix.framework.core.IxDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
+    <ix.framework.core.IxDataExchange.ColumnData BindingValue="String1" Clickable="false" />
+</IxDataView>
+~~~
+
+[!Custom columns](/images/CustomColumns.png)
+
+### Export
+
+If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
+
+~~~
+<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
+~~~
+
+With this option, buttons for export and import data will be appear. After clicing on export button, there will be created csv file, which will contains all existing records. If you want import data, you must upload csv file with equals data structure like we get in export file.
+
+[!Export](/images/Export.png)
+
+### Modal detail view
+
+Detail View is default show like modal view. That means if you clicked on some record, there will be show modal window with detailed view. If necessary, this option can be changed with `ModalDetailView` attribute where is set `false` value. This change will show detail view under the record table. Example with `ModalDetailView` attribute:
+
+~~~
+<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
+~~~
+
+[!Not Modal detail view](/images/NotModal.png)
