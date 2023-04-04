@@ -38,6 +38,7 @@
     <ProjectReference Include="..\..\..\data\src\repositories\Json\Ix.Framework.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\MongoDb\Ix.Framework.Data.MongoDb.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\Ix.Framework.Data.RavenDb.csproj" />
+    <ProjectReference Include="..\..\..\probers\src\ix.framework.probers\ix_ax_ix_framework_probers.csproj" />
     <ProjectReference Include="..\..\ix.integrations\integrations.csproj" />
   </ItemGroup>
 

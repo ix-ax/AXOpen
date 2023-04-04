@@ -2,7 +2,7 @@ using intergrations;
 using ix.framework.core.Interfaces;
 using ix.framework.core.ViewModels;
 using ix.framework.data;
-using Ix.Connector;
+using AXSharp.Connector;
 using Ix.Framework.Data.InMemory;
 
 namespace integration.data.blazor.tests

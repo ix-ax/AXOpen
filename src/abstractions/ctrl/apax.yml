@@ -1,5 +1,5 @@
 name: "@ix-ax/ix.framework.abstractions"
-version                                                              : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.115'
+version                                                                 : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
 type: lib
 targets:
   - "1500"

@@ -12,8 +12,8 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Ix.Abstractions" Version="0.14.0-alpha.70" />
-		<PackageReference Include="Ix.Connector" Version="0.14.0-alpha.70" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.86" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.86" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -28,6 +28,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\base\src\Ix.Base.Abstractions\Ix.Base.Abstractions.csproj" />
-	  <ProjectReference Include="..\..\..\core\src\ix.framework.core\_ix-ax_ix.framework.core.csproj" />
+	  <ProjectReference Include="..\..\..\core\src\ix.framework.core\ix_ax_ix_framework_core.csproj" />
 	</ItemGroup>
 </Project>

@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
+using System.Threading.Tasks;
 using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 using AXSharp.Connector.ValueTypes.Online;

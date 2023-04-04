@@ -31,7 +31,7 @@
 		</None>
 	</ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\ix.framework.data\_ix-ax_ix.framework.data.csproj" />
+    <ProjectReference Include="..\..\src\ix.framework.data\ix_ax_ix_framework_data.csproj" />
   </ItemGroup>
 
 </Project>
