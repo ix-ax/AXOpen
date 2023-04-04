@@ -137,11 +137,11 @@ END_IF;
 
 With presentation `Command` there are available options for adding, editing and deleting records.
 
-[!Command](/images/Command.png)
+[!Command](~/articles/data/images/Command.png)
 
 If you use `Status` presentation data will be only displayed, without option for manipulated with records.
 
-[!Status](/images/Status.png)
+[!Status](~/articles/data/images/Status.png)
 
 ### Custom columns
 
@@ -154,7 +154,7 @@ There is possible to add custom columns if is needed. You must add `ix.framework
 </IxDataView>
 ~~~
 
-[!Custom columns](/images/CustomColumns.png)
+[!Custom columns](~/articles/data/images/CustomColumns.png)
 
 ### Export
 
@@ -166,7 +166,7 @@ If you want to be able to export data, you must add `CanExport` attribute with `
 
 With this option, buttons for export and import data will be appear. After clicing on export button, there will be created csv file, which will contains all existing records. If you want import data, you must upload csv file with equals data structure like we get in export file.
 
-[!Export](/images/Export.png)
+[!Export](~/articles/data/images/Export.png)
 
 ### Modal detail view
 
@@ -176,4 +176,4 @@ Detail View is default show like modal view. That means if you clicked on some r
 <IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
 ~~~
 
-[!Not Modal detail view](/images/NotModal.png)
+[!Not Modal detail view](~/articles/data/images/NotModal.png)
