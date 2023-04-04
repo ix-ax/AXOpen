@@ -1,7 +1,7 @@
 USING ix.core;
 USING AxUnit;
 USING ix.framework.core;
-USING ix.framework.rtc;
+USING AXOpen.Rtc;
 
 NAMESPACE ix.core.IxTask_Tests
      CLASS TestContext IMPLEMENTS ix.framework.core.IIxContext         
@@ -31,9 +31,9 @@ NAMESPACE ix.core.IxTask_Tests
             CreateIdentity := _identityCounter;
         END_METHOD         
         
-        METHOD PUBLIC GetRtc : IRtc ; END_METHOD
+        METHOD PUBLIC GetRtc : IAxoRtc ; END_METHOD
 
-        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
  
         
         METHOD PUBLIC Environment : IIxContextEnvironment

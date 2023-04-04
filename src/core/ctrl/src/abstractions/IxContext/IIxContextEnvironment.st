@@ -1,7 +1,7 @@
-USING ix.framework.messaging;
+USING AXOpen.Messaging;
 NAMESPACE ix.framework.core
     INTERFACE IIxContextEnvironment       
-        METHOD Messaging : IIxMessengerEnv END_METHOD
+        METHOD Messaging : IAxoMessengerEnv END_METHOD
     END_INTERFACE    
 END_NAMESPACE
 

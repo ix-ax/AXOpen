@@ -1,4 +1,4 @@
-USING ix.framework.rtc;
+USING AXOpen.Rtc;
 
 NAMESPACE ix.framework.core
 
@@ -25,8 +25,8 @@ NAMESPACE ix.framework.core
 
         METHOD PUBLIC CreateIdentity : ULINT CreateIdentity := ULINT#0; END_METHOD
         METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                                         
-        METHOD PUBLIC GetRtc : IRtc GetRtc := NULL_RTC; END_METHOD
-        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+        METHOD PUBLIC GetRtc : IAxoRtc GetRtc := NULL_RTC; END_METHOD
+        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
         
         METHOD PUBLIC Environment : IIxContextEnvironment
             ;
