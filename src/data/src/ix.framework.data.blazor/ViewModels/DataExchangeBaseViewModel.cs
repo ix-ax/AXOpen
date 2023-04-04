@@ -33,22 +33,31 @@ namespace ix.framework.core.ViewModels
             {
                 var properties = dataExchangeObject.GetType().GetProperties();
                 PropertyInfo? DataPropertyInfo = null;
-
                 // iterate properties and look for DataEntityAttribute
                 foreach (var prop in properties)
                 {
                     var attr = prop.GetCustomAttribute<DataEntityAttribute>();
                     if (attr != null)
                     {
+                        //if already set, that means multiple dataatributtes are present, we want to throw error
+                        if(DataPropertyInfo != null)
+                        {
+                            throw new MultipleDataEntityAttributeException($"{dataExchangeObject.GetType().ToString()} contains multiple {nameof(DataEntityAttribute)}s! Make sure it contains only one.");
+                        }
                         DataPropertyInfo = prop;
-                        break;
                     }
                 }
 
                 // if not found, throw exception
                 if (DataPropertyInfo == null)
                 {
-                    throw new DataEntityAttributeNotFoundException($"{ dataExchangeObject.GetType().ToString()} must implement member, which inherits from {nameof(DataEntity)} and is annotated with {nameof(DataEntityAttribute)}. ");
+                    throw new DataEntityAttributeNotFoundException($"{ dataExchangeObject.GetType().ToString()} must implement member, which inherits from {nameof(DataEntity)} and is annotated with {nameof(DataEntityAttribute)}.");
+                }
+
+                //// if is not sublass of DataEntity, throw exception
+                if (!DataPropertyInfo.PropertyType.IsSubclassOf(typeof(DataEntity)))
+                {
+                    throw new Exception($"Data object must inherits from DataEntity!");
                 }
 
 
