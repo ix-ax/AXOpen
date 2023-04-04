@@ -101,14 +101,14 @@ else
                 {
                     @foreach (var item in Vm.Records.ToList())
                     {
-                        <tr class="text-start @((!ModalDataView && Vm.SelectedRecord == item) ? "table-active" : null)">
-                            @if (ModalDataView)
+                        <tr class="text-start @((!ModalDetailView && Vm.SelectedRecord == item) ? "table-active" : null)">
+                            @if (ModalDetailView)
                             {
                                 <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
 
                                 @foreach (ColumnData column in Columns)
                                 {
-                                    if (column.Clicable)
+                                    if (column.Clickable)
                                     {
                                         <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
                                     }
@@ -124,7 +124,7 @@ else
 
                                 @foreach (ColumnData column in Columns)
                                 {
-                                    if (column.Clicable)
+                                    if (column.Clickable)
                                     {
                                         <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
                                     }
@@ -221,7 +221,7 @@ else
             </nav>
         </div>
     </div>
-    @if (!ModalDataView && Vm.SelectedRecord != null)
+    @if (!ModalDetailView && Vm.SelectedRecord != null)
     {
         <div class="border p-2">
             <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowDisplay"></RenderableContentControl>
@@ -409,7 +409,7 @@ else
     public string Presentation { get; set; }
 
     [Parameter]
-    public bool ModalDataView { get; set; } = true;
+    public bool ModalDetailView { get; set; } = true;
 
     [Parameter]
     public bool CanExport { get; set; } = false;
