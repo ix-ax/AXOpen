@@ -6,9 +6,9 @@ using System.Reflection;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
-using Ix.Connector;
-using Ix.Connector.ValueTypes;
-using Ix.Connector.ValueTypes.Online;
+using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
+using AXSharp.Connector.ValueTypes.Online;
 
 namespace Ix.Base.Data
 {   
@@ -121,7 +121,7 @@ namespace Ix.Base.Data
             //var onliner = typeof(T).Name.Replace("Plain", string.Empty);
             var onliner = typeof(T).FullName.Replace("Pocos.", string.Empty);
 
-            var adapter = new Ix.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
+            var adapter = new AXSharp.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
             var dummyConnector = adapter.GetConnector(new object[] { });
 
             //var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.Name == onliner);
@@ -192,7 +192,7 @@ namespace Ix.Base.Data
             // Prepare swappable object
             var onliner = typeof(T).FullName.Replace("Pocos.", string.Empty);
 
-            var adapter = new Ix.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
+            var adapter = new AXSharp.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
             var dummyConnector = adapter.GetConnector(new object[] { });
 
             var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.FullName == onliner);

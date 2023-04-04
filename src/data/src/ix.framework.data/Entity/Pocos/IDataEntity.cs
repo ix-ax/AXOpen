@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using ix.framework.data;
-using Ix.Connector;
+using AXSharp.Connector;
 
 namespace Pocos.ix.framework.data
 {

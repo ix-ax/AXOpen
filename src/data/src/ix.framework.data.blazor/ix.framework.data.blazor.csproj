@@ -29,14 +29,14 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Ix.Presentation.Blazor" Version="0.14.0-alpha.70" />
-    <PackageReference Include="Ix.Presentation.Blazor.Controls" Version="0.14.0-alpha.70" />
+    <PackageReference Include="AXSharp.Presentation.Blazor" Version="0.14.0-alpha.86" />
+    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.0-alpha.86" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\ix.framework.core.blazor\ix.framework.core.blazor.csproj" />
-    <ProjectReference Include="..\ix.framework.data\_ix-ax_ix.framework.data.csproj" />
+    <ProjectReference Include="..\ix.framework.data\ix_ax_ix_framework_data.csproj" />
   </ItemGroup>
 
 </Project>

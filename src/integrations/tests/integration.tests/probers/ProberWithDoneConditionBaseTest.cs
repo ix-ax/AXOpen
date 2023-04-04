@@ -1,6 +1,6 @@
 using IntegrationTests;
 using intergrations;
-using Ix.Connector;
+using AXSharp.Connector;
 using ix.framework.probers;
 
 

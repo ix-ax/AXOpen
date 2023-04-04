@@ -5,6 +5,7 @@
 // https://github.com/ix-ax/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
 
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Cake.Common.Tools.ILMerge;
@@ -13,12 +14,14 @@ using Cake.Core.IO;
 using Ix.Compiler;
 using Microsoft.Win32;
 using Octokit;
+using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
 
 public static class ApaxCmd
 {
     public static void ApaxInstall(this BuildContext context, (string folder, string name) lib)
     {
+        context.Log.Information($"apax install started for '{lib.folder} : {lib.name}'");
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
             Arguments = "install -L",
@@ -53,14 +56,24 @@ public static class ApaxCmd
 
     public static void ApaxBuild(this BuildContext context, (string folder, string name) lib)
     {
-        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        context.Log.Information($"apax build started for '{lib.folder} : {lib.name}'");
+        var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
             Arguments = "build",
             WorkingDirectory = context.GetAxFolder(lib),
             RedirectStandardOutput = false,
             RedirectStandardError = false,
             Silent = false
-        }).WaitForExit();
+        });
+
+        process.WaitForExit();
+        var exitcode = process.GetExitCode();
+        context.Log.Information($"apax build exited with '{exitcode}'");
+
+        if (exitcode != 0)
+        {
+            throw new BuildFailedException();
+        }
     }
 
     public static void ApaxBuild(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)

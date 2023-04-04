@@ -1,4 +1,5 @@
 USING ix.framework.core;
+USING ix.framework.rtc;
 USING AxUnit;
 
 NAMESPACE ix.core.IxStep_Tests        
@@ -27,8 +28,25 @@ NAMESPACE ix.core.IxStep_Tests
         METHOD PUBLIC CreateIdentity : ULINT            
             _identityCounter := _identityCounter + ULINT#1;
             CreateIdentity := _identityCounter;
-        END_METHOD 
-   END_CLASS      
+        END_METHOD         
+
+        METHOD PUBLIC GetRtc : IRtc ; END_METHOD
+
+        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+    
+    
+        METHOD PUBLIC Environment : IIxContextEnvironment
+            ;
+        END_METHOD
+
+        // METHOD PUBLIC SetContextEnvironment
+        //     VAR_INPUT
+        //         inContextEnvironnment : IIxContextEnvironment;
+        //     END_VAR
+
+        //     ;
+        // END_METHOD
+    END_CLASS      
 
     {TestFixture}
     CLASS StepTests

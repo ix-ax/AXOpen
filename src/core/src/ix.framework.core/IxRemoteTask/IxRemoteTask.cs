@@ -1,5 +1,5 @@
 ﻿using System;
-using Ix.Connector;
+using AXSharp.Connector;
 using System.ComponentModel;
 using System.Threading.Tasks;
 
@@ -87,7 +87,7 @@ namespace ix.framework.core
 
         internal bool IsRunning = false;
 
-        private async void ExecuteAsync(Ix.Connector.ITwinPrimitive sender, Ix.Connector.ValueTypes.ValueChangedEventArgs args)
+        private async void ExecuteAsync(AXSharp.Connector.ITwinPrimitive sender, AXSharp.Connector.ValueTypes.ValueChangedEventArgs args)
         {
             await (this as ITwinObject).ReadAsync();
 

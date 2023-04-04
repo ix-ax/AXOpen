@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using Ix.Connector;
-using Ix.Connector.ValueTypes;
+using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
 
 namespace ix.framework.data
 {
