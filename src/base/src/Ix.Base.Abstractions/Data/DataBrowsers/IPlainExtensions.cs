@@ -9,9 +9,9 @@ namespace Ix.Base.Data
 {
     public static class IPlainExtensions
     {
-        public static void ShadowToPlain1<T>(this object obj, ITwinObject twin)
+        public static T ShadowToPlain1<T>(this object obj, ITwinObject twin)
         {
-            obj = twin.ShadowToPlain<T>();
+            return twin.ShadowToPlain<T>().Result;
         }
     }
 }

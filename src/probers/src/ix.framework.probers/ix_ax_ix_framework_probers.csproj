@@ -12,8 +12,8 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.79" />
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.0-alpha.79" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.86" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.0-alpha.86" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -27,6 +27,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\core\src\ix.framework.core\_ix-ax_ix.framework.core.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\_ix-ax_axopen_abstractions.csproj" />
 	</ItemGroup>
 </Project>

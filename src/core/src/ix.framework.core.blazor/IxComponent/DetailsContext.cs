@@ -1,4 +1,5 @@
 ﻿using AXSharp.Connector;
+using AXSharp.Connector.Localizations;
 
 namespace ix.framework.core
 {
@@ -24,6 +25,10 @@ namespace ix.framework.core
         public string AttributeName { get; } = string.Empty;
 
         public string HumanReadable { get; set; } = string.Empty;
+        public Translator Interpreter
+        {
+            get { return this._parent.Interpreter; }
+        }
 
         private readonly ITwinObject _parent;
 

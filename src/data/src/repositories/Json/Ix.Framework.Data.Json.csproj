@@ -9,6 +9,6 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<ProjectReference Include="..\..\..\..\base\src\Ix.Base.Abstractions\Ix.Base.Abstractions.csproj" />
-		<ProjectReference Include="..\..\ix.framework.data\_ix-ax_ix.framework.data.csproj" />
+		<ProjectReference Include="..\..\ix.framework.data\ix_ax_ix_framework_data.csproj" />
 	</ItemGroup>
 </Project>

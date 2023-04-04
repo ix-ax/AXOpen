@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>ix.framework.core</PackageId>
-		<RootNamespace>ix.framework.core</RootNamespace>
+		<PackageId>ix.framework.messaging</PackageId>
+		<RootNamespace>ix.framework.messaging</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -26,6 +26,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\_ix-ax_axopen.abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\ix.framework.abstractions\_ix-ax_ix.framework.abstractions.csproj" />
 	</ItemGroup>
 </Project>

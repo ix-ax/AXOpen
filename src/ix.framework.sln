@@ -35,9 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.framework.data.blazor", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.framework.data.tests", "data\tests\ix.famework.data.tests\ix.framework.data.tests.csproj", "{26B19B7A-954B-4104-B758-9529403B0D56}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_ix-ax_ix.framework.core", "core\src\ix.framework.core\_ix-ax_ix.framework.core.csproj", "{40E7EB62-41AA-4668-A0CB-64C628AD9E7C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_ix-ax_ix.framework.data", "data\src\ix.framework.data\_ix-ax_ix.framework.data.csproj", "{A64BC317-8920-42FD-8FBE-8EDC176049E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ix_framework_data", "data\src\ix.framework.data\ix_ax_ix_framework_data.csproj", "{A64BC317-8920-42FD-8FBE-8EDC176049E1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{8520BE45-D758-4EAD-824A-139BB726EF9C}"
 EndProject
@@ -61,7 +59,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8BF234AB-B68
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D48B76D7-B4E1-4098-B69F-6F4EFB94BC62}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_ix-ax_ix.framework.probers", "probers\src\ix.framework.probers\_ix-ax_ix.framework.probers.csproj", "{1B857C1D-45C3-4EA6-8493-0F9015C41AB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ix_framework_probers", "probers\src\ix.framework.probers\ix_ax_ix_framework_probers.csproj", "{1B857C1D-45C3-4EA6-8493-0F9015C41AB9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.framework.probers.tests", "probers\tests\ix.famework.probers.tests\ix.framework.probers.tests.csproj", "{BE3862C3-A01B-4FEB-A774-EB587E39B715}"
 EndProject
@@ -72,6 +70,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Repository.Integration.Tests_L3", "data\tests\Ix.Framework.Repository.Integration.Tests_L3\Ix.Framework.Repository.Integration.Tests_L3.csproj", "{6ED38569-92E2-45D8-A8AF-B1987D4AF6F5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "messaging", "messaging", "{3EC10401-4E98-4058-B142-F411780EE54A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "integration.data.blazor.tests", "integrations\tests\integration.data.blazor.tests\integration.data.blazor.tests.csproj", "{BDFC9B7C-B834-48B6-9304-43C0DE6E009B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EC7D07D6-4DBB-483F-B539-67FE5432FA77}"
 EndProject
@@ -133,10 +133,6 @@ Global
 		{26B19B7A-954B-4104-B758-9529403B0D56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26B19B7A-954B-4104-B758-9529403B0D56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26B19B7A-954B-4104-B758-9529403B0D56}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40E7EB62-41AA-4668-A0CB-64C628AD9E7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40E7EB62-41AA-4668-A0CB-64C628AD9E7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40E7EB62-41AA-4668-A0CB-64C628AD9E7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40E7EB62-41AA-4668-A0CB-64C628AD9E7C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A64BC317-8920-42FD-8FBE-8EDC176049E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A64BC317-8920-42FD-8FBE-8EDC176049E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A64BC317-8920-42FD-8FBE-8EDC176049E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -219,7 +215,6 @@ Global
 		{0E97F83F-9AC9-431D-9FC2-4966874E273D} = {B9A26D0C-A9A0-4DF2-9861-A320A78FA800}
 		{5EF112E8-733E-4C7A-9F0B-94D992B774D7} = {202E0216-5F45-4471-9C90-C957D725C6E3}
 		{26B19B7A-954B-4104-B758-9529403B0D56} = {0E97F83F-9AC9-431D-9FC2-4966874E273D}
-		{40E7EB62-41AA-4668-A0CB-64C628AD9E7C} = {3284EEA8-71EE-471C-8C31-944B5EFC7C67}
 		{A64BC317-8920-42FD-8FBE-8EDC176049E1} = {202E0216-5F45-4471-9C90-C957D725C6E3}
 		{320D2CD8-1E7D-4F39-BF7F-DB2DC4A74959} = {8520BE45-D758-4EAD-824A-139BB726EF9C}
 		{BF585B2C-2971-4100-9F18-C380E46FB2E1} = {8520BE45-D758-4EAD-824A-139BB726EF9C}

@@ -3,6 +3,7 @@
 @using CommunityToolkit.Mvvm.Messaging;
 @using Microsoft.AspNetCore.Components.Forms;
 @using ix.framework.core.Interfaces;
+@using ix.framework.core.IxDataExchange;
 @using ix.framework.core.ViewModels;
 @using ix.framework.core.blazor.Toaster;
 @using ix.framework.core;
@@ -53,6 +54,21 @@ else
             <thead>
                 <tr class="text-start">
                     <th scope="col">DataEntityId</th>
+
+                    <CascadingValue Value="this" IsFixed>
+                    @ChildContent
+                </CascadingValue>
+                @foreach (ColumnData column in Columns)
+                    {
+                        if(column.HeaderName is null || column.HeaderName == "")
+                        {
+                            <th scope="col">@column.BindingValue</th>
+                        } else
+                        {
+                            <th scope="col">@column.HeaderName</th>
+                        }
+                    }
+
                     @if (Presentation.Equals("Command"))
                     {
                         <th scope="col">Actions</th>
@@ -89,11 +105,36 @@ else
                             @if (ModalDataView)
                             {
                                 <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
+
+                                @foreach (ColumnData column in Columns)
+                                {
+                                    if (column.Clicable)
+                                    {
+                                        <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                    }
+                                }
                             }
                             else
                             {
                                 <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
+
+                                @foreach (ColumnData column in Columns)
+                                {
+                                    if (column.Clicable)
+                                    {
+                                        <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                    }
+                                    else
+                                    {
+                                        <td>@(item.GetType().GetProperty(column.BindingValue)?.GetValue(item))</td>
+                                    }
+                                }
                             }
+
                             @if (Presentation.Equals("Command"))
                             {
                                 <td>
@@ -373,6 +414,11 @@ else
     [Parameter]
     public bool CanExport { get; set; } = false;
 
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    private readonly List<ColumnData> Columns = new();
+
     private Guid ViewGuid { get; } = new Guid();
     private string Create { get; set; } = "";
 
@@ -380,6 +426,24 @@ else
     private bool isLoadingFile { get; set; }
 
     private int MaxPage { get { return (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit); } }
+
+    public void AddLine(ColumnData line)
+    {
+        if (!Columns.Contains(line))
+        {
+            Columns.Add(line);
+            StateHasChanged();
+        }
+    }
+
+    public void RemoveLine(ColumnData line)
+    {
+        if (Columns.Contains(line))
+        {
+            Columns.Remove(line);
+            StateHasChanged();
+        }
+    }
 
     private int mod(int x, int m)
     {

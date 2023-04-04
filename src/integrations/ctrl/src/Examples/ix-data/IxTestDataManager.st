@@ -9,6 +9,7 @@ NAMESPACE ixDataExamples
             _read       : BOOL;
             _update     : BOOL;
             _delete     : BOOL;
+            {#ix-attr:[DataEntityAttribute]}
             _data       : IxTestData;
         END_VAR  
     END_CLASS       

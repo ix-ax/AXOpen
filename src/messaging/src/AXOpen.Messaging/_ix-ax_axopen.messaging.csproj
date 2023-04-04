@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>ix.framework.messaging</PackageId>
-		<RootNamespace>ix.framework.messaging</RootNamespace>
+		<PackageId>ix.framework.data</PackageId>
+		<RootNamespace>ix.framework.data</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -12,7 +12,8 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.79" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.86" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.86" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -26,6 +27,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+<<<<<<<< HEAD:src/messaging/src/AXOpen.Messaging/_ix-ax_axopen.messaging.csproj
     <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\_ix-ax_axopen.abstractions.csproj" />
   </ItemGroup>
+========
+	  <ProjectReference Include="..\..\..\base\src\Ix.Base.Abstractions\Ix.Base.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\core\src\ix.framework.core\ix_ax_ix_framework_core.csproj" />
+	</ItemGroup>
+>>>>>>>> 44-_NEW_FEATURE_ix-data_Implement_IxDataExchange_based_on_TcoDataExchange:src/data/src/ix.framework.data/ix_ax_ix_framework_data.csproj
 </Project>
