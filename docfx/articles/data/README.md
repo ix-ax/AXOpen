@@ -27,12 +27,11 @@ For the data exchange to work, we will need to create our class extending the `D
 using ix.framework.data;
 ```
 
-~~~ C#
+~~~
 CLASS MyDataExchanger EXTENDS ix.framework.data.DataExchange 
 ~~~
 
-
-We will also need to add our data enitity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `DataEntityAttribute`. This attribute should be unique within DataExchanger object and is used to locate data object within framework. When `DataEntityAttribute` is missing, exception is thrown. 
+We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `DataEntityAttribute`. This attribute should be unique within DataExchanger object and is used to locate data object within framework. When `DataEntityAttribute` is missing, exception is thrown.
 
 ~~~
 CLASS MyDataExchanger EXTENDS ix.framework.data.DataExchange
@@ -57,7 +56,7 @@ END_CLASS
 
 As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of IxTask which can operate asynchronously, and we will need to call it cyclically.
 
-We will now need to create an instance of `MyDataExchanger` in some `MyConfiguration`, and call `_myDataExchanger` in the Main method of the context. Just to remind ourselfes all logic in Ix framework must be placed in the call tree of a Main method of a context.
+We will now need to create an instance of `MyDataExchanger` in some `MyConfiguration`, and call `_myDataExchanger` in the Main method of the context. Just to remind ourselves all logic in Ix framework must be placed in the call tree of a Main method of a context.
 
 ~~~
 CONFIGURATION MyConfiguration
@@ -133,19 +132,19 @@ IF(_delete) THEN
 END_IF;
 ```
 
-## Data visualisation
+## Data visualization
 
 With presentation `Command` there are available options for adding, editing and deleting records.
 
 [!Command](~/articles/data/images/Command.png)
 
-If you use `Status` presentation data will be only displayed, without option for manipulated with records.
+If you use `Status` presentation type, data will be only displayed cannot be manipulated.
 
 [!Status](~/articles/data/images/Status.png)
 
 ### Custom columns
 
-There is possible to add custom columns if is needed. You must add `ix.framework.core.IxDataExchange.ColumnData` view as child in `IxDataView`. Where must be set `BindingValue` which contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is attribute to make column not clickable, which is clickable by default. Example using all attributes:
+There is a possibility to add custom columns if it is needed. You must add `ix.framework.core.IxDataExchange.ColumnData` view as a child in `IxDataView`. The `BindingValue` must be set in `ColumnData` and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:
 
 ~~~
 <IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command">
@@ -164,13 +163,13 @@ If you want to be able to export data, you must add `CanExport` attribute with `
 <IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
 ~~~
 
-With this option, buttons for export and import data will be appear. After clicing on export button, there will be created csv file, which will contains all existing records. If you want import data, you must upload csv file with equals data structure like we get in export file.
+With this option, buttons for export and import data will appear. After clicking on export button, the csv file will be created, which contains all existing records. If you want import data, you must upload csv file with equal data structure like we get in export file.
 
 [!Export](~/articles/data/images/Export.png)
 
 ### Modal detail view
 
-Detail View is default show like modal view. That means if you clicked on some record, there will be show modal window with detailed view. If necessary, this option can be changed with `ModalDetailView` attribute where is set `false` value. This change will show detail view under the record table. Example with `ModalDetailView` attribute:
+The Detail View is default shown like modal view. That means if you clicked on some record, the modal window with detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show detail view under the record table. Example with `ModalDetailView` attribute:
 
 ~~~
 <IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
