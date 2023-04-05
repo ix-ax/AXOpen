@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
 
     CLASS PUBLIC IxTask EXTENDS IxObject IMPLEMENTS IIxTask, IIxTaskState
 

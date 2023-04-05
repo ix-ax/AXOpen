@@ -1,5 +1,6 @@
+USING AXOpen.Core;
 NAMESPACE ix.framework.probers
-    CLASS PUBLIC ABSTRACT ProberWithCounterBase EXTENDS ix.framework.core.IxTask
+    CLASS PUBLIC ABSTRACT ProberWithCounterBase EXTENDS IxTask
         VAR PUBLIC                    
             RequredNumberOfCycles : ULINT;
             CurrentCyclesCount : ULINT;           
@@ -39,7 +40,7 @@ NAMESPACE ix.framework.probers
         END_METHOD  
     END_CLASS
    
-    CLASS PUBLIC ABSTRACT ProberWithCompletedCondition EXTENDS ix.framework.core.IxTask                
+    CLASS PUBLIC ABSTRACT ProberWithCompletedCondition EXTENDS IxTask                
         METHOD PRIVATE Run
             IF(THIS.Execute()) THEN                                                         
                 THIS.DoneWhen(THIS.Test());                 

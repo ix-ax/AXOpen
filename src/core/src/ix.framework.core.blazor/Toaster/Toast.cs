@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.Messaging.Messages;
 
-namespace ix.framework.core.blazor.Toaster
+namespace AXOpen.Core.blazor.Toaster
 {
     public class Toast
     {

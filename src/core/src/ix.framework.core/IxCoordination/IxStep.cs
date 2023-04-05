@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ix.framework.core
+namespace AXOpen.Core
 {
     public partial class IxStep
     {

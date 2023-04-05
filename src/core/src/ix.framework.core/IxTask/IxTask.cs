@@ -4,7 +4,7 @@ using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
 using System.Windows.Input;
 
-namespace ix.framework.core
+namespace AXOpen.Core
 {
     public partial class IxTask : ICommand
     {

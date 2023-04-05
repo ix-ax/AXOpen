@@ -1,10 +1,10 @@
-using ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE IxComponentExamples
 //<Implementation>
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-set:AttributeName = "IxComponent with header only example"}
-    CLASS PUBLIC IxComponentHeaderOnlyExample EXTENDS ix.framework.core.IxComponent 
+    CLASS PUBLIC IxComponentHeaderOnlyExample EXTENDS AXOpen.Core.IxComponent 
         METHOD PROTECTED OVERRIDE Restore: IIxTask 
             // Some logic for Restore could be placed here. For Example:
             valueReal := REAL#1.0;
@@ -55,7 +55,7 @@ NAMESPACE IxComponentExamples
 //</Implementation>
 
 //<Using>
-   CLASS ComponentHeaderOnlyExampleContext EXTENDS ix.framework.core.IxContext
+   CLASS ComponentHeaderOnlyExampleContext EXTENDS IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Very simple component example with header only defined"}
             MyComponentWithHeaderOnly : IxComponentHeaderOnlyExample;  

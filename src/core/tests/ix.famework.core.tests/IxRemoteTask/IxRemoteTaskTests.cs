@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using ix.framework.core;
+using AXOpen.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using AXSharp.Connector;
 
-namespace ix.framework.core.Tests
+namespace AXOpen.Core.Tests
 {
     public class IxRemoteTaskTests
     {

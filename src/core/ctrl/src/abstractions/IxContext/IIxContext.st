@@ -1,5 +1,5 @@
 USING AXOpen.Rtc;
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     INTERFACE IIxContext       
         METHOD CreateIdentity : ULINT END_METHOD
         METHOD OpenCycleCount : ULINT END_METHOD          

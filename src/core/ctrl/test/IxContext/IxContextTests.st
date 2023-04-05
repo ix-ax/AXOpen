@@ -1,8 +1,9 @@
 USING AxUnit;
+USING AXOpen.Core;
 
 NAMESPACE ix.core.IxContext_Tests
 
-    CLASS TestContext EXTENDS ix.framework.core.IxContext         
+    CLASS TestContext EXTENDS IxContext         
             METHOD PROTECTED OVERRIDE Main
                 ;
             END_METHOD

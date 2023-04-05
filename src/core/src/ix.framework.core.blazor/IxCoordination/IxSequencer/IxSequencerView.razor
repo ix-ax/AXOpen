@@ -1,4 +1,4 @@
-﻿@namespace ix.framework.core
+﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<IxSequencer>
 
 <div class="container-lg">
@@ -6,11 +6,11 @@
         <div class="col">
             @if (IsControllable)
             {
-                <ix.framework.core.IxTaskCommandView Component="@Component" />
+                <AXOpen.Core.IxTaskCommandView Component="@Component" />
             }
             else
             {
-            <ix.framework.core.IxTaskStatusView Component="@Component" />
+            <AXOpen.Core.IxTaskStatusView Component="@Component" />
             }
         </div>
     </div>

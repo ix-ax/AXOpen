@@ -4,7 +4,7 @@
     <TargetFrameworks>net7.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>ix.framework.core</RootNamespace>
+    <RootNamespace>AXOpen.Core</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

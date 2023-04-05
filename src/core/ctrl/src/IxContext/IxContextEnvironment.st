@@ -1,6 +1,6 @@
 USING AXOpen.Messaging;
 
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     CLASS PUBLIC IxContextEnvironment IMPLEMENTS IIxContextEnvironment        
         VAR PRIVATE                        
             _messenger : AxoMessengerEnv;

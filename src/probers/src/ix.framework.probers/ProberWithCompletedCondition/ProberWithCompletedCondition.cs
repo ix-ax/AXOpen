@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ix.framework.core;
+using AXOpen.Core;
 
 namespace ix.framework.probers
 {

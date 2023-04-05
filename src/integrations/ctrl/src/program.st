@@ -1,3 +1,5 @@
+USING AXOpen.Core;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         MainContext : MyContext;
@@ -27,7 +29,7 @@ PROGRAM MyProgram
 END_PROGRAM
 
 
-CLASS MyContext EXTENDS ix.framework.core.IxContext    
+CLASS MyContext EXTENDS IxContext    
     VAR PUBLIC         
         process_data_manager: ixDataExamples.IxProcessDataManager;
         test_data_manager: ixDataExamples.IxTestDataManager;

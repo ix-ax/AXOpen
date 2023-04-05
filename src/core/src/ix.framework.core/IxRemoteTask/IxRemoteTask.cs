@@ -3,7 +3,7 @@ using AXSharp.Connector;
 using System.ComponentModel;
 using System.Threading.Tasks;
 
-namespace ix.framework.core
+namespace AXOpen.Core
 {
     public partial class IxRemoteTask 
     {

@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     CLASS IxSequencer EXTENDS IxTask IMPLEMENTS IIxSequencer
         VAR PUBLIC                  
             {#ix-set:AttributeName = "<#Stepping mode#>"}

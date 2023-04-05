@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     INTERFACE IIxStep EXTENDS IIxTask
         METHOD GetStepOrder : ULINT END_METHOD
         METHOD SetStepOrder VAR_INPUT coord : IIxCoordinator; StepOrder : ULINT; END_VAR END_METHOD

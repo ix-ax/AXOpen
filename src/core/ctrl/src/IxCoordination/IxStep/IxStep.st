@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core   
+NAMESPACE AXOpen.Core
     {#ix-prop: public string Description}
     CLASS IxStep EXTENDS IxTask IMPLEMENTS IIxStep       
         VAR PUBLIC

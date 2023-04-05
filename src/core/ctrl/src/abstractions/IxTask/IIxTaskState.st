@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     INTERFACE IIxTaskState
         METHOD IsDone : BOOL END_METHOD
         METHOD IsBusy : BOOL END_METHOD

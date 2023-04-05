@@ -1,8 +1,8 @@
-using ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE IxRemoteTaskDocuExamples
     //<IxRemoteTaskExample>    
-    CLASS MyRemoteTask EXTENDS IxRemoteTask
+    CLASS MyRemoteTask EXTENDS AXOpen.Core.IxRemoteTask
         VAR PUBLIC        
             Message : STRING[254];
         END_VAR
@@ -17,7 +17,7 @@ NAMESPACE IxRemoteTaskDocuExamples
 
     END_CLASS 
     //</IxRemoteTaskExample>
-    CLASS RemoteTasks EXTENDS ix.framework.core.IxContext
+    CLASS RemoteTasks EXTENDS IxContext
         VAR PUBLIC            
             _remoteTask : MyRemoteTask;  
             _remoteTaskInvokeFromPlc : BOOL;     

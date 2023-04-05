@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace ix.framework.core.blazor.Toaster
+namespace AXOpen.Core.blazor.Toaster
 {
     public partial class Toaster : ComponentBase, IDisposable
     {

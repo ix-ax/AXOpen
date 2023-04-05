@@ -1,6 +1,6 @@
 USING AXOpen.Rtc;
 
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
 
     FUNCTION IsNullContext : BOOL
         VAR_INPUT

@@ -1,4 +1,4 @@
-using ix.framework.core;
+USING AXOpen.Core;
 
 //<Implementation>
     PROGRAM ProgramExample
@@ -12,7 +12,7 @@ using ix.framework.core;
 //</Implementation>
 
 //<Declaration>
-    CLASS PUBLIC IxContextExample EXTENDS IxContext
+    CLASS PUBLIC IxContextExample EXTENDS  AXOpen.Core.IxContext
         METHOD PROTECTED OVERRIDE Main 
             // Here goes all your logic for given IxContext.
             ;

@@ -1,8 +1,8 @@
-using ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE IxSequencerExamples
  
-    CLASS SequencerExample EXTENDS ix.framework.core.IxContext
+    CLASS SequencerExample EXTENDS  AXOpen.Core.IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Sequencer example#>"}
             coord : IxSequencer;  

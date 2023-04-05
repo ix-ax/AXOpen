@@ -1,9 +1,8 @@
 using AXSharp.Connector;
-using ix.framework.core;
+using AXOpen.Core;
 
-namespace ix.framework.coretests
+namespace AXOpen.Core.Tests
 {
-    using ix.framework.core;
     using System;
     using Xunit;
 

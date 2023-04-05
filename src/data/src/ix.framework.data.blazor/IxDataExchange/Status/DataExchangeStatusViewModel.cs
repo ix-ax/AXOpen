@@ -1,7 +1,7 @@
 ﻿using ix.ax.core.blazor;
-using ix.framework.core.blazor.Toaster;
-using ix.framework.core.Interfaces;
-using ix.framework.core.ViewModels;
+using AXOpen.Core.blazor.Toaster;
+using AXOpen.Core.Interfaces;
+using AXOpen.Core.ViewModels;
 using ix.framework.data;
 using Ix.Base.Data;
 using AXSharp.Presentation;

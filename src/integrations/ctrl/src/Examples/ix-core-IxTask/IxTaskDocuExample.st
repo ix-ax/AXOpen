@@ -1,7 +1,7 @@
-USING ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE IxTaskExamples
-    CLASS IxTaskDocuExample EXTENDS IxContext         
+    CLASS IxTaskDocuExample EXTENDS  AXOpen.Core.IxContext         
         VAR PUBLIC
             _myTask : IxTask;
             _myCounter : ULINT;
@@ -55,7 +55,7 @@ NAMESPACE IxTaskExamples
     END_CLASS  
 
     //<IxTaskEventLikeMethods>
-    CLASS MyTaskExample Extends ix.framework.core.IxTask
+    CLASS MyTaskExample EXTENDS AXOpen.Core.IxTask
         VAR
             OnAbortCounter : ULINT;
             OnResumeCounter : ULINT;

@@ -1,8 +1,8 @@
-using ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE IxTaskExamples
 
-    CLASS MyCommandTask EXTENDS ix.framework.core.IxTask
+    CLASS MyCommandTask EXTENDS AXOpen.Core.IxTask
         VAR PUBLIC
         {#ix-set:AttributeName = "Counter"}
         _counter : ULINT;
@@ -13,7 +13,7 @@ NAMESPACE IxTaskExamples
         END_METHOD
     END_CLASS    
 
-    CLASS Tasks EXTENDS ix.framework.core.IxContext
+    CLASS Tasks EXTENDS IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to execute this command"}
             _commandTask : MyCommandTask;

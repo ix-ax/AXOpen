@@ -1,7 +1,7 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 
-namespace ix.framework.core
+namespace AXOpen.Core
 {
 
     public partial class IxComponentView : IDisposable

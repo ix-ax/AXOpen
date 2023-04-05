@@ -1,7 +1,7 @@
 ﻿using AXSharp.Connector;
 using AXSharp.Connector.Localizations;
 
-namespace ix.framework.core
+namespace AXOpen.Core
 {
     public class DetailsContext : ITwinObject
     {

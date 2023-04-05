@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Messaging;
 using System.Timers;
 
-namespace ix.framework.core.blazor.Toaster
+namespace AXOpen.Core.blazor.Toaster
 {
     public class ToastService : IDisposable
     {

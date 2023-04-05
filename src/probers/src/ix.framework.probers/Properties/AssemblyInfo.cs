@@ -1,3 +1,3 @@
 ﻿using System.Runtime.CompilerServices;
 
-[assembly:InternalsVisibleTo("ix.framework.core.tests")]
+[assembly: InternalsVisibleTo("ix.framework.core.tests")]

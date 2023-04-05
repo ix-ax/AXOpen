@@ -1,4 +1,4 @@
-USING ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE ix.framework.data 
     CLASS DataExchange EXTENDS IxObject IMPLEMENTS IDataExchange

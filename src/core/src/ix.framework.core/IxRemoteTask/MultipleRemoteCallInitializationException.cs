@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ix.framework.core
+namespace AXOpen.Core
 {
     public class MultipleRemoteCallInitializationException : Exception
     {

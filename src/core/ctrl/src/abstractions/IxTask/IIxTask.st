@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core    
+NAMESPACE AXOpen.Core
     INTERFACE IIxTask EXTENDS IIxObject,IIxTaskInt
         METHOD Execute : BOOL END_METHOD
         METHOD Invoke : IIxTaskState END_METHOD

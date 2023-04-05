@@ -1,10 +1,10 @@
-using ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE IxComponentExamples
     //<Implementation>
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-set:AttributeName = "IxComponent example name"}
-    CLASS PUBLIC IxComponentExample EXTENDS ix.framework.core.IxComponent  
+    CLASS PUBLIC IxComponentExample EXTENDS AXOpen.Core.IxComponent  
         METHOD PROTECTED OVERRIDE Restore: IIxTask 
             ;
         END_METHOD
@@ -182,7 +182,7 @@ NAMESPACE IxComponentExamples
    //</ClassDefinitions>
 
    //<Using>
-    CLASS ComponentExampleContext EXTENDS ix.framework.core.IxContext
+    CLASS ComponentExampleContext EXTENDS IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Component example name"}
             MyComponent : IxComponentExample;  

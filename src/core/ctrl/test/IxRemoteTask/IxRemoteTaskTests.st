@@ -1,12 +1,12 @@
 USING AxUnit;
-USING ix.framework.core;
+USING AXOpen.Core;
 USING AXOpen.Rtc;
 
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     NAMESPACE IxRemoteTasksTests
         
     
-     CLASS TestContext IMPLEMENTS ix.framework.core.IIxContext         
+     CLASS TestContext IMPLEMENTS IIxContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
             _closeCounter : ULINT;

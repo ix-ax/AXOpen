@@ -1,11 +1,11 @@
 using integration.blazor.Data;
 using intergrations;
 using AXSharp.Connector;
-using ix.framework.core.blazor.Toaster;
+using AXOpen.Core.blazor.Toaster;
 using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using ix.framework.core.DependencyInjection;
+using AXOpen.Core.DependencyInjection;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace integration.blazor

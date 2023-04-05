@@ -1,4 +1,4 @@
-USING ix.framework.core;
+USING AXOpen.Core;
 USING ix.framework.probers;
 
 NAMESPACE IntegrationTests

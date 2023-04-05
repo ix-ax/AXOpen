@@ -1,8 +1,8 @@
-using ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE IxRemoteTaskExamples
 
-    CLASS MyRemoteTask EXTENDS ix.framework.core.IxRemoteTask
+    CLASS MyRemoteTask EXTENDS AXOpen.Core.IxRemoteTask
         VAR PUBLIC        
             Message : STRING[254];
             Counter : INT;
@@ -21,7 +21,7 @@ NAMESPACE IxRemoteTaskExamples
 
     END_CLASS    
 
-    CLASS RemoteTasks EXTENDS ix.framework.core.IxContext
+    CLASS RemoteTasks EXTENDS IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to execute this command"}
             _remoteTask : MyRemoteTask;

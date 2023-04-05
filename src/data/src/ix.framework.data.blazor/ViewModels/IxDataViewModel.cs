@@ -10,12 +10,12 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
 using Ix.Base.Data;
 using AXSharp.Connector;
-using ix.framework.core.blazor.Toaster;
-using ix.framework.core.Interfaces;
+using AXOpen.Core.blazor.Toaster;
+using AXOpen.Core.Interfaces;
 using ix.framework.data;
 using Microsoft.JSInterop;
 
-namespace ix.framework.core.ViewModels;
+namespace AXOpen.Core.ViewModels;
 
 public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() where O : class
 {

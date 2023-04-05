@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     INTERFACE INTERNAL IIxSequencer EXTENDS IIxCoordinator
     END_INTERFACE  
 END_NAMESPACE

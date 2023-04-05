@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     TYPE PUBLIC
         eIxSequenceMode : INT 
         (          

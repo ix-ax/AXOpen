@@ -461,7 +461,7 @@ All members are added in the order in which they are defined, taking into accoun
 
 Example of the implementation very simple `IxComponent` with members placed only inside the Header.
 ~~~SmallTalk
-using ix.framework.core;
+using AXOpen.Core;
 
 {#ix-attr:[Container(Layout.Stack)]}
 {#ix-set:AttributeName = "Component with header only example"}
@@ -519,7 +519,7 @@ END_CLASS
 
 The instance of the extended `IxComponent` must be defined inside the `IxContext`.
 ~~~SmallTalk
-.....................EXTENDS ix.framework.core.IxContext
+.....................EXTENDS IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Very simple component example with header only defined"}
             MyComponentWithHeaderOnly : ComponentHeaderOnlyExample;  

@@ -1,7 +1,7 @@
-using ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE IxSequencerExamples
-    CLASS IxSequencerDocuExample EXTENDS IxContext
+    CLASS IxSequencerDocuExample EXTENDS  AXOpen.Core.IxContext
         VAR PUBLIC
             _mySequencer : IxSequencer;
             _step_1 : IxStep;

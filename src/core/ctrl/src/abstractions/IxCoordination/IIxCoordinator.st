@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     INTERFACE  IIxCoordinator 
         METHOD GetCoordinatorState : CoordinatorStates END_METHOD
     END_INTERFACE  

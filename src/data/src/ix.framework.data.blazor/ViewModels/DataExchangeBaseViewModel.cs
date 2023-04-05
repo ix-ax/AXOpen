@@ -1,4 +1,4 @@
-﻿using ix.framework.core.Interfaces;
+﻿using AXOpen.Core.Interfaces;
 using ix.framework.data;
 using AXSharp.Presentation;
 using System;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ix.framework.core.ViewModels
+namespace AXOpen.Core.ViewModels
 {
     public class DataExchangeBaseViewModel : RenderableViewModelBase
     {

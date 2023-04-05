@@ -1,13 +1,13 @@
 USING AxUnit;
 USING AXOpen.Rtc;
-USING ix.framework.core;
+USING AXOpen.Core;
 USING AXOpen.Utils;
 USING AXOpen.Messaging;
 USING System.Strings;
 USING System.DateTime;
 
 NAMESPACE AXOpen.AxoMessaging_UnitTests
-    CLASS TestContextI IMPLEMENTS ix.framework.core.IIxContext         
+    CLASS TestContextI IMPLEMENTS IIxContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
             _closeCounter : ULINT;

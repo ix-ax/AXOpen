@@ -1,7 +1,7 @@
 USING AXOpen.Rtc;
 USING AXOpen.Messaging;
 
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides base for contextualized entry of `ix.framework` application.
     /// This class is abstract and must be inherited.

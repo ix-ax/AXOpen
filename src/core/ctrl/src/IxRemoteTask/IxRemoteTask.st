@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides a mechanism to exectute a logic from the PLC in an .NET environment.   
     ///<remarks>

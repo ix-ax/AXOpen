@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
 
     CLASS PUBLIC ABSTRACT IxComponent EXTENDS IxObject IMPLEMENTS IIxComponent     
         ///<summary>

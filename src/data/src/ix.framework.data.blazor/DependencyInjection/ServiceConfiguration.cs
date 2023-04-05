@@ -1,4 +1,4 @@
-﻿using ix.framework.core.ViewModels;
+﻿using AXOpen.Core.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ix.framework.core.DependencyInjection
+namespace AXOpen.Core.DependencyInjection
 {
     public static class ServicesConfiguration
     {

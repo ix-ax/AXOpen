@@ -1,8 +1,8 @@
-USING ix.framework.core;
+USING AXOpen.Core;
 
 NAMESPACE IxObjectExamples
 //<IxContext>
-    CLASS PUBLIC MyContext EXTENDS IxContext
+    CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.IxContext
         VAR
             _myObject : IxObject;
         END_VAR

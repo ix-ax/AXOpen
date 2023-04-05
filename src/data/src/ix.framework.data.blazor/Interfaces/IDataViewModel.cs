@@ -1,5 +1,5 @@
-﻿using ix.framework.core.blazor.Toaster;
-using ix.framework.core.ViewModels;
+﻿using AXOpen.Core.blazor.Toaster;
+using AXOpen.Core.ViewModels;
 using ix.framework.data;
 using Ix.Base.Data;
 using System;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ix.framework.core.Interfaces
+namespace AXOpen.Core.Interfaces
 {
     public interface IDataViewModel
     {

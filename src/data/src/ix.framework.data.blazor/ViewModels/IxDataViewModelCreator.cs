@@ -12,7 +12,7 @@ using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Components;
 using System.Threading.Channels;
 
-namespace ix.framework.core.ViewModels
+namespace AXOpen.Core.ViewModels
 {
     public class IxDataViewModelCreator : ObservableObject
     {

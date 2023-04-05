@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using System.Reflection.Metadata.Ecma335;
 
-namespace ix.framework.core
+namespace AXOpen.Core
 {
     public partial class IxStepView
     {

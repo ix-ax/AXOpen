@@ -1,6 +1,6 @@
 using intergrations;
-using ix.framework.core.Interfaces;
-using ix.framework.core.ViewModels;
+using AXOpen.Core.Interfaces;
+using AXOpen.Core.ViewModels;
 using ix.framework.data;
 using AXSharp.Connector;
 using Ix.Framework.Data.InMemory;

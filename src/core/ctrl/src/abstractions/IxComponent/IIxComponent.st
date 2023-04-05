@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     INTERFACE IIxComponent EXTENDS IIxObject,IIxManuallyControllable
     END_INTERFACE
 END_NAMESPACE

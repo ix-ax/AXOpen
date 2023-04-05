@@ -1,20 +1,21 @@
 USING ix.core;
+USING AXOpen.Core;
 USING AxUnit;
 
 NAMESPACE ix.core.IxObject_Tests
 
-    CLASS TestObjContext EXTENDS ix.framework.core.IxContext         
+    CLASS TestObjContext EXTENDS IxContext         
         METHOD PROTECTED OVERRIDE Main
             ;
         END_METHOD
     END_CLASS  
 
-    CLASS TestObject EXTENDS ix.framework.core.IxObject         
+    CLASS TestObject EXTENDS IxObject         
          
     END_CLASS  
 
     {TestFixture}
-    CLASS IxObjectUnitTests EXTENDS ix.framework.core.IxObject
+    CLASS IxObjectUnitTests EXTENDS IxObject
         VAR PRIVATE
             _context : TestObjContext;
          END_VAR  

@@ -1,5 +1,5 @@
 USING AXOpen.Messaging;
-NAMESPACE ix.framework.core
+NAMESPACE AXOpen.Core
     INTERFACE IIxContextEnvironment       
         METHOD Messaging : IAxoMessengerEnv END_METHOD
     END_INTERFACE    

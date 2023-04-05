@@ -1,11 +1,11 @@
-USING ix.framework.core;
+USING AXOpen.Core;
 NAMESPACE ix.framework.data    
-    CLASS DataExchangeTask EXTENDS ix.framework.core.IxRemoteTask 
+    CLASS DataExchangeTask EXTENDS IxRemoteTask 
         VAR PUBLIC
             DataEntityIdentifier : STRING[254];
         END_VAR                
 
-        METHOD PUBLIC Invoke : ix.framework.core.IIxTaskState
+        METHOD PUBLIC Invoke : IIxTaskState
             VAR_INPUT
                 identifier : STRING[254];
             END_VAR 
