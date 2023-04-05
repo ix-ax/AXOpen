@@ -43,6 +43,7 @@ Generated\ Files/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+TestResults/*
 
 # NUnit
 *.VisualState.xml
@@ -399,3 +400,4 @@ FodyWeavers.xsd
 
 artifacts/
 .idea/
+/src/integrations/integration.blazor/Data/processdata

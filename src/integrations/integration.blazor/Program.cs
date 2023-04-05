@@ -1,8 +1,12 @@
 using integration.blazor.Data;
 using intergrations;
-using Ix.Presentation.Blazor.Services;
+using AXSharp.Connector;
+using ix.framework.core.blazor.Toaster;
+using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using ix.framework.core.DependencyInjection;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace integration.blazor
 {
@@ -19,9 +23,29 @@ namespace integration.blazor
             
             builder.Services.AddIxBlazorServices();
 
+            builder.Services.RegisterIxDataServices();
+            builder.Services.AddSingleton<ToastService>();
+
             Entry.Plc.Connector.BuildAndStart();
+
+            Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+
+            Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
+
+
+            var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+            var repository2 = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
+            //inherited IxProductionData
+            //var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionDataInherited>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+
+            // Entry.Plc.process_data_manager.InitializeRepository(repository);
+
+            Entry.Plc.MainContext.process_data_manager.InitializeRemoteDataExchange(repository);
+            Entry.Plc.MainContext.test_data_manager.InitializeRemoteDataExchange(repository2);
+
             
-            Entry.Plc.Connector.SubscriptionMode = Ix.Connector.ReadSubscriptionMode.Polling;
+            Entry.Plc.Integrations.DM.InitializeRemoteDataExchange(Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

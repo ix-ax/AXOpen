@@ -1,4 +1,5 @@
-﻿using Ix.Connector;
+﻿using AXSharp.Connector;
+using AXSharp.Connector.Localizations;
 
 namespace ix.framework.core
 {
@@ -24,6 +25,10 @@ namespace ix.framework.core
         public string AttributeName { get; } = string.Empty;
 
         public string HumanReadable { get; set; } = string.Empty;
+        public Translator Interpreter
+        {
+            get { return this._parent.Interpreter; }
+        }
 
         private readonly ITwinObject _parent;
 
@@ -83,6 +88,26 @@ namespace ix.framework.core
         public void Poll()
         {
             this.RetrievePrimitives().ToList().ForEach(x => x.Poll());
+        }
+
+        public Task<T> OnlineToPlain<T>()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PlainToOnline<T>(T plain)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> ShadowToPlain<T>()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PlainToShadow<T>(T plain)
+        {
+            throw new NotImplementedException();
         }
     }
 }

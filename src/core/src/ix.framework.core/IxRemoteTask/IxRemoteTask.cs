@@ -1,5 +1,7 @@
-﻿using Ix.Connector;
+﻿using System;
+using AXSharp.Connector;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace ix.framework.core
 {
@@ -85,7 +87,7 @@ namespace ix.framework.core
 
         internal bool IsRunning = false;
 
-        private async void ExecuteAsync(Ix.Connector.ITwinPrimitive sender, Ix.Connector.ValueTypes.ValueChangedEventArgs args)
+        private async void ExecuteAsync(AXSharp.Connector.ITwinPrimitive sender, AXSharp.Connector.ValueTypes.ValueChangedEventArgs args)
         {
             await (this as ITwinObject).ReadAsync();
 
@@ -101,7 +103,8 @@ namespace ix.framework.core
                 }
                 catch (Exception ex)
                 {
-                    await this.ExceptionMessage.SetAsync(ex.Message);
+                    await this.HasRemoteException.SetAsync(true);
+                    await this.ErrorDetails.SetAsync(ex.Message);
                     RemoteExecutionException = ex;
                     RemoteExceptionDetails = ex.ToString();
                     // TODO: Add logging
@@ -160,7 +163,8 @@ namespace ix.framework.core
         {
             await this.StartSignature.SetAsync(0);
             await this.DoneSignature.SetAsync(0);
-            await this.ExceptionMessage.SetAsync(string.Empty);
+            await this.ErrorDetails.SetAsync(string.Empty);
+            await this.HasRemoteException.SetAsync(false);
             IsRunning = false;
         }
     }

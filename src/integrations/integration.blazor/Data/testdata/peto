@@ -1,0 +1,63 @@
+{
+  "RecipeName": "peto1",
+  "String1": "peto2",
+  "Int1": 0,
+  "Bool1": false,
+  "String2": "",
+  "Int2": 0,
+  "Bool2": false,
+  "String3": "",
+  "Int3": 0,
+  "Bool3": false,
+  "TestDataStructude": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "TestDataStructude2": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "TestDataStructude3": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "TestDataStructude4": {
+    "RecipeName": "",
+    "String1": "",
+    "Int1": 0,
+    "Bool1": false,
+    "String2": "",
+    "Int2": 0,
+    "Bool2": false,
+    "String3": "",
+    "Int3": 0,
+    "Bool3": false
+  },
+  "RecordId": null,
+  "Changes": [],
+  "DataEntityId": "peto"
+}

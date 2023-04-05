@@ -1,0 +1,18 @@
+name: "@ix-ax/ix.framework.simatic1500"
+version                                                                                              : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.125'
+type: lib
+targets:
+#  - "1500"
+#  - llvm
+#  - axunit
+  - axunit-llvm
+files:
+  - src
+dependencies:
+  "@ix-ax/ix.framework.core"                                                          : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.125'
+devDependencies:
+  "@ax/sdk": 3.0.8
+
+scripts:
+  postbuild:                
+      - dotnet ixc

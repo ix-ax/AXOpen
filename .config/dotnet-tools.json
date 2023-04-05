@@ -2,8 +2,8 @@
   "version": 1,
   "isRoot": true,
   "tools": {
-    "ix.ixc": {
-      "version": "0.13.4-alpha.86",
+    "AXSharp.ixc": {
+      "version": "0.14.0-alpha.86",
       "commands": [
         "ixc"
       ]
@@ -14,8 +14,8 @@
         "docfx"
       ]
     },
-    "ix.ixd": {
-      "version": "0.13.4-alpha.86",
+    "AXSharp.ixd": {
+      "version": "0.14.0-alpha.86",
       "commands": [
         "ixd"
       ]
