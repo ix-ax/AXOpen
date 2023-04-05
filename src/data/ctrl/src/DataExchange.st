@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE ix.framework.data 
-    CLASS DataExchange EXTENDS IxObject IMPLEMENTS IDataExchange
+    CLASS DataExchange EXTENDS AxoObject IMPLEMENTS IDataExchange
         VAR PUBLIC
            {#ix-set:AttributeName =  "<#Create#>"} 
            CreateTask  : DataExchangeTask; 
@@ -27,7 +27,7 @@ NAMESPACE ix.framework.data
 
         METHOD PUBLIC Run 
             VAR_INPUT
-                Parent : IIxObject;
+                Parent : IAxoObject;
             END_VAR    
             THIS.Initialize(Parent);
             THIS.Run();
@@ -35,34 +35,34 @@ NAMESPACE ix.framework.data
 
         METHOD PUBLIC Run 
             VAR_INPUT
-                Context : IIxContext;
+                Context : IAxoContext;
             END_VAR    
             THIS.Initialize(Context);
             THIS.Run();
         END_METHOD
 
-        METHOD PUBLIC Create : IIxTaskState
+        METHOD PUBLIC Create : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR
             Create := CreateTask.Invoke(Identifier);
         END_METHOD       
         
-        METHOD PUBLIC Read : IIxTaskState
+        METHOD PUBLIC Read : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR
             Read := ReadTask.Invoke(Identifier);
         END_METHOD 
 
-        METHOD PUBLIC Update : IIxTaskState
+        METHOD PUBLIC Update : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR
             Update := UpdateTask.Invoke(Identifier);
         END_METHOD 
 
-        METHOD PUBLIC Delete : IIxTaskState
+        METHOD PUBLIC Delete : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR

@@ -10,13 +10,13 @@ using AXSharp.Connector;
 
 namespace AXOpen.Core.Tests
 {
-    public class IxRemoteTaskTests
+    public class AxoRemoteTaskTests
     {
         [Fact()]
         public void InitializeTest()
         {
             var a = ConnectorAdapterBuilder.Build().CreateDummy();
-            var sut = new IxRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
+            var sut = new AxoRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
 
             sut.Initialize(() => Console.WriteLine(""));
 
@@ -28,7 +28,7 @@ namespace AXOpen.Core.Tests
         public void InitializeTest1()
         {
             var a = ConnectorAdapterBuilder.Build().CreateDummy();
-            var sut = new IxRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
+            var sut = new AxoRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
 
             sut.Initialize(() => true);
 
@@ -39,7 +39,7 @@ namespace AXOpen.Core.Tests
         public void InitializeExclusivelyTest()
         {
             var a = ConnectorAdapterBuilder.Build().CreateDummy();
-            var sut = new IxRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
+            var sut = new AxoRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
 
             sut.InitializeExclusively(() => Console.WriteLine(""));
 
@@ -52,7 +52,7 @@ namespace AXOpen.Core.Tests
         public void InitializeExclusivelyTest1()
         {
             var a = ConnectorAdapterBuilder.Build().CreateDummy();
-            var sut = new IxRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
+            var sut = new AxoRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
 
             sut.InitializeExclusively(() => true);
 
@@ -65,7 +65,7 @@ namespace AXOpen.Core.Tests
         public void DeInitializeTest()
         {
             var a = ConnectorAdapterBuilder.Build().CreateDummy();
-            var sut = new IxRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
+            var sut = new AxoRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
 
             sut.Initialize(() => true);
 
@@ -78,7 +78,7 @@ namespace AXOpen.Core.Tests
         public async void ResetExecutionTest()
         {
             var a = ConnectorAdapterBuilder.Build().CreateDummy();
-            var sut = new IxRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
+            var sut = new AxoRemoteTask(a.GetConnector(null) as ITwinObject, "a", "b");
             sut.GetConnector().BuildAndStart();
 
             var mustChange = 0;

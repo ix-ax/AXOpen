@@ -3,7 +3,7 @@ USING ix.framework.data;
 USING ix.framework.probers;
 
 NAMESPACE IntegrationLightDirect    
-    CLASS DataExchangeLightTestsContext EXTENDS IxContext
+    CLASS DataExchangeLightTestsContext EXTENDS AxoContext
         VAR PUBLIC
             DM : IDataExchange;
             CreateTest : DataCreateTest;
@@ -44,7 +44,7 @@ NAMESPACE IntegrationLightDirect
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
             VAR
-                _taskState : IIxTaskState;
+                _taskState : IAxoTaskState;
             END_VAR                                    
             IF(Manager <> NULL) THEN
                 _taskState := Manager.Create(Identifier);                                                
@@ -75,7 +75,7 @@ NAMESPACE IntegrationLightDirect
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
             VAR
-                _taskState : IIxTaskState;
+                _taskState : IAxoTaskState;
             END_VAR                                    
             IF(Manager <> NULL) THEN
                 _taskState := Manager.Read(Identifier);                                                
@@ -106,7 +106,7 @@ NAMESPACE IntegrationLightDirect
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
             VAR
-                _taskState : IIxTaskState;
+                _taskState : IAxoTaskState;
             END_VAR                                    
             IF(Manager <> NULL) THEN
                 _taskState := Manager.Update(Identifier);                                                
@@ -137,7 +137,7 @@ NAMESPACE IntegrationLightDirect
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
             VAR
-                _taskState : IIxTaskState;
+                _taskState : IAxoTaskState;
             END_VAR                                    
             IF(Manager <> NULL) THEN
                 _taskState := Manager.Delete(Identifier);                                                

@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 NAMESPACE ix.framework.probers
-    CLASS PUBLIC ABSTRACT ProberWithCounterBase EXTENDS IxTask
+    CLASS PUBLIC ABSTRACT ProberWithCounterBase EXTENDS AxoTask
         VAR PUBLIC                    
             RequredNumberOfCycles : ULINT;
             CurrentCyclesCount : ULINT;           
@@ -16,7 +16,7 @@ NAMESPACE ix.framework.probers
 
         METHOD PUBLIC Run            
             VAR_INPUT
-                Parent : IIxObject;
+                Parent : IAxoObject;
             END_VAR    
             THIS.Initialize(Parent);
             THIS.Run();
@@ -24,7 +24,7 @@ NAMESPACE ix.framework.probers
 
         METHOD PUBLIC Run            
             VAR_INPUT
-                Context : IIxContext;
+                Context : IAxoContext;
             END_VAR    
             THIS.Initialize(Context);
             THIS.Run();
@@ -40,7 +40,7 @@ NAMESPACE ix.framework.probers
         END_METHOD  
     END_CLASS
    
-    CLASS PUBLIC ABSTRACT ProberWithCompletedCondition EXTENDS IxTask                
+    CLASS PUBLIC ABSTRACT ProberWithCompletedCondition EXTENDS AxoTask                
         METHOD PRIVATE Run
             IF(THIS.Execute()) THEN                                                         
                 THIS.DoneWhen(THIS.Test());                 
@@ -49,7 +49,7 @@ NAMESPACE ix.framework.probers
 
         METHOD PUBLIC Run            
             VAR_INPUT
-                Parent : IIxObject;
+                Parent : IAxoObject;
             END_VAR    
             THIS.Initialize(Parent);
             THIS.Run();
@@ -57,7 +57,7 @@ NAMESPACE ix.framework.probers
 
         METHOD PUBLIC Run            
             VAR_INPUT
-                Context : IIxContext;
+                Context : IAxoContext;
             END_VAR    
             THIS.Initialize(Context);
             THIS.Run();

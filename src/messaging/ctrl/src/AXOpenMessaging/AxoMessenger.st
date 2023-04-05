@@ -20,7 +20,7 @@ NAMESPACE AXOpen.Messaging
 	/// 		</note>					
 	/// 	</remarks>			 
 	/// </summary>			
-    CLASS AxoMessenger (*EXTENDS IxObject*) IMPLEMENTS IAxoMessenger, IAxoMessageProperties, IAxoMessageTextBuilder, IAxoMessageCategorize, IAxoMessages
+    CLASS AxoMessenger (*EXTENDS AxoObject*) IMPLEMENTS IAxoMessenger, IAxoMessageProperties, IAxoMessageTextBuilder, IAxoMessageCategorize, IAxoMessages
 		VAR
 			/// <summary>
 			/// 	Most important message of this instance of messenger; stores the most important message from the last context cycle. 
@@ -28,7 +28,7 @@ NAMESPACE AXOpen.Messaging
 			/// 	messenger then less important messages are discarded and replaced by the message with the category of higher severity.			 
 			/// </summary>			
 			_mime : AxoMessage;
-			_Parent : IIxObject;
+			_Parent : IAxoObject;
             {#ix-attr:[ReadOnly()]}
 			_contextIdentity : ULINT;	
 			{#ix-attr:[CompilerOmits()]} 
@@ -522,7 +522,7 @@ NAMESPACE AXOpen.Messaging
 
 		METHOD PUBLIC Initialize
 			VAR_INPUT 
-				ParentObject : IIxObject; 
+				ParentObject : IAxoObject; 
 			END_VAR
 			_Parent := ParentObject;
 			_contextIdentity := ParentObject.GetIdentity();

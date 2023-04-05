@@ -33,10 +33,10 @@ namespace integration.blazor
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
 
-            var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
-            var repository2 = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
+            var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+            var repository2 = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
             //inherited IxProductionData
-            //var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.ixDataExamples.IxProductionDataInherited>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+            //var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionDataInherited>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
 
             // Entry.Plc.process_data_manager.InitializeRepository(repository);
 
@@ -66,7 +66,7 @@ namespace integration.blazor
             app.MapFallbackToPage("/_Host");
 
             #region InitializeRemoteTask
-            Entry.Plc.ixcore_remote_tasks._remoteTask.Initialize(() => Console.WriteLine($"Remote task executed PLC sent this string: '{Entry.Plc.ixcore_remote_tasks._remoteTask.Message.GetAsync().Result}'"));
+            Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() => Console.WriteLine($"Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'"));
             #endregion
 
             app.Run();

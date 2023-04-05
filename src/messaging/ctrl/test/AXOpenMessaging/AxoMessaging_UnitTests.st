@@ -7,12 +7,12 @@ USING System.Strings;
 USING System.DateTime;
 
 NAMESPACE AXOpen.AxoMessaging_UnitTests
-    CLASS TestContextI IMPLEMENTS IIxContext         
+    CLASS TestContextI IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
             _identityCounter : ULINT;
-            _environment : IxContextEnvironment;	
+            _environment : AxoContextEnvironment;	
         END_VAR       
         VAR PUBLIC       
             _object : TestObject;                 
@@ -58,25 +58,25 @@ NAMESPACE AXOpen.AxoMessaging_UnitTests
             _rtc := Rtc;
         END_METHOD
     
-        METHOD PUBLIC Environment : IIxContextEnvironment
+        METHOD PUBLIC Environment : IAxoContextEnvironment
             Environment := _environment;
         END_METHOD
     END_CLASS  
 
-    CLASS TestContextE EXTENDS IxContext
+    CLASS TestContextE EXTENDS AxoContext
   
         METHOD PROTECTED OVERRIDE Main
             ;
         END_METHOD
     END_CLASS
 
-    CLASS TestObject EXTENDS IxObject
+    CLASS TestObject EXTENDS AxoObject
         VAR PUBLIC 
             _messenger : AxoMessenger;
         END_VAR
     END_CLASS
 
-    CLASS IxRtcMock IMPLEMENTS IAxoRtc
+    CLASS AxoRtcMock IMPLEMENTS IAxoRtc
         VAR PRIVATE 
             _NowUTC : LDATE_AND_TIME;
         END_VAR
@@ -102,11 +102,11 @@ NAMESPACE AXOpen.AxoMessaging_UnitTests
     END_TYPE
 
     {TestFixture}
-    CLASS IxMessenger_UnitTests
+    CLASS AxoMessenger_UnitTests
         VAR PRIVATE
             _suti : TestContextI;
             _sute : TestContextE;
-            _rtc : IxRtcMock;
+            _rtc : AxoRtcMock;
         END_VAR
 
         METHOD AreEqual : BOOL

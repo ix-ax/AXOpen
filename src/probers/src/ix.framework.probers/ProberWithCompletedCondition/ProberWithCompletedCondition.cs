@@ -19,9 +19,9 @@ namespace ix.framework.probers
 
             while (true)
             {
-                var state = (eIxTaskState)await Status.GetAsync();
+                var state = (eAxoTaskState)await Status.GetAsync();
 
-                if (state == eIxTaskState.Ready && !this.RemoteRestore.GetAsync().Result)
+                if (state == eAxoTaskState.Ready && !this.RemoteRestore.GetAsync().Result)
                 {
                     break;
                 }
@@ -33,13 +33,13 @@ namespace ix.framework.probers
 
             while (true)
             {
-                var state = (eIxTaskState)await Status.GetAsync();
-                if (state == eIxTaskState.Done && !this.RemoteInvoke.GetAsync().Result)
+                var state = (eAxoTaskState)await Status.GetAsync();
+                if (state == eAxoTaskState.Done && !this.RemoteInvoke.GetAsync().Result)
                 {
                     break;
                 }
 
-                if (state == eIxTaskState.Error && !this.RemoteInvoke.GetAsync().Result)
+                if (state == eAxoTaskState.Error && !this.RemoteInvoke.GetAsync().Result)
                 {
                     var failureDescription = await this.ErrorDetails.GetAsync();
                     throw new Exception(failureDescription);

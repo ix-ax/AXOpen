@@ -3,12 +3,12 @@ USING AXOpen.Core;
 PROGRAM MyProgram
     VAR_EXTERNAL
         MainContext : MyContext;
-        ixcoreSequencers : IxSequencerExamples.SequencerExample;
+        AxoSequencers : AxoSequencerExamples.SequencerExample;
         I_am_alive : ULINT;
-        ixcoreTasks : IxTaskExamples.Tasks;
-        myComponentExample : IxComponentExamples.ComponentExampleContext;
-        myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
-        ixcore_remote_tasks : IxRemoteTaskExamples.RemoteTasks;
+        AxoTasks : AxoTaskExamples.Tasks;
+        myComponentExample : AxoComponentExamples.ComponentExampleContext;
+        myComponentHeaderOnlyExample : AxoComponentExamples.ComponentHeaderOnlyExampleContext;
+        AxoRemoteTasks : AxoRemoteTaskExamples.RemoteTasks;
         
 
 
@@ -17,11 +17,11 @@ PROGRAM MyProgram
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
     MainContext.Run();
-    ixcoreTasks.Run();
-    ixcoreSequencers.Run();
+    AxoTasks.Run();
+    AxoSequencers.Run();
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
-    ixcore_remote_tasks.Run();   
+    AxoRemoteTasks.Run();   
     
     // Integration tests
     Integrations.Run();      
@@ -29,10 +29,10 @@ PROGRAM MyProgram
 END_PROGRAM
 
 
-CLASS MyContext EXTENDS IxContext    
+CLASS MyContext EXTENDS AxoContext    
     VAR PUBLIC         
-        process_data_manager: ixDataExamples.IxProcessDataManager;
-        test_data_manager: ixDataExamples.IxTestDataManager;
+        process_data_manager: AxoDataExamples.AxoProcessDataManager;
+        test_data_manager: AxoDataExamples.AxoTestDataManager;
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main        

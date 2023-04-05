@@ -4,20 +4,20 @@ CONFIGURATION MyConfiguration
     PROGRAM P2 WITH Main: ProgramExample;
 
     VAR_GLOBAL
-        ixcoreTasks : IxTaskExamples.Tasks;
-        ixcoreSequencers : IxSequencerExamples.SequencerExample;
+        AxoTasks : AxoTaskExamples.Tasks;
+        AxoSequencers : AxoSequencerExamples.SequencerExample;
         {#ix-attr:[Container(Layout.Wrap)]}
         MainContext : MyContext;
         Recipe : Recipe;
-        myComponentExample : IxComponentExamples.ComponentExampleContext;
-        myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
+        myComponentExample : AxoComponentExamples.ComponentExampleContext;
+        myComponentHeaderOnlyExample : AxoComponentExamples.ComponentHeaderOnlyExampleContext;
         {#ix-set:AttributeName = "If counting PLC is alive"}
         I_am_alive : ULINT;
         
-        ixcore_remote_tasks : IxRemoteTaskExamples.RemoteTasks;
+        AxoRemoteTasks : AxoRemoteTaskExamples.RemoteTasks;
         
-        process_data_manager: ixDataExamples.IxProcessDataManager;
-        test_data_manager: ixDataExamples.IxTestDataManager;
+        process_data_manager: AxoDataExamples.AxoProcessDataManager;
+        test_data_manager: AxoDataExamples.AxoTestDataManager;
        
         // Issues
         gh_ptku_8 : Layouts.Tabbed.weather;

@@ -4,7 +4,7 @@ USING AxUnit;
 
 NAMESPACE ix.framework.data 
     NAMESPACE DataExchangeTests
-        CLASS TestContext IMPLEMENTS IIxContext         
+        CLASS TestContext IMPLEMENTS IAxoContext         
             VAR PROTECTED                        
                 _openCounter : ULINT;
                 _closeCounter : ULINT;
@@ -36,7 +36,7 @@ NAMESPACE ix.framework.data
             METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
                 
         
-            METHOD PUBLIC Environment : IIxContextEnvironment
+            METHOD PUBLIC Environment : IAxoContextEnvironment
                 ;
             END_METHOD
         END_CLASS

@@ -2,25 +2,25 @@ USING AXOpen.Core;
 
 NAMESPACE ix.framework.data 
     INTERFACE IDataExchange
-        METHOD Create : IIxTaskState
+        METHOD Create : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR        
         END_METHOD       
         
-        METHOD Read : IIxTaskState
+        METHOD Read : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR        
         END_METHOD 
 
-        METHOD Update : IIxTaskState
+        METHOD Update : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR        
         END_METHOD 
 
-        METHOD Delete : IIxTaskState
+        METHOD Delete : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR        

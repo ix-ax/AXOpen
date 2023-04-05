@@ -20,7 +20,7 @@ namespace integration.data.blazor.tests
           
             var dataObject = _plc.process_data_manager; 
 
-            var repo = Ix.Framework.Data.InMemory.Repository.Factory(new InMemoryRepositorySettings<Pocos.ixDataExamples.IxProductionData>());
+            var repo = Ix.Framework.Data.InMemory.Repository.Factory(new InMemoryRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>());
             dataObject.InitializeRepository(repo);
 
             var data = dataObject.Data;
@@ -65,7 +65,7 @@ namespace integration.data.blazor.tests
             _vm.CreateNew();
             var record = _vm.Records.FirstOrDefault(p=> p.DataEntityId == id);
 
-            _vm.SelectedRecord = new Pocos.ixDataExamples.IxProductionData
+            _vm.SelectedRecord = new Pocos.AxoDataExamples.AxoProductionData
             {
                 DataEntityId=record.DataEntityId
             };
@@ -89,7 +89,7 @@ namespace integration.data.blazor.tests
             _vm.CreateNew();
             var record = _vm.Records.FirstOrDefault(p=> p.DataEntityId == id);
 
-             _vm.SelectedRecord = new Pocos.ixDataExamples.IxProductionData
+             _vm.SelectedRecord = new Pocos.AxoDataExamples.AxoProductionData
             {
                 DataEntityId=record.DataEntityId,
                 RecipeName=recipe
@@ -100,7 +100,7 @@ namespace integration.data.blazor.tests
             //assert
             var foundRecord = _vm.Records.FirstOrDefault(p=> p.DataEntityId == id);
             Assert.NotNull(foundRecord);
-            Assert.Equal(recipe,((Pocos.ixDataExamples.IxProductionData)foundRecord).RecipeName);
+            Assert.Equal(recipe,((Pocos.AxoDataExamples.AxoProductionData)foundRecord).RecipeName);
           
         }
 
@@ -110,7 +110,7 @@ namespace integration.data.blazor.tests
              //arrange
             var id = "testCopy";
             _vm.CreateItemId=id;
-            _vm.SelectedRecord = new Pocos.ixDataExamples.IxProductionData
+            _vm.SelectedRecord = new Pocos.AxoDataExamples.AxoProductionData
             {
                 DataEntityId=id,
             };
@@ -124,7 +124,7 @@ namespace integration.data.blazor.tests
             //assert
             var foundRecord = _vm.Records.FirstOrDefault(p=> p.DataEntityId == copyId);
             Assert.NotNull(foundRecord);
-            Assert.Equal(copyId,((Pocos.ixDataExamples.IxProductionData)foundRecord).DataEntityId);
+            Assert.Equal(copyId,((Pocos.AxoDataExamples.AxoProductionData)foundRecord).DataEntityId);
 
         }
     }

@@ -6,14 +6,14 @@ namespace AXOpen.Core.Tests
     using System;
     using Xunit;
 
-    public class IxTaskTests
+    public class AxoTaskTests
     {
-        private IxTask _testClass;
+        private AxoTask _testClass;
 
-        public IxTaskTests()
+        public AxoTaskTests()
         {
             var a = ConnectorAdapterBuilder.Build().CreateDummy();
-            _testClass = new IxTask(a.GetConnector(null) as ITwinObject, "a", "b");
+            _testClass = new AxoTask(a.GetConnector(null) as ITwinObject, "a", "b");
         }
 
         [Fact]
