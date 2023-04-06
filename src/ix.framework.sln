@@ -101,6 +101,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_ix_framework_data", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_messaging", "messaging\src\AXOpen.Messaging\ix_ax_axopen_messaging.csproj", "{7FD84BDB-B07F-4B07-9B85-782CFA8A3421}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{D9ED2147-50B0-4D4E-B5CA-6E9A7FEE9401}"
+	ProjectSection(SolutionItems) = preProject
+		..\.config\dotnet-tools.json = ..\.config\dotnet-tools.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
