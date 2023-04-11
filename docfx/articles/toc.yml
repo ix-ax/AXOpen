@@ -17,3 +17,5 @@
     href: ~/articles/core/IXSEQUENCER.md  
   - name: Component
     href: ~/articles/core/IXCOMPONENT.md  
+- name: ix.framework.data
+  href: ~/articles/data/README.md

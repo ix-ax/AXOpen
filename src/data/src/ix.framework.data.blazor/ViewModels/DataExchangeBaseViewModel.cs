@@ -40,6 +40,11 @@ namespace AXOpen.Core.ViewModels
                     var attr = prop.GetCustomAttribute<DataEntityAttribute>();
                     if (attr != null)
                     {
+                        //if already set, that means multiple dataatributtes are present, we want to throw error
+                        if(DataPropertyInfo != null)
+                        {
+                            throw new MultipleDataEntityAttributeException($"{dataExchangeObject.GetType().ToString()} contains multiple {nameof(DataEntityAttribute)}s! Make sure it contains only one.");
+                        }
                         DataPropertyInfo = prop;
                         break;
                     }
@@ -48,7 +53,13 @@ namespace AXOpen.Core.ViewModels
                 // if not found, throw exception
                 if (DataPropertyInfo == null)
                 {
-                    throw new DataEntityAttributeNotFoundException($"{ dataExchangeObject.GetType().ToString()} must implement member, which inherits from {nameof(DataEntity)} and is annotated with {nameof(DataEntityAttribute)}. ");
+                    throw new DataEntityAttributeNotFoundException($"{ dataExchangeObject.GetType().ToString()} must implement member, which inherits from {nameof(DataEntity)} and is annotated with {nameof(DataEntityAttribute)}.");
+                }
+
+                //// if is not sublass of DataEntity, throw exception
+                if (!DataPropertyInfo.PropertyType.IsSubclassOf(typeof(DataEntity)))
+                {
+                    throw new Exception($"Data object must inherits from DataEntity!");
                 }
 
 

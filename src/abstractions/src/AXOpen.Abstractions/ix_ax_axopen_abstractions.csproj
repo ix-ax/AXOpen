@@ -6,6 +6,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+<<<<<<<< HEAD:src/abstractions/src/AXOpen.Abstractions/ix_ax_axopen_abstractions.csproj
 		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.86" />
 		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.86" />
 	</ItemGroup>

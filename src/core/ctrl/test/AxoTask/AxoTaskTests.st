@@ -1,6 +1,13 @@
+<<<<<<<< HEAD:src/core/ctrl/test/AxoTask/AxoTaskTests.st
 USING AxUnit;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
+========
+USING ix.core;
+USING AxUnit;
+USING ix.framework.core;
+USING ix.framework.rtc;
+>>>>>>>> dev:src/core/ctrl/test/IxTask/IxTaskTests.st
 
 NAMESPACE AXOpen.Core.AxoTask_Tests
      CLASS TestContext IMPLEMENTS IAxoContext         
@@ -30,12 +37,21 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             CreateIdentity := _identityCounter;
         END_METHOD         
         
+<<<<<<<< HEAD:src/core/ctrl/test/AxoTask/AxoTaskTests.st
         METHOD PUBLIC GetRtc : IAxoRtc ; END_METHOD
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
  
         
         METHOD PUBLIC Environment : IAxoContextEnvironment
+========
+        METHOD PUBLIC GetRtc : IRtc ; END_METHOD
+
+        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
+ 
+        
+        METHOD PUBLIC Environment : IIxContextEnvironment
+>>>>>>>> dev:src/core/ctrl/test/IxTask/IxTaskTests.st
             ;
         END_METHOD
     END_CLASS      
@@ -276,7 +292,11 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             // Arrange
             THIS.Initialize();
             _context.Open();
+<<<<<<<< HEAD:src/core/ctrl/test/AxoTask/AxoTaskTests.st
             expState := eAxoTaskState#Error;
+========
+            expState := eIxTaskState#Error;
+>>>>>>>> dev:src/core/ctrl/test/IxTask/IxTaskTests.st
             // Act/Assert 
             myTask.Invoke();          
             IF myTask.Execute() THEN

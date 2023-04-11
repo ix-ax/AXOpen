@@ -1,7 +1,14 @@
+<<<<<<<< HEAD:src/core/ctrl/src/AxoContext/AxoContext.st
 USING AXOpen.Rtc;
 USING AXOpen.Messaging;
 
 NAMESPACE AXOpen.Core
+========
+USING ix.framework.rtc;
+USING ix.framework.messaging;
+
+NAMESPACE ix.framework.core
+>>>>>>>> dev:src/core/ctrl/src/IxContext/IxContext.st
     ///<summary>
     /// Provides base for contextualized entry of `AXOpen` application.
     /// This class is abstract and must be inherited.
@@ -11,8 +18,13 @@ NAMESPACE AXOpen.Core
             _openCounter : ULINT;
             _closeCounter : ULINT;
             _identityCounter : ULINT;   
+<<<<<<<< HEAD:src/core/ctrl/src/AxoContext/AxoContext.st
             _messagingLevel : eAxoMessageCategory;
             _environment : IAxoContextEnvironment;	
+========
+            _messagingLevel : eIxMessageCategory;
+            _environment : IIxContextEnvironment;	
+>>>>>>>> dev:src/core/ctrl/src/IxContext/IxContext.st
          END_VAR       
 
         ///<summary>
@@ -63,10 +75,17 @@ NAMESPACE AXOpen.Core
 
         VAR PRIVATE            
             NULL_RTC : _NULL_RTC;
+<<<<<<<< HEAD:src/core/ctrl/src/AxoContext/AxoContext.st
             _rtc : IAxoRtc;
         END_VAR
     
         METHOD PUBLIC GetRtc : IAxoRtc
+========
+            _rtc : IRtc;
+        END_VAR
+    
+        METHOD PUBLIC GetRtc : IRtc
+>>>>>>>> dev:src/core/ctrl/src/IxContext/IxContext.st
             IF(_rtc <> NULL) THEN
                 GetRtc := _rtc;
             ELSE
@@ -76,18 +95,30 @@ NAMESPACE AXOpen.Core
 
         METHOD PUBLIC InjectRtc
             VAR_INPUT
+<<<<<<<< HEAD:src/core/ctrl/src/AxoContext/AxoContext.st
                 Rtc : IAxoRtc;
+========
+                Rtc : IRtc;
+>>>>>>>> dev:src/core/ctrl/src/IxContext/IxContext.st
             END_VAR
             _rtc := Rtc;
         END_METHOD
 
+<<<<<<<< HEAD:src/core/ctrl/src/AxoContext/AxoContext.st
         METHOD PUBLIC Environment : IAxoContextEnvironment
+========
+        METHOD PUBLIC Environment : IIxContextEnvironment
+>>>>>>>> dev:src/core/ctrl/src/IxContext/IxContext.st
             Environment := _environment;
         END_METHOD
 
         // METHOD PUBLIC SetContextEnvironment
         //     VAR_INPUT
+<<<<<<<< HEAD:src/core/ctrl/src/AxoContext/AxoContext.st
         //         inContextEnvironnment : IAxoContextEnvironment;
+========
+        //         inContextEnvironnment : IIxContextEnvironment;
+>>>>>>>> dev:src/core/ctrl/src/IxContext/IxContext.st
         //     END_VAR
         //     _contextEnvironment := inContextEnvironnment;
         // END_METHOD
@@ -96,7 +127,11 @@ NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
+<<<<<<<< HEAD:src/core/ctrl/src/AxoContext/AxoContext.st
     CLASS PUBLIC _NULL_RTC IMPLEMENTS IAxoRtc
+========
+    CLASS PUBLIC _NULL_RTC IMPLEMENTS IRtc
+>>>>>>>> dev:src/core/ctrl/src/IxContext/IxContext.st
         VAR PRIVATE
             _null_time : LDATE_AND_TIME := LDATE_AND_TIME#1970-01-01-00:00:00.000;
         END_VAR
