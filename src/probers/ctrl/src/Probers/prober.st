@@ -1,6 +1,5 @@
 USING AXOpen.Core;
-NAMESPACE ix.framework.probers
-    CLASS PUBLIC ABSTRACT ProberWithCounterBase EXTENDS ix.framework.core.IxTask
+NAMESPACE ix.framework.probers    
     CLASS PUBLIC ABSTRACT ProberWithCounterBase EXTENDS AxoTask
         VAR PUBLIC                    
             RequredNumberOfCycles : ULINT;

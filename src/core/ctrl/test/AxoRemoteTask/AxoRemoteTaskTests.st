@@ -1,11 +1,6 @@
 USING AxUnit;
-<<<<<<<< HEAD:src/core/ctrl/test/AxoRemoteTask/AxoRemoteTaskTests.st
 USING AXOpen.Core;
 USING AXOpen.Rtc;
-========
-USING ix.framework.core;
-USING ix.framework.rtc;
->>>>>>>> dev:src/core/ctrl/test/IxRemoteTask/IxRemoteTaskTests.st
 
 NAMESPACE AXOpen.Core
     NAMESPACE AxoRemoteTasksTests
@@ -38,21 +33,12 @@ NAMESPACE AXOpen.Core
             CreateIdentity := _identityCounter;
         END_METHOD         
     
-<<<<<<<< HEAD:src/core/ctrl/test/AxoRemoteTask/AxoRemoteTaskTests.st
         METHOD PUBLIC GetRtc : IAxoRtc ; END_METHOD
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
         
     
         METHOD PUBLIC Environment : IAxoContextEnvironment
-========
-        METHOD PUBLIC GetRtc : IRtc ; END_METHOD
-
-        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IRtc; END_VAR ; END_METHOD
-        
-    
-        METHOD PUBLIC Environment : IIxContextEnvironment
->>>>>>>> dev:src/core/ctrl/test/IxRemoteTask/IxRemoteTaskTests.st
             ;
         END_METHOD
     END_CLASS      

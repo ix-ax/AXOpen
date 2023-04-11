@@ -3,13 +3,8 @@
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-<<<<<<<< HEAD:src/messaging/src/ix.framework.messaging/_ix-ax_ix.framework.messaging.csproj
-		<PackageId>ix.framework.messaging</PackageId>
-		<RootNamespace>ix.framework.messaging</RootNamespace>
-========
 		<PackageId>ix.framework.probers</PackageId>
 		<RootNamespace>ix.framework.probers</RootNamespace>
->>>>>>>> dev:src/probers/src/ix.framework.probers/ix_ax_ix_framework_probers.csproj
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -34,6 +29,5 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix-ax_axopen_abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\core\src\ix.framework.core\ix_ax_ix_framework_core.csproj" />
->>>>>>>> dev:src/probers/src/ix.framework.probers/ix_ax_ix_framework_probers.csproj
 	</ItemGroup>
 </Project>
