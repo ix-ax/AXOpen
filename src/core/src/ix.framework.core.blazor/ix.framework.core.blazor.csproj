@@ -8,10 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="C:\Users\peto.kurhajec\.nuget\packages\ix.presentation.blazor.controls\0.6.0-alpha.18\contentFiles\any\net7.0\Styles\custom.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
@@ -27,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ix.framework.core\ix_ax_ix_framework_core.csproj" />
+    <ProjectReference Include="..\AXOpen.Core\ix_ax_axopen_core.csproj" />
   </ItemGroup>
 
 </Project>

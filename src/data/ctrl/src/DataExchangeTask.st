@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 NAMESPACE ix.framework.data    
-    CLASS DataExchangeTask EXTENDS AxoRemoteTask 
+    CLASS DataExchangeTask EXTENDS AXOpen.Core.AxoRemoteTask 
         VAR PUBLIC
             DataEntityIdentifier : STRING[254];
         END_VAR                

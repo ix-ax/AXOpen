@@ -19,6 +19,12 @@
       "commands": [
         "ixd"
       ]
+    },
+    "AXSharp.ixr": {
+      "version": "0.14.0-alpha.87",
+      "commands": [
+        "ixr"
+      ]
     }
   }
 }

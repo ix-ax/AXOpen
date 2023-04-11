@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE ix.framework.data 
-    CLASS DataExchange EXTENDS AxoObject IMPLEMENTS IDataExchange
+    CLASS DataExchange EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IDataExchange
         VAR PUBLIC
            {#ix-set:AttributeName =  "<#Create#>"} 
            CreateTask  : DataExchangeTask; 

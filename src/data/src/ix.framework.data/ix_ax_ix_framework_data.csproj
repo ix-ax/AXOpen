@@ -3,8 +3,8 @@
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>ix.framework.data</PackageId>
-		<RootNamespace>ix.framework.data</RootNamespace>
+		<PackageId>AXOpen.Data</PackageId>
+		<RootNamespace>AXOpen.Data</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -28,9 +28,9 @@
 
 
 	<ItemGroup>
-	    <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix-ax_axopen_abstractions.csproj" />
+	    <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\base\src\Ix.Base.Abstractions\Ix.Base.Abstractions.csproj" />
-	  <ProjectReference Include="..\..\..\core\src\ix.framework.core\ix_ax_ix_framework_core.csproj" />
+	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
 	</ItemGroup>
 
 </Project>
