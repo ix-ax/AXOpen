@@ -101,8 +101,8 @@ else
                 {
                     @foreach (var item in Vm.Records.ToList())
                     {
-                        <tr class="text-start @((!ModalDetailView && Vm.SelectedRecord == item) ? "table-active" : null)">
-                            @if (ModalDetailView)
+                        <tr class="text-start @((!ModalDataView && Vm.SelectedRecord == item) ? "table-active" : null)">
+                            @if (ModalDataView)
                             {
                                 <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
 
@@ -221,7 +221,7 @@ else
             </nav>
         </div>
     </div>
-    @if (!ModalDetailView && Vm.SelectedRecord != null)
+    @if (!ModalDataView && Vm.SelectedRecord != null)
     {
         <div class="border p-2">
             <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowDisplay"></RenderableContentControl>
@@ -409,7 +409,7 @@ else
     public string Presentation { get; set; }
 
     [Parameter]
-    public bool ModalDetailView { get; set; } = true;
+    public bool ModalDataView { get; set; } = true;
 
     [Parameter]
     public bool CanExport { get; set; } = false;

@@ -17,7 +17,7 @@ NAMESPACE AxoRemoteTaskDocuExamples
 
     END_CLASS 
     //</IxRemoteTaskExample>
-    CLASS RemoteTasks EXTENDS AxoContext
+    CLASS RemoteTasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC            
             _remoteTask : MyRemoteTask;  
             _remoteTaskInvokeFromPlc : BOOL;     

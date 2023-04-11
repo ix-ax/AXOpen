@@ -3,7 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AxoSequencerExamples
     CLASS AxoSequencerDocuExample EXTENDS  AXOpen.Core.AxoContext
         VAR PUBLIC
-            _mySequencer : AxoSequencer;
+            _mySequencer : AXOpen.Core.AxoSequencer;
             _step_1 : AxoStep;
             _step_2 : AxoStep;
             _step_3 : AxoStep;

@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.abstractions"
-version                                                                                                                                                 : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.161'
+version                                                                                                                                                   : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.162'
 type: lib
 targets:
   - "1500"

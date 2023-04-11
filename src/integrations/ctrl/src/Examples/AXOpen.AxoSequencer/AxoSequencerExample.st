@@ -6,7 +6,7 @@ NAMESPACE AxoSequencerExamples
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Sequencer example#>"}
             coord : AxoSequencer;  
-            Counter : ULINT;
+            Counter : ULINT :=ULINT#3;
         END_VAR    
             
         VAR PUBLIC 

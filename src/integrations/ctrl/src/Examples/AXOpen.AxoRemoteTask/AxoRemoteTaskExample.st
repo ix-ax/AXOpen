@@ -21,7 +21,7 @@ NAMESPACE AxoRemoteTaskExamples
 
     END_CLASS    
 
-    CLASS RemoteTasks EXTENDS AxoContext
+    CLASS RemoteTasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to execute this command"}
             _remoteTask : MyRemoteTask;

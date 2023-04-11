@@ -13,7 +13,7 @@ NAMESPACE AxoTaskExamples
         END_METHOD
     END_CLASS    
 
-    CLASS Tasks EXTENDS AxoContext
+    CLASS Tasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to execute this command"}
             _commandTask : MyCommandTask;
