@@ -35,7 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\core\src\ix.framework.core.blazor\ix.framework.core.blazor.csproj" />
+    <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\ix.framework.data\ix_ax_ix_framework_data.csproj" />
   </ItemGroup>
 
