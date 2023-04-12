@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Indexes;
 

@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Data.InMemory;
 
 namespace Ix.Framework.Repository.Integration.Tests

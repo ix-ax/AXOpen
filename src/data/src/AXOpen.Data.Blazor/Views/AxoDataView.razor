@@ -1,14 +1,14 @@
 ﻿@namespace AXOpen.Data
+@using AXOpen.Data.Blazor.AxoDataExchange;
 @using CommunityToolkit.Mvvm.ComponentModel;
 @using CommunityToolkit.Mvvm.Messaging;
 @using Microsoft.AspNetCore.Components.Forms;
-@using AXOpen.Core.Interfaces;
-@using AXOpen.Core.IxDataExchange;
-@using AXOpen.Core.ViewModels;
+@using AXOpen.Data.Interfaces;
 @using AXOpen.Core.blazor.Toaster;
 @using AXOpen.Core;
+@using AXOpen.Data.ViewModels;
 
-<h3>IxDataView</h3>
+<h3>AxoDataView</h3>
 
 @if (Vm == null)
 {
@@ -32,9 +32,9 @@ else
                 <div class="btn-group" role="group">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.SearchMode</button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Exact)">Exact</a></li>
-                        <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.Contains)">Contains</a></li>
-                        <li><a class="dropdown-item @(Vm.SearchMode == Ix.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(Ix.Base.Data.eSearchMode.StartsWith)">Starts With</a></li>
+                        <li><a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Exact ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Exact)">Exact</a></li>
+                        <li><a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.Contains ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.Contains)">Contains</a></li>
+                        <li><a class="dropdown-item @(Vm.SearchMode == AXOpen.Base.Data.eSearchMode.StartsWith ? "active" : "")" @onclick="() => setSearchModeAsync(AXOpen.Base.Data.eSearchMode.StartsWith)">Starts With</a></li>
                     </ul>
                 </div>
                 <form @onsubmit="() => Vm.Filter()" class="btn-group">
@@ -56,14 +56,15 @@ else
                     <th scope="col">DataEntityId</th>
 
                     <CascadingValue Value="this" IsFixed>
-                    @ChildContent
-                </CascadingValue>
-                @foreach (ColumnData column in Columns)
+                        @ChildContent
+                    </CascadingValue>
+                    @foreach (ColumnData column in Columns)
                     {
-                        if(column.HeaderName is null || column.HeaderName == "")
+                        if (column.HeaderName is null || column.HeaderName == "")
                         {
                             <th scope="col">@column.BindingValue</th>
-                        } else
+                        }
+                        else
                         {
                             <th scope="col">@column.HeaderName</th>
                         }
@@ -451,7 +452,7 @@ else
         return r < 0 ? r + m : r;
     }
 
-    private async Task setSearchModeAsync(Ix.Base.Data.eSearchMode searchMode)
+    private async Task setSearchModeAsync(AXOpen.Base.Data.eSearchMode searchMode)
     {
         Vm.SearchMode = searchMode;
 

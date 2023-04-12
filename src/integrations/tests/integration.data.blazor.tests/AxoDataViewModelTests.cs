@@ -1,13 +1,13 @@
 using intergrations;
-using AXOpen.Core.Interfaces;
-using AXOpen.Core.ViewModels;
+using AXOpen.Data.Interfaces;
+using AXOpen.Data.ViewModels;
 using AXOpen.Data;
 using AXSharp.Connector;
 using AXOpen.Data.InMemory;
 
 namespace integration.data.blazor.tests
 {
-    public class IxDataViewModelTests
+    public class AxoDataViewModelTests
     {
 
         private static integrationsTwinController _plc { get; }
@@ -15,7 +15,7 @@ namespace integration.data.blazor.tests
             .CreateDummy());
 
         private IDataViewModel _vm;
-        public IxDataViewModelTests()
+        public AxoDataViewModelTests()
         {
           
             var dataObject = _plc.process_data_manager; 

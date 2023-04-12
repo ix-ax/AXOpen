@@ -5,7 +5,7 @@
 // https://github.com/ix-ax/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
 
-namespace AXOpen.Core.ViewModels;
+namespace AXOpen.Data.ViewModels;
 
 public class WrongTypeOfDataObjectException : Exception
 {

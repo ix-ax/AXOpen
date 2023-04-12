@@ -8,6 +8,6 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
-	  <ProjectReference Include="..\..\..\..\base\src\Ix.Base.Abstractions\Ix.Base.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\..\base\src\Ix.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
   </ItemGroup>
 </Project>

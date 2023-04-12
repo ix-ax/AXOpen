@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Data;
 using AXSharp.Connector;
 

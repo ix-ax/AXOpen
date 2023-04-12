@@ -2,7 +2,7 @@
 using System.Linq;
 using AXOpen.Data;
 using AXSharp.Connector;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 
 
 namespace AXOpen.Data

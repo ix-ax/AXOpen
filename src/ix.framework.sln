@@ -33,15 +33,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{320D2CD8-1E7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BF585B2C-2971-4100-9F18-C380E46FB2E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Base.Abstractions", "base\src\Ix.Base.Abstractions\Ix.Base.Abstractions.csproj", "{643A0230-D727-443D-ACE7-06A33ADA4813}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Base.Abstractions", "base\src\Ix.Base.Abstractions\AXOpen.Base.Abstractions.csproj", "{643A0230-D727-443D-ACE7-06A33ADA4813}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "repositories", "repositories", "{3EFF6571-0A63-49A6-9696-F2071CE7AD62}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Data.InMemory", "data\src\repositories\InMemory\Ix.Framework.Data.InMemory.csproj", "{1563196C-4C94-4457-8C1A-9D7F2D5A845D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.InMemory", "data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj", "{1563196C-4C94-4457-8C1A-9D7F2D5A845D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Data.Json", "data\src\repositories\Json\Ix.Framework.Data.Json.csproj", "{05446123-88DD-4304-9F6E-174CF5E516FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Json", "data\src\repositories\Json\AXOpen.Data.Json.csproj", "{05446123-88DD-4304-9F6E-174CF5E516FF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Data.MongoDb", "data\src\repositories\MongoDb\Ix.Framework.Data.MongoDb.csproj", "{209EA9FF-1F18-4F7D-A710-BE0D3E04F62E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.MongoDb", "data\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj", "{209EA9FF-1F18-4F7D-A710-BE0D3E04F62E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "probers", "probers", "{E8D1AF35-C810-4717-BDA9-B1FF352FE353}"
 EndProject
@@ -55,7 +55,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix.framework.probers.tests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Repository.Integration.Tests_L1", "data\tests\Ix.Framework.Repository.Integration.Tests_L1\Ix.Framework.Repository.Integration.Tests_L1.csproj", "{3CB1FE79-EF8B-416D-8CA5-18165AB8799B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Data.RavenDb", "data\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\Ix.Framework.Data.RavenDb.csproj", "{59B6FDE2-D947-449E-B4A7-A73048B8BD5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.RavenDb", "data\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\AXOpen.Data.RavenDb.csproj", "{59B6FDE2-D947-449E-B4A7-A73048B8BD5A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ix.Framework.Repository.Integration.Tests_L3", "data\tests\Ix.Framework.Repository.Integration.Tests_L3\Ix.Framework.Repository.Integration.Tests_L3.csproj", "{6ED38569-92E2-45D8-A8AF-B1987D4AF6F5}"
 EndProject
@@ -83,9 +83,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9404C3D5-341
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_abstractions", "abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj", "{DFA257EF-4461-4181-B7D2-B33CB434B901}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix-ax_axopen_utils", "utils\src\AXOpen.Utils\ix-ax_axopen_utils.csproj", "{B3996A02-E399-43A7-AA23-43900AD53FC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_utils", "utils\src\AXOpen.Utils\ix_ax_axopen_utils.csproj", "{B3996A02-E399-43A7-AA23-43900AD53FC7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen.messaging.blazor", "messaging\src\AXOpen.Messaging.Blazor\axopen.messaging.blazor.csproj", "{042527ED-8A37-42D5-8118-9A2B042ED99E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_messaging_blazor", "messaging\src\AXOpen.Messaging.Blazor\axopen_messaging_blazor.csproj", "{042527ED-8A37-42D5-8118-9A2B042ED99E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{209A89A6-303A-4119-A821-44AA4C706AA7}"
 EndProject

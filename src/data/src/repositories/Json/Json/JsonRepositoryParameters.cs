@@ -1,4 +1,4 @@
-﻿using Ix.Base.Data;
+﻿using AXOpen.Base.Data;
 using AXOpen.Data;
 
 namespace AXOpen.Data.Json

@@ -1,5 +1,5 @@
 name: "integrations"
-version                                                                                                                                                           : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.168'
+version                                                                                                                                                             : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.169'
 type: app
 targets:
 #  - "1500"
@@ -8,9 +8,9 @@ targets:
   - plcsim
   - axunit-llvm
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                            : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.168'
-  "@ix-ax/axopen.data"                                                                                                                                                            : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.168'
-  "@ix-ax/ix.framework.probers"                                                                                                                                                         : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.168'
+  "@ix-ax/axopen.core"                                                                                                                                                              : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.169'
+  "@ix-ax/axopen.data"                                                                                                                                                              : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.169'
+  "@ix-ax/ix.framework.probers"                                                                                                                                                           : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.169'
   "@ax/sdk": ^3.0.11
 variables:
   APAX_BUILD_ARGS: [ -d ]

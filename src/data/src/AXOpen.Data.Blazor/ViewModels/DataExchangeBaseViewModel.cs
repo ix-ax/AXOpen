@@ -1,4 +1,4 @@
-﻿using AXOpen.Core.Interfaces;
+﻿using AXOpen.Data.Interfaces;
 using AXOpen.Data;
 using AXSharp.Presentation;
 using System;
@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Core.ViewModels
+namespace AXOpen.Data.ViewModels
 {
     public class DataExchangeBaseViewModel : RenderableViewModelBase
     {
@@ -70,7 +70,7 @@ namespace AXOpen.Core.ViewModels
                     dataAssembly = dataAssembly.Substring(0, dataAssembly.LastIndexOf("."));
 
 
-                MethodInfo method = typeof(IxDataViewModelCreator).GetMethod("Create");
+                MethodInfo method = typeof(AxoDataViewModelCreator).GetMethod("Create");
                 var genericTypeNamePoco = $"Pocos.{dataNameSpace}.{dataOfType}, {dataAssembly}";
                 var genericTypePoco = Type.GetType(genericTypeNamePoco);
                 var genericTypeNameBase = $"{dataNameSpace}.{dataOfType}, {dataAssembly}";

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Data;
 
 namespace Pocos.AXOpen.Data

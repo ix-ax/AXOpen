@@ -3,8 +3,8 @@
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>ix.framework.probers</PackageId>
-		<RootNamespace>ix.framework.probers</RootNamespace>
+    <PackageId>AXOpen.Probers</PackageId>
+    <RootNamespace>AXOpen.Probers</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>

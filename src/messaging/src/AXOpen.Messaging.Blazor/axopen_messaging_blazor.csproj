@@ -4,7 +4,8 @@
     <TargetFrameworks>net7.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>AXOpen.Messaging.blazor</RootNamespace>
+    <PackageId>AXOpen.Messaging.Blazor</PackageId>    
+    <RootNamespace>AXOpen.Messaging.Blazor</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ix.Base.Data
+namespace AXOpen.Base.Data
 {
     public static class IPlainExtensions
     {

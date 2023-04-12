@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Security;
 
-namespace Ix.Base.Data
+namespace AXOpen.Base.Data
 {
     /// <summary>
     /// Base class for data repositories.

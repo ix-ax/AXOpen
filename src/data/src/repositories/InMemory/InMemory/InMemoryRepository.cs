@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 
 namespace AXOpen.Data.InMemory
 {

@@ -3,7 +3,7 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Data;
 
 namespace AXOpen.Data.MongoDb

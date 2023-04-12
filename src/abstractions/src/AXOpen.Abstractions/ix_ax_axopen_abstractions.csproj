@@ -3,8 +3,8 @@
     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <PackageId>AXOpen.Utils</PackageId>
-    <RootNamespace>AXOpen.Utils</RootNamespace>
+    <PackageId>AXOpen.Abstractions</PackageId>
+    <RootNamespace>AXOpen.Abstractions</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

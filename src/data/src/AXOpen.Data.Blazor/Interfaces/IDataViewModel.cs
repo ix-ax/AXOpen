@@ -1,7 +1,6 @@
 ﻿using AXOpen.Core.blazor.Toaster;
-using AXOpen.Core.ViewModels;
 using AXOpen.Data;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AXOpen.Core.Interfaces
+namespace AXOpen.Data.Interfaces
 {
     public interface IDataViewModel
     {

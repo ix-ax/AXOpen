@@ -1,4 +1,4 @@
-﻿using Ix.Base.Data;
+﻿using AXOpen.Base.Data;
 using Raven.Client.Documents;
 
 namespace AXOpen.Data.RavenDb

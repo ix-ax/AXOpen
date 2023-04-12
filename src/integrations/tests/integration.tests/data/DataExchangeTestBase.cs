@@ -2,7 +2,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using IntegrationTests;
 using intergrations;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXSharp.Connector;
 using AXOpen.Data.InMemory;
 using AXOpen.Data.Json;

@@ -1,5 +1,5 @@
 ﻿using System;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Data;
 using AXOpen.Data.Json;
 

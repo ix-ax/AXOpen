@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Data;
 
 

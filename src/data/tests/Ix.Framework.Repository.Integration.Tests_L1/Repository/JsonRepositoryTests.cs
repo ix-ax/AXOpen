@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 using System.Reflection;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXOpen.Data;
 using AXOpen.Data.Json;
 using Ix.Repository.Json;

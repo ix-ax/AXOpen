@@ -5,7 +5,7 @@ using AXOpen.Core.blazor.Toaster;
 using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using AXOpen.Core.DependencyInjection;
+using AXOpen.Data.DependencyInjection;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace integration.blazor

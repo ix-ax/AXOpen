@@ -8,19 +8,20 @@
 using System.Collections.ObjectModel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Messaging;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXSharp.Connector;
 using AXOpen.Core.blazor.Toaster;
-using AXOpen.Core.Interfaces;
 using AXOpen.Data;
 using Microsoft.JSInterop;
+using AXOpen.Core;
+using AXOpen.Data.Interfaces;
 
-namespace AXOpen.Core.ViewModels;
+namespace AXOpen.Data.ViewModels;
 
-public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() where O : class
+public partial class AxoDataViewModel<T, O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() where O : class
 {
 
-    public IxDataViewModel(IRepository<T> repository, AxoDataExchange dataExchange) : base()
+    public AxoDataViewModel(IRepository<T> repository, AxoDataExchange dataExchange) : base()
     {
 
         this.DataExchange = dataExchange;
@@ -37,7 +38,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
 
     private DataBrowser<T> CreateBrowsable(IRepository<T> repository)
     {
-        return Ix.Base.Data.DataBrowser.Factory(repository);
+        return AXOpen.Base.Data.DataBrowser.Factory(repository);
     }
 
     public DataBrowser<T> DataBrowser { get; set; }

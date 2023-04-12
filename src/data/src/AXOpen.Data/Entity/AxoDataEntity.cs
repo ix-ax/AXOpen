@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using AXSharp.Connector;
 using AXOpen.Data;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 
 namespace AXOpen.Data
 {

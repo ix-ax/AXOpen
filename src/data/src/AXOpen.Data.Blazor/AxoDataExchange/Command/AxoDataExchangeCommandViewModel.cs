@@ -1,9 +1,9 @@
 ﻿using ix.ax.core.blazor;
 using AXOpen.Core.blazor.Toaster;
-using AXOpen.Core.Interfaces;
-using AXOpen.Core.ViewModels;
+using AXOpen.Data.Interfaces;
+using AXOpen.Data.ViewModels;
 using AXOpen.Data;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXSharp.Presentation;
 using Microsoft.AspNetCore.Components;
 using System;
