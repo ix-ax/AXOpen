@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
@@ -30,8 +30,8 @@
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\ix.framework.data\ix_ax_ix_framework_data.csproj" />
+   <ItemGroup>
+     <ProjectReference Include="..\..\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
   </ItemGroup>
-
+  
 </Project>

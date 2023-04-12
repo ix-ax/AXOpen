@@ -141,7 +141,7 @@ public class BuildContext : FrostingContext
         ("utils", "axopen.utils"),
         ("core", "axopen.core"),
         ("messaging", "axopen.messaging"),
-        ("data", "ix.framework.data"),
+        ("data", "axopen.data"),
         ("probers", "ix.framework.probers"),
     };
 

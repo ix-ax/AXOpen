@@ -13,6 +13,5 @@
 		</PackageReference>
 		<PackageReference Include="RavenDB.Client" Version="5.3.101" />
 		<ProjectReference Include="..\..\..\..\..\base\src\Ix.Base.Abstractions\Ix.Base.Abstractions.csproj" />
-		<ProjectReference Include="..\..\..\ix.framework.data\ix_ax_ix_framework_data.csproj" />
 	</ItemGroup>
 </Project>

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\data\src\ix.framework.data.blazor\ix.framework.data.blazor.csproj" />
+    <ProjectReference Include="..\..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
     <ProjectReference Include="..\..\integration.blazor\integration.blazor.csproj" />
   </ItemGroup>
 
