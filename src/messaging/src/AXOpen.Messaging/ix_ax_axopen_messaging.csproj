@@ -8,8 +8,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.87" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.87" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.90" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.90" />
 		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -23,5 +23,10 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\utils\src\AXOpen.Utils\ix_ax_axopen_utils.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
 	</ItemGroup>
 </Project>
