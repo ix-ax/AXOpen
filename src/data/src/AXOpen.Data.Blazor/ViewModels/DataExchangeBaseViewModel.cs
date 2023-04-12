@@ -22,12 +22,12 @@ namespace AXOpen.Core.ViewModels
             get => this.DataViewModel.DataExchange;
             set
             {
-                CreateBrowsable((DataExchange)value);
+                CreateBrowsable((AxoDataExchange)value);
             }
         }
 
 
-        private void CreateBrowsable(DataExchange dataExchangeObject)
+        private void CreateBrowsable(AxoDataExchange dataExchangeObject)
         {
             try
             {
@@ -53,11 +53,11 @@ namespace AXOpen.Core.ViewModels
                 // if not found, throw exception
                 if (DataPropertyInfo == null)
                 {
-                    throw new DataEntityAttributeNotFoundException($"{ dataExchangeObject.GetType().ToString()} must implement member, which inherits from {nameof(DataEntity)} and is annotated with {nameof(DataEntityAttribute)}.");
+                    throw new DataEntityAttributeNotFoundException($"{ dataExchangeObject.GetType().ToString()} must implement member, which inherits from {nameof(AxoDataEntity)} and is annotated with {nameof(DataEntityAttribute)}.");
                 }
 
                 //// if is not sublass of DataEntity, throw exception
-                if (!DataPropertyInfo.PropertyType.IsSubclassOf(typeof(DataEntity)))
+                if (!DataPropertyInfo.PropertyType.IsSubclassOf(typeof(AxoDataEntity)))
                 {
                     throw new Exception($"Data object must inherits from DataEntity!");
                 }

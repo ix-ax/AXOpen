@@ -2,7 +2,7 @@ using AXOpen.Data;
 
 NAMESPACE AxoDataExamples
 
-    CLASS AxoProductionData EXTENDS AXOpen.Data.DataEntity
+    CLASS AxoProductionData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             RecipeName : STRING;
         END_VAR 

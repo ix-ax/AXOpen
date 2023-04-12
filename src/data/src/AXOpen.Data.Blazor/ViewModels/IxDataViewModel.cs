@@ -20,7 +20,7 @@ namespace AXOpen.Core.ViewModels;
 public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() where O : class
 {
 
-    public IxDataViewModel(IRepository<T> repository, DataExchange dataExchange) : base()
+    public IxDataViewModel(IRepository<T> repository, AxoDataExchange dataExchange) : base()
     {
 
         this.DataExchange = dataExchange;
@@ -41,7 +41,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
     }
 
     public DataBrowser<T> DataBrowser { get; set; }
-    public DataExchange DataExchange { get; }
+    public AxoDataExchange DataExchange { get; }
 
     public List<ValueChangeItem> Changes { get; set; }
 
@@ -66,7 +66,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
             if (value != null)
             {
                 OnlineData.PlainToShadow(value).Wait();
-                CrudData.Changes = ((Pocos.AXOpen.Data.IDataEntity)_selectedRecord).Changes;
+                CrudData.Changes = ((Pocos.AXOpen.Data.IAxoDataEntity)_selectedRecord).Changes;
                 Changes = CrudData.Changes;
             }
 
@@ -115,11 +115,11 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
 
     public async Task CreateNew()
     {
-        var plainer = OnlineData.CreatePoco() as Pocos.AXOpen.Data.IDataEntity;
+        var plainer = OnlineData.CreatePoco() as Pocos.AXOpen.Data.IAxoDataEntity;
 
         if (plainer == null)
             throw new WrongTypeOfDataObjectException(
-                $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IDataEntity)}");
+                $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
 
         if (CreateItemId != null)
             plainer.DataEntityId = CreateItemId;
@@ -142,11 +142,11 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
 
     public void Delete()
     {
-        var plainer = OnlineData.CreatePoco() as Pocos.AXOpen.Data.IDataEntity;
+        var plainer = OnlineData.CreatePoco() as Pocos.AXOpen.Data.IAxoDataEntity;
 
         if (plainer == null)
             throw new WrongTypeOfDataObjectException(
-                $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IDataEntity)}");
+                $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
 
         plainer.DataEntityId = SelectedRecord.DataEntityId;
 
@@ -161,7 +161,7 @@ public partial class IxDataViewModel<T, O> : ObservableObject, IDataViewModel wh
 
         if (plainer == null)
             throw new WrongTypeOfDataObjectException(
-                $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IDataEntity)}");
+                $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
 
         if (CreateItemId != null)
         {

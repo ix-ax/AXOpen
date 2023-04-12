@@ -5,7 +5,7 @@ USING ix.framework.probers;
 NAMESPACE IntegrationLightDirect    
     CLASS DataExchangeLightTestsContext EXTENDS AxoContext
         VAR PUBLIC
-            DM : IDataExchange;
+            DM : IAxoDataExchange;
             CreateTest : DataCreateTest;
             ReadTest : DataReadTest;
             UpdateTest : DataUpdateTest;     
@@ -14,7 +14,7 @@ NAMESPACE IntegrationLightDirect
       
         METHOD PUBLIC InjectDM
             VAR_INPUT
-                iDM : IDataExchange;
+                iDM : IAxoDataExchange;
             END_VAR    
             DM := iDM;
         END_METHOD    
@@ -39,7 +39,7 @@ NAMESPACE IntegrationLightDirect
 
     CLASS DataCreateTest EXTENDS ProberWithCompletedCondition
         VAR PUBLIC   
-            Manager : IDataExchange;         
+            Manager : IAxoDataExchange;         
             Identifier : STRING[254];
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
@@ -62,7 +62,7 @@ NAMESPACE IntegrationLightDirect
 
         METHOD PUBLIC InjectManger
             VAR_INPUT
-                Injectee : IDataExchange;      
+                Injectee : IAxoDataExchange;      
             END_VAR    
             Manager := Injectee;
         END_METHOD    
@@ -70,7 +70,7 @@ NAMESPACE IntegrationLightDirect
    
     CLASS DataReadTest EXTENDS ProberWithCompletedCondition
         VAR PUBLIC   
-            Manager : IDataExchange;         
+            Manager : IAxoDataExchange;         
             Identifier : STRING[254];
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
@@ -93,7 +93,7 @@ NAMESPACE IntegrationLightDirect
 
         METHOD PUBLIC InjectManger
             VAR_INPUT
-                Injectee : IDataExchange;      
+                Injectee : IAxoDataExchange;      
             END_VAR    
             Manager := Injectee;
         END_METHOD    
@@ -101,7 +101,7 @@ NAMESPACE IntegrationLightDirect
 
     CLASS DataUpdateTest EXTENDS ProberWithCompletedCondition
         VAR PUBLIC   
-            Manager : IDataExchange;         
+            Manager : IAxoDataExchange;         
             Identifier : STRING[254];
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
@@ -124,7 +124,7 @@ NAMESPACE IntegrationLightDirect
 
         METHOD PUBLIC InjectManger
             VAR_INPUT
-                Injectee : IDataExchange;      
+                Injectee : IAxoDataExchange;      
             END_VAR    
             Manager := Injectee;
         END_METHOD    
@@ -132,7 +132,7 @@ NAMESPACE IntegrationLightDirect
 
     CLASS DataDeleteTest EXTENDS ProberWithCompletedCondition
         VAR PUBLIC   
-            Manager : IDataExchange;         
+            Manager : IAxoDataExchange;         
             Identifier : STRING[254];
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
@@ -155,20 +155,20 @@ NAMESPACE IntegrationLightDirect
 
         METHOD PUBLIC InjectManger
             VAR_INPUT
-                Injectee : IDataExchange;      
+                Injectee : IAxoDataExchange;      
             END_VAR    
             Manager := Injectee;
         END_METHOD    
     END_CLASS
 
-    CLASS DataManager EXTENDS AXOpen.Data.DataExchange 
+    CLASS DataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC     
             {#ix-attr:[DataEntityAttribute]}         
             _data       : DataSet;
         END_VAR          
     END_CLASS    
     
-    CLASS DataSet EXTENDS AXOpen.Data.DataEntity
+    CLASS DataSet EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             SomeData : STRING;
         END_VAR 

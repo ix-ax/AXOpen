@@ -3,7 +3,7 @@ USING AXOpen.Rtc;
 USING AxUnit;
 
 NAMESPACE AXOpen.Data 
-    NAMESPACE DataExchangeTaskTests
+    NAMESPACE AxoDataExchangeTaskTests
         CLASS TestContext IMPLEMENTS IAxoContext        
             VAR PROTECTED                        
                 _openCounter : ULINT;
@@ -42,10 +42,10 @@ NAMESPACE AXOpen.Data
 END_CLASS      
 
         {TestFixture}
-        CLASS DataExchangeTask_Tests
+        CLASS AxoDataExchangeTask_Tests
             VAR PROTECTED
                 _context : TestContext;
-                _dataExchangeTask : DataExchangeTask;
+                _dataExchangeTask : AxoDataExchangeTask;
             END_VAR    
 
             {Test}

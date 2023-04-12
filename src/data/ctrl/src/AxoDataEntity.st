@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Data 
-    CLASS DataEntity IMPLEMENTS IDataEntity
+    CLASS AxoDataEntity IMPLEMENTS IAxoDataEntity
         VAR PUBLIC
             {#ix-attr:[RenderIgnore("ShadowControl", "Control")]}
             DataEntityId : STRING[254];

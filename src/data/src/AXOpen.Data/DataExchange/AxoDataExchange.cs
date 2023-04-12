@@ -7,7 +7,7 @@ using Ix.Base.Data;
 
 namespace AXOpen.Data
 {
-    public partial class DataExchange
+    public partial class AxoDataExchange
     {
         /// <summary>An interaface which grants access to certain operations in DataExchange viewmodel, like searching by id, invoking search or filling the searchbox</summary>
         public IDataExchangeOperations DataExchangeOperations { get; set; }
@@ -40,16 +40,16 @@ namespace AXOpen.Data
                     if (dataProperty != null)
                     {
                         var exchangableObject = dataProperty.GetValue(this);
-                        if (!(exchangableObject is DataEntity || exchangableObject is IDataEntity))
+                        if (!(exchangableObject is AxoDataEntity || exchangableObject is IAxoDataEntity))
                         {
-                            throw new Exception($"Data exchange member '_data' in {this.Symbol}  must inherit from {nameof(DataEntity)}");
+                            throw new Exception($"Data exchange member '_data' in {this.Symbol}  must inherit from {nameof(AxoDataEntity)}");
                         }
 
                         _onliner = exchangableObject;
                     }
                     else
                     {
-                        throw new Exception($"Data exchange member '_data' is not member of {this.Symbol}. '_data'  must inherit from {nameof(DataEntity)}");
+                        throw new Exception($"Data exchange member '_data' is not member of {this.Symbol}. '_data'  must inherit from {nameof(AxoDataEntity)}");
                     }
                 }
 

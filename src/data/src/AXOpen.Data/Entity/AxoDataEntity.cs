@@ -5,7 +5,7 @@ using Ix.Base.Data;
 
 namespace AXOpen.Data
 {
-    public partial class DataEntity : ICrudDataObject
+    public partial class AxoDataEntity : ICrudDataObject
     {
         public ValueChangeTracker ChangeTracker { get; private set; }
 

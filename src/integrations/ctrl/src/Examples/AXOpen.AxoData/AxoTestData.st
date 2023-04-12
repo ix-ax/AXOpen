@@ -3,7 +3,7 @@ using AXOpen.Data;
 NAMESPACE AxoDataExamples
 
     {#ix-attr:[Container(Layout.Tabs)]}
-    CLASS AxoTestData EXTENDS AXOpen.Data.DataEntity
+    CLASS AxoTestData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             RecipeName : STRING;
             String1 : STRING;

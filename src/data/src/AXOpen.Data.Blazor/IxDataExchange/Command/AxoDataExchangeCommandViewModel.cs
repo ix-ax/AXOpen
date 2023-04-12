@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Data
 {
-    public class DataExchangeCommandViewModel : DataExchangeBaseViewModel
+    public class AxoDataExchangeCommandViewModel : DataExchangeBaseViewModel
     {
         
     }

@@ -16,7 +16,7 @@ namespace AXOpen.Core.ViewModels
 {
     public class IxDataViewModelCreator : ObservableObject
     {
-        public static IxDataViewModel<T, O> Create<T, O>(IRepository<T> repository, DataExchange dataExchange) where T : IBrowsableDataObject, new()
+        public static IxDataViewModel<T, O> Create<T, O>(IRepository<T> repository, AxoDataExchange dataExchange) where T : IBrowsableDataObject, new()
             where O : class
         {
             return new IxDataViewModel<T, O>(repository, dataExchange);

@@ -4,7 +4,7 @@ using AXOpen.Data;
 
 namespace Pocos.AXOpen.Data
 {
-    public partial class DataEntity : IBrowsableDataObject, IDataEntity
+    public partial class AxoDataEntity : IBrowsableDataObject, IAxoDataEntity
     {
         public dynamic RecordId { get; set; }
 

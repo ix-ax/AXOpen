@@ -14,7 +14,7 @@ namespace AXOpen.Core.Interfaces
 {
     public interface IDataViewModel
     {
-        DataExchange DataExchange { get; }
+        AxoDataExchange DataExchange { get; }
 
         ObservableCollection<IBrowsableDataObject> Records { get; set; }
         IBrowsableDataObject SelectedRecord { get; set; }

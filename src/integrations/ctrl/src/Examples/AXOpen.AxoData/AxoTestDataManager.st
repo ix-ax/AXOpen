@@ -2,7 +2,7 @@ using AXOpen.Data;
 
 NAMESPACE AxoDataExamples
 
-    CLASS AxoTestDataManager EXTENDS AXOpen.Data.DataExchange 
+    CLASS AxoTestDataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC   
             _identifier : STRING;
             _create     : BOOL;                     

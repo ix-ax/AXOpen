@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Data 
-    INTERFACE IDataEntity
+    INTERFACE IAxoDataEntity
         
     END_INTERFACE
 END_NAMESPACE    

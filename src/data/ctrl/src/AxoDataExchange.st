@@ -1,16 +1,16 @@
 USING AXOpen.Core;
 
 NAMESPACE AXOpen.Data 
-    CLASS DataExchange EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IDataExchange
+    CLASS AxoDataExchange EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IAxoDataExchange
         VAR PUBLIC
            {#ix-set:AttributeName =  "<#Create#>"} 
-           CreateTask  : DataExchangeTask; 
+           CreateTask  : AxoDataExchangeTask; 
            {#ix-set:AttributeName =  "<#Read#>"} 
-           ReadTask    : DataExchangeTask;
+           ReadTask    : AxoDataExchangeTask;
            {#ix-set:AttributeName =  "<#Update#>"} 
-           UpdateTask  : DataExchangeTask;
+           UpdateTask  : AxoDataExchangeTask;
            {#ix-set:AttributeName =  "<#Delete#>"} 
-           DeleteTask  : DataExchangeTask;
+           DeleteTask  : AxoDataExchangeTask;
         END_VAR
         
         METHOD PRIVATE Run

@@ -63,7 +63,7 @@ namespace AXOpen.Data
             }
 
             Changes.AddRange(DataObject.Changes);
-            ((Pocos.AXOpen.Data.IDataEntity)plainObject).Changes.AddRange(Changes);
+            ((Pocos.AXOpen.Data.IAxoDataEntity)plainObject).Changes.AddRange(Changes);
 
             Changes = new List<ValueChangeItem>();
         }
@@ -95,9 +95,9 @@ namespace AXOpen.Data
                 OldValue = "-Import end-"
             };
 
-            ((Pocos.AXOpen.Data.IDataEntity)plainObject).Changes.Add(startImportTag);
+            ((Pocos.AXOpen.Data.IAxoDataEntity)plainObject).Changes.Add(startImportTag);
             SaveObservedChanges(plainObject);
-            ((Pocos.AXOpen.Data.IDataEntity)plainObject).Changes.Add(endImportTag);
+            ((Pocos.AXOpen.Data.IAxoDataEntity)plainObject).Changes.Add(endImportTag);
 
         }
 
