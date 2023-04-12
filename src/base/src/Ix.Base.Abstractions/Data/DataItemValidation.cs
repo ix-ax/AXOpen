@@ -1,4 +1,4 @@
-﻿namespace Ix.Base.Data
+﻿namespace AXOpen.Base.Data
 {
     /// <summary>
     /// Provides basic information about the validation state.

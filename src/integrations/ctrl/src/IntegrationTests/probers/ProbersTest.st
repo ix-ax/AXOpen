@@ -1,10 +1,10 @@
-USING ix.framework.core;
+USING AXOpen.Core;
 USING ix.framework.probers;
 
 NAMESPACE IntegrationTests
 
     
-CLASS ProbersTestContext EXTENDS IxContext
+CLASS ProbersTestContext EXTENDS AxoContext
     VAR PUBLIC
         ProbeWithCounterTests : ProbeWithCounterTests;
         ProbeWithEndConditionTests : ProberWithCompletedConditionTests;

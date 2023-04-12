@@ -25,9 +25,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\repositories\InMemory\Ix.Framework.Data.InMemory.csproj" />
-	  <ProjectReference Include="..\..\src\repositories\Json\Ix.Framework.Data.Json.csproj" />
-	  <ProjectReference Include="..\..\src\repositories\MongoDb\Ix.Framework.Data.MongoDb.csproj" />
-	  <ProjectReference Include="..\..\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\Ix.Framework.Data.RavenDb.csproj" />
+	  <ProjectReference Include="..\..\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
+	  <ProjectReference Include="..\..\src\repositories\Json\AXOpen.Data.Json.csproj" />
+	  <ProjectReference Include="..\..\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />
+	  <ProjectReference Include="..\..\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\AXOpen.Data.RavenDb.csproj" />
 	</ItemGroup>
 </Project>

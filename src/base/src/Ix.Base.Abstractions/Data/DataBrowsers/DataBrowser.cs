@@ -10,7 +10,7 @@ using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 using AXSharp.Connector.ValueTypes.Online;
 
-namespace Ix.Base.Data
+namespace AXOpen.Base.Data
 {   
     public class DataBrowser<T> : IDataBrowser where T  : IBrowsableDataObject, new()
     {

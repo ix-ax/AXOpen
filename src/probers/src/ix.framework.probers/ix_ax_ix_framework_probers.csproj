@@ -3,8 +3,8 @@
 		<TargetFrameworks>net6.0;net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>ix.framework.probers</PackageId>
-		<RootNamespace>ix.framework.probers</RootNamespace>
+    <PackageId>AXOpen.Probers</PackageId>
+    <RootNamespace>AXOpen.Probers</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -12,8 +12,8 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.86" />
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.0-alpha.86" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.87" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.0-alpha.87" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -27,6 +27,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\core\src\ix.framework.core\ix_ax_ix_framework_core.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
 	</ItemGroup>
 </Project>

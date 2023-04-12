@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Ix.Base.Data
+namespace AXOpen.Base.Data
 {
     public enum eSearchMode
     {

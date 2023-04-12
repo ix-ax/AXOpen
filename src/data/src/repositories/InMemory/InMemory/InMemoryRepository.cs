@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 
-namespace Ix.Framework.Data.InMemory
+namespace AXOpen.Data.InMemory
 {
     /// <summary>
     /// Provides in memory data repository.

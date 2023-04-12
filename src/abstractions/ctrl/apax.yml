@@ -1,5 +1,5 @@
-name: "@ix-ax/ix.framework.abstractions"
-version                                                                 : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
+name: "@ix-ax/axopen.abstractions"
+version                                                                                                                                                                            : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.169'
 type: lib
 targets:
   - "1500"

@@ -1,7 +1,7 @@
-﻿using Ix.Base.Data;
-using Ix.Framework.Data;
+﻿using AXOpen.Base.Data;
+using AXOpen.Data;
 
-namespace Ix.Framework.Data.InMemory
+namespace AXOpen.Data.InMemory
 {
 
     /// <summary>

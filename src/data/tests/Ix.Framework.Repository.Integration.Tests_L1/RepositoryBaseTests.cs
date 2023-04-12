@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Linq;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 
 namespace Ix.Framework.Repository.Integration.Tests
 {

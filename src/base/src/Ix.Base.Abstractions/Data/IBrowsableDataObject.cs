@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ix.Base.Data
+namespace AXOpen.Base.Data
 {
     public interface IBrowsableDataObject
     {

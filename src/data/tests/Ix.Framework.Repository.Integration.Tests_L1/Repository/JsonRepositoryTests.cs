@@ -2,9 +2,9 @@
 using System;
 using System.IO;
 using System.Reflection;
-using Ix.Base.Data;
-using Ix.Framework.Data;
-using Ix.Framework.Data.Json;
+using AXOpen.Base.Data;
+using AXOpen.Data;
+using AXOpen.Data.Json;
 using Ix.Repository.Json;
 
 namespace Ix.Framework.Repository.Integration.Tests
@@ -21,8 +21,8 @@ namespace Ix.Framework.Repository.Integration.Tests
                 Directory.Delete(outputDir, true);
             }
 
-            this.repository = new Data.Json.JsonRepository<DataTestObject>(new JsonRepositorySettings<DataTestObject>(outputDir));
-            this.repository_altered_structure = new Data.Json.JsonRepository<DataTestObjectAlteredStructure>(new JsonRepositorySettings<DataTestObjectAlteredStructure>(outputDir));
+            this.repository = new JsonRepository<DataTestObject>(new JsonRepositorySettings<DataTestObject>(outputDir));
+            this.repository_altered_structure = new JsonRepository<DataTestObjectAlteredStructure>(new JsonRepositorySettings<DataTestObjectAlteredStructure>(outputDir));
 
             this.repository.OnCreate = (id, data) => { data._Created = DateTimeProviders.DateTimeProvider.Now; data._Modified = DateTimeProviders.DateTimeProvider.Now; };
             this.repository.OnUpdate = (id, data) => { data._Modified = DateTimeProviders.DateTimeProvider.Now; };

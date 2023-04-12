@@ -3,10 +3,10 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ix.Base.Data;
-using Ix.Framework.Data;
+using AXOpen.Base.Data;
+using AXOpen.Data;
 
-namespace Ix.Framework.Data.MongoDb
+namespace AXOpen.Data.MongoDb
 {
     /// <summary>
     /// Provides access to basic operations for MongoDB.

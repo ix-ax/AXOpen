@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ix.Base.Data
+namespace AXOpen.Base.Data
 {
     public delegate void OnCreateDelegate<T>(string id, T data);
     public delegate void OnReadDelegate(string id);

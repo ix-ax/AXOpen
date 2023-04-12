@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Ix.Base.Data;
-using Ix.Framework.Data;
+using AXOpen.Base.Data;
+using AXOpen.Data;
 
 
-namespace Ix.Framework.Data.Json
+namespace AXOpen.Data.Json
 {
     /// <summary>
     /// Provides repository for storing data in files with `Json` format.

@@ -1,4 +1,4 @@
-﻿namespace Ix.Base.Data
+﻿namespace AXOpen.Base.Data
 {
     public abstract class RepositorySettings
     {

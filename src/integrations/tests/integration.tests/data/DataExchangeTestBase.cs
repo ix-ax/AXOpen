@@ -2,12 +2,12 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using IntegrationTests;
 using intergrations;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using AXSharp.Connector;
-using Ix.Framework.Data.InMemory;
-using Ix.Framework.Data.Json;
-using Ix.Framework.Data.MongoDb;
-using Ix.Framework.Data.RavenDb;
+using AXOpen.Data.InMemory;
+using AXOpen.Data.Json;
+using AXOpen.Data.MongoDb;
+using AXOpen.Data.RavenDb;
 using Pocos.IntegrationLightDirect;
 using Raven.Embedded;
 

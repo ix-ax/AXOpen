@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ix.framework.core;
+using AXOpen.Core;
 
 namespace ix.framework.probers
 {
@@ -20,9 +20,9 @@ namespace ix.framework.probers
 
             while (true)
             {
-                var state = (eIxTaskState)await Status.GetAsync();
+                var state = (eAxoTaskState)await Status.GetAsync();
 
-                if (state == eIxTaskState.Ready && !this.RemoteRestore.GetAsync().Result)
+                if (state == eAxoTaskState.Ready && !this.RemoteRestore.GetAsync().Result)
                 {
                     break;
                 }
@@ -36,13 +36,13 @@ namespace ix.framework.probers
 
             while (true)
             {
-                var state = (eIxTaskState)await Status.GetAsync();
-                if (state == eIxTaskState.Done)
+                var state = (eAxoTaskState)await Status.GetAsync();
+                if (state == eAxoTaskState.Done)
                 {
                     break;
                 }
 
-                if (state == eIxTaskState.Error)
+                if (state == eAxoTaskState.Error)
                 {
                     throw new Exception(await this.ErrorDetails.GetAsync());
                 }

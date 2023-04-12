@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using System.Security;
 
-namespace Ix.Base.Data
+namespace AXOpen.Base.Data
 {
     /// <summary>
     /// Thrown when the id of the data structure does not match the required record/document id.

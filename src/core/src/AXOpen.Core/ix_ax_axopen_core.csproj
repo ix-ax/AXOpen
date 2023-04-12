@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+    <PackageId>AXOpen.Core</PackageId>
+    <RootNamespace>AXOpen.Core</RootNamespace>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.87" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.87" />
+		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include=".g\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Resources\PlcStringResources.Designer.cs">
+	    <DesignTime>True</DesignTime>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>PlcStringResources.resx</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Update="Resources\PlcStringResources.resx">
+	    <Generator>PublicResXFileCodeGenerator</Generator>
+	    <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
+	  </EmbeddedResource>
+	</ItemGroup>
+</Project>
