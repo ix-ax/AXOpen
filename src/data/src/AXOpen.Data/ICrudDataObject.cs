@@ -2,7 +2,7 @@
 using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 
-namespace ix.framework.data
+namespace AXOpen.Data
 {
     public interface ICrudDataObject 
     {       

@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 
-NAMESPACE ix.framework.data 
+NAMESPACE AXOpen.Data 
     INTERFACE IDataExchange
         METHOD Create : IAxoTaskState
             VAR_INPUT

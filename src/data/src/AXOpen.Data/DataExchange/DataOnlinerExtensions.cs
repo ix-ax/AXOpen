@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector;
 
-namespace ix.framework.data
+namespace AXOpen.Data
 {
     public static class DataOnlinerExtensions
     {

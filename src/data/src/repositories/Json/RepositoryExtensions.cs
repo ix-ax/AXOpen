@@ -1,7 +1,7 @@
 ﻿using System;
 using Ix.Base.Data;
-using Ix.Framework.Data;
-using Ix.Framework.Data.Json;
+using AXOpen.Data;
+using AXOpen.Data.Json;
 
 namespace Ix.Repository.Json
 {

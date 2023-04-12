@@ -1,6 +1,6 @@
 ﻿using AXOpen.Core.blazor.Toaster;
 using AXOpen.Core.ViewModels;
-using ix.framework.data;
+using AXOpen.Data;
 using Ix.Base.Data;
 using System;
 using System.Collections.Generic;

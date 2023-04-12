@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ix.framework.data;
+using AXOpen.Data;
 using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Components;
 using System.Threading.Channels;

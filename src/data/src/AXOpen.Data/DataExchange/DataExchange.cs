@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
-using ix.framework.data;
+using AXOpen.Data;
 using AXSharp.Connector;
 using Ix.Base.Data;
 
 
-namespace ix.framework.data
+namespace AXOpen.Data
 {
     public partial class DataExchange
     {

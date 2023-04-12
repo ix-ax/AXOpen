@@ -1,8 +1,8 @@
-using ix.framework.data;
+using AXOpen.Data;
 
 NAMESPACE AxoDataExamples
 
-    CLASS AxoProductionData EXTENDS ix.framework.data.DataEntity
+    CLASS AxoProductionData EXTENDS AXOpen.Data.DataEntity
         VAR PUBLIC
             RecipeName : STRING;
         END_VAR 

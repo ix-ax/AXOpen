@@ -1,7 +1,7 @@
 ﻿using Ix.Base.Data;
-using Ix.Framework.Data;
+using AXOpen.Data;
 
-namespace Ix.Framework.Data.Json
+namespace AXOpen.Data.Json
 {
     /// <summary>
     /// Provides <see cref="JsonRepository{T}"/> parameter

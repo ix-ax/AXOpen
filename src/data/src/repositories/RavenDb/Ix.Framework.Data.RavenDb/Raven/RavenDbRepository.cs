@@ -10,7 +10,7 @@ using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
 
-namespace Ix.Framework.Data.RavenDb
+namespace AXOpen.Data.RavenDb
 {
     public static class SharedData
     {

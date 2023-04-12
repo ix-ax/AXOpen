@@ -1,7 +1,7 @@
 ﻿using System;
 using Ix.Base.Data;
-using Ix.Framework.Data;
-using Ix.Framework.Data.MongoDb;
+using AXOpen.Data;
+using AXOpen.Data.MongoDb;
 
 namespace Ix.Framework.Repository.Integration.Tests
 {
@@ -24,9 +24,9 @@ namespace Ix.Framework.Repository.Integration.Tests
                 var parameters = new MongoDbRepositorySettings<DataTestObject>("mongodb://localhost:27017", "TestDataBase", "TestCollection");
                 var parametersAltered = new MongoDbRepositorySettings<DataTestObjectAlteredStructure>("mongodb://localhost:27017", "TestDataBase", "TestCollection");
 #pragma warning restore CS0618 // Type or member is obsolete
-                this.repository = Data.MongoDb.Repository.Factory(parameters);
+                this.repository = AXOpen.Data.MongoDb.Repository.Factory(parameters);
 
-                this.repository_altered_structure = Data.MongoDb.Repository.Factory(parametersAltered);
+                this.repository_altered_structure = AXOpen.Data.MongoDb.Repository.Factory(parametersAltered);
 
                 this.repository.OnCreate = (id, data) => { data._Created = DateTimeProviders.DateTimeProvider.Now; data._Modified = DateTimeProviders.DateTimeProvider.Now; };
                 this.repository.OnUpdate = (id, data) => { data._Modified = DateTimeProviders.DateTimeProvider.Now; };

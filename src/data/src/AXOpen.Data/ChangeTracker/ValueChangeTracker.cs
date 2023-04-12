@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Ix.Base.Data;
-using ix.framework.data;
+using AXOpen.Data;
 using AXSharp.Connector;
 
-namespace ix.framework.data
+namespace AXOpen.Data
 {
     public class ValueChangeTracker
     {
@@ -63,7 +63,7 @@ namespace ix.framework.data
             }
 
             Changes.AddRange(DataObject.Changes);
-            ((Pocos.ix.framework.data.IDataEntity)plainObject).Changes.AddRange(Changes);
+            ((Pocos.AXOpen.Data.IDataEntity)plainObject).Changes.AddRange(Changes);
 
             Changes = new List<ValueChangeItem>();
         }
@@ -95,9 +95,9 @@ namespace ix.framework.data
                 OldValue = "-Import end-"
             };
 
-            ((Pocos.ix.framework.data.IDataEntity)plainObject).Changes.Add(startImportTag);
+            ((Pocos.AXOpen.Data.IDataEntity)plainObject).Changes.Add(startImportTag);
             SaveObservedChanges(plainObject);
-            ((Pocos.ix.framework.data.IDataEntity)plainObject).Changes.Add(endImportTag);
+            ((Pocos.AXOpen.Data.IDataEntity)plainObject).Changes.Add(endImportTag);
 
         }
 

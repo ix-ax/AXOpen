@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-USING ix.framework.data;
+USING AXOpen.Data;
 USING ix.framework.probers;
 
 NAMESPACE IntegrationLightDirect    
@@ -161,14 +161,14 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
     END_CLASS
 
-    CLASS DataManager EXTENDS ix.framework.data.DataExchange 
+    CLASS DataManager EXTENDS AXOpen.Data.DataExchange 
         VAR PUBLIC     
             {#ix-attr:[DataEntityAttribute]}         
             _data       : DataSet;
         END_VAR          
     END_CLASS    
     
-    CLASS DataSet EXTENDS ix.framework.data.DataEntity
+    CLASS DataSet EXTENDS AXOpen.Data.DataEntity
         VAR PUBLIC
             SomeData : STRING;
         END_VAR 

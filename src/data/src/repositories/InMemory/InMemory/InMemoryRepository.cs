@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Ix.Base.Data;
 
-namespace Ix.Framework.Data.InMemory
+namespace AXOpen.Data.InMemory
 {
     /// <summary>
     /// Provides in memory data repository.

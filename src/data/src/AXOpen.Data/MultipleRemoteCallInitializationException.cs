@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace ix.framework.data
+namespace AXOpen.Data
 {
     public class MultipleRemoteCallInitializationException : Exception
     {

@@ -1,6 +1,6 @@
 ﻿using AXSharp.Connector;
 
-namespace ix.framework.data
+namespace AXOpen.Data
 {
     public class ValueItemDescriptor
     {

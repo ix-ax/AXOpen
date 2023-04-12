@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 
-NAMESPACE ix.framework.data 
+NAMESPACE AXOpen.Data 
     CLASS DataExchange EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IDataExchange
         VAR PUBLIC
            {#ix-set:AttributeName =  "<#Create#>"} 

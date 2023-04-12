@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ix.framework.data
+namespace AXOpen.Data
 {
     public class MultipleDataEntityAttributeException : Exception
     {

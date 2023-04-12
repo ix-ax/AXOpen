@@ -1,8 +1,8 @@
-using ix.framework.data;
+using AXOpen.Data;
 
 NAMESPACE AxoDataExamples
 
-    CLASS AxoTestDataManager EXTENDS ix.framework.data.DataExchange 
+    CLASS AxoTestDataManager EXTENDS AXOpen.Data.DataExchange 
         VAR PUBLIC   
             _identifier : STRING;
             _create     : BOOL;                     

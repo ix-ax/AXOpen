@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Ix.Base.Data;
-using Ix.Framework.Data;
-using Ix.Framework.Data.MongoDb;
+using AXOpen.Data;
+using AXOpen.Data.MongoDb;
 
 namespace Ix.Framework.Repository.Integration.Tests
 {
@@ -44,7 +44,7 @@ namespace Ix.Framework.Repository.Integration.Tests
             {
                 var a = new FloatSerializerObject();
                 var parameters = new MongoDbRepositorySettings<FloatSerializerObject>("mongodb://localhost:27017", "TestDataBase", nameof(ZFloatSerializerMongoTests));
-                this.repository = Data.MongoDb.Repository.Factory<FloatSerializerObject>(parameters);
+                this.repository = AXOpen.Data.MongoDb.Repository.Factory<FloatSerializerObject>(parameters);
                 foreach (var item in this.repository.GetRecords("*"))
                 {
                     repository.Delete(item.DataEntityId);

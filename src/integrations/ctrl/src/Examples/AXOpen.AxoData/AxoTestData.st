@@ -1,9 +1,9 @@
-using ix.framework.data;
+using AXOpen.Data;
 
 NAMESPACE AxoDataExamples
 
     {#ix-attr:[Container(Layout.Tabs)]}
-    CLASS AxoTestData EXTENDS ix.framework.data.DataEntity
+    CLASS AxoTestData EXTENDS AXOpen.Data.DataEntity
         VAR PUBLIC
             RecipeName : STRING;
             String1 : STRING;

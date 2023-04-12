@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ix.framework.data
+namespace AXOpen.Data
 {
     public class ValueChangeItem
     {

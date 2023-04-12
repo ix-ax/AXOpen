@@ -1,4 +1,4 @@
-﻿namespace ix.framework.data
+﻿namespace AXOpen.Data
 {
     /// <summary>
     ///     An interaface which grants access to certain operations in DataExchange viewmodel, 

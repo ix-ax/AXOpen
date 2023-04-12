@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using ix.framework.data;
+using AXOpen.Data;
 using AXSharp.Connector;
 
-namespace Pocos.ix.framework.data
+namespace Pocos.AXOpen.Data
 {
     public partial interface IDataEntity
     {

@@ -8,7 +8,7 @@ using Raven.Client.Documents;
 using Raven.Client.Documents.Indexes;
 
 
-namespace Ix.Framework.Data.RavenDb
+namespace AXOpen.Data.RavenDb
 {
     public class RavenDbRepositorySettings<T> : RavenDbRepositorySettingsBase<T> where T : IBrowsableDataObject 
     {

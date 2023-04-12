@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-NAMESPACE ix.framework.data    
+NAMESPACE AXOpen.Data    
     CLASS DataExchangeTask EXTENDS AXOpen.Core.AxoRemoteTask 
         VAR PUBLIC
             DataEntityIdentifier : STRING[254];

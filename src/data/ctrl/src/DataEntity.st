@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.data 
+NAMESPACE AXOpen.Data 
     CLASS DataEntity IMPLEMENTS IDataEntity
         VAR PUBLIC
             {#ix-attr:[RenderIgnore("ShadowControl", "Control")]}

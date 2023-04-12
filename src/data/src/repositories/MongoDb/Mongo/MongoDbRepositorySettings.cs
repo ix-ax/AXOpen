@@ -8,10 +8,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using Ix.Base.Data;
-using Ix.Framework.Data;
+using AXOpen.Data;
 
 
-namespace Ix.Framework.Data.MongoDb
+namespace AXOpen.Data.MongoDb
 {
     /// <summary>
     /// 

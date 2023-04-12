@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Ix.Base.Data;
-using Ix.Framework.Data;
+using AXOpen.Data;
 using AXSharp.Connector;
 
 namespace Ix.Framework.Repository.Integration.Tests

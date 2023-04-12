@@ -33,10 +33,10 @@ namespace integration.blazor
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
 
-            var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
-            var repository2 = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
+            var repository = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+            var repository2 = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
             //inherited IxProductionData
-            //var repository = Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionDataInherited>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+            //var repository = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionDataInherited>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
 
             // Entry.Plc.process_data_manager.InitializeRepository(repository);
 
@@ -44,7 +44,7 @@ namespace integration.blazor
             Entry.Plc.MainContext.test_data_manager.InitializeRemoteDataExchange(repository2);
 
             
-            Entry.Plc.Integrations.DM.InitializeRemoteDataExchange(Ix.Repository.Json.Repository.Factory(new Ix.Framework.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
+            Entry.Plc.Integrations.DM.InitializeRemoteDataExchange(Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
 
             var app = builder.Build();
 

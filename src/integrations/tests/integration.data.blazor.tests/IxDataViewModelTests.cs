@@ -1,9 +1,9 @@
 using intergrations;
 using AXOpen.Core.Interfaces;
 using AXOpen.Core.ViewModels;
-using ix.framework.data;
+using AXOpen.Data;
 using AXSharp.Connector;
-using Ix.Framework.Data.InMemory;
+using AXOpen.Data.InMemory;
 
 namespace integration.data.blazor.tests
 {
@@ -20,7 +20,7 @@ namespace integration.data.blazor.tests
           
             var dataObject = _plc.process_data_manager; 
 
-            var repo = Ix.Framework.Data.InMemory.Repository.Factory(new InMemoryRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>());
+            var repo = AXOpen.Data.InMemory.Repository.Factory(new InMemoryRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>());
             dataObject.InitializeRepository(repo);
 
             var data = dataObject.Data;

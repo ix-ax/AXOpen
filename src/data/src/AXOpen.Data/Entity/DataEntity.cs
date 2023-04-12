@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using AXSharp.Connector;
-using ix.framework.data;
+using AXOpen.Data;
 using Ix.Base.Data;
 
-namespace ix.framework.data
+namespace AXOpen.Data
 {
     public partial class DataEntity : ICrudDataObject
     {

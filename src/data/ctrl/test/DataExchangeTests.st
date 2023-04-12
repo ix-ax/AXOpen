@@ -2,7 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AxUnit;
 
-NAMESPACE ix.framework.data 
+NAMESPACE AXOpen.Data 
     NAMESPACE DataExchangeTests
         CLASS TestContext IMPLEMENTS IAxoContext         
             VAR PROTECTED                        

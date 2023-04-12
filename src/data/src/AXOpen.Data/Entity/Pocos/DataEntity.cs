@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Ix.Base.Data;
-using ix.framework.data;
+using AXOpen.Data;
 
-namespace Pocos.ix.framework.data
+namespace Pocos.AXOpen.Data
 {
     public partial class DataEntity : IBrowsableDataObject, IDataEntity
     {

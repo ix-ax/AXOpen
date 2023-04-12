@@ -1,8 +1,8 @@
-using ix.framework.data;
+using AXOpen.Data;
 
 NAMESPACE AxoDataExamples
 
-    CLASS AxoProcessDataManager EXTENDS ix.framework.data.DataExchange 
+    CLASS AxoProcessDataManager EXTENDS AXOpen.Data.DataExchange 
         VAR PUBLIC   
             _identifier : STRING;
             _create     : BOOL;                     
