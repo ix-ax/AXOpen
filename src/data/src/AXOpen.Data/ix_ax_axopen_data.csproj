@@ -29,7 +29,7 @@
 
 	<ItemGroup>
 	    <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
-	  <ProjectReference Include="..\..\..\base\src\Ix.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
+	    <ProjectReference Include="..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
 	</ItemGroup>
 

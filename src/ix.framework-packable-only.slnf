@@ -3,7 +3,7 @@
     "path": "ix.framework.sln",
     "projects": [
       "abstractions\\src\\AXOpen.Abstractions\\ix_ax_axopen_abstractions.csproj",
-      "base\\src\\Ix.Base.Abstractions\\AXOpen.Base.Abstractions.csproj",
+      "base\\src\\AXOpen.Base.Abstractions\\AXOpen.Base.Abstractions.csproj",
       "core\\src\\AXOpen.Core.Blazor\\axopen_core_blazor.csproj",
       "core\\src\\AXOpen.Core\\ix_ax_axopen_core.csproj",
       "data\\src\\AXOpen.Data.Blazor\\axopen_data_blazor.csproj",

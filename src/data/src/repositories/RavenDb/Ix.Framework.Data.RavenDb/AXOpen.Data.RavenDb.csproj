@@ -12,6 +12,6 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="RavenDB.Client" Version="5.3.101" />
-		<ProjectReference Include="..\..\..\..\..\base\src\Ix.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
+		<ProjectReference Include="..\..\..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
 	</ItemGroup>
 </Project>
