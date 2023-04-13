@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Data.ViewModels
 {
-    public class DataExchangeBaseViewModel : RenderableViewModelBase
+    public class AxoDataExchangeBaseViewModel : RenderableViewModelBase
     {
-        public IDataViewModel DataViewModel
+        public IAxoDataViewModel DataViewModel
         {
             get;
             private set;
@@ -34,16 +34,16 @@ namespace AXOpen.Data.ViewModels
                 var properties = dataExchangeObject.GetType().GetProperties();
                 PropertyInfo? DataPropertyInfo = null;
 
-                // iterate properties and look for DataEntityAttribute
+                // iterate properties and look for AxoDataEntityAttribute
                 foreach (var prop in properties)
                 {
-                    var attr = prop.GetCustomAttribute<DataEntityAttribute>();
+                    var attr = prop.GetCustomAttribute<AxoDataEntityAttribute>();
                     if (attr != null)
                     {
                         //if already set, that means multiple dataatributtes are present, we want to throw error
                         if(DataPropertyInfo != null)
                         {
-                            throw new MultipleDataEntityAttributeException($"{dataExchangeObject.GetType().ToString()} contains multiple {nameof(DataEntityAttribute)}s! Make sure it contains only one.");
+                            throw new MultipleDataEntityAttributeException($"{dataExchangeObject.GetType().ToString()} contains multiple {nameof(AxoDataEntityAttribute)}s! Make sure it contains only one.");
                         }
                         DataPropertyInfo = prop;
                         break;
@@ -53,7 +53,7 @@ namespace AXOpen.Data.ViewModels
                 // if not found, throw exception
                 if (DataPropertyInfo == null)
                 {
-                    throw new DataEntityAttributeNotFoundException($"{ dataExchangeObject.GetType().ToString()} must implement member, which inherits from {nameof(AxoDataEntity)} and is annotated with {nameof(DataEntityAttribute)}.");
+                    throw new AxoDataEntityAttributeNotFoundException($"{ dataExchangeObject.GetType().ToString()} must implement member, which inherits from {nameof(AxoDataEntity)} and is annotated with {nameof(AxoDataEntityAttribute)}.");
                 }
 
                 //// if is not sublass of DataEntity, throw exception
@@ -82,7 +82,7 @@ namespace AXOpen.Data.ViewModels
                 }
 
                 MethodInfo generic = method.MakeGenericMethod(genericTypePoco, genericTypeBase);
-                DataViewModel = (IDataViewModel)generic.Invoke(null, new object[] { dataExchangeObject.GetRepository(), dataExchangeObject });
+                DataViewModel = (IAxoDataViewModel)generic.Invoke(null, new object[] { dataExchangeObject.GetRepository(), dataExchangeObject });
 
             }
             catch

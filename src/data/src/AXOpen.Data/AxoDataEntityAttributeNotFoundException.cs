@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Data
 {
-    public class DataEntityAttributeNotFoundException : Exception
+    public class AxoDataEntityAttributeNotFoundException : Exception
     {
-        public DataEntityAttributeNotFoundException()
+        public AxoDataEntityAttributeNotFoundException()
         {
         }
 
-        public DataEntityAttributeNotFoundException(string message)
+        public AxoDataEntityAttributeNotFoundException(string message)
             : base(message)
         {
         }

@@ -163,7 +163,7 @@ NAMESPACE IntegrationLightDirect
 
     CLASS DataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC     
-            {#ix-attr:[DataEntityAttribute]}         
+            {#ix-attr:[AxoDataEntityAttribute]}         
             _data       : DataSet;
         END_VAR          
     END_CLASS    

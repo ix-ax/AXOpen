@@ -8,7 +8,7 @@ namespace AXOpen.Data
 {
 
     [System.AttributeUsage(System.AttributeTargets.Property)]
-    public class DataEntityAttribute: Attribute
+    public class AxoDataEntityAttribute: Attribute
     {
     }
 }

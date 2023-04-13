@@ -14,7 +14,7 @@ namespace integration.data.blazor.tests
         = new(ConnectorAdapterBuilder.Build()
             .CreateDummy());
 
-        private IDataViewModel _vm;
+        private IAxoDataViewModel _vm;
         public AxoDataViewModelTests()
         {
           
@@ -25,7 +25,7 @@ namespace integration.data.blazor.tests
 
             var data = dataObject.Data;
 
-            var exchangeViewModel = new DataExchangeBaseViewModel{ 
+            var exchangeViewModel = new AxoDataExchangeBaseViewModel{ 
                 Model = dataObject,
                 };
             _vm = exchangeViewModel.DataViewModel;

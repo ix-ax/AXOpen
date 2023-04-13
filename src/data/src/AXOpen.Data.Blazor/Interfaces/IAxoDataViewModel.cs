@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Data.Interfaces
 {
-    public interface IDataViewModel
+    public interface IAxoDataViewModel
     {
         AxoDataExchange DataExchange { get; }
 
