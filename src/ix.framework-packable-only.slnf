@@ -14,7 +14,7 @@
       "data\\src\\repositories\\RavenDb\\Ix.Framework.Data.RavenDb\\AXOpen.Data.RavenDb.csproj",
       "messaging\\src\\AXOpen.Messaging.Blazor\\axopen_messaging_blazor.csproj",
       "messaging\\src\\AXOpen.Messaging\\ix_ax_axopen_messaging.csproj",
-      "probers\\src\\ix.framework.probers\\ix_ax_ix_framework_probers.csproj",
+      "probers\\src\\AXOpen.Probers\\ix_ax_axopen_probers.csproj",
       "utils\\src\\AXOpen.Utils\\ix_ax_axopen_utils.csproj"
     ]
   }

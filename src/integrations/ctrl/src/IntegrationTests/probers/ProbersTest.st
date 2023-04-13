@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-USING ix.framework.probers;
+USING AXOpen.Probers;
 
 NAMESPACE IntegrationTests
 
@@ -15,7 +15,7 @@ CLASS ProbersTestContext EXTENDS AxoContext
     END_METHOD
 END_CLASS
 
-CLASS ProbeWithCounterTests EXTENDS ProberWithCounterBase    
+CLASS ProbeWithCounterTests EXTENDS AxoProberWithCounterBase    
     VAR PUBLIC
         _didExecuteTestMethod : BOOL;
         _numberOfCalls : ULINT;
@@ -27,7 +27,7 @@ CLASS ProbeWithCounterTests EXTENDS ProberWithCounterBase
     END_METHOD    
 END_CLASS
 
-CLASS ProberWithCompletedConditionTests EXTENDS ProberWithCompletedCondition    
+CLASS ProberWithCompletedConditionTests EXTENDS AxoProberWithCompletedCondition    
     VAR PUBLIC
         _didExecuteTestMethod : BOOL;
         _numberOfCalls : ULINT;
