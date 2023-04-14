@@ -22,16 +22,15 @@ NAMESPACE axosimple
     
     CLASS ProductionSettingsHandler EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
-            {#ix-attr:[AXOpen.Data.DataEntityAttribute]}
-            Data : ProductionSettings;
+            {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
+            _data : ProductionSettings;
         END_VAR        
     END_CLASS
 
     CLASS ProductionSettings EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             StepDelay : TIME;
-        END_VAR
-        
+        END_VAR        
     END_CLASS
 END_NAMESPACE
 

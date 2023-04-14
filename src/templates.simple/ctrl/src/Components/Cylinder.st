@@ -7,7 +7,11 @@ NAMESPACE AXOpen.Pneumatics
             {#ix-attr:[ComponentHeader()]}
             MoveToWork : AxoTask;
             {#ix-attr:[ComponentHeader()]}            
+            Stop : AxoTask;
+            {#ix-attr:[ComponentHeader()]}            
             MoveToHome : AxoTask;
+
+
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Signals")]}
@@ -44,6 +48,16 @@ NAMESPACE AXOpen.Pneumatics
             THIS.Initialize(parent);
             MoveToWork.Initialize(THIS);
             MoveToHome.Initialize(THIS);
+            Stop.Initialize(THIS);
+
+            IF(Stop.Execute()) THEN
+                moveHomeSignal := FALSE;
+                moveWorkSignal := FALSE;
+                MoveToHome.Restore();
+                MoveToWork.Restore();
+                Stop.DoneWhen(TRUE);
+                Stop.Restore();
+            END_IF;    
 
             IF(MoveToWork.Execute()) THEN                
                 moveHomeSignal := FALSE;
@@ -74,6 +88,7 @@ NAMESPACE AXOpen.Pneumatics
         METHOD PROTECTED OVERRIDE Restore : IAxoTask
             MoveToWork.Restore();
             MoveToWork.Restore();
+            Stop.Restore();
         END_METHOD
         
     END_CLASS
