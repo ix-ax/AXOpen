@@ -9,7 +9,7 @@ NAMESPACE AxoDataExamples
             _read       : BOOL;
             _update     : BOOL;
             _delete     : BOOL;
-            {#ix-attr:[DataEntityAttribute]}
+            {#ix-attr:[AxoDataEntityAttribute]}
             _data       : AxoTestData;
         END_VAR  
     END_CLASS       

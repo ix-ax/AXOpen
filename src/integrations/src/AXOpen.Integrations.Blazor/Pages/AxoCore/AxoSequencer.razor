@@ -1,0 +1,26 @@
+﻿@page "/AxoSequencer"
+@using axopen_integrations
+@using AXOpen.Core;
+<h3>AxoSequencer</h3>
+
+<div class="container">
+    <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+        Sequencer with few steps
+        <br />
+        <RenderableContentControl Context="@Entry.Plc.AxoSequencers.Counter" Presentation="Control" />
+    </div>
+</div>
+
+<h7>RenderableContentControl Context="@Entry.Plc.AxoSequencers" Presentation="Command-Control"</h7>
+<div class="container">
+    <div class="container text-left">
+        <RenderableContentControl Context="@Entry.Plc.AxoSequencers" Presentation="Command-Control" />
+    </div>
+</div>
+
+<h7>RenderableContentControl Context="@Entry.Plc.AxoSequencers" Presentation="Status-Display"</h7>
+<div class="container">
+    <div class="container text-left">
+        <RenderableContentControl Context="@Entry.Plc.AxoSequencers" Presentation="Status-Display" />
+    </div>
+</div>

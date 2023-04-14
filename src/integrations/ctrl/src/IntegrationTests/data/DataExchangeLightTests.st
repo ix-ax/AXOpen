@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 USING AXOpen.Data;
-USING ix.framework.probers;
+USING AXOpen.Probers;
 
 NAMESPACE IntegrationLightDirect    
     CLASS DataExchangeLightTestsContext EXTENDS AxoContext
@@ -37,7 +37,7 @@ NAMESPACE IntegrationLightDirect
 
     
 
-    CLASS DataCreateTest EXTENDS ProberWithCompletedCondition
+    CLASS DataCreateTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
             Identifier : STRING[254];
@@ -68,7 +68,7 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
     END_CLASS
    
-    CLASS DataReadTest EXTENDS ProberWithCompletedCondition
+    CLASS DataReadTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
             Identifier : STRING[254];
@@ -99,7 +99,7 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
     END_CLASS
 
-    CLASS DataUpdateTest EXTENDS ProberWithCompletedCondition
+    CLASS DataUpdateTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
             Identifier : STRING[254];
@@ -130,7 +130,7 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
     END_CLASS
 
-    CLASS DataDeleteTest EXTENDS ProberWithCompletedCondition
+    CLASS DataDeleteTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
             Identifier : STRING[254];
@@ -163,7 +163,7 @@ NAMESPACE IntegrationLightDirect
 
     CLASS DataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC     
-            {#ix-attr:[DataEntityAttribute]}         
+            {#ix-attr:[AxoDataEntityAttribute]}         
             _data       : DataSet;
         END_VAR          
     END_CLASS    
