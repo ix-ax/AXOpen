@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.utils"
-version                                                                                                                                                             : '0.1.4-alpha.47'
+version                                                                                                                                                               : '0.1.4-add-application-templates-for-integration-testing.174'
 type: lib
 targets:
   #  - "1500"

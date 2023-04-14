@@ -11,7 +11,7 @@ namespace AXOpen.Core
         private string RowClass = "bg-white text-dark";
         private bool IsActive => Component.IsActive.Cyclic == true;
 
-        private string Description => string.IsNullOrEmpty(Component.Description) ? Component.StepDescription.Cyclic : Component.Description;
+        private string Description => string.IsNullOrEmpty(Component.StepDescription.Cyclic) ? Component.Description : Component.StepDescription.Cyclic;
 
         private void UpdateStepRowColors(object sender, EventArgs e)
         {

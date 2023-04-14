@@ -1,0 +1,36 @@
+﻿@page "/ui/autoui"
+@using AXOpen.Core;
+@using System.ComponentModel
+@using AXSharp.Connector
+@inherits RenderableComplexComponentBase<AxoSequencer>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <AxoSequencerView IsControllable="true" HasSettings="false" HasStepControls="false" HasStepDetails="false" Component="@Entry.Plc.Context.ControlledUnit.GroundSequence"></AxoSequencerView>
+        </div>
+        <div class="col-md-4">
+            <AxoSequencerView IsControllable="true" HasSettings="false" HasStepControls="false" HasStepDetails="false" Component="@Entry.Plc.Context.ControlledUnit.AutomatSequence"></AxoSequencerView>
+        </div>
+        <div class="col-md-4">
+            <AxoTaskCommandView Component="@Entry.Plc.Context.ControlledUnit.ServiceMode"></AxoTaskCommandView>
+        </div>
+    </div>
+    <div>
+        <RenderableContentControl Context="Entry.Plc.Context.ControlledUnit.Components" Presentation="Command-Control"></RenderableContentControl>
+    </div>
+    <div>
+        <RenderableContentControl Context="Entry.Plc.Inputs" Presentation="Control"></RenderableContentControl>
+        <RenderableContentControl Context="Entry.Plc.Outputs" Presentation="Control"></RenderableContentControl>
+    </div>
+</div>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        Entry.Plc.Context.ControlledUnit.StartPolling(250);
+        this.UpdateValuesOnChange(Entry.Plc.Context.ControlledUnit);
+    }
+}
+

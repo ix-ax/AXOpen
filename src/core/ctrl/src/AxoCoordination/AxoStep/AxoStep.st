@@ -111,11 +111,16 @@ NAMESPACE AXOpen.Core
                 coord : IAxoCoordinator;                
                 Enable : BOOL;
             END_VAR
-            VAR
+            VAR                
                 Sequencer : REF_TO AxoSequencer;
+                coordAsAxoObject : IAxoObject;
                 // Selector : REF_TO Selector;
             END_VAR    
 
+            // Initializes with the coordinator if not previously intialized.
+            coordAsAxoObject ?= coord;
+            IF(coordAsAxoObject <> NULL) THEN THIS.Initialize(coordAsAxoObject); END_IF;
+            
             THIS.CountCallsOfTheExecuteMethod();
 
             Sequencer ?= coord;

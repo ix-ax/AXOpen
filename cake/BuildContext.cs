@@ -147,7 +147,8 @@ public class BuildContext : FrostingContext
 
     public IEnumerable<(string folder, string name, string targetIp, string targetPlatform)> Integrations { get; } = new[]
     {
-        ("integrations", "ix.integrations", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),        
+        ("integrations", "ix.integrations", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
+        ("templates.simple", "templates.simple", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
     };
 
     public string GitHubUser { get; } = System.Environment.GetEnvironmentVariable("GH_USER");

@@ -55,6 +55,7 @@ NAMESPACE AXOpen.Core
         VAR PUBLIC
             {#ix-attr:[CompilerOmits("POCO")]}
             {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[RenderIgnore()]}
             Identity   : ULINT := ULINT#0;
         END_VAR    
 
