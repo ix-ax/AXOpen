@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.utils"
-version                                                                                                                                                                          : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.177'
+version                                                                                                                                                                                 : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.178'
 type: lib
 targets:
   #  - "1500"

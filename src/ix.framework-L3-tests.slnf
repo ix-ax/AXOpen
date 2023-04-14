@@ -14,9 +14,9 @@
       "data\\src\\repositories\\RavenDb\\AXOpen.Data.RavenDb\\Ix.Framework.Data.RavenDb.csproj",
       "data\\tests\\AXOpen.Repository.Integration.Tests_L1\\axopen_repository_integration_tests_L1.csproj",
       "data\\tests\\AXOpen.Data.Tests\\axopen_data_tests.csproj",
-      "integrations\\integration.blazor\\integration.blazor.csproj",
-      "integrations\\ix.integrations\\integrations.csproj",
-      "integrations\\tests\\integration.tests\\integration.tests.csproj",
+      "integrations\\src\\AXOpen.Integrations.Blazor\\axopen_integrations_blazor.csproj",
+      "integrations\\src\\AXOpen.Integrations\\axopen_integrations.csproj",
+      "integrations\\tests\\AXOpen.Integration.Tests\\axopen_integration_tests.csproj",
       "probers\\src\\AXOpen.Probers\\ix_ax_axopen_probers.csproj",
       "probers\\tests\\AXOpen.Probers.Tests\\axopen_probers_tests.csproj"
     ]
