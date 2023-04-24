@@ -86,8 +86,10 @@
 <p>The deferred execution in .NET environment is not hard-real time nor deterministic. You would typically use the IxRemoteTask when it would be hard to achieve a goal in the PLC, but you can delegate the access to the non-hard-real and nondeterministic environment. Examples of such use would be database access, complex calculations, and email sending.</p>
 </div>
 <p><strong>IxTask initialization within a IxContext</strong></p>
-<pre><code class="lang-smalltalk">_remoteTask.Initialize(THIS); // THIS = IIContext 
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>There are two key methods for managing the IxTask:</p>
 <ul>
 <li><code>Invoke()</code> fires the execution of the IxTask (can be called fire&amp;forget or cyclically)</li>
@@ -107,8 +109,10 @@
 <li><code>Restore()</code> acts as a reset of the IxRemoteTask (sets the state into <code>Ready</code> from any state of the IxTask).</li>
 </ul>
 <p>The <code>IxRemoteTask</code> executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and <code>Invoke</code> does not need cyclical calling.</p>
-<pre><code class="lang-smalltalk">_remoteTask.Invoke('hello');                            
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p><code>Invoke()</code> method returns IIxTaskState with the following members:</p>
 <ul>
 <li><code>IsBusy</code> indicates the execution started and is running.</li>
@@ -117,37 +121,31 @@
 <li><code>IsAborted</code> indicates that the execution of the IxTask has been aborted. It should continue by calling the method <code>Resume()</code>.</li>
 </ul>
 <h2 id="task-initialization-in-net">Task initialization in .NET</h2>
-<pre><code class="lang-csharp">Entry.Plc.ixcore_remote_tasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.ixcore_remote_tasks._remoteTask.Message.GetAsync().Result}'&quot;));
+<pre><code class="lang-csharp">Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'&quot;));
 </code></pre>
 <p>In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.</p>
 <p><img src="../../images/remote_exect.gif" alt="Alt text"></p>
 <h2 id="executing-from-plc">Executing from PLC</h2>
 <p>Invoking the IxRemoteTask and waiting for its completion at the same place.</p>
-<pre><code class="lang-smalltalk">IF(_remoteTask.Invoke('hello').IsDone()) THEN
-    _doneCounter := _doneCounter + 1; 
-END_IF;    
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>Invoking the IxRemoteTask and waiting for its completion at the different places.</p>
-<pre><code class="lang-smalltalk">
-// Fire &amp; Forget
-_remoteTask.Invoke('hello');
-
-// What for done somwhere else
-IF(_remoteTask.IsDone()) THEN
-    _doneCounter := _doneCounter + 1; 
-END_IF;    
-
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>Checking if the IxRemoteTask is executing.</p>
-<pre><code class="lang-smalltalk">IF(_remoteTask.IsBusy()) THEN
-    ;// Do something after task started
-END_IF;   
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>Check for the IxRemoteTask's error state.</p>
-<pre><code class="lang-smalltalk">IF(_remoteTask.HasError()) THEN
-    ;// Do something when an exception occurs on remote task.
-END_IF;   
-</code></pre></article>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div></article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">
@@ -155,7 +153,7 @@ END_IF;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/dev/docfx/articles/core/IXREMOTETASK.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/articles/core/IXREMOTETASK.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

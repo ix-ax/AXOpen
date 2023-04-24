@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: AXOpen.Core.Blazor
+  commentId: N:AXOpen.Core.Blazor
+  id: AXOpen.Core.Blazor
+  children:
+  - AXOpen.Core.Blazor._Imports
+  langs:
+  - csharp
+  - vb
+  name: AXOpen.Core.Blazor
+  nameWithType: AXOpen.Core.Blazor
+  fullName: AXOpen.Core.Blazor
+  type: Namespace
+  assemblies:
+  - axopen_core_blazor
+references:
+- uid: AXOpen.Core.Blazor._Imports
+  commentId: T:AXOpen.Core.Blazor._Imports
+  name: _Imports
+  nameWithType: _Imports
+  fullName: AXOpen.Core.Blazor._Imports

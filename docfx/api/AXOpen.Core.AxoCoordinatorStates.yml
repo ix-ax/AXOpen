@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: AXOpen.Core.AxoCoordinatorStates
+  commentId: T:AXOpen.Core.AxoCoordinatorStates
+  id: AxoCoordinatorStates
+  parent: AXOpen.Core
+  children:
+  - AXOpen.Core.AxoCoordinatorStates.Configuring
+  - AXOpen.Core.AxoCoordinatorStates.Idle
+  - AXOpen.Core.AxoCoordinatorStates.Running
+  langs:
+  - csharp
+  - vb
+  name: AxoCoordinatorStates
+  nameWithType: AxoCoordinatorStates
+  fullName: AXOpen.Core.AxoCoordinatorStates
+  type: Enum
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoCoordinatorStates.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: AxoCoordinatorStates
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoCoordinatorStates.g.cs
+    startLine: 8
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: 'public enum AxoCoordinatorStates : short'
+    content.vb: Public Enum AxoCoordinatorStates As Short
+- uid: AXOpen.Core.AxoCoordinatorStates.Idle
+  commentId: F:AXOpen.Core.AxoCoordinatorStates.Idle
+  id: Idle
+  parent: AXOpen.Core.AxoCoordinatorStates
+  langs:
+  - csharp
+  - vb
+  name: Idle
+  nameWithType: AxoCoordinatorStates.Idle
+  fullName: AXOpen.Core.AxoCoordinatorStates.Idle
+  type: Field
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoCoordinatorStates.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Idle
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoCoordinatorStates.g.cs
+    startLine: 10
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: Idle = 0
+    return:
+      type: AXOpen.Core.AxoCoordinatorStates
+- uid: AXOpen.Core.AxoCoordinatorStates.Configuring
+  commentId: F:AXOpen.Core.AxoCoordinatorStates.Configuring
+  id: Configuring
+  parent: AXOpen.Core.AxoCoordinatorStates
+  langs:
+  - csharp
+  - vb
+  name: Configuring
+  nameWithType: AxoCoordinatorStates.Configuring
+  fullName: AXOpen.Core.AxoCoordinatorStates.Configuring
+  type: Field
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoCoordinatorStates.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Configuring
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoCoordinatorStates.g.cs
+    startLine: 11
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: Configuring = 1
+    return:
+      type: AXOpen.Core.AxoCoordinatorStates
+- uid: AXOpen.Core.AxoCoordinatorStates.Running
+  commentId: F:AXOpen.Core.AxoCoordinatorStates.Running
+  id: Running
+  parent: AXOpen.Core.AxoCoordinatorStates
+  langs:
+  - csharp
+  - vb
+  name: Running
+  nameWithType: AxoCoordinatorStates.Running
+  fullName: AXOpen.Core.AxoCoordinatorStates.Running
+  type: Field
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoCoordinatorStates.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Running
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoCoordinatorStates.g.cs
+    startLine: 12
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: Running = 2
+    return:
+      type: AXOpen.Core.AxoCoordinatorStates
+references:
+- uid: AXOpen.Core
+  commentId: N:AXOpen.Core
+  name: AXOpen.Core
+  nameWithType: AXOpen.Core
+  fullName: AXOpen.Core
+  spec.csharp:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+  spec.vb:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+- uid: AXOpen.Core.AxoCoordinatorStates
+  commentId: T:AXOpen.Core.AxoCoordinatorStates
+  parent: AXOpen.Core
+  name: AxoCoordinatorStates
+  nameWithType: AxoCoordinatorStates
+  fullName: AXOpen.Core.AxoCoordinatorStates

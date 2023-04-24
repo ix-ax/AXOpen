@@ -1,0 +1,649 @@
+### YamlMime:ManagedReference
+items:
+- uid: Pocos.AXOpen.Core.AxoTask
+  commentId: T:Pocos.AXOpen.Core.AxoTask
+  id: AxoTask
+  parent: Pocos.AXOpen.Core
+  children:
+  - Pocos.AXOpen.Core.AxoTask.ErrorDetails
+  - Pocos.AXOpen.Core.AxoTask.IsDisabled
+  - Pocos.AXOpen.Core.AxoTask.RemoteAbort
+  - Pocos.AXOpen.Core.AxoTask.RemoteInvoke
+  - Pocos.AXOpen.Core.AxoTask.RemoteRestore
+  - Pocos.AXOpen.Core.AxoTask.RemoteResume
+  - Pocos.AXOpen.Core.AxoTask.StartSignature
+  - Pocos.AXOpen.Core.AxoTask.Status
+  langs:
+  - csharp
+  - vb
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: Pocos.AXOpen.Core.AxoTask
+  type: Class
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: AxoTask
+    path: ../src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+    startLine: 6
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: 'public class AxoTask : AxoObject, IAxoObject, IPlain, IAxoTask, IAxoTaskState'
+    content.vb: Public Class AxoTask Inherits AxoObject Implements IAxoObject, IPlain, IAxoTask, IAxoTaskState
+  inheritance:
+  - System.Object
+  - Pocos.AXOpen.Core.AxoObject
+  derivedClasses:
+  - Pocos.AXOpen.Core.AxoRemoteTask
+  - Pocos.AXOpen.Core.AxoSequencer
+  - Pocos.AXOpen.Core.AxoStep
+  implements:
+  - Pocos.AXOpen.Core.IAxoObject
+  - AXSharp.Connector.IPlain
+  - Pocos.AXOpen.Core.IAxoTask
+  - Pocos.AXOpen.Core.IAxoTaskState
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Pocos.AXOpen.Core.AxoTask.Status
+  commentId: P:Pocos.AXOpen.Core.AxoTask.Status
+  id: Status
+  parent: Pocos.AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: AxoTask.Status
+  fullName: Pocos.AXOpen.Core.AxoTask.Status
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Status
+    path: ../src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+    startLine: 8
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: public short Status { get; set; }
+    parameters: []
+    return:
+      type: System.Int16
+    content.vb: Public Property Status As Short
+  overload: Pocos.AXOpen.Core.AxoTask.Status*
+- uid: Pocos.AXOpen.Core.AxoTask.IsDisabled
+  commentId: P:Pocos.AXOpen.Core.AxoTask.IsDisabled
+  id: IsDisabled
+  parent: Pocos.AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: IsDisabled
+  nameWithType: AxoTask.IsDisabled
+  fullName: Pocos.AXOpen.Core.AxoTask.IsDisabled
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: IsDisabled
+    path: ../src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+    startLine: 10
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: public bool IsDisabled { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsDisabled As Boolean
+  overload: Pocos.AXOpen.Core.AxoTask.IsDisabled*
+- uid: Pocos.AXOpen.Core.AxoTask.RemoteInvoke
+  commentId: P:Pocos.AXOpen.Core.AxoTask.RemoteInvoke
+  id: RemoteInvoke
+  parent: Pocos.AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: RemoteInvoke
+  nameWithType: AxoTask.RemoteInvoke
+  fullName: Pocos.AXOpen.Core.AxoTask.RemoteInvoke
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: RemoteInvoke
+    path: ../src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+    startLine: 12
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: public bool RemoteInvoke { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property RemoteInvoke As Boolean
+  overload: Pocos.AXOpen.Core.AxoTask.RemoteInvoke*
+- uid: Pocos.AXOpen.Core.AxoTask.RemoteRestore
+  commentId: P:Pocos.AXOpen.Core.AxoTask.RemoteRestore
+  id: RemoteRestore
+  parent: Pocos.AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: RemoteRestore
+  nameWithType: AxoTask.RemoteRestore
+  fullName: Pocos.AXOpen.Core.AxoTask.RemoteRestore
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: RemoteRestore
+    path: ../src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+    startLine: 14
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: public bool RemoteRestore { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property RemoteRestore As Boolean
+  overload: Pocos.AXOpen.Core.AxoTask.RemoteRestore*
+- uid: Pocos.AXOpen.Core.AxoTask.RemoteAbort
+  commentId: P:Pocos.AXOpen.Core.AxoTask.RemoteAbort
+  id: RemoteAbort
+  parent: Pocos.AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: RemoteAbort
+  nameWithType: AxoTask.RemoteAbort
+  fullName: Pocos.AXOpen.Core.AxoTask.RemoteAbort
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: RemoteAbort
+    path: ../src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+    startLine: 16
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: public bool RemoteAbort { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property RemoteAbort As Boolean
+  overload: Pocos.AXOpen.Core.AxoTask.RemoteAbort*
+- uid: Pocos.AXOpen.Core.AxoTask.RemoteResume
+  commentId: P:Pocos.AXOpen.Core.AxoTask.RemoteResume
+  id: RemoteResume
+  parent: Pocos.AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: RemoteResume
+  nameWithType: AxoTask.RemoteResume
+  fullName: Pocos.AXOpen.Core.AxoTask.RemoteResume
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: RemoteResume
+    path: ../src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+    startLine: 18
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: public bool RemoteResume { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property RemoteResume As Boolean
+  overload: Pocos.AXOpen.Core.AxoTask.RemoteResume*
+- uid: Pocos.AXOpen.Core.AxoTask.StartSignature
+  commentId: P:Pocos.AXOpen.Core.AxoTask.StartSignature
+  id: StartSignature
+  parent: Pocos.AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: StartSignature
+  nameWithType: AxoTask.StartSignature
+  fullName: Pocos.AXOpen.Core.AxoTask.StartSignature
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: StartSignature
+    path: ../src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+    startLine: 20
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: public ulong StartSignature { get; set; }
+    parameters: []
+    return:
+      type: System.UInt64
+    content.vb: Public Property StartSignature As ULong
+  overload: Pocos.AXOpen.Core.AxoTask.StartSignature*
+- uid: Pocos.AXOpen.Core.AxoTask.ErrorDetails
+  commentId: P:Pocos.AXOpen.Core.AxoTask.ErrorDetails
+  id: ErrorDetails
+  parent: Pocos.AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: ErrorDetails
+  nameWithType: AxoTask.ErrorDetails
+  fullName: Pocos.AXOpen.Core.AxoTask.ErrorDetails
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: ErrorDetails
+    path: ../src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs
+    startLine: 22
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: public string ErrorDetails { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ErrorDetails As String
+  overload: Pocos.AXOpen.Core.AxoTask.ErrorDetails*
+references:
+- uid: Pocos.AXOpen.Core
+  commentId: N:Pocos.AXOpen.Core
+  name: Pocos.AXOpen.Core
+  nameWithType: Pocos.AXOpen.Core
+  fullName: Pocos.AXOpen.Core
+  spec.csharp:
+  - uid: Pocos
+    name: Pocos
+  - name: .
+  - uid: Pocos.AXOpen
+    name: AXOpen
+  - name: .
+  - uid: Pocos.AXOpen.Core
+    name: Core
+  spec.vb:
+  - uid: Pocos
+    name: Pocos
+  - name: .
+  - uid: Pocos.AXOpen
+    name: AXOpen
+  - name: .
+  - uid: Pocos.AXOpen.Core
+    name: Core
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Pocos.AXOpen.Core.AxoObject
+  commentId: T:Pocos.AXOpen.Core.AxoObject
+  parent: Pocos.AXOpen.Core
+  name: AxoObject
+  nameWithType: AxoObject
+  fullName: Pocos.AXOpen.Core.AxoObject
+- uid: Pocos.AXOpen.Core.IAxoObject
+  commentId: T:Pocos.AXOpen.Core.IAxoObject
+  parent: Pocos.AXOpen.Core
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: Pocos.AXOpen.Core.IAxoObject
+- uid: AXSharp.Connector.IPlain
+  commentId: T:AXSharp.Connector.IPlain
+  parent: AXSharp.Connector
+  isExternal: true
+  name: IPlain
+  nameWithType: IPlain
+  fullName: AXSharp.Connector.IPlain
+- uid: Pocos.AXOpen.Core.IAxoTask
+  commentId: T:Pocos.AXOpen.Core.IAxoTask
+  parent: Pocos.AXOpen.Core
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: Pocos.AXOpen.Core.IAxoTask
+- uid: Pocos.AXOpen.Core.IAxoTaskState
+  commentId: T:Pocos.AXOpen.Core.IAxoTaskState
+  parent: Pocos.AXOpen.Core
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: Pocos.AXOpen.Core.IAxoTaskState
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AXSharp.Connector
+  commentId: N:AXSharp.Connector
+  isExternal: true
+  name: AXSharp.Connector
+  nameWithType: AXSharp.Connector
+  fullName: AXSharp.Connector
+  spec.csharp:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+  spec.vb:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+- uid: Pocos.AXOpen.Core.AxoTask.Status*
+  commentId: Overload:Pocos.AXOpen.Core.AxoTask.Status
+  name: Status
+  nameWithType: AxoTask.Status
+  fullName: Pocos.AXOpen.Core.AxoTask.Status
+- uid: System.Int16
+  commentId: T:System.Int16
+  parent: System
+  isExternal: true
+  name: short
+  nameWithType: short
+  fullName: short
+  nameWithType.vb: Short
+  fullName.vb: Short
+  name.vb: Short
+- uid: Pocos.AXOpen.Core.AxoTask.IsDisabled*
+  commentId: Overload:Pocos.AXOpen.Core.AxoTask.IsDisabled
+  name: IsDisabled
+  nameWithType: AxoTask.IsDisabled
+  fullName: Pocos.AXOpen.Core.AxoTask.IsDisabled
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Pocos.AXOpen.Core.AxoTask.RemoteInvoke*
+  commentId: Overload:Pocos.AXOpen.Core.AxoTask.RemoteInvoke
+  name: RemoteInvoke
+  nameWithType: AxoTask.RemoteInvoke
+  fullName: Pocos.AXOpen.Core.AxoTask.RemoteInvoke
+- uid: Pocos.AXOpen.Core.AxoTask.RemoteRestore*
+  commentId: Overload:Pocos.AXOpen.Core.AxoTask.RemoteRestore
+  name: RemoteRestore
+  nameWithType: AxoTask.RemoteRestore
+  fullName: Pocos.AXOpen.Core.AxoTask.RemoteRestore
+- uid: Pocos.AXOpen.Core.AxoTask.RemoteAbort*
+  commentId: Overload:Pocos.AXOpen.Core.AxoTask.RemoteAbort
+  name: RemoteAbort
+  nameWithType: AxoTask.RemoteAbort
+  fullName: Pocos.AXOpen.Core.AxoTask.RemoteAbort
+- uid: Pocos.AXOpen.Core.AxoTask.RemoteResume*
+  commentId: Overload:Pocos.AXOpen.Core.AxoTask.RemoteResume
+  name: RemoteResume
+  nameWithType: AxoTask.RemoteResume
+  fullName: Pocos.AXOpen.Core.AxoTask.RemoteResume
+- uid: Pocos.AXOpen.Core.AxoTask.StartSignature*
+  commentId: Overload:Pocos.AXOpen.Core.AxoTask.StartSignature
+  name: StartSignature
+  nameWithType: AxoTask.StartSignature
+  fullName: Pocos.AXOpen.Core.AxoTask.StartSignature
+- uid: System.UInt64
+  commentId: T:System.UInt64
+  parent: System
+  isExternal: true
+  name: ulong
+  nameWithType: ulong
+  fullName: ulong
+  nameWithType.vb: ULong
+  fullName.vb: ULong
+  name.vb: ULong
+- uid: Pocos.AXOpen.Core.AxoTask.ErrorDetails*
+  commentId: Overload:Pocos.AXOpen.Core.AxoTask.ErrorDetails
+  name: ErrorDetails
+  nameWithType: AxoTask.ErrorDetails
+  fullName: Pocos.AXOpen.Core.AxoTask.ErrorDetails
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

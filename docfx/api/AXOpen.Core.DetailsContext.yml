@@ -1,0 +1,1874 @@
+### YamlMime:ManagedReference
+items:
+- uid: AXOpen.Core.DetailsContext
+  commentId: T:AXOpen.Core.DetailsContext
+  id: DetailsContext
+  parent: AXOpen.Core
+  children:
+  - AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement},System.String)
+  - AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement})
+  - AXOpen.Core.DetailsContext.AddChild(AXSharp.Connector.ITwinObject)
+  - AXOpen.Core.DetailsContext.AddKid(AXSharp.Connector.ITwinElement)
+  - AXOpen.Core.DetailsContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  - AXOpen.Core.DetailsContext.AttributeName
+  - AXOpen.Core.DetailsContext.GetChildren
+  - AXOpen.Core.DetailsContext.GetConnector
+  - AXOpen.Core.DetailsContext.GetKids
+  - AXOpen.Core.DetailsContext.GetParent
+  - AXOpen.Core.DetailsContext.GetSymbolTail
+  - AXOpen.Core.DetailsContext.GetValueTags
+  - AXOpen.Core.DetailsContext.HumanReadable
+  - AXOpen.Core.DetailsContext.Interpreter
+  - AXOpen.Core.DetailsContext.OnlineToPlain``1
+  - AXOpen.Core.DetailsContext.PlainToOnline``1(``0)
+  - AXOpen.Core.DetailsContext.PlainToShadow``1(``0)
+  - AXOpen.Core.DetailsContext.Poll
+  - AXOpen.Core.DetailsContext.ShadowToPlain``1
+  - AXOpen.Core.DetailsContext.Symbol
+  - AXOpen.Core.DetailsContext.TabName
+  langs:
+  - csharp
+  - vb
+  name: DetailsContext
+  nameWithType: DetailsContext
+  fullName: AXOpen.Core.DetailsContext
+  type: Class
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: DetailsContext
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 5
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: 'public class DetailsContext : ITwinObject, ITwinElement'
+    content.vb: Public Class DetailsContext Implements ITwinObject, ITwinElement
+  inheritance:
+  - System.Object
+  implements:
+  - AXSharp.Connector.ITwinObject
+  - AXSharp.Connector.ITwinElement
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement})
+  commentId: M:AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement})
+  id: '#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement})'
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: DetailsContext(ITwinObject, IList<ITwinElement>)
+  nameWithType: DetailsContext.DetailsContext(ITwinObject, IList<ITwinElement>)
+  fullName: AXOpen.Core.DetailsContext.DetailsContext(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList<AXSharp.Connector.ITwinElement>)
+  type: Constructor
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: .ctor
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 7
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public DetailsContext(ITwinObject parent, IList<ITwinElement> kids)
+    parameters:
+    - id: parent
+      type: AXSharp.Connector.ITwinObject
+    - id: kids
+      type: System.Collections.Generic.IList{AXSharp.Connector.ITwinElement}
+    content.vb: Public Sub New(parent As ITwinObject, kids As IList(Of ITwinElement))
+  overload: AXOpen.Core.DetailsContext.#ctor*
+  nameWithType.vb: DetailsContext.New(ITwinObject, IList(Of ITwinElement))
+  fullName.vb: AXOpen.Core.DetailsContext.New(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList(Of AXSharp.Connector.ITwinElement))
+  name.vb: New(ITwinObject, IList(Of ITwinElement))
+- uid: AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement},System.String)
+  commentId: M:AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement},System.String)
+  id: '#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement},System.String)'
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: DetailsContext(ITwinObject, IList<ITwinElement>, string)
+  nameWithType: DetailsContext.DetailsContext(ITwinObject, IList<ITwinElement>, string)
+  fullName: AXOpen.Core.DetailsContext.DetailsContext(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList<AXSharp.Connector.ITwinElement>, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: .ctor
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 13
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public DetailsContext(ITwinObject parent, IList<ITwinElement> kids, string tabName)
+    parameters:
+    - id: parent
+      type: AXSharp.Connector.ITwinObject
+    - id: kids
+      type: System.Collections.Generic.IList{AXSharp.Connector.ITwinElement}
+    - id: tabName
+      type: System.String
+    content.vb: Public Sub New(parent As ITwinObject, kids As IList(Of ITwinElement), tabName As String)
+  overload: AXOpen.Core.DetailsContext.#ctor*
+  nameWithType.vb: DetailsContext.New(ITwinObject, IList(Of ITwinElement), String)
+  fullName.vb: AXOpen.Core.DetailsContext.New(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList(Of AXSharp.Connector.ITwinElement), String)
+  name.vb: New(ITwinObject, IList(Of ITwinElement), String)
+- uid: AXOpen.Core.DetailsContext.TabName
+  commentId: P:AXOpen.Core.DetailsContext.TabName
+  id: TabName
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: TabName
+  nameWithType: DetailsContext.TabName
+  fullName: AXOpen.Core.DetailsContext.TabName
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: TabName
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 20
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public string TabName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property TabName As String
+  overload: AXOpen.Core.DetailsContext.TabName*
+- uid: AXOpen.Core.DetailsContext.Symbol
+  commentId: P:AXOpen.Core.DetailsContext.Symbol
+  id: Symbol
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: Symbol
+  nameWithType: DetailsContext.Symbol
+  fullName: AXOpen.Core.DetailsContext.Symbol
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Symbol
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 22
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public string Symbol { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Symbol As String
+  overload: AXOpen.Core.DetailsContext.Symbol*
+  implements:
+  - AXSharp.Connector.ITwinElement.Symbol
+- uid: AXOpen.Core.DetailsContext.AttributeName
+  commentId: P:AXOpen.Core.DetailsContext.AttributeName
+  id: AttributeName
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: AttributeName
+  nameWithType: DetailsContext.AttributeName
+  fullName: AXOpen.Core.DetailsContext.AttributeName
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: AttributeName
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 24
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public string AttributeName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property AttributeName As String
+  overload: AXOpen.Core.DetailsContext.AttributeName*
+  implements:
+  - AXSharp.Connector.ITwinElement.AttributeName
+- uid: AXOpen.Core.DetailsContext.HumanReadable
+  commentId: P:AXOpen.Core.DetailsContext.HumanReadable
+  id: HumanReadable
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: HumanReadable
+  nameWithType: DetailsContext.HumanReadable
+  fullName: AXOpen.Core.DetailsContext.HumanReadable
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: HumanReadable
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 26
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public string HumanReadable { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property HumanReadable As String
+  overload: AXOpen.Core.DetailsContext.HumanReadable*
+  implements:
+  - AXSharp.Connector.ITwinElement.HumanReadable
+- uid: AXOpen.Core.DetailsContext.Interpreter
+  commentId: P:AXOpen.Core.DetailsContext.Interpreter
+  id: Interpreter
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: Interpreter
+  nameWithType: DetailsContext.Interpreter
+  fullName: AXOpen.Core.DetailsContext.Interpreter
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Interpreter
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 27
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public Translator Interpreter { get; }
+    parameters: []
+    return:
+      type: AXSharp.Connector.Localizations.Translator
+    content.vb: Public ReadOnly Property Interpreter As Translator
+  overload: AXOpen.Core.DetailsContext.Interpreter*
+  implements:
+  - AXSharp.Connector.ITwinElement.Interpreter
+- uid: AXOpen.Core.DetailsContext.GetParent
+  commentId: M:AXOpen.Core.DetailsContext.GetParent
+  id: GetParent
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: GetParent()
+  nameWithType: DetailsContext.GetParent()
+  fullName: AXOpen.Core.DetailsContext.GetParent()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: GetParent
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 34
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public ITwinObject GetParent()
+    return:
+      type: AXSharp.Connector.ITwinObject
+    content.vb: Public Function GetParent() As ITwinObject
+  overload: AXOpen.Core.DetailsContext.GetParent*
+  implements:
+  - AXSharp.Connector.ITwinElement.GetParent
+- uid: AXOpen.Core.DetailsContext.GetSymbolTail
+  commentId: M:AXOpen.Core.DetailsContext.GetSymbolTail
+  id: GetSymbolTail
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: GetSymbolTail()
+  nameWithType: DetailsContext.GetSymbolTail()
+  fullName: AXOpen.Core.DetailsContext.GetSymbolTail()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: GetSymbolTail
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 41
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public string GetSymbolTail()
+    return:
+      type: System.String
+    content.vb: Public Function GetSymbolTail() As String
+  overload: AXOpen.Core.DetailsContext.GetSymbolTail*
+  implements:
+  - AXSharp.Connector.ITwinElement.GetSymbolTail
+- uid: AXOpen.Core.DetailsContext.GetChildren
+  commentId: M:AXOpen.Core.DetailsContext.GetChildren
+  id: GetChildren
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: GetChildren()
+  nameWithType: DetailsContext.GetChildren()
+  fullName: AXOpen.Core.DetailsContext.GetChildren()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: GetChildren
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 48
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public IEnumerable<ITwinObject> GetChildren()
+    return:
+      type: System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinObject}
+    content.vb: Public Function GetChildren() As IEnumerable(Of ITwinObject)
+  overload: AXOpen.Core.DetailsContext.GetChildren*
+  implements:
+  - AXSharp.Connector.ITwinObject.GetChildren
+- uid: AXOpen.Core.DetailsContext.GetKids
+  commentId: M:AXOpen.Core.DetailsContext.GetKids
+  id: GetKids
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: GetKids()
+  nameWithType: DetailsContext.GetKids()
+  fullName: AXOpen.Core.DetailsContext.GetKids()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: GetKids
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 55
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public IEnumerable<ITwinElement> GetKids()
+    return:
+      type: System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinElement}
+    content.vb: Public Function GetKids() As IEnumerable(Of ITwinElement)
+  overload: AXOpen.Core.DetailsContext.GetKids*
+  implements:
+  - AXSharp.Connector.ITwinObject.GetKids
+- uid: AXOpen.Core.DetailsContext.GetValueTags
+  commentId: M:AXOpen.Core.DetailsContext.GetValueTags
+  id: GetValueTags
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: GetValueTags()
+  nameWithType: DetailsContext.GetValueTags()
+  fullName: AXOpen.Core.DetailsContext.GetValueTags()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: GetValueTags
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 62
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public IEnumerable<ITwinPrimitive?> GetValueTags()
+    return:
+      type: System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive}
+    content.vb: Public Function GetValueTags() As IEnumerable(Of ITwinPrimitive)
+  overload: AXOpen.Core.DetailsContext.GetValueTags*
+  implements:
+  - AXSharp.Connector.ITwinObject.GetValueTags
+- uid: AXOpen.Core.DetailsContext.AddChild(AXSharp.Connector.ITwinObject)
+  commentId: M:AXOpen.Core.DetailsContext.AddChild(AXSharp.Connector.ITwinObject)
+  id: AddChild(AXSharp.Connector.ITwinObject)
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: AddChild(ITwinObject)
+  nameWithType: DetailsContext.AddChild(ITwinObject)
+  fullName: AXOpen.Core.DetailsContext.AddChild(AXSharp.Connector.ITwinObject)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: AddChild
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 67
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public void AddChild(ITwinObject twinObject)
+    parameters:
+    - id: twinObject
+      type: AXSharp.Connector.ITwinObject
+    content.vb: Public Sub AddChild(twinObject As ITwinObject)
+  overload: AXOpen.Core.DetailsContext.AddChild*
+  implements:
+  - AXSharp.Connector.ITwinObject.AddChild(AXSharp.Connector.ITwinObject)
+- uid: AXOpen.Core.DetailsContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  commentId: M:AXOpen.Core.DetailsContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  id: AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: AddValueTag(ITwinPrimitive)
+  nameWithType: DetailsContext.AddValueTag(ITwinPrimitive)
+  fullName: AXOpen.Core.DetailsContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: AddValueTag
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 72
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public void AddValueTag(ITwinPrimitive twinPrimitive)
+    parameters:
+    - id: twinPrimitive
+      type: AXSharp.Connector.ITwinPrimitive
+    content.vb: Public Sub AddValueTag(twinPrimitive As ITwinPrimitive)
+  overload: AXOpen.Core.DetailsContext.AddValueTag*
+  implements:
+  - AXSharp.Connector.ITwinObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+- uid: AXOpen.Core.DetailsContext.AddKid(AXSharp.Connector.ITwinElement)
+  commentId: M:AXOpen.Core.DetailsContext.AddKid(AXSharp.Connector.ITwinElement)
+  id: AddKid(AXSharp.Connector.ITwinElement)
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: AddKid(ITwinElement)
+  nameWithType: DetailsContext.AddKid(ITwinElement)
+  fullName: AXOpen.Core.DetailsContext.AddKid(AXSharp.Connector.ITwinElement)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: AddKid
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 77
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public void AddKid(ITwinElement kid)
+    parameters:
+    - id: kid
+      type: AXSharp.Connector.ITwinElement
+    content.vb: Public Sub AddKid(kid As ITwinElement)
+  overload: AXOpen.Core.DetailsContext.AddKid*
+  implements:
+  - AXSharp.Connector.ITwinObject.AddKid(AXSharp.Connector.ITwinElement)
+- uid: AXOpen.Core.DetailsContext.GetConnector
+  commentId: M:AXOpen.Core.DetailsContext.GetConnector
+  id: GetConnector
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: GetConnector()
+  nameWithType: DetailsContext.GetConnector()
+  fullName: AXOpen.Core.DetailsContext.GetConnector()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: GetConnector
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 82
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public Connector GetConnector()
+    return:
+      type: AXSharp.Connector.Connector
+    content.vb: Public Function GetConnector() As Connector
+  overload: AXOpen.Core.DetailsContext.GetConnector*
+  implements:
+  - AXSharp.Connector.ITwinObject.GetConnector
+- uid: AXOpen.Core.DetailsContext.Poll
+  commentId: M:AXOpen.Core.DetailsContext.Poll
+  id: Poll
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: Poll()
+  nameWithType: DetailsContext.Poll()
+  fullName: AXOpen.Core.DetailsContext.Poll()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Poll
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 87
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public void Poll()
+    content.vb: Public Sub Poll()
+  overload: AXOpen.Core.DetailsContext.Poll*
+  implements:
+  - AXSharp.Connector.ITwinElement.Poll
+- uid: AXOpen.Core.DetailsContext.OnlineToPlain``1
+  commentId: M:AXOpen.Core.DetailsContext.OnlineToPlain``1
+  id: OnlineToPlain``1
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: OnlineToPlain<T>()
+  nameWithType: DetailsContext.OnlineToPlain<T>()
+  fullName: AXOpen.Core.DetailsContext.OnlineToPlain<T>()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: OnlineToPlain
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 92
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public Task<T> OnlineToPlain<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+    content.vb: Public Function OnlineToPlain(Of T)() As Task(Of T)
+  overload: AXOpen.Core.DetailsContext.OnlineToPlain*
+  implements:
+  - AXSharp.Connector.ITwinObject.OnlineToPlain``1
+  nameWithType.vb: DetailsContext.OnlineToPlain(Of T)()
+  fullName.vb: AXOpen.Core.DetailsContext.OnlineToPlain(Of T)()
+  name.vb: OnlineToPlain(Of T)()
+- uid: AXOpen.Core.DetailsContext.PlainToOnline``1(``0)
+  commentId: M:AXOpen.Core.DetailsContext.PlainToOnline``1(``0)
+  id: PlainToOnline``1(``0)
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: PlainToOnline<T>(T)
+  nameWithType: DetailsContext.PlainToOnline<T>(T)
+  fullName: AXOpen.Core.DetailsContext.PlainToOnline<T>(T)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: PlainToOnline
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 97
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public Task PlainToOnline<T>(T plain)
+    parameters:
+    - id: plain
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function PlainToOnline(Of T)(plain As T) As Task
+  overload: AXOpen.Core.DetailsContext.PlainToOnline*
+  implements:
+  - AXSharp.Connector.ITwinObject.PlainToOnline``1({T})
+  nameWithType.vb: DetailsContext.PlainToOnline(Of T)(T)
+  fullName.vb: AXOpen.Core.DetailsContext.PlainToOnline(Of T)(T)
+  name.vb: PlainToOnline(Of T)(T)
+- uid: AXOpen.Core.DetailsContext.ShadowToPlain``1
+  commentId: M:AXOpen.Core.DetailsContext.ShadowToPlain``1
+  id: ShadowToPlain``1
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: ShadowToPlain<T>()
+  nameWithType: DetailsContext.ShadowToPlain<T>()
+  fullName: AXOpen.Core.DetailsContext.ShadowToPlain<T>()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: ShadowToPlain
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 102
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public Task<T> ShadowToPlain<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+    content.vb: Public Function ShadowToPlain(Of T)() As Task(Of T)
+  overload: AXOpen.Core.DetailsContext.ShadowToPlain*
+  implements:
+  - AXSharp.Connector.ITwinObject.ShadowToPlain``1
+  nameWithType.vb: DetailsContext.ShadowToPlain(Of T)()
+  fullName.vb: AXOpen.Core.DetailsContext.ShadowToPlain(Of T)()
+  name.vb: ShadowToPlain(Of T)()
+- uid: AXOpen.Core.DetailsContext.PlainToShadow``1(``0)
+  commentId: M:AXOpen.Core.DetailsContext.PlainToShadow``1(``0)
+  id: PlainToShadow``1(``0)
+  parent: AXOpen.Core.DetailsContext
+  langs:
+  - csharp
+  - vb
+  name: PlainToShadow<T>(T)
+  nameWithType: DetailsContext.PlainToShadow<T>(T)
+  fullName: AXOpen.Core.DetailsContext.PlainToShadow<T>(T)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: PlainToShadow
+    path: ../src/core/src/AXOpen.Core.Blazor/AxoComponent/DetailsContext.cs
+    startLine: 107
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core
+  syntax:
+    content: public Task PlainToShadow<T>(T plain)
+    parameters:
+    - id: plain
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function PlainToShadow(Of T)(plain As T) As Task
+  overload: AXOpen.Core.DetailsContext.PlainToShadow*
+  implements:
+  - AXSharp.Connector.ITwinObject.PlainToShadow``1({T})
+  nameWithType.vb: DetailsContext.PlainToShadow(Of T)(T)
+  fullName.vb: AXOpen.Core.DetailsContext.PlainToShadow(Of T)(T)
+  name.vb: PlainToShadow(Of T)(T)
+references:
+- uid: AXOpen.Core
+  commentId: N:AXOpen.Core
+  name: AXOpen.Core
+  nameWithType: AXOpen.Core
+  fullName: AXOpen.Core
+  spec.csharp:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+  spec.vb:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: AXSharp.Connector.ITwinObject
+  commentId: T:AXSharp.Connector.ITwinObject
+  parent: AXSharp.Connector
+  isExternal: true
+  name: ITwinObject
+  nameWithType: ITwinObject
+  fullName: AXSharp.Connector.ITwinObject
+- uid: AXSharp.Connector.ITwinElement
+  commentId: T:AXSharp.Connector.ITwinElement
+  parent: AXSharp.Connector
+  isExternal: true
+  name: ITwinElement
+  nameWithType: ITwinElement
+  fullName: AXSharp.Connector.ITwinElement
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AXSharp.Connector
+  commentId: N:AXSharp.Connector
+  isExternal: true
+  name: AXSharp.Connector
+  nameWithType: AXSharp.Connector
+  fullName: AXSharp.Connector
+  spec.csharp:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+  spec.vb:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+- uid: AXOpen.Core.DetailsContext.#ctor*
+  commentId: Overload:AXOpen.Core.DetailsContext.#ctor
+  name: DetailsContext
+  nameWithType: DetailsContext.DetailsContext
+  fullName: AXOpen.Core.DetailsContext.DetailsContext
+  nameWithType.vb: DetailsContext.New
+  fullName.vb: AXOpen.Core.DetailsContext.New
+  name.vb: New
+- uid: System.Collections.Generic.IList{AXSharp.Connector.ITwinElement}
+  commentId: T:System.Collections.Generic.IList{AXSharp.Connector.ITwinElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<ITwinElement>
+  nameWithType: IList<ITwinElement>
+  fullName: System.Collections.Generic.IList<AXSharp.Connector.ITwinElement>
+  nameWithType.vb: IList(Of ITwinElement)
+  fullName.vb: System.Collections.Generic.IList(Of AXSharp.Connector.ITwinElement)
+  name.vb: IList(Of ITwinElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+  - name: <
+  - uid: AXSharp.Connector.ITwinElement
+    name: ITwinElement
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AXSharp.Connector.ITwinElement
+    name: ITwinElement
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AXOpen.Core.DetailsContext.TabName*
+  commentId: Overload:AXOpen.Core.DetailsContext.TabName
+  name: TabName
+  nameWithType: DetailsContext.TabName
+  fullName: AXOpen.Core.DetailsContext.TabName
+- uid: AXOpen.Core.DetailsContext.Symbol*
+  commentId: Overload:AXOpen.Core.DetailsContext.Symbol
+  name: Symbol
+  nameWithType: DetailsContext.Symbol
+  fullName: AXOpen.Core.DetailsContext.Symbol
+- uid: AXSharp.Connector.ITwinElement.Symbol
+  commentId: P:AXSharp.Connector.ITwinElement.Symbol
+  parent: AXSharp.Connector.ITwinElement
+  isExternal: true
+  name: Symbol
+  nameWithType: ITwinElement.Symbol
+  fullName: AXSharp.Connector.ITwinElement.Symbol
+- uid: AXOpen.Core.DetailsContext.AttributeName*
+  commentId: Overload:AXOpen.Core.DetailsContext.AttributeName
+  name: AttributeName
+  nameWithType: DetailsContext.AttributeName
+  fullName: AXOpen.Core.DetailsContext.AttributeName
+- uid: AXSharp.Connector.ITwinElement.AttributeName
+  commentId: P:AXSharp.Connector.ITwinElement.AttributeName
+  parent: AXSharp.Connector.ITwinElement
+  isExternal: true
+  name: AttributeName
+  nameWithType: ITwinElement.AttributeName
+  fullName: AXSharp.Connector.ITwinElement.AttributeName
+- uid: AXOpen.Core.DetailsContext.HumanReadable*
+  commentId: Overload:AXOpen.Core.DetailsContext.HumanReadable
+  name: HumanReadable
+  nameWithType: DetailsContext.HumanReadable
+  fullName: AXOpen.Core.DetailsContext.HumanReadable
+- uid: AXSharp.Connector.ITwinElement.HumanReadable
+  commentId: P:AXSharp.Connector.ITwinElement.HumanReadable
+  parent: AXSharp.Connector.ITwinElement
+  isExternal: true
+  name: HumanReadable
+  nameWithType: ITwinElement.HumanReadable
+  fullName: AXSharp.Connector.ITwinElement.HumanReadable
+- uid: AXOpen.Core.DetailsContext.Interpreter*
+  commentId: Overload:AXOpen.Core.DetailsContext.Interpreter
+  name: Interpreter
+  nameWithType: DetailsContext.Interpreter
+  fullName: AXOpen.Core.DetailsContext.Interpreter
+- uid: AXSharp.Connector.ITwinElement.Interpreter
+  commentId: P:AXSharp.Connector.ITwinElement.Interpreter
+  parent: AXSharp.Connector.ITwinElement
+  isExternal: true
+  name: Interpreter
+  nameWithType: ITwinElement.Interpreter
+  fullName: AXSharp.Connector.ITwinElement.Interpreter
+- uid: AXSharp.Connector.Localizations.Translator
+  commentId: T:AXSharp.Connector.Localizations.Translator
+  parent: AXSharp.Connector.Localizations
+  isExternal: true
+  name: Translator
+  nameWithType: Translator
+  fullName: AXSharp.Connector.Localizations.Translator
+- uid: AXSharp.Connector.Localizations
+  commentId: N:AXSharp.Connector.Localizations
+  isExternal: true
+  name: AXSharp.Connector.Localizations
+  nameWithType: AXSharp.Connector.Localizations
+  fullName: AXSharp.Connector.Localizations
+  spec.csharp:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector.Localizations
+    name: Localizations
+    isExternal: true
+  spec.vb:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector.Localizations
+    name: Localizations
+    isExternal: true
+- uid: AXOpen.Core.DetailsContext.GetParent*
+  commentId: Overload:AXOpen.Core.DetailsContext.GetParent
+  name: GetParent
+  nameWithType: DetailsContext.GetParent
+  fullName: AXOpen.Core.DetailsContext.GetParent
+- uid: AXSharp.Connector.ITwinElement.GetParent
+  commentId: M:AXSharp.Connector.ITwinElement.GetParent
+  parent: AXSharp.Connector.ITwinElement
+  isExternal: true
+  name: GetParent()
+  nameWithType: ITwinElement.GetParent()
+  fullName: AXSharp.Connector.ITwinElement.GetParent()
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinElement.GetParent
+    name: GetParent
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinElement.GetParent
+    name: GetParent
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AXOpen.Core.DetailsContext.GetSymbolTail*
+  commentId: Overload:AXOpen.Core.DetailsContext.GetSymbolTail
+  name: GetSymbolTail
+  nameWithType: DetailsContext.GetSymbolTail
+  fullName: AXOpen.Core.DetailsContext.GetSymbolTail
+- uid: AXSharp.Connector.ITwinElement.GetSymbolTail
+  commentId: M:AXSharp.Connector.ITwinElement.GetSymbolTail
+  parent: AXSharp.Connector.ITwinElement
+  isExternal: true
+  name: GetSymbolTail()
+  nameWithType: ITwinElement.GetSymbolTail()
+  fullName: AXSharp.Connector.ITwinElement.GetSymbolTail()
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinElement.GetSymbolTail
+    name: GetSymbolTail
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinElement.GetSymbolTail
+    name: GetSymbolTail
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AXOpen.Core.DetailsContext.GetChildren*
+  commentId: Overload:AXOpen.Core.DetailsContext.GetChildren
+  name: GetChildren
+  nameWithType: DetailsContext.GetChildren
+  fullName: AXOpen.Core.DetailsContext.GetChildren
+- uid: AXSharp.Connector.ITwinObject.GetChildren
+  commentId: M:AXSharp.Connector.ITwinObject.GetChildren
+  parent: AXSharp.Connector.ITwinObject
+  isExternal: true
+  name: GetChildren()
+  nameWithType: ITwinObject.GetChildren()
+  fullName: AXSharp.Connector.ITwinObject.GetChildren()
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.GetChildren
+    name: GetChildren
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.GetChildren
+    name: GetChildren
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinObject}
+  commentId: T:System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinObject}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<ITwinObject>
+  nameWithType: IEnumerable<ITwinObject>
+  fullName: System.Collections.Generic.IEnumerable<AXSharp.Connector.ITwinObject>
+  nameWithType.vb: IEnumerable(Of ITwinObject)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of AXSharp.Connector.ITwinObject)
+  name.vb: IEnumerable(Of ITwinObject)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: AXSharp.Connector.ITwinObject
+    name: ITwinObject
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AXSharp.Connector.ITwinObject
+    name: ITwinObject
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AXOpen.Core.DetailsContext.GetKids*
+  commentId: Overload:AXOpen.Core.DetailsContext.GetKids
+  name: GetKids
+  nameWithType: DetailsContext.GetKids
+  fullName: AXOpen.Core.DetailsContext.GetKids
+- uid: AXSharp.Connector.ITwinObject.GetKids
+  commentId: M:AXSharp.Connector.ITwinObject.GetKids
+  parent: AXSharp.Connector.ITwinObject
+  isExternal: true
+  name: GetKids()
+  nameWithType: ITwinObject.GetKids()
+  fullName: AXSharp.Connector.ITwinObject.GetKids()
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.GetKids
+    name: GetKids
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.GetKids
+    name: GetKids
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinElement}
+  commentId: T:System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinElement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<ITwinElement>
+  nameWithType: IEnumerable<ITwinElement>
+  fullName: System.Collections.Generic.IEnumerable<AXSharp.Connector.ITwinElement>
+  nameWithType.vb: IEnumerable(Of ITwinElement)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of AXSharp.Connector.ITwinElement)
+  name.vb: IEnumerable(Of ITwinElement)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: AXSharp.Connector.ITwinElement
+    name: ITwinElement
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AXSharp.Connector.ITwinElement
+    name: ITwinElement
+    isExternal: true
+  - name: )
+- uid: AXOpen.Core.DetailsContext.GetValueTags*
+  commentId: Overload:AXOpen.Core.DetailsContext.GetValueTags
+  name: GetValueTags
+  nameWithType: DetailsContext.GetValueTags
+  fullName: AXOpen.Core.DetailsContext.GetValueTags
+- uid: AXSharp.Connector.ITwinObject.GetValueTags
+  commentId: M:AXSharp.Connector.ITwinObject.GetValueTags
+  parent: AXSharp.Connector.ITwinObject
+  isExternal: true
+  name: GetValueTags()
+  nameWithType: ITwinObject.GetValueTags()
+  fullName: AXSharp.Connector.ITwinObject.GetValueTags()
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.GetValueTags
+    name: GetValueTags
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.GetValueTags
+    name: GetValueTags
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive}
+  commentId: T:System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<ITwinPrimitive>
+  nameWithType: IEnumerable<ITwinPrimitive>
+  fullName: System.Collections.Generic.IEnumerable<AXSharp.Connector.ITwinPrimitive>
+  nameWithType.vb: IEnumerable(Of ITwinPrimitive)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of AXSharp.Connector.ITwinPrimitive)
+  name.vb: IEnumerable(Of ITwinPrimitive)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: AXSharp.Connector.ITwinPrimitive
+    name: ITwinPrimitive
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AXSharp.Connector.ITwinPrimitive
+    name: ITwinPrimitive
+    isExternal: true
+  - name: )
+- uid: AXOpen.Core.DetailsContext.AddChild*
+  commentId: Overload:AXOpen.Core.DetailsContext.AddChild
+  name: AddChild
+  nameWithType: DetailsContext.AddChild
+  fullName: AXOpen.Core.DetailsContext.AddChild
+- uid: AXSharp.Connector.ITwinObject.AddChild(AXSharp.Connector.ITwinObject)
+  commentId: M:AXSharp.Connector.ITwinObject.AddChild(AXSharp.Connector.ITwinObject)
+  parent: AXSharp.Connector.ITwinObject
+  isExternal: true
+  name: AddChild(ITwinObject)
+  nameWithType: ITwinObject.AddChild(ITwinObject)
+  fullName: AXSharp.Connector.ITwinObject.AddChild(AXSharp.Connector.ITwinObject)
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.AddChild(AXSharp.Connector.ITwinObject)
+    name: AddChild
+    isExternal: true
+  - name: (
+  - uid: AXSharp.Connector.ITwinObject
+    name: ITwinObject
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.AddChild(AXSharp.Connector.ITwinObject)
+    name: AddChild
+    isExternal: true
+  - name: (
+  - uid: AXSharp.Connector.ITwinObject
+    name: ITwinObject
+    isExternal: true
+  - name: )
+- uid: AXOpen.Core.DetailsContext.AddValueTag*
+  commentId: Overload:AXOpen.Core.DetailsContext.AddValueTag
+  name: AddValueTag
+  nameWithType: DetailsContext.AddValueTag
+  fullName: AXOpen.Core.DetailsContext.AddValueTag
+- uid: AXSharp.Connector.ITwinObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  commentId: M:AXSharp.Connector.ITwinObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  parent: AXSharp.Connector.ITwinObject
+  isExternal: true
+  name: AddValueTag(ITwinPrimitive)
+  nameWithType: ITwinObject.AddValueTag(ITwinPrimitive)
+  fullName: AXSharp.Connector.ITwinObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+    name: AddValueTag
+    isExternal: true
+  - name: (
+  - uid: AXSharp.Connector.ITwinPrimitive
+    name: ITwinPrimitive
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+    name: AddValueTag
+    isExternal: true
+  - name: (
+  - uid: AXSharp.Connector.ITwinPrimitive
+    name: ITwinPrimitive
+    isExternal: true
+  - name: )
+- uid: AXSharp.Connector.ITwinPrimitive
+  commentId: T:AXSharp.Connector.ITwinPrimitive
+  parent: AXSharp.Connector
+  isExternal: true
+  name: ITwinPrimitive
+  nameWithType: ITwinPrimitive
+  fullName: AXSharp.Connector.ITwinPrimitive
+- uid: AXOpen.Core.DetailsContext.AddKid*
+  commentId: Overload:AXOpen.Core.DetailsContext.AddKid
+  name: AddKid
+  nameWithType: DetailsContext.AddKid
+  fullName: AXOpen.Core.DetailsContext.AddKid
+- uid: AXSharp.Connector.ITwinObject.AddKid(AXSharp.Connector.ITwinElement)
+  commentId: M:AXSharp.Connector.ITwinObject.AddKid(AXSharp.Connector.ITwinElement)
+  parent: AXSharp.Connector.ITwinObject
+  isExternal: true
+  name: AddKid(ITwinElement)
+  nameWithType: ITwinObject.AddKid(ITwinElement)
+  fullName: AXSharp.Connector.ITwinObject.AddKid(AXSharp.Connector.ITwinElement)
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.AddKid(AXSharp.Connector.ITwinElement)
+    name: AddKid
+    isExternal: true
+  - name: (
+  - uid: AXSharp.Connector.ITwinElement
+    name: ITwinElement
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.AddKid(AXSharp.Connector.ITwinElement)
+    name: AddKid
+    isExternal: true
+  - name: (
+  - uid: AXSharp.Connector.ITwinElement
+    name: ITwinElement
+    isExternal: true
+  - name: )
+- uid: AXOpen.Core.DetailsContext.GetConnector*
+  commentId: Overload:AXOpen.Core.DetailsContext.GetConnector
+  name: GetConnector
+  nameWithType: DetailsContext.GetConnector
+  fullName: AXOpen.Core.DetailsContext.GetConnector
+- uid: AXSharp.Connector.ITwinObject.GetConnector
+  commentId: M:AXSharp.Connector.ITwinObject.GetConnector
+  parent: AXSharp.Connector.ITwinObject
+  isExternal: true
+  name: GetConnector()
+  nameWithType: ITwinObject.GetConnector()
+  fullName: AXSharp.Connector.ITwinObject.GetConnector()
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.GetConnector
+    name: GetConnector
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.GetConnector
+    name: GetConnector
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AXSharp.Connector.Connector
+  commentId: T:AXSharp.Connector.Connector
+  parent: AXSharp.Connector
+  isExternal: true
+  name: Connector
+  nameWithType: Connector
+  fullName: AXSharp.Connector.Connector
+- uid: AXOpen.Core.DetailsContext.Poll*
+  commentId: Overload:AXOpen.Core.DetailsContext.Poll
+  name: Poll
+  nameWithType: DetailsContext.Poll
+  fullName: AXOpen.Core.DetailsContext.Poll
+- uid: AXSharp.Connector.ITwinElement.Poll
+  commentId: M:AXSharp.Connector.ITwinElement.Poll
+  parent: AXSharp.Connector.ITwinElement
+  isExternal: true
+  name: Poll()
+  nameWithType: ITwinElement.Poll()
+  fullName: AXSharp.Connector.ITwinElement.Poll()
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinElement.Poll
+    name: Poll
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinElement.Poll
+    name: Poll
+    isExternal: true
+  - name: (
+  - name: )
+- uid: AXOpen.Core.DetailsContext.OnlineToPlain*
+  commentId: Overload:AXOpen.Core.DetailsContext.OnlineToPlain
+  name: OnlineToPlain
+  nameWithType: DetailsContext.OnlineToPlain
+  fullName: AXOpen.Core.DetailsContext.OnlineToPlain
+- uid: AXSharp.Connector.ITwinObject.OnlineToPlain``1
+  commentId: M:AXSharp.Connector.ITwinObject.OnlineToPlain``1
+  parent: AXSharp.Connector.ITwinObject
+  isExternal: true
+  name: OnlineToPlain<T>()
+  nameWithType: ITwinObject.OnlineToPlain<T>()
+  fullName: AXSharp.Connector.ITwinObject.OnlineToPlain<T>()
+  nameWithType.vb: ITwinObject.OnlineToPlain(Of T)()
+  fullName.vb: AXSharp.Connector.ITwinObject.OnlineToPlain(Of T)()
+  name.vb: OnlineToPlain(Of T)()
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.OnlineToPlain``1
+    name: OnlineToPlain
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.OnlineToPlain``1
+    name: OnlineToPlain
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: AXOpen.Core.DetailsContext.PlainToOnline*
+  commentId: Overload:AXOpen.Core.DetailsContext.PlainToOnline
+  name: PlainToOnline
+  nameWithType: DetailsContext.PlainToOnline
+  fullName: AXOpen.Core.DetailsContext.PlainToOnline
+- uid: AXSharp.Connector.ITwinObject.PlainToOnline``1({T})
+  commentId: M:AXSharp.Connector.ITwinObject.PlainToOnline``1(``0)
+  parent: AXSharp.Connector.ITwinObject
+  definition: AXSharp.Connector.ITwinObject.PlainToOnline``1(``0)
+  name: PlainToOnline<T>(T)
+  nameWithType: ITwinObject.PlainToOnline<T>(T)
+  fullName: AXSharp.Connector.ITwinObject.PlainToOnline<T>(T)
+  nameWithType.vb: ITwinObject.PlainToOnline(Of T)(T)
+  fullName.vb: AXSharp.Connector.ITwinObject.PlainToOnline(Of T)(T)
+  name.vb: PlainToOnline(Of T)(T)
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.PlainToOnline``1(``0)
+    name: PlainToOnline
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.PlainToOnline``1(``0)
+    name: PlainToOnline
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: AXSharp.Connector.ITwinObject.PlainToOnline``1(``0)
+  commentId: M:AXSharp.Connector.ITwinObject.PlainToOnline``1(``0)
+  isExternal: true
+  name: PlainToOnline<T>(T)
+  nameWithType: ITwinObject.PlainToOnline<T>(T)
+  fullName: AXSharp.Connector.ITwinObject.PlainToOnline<T>(T)
+  nameWithType.vb: ITwinObject.PlainToOnline(Of T)(T)
+  fullName.vb: AXSharp.Connector.ITwinObject.PlainToOnline(Of T)(T)
+  name.vb: PlainToOnline(Of T)(T)
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.PlainToOnline``1(``0)
+    name: PlainToOnline
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.PlainToOnline``1(``0)
+    name: PlainToOnline
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: AXOpen.Core.DetailsContext.ShadowToPlain*
+  commentId: Overload:AXOpen.Core.DetailsContext.ShadowToPlain
+  name: ShadowToPlain
+  nameWithType: DetailsContext.ShadowToPlain
+  fullName: AXOpen.Core.DetailsContext.ShadowToPlain
+- uid: AXSharp.Connector.ITwinObject.ShadowToPlain``1
+  commentId: M:AXSharp.Connector.ITwinObject.ShadowToPlain``1
+  parent: AXSharp.Connector.ITwinObject
+  isExternal: true
+  name: ShadowToPlain<T>()
+  nameWithType: ITwinObject.ShadowToPlain<T>()
+  fullName: AXSharp.Connector.ITwinObject.ShadowToPlain<T>()
+  nameWithType.vb: ITwinObject.ShadowToPlain(Of T)()
+  fullName.vb: AXSharp.Connector.ITwinObject.ShadowToPlain(Of T)()
+  name.vb: ShadowToPlain(Of T)()
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.ShadowToPlain``1
+    name: ShadowToPlain
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.ShadowToPlain``1
+    name: ShadowToPlain
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: AXOpen.Core.DetailsContext.PlainToShadow*
+  commentId: Overload:AXOpen.Core.DetailsContext.PlainToShadow
+  name: PlainToShadow
+  nameWithType: DetailsContext.PlainToShadow
+  fullName: AXOpen.Core.DetailsContext.PlainToShadow
+- uid: AXSharp.Connector.ITwinObject.PlainToShadow``1({T})
+  commentId: M:AXSharp.Connector.ITwinObject.PlainToShadow``1(``0)
+  parent: AXSharp.Connector.ITwinObject
+  definition: AXSharp.Connector.ITwinObject.PlainToShadow``1(``0)
+  name: PlainToShadow<T>(T)
+  nameWithType: ITwinObject.PlainToShadow<T>(T)
+  fullName: AXSharp.Connector.ITwinObject.PlainToShadow<T>(T)
+  nameWithType.vb: ITwinObject.PlainToShadow(Of T)(T)
+  fullName.vb: AXSharp.Connector.ITwinObject.PlainToShadow(Of T)(T)
+  name.vb: PlainToShadow(Of T)(T)
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.PlainToShadow``1(``0)
+    name: PlainToShadow
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.PlainToShadow``1(``0)
+    name: PlainToShadow
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: AXSharp.Connector.ITwinObject.PlainToShadow``1(``0)
+  commentId: M:AXSharp.Connector.ITwinObject.PlainToShadow``1(``0)
+  isExternal: true
+  name: PlainToShadow<T>(T)
+  nameWithType: ITwinObject.PlainToShadow<T>(T)
+  fullName: AXSharp.Connector.ITwinObject.PlainToShadow<T>(T)
+  nameWithType.vb: ITwinObject.PlainToShadow(Of T)(T)
+  fullName.vb: AXSharp.Connector.ITwinObject.PlainToShadow(Of T)(T)
+  name.vb: PlainToShadow(Of T)(T)
+  spec.csharp:
+  - uid: AXSharp.Connector.ITwinObject.PlainToShadow``1(``0)
+    name: PlainToShadow
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: AXSharp.Connector.ITwinObject.PlainToShadow``1(``0)
+    name: PlainToShadow
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )

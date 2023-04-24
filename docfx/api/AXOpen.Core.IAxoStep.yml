@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: AXOpen.Core.IAxoStep
+  commentId: T:AXOpen.Core.IAxoStep
+  id: IAxoStep
+  parent: AXOpen.Core
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IAxoStep
+  nameWithType: IAxoStep
+  fullName: AXOpen.Core.IAxoStep
+  type: Interface
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoStep/IAxoStep.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: IAxoStep
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoCoordination/AxoStep/IAxoStep.g.cs
+    startLine: 8
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public interface IAxoStep
+    content.vb: Public Interface IAxoStep
+references:
+- uid: AXOpen.Core
+  commentId: N:AXOpen.Core
+  name: AXOpen.Core
+  nameWithType: AXOpen.Core
+  fullName: AXOpen.Core
+  spec.csharp:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+  spec.vb:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core

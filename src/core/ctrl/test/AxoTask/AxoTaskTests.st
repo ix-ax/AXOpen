@@ -108,7 +108,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
     END_CLASS
 
     {TestFixture}
-    CLASS IxTaskUnitTests 
+    CLASS AxoTaskUnitTests 
         VAR PROTECTED
            _context : TestContext;
            myTask : MyTask;

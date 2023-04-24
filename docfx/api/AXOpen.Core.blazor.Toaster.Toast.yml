@@ -1,0 +1,549 @@
+### YamlMime:ManagedReference
+items:
+- uid: AXOpen.Core.blazor.Toaster.Toast
+  commentId: T:AXOpen.Core.blazor.Toaster.Toast
+  id: Toast
+  parent: AXOpen.Core.blazor.Toaster
+  children:
+  - AXOpen.Core.blazor.Toaster.Toast.#ctor(System.String,System.String,System.String,System.Int32)
+  - AXOpen.Core.blazor.Toaster.Toast.Id
+  - AXOpen.Core.blazor.Toaster.Toast.Message
+  - AXOpen.Core.blazor.Toaster.Toast.Posted
+  - AXOpen.Core.blazor.Toaster.Toast.TimeToBurn
+  - AXOpen.Core.blazor.Toaster.Toast.Title
+  - AXOpen.Core.blazor.Toaster.Toast.Type
+  langs:
+  - csharp
+  - vb
+  name: Toast
+  nameWithType: Toast
+  fullName: AXOpen.Core.blazor.Toaster.Toast
+  type: Class
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Toast
+    path: ../src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+    startLine: 4
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core.blazor.Toaster
+  syntax:
+    content: public class Toast
+    content.vb: Public Class Toast
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: AXOpen.Core.blazor.Toaster.Toast.Id
+  commentId: F:AXOpen.Core.blazor.Toaster.Toast.Id
+  id: Id
+  parent: AXOpen.Core.blazor.Toaster.Toast
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Toast.Id
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Id
+  type: Field
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Id
+    path: ../src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+    startLine: 6
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core.blazor.Toaster
+  syntax:
+    content: public Guid Id
+    return:
+      type: System.Guid
+    content.vb: Public Id As Guid
+- uid: AXOpen.Core.blazor.Toaster.Toast.Type
+  commentId: P:AXOpen.Core.blazor.Toaster.Toast.Type
+  id: Type
+  parent: AXOpen.Core.blazor.Toaster.Toast
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: Toast.Type
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Type
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Type
+    path: ../src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+    startLine: 7
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core.blazor.Toaster
+  syntax:
+    content: public string Type { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Type As String
+  overload: AXOpen.Core.blazor.Toaster.Toast.Type*
+- uid: AXOpen.Core.blazor.Toaster.Toast.Title
+  commentId: P:AXOpen.Core.blazor.Toaster.Toast.Title
+  id: Title
+  parent: AXOpen.Core.blazor.Toaster.Toast
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: Toast.Title
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Title
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Title
+    path: ../src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+    startLine: 8
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core.blazor.Toaster
+  syntax:
+    content: public string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Title As String
+  overload: AXOpen.Core.blazor.Toaster.Toast.Title*
+- uid: AXOpen.Core.blazor.Toaster.Toast.Message
+  commentId: P:AXOpen.Core.blazor.Toaster.Toast.Message
+  id: Message
+  parent: AXOpen.Core.blazor.Toaster.Toast
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: Toast.Message
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Message
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Message
+    path: ../src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+    startLine: 9
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core.blazor.Toaster
+  syntax:
+    content: public string Message { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Message As String
+  overload: AXOpen.Core.blazor.Toaster.Toast.Message*
+- uid: AXOpen.Core.blazor.Toaster.Toast.TimeToBurn
+  commentId: P:AXOpen.Core.blazor.Toaster.Toast.TimeToBurn
+  id: TimeToBurn
+  parent: AXOpen.Core.blazor.Toaster.Toast
+  langs:
+  - csharp
+  - vb
+  name: TimeToBurn
+  nameWithType: Toast.TimeToBurn
+  fullName: AXOpen.Core.blazor.Toaster.Toast.TimeToBurn
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: TimeToBurn
+    path: ../src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+    startLine: 10
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core.blazor.Toaster
+  syntax:
+    content: public DateTimeOffset TimeToBurn { get; set; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property TimeToBurn As DateTimeOffset
+  overload: AXOpen.Core.blazor.Toaster.Toast.TimeToBurn*
+- uid: AXOpen.Core.blazor.Toaster.Toast.Posted
+  commentId: F:AXOpen.Core.blazor.Toaster.Toast.Posted
+  id: Posted
+  parent: AXOpen.Core.blazor.Toaster.Toast
+  langs:
+  - csharp
+  - vb
+  name: Posted
+  nameWithType: Toast.Posted
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Posted
+  type: Field
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Posted
+    path: ../src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+    startLine: 11
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core.blazor.Toaster
+  syntax:
+    content: public DateTimeOffset Posted
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Posted As DateTimeOffset
+- uid: AXOpen.Core.blazor.Toaster.Toast.#ctor(System.String,System.String,System.String,System.Int32)
+  commentId: M:AXOpen.Core.blazor.Toaster.Toast.#ctor(System.String,System.String,System.String,System.Int32)
+  id: '#ctor(System.String,System.String,System.String,System.Int32)'
+  parent: AXOpen.Core.blazor.Toaster.Toast
+  langs:
+  - csharp
+  - vb
+  name: Toast(string, string, string, int)
+  nameWithType: Toast.Toast(string, string, string, int)
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Toast(string, string, string, int)
+  type: Constructor
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: .ctor
+    path: ../src/core/src/AXOpen.Core.Blazor/Toaster/Toast.cs
+    startLine: 13
+  assemblies:
+  - axopen_core_blazor
+  namespace: AXOpen.Core.blazor.Toaster
+  syntax:
+    content: public Toast(string type, string title, string message, int time)
+    parameters:
+    - id: type
+      type: System.String
+    - id: title
+      type: System.String
+    - id: message
+      type: System.String
+    - id: time
+      type: System.Int32
+    content.vb: Public Sub New(type As String, title As String, message As String, time As Integer)
+  overload: AXOpen.Core.blazor.Toaster.Toast.#ctor*
+  nameWithType.vb: Toast.New(String, String, String, Integer)
+  fullName.vb: AXOpen.Core.blazor.Toaster.Toast.New(String, String, String, Integer)
+  name.vb: New(String, String, String, Integer)
+references:
+- uid: AXOpen.Core.blazor.Toaster
+  commentId: N:AXOpen.Core.blazor.Toaster
+  name: AXOpen.Core.blazor.Toaster
+  nameWithType: AXOpen.Core.blazor.Toaster
+  fullName: AXOpen.Core.blazor.Toaster
+  spec.csharp:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+  - name: .
+  - uid: AXOpen.Core.blazor
+    name: blazor
+  - name: .
+  - uid: AXOpen.Core.blazor.Toaster
+    name: Toaster
+  spec.vb:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+  - name: .
+  - uid: AXOpen.Core.blazor
+    name: blazor
+  - name: .
+  - uid: AXOpen.Core.blazor.Toaster
+    name: Toaster
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: AXOpen.Core.blazor.Toaster.Toast.Type*
+  commentId: Overload:AXOpen.Core.blazor.Toaster.Toast.Type
+  name: Type
+  nameWithType: Toast.Type
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Type
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AXOpen.Core.blazor.Toaster.Toast.Title*
+  commentId: Overload:AXOpen.Core.blazor.Toaster.Toast.Title
+  name: Title
+  nameWithType: Toast.Title
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Title
+- uid: AXOpen.Core.blazor.Toaster.Toast.Message*
+  commentId: Overload:AXOpen.Core.blazor.Toaster.Toast.Message
+  name: Message
+  nameWithType: Toast.Message
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Message
+- uid: AXOpen.Core.blazor.Toaster.Toast.TimeToBurn*
+  commentId: Overload:AXOpen.Core.blazor.Toaster.Toast.TimeToBurn
+  name: TimeToBurn
+  nameWithType: Toast.TimeToBurn
+  fullName: AXOpen.Core.blazor.Toaster.Toast.TimeToBurn
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: AXOpen.Core.blazor.Toaster.Toast.#ctor*
+  commentId: Overload:AXOpen.Core.blazor.Toaster.Toast.#ctor
+  name: Toast
+  nameWithType: Toast.Toast
+  fullName: AXOpen.Core.blazor.Toaster.Toast.Toast
+  nameWithType.vb: Toast.New
+  fullName.vb: AXOpen.Core.blazor.Toaster.Toast.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

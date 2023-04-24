@@ -1,0 +1,46 @@
+### YamlMime:ManagedReference
+items:
+- uid: AXOpen.Core.IAxoTaskState
+  commentId: T:AXOpen.Core.IAxoTaskState
+  id: IAxoTaskState
+  parent: AXOpen.Core
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+  type: Interface
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoTask/IAxoTaskState.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: IAxoTaskState
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/abstractions/AxoTask/IAxoTaskState.g.cs
+    startLine: 8
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public interface IAxoTaskState
+    content.vb: Public Interface IAxoTaskState
+references:
+- uid: AXOpen.Core
+  commentId: N:AXOpen.Core
+  name: AXOpen.Core
+  nameWithType: AXOpen.Core
+  fullName: AXOpen.Core
+  spec.csharp:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+  spec.vb:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core

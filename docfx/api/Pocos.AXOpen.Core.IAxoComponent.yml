@@ -1,0 +1,52 @@
+### YamlMime:ManagedReference
+items:
+- uid: Pocos.AXOpen.Core.IAxoComponent
+  commentId: T:Pocos.AXOpen.Core.IAxoComponent
+  id: IAxoComponent
+  parent: Pocos.AXOpen.Core
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: Pocos.AXOpen.Core.IAxoComponent
+  type: Interface
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/POCO/abstractions/AxoComponent/IAxoComponent.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: IAxoComponent
+    path: ../src/core/src/AXOpen.Core/.g/POCO/abstractions/AxoComponent/IAxoComponent.g.cs
+    startLine: 6
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: Pocos.AXOpen.Core
+  syntax:
+    content: public interface IAxoComponent
+    content.vb: Public Interface IAxoComponent
+references:
+- uid: Pocos.AXOpen.Core
+  commentId: N:Pocos.AXOpen.Core
+  name: Pocos.AXOpen.Core
+  nameWithType: Pocos.AXOpen.Core
+  fullName: Pocos.AXOpen.Core
+  spec.csharp:
+  - uid: Pocos
+    name: Pocos
+  - name: .
+  - uid: Pocos.AXOpen
+    name: AXOpen
+  - name: .
+  - uid: Pocos.AXOpen.Core
+    name: Core
+  spec.vb:
+  - uid: Pocos
+    name: Pocos
+  - name: .
+  - uid: Pocos.AXOpen
+    name: AXOpen
+  - name: .
+  - uid: Pocos.AXOpen.Core
+    name: Core

@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: AXOpen.Core.eAxoSequenceMode
+  commentId: T:AXOpen.Core.eAxoSequenceMode
+  id: eAxoSequenceMode
+  parent: AXOpen.Core
+  children:
+  - AXOpen.Core.eAxoSequenceMode.Cyclic
+  - AXOpen.Core.eAxoSequenceMode.None
+  - AXOpen.Core.eAxoSequenceMode.RunOnce
+  langs:
+  - csharp
+  - vb
+  name: eAxoSequenceMode
+  nameWithType: eAxoSequenceMode
+  fullName: AXOpen.Core.eAxoSequenceMode
+  type: Enum
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/eAxoSequenceMode.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: eAxoSequenceMode
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/eAxoSequenceMode.g.cs
+    startLine: 8
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: 'public enum eAxoSequenceMode : short'
+    content.vb: Public Enum eAxoSequenceMode As Short
+- uid: AXOpen.Core.eAxoSequenceMode.None
+  commentId: F:AXOpen.Core.eAxoSequenceMode.None
+  id: None
+  parent: AXOpen.Core.eAxoSequenceMode
+  langs:
+  - csharp
+  - vb
+  name: None
+  nameWithType: eAxoSequenceMode.None
+  fullName: AXOpen.Core.eAxoSequenceMode.None
+  type: Field
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/eAxoSequenceMode.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: None
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/eAxoSequenceMode.g.cs
+    startLine: 10
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: None = 0
+    return:
+      type: AXOpen.Core.eAxoSequenceMode
+- uid: AXOpen.Core.eAxoSequenceMode.RunOnce
+  commentId: F:AXOpen.Core.eAxoSequenceMode.RunOnce
+  id: RunOnce
+  parent: AXOpen.Core.eAxoSequenceMode
+  langs:
+  - csharp
+  - vb
+  name: RunOnce
+  nameWithType: eAxoSequenceMode.RunOnce
+  fullName: AXOpen.Core.eAxoSequenceMode.RunOnce
+  type: Field
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/eAxoSequenceMode.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: RunOnce
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/eAxoSequenceMode.g.cs
+    startLine: 11
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: RunOnce = 1
+    return:
+      type: AXOpen.Core.eAxoSequenceMode
+- uid: AXOpen.Core.eAxoSequenceMode.Cyclic
+  commentId: F:AXOpen.Core.eAxoSequenceMode.Cyclic
+  id: Cyclic
+  parent: AXOpen.Core.eAxoSequenceMode
+  langs:
+  - csharp
+  - vb
+  name: Cyclic
+  nameWithType: eAxoSequenceMode.Cyclic
+  fullName: AXOpen.Core.eAxoSequenceMode.Cyclic
+  type: Field
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/eAxoSequenceMode.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Cyclic
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/eAxoSequenceMode.g.cs
+    startLine: 12
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: Cyclic = 2
+    return:
+      type: AXOpen.Core.eAxoSequenceMode
+references:
+- uid: AXOpen.Core
+  commentId: N:AXOpen.Core
+  name: AXOpen.Core
+  nameWithType: AXOpen.Core
+  fullName: AXOpen.Core
+  spec.csharp:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+  spec.vb:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+- uid: AXOpen.Core.eAxoSequenceMode
+  commentId: T:AXOpen.Core.eAxoSequenceMode
+  parent: AXOpen.Core
+  name: eAxoSequenceMode
+  nameWithType: eAxoSequenceMode
+  fullName: AXOpen.Core.eAxoSequenceMode

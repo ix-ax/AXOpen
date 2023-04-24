@@ -1,0 +1,2162 @@
+### YamlMime:ManagedReference
+items:
+- uid: AXOpen.Core.AxoTask
+  commentId: T:AXOpen.Core.AxoTask
+  id: AxoTask
+  parent: AXOpen.Core
+  children:
+  - AXOpen.Core.AxoTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)
+  - AXOpen.Core.AxoTask.CanExecute(System.Object)
+  - AXOpen.Core.AxoTask.CanExecuteChanged
+  - AXOpen.Core.AxoTask.CreateEmptyPoco
+  - AXOpen.Core.AxoTask.ErrorDetails
+  - AXOpen.Core.AxoTask.Execute(System.Object)
+  - AXOpen.Core.AxoTask.IsDisabled
+  - AXOpen.Core.AxoTask.OnlineToPlain``1
+  - AXOpen.Core.AxoTask.OnlineToPlainAsync
+  - AXOpen.Core.AxoTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  - AXOpen.Core.AxoTask.PlainToOnline``1(``0)
+  - AXOpen.Core.AxoTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoTask)
+  - AXOpen.Core.AxoTask.PlainToShadow``1(``0)
+  - AXOpen.Core.AxoTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoTask)
+  - AXOpen.Core.AxoTask.Poll
+  - AXOpen.Core.AxoTask.RemoteAbort
+  - AXOpen.Core.AxoTask.RemoteInvoke
+  - AXOpen.Core.AxoTask.RemoteRestore
+  - AXOpen.Core.AxoTask.RemoteResume
+  - AXOpen.Core.AxoTask.Restore
+  - AXOpen.Core.AxoTask.ShadowToPlain``1
+  - AXOpen.Core.AxoTask.ShadowToPlainAsync
+  - AXOpen.Core.AxoTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  - AXOpen.Core.AxoTask.StartSignature
+  - AXOpen.Core.AxoTask.Status
+  langs:
+  - csharp
+  - vb
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+  type: Class
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: AxoTask
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 8
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: 'public class AxoTask : AxoObject, ITwinObject, ITwinElement, IAxoObject, ICommand, IAxoTask, IAxoTaskState'
+    content.vb: Public Class AxoTask Inherits AxoObject Implements ITwinObject, ITwinElement, IAxoObject, ICommand, IAxoTask, IAxoTaskState
+  inheritance:
+  - System.Object
+  - AXOpen.Core.AxoObject
+  derivedClasses:
+  - AXOpen.Core.AxoRemoteTask
+  - AXOpen.Core.AxoSequencer
+  - AXOpen.Core.AxoStep
+  implements:
+  - AXSharp.Connector.ITwinObject
+  - AXSharp.Connector.ITwinElement
+  - AXOpen.Core.IAxoObject
+  - System.Windows.Input.ICommand
+  - AXOpen.Core.IAxoTask
+  - AXOpen.Core.IAxoTaskState
+  inheritedMembers:
+  - AXOpen.Core.AxoObject.Identity
+  - AXOpen.Core.AxoObject.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+  - AXOpen.Core.AxoObject.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoObject)
+  - AXOpen.Core.AxoObject.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+  - AXOpen.Core.AxoObject.PlainToShadowAsync(Pocos.AXOpen.Core.AxoObject)
+  - AXOpen.Core.AxoObject.GetChildren
+  - AXOpen.Core.AxoObject.GetKids
+  - AXOpen.Core.AxoObject.GetValueTags
+  - AXOpen.Core.AxoObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  - AXOpen.Core.AxoObject.AddKid(AXSharp.Connector.ITwinElement)
+  - AXOpen.Core.AxoObject.AddChild(AXSharp.Connector.ITwinObject)
+  - AXOpen.Core.AxoObject.Connector
+  - AXOpen.Core.AxoObject.GetConnector
+  - AXOpen.Core.AxoObject.GetSymbolTail
+  - AXOpen.Core.AxoObject.GetParent
+  - AXOpen.Core.AxoObject.Symbol
+  - AXOpen.Core.AxoObject.AttributeName
+  - AXOpen.Core.AxoObject.HumanReadable
+  - AXOpen.Core.AxoObject.SymbolTail
+  - AXOpen.Core.AxoObject.Parent
+  - AXOpen.Core.AxoObject.Interpreter
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: AXOpen.Core.AxoTask.Restore
+  commentId: M:AXOpen.Core.AxoTask.Restore
+  id: Restore
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: Restore()
+  nameWithType: AxoTask.Restore()
+  fullName: AXOpen.Core.AxoTask.Restore()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/AxoTask/AxoTask.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Restore
+    path: ../src/core/src/AXOpen.Core/AxoTask/AxoTask.cs
+    startLine: 14
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  summary: "\nRestore this task to ready state.\n"
+  example: []
+  syntax:
+    content: public Task<bool> Restore()
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: Returns true when the task is restored.
+    content.vb: Public Function Restore() As Task(Of Boolean)
+  overload: AXOpen.Core.AxoTask.Restore*
+- uid: AXOpen.Core.AxoTask.CanExecute(System.Object)
+  commentId: M:AXOpen.Core.AxoTask.CanExecute(System.Object)
+  id: CanExecute(System.Object)
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: CanExecute(object)
+  nameWithType: AxoTask.CanExecute(object)
+  fullName: AXOpen.Core.AxoTask.CanExecute(object)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/AxoTask/AxoTask.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: CanExecute
+    path: ../src/core/src/AXOpen.Core/AxoTask/AxoTask.cs
+    startLine: 20
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public bool CanExecute(object parameter = null)
+    parameters:
+    - id: parameter
+      type: System.Object
+    return:
+      type: System.Boolean
+    content.vb: Public Function CanExecute(parameter As Object = Nothing) As Boolean
+  overload: AXOpen.Core.AxoTask.CanExecute*
+  implements:
+  - System.Windows.Input.ICommand.CanExecute(System.Object)
+  nameWithType.vb: AxoTask.CanExecute(Object)
+  fullName.vb: AXOpen.Core.AxoTask.CanExecute(Object)
+  name.vb: CanExecute(Object)
+- uid: AXOpen.Core.AxoTask.Execute(System.Object)
+  commentId: M:AXOpen.Core.AxoTask.Execute(System.Object)
+  id: Execute(System.Object)
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: Execute(object)
+  nameWithType: AxoTask.Execute(object)
+  fullName: AXOpen.Core.AxoTask.Execute(object)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/AxoTask/AxoTask.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Execute
+    path: ../src/core/src/AXOpen.Core/AxoTask/AxoTask.cs
+    startLine: 29
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  summary: "\nExecutes this task.\n"
+  example: []
+  syntax:
+    content: public void Execute(object parameter = null)
+    parameters:
+    - id: parameter
+      type: System.Object
+      description: ''
+    content.vb: Public Sub Execute(parameter As Object = Nothing)
+  overload: AXOpen.Core.AxoTask.Execute*
+  implements:
+  - System.Windows.Input.ICommand.Execute(System.Object)
+  nameWithType.vb: AxoTask.Execute(Object)
+  fullName.vb: AXOpen.Core.AxoTask.Execute(Object)
+  name.vb: Execute(Object)
+- uid: AXOpen.Core.AxoTask.CanExecuteChanged
+  commentId: E:AXOpen.Core.AxoTask.CanExecuteChanged
+  id: CanExecuteChanged
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: CanExecuteChanged
+  nameWithType: AxoTask.CanExecuteChanged
+  fullName: AXOpen.Core.AxoTask.CanExecuteChanged
+  type: Event
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/AxoTask/AxoTask.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: CanExecuteChanged
+    path: ../src/core/src/AXOpen.Core/AxoTask/AxoTask.cs
+    startLine: 37
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public event EventHandler CanExecuteChanged
+    return:
+      type: System.EventHandler
+    content.vb: Public Event CanExecuteChanged As EventHandler
+  implements:
+  - System.Windows.Input.ICommand.CanExecuteChanged
+- uid: AXOpen.Core.AxoTask.Status
+  commentId: P:AXOpen.Core.AxoTask.Status
+  id: Status
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: AxoTask.Status
+  fullName: AXOpen.Core.AxoTask.Status
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Status
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 10
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: >-
+      [ReadOnly]
+
+      [EnumeratorDiscriminator(typeof(eAxoTaskState))]
+
+      public OnlinerInt Status { get; }
+    parameters: []
+    return:
+      type: AXSharp.Connector.ValueTypes.OnlinerInt
+    content.vb: >-
+      <ReadOnly>
+
+      <EnumeratorDiscriminator(GetType(eAxoTaskState))>
+
+      Public ReadOnly Property Status As OnlinerInt
+  overload: AXOpen.Core.AxoTask.Status*
+  attributes:
+  - type: AXSharp.Connector.ReadOnlyAttribute
+    ctor: AXSharp.Connector.ReadOnlyAttribute.#ctor
+    arguments: []
+  - type: AXSharp.Connector.EnumeratorDiscriminatorAttribute
+    ctor: AXSharp.Connector.EnumeratorDiscriminatorAttribute.#ctor(System.Type)
+    arguments:
+    - type: System.Type
+      value: AXOpen.Core.eAxoTaskState
+- uid: AXOpen.Core.AxoTask.IsDisabled
+  commentId: P:AXOpen.Core.AxoTask.IsDisabled
+  id: IsDisabled
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: IsDisabled
+  nameWithType: AxoTask.IsDisabled
+  fullName: AXOpen.Core.AxoTask.IsDisabled
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: IsDisabled
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 14
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public OnlinerBool IsDisabled { get; }
+    parameters: []
+    return:
+      type: AXSharp.Connector.ValueTypes.OnlinerBool
+    content.vb: Public ReadOnly Property IsDisabled As OnlinerBool
+  overload: AXOpen.Core.AxoTask.IsDisabled*
+- uid: AXOpen.Core.AxoTask.RemoteInvoke
+  commentId: P:AXOpen.Core.AxoTask.RemoteInvoke
+  id: RemoteInvoke
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: RemoteInvoke
+  nameWithType: AxoTask.RemoteInvoke
+  fullName: AXOpen.Core.AxoTask.RemoteInvoke
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: RemoteInvoke
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 16
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public OnlinerBool RemoteInvoke { get; }
+    parameters: []
+    return:
+      type: AXSharp.Connector.ValueTypes.OnlinerBool
+    content.vb: Public ReadOnly Property RemoteInvoke As OnlinerBool
+  overload: AXOpen.Core.AxoTask.RemoteInvoke*
+- uid: AXOpen.Core.AxoTask.RemoteRestore
+  commentId: P:AXOpen.Core.AxoTask.RemoteRestore
+  id: RemoteRestore
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: RemoteRestore
+  nameWithType: AxoTask.RemoteRestore
+  fullName: AXOpen.Core.AxoTask.RemoteRestore
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: RemoteRestore
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 18
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public OnlinerBool RemoteRestore { get; }
+    parameters: []
+    return:
+      type: AXSharp.Connector.ValueTypes.OnlinerBool
+    content.vb: Public ReadOnly Property RemoteRestore As OnlinerBool
+  overload: AXOpen.Core.AxoTask.RemoteRestore*
+- uid: AXOpen.Core.AxoTask.RemoteAbort
+  commentId: P:AXOpen.Core.AxoTask.RemoteAbort
+  id: RemoteAbort
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: RemoteAbort
+  nameWithType: AxoTask.RemoteAbort
+  fullName: AXOpen.Core.AxoTask.RemoteAbort
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: RemoteAbort
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 20
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public OnlinerBool RemoteAbort { get; }
+    parameters: []
+    return:
+      type: AXSharp.Connector.ValueTypes.OnlinerBool
+    content.vb: Public ReadOnly Property RemoteAbort As OnlinerBool
+  overload: AXOpen.Core.AxoTask.RemoteAbort*
+- uid: AXOpen.Core.AxoTask.RemoteResume
+  commentId: P:AXOpen.Core.AxoTask.RemoteResume
+  id: RemoteResume
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: RemoteResume
+  nameWithType: AxoTask.RemoteResume
+  fullName: AXOpen.Core.AxoTask.RemoteResume
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: RemoteResume
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 22
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public OnlinerBool RemoteResume { get; }
+    parameters: []
+    return:
+      type: AXSharp.Connector.ValueTypes.OnlinerBool
+    content.vb: Public ReadOnly Property RemoteResume As OnlinerBool
+  overload: AXOpen.Core.AxoTask.RemoteResume*
+- uid: AXOpen.Core.AxoTask.StartSignature
+  commentId: P:AXOpen.Core.AxoTask.StartSignature
+  id: StartSignature
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: StartSignature
+  nameWithType: AxoTask.StartSignature
+  fullName: AXOpen.Core.AxoTask.StartSignature
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: StartSignature
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 24
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public OnlinerULInt StartSignature { get; }
+    parameters: []
+    return:
+      type: AXSharp.Connector.ValueTypes.OnlinerULInt
+    content.vb: Public ReadOnly Property StartSignature As OnlinerULInt
+  overload: AXOpen.Core.AxoTask.StartSignature*
+- uid: AXOpen.Core.AxoTask.ErrorDetails
+  commentId: P:AXOpen.Core.AxoTask.ErrorDetails
+  id: ErrorDetails
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: ErrorDetails
+  nameWithType: AxoTask.ErrorDetails
+  fullName: AXOpen.Core.AxoTask.ErrorDetails
+  type: Property
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: ErrorDetails
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 26
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public OnlinerString ErrorDetails { get; }
+    parameters: []
+    return:
+      type: AXSharp.Connector.ValueTypes.OnlinerString
+    content.vb: Public ReadOnly Property ErrorDetails As OnlinerString
+  overload: AXOpen.Core.AxoTask.ErrorDetails*
+- uid: AXOpen.Core.AxoTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)
+  commentId: M:AXOpen.Core.AxoTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)
+  id: '#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)'
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: AxoTask(ITwinObject, string, string)
+  nameWithType: AxoTask.AxoTask(ITwinObject, string, string)
+  fullName: AXOpen.Core.AxoTask.AxoTask(AXSharp.Connector.ITwinObject, string, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: .ctor
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 30
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public AxoTask(ITwinObject parent, string readableTail, string symbolTail)
+    parameters:
+    - id: parent
+      type: AXSharp.Connector.ITwinObject
+    - id: readableTail
+      type: System.String
+    - id: symbolTail
+      type: System.String
+    content.vb: Public Sub New(parent As ITwinObject, readableTail As String, symbolTail As String)
+  overload: AXOpen.Core.AxoTask.#ctor*
+  nameWithType.vb: AxoTask.New(ITwinObject, String, String)
+  fullName.vb: AXOpen.Core.AxoTask.New(AXSharp.Connector.ITwinObject, String, String)
+  name.vb: New(ITwinObject, String, String)
+- uid: AXOpen.Core.AxoTask.OnlineToPlain``1
+  commentId: M:AXOpen.Core.AxoTask.OnlineToPlain``1
+  id: OnlineToPlain``1
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: OnlineToPlain<T>()
+  nameWithType: AxoTask.OnlineToPlain<T>()
+  fullName: AXOpen.Core.AxoTask.OnlineToPlain<T>()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: OnlineToPlain
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 47
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public override Task<T> OnlineToPlain<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+    content.vb: Public Overrides Function OnlineToPlain(Of T)() As Task(Of T)
+  overridden: AXOpen.Core.AxoObject.OnlineToPlain``1
+  overload: AXOpen.Core.AxoTask.OnlineToPlain*
+  nameWithType.vb: AxoTask.OnlineToPlain(Of T)()
+  fullName.vb: AXOpen.Core.AxoTask.OnlineToPlain(Of T)()
+  name.vb: OnlineToPlain(Of T)()
+- uid: AXOpen.Core.AxoTask.OnlineToPlainAsync
+  commentId: M:AXOpen.Core.AxoTask.OnlineToPlainAsync
+  id: OnlineToPlainAsync
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: OnlineToPlainAsync()
+  nameWithType: AxoTask.OnlineToPlainAsync()
+  fullName: AXOpen.Core.AxoTask.OnlineToPlainAsync()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: OnlineToPlainAsync
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 52
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public Task<AxoTask> OnlineToPlainAsync()
+    return:
+      type: System.Threading.Tasks.Task{Pocos.AXOpen.Core.AxoTask}
+    content.vb: Public Function OnlineToPlainAsync() As Task(Of AxoTask)
+  overload: AXOpen.Core.AxoTask.OnlineToPlainAsync*
+- uid: AXOpen.Core.AxoTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  commentId: M:AXOpen.Core.AxoTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  id: OnlineToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: OnlineToPlainAsync(AxoTask)
+  nameWithType: AxoTask.OnlineToPlainAsync(AxoTask)
+  fullName: AXOpen.Core.AxoTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: OnlineToPlainAsync
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 68
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: protected Task<AxoTask> OnlineToPlainAsync(AxoTask plain)
+    parameters:
+    - id: plain
+      type: Pocos.AXOpen.Core.AxoTask
+    return:
+      type: System.Threading.Tasks.Task{Pocos.AXOpen.Core.AxoTask}
+    content.vb: Protected Function OnlineToPlainAsync(plain As AxoTask) As Task(Of AxoTask)
+  overload: AXOpen.Core.AxoTask.OnlineToPlainAsync*
+- uid: AXOpen.Core.AxoTask.PlainToOnline``1(``0)
+  commentId: M:AXOpen.Core.AxoTask.PlainToOnline``1(``0)
+  id: PlainToOnline``1(``0)
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: PlainToOnline<T>(T)
+  nameWithType: AxoTask.PlainToOnline<T>(T)
+  fullName: AXOpen.Core.AxoTask.PlainToOnline<T>(T)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: PlainToOnline
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 82
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public override Task PlainToOnline<T>(T plain)
+    parameters:
+    - id: plain
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overrides Function PlainToOnline(Of T)(plain As T) As Task
+  overridden: AXOpen.Core.AxoObject.PlainToOnline``1({T})
+  overload: AXOpen.Core.AxoTask.PlainToOnline*
+  nameWithType.vb: AxoTask.PlainToOnline(Of T)(T)
+  fullName.vb: AXOpen.Core.AxoTask.PlainToOnline(Of T)(T)
+  name.vb: PlainToOnline(Of T)(T)
+- uid: AXOpen.Core.AxoTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoTask)
+  commentId: M:AXOpen.Core.AxoTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoTask)
+  id: PlainToOnlineAsync(Pocos.AXOpen.Core.AxoTask)
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: PlainToOnlineAsync(AxoTask)
+  nameWithType: AxoTask.PlainToOnlineAsync(AxoTask)
+  fullName: AXOpen.Core.AxoTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoTask)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: PlainToOnlineAsync
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 87
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public Task<IEnumerable<ITwinPrimitive>> PlainToOnlineAsync(AxoTask plain)
+    parameters:
+    - id: plain
+      type: Pocos.AXOpen.Core.AxoTask
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive}}
+    content.vb: Public Function PlainToOnlineAsync(plain As AxoTask) As Task(Of IEnumerable(Of ITwinPrimitive))
+  overload: AXOpen.Core.AxoTask.PlainToOnlineAsync*
+- uid: AXOpen.Core.AxoTask.ShadowToPlain``1
+  commentId: M:AXOpen.Core.AxoTask.ShadowToPlain``1
+  id: ShadowToPlain``1
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: ShadowToPlain<T>()
+  nameWithType: AxoTask.ShadowToPlain<T>()
+  fullName: AXOpen.Core.AxoTask.ShadowToPlain<T>()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: ShadowToPlain
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 101
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public override Task<T> ShadowToPlain<T>()
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+    content.vb: Public Overrides Function ShadowToPlain(Of T)() As Task(Of T)
+  overridden: AXOpen.Core.AxoObject.ShadowToPlain``1
+  overload: AXOpen.Core.AxoTask.ShadowToPlain*
+  nameWithType.vb: AxoTask.ShadowToPlain(Of T)()
+  fullName.vb: AXOpen.Core.AxoTask.ShadowToPlain(Of T)()
+  name.vb: ShadowToPlain(Of T)()
+- uid: AXOpen.Core.AxoTask.ShadowToPlainAsync
+  commentId: M:AXOpen.Core.AxoTask.ShadowToPlainAsync
+  id: ShadowToPlainAsync
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: ShadowToPlainAsync()
+  nameWithType: AxoTask.ShadowToPlainAsync()
+  fullName: AXOpen.Core.AxoTask.ShadowToPlainAsync()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: ShadowToPlainAsync
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 106
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public Task<AxoTask> ShadowToPlainAsync()
+    return:
+      type: System.Threading.Tasks.Task{Pocos.AXOpen.Core.AxoTask}
+    content.vb: Public Function ShadowToPlainAsync() As Task(Of AxoTask)
+  overload: AXOpen.Core.AxoTask.ShadowToPlainAsync*
+- uid: AXOpen.Core.AxoTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  commentId: M:AXOpen.Core.AxoTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  id: ShadowToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: ShadowToPlainAsync(AxoTask)
+  nameWithType: AxoTask.ShadowToPlainAsync(AxoTask)
+  fullName: AXOpen.Core.AxoTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoTask)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: ShadowToPlainAsync
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 121
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: protected Task<AxoTask> ShadowToPlainAsync(AxoTask plain)
+    parameters:
+    - id: plain
+      type: Pocos.AXOpen.Core.AxoTask
+    return:
+      type: System.Threading.Tasks.Task{Pocos.AXOpen.Core.AxoTask}
+    content.vb: Protected Function ShadowToPlainAsync(plain As AxoTask) As Task(Of AxoTask)
+  overload: AXOpen.Core.AxoTask.ShadowToPlainAsync*
+- uid: AXOpen.Core.AxoTask.PlainToShadow``1(``0)
+  commentId: M:AXOpen.Core.AxoTask.PlainToShadow``1(``0)
+  id: PlainToShadow``1(``0)
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: PlainToShadow<T>(T)
+  nameWithType: AxoTask.PlainToShadow<T>(T)
+  fullName: AXOpen.Core.AxoTask.PlainToShadow<T>(T)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: PlainToShadow
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 135
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public override Task PlainToShadow<T>(T plain)
+    parameters:
+    - id: plain
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Overrides Function PlainToShadow(Of T)(plain As T) As Task
+  overridden: AXOpen.Core.AxoObject.PlainToShadow``1({T})
+  overload: AXOpen.Core.AxoTask.PlainToShadow*
+  nameWithType.vb: AxoTask.PlainToShadow(Of T)(T)
+  fullName.vb: AXOpen.Core.AxoTask.PlainToShadow(Of T)(T)
+  name.vb: PlainToShadow(Of T)(T)
+- uid: AXOpen.Core.AxoTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoTask)
+  commentId: M:AXOpen.Core.AxoTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoTask)
+  id: PlainToShadowAsync(Pocos.AXOpen.Core.AxoTask)
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: PlainToShadowAsync(AxoTask)
+  nameWithType: AxoTask.PlainToShadowAsync(AxoTask)
+  fullName: AXOpen.Core.AxoTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoTask)
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: PlainToShadowAsync
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 140
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public Task<IEnumerable<ITwinPrimitive>> PlainToShadowAsync(AxoTask plain)
+    parameters:
+    - id: plain
+      type: Pocos.AXOpen.Core.AxoTask
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive}}
+    content.vb: Public Function PlainToShadowAsync(plain As AxoTask) As Task(Of IEnumerable(Of ITwinPrimitive))
+  overload: AXOpen.Core.AxoTask.PlainToShadowAsync*
+- uid: AXOpen.Core.AxoTask.Poll
+  commentId: M:AXOpen.Core.AxoTask.Poll
+  id: Poll
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: Poll()
+  nameWithType: AxoTask.Poll()
+  fullName: AXOpen.Core.AxoTask.Poll()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: Poll
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 154
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public void Poll()
+    content.vb: Public Sub Poll()
+  overload: AXOpen.Core.AxoTask.Poll*
+- uid: AXOpen.Core.AxoTask.CreateEmptyPoco
+  commentId: M:AXOpen.Core.AxoTask.CreateEmptyPoco
+  id: CreateEmptyPoco
+  parent: AXOpen.Core.AxoTask
+  langs:
+  - csharp
+  - vb
+  name: CreateEmptyPoco()
+  nameWithType: AxoTask.CreateEmptyPoco()
+  fullName: AXOpen.Core.AxoTask.CreateEmptyPoco()
+  type: Method
+  source:
+    remote:
+      path: src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+      branch: 64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco
+      repo: https://github.com/ix-ax/ix.framework.git
+    id: CreateEmptyPoco
+    path: ../src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs
+    startLine: 159
+  assemblies:
+  - ix_ax_axopen_core
+  namespace: AXOpen.Core
+  syntax:
+    content: public AxoTask CreateEmptyPoco()
+    return:
+      type: Pocos.AXOpen.Core.AxoTask
+    content.vb: Public Function CreateEmptyPoco() As AxoTask
+  overload: AXOpen.Core.AxoTask.CreateEmptyPoco*
+references:
+- uid: AXOpen.Core
+  commentId: N:AXOpen.Core
+  name: AXOpen.Core
+  nameWithType: AXOpen.Core
+  fullName: AXOpen.Core
+  spec.csharp:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+  spec.vb:
+  - uid: AXOpen
+    name: AXOpen
+  - name: .
+  - uid: AXOpen.Core
+    name: Core
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: AXOpen.Core.AxoObject
+  commentId: T:AXOpen.Core.AxoObject
+  parent: AXOpen.Core
+  name: AxoObject
+  nameWithType: AxoObject
+  fullName: AXOpen.Core.AxoObject
+- uid: AXSharp.Connector.ITwinObject
+  commentId: T:AXSharp.Connector.ITwinObject
+  parent: AXSharp.Connector
+  isExternal: true
+  name: ITwinObject
+  nameWithType: ITwinObject
+  fullName: AXSharp.Connector.ITwinObject
+- uid: AXSharp.Connector.ITwinElement
+  commentId: T:AXSharp.Connector.ITwinElement
+  parent: AXSharp.Connector
+  isExternal: true
+  name: ITwinElement
+  nameWithType: ITwinElement
+  fullName: AXSharp.Connector.ITwinElement
+- uid: AXOpen.Core.IAxoObject
+  commentId: T:AXOpen.Core.IAxoObject
+  parent: AXOpen.Core
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: System.Windows.Input.ICommand
+  commentId: T:System.Windows.Input.ICommand
+  parent: System.Windows.Input
+  isExternal: true
+  name: ICommand
+  nameWithType: ICommand
+  fullName: System.Windows.Input.ICommand
+- uid: AXOpen.Core.IAxoTask
+  commentId: T:AXOpen.Core.IAxoTask
+  parent: AXOpen.Core
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: AXOpen.Core.IAxoTask
+- uid: AXOpen.Core.IAxoTaskState
+  commentId: T:AXOpen.Core.IAxoTaskState
+  parent: AXOpen.Core
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: AXOpen.Core.AxoObject.Identity
+  commentId: P:AXOpen.Core.AxoObject.Identity
+  parent: AXOpen.Core.AxoObject
+  name: Identity
+  nameWithType: AxoObject.Identity
+  fullName: AXOpen.Core.AxoObject.Identity
+- uid: AXOpen.Core.AxoObject.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+  commentId: M:AXOpen.Core.AxoObject.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+  parent: AXOpen.Core.AxoObject
+  name: OnlineToPlainAsync(AxoObject)
+  nameWithType: AxoObject.OnlineToPlainAsync(AxoObject)
+  fullName: AXOpen.Core.AxoObject.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+    name: OnlineToPlainAsync
+  - name: (
+  - uid: Pocos.AXOpen.Core.AxoObject
+    name: AxoObject
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+    name: OnlineToPlainAsync
+  - name: (
+  - uid: Pocos.AXOpen.Core.AxoObject
+    name: AxoObject
+  - name: )
+- uid: AXOpen.Core.AxoObject.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoObject)
+  commentId: M:AXOpen.Core.AxoObject.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoObject)
+  parent: AXOpen.Core.AxoObject
+  name: PlainToOnlineAsync(AxoObject)
+  nameWithType: AxoObject.PlainToOnlineAsync(AxoObject)
+  fullName: AXOpen.Core.AxoObject.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoObject)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoObject)
+    name: PlainToOnlineAsync
+  - name: (
+  - uid: Pocos.AXOpen.Core.AxoObject
+    name: AxoObject
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoObject)
+    name: PlainToOnlineAsync
+  - name: (
+  - uid: Pocos.AXOpen.Core.AxoObject
+    name: AxoObject
+  - name: )
+- uid: AXOpen.Core.AxoObject.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+  commentId: M:AXOpen.Core.AxoObject.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+  parent: AXOpen.Core.AxoObject
+  name: ShadowToPlainAsync(AxoObject)
+  nameWithType: AxoObject.ShadowToPlainAsync(AxoObject)
+  fullName: AXOpen.Core.AxoObject.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+    name: ShadowToPlainAsync
+  - name: (
+  - uid: Pocos.AXOpen.Core.AxoObject
+    name: AxoObject
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoObject)
+    name: ShadowToPlainAsync
+  - name: (
+  - uid: Pocos.AXOpen.Core.AxoObject
+    name: AxoObject
+  - name: )
+- uid: AXOpen.Core.AxoObject.PlainToShadowAsync(Pocos.AXOpen.Core.AxoObject)
+  commentId: M:AXOpen.Core.AxoObject.PlainToShadowAsync(Pocos.AXOpen.Core.AxoObject)
+  parent: AXOpen.Core.AxoObject
+  name: PlainToShadowAsync(AxoObject)
+  nameWithType: AxoObject.PlainToShadowAsync(AxoObject)
+  fullName: AXOpen.Core.AxoObject.PlainToShadowAsync(Pocos.AXOpen.Core.AxoObject)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.PlainToShadowAsync(Pocos.AXOpen.Core.AxoObject)
+    name: PlainToShadowAsync
+  - name: (
+  - uid: Pocos.AXOpen.Core.AxoObject
+    name: AxoObject
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.PlainToShadowAsync(Pocos.AXOpen.Core.AxoObject)
+    name: PlainToShadowAsync
+  - name: (
+  - uid: Pocos.AXOpen.Core.AxoObject
+    name: AxoObject
+  - name: )
+- uid: AXOpen.Core.AxoObject.GetChildren
+  commentId: M:AXOpen.Core.AxoObject.GetChildren
+  parent: AXOpen.Core.AxoObject
+  name: GetChildren()
+  nameWithType: AxoObject.GetChildren()
+  fullName: AXOpen.Core.AxoObject.GetChildren()
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.GetChildren
+    name: GetChildren
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.GetChildren
+    name: GetChildren
+  - name: (
+  - name: )
+- uid: AXOpen.Core.AxoObject.GetKids
+  commentId: M:AXOpen.Core.AxoObject.GetKids
+  parent: AXOpen.Core.AxoObject
+  name: GetKids()
+  nameWithType: AxoObject.GetKids()
+  fullName: AXOpen.Core.AxoObject.GetKids()
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.GetKids
+    name: GetKids
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.GetKids
+    name: GetKids
+  - name: (
+  - name: )
+- uid: AXOpen.Core.AxoObject.GetValueTags
+  commentId: M:AXOpen.Core.AxoObject.GetValueTags
+  parent: AXOpen.Core.AxoObject
+  name: GetValueTags()
+  nameWithType: AxoObject.GetValueTags()
+  fullName: AXOpen.Core.AxoObject.GetValueTags()
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.GetValueTags
+    name: GetValueTags
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.GetValueTags
+    name: GetValueTags
+  - name: (
+  - name: )
+- uid: AXOpen.Core.AxoObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  commentId: M:AXOpen.Core.AxoObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  parent: AXOpen.Core.AxoObject
+  isExternal: true
+  name: AddValueTag(ITwinPrimitive)
+  nameWithType: AxoObject.AddValueTag(ITwinPrimitive)
+  fullName: AXOpen.Core.AxoObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+    name: AddValueTag
+  - name: (
+  - uid: AXSharp.Connector.ITwinPrimitive
+    name: ITwinPrimitive
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+    name: AddValueTag
+  - name: (
+  - uid: AXSharp.Connector.ITwinPrimitive
+    name: ITwinPrimitive
+    isExternal: true
+  - name: )
+- uid: AXOpen.Core.AxoObject.AddKid(AXSharp.Connector.ITwinElement)
+  commentId: M:AXOpen.Core.AxoObject.AddKid(AXSharp.Connector.ITwinElement)
+  parent: AXOpen.Core.AxoObject
+  isExternal: true
+  name: AddKid(ITwinElement)
+  nameWithType: AxoObject.AddKid(ITwinElement)
+  fullName: AXOpen.Core.AxoObject.AddKid(AXSharp.Connector.ITwinElement)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.AddKid(AXSharp.Connector.ITwinElement)
+    name: AddKid
+  - name: (
+  - uid: AXSharp.Connector.ITwinElement
+    name: ITwinElement
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.AddKid(AXSharp.Connector.ITwinElement)
+    name: AddKid
+  - name: (
+  - uid: AXSharp.Connector.ITwinElement
+    name: ITwinElement
+    isExternal: true
+  - name: )
+- uid: AXOpen.Core.AxoObject.AddChild(AXSharp.Connector.ITwinObject)
+  commentId: M:AXOpen.Core.AxoObject.AddChild(AXSharp.Connector.ITwinObject)
+  parent: AXOpen.Core.AxoObject
+  isExternal: true
+  name: AddChild(ITwinObject)
+  nameWithType: AxoObject.AddChild(ITwinObject)
+  fullName: AXOpen.Core.AxoObject.AddChild(AXSharp.Connector.ITwinObject)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.AddChild(AXSharp.Connector.ITwinObject)
+    name: AddChild
+  - name: (
+  - uid: AXSharp.Connector.ITwinObject
+    name: ITwinObject
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.AddChild(AXSharp.Connector.ITwinObject)
+    name: AddChild
+  - name: (
+  - uid: AXSharp.Connector.ITwinObject
+    name: ITwinObject
+    isExternal: true
+  - name: )
+- uid: AXOpen.Core.AxoObject.Connector
+  commentId: P:AXOpen.Core.AxoObject.Connector
+  parent: AXOpen.Core.AxoObject
+  name: Connector
+  nameWithType: AxoObject.Connector
+  fullName: AXOpen.Core.AxoObject.Connector
+- uid: AXOpen.Core.AxoObject.GetConnector
+  commentId: M:AXOpen.Core.AxoObject.GetConnector
+  parent: AXOpen.Core.AxoObject
+  name: GetConnector()
+  nameWithType: AxoObject.GetConnector()
+  fullName: AXOpen.Core.AxoObject.GetConnector()
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.GetConnector
+    name: GetConnector
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.GetConnector
+    name: GetConnector
+  - name: (
+  - name: )
+- uid: AXOpen.Core.AxoObject.GetSymbolTail
+  commentId: M:AXOpen.Core.AxoObject.GetSymbolTail
+  parent: AXOpen.Core.AxoObject
+  name: GetSymbolTail()
+  nameWithType: AxoObject.GetSymbolTail()
+  fullName: AXOpen.Core.AxoObject.GetSymbolTail()
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.GetSymbolTail
+    name: GetSymbolTail
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.GetSymbolTail
+    name: GetSymbolTail
+  - name: (
+  - name: )
+- uid: AXOpen.Core.AxoObject.GetParent
+  commentId: M:AXOpen.Core.AxoObject.GetParent
+  parent: AXOpen.Core.AxoObject
+  name: GetParent()
+  nameWithType: AxoObject.GetParent()
+  fullName: AXOpen.Core.AxoObject.GetParent()
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.GetParent
+    name: GetParent
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.GetParent
+    name: GetParent
+  - name: (
+  - name: )
+- uid: AXOpen.Core.AxoObject.Symbol
+  commentId: P:AXOpen.Core.AxoObject.Symbol
+  parent: AXOpen.Core.AxoObject
+  name: Symbol
+  nameWithType: AxoObject.Symbol
+  fullName: AXOpen.Core.AxoObject.Symbol
+- uid: AXOpen.Core.AxoObject.AttributeName
+  commentId: P:AXOpen.Core.AxoObject.AttributeName
+  parent: AXOpen.Core.AxoObject
+  name: AttributeName
+  nameWithType: AxoObject.AttributeName
+  fullName: AXOpen.Core.AxoObject.AttributeName
+- uid: AXOpen.Core.AxoObject.HumanReadable
+  commentId: P:AXOpen.Core.AxoObject.HumanReadable
+  parent: AXOpen.Core.AxoObject
+  name: HumanReadable
+  nameWithType: AxoObject.HumanReadable
+  fullName: AXOpen.Core.AxoObject.HumanReadable
+- uid: AXOpen.Core.AxoObject.SymbolTail
+  commentId: P:AXOpen.Core.AxoObject.SymbolTail
+  parent: AXOpen.Core.AxoObject
+  name: SymbolTail
+  nameWithType: AxoObject.SymbolTail
+  fullName: AXOpen.Core.AxoObject.SymbolTail
+- uid: AXOpen.Core.AxoObject.Parent
+  commentId: P:AXOpen.Core.AxoObject.Parent
+  parent: AXOpen.Core.AxoObject
+  name: Parent
+  nameWithType: AxoObject.Parent
+  fullName: AXOpen.Core.AxoObject.Parent
+- uid: AXOpen.Core.AxoObject.Interpreter
+  commentId: P:AXOpen.Core.AxoObject.Interpreter
+  parent: AXOpen.Core.AxoObject
+  name: Interpreter
+  nameWithType: AxoObject.Interpreter
+  fullName: AXOpen.Core.AxoObject.Interpreter
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: AXSharp.Connector
+  commentId: N:AXSharp.Connector
+  isExternal: true
+  name: AXSharp.Connector
+  nameWithType: AXSharp.Connector
+  fullName: AXSharp.Connector
+  spec.csharp:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+  spec.vb:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+- uid: System.Windows.Input
+  commentId: N:System.Windows.Input
+  isExternal: true
+  name: System.Windows.Input
+  nameWithType: System.Windows.Input
+  fullName: System.Windows.Input
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Windows
+    name: Windows
+    isExternal: true
+  - name: .
+  - uid: System.Windows.Input
+    name: Input
+    isExternal: true
+- uid: AXOpen.Core.AxoTask.Restore*
+  commentId: Overload:AXOpen.Core.AxoTask.Restore
+  name: Restore
+  nameWithType: AxoTask.Restore
+  fullName: AXOpen.Core.AxoTask.Restore
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+- uid: AXOpen.Core.AxoTask.CanExecute*
+  commentId: Overload:AXOpen.Core.AxoTask.CanExecute
+  name: CanExecute
+  nameWithType: AxoTask.CanExecute
+  fullName: AXOpen.Core.AxoTask.CanExecute
+- uid: System.Windows.Input.ICommand.CanExecute(System.Object)
+  commentId: M:System.Windows.Input.ICommand.CanExecute(System.Object)
+  parent: System.Windows.Input.ICommand
+  isExternal: true
+  name: CanExecute(object)
+  nameWithType: ICommand.CanExecute(object)
+  fullName: System.Windows.Input.ICommand.CanExecute(object)
+  nameWithType.vb: ICommand.CanExecute(Object)
+  fullName.vb: System.Windows.Input.ICommand.CanExecute(Object)
+  name.vb: CanExecute(Object)
+  spec.csharp:
+  - uid: System.Windows.Input.ICommand.CanExecute(System.Object)
+    name: CanExecute
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Windows.Input.ICommand.CanExecute(System.Object)
+    name: CanExecute
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: AXOpen.Core.AxoTask.Execute*
+  commentId: Overload:AXOpen.Core.AxoTask.Execute
+  name: Execute
+  nameWithType: AxoTask.Execute
+  fullName: AXOpen.Core.AxoTask.Execute
+- uid: System.Windows.Input.ICommand.Execute(System.Object)
+  commentId: M:System.Windows.Input.ICommand.Execute(System.Object)
+  parent: System.Windows.Input.ICommand
+  isExternal: true
+  name: Execute(object)
+  nameWithType: ICommand.Execute(object)
+  fullName: System.Windows.Input.ICommand.Execute(object)
+  nameWithType.vb: ICommand.Execute(Object)
+  fullName.vb: System.Windows.Input.ICommand.Execute(Object)
+  name.vb: Execute(Object)
+  spec.csharp:
+  - uid: System.Windows.Input.ICommand.Execute(System.Object)
+    name: Execute
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+  - name: )
+  spec.vb:
+  - uid: System.Windows.Input.ICommand.Execute(System.Object)
+    name: Execute
+    isExternal: true
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+  - name: )
+- uid: System.Windows.Input.ICommand.CanExecuteChanged
+  commentId: E:System.Windows.Input.ICommand.CanExecuteChanged
+  parent: System.Windows.Input.ICommand
+  isExternal: true
+  name: CanExecuteChanged
+  nameWithType: ICommand.CanExecuteChanged
+  fullName: System.Windows.Input.ICommand.CanExecuteChanged
+- uid: System.EventHandler
+  commentId: T:System.EventHandler
+  parent: System
+  isExternal: true
+  name: EventHandler
+  nameWithType: EventHandler
+  fullName: System.EventHandler
+- uid: AXOpen.Core.AxoTask.Status*
+  commentId: Overload:AXOpen.Core.AxoTask.Status
+  name: Status
+  nameWithType: AxoTask.Status
+  fullName: AXOpen.Core.AxoTask.Status
+- uid: AXSharp.Connector.ValueTypes.OnlinerInt
+  commentId: T:AXSharp.Connector.ValueTypes.OnlinerInt
+  parent: AXSharp.Connector.ValueTypes
+  isExternal: true
+  name: OnlinerInt
+  nameWithType: OnlinerInt
+  fullName: AXSharp.Connector.ValueTypes.OnlinerInt
+- uid: AXSharp.Connector.ValueTypes
+  commentId: N:AXSharp.Connector.ValueTypes
+  isExternal: true
+  name: AXSharp.Connector.ValueTypes
+  nameWithType: AXSharp.Connector.ValueTypes
+  fullName: AXSharp.Connector.ValueTypes
+  spec.csharp:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector.ValueTypes
+    name: ValueTypes
+    isExternal: true
+  spec.vb:
+  - uid: AXSharp
+    name: AXSharp
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector
+    name: Connector
+    isExternal: true
+  - name: .
+  - uid: AXSharp.Connector.ValueTypes
+    name: ValueTypes
+    isExternal: true
+- uid: AXOpen.Core.AxoTask.IsDisabled*
+  commentId: Overload:AXOpen.Core.AxoTask.IsDisabled
+  name: IsDisabled
+  nameWithType: AxoTask.IsDisabled
+  fullName: AXOpen.Core.AxoTask.IsDisabled
+- uid: AXSharp.Connector.ValueTypes.OnlinerBool
+  commentId: T:AXSharp.Connector.ValueTypes.OnlinerBool
+  parent: AXSharp.Connector.ValueTypes
+  isExternal: true
+  name: OnlinerBool
+  nameWithType: OnlinerBool
+  fullName: AXSharp.Connector.ValueTypes.OnlinerBool
+- uid: AXOpen.Core.AxoTask.RemoteInvoke*
+  commentId: Overload:AXOpen.Core.AxoTask.RemoteInvoke
+  name: RemoteInvoke
+  nameWithType: AxoTask.RemoteInvoke
+  fullName: AXOpen.Core.AxoTask.RemoteInvoke
+- uid: AXOpen.Core.AxoTask.RemoteRestore*
+  commentId: Overload:AXOpen.Core.AxoTask.RemoteRestore
+  name: RemoteRestore
+  nameWithType: AxoTask.RemoteRestore
+  fullName: AXOpen.Core.AxoTask.RemoteRestore
+- uid: AXOpen.Core.AxoTask.RemoteAbort*
+  commentId: Overload:AXOpen.Core.AxoTask.RemoteAbort
+  name: RemoteAbort
+  nameWithType: AxoTask.RemoteAbort
+  fullName: AXOpen.Core.AxoTask.RemoteAbort
+- uid: AXOpen.Core.AxoTask.RemoteResume*
+  commentId: Overload:AXOpen.Core.AxoTask.RemoteResume
+  name: RemoteResume
+  nameWithType: AxoTask.RemoteResume
+  fullName: AXOpen.Core.AxoTask.RemoteResume
+- uid: AXOpen.Core.AxoTask.StartSignature*
+  commentId: Overload:AXOpen.Core.AxoTask.StartSignature
+  name: StartSignature
+  nameWithType: AxoTask.StartSignature
+  fullName: AXOpen.Core.AxoTask.StartSignature
+- uid: AXSharp.Connector.ValueTypes.OnlinerULInt
+  commentId: T:AXSharp.Connector.ValueTypes.OnlinerULInt
+  parent: AXSharp.Connector.ValueTypes
+  isExternal: true
+  name: OnlinerULInt
+  nameWithType: OnlinerULInt
+  fullName: AXSharp.Connector.ValueTypes.OnlinerULInt
+- uid: AXOpen.Core.AxoTask.ErrorDetails*
+  commentId: Overload:AXOpen.Core.AxoTask.ErrorDetails
+  name: ErrorDetails
+  nameWithType: AxoTask.ErrorDetails
+  fullName: AXOpen.Core.AxoTask.ErrorDetails
+- uid: AXSharp.Connector.ValueTypes.OnlinerString
+  commentId: T:AXSharp.Connector.ValueTypes.OnlinerString
+  parent: AXSharp.Connector.ValueTypes
+  isExternal: true
+  name: OnlinerString
+  nameWithType: OnlinerString
+  fullName: AXSharp.Connector.ValueTypes.OnlinerString
+- uid: AXOpen.Core.AxoTask.#ctor*
+  commentId: Overload:AXOpen.Core.AxoTask.#ctor
+  name: AxoTask
+  nameWithType: AxoTask.AxoTask
+  fullName: AXOpen.Core.AxoTask.AxoTask
+  nameWithType.vb: AxoTask.New
+  fullName.vb: AXOpen.Core.AxoTask.New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: AXOpen.Core.AxoObject.OnlineToPlain``1
+  commentId: M:AXOpen.Core.AxoObject.OnlineToPlain``1
+  parent: AXOpen.Core.AxoObject
+  name: OnlineToPlain<T>()
+  nameWithType: AxoObject.OnlineToPlain<T>()
+  fullName: AXOpen.Core.AxoObject.OnlineToPlain<T>()
+  nameWithType.vb: AxoObject.OnlineToPlain(Of T)()
+  fullName.vb: AXOpen.Core.AxoObject.OnlineToPlain(Of T)()
+  name.vb: OnlineToPlain(Of T)()
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.OnlineToPlain``1
+    name: OnlineToPlain
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.OnlineToPlain``1
+    name: OnlineToPlain
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: AXOpen.Core.AxoTask.OnlineToPlain*
+  commentId: Overload:AXOpen.Core.AxoTask.OnlineToPlain
+  name: OnlineToPlain
+  nameWithType: AxoTask.OnlineToPlain
+  fullName: AXOpen.Core.AxoTask.OnlineToPlain
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: AXOpen.Core.AxoTask.OnlineToPlainAsync*
+  commentId: Overload:AXOpen.Core.AxoTask.OnlineToPlainAsync
+  name: OnlineToPlainAsync
+  nameWithType: AxoTask.OnlineToPlainAsync
+  fullName: AXOpen.Core.AxoTask.OnlineToPlainAsync
+- uid: System.Threading.Tasks.Task{Pocos.AXOpen.Core.AxoTask}
+  commentId: T:System.Threading.Tasks.Task{Pocos.AXOpen.Core.AxoTask}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<AxoTask>
+  nameWithType: Task<AxoTask>
+  fullName: System.Threading.Tasks.Task<Pocos.AXOpen.Core.AxoTask>
+  nameWithType.vb: Task(Of AxoTask)
+  fullName.vb: System.Threading.Tasks.Task(Of Pocos.AXOpen.Core.AxoTask)
+  name.vb: Task(Of AxoTask)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: Pocos.AXOpen.Core.AxoTask
+    name: AxoTask
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Pocos.AXOpen.Core.AxoTask
+    name: AxoTask
+  - name: )
+- uid: Pocos.AXOpen.Core.AxoTask
+  commentId: T:Pocos.AXOpen.Core.AxoTask
+  parent: Pocos.AXOpen.Core
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: Pocos.AXOpen.Core.AxoTask
+- uid: Pocos.AXOpen.Core
+  commentId: N:Pocos.AXOpen.Core
+  name: Pocos.AXOpen.Core
+  nameWithType: Pocos.AXOpen.Core
+  fullName: Pocos.AXOpen.Core
+  spec.csharp:
+  - uid: Pocos
+    name: Pocos
+  - name: .
+  - uid: Pocos.AXOpen
+    name: AXOpen
+  - name: .
+  - uid: Pocos.AXOpen.Core
+    name: Core
+  spec.vb:
+  - uid: Pocos
+    name: Pocos
+  - name: .
+  - uid: Pocos.AXOpen
+    name: AXOpen
+  - name: .
+  - uid: Pocos.AXOpen.Core
+    name: Core
+- uid: AXOpen.Core.AxoObject.PlainToOnline``1({T})
+  commentId: M:AXOpen.Core.AxoObject.PlainToOnline``1(``0)
+  parent: AXOpen.Core.AxoObject
+  definition: AXOpen.Core.AxoObject.PlainToOnline``1(``0)
+  name: PlainToOnline<T>(T)
+  nameWithType: AxoObject.PlainToOnline<T>(T)
+  fullName: AXOpen.Core.AxoObject.PlainToOnline<T>(T)
+  nameWithType.vb: AxoObject.PlainToOnline(Of T)(T)
+  fullName.vb: AXOpen.Core.AxoObject.PlainToOnline(Of T)(T)
+  name.vb: PlainToOnline(Of T)(T)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.PlainToOnline``1(``0)
+    name: PlainToOnline
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.PlainToOnline``1(``0)
+    name: PlainToOnline
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: AXOpen.Core.AxoTask.PlainToOnline*
+  commentId: Overload:AXOpen.Core.AxoTask.PlainToOnline
+  name: PlainToOnline
+  nameWithType: AxoTask.PlainToOnline
+  fullName: AXOpen.Core.AxoTask.PlainToOnline
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: AXOpen.Core.AxoObject.PlainToOnline``1(``0)
+  commentId: M:AXOpen.Core.AxoObject.PlainToOnline``1(``0)
+  name: PlainToOnline<T>(T)
+  nameWithType: AxoObject.PlainToOnline<T>(T)
+  fullName: AXOpen.Core.AxoObject.PlainToOnline<T>(T)
+  nameWithType.vb: AxoObject.PlainToOnline(Of T)(T)
+  fullName.vb: AXOpen.Core.AxoObject.PlainToOnline(Of T)(T)
+  name.vb: PlainToOnline(Of T)(T)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.PlainToOnline``1(``0)
+    name: PlainToOnline
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.PlainToOnline``1(``0)
+    name: PlainToOnline
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: AXOpen.Core.AxoTask.PlainToOnlineAsync*
+  commentId: Overload:AXOpen.Core.AxoTask.PlainToOnlineAsync
+  name: PlainToOnlineAsync
+  nameWithType: AxoTask.PlainToOnlineAsync
+  fullName: AXOpen.Core.AxoTask.PlainToOnlineAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IEnumerable<ITwinPrimitive>>
+  nameWithType: Task<IEnumerable<ITwinPrimitive>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<AXSharp.Connector.ITwinPrimitive>>
+  nameWithType.vb: Task(Of IEnumerable(Of ITwinPrimitive))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IEnumerable(Of AXSharp.Connector.ITwinPrimitive))
+  name.vb: Task(Of IEnumerable(Of ITwinPrimitive))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: <
+  - uid: AXSharp.Connector.ITwinPrimitive
+    name: ITwinPrimitive
+    isExternal: true
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: AXSharp.Connector.ITwinPrimitive
+    name: ITwinPrimitive
+    isExternal: true
+  - name: )
+  - name: )
+- uid: AXOpen.Core.AxoObject.ShadowToPlain``1
+  commentId: M:AXOpen.Core.AxoObject.ShadowToPlain``1
+  parent: AXOpen.Core.AxoObject
+  name: ShadowToPlain<T>()
+  nameWithType: AxoObject.ShadowToPlain<T>()
+  fullName: AXOpen.Core.AxoObject.ShadowToPlain<T>()
+  nameWithType.vb: AxoObject.ShadowToPlain(Of T)()
+  fullName.vb: AXOpen.Core.AxoObject.ShadowToPlain(Of T)()
+  name.vb: ShadowToPlain(Of T)()
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.ShadowToPlain``1
+    name: ShadowToPlain
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.ShadowToPlain``1
+    name: ShadowToPlain
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: AXOpen.Core.AxoTask.ShadowToPlain*
+  commentId: Overload:AXOpen.Core.AxoTask.ShadowToPlain
+  name: ShadowToPlain
+  nameWithType: AxoTask.ShadowToPlain
+  fullName: AXOpen.Core.AxoTask.ShadowToPlain
+- uid: AXOpen.Core.AxoTask.ShadowToPlainAsync*
+  commentId: Overload:AXOpen.Core.AxoTask.ShadowToPlainAsync
+  name: ShadowToPlainAsync
+  nameWithType: AxoTask.ShadowToPlainAsync
+  fullName: AXOpen.Core.AxoTask.ShadowToPlainAsync
+- uid: AXOpen.Core.AxoObject.PlainToShadow``1({T})
+  commentId: M:AXOpen.Core.AxoObject.PlainToShadow``1(``0)
+  parent: AXOpen.Core.AxoObject
+  definition: AXOpen.Core.AxoObject.PlainToShadow``1(``0)
+  name: PlainToShadow<T>(T)
+  nameWithType: AxoObject.PlainToShadow<T>(T)
+  fullName: AXOpen.Core.AxoObject.PlainToShadow<T>(T)
+  nameWithType.vb: AxoObject.PlainToShadow(Of T)(T)
+  fullName.vb: AXOpen.Core.AxoObject.PlainToShadow(Of T)(T)
+  name.vb: PlainToShadow(Of T)(T)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.PlainToShadow``1(``0)
+    name: PlainToShadow
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.PlainToShadow``1(``0)
+    name: PlainToShadow
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: AXOpen.Core.AxoTask.PlainToShadow*
+  commentId: Overload:AXOpen.Core.AxoTask.PlainToShadow
+  name: PlainToShadow
+  nameWithType: AxoTask.PlainToShadow
+  fullName: AXOpen.Core.AxoTask.PlainToShadow
+- uid: AXOpen.Core.AxoObject.PlainToShadow``1(``0)
+  commentId: M:AXOpen.Core.AxoObject.PlainToShadow``1(``0)
+  name: PlainToShadow<T>(T)
+  nameWithType: AxoObject.PlainToShadow<T>(T)
+  fullName: AXOpen.Core.AxoObject.PlainToShadow<T>(T)
+  nameWithType.vb: AxoObject.PlainToShadow(Of T)(T)
+  fullName.vb: AXOpen.Core.AxoObject.PlainToShadow(Of T)(T)
+  name.vb: PlainToShadow(Of T)(T)
+  spec.csharp:
+  - uid: AXOpen.Core.AxoObject.PlainToShadow``1(``0)
+    name: PlainToShadow
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: AXOpen.Core.AxoObject.PlainToShadow``1(``0)
+    name: PlainToShadow
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: T
+  - name: )
+- uid: AXOpen.Core.AxoTask.PlainToShadowAsync*
+  commentId: Overload:AXOpen.Core.AxoTask.PlainToShadowAsync
+  name: PlainToShadowAsync
+  nameWithType: AxoTask.PlainToShadowAsync
+  fullName: AXOpen.Core.AxoTask.PlainToShadowAsync
+- uid: AXOpen.Core.AxoTask.Poll*
+  commentId: Overload:AXOpen.Core.AxoTask.Poll
+  name: Poll
+  nameWithType: AxoTask.Poll
+  fullName: AXOpen.Core.AxoTask.Poll
+- uid: AXOpen.Core.AxoTask.CreateEmptyPoco*
+  commentId: Overload:AXOpen.Core.AxoTask.CreateEmptyPoco
+  name: CreateEmptyPoco
+  nameWithType: AxoTask.CreateEmptyPoco
+  fullName: AXOpen.Core.AxoTask.CreateEmptyPoco

@@ -1,0 +1,22 @@
+### YamlMime:ManagedReference
+items:
+- uid: AXOpen.Core.Resources
+  commentId: N:AXOpen.Core.Resources
+  id: AXOpen.Core.Resources
+  children:
+  - AXOpen.Core.Resources.PlcStringResources
+  langs:
+  - csharp
+  - vb
+  name: AXOpen.Core.Resources
+  nameWithType: AXOpen.Core.Resources
+  fullName: AXOpen.Core.Resources
+  type: Namespace
+  assemblies:
+  - ix_ax_axopen_core
+references:
+- uid: AXOpen.Core.Resources.PlcStringResources
+  commentId: T:AXOpen.Core.Resources.PlcStringResources
+  name: PlcStringResources
+  nameWithType: PlcStringResources
+  fullName: AXOpen.Core.Resources.PlcStringResources

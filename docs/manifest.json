@@ -5,7 +5,7 @@
     "priority": 0.1
   },
   "homepages": [],
-  "source_base_path": "C:/W/Develop/gh/ix-ax/ix.framework/docfx",
+  "source_base_path": "D:/github/ix-ax/ix.framework/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -18,616 +18,803 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxComponent.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoComponent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxComponent.html",
-          "hash": "6b94O2pmVWhbCIji2sP0PY9AIbm4X3p8W55ROW/l+ZE="
+          "relative_path": "api/AXOpen.Core.AxoComponent.html",
+          "hash": "Itk9JBRLB0TMz/xTWGRt4yb34hVhoaW5o+adbbqziAA="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxContext.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoComponentCommandView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxContext.html",
-          "hash": "JuwtNj3F7/Dnsqy5UidsVScAbGTYIYXUVrp3NUUr8xY="
+          "relative_path": "api/AXOpen.Core.AxoComponentCommandView.html",
+          "hash": "CDxgsUW9vQ3NrjEivhAjS35oAM+/ScSqz1NgwtTPVec="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxCoordinator.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoComponentStatusView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxCoordinator.html",
-          "hash": "kM+2qotu/kFdv1H+wGk8PVnAqmOUOQ1/NZHpgfnO8M8="
+          "relative_path": "api/AXOpen.Core.AxoComponentStatusView.html",
+          "hash": "20A5uLnzi3rKmDTz7/IvEtVqcV1V9bUvngwOLpu96Vo="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxManuallyControllable.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoComponentView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxManuallyControllable.html",
-          "hash": "UFepDqPKThCpxQmZOW3E6PSVWsyyrmmiLCKu5LNy4x8="
+          "relative_path": "api/AXOpen.Core.AxoComponentView.html",
+          "hash": "jLl/lZ/eisWtLVew8/PbfQnWV46mA46o+u5O7xOay+k="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxObject.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoContext.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxObject.html",
-          "hash": "+KmfnFgHWjpiyQCN+Ry41eWjSYYmB7NmeHYMePNLsAQ="
+          "relative_path": "api/AXOpen.Core.AxoContext.html",
+          "hash": "+USpF7nlv3Yxxzag+dB90opJIXGx5DqQ+S1lQETN23A="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxStep.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoContextEnvironment.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxStep.html",
-          "hash": "NctB6bcYc5iZyiKoraIqctd56IjEzrSy4VdgHC52Hpg="
+          "relative_path": "api/AXOpen.Core.AxoContextEnvironment.html",
+          "hash": "yPycSxc6Ghc4eyDwKUcQgn2QvofB8ehcy8SqenIIoCk="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxTask.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoCoordinatorStates.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxTask.html",
-          "hash": "+lAKNC/fnNU6//hs67FaMrBvNlZdQqFL3g8khNZkCDo="
+          "relative_path": "api/AXOpen.Core.AxoCoordinatorStates.html",
+          "hash": "8kSIY0QjN0d79ZOuO+A4SOpQ3R3ZAhyT0GR/zNtHFfw="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IIxTaskState.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoObject.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IIxTaskState.html",
-          "hash": "v6a24/njXmF/kjtbsaYNwgW/hhnyLt3ce7lW41S5yws="
+          "relative_path": "api/AXOpen.Core.AxoObject.html",
+          "hash": "8r91dnn5gus1Swm8XEK/VIl7B6sxhKZElbx/SncfTRQ="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IxComponent.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoRemoteTask.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IxComponent.html",
-          "hash": "Mm8tWgD6xLDF9ptLWqRDe4YS58RulAIqUKAktRUnMTI="
+          "relative_path": "api/AXOpen.Core.AxoRemoteTask.html",
+          "hash": "06MX19wOciHMbSKcQlUOg570uj4btTlzsFDBDfG01Y4="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IxContext.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoSequencer.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IxContext.html",
-          "hash": "wdwJxe9JMYe1tG0SxTwUKyIsWx6nzzyqMyKRqrjgpJA="
+          "relative_path": "api/AXOpen.Core.AxoSequencer.html",
+          "hash": "O7QxqQ7U8bek+tlgAnksuHxDUhrrrkhQBVXJMGsK2Fg="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IxObject.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoSequencerCommandView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IxObject.html",
-          "hash": "Vsuo4P5so/9w/oZwalECi1AQNXsYzywsTWsBukLgGGo="
+          "relative_path": "api/AXOpen.Core.AxoSequencerCommandView.html",
+          "hash": "EwIb8bImhh6q9APCClwWE4fwj4Pdz5mOFUsS69D6Aoc="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IxRemoteTask.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoSequencerStatusView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IxRemoteTask.html",
-          "hash": "tHwnBqrzm/1g1YirWUK175wMGzvcN5qrGHFQQ/IsJAg="
+          "relative_path": "api/AXOpen.Core.AxoSequencerStatusView.html",
+          "hash": "f0CFga4aBrxXaQ8tfNe4DytKneMxIjzAE6THB2Jd3Co="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IxSequencer.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoSequencerView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IxSequencer.html",
-          "hash": "55OQ8/DMd0GQupEnBmaWVN0NgwjYmRQXljxWHVV1Soo="
+          "relative_path": "api/AXOpen.Core.AxoSequencerView.html",
+          "hash": "U0nNrtkTtgGt/sTkohl2PwaHrcGqGhoZhc+X+10RHoA="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IxStep.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoStep.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IxStep.html",
-          "hash": "2HKCo7PrLoVzD9Jrd5YNAp5b+uClqOgkKMPNDjwPS+o="
+          "relative_path": "api/AXOpen.Core.AxoStep.html",
+          "hash": "OSLSDqj6Sa1m8V9FJP6Xqof5qna6Vp8fZaqzUTslolo="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.IxTask.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoStepCommandView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.IxTask.html",
-          "hash": "YOEf1XfDBvcKDvja6hpARON1hXE5s0xfATJoCV6rOCs="
+          "relative_path": "api/AXOpen.Core.AxoStepCommandView.html",
+          "hash": "xH3AAdBsh7paN5wsHDsmSlxVpthbEp5gKfkZjkLylpE="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core._NULL_CONTEXT.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoStepStatusView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core._NULL_CONTEXT.html",
-          "hash": "s80c+QwIrhkaA9xhxrhavnc0lgRobqFUeUTcedtpjOk="
+          "relative_path": "api/AXOpen.Core.AxoStepStatusView.html",
+          "hash": "/x62zwC+t4O3JL4mjA28y4RVmjCjOqwr2Xe6wuBABxA="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.ix.framework.core.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoStepView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Pocos.ix.framework.core.html",
-          "hash": "HpXYKDI7hqsuUkUv54VZJfiGT3UfTMG5+xn3A08y3bw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "api/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "api/index.html",
-          "hash": "oNneJCcZfNYZ72O0MYNCL8JafjMAanY09YA4LRxUvfQ="
+          "relative_path": "api/AXOpen.Core.AxoStepView.html",
+          "hash": "iOfMn96eF/2dMYGiw8yyXpnXlin4mTgVPcWbeQwT/uI="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.ComponentDetailsAttribute.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoTask.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.ComponentDetailsAttribute.html",
-          "hash": "1WgdVzi5cInLVGKcCMJiDmcUEh6N482wE7lV37g/6/I="
+          "relative_path": "api/AXOpen.Core.AxoTask.html",
+          "hash": "W0w3+X+2xDYkpE5CnvjnQk0i0yme+mi41oZCu9qytkA="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.ComponentHeaderAttribute.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoTaskCommandView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.ComponentHeaderAttribute.html",
-          "hash": "ncwk6n5i+qxWVkWG//xAHDHax3lk4HEfCdP8eYAyltg="
+          "relative_path": "api/AXOpen.Core.AxoTaskCommandView.html",
+          "hash": "o6G0oGvpoZWLanYjiYarQS0MC1appFC5JhiN2t9Ufvw="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.CoordinatorStates.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoTaskStatusView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.CoordinatorStates.html",
-          "hash": "vE6Jc9RgPQfOAO3ukbo9B++KQw4Obq+eVqOAs8lLvNs="
+          "relative_path": "api/AXOpen.Core.AxoTaskStatusView.html",
+          "hash": "gMxFzwPiMDCZQjFw9YAOFS4VkCo7NfMe4h0Xq8KzOvU="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.DetailsContext.yml",
+      "source_relative_path": "api/AXOpen.Core.AxoTaskView.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.DetailsContext.html",
-          "hash": "h/A678PbBrz8BNXOVQ6yxg06K0DUe35CFBJ46jGaBzw="
+          "relative_path": "api/AXOpen.Core.AxoTaskView.html",
+          "hash": "bne33VoGhE4ZKTZO99f/N/F0d2Zyg1QV0mni7w78/h0="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxComponent.yml",
+      "source_relative_path": "api/AXOpen.Core.Blazor._Imports.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxComponent.html",
-          "hash": "8zb5qZAll2eXsWuKJOvdQuya789lBbaOO/h2qxD9P/4="
+          "relative_path": "api/AXOpen.Core.Blazor._Imports.html",
+          "hash": "sfsxfMWPCInaCOmJvVfn205zY0I86Qd1naGMTv1/tJY="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxContext.yml",
+      "source_relative_path": "api/AXOpen.Core.Blazor.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxContext.html",
-          "hash": "w3b6pY3GcQVc8f9q2ekw6NozauLOrdh+LEAd74DCLtw="
+          "relative_path": "api/AXOpen.Core.Blazor.html",
+          "hash": "MSec8vzwiOsiSziikDLY0oddadngjtk1R+rrzXjFWjA="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxCoordinator.yml",
+      "source_relative_path": "api/AXOpen.Core.ComponentDetailsAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxCoordinator.html",
-          "hash": "7A5TW5eGP5J+RkRCQJFMQPIFYbg1RaqrsI3+X87r+zc="
+          "relative_path": "api/AXOpen.Core.ComponentDetailsAttribute.html",
+          "hash": "XhyRgau2xuGr7B5PVvigxhyMN8POZIVZce2EPPXzpnE="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxManuallyControllable.yml",
+      "source_relative_path": "api/AXOpen.Core.ComponentHeaderAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxManuallyControllable.html",
-          "hash": "9njJCgZk/5MvMzHadktjW6Ld9grTrQr7+S5/b3QDii0="
+          "relative_path": "api/AXOpen.Core.ComponentHeaderAttribute.html",
+          "hash": "qt1vGeg+QkN4bW35V08Ppt4n9fGpf8I3VtBzJY4KNFc="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxObject.yml",
+      "source_relative_path": "api/AXOpen.Core.DetailsContext.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxObject.html",
-          "hash": "dnIBcVsy5yexXD9wzLDtI3cuedyXt1qiDqDOtqeQr0E="
+          "relative_path": "api/AXOpen.Core.DetailsContext.html",
+          "hash": "MVuaYZU6aVc5w0UYAB+Q2999VbTyeOSp0CGR4iodKNE="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxStep.yml",
+      "source_relative_path": "api/AXOpen.Core.IAxoComponent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxStep.html",
-          "hash": "9tigZTBJDhR16qpxNHto63w9ZjxDHSpBGv1YW8WnO8U="
+          "relative_path": "api/AXOpen.Core.IAxoComponent.html",
+          "hash": "k+5edS09EiRvPyslSmWkROEEYcj40u+JPpbdyobfa0M="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxTask.yml",
+      "source_relative_path": "api/AXOpen.Core.IAxoContext.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxTask.html",
-          "hash": "UIZlUec8pvNqPaeLUU9D0aZw06eTFFH0DLwKtd26TVs="
+          "relative_path": "api/AXOpen.Core.IAxoContext.html",
+          "hash": "hEoZMJr4DqTlv4yebpIJnHnsF8K9JtsuMwj3Yio2KEw="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IIxTaskState.yml",
+      "source_relative_path": "api/AXOpen.Core.IAxoContextEnvironment.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IIxTaskState.html",
-          "hash": "fZ9mYUwrt4PUwZivMIMuqd8hoPudWgMoFYmk8X5yKXQ="
+          "relative_path": "api/AXOpen.Core.IAxoContextEnvironment.html",
+          "hash": "Pi2NqXnt/Ippmk60UiU0FmszPl5PwfiCQXc/sF+kbl0="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxComponent.yml",
+      "source_relative_path": "api/AXOpen.Core.IAxoCoordinator.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxComponent.html",
-          "hash": "OcREC0HiLRmHF4EjxQE7H21HKdj78Rts4e/+5Zk9jsA="
+          "relative_path": "api/AXOpen.Core.IAxoCoordinator.html",
+          "hash": "L3qfjDxZ9Y9WLw7adK29jCm8sy4htuGY4VmkdkM55bo="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxComponentCommandView.yml",
+      "source_relative_path": "api/AXOpen.Core.IAxoManuallyControllable.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxComponentCommandView.html",
-          "hash": "ewS/w5ap3fROo7nnt3r3I4GHOD1/v0Fxeanq/j5cp1E="
+          "relative_path": "api/AXOpen.Core.IAxoManuallyControllable.html",
+          "hash": "Mfp/HHCM2dYjQm0tpCZ/GMU3CRoD0f2veftiMmxXCqc="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxComponentStatusView.yml",
+      "source_relative_path": "api/AXOpen.Core.IAxoObject.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxComponentStatusView.html",
-          "hash": "4Kics+j0mvT87mhRi+wyAYzrOgkQfAtFPckbzxB0oEM="
+          "relative_path": "api/AXOpen.Core.IAxoObject.html",
+          "hash": "80jg4bkwdLO4VgqleLzaR6PABl86QCLXH2J1SF6wYUM="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxComponentView.yml",
+      "source_relative_path": "api/AXOpen.Core.IAxoStep.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxComponentView.html",
-          "hash": "K6CYeife8jCs/UH2K6Dq404BJNLPSLpxylZCCezi/ao="
+          "relative_path": "api/AXOpen.Core.IAxoStep.html",
+          "hash": "drvsE9HzRlk0s9jEI+7P7CUaIM0TyKx2jSySD9YXitQ="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxContext.yml",
+      "source_relative_path": "api/AXOpen.Core.IAxoTask.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxContext.html",
-          "hash": "YeucFYiVZMAhmofCB50So0R+xH/w0UUzx1e5uOw1LSo="
+          "relative_path": "api/AXOpen.Core.IAxoTask.html",
+          "hash": "7x6Pk1JP+kIvA4yvzVesIyMY17ouycTzXEGhyksOhBY="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxObject.yml",
+      "source_relative_path": "api/AXOpen.Core.IAxoTaskState.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxObject.html",
-          "hash": "3RHkIqjSboSm8BkZS/q4ufadEm5GQd0QTjP3qQMmEAI="
+          "relative_path": "api/AXOpen.Core.IAxoTaskState.html",
+          "hash": "u0XV+54jpqmzOUfKPP60e+Yya7zptChMid/ShCEgRYM="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxRemoteTask.yml",
+      "source_relative_path": "api/AXOpen.Core.MultipleRemoteCallInitializationException.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxRemoteTask.html",
-          "hash": "EtxSLv8/QflqUT+pxS6BBOmqr0jBkBP2ymNc93rq3WA="
+          "relative_path": "api/AXOpen.Core.MultipleRemoteCallInitializationException.html",
+          "hash": "gLkQEGeMJUoYaD2oat9nJMDEfPNc3sS9eevvN8YLLKk="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxSequencer.yml",
+      "source_relative_path": "api/AXOpen.Core.Resources.PlcStringResources.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxSequencer.html",
-          "hash": "43wliHwZ5ygExjb2TsBtcC+cSjZNzRdkN/FzW3CvToY="
+          "relative_path": "api/AXOpen.Core.Resources.PlcStringResources.html",
+          "hash": "/E9kqK7PT1I8glHe8hH+Y+Ras18Kexk8VtyUgL7xnzw="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxSequencerCommandView.yml",
+      "source_relative_path": "api/AXOpen.Core.Resources.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxSequencerCommandView.html",
-          "hash": "p0ret72/H1+FMijwt9ZDx0t+7aD8Vb2NyL32o3q2AMM="
+          "relative_path": "api/AXOpen.Core.Resources.html",
+          "hash": "nI/zJbhOqrKxtYPicLPKU6l+XcuQ9uf4mMTKTQdqvak="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxSequencerStatusView.yml",
+      "source_relative_path": "api/AXOpen.Core.ToastMessage.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxSequencerStatusView.html",
-          "hash": "CBrMe9tL9gjW5wW6dZMXdazF8cpOyZCoaHW3DKkNGes="
+          "relative_path": "api/AXOpen.Core.ToastMessage.html",
+          "hash": "xsjtRe/9F2DVW/N/wscV6t/ly3CPtjoUEFYuJaBmJoU="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxSequencerView.yml",
+      "source_relative_path": "api/AXOpen.Core._NULL_CONTEXT.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxSequencerView.html",
-          "hash": "FvfCxd9HBnoh4p/gl2+18aN5mUpeC8ZFJt0WfdyDC7k="
+          "relative_path": "api/AXOpen.Core._NULL_CONTEXT.html",
+          "hash": "8yPtOFJxxCbV4PomykNfLjoORtzFR0YGTjvMKDeK0dc="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxStep.yml",
+      "source_relative_path": "api/AXOpen.Core._NULL_OBJECT.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxStep.html",
-          "hash": "E1GYpfP1F25Qot6ajLQdZozMDWq1nxjYGcW6zggPYzI="
+          "relative_path": "api/AXOpen.Core._NULL_OBJECT.html",
+          "hash": "GuV2rElzK5keNghMIAnS4AhkIK2KJ5s6HA0u+3inBOk="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxStepCommandView.yml",
+      "source_relative_path": "api/AXOpen.Core._NULL_RTC.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxStepCommandView.html",
-          "hash": "SXSdGnvsS2xbhs7Ewibdx3JHU5qROyX7gFaMdZeyjOo="
+          "relative_path": "api/AXOpen.Core._NULL_RTC.html",
+          "hash": "XYh/88/I5u2NdzLLbdr9EvpZuJDegMjVpxQ2gJgJtJ4="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxStepStatusView.yml",
+      "source_relative_path": "api/AXOpen.Core.blazor.Toaster.Toast.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxStepStatusView.html",
-          "hash": "L7cBGWGgVWHTfj6cC3RwAfawhgpvEryA9crsNo/jwTA="
+          "relative_path": "api/AXOpen.Core.blazor.Toaster.Toast.html",
+          "hash": "xCJjXeQ8k+mEBAIwql0AaeU44strG0qmXQK3k1XMybE="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxStepView.yml",
+      "source_relative_path": "api/AXOpen.Core.blazor.Toaster.ToastService.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxStepView.html",
-          "hash": "qQXIwgGYE9ywRvgh8zfB8IssAGn8usGCUKRFIuHz4zk="
+          "relative_path": "api/AXOpen.Core.blazor.Toaster.ToastService.html",
+          "hash": "Hb06u/7IjhU6WBUDZDB2BI9RjodEF7cE6/izdBdztRE="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxTask.yml",
+      "source_relative_path": "api/AXOpen.Core.blazor.Toaster.Toaster.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxTask.html",
-          "hash": "lcDeh47rb9HiYIdNWjNBr0Ljmc3b4hU3B7yyYb3qMJQ="
+          "relative_path": "api/AXOpen.Core.blazor.Toaster.Toaster.html",
+          "hash": "NbY8cf4Ema84zRlp1QqrtDdMaP5lChEMqMKkNlmr9J4="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxTaskCommandView.yml",
+      "source_relative_path": "api/AXOpen.Core.blazor.Toaster.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxTaskCommandView.html",
-          "hash": "lCS6KM5pUc+so8n3mPRauDOoXAx9dc4Zpjn6QzuHe0g="
+          "relative_path": "api/AXOpen.Core.blazor.Toaster.html",
+          "hash": "NnYQfDkP3YVE/CQ/rDbT8JwFK17wDhptyVgUvjBXsIY="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxTaskStatusView.yml",
+      "source_relative_path": "api/AXOpen.Core.eAxoSequenceMode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxTaskStatusView.html",
-          "hash": "bBPpW0PsVViDzs797YBA4mSiMMIyNPorfYBk/1h/xNM="
+          "relative_path": "api/AXOpen.Core.eAxoSequenceMode.html",
+          "hash": "Xgt2BuSSl7g79q7LHxxiEfB8zcZPVEkGAFqpIeGcuIA="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.IxTaskView.yml",
+      "source_relative_path": "api/AXOpen.Core.eAxoSteppingMode.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.IxTaskView.html",
-          "hash": "2yQkV9CIyeLJywRa0SSJHU+xY7PpykCp/KmTNLse7uU="
+          "relative_path": "api/AXOpen.Core.eAxoSteppingMode.html",
+          "hash": "iKhoo1vAGzWtMtI6ZGIfeZyS62Qo1xcGE8JpoFEtWvU="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.MultipleRemoteCallInitializationException.yml",
+      "source_relative_path": "api/AXOpen.Core.eAxoTaskState.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.MultipleRemoteCallInitializationException.html",
-          "hash": "WTlwE2fma4Fd/AFvCvPB3Ky7IMZ8QQMuEwlQ5YOhzPk="
+          "relative_path": "api/AXOpen.Core.eAxoTaskState.html",
+          "hash": "tN+dJQ28uo7OYxuaWzI9BFfSJ13ygIVbUmMayVLbyLA="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core._Imports.yml",
+      "source_relative_path": "api/AXOpen.Core.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core._Imports.html",
-          "hash": "4yyRCkMU6YZwBjLfKrDDh3q9+Jz80jckigBuLF5rv9A="
+          "relative_path": "api/AXOpen.Core.html",
+          "hash": "5fxqP/CyyaItTTEyAMDWvOx+thma7WKDPVji5nCblEQ="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core._NULL_CONTEXT.yml",
+      "source_relative_path": "api/Pocos.AXOpen.Core.AxoComponent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core._NULL_CONTEXT.html",
-          "hash": "6/qRi6bOzewODqPMYA0R+OacB6kCwqMOlVP3cHXWjDc="
+          "relative_path": "api/Pocos.AXOpen.Core.AxoComponent.html",
+          "hash": "dxTfIS/Q8XKPDsLvR+URyEaMXY74CQ/XxUdrwKHj914="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.eIxSequenceMode.yml",
+      "source_relative_path": "api/Pocos.AXOpen.Core.AxoContext.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.eIxSequenceMode.html",
-          "hash": "iT1ywIN9/RIVfsyhg7zCuUo7am9GwKMDjlP202UYoys="
+          "relative_path": "api/Pocos.AXOpen.Core.AxoContext.html",
+          "hash": "5vyUeDxruE/WIuL5CcHcrUtvzisdy/OYnqQij99WBLU="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.eIxSteppingMode.yml",
+      "source_relative_path": "api/Pocos.AXOpen.Core.AxoContextEnvironment.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.eIxSteppingMode.html",
-          "hash": "Cl+GYvsa2NxXN2bmFkk45q06hKUx7Laf0oPqUpzfaIk="
+          "relative_path": "api/Pocos.AXOpen.Core.AxoContextEnvironment.html",
+          "hash": "VxbmGkvJ7aXnvXgEn9E/Znz2RWbtTfFUEBre49Odg0o="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.eIxTaskState.yml",
+      "source_relative_path": "api/Pocos.AXOpen.Core.AxoObject.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.eIxTaskState.html",
-          "hash": "P4SkGMqN56zPI9x5FT8NU+e/SdR4SB77rMAo5gCGb7A="
+          "relative_path": "api/Pocos.AXOpen.Core.AxoObject.html",
+          "hash": "/nwNSA2AKGR55ProA45IWz6lBMFkBLX5mdvpbCpzkYw="
         }
       },
       "version": ""
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/ix.framework.core.yml",
+      "source_relative_path": "api/Pocos.AXOpen.Core.AxoRemoteTask.yml",
       "output": {
         ".html": {
-          "relative_path": "api/ix.framework.core.html",
-          "hash": "3zMhegikojcqj7q5fcOlPXw0P+mvIDDXEOOR9U0wO8k="
+          "relative_path": "api/Pocos.AXOpen.Core.AxoRemoteTask.html",
+          "hash": "ufZF9/UkatyKehnvg/n0KOV3CsBDff9zLWNMjpanE1s="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.AxoSequencer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.AxoSequencer.html",
+          "hash": "iyhITODv1wOJbYukhjYjmsSbIf4ALgY8/F5Hjs4zyWc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.AxoStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.AxoStep.html",
+          "hash": "viHeGzfkShAroZ4+7UE5ihn5jUlz/+OAfyJMrv0guEs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.AxoTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.AxoTask.html",
+          "hash": "2yGaP6CXDR5m5d32IW8vnxmTmaB+4bvQfay5GcKAtIQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoComponent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.IAxoComponent.html",
+          "hash": "/Cza3dzlJD0eVrtTRuMegbV1k1/9JeyznodTckz2vk4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.IAxoContext.html",
+          "hash": "2M4SNVfhVOupBWxC/fSiyiBUpKOx/8mrf0nTQzmN1Ok="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoContextEnvironment.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.IAxoContextEnvironment.html",
+          "hash": "tYeyHywwXOr5Dck3ojQ7xnX54xDmj7OuA9LH1yBmCFg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoCoordinator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.IAxoCoordinator.html",
+          "hash": "0wnGhGYNp+38eZmup+vuwALS1SmFGANWg04B5VpBQao="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoManuallyControllable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.IAxoManuallyControllable.html",
+          "hash": "8osBJJlftYPD7A2nUzutpkTa2874yGcw9ZQvntX5K6Q="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.IAxoObject.html",
+          "hash": "/qvHimgHmCAhNfsOeK5no78E1DHw6hdIT/Ul3tTTH6g="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoStep.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.IAxoStep.html",
+          "hash": "yxc16mQjJ8BWAB61x88wd5Xm84ENiK0+T39aQiFjWUY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.IAxoTask.html",
+          "hash": "B2nrPPrNzDbdx+BdmWmYUuTwAWAcKxpHfunxDQ/D4DU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoTaskState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.IAxoTaskState.html",
+          "hash": "deyUHxySRgN5usHOQHPT18sSqS/YcuOVUNOmGfXylTs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core._NULL_CONTEXT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core._NULL_CONTEXT.html",
+          "hash": "d09JIy3o2OlJyJIW2K6lVmuiB9JCuzlVQcmyLfttKoo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core._NULL_OBJECT.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core._NULL_OBJECT.html",
+          "hash": "QfP0oe86YZ2pbN6ltAVBX8BJw3Fb9h/yhDZHFIng5+E="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core._NULL_RTC.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core._NULL_RTC.html",
+          "hash": "eg68frF/yXi31RsoMjj6CsoYo5grX8rF89khApeADww="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.html",
+          "hash": "EktQGik5sFeeesWW9tuhjKAebuZME58Dls3sQYcAKKc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ix_ax_axopen_core.PlcTranslator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ix_ax_axopen_core.PlcTranslator.html",
+          "hash": "Otlx7sgau+nADn4+N0JNb3UGj/bxI0uh+7h+y+Rutyw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/ix_ax_axopen_core.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/ix_ax_axopen_core.html",
+          "hash": "MtDJutbp0OUxmmZxg3q7GxcKLI0j6KVTxSnm/aAgo6Q="
         }
       },
       "version": ""
@@ -638,557 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "roKLySJN7ly78LTbuZYuMgRRMln+elrKgP5jKLglHGw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "apictrl/index.md",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/index.html",
-          "hash": "WiZDkznPbwUy0OlM2HbmxFSznSWO9eDzBmvH4bmE9cw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.CoordinatorStates.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.CoordinatorStates.html",
-          "hash": "4qsovmw6wdES1aexvaXvCpCy0xXeNrjSokm3vEyTiJg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxComponent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxComponent.html",
-          "hash": "pwPOAVmf90ML+8NphJ+gMIbGhKaaau/NBdqCgZcdgoI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxContext.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxContext.html",
-          "hash": "qNlKPvmafX3zaqF4nlql2NmuTFTbTx1/Efw8e9qT4IA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxCoordinator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxCoordinator.html",
-          "hash": "2ZkoxsEGU3qvCoDn3MUJs/ybsz+YXIhpLaeSlLCXxko="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxManuallyControllable.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxManuallyControllable.html",
-          "hash": "1Po47BJU9TwrUTsDponum3dozg5NwbigrHuYCL0l0HI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxObject.html",
-          "hash": "bXbs+pa6TKsRJrJ60VWgqJ5vPv7ycmnnuxO/1xM4YPs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxSequencer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxSequencer.html",
-          "hash": "ahM4mNwLu9so+5BP19z70GOJ6HCHYcOsD9AQDlywG+w="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxStep.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxStep.html",
-          "hash": "aJ3BWjXj3lTuFr83NlWVUhLMDhH0l46ly7FQO0RLr50="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxTask.html",
-          "hash": "ZpgPfUNnZ/TO26OXldTQJEwzs5R4wN0v7bLiUf3sXKY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxTaskInt.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxTaskInt.html",
-          "hash": "WcQtmH8+iz3D9YPeM+xMz5/xYu/Q0SEG/cj1UXVbLMI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IIxTaskState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IIxTaskState.html",
-          "hash": "dlmx4QZvlblY2+Fc9yVt0OByV9aoQgAfAGMVZCxb5Vs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IsNullContext(IIxContext).yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IsNullContext(IIxContext).html",
-          "hash": "mgVrpc9F3SittNflUpkk52bkOGzeGdYHM0B+BpffJxg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IxComponent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IxComponent.html",
-          "hash": "z9aIZ5g/2vGHIFjNG6QLleICFiJjvfM0HHjynGYj+s8="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IxContext.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IxContext.html",
-          "hash": "Ne/wZ2CTqGoQXxzkWAJQL5fTvBf4xNY/V2FBhqrGlgA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IxObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IxObject.html",
-          "hash": "QedpcR5d/oP6eKmJ2D/B2r2hwsXOXzBWg4ZWQhvSMLY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IxRemoteTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IxRemoteTask.html",
-          "hash": "ZyAqyslTl8fTMbmS2CbMk9O0R5pw8+YmXfV9MUQSYGs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IxSequencer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IxSequencer.html",
-          "hash": "oxwrEhDUXc/ocpNovC3/G3P+icT7BnPfNemEfHXPSBY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IxStep.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IxStep.html",
-          "hash": "yuno4fg4e5J+UX8pzGuGOj/d9hubCHMdmp6t/2QuQ64="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.IxTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.IxTask.html",
-          "hash": "BdhkDQRpd4CzSGCsLyhBRvJ+WC/kwCbkYcrJwWOuZGI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core._NULL_CONTEXT.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core._NULL_CONTEXT.html",
-          "hash": "PYfpe9CN6GNakrPpCI3Geyo2pKL9KsjF4q+uAJs3x4o="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.eIxSequenceMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.eIxSequenceMode.html",
-          "hash": "DLwlFP2Q3apYkgWFEdXJ6PUipDNjcGpO3HsSGTB1uX4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.eIxSteppingMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.eIxSteppingMode.html",
-          "hash": "4Om+WD7GkIOIJSiO2RDyQbHs71w19kbEA638dYLVUt4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.eIxTaskState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.eIxTaskState.html",
-          "hash": "zUr7ScJ3KLBGMw+QB8xUhFL6/ljnghi1CHwlXfuSoGs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.ix.framework.core.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.ix.framework.core.html",
-          "hash": "f/xYvx7rlO4t013O7MjFmTqDAy1m32/wrlCykB/JVrA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "apictrl/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/toc.html",
-          "hash": "gunxrr2OgirNrf2Pu1sP1Zpta2QRf6QIbGKP2rFCsfI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/core/IXCOMPONENT.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/core/IXCOMPONENT.html",
-          "hash": "G1bUEiVfz5MyHMmrV2Vmq2v0dv5Yxi0y9coiedsz03s="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/core/IXCONTEXT.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/core/IXCONTEXT.html",
-          "hash": "9laAuOZ81g+ayiJ2Z3Ey81vQLxGZ4RFP/L/sW2x3jfU="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/core/IXOBJECT.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/core/IXOBJECT.html",
-          "hash": "1uO03uASyChRigX7HKYvhe2WzPW2Um2wyYKLq1klq0A="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/core/IXREMOTETASK.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/core/IXREMOTETASK.html",
-          "hash": "p4oHba9vS2ZTEX45xJTp9iH2EEI7u1I2l07znJU2WyE="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/core/IXSEQUENCER.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/core/IXSEQUENCER.html",
-          "hash": "DOz/vSDvL9ZyyDKeRPfn8g8Ev2yxqPqSdWmTu9U5f5s="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/core/IXSTEP.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/core/IXSTEP.html",
-          "hash": "yGrQ0QtA3xlOqF+CDCukUDl2XkOrPiCg1JloUzTS83A="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/core/IXTASK.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/core/IXTASK.html",
-          "hash": "JUh8J8zkoD9fcV7iAwSMFlPOFvcol0ENI4S01GsDqmY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/core/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/core/README.html",
-          "hash": "dN3GBFiNl3j+UO4IyMkvhiNpQhFKMcUuHkxSHpgitMw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/data/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/data/README.html",
-          "hash": "+2jZ1ibk3Dg1y3KpkrhsVhWNONIPrqq1JYMBqvVQEo0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/intro.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/intro.html",
-          "hash": "kXoc3m+OjBBdzHxG0bXHrlEfAl2BvgCbijMRpX1VWyc="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "articles/rendering/intro.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/rendering/intro.html",
-          "hash": "rUkfCXyxaXF6PJDKFJ58FN5+dasM8QsijVAhmGw9cow="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "articles/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "articles/toc.html",
-          "hash": "x3rC/snVhYM1ujoAH2C03jha8ArrNZeedjEe2wgpV+M="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/ComplexComponentExample.gif",
-      "output": {
-        "resource": {
-          "relative_path": "images/ComplexComponentExample.gif"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/IxComponentExampleHeaderOnlyView.PNG",
-      "output": {
-        "resource": {
-          "relative_path": "images/IxComponentExampleHeaderOnlyView.PNG"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif",
-      "output": {
-        "resource": {
-          "relative_path": "images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/banner.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/banner.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/banner_gh.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/banner_gh.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/banner_wider.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/banner_wider.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/favicon.ico",
-      "output": {
-        "resource": {
-          "relative_path": "images/favicon.ico"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/favicon.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/favicon.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/logo-no-background.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/logo-no-background.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/logo.svg",
-      "output": {
-        "resource": {
-          "relative_path": "images/logo.svg"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/remote_exect.gif",
-      "output": {
-        "resource": {
-          "relative_path": "images/remote_exect.gif"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "index.md",
-      "output": {
-        ".html": {
-          "relative_path": "index.html",
-          "hash": "iCeHobV6ngxpQWz/2JGu+agyb1FdA9MoWXKK70M0sPo="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "toc.html",
-          "hash": "Hr1PQ57vbT7gU2tBjehdbzGoSJplCEdQ+Jh2Uq0d0sY="
+          "hash": "Y1RwjewsB1XHh5zheeBIrg+3dgzZOvDR8g2Kex4k9B8="
         }
       },
       "version": ""
