@@ -26,7 +26,7 @@ builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuth
 
 builder.Services.AddIxBlazorServices();
 
-Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
+Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.AutoSubscribeUsedVariables;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 100;
 
 var productionDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.ProductionSettings>().Factory();

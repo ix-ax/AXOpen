@@ -3,15 +3,15 @@ using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
 {
-    public class DetailsContext : ITwinObject
+    public class ComponentGroupContext : ITwinObject
     {
-        public DetailsContext(ITwinObject parent, IList<ITwinElement> kids)
+        public ComponentGroupContext(ITwinObject parent, IList<ITwinElement> kids)
         {
             this._parent = parent;
             this._symbolTail = this._parent.GetSymbolTail();
             _kids = kids;
         }
-        public DetailsContext(ITwinObject parent, IList<ITwinElement> kids, string tabName)
+        public ComponentGroupContext(ITwinObject parent, IList<ITwinElement> kids, string tabName)
         {
             this._parent = parent;
             this._symbolTail = this._parent.GetSymbolTail();
@@ -25,10 +25,7 @@ namespace AXOpen.Core
         public string AttributeName { get; } = string.Empty;
 
         public string HumanReadable { get; set; } = string.Empty;
-        public Translator Interpreter
-        {
-            get { return this._parent.Interpreter; }
-        }
+        public Translator Interpreter => this._parent.Interpreter;
 
         private readonly ITwinObject _parent;
 
@@ -58,7 +55,7 @@ namespace AXOpen.Core
             return _kids;
         }
 
-        private readonly IList<ITwinPrimitive> _primitive = new List<ITwinPrimitive>();
+        private readonly IList<ITwinPrimitive> _primitive;
 
         public IEnumerable<ITwinPrimitive?> GetValueTags()
         {

@@ -45,6 +45,7 @@ NAMESPACE AXOpen.Pneumatics
             END_VAR
 
             THIS._isManuallyControllable := FALSE;
+            
             THIS.Initialize(parent);
             MoveToWork.Initialize(THIS);
             MoveToHome.Initialize(THIS);

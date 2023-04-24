@@ -4,13 +4,16 @@
 <div class="container-lg">
     <div class="row">
         <div class="col">
-            @if (IsControllable)
+            @if (HasTaskControlButton)
             {
-                <AXOpen.Core.AxoTaskCommandView Component="@Component"/>
-            }
-            else
-            {
-                <AXOpen.Core.AxoTaskStatusView Component="@Component"/>
+                @if (IsControllable)
+                {
+                    <AXOpen.Core.AxoTaskCommandView Component="@Component"/>
+                }
+                else
+                {
+                    <AXOpen.Core.AxoTaskStatusView Component="@Component"/>
+                }
             }
         </div>
     </div>

@@ -89,6 +89,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axosimple.hmi", "templates.simple\axosimple.app\axosimple.hmi.csproj", "{40748060-8736-4E26-ACE9-238BE6C3A952}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axosimple", "templates.simple\axosimple.twin\axosimple.csproj", "{785DDD71-E337-466D-99CC-1584061D5436}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_data_tests", "data\tests\AXOpen.Data.Tests\axopen_data_tests.csproj", "{A613D39F-AD09-4BA2-A8D2-601F23F580E6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_repository_integration_tests_L1", "data\tests\AXOpen.Repository.Integration.Tests_L1\axopen_repository_integration_tests_L1.csproj", "{F935367A-9FFB-427A-B526-88966C66786A}"

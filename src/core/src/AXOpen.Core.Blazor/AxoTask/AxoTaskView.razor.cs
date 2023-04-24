@@ -43,18 +43,28 @@ namespace AXOpen.Core
                     ButtonClass = "btn-primary";
                     break;
             }
+
+            InvokeAsync(StateHasChanged);
         }
 
         protected override void OnInitialized()
         {
+            base.OnInitialized();
             UpdateValuesOnChange(Component);
             UpdateTaskColor(this, new EventArgs());
-            Component.Status.PropertyChanged += UpdateTaskColor;
+            Component.IsDisabled.ValueChangeEvent += IsDisabled_PropertyChanged;
+            Component.Status.ValueChangeEvent += UpdateTaskColor;
+        }
+
+        private void IsDisabled_PropertyChanged(ITwinPrimitive sender, EventArgs e)
+        {
+            InvokeAsync(StateHasChanged);
         }
 
         public void Dispose()
         {
-            Component.Status.PropertyChanged -= UpdateTaskColor;
+            Component.Status.ValueChangeEvent -= UpdateTaskColor;
+            Component.IsDisabled.ValueChangeEvent -= IsDisabled_PropertyChanged;
             Component.StopPolling();
         }
 

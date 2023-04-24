@@ -1,0 +1,68 @@
+﻿@page "/ui/SampleControlledUnit"
+@using AXOpen.Core;
+@using System.ComponentModel
+@using AXSharp.Connector
+@using AXSharp.Connector.ValueTypes
+@inherits RenderableComplexComponentBase<AxoSequencer>
+@implements IDisposable
+
+
+
+<div class="container">
+    <!-- MODES -->
+    <div class="row">
+        <div class="col-md-4">
+            <AxoSequencerView 
+                              IsControllable="true" 
+                              HasSettings="false" 
+                              HasStepControls="false" 
+                              HasStepDetails="false"  
+                              Component="ControlledUnit.GroundSequence"/>
+        </div>
+        
+        <div class="col-md-4">
+            <AxoSequencerView IsControllable="true" 
+                              HasSettings="false" 
+                              HasStepControls="false" 
+                              HasStepDetails="false"
+                              Component="ControlledUnit.AutomatSequence"/>
+        </div>
+        <div class="col-md-4">
+            <AxoTaskCommandView Component="ControlledUnit.ServiceMode"/>
+        </div>
+    </div>
+    
+    <!-- COMPONENTS -->
+    <div>
+        <RenderableContentControl Context="ControlledUnit.Components" Presentation="Command-Control"></RenderableContentControl>
+    </div>
+    <div>
+        <RenderableContentControl Context="Entry.Plc.Inputs" Presentation="Control"></RenderableContentControl>
+        <RenderableContentControl Context="Entry.Plc.Outputs" Presentation="Control"></RenderableContentControl>
+    </div>
+</div>
+
+@code
+{
+
+    public IEnumerable<AxoSequencer> ActiveSequencers => ControlledUnit.GetKids().OfType<AxoSequencer>();
+
+    public axosimple.SampleControlledUnit.ControlledUnit ControlledUnit => Entry.Plc.Context.SampleControlledUnit;
+
+    
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ControlledUnit.StartPolling(250);
+        this.UpdateValuesOnChange(ControlledUnit);
+    }
+
+    
+
+    public void Dispose()
+    {
+    
+    }
+}
+
