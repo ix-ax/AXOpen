@@ -88,6 +88,7 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
         METHOD PUBLIC GetSwitchOffExecutionCounter : ULINT
             GetSwitchOffExecutionCounter := SwitchOffExecutionCounter;
         END_METHOD
+
     END_CLASS
 
     {TestFixture}
@@ -100,6 +101,20 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
 
         METHOD PRIVATE Initialize
             myTask.Initialize(_context);
+        END_METHOD
+
+        METHOD PRIVATE SwitchOn
+            _context.Open();
+            myTask.SwitchOn();
+            myTask.Run();
+            _context.Close();            
+        END_METHOD
+
+        METHOD PRIVATE SwitchOff
+            _context.Open();
+            myTask.SwitchOff();
+            myTask.Run();
+            _context.Close();            
         END_METHOD
 
         {Test}
@@ -196,28 +211,6 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
         END_METHOD
 
         {Test}
-        METHOD PUBLIC SwitchedOn_method_should_not_be_called_when_the_state_of_the_task_is_FALSE
-            // Arrange
-            THIS.Initialize();
-            _context.Open();
-            initValue := myTask.GetSwitchOnExecutionCounter();
-            // Act/Assert     
-            myTask.Run();
-            Assert.Equal(initValue, myTask.GetSwitchOnExecutionCounter());
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC SwitchedOff_method_must_be_called_when_the_state_of_the_task_is_FALSE
-            // Arrange
-            THIS.Initialize();
-            _context.Open();
-            initValue := myTask.GetSwitchOffExecutionCounter();
-            // Act/Assert     
-            myTask.Run();
-            Assert.Equal(initValue + ULINT#1, myTask.GetSwitchOffExecutionCounter());
-        END_METHOD
-
-        {Test}
         METHOD PUBLIC Toggle_method_should_return_TRUE
             // Arrange
             THIS.Initialize();
@@ -275,6 +268,32 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
         END_METHOD
 
         {Test}
+        METHOD PUBLIC Toggle_method_call_should_not_trigger_the_OnSwitchedOff_method_when_changing_from_TRUE_to_FALSE
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            initValue := myTask.GetOnSwitchedOnCounter();
+            // Act/Assert     
+            myTask.Toggle();      
+            Assert.Equal(initValue, myTask.GetOnSwitchedOnCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC Toggle_method_call_should_trigger_the_OnSwitchedOff_method_when_changing_from_TRUE_to_FALSE
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            initValue := myTask.GetOnSwitchedOffCounter();
+            // Act/Assert     
+            myTask.Toggle();      
+            Assert.Equal(initValue + ULINT#1, myTask.GetOnSwitchedOffCounter());
+        END_METHOD
+
+        {Test}
         METHOD PUBLIC SwitchedOn_method_must_be_called_when_the_state_of_the_task_is_TRUE
             // Arrange
             THIS.Initialize();
@@ -326,9 +345,296 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
             Assert.Equal(initValue, myTask.GetSwitchOffExecutionCounter());
         END_METHOD
 
+        {Test}
+        METHOD PUBLIC SwitchedOn_method_should_not_be_called_when_the_state_of_the_task_is_FALSE
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            initValue := myTask.GetSwitchOnExecutionCounter();
+            // Act/Assert     
+            myTask.Run();
+            Assert.Equal(initValue, myTask.GetSwitchOnExecutionCounter());
+        END_METHOD
 
+        {Test}
+        METHOD PUBLIC SwitchedOff_method_must_be_called_when_the_state_of_the_task_is_FALSE
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            initValue := myTask.GetSwitchOffExecutionCounter();
+            // Act/Assert     
+            myTask.Run();
+            Assert.Equal(initValue + ULINT#1, myTask.GetSwitchOffExecutionCounter());
+        END_METHOD
 
+        {Test}
+        METHOD PUBLIC SwitchOn_method_should_return_FALSE_if_Run_method_is_not_called
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            _context.Close();
+            _context.Open();
+            // Act/Assert           
+            Assert.Equal(FALSE, myTask.SwitchOn());
+        END_METHOD
 
+        {Test}
+        METHOD PUBLIC SwitchOn_method_call_should_not_change_the_state_if_Run_method_is_not_called
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            _context.Close();
+            _context.Open();
+            // Act/Assert     
+            myTask.SwitchOn();      
+            Assert.Equal(FALSE, myTask.IsSwitchedOn());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOn_method_call_should_not_trigger_the_OnStateChanged_method_if_Run_method_is_not_called
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            _context.Close();
+            _context.Open();
+            initValue := myTask.GetOnStateChangedCounter();
+            // Act/Assert     
+            myTask.SwitchOn();      
+            Assert.Equal(initValue, myTask.GetOnStateChangedCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOn_method_should_return_FALSE_if_task_is_disabled
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Run();
+            myTask.SetIsDisabled(TRUE);
+            // Act/Assert           
+            Assert.Equal(FALSE, myTask.SwitchOn());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOn_method_call_should_not_change_the_state_if_task_is_disabled
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Run();
+            myTask.SetIsDisabled(TRUE);
+            // Act/Assert     
+            myTask.SwitchOn();      
+            Assert.Equal(FALSE, myTask.IsSwitchedOn());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOn_method_call_should_not_trigger_the_OnStateChanged_method_if_task_is_disabled
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Run();
+            myTask.SetIsDisabled(TRUE);
+            initValue := myTask.GetOnStateChangedCounter();
+            // Act/Assert     
+            myTask.SwitchOn();      
+            Assert.Equal(initValue, myTask.GetOnStateChangedCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOn_method_should_return_TRUE
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Run();
+            // Act/Assert     
+            Assert.Equal(TRUE, myTask.SwitchOn());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOn_method_call_should_change_the_state_of_the_task
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Run();
+            // Act/Assert     
+            myTask.SwitchOn();      
+            Assert.Equal(TRUE, myTask.IsSwitchedOn());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOn_method_call_should_trigger_the_OnStateChanged_method
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Run();
+            initValue := myTask.GetOnStateChangedCounter();
+            // Act/Assert     
+            myTask.SwitchOn();      
+            Assert.Equal(initValue + ULINT#1, myTask.GetOnStateChangedCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOn_method_call_should_trigger_the_OnSwitchedOn_method_when_changing_from_FALSE_to_TRUE
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Run();
+            initValue := myTask.GetOnSwitchedOnCounter();
+            // Act/Assert     
+            myTask.SwitchOn();      
+            Assert.Equal(initValue + ULINT#1, myTask.GetOnSwitchedOnCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOn_method_call_should_not_trigger_the_OnSwitchedOff_method_when_changing_from_FALSE_to_TRUE
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Run();
+            initValue := myTask.GetOnSwitchedOffCounter();
+            // Act/Assert     
+            THIS.SwitchOn();      
+            Assert.Equal(initValue, myTask.GetOnSwitchedOffCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_should_return_FALSE_if_Run_method_is_not_called
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            _context.Close();
+            _context.Open();
+            // Act/Assert           
+            Assert.Equal(FALSE, myTask.SwitchOff());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_call_should_not_change_the_state_if_Run_method_is_not_called
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            _context.Close();
+            _context.Open();
+            // Act/Assert     
+            myTask.SwitchOff();      
+            Assert.Equal(FALSE, myTask.IsSwitchedOff());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_call_should_not_trigger_the_OnStateChanged_method_if_Run_method_is_not_called
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            _context.Close();
+            _context.Open();
+            initValue := myTask.GetOnStateChangedCounter();
+            // Act/Assert     
+            myTask.SwitchOff();      
+            Assert.Equal(initValue, myTask.GetOnStateChangedCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_should_return_FALSE_if_task_is_disabled
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            myTask.SetIsDisabled(TRUE);
+            // Act/Assert           
+            Assert.Equal(FALSE, myTask.SwitchOff());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_call_should_not_change_the_state_if_task_is_disabled
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            myTask.SetIsDisabled(TRUE);
+            // Act/Assert     
+            myTask.SwitchOff();      
+            Assert.Equal(FALSE, myTask.IsSwitchedOff());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_call_should_not_trigger_the_OnStateChanged_method_if_task_is_disabled
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            myTask.SetIsDisabled(TRUE);
+            initValue := myTask.GetOnStateChangedCounter();
+            // Act/Assert     
+            myTask.SwitchOff();      
+            Assert.Equal(initValue, myTask.GetOnStateChangedCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_should_return_TRUE
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            // Act/Assert     
+            Assert.Equal(TRUE, myTask.SwitchOff());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_call_should_change_the_state_of_the_task
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            // Act/Assert     
+            myTask.SwitchOff();      
+            Assert.Equal(TRUE, myTask.IsSwitchedOff());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_call_should_trigger_the_OnStateChanged_method
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            initValue := myTask.GetOnStateChangedCounter();
+            // Act/Assert     
+            myTask.SwitchOff();      
+            Assert.Equal(initValue + ULINT#1, myTask.GetOnStateChangedCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_call_should_trigger_the_OnSwitchedOff_method_when_changing_from_TRUE_to_FALSE
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            initValue := myTask.GetOnSwitchedOffCounter();
+            // Act/Assert     
+            myTask.SwitchOff();      
+            Assert.Equal(initValue + ULINT#1, myTask.GetOnSwitchedOffCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC SwitchOff_method_call_should_not_trigger_the_OnSwitchedOn_method_when_changing_from_TRUE_to_FALSE
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            myTask.Run();
+            initValue := myTask.GetOnSwitchedOnCounter();
+            // Act/Assert     
+            myTask.SwitchOff();      
+            Assert.Equal(initValue, myTask.GetOnSwitchedOnCounter());
+        END_METHOD
 
     END_CLASS
 END_NAMESPACE
