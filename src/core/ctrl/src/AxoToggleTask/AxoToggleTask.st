@@ -4,6 +4,10 @@ NAMESPACE AXOpen.Core
     ///  To get the actual state of the toggle task, '''IsOn()''',  '''IsOff()''' and '''State()''' methods are available.
     ///</summary>
 
+    {#ix-prop: public string AttributeStateOnDesc}
+    {#ix-set: AttributeStateOnDesc = "<#On#>"}
+    {#ix-prop: public string AttributeStateOffDesc}
+    {#ix-set:AttributeStateOffDesc = "<#Off#>"}
     CLASS PUBLIC AxoToggleTask EXTENDS AxoObject IMPLEMENTS IAxoToggleTask
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
@@ -13,16 +17,6 @@ NAMESPACE AXOpen.Core
             /// Remote request to toggle the state of this task.
             ///</summary>
             RemoteToggle : BOOL;
-
-            ///<summary>
-            /// Remote request to switch on the state of this task.
-            ///</summary>
-            RemoteSwitchOn : BOOL;
-
-            ///<summary>
-            /// Remote request to switch off the state of this task.
-            ///</summary>
-            RemoteSwitchOff : BOOL;
 
             ///<summary>
             /// Gets or sets whether this task is disabled for any manipulations.
@@ -72,9 +66,7 @@ NAMESPACE AXOpen.Core
 
             IF IsDisabled THEN
                 RemoteToggle := FALSE;
-                RemoteSwitchOn := FALSE;
-                RemoteSwitchOff := FALSE;
-            END_IF;
+             END_IF;
 
 
             //Triggering toggle remotely
@@ -83,24 +75,11 @@ NAMESPACE AXOpen.Core
                 RemoteToggle := FALSE;
             END_IF;
 
-            //Triggering switch on remotely
-            IF(RemoteToggle) THEN
-                THIS.SwitchOn();
-                RemoteToggle := FALSE;
-            END_IF;
-
-            //Triggering switch off remotely
-            IF(RemoteToggle) THEN
-                THIS.SwitchOff();
-                RemoteToggle := FALSE;
-            END_IF;
-
             IF State THEN
                 THIS.SwitchedOn();
             ELSE
                 THIS.SwitchedOff();	
             END_IF;
-
         END_METHOD    
 
         ///<summary>
