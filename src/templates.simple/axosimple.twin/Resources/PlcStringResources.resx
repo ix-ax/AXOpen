@@ -60,19 +60,19 @@
   </resheader>
   <data name="Home_sensor" xml:space="preserve">
     <value>Home sensor</value>
-    <comment>src\Components\Cylinder.st,18</comment>
+    <comment>src\Components\Cylinder.st,16</comment>
   </data>
   <data name="Work_sensor" xml:space="preserve">
     <value>Work sensor</value>
-    <comment>src\Components\Cylinder.st,22</comment>
+    <comment>src\Components\Cylinder.st,20</comment>
   </data>
   <data name="Move_home_signal" xml:space="preserve">
     <value>Move home signal</value>
-    <comment>src\Components\Cylinder.st,27</comment>
+    <comment>src\Components\Cylinder.st,25</comment>
   </data>
   <data name="Move_work_signal" xml:space="preserve">
     <value>Move work signal</value>
-    <comment>src\Components\Cylinder.st,31</comment>
+    <comment>src\Components\Cylinder.st,29</comment>
   </data>
   <data name="AUTOMAT" xml:space="preserve">
     <value>AUTOMAT</value>

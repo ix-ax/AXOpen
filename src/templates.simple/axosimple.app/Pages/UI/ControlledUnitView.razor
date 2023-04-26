@@ -1,0 +1,45 @@
+﻿@using AXOpen.Core;
+@inherits RenderableComplexComponentBase<axosimple.SampleControlledUnit.ControlledUnit>
+
+<div class="container">
+    <!-- TOP LEVEL TASKS -->
+    <div class="row">
+        @foreach (var task in this.Component.GetChildren().OfType<AxoTask>())
+        {
+            <div class="col-md-4">
+                <AxoTaskCommandView Component="@task" />
+            </div>
+        }
+    </div>
+    
+    <!-- TASK DETAILS -->
+    <div class="row">
+        @foreach (var o in Component.GetChildren().OfType<AxoSequencer>())
+        {
+            var axoSequencer = (AxoSequencer)o;
+            if (axoSequencer.Status.Cyclic == (ushort)eAxoTaskState.Busy)
+            {
+                <AxoSequencerView Component="@axoSequencer"></AxoSequencerView>
+            }
+        }
+
+        @if (Component.ServiceMode.Status.Cyclic == (ushort)eAxoTaskState.Busy)
+        {
+            <RenderableContentControl Context="Component.Components" Presentation="Command-Control"/>
+        }
+    </div>
+
+    <div>
+        <RenderableContentControl Context="Entry.Plc.Inputs" Presentation="Control"></RenderableContentControl>
+        <RenderableContentControl Context="Entry.Plc.Outputs" Presentation="Control"></RenderableContentControl>
+    </div>
+</div>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        this.UpdateValuesOnChange(Component);
+    }
+}

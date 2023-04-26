@@ -6,65 +6,56 @@ namespace AXOpen.Core
 {
     public partial class AxoStepView
     {
-        private bool isControllable;
+        private string RowClass => UpdateStepRowColors();
 
-        private string RowClass = "bg-white text-dark";
         private bool IsActive => Component.IsActive.Cyclic == true;
 
         private string Description => string.IsNullOrEmpty(Component.StepDescription.Cyclic) ? Component.Description : Component.StepDescription.Cyclic;
 
-        private void UpdateStepRowColors(object sender, EventArgs e)
+        private string UpdateStepRowColors()
         {
-            switch ((eAxoTaskState)Component.Status.LastValue)
+            switch ((eAxoTaskState)Component.Status.Cyclic)
             {
                 case eAxoTaskState.Disabled:
-                    RowClass = "bg-secondary text-white";
-                    break;
+                    return "bg-secondary text-white";
                 case eAxoTaskState.Ready:
-                    RowClass = "bg-primary text-white";
-                    break;
+                    return"bg-primary text-white";
                 case eAxoTaskState.Kicking:
-                    RowClass = "bg-light text-dark";
-                    break;
+                    return "bg-light text-dark";
                 case eAxoTaskState.Busy:
-                    RowClass = "bg-warning text-dark";
-                    break;
+                    return "bg-warning text-dark";
                 case eAxoTaskState.Done:
-                    RowClass = "bg-success text-white";
-                    break;
+                    return "bg-success text-white";
                 case eAxoTaskState.Error:
-                    RowClass = "bg-danger text-white";
-                    break;
+                    return "bg-danger text-white";
                 default:
-                    RowClass = "bg-white text-dark";
-                    break;
+                    return "bg-white text-dark";
             }
         }
 
         protected override void OnInitialized()
         {
             UpdateValuesOnChange(Component);
-            UpdateStepRowColors(this, new EventArgs());
-            Component.Status.PropertyChanged += UpdateStepRowColors;
-        }
-
-        public void Dispose()
-        {
-            Component.StopPolling();
-            Component.Status.PropertyChanged -= UpdateStepRowColors;
+            UpdateStepRowColors();
         }
 
         [Parameter]
-        public bool IsControllable
+        public bool IsControllable { get; set; }
+    }
+
+    public class AxoStepCommandView : AxoStepView
+    {
+        public AxoStepCommandView()
         {
-            get
-            {
-                return isControllable;
-            }
-            set
-            {
-                isControllable = value;
-            }
+            IsControllable = true;
+        }
+    }
+
+    public class AxoStepStatusView : AxoStepView
+    {
+        public AxoStepStatusView()
+        {
+            IsControllable = false;
         }
     }
 }

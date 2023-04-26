@@ -89,7 +89,6 @@ namespace AXOpen.Core
             tabNames = GetAllTabNames(this.Component);
             containsDetailsAttribute = this.DetailsTabs.Count() != 0;
             UpdateValuesOnChange(Component);
-            UpdateValuesOnChange(Component._isManuallyControllable);
         }
 
         private void Collapse()
@@ -100,6 +99,22 @@ namespace AXOpen.Core
         public void Dispose()
         {
             Component.StopPolling();
+        }
+    }
+
+    public class AxoComponentCommandView : AxoComponentView
+    {
+        public AxoComponentCommandView()
+        {
+            IsControllable = true;
+        }
+    }
+
+    public class AxoComponentStatusView : AxoComponentView
+    {
+        public AxoComponentStatusView()
+        {
+            IsControllable = false;
         }
     }
 }

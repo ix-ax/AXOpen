@@ -5,59 +5,40 @@ using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Core
 {
-    public partial class AxoSequencerView : IDisposable, INotifyPropertyChanged
+    public partial class AxoSequencerView  
     {
-        private bool _hasStepDetails = true;
         public IEnumerable<AxoStep?> Steps => Component.GetKids().OfType<AxoStep>();
 
-        [Parameter]
-        public bool IsControllable { get; set; }
+        [Parameter] public bool IsControllable { get; set; } = true;
 
-        [Parameter] public bool HasTaskControlButton { get; set; } = true;
+        [Parameter] public bool HasTaskControlButton { get; set; } = false;
 
         [Parameter] public bool HasSettings { get; set; } = true;
 
         [Parameter] public bool HasStepControls { get; set; } = true;
 
-        [Parameter]
-        public bool HasStepDetails
-        {
-            get => _hasStepDetails;
-            set
-            {
-                if (value == _hasStepDetails) return;
-                _hasStepDetails = value;
-                OnPropertyChanged();
-            }
-        }
+        [Parameter] public bool HasStepDetails { get; set; } = true;
 
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            this.Component.Status.PropertyChanged += (sender, args) => InvokeAsync(StateHasChanged);
-            UpdateValuesOnChange(Component);
+            this.UpdateValuesOnChange(Component);
         }
+    }
 
-        public void Dispose()
+    public class AxoSequencerCommandView : AxoSequencerView
+    {
+        public AxoSequencerCommandView()
         {
-          
-            Component.StopPolling();
+            IsControllable = true;
         }
+    }
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    public class AxoSequencerStatusView : AxoSequencerView
+    {
+        public AxoSequencerStatusView()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            this.StateHasChanged();
-        }
-
-        protected bool SetField<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
-        {
-            if (EqualityComparer<T>.Default.Equals(field, value)) return false;
-            field = value;
-            OnPropertyChanged(propertyName);
-            return true;
+            IsControllable = false;
         }
     }
 }

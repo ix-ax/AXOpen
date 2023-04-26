@@ -6,6 +6,7 @@ NAMESPACE axosimple.SampleControlledUnit
             GroundSequence : GroundSequence;
             AutomatSequence : AutomatSequence;
             ServiceMode : ServiceMode;
+            
             Components : Components;
         END_VAR 
 

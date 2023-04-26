@@ -17,7 +17,7 @@ NAMESPACE axosimple.SampleControlledUnit
                       
             THIS.Initialize(parent);
             THIS.SequenceMode := eAxoSequenceMode#Cyclic;
-                                   
+                                             
             THIS.Open();
             THIS.AndThen(Steps[0],components.VerticalCylinder.MoveToWork);
             THIS.AndThen(Steps[1],components.GripperCylinder.MoveToWork);

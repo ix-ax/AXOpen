@@ -17,6 +17,7 @@ NAMESPACE axosimple
 
             IF(Inputs <> NULL AND Outputs <> NULL) THEN                
                 SampleControlledUnit.Run(THIS, Inputs^, Outputs^);
+                SampleControlledUnit1.Run(THIS, Inputs^, Outputs^);
             END_IF;    
         END_METHOD        
     END_CLASS

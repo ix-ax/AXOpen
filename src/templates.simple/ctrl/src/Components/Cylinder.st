@@ -11,8 +11,6 @@ NAMESPACE AXOpen.Pneumatics
             {#ix-attr:[ComponentHeader()]}            
             MoveToHome : AxoTask;
 
-
-
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
@@ -55,14 +53,14 @@ NAMESPACE AXOpen.Pneumatics
                 moveHomeSignal := FALSE;
                 moveWorkSignal := FALSE;
                 MoveToHome.Restore();
-                MoveToWork.Restore();
+                MoveToWork.Restore();                
                 Stop.DoneWhen(TRUE);
                 Stop.Restore();
             END_IF;    
 
             IF(MoveToWork.Execute()) THEN                
                 moveHomeSignal := FALSE;
-                moveWorkSignal := TRUE;
+                moveWorkSignal := TRUE;                
                 MoveToWork.DoneWhen(workSensor);
                 MoveToHome.Restore();
             END_IF;        

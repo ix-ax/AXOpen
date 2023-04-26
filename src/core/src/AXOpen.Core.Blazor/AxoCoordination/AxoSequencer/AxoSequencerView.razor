@@ -1,7 +1,8 @@
 ﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoSequencer>
 
-<div class="container-lg">
+
+    <div class="card-body">
     <div class="row">
         <div class="col">
             @if (HasTaskControlButton)
@@ -44,14 +45,17 @@
     }
     @if (HasStepDetails)
     {
-        <div class="row">
-            @foreach (var step in Steps)
-            {
-                <RenderableContentControl Context="step" Presentation="@(IsControllable ? "Command" : "Status")"/>
-            }
+        <div class="container" style="overflow-y: auto; height: 200px;">
+            <div class="row">
+                @foreach (var step in Steps.Where(p => p.Order.Cyclic != 0))
+                {
+                    <RenderableContentControl Context="step" Presentation="@(IsControllable ? "Command" : "Status")"/>
+                }
+            </div>
         </div>
+        
     }
 </div>
-  
+
 
 

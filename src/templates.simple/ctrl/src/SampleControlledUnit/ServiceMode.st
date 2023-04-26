@@ -10,7 +10,9 @@ NAMESPACE axosimple.SampleControlledUnit
             VAR_IN_OUT                
                 components : Components;
             END_VAR  
+            
             THIS.Initialize(parent);
+
             IF THIS.Execute() THEN
                 THIS.Handle(components);
             END_IF;    

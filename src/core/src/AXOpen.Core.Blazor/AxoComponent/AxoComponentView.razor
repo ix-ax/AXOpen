@@ -18,7 +18,6 @@
     </div>
    
     <div class="card-body">
-        <RenderableContentControl Context="this.Component._isManuallyControllable" Presentation="Control"></RenderableContentControl>
         @if (@Component._isManuallyControllable.Cyclic)
         {
             <RenderableContentControl Presentation="Command-Control" Context="@Header"
