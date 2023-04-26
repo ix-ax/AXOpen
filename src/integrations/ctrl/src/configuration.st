@@ -16,6 +16,7 @@ CONFIGURATION MyConfiguration
         
         AxoRemoteTasks : AxoRemoteTaskExamples.RemoteTasks;
         AxoToggleTasks : AxoToggleTaskExamples.Tasks;
+        AxoMomentaryTasks : AxoMomentaryTaskExamples.Tasks;
 
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;

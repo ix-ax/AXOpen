@@ -1,4 +1,5 @@
 USING AxUnit;
+USING AxUnit;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 
@@ -634,6 +635,60 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
             // Act/Assert     
             myTask.SwitchOff();      
             Assert.Equal(initValue, myTask.GetOnSwitchedOnCounter());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC RemoteToggle_signal_should_change_the_state_if_task_is_not_disabled
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            Assert.Equal(true, myTask.IsSwitchedOn());
+           // Act/Assert     
+            myTask.RemoteToggle := true;
+            myTask.Run();
+            Assert.Equal(false, myTask.IsSwitchedOn());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC RemoteToggle_signal_should_not_change_the_state_if_task_is_disabled
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            Assert.Equal(true, myTask.IsSwitchedOn());
+           // Act/Assert   
+            myTask.SetIsDisabled(true);  
+            myTask.RemoteToggle := true;
+            myTask.Run();
+            Assert.Equal(true, myTask.IsSwitchedOn());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC RemoteToggle_signal_should_be_FALSE_after_Run_method_is_called_if_task_is_not_disabled
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            Assert.Equal(true, myTask.IsSwitchedOn());
+           // Act/Assert     
+            myTask.RemoteToggle := true;
+            myTask.Run();
+            Assert.Equal(false, myTask.RemoteToggle);
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC RemoteToggle_signal_should_be_FALSE_after_Run_method_is_called_if_task_is_disabled
+            // Arrange
+            THIS.Initialize();
+            THIS.SwitchOn();
+            _context.Open();
+            Assert.Equal(true, myTask.IsSwitchedOn());
+           // Act/Assert     
+           myTask.SetIsDisabled(true);  
+           myTask.RemoteToggle := true;
+            myTask.Run();
+            Assert.Equal(false, myTask.RemoteToggle);
         END_METHOD
 
     END_CLASS

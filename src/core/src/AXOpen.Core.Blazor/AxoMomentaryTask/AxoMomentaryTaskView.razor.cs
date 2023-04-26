@@ -3,11 +3,15 @@ using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Core
 {
-    public partial class AxoToggleTaskView : IDisposable
+    public partial class AxoMomentaryTaskView : IDisposable
     {
-        private void ToggleTask()
+        private void SwitchOnTask()
         {
-            Component.RemoteToggle.Cyclic = true;
+            Component.RemoteSwitchOn.Cyclic = true;
+        }
+        private void SwitchOffTask()
+        {
+            Component.RemoteSwitchOn.Cyclic = false;
         }
         private string StateDescription
         {
@@ -26,6 +30,7 @@ namespace AXOpen.Core
         public void Dispose()
         {
             Component.StopPolling();
+            Component.RemoteSwitchOn.Cyclic = false;
         }
 
         [Parameter]
@@ -36,17 +41,17 @@ namespace AXOpen.Core
         public string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
     }
 
-    public class AxoToggleTaskCommandView : AxoToggleTaskView
+    public class AxoMomentaryTaskCommandView : AxoMomentaryTaskView
     {
-        public AxoToggleTaskCommandView()
+        public AxoMomentaryTaskCommandView()
         {
             this.Disable = false;
         }
     }
 
-    public class AxoToggleTaskStatusView : AxoToggleTaskView
+    public class AxoMomentaryTaskStatusView : AxoMomentaryTaskView
     {
-        public AxoToggleTaskStatusView()
+        public AxoMomentaryTaskStatusView()
         {
             this.Disable = true;
         }

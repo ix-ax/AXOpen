@@ -1,6 +1,6 @@
 NAMESPACE AXOpen.Core
     ///<summary>
-    /// Provides basic toggling between two states. The states are triggered by calling the '''Toggle()''' method.
+    /// Provides basic momentary on function.
     ///  To get the actual state of the toggle task, '''IsSwitchedOn()''',  '''IsSwitchedOff()''' AND '''GetState()''' methods are available.
     ///</summary>
 
@@ -8,15 +8,15 @@ NAMESPACE AXOpen.Core
     {#ix-set: AttributeStateOnDesc = "<#On#>"}
     {#ix-prop: public string AttributeStateOffDesc}
     {#ix-set:AttributeStateOffDesc = "<#Off#>"}
-    CLASS PUBLIC AxoToggleTask EXTENDS AxoObject IMPLEMENTS IAxoToggleTask
+    CLASS PUBLIC AxoMomentaryTask EXTENDS AxoObject IMPLEMENTS IAxoMomentaryTask
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
             State : BOOL;     
              
             ///<summary>
-            /// Remote request to toggle the state of this task.
+            /// Remote request to set the state of this task to '''TRUE'''.
             ///</summary>
-            RemoteToggle : BOOL;
+            RemoteSwitchOn : BOOL;
 
             ///<summary>
             /// Gets or sets whether this task is disabled for any manipulations.
@@ -65,14 +65,13 @@ NAMESPACE AXOpen.Core
              _openCycleCount := THIS.GetContext().OpenCycleCount();
 
             IF IsDisabled THEN
-                RemoteToggle := FALSE;
-            END_IF;
+                RemoteSwitchOn := FALSE;
+             END_IF;
 
-
-            //Triggering toggle remotely
-            IF(RemoteToggle) THEN
-                THIS.Toggle();
-                RemoteToggle := FALSE;
+            IF(RemoteSwitchOn) THEN
+                THIS.SwitchOn();
+            ELSE
+                THIS.SwitchOff();
             END_IF;
 
             IF State THEN
@@ -90,6 +89,9 @@ NAMESPACE AXOpen.Core
                 Disabled : BOOL;
             END_VAR
             IsDisabled := Disabled;
+            IF Disabled AND State THEN
+                THIS.Run();
+            END_IF;
         END_METHOD
 
         ///<summary>
@@ -112,64 +114,21 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC IsSwitchedOff : BOOL
             IsSwitchedOff := NOT State;
         END_METHOD        
-
-        ///<summary>
-        /// Use to toggle the state of the '''AxoToggleTask'''.
-        ///</summary>  
-        METHOD PUBLIC Toggle : BOOL
-            Toggle := FALSE;
+   
+        METHOD PRIVATE SwitchOff
             //Check if Run method is called cyclically
             IF THIS.IsRunCalledInThisPlcCycle() OR THIS.WasRunCalledInPreviousPlcCycle() THEN
-                IF IsDisabled THEN
-                    RETURN;
-                ELSE
-                    State :=  NOT State;
-                    IF State THEN
-                        THIS.OnSwitchedOn();
-                        IF THIS.IsRunCalledInThisPlcCycle() THEN
-                            THIS.SwitchedOn();
-                        END_IF;
-                    ELSE
-                        THIS.OnSwitchedOff();	
-                        IF THIS.IsRunCalledInThisPlcCycle() THEN
-                            THIS.SwitchedOff();
-                        END_IF;
-                    END_IF;	
+                IF State THEN
+                    State := FALSE;
+                    THIS.OnSwitchedOff();
                     THIS.OnStateChanged();
-                    Toggle := TRUE;
-                END_IF;
-            ELSE
-                ; //TODO - raise a message that the Run() method is not called
-           END_IF;
-        END_METHOD
-    
-        ///<summary>
-        /// Use to set the state of the '''AxoToggleTask''' to the value '''FALSE'''.
-        ///</summary>        
-        METHOD PUBLIC SwitchOff : BOOL
-            SwitchOff := FALSE;
-            //Check if Run method is called cyclically
-            IF THIS.IsRunCalledInThisPlcCycle() OR THIS.WasRunCalledInPreviousPlcCycle() THEN
-                IF IsDisabled THEN
-                    RETURN;
-                ELSE
-                    IF State THEN
-                        State := FALSE;
-                        THIS.OnSwitchedOff();
-                        THIS.OnStateChanged();
-                        IF THIS.IsRunCalledInThisPlcCycle() THEN
-                            THIS.SwitchedOff();
-                        END_IF;
-                        SwitchOff := TRUE;
-                    END_IF;
                 END_IF;
             ELSE
                 ; //TODO - raise a message that the Run() method is not called
             END_IF;
         END_METHOD
 
-        METHOD PUBLIC SwitchOn : BOOL
-            SwitchOn := FALSE;
+        METHOD PRIVATE SwitchOn 
             //Check if Run method is called cyclically
             IF THIS.IsRunCalledInThisPlcCycle() OR THIS.WasRunCalledInPreviousPlcCycle() THEN
                 IF IsDisabled THEN
@@ -179,10 +138,6 @@ NAMESPACE AXOpen.Core
                         State := TRUE;
                         THIS.OnSwitchedOn();
                         THIS.OnStateChanged();
-                        IF THIS.IsRunCalledInThisPlcCycle() THEN
-                            THIS.SwitchedOn();
-                        END_IF;
-                        SwitchOn := TRUE;
                     END_IF;
                 END_IF;
             ELSE
@@ -191,17 +146,17 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
 		/// <summary>
-		/// 	Executes ones when toggle task changes its state from '''FALSE''' to '''TRUE'''.
+		/// 	Executes ones when momentary task changes its state from '''FALSE''' to '''TRUE'''.
 		/// </summary>			
         METHOD PROTECTED OnSwitchedOn ; END_METHOD
 
 		/// <summary>
-		///     Executes ones when toggle task changes its state from '''TRUE''' to '''FALSE'''.
+		///     Executes ones when momentary task changes its state from '''TRUE''' to '''FALSE'''.
 		/// </summary>			
         METHOD PROTECTED OnSwitchedOff ; END_METHOD
 
 		/// <summary>
-		/// 	Executes ones when toggle task changes its state.
+		/// 	Executes ones when momentary task changes its state.
 		/// </summary>			
         METHOD PROTECTED OnStateChanged ; END_METHOD
 

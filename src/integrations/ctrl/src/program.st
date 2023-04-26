@@ -10,9 +10,7 @@ PROGRAM MyProgram
         myComponentHeaderOnlyExample : AxoComponentExamples.ComponentHeaderOnlyExampleContext;
         AxoRemoteTasks : AxoRemoteTaskExamples.RemoteTasks;
         AxoToggleTasks : AxoToggleTaskExamples.Tasks;
-        
-
-
+        AxoMomentaryTasks : AxoMomentaryTaskExamples.Tasks;
         // Integration test
         Integrations : IntegrationTests.Integrations;
     END_VAR    
@@ -24,7 +22,7 @@ PROGRAM MyProgram
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
     AxoRemoteTasks.Run();   
-    
+    AxoMomentaryTasks.Run();
     // Integration tests
     Integrations.Run();      
     
