@@ -15,7 +15,8 @@ CONFIGURATION MyConfiguration
         I_am_alive : ULINT;
         
         AxoRemoteTasks : AxoRemoteTaskExamples.RemoteTasks;
-        
+        AxoToggleTasks : AxoToggleTaskExamples.Tasks;
+
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;
        

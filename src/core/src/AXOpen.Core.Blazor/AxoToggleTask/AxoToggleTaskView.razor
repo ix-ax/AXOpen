@@ -1,0 +1,12 @@
+﻿@namespace AXOpen.Core
+@using AXSharp.Connector;
+@inherits RenderableComplexComponentBase<AxoToggleTask>
+@implements IDisposable;
+
+<div class="d-flex align-end me-2 mt-2 mb-2">
+    <div class="btn-group">
+        <button class="btn btn-primary" type="button" disabled="@IsDisabled" @onclick="@ToggleTask">
+            <span>@Description</span>
+        </button>
+    </div>
+</div>
