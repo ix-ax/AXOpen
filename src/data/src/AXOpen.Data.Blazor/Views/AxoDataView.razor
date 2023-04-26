@@ -8,8 +8,6 @@
 @using AXOpen.Core;
 @using AXOpen.Data.ViewModels;
 
-<h3>AxoDataView</h3>
-
 @if (Vm == null)
 {
     <h5>Loading...</h5>
@@ -404,7 +402,7 @@ else
 @code {
 
     [Parameter]
-    public IDataViewModel Vm { get; set; }
+    public IAxoDataViewModel Vm { get; set; }
 
     [Parameter]
     public string Presentation { get; set; }

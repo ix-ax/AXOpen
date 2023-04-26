@@ -1,5 +1,5 @@
 NAMESPACE AXOpen.Core
-    INTERFACE  IAxoCoordinator 
+    INTERFACE  IAxoCoordinator EXTENDS IAxoObject
         METHOD GetCoordinatorState : AxoCoordinatorStates END_METHOD
     END_INTERFACE  
     

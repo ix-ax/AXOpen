@@ -1,32 +1,44 @@
-﻿using AXSharp.Connector;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Core
 {
-    public partial class AxoSequencerView : IDisposable
+    public partial class AxoSequencerView  
     {
-        private bool isControllable;
+        public IEnumerable<AxoStep?> Steps => Component.GetKids().OfType<AxoStep>();
 
-        [Parameter]
-        public bool IsControllable
-        {
-            get
-            {
-                return isControllable;
-            }
-            set
-            {
-                isControllable = value;
-            }
-        }
+        [Parameter] public bool IsControllable { get; set; } = true;
+
+        [Parameter] public bool HasTaskControlButton { get; set; } = false;
+
+        [Parameter] public bool HasSettings { get; set; } = true;
+
+        [Parameter] public bool HasStepControls { get; set; } = true;
+
+        [Parameter] public bool HasStepDetails { get; set; } = true;
 
         protected override void OnInitialized()
         {
-            UpdateValuesOnChange(Component);
+            base.OnInitialized();
+            this.UpdateValuesOnChange(Component);
         }
-        public void Dispose()
+    }
+
+    public class AxoSequencerCommandView : AxoSequencerView
+    {
+        public AxoSequencerCommandView()
         {
-            Component.StopPolling();
+            IsControllable = true;
+        }
+    }
+
+    public class AxoSequencerStatusView : AxoSequencerView
+    {
+        public AxoSequencerStatusView()
+        {
+            IsControllable = false;
         }
     }
 }

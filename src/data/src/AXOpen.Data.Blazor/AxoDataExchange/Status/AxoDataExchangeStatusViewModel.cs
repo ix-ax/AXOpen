@@ -15,7 +15,7 @@ using AXOpen.Data.ViewModels;
 
 namespace AXOpen.Data
 {
-    public class AxoDataExchangeStatusViewModel : DataExchangeBaseViewModel
+    public class AxoDataExchangeStatusViewModel : AxoDataExchangeBaseViewModel
     {
        
     }

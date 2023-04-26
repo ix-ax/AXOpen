@@ -1,0 +1,47 @@
+﻿@page "/AxoTask"
+@using axopen_integrations
+@using AXOpen.Core;
+<h3>AxoTask</h3>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header d-flex">
+            <div class="h4 p-0 w-100 mb-4 text-primary border-bottom border-primary">Simple Command Task Example.</div>
+        </div>
+        <div class="card card-body">
+            <div class="container text-left">
+                <div class="row">
+                    <div class="col">
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoTasks" Presentation="Command"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoTasks" Presentation="Command" Class="ps-2" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>AxoTaskCommandView Component="@Entry.Plc.AxoTasks._commandTask" HideRestoreButton="true"</label>
+                            <AxoTaskCommandView Component="@Entry.Plc.AxoTasks._commandTask" HideRestoreButton="true" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoTasks" Presentation="Control"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoTasks" Presentation="Control" Class="card m-2 p-2" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoTasks" Presentation="Status"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoTasks" Presentation="Status" Class="ps-2" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>AxoTaskStatusView Component="@Entry.Plc.AxoTasks._commandTask" HideRestoreButton="true"</label>
+                            <AxoTaskStatusView Component="@Entry.Plc.AxoTasks._commandTask" HideRestoreButton="true" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoTasks" Presentation="Display"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoTasks" Presentation="Display" Class="card m-2 p-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+

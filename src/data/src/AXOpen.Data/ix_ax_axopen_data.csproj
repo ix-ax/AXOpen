@@ -12,8 +12,8 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.90" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.90" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.93" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.93" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -29,7 +29,7 @@
 
 	<ItemGroup>
 	    <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
-	  <ProjectReference Include="..\..\..\base\src\Ix.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
+	    <ProjectReference Include="..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
 	</ItemGroup>
 

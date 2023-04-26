@@ -284,5 +284,31 @@ NAMESPACE AXOpen.Core
             _numberOfConfiguredSteps := ULINT#0;
             _coordinatorState := AxoCoordinatorStates#Idle;
         END_METHOD
+
+        
+        METHOD PUBLIC AndThen
+            VAR_IN_OUT
+                step : AxoStep;
+            END_VAR    
+            VAR_INPUT                    
+                tsk : IAxoTask;
+            END_VAR   
+
+
+            IF(step.Execute(THIS)) THEN                
+                IF(tsk.Invoke().IsDone()) THEN
+                    THIS.MoveNext();
+                END_IF;    
+            END_IF;    
+        END_METHOD
+        
+        METHOD Close 
+            VAR_IN_OUT
+                step : AxoStep;
+            END_VAR 
+            IF(step.Execute(THIS)) THEN                               
+               THIS.CompleteSequence();               
+            END_IF;  
+        END_METHOD
     END_CLASS    
 END_NAMESPACE

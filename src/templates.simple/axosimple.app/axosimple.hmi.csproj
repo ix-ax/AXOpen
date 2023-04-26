@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-ixsharpblazor-hmi-ee3150da-5237-49bc-b265-f512331ded6c</UserSecretsId>
+    <RootNamespace>axosimple.hmi</RootNamespace>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+    <DockerfileContext>..\..</DockerfileContext>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Pages\Index.razor.css" />
+    <None Remove="Shared\Menu\ExpandableMenuItem.razor.css" />
+    <None Remove="Shared\Menu\MenuItem.razor.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pages\Index.razor.css" />
+    <Content Include="Shared\Menu\MenuItem.razor.css" />
+    <Content Include="Shared\Menu\ExpandableMenuItem.razor.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
+    <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
+    <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj" />
+    <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
+    <ProjectReference Include="..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+    <ProjectReference Include="..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
+    <ProjectReference Include="..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
+    <ProjectReference Include="..\axosimple.twin\axosimple.csproj" />
+  </ItemGroup>
+</Project>
