@@ -142,7 +142,7 @@ public class BuildContext : FrostingContext
         ("core", "axopen.core"),
         ("messaging", "axopen.messaging"),
         ("data", "axopen.data"),
-        ("probers", "ix.framework.probers"),
+        ("probers", "axopen.probers"),
     };
 
     public IEnumerable<(string folder, string name, string targetIp, string targetPlatform)> Integrations { get; } = new[]

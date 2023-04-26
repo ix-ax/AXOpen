@@ -18,7 +18,7 @@ using AXOpen.Data.Interfaces;
 
 namespace AXOpen.Data.ViewModels;
 
-public partial class AxoDataViewModel<T, O> : ObservableObject, IDataViewModel where T : IBrowsableDataObject, new() where O : class
+public partial class AxoDataViewModel<T, O> : ObservableObject, IAxoDataViewModel where T : IBrowsableDataObject, new() where O : class
 {
 
     public AxoDataViewModel(IRepository<T> repository, AxoDataExchange dataExchange) : base()

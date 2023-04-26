@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.90" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.90" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.0-alpha.90" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <Compile Include=".g\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include=".g\Onliners\ix-core\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
+    <ProjectReference Include="..\..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
+    <ProjectReference Include="..\..\..\probers\src\AXOpen.Probers\ix_ax_axopen_probers.csproj" />
+  </ItemGroup>
+</Project>
