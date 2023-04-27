@@ -3,92 +3,100 @@ USING AXOpen.Core;
 NAMESPACE AxoToggleTaskExamples
     CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
-            _myTask : AxoToggleTask;
+            _myToggleTask : AxoToggleTask;
             _myCounter : ULINT;
         END_VAR
 
         METHOD PUBLIC Initialize
             // Initialization of the context needs to be called first
             // It does not need to be called cyclically, just once
-            _myTask.Initialize(THIS);
+            _myToggleTask.Initialize(THIS);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
             // Cyclicall call of the Run method
-            _myTask.Run();
+            _myToggleTask.Run();
         END_METHOD
 
         METHOD Examples
-        //<IxTaskInvokeDone>
-            IF _myTask.Invoke().IsDone() THEN
-                ; //Do something
-            END_IF;
-        //</IxTaskInvokeDone>
+        //<AxoToggleTaskSwitchOn>
+        _myToggleTask.SwitchOn();
+        //</AxoToggleTaskSwitchOn>
 
-        //<IxTaskInvokeDoneSeparatelly>
-            _myTask.Invoke();
+        //<AxoToggleTaskSwitchOff>
+        _myToggleTask.SwitchOff();
+        //</AxoToggleTaskSwitchOff>
 
-            IF _myTask.IsDone() THEN
-                ; //Do something
-            END_IF;
-        //</IxTaskInvokeDoneSeparatelly>
+        //<AxoToggleTaskToggle>
+        _myToggleTask.Toggle();
+        //</AxoToggleTaskToggle>
 
-        //<IxTaskRunning>
-             IF _myTask.Invoke().IsBusy() THEN
-                ; //Do something
-            END_IF;
-        //</IxTaskRunning>
+        //<AxoToggleTaskIsSwitchedOn>
+        IF _myToggleTask.IsSwitchedOn() THEN
+            ; // do something 
+        END_IF;
+        //</AxoToggleTaskIsSwitchedOn>
 
-        //<IxTaskError>
-            IF _myTask.Invoke().HasError() THEN
-                ; //Do something
-            END_IF;
-        //</IxTaskError>
+        //<AxoToggleTaskIsSwitchedOff>
+        IF _myToggleTask.IsSwitchedOff() THEN
+            ; // do something 
+        END_IF;
+        //</AxoToggleTaskIsSwitchedOff>
 
-        //<IxTaskInvoke>
-            _myTask.Invoke();
-        //</IxTaskInvoke>
+ 
         END_METHOD
     END_CLASS  
 
-    //<IxTaskEventLikeMethods>
-    CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
+    //<AxoToggleTaskEventLikeMethods>
+    CLASS MyToogleTaskExample Extends AxoToggleTask
         VAR
-            OnAbortCounter : ULINT;
-            OnResumeCounter : ULINT;
-            OnDoneCounter : ULINT;
-            OnErrorCounter : ULINT;
-            OnRestoreCounter : ULINT;
-            OnStartCounter : ULINT;
-            WhileErrorCounter : ULINT;
+            OnSwitchedOnCounter : ULINT;
+            OnSwitchedOffCounter : ULINT;
+            OnStateChangedCounter : ULINT;
+            SwitchOnExecutionCounter : ULINT;
+            SwitchOffExecutionCounter : ULINT;
         END_VAR
-        METHOD PROTECTED OVERRIDE OnAbort 
-            OnAbortCounter := OnAbortCounter + ULINT#1;
+
+        METHOD PROTECTED OVERRIDE OnSwitchedOn 
+            OnSwitchedOnCounter := OnSwitchedOnCounter + ULINT#1;
         END_METHOD
 
-        METHOD PROTECTED OVERRIDE OnResume 
-            OnResumeCounter := OnResumeCounter + ULINT#1;
+        METHOD PROTECTED OVERRIDE OnSwitchedOff 
+            OnSwitchedOffCounter := OnSwitchedOffCounter + ULINT#1;
         END_METHOD
 
-        METHOD PROTECTED OVERRIDE OnDone 
-            OnDoneCounter := OnDoneCounter + ULINT#1;
-        END_METHOD
-    
-        METHOD PROTECTED OVERRIDE OnError 
-            OnErrorCounter := OnErrorCounter + ULINT#1;
+        METHOD PROTECTED OVERRIDE OnStateChanged 
+            OnStateChangedCounter := OnStateChangedCounter + ULINT#1;
         END_METHOD
 
-        METHOD PROTECTED OVERRIDE OnRestore 
-            OnRestoreCounter := OnRestoreCounter + ULINT#1;
+        METHOD PROTECTED OVERRIDE SwitchedOn 
+            SwitchOnExecutionCounter := SwitchOnExecutionCounter + ULINT#1;
         END_METHOD
 
-        METHOD PROTECTED OVERRIDE OnStart 
-            OnStartCounter := OnStartCounter + ULINT#1;
+        METHOD PROTECTED OVERRIDE SwitchedOff 
+            SwitchOffExecutionCounter := SwitchOffExecutionCounter + ULINT#1;
         END_METHOD
 
-        METHOD PROTECTED OVERRIDE WhileError 
-            WhileErrorCounter := WhileErrorCounter + ULINT#1;
-        END_METHOD           
+        METHOD PUBLIC GetOnSwitchedOnCounter : ULINT
+            GetOnSwitchedOnCounter := OnSwitchedOnCounter;
+        END_METHOD
+
+        METHOD PUBLIC GetOnSwitchedOffCounter : ULINT
+            GetOnSwitchedOffCounter := OnSwitchedOffCounter;
+        END_METHOD
+
+        METHOD PUBLIC GetOnStateChangedCounter : ULINT
+            GetOnStateChangedCounter := OnStateChangedCounter;
+        END_METHOD
+
+        METHOD PUBLIC GetSwitchOnExecutionCounter : ULINT
+            GetSwitchOnExecutionCounter := SwitchOnExecutionCounter;
+        END_METHOD
+
+        METHOD PUBLIC GetSwitchOffExecutionCounter : ULINT
+            GetSwitchOffExecutionCounter := SwitchOffExecutionCounter;
+        END_METHOD
+
     END_CLASS
-    //</IxTaskEventLikeMethods>
+    //</AxoToggleTaskEventLikeMethods>
 END_NAMESPACE
