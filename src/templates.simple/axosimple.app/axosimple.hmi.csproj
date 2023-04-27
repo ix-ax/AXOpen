@@ -5,9 +5,6 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-ixsharpblazor-hmi-ee3150da-5237-49bc-b265-f512331ded6c</UserSecretsId>
     <RootNamespace>axosimple.hmi</RootNamespace>
-    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
-    <DockerfileContext>..\..</DockerfileContext>
-    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Pages\Index.razor.css" />

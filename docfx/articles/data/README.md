@@ -36,7 +36,7 @@ We will also need to add our data entity variable, which contains the data that 
 ~~~
 CLASS MyDataExchanger EXTENDS ix.framework.data.DataExchange
     VAR PUBLIC
-        {#ix-attr:[DataEntityAttribute]}
+        {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
         _data : MyData;
     END_VAR  
 END_CLASS  

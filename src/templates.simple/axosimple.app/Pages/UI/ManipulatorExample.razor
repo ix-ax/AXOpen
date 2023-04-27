@@ -1,0 +1,6 @@
+﻿@page "/ui/ManipulatorExample"
+@using axosimple.hmi.Components;
+<UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="100"></UnitsSequences>
+<UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components"></UnitsService>
+<UnitsData Data="Entry.Plc.Context.PneumaticManipulator.Data._data" PollingInterval="100"></UnitsData>
+

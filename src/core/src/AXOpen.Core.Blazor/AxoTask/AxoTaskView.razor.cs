@@ -48,11 +48,6 @@ namespace AXOpen.Core
             UpdateValuesOnChange(Component);
         }
 
-        public void Dispose()
-        {
-            Component.StopPolling();
-        }
-
         [Parameter]
         public bool Disable { get; set; }
 

@@ -1,11 +1,11 @@
+USING examples;
 USING AXOpen.Core;
 USING AXOpen.Data;
 
 NAMESPACE axosimple
     CLASS PUBLIC Context EXTENDS AxoContext                   
         VAR PUBLIC
-            SampleControlledUnit : axosimple.SampleControlledUnit.ControlledUnit;
-            SampleControlledUnit1 : axosimple.SampleControlledUnit.ControlledUnit;
+            PneumaticManipulator : examples.PneumaticManipulator.CU;            
             ProductionSettings : ProductionSettingsHandler;
             Inputs : REF_TO axosimple.Inputs;
             Outputs : REF_TO axosimple.Outputs;
@@ -16,8 +16,7 @@ NAMESPACE axosimple
             ProductionSettings.Run(THIS);
 
             IF(Inputs <> NULL AND Outputs <> NULL) THEN                
-                SampleControlledUnit.Run(THIS, Inputs^, Outputs^);
-                SampleControlledUnit1.Run(THIS, Inputs^, Outputs^);
+                PneumaticManipulator.Run(THIS, Inputs^, Outputs^);               
             END_IF;    
         END_METHOD        
     END_CLASS

@@ -56,7 +56,7 @@ else
                     <CascadingValue Value="this" IsFixed>
                         @ChildContent
                     </CascadingValue>
-                    @foreach (ColumnData column in Columns)
+                    @foreach (AxoColumnData column in Columns)
                     {
                         if (column.HeaderName is null || column.HeaderName == "")
                         {
@@ -105,7 +105,7 @@ else
                             {
                                 <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
 
-                                @foreach (ColumnData column in Columns)
+                                @foreach (AxoColumnData column in Columns)
                                 {
                                     if (column.Clickable)
                                     {
@@ -121,7 +121,7 @@ else
                             {
                                 <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
 
-                                @foreach (ColumnData column in Columns)
+                                @foreach (AxoColumnData column in Columns)
                                 {
                                     if (column.Clickable)
                                     {
@@ -416,7 +416,7 @@ else
     [Parameter]
     public RenderFragment ChildContent { get; set; }
 
-    private readonly List<ColumnData> Columns = new();
+    private readonly List<AxoColumnData> Columns = new();
 
     private Guid ViewGuid { get; } = new Guid();
     private string Create { get; set; } = "";
@@ -426,7 +426,7 @@ else
 
     private int MaxPage { get { return (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit); } }
 
-    public void AddLine(ColumnData line)
+    public void AddLine(AxoColumnData line)
     {
         if (!Columns.Contains(line))
         {
@@ -435,7 +435,7 @@ else
         }
     }
 
-    public void RemoveLine(ColumnData line)
+    public void RemoveLine(AxoColumnData line)
     {
         if (Columns.Contains(line))
         {
