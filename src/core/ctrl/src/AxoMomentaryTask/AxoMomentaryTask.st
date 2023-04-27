@@ -21,8 +21,8 @@ NAMESPACE AXOpen.Core
             ///<summary>
             /// Gets or sets whether this task is disabled for any manipulations.
             ///</summary>
-            {attribute addProperty Name "<#Disabled#>"}
-            {attribute clr [ReadOnly()]}
+            {#ix-set: AttributeName = "<#IsDisabled#>"}
+            {#ix-attr:[ReadOnly()]}
             IsDisabled : BOOL := FALSE;
 
             // ///<summary>
