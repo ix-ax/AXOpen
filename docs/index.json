@@ -439,10 +439,10 @@
     "title": "Interface IAxoToggleTask | System.Dynamic.ExpandoObject",
     "keywords": "Interface IAxoToggleTask Namespace: Pocos.AXOpen.Core Assembly: ix_ax_axopen_core.dll Syntax public interface IAxoToggleTask"
   },
-  "apictrl/index.html": {
-    "href": "apictrl/index.html",
-    "title": "IX API Documentation | System.Dynamic.ExpandoObject",
-    "keywords": "IX API Documentation"
+  "api/Pocos.AXOpen.Core.IAxoCoordinator.html": {
+    "href": "api/Pocos.AXOpen.Core.IAxoCoordinator.html",
+    "title": "Interface IAxoCoordinator | System.Dynamic.ExpandoObject",
+    "keywords": "Interface IAxoCoordinator Namespace: Pocos.AXOpen.Core Assembly: ix_ax_axopen_core.dll Syntax public interface IAxoCoordinator"
   },
   "apictrl/plc.AXOpen.Core._NULL_CONTEXT.html": {
     "href": "apictrl/plc.AXOpen.Core._NULL_CONTEXT.html",
