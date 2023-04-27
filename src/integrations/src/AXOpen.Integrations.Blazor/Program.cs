@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Components.Web;
 using AXOpen.Data.DependencyInjection;
 using static System.Formats.Asn1.AsnWriter;
 
-namespace integration.blazor
+namespace axopen_integrations_blazor
 {
     public class Program
     {
