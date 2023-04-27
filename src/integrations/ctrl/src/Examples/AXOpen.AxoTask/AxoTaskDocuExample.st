@@ -22,39 +22,39 @@ NAMESPACE AxoTaskExamples
         END_METHOD
 
         METHOD Examples
-        //<IxTaskInvokeDone>
+        //<AxoTaskInvokeDone>
             IF _myTask.Invoke().IsDone() THEN
                 ; //Do something
             END_IF;
-        //</IxTaskInvokeDone>
+        //</AxoTaskInvokeDone>
 
-        //<IxTaskInvokeDoneSeparatelly>
+        //<AxoTaskInvokeDoneSeparatelly>
             _myTask.Invoke();
 
             IF _myTask.IsDone() THEN
                 ; //Do something
             END_IF;
-        //</IxTaskInvokeDoneSeparatelly>
+        //</AxoTaskInvokeDoneSeparatelly>
 
-        //<IxTaskRunning>
+        //<AxoTaskRunning>
              IF _myTask.Invoke().IsBusy() THEN
                 ; //Do something
             END_IF;
-        //</IxTaskRunning>
+        //</AxoTaskRunning>
 
-        //<IxTaskError>
+        //<AxoTaskError>
             IF _myTask.Invoke().HasError() THEN
                 ; //Do something
             END_IF;
-        //</IxTaskError>
+        //</AxoTaskError>
 
-        //<IxTaskInvoke>
+        //<AxoTaskInvoke>
             _myTask.Invoke();
-        //</IxTaskInvoke>
+        //</AxoTaskInvoke>
         END_METHOD
     END_CLASS  
 
-    //<IxTaskEventLikeMethods>
+    //<AxoTaskEventLikeMethods>
     CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
         VAR
             OnAbortCounter : ULINT;
@@ -93,5 +93,5 @@ NAMESPACE AxoTaskExamples
             WhileErrorCounter := WhileErrorCounter + ULINT#1;
         END_METHOD           
     END_CLASS
-    //</IxTaskEventLikeMethods>
+    //</AxoTaskEventLikeMethods>
 END_NAMESPACE

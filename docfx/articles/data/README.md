@@ -1,6 +1,6 @@
-# Data
+# AxoData
 
-IxData provide a simple yet powerful data exchange between PLC and an arbitrary data repository. IxData implements a series of repository operations known as CRUD.
+AxoData provide a simple yet powerful data exchange between PLC and an arbitrary data repository. IxData implements a series of repository operations known as CRUD.
 
 ## Benefits
 
@@ -8,13 +8,13 @@ The main benefit of this solution is data scalability; once the repository is se
 
 ## How it works
 
-The basic PLC block is TcoDataExchange, which has its .NET counterpart (or .NET twin) that handles complex repository operations using a modified IxRemoteTask, which is a form of RPC (Remote Procedure Call), that allows you to execute the code from the PLC in a remote .NET application.
+The basic PLC block is AxoDataExchange, which has its .NET counterpart (or .NET twin) that handles complex repository operations using a modified AxoRemoteTask, which is a form of RPC (Remote Procedure Call), that allows you to execute the code from the PLC in a remote .NET application.
 
 ## Implemented repositories
 
-The DataEntity uses a predefined interface IRepository that allows for the unlimited implementation of different kinds of repositories.
+The AxoDataEntity uses a predefined interface IRepository that allows for the unlimited implementation of different kinds of repositories.
 
-At this point, Ix.framework supports these repositories directly:
+At this point, AXOpen supports these repositories directly:
 
 - InMemory
 - Json
@@ -22,30 +22,30 @@ At this point, Ix.framework supports these repositories directly:
 
 ## Getting started
 
-For the data exchange to work, we will need to create our class extending the `DataExchange` class. We can call it `MyDataExchanger`. Don't forget to add using:
+For the data exchange to work, we will need to create our class extending the `AxoDataExchange` class. We can call it `MyDataExchanger`. Don't forget to add using:
 ```
-using ix.framework.data;
+using AXOpen.Data;
 ```
 
 ~~~
-CLASS MyDataExchanger EXTENDS ix.framework.data.DataExchange 
+CLASS MyDataExchanger EXTENDS AXOpen.Data.AxoDataExchange 
 ~~~
 
-We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `DataEntityAttribute`. This attribute should be unique within DataExchanger object and is used to locate data object within framework. When `DataEntityAttribute` is missing, exception is thrown.
+We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `AxoDataEntityAttribute`. This attribute should be unique within AxoDataExchanger object and is used to locate data object within framework. When `AxoDataEntityAttribute` is missing, exception is thrown.
 
 ~~~
-CLASS MyDataExchanger EXTENDS ix.framework.data.DataExchange
+CLASS MyDataExchanger EXTENDS AXOpen.Data.AxoDataExchange
     VAR PUBLIC
-        {#ix-attr:[DataEntityAttribute]}
+        {#ix-attr:[AxoDataEntityAttribute]}
         _data : MyData;
     END_VAR  
 END_CLASS  
 ~~~
 
-The data entity variable must be of a class that extends `DataEntity`. So let's just create class that will have some variables.
+The data entity variable must be of a class that extends `AxoDataEntity`. So let's just create class that will have some variables.
 
 ~~~
-CLASS MyData EXTENDS ix.framework.data.DataEntity
+CLASS MyData EXTENDS AXOpen.Data.AxoDataEntity
     VAR PUBLIC
         sampleData : REAL;
         someInteger : INT;
@@ -67,7 +67,7 @@ END_CONFIGURATION
 ~~~
 
 ~~~
-CLASS MyContext EXTENDS ix.framework.core.IxContext    
+CLASS MyContext EXTENDS AXOpen.Core.AxoContext    
     VAR PUBLIC         
         _myDataExchanger: MyDataExchanger;
     END_VAR
@@ -136,43 +136,43 @@ END_IF;
 
 With presentation `Command` there are available options for adding, editing and deleting records.
 
-[!Command](~/articles/data/images/Command.png)
+[!Command](~/images/Command.png)
 
 If you use `Status` presentation type, data will be only displayed cannot be manipulated.
 
-[!Status](~/articles/data/images/Status.png)
+[!Status](~/images/Status.png)
 
 ### Custom columns
 
-There is a possibility to add custom columns if it is needed. You must add `ix.framework.core.IxDataExchange.ColumnData` view as a child in `IxDataView`. The `BindingValue` must be set in `ColumnData` and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:
+There is a possibility to add custom columns if it is needed. You must add `AXOpen.Core.AxoDataExchange.ColumnData` view as a child in `AxoDataView`. The `BindingValue` must be set in `ColumnData` and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:
 
 ~~~
-<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command">
-    <ix.framework.core.IxDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
-    <ix.framework.core.IxDataExchange.ColumnData BindingValue="String1" Clickable="false" />
-</IxDataView>
+<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDataView="false" CanExport="true">
+    <AXOpen.Data.Blazor.AxoDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" Clickable="false" />
+    <AXOpen.Data.Blazor.AxoDataExchange.ColumnData BindingValue="String1" />
+</AxoDataView>
 ~~~
 
-[!Custom columns](~/articles/data/images/CustomColumns.png)
+[!Custom columns](~/images/CustomColumns.png)
 
 ### Export
 
 If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
 
 ~~~
-<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
+<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
 ~~~
 
 With this option, buttons for export and import data will appear. After clicking on export button, the csv file will be created, which contains all existing records. If you want import data, you must upload csv file with equal data structure like we get in export file.
 
-[!Export](~/articles/data/images/Export.png)
+[!Export](~/images/Export.png)
 
 ### Modal detail view
 
 The Detail View is default shown like modal view. That means if you clicked on some record, the modal window with detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show detail view under the record table. Example with `ModalDetailView` attribute:
 
 ~~~
-<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
+<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
 ~~~
 
-[!Not Modal detail view](~/articles/data/images/NotModal.png)
+[!Not Modal detail view](~/images/NotModalDetailView.png)

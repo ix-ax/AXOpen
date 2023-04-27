@@ -42,8 +42,6 @@ NAMESPACE AxoToggleTaskExamples
             ; // do something 
         END_IF;
         //</AxoToggleTaskIsSwitchedOff>
-
- 
         END_METHOD
     END_CLASS  
 
