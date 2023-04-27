@@ -1,6 +1,10 @@
 {
 	"folders": [
 		{
+			"name": "templates.simple",
+			"path": "templates.simple\\ctrl"
+		},
+		{
 			"name": "integrations",
 			"path": "integrations\\ctrl"
 		},
@@ -27,10 +31,6 @@
 		{
 			"name": "abstractions",
 			"path": "abstractions\\ctrl"
-		},
-		{
-			"name": "templates.simple",
-			"path": "templates.simple\\ctrl"
 		}
 	],
 	"settings": {}

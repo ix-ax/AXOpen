@@ -1,5 +1,5 @@
 name: "axosimple"
-version        : '0.1.4-add-application-templates-for-integration-testing.188'
+version         : '0.1.4-add-application-templates-for-integration-testing.190'
 type: app
 registries:
   '@ix-ax': https://npm.pkg.github.com/  
@@ -11,9 +11,9 @@ devDependencies:
   "@ax/sdk": 3.0.8
   "@ax/sld": ^0.14.2
 dependencies:
-   "@ix-ax/axopen.core"        : '0.1.4-add-application-templates-for-integration-testing.188'
-   "@ix-ax/axopen.data"        : '0.1.4-add-application-templates-for-integration-testing.188'
-   "@ix-ax/axopen.messaging"        : '0.1.4-add-application-templates-for-integration-testing.188'
+   "@ix-ax/axopen.core"         : '0.1.4-add-application-templates-for-integration-testing.190'
+   "@ix-ax/axopen.data"         : '0.1.4-add-application-templates-for-integration-testing.190'
+   "@ix-ax/axopen.messaging"         : '0.1.4-add-application-templates-for-integration-testing.190'
 variables:
   APAX_BUILD_ARGS: [ -d ]    
 scripts:
