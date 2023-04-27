@@ -1,6 +1,6 @@
-# **ix.core**
+# **AXOpen.Core**
 
-**ix.core** provides basic blocks for building ix.framework applications.
+**AXOpen.Core** provides basic blocks for building AXOpen.framework applications.
 
 # Basic concepts
 
@@ -8,12 +8,12 @@
 
 AxoContext encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any **direct inter-context access to members must be avoided**.
 
-**IMPORTANT** Each AxoContext must belong to a single PLC task. Multiple IxContexts can be however running on the same task.
+**IMPORTANT** Each AxoContext must belong to a single PLC task. Multiple AxoContexts can be however running on the same task.
 
 
 ```mermaid
   classDiagram 
-    class Context{
+    class AxoContext{
         #Main()*
         +Run()
     }     
@@ -41,14 +41,14 @@ When you call `Run` method on an instance of a AxoContext, it will ensure openin
 
 ### How to use AxoContext
 
-Base class for the AxoContext is `ix.core.AxoContext`. The entry point of call execution of the AxoContext is `Main` method. Notice that the `AxoContext` class is abstract and cannot be instantiated if not extended. `Main` method must be overridden in derived class notice the use of override keyword and also that the method is `protected` which means the it is visible only from within the `AxoContext` and derived classes.
+Base class for the AxoContext is `AXOpen.Core.AxoContext`. The entry point of call execution of the AxoContext is `Main` method. Notice that the `AxoContext` class is abstract and cannot be instantiated if not extended. `Main` method must be overridden in derived class notice the use of override keyword and also that the method is `protected` which means the it is visible only from within the `AxoContext` and derived classes.
 
  
  **How to extend AxoContext class**
 
 ~~~SmallTalk
 
-USING ix.core
+USING AXOpen.Core
 
 CLASS PUBLIC MyContext EXTENDS AxoContext
     METHOD PROTECTED OVERRIDE Main
@@ -74,7 +74,7 @@ END_PROGRAM
 
 ## AxoObject
 
-AxoObject is the base class for any other classes of ix.framework. It provides access to the parent AxoObject and the AxoContext in which it was initialized.
+AxoObject is the base class for any other classes of AXOpen.framework. It provides access to the parent AxoObject and the AxoContext in which it was initialized.
 
 
 ```mermaid
@@ -88,9 +88,9 @@ AxoObject is the base class for any other classes of ix.framework. It provides a
 **AxoObject initialization within a AxoContext**
 
 ~~~SmallTalk
-    CLASS PUBLIC MyContext EXTENDS ix.core.AxoContext
+    CLASS PUBLIC MyContext EXTENDS AXOpen.Core.AxoContext
         VAR
-            _myObject : ix.core.AxoObject;
+            _myObject : AXOpen.Core.AxoObject;
         END_VAR
         METHOD PROTECTED OVERRIDE Main
             _myObject.Initialize(THIS);            
@@ -101,9 +101,9 @@ AxoObject is the base class for any other classes of ix.framework. It provides a
 **AxoObject initialization within another AxoObject**
 
 ~~~SmallTalk
-    CLASS PUBLIC MyParentObject EXTENDS ix.core.AxoObject
+    CLASS PUBLIC MyParentObject EXTENDS AXOpen.Core.AxoObject
         VAR
-            _myChildObject : ix.core.AxoObject;
+            _myChildObject : AXOpen.Core.AxoObject;
         END_VAR
         METHOD PROTECTED OVERRIDE Main
             _myChildObject.Initialize(THIS);            
@@ -118,7 +118,7 @@ AxoTask provides basic task execution. AxoTask needs to be initialized to set th
 **AxoTask initialization within a AxoContext**
 
 ~~~SmallTalk
-    CLASS IxTaskExample EXTENDS AxoContext         
+    CLASS AxoTaskExample EXTENDS AxoContext         
         VAR PUBLIC
             _myTask : AxoTask;
             _myCounter : ULINT;
@@ -213,7 +213,7 @@ flowchart TD
 
 Example of using AxoTask:
 ~~~SmallTalk
-    CLASS IxTaskExample EXTENDS AxoContext         
+    CLASS AxoTaskExample EXTENDS AxoContext         
         VAR PUBLIC
             _myTask : AxoTask;
             _myCounter : ULINT;
@@ -354,7 +354,7 @@ AxoStep class contains following public members:
 
 ## AxoSequencer
 
-AxoSequencer is an IxCordinator class provides triggering the AxoStep-s inside the sequence in the order they are written.
+AxoSequencer is an AxoCordinator class provides triggering the AxoStep-s inside the sequence in the order they are written.
 
 AxoSequencer extends from AxoTask so it also has to be initialized by calling its `Initialize()` method and started using its `Invoke()` method.
     
@@ -380,7 +380,7 @@ AxoSequencer contains following methods:
 - `GetNumberOfConfiguredSteps()`: Gets the number of the configured steps in the sequence. 
 
 ~~~SmallTalk
-    CLASS IxSequencerExample EXTENDS AxoContext
+    CLASS AxoSequencerExample EXTENDS AxoContext
         VAR PUBLIC
             _mySequencer : AxoSequencer;
             _step_1 : AxoStep;
@@ -401,7 +401,7 @@ AxoSequencer contains following methods:
         METHOD PROTECTED OVERRIDE Main
             _mySequencer.Open();
 
-            // Example of the most simple use of Execute() method of step class, only with IxCoordinator defined. 
+            // Example of the most simple use of Execute() method of step class, only with AxoCoordinator defined. 
             IF _step_1.Execute(_mySequencer) THEN
                 // do something
                 _myCounter := _myCounter + ULINT#1;
@@ -528,6 +528,228 @@ The instance of the extended `AxoComponent` must be defined inside the `AxoConte
 
 Inside the `Main()` method of the related `AxoContext` following rules must be applied. The `Initialize()` method of the extended instance of the `AxoComponent` must be called first.
 The `Run()` method with the respective input and output variables must be called afterwards.
-~~~SmallTalk
 
+
+## AxoToggleTask
+
+AxoToggleTask provides basic switching on and of functions. AxoToggleTask needs to be initialized to set the proper AxoContext.
+
+**AxoToggleTask initialization within a AxoContext**
+
+~~~SmallTalk
+    CLASS AxoTaskExample EXTENDS AxoContext         
+        VAR PUBLIC
+            _myTask : AxoTask;
+            _myCounter : ULINT;
+        END_VAR
+    
+        METHOD PUBLIC Initialize
+            // Initialization of the context needs to be called first
+            // It does not need to be called cyclically, just once
+            _myTask.Initialize(THIS);
+        END_METHOD
+    END_CLASS  
+~~~
+
+There are two key methods for managing the AxoTask:
+
+- `Invoke()` fires the execution of the AxoTask (can be called fire&forget or cyclically)
+- `Execute()` method must be called cyclically. The method returns `TRUE` when the AxoTask is required to run until enters `Done` state or terminates in error.
+
+For termination of the execution of the AxoTask there are following methods:
+- `DoneWhen(Done_Condition)` - terminates the execution of the AxoTask and enters the `Done` state when the `Done_Condition` is `TRUE`.
+- `ThrowWhen(Error_Condition)` - terminates the execution of the AxoTask and enters the `Error` state when the `Error_Condition` is `TRUE`.
+- `Abort()` - terminates the execution of the AxoTask and enters the `Ready` state if the AxoTask is in the `Busy` state, otherwise does nothing.
+
+To reset the AxoTask from any state in any moment there is following method:
+- `Restore()` acts as reset of the AxoTask (sets the state into `Ready` state from any state of the AxoTask).
+
+Moreover, there are seven more "event-like" methods that are called when a specific event occurs (see the chart below). 
+
+```mermaid
+flowchart TD
+    classDef states fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+    classDef actions fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+    classDef events fill:#80FF00,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+
+    s1((Ready)):::states
+    s2((Kicking)):::states
+    s3((Busy)):::states
+    s4((Done)):::states
+    s5((Error)):::states
+    s6((Aborted)):::states
+    a1("Invoke()#128258;"):::actions
+    a2("Execute()#128260;"):::actions
+    a3("DoneWhen(TRUE)#128258;"):::actions
+    a4("ThrowWhen(TRUE)#128258;"):::actions
+    a5("NOT Invoke() call for at<br>least two Context cycles#128260;"):::actions
+    a6("Restore()#128258;"):::actions
+    a7("Abort()#128258;"):::actions
+    a8("Resume()#128258;"):::actions
+    e1{{"OnStart()#128258;"}}:::events
+    e2{{"OnError()#128258;"}}:::events
+    e3{{"WhileError()#128260;"}}:::events
+    e4{{"OnDone()#128258;"}}:::events
+    e5{{"OnAbort()#128258;"}}:::events
+    e6{{"OnRestore()#128258;"}}:::events
+    
+    subgraph legend[" "]
+        direction LR
+        s((State)):::states
+        ac("Action #128260;:called<br>cyclically"):::actions
+        as("Action #128258;:single<br>or cyclical call "):::actions
+        ec{{"Event #128260;:called<br>cyclically"}}:::events
+        es{{"Event #128258;:triggered<br>once "}}:::events
+    end
+    
+    subgraph chart[" "]
+        direction TB
+        s1
+        s1-->a1
+        a1-->s2
+        s2-->a2
+        s3-->a3
+        s3-->a7
+        a7-->e5
+        a7-->s6
+        s6-->a8
+        a8-->s3
+        a3-->s4
+        s4---->a5
+        a5-->a1
+        a2--->s3
+        s3--->a4
+        a4-->s5
+        s5-->a6
+        a6-->e6
+        a2-->e1
+        a4-->e2
+        a4-->e3
+        a3-->e4
+        a6-->s1
+    end
+```
+
+Example of using AxoTask:
+~~~SmallTalk
+    CLASS AxoTaskExample EXTENDS AxoContext         
+        VAR PUBLIC
+            _myTask : AxoTask;
+            _myCounter : ULINT;
+        END_VAR
+    
+        METHOD PUBLIC Initialize
+            // Initialization of the context needs to be called first
+            // It does not need to be called cyclically, just once
+            _myTask.Initialize(THIS);
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE Main
+            // Cyclicall call of the Execute
+            IF _myTask.Execute() THEN
+                _myCounter := _myCounter + ULINT#1;
+                _myTask.DoneWhen(_myCounter = ULINT#100);
+            END_IF;
+        END_METHOD
+    END_CLASS  
+~~~
+
+The AxoTask executes upon the `Invoke` method call. `Invoke` fires the execution of `Execute` logic upon the first call, and it does not need cyclical calling.
+
+~~~SmallTalk
+    _myTask.Invoke();
+~~~
+
+`Invoke()` method returns IAxoTaskState with the following members:
+
+ - `IsBusy` indicates the execution started and is running.
+ - `IsDone` indicates the execution completed with success.
+ - `HasError` indicates the execution terminated with a failure.
+ - `IsAborted` indicates that the execution of the AxoTask has been aborted. It should continue by calling the method `Resume()`.
+
+~~~SmallTalk
+            // Wait for AxoTask to Complete 
+            IF _myTask.Invoke().IsDone() THEN
+                ; //Do something
+            END_IF;
+            // ALTERNATIVELY
+            _myTask.Invoke();
+            IF _myTask.IsDone() THEN
+                ; //Do something ALTERNATIV
+            END_IF;
+~~~
+
+~~~SmallTalk
+            // Make sure that the AxoTask is executing 
+            IF _myTask.Invoke().IsBusy() THEN
+                ; //Do something
+            END_IF;
+~~~
+
+~~~SmallTalk
+            // Check for AxoTask's error 
+            IF _myTask.Invoke().HasError() THEN
+                ; //Do something
+            END_IF;
+~~~
+
+The AxoTask can be started only from the `Ready` state by calling the `Invoke()` method in the same Context cycle as the `Execute()` method is called, regardless the order of the methods calls. After AxoTask completion, the state of the AxoTask will remain in Done, unless:
+
+1.) AxoTask's `Restore` method is called (AxoTask changes it's state to `Ready` state).
+
+2.) `Invoke` method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the `Kicking` state.
+
+
+The AxoTask may finish also in an `Error` state. In that case, the only possibility to get out of `Error` state is by calling the `Restore()` method.
+
+To implement any of the already mentioned "event-like" methods the new class that extends from the AxoTask needs to be created. The required method with `PROTECTED OVERRIDE` access modifier needs to be created as well, and the custom logic needs to be placed in.
+These methods are:
+- `OnAbort()` - executes once when the task is aborted.
+- `OnResume()` - executes once when the task is resumed.
+- `OnDone()` - executes once when the task reaches the `Done` state.
+- `OnError()` - executes once when the task reaches the `Error` state.
+- `OnRestore()` - executes once when the task is restored.
+- `OnStart()` - executes once when the task starts (at the moment of transition from the `Kicking` state into the `Busy` state).
+- `WhileError()` - executes repeatedly while the task is in `Error` state (and `Execute()` method is called).
+
+Example of implementing "event-like" methods:
+~~~SmallTalk
+    CLASS MyCommandTask Extends CommandTask
+        VAR
+            OnAbortCounter : ULINT;
+            OnResumeCounter : ULINT;
+            OnDoneCounter : ULINT;
+            OnErrorCounter : ULINT;
+            OnRestoreCounter : ULINT;
+            OnStartCounter : ULINT;
+            WhileErrorCounter : ULINT;
+        END_VAR
+        METHOD PROTECTED OVERRIDE OnAbort 
+            OnAbortCounter := OnAbortCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnResume 
+            OnResumeCounter := OnResumeCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnDone 
+            OnDoneCounter := OnDoneCounter + ULINT#1;
+        END_METHOD
+    
+        METHOD PROTECTED OVERRIDE OnError 
+            OnErrorCounter := OnErrorCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnRestore 
+            OnRestoreCounter := OnRestoreCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE OnStart 
+            OnStartCounter := OnStartCounter + ULINT#1;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE WhileError 
+            WhileErrorCounter := WhileErrorCounter + ULINT#1;
+        END_METHOD    
+    END_CLASS
 ~~~

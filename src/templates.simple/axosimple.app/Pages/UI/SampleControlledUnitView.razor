@@ -1,0 +1,9 @@
+﻿@page "/ui/SampleControlledUnit"
+@using AXOpen.Core;
+@using System.ComponentModel
+@using AXSharp.Connector
+@using AXSharp.Connector.ValueTypes
+@using Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Http
+
+<ControlledUnitView Component="@Entry.Plc.Context.SampleControlledUnit" PollingInterval="100"></ControlledUnitView>
+@*<ControlledUnitView Component="@Entry.Plc.Context.SampleControlledUnit1" PollingInterval="100"></ControlledUnitView>*@

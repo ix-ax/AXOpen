@@ -12,6 +12,6 @@
 	  </PackageReference>
 	  <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Identity.Stores" Version="5.0.7" />
-    <PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.90" />
+    <PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.93" />
   </ItemGroup>
 </Project>

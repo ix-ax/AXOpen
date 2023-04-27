@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.data"
-version                                                                                                                                                                                                                                    : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.180'
+version                                                                                                                                                                                                                           : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.201'
 type: lib
 targets:
 #  - "1500"
@@ -9,10 +9,9 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                                                                : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.180'
+  "@ix-ax/axopen.core"                                                                                                                                                                                       : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.201'
 devDependencies:
   "@ax/sdk": 3.0.8
-
-scripts:
-  postbuild:                
-      - dotnet ixc
+scripts:  
+  postbuild: 
+    - dotnet ixc

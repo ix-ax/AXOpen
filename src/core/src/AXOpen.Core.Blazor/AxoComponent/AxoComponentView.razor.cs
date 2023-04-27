@@ -42,7 +42,7 @@ namespace AXOpen.Core
         {
             get
             {
-                return new DetailsContext(this.Component, this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null).ToList());
+                return new ComponentGroupContext(this.Component, this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null).ToList());
             }
         }
         private IEnumerable<ITwinObject> DetailsTabs
@@ -65,7 +65,7 @@ namespace AXOpen.Core
                         return attr != null && !string.IsNullOrEmpty(attr.TabName) && attr.TabName.Equals(tabName);
                     }).ToList();
 
-                ITwinObject _detailsTab = new DetailsContext(this.Component, currentTabElements, tabName);
+                ITwinObject _detailsTab = new ComponentGroupContext(this.Component, currentTabElements, tabName);
                 _detailsTabs.Add(_detailsTab);
             }
 
@@ -75,33 +75,20 @@ namespace AXOpen.Core
 
             if (notNamedTabElements.Count() > 0)
             {
-                ITwinObject _notNamedTab = new DetailsContext(this.Component, notNamedTabElements, "Tab name not defined");
+                ITwinObject _notNamedTab = new ComponentGroupContext(this.Component, notNamedTabElements, "Tab name not defined");
                 _detailsTabs.Add(_notNamedTab);
             }
 
             return _detailsTabs;
         }
 
-        private void UpdateServiceMode(object sender, EventArgs e)
-        {
-            if (IsControllable && this.Component._isManuallyControllable.Cyclic)
-            {
-                currentPresentation = "Command-Control";
-            }
-            else
-            {
-                currentPresentation = "Status-Display";
-            }
-        }
-
         protected override void OnInitialized()
         {
+            base.OnInitialized();
             containsHeaderAttribute = this.Header.GetKids().Count() != 0;
             tabNames = GetAllTabNames(this.Component);
             containsDetailsAttribute = this.DetailsTabs.Count() != 0;
             UpdateValuesOnChange(Component);
-            UpdateServiceMode(this, new EventArgs());
-            Component._isManuallyControllable.PropertyChanged += UpdateServiceMode;
         }
 
         private void Collapse()
@@ -111,8 +98,23 @@ namespace AXOpen.Core
 
         public void Dispose()
         {
-            Component._isManuallyControllable.PropertyChanged -= UpdateServiceMode;
             Component.StopPolling();
+        }
+    }
+
+    public class AxoComponentCommandView : AxoComponentView
+    {
+        public AxoComponentCommandView()
+        {
+            IsControllable = true;
+        }
+    }
+
+    public class AxoComponentStatusView : AxoComponentView
+    {
+        public AxoComponentStatusView()
+        {
+            IsControllable = false;
         }
     }
 }
