@@ -90,7 +90,8 @@
     <div class="level1"><span class="xref">Microsoft.AspNetCore.Components.ComponentBase</span></div>
     <div class="level2"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase</span></div>
     <div class="level3"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;T&gt;</span>&lt;<a class="xref" href="AXOpen.Core.AxoTask.html">AxoTask</a>&gt;</div>
-    <div class="level4"><span class="xref">AxoTaskCommandView</span></div>
+    <div class="level4"><a class="xref" href="AXOpen.Core.AxoTaskView.html">AxoTaskView</a></div>
+    <div class="level5"><span class="xref">AxoTaskCommandView</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -99,9 +100,31 @@
     <div><span class="xref">Microsoft.AspNetCore.Components.IHandleAfterRender</span></div>
     <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent</span></div>
     <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_OnInitialized">AxoTaskView.OnInitialized()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_Dispose">AxoTaskView.Dispose()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_Disable">AxoTaskView.Disable</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_HideRestoreButton">AxoTaskView.HideRestoreButton</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_IsDisabled">AxoTaskView.IsDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_Description">AxoTaskView.Description</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_">AxoTaskView.BuildRenderTree(RenderTreeBuilder)</a>
+    </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;AXOpen.Core.AxoTask&gt;.Component</span>
     </div>
@@ -131,9 +154,6 @@
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HasFocus</span>
-    </div>
-    <div>
-      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnInitialized()</span>
     </div>
     <div>
       <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync()</span>
@@ -191,108 +211,25 @@
   <h6><strong>Assembly</strong>: axopen_core_blazor.dll</h6>
   <h5 id="AXOpen_Core_AxoTaskCommandView_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoTaskCommandView : RenderableComplexComponentBase&lt;AxoTask&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoTaskCommandView : AxoTaskView, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase, IDisposable</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskCommandView_Description.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskCommandView.Description%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskCommandView__ctor.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskCommandView.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskCommandView.razor.cs/#L8">View Source</a>
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L69">View Source</a>
   </span>
-  <a id="AXOpen_Core_AxoTaskCommandView_Description_" data-uid="AXOpen.Core.AxoTaskCommandView.Description*"></a>
-  <h4 id="AXOpen_Core_AxoTaskCommandView_Description" data-uid="AXOpen.Core.AxoTaskCommandView.Description">Description</h4>
+  <a id="AXOpen_Core_AxoTaskCommandView__ctor_" data-uid="AXOpen.Core.AxoTaskCommandView.#ctor*"></a>
+  <h4 id="AXOpen_Core_AxoTaskCommandView__ctor" data-uid="AXOpen.Core.AxoTaskCommandView.#ctor">AxoTaskCommandView()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Parameter]
-public string Description { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public AxoTaskCommandView()</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskCommandView_HideRestoreButton.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskCommandView.HideRestoreButton%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskCommandView.razor.cs/#L24">View Source</a>
-  </span>
-  <a id="AXOpen_Core_AxoTaskCommandView_HideRestoreButton_" data-uid="AXOpen.Core.AxoTaskCommandView.HideRestoreButton*"></a>
-  <h4 id="AXOpen_Core_AxoTaskCommandView_HideRestoreButton" data-uid="AXOpen.Core.AxoTaskCommandView.HideRestoreButton">HideRestoreButton</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Parameter]
-public bool HideRestoreButton { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">bool</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskCommandView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoTask_AxoTaskCommandView_razor.g.cs/#L29">View Source</a>
-  </span>
-  <a id="AXOpen_Core_AxoTaskCommandView_BuildRenderTree_" data-uid="AXOpen.Core.AxoTaskCommandView.BuildRenderTree*"></a>
-  <h4 id="AXOpen_Core_AxoTaskCommandView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_" data-uid="AXOpen.Core.AxoTaskCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)">BuildRenderTree(RenderTreeBuilder)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void BuildRenderTree(RenderTreeBuilder __builder)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder</span></td>
-        <td><span class="parametername">__builder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)</span></div>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">Microsoft.AspNetCore.Components.IComponent</span>
@@ -309,6 +246,9 @@ public bool HideRestoreButton { get; set; }</code></pre>
   <div>
       <span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span>
   </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
 </article>
           </div>
 
@@ -320,7 +260,7 @@ public bool HideRestoreButton { get; set; }</code></pre>
                     <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskCommandView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskCommandView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoTask_AxoTaskCommandView_razor.g.cs/#L26" class="contribution-link">View Source</a>
+                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L67" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

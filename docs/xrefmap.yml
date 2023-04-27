@@ -1366,38 +1366,50 @@ references:
   commentId: T:AXOpen.Core.AxoComponentCommandView
   fullName: AXOpen.Core.AxoComponentCommandView
   nameWithType: AxoComponentCommandView
-- uid: AXOpen.Core.AxoComponentCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  name: BuildRenderTree(RenderTreeBuilder)
-  href: api/AXOpen.Core.AxoComponentCommandView.html#AXOpen_Core_AxoComponentCommandView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
-  commentId: M:AXOpen.Core.AxoComponentCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  fullName: AXOpen.Core.AxoComponentCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  nameWithType: AxoComponentCommandView.BuildRenderTree(RenderTreeBuilder)
-- uid: AXOpen.Core.AxoComponentCommandView.BuildRenderTree*
-  name: BuildRenderTree
-  href: api/AXOpen.Core.AxoComponentCommandView.html#AXOpen_Core_AxoComponentCommandView_BuildRenderTree_
-  commentId: Overload:AXOpen.Core.AxoComponentCommandView.BuildRenderTree
+- uid: AXOpen.Core.AxoComponentCommandView.#ctor
+  name: AxoComponentCommandView()
+  href: api/AXOpen.Core.AxoComponentCommandView.html#AXOpen_Core_AxoComponentCommandView__ctor
+  commentId: M:AXOpen.Core.AxoComponentCommandView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoComponentCommandView.AxoComponentCommandView()
+  fullName.vb: AXOpen.Core.AxoComponentCommandView.New()
+  nameWithType: AxoComponentCommandView.AxoComponentCommandView()
+  nameWithType.vb: AxoComponentCommandView.New()
+- uid: AXOpen.Core.AxoComponentCommandView.#ctor*
+  name: AxoComponentCommandView
+  href: api/AXOpen.Core.AxoComponentCommandView.html#AXOpen_Core_AxoComponentCommandView__ctor_
+  commentId: Overload:AXOpen.Core.AxoComponentCommandView.#ctor
   isSpec: "True"
-  fullName: AXOpen.Core.AxoComponentCommandView.BuildRenderTree
-  nameWithType: AxoComponentCommandView.BuildRenderTree
+  name.vb: New
+  fullName: AXOpen.Core.AxoComponentCommandView.AxoComponentCommandView
+  fullName.vb: AXOpen.Core.AxoComponentCommandView.New
+  nameWithType: AxoComponentCommandView.AxoComponentCommandView
+  nameWithType.vb: AxoComponentCommandView.New
 - uid: AXOpen.Core.AxoComponentStatusView
   name: AxoComponentStatusView
   href: api/AXOpen.Core.AxoComponentStatusView.html
   commentId: T:AXOpen.Core.AxoComponentStatusView
   fullName: AXOpen.Core.AxoComponentStatusView
   nameWithType: AxoComponentStatusView
-- uid: AXOpen.Core.AxoComponentStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  name: BuildRenderTree(RenderTreeBuilder)
-  href: api/AXOpen.Core.AxoComponentStatusView.html#AXOpen_Core_AxoComponentStatusView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
-  commentId: M:AXOpen.Core.AxoComponentStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  fullName: AXOpen.Core.AxoComponentStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  nameWithType: AxoComponentStatusView.BuildRenderTree(RenderTreeBuilder)
-- uid: AXOpen.Core.AxoComponentStatusView.BuildRenderTree*
-  name: BuildRenderTree
-  href: api/AXOpen.Core.AxoComponentStatusView.html#AXOpen_Core_AxoComponentStatusView_BuildRenderTree_
-  commentId: Overload:AXOpen.Core.AxoComponentStatusView.BuildRenderTree
+- uid: AXOpen.Core.AxoComponentStatusView.#ctor
+  name: AxoComponentStatusView()
+  href: api/AXOpen.Core.AxoComponentStatusView.html#AXOpen_Core_AxoComponentStatusView__ctor
+  commentId: M:AXOpen.Core.AxoComponentStatusView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoComponentStatusView.AxoComponentStatusView()
+  fullName.vb: AXOpen.Core.AxoComponentStatusView.New()
+  nameWithType: AxoComponentStatusView.AxoComponentStatusView()
+  nameWithType.vb: AxoComponentStatusView.New()
+- uid: AXOpen.Core.AxoComponentStatusView.#ctor*
+  name: AxoComponentStatusView
+  href: api/AXOpen.Core.AxoComponentStatusView.html#AXOpen_Core_AxoComponentStatusView__ctor_
+  commentId: Overload:AXOpen.Core.AxoComponentStatusView.#ctor
   isSpec: "True"
-  fullName: AXOpen.Core.AxoComponentStatusView.BuildRenderTree
-  nameWithType: AxoComponentStatusView.BuildRenderTree
+  name.vb: New
+  fullName: AXOpen.Core.AxoComponentStatusView.AxoComponentStatusView
+  fullName.vb: AXOpen.Core.AxoComponentStatusView.New
+  nameWithType: AxoComponentStatusView.AxoComponentStatusView
+  nameWithType.vb: AxoComponentStatusView.New
 - uid: AXOpen.Core.AxoComponentView
   name: AxoComponentView
   href: api/AXOpen.Core.AxoComponentView.html
@@ -2254,6 +2266,384 @@ references:
   commentId: F:AXOpen.Core.AxoCoordinatorStates.Running
   fullName: AXOpen.Core.AxoCoordinatorStates.Running
   nameWithType: AxoCoordinatorStates.Running
+- uid: AXOpen.Core.AxoMomentaryTask
+  name: AxoMomentaryTask
+  href: api/AXOpen.Core.AxoMomentaryTask.html
+  commentId: T:AXOpen.Core.AxoMomentaryTask
+  fullName: AXOpen.Core.AxoMomentaryTask
+  nameWithType: AxoMomentaryTask
+- uid: AXOpen.Core.AxoMomentaryTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)
+  name: AxoMomentaryTask(ITwinObject, string, string)
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_
+  commentId: M:AXOpen.Core.AxoMomentaryTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)
+  name.vb: New(ITwinObject, String, String)
+  fullName: AXOpen.Core.AxoMomentaryTask.AxoMomentaryTask(AXSharp.Connector.ITwinObject, string, string)
+  fullName.vb: AXOpen.Core.AxoMomentaryTask.New(AXSharp.Connector.ITwinObject, String, String)
+  nameWithType: AxoMomentaryTask.AxoMomentaryTask(ITwinObject, string, string)
+  nameWithType.vb: AxoMomentaryTask.New(ITwinObject, String, String)
+- uid: AXOpen.Core.AxoMomentaryTask.#ctor*
+  name: AxoMomentaryTask
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask__ctor_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXOpen.Core.AxoMomentaryTask.AxoMomentaryTask
+  fullName.vb: AXOpen.Core.AxoMomentaryTask.New
+  nameWithType: AxoMomentaryTask.AxoMomentaryTask
+  nameWithType.vb: AxoMomentaryTask.New
+- uid: AXOpen.Core.AxoMomentaryTask.AttributeStateOffDesc
+  name: AttributeStateOffDesc
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_AttributeStateOffDesc
+  commentId: P:AXOpen.Core.AxoMomentaryTask.AttributeStateOffDesc
+  fullName: AXOpen.Core.AxoMomentaryTask.AttributeStateOffDesc
+  nameWithType: AxoMomentaryTask.AttributeStateOffDesc
+- uid: AXOpen.Core.AxoMomentaryTask.AttributeStateOffDesc*
+  name: AttributeStateOffDesc
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_AttributeStateOffDesc_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.AttributeStateOffDesc
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.AttributeStateOffDesc
+  nameWithType: AxoMomentaryTask.AttributeStateOffDesc
+- uid: AXOpen.Core.AxoMomentaryTask.AttributeStateOnDesc
+  name: AttributeStateOnDesc
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_AttributeStateOnDesc
+  commentId: P:AXOpen.Core.AxoMomentaryTask.AttributeStateOnDesc
+  fullName: AXOpen.Core.AxoMomentaryTask.AttributeStateOnDesc
+  nameWithType: AxoMomentaryTask.AttributeStateOnDesc
+- uid: AXOpen.Core.AxoMomentaryTask.AttributeStateOnDesc*
+  name: AttributeStateOnDesc
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_AttributeStateOnDesc_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.AttributeStateOnDesc
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.AttributeStateOnDesc
+  nameWithType: AxoMomentaryTask.AttributeStateOnDesc
+- uid: AXOpen.Core.AxoMomentaryTask.CreateEmptyPoco
+  name: CreateEmptyPoco()
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_CreateEmptyPoco
+  commentId: M:AXOpen.Core.AxoMomentaryTask.CreateEmptyPoco
+  fullName: AXOpen.Core.AxoMomentaryTask.CreateEmptyPoco()
+  nameWithType: AxoMomentaryTask.CreateEmptyPoco()
+- uid: AXOpen.Core.AxoMomentaryTask.CreateEmptyPoco*
+  name: CreateEmptyPoco
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_CreateEmptyPoco_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.CreateEmptyPoco
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.CreateEmptyPoco
+  nameWithType: AxoMomentaryTask.CreateEmptyPoco
+- uid: AXOpen.Core.AxoMomentaryTask.IsDisabled
+  name: IsDisabled
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_IsDisabled
+  commentId: P:AXOpen.Core.AxoMomentaryTask.IsDisabled
+  fullName: AXOpen.Core.AxoMomentaryTask.IsDisabled
+  nameWithType: AxoMomentaryTask.IsDisabled
+- uid: AXOpen.Core.AxoMomentaryTask.IsDisabled*
+  name: IsDisabled
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_IsDisabled_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.IsDisabled
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.IsDisabled
+  nameWithType: AxoMomentaryTask.IsDisabled
+- uid: AXOpen.Core.AxoMomentaryTask.OnlineToPlain*
+  name: OnlineToPlain
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_OnlineToPlain_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.OnlineToPlain
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.OnlineToPlain
+  nameWithType: AxoMomentaryTask.OnlineToPlain
+- uid: AXOpen.Core.AxoMomentaryTask.OnlineToPlain``1
+  name: OnlineToPlain<T>()
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_OnlineToPlain__1
+  commentId: M:AXOpen.Core.AxoMomentaryTask.OnlineToPlain``1
+  name.vb: OnlineToPlain(Of T)()
+  fullName: AXOpen.Core.AxoMomentaryTask.OnlineToPlain<T>()
+  fullName.vb: AXOpen.Core.AxoMomentaryTask.OnlineToPlain(Of T)()
+  nameWithType: AxoMomentaryTask.OnlineToPlain<T>()
+  nameWithType.vb: AxoMomentaryTask.OnlineToPlain(Of T)()
+- uid: AXOpen.Core.AxoMomentaryTask.OnlineToPlainAsync
+  name: OnlineToPlainAsync()
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_OnlineToPlainAsync
+  commentId: M:AXOpen.Core.AxoMomentaryTask.OnlineToPlainAsync
+  fullName: AXOpen.Core.AxoMomentaryTask.OnlineToPlainAsync()
+  nameWithType: AxoMomentaryTask.OnlineToPlainAsync()
+- uid: AXOpen.Core.AxoMomentaryTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  name: OnlineToPlainAsync(AxoMomentaryTask)
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoMomentaryTask_
+  commentId: M:AXOpen.Core.AxoMomentaryTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  fullName: AXOpen.Core.AxoMomentaryTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  nameWithType: AxoMomentaryTask.OnlineToPlainAsync(AxoMomentaryTask)
+- uid: AXOpen.Core.AxoMomentaryTask.OnlineToPlainAsync*
+  name: OnlineToPlainAsync
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_OnlineToPlainAsync_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.OnlineToPlainAsync
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.OnlineToPlainAsync
+  nameWithType: AxoMomentaryTask.OnlineToPlainAsync
+- uid: AXOpen.Core.AxoMomentaryTask.PlainToOnline*
+  name: PlainToOnline
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_PlainToOnline_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.PlainToOnline
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.PlainToOnline
+  nameWithType: AxoMomentaryTask.PlainToOnline
+- uid: AXOpen.Core.AxoMomentaryTask.PlainToOnline``1(``0)
+  name: PlainToOnline<T>(T)
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_PlainToOnline__1___0_
+  commentId: M:AXOpen.Core.AxoMomentaryTask.PlainToOnline``1(``0)
+  name.vb: PlainToOnline(Of T)(T)
+  fullName: AXOpen.Core.AxoMomentaryTask.PlainToOnline<T>(T)
+  fullName.vb: AXOpen.Core.AxoMomentaryTask.PlainToOnline(Of T)(T)
+  nameWithType: AxoMomentaryTask.PlainToOnline<T>(T)
+  nameWithType.vb: AxoMomentaryTask.PlainToOnline(Of T)(T)
+- uid: AXOpen.Core.AxoMomentaryTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  name: PlainToOnlineAsync(AxoMomentaryTask)
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoMomentaryTask_
+  commentId: M:AXOpen.Core.AxoMomentaryTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  fullName: AXOpen.Core.AxoMomentaryTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  nameWithType: AxoMomentaryTask.PlainToOnlineAsync(AxoMomentaryTask)
+- uid: AXOpen.Core.AxoMomentaryTask.PlainToOnlineAsync*
+  name: PlainToOnlineAsync
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_PlainToOnlineAsync_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.PlainToOnlineAsync
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.PlainToOnlineAsync
+  nameWithType: AxoMomentaryTask.PlainToOnlineAsync
+- uid: AXOpen.Core.AxoMomentaryTask.PlainToShadow*
+  name: PlainToShadow
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_PlainToShadow_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.PlainToShadow
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.PlainToShadow
+  nameWithType: AxoMomentaryTask.PlainToShadow
+- uid: AXOpen.Core.AxoMomentaryTask.PlainToShadow``1(``0)
+  name: PlainToShadow<T>(T)
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_PlainToShadow__1___0_
+  commentId: M:AXOpen.Core.AxoMomentaryTask.PlainToShadow``1(``0)
+  name.vb: PlainToShadow(Of T)(T)
+  fullName: AXOpen.Core.AxoMomentaryTask.PlainToShadow<T>(T)
+  fullName.vb: AXOpen.Core.AxoMomentaryTask.PlainToShadow(Of T)(T)
+  nameWithType: AxoMomentaryTask.PlainToShadow<T>(T)
+  nameWithType.vb: AxoMomentaryTask.PlainToShadow(Of T)(T)
+- uid: AXOpen.Core.AxoMomentaryTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  name: PlainToShadowAsync(AxoMomentaryTask)
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoMomentaryTask_
+  commentId: M:AXOpen.Core.AxoMomentaryTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  fullName: AXOpen.Core.AxoMomentaryTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  nameWithType: AxoMomentaryTask.PlainToShadowAsync(AxoMomentaryTask)
+- uid: AXOpen.Core.AxoMomentaryTask.PlainToShadowAsync*
+  name: PlainToShadowAsync
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_PlainToShadowAsync_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.PlainToShadowAsync
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.PlainToShadowAsync
+  nameWithType: AxoMomentaryTask.PlainToShadowAsync
+- uid: AXOpen.Core.AxoMomentaryTask.Poll
+  name: Poll()
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_Poll
+  commentId: M:AXOpen.Core.AxoMomentaryTask.Poll
+  fullName: AXOpen.Core.AxoMomentaryTask.Poll()
+  nameWithType: AxoMomentaryTask.Poll()
+- uid: AXOpen.Core.AxoMomentaryTask.Poll*
+  name: Poll
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_Poll_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.Poll
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.Poll
+  nameWithType: AxoMomentaryTask.Poll
+- uid: AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  name: RemoteSwitchOn
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_RemoteSwitchOn
+  commentId: P:AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  fullName: AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  nameWithType: AxoMomentaryTask.RemoteSwitchOn
+- uid: AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn*
+  name: RemoteSwitchOn
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_RemoteSwitchOn_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  nameWithType: AxoMomentaryTask.RemoteSwitchOn
+- uid: AXOpen.Core.AxoMomentaryTask.ShadowToPlain*
+  name: ShadowToPlain
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_ShadowToPlain_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.ShadowToPlain
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.ShadowToPlain
+  nameWithType: AxoMomentaryTask.ShadowToPlain
+- uid: AXOpen.Core.AxoMomentaryTask.ShadowToPlain``1
+  name: ShadowToPlain<T>()
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_ShadowToPlain__1
+  commentId: M:AXOpen.Core.AxoMomentaryTask.ShadowToPlain``1
+  name.vb: ShadowToPlain(Of T)()
+  fullName: AXOpen.Core.AxoMomentaryTask.ShadowToPlain<T>()
+  fullName.vb: AXOpen.Core.AxoMomentaryTask.ShadowToPlain(Of T)()
+  nameWithType: AxoMomentaryTask.ShadowToPlain<T>()
+  nameWithType.vb: AxoMomentaryTask.ShadowToPlain(Of T)()
+- uid: AXOpen.Core.AxoMomentaryTask.ShadowToPlainAsync
+  name: ShadowToPlainAsync()
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_ShadowToPlainAsync
+  commentId: M:AXOpen.Core.AxoMomentaryTask.ShadowToPlainAsync
+  fullName: AXOpen.Core.AxoMomentaryTask.ShadowToPlainAsync()
+  nameWithType: AxoMomentaryTask.ShadowToPlainAsync()
+- uid: AXOpen.Core.AxoMomentaryTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  name: ShadowToPlainAsync(AxoMomentaryTask)
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoMomentaryTask_
+  commentId: M:AXOpen.Core.AxoMomentaryTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  fullName: AXOpen.Core.AxoMomentaryTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoMomentaryTask)
+  nameWithType: AxoMomentaryTask.ShadowToPlainAsync(AxoMomentaryTask)
+- uid: AXOpen.Core.AxoMomentaryTask.ShadowToPlainAsync*
+  name: ShadowToPlainAsync
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_ShadowToPlainAsync_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.ShadowToPlainAsync
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.ShadowToPlainAsync
+  nameWithType: AxoMomentaryTask.ShadowToPlainAsync
+- uid: AXOpen.Core.AxoMomentaryTask.State
+  name: State
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_State
+  commentId: P:AXOpen.Core.AxoMomentaryTask.State
+  fullName: AXOpen.Core.AxoMomentaryTask.State
+  nameWithType: AxoMomentaryTask.State
+- uid: AXOpen.Core.AxoMomentaryTask.State*
+  name: State
+  href: api/AXOpen.Core.AxoMomentaryTask.html#AXOpen_Core_AxoMomentaryTask_State_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTask.State
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTask.State
+  nameWithType: AxoMomentaryTask.State
+- uid: AXOpen.Core.AxoMomentaryTaskCommandView
+  name: AxoMomentaryTaskCommandView
+  href: api/AXOpen.Core.AxoMomentaryTaskCommandView.html
+  commentId: T:AXOpen.Core.AxoMomentaryTaskCommandView
+  fullName: AXOpen.Core.AxoMomentaryTaskCommandView
+  nameWithType: AxoMomentaryTaskCommandView
+- uid: AXOpen.Core.AxoMomentaryTaskCommandView.#ctor
+  name: AxoMomentaryTaskCommandView()
+  href: api/AXOpen.Core.AxoMomentaryTaskCommandView.html#AXOpen_Core_AxoMomentaryTaskCommandView__ctor
+  commentId: M:AXOpen.Core.AxoMomentaryTaskCommandView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoMomentaryTaskCommandView.AxoMomentaryTaskCommandView()
+  fullName.vb: AXOpen.Core.AxoMomentaryTaskCommandView.New()
+  nameWithType: AxoMomentaryTaskCommandView.AxoMomentaryTaskCommandView()
+  nameWithType.vb: AxoMomentaryTaskCommandView.New()
+- uid: AXOpen.Core.AxoMomentaryTaskCommandView.#ctor*
+  name: AxoMomentaryTaskCommandView
+  href: api/AXOpen.Core.AxoMomentaryTaskCommandView.html#AXOpen_Core_AxoMomentaryTaskCommandView__ctor_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTaskCommandView.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXOpen.Core.AxoMomentaryTaskCommandView.AxoMomentaryTaskCommandView
+  fullName.vb: AXOpen.Core.AxoMomentaryTaskCommandView.New
+  nameWithType: AxoMomentaryTaskCommandView.AxoMomentaryTaskCommandView
+  nameWithType.vb: AxoMomentaryTaskCommandView.New
+- uid: AXOpen.Core.AxoMomentaryTaskStatusView
+  name: AxoMomentaryTaskStatusView
+  href: api/AXOpen.Core.AxoMomentaryTaskStatusView.html
+  commentId: T:AXOpen.Core.AxoMomentaryTaskStatusView
+  fullName: AXOpen.Core.AxoMomentaryTaskStatusView
+  nameWithType: AxoMomentaryTaskStatusView
+- uid: AXOpen.Core.AxoMomentaryTaskStatusView.#ctor
+  name: AxoMomentaryTaskStatusView()
+  href: api/AXOpen.Core.AxoMomentaryTaskStatusView.html#AXOpen_Core_AxoMomentaryTaskStatusView__ctor
+  commentId: M:AXOpen.Core.AxoMomentaryTaskStatusView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoMomentaryTaskStatusView.AxoMomentaryTaskStatusView()
+  fullName.vb: AXOpen.Core.AxoMomentaryTaskStatusView.New()
+  nameWithType: AxoMomentaryTaskStatusView.AxoMomentaryTaskStatusView()
+  nameWithType.vb: AxoMomentaryTaskStatusView.New()
+- uid: AXOpen.Core.AxoMomentaryTaskStatusView.#ctor*
+  name: AxoMomentaryTaskStatusView
+  href: api/AXOpen.Core.AxoMomentaryTaskStatusView.html#AXOpen_Core_AxoMomentaryTaskStatusView__ctor_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTaskStatusView.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXOpen.Core.AxoMomentaryTaskStatusView.AxoMomentaryTaskStatusView
+  fullName.vb: AXOpen.Core.AxoMomentaryTaskStatusView.New
+  nameWithType: AxoMomentaryTaskStatusView.AxoMomentaryTaskStatusView
+  nameWithType.vb: AxoMomentaryTaskStatusView.New
+- uid: AXOpen.Core.AxoMomentaryTaskView
+  name: AxoMomentaryTaskView
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html
+  commentId: T:AXOpen.Core.AxoMomentaryTaskView
+  fullName: AXOpen.Core.AxoMomentaryTaskView
+  nameWithType: AxoMomentaryTaskView
+- uid: AXOpen.Core.AxoMomentaryTaskView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  name: BuildRenderTree(RenderTreeBuilder)
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
+  commentId: M:AXOpen.Core.AxoMomentaryTaskView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  fullName: AXOpen.Core.AxoMomentaryTaskView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  nameWithType: AxoMomentaryTaskView.BuildRenderTree(RenderTreeBuilder)
+- uid: AXOpen.Core.AxoMomentaryTaskView.BuildRenderTree*
+  name: BuildRenderTree
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_BuildRenderTree_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTaskView.BuildRenderTree
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTaskView.BuildRenderTree
+  nameWithType: AxoMomentaryTaskView.BuildRenderTree
+- uid: AXOpen.Core.AxoMomentaryTaskView.Description
+  name: Description
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_Description
+  commentId: P:AXOpen.Core.AxoMomentaryTaskView.Description
+  fullName: AXOpen.Core.AxoMomentaryTaskView.Description
+  nameWithType: AxoMomentaryTaskView.Description
+- uid: AXOpen.Core.AxoMomentaryTaskView.Description*
+  name: Description
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_Description_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTaskView.Description
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTaskView.Description
+  nameWithType: AxoMomentaryTaskView.Description
+- uid: AXOpen.Core.AxoMomentaryTaskView.Disable
+  name: Disable
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_Disable
+  commentId: P:AXOpen.Core.AxoMomentaryTaskView.Disable
+  fullName: AXOpen.Core.AxoMomentaryTaskView.Disable
+  nameWithType: AxoMomentaryTaskView.Disable
+- uid: AXOpen.Core.AxoMomentaryTaskView.Disable*
+  name: Disable
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_Disable_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTaskView.Disable
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTaskView.Disable
+  nameWithType: AxoMomentaryTaskView.Disable
+- uid: AXOpen.Core.AxoMomentaryTaskView.Dispose
+  name: Dispose()
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_Dispose
+  commentId: M:AXOpen.Core.AxoMomentaryTaskView.Dispose
+  fullName: AXOpen.Core.AxoMomentaryTaskView.Dispose()
+  nameWithType: AxoMomentaryTaskView.Dispose()
+- uid: AXOpen.Core.AxoMomentaryTaskView.Dispose*
+  name: Dispose
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_Dispose_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTaskView.Dispose
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTaskView.Dispose
+  nameWithType: AxoMomentaryTaskView.Dispose
+- uid: AXOpen.Core.AxoMomentaryTaskView.IsDisabled
+  name: IsDisabled
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_IsDisabled
+  commentId: P:AXOpen.Core.AxoMomentaryTaskView.IsDisabled
+  fullName: AXOpen.Core.AxoMomentaryTaskView.IsDisabled
+  nameWithType: AxoMomentaryTaskView.IsDisabled
+- uid: AXOpen.Core.AxoMomentaryTaskView.IsDisabled*
+  name: IsDisabled
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_IsDisabled_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTaskView.IsDisabled
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTaskView.IsDisabled
+  nameWithType: AxoMomentaryTaskView.IsDisabled
+- uid: AXOpen.Core.AxoMomentaryTaskView.OnInitialized
+  name: OnInitialized()
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_OnInitialized
+  commentId: M:AXOpen.Core.AxoMomentaryTaskView.OnInitialized
+  fullName: AXOpen.Core.AxoMomentaryTaskView.OnInitialized()
+  nameWithType: AxoMomentaryTaskView.OnInitialized()
+- uid: AXOpen.Core.AxoMomentaryTaskView.OnInitialized*
+  name: OnInitialized
+  href: api/AXOpen.Core.AxoMomentaryTaskView.html#AXOpen_Core_AxoMomentaryTaskView_OnInitialized_
+  commentId: Overload:AXOpen.Core.AxoMomentaryTaskView.OnInitialized
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoMomentaryTaskView.OnInitialized
+  nameWithType: AxoMomentaryTaskView.OnInitialized
 - uid: AXOpen.Core.AxoObject
   name: AxoObject
   href: api/AXOpen.Core.AxoObject.html
@@ -3250,38 +3640,50 @@ references:
   commentId: T:AXOpen.Core.AxoSequencerCommandView
   fullName: AXOpen.Core.AxoSequencerCommandView
   nameWithType: AxoSequencerCommandView
-- uid: AXOpen.Core.AxoSequencerCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  name: BuildRenderTree(RenderTreeBuilder)
-  href: api/AXOpen.Core.AxoSequencerCommandView.html#AXOpen_Core_AxoSequencerCommandView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
-  commentId: M:AXOpen.Core.AxoSequencerCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  fullName: AXOpen.Core.AxoSequencerCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  nameWithType: AxoSequencerCommandView.BuildRenderTree(RenderTreeBuilder)
-- uid: AXOpen.Core.AxoSequencerCommandView.BuildRenderTree*
-  name: BuildRenderTree
-  href: api/AXOpen.Core.AxoSequencerCommandView.html#AXOpen_Core_AxoSequencerCommandView_BuildRenderTree_
-  commentId: Overload:AXOpen.Core.AxoSequencerCommandView.BuildRenderTree
+- uid: AXOpen.Core.AxoSequencerCommandView.#ctor
+  name: AxoSequencerCommandView()
+  href: api/AXOpen.Core.AxoSequencerCommandView.html#AXOpen_Core_AxoSequencerCommandView__ctor
+  commentId: M:AXOpen.Core.AxoSequencerCommandView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoSequencerCommandView.AxoSequencerCommandView()
+  fullName.vb: AXOpen.Core.AxoSequencerCommandView.New()
+  nameWithType: AxoSequencerCommandView.AxoSequencerCommandView()
+  nameWithType.vb: AxoSequencerCommandView.New()
+- uid: AXOpen.Core.AxoSequencerCommandView.#ctor*
+  name: AxoSequencerCommandView
+  href: api/AXOpen.Core.AxoSequencerCommandView.html#AXOpen_Core_AxoSequencerCommandView__ctor_
+  commentId: Overload:AXOpen.Core.AxoSequencerCommandView.#ctor
   isSpec: "True"
-  fullName: AXOpen.Core.AxoSequencerCommandView.BuildRenderTree
-  nameWithType: AxoSequencerCommandView.BuildRenderTree
+  name.vb: New
+  fullName: AXOpen.Core.AxoSequencerCommandView.AxoSequencerCommandView
+  fullName.vb: AXOpen.Core.AxoSequencerCommandView.New
+  nameWithType: AxoSequencerCommandView.AxoSequencerCommandView
+  nameWithType.vb: AxoSequencerCommandView.New
 - uid: AXOpen.Core.AxoSequencerStatusView
   name: AxoSequencerStatusView
   href: api/AXOpen.Core.AxoSequencerStatusView.html
   commentId: T:AXOpen.Core.AxoSequencerStatusView
   fullName: AXOpen.Core.AxoSequencerStatusView
   nameWithType: AxoSequencerStatusView
-- uid: AXOpen.Core.AxoSequencerStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  name: BuildRenderTree(RenderTreeBuilder)
-  href: api/AXOpen.Core.AxoSequencerStatusView.html#AXOpen_Core_AxoSequencerStatusView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
-  commentId: M:AXOpen.Core.AxoSequencerStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  fullName: AXOpen.Core.AxoSequencerStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  nameWithType: AxoSequencerStatusView.BuildRenderTree(RenderTreeBuilder)
-- uid: AXOpen.Core.AxoSequencerStatusView.BuildRenderTree*
-  name: BuildRenderTree
-  href: api/AXOpen.Core.AxoSequencerStatusView.html#AXOpen_Core_AxoSequencerStatusView_BuildRenderTree_
-  commentId: Overload:AXOpen.Core.AxoSequencerStatusView.BuildRenderTree
+- uid: AXOpen.Core.AxoSequencerStatusView.#ctor
+  name: AxoSequencerStatusView()
+  href: api/AXOpen.Core.AxoSequencerStatusView.html#AXOpen_Core_AxoSequencerStatusView__ctor
+  commentId: M:AXOpen.Core.AxoSequencerStatusView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoSequencerStatusView.AxoSequencerStatusView()
+  fullName.vb: AXOpen.Core.AxoSequencerStatusView.New()
+  nameWithType: AxoSequencerStatusView.AxoSequencerStatusView()
+  nameWithType.vb: AxoSequencerStatusView.New()
+- uid: AXOpen.Core.AxoSequencerStatusView.#ctor*
+  name: AxoSequencerStatusView
+  href: api/AXOpen.Core.AxoSequencerStatusView.html#AXOpen_Core_AxoSequencerStatusView__ctor_
+  commentId: Overload:AXOpen.Core.AxoSequencerStatusView.#ctor
   isSpec: "True"
-  fullName: AXOpen.Core.AxoSequencerStatusView.BuildRenderTree
-  nameWithType: AxoSequencerStatusView.BuildRenderTree
+  name.vb: New
+  fullName: AXOpen.Core.AxoSequencerStatusView.AxoSequencerStatusView
+  fullName.vb: AXOpen.Core.AxoSequencerStatusView.New
+  nameWithType: AxoSequencerStatusView.AxoSequencerStatusView
+  nameWithType.vb: AxoSequencerStatusView.New
 - uid: AXOpen.Core.AxoSequencerView
   name: AxoSequencerView
   href: api/AXOpen.Core.AxoSequencerView.html
@@ -3301,19 +3703,58 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.AxoSequencerView.BuildRenderTree
   nameWithType: AxoSequencerView.BuildRenderTree
-- uid: AXOpen.Core.AxoSequencerView.Dispose
-  name: Dispose()
-  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_Dispose
-  commentId: M:AXOpen.Core.AxoSequencerView.Dispose
-  fullName: AXOpen.Core.AxoSequencerView.Dispose()
-  nameWithType: AxoSequencerView.Dispose()
-- uid: AXOpen.Core.AxoSequencerView.Dispose*
-  name: Dispose
-  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_Dispose_
-  commentId: Overload:AXOpen.Core.AxoSequencerView.Dispose
+- uid: AXOpen.Core.AxoSequencerView.HasSettings
+  name: HasSettings
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasSettings
+  commentId: P:AXOpen.Core.AxoSequencerView.HasSettings
+  fullName: AXOpen.Core.AxoSequencerView.HasSettings
+  nameWithType: AxoSequencerView.HasSettings
+- uid: AXOpen.Core.AxoSequencerView.HasSettings*
+  name: HasSettings
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasSettings_
+  commentId: Overload:AXOpen.Core.AxoSequencerView.HasSettings
   isSpec: "True"
-  fullName: AXOpen.Core.AxoSequencerView.Dispose
-  nameWithType: AxoSequencerView.Dispose
+  fullName: AXOpen.Core.AxoSequencerView.HasSettings
+  nameWithType: AxoSequencerView.HasSettings
+- uid: AXOpen.Core.AxoSequencerView.HasStepControls
+  name: HasStepControls
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasStepControls
+  commentId: P:AXOpen.Core.AxoSequencerView.HasStepControls
+  fullName: AXOpen.Core.AxoSequencerView.HasStepControls
+  nameWithType: AxoSequencerView.HasStepControls
+- uid: AXOpen.Core.AxoSequencerView.HasStepControls*
+  name: HasStepControls
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasStepControls_
+  commentId: Overload:AXOpen.Core.AxoSequencerView.HasStepControls
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoSequencerView.HasStepControls
+  nameWithType: AxoSequencerView.HasStepControls
+- uid: AXOpen.Core.AxoSequencerView.HasStepDetails
+  name: HasStepDetails
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasStepDetails
+  commentId: P:AXOpen.Core.AxoSequencerView.HasStepDetails
+  fullName: AXOpen.Core.AxoSequencerView.HasStepDetails
+  nameWithType: AxoSequencerView.HasStepDetails
+- uid: AXOpen.Core.AxoSequencerView.HasStepDetails*
+  name: HasStepDetails
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasStepDetails_
+  commentId: Overload:AXOpen.Core.AxoSequencerView.HasStepDetails
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoSequencerView.HasStepDetails
+  nameWithType: AxoSequencerView.HasStepDetails
+- uid: AXOpen.Core.AxoSequencerView.HasTaskControlButton
+  name: HasTaskControlButton
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasTaskControlButton
+  commentId: P:AXOpen.Core.AxoSequencerView.HasTaskControlButton
+  fullName: AXOpen.Core.AxoSequencerView.HasTaskControlButton
+  nameWithType: AxoSequencerView.HasTaskControlButton
+- uid: AXOpen.Core.AxoSequencerView.HasTaskControlButton*
+  name: HasTaskControlButton
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasTaskControlButton_
+  commentId: Overload:AXOpen.Core.AxoSequencerView.HasTaskControlButton
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoSequencerView.HasTaskControlButton
+  nameWithType: AxoSequencerView.HasTaskControlButton
 - uid: AXOpen.Core.AxoSequencerView.IsControllable
   name: IsControllable
   href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_IsControllable
@@ -3340,6 +3781,19 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.AxoSequencerView.OnInitialized
   nameWithType: AxoSequencerView.OnInitialized
+- uid: AXOpen.Core.AxoSequencerView.Steps
+  name: Steps
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_Steps
+  commentId: P:AXOpen.Core.AxoSequencerView.Steps
+  fullName: AXOpen.Core.AxoSequencerView.Steps
+  nameWithType: AxoSequencerView.Steps
+- uid: AXOpen.Core.AxoSequencerView.Steps*
+  name: Steps
+  href: api/AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_Steps_
+  commentId: Overload:AXOpen.Core.AxoSequencerView.Steps
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoSequencerView.Steps
+  nameWithType: AxoSequencerView.Steps
 - uid: AXOpen.Core.AxoStep
   name: AxoStep
   href: api/AXOpen.Core.AxoStep.html
@@ -3590,38 +4044,50 @@ references:
   commentId: T:AXOpen.Core.AxoStepCommandView
   fullName: AXOpen.Core.AxoStepCommandView
   nameWithType: AxoStepCommandView
-- uid: AXOpen.Core.AxoStepCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  name: BuildRenderTree(RenderTreeBuilder)
-  href: api/AXOpen.Core.AxoStepCommandView.html#AXOpen_Core_AxoStepCommandView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
-  commentId: M:AXOpen.Core.AxoStepCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  fullName: AXOpen.Core.AxoStepCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  nameWithType: AxoStepCommandView.BuildRenderTree(RenderTreeBuilder)
-- uid: AXOpen.Core.AxoStepCommandView.BuildRenderTree*
-  name: BuildRenderTree
-  href: api/AXOpen.Core.AxoStepCommandView.html#AXOpen_Core_AxoStepCommandView_BuildRenderTree_
-  commentId: Overload:AXOpen.Core.AxoStepCommandView.BuildRenderTree
+- uid: AXOpen.Core.AxoStepCommandView.#ctor
+  name: AxoStepCommandView()
+  href: api/AXOpen.Core.AxoStepCommandView.html#AXOpen_Core_AxoStepCommandView__ctor
+  commentId: M:AXOpen.Core.AxoStepCommandView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoStepCommandView.AxoStepCommandView()
+  fullName.vb: AXOpen.Core.AxoStepCommandView.New()
+  nameWithType: AxoStepCommandView.AxoStepCommandView()
+  nameWithType.vb: AxoStepCommandView.New()
+- uid: AXOpen.Core.AxoStepCommandView.#ctor*
+  name: AxoStepCommandView
+  href: api/AXOpen.Core.AxoStepCommandView.html#AXOpen_Core_AxoStepCommandView__ctor_
+  commentId: Overload:AXOpen.Core.AxoStepCommandView.#ctor
   isSpec: "True"
-  fullName: AXOpen.Core.AxoStepCommandView.BuildRenderTree
-  nameWithType: AxoStepCommandView.BuildRenderTree
+  name.vb: New
+  fullName: AXOpen.Core.AxoStepCommandView.AxoStepCommandView
+  fullName.vb: AXOpen.Core.AxoStepCommandView.New
+  nameWithType: AxoStepCommandView.AxoStepCommandView
+  nameWithType.vb: AxoStepCommandView.New
 - uid: AXOpen.Core.AxoStepStatusView
   name: AxoStepStatusView
   href: api/AXOpen.Core.AxoStepStatusView.html
   commentId: T:AXOpen.Core.AxoStepStatusView
   fullName: AXOpen.Core.AxoStepStatusView
   nameWithType: AxoStepStatusView
-- uid: AXOpen.Core.AxoStepStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  name: BuildRenderTree(RenderTreeBuilder)
-  href: api/AXOpen.Core.AxoStepStatusView.html#AXOpen_Core_AxoStepStatusView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
-  commentId: M:AXOpen.Core.AxoStepStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  fullName: AXOpen.Core.AxoStepStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  nameWithType: AxoStepStatusView.BuildRenderTree(RenderTreeBuilder)
-- uid: AXOpen.Core.AxoStepStatusView.BuildRenderTree*
-  name: BuildRenderTree
-  href: api/AXOpen.Core.AxoStepStatusView.html#AXOpen_Core_AxoStepStatusView_BuildRenderTree_
-  commentId: Overload:AXOpen.Core.AxoStepStatusView.BuildRenderTree
+- uid: AXOpen.Core.AxoStepStatusView.#ctor
+  name: AxoStepStatusView()
+  href: api/AXOpen.Core.AxoStepStatusView.html#AXOpen_Core_AxoStepStatusView__ctor
+  commentId: M:AXOpen.Core.AxoStepStatusView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoStepStatusView.AxoStepStatusView()
+  fullName.vb: AXOpen.Core.AxoStepStatusView.New()
+  nameWithType: AxoStepStatusView.AxoStepStatusView()
+  nameWithType.vb: AxoStepStatusView.New()
+- uid: AXOpen.Core.AxoStepStatusView.#ctor*
+  name: AxoStepStatusView
+  href: api/AXOpen.Core.AxoStepStatusView.html#AXOpen_Core_AxoStepStatusView__ctor_
+  commentId: Overload:AXOpen.Core.AxoStepStatusView.#ctor
   isSpec: "True"
-  fullName: AXOpen.Core.AxoStepStatusView.BuildRenderTree
-  nameWithType: AxoStepStatusView.BuildRenderTree
+  name.vb: New
+  fullName: AXOpen.Core.AxoStepStatusView.AxoStepStatusView
+  fullName.vb: AXOpen.Core.AxoStepStatusView.New
+  nameWithType: AxoStepStatusView.AxoStepStatusView
+  nameWithType.vb: AxoStepStatusView.New
 - uid: AXOpen.Core.AxoStepView
   name: AxoStepView
   href: api/AXOpen.Core.AxoStepView.html
@@ -3641,19 +4107,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.AxoStepView.BuildRenderTree
   nameWithType: AxoStepView.BuildRenderTree
-- uid: AXOpen.Core.AxoStepView.Dispose
-  name: Dispose()
-  href: api/AXOpen.Core.AxoStepView.html#AXOpen_Core_AxoStepView_Dispose
-  commentId: M:AXOpen.Core.AxoStepView.Dispose
-  fullName: AXOpen.Core.AxoStepView.Dispose()
-  nameWithType: AxoStepView.Dispose()
-- uid: AXOpen.Core.AxoStepView.Dispose*
-  name: Dispose
-  href: api/AXOpen.Core.AxoStepView.html#AXOpen_Core_AxoStepView_Dispose_
-  commentId: Overload:AXOpen.Core.AxoStepView.Dispose
-  isSpec: "True"
-  fullName: AXOpen.Core.AxoStepView.Dispose
-  nameWithType: AxoStepView.Dispose
 - uid: AXOpen.Core.AxoStepView.IsControllable
   name: IsControllable
   href: api/AXOpen.Core.AxoStepView.html#AXOpen_Core_AxoStepView_IsControllable
@@ -4020,90 +4473,50 @@ references:
   commentId: T:AXOpen.Core.AxoTaskCommandView
   fullName: AXOpen.Core.AxoTaskCommandView
   nameWithType: AxoTaskCommandView
-- uid: AXOpen.Core.AxoTaskCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  name: BuildRenderTree(RenderTreeBuilder)
-  href: api/AXOpen.Core.AxoTaskCommandView.html#AXOpen_Core_AxoTaskCommandView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
-  commentId: M:AXOpen.Core.AxoTaskCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  fullName: AXOpen.Core.AxoTaskCommandView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  nameWithType: AxoTaskCommandView.BuildRenderTree(RenderTreeBuilder)
-- uid: AXOpen.Core.AxoTaskCommandView.BuildRenderTree*
-  name: BuildRenderTree
-  href: api/AXOpen.Core.AxoTaskCommandView.html#AXOpen_Core_AxoTaskCommandView_BuildRenderTree_
-  commentId: Overload:AXOpen.Core.AxoTaskCommandView.BuildRenderTree
+- uid: AXOpen.Core.AxoTaskCommandView.#ctor
+  name: AxoTaskCommandView()
+  href: api/AXOpen.Core.AxoTaskCommandView.html#AXOpen_Core_AxoTaskCommandView__ctor
+  commentId: M:AXOpen.Core.AxoTaskCommandView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoTaskCommandView.AxoTaskCommandView()
+  fullName.vb: AXOpen.Core.AxoTaskCommandView.New()
+  nameWithType: AxoTaskCommandView.AxoTaskCommandView()
+  nameWithType.vb: AxoTaskCommandView.New()
+- uid: AXOpen.Core.AxoTaskCommandView.#ctor*
+  name: AxoTaskCommandView
+  href: api/AXOpen.Core.AxoTaskCommandView.html#AXOpen_Core_AxoTaskCommandView__ctor_
+  commentId: Overload:AXOpen.Core.AxoTaskCommandView.#ctor
   isSpec: "True"
-  fullName: AXOpen.Core.AxoTaskCommandView.BuildRenderTree
-  nameWithType: AxoTaskCommandView.BuildRenderTree
-- uid: AXOpen.Core.AxoTaskCommandView.Description
-  name: Description
-  href: api/AXOpen.Core.AxoTaskCommandView.html#AXOpen_Core_AxoTaskCommandView_Description
-  commentId: P:AXOpen.Core.AxoTaskCommandView.Description
-  fullName: AXOpen.Core.AxoTaskCommandView.Description
-  nameWithType: AxoTaskCommandView.Description
-- uid: AXOpen.Core.AxoTaskCommandView.Description*
-  name: Description
-  href: api/AXOpen.Core.AxoTaskCommandView.html#AXOpen_Core_AxoTaskCommandView_Description_
-  commentId: Overload:AXOpen.Core.AxoTaskCommandView.Description
-  isSpec: "True"
-  fullName: AXOpen.Core.AxoTaskCommandView.Description
-  nameWithType: AxoTaskCommandView.Description
-- uid: AXOpen.Core.AxoTaskCommandView.HideRestoreButton
-  name: HideRestoreButton
-  href: api/AXOpen.Core.AxoTaskCommandView.html#AXOpen_Core_AxoTaskCommandView_HideRestoreButton
-  commentId: P:AXOpen.Core.AxoTaskCommandView.HideRestoreButton
-  fullName: AXOpen.Core.AxoTaskCommandView.HideRestoreButton
-  nameWithType: AxoTaskCommandView.HideRestoreButton
-- uid: AXOpen.Core.AxoTaskCommandView.HideRestoreButton*
-  name: HideRestoreButton
-  href: api/AXOpen.Core.AxoTaskCommandView.html#AXOpen_Core_AxoTaskCommandView_HideRestoreButton_
-  commentId: Overload:AXOpen.Core.AxoTaskCommandView.HideRestoreButton
-  isSpec: "True"
-  fullName: AXOpen.Core.AxoTaskCommandView.HideRestoreButton
-  nameWithType: AxoTaskCommandView.HideRestoreButton
+  name.vb: New
+  fullName: AXOpen.Core.AxoTaskCommandView.AxoTaskCommandView
+  fullName.vb: AXOpen.Core.AxoTaskCommandView.New
+  nameWithType: AxoTaskCommandView.AxoTaskCommandView
+  nameWithType.vb: AxoTaskCommandView.New
 - uid: AXOpen.Core.AxoTaskStatusView
   name: AxoTaskStatusView
   href: api/AXOpen.Core.AxoTaskStatusView.html
   commentId: T:AXOpen.Core.AxoTaskStatusView
   fullName: AXOpen.Core.AxoTaskStatusView
   nameWithType: AxoTaskStatusView
-- uid: AXOpen.Core.AxoTaskStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  name: BuildRenderTree(RenderTreeBuilder)
-  href: api/AXOpen.Core.AxoTaskStatusView.html#AXOpen_Core_AxoTaskStatusView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
-  commentId: M:AXOpen.Core.AxoTaskStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  fullName: AXOpen.Core.AxoTaskStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
-  nameWithType: AxoTaskStatusView.BuildRenderTree(RenderTreeBuilder)
-- uid: AXOpen.Core.AxoTaskStatusView.BuildRenderTree*
-  name: BuildRenderTree
-  href: api/AXOpen.Core.AxoTaskStatusView.html#AXOpen_Core_AxoTaskStatusView_BuildRenderTree_
-  commentId: Overload:AXOpen.Core.AxoTaskStatusView.BuildRenderTree
+- uid: AXOpen.Core.AxoTaskStatusView.#ctor
+  name: AxoTaskStatusView()
+  href: api/AXOpen.Core.AxoTaskStatusView.html#AXOpen_Core_AxoTaskStatusView__ctor
+  commentId: M:AXOpen.Core.AxoTaskStatusView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoTaskStatusView.AxoTaskStatusView()
+  fullName.vb: AXOpen.Core.AxoTaskStatusView.New()
+  nameWithType: AxoTaskStatusView.AxoTaskStatusView()
+  nameWithType.vb: AxoTaskStatusView.New()
+- uid: AXOpen.Core.AxoTaskStatusView.#ctor*
+  name: AxoTaskStatusView
+  href: api/AXOpen.Core.AxoTaskStatusView.html#AXOpen_Core_AxoTaskStatusView__ctor_
+  commentId: Overload:AXOpen.Core.AxoTaskStatusView.#ctor
   isSpec: "True"
-  fullName: AXOpen.Core.AxoTaskStatusView.BuildRenderTree
-  nameWithType: AxoTaskStatusView.BuildRenderTree
-- uid: AXOpen.Core.AxoTaskStatusView.Description
-  name: Description
-  href: api/AXOpen.Core.AxoTaskStatusView.html#AXOpen_Core_AxoTaskStatusView_Description
-  commentId: P:AXOpen.Core.AxoTaskStatusView.Description
-  fullName: AXOpen.Core.AxoTaskStatusView.Description
-  nameWithType: AxoTaskStatusView.Description
-- uid: AXOpen.Core.AxoTaskStatusView.Description*
-  name: Description
-  href: api/AXOpen.Core.AxoTaskStatusView.html#AXOpen_Core_AxoTaskStatusView_Description_
-  commentId: Overload:AXOpen.Core.AxoTaskStatusView.Description
-  isSpec: "True"
-  fullName: AXOpen.Core.AxoTaskStatusView.Description
-  nameWithType: AxoTaskStatusView.Description
-- uid: AXOpen.Core.AxoTaskStatusView.HideRestoreButton
-  name: HideRestoreButton
-  href: api/AXOpen.Core.AxoTaskStatusView.html#AXOpen_Core_AxoTaskStatusView_HideRestoreButton
-  commentId: P:AXOpen.Core.AxoTaskStatusView.HideRestoreButton
-  fullName: AXOpen.Core.AxoTaskStatusView.HideRestoreButton
-  nameWithType: AxoTaskStatusView.HideRestoreButton
-- uid: AXOpen.Core.AxoTaskStatusView.HideRestoreButton*
-  name: HideRestoreButton
-  href: api/AXOpen.Core.AxoTaskStatusView.html#AXOpen_Core_AxoTaskStatusView_HideRestoreButton_
-  commentId: Overload:AXOpen.Core.AxoTaskStatusView.HideRestoreButton
-  isSpec: "True"
-  fullName: AXOpen.Core.AxoTaskStatusView.HideRestoreButton
-  nameWithType: AxoTaskStatusView.HideRestoreButton
+  name.vb: New
+  fullName: AXOpen.Core.AxoTaskStatusView.AxoTaskStatusView
+  fullName.vb: AXOpen.Core.AxoTaskStatusView.New
+  nameWithType: AxoTaskStatusView.AxoTaskStatusView
+  nameWithType.vb: AxoTaskStatusView.New
 - uid: AXOpen.Core.AxoTaskView
   name: AxoTaskView
   href: api/AXOpen.Core.AxoTaskView.html
@@ -4136,6 +4549,19 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.AxoTaskView.Description
   nameWithType: AxoTaskView.Description
+- uid: AXOpen.Core.AxoTaskView.Disable
+  name: Disable
+  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_Disable
+  commentId: P:AXOpen.Core.AxoTaskView.Disable
+  fullName: AXOpen.Core.AxoTaskView.Disable
+  nameWithType: AxoTaskView.Disable
+- uid: AXOpen.Core.AxoTaskView.Disable*
+  name: Disable
+  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_Disable_
+  commentId: Overload:AXOpen.Core.AxoTaskView.Disable
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoTaskView.Disable
+  nameWithType: AxoTaskView.Disable
 - uid: AXOpen.Core.AxoTaskView.Dispose
   name: Dispose()
   href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_Dispose
@@ -4188,6 +4614,384 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.AxoTaskView.OnInitialized
   nameWithType: AxoTaskView.OnInitialized
+- uid: AXOpen.Core.AxoToggleTask
+  name: AxoToggleTask
+  href: api/AXOpen.Core.AxoToggleTask.html
+  commentId: T:AXOpen.Core.AxoToggleTask
+  fullName: AXOpen.Core.AxoToggleTask
+  nameWithType: AxoToggleTask
+- uid: AXOpen.Core.AxoToggleTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)
+  name: AxoToggleTask(ITwinObject, string, string)
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_
+  commentId: M:AXOpen.Core.AxoToggleTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)
+  name.vb: New(ITwinObject, String, String)
+  fullName: AXOpen.Core.AxoToggleTask.AxoToggleTask(AXSharp.Connector.ITwinObject, string, string)
+  fullName.vb: AXOpen.Core.AxoToggleTask.New(AXSharp.Connector.ITwinObject, String, String)
+  nameWithType: AxoToggleTask.AxoToggleTask(ITwinObject, string, string)
+  nameWithType.vb: AxoToggleTask.New(ITwinObject, String, String)
+- uid: AXOpen.Core.AxoToggleTask.#ctor*
+  name: AxoToggleTask
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask__ctor_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXOpen.Core.AxoToggleTask.AxoToggleTask
+  fullName.vb: AXOpen.Core.AxoToggleTask.New
+  nameWithType: AxoToggleTask.AxoToggleTask
+  nameWithType.vb: AxoToggleTask.New
+- uid: AXOpen.Core.AxoToggleTask.AttributeStateOffDesc
+  name: AttributeStateOffDesc
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_AttributeStateOffDesc
+  commentId: P:AXOpen.Core.AxoToggleTask.AttributeStateOffDesc
+  fullName: AXOpen.Core.AxoToggleTask.AttributeStateOffDesc
+  nameWithType: AxoToggleTask.AttributeStateOffDesc
+- uid: AXOpen.Core.AxoToggleTask.AttributeStateOffDesc*
+  name: AttributeStateOffDesc
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_AttributeStateOffDesc_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.AttributeStateOffDesc
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.AttributeStateOffDesc
+  nameWithType: AxoToggleTask.AttributeStateOffDesc
+- uid: AXOpen.Core.AxoToggleTask.AttributeStateOnDesc
+  name: AttributeStateOnDesc
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_AttributeStateOnDesc
+  commentId: P:AXOpen.Core.AxoToggleTask.AttributeStateOnDesc
+  fullName: AXOpen.Core.AxoToggleTask.AttributeStateOnDesc
+  nameWithType: AxoToggleTask.AttributeStateOnDesc
+- uid: AXOpen.Core.AxoToggleTask.AttributeStateOnDesc*
+  name: AttributeStateOnDesc
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_AttributeStateOnDesc_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.AttributeStateOnDesc
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.AttributeStateOnDesc
+  nameWithType: AxoToggleTask.AttributeStateOnDesc
+- uid: AXOpen.Core.AxoToggleTask.CreateEmptyPoco
+  name: CreateEmptyPoco()
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_CreateEmptyPoco
+  commentId: M:AXOpen.Core.AxoToggleTask.CreateEmptyPoco
+  fullName: AXOpen.Core.AxoToggleTask.CreateEmptyPoco()
+  nameWithType: AxoToggleTask.CreateEmptyPoco()
+- uid: AXOpen.Core.AxoToggleTask.CreateEmptyPoco*
+  name: CreateEmptyPoco
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_CreateEmptyPoco_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.CreateEmptyPoco
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.CreateEmptyPoco
+  nameWithType: AxoToggleTask.CreateEmptyPoco
+- uid: AXOpen.Core.AxoToggleTask.IsDisabled
+  name: IsDisabled
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_IsDisabled
+  commentId: P:AXOpen.Core.AxoToggleTask.IsDisabled
+  fullName: AXOpen.Core.AxoToggleTask.IsDisabled
+  nameWithType: AxoToggleTask.IsDisabled
+- uid: AXOpen.Core.AxoToggleTask.IsDisabled*
+  name: IsDisabled
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_IsDisabled_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.IsDisabled
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.IsDisabled
+  nameWithType: AxoToggleTask.IsDisabled
+- uid: AXOpen.Core.AxoToggleTask.OnlineToPlain*
+  name: OnlineToPlain
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_OnlineToPlain_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.OnlineToPlain
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.OnlineToPlain
+  nameWithType: AxoToggleTask.OnlineToPlain
+- uid: AXOpen.Core.AxoToggleTask.OnlineToPlain``1
+  name: OnlineToPlain<T>()
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_OnlineToPlain__1
+  commentId: M:AXOpen.Core.AxoToggleTask.OnlineToPlain``1
+  name.vb: OnlineToPlain(Of T)()
+  fullName: AXOpen.Core.AxoToggleTask.OnlineToPlain<T>()
+  fullName.vb: AXOpen.Core.AxoToggleTask.OnlineToPlain(Of T)()
+  nameWithType: AxoToggleTask.OnlineToPlain<T>()
+  nameWithType.vb: AxoToggleTask.OnlineToPlain(Of T)()
+- uid: AXOpen.Core.AxoToggleTask.OnlineToPlainAsync
+  name: OnlineToPlainAsync()
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_OnlineToPlainAsync
+  commentId: M:AXOpen.Core.AxoToggleTask.OnlineToPlainAsync
+  fullName: AXOpen.Core.AxoToggleTask.OnlineToPlainAsync()
+  nameWithType: AxoToggleTask.OnlineToPlainAsync()
+- uid: AXOpen.Core.AxoToggleTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  name: OnlineToPlainAsync(AxoToggleTask)
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoToggleTask_
+  commentId: M:AXOpen.Core.AxoToggleTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  fullName: AXOpen.Core.AxoToggleTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  nameWithType: AxoToggleTask.OnlineToPlainAsync(AxoToggleTask)
+- uid: AXOpen.Core.AxoToggleTask.OnlineToPlainAsync*
+  name: OnlineToPlainAsync
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_OnlineToPlainAsync_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.OnlineToPlainAsync
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.OnlineToPlainAsync
+  nameWithType: AxoToggleTask.OnlineToPlainAsync
+- uid: AXOpen.Core.AxoToggleTask.PlainToOnline*
+  name: PlainToOnline
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_PlainToOnline_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.PlainToOnline
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.PlainToOnline
+  nameWithType: AxoToggleTask.PlainToOnline
+- uid: AXOpen.Core.AxoToggleTask.PlainToOnline``1(``0)
+  name: PlainToOnline<T>(T)
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_PlainToOnline__1___0_
+  commentId: M:AXOpen.Core.AxoToggleTask.PlainToOnline``1(``0)
+  name.vb: PlainToOnline(Of T)(T)
+  fullName: AXOpen.Core.AxoToggleTask.PlainToOnline<T>(T)
+  fullName.vb: AXOpen.Core.AxoToggleTask.PlainToOnline(Of T)(T)
+  nameWithType: AxoToggleTask.PlainToOnline<T>(T)
+  nameWithType.vb: AxoToggleTask.PlainToOnline(Of T)(T)
+- uid: AXOpen.Core.AxoToggleTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  name: PlainToOnlineAsync(AxoToggleTask)
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoToggleTask_
+  commentId: M:AXOpen.Core.AxoToggleTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  fullName: AXOpen.Core.AxoToggleTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  nameWithType: AxoToggleTask.PlainToOnlineAsync(AxoToggleTask)
+- uid: AXOpen.Core.AxoToggleTask.PlainToOnlineAsync*
+  name: PlainToOnlineAsync
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_PlainToOnlineAsync_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.PlainToOnlineAsync
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.PlainToOnlineAsync
+  nameWithType: AxoToggleTask.PlainToOnlineAsync
+- uid: AXOpen.Core.AxoToggleTask.PlainToShadow*
+  name: PlainToShadow
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_PlainToShadow_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.PlainToShadow
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.PlainToShadow
+  nameWithType: AxoToggleTask.PlainToShadow
+- uid: AXOpen.Core.AxoToggleTask.PlainToShadow``1(``0)
+  name: PlainToShadow<T>(T)
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_PlainToShadow__1___0_
+  commentId: M:AXOpen.Core.AxoToggleTask.PlainToShadow``1(``0)
+  name.vb: PlainToShadow(Of T)(T)
+  fullName: AXOpen.Core.AxoToggleTask.PlainToShadow<T>(T)
+  fullName.vb: AXOpen.Core.AxoToggleTask.PlainToShadow(Of T)(T)
+  nameWithType: AxoToggleTask.PlainToShadow<T>(T)
+  nameWithType.vb: AxoToggleTask.PlainToShadow(Of T)(T)
+- uid: AXOpen.Core.AxoToggleTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  name: PlainToShadowAsync(AxoToggleTask)
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoToggleTask_
+  commentId: M:AXOpen.Core.AxoToggleTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  fullName: AXOpen.Core.AxoToggleTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  nameWithType: AxoToggleTask.PlainToShadowAsync(AxoToggleTask)
+- uid: AXOpen.Core.AxoToggleTask.PlainToShadowAsync*
+  name: PlainToShadowAsync
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_PlainToShadowAsync_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.PlainToShadowAsync
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.PlainToShadowAsync
+  nameWithType: AxoToggleTask.PlainToShadowAsync
+- uid: AXOpen.Core.AxoToggleTask.Poll
+  name: Poll()
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_Poll
+  commentId: M:AXOpen.Core.AxoToggleTask.Poll
+  fullName: AXOpen.Core.AxoToggleTask.Poll()
+  nameWithType: AxoToggleTask.Poll()
+- uid: AXOpen.Core.AxoToggleTask.Poll*
+  name: Poll
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_Poll_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.Poll
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.Poll
+  nameWithType: AxoToggleTask.Poll
+- uid: AXOpen.Core.AxoToggleTask.RemoteToggle
+  name: RemoteToggle
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_RemoteToggle
+  commentId: P:AXOpen.Core.AxoToggleTask.RemoteToggle
+  fullName: AXOpen.Core.AxoToggleTask.RemoteToggle
+  nameWithType: AxoToggleTask.RemoteToggle
+- uid: AXOpen.Core.AxoToggleTask.RemoteToggle*
+  name: RemoteToggle
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_RemoteToggle_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.RemoteToggle
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.RemoteToggle
+  nameWithType: AxoToggleTask.RemoteToggle
+- uid: AXOpen.Core.AxoToggleTask.ShadowToPlain*
+  name: ShadowToPlain
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_ShadowToPlain_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.ShadowToPlain
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.ShadowToPlain
+  nameWithType: AxoToggleTask.ShadowToPlain
+- uid: AXOpen.Core.AxoToggleTask.ShadowToPlain``1
+  name: ShadowToPlain<T>()
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_ShadowToPlain__1
+  commentId: M:AXOpen.Core.AxoToggleTask.ShadowToPlain``1
+  name.vb: ShadowToPlain(Of T)()
+  fullName: AXOpen.Core.AxoToggleTask.ShadowToPlain<T>()
+  fullName.vb: AXOpen.Core.AxoToggleTask.ShadowToPlain(Of T)()
+  nameWithType: AxoToggleTask.ShadowToPlain<T>()
+  nameWithType.vb: AxoToggleTask.ShadowToPlain(Of T)()
+- uid: AXOpen.Core.AxoToggleTask.ShadowToPlainAsync
+  name: ShadowToPlainAsync()
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_ShadowToPlainAsync
+  commentId: M:AXOpen.Core.AxoToggleTask.ShadowToPlainAsync
+  fullName: AXOpen.Core.AxoToggleTask.ShadowToPlainAsync()
+  nameWithType: AxoToggleTask.ShadowToPlainAsync()
+- uid: AXOpen.Core.AxoToggleTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  name: ShadowToPlainAsync(AxoToggleTask)
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoToggleTask_
+  commentId: M:AXOpen.Core.AxoToggleTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  fullName: AXOpen.Core.AxoToggleTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoToggleTask)
+  nameWithType: AxoToggleTask.ShadowToPlainAsync(AxoToggleTask)
+- uid: AXOpen.Core.AxoToggleTask.ShadowToPlainAsync*
+  name: ShadowToPlainAsync
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_ShadowToPlainAsync_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.ShadowToPlainAsync
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.ShadowToPlainAsync
+  nameWithType: AxoToggleTask.ShadowToPlainAsync
+- uid: AXOpen.Core.AxoToggleTask.State
+  name: State
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_State
+  commentId: P:AXOpen.Core.AxoToggleTask.State
+  fullName: AXOpen.Core.AxoToggleTask.State
+  nameWithType: AxoToggleTask.State
+- uid: AXOpen.Core.AxoToggleTask.State*
+  name: State
+  href: api/AXOpen.Core.AxoToggleTask.html#AXOpen_Core_AxoToggleTask_State_
+  commentId: Overload:AXOpen.Core.AxoToggleTask.State
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTask.State
+  nameWithType: AxoToggleTask.State
+- uid: AXOpen.Core.AxoToggleTaskCommandView
+  name: AxoToggleTaskCommandView
+  href: api/AXOpen.Core.AxoToggleTaskCommandView.html
+  commentId: T:AXOpen.Core.AxoToggleTaskCommandView
+  fullName: AXOpen.Core.AxoToggleTaskCommandView
+  nameWithType: AxoToggleTaskCommandView
+- uid: AXOpen.Core.AxoToggleTaskCommandView.#ctor
+  name: AxoToggleTaskCommandView()
+  href: api/AXOpen.Core.AxoToggleTaskCommandView.html#AXOpen_Core_AxoToggleTaskCommandView__ctor
+  commentId: M:AXOpen.Core.AxoToggleTaskCommandView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoToggleTaskCommandView.AxoToggleTaskCommandView()
+  fullName.vb: AXOpen.Core.AxoToggleTaskCommandView.New()
+  nameWithType: AxoToggleTaskCommandView.AxoToggleTaskCommandView()
+  nameWithType.vb: AxoToggleTaskCommandView.New()
+- uid: AXOpen.Core.AxoToggleTaskCommandView.#ctor*
+  name: AxoToggleTaskCommandView
+  href: api/AXOpen.Core.AxoToggleTaskCommandView.html#AXOpen_Core_AxoToggleTaskCommandView__ctor_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskCommandView.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXOpen.Core.AxoToggleTaskCommandView.AxoToggleTaskCommandView
+  fullName.vb: AXOpen.Core.AxoToggleTaskCommandView.New
+  nameWithType: AxoToggleTaskCommandView.AxoToggleTaskCommandView
+  nameWithType.vb: AxoToggleTaskCommandView.New
+- uid: AXOpen.Core.AxoToggleTaskStatusView
+  name: AxoToggleTaskStatusView
+  href: api/AXOpen.Core.AxoToggleTaskStatusView.html
+  commentId: T:AXOpen.Core.AxoToggleTaskStatusView
+  fullName: AXOpen.Core.AxoToggleTaskStatusView
+  nameWithType: AxoToggleTaskStatusView
+- uid: AXOpen.Core.AxoToggleTaskStatusView.#ctor
+  name: AxoToggleTaskStatusView()
+  href: api/AXOpen.Core.AxoToggleTaskStatusView.html#AXOpen_Core_AxoToggleTaskStatusView__ctor
+  commentId: M:AXOpen.Core.AxoToggleTaskStatusView.#ctor
+  name.vb: New()
+  fullName: AXOpen.Core.AxoToggleTaskStatusView.AxoToggleTaskStatusView()
+  fullName.vb: AXOpen.Core.AxoToggleTaskStatusView.New()
+  nameWithType: AxoToggleTaskStatusView.AxoToggleTaskStatusView()
+  nameWithType.vb: AxoToggleTaskStatusView.New()
+- uid: AXOpen.Core.AxoToggleTaskStatusView.#ctor*
+  name: AxoToggleTaskStatusView
+  href: api/AXOpen.Core.AxoToggleTaskStatusView.html#AXOpen_Core_AxoToggleTaskStatusView__ctor_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskStatusView.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXOpen.Core.AxoToggleTaskStatusView.AxoToggleTaskStatusView
+  fullName.vb: AXOpen.Core.AxoToggleTaskStatusView.New
+  nameWithType: AxoToggleTaskStatusView.AxoToggleTaskStatusView
+  nameWithType.vb: AxoToggleTaskStatusView.New
+- uid: AXOpen.Core.AxoToggleTaskView
+  name: AxoToggleTaskView
+  href: api/AXOpen.Core.AxoToggleTaskView.html
+  commentId: T:AXOpen.Core.AxoToggleTaskView
+  fullName: AXOpen.Core.AxoToggleTaskView
+  nameWithType: AxoToggleTaskView
+- uid: AXOpen.Core.AxoToggleTaskView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  name: BuildRenderTree(RenderTreeBuilder)
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
+  commentId: M:AXOpen.Core.AxoToggleTaskView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  fullName: AXOpen.Core.AxoToggleTaskView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
+  nameWithType: AxoToggleTaskView.BuildRenderTree(RenderTreeBuilder)
+- uid: AXOpen.Core.AxoToggleTaskView.BuildRenderTree*
+  name: BuildRenderTree
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_BuildRenderTree_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskView.BuildRenderTree
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTaskView.BuildRenderTree
+  nameWithType: AxoToggleTaskView.BuildRenderTree
+- uid: AXOpen.Core.AxoToggleTaskView.Description
+  name: Description
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_Description
+  commentId: P:AXOpen.Core.AxoToggleTaskView.Description
+  fullName: AXOpen.Core.AxoToggleTaskView.Description
+  nameWithType: AxoToggleTaskView.Description
+- uid: AXOpen.Core.AxoToggleTaskView.Description*
+  name: Description
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_Description_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskView.Description
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTaskView.Description
+  nameWithType: AxoToggleTaskView.Description
+- uid: AXOpen.Core.AxoToggleTaskView.Disable
+  name: Disable
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_Disable
+  commentId: P:AXOpen.Core.AxoToggleTaskView.Disable
+  fullName: AXOpen.Core.AxoToggleTaskView.Disable
+  nameWithType: AxoToggleTaskView.Disable
+- uid: AXOpen.Core.AxoToggleTaskView.Disable*
+  name: Disable
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_Disable_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskView.Disable
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTaskView.Disable
+  nameWithType: AxoToggleTaskView.Disable
+- uid: AXOpen.Core.AxoToggleTaskView.Dispose
+  name: Dispose()
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_Dispose
+  commentId: M:AXOpen.Core.AxoToggleTaskView.Dispose
+  fullName: AXOpen.Core.AxoToggleTaskView.Dispose()
+  nameWithType: AxoToggleTaskView.Dispose()
+- uid: AXOpen.Core.AxoToggleTaskView.Dispose*
+  name: Dispose
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_Dispose_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskView.Dispose
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTaskView.Dispose
+  nameWithType: AxoToggleTaskView.Dispose
+- uid: AXOpen.Core.AxoToggleTaskView.IsDisabled
+  name: IsDisabled
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_IsDisabled
+  commentId: P:AXOpen.Core.AxoToggleTaskView.IsDisabled
+  fullName: AXOpen.Core.AxoToggleTaskView.IsDisabled
+  nameWithType: AxoToggleTaskView.IsDisabled
+- uid: AXOpen.Core.AxoToggleTaskView.IsDisabled*
+  name: IsDisabled
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_IsDisabled_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskView.IsDisabled
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTaskView.IsDisabled
+  nameWithType: AxoToggleTaskView.IsDisabled
+- uid: AXOpen.Core.AxoToggleTaskView.OnInitialized
+  name: OnInitialized()
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_OnInitialized
+  commentId: M:AXOpen.Core.AxoToggleTaskView.OnInitialized
+  fullName: AXOpen.Core.AxoToggleTaskView.OnInitialized()
+  nameWithType: AxoToggleTaskView.OnInitialized()
+- uid: AXOpen.Core.AxoToggleTaskView.OnInitialized*
+  name: OnInitialized
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_OnInitialized_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskView.OnInitialized
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTaskView.OnInitialized
+  nameWithType: AxoToggleTaskView.OnInitialized
 - uid: AXOpen.Core.Blazor
   name: AXOpen.Core.Blazor
   href: api/AXOpen.Core.Blazor.html
@@ -4505,6 +5309,299 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.ComponentDetailsAttribute.TabName
   nameWithType: ComponentDetailsAttribute.TabName
+- uid: AXOpen.Core.ComponentGroupContext
+  name: ComponentGroupContext
+  href: api/AXOpen.Core.ComponentGroupContext.html
+  commentId: T:AXOpen.Core.ComponentGroupContext
+  fullName: AXOpen.Core.ComponentGroupContext
+  nameWithType: ComponentGroupContext
+- uid: AXOpen.Core.ComponentGroupContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement},System.String)
+  name: ComponentGroupContext(ITwinObject, IList<ITwinElement>, string)
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext__ctor_AXSharp_Connector_ITwinObject_System_Collections_Generic_IList_AXSharp_Connector_ITwinElement__System_String_
+  commentId: M:AXOpen.Core.ComponentGroupContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement},System.String)
+  name.vb: New(ITwinObject, IList(Of ITwinElement), String)
+  fullName: AXOpen.Core.ComponentGroupContext.ComponentGroupContext(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList<AXSharp.Connector.ITwinElement>, string)
+  fullName.vb: AXOpen.Core.ComponentGroupContext.New(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList(Of AXSharp.Connector.ITwinElement), String)
+  nameWithType: ComponentGroupContext.ComponentGroupContext(ITwinObject, IList<ITwinElement>, string)
+  nameWithType.vb: ComponentGroupContext.New(ITwinObject, IList(Of ITwinElement), String)
+- uid: AXOpen.Core.ComponentGroupContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement})
+  name: ComponentGroupContext(ITwinObject, IList<ITwinElement>)
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext__ctor_AXSharp_Connector_ITwinObject_System_Collections_Generic_IList_AXSharp_Connector_ITwinElement__
+  commentId: M:AXOpen.Core.ComponentGroupContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement})
+  name.vb: New(ITwinObject, IList(Of ITwinElement))
+  fullName: AXOpen.Core.ComponentGroupContext.ComponentGroupContext(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList<AXSharp.Connector.ITwinElement>)
+  fullName.vb: AXOpen.Core.ComponentGroupContext.New(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList(Of AXSharp.Connector.ITwinElement))
+  nameWithType: ComponentGroupContext.ComponentGroupContext(ITwinObject, IList<ITwinElement>)
+  nameWithType.vb: ComponentGroupContext.New(ITwinObject, IList(Of ITwinElement))
+- uid: AXOpen.Core.ComponentGroupContext.#ctor*
+  name: ComponentGroupContext
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext__ctor_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXOpen.Core.ComponentGroupContext.ComponentGroupContext
+  fullName.vb: AXOpen.Core.ComponentGroupContext.New
+  nameWithType: ComponentGroupContext.ComponentGroupContext
+  nameWithType.vb: ComponentGroupContext.New
+- uid: AXOpen.Core.ComponentGroupContext.AddChild(AXSharp.Connector.ITwinObject)
+  name: AddChild(ITwinObject)
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_AddChild_AXSharp_Connector_ITwinObject_
+  commentId: M:AXOpen.Core.ComponentGroupContext.AddChild(AXSharp.Connector.ITwinObject)
+  fullName: AXOpen.Core.ComponentGroupContext.AddChild(AXSharp.Connector.ITwinObject)
+  nameWithType: ComponentGroupContext.AddChild(ITwinObject)
+- uid: AXOpen.Core.ComponentGroupContext.AddChild*
+  name: AddChild
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_AddChild_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.AddChild
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.AddChild
+  nameWithType: ComponentGroupContext.AddChild
+- uid: AXOpen.Core.ComponentGroupContext.AddKid(AXSharp.Connector.ITwinElement)
+  name: AddKid(ITwinElement)
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_AddKid_AXSharp_Connector_ITwinElement_
+  commentId: M:AXOpen.Core.ComponentGroupContext.AddKid(AXSharp.Connector.ITwinElement)
+  fullName: AXOpen.Core.ComponentGroupContext.AddKid(AXSharp.Connector.ITwinElement)
+  nameWithType: ComponentGroupContext.AddKid(ITwinElement)
+- uid: AXOpen.Core.ComponentGroupContext.AddKid*
+  name: AddKid
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_AddKid_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.AddKid
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.AddKid
+  nameWithType: ComponentGroupContext.AddKid
+- uid: AXOpen.Core.ComponentGroupContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  name: AddValueTag(ITwinPrimitive)
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_AddValueTag_AXSharp_Connector_ITwinPrimitive_
+  commentId: M:AXOpen.Core.ComponentGroupContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  fullName: AXOpen.Core.ComponentGroupContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
+  nameWithType: ComponentGroupContext.AddValueTag(ITwinPrimitive)
+- uid: AXOpen.Core.ComponentGroupContext.AddValueTag*
+  name: AddValueTag
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_AddValueTag_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.AddValueTag
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.AddValueTag
+  nameWithType: ComponentGroupContext.AddValueTag
+- uid: AXOpen.Core.ComponentGroupContext.AttributeName
+  name: AttributeName
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_AttributeName
+  commentId: P:AXOpen.Core.ComponentGroupContext.AttributeName
+  fullName: AXOpen.Core.ComponentGroupContext.AttributeName
+  nameWithType: ComponentGroupContext.AttributeName
+- uid: AXOpen.Core.ComponentGroupContext.AttributeName*
+  name: AttributeName
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_AttributeName_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.AttributeName
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.AttributeName
+  nameWithType: ComponentGroupContext.AttributeName
+- uid: AXOpen.Core.ComponentGroupContext.GetChildren
+  name: GetChildren()
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetChildren
+  commentId: M:AXOpen.Core.ComponentGroupContext.GetChildren
+  fullName: AXOpen.Core.ComponentGroupContext.GetChildren()
+  nameWithType: ComponentGroupContext.GetChildren()
+- uid: AXOpen.Core.ComponentGroupContext.GetChildren*
+  name: GetChildren
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetChildren_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.GetChildren
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.GetChildren
+  nameWithType: ComponentGroupContext.GetChildren
+- uid: AXOpen.Core.ComponentGroupContext.GetConnector
+  name: GetConnector()
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetConnector
+  commentId: M:AXOpen.Core.ComponentGroupContext.GetConnector
+  fullName: AXOpen.Core.ComponentGroupContext.GetConnector()
+  nameWithType: ComponentGroupContext.GetConnector()
+- uid: AXOpen.Core.ComponentGroupContext.GetConnector*
+  name: GetConnector
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetConnector_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.GetConnector
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.GetConnector
+  nameWithType: ComponentGroupContext.GetConnector
+- uid: AXOpen.Core.ComponentGroupContext.GetKids
+  name: GetKids()
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetKids
+  commentId: M:AXOpen.Core.ComponentGroupContext.GetKids
+  fullName: AXOpen.Core.ComponentGroupContext.GetKids()
+  nameWithType: ComponentGroupContext.GetKids()
+- uid: AXOpen.Core.ComponentGroupContext.GetKids*
+  name: GetKids
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetKids_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.GetKids
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.GetKids
+  nameWithType: ComponentGroupContext.GetKids
+- uid: AXOpen.Core.ComponentGroupContext.GetParent
+  name: GetParent()
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetParent
+  commentId: M:AXOpen.Core.ComponentGroupContext.GetParent
+  fullName: AXOpen.Core.ComponentGroupContext.GetParent()
+  nameWithType: ComponentGroupContext.GetParent()
+- uid: AXOpen.Core.ComponentGroupContext.GetParent*
+  name: GetParent
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetParent_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.GetParent
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.GetParent
+  nameWithType: ComponentGroupContext.GetParent
+- uid: AXOpen.Core.ComponentGroupContext.GetSymbolTail
+  name: GetSymbolTail()
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetSymbolTail
+  commentId: M:AXOpen.Core.ComponentGroupContext.GetSymbolTail
+  fullName: AXOpen.Core.ComponentGroupContext.GetSymbolTail()
+  nameWithType: ComponentGroupContext.GetSymbolTail()
+- uid: AXOpen.Core.ComponentGroupContext.GetSymbolTail*
+  name: GetSymbolTail
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetSymbolTail_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.GetSymbolTail
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.GetSymbolTail
+  nameWithType: ComponentGroupContext.GetSymbolTail
+- uid: AXOpen.Core.ComponentGroupContext.GetValueTags
+  name: GetValueTags()
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetValueTags
+  commentId: M:AXOpen.Core.ComponentGroupContext.GetValueTags
+  fullName: AXOpen.Core.ComponentGroupContext.GetValueTags()
+  nameWithType: ComponentGroupContext.GetValueTags()
+- uid: AXOpen.Core.ComponentGroupContext.GetValueTags*
+  name: GetValueTags
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_GetValueTags_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.GetValueTags
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.GetValueTags
+  nameWithType: ComponentGroupContext.GetValueTags
+- uid: AXOpen.Core.ComponentGroupContext.HumanReadable
+  name: HumanReadable
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_HumanReadable
+  commentId: P:AXOpen.Core.ComponentGroupContext.HumanReadable
+  fullName: AXOpen.Core.ComponentGroupContext.HumanReadable
+  nameWithType: ComponentGroupContext.HumanReadable
+- uid: AXOpen.Core.ComponentGroupContext.HumanReadable*
+  name: HumanReadable
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_HumanReadable_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.HumanReadable
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.HumanReadable
+  nameWithType: ComponentGroupContext.HumanReadable
+- uid: AXOpen.Core.ComponentGroupContext.Interpreter
+  name: Interpreter
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_Interpreter
+  commentId: P:AXOpen.Core.ComponentGroupContext.Interpreter
+  fullName: AXOpen.Core.ComponentGroupContext.Interpreter
+  nameWithType: ComponentGroupContext.Interpreter
+- uid: AXOpen.Core.ComponentGroupContext.Interpreter*
+  name: Interpreter
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_Interpreter_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.Interpreter
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.Interpreter
+  nameWithType: ComponentGroupContext.Interpreter
+- uid: AXOpen.Core.ComponentGroupContext.OnlineToPlain*
+  name: OnlineToPlain
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_OnlineToPlain_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.OnlineToPlain
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.OnlineToPlain
+  nameWithType: ComponentGroupContext.OnlineToPlain
+- uid: AXOpen.Core.ComponentGroupContext.OnlineToPlain``1
+  name: OnlineToPlain<T>()
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_OnlineToPlain__1
+  commentId: M:AXOpen.Core.ComponentGroupContext.OnlineToPlain``1
+  name.vb: OnlineToPlain(Of T)()
+  fullName: AXOpen.Core.ComponentGroupContext.OnlineToPlain<T>()
+  fullName.vb: AXOpen.Core.ComponentGroupContext.OnlineToPlain(Of T)()
+  nameWithType: ComponentGroupContext.OnlineToPlain<T>()
+  nameWithType.vb: ComponentGroupContext.OnlineToPlain(Of T)()
+- uid: AXOpen.Core.ComponentGroupContext.PlainToOnline*
+  name: PlainToOnline
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_PlainToOnline_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.PlainToOnline
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.PlainToOnline
+  nameWithType: ComponentGroupContext.PlainToOnline
+- uid: AXOpen.Core.ComponentGroupContext.PlainToOnline``1(``0)
+  name: PlainToOnline<T>(T)
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_PlainToOnline__1___0_
+  commentId: M:AXOpen.Core.ComponentGroupContext.PlainToOnline``1(``0)
+  name.vb: PlainToOnline(Of T)(T)
+  fullName: AXOpen.Core.ComponentGroupContext.PlainToOnline<T>(T)
+  fullName.vb: AXOpen.Core.ComponentGroupContext.PlainToOnline(Of T)(T)
+  nameWithType: ComponentGroupContext.PlainToOnline<T>(T)
+  nameWithType.vb: ComponentGroupContext.PlainToOnline(Of T)(T)
+- uid: AXOpen.Core.ComponentGroupContext.PlainToShadow*
+  name: PlainToShadow
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_PlainToShadow_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.PlainToShadow
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.PlainToShadow
+  nameWithType: ComponentGroupContext.PlainToShadow
+- uid: AXOpen.Core.ComponentGroupContext.PlainToShadow``1(``0)
+  name: PlainToShadow<T>(T)
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_PlainToShadow__1___0_
+  commentId: M:AXOpen.Core.ComponentGroupContext.PlainToShadow``1(``0)
+  name.vb: PlainToShadow(Of T)(T)
+  fullName: AXOpen.Core.ComponentGroupContext.PlainToShadow<T>(T)
+  fullName.vb: AXOpen.Core.ComponentGroupContext.PlainToShadow(Of T)(T)
+  nameWithType: ComponentGroupContext.PlainToShadow<T>(T)
+  nameWithType.vb: ComponentGroupContext.PlainToShadow(Of T)(T)
+- uid: AXOpen.Core.ComponentGroupContext.Poll
+  name: Poll()
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_Poll
+  commentId: M:AXOpen.Core.ComponentGroupContext.Poll
+  fullName: AXOpen.Core.ComponentGroupContext.Poll()
+  nameWithType: ComponentGroupContext.Poll()
+- uid: AXOpen.Core.ComponentGroupContext.Poll*
+  name: Poll
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_Poll_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.Poll
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.Poll
+  nameWithType: ComponentGroupContext.Poll
+- uid: AXOpen.Core.ComponentGroupContext.ShadowToPlain*
+  name: ShadowToPlain
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_ShadowToPlain_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.ShadowToPlain
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.ShadowToPlain
+  nameWithType: ComponentGroupContext.ShadowToPlain
+- uid: AXOpen.Core.ComponentGroupContext.ShadowToPlain``1
+  name: ShadowToPlain<T>()
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_ShadowToPlain__1
+  commentId: M:AXOpen.Core.ComponentGroupContext.ShadowToPlain``1
+  name.vb: ShadowToPlain(Of T)()
+  fullName: AXOpen.Core.ComponentGroupContext.ShadowToPlain<T>()
+  fullName.vb: AXOpen.Core.ComponentGroupContext.ShadowToPlain(Of T)()
+  nameWithType: ComponentGroupContext.ShadowToPlain<T>()
+  nameWithType.vb: ComponentGroupContext.ShadowToPlain(Of T)()
+- uid: AXOpen.Core.ComponentGroupContext.Symbol
+  name: Symbol
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_Symbol
+  commentId: P:AXOpen.Core.ComponentGroupContext.Symbol
+  fullName: AXOpen.Core.ComponentGroupContext.Symbol
+  nameWithType: ComponentGroupContext.Symbol
+- uid: AXOpen.Core.ComponentGroupContext.Symbol*
+  name: Symbol
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_Symbol_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.Symbol
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.Symbol
+  nameWithType: ComponentGroupContext.Symbol
+- uid: AXOpen.Core.ComponentGroupContext.TabName
+  name: TabName
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_TabName
+  commentId: P:AXOpen.Core.ComponentGroupContext.TabName
+  fullName: AXOpen.Core.ComponentGroupContext.TabName
+  nameWithType: ComponentGroupContext.TabName
+- uid: AXOpen.Core.ComponentGroupContext.TabName*
+  name: TabName
+  href: api/AXOpen.Core.ComponentGroupContext.html#AXOpen_Core_ComponentGroupContext_TabName_
+  commentId: Overload:AXOpen.Core.ComponentGroupContext.TabName
+  isSpec: "True"
+  fullName: AXOpen.Core.ComponentGroupContext.TabName
+  nameWithType: ComponentGroupContext.TabName
 - uid: AXOpen.Core.ComponentHeaderAttribute
   name: ComponentHeaderAttribute
   href: api/AXOpen.Core.ComponentHeaderAttribute.html
@@ -4552,299 +5649,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.ComponentHeaderAttribute.TabName
   nameWithType: ComponentHeaderAttribute.TabName
-- uid: AXOpen.Core.DetailsContext
-  name: DetailsContext
-  href: api/AXOpen.Core.DetailsContext.html
-  commentId: T:AXOpen.Core.DetailsContext
-  fullName: AXOpen.Core.DetailsContext
-  nameWithType: DetailsContext
-- uid: AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement},System.String)
-  name: DetailsContext(ITwinObject, IList<ITwinElement>, string)
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext__ctor_AXSharp_Connector_ITwinObject_System_Collections_Generic_IList_AXSharp_Connector_ITwinElement__System_String_
-  commentId: M:AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement},System.String)
-  name.vb: New(ITwinObject, IList(Of ITwinElement), String)
-  fullName: AXOpen.Core.DetailsContext.DetailsContext(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList<AXSharp.Connector.ITwinElement>, string)
-  fullName.vb: AXOpen.Core.DetailsContext.New(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList(Of AXSharp.Connector.ITwinElement), String)
-  nameWithType: DetailsContext.DetailsContext(ITwinObject, IList<ITwinElement>, string)
-  nameWithType.vb: DetailsContext.New(ITwinObject, IList(Of ITwinElement), String)
-- uid: AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement})
-  name: DetailsContext(ITwinObject, IList<ITwinElement>)
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext__ctor_AXSharp_Connector_ITwinObject_System_Collections_Generic_IList_AXSharp_Connector_ITwinElement__
-  commentId: M:AXOpen.Core.DetailsContext.#ctor(AXSharp.Connector.ITwinObject,System.Collections.Generic.IList{AXSharp.Connector.ITwinElement})
-  name.vb: New(ITwinObject, IList(Of ITwinElement))
-  fullName: AXOpen.Core.DetailsContext.DetailsContext(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList<AXSharp.Connector.ITwinElement>)
-  fullName.vb: AXOpen.Core.DetailsContext.New(AXSharp.Connector.ITwinObject, System.Collections.Generic.IList(Of AXSharp.Connector.ITwinElement))
-  nameWithType: DetailsContext.DetailsContext(ITwinObject, IList<ITwinElement>)
-  nameWithType.vb: DetailsContext.New(ITwinObject, IList(Of ITwinElement))
-- uid: AXOpen.Core.DetailsContext.#ctor*
-  name: DetailsContext
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext__ctor_
-  commentId: Overload:AXOpen.Core.DetailsContext.#ctor
-  isSpec: "True"
-  name.vb: New
-  fullName: AXOpen.Core.DetailsContext.DetailsContext
-  fullName.vb: AXOpen.Core.DetailsContext.New
-  nameWithType: DetailsContext.DetailsContext
-  nameWithType.vb: DetailsContext.New
-- uid: AXOpen.Core.DetailsContext.AddChild(AXSharp.Connector.ITwinObject)
-  name: AddChild(ITwinObject)
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_AddChild_AXSharp_Connector_ITwinObject_
-  commentId: M:AXOpen.Core.DetailsContext.AddChild(AXSharp.Connector.ITwinObject)
-  fullName: AXOpen.Core.DetailsContext.AddChild(AXSharp.Connector.ITwinObject)
-  nameWithType: DetailsContext.AddChild(ITwinObject)
-- uid: AXOpen.Core.DetailsContext.AddChild*
-  name: AddChild
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_AddChild_
-  commentId: Overload:AXOpen.Core.DetailsContext.AddChild
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.AddChild
-  nameWithType: DetailsContext.AddChild
-- uid: AXOpen.Core.DetailsContext.AddKid(AXSharp.Connector.ITwinElement)
-  name: AddKid(ITwinElement)
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_AddKid_AXSharp_Connector_ITwinElement_
-  commentId: M:AXOpen.Core.DetailsContext.AddKid(AXSharp.Connector.ITwinElement)
-  fullName: AXOpen.Core.DetailsContext.AddKid(AXSharp.Connector.ITwinElement)
-  nameWithType: DetailsContext.AddKid(ITwinElement)
-- uid: AXOpen.Core.DetailsContext.AddKid*
-  name: AddKid
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_AddKid_
-  commentId: Overload:AXOpen.Core.DetailsContext.AddKid
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.AddKid
-  nameWithType: DetailsContext.AddKid
-- uid: AXOpen.Core.DetailsContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
-  name: AddValueTag(ITwinPrimitive)
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_AddValueTag_AXSharp_Connector_ITwinPrimitive_
-  commentId: M:AXOpen.Core.DetailsContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
-  fullName: AXOpen.Core.DetailsContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)
-  nameWithType: DetailsContext.AddValueTag(ITwinPrimitive)
-- uid: AXOpen.Core.DetailsContext.AddValueTag*
-  name: AddValueTag
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_AddValueTag_
-  commentId: Overload:AXOpen.Core.DetailsContext.AddValueTag
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.AddValueTag
-  nameWithType: DetailsContext.AddValueTag
-- uid: AXOpen.Core.DetailsContext.AttributeName
-  name: AttributeName
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_AttributeName
-  commentId: P:AXOpen.Core.DetailsContext.AttributeName
-  fullName: AXOpen.Core.DetailsContext.AttributeName
-  nameWithType: DetailsContext.AttributeName
-- uid: AXOpen.Core.DetailsContext.AttributeName*
-  name: AttributeName
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_AttributeName_
-  commentId: Overload:AXOpen.Core.DetailsContext.AttributeName
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.AttributeName
-  nameWithType: DetailsContext.AttributeName
-- uid: AXOpen.Core.DetailsContext.GetChildren
-  name: GetChildren()
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetChildren
-  commentId: M:AXOpen.Core.DetailsContext.GetChildren
-  fullName: AXOpen.Core.DetailsContext.GetChildren()
-  nameWithType: DetailsContext.GetChildren()
-- uid: AXOpen.Core.DetailsContext.GetChildren*
-  name: GetChildren
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetChildren_
-  commentId: Overload:AXOpen.Core.DetailsContext.GetChildren
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.GetChildren
-  nameWithType: DetailsContext.GetChildren
-- uid: AXOpen.Core.DetailsContext.GetConnector
-  name: GetConnector()
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetConnector
-  commentId: M:AXOpen.Core.DetailsContext.GetConnector
-  fullName: AXOpen.Core.DetailsContext.GetConnector()
-  nameWithType: DetailsContext.GetConnector()
-- uid: AXOpen.Core.DetailsContext.GetConnector*
-  name: GetConnector
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetConnector_
-  commentId: Overload:AXOpen.Core.DetailsContext.GetConnector
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.GetConnector
-  nameWithType: DetailsContext.GetConnector
-- uid: AXOpen.Core.DetailsContext.GetKids
-  name: GetKids()
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetKids
-  commentId: M:AXOpen.Core.DetailsContext.GetKids
-  fullName: AXOpen.Core.DetailsContext.GetKids()
-  nameWithType: DetailsContext.GetKids()
-- uid: AXOpen.Core.DetailsContext.GetKids*
-  name: GetKids
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetKids_
-  commentId: Overload:AXOpen.Core.DetailsContext.GetKids
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.GetKids
-  nameWithType: DetailsContext.GetKids
-- uid: AXOpen.Core.DetailsContext.GetParent
-  name: GetParent()
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetParent
-  commentId: M:AXOpen.Core.DetailsContext.GetParent
-  fullName: AXOpen.Core.DetailsContext.GetParent()
-  nameWithType: DetailsContext.GetParent()
-- uid: AXOpen.Core.DetailsContext.GetParent*
-  name: GetParent
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetParent_
-  commentId: Overload:AXOpen.Core.DetailsContext.GetParent
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.GetParent
-  nameWithType: DetailsContext.GetParent
-- uid: AXOpen.Core.DetailsContext.GetSymbolTail
-  name: GetSymbolTail()
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetSymbolTail
-  commentId: M:AXOpen.Core.DetailsContext.GetSymbolTail
-  fullName: AXOpen.Core.DetailsContext.GetSymbolTail()
-  nameWithType: DetailsContext.GetSymbolTail()
-- uid: AXOpen.Core.DetailsContext.GetSymbolTail*
-  name: GetSymbolTail
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetSymbolTail_
-  commentId: Overload:AXOpen.Core.DetailsContext.GetSymbolTail
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.GetSymbolTail
-  nameWithType: DetailsContext.GetSymbolTail
-- uid: AXOpen.Core.DetailsContext.GetValueTags
-  name: GetValueTags()
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetValueTags
-  commentId: M:AXOpen.Core.DetailsContext.GetValueTags
-  fullName: AXOpen.Core.DetailsContext.GetValueTags()
-  nameWithType: DetailsContext.GetValueTags()
-- uid: AXOpen.Core.DetailsContext.GetValueTags*
-  name: GetValueTags
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_GetValueTags_
-  commentId: Overload:AXOpen.Core.DetailsContext.GetValueTags
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.GetValueTags
-  nameWithType: DetailsContext.GetValueTags
-- uid: AXOpen.Core.DetailsContext.HumanReadable
-  name: HumanReadable
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_HumanReadable
-  commentId: P:AXOpen.Core.DetailsContext.HumanReadable
-  fullName: AXOpen.Core.DetailsContext.HumanReadable
-  nameWithType: DetailsContext.HumanReadable
-- uid: AXOpen.Core.DetailsContext.HumanReadable*
-  name: HumanReadable
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_HumanReadable_
-  commentId: Overload:AXOpen.Core.DetailsContext.HumanReadable
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.HumanReadable
-  nameWithType: DetailsContext.HumanReadable
-- uid: AXOpen.Core.DetailsContext.Interpreter
-  name: Interpreter
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_Interpreter
-  commentId: P:AXOpen.Core.DetailsContext.Interpreter
-  fullName: AXOpen.Core.DetailsContext.Interpreter
-  nameWithType: DetailsContext.Interpreter
-- uid: AXOpen.Core.DetailsContext.Interpreter*
-  name: Interpreter
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_Interpreter_
-  commentId: Overload:AXOpen.Core.DetailsContext.Interpreter
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.Interpreter
-  nameWithType: DetailsContext.Interpreter
-- uid: AXOpen.Core.DetailsContext.OnlineToPlain*
-  name: OnlineToPlain
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_OnlineToPlain_
-  commentId: Overload:AXOpen.Core.DetailsContext.OnlineToPlain
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.OnlineToPlain
-  nameWithType: DetailsContext.OnlineToPlain
-- uid: AXOpen.Core.DetailsContext.OnlineToPlain``1
-  name: OnlineToPlain<T>()
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_OnlineToPlain__1
-  commentId: M:AXOpen.Core.DetailsContext.OnlineToPlain``1
-  name.vb: OnlineToPlain(Of T)()
-  fullName: AXOpen.Core.DetailsContext.OnlineToPlain<T>()
-  fullName.vb: AXOpen.Core.DetailsContext.OnlineToPlain(Of T)()
-  nameWithType: DetailsContext.OnlineToPlain<T>()
-  nameWithType.vb: DetailsContext.OnlineToPlain(Of T)()
-- uid: AXOpen.Core.DetailsContext.PlainToOnline*
-  name: PlainToOnline
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_PlainToOnline_
-  commentId: Overload:AXOpen.Core.DetailsContext.PlainToOnline
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.PlainToOnline
-  nameWithType: DetailsContext.PlainToOnline
-- uid: AXOpen.Core.DetailsContext.PlainToOnline``1(``0)
-  name: PlainToOnline<T>(T)
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_PlainToOnline__1___0_
-  commentId: M:AXOpen.Core.DetailsContext.PlainToOnline``1(``0)
-  name.vb: PlainToOnline(Of T)(T)
-  fullName: AXOpen.Core.DetailsContext.PlainToOnline<T>(T)
-  fullName.vb: AXOpen.Core.DetailsContext.PlainToOnline(Of T)(T)
-  nameWithType: DetailsContext.PlainToOnline<T>(T)
-  nameWithType.vb: DetailsContext.PlainToOnline(Of T)(T)
-- uid: AXOpen.Core.DetailsContext.PlainToShadow*
-  name: PlainToShadow
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_PlainToShadow_
-  commentId: Overload:AXOpen.Core.DetailsContext.PlainToShadow
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.PlainToShadow
-  nameWithType: DetailsContext.PlainToShadow
-- uid: AXOpen.Core.DetailsContext.PlainToShadow``1(``0)
-  name: PlainToShadow<T>(T)
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_PlainToShadow__1___0_
-  commentId: M:AXOpen.Core.DetailsContext.PlainToShadow``1(``0)
-  name.vb: PlainToShadow(Of T)(T)
-  fullName: AXOpen.Core.DetailsContext.PlainToShadow<T>(T)
-  fullName.vb: AXOpen.Core.DetailsContext.PlainToShadow(Of T)(T)
-  nameWithType: DetailsContext.PlainToShadow<T>(T)
-  nameWithType.vb: DetailsContext.PlainToShadow(Of T)(T)
-- uid: AXOpen.Core.DetailsContext.Poll
-  name: Poll()
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_Poll
-  commentId: M:AXOpen.Core.DetailsContext.Poll
-  fullName: AXOpen.Core.DetailsContext.Poll()
-  nameWithType: DetailsContext.Poll()
-- uid: AXOpen.Core.DetailsContext.Poll*
-  name: Poll
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_Poll_
-  commentId: Overload:AXOpen.Core.DetailsContext.Poll
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.Poll
-  nameWithType: DetailsContext.Poll
-- uid: AXOpen.Core.DetailsContext.ShadowToPlain*
-  name: ShadowToPlain
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_ShadowToPlain_
-  commentId: Overload:AXOpen.Core.DetailsContext.ShadowToPlain
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.ShadowToPlain
-  nameWithType: DetailsContext.ShadowToPlain
-- uid: AXOpen.Core.DetailsContext.ShadowToPlain``1
-  name: ShadowToPlain<T>()
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_ShadowToPlain__1
-  commentId: M:AXOpen.Core.DetailsContext.ShadowToPlain``1
-  name.vb: ShadowToPlain(Of T)()
-  fullName: AXOpen.Core.DetailsContext.ShadowToPlain<T>()
-  fullName.vb: AXOpen.Core.DetailsContext.ShadowToPlain(Of T)()
-  nameWithType: DetailsContext.ShadowToPlain<T>()
-  nameWithType.vb: DetailsContext.ShadowToPlain(Of T)()
-- uid: AXOpen.Core.DetailsContext.Symbol
-  name: Symbol
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_Symbol
-  commentId: P:AXOpen.Core.DetailsContext.Symbol
-  fullName: AXOpen.Core.DetailsContext.Symbol
-  nameWithType: DetailsContext.Symbol
-- uid: AXOpen.Core.DetailsContext.Symbol*
-  name: Symbol
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_Symbol_
-  commentId: Overload:AXOpen.Core.DetailsContext.Symbol
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.Symbol
-  nameWithType: DetailsContext.Symbol
-- uid: AXOpen.Core.DetailsContext.TabName
-  name: TabName
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_TabName
-  commentId: P:AXOpen.Core.DetailsContext.TabName
-  fullName: AXOpen.Core.DetailsContext.TabName
-  nameWithType: DetailsContext.TabName
-- uid: AXOpen.Core.DetailsContext.TabName*
-  name: TabName
-  href: api/AXOpen.Core.DetailsContext.html#AXOpen_Core_DetailsContext_TabName_
-  commentId: Overload:AXOpen.Core.DetailsContext.TabName
-  isSpec: "True"
-  fullName: AXOpen.Core.DetailsContext.TabName
-  nameWithType: DetailsContext.TabName
 - uid: AXOpen.Core.eAxoSequenceMode
   name: eAxoSequenceMode
   href: api/AXOpen.Core.eAxoSequenceMode.html
@@ -4971,6 +5775,12 @@ references:
   commentId: T:AXOpen.Core.IAxoManuallyControllable
   fullName: AXOpen.Core.IAxoManuallyControllable
   nameWithType: IAxoManuallyControllable
+- uid: AXOpen.Core.IAxoMomentaryTask
+  name: IAxoMomentaryTask
+  href: api/AXOpen.Core.IAxoMomentaryTask.html
+  commentId: T:AXOpen.Core.IAxoMomentaryTask
+  fullName: AXOpen.Core.IAxoMomentaryTask
+  nameWithType: IAxoMomentaryTask
 - uid: AXOpen.Core.IAxoObject
   name: IAxoObject
   href: api/AXOpen.Core.IAxoObject.html
@@ -4995,6 +5805,12 @@ references:
   commentId: T:AXOpen.Core.IAxoTaskState
   fullName: AXOpen.Core.IAxoTaskState
   nameWithType: IAxoTaskState
+- uid: AXOpen.Core.IAxoToggleTask
+  name: IAxoToggleTask
+  href: api/AXOpen.Core.IAxoToggleTask.html
+  commentId: T:AXOpen.Core.IAxoToggleTask
+  fullName: AXOpen.Core.IAxoToggleTask
+  nameWithType: IAxoToggleTask
 - uid: AXOpen.Core.MultipleRemoteCallInitializationException
   name: MultipleRemoteCallInitializationException
   href: api/AXOpen.Core.MultipleRemoteCallInitializationException.html
@@ -5242,6 +6058,51 @@ references:
   commentId: T:Pocos.AXOpen.Core.AxoContextEnvironment
   fullName: Pocos.AXOpen.Core.AxoContextEnvironment
   nameWithType: AxoContextEnvironment
+- uid: Pocos.AXOpen.Core.AxoMomentaryTask
+  name: AxoMomentaryTask
+  href: api/Pocos.AXOpen.Core.AxoMomentaryTask.html
+  commentId: T:Pocos.AXOpen.Core.AxoMomentaryTask
+  fullName: Pocos.AXOpen.Core.AxoMomentaryTask
+  nameWithType: AxoMomentaryTask
+- uid: Pocos.AXOpen.Core.AxoMomentaryTask.IsDisabled
+  name: IsDisabled
+  href: api/Pocos.AXOpen.Core.AxoMomentaryTask.html#Pocos_AXOpen_Core_AxoMomentaryTask_IsDisabled
+  commentId: P:Pocos.AXOpen.Core.AxoMomentaryTask.IsDisabled
+  fullName: Pocos.AXOpen.Core.AxoMomentaryTask.IsDisabled
+  nameWithType: AxoMomentaryTask.IsDisabled
+- uid: Pocos.AXOpen.Core.AxoMomentaryTask.IsDisabled*
+  name: IsDisabled
+  href: api/Pocos.AXOpen.Core.AxoMomentaryTask.html#Pocos_AXOpen_Core_AxoMomentaryTask_IsDisabled_
+  commentId: Overload:Pocos.AXOpen.Core.AxoMomentaryTask.IsDisabled
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Core.AxoMomentaryTask.IsDisabled
+  nameWithType: AxoMomentaryTask.IsDisabled
+- uid: Pocos.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  name: RemoteSwitchOn
+  href: api/Pocos.AXOpen.Core.AxoMomentaryTask.html#Pocos_AXOpen_Core_AxoMomentaryTask_RemoteSwitchOn
+  commentId: P:Pocos.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  fullName: Pocos.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  nameWithType: AxoMomentaryTask.RemoteSwitchOn
+- uid: Pocos.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn*
+  name: RemoteSwitchOn
+  href: api/Pocos.AXOpen.Core.AxoMomentaryTask.html#Pocos_AXOpen_Core_AxoMomentaryTask_RemoteSwitchOn_
+  commentId: Overload:Pocos.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn
+  nameWithType: AxoMomentaryTask.RemoteSwitchOn
+- uid: Pocos.AXOpen.Core.AxoMomentaryTask.State
+  name: State
+  href: api/Pocos.AXOpen.Core.AxoMomentaryTask.html#Pocos_AXOpen_Core_AxoMomentaryTask_State
+  commentId: P:Pocos.AXOpen.Core.AxoMomentaryTask.State
+  fullName: Pocos.AXOpen.Core.AxoMomentaryTask.State
+  nameWithType: AxoMomentaryTask.State
+- uid: Pocos.AXOpen.Core.AxoMomentaryTask.State*
+  name: State
+  href: api/Pocos.AXOpen.Core.AxoMomentaryTask.html#Pocos_AXOpen_Core_AxoMomentaryTask_State_
+  commentId: Overload:Pocos.AXOpen.Core.AxoMomentaryTask.State
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Core.AxoMomentaryTask.State
+  nameWithType: AxoMomentaryTask.State
 - uid: Pocos.AXOpen.Core.AxoObject
   name: AxoObject
   href: api/Pocos.AXOpen.Core.AxoObject.html
@@ -5558,6 +6419,51 @@ references:
   isSpec: "True"
   fullName: Pocos.AXOpen.Core.AxoTask.Status
   nameWithType: AxoTask.Status
+- uid: Pocos.AXOpen.Core.AxoToggleTask
+  name: AxoToggleTask
+  href: api/Pocos.AXOpen.Core.AxoToggleTask.html
+  commentId: T:Pocos.AXOpen.Core.AxoToggleTask
+  fullName: Pocos.AXOpen.Core.AxoToggleTask
+  nameWithType: AxoToggleTask
+- uid: Pocos.AXOpen.Core.AxoToggleTask.IsDisabled
+  name: IsDisabled
+  href: api/Pocos.AXOpen.Core.AxoToggleTask.html#Pocos_AXOpen_Core_AxoToggleTask_IsDisabled
+  commentId: P:Pocos.AXOpen.Core.AxoToggleTask.IsDisabled
+  fullName: Pocos.AXOpen.Core.AxoToggleTask.IsDisabled
+  nameWithType: AxoToggleTask.IsDisabled
+- uid: Pocos.AXOpen.Core.AxoToggleTask.IsDisabled*
+  name: IsDisabled
+  href: api/Pocos.AXOpen.Core.AxoToggleTask.html#Pocos_AXOpen_Core_AxoToggleTask_IsDisabled_
+  commentId: Overload:Pocos.AXOpen.Core.AxoToggleTask.IsDisabled
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Core.AxoToggleTask.IsDisabled
+  nameWithType: AxoToggleTask.IsDisabled
+- uid: Pocos.AXOpen.Core.AxoToggleTask.RemoteToggle
+  name: RemoteToggle
+  href: api/Pocos.AXOpen.Core.AxoToggleTask.html#Pocos_AXOpen_Core_AxoToggleTask_RemoteToggle
+  commentId: P:Pocos.AXOpen.Core.AxoToggleTask.RemoteToggle
+  fullName: Pocos.AXOpen.Core.AxoToggleTask.RemoteToggle
+  nameWithType: AxoToggleTask.RemoteToggle
+- uid: Pocos.AXOpen.Core.AxoToggleTask.RemoteToggle*
+  name: RemoteToggle
+  href: api/Pocos.AXOpen.Core.AxoToggleTask.html#Pocos_AXOpen_Core_AxoToggleTask_RemoteToggle_
+  commentId: Overload:Pocos.AXOpen.Core.AxoToggleTask.RemoteToggle
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Core.AxoToggleTask.RemoteToggle
+  nameWithType: AxoToggleTask.RemoteToggle
+- uid: Pocos.AXOpen.Core.AxoToggleTask.State
+  name: State
+  href: api/Pocos.AXOpen.Core.AxoToggleTask.html#Pocos_AXOpen_Core_AxoToggleTask_State
+  commentId: P:Pocos.AXOpen.Core.AxoToggleTask.State
+  fullName: Pocos.AXOpen.Core.AxoToggleTask.State
+  nameWithType: AxoToggleTask.State
+- uid: Pocos.AXOpen.Core.AxoToggleTask.State*
+  name: State
+  href: api/Pocos.AXOpen.Core.AxoToggleTask.html#Pocos_AXOpen_Core_AxoToggleTask_State_
+  commentId: Overload:Pocos.AXOpen.Core.AxoToggleTask.State
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Core.AxoToggleTask.State
+  nameWithType: AxoToggleTask.State
 - uid: Pocos.AXOpen.Core.IAxoComponent
   name: IAxoComponent
   href: api/Pocos.AXOpen.Core.IAxoComponent.html
@@ -5588,6 +6494,12 @@ references:
   commentId: T:Pocos.AXOpen.Core.IAxoManuallyControllable
   fullName: Pocos.AXOpen.Core.IAxoManuallyControllable
   nameWithType: IAxoManuallyControllable
+- uid: Pocos.AXOpen.Core.IAxoMomentaryTask
+  name: IAxoMomentaryTask
+  href: api/Pocos.AXOpen.Core.IAxoMomentaryTask.html
+  commentId: T:Pocos.AXOpen.Core.IAxoMomentaryTask
+  fullName: Pocos.AXOpen.Core.IAxoMomentaryTask
+  nameWithType: IAxoMomentaryTask
 - uid: Pocos.AXOpen.Core.IAxoObject
   name: IAxoObject
   href: api/Pocos.AXOpen.Core.IAxoObject.html
@@ -5612,3 +6524,9 @@ references:
   commentId: T:Pocos.AXOpen.Core.IAxoTaskState
   fullName: Pocos.AXOpen.Core.IAxoTaskState
   nameWithType: IAxoTaskState
+- uid: Pocos.AXOpen.Core.IAxoToggleTask
+  name: IAxoToggleTask
+  href: api/Pocos.AXOpen.Core.IAxoToggleTask.html
+  commentId: T:Pocos.AXOpen.Core.IAxoToggleTask
+  fullName: Pocos.AXOpen.Core.IAxoToggleTask
+  nameWithType: IAxoToggleTask

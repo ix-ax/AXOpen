@@ -90,7 +90,8 @@
     <div class="level1"><span class="xref">Microsoft.AspNetCore.Components.ComponentBase</span></div>
     <div class="level2"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase</span></div>
     <div class="level3"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;T&gt;</span>&lt;<a class="xref" href="AXOpen.Core.AxoSequencer.html">AxoSequencer</a>&gt;</div>
-    <div class="level4"><span class="xref">AxoSequencerStatusView</span></div>
+    <div class="level4"><a class="xref" href="AXOpen.Core.AxoSequencerView.html">AxoSequencerView</a></div>
+    <div class="level5"><span class="xref">AxoSequencerStatusView</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -102,6 +103,30 @@
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_Steps">AxoSequencerView.Steps</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_IsControllable">AxoSequencerView.IsControllable</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasTaskControlButton">AxoSequencerView.HasTaskControlButton</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasSettings">AxoSequencerView.HasSettings</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasStepControls">AxoSequencerView.HasStepControls</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_HasStepDetails">AxoSequencerView.HasStepDetails</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_OnInitialized">AxoSequencerView.OnInitialized()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoSequencerView.html#AXOpen_Core_AxoSequencerView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_">AxoSequencerView.BuildRenderTree(RenderTreeBuilder)</a>
+    </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;AXOpen.Core.AxoSequencer&gt;.Component</span>
     </div>
@@ -131,9 +156,6 @@
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HasFocus</span>
-    </div>
-    <div>
-      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnInitialized()</span>
     </div>
     <div>
       <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync()</span>
@@ -191,44 +213,25 @@
   <h6><strong>Assembly</strong>: axopen_core_blazor.dll</h6>
   <h5 id="AXOpen_Core_AxoSequencerStatusView_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoSequencerStatusView : RenderableComplexComponentBase&lt;AxoSequencer&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoSequencerStatusView : AxoSequencerView, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase</code></pre>
   </div>
-  <h3 id="methods">Methods
+  <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerStatusView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerStatusView__ctor.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerStatusView.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoCoordination_AxoSequencer_AxoSequencerStatusView_razor.g.cs/#L29">View Source</a>
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L39">View Source</a>
   </span>
-  <a id="AXOpen_Core_AxoSequencerStatusView_BuildRenderTree_" data-uid="AXOpen.Core.AxoSequencerStatusView.BuildRenderTree*"></a>
-  <h4 id="AXOpen_Core_AxoSequencerStatusView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_" data-uid="AXOpen.Core.AxoSequencerStatusView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)">BuildRenderTree(RenderTreeBuilder)</h4>
+  <a id="AXOpen_Core_AxoSequencerStatusView__ctor_" data-uid="AXOpen.Core.AxoSequencerStatusView.#ctor*"></a>
+  <h4 id="AXOpen_Core_AxoSequencerStatusView__ctor" data-uid="AXOpen.Core.AxoSequencerStatusView.#ctor">AxoSequencerStatusView()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void BuildRenderTree(RenderTreeBuilder __builder)</code></pre>
+    <pre><code class="lang-csharp hljs">public AxoSequencerStatusView()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder</span></td>
-        <td><span class="parametername">__builder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)</span></div>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">Microsoft.AspNetCore.Components.IComponent</span>
@@ -256,7 +259,7 @@
                     <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerStatusView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerStatusView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoCoordination_AxoSequencer_AxoSequencerStatusView_razor.g.cs/#L26" class="contribution-link">View Source</a>
+                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L37" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

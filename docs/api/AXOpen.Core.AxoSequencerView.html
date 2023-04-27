@@ -91,6 +91,8 @@
     <div class="level2"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase</span></div>
     <div class="level3"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;T&gt;</span>&lt;<a class="xref" href="AXOpen.Core.AxoSequencer.html">AxoSequencer</a>&gt;</div>
     <div class="level4"><span class="xref">AxoSequencerView</span></div>
+      <div class="level5"><a class="xref" href="AXOpen.Core.AxoSequencerCommandView.html">AxoSequencerCommandView</a></div>
+      <div class="level5"><a class="xref" href="AXOpen.Core.AxoSequencerStatusView.html">AxoSequencerStatusView</a></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -99,7 +101,6 @@
     <div><span class="xref">Microsoft.AspNetCore.Components.IHandleAfterRender</span></div>
     <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent</span></div>
     <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span></div>
-    <div><span class="xref">System.IDisposable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -189,16 +190,140 @@
   <h6><strong>Assembly</strong>: axopen_core_blazor.dll</h6>
   <h5 id="AXOpen_Core_AxoSequencerView_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoSequencerView : RenderableComplexComponentBase&lt;AxoSequencer&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoSequencerView : RenderableComplexComponentBase&lt;AxoSequencer&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerView_HasSettings.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView.HasSettings%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L16">View Source</a>
+  </span>
+  <a id="AXOpen_Core_AxoSequencerView_HasSettings_" data-uid="AXOpen.Core.AxoSequencerView.HasSettings*"></a>
+  <h4 id="AXOpen_Core_AxoSequencerView_HasSettings" data-uid="AXOpen.Core.AxoSequencerView.HasSettings">HasSettings</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public bool HasSettings { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerView_HasStepControls.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView.HasStepControls%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L18">View Source</a>
+  </span>
+  <a id="AXOpen_Core_AxoSequencerView_HasStepControls_" data-uid="AXOpen.Core.AxoSequencerView.HasStepControls*"></a>
+  <h4 id="AXOpen_Core_AxoSequencerView_HasStepControls" data-uid="AXOpen.Core.AxoSequencerView.HasStepControls">HasStepControls</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public bool HasStepControls { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerView_HasStepDetails.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView.HasStepDetails%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L20">View Source</a>
+  </span>
+  <a id="AXOpen_Core_AxoSequencerView_HasStepDetails_" data-uid="AXOpen.Core.AxoSequencerView.HasStepDetails*"></a>
+  <h4 id="AXOpen_Core_AxoSequencerView_HasStepDetails" data-uid="AXOpen.Core.AxoSequencerView.HasStepDetails">HasStepDetails</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public bool HasStepDetails { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerView_HasTaskControlButton.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView.HasTaskControlButton%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L14">View Source</a>
+  </span>
+  <a id="AXOpen_Core_AxoSequencerView_HasTaskControlButton_" data-uid="AXOpen.Core.AxoSequencerView.HasTaskControlButton*"></a>
+  <h4 id="AXOpen_Core_AxoSequencerView_HasTaskControlButton" data-uid="AXOpen.Core.AxoSequencerView.HasTaskControlButton">HasTaskControlButton</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public bool HasTaskControlButton { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerView_IsControllable.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView.IsControllable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L10">View Source</a>
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L12">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoSequencerView_IsControllable_" data-uid="AXOpen.Core.AxoSequencerView.IsControllable*"></a>
   <h4 id="AXOpen_Core_AxoSequencerView_IsControllable" data-uid="AXOpen.Core.AxoSequencerView.IsControllable">IsControllable</h4>
@@ -220,6 +345,36 @@ public bool IsControllable { get; set; }</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerView_Steps.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView.Steps%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L10">View Source</a>
+  </span>
+  <a id="AXOpen_Core_AxoSequencerView_Steps_" data-uid="AXOpen.Core.AxoSequencerView.Steps*"></a>
+  <h4 id="AXOpen_Core_AxoSequencerView_Steps" data-uid="AXOpen.Core.AxoSequencerView.Steps">Steps</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;AxoStep?&gt; Steps { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<a class="xref" href="AXOpen.Core.AxoStep.html">AxoStep</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -262,25 +417,10 @@ public bool IsControllable { get; set; }</code></pre>
   <div><span class="xref">Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerView_Dispose.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView.Dispose%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L27">View Source</a>
-  </span>
-  <a id="AXOpen_Core_AxoSequencerView_Dispose_" data-uid="AXOpen.Core.AxoSequencerView.Dispose*"></a>
-  <h4 id="AXOpen_Core_AxoSequencerView_Dispose" data-uid="AXOpen.Core.AxoSequencerView.Dispose">Dispose()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoSequencerView_OnInitialized.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView.OnInitialized%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L23">View Source</a>
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L22">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoSequencerView_OnInitialized_" data-uid="AXOpen.Core.AxoSequencerView.OnInitialized*"></a>
   <h4 id="AXOpen_Core_AxoSequencerView_OnInitialized" data-uid="AXOpen.Core.AxoSequencerView.OnInitialized">OnInitialized()</h4>
@@ -307,9 +447,6 @@ public bool IsControllable { get; set; }</code></pre>
   </div>
   <div>
       <span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span>
-  </div>
-  <div>
-      <span class="xref">System.IDisposable</span>
   </div>
 </article>
           </div>

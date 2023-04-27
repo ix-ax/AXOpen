@@ -91,6 +91,8 @@
     <div class="level2"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase</span></div>
     <div class="level3"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;T&gt;</span>&lt;<a class="xref" href="AXOpen.Core.AxoTask.html">AxoTask</a>&gt;</div>
     <div class="level4"><span class="xref">AxoTaskView</span></div>
+      <div class="level5"><a class="xref" href="AXOpen.Core.AxoTaskCommandView.html">AxoTaskCommandView</a></div>
+      <div class="level5"><a class="xref" href="AXOpen.Core.AxoTaskStatusView.html">AxoTaskStatusView</a></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -206,8 +208,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Parameter]
-public string Description { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Description { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -226,10 +227,41 @@ public string Description { get; set; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskView_Disable.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskView.Disable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L56">View Source</a>
+  </span>
+  <a id="AXOpen_Core_AxoTaskView_Disable_" data-uid="AXOpen.Core.AxoTaskView.Disable*"></a>
+  <h4 id="AXOpen_Core_AxoTaskView_Disable" data-uid="AXOpen.Core.AxoTaskView.Disable">Disable</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Parameter]
+public bool Disable { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskView_HideRestoreButton.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskView.HideRestoreButton%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L81">View Source</a>
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L59">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTaskView_HideRestoreButton_" data-uid="AXOpen.Core.AxoTaskView.HideRestoreButton*"></a>
   <h4 id="AXOpen_Core_AxoTaskView_HideRestoreButton" data-uid="AXOpen.Core.AxoTaskView.HideRestoreButton">HideRestoreButton</h4>
@@ -260,7 +292,7 @@ public bool HideRestoreButton { get; set; }</code></pre>
     <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskView_IsDisabled.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskView.IsDisabled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L61">View Source</a>
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L62">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTaskView_IsDisabled_" data-uid="AXOpen.Core.AxoTaskView.IsDisabled*"></a>
   <h4 id="AXOpen_Core_AxoTaskView_IsDisabled" data-uid="AXOpen.Core.AxoTaskView.IsDisabled">IsDisabled</h4>
@@ -268,8 +300,7 @@ public bool HideRestoreButton { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Parameter]
-public bool IsDisabled { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsDisabled { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -327,7 +358,7 @@ public bool IsDisabled { get; set; }</code></pre>
     <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskView_Dispose.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskView.Dispose%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L55">View Source</a>
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L51">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTaskView_Dispose_" data-uid="AXOpen.Core.AxoTaskView.Dispose*"></a>
   <h4 id="AXOpen_Core_AxoTaskView_Dispose" data-uid="AXOpen.Core.AxoTaskView.Dispose">Dispose()</h4>
@@ -342,7 +373,7 @@ public bool IsDisabled { get; set; }</code></pre>
     <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoTaskView_OnInitialized.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTaskView.OnInitialized%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L48">View Source</a>
+    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoTask/AxoTaskView.razor.cs/#L45">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTaskView_OnInitialized_" data-uid="AXOpen.Core.AxoTaskView.OnInitialized*"></a>
   <h4 id="AXOpen_Core_AxoTaskView_OnInitialized" data-uid="AXOpen.Core.AxoTaskView.OnInitialized">OnInitialized()</h4>
