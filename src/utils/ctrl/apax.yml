@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.utils"
-version                                                                                                                                                                             : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.202'
+version                                                                                                                                                                              : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.205'
 type: lib
 targets:
   #  - "1500"
