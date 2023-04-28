@@ -156,7 +156,7 @@ END_CLASS
 <p><strong>AxoTask initialization within a AxoContext</strong></p>
 <pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
-        {#ix-set:AttributeName = &quot;Task name&quot;}
+        {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
         _myCounter : ULINT;
     END_VAR
@@ -250,7 +250,7 @@ END_CLASS
 <p>Example of using AxoTask:</p>
 <pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
-        {#ix-set:AttributeName = &quot;Task name&quot;}
+        {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
         _myCounter : ULINT;
     END_VAR
@@ -365,13 +365,13 @@ END_CLASS
 <p><strong>How to visualize <code>AxoTask</code></strong></p>
 <p>On the UI side there are several possibilities how to visualize the <code>AxoTask</code>.
 You use the <code>AxoTaskView</code> and set its Component according the placement of the instance of the <code>AxoTask</code>.
-Based on the value of <code>Disable</code> the control element clod be controllable:</p>
+Based on the value of <code>Disable</code> the control element could be controllable:</p>
 <pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
 <p>or display only:</p>
 <pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
-<p>The next posssibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoTask</code>.
+<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoTask</code>.
 Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
 <pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
@@ -381,13 +381,13 @@ Again as before the element could be controlable when the value of the <code>Pre
 <p>The displayed result should looks like:</p>
 <p><img src="../../images/AxoTaskExampleVisu.gif" alt="Alt text"></p>
 <h1 id="axotoggletask">AxoToggleTask</h1>
-<p>AxoToggleTask provides basic switching on and of functions. AxoToggleTask needs to be initialized to set the proper AxoContext.</p>
+<p>AxoToggleTask provides basic switching on and off functions. AxoToggleTask needs to be initialized to set the proper AxoContext.</p>
 <p><strong>AxoToggleTask initialization within a AxoContext</strong></p>
 <pre><code class="lang-smalltalk">CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
-        {#ix-set:AttributeName = &quot;Toggle task example&quot;}
-        {#ix-set:AttributeStateOnDesc = &quot;SwitchedOn&quot;}
-        {#ix-set:AttributeStateOffDesc = &quot;SwitchedOff&quot;}
+        {#ix-set:AttributeName = &quot;&lt;#Toggle task example#&gt;&quot;}
+        {#ix-set:AttributeStateOnDesc = &quot;&lt;#SwitchedOn#&gt;&quot;}
+        {#ix-set:AttributeStateOffDesc = &quot;&lt;#SwitchedOff#&gt;&quot;}
         _myToggleTask : AxoToggleTask;
         _myCounter : ULINT;
     END_VAR
@@ -480,13 +480,13 @@ END_CLASS
 <p><strong>How to visualize <code>AxoToggleTask</code></strong></p>
 <p>On the UI side there are several possibilities how to visualize the <code>AxoToggleTask</code>.
 You use the <code>AxoToggleTaskView</code> and set its Component according the placement of the instance of the <code>AxoToggleTask</code>.
-Based on the value of <code>Disable</code> the control element clod be controllable:</p>
+Based on the value of <code>Disable</code> the control element could be controllable:</p>
 <pre><code class="lang-csharp">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
 <p>or display only:</p>
 <pre><code class="lang-csharp">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
-<p>The next posssibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoToggleTask</code>.
+<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoToggleTask</code>.
 Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
 <pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
@@ -495,7 +495,99 @@ Again as before the element could be controlable when the value of the <code>Pre
 </code></pre>
 <p>The displayed result should looks like:</p>
 <p><img src="../../images/AxoToggleTaskExampleVisu.gif" alt="Alt text"></p>
-[!include[AxoMomentaryTask](AXOMOMENTARYTASK.md)]<h1 id="axoremotetask">AxoRemoteTask</h1>
+<h1 id="axomomentarytask">AxoMomentaryTask</h1>
+<p>AxoMomentaryTask provides basic  momentary function. It is mainly designed for some manual operations from the UI side. AxoMomentaryTask needs to be initialized to set the proper AxoContext.</p>
+<p><strong>AxoMomentaryTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk">CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;&lt;#Momentary task example#&gt;&quot;}
+        {#ix-set:AttributeStateOnDesc = &quot;&lt;#Currently On#&gt;&quot;}
+        {#ix-set:AttributeStateOffDesc = &quot;&lt;#Currently Off#&gt;&quot;}
+        _myMomentaryTask : AxoMomentaryTask;
+    END_VAR
+
+    METHOD PUBLIC Initialize
+        // Initialization of the context needs to be called first
+        // It does not need to be called cyclically, just once
+        _myMomentaryTask.Initialize(THIS);
+    END_METHOD
+END_CLASS  
+</code></pre>
+<p>To check the state of the task there are two methods:</p>
+<ul>
+<li><code>IsSwitchOn()</code> - returns <code>TRUE</code> if the state of the task is <code>TRUE</code>.</li>
+<li><code>IsSwitchOff()</code> - returns <code>TRUE</code> if the state of the task is <code>FALSE</code>.</li>
+</ul>
+<p>Example of using <code>IsSwitchOn()</code> method:</p>
+<pre><code class="lang-smalltalk">IF _myMomentaryTask.IsSwitchedOn() THEN
+    ; // do something 
+END_IF;
+</code></pre>
+<p>Example of using <code>IsSwitchOff()</code> method:</p>
+<pre><code class="lang-smalltalk">IF _myMomentaryTask.IsSwitchedOff() THEN
+    ; // do something 
+END_IF;
+</code></pre>
+<p>Moreover, there are five more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
+<p>To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the <code>AxoMomentaryTask</code> needs to be created. The required method with <code>PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
+These methods are:</p>
+<ul>
+<li><code>OnSwitchedOn()</code> - executes once when the task changes its state from <code>FALSE</code> to <code>TRUE</code>.</li>
+<li><code>OnSwitchedOff()</code> - executes once when the task changes its state from <code>TRUE</code> to <code>FALSE</code>.</li>
+<li><code>OnStateChanged()</code> - executes once when the task changes its state.</li>
+<li><code>SwitchedOn()</code> - executes repeatedly while the task is in <code>TRUE</code> state.</li>
+<li><code>SwitchedOff()</code> - executes repeatedly while the task is in <code>FALSE</code> state.</li>
+</ul>
+<p>Example of implementing &quot;event-like&quot; methods:</p>
+<pre><code class="lang-smalltalk">CLASS MyMomentaryTaskExample Extends AxoMomentaryTask
+    VAR
+        OnSwitchedOnCounter : ULINT;
+        OnSwitchedOffCounter : ULINT;
+        OnStateChangedCounter : ULINT;
+        SwitchOnExecutionCounter : ULINT;
+        SwitchOffExecutionCounter : ULINT;
+    END_VAR
+
+    METHOD PROTECTED OVERRIDE OnSwitchedOn 
+        OnSwitchedOnCounter := OnSwitchedOnCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE OnSwitchedOff 
+        OnSwitchedOffCounter := OnSwitchedOffCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE OnStateChanged 
+        OnStateChangedCounter := OnStateChangedCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE SwitchedOn 
+        SwitchOnExecutionCounter := SwitchOnExecutionCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE SwitchedOff 
+        SwitchOffExecutionCounter := SwitchOffExecutionCounter + ULINT#1;
+    END_METHOD
+END_CLASS
+</code></pre>
+<p><strong>How to visualize <code>AxoMomentaryTask</code></strong></p>
+<p>On the UI side there are several possibilities how to visualize the <code>AxoMomentaryTask</code>.
+You use the <code>AxoMomentaryTaskView</code> and set its Component according the placement of the instance of the <code>AxoMomentaryTask</code>.
+Based on the value of <code>Disable</code> the control element could be controllable:</p>
+<pre><code class="lang-csharp">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;false&quot; /&gt;
+</code></pre>
+<p>or display only:</p>
+<pre><code class="lang-csharp">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;true&quot; /&gt;
+</code></pre>
+<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoMomentaryTask</code>.
+Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Command&quot; /&gt;
+</code></pre>
+<p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Status&quot; /&gt;
+</code></pre>
+<p>The displayed result should looks like:</p>
+<p><img src="../../images/AxoMomentaryTaskExampleVisu.gif" alt="Alt text"></p>
+<h1 id="axoremotetask">AxoRemoteTask</h1>
 <p><code>AxoRemoteTask</code> provides task execution, where the execution of the task is deferred to .NET environment. AxoRemoteTask derives from <a href="AXOTASK.html">AxoTask</a>.</p>
 <p><code>AxoRemoteTask</code> needs to be initialized to set the proper AxoContext.</p>
 <div class="IMPORTANT">

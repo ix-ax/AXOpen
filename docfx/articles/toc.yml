@@ -12,7 +12,7 @@
   - name: AxoToggleTask
     href: ~/articles/core/AXOTOGGLETASK.md
   - name: AxoMomentaryTask
-    href: ~/articles/core/AXMOMENTARYTASK.md
+    href: ~/articles/core/AXOMOMENTARYTASK.md
   - name: AxoRemoteTask
     href: ~/articles/core/AXOREMOTETASK.md  
   - name: AxoStep

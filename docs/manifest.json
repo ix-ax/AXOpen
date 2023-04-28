@@ -1393,6 +1393,17 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/core/AXOMOMENTARYTASK.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/core/AXOMOMENTARYTASK.html",
+          "hash": "a7N1Ai+bg6XhBzFC2pTSJyZndsD8LDgFuhbo4JVs4Ok="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/core/AXOOBJECT.md",
       "output": {
         ".html": {
@@ -1441,7 +1452,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOTASK.html",
-          "hash": "kXaSZmitXJ9hSgsOFHv+nY/ZwfYYqZm5OU2OwgbLcoA="
+          "hash": "baL3zVxTlQnT19pEuqUWty+iyLkUFl6Fk7jPljAG9Y4="
         }
       },
       "version": ""
@@ -1452,21 +1463,18 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOTOGGLETASK.html",
-          "hash": "2iI1/pkrEKTvCi9vo8aNJDoLZUjo27qIO9pmXmZVv18="
+          "hash": "IYzNMgQEhh/Sy7Jyt22F8wGYxIHuMgbWc4EN+PYdJhQ="
         }
       },
       "version": ""
     },
     {
-      "log_codes": [
-        "include-not-found"
-      ],
       "type": "Conceptual",
       "source_relative_path": "articles/core/README.md",
       "output": {
         ".html": {
           "relative_path": "articles/core/README.html",
-          "hash": "NfyExOGBYr3iQOrOQbkJXdbt4gWrqYf1aT5m+qvzljM="
+          "hash": "e5Z4hrq8NizXUMyVXO3gPGdS4LONh1hkCI9x9L6rDuY="
         }
       },
       "version": ""
@@ -1505,15 +1513,22 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "VYB7lZ9WjX13U8RHsNMDhTKD7w7KxwYSzVHPqKCTgv4="
+          "hash": "TPyESGsiKoiLLqNwHy4Qc2jXdA7jmrjk+Ma+aKlqN4Q="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/AxoMomentaryTaskExampleVisu.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/AxoMomentaryTaskExampleVisu.gif"
         }
       },
       "version": ""

@@ -4,11 +4,11 @@ NAMESPACE AxoToggleTaskExamples
 
     CLASS Tasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
-            {#ix-set:AttributeName = "Toggle task 1"}
+            {#ix-set:AttributeName = "<#Toggle task 1#>"}
             _toggleTask1 :AxoToggleTask;
-            {#ix-set:AttributeName = "Toggle task 2"}
-            {#ix-set:AttributeStateOnDesc = "SwitchedOn"}
-            {#ix-set:AttributeStateOffDesc = "SwitchedOff"}
+            {#ix-set:AttributeName = "<#Toggle task 2#>"}
+            {#ix-set:AttributeStateOnDesc = "<#SwitchedOn#>"}
+            {#ix-set:AttributeStateOffDesc = "<#SwitchedOff#>"}
             _toggleTask2 :AxoToggleTask;
        END_VAR    
     

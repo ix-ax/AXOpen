@@ -3,8 +3,10 @@ USING AXOpen.Core;
 NAMESPACE AxoMomentaryTaskExamples
     CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
+            {#ix-set:AttributeName = "<#Momentary task example#>"}
+            {#ix-set:AttributeStateOnDesc = "<#Currently On#>"}
+            {#ix-set:AttributeStateOffDesc = "<#Currently Off#>"}
             _myMomentaryTask : AxoMomentaryTask;
-            _myCounter : ULINT;
         END_VAR
 
         METHOD PUBLIC Initialize
@@ -15,6 +17,7 @@ NAMESPACE AxoMomentaryTaskExamples
 
         METHOD PROTECTED OVERRIDE Main
             // Cyclicall call of the Run method
+            _myMomentaryTask.Initialize(THIS);
             _myMomentaryTask.Run();
         END_METHOD
 

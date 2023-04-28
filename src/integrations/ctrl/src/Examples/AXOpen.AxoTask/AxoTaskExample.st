@@ -4,7 +4,7 @@ NAMESPACE AxoTaskExamples
 
     CLASS MyCommandTask EXTENDS AXOpen.Core.AxoTask
         VAR PUBLIC
-        {#ix-set:AttributeName = "Counter"}
+        {#ix-set:AttributeName = "<#Counter#>"}
         _counter : ULINT;
         END_VAR
 

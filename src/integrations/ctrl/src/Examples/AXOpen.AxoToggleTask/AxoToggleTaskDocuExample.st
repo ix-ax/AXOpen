@@ -3,9 +3,9 @@ USING AXOpen.Core;
 NAMESPACE AxoToggleTaskExamples
     CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
-            {#ix-set:AttributeName = "Toggle task example"}
-            {#ix-set:AttributeStateOnDesc = "SwitchedOn"}
-            {#ix-set:AttributeStateOffDesc = "SwitchedOff"}
+            {#ix-set:AttributeName = "<#Toggle task example#>"}
+            {#ix-set:AttributeStateOnDesc = "<#SwitchedOn#>"}
+            {#ix-set:AttributeStateOffDesc = "<#SwitchedOff#>"}
             _myToggleTask : AxoToggleTask;
             _myCounter : ULINT;
         END_VAR

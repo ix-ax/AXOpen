@@ -3,7 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AxoTaskExamples
     CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
-            {#ix-set:AttributeName = "Task name"}
+            {#ix-set:AttributeName = "<#Task name#>"}
             _myTask : AxoTask;
             _myCounter : ULINT;
         END_VAR

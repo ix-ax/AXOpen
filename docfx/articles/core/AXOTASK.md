@@ -136,12 +136,12 @@ Example of implementing "event-like" methods:
 
 On the UI side there are several possibilities how to visualize the `AxoTask`.
 You use the `AxoTaskView` and set its Component according the placement of the instance of the `AxoTask`.
-Based on the value of `Disable` the control element clod be controllable:
+Based on the value of `Disable` the control element could be controllable:
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=AxoTaskViewControlable)]
 or display only:
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=AxoTaskViewDisplayOnly)]
 
-The next posssibility is to use the `RenderableContentControl` and set its Context according the placement of the instance of the `AxoTask`.
+The next possibility is to use the `RenderableContentControl` and set its Context according the placement of the instance of the `AxoTask`.
 Again as before the element could be controlable when the value of the `Presentation` is `Command`:
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=RenderableContentControlCommand)]
 or display only when the value of the `Presentation` is `Status`

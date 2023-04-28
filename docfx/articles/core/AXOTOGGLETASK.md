@@ -1,6 +1,6 @@
 # AxoToggleTask
 
-AxoToggleTask provides basic switching on and of functions. AxoToggleTask needs to be initialized to set the proper AxoContext.
+AxoToggleTask provides basic switching on and off functions. AxoToggleTask needs to be initialized to set the proper AxoContext.
 
 **AxoToggleTask initialization within a AxoContext**
 
@@ -51,12 +51,12 @@ Example of implementing "event-like" methods:
 
 On the UI side there are several possibilities how to visualize the `AxoToggleTask`.
 You use the `AxoToggleTaskView` and set its Component according the placement of the instance of the `AxoToggleTask`.
-Based on the value of `Disable` the control element clod be controllable:
+Based on the value of `Disable` the control element could be controllable:
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=AxoToggleTaskViewControlable)]
 or display only:
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=AxoToggleTaskViewDisplayOnly)]
 
-The next posssibility is to use the `RenderableContentControl` and set its Context according the placement of the instance of the `AxoToggleTask`.
+The next possibility is to use the `RenderableContentControl` and set its Context according the placement of the instance of the `AxoToggleTask`.
 Again as before the element could be controlable when the value of the `Presentation` is `Command`:
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=RenderableContentControlCommand)]
 or display only when the value of the `Presentation` is `Status`

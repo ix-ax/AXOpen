@@ -83,7 +83,7 @@
 <p><strong>AxoTask initialization within a AxoContext</strong></p>
 <pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
-        {#ix-set:AttributeName = &quot;Task name&quot;}
+        {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
         _myCounter : ULINT;
     END_VAR
@@ -177,7 +177,7 @@ END_CLASS
 <p>Example of using AxoTask:</p>
 <pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
-        {#ix-set:AttributeName = &quot;Task name&quot;}
+        {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
         _myCounter : ULINT;
     END_VAR
@@ -292,13 +292,13 @@ END_CLASS
 <p><strong>How to visualize <code>AxoTask</code></strong></p>
 <p>On the UI side there are several possibilities how to visualize the <code>AxoTask</code>.
 You use the <code>AxoTaskView</code> and set its Component according the placement of the instance of the <code>AxoTask</code>.
-Based on the value of <code>Disable</code> the control element clod be controllable:</p>
+Based on the value of <code>Disable</code> the control element could be controllable:</p>
 <pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
 <p>or display only:</p>
 <pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
-<p>The next posssibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoTask</code>.
+<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoTask</code>.
 Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
 <pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
