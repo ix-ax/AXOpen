@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.abstractions"
-version                                                                                                                                                                                          : '0.1.4-add-application-templates-for-integration-testing.190'
+version                                                                                                                                                                                             : '0.1.4-add-application-templates-for-integration-testing.192'
 type: lib
 targets:
   - "1500"

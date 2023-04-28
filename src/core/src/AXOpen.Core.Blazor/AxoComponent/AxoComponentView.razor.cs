@@ -96,6 +96,6 @@ namespace AXOpen.Core
         {
             IsControllable = false;
         }
-    }
+    }   
 }
 

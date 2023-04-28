@@ -1,3 +1,3 @@
-cd .\src\integrations\ctrl\
+cd .\src\integrations\ctrl
 apax fr
 cd ..\..\..\

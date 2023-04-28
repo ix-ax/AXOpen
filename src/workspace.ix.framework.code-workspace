@@ -31,6 +31,10 @@
 		{
 			"name": "abstractions",
 			"path": "abstractions\\ctrl"
+		},
+		{
+			"name": "templates.simple",
+			"path": "templates.simple\\ctrl"
 		}
 	],
 	"settings": {}

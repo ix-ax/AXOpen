@@ -185,9 +185,13 @@ NAMESPACE AXOpen.Core
 
             _openCycleCountInvoke := THIS.GetContext().OpenCycleCount();
 
-            // task task should not be Invoked, if the execute method was not called in this or previous PLC cycle
-            IF Status = eAxoTaskState#Ready AND (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
-                Status := eAxoTaskState#Kicking;
+            // task should not be Invoked, if the execute method was not called in this or previous PLC cycle
+            IF Status = eAxoTaskState#Ready THEN
+                IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
+                    Status := eAxoTaskState#Kicking;
+                ELSE
+                    ; //TODO - raise a message that the Execute() method is not called
+                END_IF;     
             END_IF;     
 
             Invoke := THIS;

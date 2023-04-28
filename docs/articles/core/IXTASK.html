@@ -81,19 +81,10 @@
 
 <p>IxTask provides basic task execution. IxTask needs to be initialized to set the proper IxContext.</p>
 <p><strong>IxTask initialization within a IxContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS IxTaskDocuExample EXTENDS IxContext         
-    VAR PUBLIC
-        _myTask : IxTask;
-        _myCounter : ULINT;
-    END_VAR
-
-    METHOD PUBLIC Initialize
-        // Initialization of the context needs to be called first
-        // It does not need to be called cyclically, just once
-        _myTask.Initialize(THIS);
-    END_METHOD
-END_CLASS  
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>There are two key methods for managing the IxTask:</p>
 <ul>
 <li><code>Invoke()</code> fires the execution of the IxTask (can be called fire&amp;forget or cyclically)</li>
@@ -173,30 +164,15 @@ END_CLASS
     end
 </code></pre>
 <p>Example of using IxTask:</p>
-<pre><code class="lang-smalltalk">CLASS IxTaskDocuExample EXTENDS IxContext         
-    VAR PUBLIC
-        _myTask : IxTask;
-        _myCounter : ULINT;
-    END_VAR
-
-    METHOD PUBLIC Initialize
-        // Initialization of the context needs to be called first
-        // It does not need to be called cyclically, just once
-        _myTask.Initialize(THIS);
-    END_METHOD
-
-    METHOD PROTECTED OVERRIDE Main
-        // Cyclicall call of the Execute
-        IF _myTask.Execute() THEN
-            _myCounter := _myCounter + ULINT#1;
-            _myTask.DoneWhen(_myCounter = ULINT#100);
-        END_IF;
-    END_METHOD
-END_CLASS  
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>The IxTask executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and it does not need cyclical calling.</p>
-<pre><code class="lang-smalltalk">_myTask.Invoke();
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p><code>Invoke()</code> method returns IIxTaskState with the following members:</p>
 <ul>
 <li><code>IsBusy</code> indicates the execution started and is running.</li>
@@ -206,27 +182,25 @@ END_CLASS
 </ul>
 <p>Examples of using:
 Invoking the IxTask and waiting for its completion at the same place.</p>
-<pre><code class="lang-smalltalk">IF _myTask.Invoke().IsDone() THEN
-    ; //Do something
-END_IF;
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>Invoking the IxTask and waiting for its completion at the different places.</p>
-<pre><code class="lang-smalltalk">_myTask.Invoke();
-
-IF _myTask.IsDone() THEN
-    ; //Do something
-END_IF;
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>Checking if the IxTask is executing.</p>
-<pre><code class="lang-smalltalk"> IF _myTask.Invoke().IsBusy() THEN
-    ; //Do something
-END_IF;
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>Check for the IxTask's error state.</p>
-<pre><code class="lang-smalltalk">IF _myTask.Invoke().HasError() THEN
-    ; //Do something
-END_IF;
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>The IxTask can be started only from the <code>Ready</code> state by calling the <code>Invoke()</code> method in the same Context cycle as the <code>Execute()</code> method is called, regardless the order of the methods calls. After IxTask completion, the state of the IxTask will remain in Done, unless:</p>
 <p>1.) IxTask's <code>Restore</code> method is called (IxTask changes it's state to <code>Ready</code> state).</p>
 <p>2.) <code>Invoke</code> method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the <code>Kicking</code> state.</p>
@@ -243,45 +217,10 @@ These methods are:</p>
 <li><code>WhileError()</code> - executes repeatedly while the task is in <code>Error</code> state (and <code>Execute()</code> method is called).</li>
 </ul>
 <p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyTaskExample Extends IxTask
-    VAR
-        OnAbortCounter : ULINT;
-        OnResumeCounter : ULINT;
-        OnDoneCounter : ULINT;
-        OnErrorCounter : ULINT;
-        OnRestoreCounter : ULINT;
-        OnStartCounter : ULINT;
-        WhileErrorCounter : ULINT;
-    END_VAR
-    METHOD PROTECTED OVERRIDE OnAbort 
-        OnAbortCounter := OnAbortCounter + ULINT#1;
-    END_METHOD
-
-    METHOD PROTECTED OVERRIDE OnResume 
-        OnResumeCounter := OnResumeCounter + ULINT#1;
-    END_METHOD
-
-    METHOD PROTECTED OVERRIDE OnDone 
-        OnDoneCounter := OnDoneCounter + ULINT#1;
-    END_METHOD
-
-    METHOD PROTECTED OVERRIDE OnError 
-        OnErrorCounter := OnErrorCounter + ULINT#1;
-    END_METHOD
-
-    METHOD PROTECTED OVERRIDE OnRestore 
-        OnRestoreCounter := OnRestoreCounter + ULINT#1;
-    END_METHOD
-
-    METHOD PROTECTED OVERRIDE OnStart 
-        OnStartCounter := OnStartCounter + ULINT#1;
-    END_METHOD
-
-    METHOD PROTECTED OVERRIDE WhileError 
-        WhileErrorCounter := WhileErrorCounter + ULINT#1;
-    END_METHOD           
-END_CLASS
-</code></pre></article>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div></article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">
@@ -289,7 +228,7 @@ END_CLASS
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/dev/docfx/articles/core/IXTASK.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/articles/core/IXTASK.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

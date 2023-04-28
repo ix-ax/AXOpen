@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.data"
-version                                                                                                                                                                                                                        : '0.1.4-add-application-templates-for-integration-testing.190'
+version                                                                                                                                                                                                                           : '0.1.4-add-application-templates-for-integration-testing.192'
 type: lib
 targets:
 #  - "1500"
@@ -9,7 +9,7 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                                                    : '0.1.4-add-application-templates-for-integration-testing.190'
+  "@ix-ax/axopen.core"                                                                                                                                                                                       : '0.1.4-add-application-templates-for-integration-testing.192'
 devDependencies:
   "@ax/sdk": 3.0.8
 scripts:  

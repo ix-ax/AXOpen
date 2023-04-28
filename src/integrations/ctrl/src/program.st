@@ -9,20 +9,20 @@ PROGRAM MyProgram
         myComponentExample : AxoComponentExamples.ComponentExampleContext;
         myComponentHeaderOnlyExample : AxoComponentExamples.ComponentHeaderOnlyExampleContext;
         AxoRemoteTasks : AxoRemoteTaskExamples.RemoteTasks;
-        
-
-
+        AxoToggleTasks : AxoToggleTaskExamples.Tasks;
+        AxoMomentaryTasks : AxoMomentaryTaskExamples.Tasks;
         // Integration test
         Integrations : IntegrationTests.Integrations;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
     MainContext.Run();
     AxoTasks.Run();
+    AxoToggleTasks.Run();
     AxoSequencers.Run();
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
     AxoRemoteTasks.Run();   
-    
+    AxoMomentaryTasks.Run();
     // Integration tests
     Integrations.Run();      
     

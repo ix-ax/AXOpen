@@ -10,6 +10,6 @@ PROGRAM MyProgram
     Context.Outputs := REF(Outputs);
 
     // Executes the main context of this application.
-    Context.Run();      
+    Context.Run();            
         
 END_PROGRAM

@@ -1,1 +1,1 @@
-dotnet watch --project ..\integration.blazor\integration.blazor.csproj
+dotnet watch --project ..\src\AXOpen.Integrations.Blazor\axopen_integrations_blazor.csproj
