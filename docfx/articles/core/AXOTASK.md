@@ -146,3 +146,7 @@ Again as before the element could be controlable when the value of the `Presenta
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=RenderableContentControlCommand)]
 or display only when the value of the `Presentation` is `Status`
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=RenderableContentControlStatus)]
+
+The displayed result should looks like:
+
+![Alt text](~/images/AxoTaskExampleVisu.gif)

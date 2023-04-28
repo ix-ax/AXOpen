@@ -92,7 +92,10 @@
 
     METHOD PUBLIC Initialize
         // Initialization of the context needs to be called first
-    END_IF;
+        // It does not need to be called cyclically, just once
+        _myToggleTask.Initialize(THIS);
+    END_METHOD
+END_CLASS  
 </code></pre>
 <p>There are three key methods for managing the AxoToggleTask:</p>
 <ul>
@@ -171,7 +174,26 @@ These methods are:</p>
         SwitchOffExecutionCounter := SwitchOffExecutionCounter + ULINT#1;
     END_METHOD
 END_CLASS
-</code></pre></article>
+</code></pre>
+<p><strong>How to visualize <code>AxoToggleTask</code></strong></p>
+<p>On the UI side there are several possibilities how to visualize the <code>AxoToggleTask</code>.
+You use the <code>AxoToggleTaskView</code> and set its Component according the placement of the instance of the <code>AxoToggleTask</code>.
+Based on the value of <code>Disable</code> the control element clod be controllable:</p>
+<pre><code class="lang-csharp">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;false&quot; /&gt;
+</code></pre>
+<p>or display only:</p>
+<pre><code class="lang-csharp">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;true&quot; /&gt;
+</code></pre>
+<p>The next posssibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoToggleTask</code>.
+Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Command&quot; /&gt;
+</code></pre>
+<p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Status&quot; /&gt;
+</code></pre>
+<p>The displayed result should looks like:</p>
+<p><img src="../../images/AxoToggleTaskExampleVisu.gif" alt="Alt text"></p>
+</article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">

@@ -18,6 +18,7 @@ NAMESPACE AxoToggleTaskExamples
 
         METHOD PROTECTED OVERRIDE Main
             // Cyclicall call of the Run method
+            _myToggleTask.Initialize(THIS);
             _myToggleTask.Run();
         END_METHOD
 

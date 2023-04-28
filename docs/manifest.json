@@ -1441,7 +1441,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOTASK.html",
-          "hash": "ieZS58J9w0KLVhTqqKliZYyKnfQiwi6vuZM4sNa0KwE="
+          "hash": "kXaSZmitXJ9hSgsOFHv+nY/ZwfYYqZm5OU2OwgbLcoA="
         }
       },
       "version": ""
@@ -1452,7 +1452,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOTOGGLETASK.html",
-          "hash": "+/OI6q9JTnqTEWPNl3QPC0nQRe9ED6oB1mlFY5ggZeM="
+          "hash": "2iI1/pkrEKTvCi9vo8aNJDoLZUjo27qIO9pmXmZVv18="
         }
       },
       "version": ""
@@ -1466,7 +1466,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/README.html",
-          "hash": "x8Y3r9eMKQWGRU8fTU4GUV8WlcI1z+7g7vJdqTLbcWw="
+          "hash": "NfyExOGBYr3iQOrOQbkJXdbt4gWrqYf1aT5m+qvzljM="
         }
       },
       "version": ""
@@ -1514,6 +1514,26 @@
         ".html": {
           "relative_path": "articles/toc.html",
           "hash": "VYB7lZ9WjX13U8RHsNMDhTKD7w7KxwYSzVHPqKCTgv4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/AxoTaskExampleVisu.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/AxoTaskExampleVisu.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/AxoToggleTaskExampleVisu.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/AxoToggleTaskExampleVisu.gif"
         }
       },
       "version": ""

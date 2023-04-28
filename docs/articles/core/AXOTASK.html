@@ -300,11 +300,14 @@ Based on the value of <code>Disable</code> the control element clod be controlla
 </code></pre>
 <p>The next posssibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoTask</code>.
 Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; Class=&quot;ps-2&quot; /&gt;
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
 <p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Status&quot; Class=&quot;ps-2&quot; /&gt;
-</code></pre></article>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Status&quot;/&gt;
+</code></pre>
+<p>The displayed result should looks like:</p>
+<p><img src="../../images/AxoTaskExampleVisu.gif" alt="Alt text"></p>
+</article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">
