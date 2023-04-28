@@ -3,26 +3,32 @@ USING AXOpen.Core;
 PROGRAM MyProgram
     VAR_EXTERNAL
         MainContext : MyContext;
-        AxoSequencers : AxoSequencerExamples.SequencerExample;
         I_am_alive : ULINT;
+        AxoSequencers : AxoSequencerExamples.SequencerExample;
         AxoTasks : AxoTaskExamples.Tasks;
+        AxoTaskDocu : AxoTaskExamples.AxoTaskDocuExample;
         myComponentExample : AxoComponentExamples.ComponentExampleContext;
         myComponentHeaderOnlyExample : AxoComponentExamples.ComponentHeaderOnlyExampleContext;
         AxoRemoteTasks : AxoRemoteTaskExamples.RemoteTasks;
         AxoToggleTasks : AxoToggleTaskExamples.Tasks;
+        AxoToggleTaskDocu : AxoToggleTaskExamples.AxoToggleTaskDocuExample;
         AxoMomentaryTasks : AxoMomentaryTaskExamples.Tasks;
+        AxoMomentaryTaskDocu : AxoMomentaryTaskExamples.AxoMomentaryTaskDocuExample;
         // Integration test
         Integrations : IntegrationTests.Integrations;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
     MainContext.Run();
     AxoTasks.Run();
+    AxoTaskDocu.Run();
     AxoToggleTasks.Run();
+    AxoToggleTaskDocu.Run();
     AxoSequencers.Run();
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
     AxoRemoteTasks.Run();   
     AxoMomentaryTasks.Run();
+    AxoMomentaryTaskDocu.Run();
     // Integration tests
     Integrations.Run();      
     

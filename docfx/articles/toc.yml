@@ -9,6 +9,10 @@
     href: ~/articles/core/AXOOBJECT.md
   - name: AxoTask
     href: ~/articles/core/AXOTASK.md
+  - name: AxoToggleTask
+    href: ~/articles/core/AXOTOGGLETASK.md
+  - name: AxoMomentaryTask
+    href: ~/articles/core/AXMOMENTARYTASK.md
   - name: AxoRemoteTask
     href: ~/articles/core/AXOREMOTETASK.md  
   - name: AxoStep

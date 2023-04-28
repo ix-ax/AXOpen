@@ -1441,18 +1441,32 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOTASK.html",
-          "hash": "Pgpi+dDQGo51iKQ62+QKzKZV44els70m74ZqbU36c/k="
+          "hash": "ieZS58J9w0KLVhTqqKliZYyKnfQiwi6vuZM4sNa0KwE="
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/core/AXOTOGGLETASK.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/core/AXOTOGGLETASK.html",
+          "hash": "+/OI6q9JTnqTEWPNl3QPC0nQRe9ED6oB1mlFY5ggZeM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "include-not-found"
+      ],
+      "type": "Conceptual",
       "source_relative_path": "articles/core/README.md",
       "output": {
         ".html": {
           "relative_path": "articles/core/README.html",
-          "hash": "1UOear42HjliQfImtTnVGoabfsxCcWslp57mTVbA3us="
+          "hash": "x8Y3r9eMKQWGRU8fTU4GUV8WlcI1z+7g7vJdqTLbcWw="
         }
       },
       "version": ""
@@ -1491,12 +1505,15 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "D/DpWmrsiYU7zbkmTLKy++ZCtDiUy8RNtlF8t4sR80o="
+          "hash": "VYB7lZ9WjX13U8RHsNMDhTKD7w7KxwYSzVHPqKCTgv4="
         }
       },
       "version": ""

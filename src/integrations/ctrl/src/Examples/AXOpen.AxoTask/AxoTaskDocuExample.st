@@ -3,6 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AxoTaskExamples
     CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
+            {#ix-set:AttributeName = "Task name"}
             _myTask : AxoTask;
             _myCounter : ULINT;
         END_VAR
@@ -14,10 +15,14 @@ NAMESPACE AxoTaskExamples
         END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
+            _myTask.Initialize(THIS);
             // Cyclicall call of the Execute
             IF _myTask.Execute() THEN
                 _myCounter := _myCounter + ULINT#1;
                 _myTask.DoneWhen(_myCounter = ULINT#100);
+            END_IF;
+            IF _myTask.IsDone() THEN
+                _myCounter := ULINT#0;
             END_IF;
         END_METHOD
 

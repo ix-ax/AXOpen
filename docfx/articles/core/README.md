@@ -7,6 +7,8 @@
 [!INCLUDE [AxoContext](AXOCONTEXT.md)]
 [!INCLUDE [AxoObject](AXOOBJECT.md)]
 [!INCLUDE [AxoTask](AXOTASK.md)]
+[!INCLUDE [AxoToggleTask](AXOTOGGLETASK.md)]
+[!INCLUDE [AxoMomentaryTask](AXOMOMENTARYTASK.md)]
 [!INCLUDE [AxoRemote Task](AXOREMOTETASK.md)]
 [!INCLUDE [AxoStep](AXOSTEP.md)]
 [!INCLUDE [AxoSequencer](AXOSEQUENCER.md)]

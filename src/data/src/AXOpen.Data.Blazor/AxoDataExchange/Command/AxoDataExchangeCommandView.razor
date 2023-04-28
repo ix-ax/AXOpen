@@ -2,8 +2,6 @@
 @inherits RenderableViewModelComponentBase<AxoDataExchangeCommandViewModel>
 
 <AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDataView="false" CanExport="true">
-    @*    <AXOpen.Core.AxoDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" Clickable="false" />*@
-    @*    <AXOpen.Core.AxoDataExchange.ColumnData BindingValue="String1" />*@
     <AXOpen.Data.Blazor.AxoDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" Clickable="false" />
     <AXOpen.Data.Blazor.AxoDataExchange.ColumnData BindingValue="String1" />
 </AxoDataView>

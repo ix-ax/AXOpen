@@ -1,61 +1,41 @@
 USING AXOpen.Core;
 
-NAMESPACE AxoToggleTaskExamples
-    CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+NAMESPACE AxoMomentaryTaskExamples
+    CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
-            {#ix-set:AttributeName = "Toggle task example"}
-            {#ix-set:AttributeStateOnDesc = "SwitchedOn"}
-            {#ix-set:AttributeStateOffDesc = "SwitchedOff"}
-            _myToggleTask : AxoToggleTask;
+            _myMomentaryTask : AxoMomentaryTask;
             _myCounter : ULINT;
         END_VAR
 
         METHOD PUBLIC Initialize
             // Initialization of the context needs to be called first
             // It does not need to be called cyclically, just once
-            _myToggleTask.Initialize(THIS);
+            _myMomentaryTask.Initialize(THIS);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
             // Cyclicall call of the Run method
-            _myToggleTask.Run();
+            _myMomentaryTask.Run();
         END_METHOD
 
         METHOD Examples
-        //<AxoToggleTaskSwitchOn>
-        IF _myToggleTask.SwitchOn() THEN
-            ; // do something on rising edge
-        END_IF;
-        //</AxoToggleTaskSwitchOn>
 
-        //<AxoToggleTaskSwitchOff>
-        IF _myToggleTask.SwitchOff()THEN
-            ; // do something on falling edge
-        END_IF;
-        //</AxoToggleTaskSwitchOff>
-
-        //<AxoToggleTaskToggle>
-        IF _myToggleTask.Toggle()THEN
-            ; // do something on state change
-        END_IF;
-        //</AxoToggleTaskToggle>
-
-        //<AxoToggleTaskIsSwitchedOn>
-        IF _myToggleTask.IsSwitchedOn() THEN
+        //<AxoMomentaryTaskIsSwitchedOn>
+        IF _myMomentaryTask.IsSwitchedOn() THEN
             ; // do something 
         END_IF;
-        //</AxoToggleTaskIsSwitchedOn>
+        //</AxoMomentaryTaskIsSwitchedOn>
 
-        //<AxoToggleTaskIsSwitchedOff>
-        IF _myToggleTask.IsSwitchedOff() THEN
+        //<AxoMomentaryTaskIsSwitchedOff>
+        IF _myMomentaryTask.IsSwitchedOff() THEN
             ; // do something 
         END_IF;
-        //</AxoToggleTaskIsSwitchedOff>
+        //</AxoMomentaryTaskIsSwitchedOff>
         END_METHOD
     END_CLASS  
 
-    //<AxoToggleTaskEventLikeMethods>
-    CLASS MyToogleTaskExample Extends AxoToggleTask
+    //<AxoMomentaryTaskEventLikeMethods>
+    CLASS MyMomentaryTaskExample Extends AxoMomentaryTask
         VAR
             OnSwitchedOnCounter : ULINT;
             OnSwitchedOffCounter : ULINT;
@@ -84,5 +64,5 @@ NAMESPACE AxoToggleTaskExamples
             SwitchOffExecutionCounter := SwitchOffExecutionCounter + ULINT#1;
         END_METHOD
     END_CLASS
-    //</AxoToggleTaskEventLikeMethods>
+    //</AxoMomentaryTaskEventLikeMethods>
 END_NAMESPACE

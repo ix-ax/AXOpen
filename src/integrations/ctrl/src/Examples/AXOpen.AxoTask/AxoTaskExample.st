@@ -27,7 +27,7 @@ NAMESPACE AxoTaskExamples
             IF(_commandTask.Execute()) THEN        
                 _commandTask._counter := _commandTask._counter + ULINT#1;        
                 IF (_commandTask._counter MOD ULINT#250) = ULINT#0 THEN
-                    if(_commandEndsInFailure) THEN
+                    IF(_commandEndsInFailure) THEN
                         _commandTask.ThrowWhen(TRUE);    
                     ELSE                            
                         _commandTask.DoneWhen(TRUE);
