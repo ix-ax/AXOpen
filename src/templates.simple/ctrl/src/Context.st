@@ -14,7 +14,7 @@ NAMESPACE axosimple
         METHOD PROTECTED OVERRIDE Main
             
             ProductionSettings.Run(THIS);
-
+            
             IF(Inputs <> NULL AND Outputs <> NULL) THEN                
                 PneumaticManipulator.Run(THIS, Inputs^, Outputs^);               
             END_IF;    
@@ -24,14 +24,9 @@ NAMESPACE axosimple
     CLASS ProductionSettingsHandler EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
-            _data : ProductionSettings;
+            PneumaticManipulator : examples.PneumaticManipulator.ProcessData;
         END_VAR        
     END_CLASS
-
-    CLASS ProductionSettings EXTENDS AXOpen.Data.AxoDataEntity
-        VAR PUBLIC
-            StepDelay : TIME;
-        END_VAR        
-    END_CLASS
+  
 END_NAMESPACE
 

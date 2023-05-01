@@ -73,7 +73,7 @@ namespace AXOpen.Data.RavenDb
             {
                 T entity = session.Query<T>().SingleOrDefault(x => x.DataEntityId == identifier);
                 if (entity != null)
-                    throw new DuplicateIdException($"Record with ID {identifier} already exists in this collection.", null);
+                    throw new DuplicateIdException($"Record with ID '{identifier}' already exists in this collection.", null);
 
                 session.Store(data, identifier);
                 session.Advanced.WaitForIndexesAfterSaveChanges();

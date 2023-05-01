@@ -1,4 +1,6 @@
 USING AXOpen.Core;
+USING System.Strings;
+
 NAMESPACE examples.PneumaticManipulator
    ///<summary>
    /// Groups components of this controller unit.
@@ -29,14 +31,14 @@ NAMESPACE examples.PneumaticManipulator
 
    CLASS ProcessData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
-            CounterDelay : INT;
+            CounterDelay : ULINT;
         END_VAR    
     END_CLASS 
 
    CLASS ProcessDataManger EXTENDS AXOpen.Data.AxoDataExchange
        VAR PUBLIC
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
-           _data : ProcessData;
+           Set : ProcessData;
        END_VAR       
    END_CLASS
 
@@ -50,7 +52,7 @@ NAMESPACE examples.PneumaticManipulator
            ///</summary>
            Components : Components;
 
-           Data : ProcessDataManger; 
+           ProcessData : ProcessDataManger; 
 
            ///<summary>
            /// Ground sequence. Contains logic that brings the unit into initial state.
@@ -95,10 +97,13 @@ NAMESPACE examples.PneumaticManipulator
            END_VAR
 
            // Component I/O immange and management handling.
-           Components.Update(THIS,Inputs, Outputs);
+           Components.Update(THIS,Inputs, Outputs);          
+
+           // Process data manager
+           ProcessData.Run(THIS);
 
            // Handles ground sequence
-           GroundSequence.Run(THIS, Components);
+           GroundSequence.Run(THIS, Components, ProcessData);
 
            // Restores other states when Ground executes
            IF(GroundSequence.IsBusy()) THEN
@@ -107,8 +112,9 @@ NAMESPACE examples.PneumaticManipulator
            END_IF;
 
            // Handles automatic sequence (ground must be previously done)
-           AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
-           AutomatSequence.Run(THIS, Components);
+           AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;           
+           AutomatSequence.Run(THIS, Components, ProcessData);
+           
 
            // Handles service/manual mode
            ServiceMode.Run(THIS, Components);
@@ -116,6 +122,7 @@ NAMESPACE examples.PneumaticManipulator
                GroundSequence.Restore();
                AutomatSequence.Restore();
            END_IF;
+          
        END_METHOD
    END_CLASS
 
@@ -127,7 +134,7 @@ NAMESPACE examples.PneumaticManipulator
        VAR PUBLIC
            Steps : ARRAY[0..150] OF AxoStep;
        END_VAR
-
+       
        ///<summary>
        /// Runs automatic mode sequence. This method must be called cyclically.
        ///</summary>
@@ -137,11 +144,12 @@ NAMESPACE examples.PneumaticManipulator
            END_VAR
            VAR_IN_OUT
                Components : Components;
+               ProcessData : ProcessDataManger;
            END_VAR
-
+               
                // Never remove this!
                THIS.Initialize(parent);
-
+                              
                // This sequecner executes the steps in cycles from top to bottom
                // in the same order they are written in the program
                // Each step in the sequence must can be used only once.
@@ -151,7 +159,7 @@ NAMESPACE examples.PneumaticManipulator
 
                // We need to open sequence by calling Open method.
                THIS.Open();
-
+                              
                // This is more verbose but also more versatile way of executing step logic.
                IF(Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
                    //-------------------------------------------------------
@@ -169,6 +177,15 @@ NAMESPACE examples.PneumaticManipulator
                THIS.AndThen(Steps[6],components.VerticalCylinder.MoveToHome);
                THIS.AndThen(Steps[7],components.HorizontalCylinder.MoveToHome);
                THIS.AndThen(Steps[8],components.GripperCylinder.MoveToHome);
+               ProcessData.Set.CounterDelay :=  THIS.GetContext().OpenCycleCount();              
+
+               IF(Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
+                //-------------------------------------------------------            
+                    IF(ProcessData.Create(ToString(THIS.GetContext().OpenCycleCount())).IsDone()) THEN // <- waits for the task to be done.
+                        THIS.MoveNext(); // <- This will move to the next step in the sequence.
+                    END_IF;
+                //-------------------------------------------------------
+                END_IF;               
                // This will close the sequence and will return to the first step.
                THIS.Close(Steps[150]);
        END_METHOD
@@ -192,6 +209,7 @@ NAMESPACE examples.PneumaticManipulator
            END_VAR
            VAR_IN_OUT
                Components : Components;
+               ProcessData : ProcessDataManger;
            END_VAR
 
            // Never remove this!

@@ -51,7 +51,7 @@ namespace AXOpen.Data.Json
             {
                 if (RecordExists(identifier))
                 {
-                    throw new DuplicateIdException($"Record with ID {identifier} already exists in this collection.", null);
+                    throw new DuplicateIdException($"Record with ID '{identifier}' already exists in this collection.", null);
                 }
 
                 Save(identifier, data);

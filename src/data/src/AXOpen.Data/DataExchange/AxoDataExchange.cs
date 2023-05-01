@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
+using System.Reflection.Metadata.Ecma335;
 using AXOpen.Data;
 using AXSharp.Connector;
 using AXOpen.Base.Data;
@@ -24,33 +26,55 @@ namespace AXOpen.Data
             get { return (ITwinObject)this.Onliner; }
         }
 
+
+        public PropertyInfo? GetDataSetPropertyInfo()
+        {
+            var properties = this.GetType().GetProperties();
+            PropertyInfo? DataPropertyInfo = null;
+
+            // iterate properties and look for AxoDataEntityAttribute
+            foreach (var prop in properties)
+            {
+                var attr = prop.GetCustomAttribute<AxoDataEntityAttribute>();
+                if (attr != null)
+                {
+                    //if already set, that means multiple dataatributtes are present, we want to throw error
+                    if (DataPropertyInfo != null)
+                    {
+                        throw new MultipleDataEntityAttributeException($"{this.GetType().ToString()} contains multiple {nameof(AxoDataEntityAttribute)}s! Make sure it contains only one.");
+                    }
+                    DataPropertyInfo = prop;
+                    break;
+                }
+            }
+
+            if (DataPropertyInfo == null)
+            {
+                throw new Exception($"There is no member annotated with '{nameof(AxoDataEntityAttribute)}' in '{this.Symbol}'.");
+            }
+
+            return DataPropertyInfo;
+        }
+
+        public ICrudDataObject? GetDataSetProperty()
+        {
+            var dataObjectPropertyInfo = this.GetDataSetPropertyInfo();
+            var dataObject = dataObjectPropertyInfo?.GetValue(this) as AXOpen.Data.AxoDataEntity;
+            if (dataObject == null)
+            {
+                throw new Exception($"Data member annotated with '{nameof(AxoDataEntityAttribute)}' in '{this.Symbol}'  does not inherit from '{nameof(AxoDataEntity)}'");
+            }
+
+            return dataObject;
+        }
+
         protected ICrudDataObject Onliner
         {
             get
             {
                 if (this._onliner == null)
                 {
-                    var dataProperty = this.GetType().GetProperties().ToList().Find(p => p.Name == "_data");
-
-                    if (dataProperty == null)
-                    {
-                        dataProperty = this.GetType().GetProperty("_data", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-                    }
-
-                    if (dataProperty != null)
-                    {
-                        var exchangableObject = dataProperty.GetValue(this);
-                        if (!(exchangableObject is AxoDataEntity || exchangableObject is IAxoDataEntity))
-                        {
-                            throw new Exception($"Data exchange member '_data' in {this.Symbol}  must inherit from {nameof(AxoDataEntity)}");
-                        }
-
-                        _onliner = exchangableObject;
-                    }
-                    else
-                    {
-                        throw new Exception($"Data exchange member '_data' is not member of {this.Symbol}. '_data'  must inherit from {nameof(AxoDataEntity)}");
-                    }
+                    this._onliner = GetDataSetProperty();
                 }
 
                 return this._onliner;
