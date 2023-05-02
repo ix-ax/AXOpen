@@ -103,7 +103,8 @@ var storageDir = Path.Combine(Environment.CurrentDirectory, "MyDataExchangeData"
 var repository = AXOpen.Repository.Json.Repository.Factory(new JsonRepositorySettings<MyData>(storageDir));
 ~~~
 
-Note: `MyData` should be type from `Pocos`.
+> [!IMPORTANT]
+> `MyData` should be of type from `Pocos`.
 
 Then we will need to associate the repository with the PLC object and initialize the data exchange operations.
 
@@ -140,11 +141,11 @@ END_IF;
 
 ## Data visualization
 
-With presentation `Command` there are available options for adding, editing and deleting records.
+With `Command` presentation type there are available options for adding, editing and deleting records.
 
 [!Command](~/images/Command.png)
 
-If you use `Status` presentation type, data will be only displayed cannot be manipulated.
+If you use `Status` presentation type, data will be only displayed and cannot be manipulated.
 
 [!Status](~/images/Status.png)
 
@@ -153,10 +154,10 @@ If you use `Status` presentation type, data will be only displayed cannot be man
 There is a possibility to add custom columns if it is needed. You must add `AXOpen.core.IxDataExchange.ColumnData` view as a child in `IxDataView`. The `BindingValue` must be set in `ColumnData` and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:
 
 ~~~
-<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command">
-    <AXOpen.core.IxDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
-    <AXOpen.core.IxDataExchange.ColumnData BindingValue="String1" Clickable="false" />
-</IxDataView>
+<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command">
+    <AXOpen.core.AxoDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
+    <AXOpen.core.AxoDataExchange.ColumnData BindingValue="String1" Clickable="false" />
+</AxoDataView>
 ~~~
 
 [!Custom columns](~/images/CustomColumns.png)
