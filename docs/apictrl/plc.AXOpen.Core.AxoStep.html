@@ -1,0 +1,981 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AxoStep
+ | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AxoStep
+ | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="plc.AXOpen.Core.AxoStep">
+
+
+  <h1 id="plc_AXOpen_Core_AxoStep" data-uid="plc.AXOpen.Core.AxoStep" class="text-break">Class AxoStep
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="plc.AXOpen.Core.AxoTask.html">AxoTask</a></div>
+    <div class="level1"><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+    <div class="level2"><span class="xref">AxoStep</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></div>
+    <div><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_Status">Status</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsDisabled">IsDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_RemoteInvoke">RemoteInvoke</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_RemoteRestore">RemoteRestore</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_RemoteAbort">RemoteAbort</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_RemoteResume">RemoteResume</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_StartSignature">StartSignature</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_ErrorDetails">ErrorDetails</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_GetState__">GetState()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_GetErrorDetails__">GetErrorDetails()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsReady__">IsReady()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsDone__">IsDone()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsBusy__">IsBusy()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsAborted__">IsAborted()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_HasError__">HasError()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsNewInvokeCall__">IsNewInvokeCall()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsInvokeCalledInThisPlcCycle__">IsInvokeCalledInThisPlcCycle()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_WasInvokeCalledInPreviousPlcCycle__">WasInvokeCalledInPreviousPlcCycle()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsNewExecuteCall__">IsNewExecuteCall()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsExecuteCalledInThisPlcCycle__">IsExecuteCalledInThisPlcCycle()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_WasExecuteCalledInPreviousPlcCycle__">WasExecuteCalledInPreviousPlcCycle()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_UpdateState__">UpdateState()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_Invoke__">Invoke()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_Restore__">Restore()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_DoneWhen_BOOL_">DoneWhen(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_Execute__">Execute()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_ThrowWhen_BOOL_">ThrowWhen(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_ThrowWhen_BOOL_STRING_254__">ThrowWhen(BOOL,STRING[254])</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_SetIsDisabled_BOOL_">SetIsDisabled(BOOL)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_GetIsDisabled__">GetIsDisabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_Abort__">Abort()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_Resume__">Resume()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_OnAbort__">OnAbort()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_OnResume__">OnResume()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_OnDone__">OnDone()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_OnError__">OnError()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_OnRestore__">OnRestore()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_OnStart__">OnStart()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_WhileError__">WhileError()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoContext_">Initialize(IAxoContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Environment__">Environment()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="plc.AXOpen.Core.html">plc.AXOpen.Core</a></h6>
+  <h6><strong>Assembly</strong>: @ix-ax/axopen.core.dll</h6>
+  <h5 id="plc_AXOpen_Core_AxoStep_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS AxoStep</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_Order" data-uid="plc.AXOpen.Core.AxoStep.Order">Order</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Order : ULINT</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_StepDescription" data-uid="plc.AXOpen.Core.AxoStep.StepDescription">StepDescription</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StepDescription : STRING[120]</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_IsActive" data-uid="plc.AXOpen.Core.AxoStep.IsActive">IsActive</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IsActive : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_IsEnabled" data-uid="plc.AXOpen.Core.AxoStep.IsEnabled">IsEnabled</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IsEnabled : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep__openCycleCount" data-uid="plc.AXOpen.Core.AxoStep._openCycleCount">_openCycleCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_openCycleCount : ULINT</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep__isCalledJustOnceInThisPlcCycle" data-uid="plc.AXOpen.Core.AxoStep._isCalledJustOnceInThisPlcCycle">_isCalledJustOnceInThisPlcCycle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_isCalledJustOnceInThisPlcCycle : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep__multipleStepCallInThisPlcCycle" data-uid="plc.AXOpen.Core.AxoStep._multipleStepCallInThisPlcCycle">_multipleStepCallInThisPlcCycle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_multipleStepCallInThisPlcCycle : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep__noStepCallInPreviousPlcCycle" data-uid="plc.AXOpen.Core.AxoStep._noStepCallInPreviousPlcCycle">_noStepCallInPreviousPlcCycle</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_noStepCallInPreviousPlcCycle : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_GetStepOrder__" data-uid="plc.AXOpen.Core.AxoStep.GetStepOrder()">GetStepOrder</h4>
+  <div class="markdown level1 summary"><p>Returns the order of the execution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public ULINT GetStepOrder()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ULINT</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_SetStepOrder_IAxoCoordinator_ULINT_" data-uid="plc.AXOpen.Core.AxoStep.SetStepOrder(IAxoCoordinator,ULINT)">SetStepOrder</h4>
+  <div class="markdown level1 summary"><p>Sets the order of the execution, if conditions are met.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID SetStepOrder(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.ULINT StepOrder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></td>
+        <td><span class="parametername">coord</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">ULINT</span></td>
+        <td><span class="parametername">StepOrder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_IsCalledJustOnceInThisPlcCycle__" data-uid="plc.AXOpen.Core.AxoStep.IsCalledJustOnceInThisPlcCycle()">IsCalledJustOnceInThisPlcCycle</h4>
+  <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if the execution of the step is called only once in this PLC cycle.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL IsCalledJustOnceInThisPlcCycle()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_Execute_IAxoCoordinator_" data-uid="plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator)">Execute</h4>
+  <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if instance of <code>THIS</code> step is curently executing</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Execute(in plc.AXOpen.Core.IAxoCoordinator coord)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></td>
+        <td><span class="parametername">coord</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_Execute_IAxoCoordinator_BOOL_" data-uid="plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,BOOL)">Execute</h4>
+  <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if instance of <code>THIS</code> step is curently executing and the step is enabled</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Execute(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.BOOL Enable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></td>
+        <td><span class="parametername">coord</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">Enable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_Execute_IAxoCoordinator_BOOL_STRING_120__" data-uid="plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,BOOL,STRING[120])">Execute</h4>
+  <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if instance of <code>THIS</code> step is curently executing and the step is enabledand sets the description of the step</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Execute(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.BOOL Enable,in plc.STRING[120] Description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></td>
+        <td><span class="parametername">coord</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">Enable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">STRING[120]</span></td>
+        <td><span class="parametername">Description</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_Execute_IAxoCoordinator_STRING_120__" data-uid="plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,STRING[120])">Execute</h4>
+  <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if instance of <code>THIS</code> step is curently executingand sets the description of the step</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Execute(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.STRING[120] Description)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></td>
+        <td><span class="parametername">coord</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">STRING[120]</span></td>
+        <td><span class="parametername">Description</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_CountCallsOfTheExecuteMethod__" data-uid="plc.AXOpen.Core.AxoStep.CountCallsOfTheExecuteMethod()">CountCallsOfTheExecuteMethod</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID CountCallsOfTheExecuteMethod()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_ExecuteInternal_IAxoCoordinator_BOOL_" data-uid="plc.AXOpen.Core.AxoStep.ExecuteInternal(IAxoCoordinator,BOOL)">ExecuteInternal</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected BOOL ExecuteInternal(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.BOOL Enable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></td>
+        <td><span class="parametername">coord</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">Enable</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_SetIsActive_BOOL_" data-uid="plc.AXOpen.Core.AxoStep.SetIsActive(BOOL)">SetIsActive</h4>
+  <div class="markdown level1 summary"><p>Sets the value of the <code>IsActive</code> variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID SetIsActive(in plc.BOOL Active)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">Active</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_GetIsActive__" data-uid="plc.AXOpen.Core.AxoStep.GetIsActive()">GetIsActive</h4>
+  <div class="markdown level1 summary"><p>Returns the value of the <code>IsActive</code> variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL GetIsActive()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_SetIsEnabled_BOOL_" data-uid="plc.AXOpen.Core.AxoStep.SetIsEnabled(BOOL)">SetIsEnabled</h4>
+  <div class="markdown level1 summary"><p>Sets the value of the <code>IsEnabled</code> variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID SetIsEnabled(in plc.BOOL Enabled)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">Enabled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoStep_GetIsEnabled__" data-uid="plc.AXOpen.Core.AxoStep.GetIsEnabled()">GetIsEnabled</h4>
+  <div class="markdown level1 summary"><p>Returns the value of the <code>IsEnabled</code> variable</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL GetIsEnabled()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a>
+  </div>
+  <div>
+      <a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

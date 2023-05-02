@@ -1,0 +1,356 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AxoTask | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="AxoTask | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="axotask">AxoTask</h1>
+
+<p>AxoTask provides basic task execution. AxoTask needs to be initialized to set the proper AxoContext.</p>
+<p><strong>AxoTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
+        _myTask : AxoTask;
+        _myCounter : ULINT;
+    END_VAR
+
+    METHOD PUBLIC Initialize
+        // Initialization of the context needs to be called first
+        // It does not need to be called cyclically, just once
+        _myTask.Initialize(THIS);
+    END_METHOD
+
+END_CLASS  
+</code></pre>
+<p>There are two key methods for managing the AxoTask:</p>
+<ul>
+<li><code>Invoke()</code> fires the execution of the AxoTask (can be called fire&amp;forget or cyclically)</li>
+<li><code>Execute()</code> method must be called cyclically. The method returns <code>TRUE</code> when the AxoTask is required to run until enters <code>Done</code> state or terminates in error.</li>
+</ul>
+<p>For termination of the execution of the AxoTask there are following methods:</p>
+<ul>
+<li><code>DoneWhen(Done_Condition)</code> - terminates the execution of the AxoTask and enters the <code>Done</code> state when the <code>Done_Condition</code> is <code>TRUE</code>.</li>
+<li><code>ThrowWhen(Error_Condition)</code> - terminates the execution of the AxoTask and enters the <code>Error</code> state when the <code>Error_Condition</code> is <code>TRUE</code>.</li>
+<li><code>Abort()</code> - terminates the execution of the AxoTask and enters the <code>Ready</code> state if the AxoTask is in the <code>Busy</code> state, otherwise does nothing.</li>
+</ul>
+<p>To reset the AxoTask from any state in any moment there is following method:</p>
+<ul>
+<li><code>Restore()</code> acts as reset of the AxoTask (sets the state into <code>Ready</code> state from any state of the AxoTask).</li>
+</ul>
+<p>Moreover, there are seven more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
+<pre><code class="lang-mermaid">flowchart TD
+    classDef states fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+    classDef actions fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+    classDef events fill:#80FF00,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+
+    s1((Ready)):::states
+    s2((Kicking)):::states
+    s3((Busy)):::states
+    s4((Done)):::states
+    s5((Error)):::states
+    s6((Aborted)):::states
+    a1(&quot;Invoke()#128258;&quot;):::actions
+    a2(&quot;Execute()#128260;&quot;):::actions
+    a3(&quot;DoneWhen(TRUE)#128258;&quot;):::actions
+    a4(&quot;ThrowWhen(TRUE)#128258;&quot;):::actions
+    a5(&quot;NOT Invoke() call for at&lt;br&gt;least two Context cycles#128260;&quot;):::actions
+    a6(&quot;Restore()#128258;&quot;):::actions
+    a7(&quot;Abort()#128258;&quot;):::actions
+    a8(&quot;Resume()#128258;&quot;):::actions
+    e1{{&quot;OnStart()#128258;&quot;}}:::events
+    e2{{&quot;OnError()#128258;&quot;}}:::events
+    e3{{&quot;WhileError()#128260;&quot;}}:::events
+    e4{{&quot;OnDone()#128258;&quot;}}:::events
+    e5{{&quot;OnAbort()#128258;&quot;}}:::events
+    e6{{&quot;OnRestore()#128258;&quot;}}:::events
+    
+    subgraph legend[&quot; &quot;]
+        direction LR
+        s((State)):::states
+        ac(&quot;Action #128260;:called&lt;br&gt;cyclically&quot;):::actions
+        as(&quot;Action #128258;:single&lt;br&gt;or cyclical call &quot;):::actions
+        ec{{&quot;Event #128260;:called&lt;br&gt;cyclically&quot;}}:::events
+        es{{&quot;Event #128258;:triggered&lt;br&gt;once &quot;}}:::events
+    end
+    
+    subgraph chart[&quot; &quot;]
+        direction TB
+        s1
+        s1--&gt;a1
+        a1--&gt;s2
+        s2--&gt;a2
+        s3--&gt;a3
+        s3--&gt;a7
+        a7--&gt;e5
+        a7--&gt;s6
+        s6--&gt;a8
+        a8--&gt;s3
+        a3--&gt;s4
+        s4----&gt;a5
+        a5--&gt;a1
+        a2---&gt;s3
+        s3---&gt;a4
+        a4--&gt;s5
+        s5--&gt;a6
+        a6--&gt;e6
+        a2--&gt;e1
+        a4--&gt;e2
+        a4--&gt;e3
+        a3--&gt;e4
+        a6--&gt;s1
+    end
+</code></pre>
+<p>Example of using AxoTask:</p>
+<pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
+        _myTask : AxoTask;
+        _myCounter : ULINT;
+    END_VAR
+
+    METHOD PUBLIC Initialize
+        // Initialization of the context needs to be called first
+        // It does not need to be called cyclically, just once
+        _myTask.Initialize(THIS);
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE Main
+        _myTask.Initialize(THIS);
+        // Cyclicall call of the Execute
+        IF _myTask.Execute() THEN
+            _myCounter := _myCounter + ULINT#1;
+            _myTask.DoneWhen(_myCounter = ULINT#100);
+        END_IF;
+        IF _myTask.IsDone() THEN
+            _myCounter := ULINT#0;
+        END_IF;
+    END_METHOD
+END_CLASS  
+</code></pre>
+<p>The AxoTask executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and it does not need cyclical calling.</p>
+<pre><code class="lang-smalltalk">_myTask.Invoke();
+</code></pre>
+<p><code>Invoke()</code> method returns IAxoTaskState with the following members:</p>
+<ul>
+<li><code>IsBusy</code> indicates the execution started and is running.</li>
+<li><code>IsDone</code> indicates the execution completed with success.</li>
+<li><code>HasError</code> indicates the execution terminated with a failure.</li>
+<li><code>IsAborted</code> indicates that the execution of the AxoTask has been aborted. It should continue by calling the method <code>Resume()</code>.</li>
+</ul>
+<p>Examples of using:
+Invoking the AxoTask and waiting for its completion at the same place.</p>
+<pre><code class="lang-smalltalk">IF _myTask.Invoke().IsDone() THEN
+    ; //Do something
+END_IF;
+</code></pre>
+<p>Invoking the AxoTask and waiting for its completion at the different places.</p>
+<pre><code class="lang-smalltalk">_myTask.Invoke();
+
+IF _myTask.IsDone() THEN
+    ; //Do something
+END_IF;
+</code></pre>
+<p>Checking if the AxoTask is executing.</p>
+<pre><code class="lang-smalltalk"> IF _myTask.Invoke().IsBusy() THEN
+    ; //Do something
+END_IF;
+</code></pre>
+<p>Check for the AxoTask's error state.</p>
+<pre><code class="lang-smalltalk">IF _myTask.Invoke().HasError() THEN
+    ; //Do something
+END_IF;
+</code></pre>
+<p>The AxoTask can be started only from the <code>Ready</code> state by calling the <code>Invoke()</code> method in the same Context cycle as the <code>Execute()</code> method is called, regardless the order of the methods calls. After AxoTask completion, the state of the AxoTask will remain in Done, unless:</p>
+<p>1.) AxoTask's <code>Restore</code> method is called (AxoTask changes it's state to <code>Ready</code> state).</p>
+<p>2.) <code>Invoke</code> method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the <code>Kicking</code> state.</p>
+<p>The AxoTask may finish also in an <code>Error</code> state. In that case, the only possibility to get out of <code>Error</code> state is by calling the <code>Restore()</code> method.</p>
+<p>To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the AxoTask needs to be created. The required method with <code>PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
+These methods are:</p>
+<ul>
+<li><code>OnAbort()</code> - executes once when the task is aborted.</li>
+<li><code>OnResume()</code> - executes once when the task is resumed.</li>
+<li><code>OnDone()</code> - executes once when the task reaches the <code>Done</code> state.</li>
+<li><code>OnError()</code> - executes once when the task reaches the <code>Error</code> state.</li>
+<li><code>OnRestore()</code> - executes once when the task is restored.</li>
+<li><code>OnStart()</code> - executes once when the task starts (at the moment of transition from the <code>Kicking</code> state into the <code>Busy</code> state).</li>
+<li><code>WhileError()</code> - executes repeatedly while the task is in <code>Error</code> state (and <code>Execute()</code> method is called).</li>
+</ul>
+<p>Example of implementing &quot;event-like&quot; methods:</p>
+<pre><code class="lang-smalltalk">CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
+    VAR
+        OnAbortCounter : ULINT;
+        OnResumeCounter : ULINT;
+        OnDoneCounter : ULINT;
+        OnErrorCounter : ULINT;
+        OnRestoreCounter : ULINT;
+        OnStartCounter : ULINT;
+        WhileErrorCounter : ULINT;
+    END_VAR
+    METHOD PROTECTED OVERRIDE OnAbort 
+        OnAbortCounter := OnAbortCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE OnResume 
+        OnResumeCounter := OnResumeCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE OnDone 
+        OnDoneCounter := OnDoneCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE OnError 
+        OnErrorCounter := OnErrorCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE OnRestore 
+        OnRestoreCounter := OnRestoreCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE OnStart 
+        OnStartCounter := OnStartCounter + ULINT#1;
+    END_METHOD
+
+    METHOD PROTECTED OVERRIDE WhileError 
+        WhileErrorCounter := WhileErrorCounter + ULINT#1;
+    END_METHOD           
+END_CLASS
+</code></pre>
+<p><strong>How to visualize <code>AxoTask</code></strong></p>
+<p>On the UI side there are several possibilities how to visualize the <code>AxoTask</code>.
+You use the <code>AxoTaskView</code> and set its Component according the placement of the instance of the <code>AxoTask</code>.
+Based on the value of <code>Disable</code> the control element could be controllable:</p>
+<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;false&quot; /&gt;
+</code></pre>
+<p>or display only:</p>
+<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;true&quot; /&gt;
+</code></pre>
+<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoTask</code>.
+Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
+</code></pre>
+<p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Status&quot;/&gt;
+</code></pre>
+<p>The displayed result should looks like:</p>
+<p><img src="../../images/AxoTaskExampleVisu.gif" alt="Alt text"></p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/docfx/articles/core/AXOTASK.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>
