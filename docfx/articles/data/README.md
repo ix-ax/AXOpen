@@ -14,7 +14,7 @@ The basic PLC block is TcoDataExchange, which has its .NET counterpart (or .NET 
 
 The DataEntity uses a predefined interface IRepository that allows for the unlimited implementation of different kinds of repositories.
 
-At this point, Ix.framework supports these repositories directly:
+At this point, AXOpen supports these repositories directly:
 
 - InMemory
 - Json
@@ -56,7 +56,7 @@ END_CLASS
 
 As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of IxTask which can operate asynchronously, and we will need to call it cyclically.
 
-We will now need to create an instance of `MyDataExchanger` in some `MyConfiguration`, and call `_myDataExchanger` in the Main method of the context. Just to remind ourselves all logic in Ix framework must be placed in the call tree of a Main method of a context.
+We will now need to create an instance of `MyDataExchanger` in some `MyConfiguration`, and call `_myDataExchanger` in the Main method of the context. Just to remind ourselves all logic in AXOpen must be placed in the call tree of a Main method of a context.
 
 ~~~
 CONFIGURATION MyConfiguration

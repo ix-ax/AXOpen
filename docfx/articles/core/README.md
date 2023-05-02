@@ -1,6 +1,6 @@
 # **AXOpen.core**
 
-**ix.core** provides basic blocks for building ix.framework applications.
+**ix.core** provides basic blocks for building AXOpen applications.
 
 # Basic concepts
 

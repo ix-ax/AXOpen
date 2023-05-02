@@ -38,7 +38,7 @@
               </button>
 
               <a class="navbar-brand" href="../index.html">
-                <p class="text-logo">IX-FRAMEWORK</p>
+                <p class="text-logo">AXOpen</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -83,7 +83,7 @@
 
   <h1 id="plc_AXOpen_Core_AxoToggleTask" data-uid="plc.AXOpen.Core.AxoToggleTask" class="text-break">Class AxoToggleTask
 </h1>
-  <div class="markdown level0 summary"><p>Provides basic toggling between two states. The states are triggered by calling the <see></see> method.To get the actual state of the toggle task,<see></see>,<see></see>and <see></see> properties are available.</p>
+  <div class="markdown level0 summary"><p>Provides basic toggling between two states. The states are triggered by calling the '''Toggle()''' method.To get the actual state of the toggle task, '''IsSwitchedOn()''',  '''IsSwitchedOff()''' AND '''GetState()''' methods are available.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -129,13 +129,37 @@
 </h3>
 
 
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_Status" data-uid="plc.AXOpen.Core.AxoToggleTask.Status">Status</h4>
-  <div class="markdown level1 summary"><p>Gets the state of this task.</p>
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_State" data-uid="plc.AXOpen.Core.AxoToggleTask.State">State</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">State : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_RemoteToggle" data-uid="plc.AXOpen.Core.AxoToggleTask.RemoteToggle">RemoteToggle</h4>
+  <div class="markdown level1 summary"><p>Remote request to toggle the state of this task.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Status : AXOpen.Core.eAxoTaskState</code></pre>
+    <pre><code class="lang-csharp hljs">RemoteToggle : BOOL</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -155,7 +179,7 @@
 
 
   <h4 id="plc_AXOpen_Core_AxoToggleTask_IsDisabled" data-uid="plc.AXOpen.Core.AxoToggleTask.IsDisabled">IsDisabled</h4>
-  <div class="markdown level1 summary"><p>Gets or sets whether this task is disabled for execution.</p>
+  <div class="markdown level1 summary"><p>Gets or sets whether this task is disabled for any manipulations.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -179,186 +203,12 @@
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_RemoteInvoke" data-uid="plc.AXOpen.Core.AxoToggleTask.RemoteInvoke">RemoteInvoke</h4>
-  <div class="markdown level1 summary"><p>Remote requests for invoke of this task.When 'TRUE' this task will be invoked.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">RemoteInvoke : BOOL</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_RemoteRestore" data-uid="plc.AXOpen.Core.AxoToggleTask.RemoteRestore">RemoteRestore</h4>
-  <div class="markdown level1 summary"><p>Remote requests for restore of this task.When 'TRUE' this task will be restored.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">RemoteRestore : BOOL</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_RemoteAbort" data-uid="plc.AXOpen.Core.AxoToggleTask.RemoteAbort">RemoteAbort</h4>
-  <div class="markdown level1 summary"><p>Remote requests for abort of this task.When 'TRUE' this task will be aborted.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">RemoteAbort : BOOL</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_RemoteResume" data-uid="plc.AXOpen.Core.AxoToggleTask.RemoteResume">RemoteResume</h4>
-  <div class="markdown level1 summary"><p>Remote requests for resume of this task.When 'TRUE' this task will be resumed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">RemoteResume : BOOL</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_StartSignature" data-uid="plc.AXOpen.Core.AxoToggleTask.StartSignature">StartSignature</h4>
-  <div class="markdown level1 summary"><p>Contains contex cycle number when this task started.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">StartSignature : ULINT</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_ErrorDetails" data-uid="plc.AXOpen.Core.AxoToggleTask.ErrorDetails">ErrorDetails</h4>
-  <div class="markdown level1 summary"><p>Contains details about the error.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ErrorDetails : STRING[254]</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask__openCycleCountInvoke" data-uid="plc.AXOpen.Core.AxoToggleTask._openCycleCountInvoke">_openCycleCountInvoke</h4>
+  <h4 id="plc_AXOpen_Core_AxoToggleTask__openCycleCount" data-uid="plc.AXOpen.Core.AxoToggleTask._openCycleCount">_openCycleCount</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">_openCycleCountInvoke : ULINT</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask__openCycleCountExecute" data-uid="plc.AXOpen.Core.AxoToggleTask._openCycleCountExecute">_openCycleCountExecute</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">_openCycleCountExecute : ULINT</code></pre>
+    <pre><code class="lang-csharp hljs">_openCycleCount : ULINT</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -385,7 +235,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public AXOpen.Core.eAxoTaskState GetState()</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL GetState()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -397,44 +247,19 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="plc.AXOpen.Core.eAxoTaskState.html">eAxoTaskState</a></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_GetErrorDetails__" data-uid="plc.AXOpen.Core.AxoToggleTask.GetErrorDetails()">GetErrorDetails</h4>
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsRunCalledInThisPlcCycle__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()">IsRunCalledInThisPlcCycle</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public STRING[254] GetErrorDetails()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">STRING[254]</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsReady__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsReady()">IsReady</h4>
-  <div class="markdown level1 summary"><p>Gets true when the task is ready.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL IsReady()</code></pre>
+    <pre><code class="lang-csharp hljs">Private BOOL IsRunCalledInThisPlcCycle()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -453,112 +278,12 @@
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsDone__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsDone()">IsDone</h4>
-  <div class="markdown level1 summary"><p>Gets true when the task is done.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL IsDone()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsBusy__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsBusy()">IsBusy</h4>
-  <div class="markdown level1 summary"><p>Gets true when the task is busy/executing.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL IsBusy()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsAborted__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsAborted()">IsAborted</h4>
-  <div class="markdown level1 summary"><p>Gets true when the task is aborted.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL IsAborted()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_HasError__" data-uid="plc.AXOpen.Core.AxoToggleTask.HasError()">HasError</h4>
-  <div class="markdown level1 summary"><p>Gets true when the task has error.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL HasError()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsNewInvokeCall__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsNewInvokeCall()">IsNewInvokeCall</h4>
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_WasRunCalledInPreviousPlcCycle__" data-uid="plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()">WasRunCalledInPreviousPlcCycle</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private BOOL IsNewInvokeCall()</code></pre>
+    <pre><code class="lang-csharp hljs">Private BOOL WasRunCalledInPreviousPlcCycle()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -577,249 +302,13 @@
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsInvokeCalledInThisPlcCycle__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsInvokeCalledInThisPlcCycle()">IsInvokeCalledInThisPlcCycle</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private BOOL IsInvokeCalledInThisPlcCycle()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_WasInvokeCalledInPreviousPlcCycle__" data-uid="plc.AXOpen.Core.AxoToggleTask.WasInvokeCalledInPreviousPlcCycle()">WasInvokeCalledInPreviousPlcCycle</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private BOOL WasInvokeCalledInPreviousPlcCycle()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsNewExecuteCall__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsNewExecuteCall()">IsNewExecuteCall</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private BOOL IsNewExecuteCall()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsExecuteCalledInThisPlcCycle__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsExecuteCalledInThisPlcCycle()">IsExecuteCalledInThisPlcCycle</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private BOOL IsExecuteCalledInThisPlcCycle()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_WasExecuteCalledInPreviousPlcCycle__" data-uid="plc.AXOpen.Core.AxoToggleTask.WasExecuteCalledInPreviousPlcCycle()">WasExecuteCalledInPreviousPlcCycle</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private BOOL WasExecuteCalledInPreviousPlcCycle()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_UpdateState__" data-uid="plc.AXOpen.Core.AxoToggleTask.UpdateState()">UpdateState</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private VOID UpdateState()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_Invoke__" data-uid="plc.AXOpen.Core.AxoToggleTask.Invoke()">Invoke</h4>
-  <div class="markdown level1 summary"><p>Invokes this task.</p>
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_Run__" data-uid="plc.AXOpen.Core.AxoToggleTask.Run()">Run</h4>
+  <div class="markdown level1 summary"><p>This method needs to be called cyclically.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState Invoke()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_Restore__" data-uid="plc.AXOpen.Core.AxoToggleTask.Restore()">Restore</h4>
-  <div class="markdown level1 summary"><p>Restores this task.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoTaskState Restore()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_DoneWhen_BOOL_" data-uid="plc.AXOpen.Core.AxoToggleTask.DoneWhen(BOOL)">DoneWhen</h4>
-  <div class="markdown level1 summary"><p>Makes this task to transition in <code>Done</code> statewhen <code>Condition</code> argument is <code>TRUE</code>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID DoneWhen(in plc.BOOL Condition)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td><span class="parametername">Condition</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_Execute__" data-uid="plc.AXOpen.Core.AxoToggleTask.Execute()">Execute</h4>
-  <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if the task is Busy, otherwise false.This method needs to be called cyclically.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL Execute()</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL Run()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -832,95 +321,6 @@
     <tbody>
       <tr>
         <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_ThrowWhen_BOOL_" data-uid="plc.AXOpen.Core.AxoToggleTask.ThrowWhen(BOOL)">ThrowWhen</h4>
-  <div class="markdown level1 summary"><p>Makes this task enter into <code>Error</code> state, when <code>HasErrorState</code> argument is <code>TRUE</code>task in error state stops its execution.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID ThrowWhen(in plc.BOOL HasErrorState)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td><span class="parametername">HasErrorState</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_ThrowWhen_BOOL_STRING_254__" data-uid="plc.AXOpen.Core.AxoToggleTask.ThrowWhen(BOOL,STRING[254])">ThrowWhen</h4>
-  <div class="markdown level1 summary"><p>Makes this task enter into <code>Error</code> state, when <code>HasErrorState</code> argument is <code>TRUE</code>task in error state stops its execution.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID ThrowWhen(in plc.BOOL HasErrorState,in plc.STRING[254] ErrorDescription)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td><span class="parametername">HasErrorState</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">STRING[254]</span></td>
-        <td><span class="parametername">ErrorDescription</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
         <td></td>
       </tr>
     </tbody>
@@ -994,13 +394,13 @@
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_Abort__" data-uid="plc.AXOpen.Core.AxoToggleTask.Abort()">Abort</h4>
-  <div class="markdown level1 summary"><p>Aborts the execution of the task if running and sets its state to aborted.</p>
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsSwitchedOn__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()">IsSwitchedOn</h4>
+  <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if task is switched on</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID Abort()</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL IsSwitchedOn()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1012,219 +412,20 @@
     </thead>
     <tbody>
       <tr>
-        <td></td>
+        <td><span class="xref">BOOL</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_Resume__" data-uid="plc.AXOpen.Core.AxoToggleTask.Resume()">Resume</h4>
-  <div class="markdown level1 summary"><p>Resume the execution of the task if aborted and sets its state to busy.</p>
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_IsSwitchedOff__" data-uid="plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()">IsSwitchedOff</h4>
+  <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if task is switched off</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID Resume()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_OnAbort__" data-uid="plc.AXOpen.Core.AxoToggleTask.OnAbort()">OnAbort</h4>
-  <div class="markdown level1 summary"><p>Executes once when the task is aborted.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID OnAbort()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_OnResume__" data-uid="plc.AXOpen.Core.AxoToggleTask.OnResume()">OnResume</h4>
-  <div class="markdown level1 summary"><p>Executes once when the task is resumed.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID OnResume()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_OnDone__" data-uid="plc.AXOpen.Core.AxoToggleTask.OnDone()">OnDone</h4>
-  <div class="markdown level1 summary"><p>Executes once when the task reaches the <code>Done</code> state.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID OnDone()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_OnError__" data-uid="plc.AXOpen.Core.AxoToggleTask.OnError()">OnError</h4>
-  <div class="markdown level1 summary"><p>Executes once when the task reaches the <code>Error</code> state.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID OnError()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_OnRestore__" data-uid="plc.AXOpen.Core.AxoToggleTask.OnRestore()">OnRestore</h4>
-  <div class="markdown level1 summary"><p>Executes once when the task is restored.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID OnRestore()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_OnStart__" data-uid="plc.AXOpen.Core.AxoToggleTask.OnStart()">OnStart</h4>
-  <div class="markdown level1 summary"><p>Executes once when the task starts (at the moment of transition from the <code>Kicking</code> state into the <code>Busy</code> state).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID OnStart()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_WhileError__" data-uid="plc.AXOpen.Core.AxoToggleTask.WhileError()">WhileError</h4>
-  <div class="markdown level1 summary"><p>Executes repeatedly while the task is in <code>Error</code> state (and <code>Execute()</code> method is called).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID WhileError()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoToggleTask_SwitchOff__" data-uid="plc.AXOpen.Core.AxoToggleTask.SwitchOff()">SwitchOff</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL SwitchOff()</code></pre>
+    <pre><code class="lang-csharp hljs">Public BOOL IsSwitchedOff()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1244,11 +445,37 @@
 
 
   <h4 id="plc_AXOpen_Core_AxoToggleTask_Toggle__" data-uid="plc.AXOpen.Core.AxoToggleTask.Toggle()">Toggle</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Use to toggle the state of the '''AxoToggleTask'''.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public BOOL Toggle()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_SwitchOff__" data-uid="plc.AXOpen.Core.AxoToggleTask.SwitchOff()">SwitchOff</h4>
+  <div class="markdown level1 summary"><p>Use to set the state of the '''AxoToggleTask''' to the value '''FALSE'''.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL SwitchOff()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1285,6 +512,131 @@
     <tbody>
       <tr>
         <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_OnSwitchedOn__" data-uid="plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()">OnSwitchedOn</h4>
+  <div class="markdown level1 summary"><p>Executes ones when toggle task changes its state from '''FALSE''' to '''TRUE'''.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID OnSwitchedOn()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_OnSwitchedOff__" data-uid="plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()">OnSwitchedOff</h4>
+  <div class="markdown level1 summary"><p>Executes ones when toggle task changes its state from '''TRUE''' to '''FALSE'''.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID OnSwitchedOff()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_OnStateChanged__" data-uid="plc.AXOpen.Core.AxoToggleTask.OnStateChanged()">OnStateChanged</h4>
+  <div class="markdown level1 summary"><p>Executes ones when toggle task changes its state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID OnStateChanged()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_SwitchedOn__" data-uid="plc.AXOpen.Core.AxoToggleTask.SwitchedOn()">SwitchedOn</h4>
+  <div class="markdown level1 summary"><p>Executes while the task is in <code>On</code> state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID SwitchedOn()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoToggleTask_SwitchedOff__" data-uid="plc.AXOpen.Core.AxoToggleTask.SwitchedOff()">SwitchedOff</h4>
+  <div class="markdown level1 summary"><p>Executes while the task is in <code>Off</code> state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected VOID SwitchedOff()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
         <td></td>
       </tr>
     </tbody>

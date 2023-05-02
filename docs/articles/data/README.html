@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX-FRAMEWORK</p>
+                <p class="text-logo">AXOpen</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -86,7 +86,7 @@
 <p>The basic PLC block is TcoDataExchange, which has its .NET counterpart (or .NET twin) that handles complex repository operations using a modified IxRemoteTask, which is a form of RPC (Remote Procedure Call), that allows you to execute the code from the PLC in a remote .NET application.</p>
 <h2 id="implemented-repositories">Implemented repositories</h2>
 <p>The DataEntity uses a predefined interface IRepository that allows for the unlimited implementation of different kinds of repositories.</p>
-<p>At this point, Ix.framework supports these repositories directly:</p>
+<p>At this point, AXOpen supports these repositories directly:</p>
 <ul>
 <li>InMemory</li>
 <li>Json</li>
@@ -101,7 +101,7 @@
 <p>We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with <code>DataEntityAttribute</code>. This attribute should be unique within DataExchanger object and is used to locate data object within framework. When <code>DataEntityAttribute</code> is missing, exception is thrown.</p>
 <pre><code>CLASS MyDataExchanger EXTENDS AXOpen.data.DataExchange
     VAR PUBLIC
-        {#ix-attr:[DataEntityAttribute]}
+        {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
         _data : MyData;
     END_VAR  
 END_CLASS  
@@ -116,7 +116,7 @@ END_CLASS
 END_CLASS
 </code></pre>
 <p>As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of IxTask which can operate asynchronously, and we will need to call it cyclically.</p>
-<p>We will now need to create an instance of <code>MyDataExchanger</code> in some <code>MyConfiguration</code>, and call <code>_myDataExchanger</code> in the Main method of the context. Just to remind ourselves all logic in Ix framework must be placed in the call tree of a Main method of a context.</p>
+<p>We will now need to create an instance of <code>MyDataExchanger</code> in some <code>MyConfiguration</code>, and call <code>_myDataExchanger</code> in the Main method of the context. Just to remind ourselves all logic in AXOpen must be placed in the call tree of a Main method of a context.</p>
 <pre><code>CONFIGURATION MyConfiguration
     VAR_GLOBAL
         _myDataExchanger : MyDataExchanger;
@@ -205,7 +205,7 @@ END_IF;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/articles/data/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/docfx/articles/data/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -4,24 +4,26 @@
 
   <head>
     <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Class AxoStepView
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AxoStepView
  | System.Dynamic.ExpandoObject </title>
-      <meta name="viewport" content="width=device-width">
-      <meta name="title" content="Class AxoStepView
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AxoStepView
  | System.Dynamic.ExpandoObject ">
-    
-      <link rel="shortcut icon" href="../images/favicon.ico">
-      <link rel="stylesheet" href="../styles/docfx.vendor.css">
-      <link rel="stylesheet" href="../styles/docfx.css">
-      <link rel="stylesheet" href="../styles/main.css">
-      <meta property="docfx:navrel" content="">
-      <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
-  </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
 
@@ -36,9 +38,8 @@
               </button>
 
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="IX">
-              </a>
-            </div>
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
                 <div class="form-group">
@@ -100,6 +101,7 @@
     <div><span class="xref">Microsoft.AspNetCore.Components.IHandleEvent</span></div>
     <div><span class="xref">Microsoft.AspNetCore.Components.IHandleAfterRender</span></div>
     <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
     <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span></div>
   </div>
   <div class="inheritedMembers">
@@ -108,10 +110,13 @@
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;AXOpen.Core.AxoStep&gt;.Component</span>
     </div>
     <div>
-      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ITwinObject)</span>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.Dispose()</span>
     </div>
     <div>
-      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ValueTypes.OnlinerBase)</span>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ITwinObject, int)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ValueTypes.OnlinerBase, int)</span>
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange(AXSharp.Connector.ITwinObject)</span>
@@ -130,6 +135,9 @@
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChangedOnOutFocus(object, System.ComponentModel.PropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PollingInterval</span>
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HasFocus</span>
@@ -190,16 +198,16 @@
   <h6><strong>Assembly</strong>: axopen_core_blazor.dll</h6>
   <h5 id="AXOpen_Core_AxoStepView_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoStepView : RenderableComplexComponentBase&lt;AxoStep&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoStepView : RenderableComplexComponentBase&lt;AxoStep&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IDisposable, IRenderableComplexComponentBase</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoStepView_IsControllable.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepView.IsControllable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/AXOpen/new/add-application-templates-for-integration-testing/apiSpec/new?filename=AXOpen_Core_AxoStepView_IsControllable.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepView.IsControllable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoStep/AxoStepView.razor.cs/#L42">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoStep/AxoStepView.razor.cs/#L42">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoStepView_IsControllable_" data-uid="AXOpen.Core.AxoStepView.IsControllable*"></a>
   <h4 id="AXOpen_Core_AxoStepView_IsControllable" data-uid="AXOpen.Core.AxoStepView.IsControllable">IsControllable</h4>
@@ -229,10 +237,10 @@ public bool IsControllable { get; set; }</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoStepView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/AXOpen/new/add-application-templates-for-integration-testing/apiSpec/new?filename=AXOpen_Core_AxoStepView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoCoordination_AxoStep_AxoStepView_razor.g.cs/#L43">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoCoordination_AxoStep_AxoStepView_razor.g.cs/#L43">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoStepView_BuildRenderTree_" data-uid="AXOpen.Core.AxoStepView.BuildRenderTree*"></a>
   <h4 id="AXOpen_Core_AxoStepView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_" data-uid="AXOpen.Core.AxoStepView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)">BuildRenderTree(RenderTreeBuilder)</h4>
@@ -263,10 +271,10 @@ public bool IsControllable { get; set; }</code></pre>
   <div><span class="xref">Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoStepView_OnInitialized.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepView.OnInitialized%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/AXOpen/new/add-application-templates-for-integration-testing/apiSpec/new?filename=AXOpen_Core_AxoStepView_OnInitialized.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepView.OnInitialized%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoStep/AxoStepView.razor.cs/#L36">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoStep/AxoStepView.razor.cs/#L36">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoStepView_OnInitialized_" data-uid="AXOpen.Core.AxoStepView.OnInitialized*"></a>
   <h4 id="AXOpen_Core_AxoStepView_OnInitialized" data-uid="AXOpen.Core.AxoStepView.OnInitialized">OnInitialized()</h4>
@@ -292,6 +300,9 @@ public bool IsControllable { get; set; }</code></pre>
       <span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent</span>
   </div>
   <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
       <span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span>
   </div>
 </article>
@@ -302,10 +313,10 @@ public bool IsControllable { get; set; }</code></pre>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoStepView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/new/add-application-templates-for-integration-testing/apiSpec/new?filename=AXOpen_Core_AxoStepView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoCoordination_AxoStep_AxoStepView_razor.g.cs/#L40" class="contribution-link">View Source</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoCoordination_AxoStep_AxoStepView_razor.g.cs/#L40" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
@@ -331,9 +342,16 @@ public bool IsControllable { get; set; }</code></pre>
         </div>
       </footer>
     </div>
-
     <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
-  </body>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
 </html>

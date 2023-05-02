@@ -305,7 +305,7 @@ public sealed class PublishReleaseTask : FrostingTask<BuildContext>
 
             var release = githubClient.Repository.Release.Create(
                 "ix-ax",
-                "ix.framework",
+                "AXOpen",
                 new NewRelease($"{GitVersionInformation.SemVer}")
                 {
                     Name = $"{GitVersionInformation.SemVer}",

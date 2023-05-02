@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX-FRAMEWORK</p>
+                <p class="text-logo">AXOpen</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -77,9 +77,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="ixframeworkcore"><strong>AXOpen.core</strong></h1>
+<h1 id="axopencore"><strong>AXOpen.core</strong></h1>
 
-<p><strong>ix.core</strong> provides basic blocks for building ix.framework applications.</p>
+<p><strong>ix.core</strong> provides basic blocks for building AXOpen applications.</p>
 <h1 id="basic-concepts">Basic concepts</h1>
 <h1 id="ixcontext">IxContext</h1>
 <p>IxContext encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any <strong>direct inter-context access to members must be avoided</strong>.</p>
@@ -318,8 +318,10 @@ These methods are:</p>
 <li><code>IsAborted</code> indicates that the execution of the IxTask has been aborted. It should continue by calling the method <code>Resume()</code>.</li>
 </ul>
 <h2 id="task-initialization-in-net">Task initialization in .NET</h2>
-<pre><code class="lang-csharp">Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'&quot;));
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.</p>
 <p><img src="../../images/remote_exect.gif" alt="Alt text"></p>
 <h2 id="executing-from-plc">Executing from PLC</h2>
@@ -489,7 +491,7 @@ Example of the implementation more complex <code>IxComponent</code> with members
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/docfx/articles/core/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/docfx/articles/core/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
