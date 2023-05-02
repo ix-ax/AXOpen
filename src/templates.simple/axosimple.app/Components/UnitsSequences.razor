@@ -22,7 +22,7 @@
             var axoSequencer = (AxoSequencer)o;
             if (axoSequencer.Status.Cyclic == (ushort)eAxoTaskState.Busy)
             {
-                <AxoSequencerView Component="@axoSequencer"></AxoSequencerView>
+                <AxoSequencerView Component="@axoSequencer" HasTaskControlButton="false"></AxoSequencerView>
             }
         }
     </div>
