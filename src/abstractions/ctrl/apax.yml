@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.abstractions"
-version                                                                                                                                                                                             : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.201'
+version                                                                                                                                                                                                    : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.207'
 type: lib
 targets:
   - "1500"

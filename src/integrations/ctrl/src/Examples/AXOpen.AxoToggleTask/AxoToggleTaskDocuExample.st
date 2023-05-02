@@ -3,6 +3,9 @@ USING AXOpen.Core;
 NAMESPACE AxoToggleTaskExamples
     CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
+            {#ix-set:AttributeName = "<#Toggle task example#>"}
+            {#ix-set:AttributeStateOnDesc = "<#SwitchedOn#>"}
+            {#ix-set:AttributeStateOffDesc = "<#SwitchedOff#>"}
             _myToggleTask : AxoToggleTask;
             _myCounter : ULINT;
         END_VAR
@@ -15,20 +18,27 @@ NAMESPACE AxoToggleTaskExamples
 
         METHOD PROTECTED OVERRIDE Main
             // Cyclicall call of the Run method
+            _myToggleTask.Initialize(THIS);
             _myToggleTask.Run();
         END_METHOD
 
         METHOD Examples
         //<AxoToggleTaskSwitchOn>
-        _myToggleTask.SwitchOn();
+        IF _myToggleTask.SwitchOn() THEN
+            ; // do something on rising edge
+        END_IF;
         //</AxoToggleTaskSwitchOn>
 
         //<AxoToggleTaskSwitchOff>
-        _myToggleTask.SwitchOff();
+        IF _myToggleTask.SwitchOff()THEN
+            ; // do something on falling edge
+        END_IF;
         //</AxoToggleTaskSwitchOff>
 
         //<AxoToggleTaskToggle>
-        _myToggleTask.Toggle();
+        IF _myToggleTask.Toggle()THEN
+            ; // do something on state change
+        END_IF;
         //</AxoToggleTaskToggle>
 
         //<AxoToggleTaskIsSwitchedOn>
@@ -42,8 +52,6 @@ NAMESPACE AxoToggleTaskExamples
             ; // do something 
         END_IF;
         //</AxoToggleTaskIsSwitchedOff>
-
- 
         END_METHOD
     END_CLASS  
 
@@ -76,27 +84,6 @@ NAMESPACE AxoToggleTaskExamples
         METHOD PROTECTED OVERRIDE SwitchedOff 
             SwitchOffExecutionCounter := SwitchOffExecutionCounter + ULINT#1;
         END_METHOD
-
-        METHOD PUBLIC GetOnSwitchedOnCounter : ULINT
-            GetOnSwitchedOnCounter := OnSwitchedOnCounter;
-        END_METHOD
-
-        METHOD PUBLIC GetOnSwitchedOffCounter : ULINT
-            GetOnSwitchedOffCounter := OnSwitchedOffCounter;
-        END_METHOD
-
-        METHOD PUBLIC GetOnStateChangedCounter : ULINT
-            GetOnStateChangedCounter := OnStateChangedCounter;
-        END_METHOD
-
-        METHOD PUBLIC GetSwitchOnExecutionCounter : ULINT
-            GetSwitchOnExecutionCounter := SwitchOnExecutionCounter;
-        END_METHOD
-
-        METHOD PUBLIC GetSwitchOffExecutionCounter : ULINT
-            GetSwitchOffExecutionCounter := SwitchOffExecutionCounter;
-        END_METHOD
-
     END_CLASS
     //</AxoToggleTaskEventLikeMethods>
 END_NAMESPACE

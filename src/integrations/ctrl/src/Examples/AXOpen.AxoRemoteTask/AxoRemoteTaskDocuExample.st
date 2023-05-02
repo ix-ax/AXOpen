@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE AxoRemoteTaskDocuExamples
-    //<IxRemoteTaskExample>    
+    //<AxoRemoteTaskExample>    
     CLASS MyRemoteTask EXTENDS AXOpen.Core.AxoRemoteTask
         VAR PUBLIC        
             Message : STRING[254];
@@ -16,7 +16,7 @@ NAMESPACE AxoRemoteTaskDocuExamples
         END_METHOD
 
     END_CLASS 
-    //</IxRemoteTaskExample>
+    //</AxoRemoteTaskExample>
     CLASS RemoteTasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC            
             _remoteTask : MyRemoteTask;  
@@ -26,47 +26,46 @@ NAMESPACE AxoRemoteTaskDocuExamples
     
         METHOD PROTECTED OVERRIDE Main
 
-            //<IxTaskIntitialization>
-            _remoteTask.Initialize(THIS); // THIS = IIContext 
-            //</IxTaskIntitialization>
+            //<AxoTaskIntitialization>
+            _remoteTask.Initialize(THIS); // THIS = IAxoContext 
+            //</AxoTaskIntitialization>
 
-            //<IxTaskInvoke>
+            //<AxoTaskInvoke>
             _remoteTask.Invoke('hello');                            
-            //</IxTaskInvoke>
+            //</AxoTaskInvoke>
 
 
-            //<IxTaskInvokeDone>
+            //<AxoTaskInvokeDone>
             IF(_remoteTask.Invoke('hello').IsDone()) THEN
                 _doneCounter := _doneCounter + 1; 
             END_IF;    
-            //</IxTaskInvokeDone>
+            //</AxoTaskInvokeDone>
         
-            //<IxTaskInvokeDoneSeparatelly>    
+            //<AxoTaskInvokeDoneSeparatelly>    
 
             // Fire & Forget
             _remoteTask.Invoke('hello');
 
-            // What for done somwhere else
+            // Wait for done somwhere else
             IF(_remoteTask.IsDone()) THEN
                 _doneCounter := _doneCounter + 1; 
             END_IF;    
 
-            //</IxTaskInvokeDoneSeparatelly>
+            //</AxoTaskInvokeDoneSeparatelly>
 
-            //<IxTaskRunning>
+            //<AxoTaskRunning>
             IF(_remoteTask.IsBusy()) THEN
                 ;// Do something after task started
             END_IF;   
-            //</IxTaskRunning>
+            //</AxoTaskRunning>
 
-            //<IxTaskError>
+            //<AxoTaskError>
             IF(_remoteTask.HasError()) THEN
                 ;// Do something when an exception occurs on remote task.
             END_IF;   
-            //</IxTaskError>
+            //</AxoTaskError>
 
             _remoteTask.Execute();
-
         END_METHOD
     END_CLASS    
 END_NAMESPACE

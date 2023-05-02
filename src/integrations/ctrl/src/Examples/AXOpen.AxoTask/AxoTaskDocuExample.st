@@ -3,6 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AxoTaskExamples
     CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
+            {#ix-set:AttributeName = "<#Task name#>"}
             _myTask : AxoTask;
             _myCounter : ULINT;
         END_VAR
@@ -14,47 +15,51 @@ NAMESPACE AxoTaskExamples
         END_METHOD
 
         METHOD PROTECTED OVERRIDE Main
+            _myTask.Initialize(THIS);
             // Cyclicall call of the Execute
             IF _myTask.Execute() THEN
                 _myCounter := _myCounter + ULINT#1;
                 _myTask.DoneWhen(_myCounter = ULINT#100);
             END_IF;
+            IF _myTask.IsDone() THEN
+                _myCounter := ULINT#0;
+            END_IF;
         END_METHOD
 
         METHOD Examples
-        //<IxTaskInvokeDone>
+        //<AxoTaskInvokeDone>
             IF _myTask.Invoke().IsDone() THEN
                 ; //Do something
             END_IF;
-        //</IxTaskInvokeDone>
+        //</AxoTaskInvokeDone>
 
-        //<IxTaskInvokeDoneSeparatelly>
+        //<AxoTaskInvokeDoneSeparatelly>
             _myTask.Invoke();
 
             IF _myTask.IsDone() THEN
                 ; //Do something
             END_IF;
-        //</IxTaskInvokeDoneSeparatelly>
+        //</AxoTaskInvokeDoneSeparatelly>
 
-        //<IxTaskRunning>
+        //<AxoTaskRunning>
              IF _myTask.Invoke().IsBusy() THEN
                 ; //Do something
             END_IF;
-        //</IxTaskRunning>
+        //</AxoTaskRunning>
 
-        //<IxTaskError>
+        //<AxoTaskError>
             IF _myTask.Invoke().HasError() THEN
                 ; //Do something
             END_IF;
-        //</IxTaskError>
+        //</AxoTaskError>
 
-        //<IxTaskInvoke>
+        //<AxoTaskInvoke>
             _myTask.Invoke();
-        //</IxTaskInvoke>
+        //</AxoTaskInvoke>
         END_METHOD
     END_CLASS  
 
-    //<IxTaskEventLikeMethods>
+    //<AxoTaskEventLikeMethods>
     CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
         VAR
             OnAbortCounter : ULINT;
@@ -93,5 +98,5 @@ NAMESPACE AxoTaskExamples
             WhileErrorCounter := WhileErrorCounter + ULINT#1;
         END_METHOD           
     END_CLASS
-    //</IxTaskEventLikeMethods>
+    //</AxoTaskEventLikeMethods>
 END_NAMESPACE

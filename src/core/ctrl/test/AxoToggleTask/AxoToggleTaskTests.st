@@ -89,7 +89,6 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
         METHOD PUBLIC GetSwitchOffExecutionCounter : ULINT
             GetSwitchOffExecutionCounter := SwitchOffExecutionCounter;
         END_METHOD
-
     END_CLASS
 
     {TestFixture}
