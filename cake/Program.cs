@@ -21,6 +21,7 @@ using Cake.Common;
 using Cake.Common.IO;
 using Cake.Common.Tools.DotNet;
 using Cake.Common.Tools.DotNet.Clean;
+using Cake.Common.Tools.DotNet.Restore;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
@@ -86,8 +87,8 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     {
         context.ProcessRunner.Start(@"dotnet", new Cake.Core.IO.ProcessSettings()
         {
-            Arguments = $" tool restore",
-
+            Arguments = $"tool restore",
+            WorkingDirectory = context.RootDir
         });
     }
 }
