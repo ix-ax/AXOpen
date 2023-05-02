@@ -7,5 +7,6 @@ CONFIGURATION MyConfiguration
         Inputs : axosimple.Inputs;
         Outputs : axosimple.Outputs;    
         Context : axosimple.Context;     
+        S71500Rtc :  AXOpen.S71500.Rtc;      
     END_VAR
 END_CONFIGURATION

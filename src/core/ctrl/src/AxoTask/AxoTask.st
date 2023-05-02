@@ -45,6 +45,18 @@ NAMESPACE AXOpen.Core
             StartSignature : ULINT;
 
             ///<summary>
+            /// Gets elapsed time of last task execution.
+            ///</summary>  
+            {#ix-attr:[ReadOnly()]}         
+            Duration : LTIME;
+
+            ///<summary>
+            /// Gets date and time when the task started.
+            ///</summary>  
+            {#ix-attr:[ReadOnly()]}         
+            StartTimeStamp : LDATE_AND_TIME;
+
+            ///<summary>
             /// Contains details about the error.            
             ///</summary>                       
             ErrorDetails : STRING[254];
@@ -53,6 +65,7 @@ NAMESPACE AXOpen.Core
         VAR PRIVATE
             _openCycleCountInvoke : ULINT;
             _openCycleCountExecute : ULINT;
+            _taskTimer : System.Timer.OnDelay;
         END_VAR 
         
         ///<summary>
@@ -243,7 +256,8 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             IF(Status = eAxoTaskState#Kicking) THEN
-                Status := eAxoTaskState#Busy; 
+                Status := eAxoTaskState#Busy;                
+                StartTimeStamp := THIS.GetContext().GetRtc().NowUTC();                
                 // Don't touch this, it is used for remote execs.
                 StartSignature := THIS.GetContext().OpenCycleCount();                           
                 THIS.OnStart();
@@ -254,7 +268,11 @@ NAMESPACE AXOpen.Core
             END_IF;   
 
             THIS.UpdateState();
+             
             Execute := Status = eAxoTaskState#Busy;
+            
+            _taskTimer(signal := Execute, duration := LT#99999D);
+            IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;          
         END_METHOD    
 
         ///<summary>

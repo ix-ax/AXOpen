@@ -1,18 +1,19 @@
 name: "@ix-ax/axopen.simatic1500"
-version                                                                                              : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.125'
+version: '0.1.4-alpha.53'
 type: lib
 targets:
-#  - "1500"
-#  - llvm
-#  - axunit
+  #  - "1500"
+  #  - llvm
+  #  - axunit
   - axunit-llvm
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                          : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.125'
+  "@ax/simatic-1500": 3.0.2  
+  "@ix-ax/axopen.abstractions": '0.1.4-add-application-templates-for-integration-testing.197'
 devDependencies:
   "@ax/sdk": 3.0.8
 
 scripts:
-  postbuild:                
-      - dotnet ixc
+  postbuild:
+    - dotnet ixc

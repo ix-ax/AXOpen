@@ -98,19 +98,33 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.DoPublish)
+        {
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
+                context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
+            });
+        }
+
         context.Libraries.ToList().ForEach(lib =>
         {
-            context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
-            context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
             context.ApaxInstall(lib);
             context.ApaxBuild(lib);
             //context.ApaxIxc(lib);
         });
 
+        if (context.BuildParameters.DoPublish)
+        {
+            context.Integrations.ToList().ForEach(lib =>
+            {
+                context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
+                context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
+            });
+        }
+
         context.Integrations.ToList().ForEach(proj =>
         {
-            context.UpdateApaxVersion(context.GetApaxFile(proj), GitVersionInformation.SemVer);
-            context.UpdateApaxDependencies(context.GetApaxFile(proj), context.Libraries.Select(p => p.name), GitVersionInformation.SemVer);
             context.ApaxInstall(proj);
             context.ApaxBuild(proj);
             //context.ApaxIxc(proj);

@@ -138,6 +138,7 @@ public class BuildContext : FrostingContext
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
     {
         ("abstractions", "axopen.abstractions"),
+        ("simatic1500", "axopen.simatic1500"),
         ("utils", "axopen.utils"),
         ("core", "axopen.core"),
         ("messaging", "axopen.messaging"),
