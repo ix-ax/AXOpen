@@ -1,13 +1,15 @@
-# **AXOpen.core**
+# **AXOpen.Core**
 
-**ix.core** provides basic blocks for building AXOpen applications.
+**AXOpen.Core** provides basic blocks for building AXOpen applications.
 
 # Basic concepts
 
-[!INCLUDE [Context](IXCONTEXT.md)]
-[!INCLUDE [Object](IXOBJECT.md)]
-[!INCLUDE [Task](IXTASK.md)]
-[!INCLUDE [Remote Task](IXREMOTETASK.md)]
-[!INCLUDE [Step](IXSTEP.md)]
-[!INCLUDE [Sequencer](IXSEQUENCER.md)]
-[!INCLUDE [Component](IXCOMPONENT.md)]
+[!INCLUDE [AxoContext](AXOCONTEXT.md)]
+[!INCLUDE [AxoObject](AXOOBJECT.md)]
+[!INCLUDE [AxoTask](AXOTASK.md)]
+[!INCLUDE [AxoToggleTask](AXOTOGGLETASK.md)]
+[!INCLUDE [AxoMomentaryTask](AXOMOMENTARYTASK.md)]
+[!INCLUDE [AxoRemote Task](AXOREMOTETASK.md)]
+[!INCLUDE [AxoStep](AXOSTEP.md)]
+[!INCLUDE [AxoSequencer](AXOSEQUENCER.md)]
+[!INCLUDE [AxoComponent](AXOCOMPONENT.md)]

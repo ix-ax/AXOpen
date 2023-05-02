@@ -1,4 +1,4 @@
-# Data
+# AxoData
 
 AXOpen.Data library provides a simple yet powerful data exchange between PLC and an arbitrary data repository. It includes the implementation of a series of repository operations known as CRUD (Create Read Update Delete) accessible directly from the PLC.
 
@@ -142,11 +142,11 @@ END_IF;
 
 With presentation `Command` there are available options for adding, editing and deleting records.
 
-[!Command](~/articles/data/images/Command.png)
+[!Command](~/images/Command.png)
 
 If you use `Status` presentation type, data will be only displayed cannot be manipulated.
 
-[!Status](~/articles/data/images/Status.png)
+[!Status](~/images/Status.png)
 
 ### Custom columns
 
@@ -159,26 +159,26 @@ There is a possibility to add custom columns if it is needed. You must add `AXOp
 </IxDataView>
 ~~~
 
-[!Custom columns](~/articles/data/images/CustomColumns.png)
+[!Custom columns](~/images/CustomColumns.png)
 
 ### Export
 
 If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
 
 ~~~
-<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
+<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
 ~~~
 
 With this option, buttons for export and import data will appear. After clicking on export button, the csv file will be created, which contains all existing records. If you want import data, you must upload csv file with equal data structure like we get in export file.
 
-[!Export](~/articles/data/images/Export.png)
+[!Export](~/images/Export.png)
 
 ### Modal detail view
 
 The Detail View is default shown like modal view. That means if you clicked on some record, the modal window with detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show detail view under the record table. Example with `ModalDetailView` attribute:
 
 ~~~
-<IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
+<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
 ~~~
 
-[!Not Modal detail view](~/articles/data/images/NotModal.png)
+[!Not Modal detail view](~/images/NotModalDetailView.png)

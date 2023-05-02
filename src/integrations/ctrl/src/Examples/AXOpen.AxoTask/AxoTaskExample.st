@@ -4,7 +4,7 @@ NAMESPACE AxoTaskExamples
 
     CLASS MyCommandTask EXTENDS AXOpen.Core.AxoTask
         VAR PUBLIC
-        {#ix-set:AttributeName = "Counter"}
+        {#ix-set:AttributeName = "<#Counter#>"}
         _counter : ULINT;
         END_VAR
 
@@ -27,7 +27,7 @@ NAMESPACE AxoTaskExamples
             IF(_commandTask.Execute()) THEN        
                 _commandTask._counter := _commandTask._counter + ULINT#1;        
                 IF (_commandTask._counter MOD ULINT#250) = ULINT#0 THEN
-                    if(_commandEndsInFailure) THEN
+                    IF(_commandEndsInFailure) THEN
                         _commandTask.ThrowWhen(TRUE);    
                     ELSE                            
                         _commandTask.DoneWhen(TRUE);
