@@ -94,12 +94,12 @@
 </ul>
 <h2 id="getting-started">Getting started</h2>
 <p>For the data exchange to work, we will need to create our class extending the <code>DataExchange</code> class. We can call it <code>MyDataExchanger</code>. Don't forget to add using:</p>
-<pre><code>using ix.framework.data;
+<pre><code>using AXOpen.data;
 </code></pre>
-<pre><code>CLASS MyDataExchanger EXTENDS ix.framework.data.DataExchange 
+<pre><code>CLASS MyDataExchanger EXTENDS AXOpen.data.DataExchange 
 </code></pre>
 <p>We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with <code>DataEntityAttribute</code>. This attribute should be unique within DataExchanger object and is used to locate data object within framework. When <code>DataEntityAttribute</code> is missing, exception is thrown.</p>
-<pre><code>CLASS MyDataExchanger EXTENDS ix.framework.data.DataExchange
+<pre><code>CLASS MyDataExchanger EXTENDS AXOpen.data.DataExchange
     VAR PUBLIC
         {#ix-attr:[DataEntityAttribute]}
         _data : MyData;
@@ -107,7 +107,7 @@
 END_CLASS  
 </code></pre>
 <p>The data entity variable must be of a class that extends <code>DataEntity</code>. So let's just create class that will have some variables.</p>
-<pre><code>CLASS MyData EXTENDS ix.framework.data.DataEntity
+<pre><code>CLASS MyData EXTENDS AXOpen.data.DataEntity
     VAR PUBLIC
         sampleData : REAL;
         someInteger : INT;
@@ -123,7 +123,7 @@ END_CLASS
     END_VAR
 END_CONFIGURATION
 </code></pre>
-<pre><code>CLASS MyContext EXTENDS ix.framework.core.IxContext    
+<pre><code>CLASS MyContext EXTENDS AXOpen.core.IxContext    
     VAR PUBLIC         
         _myDataExchanger: MyDataExchanger;
     END_VAR
@@ -179,10 +179,10 @@ END_IF;
 <p>If you use <code>Status</code> presentation type, data will be only displayed cannot be manipulated.</p>
 <p><a href="images/Status.png">!Status</a></p>
 <h3 id="custom-columns">Custom columns</h3>
-<p>There is a possibility to add custom columns if it is needed. You must add <code>ix.framework.core.IxDataExchange.ColumnData</code> view as a child in <code>IxDataView</code>. The <code>BindingValue</code> must be set in <code>ColumnData</code> and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in <code>HeaderName</code> attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:</p>
+<p>There is a possibility to add custom columns if it is needed. You must add <code>AXOpen.core.IxDataExchange.ColumnData</code> view as a child in <code>IxDataView</code>. The <code>BindingValue</code> must be set in <code>ColumnData</code> and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in <code>HeaderName</code> attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:</p>
 <pre><code>&lt;IxDataView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot;&gt;
-    &lt;ix.framework.core.IxDataExchange.ColumnData HeaderName=&quot;Recipe name&quot; BindingValue=&quot;RecipeName&quot; /&gt;
-    &lt;ix.framework.core.IxDataExchange.ColumnData BindingValue=&quot;String1&quot; Clickable=&quot;false&quot; /&gt;
+    &lt;AXOpen.core.IxDataExchange.ColumnData HeaderName=&quot;Recipe name&quot; BindingValue=&quot;RecipeName&quot; /&gt;
+    &lt;AXOpen.core.IxDataExchange.ColumnData BindingValue=&quot;String1&quot; Clickable=&quot;false&quot; /&gt;
 &lt;/IxDataView&gt;
 </code></pre>
 <p><a href="images/CustomColumns.png">!Custom columns</a></p>

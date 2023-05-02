@@ -1,6 +1,6 @@
 # **ix.core**
 
-**ix.core** provides basic blocks for building ix.framework applications.
+**ix.core** provides basic blocks for building AXOpen applications.
 
 # Basic concepts
 
@@ -74,7 +74,7 @@ END_PROGRAM
 
 ## AxoObject
 
-AxoObject is the base class for any other classes of ix.framework. It provides access to the parent AxoObject and the AxoContext in which it was initialized.
+AxoObject is the base class for any other classes of AXOpen. It provides access to the parent AxoObject and the AxoContext in which it was initialized.
 
 
 ```mermaid

@@ -3,7 +3,7 @@ using AXOpen.Base.Data;
 using AXOpen.Data;
 using AXOpen.Data.MongoDb;
 
-namespace Ix.Framework.Repository.Integration.Tests
+namespace AXOpen.Repository.Integration.Tests
 {
     public class MongoDbSecuredRepositoryTest : RepositoryBaseTests
     {

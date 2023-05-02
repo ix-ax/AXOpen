@@ -77,7 +77,7 @@ public class BuildContext : FrostingContext
 
     public string ArtifactsNugets => EnsureFolder(Path.Combine(Artifacts, "nugets"));
 
-    public string PackableNugetsSlnf => Path.Combine(RootDir, "ix.framework-packable-only.slnf");
+    public string PackableNugetsSlnf => Path.Combine(RootDir, "AXOpen-packable-only.slnf");
 
     public string WorkDirName => Environment.WorkingDirectory.GetDirectoryName();
 

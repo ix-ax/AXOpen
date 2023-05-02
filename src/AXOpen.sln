@@ -41,7 +41,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8BF234AB-B68
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D48B76D7-B4E1-4098-B69F-6F4EFB94BC62}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.RavenDb", "data\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\AXOpen.Data.RavenDb.csproj", "{59B6FDE2-D947-449E-B4A7-A73048B8BD5A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.RavenDb", "data\src\repositories\RavenDb\AXOpen.Data.RavenDb\AXOpen.Data.RavenDb.csproj", "{59B6FDE2-D947-449E-B4A7-A73048B8BD5A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "messaging", "messaging", "{3EC10401-4E98-4058-B142-F411780EE54A}"
 EndProject

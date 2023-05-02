@@ -1,6 +1,6 @@
 # IxObject
 
-IxObject is the base class for any other classes of ix.framework. It provides access to the parent IxObject and the IxContext in which it was initialized.
+IxObject is the base class for any other classes of AXOpen. It provides access to the parent IxObject and the IxContext in which it was initialized.
 
 
 ```mermaid

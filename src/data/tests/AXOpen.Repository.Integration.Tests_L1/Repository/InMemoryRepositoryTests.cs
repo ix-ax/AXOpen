@@ -3,7 +3,7 @@ using System;
 using AXOpen.Base.Data;
 using AXOpen.Data.InMemory;
 
-namespace Ix.Framework.Repository.Integration.Tests
+namespace AXOpen.Repository.Integration.Tests
 {
     [TestFixture()]
     public class InMemoryRepositoryTests : RepositoryBaseTests

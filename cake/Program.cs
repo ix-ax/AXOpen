@@ -66,7 +66,7 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
     {
         context.Libraries.ToList().ForEach(lib => context.ApaxClean(lib));
         context.Integrations.ToList().ForEach(integration => context.ApaxClean(integration));
-        context.DotNetClean(Path.Combine(context.RootDir, "ix.framework.sln"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity});
+        context.DotNetClean(Path.Combine(context.RootDir, "AXOpen.sln"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity});
         context.CleanDirectory(context.Artifacts);
         context.CleanDirectory(context.TestResults);
         context.CleanDirectory(context.TestResultsCtrl);
@@ -118,7 +118,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
         
        
 
-        context.DotNetBuild(Path.Combine(context.RootDir, "ix.framework.sln"), context.DotNetBuildSettings);
+        context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.sln"), context.DotNetBuildSettings);
     }
 }
 
@@ -140,16 +140,16 @@ public sealed class TestsTask : FrostingTask<BuildContext>
 
         if (context.BuildParameters.TestLevel == 1)
         {
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "ix.framework-L1-tests.slnf"));
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.slnf"));
         }
         else if (context.BuildParameters.TestLevel == 2)
         {
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "ix.framework-L2-tests.slnf"));
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.slnf"));
         }
         else
         {
             context.Integrations.ToList().ForEach(context.ApaxDownload);
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "ix.framework-L2-tests.slnf"));
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.slnf"));
         }
 
         context.Log.Information("Tests done.");

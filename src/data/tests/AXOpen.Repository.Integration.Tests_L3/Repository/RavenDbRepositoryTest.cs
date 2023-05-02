@@ -5,7 +5,7 @@ using System.Reflection;
 using AXOpen.Data.RavenDb;
 using Raven.Embedded;
 
-namespace Ix.Framework.Repository.Integration.Tests
+namespace AXOpen.Repository.Integration.Tests
 {
     public class RavenDbRepositoryTest : RepositoryBaseTests
     {

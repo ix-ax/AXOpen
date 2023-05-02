@@ -146,7 +146,7 @@ END_CLASS
 </code></pre>
 <p><strong>How to use <code>IxComponent</code></strong></p>
 <p>The instance of the extended <code>IxComponent</code> must be defined inside the <code>IxContext</code>.</p>
-<pre><code class="lang-smalltalk">CLASS ComponentHeaderOnlyExampleContext EXTENDS ix.framework.core.IxContext
+<pre><code class="lang-smalltalk">CLASS ComponentHeaderOnlyExampleContext EXTENDS AXOpen.core.IxContext
      VAR PUBLIC
          {#ix-set:AttributeName = &quot;Very simple component example with header only defined&quot;}
          MyComponentWithHeaderOnly : IxComponentHeaderOnlyExample;  
@@ -366,7 +366,7 @@ CLASS PUBLIC Help_ComponentExample
 END_CLASS
 </code></pre>
 <p>Instantiate and call the <code>IxComponent</code> instance.</p>
-<pre><code class="lang-smalltalk">CLASS ComponentExampleContext EXTENDS ix.framework.core.IxContext
+<pre><code class="lang-smalltalk">CLASS ComponentExampleContext EXTENDS AXOpen.core.IxContext
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Component example name&quot;}
         MyComponent : IxComponentExample;  

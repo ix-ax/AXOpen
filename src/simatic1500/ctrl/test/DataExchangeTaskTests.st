@@ -1,8 +1,8 @@
-USING ix.framework.core;
+USING AXOpen.core;
 USING AxUnit;
-NAMESPACE ix.framework.data 
+NAMESPACE AXOpen.data 
     NAMESPACE DataExchangeTaskTests
-        CLASS TestContext IMPLEMENTS ix.framework.core.IIxContext         
+        CLASS TestContext IMPLEMENTS AXOpen.core.IIxContext         
             VAR PROTECTED                        
                 _openCounter : ULINT;
                 _closeCounter : ULINT;

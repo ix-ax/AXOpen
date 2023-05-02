@@ -1,4 +1,4 @@
-NAMESPACE ix.framework.data 
+NAMESPACE AXOpen.data 
     INTERFACE IDataEntity
         
     END_INTERFACE

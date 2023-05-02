@@ -1,4 +1,4 @@
-name: "@ix-ax/ix.framework.simatic1500"
+name: "@ix-ax/axopen.simatic1500"
 version                                                                                              : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.125'
 type: lib
 targets:
@@ -9,7 +9,7 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/ix.framework.core"                                                          : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.125'
+  "@ix-ax/axopen.core"                                                          : '0.1.4-48--NEW-FEATURE-Implement-alarm-messaging.125'
 devDependencies:
   "@ax/sdk": 3.0.8
 

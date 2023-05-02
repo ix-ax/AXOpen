@@ -24,17 +24,17 @@ At this point, Ix.framework supports these repositories directly:
 
 For the data exchange to work, we will need to create our class extending the `DataExchange` class. We can call it `MyDataExchanger`. Don't forget to add using:
 ```
-using ix.framework.data;
+using AXOpen.data;
 ```
 
 ~~~
-CLASS MyDataExchanger EXTENDS ix.framework.data.DataExchange 
+CLASS MyDataExchanger EXTENDS AXOpen.data.DataExchange 
 ~~~
 
 We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `DataEntityAttribute`. This attribute should be unique within DataExchanger object and is used to locate data object within framework. When `DataEntityAttribute` is missing, exception is thrown.
 
 ~~~
-CLASS MyDataExchanger EXTENDS ix.framework.data.DataExchange
+CLASS MyDataExchanger EXTENDS AXOpen.data.DataExchange
     VAR PUBLIC
         {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
         _data : MyData;
@@ -45,7 +45,7 @@ END_CLASS
 The data entity variable must be of a class that extends `DataEntity`. So let's just create class that will have some variables.
 
 ~~~
-CLASS MyData EXTENDS ix.framework.data.DataEntity
+CLASS MyData EXTENDS AXOpen.data.DataEntity
     VAR PUBLIC
         sampleData : REAL;
         someInteger : INT;
@@ -67,7 +67,7 @@ END_CONFIGURATION
 ~~~
 
 ~~~
-CLASS MyContext EXTENDS ix.framework.core.IxContext    
+CLASS MyContext EXTENDS AXOpen.core.IxContext    
     VAR PUBLIC         
         _myDataExchanger: MyDataExchanger;
     END_VAR
@@ -144,12 +144,12 @@ If you use `Status` presentation type, data will be only displayed cannot be man
 
 ### Custom columns
 
-There is a possibility to add custom columns if it is needed. You must add `ix.framework.core.IxDataExchange.ColumnData` view as a child in `IxDataView`. The `BindingValue` must be set in `ColumnData` and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:
+There is a possibility to add custom columns if it is needed. You must add `AXOpen.core.IxDataExchange.ColumnData` view as a child in `IxDataView`. The `BindingValue` must be set in `ColumnData` and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:
 
 ~~~
 <IxDataView Vm="@ViewModel.DataViewModel" Presentation="Command">
-    <ix.framework.core.IxDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
-    <ix.framework.core.IxDataExchange.ColumnData BindingValue="String1" Clickable="false" />
+    <AXOpen.core.IxDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
+    <AXOpen.core.IxDataExchange.ColumnData BindingValue="String1" Clickable="false" />
 </IxDataView>
 ~~~
 

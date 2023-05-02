@@ -1,6 +1,6 @@
 {
   "solution": {
-    "path": "ix.framework.sln",
+    "path": "AXOpen.sln",
     "projects": [
       "abstractions\\src\\AXOpen.Abstractions\\ix_ax_axopen_abstractions.csproj",
       "base\\src\\AXOpen.Base.Abstractions\\AXOpen.Base.Abstractions.csproj",
@@ -11,7 +11,7 @@
       "data\\src\\repositories\\InMemory\\AXOpen.Data.InMemory.csproj",
       "data\\src\\repositories\\Json\\AXOpen.Data.Json.csproj",
       "data\\src\\repositories\\MongoDb\\AXOpen.Data.MongoDb.csproj",
-      "data\\src\\repositories\\RavenDb\\Ix.Framework.Data.RavenDb\\AXOpen.Data.RavenDb.csproj",
+      "data\\src\\repositories\\RavenDb\\AXOpen.Data.RavenDb\\AXOpen.Data.RavenDb.csproj",
       "messaging\\src\\AXOpen.Messaging.Blazor\\axopen_messaging_blazor.csproj",
       "messaging\\src\\AXOpen.Messaging\\ix_ax_axopen_messaging.csproj",
       "probers\\src\\AXOpen.Probers\\ix_ax_axopen_probers.csproj",
