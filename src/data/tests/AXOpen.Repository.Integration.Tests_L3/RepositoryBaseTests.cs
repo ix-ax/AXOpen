@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using AXOpen.Base.Data;
 
-namespace Ix.Framework.Repository.Integration.Tests
+namespace AXOpen.Repository.Integration.Tests
 {
     [TestFixture()]
     public abstract class RepositoryBaseTests

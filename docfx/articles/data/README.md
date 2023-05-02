@@ -1,51 +1,52 @@
 # AxoData
 
-AxoData provide a simple yet powerful data exchange between PLC and an arbitrary data repository. IxData implements a series of repository operations known as CRUD.
+AXOpen.Data library provides a simple yet powerful data exchange between PLC and an arbitrary data repository. It includes the implementation of a series of repository operations known as CRUD (Create Read Update Delete) accessible directly from the PLC.
 
 ## Benefits
 
-The main benefit of this solution is data scalability; once the repository is set up, any modification of the data structure(s) will result in an automatic update of mapping objects. And therefore, there is no need for additional coding and configuration.
+The main benefit of this solution is data scalability; once the repository is set up, any modification of the data structure(s) will result in an automatic update of mapped objects. And therefore, there is no need for additional coding and configuration.
 
 ## How it works
 
-The basic PLC block is AxoDataExchange, which has its .NET counterpart (or .NET twin) that handles complex repository operations using a modified AxoRemoteTask, which is a form of RPC (Remote Procedure Call), that allows you to execute the code from the PLC in a remote .NET application.
+The basic PLC block is `AxoDataExchange`, which has its .NET counterpart (or .NET twin) that handles complex repository operations using a modified `AxoRemoteTask`, which is a form of RPC (Remote Procedure Call), that allows you to execute the code from the PLC in a remote .NET application.
 
 ## Implemented repositories
 
-The AxoDataEntity uses a predefined interface IRepository that allows for the unlimited implementation of different kinds of repositories.
+The `AxoDataExchange` uses a predefined interface `IRepository` that allows for the virtually unlimited implementation of different kinds of target repositories.
 
 At this point, AXOpen supports these repositories directly:
 
 - InMemory
 - Json
 - MongoDB
+- RavenDB
 
 ## Getting started
 
-For the data exchange to work, we will need to create our class extending the `AxoDataExchange` class. We can call it `MyDataExchanger`. Don't forget to add using:
+For the data exchange to work, we will need to create our CLASS extending the `AxoDataExchange` class. We can call it `MyDataExchanger`. Don't forget to add using:
 ```
-using AXOpen.Data;
+using AXOpen.data;
 ```
 
 ~~~
-CLASS MyDataExchanger EXTENDS AXOpen.Data.AxoDataExchange 
+CLASS MyDataExchanger EXTENDS AXOpen.Data.DataExchange 
 ~~~
 
-We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `AxoDataEntityAttribute`. This attribute should be unique within AxoDataExchanger object and is used to locate data object within framework. When `AxoDataEntityAttribute` is missing, exception is thrown.
+We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `DataEntityAttribute`. This attribute must be assigned to only one member `AxoDataExchange` object and is used to locate data object that contains data to be exchanged between PLC and the target repository. When `DataEntityAttribute` is missing or multiple members have the annotation, an exception is thrown.
 
 ~~~
-CLASS MyDataExchanger EXTENDS AXOpen.Data.AxoDataExchange
+CLASS MyDataExchanger EXTENDS AXOpen.data.DataExchange
     VAR PUBLIC
-        {#ix-attr:[AxoDataEntityAttribute]}
-        _data : MyData;
+        {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
+        MyDataToExchange : MyData;
     END_VAR  
 END_CLASS  
 ~~~
 
-The data entity variable must be of a class that extends `AxoDataEntity`. So let's just create class that will have some variables.
+The data entity variable must be of a class that extends `AxoDataEntity`. So let's just create CLASS that will have some variables.
 
 ~~~
-CLASS MyData EXTENDS AXOpen.Data.AxoDataEntity
+CLASS MyData EXTENDS AXOpen.data.DataEntity
     VAR PUBLIC
         sampleData : REAL;
         someInteger : INT;
@@ -54,28 +55,32 @@ CLASS MyData EXTENDS AXOpen.Data.AxoDataEntity
 END_CLASS
 ~~~
 
-As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of IxTask which can operate asynchronously, and we will need to call it cyclically.
+As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of `AxoTask` which can operate asynchronously, and we will need to call it cyclically.
 
-We will now need to create an instance of `MyDataExchanger` in some `MyConfiguration`, and call `_myDataExchanger` in the Main method of the context. Just to remind ourselves all logic in Ix framework must be placed in the call tree of a Main method of a context.
+We will now need to create an instance of `MyDataExchanger` in a context object (or as a member of another class). And, we will need to call `_myDataExchanger` in the Main method of appropriate context (Just to remind ourselves all logic in AXOpen must be placed in the call tree of a Main method of a context).
 
+~~~
+CLASS MyContext EXTENDS AXOpen.core.IxContext    
+    VAR PUBLIC         
+        _myDataExchanger: MyDataExchanger;
+    END_VAR
+
+    METHOD OVERRIDE PUBLIC Main
+        _myDataExchanger.Run(THIS);
+    END_METHOD
+END_CLASS
+~~~
+
+Instantiate context in a configuration
 ~~~
 CONFIGURATION MyConfiguration
     VAR_GLOBAL
-        _myDataExchanger : MyDataExchanger;
+        _myContext : MyContext;       
     END_VAR
 END_CONFIGURATION
 ~~~
 
-~~~
-CLASS MyContext EXTENDS AXOpen.Core.AxoContext    
-    VAR PUBLIC         
-        _myDataExchanger: MyDataExchanger;
-    END_VAR
-END_CLASS
-~~~
-
-And we will also need to instantiate the context in a PROGRAM and call the `Run` method.
-
+Execute the context in a program
 ~~~
 PROGRAM MAIN
 VAR_EXTERNAL
@@ -86,18 +91,20 @@ END_VAR
 _myContext.Run();
 ~~~
 
+
 At this point, we have everything ready in the PLC.
 
-We will now need to tell the `_myDataExchanger` what repository we will use. First, we will work with data is stored in files in Json format.
+We will now need to tell the `_myDataExchanger` what repository we will use. We will work with data stored in files in JSON format.
 
 Let's create a configuration for the repository:
 
 ~~~ C#
 var storageDir = Path.Combine(Environment.CurrentDirectory, "MyDataExchangeData");
-var repository = Ix.Repository.Json.Repository.Factory(new JsonRepositorySettings<MyData>(storageDir));
+var repository = AXOpen.Repository.Json.Repository.Factory(new JsonRepositorySettings<MyData>(storageDir));
 ~~~
 
-Note: `MyData` should be type from `Pocos`.
+> [!IMPORTANT]
+> `MyData` should be of type from `Pocos`.
 
 Then we will need to associate the repository with the PLC object and initialize the data exchange operations.
 
@@ -134,22 +141,22 @@ END_IF;
 
 ## Data visualization
 
-With presentation `Command` there are available options for adding, editing and deleting records.
+With `Command` presentation type there are available options for adding, editing and deleting records.
 
 [!Command](~/images/Command.png)
 
-If you use `Status` presentation type, data will be only displayed cannot be manipulated.
+If you use `Status` presentation type, data will be only displayed and cannot be manipulated.
 
 [!Status](~/images/Status.png)
 
 ### Custom columns
 
-There is a possibility to add custom columns if it is needed. You must add `AXOpen.Core.AxoDataExchange.ColumnData` view as a child in `AxoDataView`. The `BindingValue` must be set in `ColumnData` and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:
+There is a possibility to add custom columns if it is needed. You must add `AXOpen.core.IxDataExchange.ColumnData` view as a child in `IxDataView`. The `BindingValue` must be set in `ColumnData` and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:
 
 ~~~
-<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDataView="false" CanExport="true">
-    <AXOpen.Data.Blazor.AxoDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" Clickable="false" />
-    <AXOpen.Data.Blazor.AxoDataExchange.ColumnData BindingValue="String1" />
+<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command">
+    <AXOpen.core.AxoDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
+    <AXOpen.core.AxoDataExchange.ColumnData BindingValue="String1" Clickable="false" />
 </AxoDataView>
 ~~~
 

@@ -23,6 +23,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />
-	  <ProjectReference Include="..\..\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\AXOpen.Data.RavenDb.csproj" />
+	  <ProjectReference Include="..\..\src\repositories\RavenDb\AXOpen.Data.RavenDb\AXOpen.Data.RavenDb.csproj" />
 	</ItemGroup>
 </Project>

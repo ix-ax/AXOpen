@@ -2,7 +2,7 @@ using Ix.Connector;
 using ix_ax_ix_framework_probers;
 
 
-namespace ix.framework.proberstests
+namespace AXOpen.proberstests
 {
 
     using System;

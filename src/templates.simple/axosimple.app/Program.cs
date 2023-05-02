@@ -29,8 +29,9 @@ builder.Services.AddIxBlazorServices();
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.AutoSubscribeUsedVariables;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 100;
 
-var productionDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.ProductionSettings>().Factory();
+var productionDataRepository = new InMemoryRepositorySettings<Pocos.examples.PneumaticManipulator.ProcessData> ().Factory();
 Entry.Plc.Context.ProductionSettings.InitializeRemoteDataExchange(productionDataRepository);
+Entry.Plc.Context.PneumaticManipulator.ProcessData.InitializeRemoteDataExchange(productionDataRepository);
 
 var app = builder.Build();
 

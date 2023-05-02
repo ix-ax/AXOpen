@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.probers"
-version                                                                                                                                                                                    : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.207'
+version                                                                                                                                                                                 : '0.1.4-add-application-templates-for-integration-testing.197'
 type: lib
 targets:
 #  - "1500"
@@ -9,7 +9,7 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                                                    : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.207'
+  "@ix-ax/axopen.core"                                                                                                                                                                                 : '0.1.4-add-application-templates-for-integration-testing.197'
 devDependencies:
   "@ax/sdk": 3.0.8
 variables:

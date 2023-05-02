@@ -38,7 +38,7 @@
               </button>
 
               <a class="navbar-brand" href="../index.html">
-                <p class="text-logo">IX-FRAMEWORK</p>
+                <p class="text-logo">AXOpen</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -100,6 +100,7 @@
     <div><span class="xref">Microsoft.AspNetCore.Components.IHandleEvent</span></div>
     <div><span class="xref">Microsoft.AspNetCore.Components.IHandleAfterRender</span></div>
     <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
     <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span></div>
   </div>
   <div class="inheritedMembers">
@@ -117,10 +118,13 @@
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;AXOpen.Core.AxoStep&gt;.Component</span>
     </div>
     <div>
-      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ITwinObject)</span>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.Dispose()</span>
     </div>
     <div>
-      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ValueTypes.OnlinerBase)</span>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ITwinObject, int)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ValueTypes.OnlinerBase, int)</span>
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange(AXSharp.Connector.ITwinObject)</span>
@@ -139,6 +143,9 @@
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChangedOnOutFocus(object, System.ComponentModel.PropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PollingInterval</span>
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HasFocus</span>
@@ -199,16 +206,16 @@
   <h6><strong>Assembly</strong>: axopen_core_blazor.dll</h6>
   <h5 id="AXOpen_Core_AxoStepStatusView_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoStepStatusView : AxoStepView, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoStepStatusView : AxoStepView, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IDisposable, IRenderableComplexComponentBase</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoStepStatusView__ctor.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepStatusView.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/AXOpen/new/add-application-templates-for-integration-testing/apiSpec/new?filename=AXOpen_Core_AxoStepStatusView__ctor.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepStatusView.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoStep/AxoStepView.razor.cs/#L56">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoStep/AxoStepView.razor.cs/#L56">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoStepStatusView__ctor_" data-uid="AXOpen.Core.AxoStepStatusView.#ctor*"></a>
   <h4 id="AXOpen_Core_AxoStepStatusView__ctor" data-uid="AXOpen.Core.AxoStepStatusView.#ctor">AxoStepStatusView()</h4>
@@ -232,6 +239,9 @@
       <span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent</span>
   </div>
   <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
       <span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span>
   </div>
 </article>
@@ -242,10 +252,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/new/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/apiSpec/new?filename=AXOpen_Core_AxoStepStatusView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepStatusView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/new/add-application-templates-for-integration-testing/apiSpec/new?filename=AXOpen_Core_AxoStepStatusView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoStepStatusView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/64-_NEW-FEATURE_Add_momentary_and_toggle_task_from_tco/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoStep/AxoStepView.razor.cs/#L54" class="contribution-link">View Source</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoStep/AxoStepView.razor.cs/#L54" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -55,7 +55,7 @@ namespace AXOpen.Data.MongoDb
               
                 if (RecordExists(identifier))
                 {
-                    throw new DuplicateIdException($"Record with ID {identifier} already exists in this collection.",
+                    throw new DuplicateIdException($"Record with ID '{identifier}' already exists in this collection.",
                                                    null);
                 }
 

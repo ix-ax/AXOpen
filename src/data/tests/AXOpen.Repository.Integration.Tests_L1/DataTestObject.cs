@@ -5,7 +5,7 @@ using AXOpen.Base.Data;
 using AXOpen.Data;
 using AXSharp.Connector;
 
-namespace Ix.Framework.Repository.Integration.Tests
+namespace AXOpen.Repository.Integration.Tests
 {
     public class DataTestObject : IBrowsableDataObject
     {

@@ -50,7 +50,7 @@ namespace AXOpen.Data.InMemory
             }
             catch (ArgumentException argumentException)
             {
-                throw new DuplicateIdException($"Record with ID {identifier} already exists in this collection.", argumentException);
+                throw new DuplicateIdException($"Record with ID '{identifier}' already exists in this collection.", argumentException);
             }
                                               
         }

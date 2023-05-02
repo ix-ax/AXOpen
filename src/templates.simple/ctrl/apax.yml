@@ -1,5 +1,5 @@
 name: "axosimple"
-version                 : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.207'
+version                : '0.1.4-add-application-templates-for-integration-testing.197'
 type: app
 registries:
   '@ix-ax': https://npm.pkg.github.com/  
@@ -11,9 +11,10 @@ devDependencies:
   "@ax/sdk": 3.0.8
   "@ax/sld": ^0.14.2
 dependencies:
-   "@ix-ax/axopen.core"                 : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.207'
-   "@ix-ax/axopen.data"                 : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.207'
-   "@ix-ax/axopen.messaging"                 : '0.1.4-64--NEW-FEATURE-Add-momentary-and-toggle-task-from-tco.207'
+   "@ix-ax/axopen.core"                : '0.1.4-add-application-templates-for-integration-testing.197'
+   "@ix-ax/axopen.data"                : '0.1.4-add-application-templates-for-integration-testing.197'
+   "@ix-ax/axopen.messaging"                : '0.1.4-add-application-templates-for-integration-testing.197'
+   "@ax/system-strings": ^4.2.3
 variables:
   APAX_BUILD_ARGS: [ -d ]    
 scripts:
@@ -27,5 +28,5 @@ scripts:
     - apax build
     # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
     # --default-server-interface is a must if you are using WebAPI      
-    - apax sld --accept-security-disclaimer -t 192.168.1.1 -i .\\bin\\1500\\ -r --default-server-interface    
+    - apax sld --accept-security-disclaimer -t 192.168.0.4 -i .\\bin\\plcsim\\ -r --default-server-interface    
 

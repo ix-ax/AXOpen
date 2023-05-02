@@ -11,7 +11,7 @@ namespace AXOpen.Core
 
         [Parameter] public bool IsControllable { get; set; } = true;
 
-        [Parameter] public bool HasTaskControlButton { get; set; } = false;
+        [Parameter] public bool HasTaskControlButton { get; set; } = true;
 
         [Parameter] public bool HasSettings { get; set; } = true;
 

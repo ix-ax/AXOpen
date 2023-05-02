@@ -11,20 +11,10 @@ namespace AXOpen.Core
         private bool containsHeaderAttribute;
         private bool containsDetailsAttribute;
         private IEnumerable<string> tabNames = new List<string>();
-        private bool isControllable;
 
         [Parameter]
-        public bool IsControllable
-        {
-            get
-            {
-                return isControllable;
-            }
-            set
-            {
-                isControllable = value;
-            }
-        }
+        public bool IsControllable { get; set; }
+
         private IEnumerable<string> GetAllTabNames(ITwinObject twinObject)
         {
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null)
@@ -45,13 +35,8 @@ namespace AXOpen.Core
                 return new ComponentGroupContext(this.Component, this.Component.GetKids().Where(p => p.GetAttribute<ComponentHeaderAttribute>() != null).ToList());
             }
         }
-        private IEnumerable<ITwinObject> DetailsTabs
-        {
-            get
-            {
-                return CreateDetailsTabs();
-            }
-        }
+        private IEnumerable<ITwinObject> DetailsTabs => CreateDetailsTabs();
+
         private IEnumerable<ITwinObject> CreateDetailsTabs()
         {
             IList<ITwinObject> _detailsTabs = new List<ITwinObject>();
@@ -95,11 +80,6 @@ namespace AXOpen.Core
         {
             isCollapsed = !isCollapsed;
         }
-
-        public void Dispose()
-        {
-            Component.StopPolling();
-        }
     }
 
     public class AxoComponentCommandView : AxoComponentView
@@ -116,6 +96,6 @@ namespace AXOpen.Core
         {
             IsControllable = false;
         }
-    }
+    }   
 }
 

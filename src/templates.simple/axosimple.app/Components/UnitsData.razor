@@ -1,0 +1,26 @@
+﻿@using AXOpen.Core;
+@using AXSharp.Connector
+@inherits RenderableComponentBase
+
+
+
+<div id="my-div" class="card">
+    <div class="card-header">
+        Process Data
+    </div>
+    <div class="card-body">
+        <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Set" Presentation="Display" />
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public ITwinObject? Data { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        this.UpdateValuesOnChange(Data);
+    }
+}

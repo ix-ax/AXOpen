@@ -1,6 +1,6 @@
-USING ix.framework.core;
+USING AXOpen.core;
 
-NAMESPACE ix.framework.data 
+NAMESPACE AXOpen.data 
     INTERFACE IDataExchange
         METHOD Create : IIxTaskState
             VAR_INPUT

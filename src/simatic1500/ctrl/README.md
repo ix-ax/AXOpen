@@ -1,6 +1,6 @@
 # **ix.core**
 
-**ix.core** provides basic blocks for building ix.framework applications.
+**ix.core** provides basic blocks for building AXOpen applications.
 
 # Basic concepts
 
@@ -74,7 +74,7 @@ END_PROGRAM
 
 ## IxObject
 
-IxObject is the base class for any other classes of ix.framework. It provides access to the parent IxObject and the IxContext in which it was initialized.
+IxObject is the base class for any other classes of AXOpen. It provides access to the parent IxObject and the IxContext in which it was initialized.
 
 
 ```mermaid
@@ -461,7 +461,7 @@ All members are added in the order in which they are defined, taking into accoun
 
 Example of the implementation very simple `IxComponent` with members placed only inside the Header.
 ~~~SmallTalk
-using ix.framework.core;
+using AXOpen.core;
 
 {#ix-attr:[Container(Layout.Stack)]}
 {#ix-set:AttributeName = "Component with header only example"}
@@ -519,7 +519,7 @@ END_CLASS
 
 The instance of the extended `IxComponent` must be defined inside the `IxContext`.
 ~~~SmallTalk
-.....................EXTENDS ix.framework.core.IxContext
+.....................EXTENDS AXOpen.core.IxContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Very simple component example with header only defined"}
             MyComponentWithHeaderOnly : ComponentHeaderOnlyExample;  

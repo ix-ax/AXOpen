@@ -7,7 +7,7 @@ using AXOpen.Data;
 using AXOpen.Data.Json;
 using Ix.Repository.Json;
 
-namespace Ix.Framework.Repository.Integration.Tests
+namespace AXOpen.Repository.Integration.Tests
 {
     [TestFixture()]
     public class JsonFileRepositoryTests : RepositoryBaseTests

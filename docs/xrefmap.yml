@@ -1429,19 +1429,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.AxoComponentView.BuildRenderTree
   nameWithType: AxoComponentView.BuildRenderTree
-- uid: AXOpen.Core.AxoComponentView.Dispose
-  name: Dispose()
-  href: api/AXOpen.Core.AxoComponentView.html#AXOpen_Core_AxoComponentView_Dispose
-  commentId: M:AXOpen.Core.AxoComponentView.Dispose
-  fullName: AXOpen.Core.AxoComponentView.Dispose()
-  nameWithType: AxoComponentView.Dispose()
-- uid: AXOpen.Core.AxoComponentView.Dispose*
-  name: Dispose
-  href: api/AXOpen.Core.AxoComponentView.html#AXOpen_Core_AxoComponentView_Dispose_
-  commentId: Overload:AXOpen.Core.AxoComponentView.Dispose
-  isSpec: "True"
-  fullName: AXOpen.Core.AxoComponentView.Dispose
-  nameWithType: AxoComponentView.Dispose
 - uid: AXOpen.Core.AxoComponentView.IsControllable
   name: IsControllable
   href: api/AXOpen.Core.AxoComponentView.html#AXOpen_Core_AxoComponentView_IsControllable
@@ -4562,19 +4549,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.AxoTaskView.Disable
   nameWithType: AxoTaskView.Disable
-- uid: AXOpen.Core.AxoTaskView.Dispose
-  name: Dispose()
-  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_Dispose
-  commentId: M:AXOpen.Core.AxoTaskView.Dispose
-  fullName: AXOpen.Core.AxoTaskView.Dispose()
-  nameWithType: AxoTaskView.Dispose()
-- uid: AXOpen.Core.AxoTaskView.Dispose*
-  name: Dispose
-  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_Dispose_
-  commentId: Overload:AXOpen.Core.AxoTaskView.Dispose
-  isSpec: "True"
-  fullName: AXOpen.Core.AxoTaskView.Dispose
-  nameWithType: AxoTaskView.Dispose
 - uid: AXOpen.Core.AxoTaskView.HideRestoreButton
   name: HideRestoreButton
   href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_HideRestoreButton

@@ -5,7 +5,10 @@ PROGRAM MyProgram
         Outputs : axosimple.Outputs;          
         Context : axosimple.Context;         
     END_VAR
+    // Never modif this the context needs references to IN/OUT structures before it is used.
     Context.Inputs := REF(Inputs);
     Context.Outputs := REF(Outputs);
-    Context.Run();            
+
+    // Executes the main context of this application.
+    Context.Run();                
 END_PROGRAM

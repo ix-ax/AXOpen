@@ -37,7 +37,7 @@
 	<ItemGroup>
     <ProjectReference Include="..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />
-    <ProjectReference Include="..\..\..\data\src\repositories\RavenDb\Ix.Framework.Data.RavenDb\AXOpen.Data.RavenDb.csproj" />
+    <ProjectReference Include="..\..\..\data\src\repositories\RavenDb\AXOpen.Data.RavenDb\AXOpen.Data.RavenDb.csproj" />
     <ProjectReference Include="..\..\src\AXOpen.Integrations.Blazor\axopen_integrations_blazor.csproj" />
     <ProjectReference Include="..\..\src\AXOpen.Integrations\axopen_integrations.csproj" />
   </ItemGroup>
