@@ -18,6 +18,7 @@ using Cake.Common.Tools.DotNet.Test;
 using Cake.Core;
 using Cake.Frosting;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Octokit;
 using Polly;
 using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;

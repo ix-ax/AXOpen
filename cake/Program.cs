@@ -99,7 +99,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        if (context.BuildParameters.DoPublish)
+        if (context.BuildParameters.DoPack)
         {
             context.Libraries.ToList().ForEach(lib =>
             {
@@ -115,7 +115,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             //context.ApaxIxc(lib);
         });
 
-        if (context.BuildParameters.DoPublish)
+        if (context.BuildParameters.DoPack)
         {
             context.Integrations.ToList().ForEach(lib =>
             {
