@@ -20,7 +20,7 @@ CONFIGURATION MyConfiguration
         AxoToggleTaskDocu : AxoToggleTaskExamples.AxoToggleTaskDocuExample;
         AxoMomentaryTasks : AxoMomentaryTaskExamples.Tasks;
         AxoMomentaryTaskDocu : AxoMomentaryTaskExamples.AxoMomentaryTaskDocuExample;
-        
+        AxoDataExamplesDocu : AxoDataExamplesDocu.Context;
 
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;

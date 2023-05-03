@@ -21,7 +21,7 @@ namespace AXOpen.Data
             return (T)this.Onliner;
         }
 
-        public ITwinObject Data
+        public ITwinObject DataHeavy
         {
             get { return (ITwinObject)this.Onliner; }
         }

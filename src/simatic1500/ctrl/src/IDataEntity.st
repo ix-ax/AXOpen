@@ -1,5 +1,0 @@
-NAMESPACE AXOpen.data 
-    INTERFACE IDataEntity
-        
-    END_INTERFACE
-END_NAMESPACE    

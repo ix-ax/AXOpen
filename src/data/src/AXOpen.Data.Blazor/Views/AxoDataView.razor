@@ -1,5 +1,5 @@
 ﻿@namespace AXOpen.Data
-@using AXOpen.Data.Blazor.AxoDataExchange;
+@using AXOpen.Data;
 @using CommunityToolkit.Mvvm.ComponentModel;
 @using CommunityToolkit.Mvvm.Messaging;
 @using Microsoft.AspNetCore.Components.Forms;
@@ -223,7 +223,7 @@ else
     @if (!ModalDataView && Vm.SelectedRecord != null)
     {
         <div class="border p-2">
-            <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowDisplay"></RenderableContentControl>
+            <RenderableContentControl Context="Vm.DataExchange.DataHeavy" Presentation="ShadowDisplay"></RenderableContentControl>
             @if (Presentation.Equals("Command"))
             {
                 <div class="d-flex justify-content-end mt-3">
@@ -305,7 +305,7 @@ else
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowDisplay"></RenderableContentControl>
+                <RenderableContentControl Context="Vm.DataExchange.DataHeavy" Presentation="ShadowDisplay"></RenderableContentControl>
             </div>
             <div class="modal-footer">
                 @if (Presentation.Equals("Command"))
@@ -329,7 +329,7 @@ else
                 <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <RenderableContentControl Context="Vm.DataExchange.Data" Presentation="ShadowControl"></RenderableContentControl>
+                <RenderableContentControl Context="Vm.DataExchange.DataHeavy" Presentation="ShadowControl"></RenderableContentControl>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Edit()">Save</button>

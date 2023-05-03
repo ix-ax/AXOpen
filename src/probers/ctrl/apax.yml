@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.probers"
-version                                                                                                                                                                                         : '0.1.4-67--BUG-Sequencer-should-not-execute-code-that-is-outside-steps.54'
+version                                                                                                                                                                                  : '0.1.4-alpha.53'
 type: lib
 targets:
 #  - "1500"
@@ -9,7 +9,7 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                                                         : '0.1.4-67--BUG-Sequencer-should-not-execute-code-that-is-outside-steps.54'
+  "@ix-ax/axopen.core"                                                                                                                                                                                  : '0.1.4-alpha.53'
 devDependencies:
   "@ax/sdk": 3.0.8
 variables:

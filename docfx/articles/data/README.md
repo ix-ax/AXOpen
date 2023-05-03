@@ -1,6 +1,6 @@
 # AxoData
 
-AXOpen.Data library provides a simple yet powerful data exchange between PLC and an arbitrary data repository. It includes the implementation of a series of repository operations known as CRUD (Create Read Update Delete) accessible directly from the PLC.
+`AXOpen.Data` library provides a simple yet powerful data exchange between PLC and an arbitrary data repository. It includes the implementation of a series of repository operations known as CRUD (Create Read Update Delete), accessible directly from the PLC.
 
 ## Benefits
 
@@ -12,7 +12,7 @@ The basic PLC block is `AxoDataExchange`, which has its .NET counterpart (or .NE
 
 ## Implemented repositories
 
-The `AxoDataExchange` uses a predefined interface `IRepository` that allows for the virtually unlimited implementation of different kinds of target repositories.
+The `AxoDataExchange` uses a predefined interface, `IRepository`, that allows for the virtually unlimited implementation of different target repositories.
 
 At this point, AXOpen supports these repositories directly:
 
@@ -23,59 +23,36 @@ At this point, AXOpen supports these repositories directly:
 
 ## Getting started
 
-For the data exchange to work, we will need to create our CLASS extending the `AxoDataExchange` class. We can call it `MyDataExchanger`. Don't forget to add using:
-```
-using AXOpen.data;
-```
+### Data exchange manager
 
-~~~
-CLASS MyDataExchanger EXTENDS AXOpen.Data.DataExchange 
-~~~
+For the data exchange to work, we must create a class extending the `AxoDataExchange`. 
 
-We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `DataEntityAttribute`. This attribute must be assigned to only one member `AxoDataExchange` object and is used to locate data object that contains data to be exchanged between PLC and the target repository. When `DataEntityAttribute` is missing or multiple members have the annotation, an exception is thrown.
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoData/AxoDataDocuExample.st?name=ProcessDataMangerDeclaration)]
 
-~~~
-CLASS MyDataExchanger EXTENDS AXOpen.data.DataExchange
-    VAR PUBLIC
-        {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
-        MyDataToExchange : MyData;
-    END_VAR  
-END_CLASS  
-~~~
+### Data exchange object
 
-The data entity variable must be of a class that extends `AxoDataEntity`. So let's just create CLASS that will have some variables.
+We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `DataEntityAttribute`. 
 
-~~~
-CLASS MyData EXTENDS AXOpen.data.DataEntity
-    VAR PUBLIC
-        sampleData : REAL;
-        someInteger : INT;
-        someString : STRING;
-    END_VAR 
-END_CLASS
-~~~
+> [!IMPORTANT]
+> `DataEntityAttribute` must be attributed to only one member `AxoDataExchange` object and is used to locate data object that contains data to be exchanged between PLC and the target repository. An exception is thrown when `DataEntityAttribute` is missing or multiple members have the annotation.
 
-As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of `AxoTask` which can operate asynchronously, and we will need to call it cyclically.
 
-We will now need to create an instance of `MyDataExchanger` in a context object (or as a member of another class). And, we will need to call `_myDataExchanger` in the Main method of appropriate context (Just to remind ourselves all logic in AXOpen must be placed in the call tree of a Main method of a context).
+> [!IMPORTANT]
+> The 'Data' variable must be of a type that extends `AxoDataEntity`. 
 
-~~~
-CLASS MyContext EXTENDS AXOpen.core.IxContext    
-    VAR PUBLIC         
-        _myDataExchanger: MyDataExchanger;
-    END_VAR
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoData/AxoDataDocuExample.st?name=ProcessDataDeclaration)]
 
-    METHOD OVERRIDE PUBLIC Main
-        _myDataExchanger.Run(THIS);
-    END_METHOD
-END_CLASS
-~~~
+### Data exchange initialization in PLC
+
+As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of `AxoTask`, which allows for invoking a C# code. We will now need to create an instance of `AxoProcessDataManager` in a context object (`AxoContext`) (or as a member of another class that derives from `AxoObject`). We will also need to call `DataManager` in the Main method of appropriate context.
+
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoData/AxoDataDocuExample.st?name=ContextDeclaration)]
 
 Instantiate context in a configuration
 ~~~
 CONFIGURATION MyConfiguration
     VAR_GLOBAL
-        _myContext : MyContext;       
+        _myContext : Context;       
     END_VAR
 END_CONFIGURATION
 ~~~
@@ -84,85 +61,66 @@ Execute the context in a program
 ~~~
 PROGRAM MAIN
 VAR_EXTERNAL
-    _myContext : MyContext;
+    _myContext : Context;
 END_VAR
-//-------------------------------------------------
-//-------------------------------------------------
+
 _myContext.Run();
+
 ~~~
 
+### Data exchange initialization in .NET
 
 At this point, we have everything ready in the PLC.
 
-We will now need to tell the `_myDataExchanger` what repository we will use. We will work with data stored in files in JSON format.
+We must now tell the `DataManager` what repository we will use. We will work with data stored in files in JSON format.
 
-Let's create a configuration for the repository:
+Let's create a configuration for the repository and initialize remote data exchange:
 
-~~~ C#
-var storageDir = Path.Combine(Environment.CurrentDirectory, "MyDataExchangeData");
-var repository = AXOpen.Repository.Json.Repository.Factory(new JsonRepositorySettings<MyData>(storageDir));
-~~~
+
+[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Program.cs?name=AxoDataExampleDocuIntialization)]
+
 
 > [!IMPORTANT]
 > `MyData` should be of type from `Pocos`.
 
-Then we will need to associate the repository with the PLC object and initialize the data exchange operations.
 
-~~~ C#
-Entry.Plc.MainContext.MyDataExchanger.InitializeRemoteDataExchange(repository);
-~~~
+### Usage
 
 Now we can freely shuffle the data between PLC and the local folder.
-```
-IF(_create) THEN
-    IF(_myDataExchanger.Create(_id).Done) THEN
-        _create := FALSE;
-    END_IF;
-END_IF;
 
-IF(_read) THEN
-    IF(_myDataExchanger.Read(_id).Done) THEN
-        _read := FALSE;
-    END_IF;
-END_IF;
-
-IF(_update) THEN
-    IF(_myDataExchanger.Update(_id).Done) THEN
-        _update := FALSE;
-    END_IF;
-END_IF;
-
-IF(_delete) THEN
-    IF(_myDataExchanger.Delete(_id).Done) THEN
-        _delete := FALSE;
-    END_IF;
-END_IF;
-```
+[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoData/AxoDataDocuExample.st?name=UseManager)]
 
 ## Data visualization
 
-With `Command` presentation type there are available options for adding, editing and deleting records.
+### Automated rendering using `RenderableContentControl`
 
-[!Command](~/images/Command.png)
+With `Command` presentation type, options exist for adding, editing, and deleting records.
+
+[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoDataDocuExamples.razor?name=CommandView)]
+
+![Command](~/images/Command.png)
 
 If you use `Status` presentation type, data will be only displayed and cannot be manipulated.
 
-[!Status](~/images/Status.png)
+[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoDataDocuExamples.razor?name=DisplayView)]
+
+![Status](~/images/Status.png)
 
 ### Custom columns
 
-There is a possibility to add custom columns if it is needed. You must add `AXOpen.core.IxDataExchange.ColumnData` view as a child in `IxDataView`. The `BindingValue` must be set in `ColumnData` and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in `HeaderName` attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:
+There is a possibility to add custom columns if it is needed. You must add `AXOpen.Data.AxoColumnData` view as a child in `AxoDataView`. The `BindingValue` must be set in `ColumnData` and contains a string representing the attribute name of custom columns. If you want to add a custom header name, you can set the name in `HeaderName` attribute. Also, there is an attribute to make the column not clickable, which is clickable by default. The example using all attributes:
 
-~~~
-<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command">
-    <AXOpen.core.AxoDataExchange.ColumnData HeaderName="Recipe name" BindingValue="RecipeName" />
-    <AXOpen.core.AxoDataExchange.ColumnData BindingValue="String1" Clickable="false" />
-</AxoDataView>
-~~~
 
-[!Custom columns](~/images/CustomColumns.png)
+[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoDataDocuExamples.razor?name=CustomColumns)]
 
-### Export
+When adding data view manually, you will need to create ViewModel:
+
+[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoDataDocuExamples.razor?name=CustomColumnsCode)]
+
+
+![Custom columns](~/images/CustomColumns.png)
+
+### Export/Import
 
 If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
 
@@ -170,16 +128,19 @@ If you want to be able to export data, you must add `CanExport` attribute with `
 <AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
 ~~~
 
-With this option, buttons for export and import data will appear. After clicking on export button, the csv file will be created, which contains all existing records. If you want import data, you must upload csv file with equal data structure like we get in export file.
+With this option, buttons for export and import data will appear. After clicking on the export button, the `csv` file will be created, which contains all existing records. If you want to import data, you must upload `csv` file with an equal data structure as we get in the export file.
 
-[!Export](~/images/Export.png)
+![Export](~/images/Export.png)
+
+> [!IMPORTANT]
+> Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.
 
 ### Modal detail view
 
-The Detail View is default shown like modal view. That means if you clicked on some record, the modal window with detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show detail view under the record table. Example with `ModalDetailView` attribute:
+The Detail View is default shown like modal view. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show a detail view under the record table. Example with `ModalDetailView` attribute:
 
 ~~~
 <AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
 ~~~
 
-[!Not Modal detail view](~/images/NotModalDetailView.png)
+![Not Modal detail view](~/images/NotModalDetailView.png)

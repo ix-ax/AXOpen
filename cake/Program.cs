@@ -21,6 +21,7 @@ using Cake.Common;
 using Cake.Common.IO;
 using Cake.Common.Tools.DotNet;
 using Cake.Common.Tools.DotNet.Clean;
+using Cake.Common.Tools.DotNet.Restore;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
 using Cake.Core.Tooling;
@@ -86,8 +87,8 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     {
         context.ProcessRunner.Start(@"dotnet", new Cake.Core.IO.ProcessSettings()
         {
-            Arguments = $" tool restore",
-
+            Arguments = $"tool restore",
+            WorkingDirectory = context.RootDir
         });
     }
 }
@@ -98,19 +99,33 @@ public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+        if (context.BuildParameters.DoPack)
+        {
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
+                context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
+            });
+        }
+
         context.Libraries.ToList().ForEach(lib =>
         {
-            context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
-            context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
             context.ApaxInstall(lib);
             context.ApaxBuild(lib);
             //context.ApaxIxc(lib);
         });
 
+        if (context.BuildParameters.DoPack)
+        {
+            context.Integrations.ToList().ForEach(lib =>
+            {
+                context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
+                context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
+            });
+        }
+
         context.Integrations.ToList().ForEach(proj =>
         {
-            context.UpdateApaxVersion(context.GetApaxFile(proj), GitVersionInformation.SemVer);
-            context.UpdateApaxDependencies(context.GetApaxFile(proj), context.Libraries.Select(p => p.name), GitVersionInformation.SemVer);
             context.ApaxInstall(proj);
             context.ApaxBuild(proj);
             //context.ApaxIxc(proj);

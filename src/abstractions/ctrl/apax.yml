@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.abstractions"
-version                                                                                                                                                                                                               : '0.1.4-67--BUG-Sequencer-should-not-execute-code-that-is-outside-steps.54'
+version                                                                                                                                                                                                   : '0.1.4-alpha.53'
 type: lib
 targets:
   - "1500"
