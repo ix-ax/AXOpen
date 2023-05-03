@@ -87,39 +87,39 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+    <div class="level0"><a class="xref" href="core/plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
     <div class="level1"><span class="xref">AxoTask</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="plc.AXOpen.Core.IAxoTask.html">IAxoTask</a></div>
-    <div><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
+    <div><a class="xref" href="core/plc.AXOpen.Core.IAxoTask.html">IAxoTask</a></div>
+    <div><a class="xref" href="core/plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
+      <a class="xref" href="core/plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
     </div>
     <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
+      <a class="xref" href="core/plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
     </div>
     <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
+      <a class="xref" href="core/plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
     </div>
     <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
+      <a class="xref" href="core/plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
     </div>
     <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
+      <a class="xref" href="core/plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
     </div>
     <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoContext_">Initialize(IAxoContext)</a>
+      <a class="xref" href="core/plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoContext_">Initialize(IAxoContext)</a>
     </div>
     <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Environment__">Environment()</a>
+      <a class="xref" href="core/plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Environment__">Environment()</a>
     </div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="plc.AXOpen.Core.html">plc.AXOpen.Core</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="core/plc.AXOpen.Core.html">plc.AXOpen.Core</a></h6>
   <h6><strong>Assembly</strong>: @ix-ax/axopen.core.dll</h6>
   <h5 id="plc_AXOpen_Core_AxoTask_syntax">Syntax</h5>
   <div class="codewrapper">
@@ -304,6 +304,56 @@
   </table>
 
 
+  <h4 id="plc_AXOpen_Core_AxoTask_Duration" data-uid="plc.AXOpen.Core.AxoTask.Duration">Duration</h4>
+  <div class="markdown level1 summary"><p>Gets elapsed time of last task execution.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Duration : LTIME</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoTask_StartTimeStamp" data-uid="plc.AXOpen.Core.AxoTask.StartTimeStamp">StartTimeStamp</h4>
+  <div class="markdown level1 summary"><p>Gets date and time when the task started.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">StartTimeStamp : LDATE_AND_TIME</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <h4 id="plc_AXOpen_Core_AxoTask_ErrorDetails" data-uid="plc.AXOpen.Core.AxoTask.ErrorDetails">ErrorDetails</h4>
   <div class="markdown level1 summary"><p>Contains details about the error.</p>
 </div>
@@ -375,6 +425,30 @@
       </tr>
     </tbody>
   </table>
+
+
+  <h4 id="plc_AXOpen_Core_AxoTask__taskTimer" data-uid="plc.AXOpen.Core.AxoTask._taskTimer">_taskTimer</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_taskTimer : UNDEFINED</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
 
@@ -397,7 +471,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="plc.AXOpen.Core.eAxoTaskState.html">eAxoTaskState</a></td>
+        <td><a class="xref" href="core/plc.AXOpen.Core.eAxoTaskState.html">eAxoTaskState</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -739,7 +813,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></td>
+        <td><a class="xref" href="core/plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -764,7 +838,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></td>
+        <td><a class="xref" href="core/plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1219,10 +1293,10 @@
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="plc.AXOpen.Core.IAxoTask.html">IAxoTask</a>
+      <a class="xref" href="core/plc.AXOpen.Core.IAxoTask.html">IAxoTask</a>
   </div>
   <div>
-      <a class="xref" href="plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a>
+      <a class="xref" href="core/plc.AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a>
   </div>
 </article>
           </div>
