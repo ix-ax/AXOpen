@@ -232,10 +232,52 @@
       "@ax/target-mc7plus": "4.2.19"
     }
   },
+  "@ax/simatic-1500": {
+    "version": "3.0.2",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-1500/-/simatic-1500-3.0.2.tgz",
+    "integrity": "sha512-TvAFFyGKTdT2AOyJ3McV6LaRDQp+ofBaT9qAYwfSQEGftwRuOHz8TjRA4DJTB8JYd5StmC3pGoj15AXcOs0OwA==",
+    "dependencies": {
+      "@ax/simatic-1500-clocks": "^3.0.0",
+      "@ax/simatic-1500-diagnostics-hardware": "^3.0.0",
+      "@ax/simatic-1500-distributedio": "^4.0.0",
+      "@ax/simatic-1500-fileaccess": "^3.0.0",
+      "@ax/simatic-1500-processimage": "^4.0.0",
+      "@ax/simatic-1500-tasks": "^3.0.0",
+      "@ax/system-timer": "^3.0.0"
+    }
+  },
   "@ax/simatic-1500-clocks": {
     "version": "3.0.6",
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-1500-clocks/-/simatic-1500-clocks-3.0.6.tgz",
     "integrity": "sha512-kh1LWR+jMvYgRjr7RkdNRHX0pJn3KcDl0U2sTxA6CEKvuIBcWPZGsSWYcVyPFORzYTshA7p4oDuxYx4GwnOoKw=="
+  },
+  "@ax/simatic-1500-diagnostics-hardware": {
+    "version": "3.0.5",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-1500-diagnostics-hardware/-/simatic-1500-diagnostics-hardware-3.0.5.tgz",
+    "integrity": "sha512-fWW/OVbcfYdJs9mnrI9QwI6ZctQUKprL2BhTQvLGrmIT/XBcfEhC5IdOT/r0SnZTxIYvxlzgGS5OfaHOkuUSVA=="
+  },
+  "@ax/simatic-1500-distributedio": {
+    "version": "4.1.8",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-1500-distributedio/-/simatic-1500-distributedio-4.1.8.tgz",
+    "integrity": "sha512-PWYS1MwcG/kgT6vOO+EIjtOzdixzWL+BQ4Le90eVdQdQEAjpIwXqgm7N3CpgejctwwV8cFegBEB8WcO9Xakcpw=="
+  },
+  "@ax/simatic-1500-fileaccess": {
+    "version": "3.0.9",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-1500-fileaccess/-/simatic-1500-fileaccess-3.0.9.tgz",
+    "integrity": "sha512-gHx0G8RZ5z0Cz3PsDaOmUgY+Wf8LVCzmTdi9gqCIau53TdAg25pDwQxijC/tGKAH/XaY87qPvKUlyJsXnN3jEA=="
+  },
+  "@ax/simatic-1500-processimage": {
+    "version": "4.0.5",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-1500-processimage/-/simatic-1500-processimage-4.0.5.tgz",
+    "integrity": "sha512-IpGY+Pp9oLmAmkn5weVolqzoZWYi3nks00mr6om2FAdLsN9EAmoNe9qnsfxaX5SLKJkn06L/QVeidVNmRlRx1A=="
+  },
+  "@ax/simatic-1500-tasks": {
+    "version": "3.0.41",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-1500-tasks/-/simatic-1500-tasks-3.0.41.tgz",
+    "integrity": "sha512-vpauYcKWtj8zKoW/uvOriamgbcaoAvHfIDDWqG9ampSkEruKafvfn4uYf+bKaJYWLgOZvfYg9XNXdtR/M7DAJA==",
+    "dependencies": {
+      "@ax/system-datetime": "3.1.3"
+    }
   },
   "@ax/sld": {
     "version": "0.13.3",
@@ -319,11 +361,6 @@
       "@ax/st-docs": "4.2.19"
     }
   },
-  "@ax/system-bitaccess": {
-    "version": "5.0.4",
-    "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-bitaccess/-/system-bitaccess-5.0.4.tgz",
-    "integrity": "sha512-MhvZdQ20KGKXpHnlcCk61I71runyiQSaO2F0cF1WY+xk3DRc80zRU+yQV56qhWyMsUxP6uaWOHtb+nuLnpJ2BQ=="
-  },
   "@ax/system-datetime": {
     "version": "3.1.3",
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-datetime/-/system-datetime-3.1.3.tgz",
@@ -334,14 +371,6 @@
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-math/-/system-math-3.1.7.tgz",
     "integrity": "sha512-GF3uvdcZw7D/S9yUcj1ZzBJMdF/jC8GvN8JyvAH8q4x2NVHWp+aV6T1M4PqEmRvhXQQ7mQv+xsUvZuBjnOFyGg=="
   },
-  "@ax/system-serde": {
-    "version": "1.3.13",
-    "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-serde/-/system-serde-1.3.13.tgz",
-    "integrity": "sha512-aXJ0APhFrbnmiZcsMjRUestGJaRi8OWUdWnfrULmVUTgquheYBGAeSMQXkKzssyd2jfhR+fipp81LIK7CZNBCw==",
-    "dependencies": {
-      "@ax/system-strings": "4.2.3"
-    }
-  },
   "@ax/system-strings": {
     "version": "4.2.3",
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-strings/-/system-strings-4.2.3.tgz",
@@ -350,6 +379,11 @@
       "@ax/system-datetime": "^3.1.3",
       "@ax/system-math": "^3.1.7"
     }
+  },
+  "@ax/system-timer": {
+    "version": "3.0.9",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-timer/-/system-timer-3.0.9.tgz",
+    "integrity": "sha512-4yXndi8SQZ0d81MVrJRvGaULPhtfGXC+5Zk6r9MJsCElMzhEIaqqrD1FQHdXvaBOqclN4otR9KW43Mq4nEf/aA=="
   },
   "@ax/target-axunit": {
     "version": "3.0.4",

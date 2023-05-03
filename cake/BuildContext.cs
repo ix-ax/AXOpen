@@ -18,6 +18,7 @@ using Cake.Common.Tools.DotNet.Test;
 using Cake.Core;
 using Cake.Frosting;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Octokit;
 using Polly;
 using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
@@ -138,6 +139,7 @@ public class BuildContext : FrostingContext
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
     {
         ("abstractions", "axopen.abstractions"),
+        ("simatic1500", "axopen.simatic1500"),
         ("utils", "axopen.utils"),
         ("core", "axopen.core"),
         ("messaging", "axopen.messaging"),
