@@ -1,0 +1,55 @@
+﻿@page "/Identity/Account/Login"
+@using BlazorAuthApp.Identity.Models;
+@using BlazorAuthApp.Identity;
+@using CommunityToolkit.Mvvm.Messaging;
+@using ix.framework.core;
+@using ix.framework.core.blazor.Toaster;
+@inject NavigationManager _navigationManager
+
+<div class="card">
+    <h4 class="card-header">Log in</h4>
+    <div class="card-body">
+        <EditForm Model="@_model" OnValidSubmit="OnValidSubmit" Context="accountManagementContext">
+            <DataAnnotationsValidator />
+            <div class="form-group">
+                <label>Username</label>
+                <InputText @bind-Value="_model.Username" class="form-control" />
+                <ValidationMessage For="@(() => _model.Username)" />
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <InputText @bind-Value="_model.Password" type="password" class="form-control" />
+                <ValidationMessage For="@(() => _model.Password)" />
+            </div>
+            <button type="submit" class="btn btn-primary m-2">Login</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    private LoginUserModel _model { get; set; }
+
+    private void OnValidSubmit()
+    {
+        try
+        {
+            SecurityManager.Manager.Service.AuthenticateUser(_model.Username, _model.Password);
+            //TcoAppDomain.Current.Logger.Information($"User '{_model.Username}' logged in. {{@sender}}", new { UserName = _model.Username });
+            _navigationManager.NavigateTo("", forceLoad: true);
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Logged!", "User logged in.", 10)));
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Error!", "Incorrect credentials!", 10)));
+        }
+        catch (Exception ex)
+        {
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Error!", "User was not logged in.", 10)));
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        _model = new LoginUserModel();
+    }
+}

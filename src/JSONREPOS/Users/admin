@@ -1,0 +1,19 @@
+{
+  "SecurityStamp": "81e9bb61-2557-401e-afd7-2e3f69db33ec",
+  "RecordId": null,
+  "Username": "admin",
+  "Email": null,
+  "HashedPassword": "2CSU8F1pF7oC96qilonMtES7c/IDgIdssF0fN1N7eJI=",
+  "Roles": [
+    "AdminGroup"
+  ],
+  "CanUserChangePassword": false,
+  "_Created": "0001-01-01T00:00:00",
+  "DataEntityId": "admin",
+  "_Modified": "0001-01-01T00:00:00",
+  "RoleHash": null,
+  "Level": null,
+  "AuthenticationToken": "",
+  "Changes": [],
+  "LogoutTime": "00:00:00"
+}
