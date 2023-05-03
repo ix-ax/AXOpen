@@ -5,6 +5,7 @@ PROGRAM MyProgram
         MainContext : MyContext;
         I_am_alive : ULINT;
         AxoSequencers : AxoSequencerExamples.SequencerExample;
+        AxoSequencerContainer : AxoSequencerContainerExamples.SequencerContainerExample;
         AxoTasks : AxoTaskExamples.Tasks;
         AxoTaskDocu : AxoTaskExamples.AxoTaskDocuExample;
         myComponentExample : AxoComponentExamples.ComponentExampleContext;
@@ -27,6 +28,7 @@ PROGRAM MyProgram
     AxoToggleTasks.Run();
     AxoToggleTaskDocu.Run();
     AxoSequencers.Run();
+    AxoSequencerContainer.Run();
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
     AxoRemoteTasks.Run();   
@@ -36,7 +38,7 @@ PROGRAM MyProgram
     
     // Integration tests
     Integrations.Run();      
-    
+   
 END_PROGRAM
 
 

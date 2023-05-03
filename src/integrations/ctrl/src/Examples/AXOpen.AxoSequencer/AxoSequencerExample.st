@@ -45,88 +45,81 @@ NAMESPACE AxoSequencerExamples
             step_10.Initialize(THIS);
             coord.Initialize(THIS);
 
-            coord.Open();
+            IF coord.Open() THEN
             
-            IF(step_1.Execute(coord)) THEN  
                 Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    coord.MoveNext();
-                END_IF;    
-            END_IF;    
-           
-            IF(step_2.Execute(coord)) THEN
-                Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    coord.MoveNext();
-                END_IF;    
-            END_IF; 
 
-            IF(step_3.Execute(coord)) THEN
-                Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    step_3.ThrowWhen(TRUE);
-                    coord.MoveNext();
+                IF(step_1.Execute(coord)) THEN  
+                    IF(Counter >= ULINT#100 ) THEN
+                        Counter := ULINT#0;
+                        coord.MoveNext();
+                    END_IF;    
                 END_IF;    
-            END_IF; 
+            
+                IF(step_2.Execute(coord)) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        coord.MoveNext();
+                    END_IF;    
+                END_IF; 
 
-            IF(step_4.Execute(coord)) THEN
-                Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    coord.MoveNext();
-                END_IF;    
-            END_IF; 
+                IF(step_3.Execute(coord)) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        step_3.ThrowWhen(TRUE);
+                        coord.MoveNext();
+                    END_IF;    
+                END_IF; 
 
-            IF(step_5.Execute(coord)) THEN
-                Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    coord.MoveNext();
-                END_IF;    
-            END_IF; 
+                IF(step_4.Execute(coord)) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        coord.MoveNext();
+                    END_IF;    
+                END_IF; 
 
-            IF(step_6.Execute(coord)) THEN
-                Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    coord.MoveNext();
-                END_IF;    
-            END_IF; 
+                IF(step_5.Execute(coord)) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        coord.MoveNext();
+                    END_IF;    
+                END_IF; 
 
-            IF(step_7.Execute(coord)) THEN
-                Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    coord.MoveNext();
-                END_IF;    
-            END_IF; 
+                IF(step_6.Execute(coord)) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        coord.MoveNext();
+                    END_IF;    
+                END_IF; 
 
-            IF(step_8.Execute(coord)) THEN
-                Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    coord.MoveNext();
-                END_IF;    
-            END_IF; 
+                IF(step_7.Execute(coord)) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        coord.MoveNext();
+                    END_IF;    
+                END_IF; 
 
-            IF(step_9.Execute(coord)) THEN
-                Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    coord.MoveNext();
-                END_IF;    
-            END_IF; 
+                IF(step_8.Execute(coord)) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        coord.MoveNext();
+                    END_IF;    
+                END_IF; 
 
-            IF(step_10.Execute(coord)) THEN
-                Counter := Counter + ULINT#1;
-                IF(Counter >= ULINT#100) THEN
-                    Counter := ULINT#0;
-                    coord.CompleteSequence();
-                END_IF;    
+                IF(step_9.Execute(coord)) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        coord.MoveNext();
+                    END_IF;    
+                END_IF; 
+
+                IF(step_10.Execute(coord)) THEN
+                    IF(Counter >= ULINT#100) THEN
+                        Counter := ULINT#0;
+                        coord.CompleteSequence();
+                    END_IF;    
+                END_IF; 
             END_IF; 
         END_METHOD
-END_CLASS    
+    END_CLASS    
 END_NAMESPACE

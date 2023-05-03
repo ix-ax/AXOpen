@@ -2,8 +2,21 @@ USING AxUnit;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 
-NAMESPACE AXOpen.Core.AxoSequencer_Tests  
-    
+NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests  
+    TYPE PUBLIC
+        eStepLogic : INT 
+        (          
+            None := 0,
+            JustExecuteCall := 1, 
+            MAIN_12 := 2,
+            MAIN_12x := 3,
+            MAIN_123 := 4,
+            MAIN_122 := 5,
+            ExecuteSequence := 6,
+            LogicOutsideSteps := 7
+        ) := None;
+    END_TYPE
+
     CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
@@ -41,7 +54,17 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         END_METHOD
     END_CLASS  
 
-    CLASS MySequencer EXTENDS AxoSequencer
+    CLASS MySequencer EXTENDS AxoSequencerContainer
+        VAR PUBLIC
+            _step_1    : AxoStep;
+            _step_2    : AxoStep;
+            _step_3    : AxoStep;        
+            _stepLogic : eStepLogic;
+            _orderCounter : ULINT;
+            _CompleteStep : BOOL;
+            _CompleteSequence : BOOL;
+            _counter : ULINT;
+        END_VAR
         VAR PRIVATE
             OnBeforeSequenceStartCounter : ULINT;
             OnCompleteSequenceCounter : ULINT;
@@ -61,18 +84,110 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         METHOD PUBLIC GetOnCompleteSequenceCounter : ULINT
             GetOnCompleteSequenceCounter := OnCompleteSequenceCounter;
         END_METHOD
+    
+        METHOD PROTECTED OVERRIDE Main
+            _step_1.Initialize(THIS);
+            _step_2.Initialize(THIS);
+            _step_3.Initialize(THIS); 
+
+            CASE _stepLogic OF
+                eStepLogic#JustExecuteCall: 
+                    _step_1.Execute(THIS);
+                    _step_2.Execute(THIS);
+                    _step_3.Execute(THIS); 
+
+                eStepLogic#MAIN_12: 
+                    THIS.MAIN_12();
+
+                eStepLogic#MAIN_12x: 
+                    THIS.MAIN_12x();
+
+                eStepLogic#MAIN_123: 
+                    THIS.MAIN_123();
+
+                eStepLogic#MAIN_122: 
+                    THIS.MAIN_122();
+
+                eStepLogic#ExecuteSequence: 
+                    THIS.ExecuteSequence(_CompleteStep , _CompleteSequence);
+
+                eStepLogic#LogicOutsideSteps: 
+                    THIS.LogicOutsideSteps();
+
+                END_CASE;
+        END_METHOD
+
+        METHOD MAIN_12x 
+            IF(_step_1.Execute(THIS)) THEN  
+                _orderCounter := _orderCounter + _step_1.GetStepOrder();
+                THIS.MoveNext();
+            END_IF;    
+           
+            IF(_step_2.Execute(THIS)) THEN
+                _orderCounter := _orderCounter + _step_2.GetStepOrder();
+                THIS.MoveNext();
+            END_IF; 
+        END_METHOD
+
+        METHOD MAIN_12 
+            THIS.MAIN_12x();
+            THIS.CompleteSequence();
+        END_METHOD
+
+        METHOD MAIN_123 
+            THIS.MAIN_12x();
+            IF(_step_3.Execute(THIS)) THEN
+                _orderCounter := _orderCounter + _step_3.GetStepOrder();
+                THIS.MoveNext();
+            END_IF; 
+            THIS.CompleteSequence();
+        END_METHOD
+
+        METHOD MAIN_122 
+            THIS.MAIN_12x();
+
+            IF(_step_2.Execute(THIS)) THEN
+                _orderCounter := _orderCounter + ULINT#1000;
+                THIS.MoveNext();
+            END_IF; 
+            THIS.CompleteSequence();
+        END_METHOD
+
+        METHOD ExecuteSequence 
+            VAR_INPUT
+                CompleteStep : BOOL;
+                CompleteSequence : BOOL;
+            END_VAR
+
+            IF _step_1.Execute(THIS) THEN
+                IF CompleteStep THEN
+                    THIS.MoveNext();
+                END_IF;
+            END_IF;
+            IF _step_2.Execute(THIS) THEN
+                IF CompleteStep THEN
+                    THIS.MoveNext();
+                END_IF;
+            END_IF;
+            IF _step_3.Execute(THIS) THEN
+                IF CompleteSequence THEN
+                    THIS.CompleteSequence();
+                END_IF;
+            END_IF;
+        END_METHOD
+
+        METHOD LogicOutsideSteps 
+            THIS.MAIN_123();
+            _counter := _counter + ULINT#1;
+        END_METHOD
     END_CLASS
 
 
     {TestFixture}
-    CLASS SequencerTests
+    CLASS SequencerContainerTests
         VAR PROTECTED        
             _context   : TestContext;
             _sequencer : MySequencer;
-            _step_1    : AxoStep;
-            _step_2    : AxoStep;
-            _step_3    : AxoStep;
-            _orderCounter : ULINT;
             _stepState  :   eAxoTaskState;
             _counter : ULINT;
         END_VAR    
@@ -120,19 +235,15 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
        
         METHOD PRIVATE InvokeSequence
             THIS.InitializeSequence();
-            _step_1.Initialize(_context);
-            _step_2.Initialize(_context);
-            _step_3.Initialize(_context);        
             _sequencer.Invoke();
         END_METHOD
        
         METHOD PRIVATE PrepareSequence
-            THIS.InvokeSequence();
-
-            _sequencer.Open();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);           
+            _context.Open();
+            _sequencer._stepLogic := eStepLogic#JustExecuteCall;
+            _sequencer.Initialize(_context);
+            _sequencer.Invoke();
+            _sequencer.Run(_context);
             _context.Close();
         END_METHOD
 
@@ -145,23 +256,15 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             THIS.PrepareSequence();
 
             _context.Open();
-            _sequencer.Open();
+ 
+            _sequencer._CompleteStep := CompleteStep;
+            _sequencer._CompleteSequence := CompleteSequence;
 
-            IF _step_1.Execute(_sequencer) THEN
-                IF CompleteStep THEN
-                    _sequencer.MoveNext();
-                END_IF;
-            END_IF;
-            IF _step_2.Execute(_sequencer) THEN
-                IF CompleteStep THEN
-                    _sequencer.MoveNext();
-                END_IF;
-            END_IF;
-            IF _step_3.Execute(_sequencer) THEN
-                IF CompleteSequence THEN
-                    _sequencer.CompleteSequence();
-                END_IF;
-            END_IF;
+            _sequencer._stepLogic := eStepLogic#ExecuteSequence;
+            _sequencer.Initialize(_context);
+            _sequencer.Invoke();
+            _sequencer.Run(_context);
+
             _context.Close();
         END_METHOD
        
@@ -177,45 +280,45 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         END_METHOD
 
         {Test}        
-        METHOD PUBLIC Open_when_idle_should_transit_to_configuring
-            THIS.InvokeSequence();
+        METHOD PUBLIC Invoke_and_Run_Call_when_idle_should_transit_to_configuring
+            THIS.InitializeSequence();
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
-            _sequencer.Open();
+            _sequencer.Invoke();
+            _sequencer.Run(_context);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
         END_METHOD
 
         {Test}        
-        METHOD PUBLIC Open_when_configuring_should_transit_to_running
-            THIS.InvokeSequence();
+        METHOD PUBLIC Run_Call_when_configuring_should_transit_to_running
+            THIS.InitializeSequence();
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
-            _sequencer.Open();
+            _sequencer.Invoke();
+            _sequencer.Run(_context);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
-            _sequencer.Open();
+            _sequencer.Run(_context);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Running , _sequencer.GetCoordinatorState()));
         END_METHOD
 
         {Test}        
         METHOD PUBLIC order_of_steps_should_be_assigned_after_first_sequence_cycle
             THIS.InvokeSequence();
-            _sequencer.Open();
-            // Configuring steps no step should execute
-             _step_1.Execute(_sequencer);
-             _step_2.Execute(_sequencer);
-             _step_3.Execute(_sequencer);           
-             Assert.Equal(ULINT#1,_step_1.Order);
-             Assert.Equal(ULINT#2,_step_2.Order);
-             Assert.Equal(ULINT#3,_step_3.Order);
+            _sequencer._stepLogic := eStepLogic#JustExecuteCall;
+            _sequencer.Run(_context);
+             Assert.Equal(ULINT#1,_sequencer._step_1.Order);
+             Assert.Equal(ULINT#2,_sequencer._step_2.Order);
+             Assert.Equal(ULINT#3,_sequencer._step_3.Order);
         END_METHOD
 
         {Test}        
         METHOD PUBLIC no_step_should_be_executed_when_configuring
             THIS.InvokeSequence();
-            _sequencer.Open();
+            _sequencer._stepLogic := eStepLogic#None;
+            _sequencer.Run(_context);
             // Configuring steps no step should execute
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
-            Assert.Equal(FALSE,_step_1.Execute(_sequencer));
-            Assert.Equal(FALSE,_step_2.Execute(_sequencer));
-            Assert.Equal(FALSE,_step_3.Execute(_sequencer));           
+            Assert.Equal(FALSE,_sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE,_sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE,_sequencer._step_3.Execute(_sequencer));           
         END_METHOD
 
         {Test}        
@@ -225,9 +328,9 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            Assert.Equal(TRUE , _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
+            Assert.Equal(TRUE , _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
         END_METHOD
 
         {Test}        
@@ -237,12 +340,12 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
-            Assert.Equal(TRUE , _step_1.IsActive);
-            Assert.Equal(FALSE, _step_2.IsActive);
-            Assert.Equal(FALSE, _step_3.IsActive);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
+            Assert.Equal(TRUE , _sequencer._step_1.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_2.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_3.IsActive);
         END_METHOD
 
         {Test}        
@@ -252,12 +355,12 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
-            Assert.Equal(TRUE , _step_1.IsBusy());
-            Assert.Equal(FALSE, _step_2.IsBusy());
-            Assert.Equal(FALSE, _step_3.IsBusy());
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
+            Assert.Equal(TRUE , _sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_3.IsBusy());
         END_METHOD
 
         {Test}        
@@ -267,12 +370,12 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
-            Assert.Equal(FALSE, _step_1.IsDisabled);
-            Assert.Equal(TRUE , _step_2.IsDisabled);
-            Assert.Equal(TRUE , _step_3.IsDisabled);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
+            Assert.Equal(FALSE, _sequencer._step_1.IsDisabled);
+            Assert.Equal(TRUE , _sequencer._step_2.IsDisabled);
+            Assert.Equal(TRUE , _sequencer._step_3.IsDisabled);
         END_METHOD
 
         {Test}        
@@ -282,10 +385,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            _step_1.Execute(_sequencer);
-            Assert.Equal(FALSE, _step_1.IsDone());
+            _sequencer._step_1.Execute(_sequencer);
+            Assert.Equal(FALSE, _sequencer._step_1.IsDone());
             _sequencer.MoveNext();
-            Assert.Equal(TRUE, _step_1.IsDone());
+            Assert.Equal(TRUE, _sequencer._step_1.IsDone());
         END_METHOD
 
         {Test}        
@@ -295,10 +398,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            _step_1.Execute(_sequencer);
-            Assert.Equal(TRUE, _step_1.IsBusy());
+            _sequencer._step_1.Execute(_sequencer);
+            Assert.Equal(TRUE, _sequencer._step_1.IsBusy());
             _sequencer.MoveNext();
-            Assert.Equal(FALSE, _step_1.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
         END_METHOD
 
         {Test}        
@@ -309,7 +412,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _sequencer.Open();
             // Steps are configured first step should execute
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
-            _step_1.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
             _sequencer.MoveNext();
             Assert.Equal(ULINT#2, _sequencer.CurrentOrder);
         END_METHOD
@@ -321,52 +424,53 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            Assert.Equal(TRUE, _step_1.Execute(_sequencer));
+            Assert.Equal(TRUE, _sequencer._step_1.Execute(_sequencer));
             _sequencer.MoveNext();
-            Assert.Equal(TRUE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
+            Assert.Equal(TRUE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
             _context.Close();
 
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(TRUE, _step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(TRUE, _sequencer._step_2.Execute(_sequencer));
             _sequencer.MoveNext();
-            Assert.Equal(TRUE, _step_3.Execute(_sequencer));  
+            Assert.Equal(TRUE, _sequencer._step_3.Execute(_sequencer));  
             _context.Close();
         END_METHOD
 
         {Test}
         METHOD PUBLIC RequestStep_should_not_affect_the_sequence_when_the_coordinator_is_in_idle
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
-            _sequencer.RequestStep(_step_3); 
+            _sequencer.RequestStep(_sequencer._step_3); 
             _sequencer.Open();
             // Configuring steps no step should execute
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
         END_METHOD
 
         {Test}
         METHOD PUBLIC RequestStep_should_not_affect_the_sequence_when_the_coordinator_is_in_configuring
             THIS.InvokeSequence();
+
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             _sequencer.Open();
             // Configuring steps no step should execute
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
-            _sequencer.RequestStep(_step_3); 
+            _sequencer.RequestStep(_sequencer._step_3); 
             _context.Close();
 
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            Assert.Equal(TRUE , _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));          
+            Assert.Equal(TRUE , _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));          
         END_METHOD
 
         {Test}        
@@ -376,10 +480,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            _step_1.Execute(_sequencer);
-            Assert.Equal(FALSE, _step_1.IsDone());
-            _sequencer.RequestStep(_step_3);
-            Assert.Equal(TRUE, _step_1.IsDone());
+            _sequencer._step_1.Execute(_sequencer);
+            Assert.Equal(FALSE, _sequencer._step_1.IsDone());
+            _sequencer.RequestStep(_sequencer._step_3);
+            Assert.Equal(TRUE, _sequencer._step_1.IsDone());
         END_METHOD
 
         {Test}        
@@ -389,10 +493,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            _step_1.Execute(_sequencer);
-            Assert.Equal(TRUE, _step_1.IsBusy());
-            _sequencer.RequestStep(_step_3);
-            Assert.Equal(FALSE, _step_1.IsBusy());
+            _sequencer._step_1.Execute(_sequencer);
+            Assert.Equal(TRUE, _sequencer._step_1.IsBusy());
+            _sequencer.RequestStep(_sequencer._step_3);
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
         END_METHOD
 
         {Test}        
@@ -403,9 +507,9 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _sequencer.Open();
             // Steps are configured first step should execute
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
-            _step_1.Execute(_sequencer);
-            _sequencer.RequestStep(_step_3);
-            Assert.Equal(_step_3.GetStepOrder(), _sequencer.CurrentOrder);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer.RequestStep(_sequencer._step_3);
+            Assert.Equal(_sequencer._step_3.GetStepOrder(), _sequencer.CurrentOrder);
         END_METHOD
 
         {Test}
@@ -413,46 +517,46 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             THIS.PrepareSequence();
 
             _context.Open();
-           _sequencer.Open();
+            _sequencer.Open();
             // Steps are configured first step should execute
-            Assert.Equal(TRUE , _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
+            Assert.Equal(TRUE , _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
             _context.Close();
 
             _context.Open();
            _sequencer.Open();
             // RequestStep should finish execution of the _stepOne and start the execution of the _stepThree
-            _sequencer.RequestStep(_step_3); 
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(TRUE , _step_3.Execute(_sequencer));          
+            _sequencer.RequestStep(_sequencer._step_3); 
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(TRUE , _sequencer._step_3.Execute(_sequencer));          
             _context.Close();
 
             _context.Open();
             _sequencer.Open();
             // RequestStep should finish execution of the _stepThree and start the execution of the _stepTwo
-            _sequencer.RequestStep(_step_2); 
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(TRUE,  _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));          
+            _sequencer.RequestStep(_sequencer._step_2); 
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(TRUE,  _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));          
         END_METHOD
 
         {Test}
         METHOD PUBLIC Step_order_assignement_should_be_performed_even_when_the_steps_are_disabled
             THIS.InvokeSequence();
             _sequencer.Open();
-            Assert.Equal(ULINT#0,_step_1.GetStepOrder());
-            Assert.Equal(ULINT#0,_step_2.GetStepOrder());
-            Assert.Equal(ULINT#0,_step_3.GetStepOrder());
+            Assert.Equal(ULINT#0,_sequencer._step_1.GetStepOrder());
+            Assert.Equal(ULINT#0,_sequencer._step_2.GetStepOrder());
+            Assert.Equal(ULINT#0,_sequencer._step_3.GetStepOrder());
             // Configuring steps no step should execute no mather if Enabled or Disabled
-            Assert.Equal(FALSE,_step_1.Execute(_sequencer,FALSE));
-            Assert.Equal(FALSE,_step_2.Execute(_sequencer,FALSE));
-            Assert.Equal(FALSE,_step_3.Execute(_sequencer,FALSE));  
+            Assert.Equal(FALSE,_sequencer._step_1.Execute(_sequencer,FALSE));
+            Assert.Equal(FALSE,_sequencer._step_2.Execute(_sequencer,FALSE));
+            Assert.Equal(FALSE,_sequencer._step_3.Execute(_sequencer,FALSE));  
 
-            Assert.Equal(ULINT#1,_step_1.GetStepOrder());
-            Assert.Equal(ULINT#2,_step_2.GetStepOrder());
-            Assert.Equal(ULINT#3,_step_3.GetStepOrder());
+            Assert.Equal(ULINT#1,_sequencer._step_1.GetStepOrder());
+            Assert.Equal(ULINT#2,_sequencer._step_2.GetStepOrder());
+            Assert.Equal(ULINT#3,_sequencer._step_3.GetStepOrder());
         END_METHOD
 
         {Test}
@@ -463,10 +567,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             Assert.Equal(ULINT#1,_sequencer.CurrentOrder);
-            Assert.Equal(FALSE,_step_1.Execute(_sequencer,FALSE));
+            Assert.Equal(FALSE,_sequencer._step_1.Execute(_sequencer,FALSE));
             Assert.Equal(ULINT#2,_sequencer.CurrentOrder);
-            Assert.Equal(TRUE,_step_2.Execute(_sequencer,TRUE));
-            Assert.Equal(FALSE,_step_3.Execute(_sequencer,TRUE));  
+            Assert.Equal(TRUE,_sequencer._step_2.Execute(_sequencer,TRUE));
+            Assert.Equal(FALSE,_sequencer._step_3.Execute(_sequencer,TRUE));  
         END_METHOD
 
         {Test}
@@ -476,74 +580,30 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
            // Steps are configured, so the first Enabled step (in this case _stepTwo) should be executed
             _context.Open();
             _sequencer.Open();
-            Assert.Equal(FALSE,_step_1.Execute(_sequencer,FALSE));
-            Assert.Equal(TRUE ,_step_2.Execute(_sequencer,TRUE));
-            Assert.Equal(FALSE,_step_3.Execute(_sequencer,TRUE));  
+            Assert.Equal(FALSE,_sequencer._step_1.Execute(_sequencer,FALSE));
+            Assert.Equal(TRUE ,_sequencer._step_2.Execute(_sequencer,TRUE));
+            Assert.Equal(FALSE,_sequencer._step_3.Execute(_sequencer,TRUE));  
             _context.Close();
 
             // After MoveNext() method is called, _stepThree should start to be executed, as it is Enabled
             _context.Open();
             _sequencer.Open();
-            Assert.Equal(FALSE,_step_1.Execute(_sequencer,FALSE));
-            Assert.Equal(TRUE ,_step_2.Execute(_sequencer,TRUE));
+            Assert.Equal(FALSE,_sequencer._step_1.Execute(_sequencer,FALSE));
+            Assert.Equal(TRUE ,_sequencer._step_2.Execute(_sequencer,TRUE));
             _sequencer.MoveNext();
-            Assert.Equal(TRUE ,_step_3.Execute(_sequencer,TRUE));  
+            Assert.Equal(TRUE ,_sequencer._step_3.Execute(_sequencer,TRUE));  
             _context.Close();
 
             // RequestStep to _stepOne should finish the execution of the _stepThree and prepare for the execution of the _stepOne
             // As _stepOne is disabled, its next proceeding step enabled (in our cas _stepTwo) starts to be executed
             _context.Open();
             _sequencer.Open();
-            _sequencer.RequestStep(_step_1);
+            _sequencer.RequestStep(_sequencer._step_1);
             Assert.Equal(ULINT#1,_sequencer.CurrentOrder);
-            Assert.Equal(FALSE,_step_1.Execute(_sequencer,FALSE));
+            Assert.Equal(FALSE,_sequencer._step_1.Execute(_sequencer,FALSE));
             Assert.Equal(ULINT#2,_sequencer.CurrentOrder);
-            Assert.Equal(TRUE,_step_2.Execute(_sequencer,TRUE));
-            Assert.Equal(FALSE,_step_3.Execute(_sequencer,TRUE));  
-        END_METHOD
-
-        METHOD MAIN_12x 
-            _step_1.Initialize(_context);
-            _step_2.Initialize(_context);
-            _step_3.Initialize(_context);
-            _sequencer.Initialize(_context);
-            _sequencer.Invoke();
-
-            _sequencer.Open();
-            
-            IF(_step_1.Execute(_sequencer)) THEN  
-                _orderCounter := _orderCounter + _step_1.GetStepOrder();
-                _sequencer.MoveNext();
-            END_IF;    
-           
-            IF(_step_2.Execute(_sequencer)) THEN
-                _orderCounter := _orderCounter + _step_2.GetStepOrder();
-                _sequencer.MoveNext();
-            END_IF; 
-        END_METHOD
-
-        METHOD MAIN_12 
-            THIS.MAIN_12x();
-            _sequencer.CompleteSequence();
-        END_METHOD
-
-        METHOD MAIN_123 
-            THIS.MAIN_12x();
-            IF(_step_3.Execute(_sequencer)) THEN
-                _orderCounter := _orderCounter + _step_3.GetStepOrder();
-                _sequencer.MoveNext();
-            END_IF; 
-            _sequencer.CompleteSequence();
-        END_METHOD
-
-        METHOD MAIN_122 
-            THIS.MAIN_12x();
-
-            IF(_step_2.Execute(_sequencer)) THEN
-                _orderCounter := _orderCounter + ULINT#1000;
-                _sequencer.MoveNext();
-            END_IF; 
-            _sequencer.CompleteSequence();
+            Assert.Equal(TRUE,_sequencer._step_2.Execute(_sequencer,TRUE));
+            Assert.Equal(FALSE,_sequencer._step_3.Execute(_sequencer,TRUE));  
         END_METHOD
 
         {Test}
@@ -551,66 +611,71 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             VAR 
                 StepOrderLastValue : ULINT;
             END_VAR
-            Assert.Equal(ULINT#0, _orderCounter);
+            Assert.Equal(ULINT#0, _sequencer._orderCounter);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             //First sequence run, no step is executed
-            _context.Open();
-            THIS.MAIN_123();
+            THIS.InvokeSequence();
+            _sequencer._stepLogic := eStepLogic#MAIN_123;
+            _sequencer.Run(_context);
             _context.Close();
-            Assert.Equal(ULINT#0, _orderCounter);
+            Assert.Equal(ULINT#0, _sequencer._orderCounter);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
-            StepOrderLastValue := _orderCounter;
+            StepOrderLastValue :=  _sequencer._orderCounter;
             //Second sequence run, steps are going already to be executed.
             //Steps are called in the order: step_1, step_2, step_3.
             //Step body should be executed for step_1, step_2 and step_3
             //Sequence should stay in the Idle state as the CompleteSequence() was called on running sequence
             _context.Open();
-            THIS.MAIN_123();
+            _sequencer._stepLogic := eStepLogic#MAIN_123;
+            _sequencer.Run(_context);
             _context.Close();
-            Assert.Equal(ULINT#6, _orderCounter - StepOrderLastValue);
+            Assert.Equal(ULINT#6, _sequencer._orderCounter - StepOrderLastValue);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
-            StepOrderLastValue := _orderCounter;
+            StepOrderLastValue := _sequencer._orderCounter;
             //First sequence run after CompleteSequence() call on running sequence
             //No steps are going to be executed, as the orders of the steps need to be assign again
             _context.Open();
-            THIS.MAIN_123();
+            _sequencer._stepLogic := eStepLogic#MAIN_123;
+            _sequencer.Run(_context);
             _context.Close();
-            Assert.Equal(ULINT#0, _orderCounter - StepOrderLastValue);
+            Assert.Equal(ULINT#0, _sequencer._orderCounter - StepOrderLastValue);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
-            StepOrderLastValue := _orderCounter;
+            StepOrderLastValue := _sequencer._orderCounter;
             //Steps are called in the order: step_1,step_2, step_2.
             //Step body should be executed only for step_1 and for first call of the step_2 
             //Sequence should stay in the Idle state as the CompleteSequence() was called on running sequence
             _context.Open();
-            THIS.MAIN_122();
+            _sequencer._stepLogic := eStepLogic#MAIN_122;
+            _sequencer.Run(_context);
             _context.Close();
-            Assert.Equal(ULINT#3, _orderCounter - StepOrderLastValue);
+            Assert.Equal(ULINT#3, _sequencer._orderCounter - StepOrderLastValue);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
         END_METHOD
 
         {Test}
         METHOD PUBLIC step_called_more_then_once_inside_the_configuring_sequence_should_set_the_sequence_to_idle //TODO error state
-            Assert.Equal(ULINT#0, _orderCounter);
+            Assert.Equal(ULINT#0, _sequencer._orderCounter);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             //First sequence run, no step is executed
-            _context.Open();
-            THIS.MAIN_12x();
-            Assert.Equal(FALSE, _step_1.IsActive);
-            Assert.Equal(FALSE, _step_2.IsActive);
-            Assert.Equal(FALSE, _step_3.IsActive); 
-            Assert.Equal(ULINT#1, _step_1.Order);
-            Assert.Equal(ULINT#2, _step_2.Order);
-            Assert.Equal(ULINT#0, _step_3.Order); 
+            THIS.InvokeSequence();
+            _sequencer._stepLogic := eStepLogic#MAIN_12x;
+            _sequencer.Run(_context);
+            Assert.Equal(FALSE, _sequencer._step_1.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_2.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_3.IsActive); 
+            Assert.Equal(ULINT#1, _sequencer._step_1.Order);
+            Assert.Equal(ULINT#2, _sequencer._step_2.Order);
+            Assert.Equal(ULINT#0, _sequencer._step_3.Order); 
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
-            _step_2.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
             _context.Close();
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
-            Assert.Equal(FALSE, _step_1.IsActive);
-            Assert.Equal(FALSE, _step_2.IsActive);
-            Assert.Equal(FALSE, _step_3.IsActive); 
-            Assert.Equal(ULINT#1, _step_1.Order);
-            Assert.Equal(ULINT#0, _step_2.Order);
-            Assert.Equal(ULINT#0, _step_3.Order); 
+            Assert.Equal(FALSE, _sequencer._step_1.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_2.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_3.IsActive); 
+            Assert.Equal(ULINT#1, _sequencer._step_1.Order);
+            Assert.Equal(ULINT#0, _sequencer._step_2.Order);
+            Assert.Equal(ULINT#0, _sequencer._step_3.Order); 
         END_METHOD
 
         {Test}
@@ -618,50 +683,53 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             VAR 
                 StepOrderLastValue : ULINT;
             END_VAR
-            Assert.Equal(ULINT#0, _orderCounter);
+            Assert.Equal(ULINT#0, _sequencer._orderCounter);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             //First sequence run, no step is executed
-            _context.Open();
-            THIS.MAIN_123();
+            THIS.InvokeSequence();
+            _sequencer._stepLogic := eStepLogic#MAIN_123;
+            _sequencer.Run(_context);
             _context.Close();
-            Assert.Equal(ULINT#0, _orderCounter);
+            Assert.Equal(ULINT#0, _sequencer._orderCounter);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
-            StepOrderLastValue := _orderCounter;
+            StepOrderLastValue := _sequencer._orderCounter;
             //Second sequence run, steps are going already to be executed.
             //Steps are called in the order: step_1, step_2.
             //Step body should be executed for step_1 and step_2.
             _context.Open();
-            THIS.MAIN_12x();
+            _sequencer._stepLogic := eStepLogic#MAIN_12x;
+            _sequencer.Run(_context);
             _context.Close();
-            Assert.Equal(ULINT#3, _orderCounter - StepOrderLastValue);
+            Assert.Equal(ULINT#3, _sequencer._orderCounter - StepOrderLastValue);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Running , _sequencer.GetCoordinatorState()));
-            StepOrderLastValue := _orderCounter;
+            StepOrderLastValue := _sequencer._orderCounter;
             // Assert.Equal(TRUE,_sequencer.IsInOrderOfExecution(_step_3));
-            Assert.Equal(_sequencer.CurrentOrder,_step_3.Order);
+            Assert.Equal(_sequencer.CurrentOrder, _sequencer._step_3.Order);
             //Steps are called in the order: step_1,step_2, step_3.
             //Step_1 and step_2 has been already executed. 
             //Step_3 is in the order of the execution, but it is not going to be executed, as it was not called in the previous PLC cycle.
             _context.Open();
-            THIS.MAIN_123();
+            _sequencer._stepLogic := eStepLogic#MAIN_123;
+            _sequencer.Run(_context);
             _context.Close();
-            Assert.Equal(ULINT#0, _orderCounter - StepOrderLastValue);
+            Assert.Equal(ULINT#0, _sequencer._orderCounter - StepOrderLastValue);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
         END_METHOD    
         
         {Test}        
         METHOD PUBLIC CompleteSequence_should_set_currently_executed_step_to_Done
             THIS.ExecuteSequence(TRUE,FALSE);
-            Assert.Equal(FALSE, _step_3.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_3.IsDone());
             _sequencer.CompleteSequence();
-            Assert.Equal(TRUE, _step_3.IsDone());
+            Assert.Equal(TRUE, _sequencer._step_3.IsDone());
         END_METHOD
 
         {Test}        
         METHOD PUBLIC CompleteSequence_should_reset_the_Busy_state_of_the_currently_executed_step
             THIS.ExecuteSequence(TRUE,FALSE);
-            Assert.Equal(TRUE, _step_3.IsBusy());
+            Assert.Equal(TRUE, _sequencer._step_3.IsBusy());
             _sequencer.CompleteSequence();
-            Assert.Equal(FALSE, _step_3.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_3.IsBusy());
         END_METHOD
 
         {Test}        
@@ -681,26 +749,26 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         {Test}        
         METHOD PUBLIC CompleteSequence_should_set_the_first_step_in_the_sequence_as_active_after_two_PLC_cycle
             THIS.ExecuteSequence(TRUE,FALSE);
-            Assert.Equal(TRUE, _step_3.IsBusy());
+            Assert.Equal(TRUE, _sequencer._step_3.IsBusy());
             _sequencer.CompleteSequence();
             _context.Close();
 
             _context.Open();
             _sequencer.Open();
             // Steps are configuring again
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
-            Assert.Equal(FALSE, _step_1.IsActive);              
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
+            Assert.Equal(FALSE, _sequencer._step_1.IsActive);              
             _context.Close();
 
             _context.Open();
             _sequencer.Open();
             // Steps are configuredand executed again
-            Assert.Equal(TRUE , _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
-            Assert.Equal(TRUE , _step_1.IsActive);              
+            Assert.Equal(TRUE , _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
+            Assert.Equal(TRUE , _sequencer._step_1.IsActive);              
             _context.Close();
         END_METHOD
 
@@ -709,15 +777,15 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             THIS.PrepareSequence();
             
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Configuring, _sequencer.GetCoordinatorState()));
-            Assert.Equal(TRUE, THIS.Equal(eAxoTaskState#Disabled, _step_1.GetState()));
+            Assert.Equal(TRUE, THIS.Equal(eAxoTaskState#Disabled, _sequencer._step_1.GetState()));
 
             _context.Open();
             _sequencer.Open();
-            Assert.Equal(TRUE ,  _step_1.Execute(_sequencer));
-            Assert.Equal(TRUE , THIS.Equal(eAxoTaskState#Busy, _step_1.GetState()));
-            Assert.Equal(TRUE , _step_1.IsBusy());
-            Assert.Equal(FALSE, _step_1.IsDone());
-            Assert.Equal(FALSE, _step_1.HasError());
+            Assert.Equal(TRUE ,  _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(TRUE , THIS.Equal(eAxoTaskState#Busy, _sequencer._step_1.GetState()));
+            Assert.Equal(TRUE , _sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_1.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_1.HasError());
         END_METHOD
 
         {Test}        
@@ -726,18 +794,18 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             _sequencer.Open();
             // Configuring steps no step should execute
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));           
-            Assert.Equal(FALSE, _step_1.IsBusy());
-            Assert.Equal(FALSE, _step_1.IsDone());
-            Assert.Equal(FALSE, _step_2.IsBusy());
-            Assert.Equal(FALSE, _step_2.IsDone());
-            Assert.Equal(FALSE, _step_3.IsBusy());
-            Assert.Equal(FALSE, _step_3.IsDone());
-            Assert.Equal(TRUE , _step_1.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _step_2.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _step_3.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));           
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_1.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_2.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_3.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_3.IsDone());
+            Assert.Equal(TRUE , _sequencer._step_1.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(TRUE , _sequencer._step_2.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(TRUE , _sequencer._step_3.GetState() = eAxoTaskState#Disabled);
             _context.Close();
             Assert.Equal(TRUE , THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
         END_METHOD
@@ -748,12 +816,12 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
 
             _context.Open();
             _sequencer.Open();
-            Assert.Equal(TRUE ,  _step_1.Execute(_sequencer));
+            Assert.Equal(TRUE ,  _sequencer._step_1.Execute(_sequencer));
             _sequencer.MoveNext();
-            Assert.Equal(TRUE , THIS.Equal(eAxoTaskState#Done, _step_1.GetState()));
-            Assert.Equal(FALSE, _step_1.IsBusy());
-            Assert.Equal(TRUE , _step_1.IsDone());
-            Assert.Equal(FALSE, _step_1.HasError());
+            Assert.Equal(TRUE , THIS.Equal(eAxoTaskState#Done, _sequencer._step_1.GetState()));
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
+            Assert.Equal(TRUE , _sequencer._step_1.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_1.HasError());
         END_METHOD
 
         {Test}        
@@ -763,47 +831,47 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             // Steps are configured first step should execute
-            Assert.Equal(TRUE, _step_1.Execute(_sequencer));
-            Assert.Equal(TRUE, _step_1.IsBusy());
+            Assert.Equal(TRUE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(TRUE, _sequencer._step_1.IsBusy());
             _sequencer.MoveNext();
-            Assert.Equal(TRUE, _step_1.IsDone());
-            Assert.Equal(TRUE, _step_2.Execute(_sequencer));
-            Assert.Equal(TRUE, _step_2.IsBusy());
-            Assert.Equal(FALSE, _step_2.IsDone());
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
-            Assert.Equal(FALSE, _step_3.IsBusy());
-            Assert.Equal(FALSE, _step_3.IsDone());
+            Assert.Equal(TRUE, _sequencer._step_1.IsDone());
+            Assert.Equal(TRUE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(TRUE, _sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_2.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
+            Assert.Equal(FALSE, _sequencer._step_3.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_3.IsDone());
             _context.Close();
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Running , _sequencer.GetCoordinatorState()));
 
             _context.Open();
             _sequencer.Open();
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_1.IsBusy());
-            Assert.Equal(TRUE , _step_1.IsDone());
-            Assert.Equal(TRUE , _step_2.Execute(_sequencer));
-            Assert.Equal(TRUE , _step_2.IsBusy());
-            Assert.Equal(FALSE, _step_2.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
+            Assert.Equal(TRUE , _sequencer._step_1.IsDone());
+            Assert.Equal(TRUE , _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(TRUE , _sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_2.IsDone());
             _sequencer.MoveNext();
-            Assert.Equal(FALSE, _step_2.IsBusy());
-            Assert.Equal(TRUE , _step_2.IsDone());
-            Assert.Equal(TRUE , _step_3.Execute(_sequencer));  
-            Assert.Equal(TRUE , _step_3.IsBusy());
-            Assert.Equal(FALSE, _step_3.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_2.IsBusy());
+            Assert.Equal(TRUE , _sequencer._step_2.IsDone());
+            Assert.Equal(TRUE , _sequencer._step_3.Execute(_sequencer));  
+            Assert.Equal(TRUE , _sequencer._step_3.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_3.IsDone());
             _context.Close();
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Running , _sequencer.GetCoordinatorState()));
 
             _context.Open();
             _sequencer.Open();
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(TRUE , _step_3.Execute(_sequencer)); 
-            Assert.Equal(FALSE, _step_1.IsBusy());
-            Assert.Equal(TRUE , _step_1.IsDone());
-            Assert.Equal(FALSE, _step_2.IsBusy());
-            Assert.Equal(TRUE , _step_2.IsDone());
-            Assert.Equal(TRUE , _step_3.IsBusy());
-            Assert.Equal(FALSE, _step_3.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(TRUE , _sequencer._step_3.Execute(_sequencer)); 
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
+            Assert.Equal(TRUE , _sequencer._step_1.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_2.IsBusy());
+            Assert.Equal(TRUE , _sequencer._step_2.IsDone());
+            Assert.Equal(TRUE , _sequencer._step_3.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_3.IsDone());
         END_METHOD
 
         {Test}        
@@ -816,18 +884,18 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _sequencer.Open();
 
             // Configuring steps no step should execute
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));           
-            Assert.Equal(FALSE, _step_1.IsBusy());
-            Assert.Equal(FALSE, _step_1.IsDone());
-            Assert.Equal(FALSE, _step_2.IsBusy());
-            Assert.Equal(FALSE, _step_2.IsDone());
-            Assert.Equal(FALSE, _step_3.IsBusy());
-            Assert.Equal(FALSE, _step_3.IsDone());
-            Assert.Equal(TRUE , _step_1.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _step_2.GetState() = eAxoTaskState#Disabled);
-            Assert.Equal(TRUE , _step_3.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));           
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_1.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_2.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_3.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_3.IsDone());
+            Assert.Equal(TRUE , _sequencer._step_1.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(TRUE , _sequencer._step_2.GetState() = eAxoTaskState#Disabled);
+            Assert.Equal(TRUE , _sequencer._step_3.GetState() = eAxoTaskState#Disabled);
             _context.Close();
             Assert.Equal(TRUE , THIS.Equal(AxoCoordinatorStates#Configuring , _sequencer.GetCoordinatorState()));
         END_METHOD
@@ -838,15 +906,15 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
 
             _context.Open();
             _sequencer.Open();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
 
-            Assert.Equal(TRUE ,_step_1.IsCalledJustOnceInThisPlcCycle());
-            Assert.Equal(TRUE ,_step_1.IsCalledJustOnceInThisPlcCycle());
-            Assert.Equal(FALSE,_step_3.IsCalledJustOnceInThisPlcCycle());
-            Assert.Equal(FALSE,_step_3.IsCalledJustOnceInThisPlcCycle());
+            Assert.Equal(TRUE , _sequencer._step_1.IsCalledJustOnceInThisPlcCycle());
+            Assert.Equal(TRUE , _sequencer._step_1.IsCalledJustOnceInThisPlcCycle());
+            Assert.Equal(FALSE, _sequencer._step_3.IsCalledJustOnceInThisPlcCycle());
+            Assert.Equal(FALSE, _sequencer._step_3.IsCalledJustOnceInThisPlcCycle());
         END_METHOD
 
         {Test}
@@ -889,18 +957,18 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_set_currently_executed_step_to_Done
             THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
-            Assert.Equal(FALSE, _step_3.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_3.IsDone());
             _sequencer.CompleteSequence();
-            Assert.Equal(TRUE, _step_3.IsDone());
+            Assert.Equal(TRUE, _sequencer._step_3.IsDone());
         END_METHOD
 
         {Test}        
         METHOD PUBLIC RunOnce_mode_CompleteSequence_should_reset_the_Busy_state_of_the_currently_executed_step
             THIS.ExecuteSequence(TRUE,FALSE);
             _sequencer.SequenceMode := eAxoSequenceMode#RunOnce;
-            Assert.Equal(TRUE, _step_3.IsBusy());
+            Assert.Equal(TRUE, _sequencer._step_3.IsBusy());
             _sequencer.CompleteSequence();
-            Assert.Equal(FALSE, _step_3.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_3.IsBusy());
         END_METHOD
 
         {Test}        
@@ -938,16 +1006,16 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
 
             _context.Open();
             _sequencer.Open();
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
             _context.Close();
 
             _context.Open();
             _sequencer.Open();
-            Assert.Equal(FALSE, _step_1.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_2.Execute(_sequencer));
-            Assert.Equal(FALSE, _step_3.Execute(_sequencer));  
+            Assert.Equal(FALSE, _sequencer._step_1.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_2.Execute(_sequencer));
+            Assert.Equal(FALSE, _sequencer._step_3.Execute(_sequencer));  
             _context.Close();
         END_METHOD
 
@@ -960,17 +1028,17 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
 
             _context.Open();
             _sequencer.Open();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);  
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);  
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             _context.Close();
 
             _context.Open();
             _sequencer.Open();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);  
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);  
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Idle , _sequencer.GetCoordinatorState()));
             _context.Close();
         END_METHOD
@@ -1015,7 +1083,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
             Assert.Equal(TRUE ,THIS.Equal(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
             THIS.ExecuteSequence(TRUE,TRUE);
-            _sequencer.RequestStep(_step_2);
+            _sequencer.RequestStep(_sequencer._step_2);
             THIS.ExecuteSequence(TRUE,TRUE);
             Assert.Equal(TRUE, THIS.Equal(AxoCoordinatorStates#Running , _sequencer.GetCoordinatorState()));
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsDisabled);
@@ -1028,10 +1096,10 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(TRUE ,THIS.Equal(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
             THIS.ExecuteSequence(FALSE,FALSE);
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
-            Assert.Equal(TRUE,_step_1.IsActive);
-            Assert.Equal(TRUE,_step_1.IsReady());
-            Assert.Equal(FALSE,_step_1.IsBusy());
-            Assert.Equal(FALSE,_step_1.IsDone());
+            Assert.Equal(TRUE,_sequencer._step_1.IsActive);
+            Assert.Equal(TRUE,_sequencer._step_1.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_1.IsDone());
             Assert.Equal(FALSE,_sequencer.StepIn.IsBusy());
             Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
 
@@ -1040,12 +1108,12 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             THIS.ExecuteSequence(FALSE,FALSE);
 
             // Assert
-            Assert.Equal(TRUE ,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(TRUE ,_step_1.IsBusy());
-            Assert.Equal(FALSE,_step_1.IsDone());
-            Assert.Equal(TRUE ,_sequencer.StepIn.IsBusy());
-            Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
+            Assert.Equal(TRUE , _sequencer._step_1.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_1.IsReady());
+            Assert.Equal(TRUE , _sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_1.IsDone());
+            Assert.Equal(TRUE , _sequencer.StepIn.IsBusy());
+            Assert.Equal(FALSE, _sequencer.StepIn.IsDone());
         END_METHOD
 
         {Test}        
@@ -1055,24 +1123,24 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(TRUE ,THIS.Equal(_sequencer.SteppingMode, eAxoSteppingMode#StepByStep));
             THIS.ExecuteSequence(TRUE,FALSE);
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
-            Assert.Equal(TRUE,_step_1.IsActive);
-            Assert.Equal(TRUE,_step_1.IsReady());
-            Assert.Equal(FALSE,_step_1.IsBusy());
-            Assert.Equal(FALSE,_step_1.IsDone());
-            Assert.Equal(FALSE,_sequencer.StepIn.IsBusy());
-            Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
+            Assert.Equal(TRUE , _sequencer._step_1.IsActive);
+            Assert.Equal(TRUE , _sequencer._step_1.IsReady());
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_1.IsDone());
+            Assert.Equal(FALSE, _sequencer.StepIn.IsBusy());
+            Assert.Equal(FALSE, _sequencer.StepIn.IsDone());
 
             // Act
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(TRUE,FALSE);
 
             // Assert
-            Assert.Equal(FALSE,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(FALSE,_step_1.IsBusy());
-            Assert.Equal(TRUE ,_step_1.IsDone());
-            Assert.Equal(FALSE,_sequencer.StepIn.IsBusy());
-            Assert.Equal(TRUE ,_sequencer.StepIn.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_1.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_1.IsReady());
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
+            Assert.Equal(TRUE , _sequencer._step_1.IsDone());
+            Assert.Equal(FALSE, _sequencer.StepIn.IsBusy());
+            Assert.Equal(TRUE , _sequencer.StepIn.IsDone());
         END_METHOD
 
         {Test}        
@@ -1080,15 +1148,15 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             // Arrange
             THIS.ExecuteSequence(FALSE,FALSE);
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
-            Assert.Equal(TRUE ,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(TRUE ,_step_1.IsBusy());
-            Assert.Equal(FALSE,_step_1.IsDone());
-
-            Assert.Equal(FALSE,_step_2.IsActive);
-            Assert.Equal(FALSE,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(TRUE , _sequencer._step_1.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_1.IsReady());
+            Assert.Equal(TRUE , _sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_1.IsDone());
+ 
+            Assert.Equal(FALSE, _sequencer._step_2.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_2.IsReady());
+            Assert.Equal(FALSE, _sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_2.IsDone());
 
             // Act
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
@@ -1096,15 +1164,15 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             THIS.ExecuteSequence(TRUE,FALSE);
 
             // Assert
-            Assert.Equal(FALSE,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(FALSE,_step_1.IsBusy());
-            Assert.Equal(TRUE ,_step_1.IsDone());
-
-            Assert.Equal(TRUE ,_step_2.IsActive);
-            Assert.Equal(TRUE ,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(FALSE, _sequencer._step_1.IsActive);
+            Assert.Equal(FALSE, _sequencer._step_1.IsReady());
+            Assert.Equal(FALSE, _sequencer._step_1.IsBusy());
+            Assert.Equal(TRUE , _sequencer._step_1.IsDone());
+ 
+            Assert.Equal(TRUE , _sequencer._step_2.IsActive);
+            Assert.Equal(TRUE , _sequencer._step_2.IsReady());
+            Assert.Equal(FALSE, _sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE, _sequencer._step_2.IsDone());
         END_METHOD
 
         {Test}        
@@ -1126,15 +1194,15 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(TRUE ,_sequencer.StepIn.IsBusy());
             Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
 
-            Assert.Equal(TRUE ,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(TRUE ,_step_1.IsBusy());
-            Assert.Equal(FALSE,_step_1.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_1.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_1.IsReady());
+            Assert.Equal(TRUE ,_sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_1.IsDone());
 
-            Assert.Equal(FALSE,_step_2.IsActive);
-            Assert.Equal(FALSE,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_2.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_2.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_2.IsDone());
 
             _previousOrder := _sequencer.CurrentOrder;
             
@@ -1145,23 +1213,23 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsDone());
-            _step_1.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
             Assert.Equal(TRUE ,_sequencer.StepForwardCommand.IsDone());
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
 
             // Assert
-            Assert.Equal(FALSE,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(FALSE,_step_1.IsBusy());
-            Assert.Equal(FALSE,_step_1.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_1.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_1.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_1.IsDone());
 
-            Assert.Equal(TRUE ,_step_2.IsActive);
-            Assert.Equal(TRUE ,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsActive);
+            Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_2.IsDone());
 
             Assert.Equal(_previousOrder + ULINT#1  ,_sequencer.CurrentOrder);
         END_METHOD
@@ -1174,25 +1242,25 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
 
-            Assert.Equal(TRUE ,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(TRUE ,_step_1.IsBusy());
-            Assert.Equal(FALSE,_step_1.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_1.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_1.IsReady());
+            Assert.Equal(TRUE ,_sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_1.IsDone());
 
             // Act
             _context.Open();
             _sequencer.Open();
             _sequencer.StepForwardCommand.Invoke();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
             _context.Close();
 
             // Assert
-            Assert.Equal(FALSE,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(FALSE,_step_1.IsBusy());
-            Assert.Equal(FALSE,_step_1.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_1.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_1.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_1.IsDone());
         END_METHOD
 
         {Test}        
@@ -1203,24 +1271,24 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
 
-            Assert.Equal(FALSE,_step_2.IsActive);
-            Assert.Equal(FALSE,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_2.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_2.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_2.IsDone());
 
             // Act
             _context.Open();
             _sequencer.Open();
             _sequencer.StepForwardCommand.Invoke();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
 
             // Assert
-            Assert.Equal(TRUE ,_step_2.IsActive);
-            Assert.Equal(TRUE ,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsActive);
+            Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_2.IsDone());
         END_METHOD
 
         {Test}        
@@ -1244,7 +1312,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsDone());
-            _step_1.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsReady());
             Assert.Equal(FALSE,_sequencer.StepForwardCommand.IsBusy());
             Assert.Equal(TRUE ,_sequencer.StepForwardCommand.IsDone());
@@ -1266,9 +1334,9 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             _sequencer.StepForwardCommand.Invoke();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
             _context.Close();
             
             //Assert
@@ -1283,7 +1351,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             // Arrange
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
             THIS.ExecuteSequence(FALSE,FALSE);
-            _sequencer.RequestStep(_step_3);
+            _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
             _previousOrder := _sequencer.CurrentOrder;
@@ -1292,9 +1360,9 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             _sequencer.StepForwardCommand.Invoke();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
             _context.Close();
             
             //Assert
@@ -1305,7 +1373,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         METHOD PUBLIC StepForward_command_should_be_disabled_when_CurrentOrder_is_equal_to_last_step_order
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
             THIS.ExecuteSequence(FALSE,FALSE);
-            _sequencer.RequestStep(_step_3);
+            _sequencer.RequestStep(_sequencer._step_3);
             THIS.ExecuteSequence(FALSE,FALSE);
 
             Assert.Equal(ULINT#3,_sequencer.CurrentOrder);
@@ -1323,7 +1391,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             // Arrange
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
             THIS.ExecuteSequence(FALSE,FALSE);
-            _sequencer.RequestStep(_step_3);
+            _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
 
@@ -1335,15 +1403,15 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(TRUE ,_sequencer.StepIn.IsBusy());
             Assert.Equal(FALSE,_sequencer.StepIn.IsDone());
 
-            Assert.Equal(TRUE ,_step_3.IsActive);
-            Assert.Equal(FALSE,_step_3.IsReady());
-            Assert.Equal(TRUE ,_step_3.IsBusy());
-            Assert.Equal(FALSE,_step_3.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_3.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_3.IsReady());
+            Assert.Equal(TRUE ,_sequencer._step_3.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_3.IsDone());
 
-            Assert.Equal(FALSE,_step_2.IsActive);
-            Assert.Equal(FALSE,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_2.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_2.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_2.IsDone());
 
             _previousOrder := _sequencer.CurrentOrder;
             
@@ -1354,23 +1422,23 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsReady());
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsDone());
-            _step_1.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsReady());
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsBusy());
             Assert.Equal(TRUE ,_sequencer.StepBackwardCommand.IsDone());
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
 
             // Assert
-            Assert.Equal(FALSE,_step_3.IsActive);
-            Assert.Equal(FALSE,_step_3.IsReady());
-            Assert.Equal(FALSE,_step_3.IsBusy());
-            Assert.Equal(FALSE,_step_3.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_3.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_3.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_3.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_3.IsDone());
 
-            Assert.Equal(TRUE ,_step_2.IsActive);
-            Assert.Equal(TRUE ,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsActive);
+            Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_2.IsDone());
 
             Assert.Equal(_previousOrder - ULINT#1  ,_sequencer.CurrentOrder);
         END_METHOD
@@ -1383,28 +1451,28 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             // Arrange
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
             THIS.ExecuteSequence(FALSE,FALSE);
-            _sequencer.RequestStep(_step_3);
+            _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
 
-            Assert.Equal(TRUE ,_step_3.IsActive);
-            Assert.Equal(FALSE,_step_3.IsReady());
-            Assert.Equal(TRUE ,_step_3.IsBusy());
-            Assert.Equal(FALSE,_step_3.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_3.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_3.IsReady());
+            Assert.Equal(TRUE ,_sequencer._step_3.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_3.IsDone());
 
             // Act
             _context.Open();
             _sequencer.Open();
             _sequencer.StepBackwardCommand.Invoke();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
 
             // Assert
-            Assert.Equal(FALSE,_step_3.IsActive);
-            Assert.Equal(FALSE,_step_3.IsReady());
-            Assert.Equal(FALSE,_step_3.IsBusy());
-            Assert.Equal(FALSE,_step_3.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_3.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_3.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_3.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_3.IsDone());
         END_METHOD
 
         {Test}        
@@ -1415,28 +1483,28 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             // Arrange
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
             THIS.ExecuteSequence(FALSE,FALSE);
-            _sequencer.RequestStep(_step_3);
+            _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
 
-            Assert.Equal(FALSE,_step_2.IsActive);
-            Assert.Equal(FALSE,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(FALSE,_sequencer._step_2.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_2.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_2.IsDone());
             
             // Act
             _context.Open();
             _sequencer.Open();
             _sequencer.StepBackwardCommand.Invoke();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
 
             // Assert
-            Assert.Equal(TRUE ,_step_2.IsActive);
-            Assert.Equal(TRUE ,_step_2.IsReady());
-            Assert.Equal(FALSE,_step_2.IsBusy());
-            Assert.Equal(FALSE,_step_2.IsDone());
+            Assert.Equal(TRUE ,_sequencer._step_2.IsActive);
+            Assert.Equal(TRUE ,_sequencer._step_2.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_2.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_2.IsDone());
         END_METHOD
 
         {Test}        
@@ -1447,7 +1515,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             // Arrange
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
             THIS.ExecuteSequence(FALSE,FALSE);
-            _sequencer.RequestStep(_step_3);
+            _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
 
@@ -1459,9 +1527,9 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             _sequencer.StepBackwardCommand.Invoke();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
 
             // Assert
             Assert.Equal(FALSE,_sequencer.StepBackwardCommand.IsReady());
@@ -1477,7 +1545,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             // Arrange
             _sequencer.SteppingMode := eAxoSteppingMode#StepByStep;
             THIS.ExecuteSequence(FALSE,FALSE);
-            _sequencer.RequestStep(_step_3);
+            _sequencer.RequestStep(_sequencer._step_3);
             _sequencer.StepIn.Invoke();
             THIS.ExecuteSequence(FALSE,FALSE);
 
@@ -1487,9 +1555,9 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
             _sequencer.StepBackwardCommand.Invoke();
-            _step_1.Execute(_sequencer);
-            _step_2.Execute(_sequencer);
-            _step_3.Execute(_sequencer);
+            _sequencer._step_1.Execute(_sequencer);
+            _sequencer._step_2.Execute(_sequencer);
+            _sequencer._step_3.Execute(_sequencer);
 
             // Assert
             Assert.Equal(_previousOrder - ULINT#1  ,_sequencer.CurrentOrder);
@@ -1667,19 +1735,19 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
 
-            IF _step_1.Execute(_sequencer) THEN
+            IF _sequencer._step_1.Execute(_sequencer) THEN
                 count := count + ULINT#1;
-                _step_1.ThrowWhen(TRUE);
+                _sequencer._step_1.ThrowWhen(TRUE);
             END_IF;
-            _step_2.Execute(_sequencer); 
-            _step_3.Execute(_sequencer); 
+            _sequencer._step_2.Execute(_sequencer); 
+            _sequencer._step_3.Execute(_sequencer); 
             _context.Close();
 
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
-            Assert.Equal(TRUE,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(FALSE,_step_1.IsBusy());
-            Assert.Equal(TRUE,_step_1.HasError());
+            Assert.Equal(TRUE,_sequencer._step_1.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_1.IsReady());
+            Assert.Equal(FALSE,_sequencer._step_1.IsBusy());
+            Assert.Equal(TRUE,_sequencer._step_1.HasError());
             Assert.Equal(ULINT#1, count);
 
             // Act
@@ -1689,64 +1757,38 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             _context.Open();
             _sequencer.Open();
 
-            IF _step_1.Execute(_sequencer) THEN
+            IF _sequencer._step_1.Execute(_sequencer) THEN
                 count := count + ULINT#1;
             END_IF;
-            _step_2.Execute(_sequencer); 
-            _step_3.Execute(_sequencer); 
+            _sequencer._step_2.Execute(_sequencer); 
+            _sequencer._step_3.Execute(_sequencer); 
             _context.Close();
 
             // Assert
             Assert.Equal(ULINT#1, _sequencer.CurrentOrder);
-            Assert.Equal(TRUE,_step_1.IsActive);
-            Assert.Equal(FALSE,_step_1.IsReady());
-            Assert.Equal(TRUE,_step_1.IsBusy());
-            Assert.Equal(FALSE,_step_1.HasError());
+            Assert.Equal(TRUE,_sequencer._step_1.IsActive);
+            Assert.Equal(FALSE,_sequencer._step_1.IsReady());
+            Assert.Equal(TRUE,_sequencer._step_1.IsBusy());
+            Assert.Equal(FALSE,_sequencer._step_1.HasError());
             Assert.Equal(ULINT#2, count);
         END_METHOD
         
         {Test}        
         METHOD PUBLIC no_logic_should_be_executed_when_sequencer_is_not_running
-            VAR 
-                count :ULINT;
-            END_VAR
+            _sequencer._stepLogic := eStepLogic#LogicOutsideSteps;
             _context.Open();
-            _sequencer.Initialize(_context);
-            _step_1.Initialize(_context);
-            _step_2.Initialize(_context);
-            _step_3.Initialize(_context);        
-
-            IF _sequencer.Open() THEN
-                _step_1.Execute(_sequencer);
-                count := count + ULINT#1;
-                _step_2.Execute(_sequencer);
-                _step_3.Execute(_sequencer);           
-            END_IF;
+            _sequencer.Run(_context);
             _context.Close();
-            Assert.Equal(ULINT#0, count);
+            Assert.Equal(ULINT#0, _sequencer._counter);
         END_METHOD
  
         {Test}        
         METHOD PUBLIC logic_should_be_executed_when_sequencer_is_running
-            VAR 
-                count :ULINT;
-            END_VAR
-            _context.Open();
-            _sequencer.Initialize(_context);
-            _step_1.Initialize(_context);
-            _step_2.Initialize(_context);
-            _step_3.Initialize(_context);        
-
-            _sequencer.Invoke();
-
-            IF _sequencer.Open() THEN
-                _step_1.Execute(_sequencer);
-                count := count + ULINT#1;
-                _step_2.Execute(_sequencer);
-                _step_3.Execute(_sequencer);           
-            END_IF;
+            _sequencer._stepLogic := eStepLogic#LogicOutsideSteps;
+            THIS.InvokeSequence();
+            _sequencer.Run(_context);
             _context.Close();
-            Assert.Equal(ULINT#1, count);
+            Assert.Equal(ULINT#1, _sequencer._counter);
         END_METHOD
  
     END_CLASS  

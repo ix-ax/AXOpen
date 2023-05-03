@@ -27,7 +27,8 @@ NAMESPACE AXOpen.Core
         /// This method must be called prior to any other calls of this instance of 
         /// sequencer.
         ///</summary>
-        METHOD PUBLIC Open 
+        METHOD PUBLIC Open : BOOL
+            Open := FALSE;
             IF SUPER.Execute() THEN
                 IF THIS. InvalidContext() THEN RETURN; END_IF;         
                 _openCycleCounter := THIS.GetContext().OpenCycleCount();
@@ -44,6 +45,7 @@ NAMESPACE AXOpen.Core
                         CurrentOrder := ULINT#1;
                         _coordinatorState := AxoCoordinatorStates#Running;
                 END_CASE;    
+                Open := TRUE;
             END_IF;
         END_METHOD    
         

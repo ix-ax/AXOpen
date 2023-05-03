@@ -19,6 +19,8 @@
     href: ~/articles/core/AXOSTEP.md
   - name: AxoSequencer
     href: ~/articles/core/AXOSEQUENCER.md  
+  - name: AxoSequencerContainer
+    href: ~/articles/core/AXOSEQUENCERCONTAINER.md  
   - name: AxoComponent
     href: ~/articles/core/AXOCOMPONENT.md  
 - name: AXOpen.Data

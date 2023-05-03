@@ -9,8 +9,8 @@ CONFIGURATION MyConfiguration
         Recipe : Recipe;
         {#ix-set:AttributeName = "If counting PLC is alive"}
         I_am_alive : ULINT;
-
         AxoSequencers : AxoSequencerExamples.SequencerExample;
+        AxoSequencerContainer : AxoSequencerContainerExamples.SequencerContainerExample;
         AxoTasks : AxoTaskExamples.Tasks;
         AxoTaskDocu : AxoTaskExamples.AxoTaskDocuExample;
         myComponentExample : AxoComponentExamples.ComponentExampleContext;
