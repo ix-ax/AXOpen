@@ -256,8 +256,13 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             IF(Status = eAxoTaskState#Kicking) THEN
-                Status := eAxoTaskState#Busy;                
-                StartTimeStamp := THIS.GetContext().GetRtc().NowUTC();                
+                Status := eAxoTaskState#Busy; 
+
+                // This null check is due to implementation of RTC in unit tests
+                IF(THIS.GetContext().GetRtc() <> NULL) THEN
+                    StartTimeStamp := THIS.GetContext().GetRtc().NowUTC();
+                END_IF;  
+                  
                 // Don't touch this, it is used for remote execs.
                 StartSignature := THIS.GetContext().OpenCycleCount();                           
                 THIS.OnStart();
@@ -268,9 +273,7 @@ NAMESPACE AXOpen.Core
             END_IF;   
 
             THIS.UpdateState();
-             
             Execute := Status = eAxoTaskState#Busy;
-            
             _taskTimer(signal := Execute, duration := LT#99999D);
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;          
         END_METHOD    
