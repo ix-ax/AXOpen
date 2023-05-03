@@ -150,7 +150,10 @@ _myContext.Run();
 <pre><code class="lang-C#">var storageDir = Path.Combine(Environment.CurrentDirectory, &quot;MyDataExchangeData&quot;);
 var repository = AXOpen.Repository.Json.Repository.Factory(new JsonRepositorySettings&lt;MyData&gt;(storageDir));
 </code></pre>
-<p>Note: <code>MyData</code> should be type from <code>Pocos</code>.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p><code>MyData</code> should be of type from <code>Pocos</code>.</p>
+</div>
 <p>Then we will need to associate the repository with the PLC object and initialize the data exchange operations.</p>
 <pre><code class="lang-C#">Entry.Plc.MainContext.MyDataExchanger.InitializeRemoteDataExchange(repository);
 </code></pre>
@@ -180,16 +183,16 @@ IF(_delete) THEN
 END_IF;
 </code></pre>
 <h2 id="data-visualization">Data visualization</h2>
-<p>With presentation <code>Command</code> there are available options for adding, editing and deleting records.</p>
+<p>With <code>Command</code> presentation type there are available options for adding, editing and deleting records.</p>
 <p><a href="../../images/Command.png">!Command</a></p>
-<p>If you use <code>Status</code> presentation type, data will be only displayed cannot be manipulated.</p>
+<p>If you use <code>Status</code> presentation type, data will be only displayed and cannot be manipulated.</p>
 <p><a href="../../images/Status.png">!Status</a></p>
 <h3 id="custom-columns">Custom columns</h3>
 <p>There is a possibility to add custom columns if it is needed. You must add <code>AXOpen.core.IxDataExchange.ColumnData</code> view as a child in <code>IxDataView</code>. The <code>BindingValue</code> must be set in <code>ColumnData</code> and contains string representing attribute name of custom columns. If you want to add custom header name, you can simply set the name in <code>HeaderName</code> attribute. Also, there is an attribute to make column not clickable, which is clickable by default. The example using all attributes:</p>
-<pre><code>&lt;IxDataView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot;&gt;
-    &lt;AXOpen.core.IxDataExchange.ColumnData HeaderName=&quot;Recipe name&quot; BindingValue=&quot;RecipeName&quot; /&gt;
-    &lt;AXOpen.core.IxDataExchange.ColumnData BindingValue=&quot;String1&quot; Clickable=&quot;false&quot; /&gt;
-&lt;/IxDataView&gt;
+<pre><code>&lt;AxoDataView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot;&gt;
+    &lt;AXOpen.core.AxoDataExchange.ColumnData HeaderName=&quot;Recipe name&quot; BindingValue=&quot;RecipeName&quot; /&gt;
+    &lt;AXOpen.core.AxoDataExchange.ColumnData BindingValue=&quot;String1&quot; Clickable=&quot;false&quot; /&gt;
+&lt;/AxoDataView&gt;
 </code></pre>
 <p><a href="../../images/CustomColumns.png">!Custom columns</a></p>
 <h3 id="export">Export</h3>
@@ -211,7 +214,7 @@ END_IF;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/docfx/articles/data/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/67-_BUG_Sequencer_should_not_execute_code_that_is_outside_steps/docfx/articles/data/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

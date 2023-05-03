@@ -83,7 +83,7 @@
 <p>AxoSequencer extends from AxoTask so it also has to be initialized by calling its <code>Initialize()</code> method and started using its <code>Invoke()</code> method.</p>
 <p>AxoSequencer contains following methods:</p>
 <ul>
-<li><code>Open()</code>: this method must be called cyclically before any logic. It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the AxoSequencer is in the configuring state. From the second context cycle after the AxoSequencer has been invoked the AxoSequencer change its state to running and starts the execution from the first step upto the last one. When AxoSequencer is in running state, order of the step cannot be changed.</li>
+<li><code>Open()</code>: this method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code>if</code> condition. It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the AxoSequencer is in the configuring state. From the second context cycle after the AxoSequencer has been invoked the AxoSequencer change its state to running and starts the execution from the first step upto the last one. When AxoSequencer is in running state, order of the step cannot be changed.</li>
 <li><code>MoveNext()</code>: Terminates the currently executed step and moves the AxoSequencer's pointer to the next step in order of execution.</li>
 <li><code>RequestStep()</code>: Terminates the currently executed step and set the AxoSequencer's pointer to the order of the <code>RequestedStep</code>. When the order of the <code>RequestedStep</code> is higher than the order of the currently finished step (the requested step is &quot;after&quot; the current one) the requested step is started in the same context cycle. When the order of the <code>RequestedStep</code> is lower than the order of the currently finished step (the requested step is &quot;before&quot; the current one) the requested step is started in the next context cycle.</li>
 <li><code>CompleteSequence()</code>: Terminates the currently executed step, completes (finishes) the execution of this AxoSequencer and set the coordination state to Idle. If the <code>SequenceMode</code> of the AxoSequencer is set to <code>Cyclic</code>, following <code>Open()</code> method call in the next context cycle switch it again into the configuring state, reasign the order of the individual steps (even if the orders have been changed) and subsequently set AxoSequencer back into the running state. If the <code>SequenceMode</code> of the AxoSequencer is set to <code>RunOnce</code>, terminates also execution of the AxoSequencer itself.</li>
@@ -132,13 +132,36 @@ END_CLASS
     _step_3.Initialize(THIS);
 END_METHOD
 </code></pre><h4 id="open">Open</h4>
-<p>The <code>Open()</code> method must be called cyclically before any logic.</p>
-<pre><code class="lang-smalltalk">_mySequencer.Open();
+<p>The <code>Open()</code> method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code>if</code> condition, as follows.</p>
+<pre><code class="lang-smalltalk">THIS.Initialize();    
+IF _mySequencer.Open() THEN
+    //All sequence logic needs to be placed inside the condition
+    _myCounter := _myCounter + ULINT#1;
+
+    IF _step_1.Execute(_mySequencer) THEN
+        IF (_myCounter &gt; ULINT#50) THEN
+            _mySequencer.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF _step_2.Execute(_mySequencer) THEN
+        IF (_myCounter &gt; ULINT#100) THEN
+            _mySequencer.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF _step_3.Execute(_mySequencer) THEN
+        IF (_myCounter &gt; ULINT#150) THEN
+            _myCounter := ULINT#0;
+            _mySequencer.CompleteSequence();
+        END_IF;
+    END_IF;
+END_IF;
 </code></pre><h4 id="step">Step</h4>
 <p>Example of the most simple use of the <code>Execute()</code> method of the <code>AxoStep</code> class, only with the AxoCoordinator defined.</p>
 <pre><code class="lang-smalltalk">IF _step_1.Execute(_mySequencer) THEN
-    // do something
     _myCounter := _myCounter + ULINT#1;
+    // do something
     IF (_myCounter MOD ULINT#5) = ULINT#0 THEN
         // continue to the next step of the sequence
         _mySequencer.MoveNext();
@@ -172,7 +195,7 @@ END_IF;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/docfx/articles/core/AXOSEQUENCER.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/67-_BUG_Sequencer_should_not_execute_code_that_is_outside_steps/docfx/articles/core/AXOSEQUENCER.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

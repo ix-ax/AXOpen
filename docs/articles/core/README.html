@@ -676,7 +676,7 @@ END_IF;
 <p>AxoSequencer extends from AxoTask so it also has to be initialized by calling its <code>Initialize()</code> method and started using its <code>Invoke()</code> method.</p>
 <p>AxoSequencer contains following methods:</p>
 <ul>
-<li><code>Open()</code>: this method must be called cyclically before any logic. It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the AxoSequencer is in the configuring state. From the second context cycle after the AxoSequencer has been invoked the AxoSequencer change its state to running and starts the execution from the first step upto the last one. When AxoSequencer is in running state, order of the step cannot be changed.</li>
+<li><code>Open()</code>: this method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code>if</code> condition. It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the AxoSequencer is in the configuring state. From the second context cycle after the AxoSequencer has been invoked the AxoSequencer change its state to running and starts the execution from the first step upto the last one. When AxoSequencer is in running state, order of the step cannot be changed.</li>
 <li><code>MoveNext()</code>: Terminates the currently executed step and moves the AxoSequencer's pointer to the next step in order of execution.</li>
 <li><code>RequestStep()</code>: Terminates the currently executed step and set the AxoSequencer's pointer to the order of the <code>RequestedStep</code>. When the order of the <code>RequestedStep</code> is higher than the order of the currently finished step (the requested step is &quot;after&quot; the current one) the requested step is started in the same context cycle. When the order of the <code>RequestedStep</code> is lower than the order of the currently finished step (the requested step is &quot;before&quot; the current one) the requested step is started in the next context cycle.</li>
 <li><code>CompleteSequence()</code>: Terminates the currently executed step, completes (finishes) the execution of this AxoSequencer and set the coordination state to Idle. If the <code>SequenceMode</code> of the AxoSequencer is set to <code>Cyclic</code>, following <code>Open()</code> method call in the next context cycle switch it again into the configuring state, reasign the order of the individual steps (even if the orders have been changed) and subsequently set AxoSequencer back into the running state. If the <code>SequenceMode</code> of the AxoSequencer is set to <code>RunOnce</code>, terminates also execution of the AxoSequencer itself.</li>
@@ -725,13 +725,36 @@ END_CLASS
     _step_3.Initialize(THIS);
 END_METHOD
 </code></pre><h4 id="open">Open</h4>
-<p>The <code>Open()</code> method must be called cyclically before any logic.</p>
-<pre><code class="lang-smalltalk">_mySequencer.Open();
+<p>The <code>Open()</code> method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code>if</code> condition, as follows.</p>
+<pre><code class="lang-smalltalk">THIS.Initialize();    
+IF _mySequencer.Open() THEN
+    //All sequence logic needs to be placed inside the condition
+    _myCounter := _myCounter + ULINT#1;
+
+    IF _step_1.Execute(_mySequencer) THEN
+        IF (_myCounter &gt; ULINT#50) THEN
+            _mySequencer.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF _step_2.Execute(_mySequencer) THEN
+        IF (_myCounter &gt; ULINT#100) THEN
+            _mySequencer.MoveNext();
+        END_IF;
+    END_IF;
+
+    IF _step_3.Execute(_mySequencer) THEN
+        IF (_myCounter &gt; ULINT#150) THEN
+            _myCounter := ULINT#0;
+            _mySequencer.CompleteSequence();
+        END_IF;
+    END_IF;
+END_IF;
 </code></pre><h4 id="step">Step</h4>
 <p>Example of the most simple use of the <code>Execute()</code> method of the <code>AxoStep</code> class, only with the AxoCoordinator defined.</p>
 <pre><code class="lang-smalltalk">IF _step_1.Execute(_mySequencer) THEN
-    // do something
     _myCounter := _myCounter + ULINT#1;
+    // do something
     IF (_myCounter MOD ULINT#5) = ULINT#0 THEN
         // continue to the next step of the sequence
         _mySequencer.MoveNext();
@@ -757,6 +780,56 @@ END_IF;
         _mySequencer.CompleteSequence();
     END_IF;
 END_IF;
+</code></pre><h1 id="axosequencercontainer">AxoSequencerContainer</h1>
+<p><code>AxoSequencerContainer</code> is an <code>AxoCordinator</code> class that extends from <code>AxoSequencer</code>. The main difference is that this class is abstract so it is not possible to instantiate it directly. The user-defined class that extends from <code>AxoSequencerContainer</code> needs to be created and then instantiated.</p>
+<p>In the extended class <code>MAIN()</code> method needs to be created and all sequencer logic needs to be placed there. Then the sequencer is called via <code>Run(IAxoObject)</code> or <code>Run(IAxoContext)</code> methods, that ensure initialization of the sequencer with <code>AxoObject</code> or with <code>AxoContext</code>. Moreover the <code>Run()</code> method also ensures calling the <code>Open()</code> method, so it is not neccessary to call it explicitelly in comparison with <code>AxoSequencer</code>.</p>
+<h3 id="example-of-using-axosequencercontainer">Example of using AxoSequencerContainer</h3>
+<h4 id="example-of-the-declaration-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of the declaration of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk">CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
+    VAR PUBLIC
+        _step_1 : AxoStep;
+        _step_2 : AxoStep;
+        _step_3 : AxoStep;
+        _myCounter : ULINT;
+    END_VAR
+END_CLASS
+</code></pre><h4 id="example-of-implementation-main-method-inside-the-user-defined-class-that-extends-from-axosequencercontainer">Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer</h4>
+<p>All the custom logic of the sequencer needs to be placed here.</p>
+<pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE MAIN 
+    _step_1.Initialize(THIS);
+    _step_2.Initialize(THIS);
+    _step_3.Initialize(THIS);
+
+    _myCounter := _myCounter + ULINT#1;
+
+    IF(_step_1.Execute(THIS)) THEN  
+        IF(_myCounter &gt;= ULINT#100 ) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;    
+    END_IF;    
+
+    IF(_step_2.Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            THIS.MoveNext();
+        END_IF;    
+    END_IF; 
+
+    IF(_step_3.Execute(THIS)) THEN
+        IF(_myCounter &gt;= ULINT#100) THEN
+            _myCounter := ULINT#0;
+            _step_3.ThrowWhen(TRUE);
+            THIS.CompleteSequence();
+        END_IF;    
+    END_IF; 
+END_METHOD
+</code></pre><h4 id="example-of-declaration-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of declaration of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk">VAR PUBLIC
+    _mySequencerContainer : AxoSequencerContainerDocuExample;
+END_VAR
+</code></pre><h4 id="example-of-calling-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of calling of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk">_mySequencerContainer.Run(THIS);
 </code></pre><h1 id="axocomponent">AxoComponent</h1>
 <p><code>AxoComponent</code> is an abstract class extending the AxoObject, and it is the base building block for the &quot;hardware-related devices&quot; like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, &quot;virtual devices&quot; like counter, database, etc. <code>AxoComponent</code> is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the <code>AxoComponent</code> is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory.</p>
 <p><code>Restore()</code> - inside this method, the logic for resetting the AxoComponent or restoring it from any state to its initial state should be placed.</p>
@@ -1089,7 +1162,7 @@ END_CLASS
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/add-application-templates-for-integration-testing/docfx/articles/core/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/67-_BUG_Sequencer_should_not_execute_code_that_is_outside_steps/docfx/articles/core/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

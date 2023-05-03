@@ -1704,6 +1704,51 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(FALSE,_step_1.HasError());
             Assert.Equal(ULINT#2, count);
         END_METHOD
+        
+        {Test}        
+        METHOD PUBLIC no_logic_should_be_executed_when_sequencer_is_not_running
+            VAR 
+                count :ULINT;
+            END_VAR
+            _context.Open();
+            _sequencer.Initialize(_context);
+            _step_1.Initialize(_context);
+            _step_2.Initialize(_context);
+            _step_3.Initialize(_context);        
+
+            IF _sequencer.Open() THEN
+                _step_1.Execute(_sequencer);
+                count := count + ULINT#1;
+                _step_2.Execute(_sequencer);
+                _step_3.Execute(_sequencer);           
+            END_IF;
+            _context.Close();
+            Assert.Equal(ULINT#0, count);
+        END_METHOD
+ 
+        {Test}        
+        METHOD PUBLIC logic_should_be_executed_when_sequencer_is_running
+            VAR 
+                count :ULINT;
+            END_VAR
+            _context.Open();
+            _sequencer.Initialize(_context);
+            _step_1.Initialize(_context);
+            _step_2.Initialize(_context);
+            _step_3.Initialize(_context);        
+
+            _sequencer.Invoke();
+
+            IF _sequencer.Open() THEN
+                _step_1.Execute(_sequencer);
+                count := count + ULINT#1;
+                _step_2.Execute(_sequencer);
+                _step_3.Execute(_sequencer);           
+            END_IF;
+            _context.Close();
+            Assert.Equal(ULINT#1, count);
+        END_METHOD
+ 
     END_CLASS  
 END_NAMESPACE
 
