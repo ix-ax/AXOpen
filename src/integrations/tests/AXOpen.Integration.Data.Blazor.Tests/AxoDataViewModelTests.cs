@@ -23,7 +23,7 @@ namespace integration.data.blazor.tests
             var repo = AXOpen.Data.InMemory.Repository.Factory(new InMemoryRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>());
             dataObject.InitializeRepository(repo);
 
-            var data = dataObject.Data;
+            var data = dataObject.DataHeavy;
 
             var exchangeViewModel = new AxoDataExchangeBaseViewModel{ 
                 Model = dataObject,

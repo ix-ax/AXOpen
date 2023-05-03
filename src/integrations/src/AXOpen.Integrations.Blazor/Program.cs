@@ -46,6 +46,17 @@ namespace axopen_integrations_blazor
             
             Entry.Plc.Integrations.DM.InitializeRemoteDataExchange(Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
 
+            //<AxoDataExampleDocuIntialization>
+            var exampleRepositorySettings =
+                new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamplesDocu.AxoProductionData>(
+                    Path.Combine(Environment.CurrentDirectory, "exampledata"));
+
+            var exampleRepository = 
+                Ix.Repository.Json.Repository.Factory(exampleRepositorySettings);
+            
+            Entry.Plc.AxoDataExamplesDocu.DataManager.InitializeRemoteDataExchange(exampleRepository);
+            //</AxoDataExampleDocuIntialization>
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -1,7 +1,7 @@
 using AXOpen.Data;
 
 NAMESPACE AxoDataExamples
-
+    
     CLASS AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC   
             _identifier : STRING;
