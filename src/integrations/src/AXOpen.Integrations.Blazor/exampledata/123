@@ -1,0 +1,39 @@
+{
+  "SomeData": "aaaaaaa",
+  "SomeNumber": 111,
+  "SomeBool": true,
+  "RecordId": null,
+  "Changes": [
+    {
+      "DateTime": "2023-05-03T11:26:51.5567333+02:00",
+      "UserName": "",
+      "ValueTag": {
+        "HumanReadable": "DataManager.Data.Some string data",
+        "Symbol": "AxoDataExamplesDocu.DataManager.Data.SomeData"
+      },
+      "OldValue": "",
+      "NewValue": "aaaaaaa"
+    },
+    {
+      "DateTime": "2023-05-03T11:26:53.4019403+02:00",
+      "UserName": "",
+      "ValueTag": {
+        "HumanReadable": "DataManager.Data.Some number",
+        "Symbol": "AxoDataExamplesDocu.DataManager.Data.SomeNumber"
+      },
+      "OldValue": 0,
+      "NewValue": 111
+    },
+    {
+      "DateTime": "2023-05-03T11:26:53.4921847+02:00",
+      "UserName": "",
+      "ValueTag": {
+        "HumanReadable": "DataManager.Data.Some boolean",
+        "Symbol": "AxoDataExamplesDocu.DataManager.Data.SomeBool"
+      },
+      "OldValue": false,
+      "NewValue": true
+    }
+  ],
+  "DataEntityId": "123"
+}

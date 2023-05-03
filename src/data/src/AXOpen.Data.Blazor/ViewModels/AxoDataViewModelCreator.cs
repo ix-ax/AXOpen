@@ -20,7 +20,6 @@ namespace AXOpen.Data.ViewModels
             where O : class
         {
             return new AxoDataViewModel<T, O>(repository, dataExchange);
-
         }
     }
 }

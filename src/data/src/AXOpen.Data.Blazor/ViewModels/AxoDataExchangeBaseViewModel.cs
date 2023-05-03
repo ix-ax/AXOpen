@@ -25,8 +25,6 @@ namespace AXOpen.Data.ViewModels
                 CreateBrowsable((AxoDataExchange)value);
             }
         }
-
-
         private void CreateBrowsable(AxoDataExchange dataExchangeObject)
         {
             try

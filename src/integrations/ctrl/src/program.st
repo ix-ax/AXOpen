@@ -14,6 +14,9 @@ PROGRAM MyProgram
         AxoToggleTaskDocu : AxoToggleTaskExamples.AxoToggleTaskDocuExample;
         AxoMomentaryTasks : AxoMomentaryTaskExamples.Tasks;
         AxoMomentaryTaskDocu : AxoMomentaryTaskExamples.AxoMomentaryTaskDocuExample;
+
+        AxoDataExamplesDocu : AxoDataExamplesDocu.Context;
+
         // Integration test
         Integrations : IntegrationTests.Integrations;
     END_VAR    
@@ -29,6 +32,8 @@ PROGRAM MyProgram
     AxoRemoteTasks.Run();   
     AxoMomentaryTasks.Run();
     AxoMomentaryTaskDocu.Run();
+    AxoDataExamplesDocu.Run();
+    
     // Integration tests
     Integrations.Run();      
     
