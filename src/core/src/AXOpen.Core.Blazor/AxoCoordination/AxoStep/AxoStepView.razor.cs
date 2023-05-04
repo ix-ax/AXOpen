@@ -1,5 +1,6 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using System.ComponentModel;
 using System.Reflection.Metadata.Ecma335;
 
 namespace AXOpen.Core
@@ -35,7 +36,7 @@ namespace AXOpen.Core
 
         protected override void OnInitialized()
         {
-            UpdateValuesOnChange(Component);
+            UpdateValuesOnChange(Component,350);
             UpdateStepRowColors();
         }
 

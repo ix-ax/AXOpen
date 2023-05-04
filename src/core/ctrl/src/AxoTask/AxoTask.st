@@ -252,7 +252,7 @@ NAMESPACE AXOpen.Core
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,
             // CommandTask is set back to ready and does not start the execution.
             IF Status = eAxoTaskState#Kicking AND NOT THIS.IsInvokeCalledInThisPlcCycle() AND NOT THIS.WasInvokeCalledInPreviousPlcCycle() THEN
-                Status := eAxoTaskState#Ready;
+                Status := eAxoTaskState#Ready;              
             END_IF;
 
             IF(Status = eAxoTaskState#Kicking) THEN
