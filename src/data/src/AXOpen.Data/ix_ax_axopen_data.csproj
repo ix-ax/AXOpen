@@ -12,8 +12,8 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.96" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.96" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.97" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.97" />
 	</ItemGroup>
 
 	<ItemGroup>

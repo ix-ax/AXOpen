@@ -27,7 +27,7 @@ builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuth
 builder.Services.AddIxBlazorServices();
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.AutoSubscribeUsedVariables;
-Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 300;
+Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 150;
 
 var productionDataRepository = new InMemoryRepositorySettings<Pocos.examples.PneumaticManipulator.ProcessData> ().Factory();
 Entry.Plc.Context.ProductionSettings.InitializeRemoteDataExchange(productionDataRepository);
