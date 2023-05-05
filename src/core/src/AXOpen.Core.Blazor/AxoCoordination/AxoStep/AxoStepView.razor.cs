@@ -1,5 +1,6 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using System.ComponentModel;
 using System.Reflection.Metadata.Ecma335;
 
 namespace AXOpen.Core
@@ -9,6 +10,8 @@ namespace AXOpen.Core
         private string RowClass => UpdateStepRowColors();
 
         private bool IsActive => Component.IsActive.Cyclic == true;
+
+        private string TotalDurationDisplay => $"{Component.Duration.Cyclic.TotalSeconds}";
 
         private string Description => string.IsNullOrEmpty(Component.StepDescription.Cyclic) ? Component.Description : Component.StepDescription.Cyclic;
 
@@ -35,7 +38,7 @@ namespace AXOpen.Core
 
         protected override void OnInitialized()
         {
-            UpdateValuesOnChange(Component);
+            UpdateValuesOnChange(Component,350);
             UpdateStepRowColors();
         }
 

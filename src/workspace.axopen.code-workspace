@@ -1,0 +1,41 @@
+{
+	"folders": [
+		{
+			"name": "core",
+			"path": "core/ctrl"
+		},
+		{
+			"name": "templates.simple",
+			"path": "templates.simple/ctrl"
+		},
+		{
+			"name": "integrations",
+			"path": "integrations/ctrl"
+		},
+		{
+			"name": "simatic1500",
+			"path": "simatic1500/ctrl"
+		},
+		{
+			"name": "utils",
+			"path": "utils/ctrl"
+		},
+		{
+			"name": "messaging",
+			"path": "messaging/ctrl"
+		},
+		{
+			"name": "data",
+			"path": "data/ctrl"
+		},
+		{
+			"name": "probers",
+			"path": "probers/ctrl"
+		},
+		{
+			"name": "abstractions",
+			"path": "abstractions/ctrl"
+		}
+	],
+	"settings": {}
+}

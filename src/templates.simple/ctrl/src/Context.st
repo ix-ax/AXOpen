@@ -17,7 +17,9 @@ NAMESPACE axosimple
             
             IF(Inputs <> NULL AND Outputs <> NULL) THEN                
                 PneumaticManipulator.Run(THIS, Inputs^, Outputs^);               
-            END_IF;    
+            END_IF;   
+            
+            
         END_METHOD        
     END_CLASS
     
