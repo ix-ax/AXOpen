@@ -3,6 +3,8 @@
 @using AXSharp.Connector;
 @inherits RenderableComplexComponentBase<AxoStep>
 
+
+
 <div class="container text-left">
     <div class="row @RowClass">
         <div class="col">
@@ -18,16 +20,10 @@
             @Description
         </div>
         <div class="col">
-            @Component.Order.Cyclic
+            @TotalDurationDisplay
         </div>
         <div class="col">
-            @Component.IsActive.Cyclic
-        </div>
-        <div class="col">
-            @Component.Duration.Cyclic
-        </div>
-        <div class="col">
-            @Component.StartTimeStamp.Cyclic
+            @Humanizer.DateHumanizeExtensions.Humanize(Component.StartTimeStamp.Cyclic)
         </div>
     </div>
 </div>

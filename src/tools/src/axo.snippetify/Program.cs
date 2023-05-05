@@ -18,7 +18,6 @@ namespace axo.snippetify
             {
                 string sourceFile = options.SourceFile;
                 string snippetName = options.SnippetName;
-                string snippetFile = snippetName + ".json";
                 string outputFile = options.OutputFile;
 
                 try
