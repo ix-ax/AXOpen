@@ -152,6 +152,7 @@ public partial class AxoDataViewModel<T, O> : ObservableObject, IAxoDataViewMode
         plainer.DataEntityId = SelectedRecord.DataEntityId;
 
         DataBrowser.Delete((T)plainer);
+        SelectedRecord = null;
         WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 10)));
         FillObservableRecords();
     }
@@ -193,6 +194,7 @@ public partial class AxoDataViewModel<T, O> : ObservableObject, IAxoDataViewMode
         var plainer = await OnlineData.ShadowToPlain<T>();
         CrudData.ChangeTracker.SaveObservedChanges(plainer);
         DataBrowser.UpdateRecord(plainer);
+        SelectedRecord = plainer;
         WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Edited!", "Item was successfully edited!", 10)));
         FillObservableRecords();
     }
