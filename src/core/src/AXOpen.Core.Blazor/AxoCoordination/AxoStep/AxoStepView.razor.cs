@@ -11,6 +11,8 @@ namespace AXOpen.Core
 
         private bool IsActive => Component.IsActive.Cyclic == true;
 
+        private string TotalDurationDisplay => $"{Component.Duration.Cyclic.TotalSeconds}";
+
         private string Description => string.IsNullOrEmpty(Component.StepDescription.Cyclic) ? Component.Description : Component.StepDescription.Cyclic;
 
         private string UpdateStepRowColors()
