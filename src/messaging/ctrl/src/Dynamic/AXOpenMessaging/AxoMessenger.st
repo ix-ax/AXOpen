@@ -4,7 +4,7 @@ USING System.DateTime;
 USING AXOpen.Utils;
 USING AXOpen.Messaging;
 
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
 	/// <summary>
 	/// Provides mechanism for delivering static messages to the supervising applications (SCADA/HMI).	
 	/// 	<remarks>			
