@@ -3,8 +3,7 @@ NAMESPACE AXOpen.Core
     CLASS AxoStep EXTENDS AxoTask IMPLEMENTS IAxoStep       
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
-            Order : ULINT;
-            {#ix-attr:[ReadOnce()]} 
+            Order : ULINT;            
             StepDescription : STRING[120];
             IsActive : BOOL;                        
             IsEnabled : BOOL;

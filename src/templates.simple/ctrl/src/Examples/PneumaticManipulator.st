@@ -1,16 +1,17 @@
-USING AXOpen.Core;
-USING System.Strings;
-
 NAMESPACE examples.PneumaticManipulator
+   
+   USING AXOpen.Core;
+   USING System.Strings;
+
    ///<summary>
    /// Groups components of this controller unit.
    ///</summary>
    CLASS Components EXTENDS AXOpen.Core.AxoObject
        VAR PUBLIC
            // HERE DECLARE COMPONENTS USED BY THIS CONTROLLED UNIT
-           HorizontalCylinder : AXOpen.Pneumatics.Cylinder;
-           VerticalCylinder : AXOpen.Pneumatics.Cylinder;
-           GripperCylinder : AXOpen.Pneumatics.Cylinder;
+           // HorizontalCylinder : AXOpen.Pneumatics.Cylinder;
+           // VerticalCylinder : AXOpen.Pneumatics.Cylinder;
+           // GripperCylinder : AXOpen.Pneumatics.Cylinder;
        END_VAR
 
        METHOD PUBLIC Update
@@ -23,9 +24,9 @@ NAMESPACE examples.PneumaticManipulator
            END_VAR
                THIS.Initialize(parent);
                // HERE INITIALIZE YOUR COMPONENTS
-               HorizontalCylinder.Update(THIS,Inputs.B0[0], Inputs.B0[1], Outputs.B0[0], Outputs.B0[1]);
-               VerticalCylinder.Update(THIS,Inputs.B0[2], Inputs.B0[3], Outputs.B0[2], Outputs.B0[3]);
-               GripperCylinder.Update(THIS,Inputs.B0[4], Inputs.B0[5], Outputs.B0[4], Outputs.B0[5]);
+               // HorizontalCylinder.Update(THIS,Inputs.B0[0], Inputs.B0[1], Outputs.B0[0], Outputs.B0[1]);
+               // VerticalCylinder.Update(THIS,Inputs.B0[2], Inputs.B0[3], Outputs.B0[2], Outputs.B0[3]);
+               // GripperCylinder.Update(THIS,Inputs.B0[4], Inputs.B0[5], Outputs.B0[4], Outputs.B0[5]);
        END_METHOD
    END_CLASS
 
@@ -103,7 +104,7 @@ NAMESPACE examples.PneumaticManipulator
            ProcessData.Run(THIS);
 
            // Handles ground sequence
-           GroundSequence.Run(THIS, Components, ProcessData);
+           GroundSequence.Run(REF(Components), REF(ProcessData), THIS);        
 
            // Restores other states when Ground executes
            IF(GroundSequence.IsBusy()) THEN
@@ -111,10 +112,9 @@ NAMESPACE examples.PneumaticManipulator
                ServiceMode.Restore();
            END_IF;
 
-           // Handles automatic sequence (ground must be previously done)
-           AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;           
-           AutomatSequence.Run(THIS, Components, ProcessData);
-           
+           // Handles automatic sequence (ground must be previously done)           
+           AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;   
+           AutomatSequence.Run(REF(Components), REF(ProcessData), THIS);                   
 
            // Handles service/manual mode
            ServiceMode.Run(THIS, Components);
@@ -130,90 +130,110 @@ NAMESPACE examples.PneumaticManipulator
    /// Provides automatic mode sequence.
    ///</summary>
    {#ix-set:AttributeName = "<#AUTOMAT#>"}
-   CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencer
+   CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
        VAR PUBLIC
-           Steps : ARRAY[0..150] OF AxoStep;
+           Steps : ARRAY[0..150] OF AxoStep;        
        END_VAR
+        VAR PRIVATE
+            Components : REF_TO Components;
+            ProcessData : REF_TO ProcessDataManger;
+        END_VAR  
        
-       ///<summary>
-       /// Runs automatic mode sequence. This method must be called cyclically.
-       ///</summary>
-       METHOD PUBLIC Run
-           VAR_INPUT
-               parent : IAxoObject;
-           END_VAR
-           VAR_IN_OUT
-               Components : Components;
-               ProcessData : ProcessDataManger;
-           END_VAR
-               
-               // Never remove this!
-               THIS.Initialize(parent);
-                              
+        METHOD INTERNAL Run
+            VAR_INPUT               
+                _components : REF_TO Components;
+                _processData : REF_TO ProcessDataManger;
+                _parent : IAxoObject;
+            END_VAR     
+            
+            Components := _components;
+            ProcessData := _processData;
+
+            SUPER.Run(_parent);
+        END_METHOD
+
+        ///<summary>
+        /// Contains logic of the steps of this sequence
+        ///</summary>
+       METHOD OVERRIDE Main 
+                IF(Components = NULL OR ProcessData = NULL) THEN                
+                    RETURN;
+                END_IF;    
+
                // This sequecner executes the steps in cycles from top to bottom
                // in the same order they are written in the program
                // Each step in the sequence must can be used only once.
 
                // This sets the sequence to run in cycles (top-botton-top and again).
                THIS.SequenceMode := eAxoSequenceMode#Cyclic;
-
-               // We need to open sequence by calling Open method.
-               THIS.Open();
-                              
+                                             
                // This is more verbose but also more versatile way of executing step logic.
-               IF(Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
-                   //-------------------------------------------------------
-                   IF(components.VerticalCylinder.MoveToWork.Invoke().IsDone()) THEN // <- waits for the task to be done.
-                       THIS.MoveNext(); // <- This will move to the next step in the sequence.
-                   END_IF;
-                   //-------------------------------------------------------
-               END_IF;
-               // This is more concise way of writing steps when we execute only single task.
-               THIS.AndThen(Steps[1],components.GripperCylinder.MoveToWork);
-               THIS.AndThen(Steps[2],components.VerticalCylinder.MoveToHome);
-               THIS.AndThen(Steps[3],components.HorizontalCylinder.MoveToWork);
-               THIS.AndThen(Steps[4],components.VerticalCylinder.MoveToWork);
-               THIS.AndThen(Steps[5],components.GripperCylinder.MoveToHome);
-               THIS.AndThen(Steps[6],components.VerticalCylinder.MoveToHome);
-               THIS.AndThen(Steps[7],components.HorizontalCylinder.MoveToHome);
-               THIS.AndThen(Steps[8],components.GripperCylinder.MoveToHome);
-               ProcessData.Set.CounterDelay :=  THIS.GetContext().OpenCycleCount();              
+            //    IF(Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
+            //        //-------------------------------------------------------
+            //        IF(components^.VerticalCylinder.MoveToWork.Invoke().IsDone()) THEN // <- waits for the task to be done.
+            //            THIS.MoveNext(); // <- This will move to the next step in the sequence.
+            //        END_IF;
+            //        //-------------------------------------------------------
+            //    END_IF;
+            //    // This is more concise way of writing steps when we execute only single task.
+            //    THIS.AndThen(Steps[1],components^.GripperCylinder.MoveToWork);
+            //    THIS.AndThen(Steps[2],components^.VerticalCylinder.MoveToHome);
+            //    THIS.AndThen(Steps[3],components^.HorizontalCylinder.MoveToWork);
+            //    THIS.AndThen(Steps[4],components^.VerticalCylinder.MoveToWork);
+            //    THIS.AndThen(Steps[5],components^.GripperCylinder.MoveToHome);
+            //    THIS.AndThen(Steps[6],components^.VerticalCylinder.MoveToHome);
+            //    THIS.AndThen(Steps[7],components^.HorizontalCylinder.MoveToHome);
+            //    THIS.AndThen(Steps[8],components^.GripperCylinder.MoveToHome);
+            //    ProcessData^.Set.CounterDelay :=  THIS.GetContext().OpenCycleCount();              
 
-               IF(Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
-                //-------------------------------------------------------            
-                    IF(ProcessData.Create(ToString(THIS.GetContext().OpenCycleCount())).IsDone()) THEN // <- waits for the task to be done.
-                        THIS.MoveNext(); // <- This will move to the next step in the sequence.
-                    END_IF;
-                //-------------------------------------------------------
-                END_IF;               
-               // This will close the sequence and will return to the first step.
-               THIS.Close(Steps[150]);
+            //    IF(Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
+            //     //-------------------------------------------------------            
+            //         IF(ProcessData^.Create(ToString(THIS.GetContext().OpenCycleCount())).IsDone()) THEN // <- waits for the task to be done.
+            //             THIS.MoveNext(); // <- This will move to the next step in the sequence.
+            //         END_IF;
+            //     //-------------------------------------------------------
+            //     END_IF;               
+            //    // This will close the sequence and will return to the first step.
+            //    THIS.Close(Steps[150]);
+           
        END_METHOD
-   END_CLASS
+    END_CLASS
 
    ///<summary>
    /// Provides ground mode sequence.
    ///</summary>
    {#ix-set:AttributeName = "<#GROUND#>"}
-   CLASS PUBLIC GroundSequence EXTENDS AXOpen.Core.AxoSequencer
+   CLASS PUBLIC GroundSequence EXTENDS AXOpen.Core.AxoSequencerContainer
        VAR PUBLIC
            Steps : ARRAY[0..20] OF AxoStep;
        END_VAR
 
-       ///<summary>
-       /// Runs ground mode sequence. This method must be called cyclically.
-       ///</summary>
-       METHOD PUBLIC Run
-           VAR_INPUT
-               parent : IAxoObject;
-           END_VAR
-           VAR_IN_OUT
-               Components : Components;
-               ProcessData : ProcessDataManger;
-           END_VAR
+       VAR PRIVATE
+            Components : REF_TO Components;
+            ProcessData : REF_TO ProcessDataManger;
+       END_VAR 
+       
+        METHOD INTERNAL Run
+            VAR_INPUT               
+                _components : REF_TO Components;
+                _processData : REF_TO ProcessDataManger;
+                _parent : IAxoObject;
+            END_VAR     
+            
+            Components := _components;
+            ProcessData := _processData;
 
-           // Never remove this!
-           THIS.Initialize(parent);
+            SUPER.Run(_parent);
+        END_METHOD
+        
+        ///<summary>
+        /// Contains logic of the steps of this sequence
+        ///</summary>
+        METHOD PROTECTED OVERRIDE Main
+
+            IF(Components = NULL OR ProcessData = NULL) THEN                
+                RETURN;
+            END_IF; 
 
            // This sequecner executes the steps in cycles from top to botton
            // in the same order they are written in the program
@@ -221,27 +241,25 @@ NAMESPACE examples.PneumaticManipulator
 
            // This sets the sequence to run once (top-botton) and stops with done after closing.
            THIS.SequenceMode := eAxoSequenceMode#RunOnce;
+      
+        //    // This is more verbose but also more versatile way of executing step logic.
+        //    IF(Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
+        //        //-------------------------------------------------------
+        //        IF(components^.VerticalCylinder.MoveToHome.Invoke().IsDone()) THEN // <- waits for the task to be done.
+        //            THIS.MoveNext(); // <- This will move to the next step in the sequence.
+        //        END_IF;
+        //        //-------------------------------------------------------
+        //    END_IF;
 
-           // We need to open sequence by calling Open method.
-           THIS.Open();
+        //    // This is more concise way of writing steps when we execute only single task.
+        //    THIS.AndThen(Steps[1],components^.GripperCylinder.MoveToHome);
+        //    THIS.AndThen(Steps[2],components^.VerticalCylinder.MoveToHome);
+        //    THIS.AndThen(Steps[3],components^.HorizontalCylinder.MoveToHome);
 
-           // This is more verbose but also more versatile way of executing step logic.
-           IF(Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
-               //-------------------------------------------------------
-               IF(components.VerticalCylinder.MoveToHome.Invoke().IsDone()) THEN // <- waits for the task to be done.
-                   THIS.MoveNext(); // <- This will move to the next step in the sequence.
-               END_IF;
-               //-------------------------------------------------------
-           END_IF;
-
-           // This is more concise way of writing steps when we execute only single task.
-           THIS.AndThen(Steps[1],components.GripperCylinder.MoveToHome);
-           THIS.AndThen(Steps[2],components.VerticalCylinder.MoveToHome);
-           THIS.AndThen(Steps[3],components.HorizontalCylinder.MoveToHome);
-
-           // This will close the sequence and will return to the first step.
-           THIS.Close(Steps[20]);
+        //    // This will close the sequence and will return to the first step.
+        //    THIS.Close(Steps[20]);
        END_METHOD
+      
    END_CLASS
 
    ///<summary>
@@ -273,9 +291,9 @@ NAMESPACE examples.PneumaticManipulator
            END_VAR
            ;
            // HERE CALL LOGIC FOR MANUAL/SERICE OPERATIONS
-           components.HorizontalCylinder.ActivateManualControl();
-           components.VerticalCylinder.ActivateManualControl();
-           components.GripperCylinder.ActivateManualControl();
+        //    components.HorizontalCylinder.ActivateManualControl();
+        //    components.VerticalCylinder.ActivateManualControl();
+        //    components.GripperCylinder.ActivateManualControl();
        END_METHOD
    END_CLASS
 

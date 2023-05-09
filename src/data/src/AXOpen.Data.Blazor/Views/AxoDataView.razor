@@ -160,7 +160,7 @@ else
             </tbody>
         </table>
         <div class="d-flex">
-            <div class="dropdown">
+            <div class="dropup">
                 Showing @(Vm.Page * Vm.Limit + 1) to @(((Vm.Page + 1) * Vm.Limit) > Vm.FilteredCount ? Vm.FilteredCount : ((Vm.Page + 1) * Vm.Limit)) of @Vm.FilteredCount rows
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.Limit</button>
                 <ul class="dropdown-menu">
