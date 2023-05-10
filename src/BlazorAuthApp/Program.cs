@@ -1,8 +1,8 @@
+using AXOpen.Core.blazor.Toaster;
 using BlazorAuthApp.Areas.Identity;
 using BlazorAuthApp.Data;
 using BlazorAuthApp.Identity;
 using BlazorAuthApp.Identity.Services;
-using ix.framework.core.blazor.Toaster;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;

@@ -1,6 +1,6 @@
 ﻿using BlazorAuthApp.Identity.Data;
 using BlazorAuthApp.Identity.Services;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 using Microsoft.AspNetCore.Identity;
 using System.Collections.ObjectModel;
 using System.Security.Claims;

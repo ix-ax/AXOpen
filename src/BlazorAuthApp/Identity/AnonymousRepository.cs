@@ -1,5 +1,5 @@
-﻿using BlazorAuthApp.Identity.Data;
-using Ix.Base.Data;
+﻿using AXOpen.Base.Data;
+using BlazorAuthApp.Identity.Data;
 
 namespace BlazorAuthApp.Identity
 {

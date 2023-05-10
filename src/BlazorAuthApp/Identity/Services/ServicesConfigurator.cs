@@ -1,15 +1,16 @@
 ﻿using BlazorAuthApp.Data;
 using BlazorAuthApp.Identity.Data;
 using BlazorAuthApp.Identity.Stores;
-using Ix.Base.Data;
-using Ix.Framework.Data.Json;
-using Ix.Framework.Data.MongoDb;
+using AXOpen.Base.Data;
+using AXOpen.Data.Json;
+using AXOpen.Data.MongoDb;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using System.Security;
+
 
 namespace BlazorAuthApp.Identity.Services
 {

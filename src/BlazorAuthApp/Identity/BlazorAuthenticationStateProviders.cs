@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Security;
 using System.Text;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 
 namespace BlazorAuthApp.Identity
 {

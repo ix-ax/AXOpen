@@ -1,4 +1,4 @@
-﻿using Ix.Base.Data;
+﻿using AXOpen.Base.Data;
 using System.Collections.ObjectModel;
 
 namespace BlazorAuthApp.Identity.Data

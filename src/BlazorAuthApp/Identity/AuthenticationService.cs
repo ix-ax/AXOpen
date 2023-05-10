@@ -5,7 +5,7 @@ using Microsoft.VisualBasic;
 using static System.Formats.Asn1.AsnWriter;
 using System.Security.Cryptography;
 using System.Text;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 
 namespace BlazorAuthApp.Identity
 {
