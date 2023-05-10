@@ -1,5 +1,10 @@
 ﻿@page "/Identity/Account/Login"
 @inject NavigationManager _navigationManager
+@using AXOpen.Core;
+@using AXOpen.Core.blazor.Toaster;
+@using CommunityToolkit.Mvvm.Messaging;
+@using Microsoft.AspNetCore.Components.Forms
+
 <div class="card">
     <h4 class="card-header">Log in</h4>
     <div class="card-body">
@@ -30,15 +35,15 @@
             SecurityManager.Manager.Service.AuthenticateUser(_model.Username, _model.Password);
             //TcoAppDomain.Current.Logger.Information($"User '{_model.Username}' logged in. {{@sender}}", new { UserName = _model.Username });
             _navigationManager.NavigateTo("", forceLoad: true);
-            //_alertManager.addAlert("success", "User logged in.");
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Logged!", "User logged in.", 10)));
         }
         catch (UnauthorizedAccessException ex)
         {
-            //_alertManager.addAlert("warning", "Incorrect credentials!");
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Error!", "Incorrect credentials!", 10)));
         }
         catch (Exception ex)
         {
-            //_alertManager.addAlert("warning", "User was not logged in.");
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Error!", "User was not logged in.", 10)));
         }
     }
 

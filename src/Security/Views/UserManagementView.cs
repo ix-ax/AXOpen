@@ -4,6 +4,9 @@ using Microsoft.JSInterop;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System.Linq;
+using AXOpen.Core.blazor.Toaster;
+using AXOpen.Core;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace Security
 {
@@ -55,7 +58,7 @@ namespace Security
         {
             await _userManager.DeleteAsync(user);
             SelectedUser = null;
-            //_alertManager.addAlert("success", "User succesfully deleted!");
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "User succesfully deleted!", 10)));
             //TcoAppDomain.Current.Logger.Information($"User '{user.UserName}' deleted. {{@sender}}", new { UserName = user.UserName });
         }
 
@@ -72,12 +75,12 @@ namespace Security
             var result = await _userManager.UpdateAsync(SelectedUser);
             if (result.Succeeded)
             {
-                //_alertManager.addAlert("success", "User succesfully updated!");
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Updated!", "User succesfully updated!", 10)));
                 //TcoAppDomain.Current.Logger.Information($"User '{SelectedUser.UserName}' updated. {{@sender}}", new { UserName = SelectedUser.UserName, Group = SelectedUser.Roles });
             }
             else
             {
-                //_alertManager.addAlert("warning", "User was not updated!");
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not updated!", "User was not updated!", 10)));
             }
         }
 

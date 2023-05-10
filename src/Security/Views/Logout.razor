@@ -1,4 +1,7 @@
 ﻿@page "/Identity/Account/Logout"
+@using AXOpen.Core;
+@using AXOpen.Core.blazor.Toaster;
+@using CommunityToolkit.Mvvm.Messaging;
 @inject NavigationManager _navigationManager
 
 @code{
@@ -8,6 +11,6 @@
         SecurityManager.Manager.Service.DeAuthenticateCurrentUser();
         //TcoAppDomain.Current.Logger.Information($"User '{name}' logged out. {{@sender}}", new { UserName = name });
         _navigationManager.NavigateTo("", forceLoad: true);
-        //_alertManager.addAlert("success", "User logged out.");
+        WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loggout!", "User logged out.", 10)));
     }
 }

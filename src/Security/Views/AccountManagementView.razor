@@ -1,5 +1,11 @@
 ﻿@page "/Identity/Account/Manage"
+@using AXOpen.Core;
+@using AXOpen.Core.blazor.Toaster;
+@using CommunityToolkit.Mvvm.Messaging;
+@using Microsoft.AspNetCore.Components.Forms;
+@using Microsoft.AspNetCore.Components.Authorization;
 @using Microsoft.AspNetCore.Identity;
+
 @inject UserManager<User> _userManager
 
 <AuthorizeView>
@@ -60,12 +66,12 @@
         var result = await _userManager.UpdateAsync(_user);
         if (result.Succeeded)
         {
-            //_alertManager.addAlert("success", "User succesfully updated!");
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Updated!", "User succesfully updated.", 10)));
             //TcoAppDomain.Current.Logger.Information($"User '{_user.UserName}' has changed.{{payload}}", new { UserName = _user.UserName, Email = _user.Email, CanChangePassword = _user.CanUserChangePassword, Group = string.Join(",", _user.Roles) });
         }
         else
         {
-            //_alertManager.addAlert("warning", "User was not updated!");
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Not updated!", "User was not updated.", 10)));
         }
     }
 

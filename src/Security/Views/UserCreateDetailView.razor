@@ -1,5 +1,10 @@
 ﻿@page "/Identity/Account/Register"
+@using AXOpen.Core;
+@using AXOpen.Core.blazor.Toaster;
+@using CommunityToolkit.Mvvm.Messaging;
+@using Microsoft.AspNetCore.Components.Authorization;
 @using Microsoft.AspNetCore.Identity;
+@using Microsoft.AspNetCore.Components.Forms
 @inject RoleGroupManager _roleGroupManager
 @inject UserManager<User> _userManager
 @inject NavigationManager _navigationManager
@@ -71,12 +76,12 @@
         if (result.Succeeded)
         {
             _navigationManager.NavigateTo("");
-            //_alertManager.addAlert("success", "User successfully created!");
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "User successfully created.", 10)));
             //TcoAppDomain.Current.Logger.Information($"New user '{_model.Username}' created. {{@sender}}", new { UserName = _model.Username, Group = _model.Group });
         }
         else
         {
-            //_alertManager.addAlert("warning", "User was not created!");
+            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not created!", "User was not created.", 10)));
         }
     }
 

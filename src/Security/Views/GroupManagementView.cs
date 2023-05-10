@@ -1,3 +1,6 @@
+using AXOpen.Core.blazor.Toaster;
+using AXOpen.Core;
+using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.AspNetCore.Components;
 using Security;
 using System;
@@ -57,17 +60,17 @@ namespace Security
         {
             if(newGroupName == null || newGroupName == "")
             {
-                //_alertManager.addAlert("warning", "Wrong group name!");
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Name!", "Wrong group name", 10)));
                 return;
             }
             var result = _roleGroupManager.CreateGroup(newGroupName);
             if (result.Succeeded)
             {
-                //_alertManager.addAlert("success", "Group succesfully created!");
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Group successfully created!", 10)));
             }
             else
             {
-                //_alertManager.addAlert("warning", "Group was not created!");
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not created!", "Group was not created.", 10)));
             }
             StateHasChanged();
         }
@@ -78,11 +81,11 @@ namespace Security
             var result = _roleGroupManager.DeleteGroup(group.Name);
             if (result.Succeeded)
             {
-                //_alertManager.addAlert("success", "Group succesfully deleted!");
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Group successfully deleted", 10)));
             }
             else
             {
-                //_alertManager.addAlert("warning", "Group was not deleted!");
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not deleted!", "Group was not deleted.", 10)));
             }
             StateHasChanged();
         }

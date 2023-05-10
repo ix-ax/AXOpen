@@ -7,7 +7,7 @@ namespace Security
     public class SecurityProvider : ISecurityProvider
     {
         /// <summary>
-        /// Prevent creating instance of <see cref="Security provider"/> from outside this type.
+        /// Prevent creating instance of <see cref="BlazorSecurity provider"/> from outside this type.
         /// </summary>
         /// <param name="authenticationService">Authentication service.</param>
         private SecurityProvider(IAuthenticationService authenticationService)
