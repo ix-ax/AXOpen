@@ -11,23 +11,19 @@ namespace AXOpen.Data
 {
     public partial class AxoDataExchange
     {
-        /// <summary>An interaface which grants access to certain operations in DataExchange viewmodel, like searching by id, invoking search or filling the searchbox</summary>
+        /// <summary>An interface which grants access to certain operations in DataExchange viewmodel, like searching by id, invoking search or filling the searchbox</summary>
         public IDataExchangeOperations DataExchangeOperations { get; set; }
 
-        private dynamic _onliner;
+        private dynamic _dataEntity;
 
-        public T GetData<T>() where T : class 
+        public T GetDataEntity<T>() where T : class 
         {
-            return (T)this.Onliner;
+            return (T)this.DataEntity;
         }
 
-        public ITwinObject DataHeavy
-        {
-            get { return (ITwinObject)this.Onliner; }
-        }
+        public ITwinObject DataHeavy => (ITwinObject)this.DataEntity;
 
-
-        public PropertyInfo? GetDataSetPropertyInfo()
+        private PropertyInfo? GetDataSetPropertyInfo<TA>() where TA : Attribute
         {
             var properties = this.GetType().GetProperties();
             PropertyInfo? DataPropertyInfo = null;
@@ -35,13 +31,13 @@ namespace AXOpen.Data
             // iterate properties and look for AxoDataEntityAttribute
             foreach (var prop in properties)
             {
-                var attr = prop.GetCustomAttribute<AxoDataEntityAttribute>();
+                var attr = prop.GetCustomAttribute<TA>();
                 if (attr != null)
                 {
-                    //if already set, that means multiple dataatributtes are present, we want to throw error
+                    //if already set, that means multiple data attributes are present, we want to throw error
                     if (DataPropertyInfo != null)
                     {
-                        throw new MultipleDataEntityAttributeException($"{this.GetType().ToString()} contains multiple {nameof(AxoDataEntityAttribute)}s! Make sure it contains only one.");
+                        throw new MultipleDataEntityAttributeException($"{this.GetType().ToString()} contains multiple {nameof(TA)}s! Make sure it contains only one.");
                     }
                     DataPropertyInfo = prop;
                     break;
@@ -56,28 +52,28 @@ namespace AXOpen.Data
             return DataPropertyInfo;
         }
 
-        public ICrudDataObject? GetDataSetProperty()
+        private ICrudDataObject? GetDataSetProperty<TA>() where TA : Attribute
         {
-            var dataObjectPropertyInfo = this.GetDataSetPropertyInfo();
+            var dataObjectPropertyInfo = this.GetDataSetPropertyInfo<TA>();
             var dataObject = dataObjectPropertyInfo?.GetValue(this) as AXOpen.Data.AxoDataEntity;
             if (dataObject == null)
             {
-                throw new Exception($"Data member annotated with '{nameof(AxoDataEntityAttribute)}' in '{this.Symbol}'  does not inherit from '{nameof(AxoDataEntity)}'");
+                throw new Exception($"Data member annotated with '{nameof(TA)}' in '{this.Symbol}'  does not inherit from '{nameof(AxoDataEntity)}'");
             }
 
             return dataObject;
         }
 
-        protected ICrudDataObject Onliner
+        protected ICrudDataObject DataEntity
         {
             get
             {
-                if (this._onliner == null)
+                if (this._dataEntity == null)
                 {
-                    this._onliner = GetDataSetProperty();
+                    this._dataEntity = GetDataSetProperty<AxoDataEntityAttribute>();
                 }
 
-                return this._onliner;
+                return this._dataEntity;
             }
         }
 
@@ -95,7 +91,6 @@ namespace AXOpen.Data
 
         public void InitializeRepository<T>(IRepository<T> repository) where T : IBrowsableDataObject
             => _repository = repository as IRepository;
-
 
         public void InitializeRemoteDataExchange()
         {
@@ -125,11 +120,11 @@ namespace AXOpen.Data
             this.InitializeRemoteDataExchange();
         }
 
-        private bool Create()
+        internal bool Create()
         {
             CreateTask.ReadAsync().Wait();
-            Onliner.DataEntityId.SetAsync(CreateTask.DataEntityIdentifier.LastValue).Wait();
-            var cloned = this.Onliner.OnlineToPlainAsync().Result;
+            DataEntity.DataEntityId.SetAsync(CreateTask.DataEntityIdentifier.LastValue).Wait();
+            var cloned = this.DataEntity.OnlineToPlainAsync().Result;
 
             try
             {
@@ -172,15 +167,14 @@ namespace AXOpen.Data
             return true;
         }
 
-
-        private bool Read()
+        internal bool Read()
         {
             ReadTask.ReadAsync().Wait();
 
             try
             {
                 object record = _repository.Read(ReadTask.DataEntityIdentifier.LastValue);
-                Onliner.PlainToOnlineAsync(record).Wait();
+                DataEntity.PlainToOnlineAsync(record).Wait();
                 return true;
             }
             catch (Exception exception)
@@ -188,11 +182,11 @@ namespace AXOpen.Data
                 throw exception;
             }
         }
-        private bool Update()
+        internal bool Update()
         {
             UpdateTask.ReadAsync().Wait();
-            Onliner.DataEntityId.SetAsync(UpdateTask.DataEntityIdentifier.LastValue).Wait();
-            var cloned = this.Onliner.OnlineToPlainAsync().Result;
+            DataEntity.DataEntityId.SetAsync(UpdateTask.DataEntityIdentifier.LastValue).Wait();
+            var cloned = this.DataEntity.OnlineToPlainAsync().Result;
             try
             {
                 _repository.Update(UpdateTask.DataEntityIdentifier.Cyclic, cloned);
@@ -204,7 +198,7 @@ namespace AXOpen.Data
             }
         }
 
-        private bool Delete()
+        internal bool Delete()
         {
             DeleteTask.ReadAsync().Wait();
             try
@@ -232,21 +226,5 @@ namespace AXOpen.Data
             //}
             return true;
         }
-
-        //private ITwinObject _onlinerVortex;
-        //protected ITwinObject OnlinerVortex
-        //{
-        //    get
-        //    {
-        //        if (_onlinerVortex == null)
-        //        {
-        //            _onlinerVortex = (ITwinObject)Onliner;
-        //        }
-
-        //        return _onlinerVortex;
-        //    }
-        //}
-
-
     }
 }

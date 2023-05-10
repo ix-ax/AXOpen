@@ -27,7 +27,7 @@ public partial class AxoDataViewModel<T, O> : ObservableObject, IAxoDataViewMode
         this.DataExchange = dataExchange;
         DataBrowser = CreateBrowsable(repository);
         Records = new ObservableCollection<IBrowsableDataObject>();
-        _onlinerData = DataExchange.GetData<O>();
+        _onlinerData = DataExchange.GetDataEntity<O>();
     }
 
     private readonly O _onlinerData;

@@ -2,5 +2,8 @@
 @using axosimple.hmi.Components;
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="100"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components"></UnitsService>
-<UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Set" PollingInterval="100"></UnitsData>
+<UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared.Set" PollingInterval="100"></UnitsData>
+
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared" Presentation="Command"></RenderableContentControl>
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Data" Presentation="Command"></RenderableContentControl>
 

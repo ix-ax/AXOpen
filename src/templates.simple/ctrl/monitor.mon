@@ -1,1 +1,7 @@
-Context.PneumaticManipulator.AutomatSequence.Steps[9]
+Context.PneumaticManipulator.ProcessData.Operation
+#Context.PneumaticManipulator.ProcessData.Data.CreateTask.ErrorDetails
+#Context.PneumaticManipulator.ProcessData.Shared.CreateTask.ErrorDetails
+
+#Context.PneumaticManipulator.ProcessData.Operation.IsInitialized
+#Context.PneumaticManipulator.ProcessData.Data.CreateTask.IsInitialized
+#Context.PneumaticManipulator.ProcessData.Shared.CreateTask.IsInitialized
