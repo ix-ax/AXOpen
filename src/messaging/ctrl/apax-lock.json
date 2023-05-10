@@ -351,6 +351,11 @@
       "@ax/system-math": "^3.1.7"
     }
   },
+  "@ax/system-timer": {
+    "version": "3.0.9",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-timer/-/system-timer-3.0.9.tgz",
+    "integrity": "sha512-4yXndi8SQZ0d81MVrJRvGaULPhtfGXC+5Zk6r9MJsCElMzhEIaqqrD1FQHdXvaBOqclN4otR9KW43Mq4nEf/aA=="
+  },
   "@ax/target-axunit": {
     "version": "3.0.4",
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/target-axunit/-/target-axunit-3.0.4.tgz",

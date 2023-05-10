@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Ix.Framework.Data.InMemory
+namespace AXOpen.Data.InMemory
 {
     public class SameObjectReferenceException : Exception
     {

@@ -1,36 +1,51 @@
+USING AXOpen.Core;
+
 PROGRAM MyProgram
     VAR_EXTERNAL
         MainContext : MyContext;
-        ixcoreSequencers : IxSequencerExamples.SequencerExample;
         I_am_alive : ULINT;
-        ixcoreTasks : IxTaskExamples.Tasks;
-        myComponentExample : IxComponentExamples.ComponentExampleContext;
-        myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
-        ixcore_remote_tasks : IxRemoteTaskExamples.RemoteTasks;
-        
+        AxoSequencers : AxoSequencerExamples.SequencerExample;
+        AxoSequencerContainer : AxoSequencerContainerExamples.SequencerContainerExample;
+        AxoTasks : AxoTaskExamples.Tasks;
+        AxoTaskDocu : AxoTaskExamples.AxoTaskDocuExample;
+        myComponentExample : AxoComponentExamples.ComponentExampleContext;
+        myComponentHeaderOnlyExample : AxoComponentExamples.ComponentHeaderOnlyExampleContext;
+        AxoRemoteTasks : AxoRemoteTaskExamples.RemoteTasks;
+        AxoToggleTasks : AxoToggleTaskExamples.Tasks;
+        AxoToggleTaskDocu : AxoToggleTaskExamples.AxoToggleTaskDocuExample;
+        AxoMomentaryTasks : AxoMomentaryTaskExamples.Tasks;
+        AxoMomentaryTaskDocu : AxoMomentaryTaskExamples.AxoMomentaryTaskDocuExample;
 
+        AxoDataExamplesDocu : AxoDataExamplesDocu.Context;
 
         // Integration test
         Integrations : IntegrationTests.Integrations;
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
     MainContext.Run();
-    ixcoreTasks.Run();
-    ixcoreSequencers.Run();
+    AxoTasks.Run();
+    AxoTaskDocu.Run();
+    AxoToggleTasks.Run();
+    AxoToggleTaskDocu.Run();
+    AxoSequencers.Run();
+    AxoSequencerContainer.Run();
     myComponentExample.Run();
     myComponentHeaderOnlyExample.Run();
-    ixcore_remote_tasks.Run();   
+    AxoRemoteTasks.Run();   
+    AxoMomentaryTasks.Run();
+    AxoMomentaryTaskDocu.Run();
+    AxoDataExamplesDocu.Run();
     
     // Integration tests
     Integrations.Run();      
-    
+   
 END_PROGRAM
 
 
-CLASS MyContext EXTENDS ix.framework.core.IxContext    
+CLASS MyContext EXTENDS AxoContext    
     VAR PUBLIC         
-        process_data_manager: ixDataExamples.IxProcessDataManager;
-        test_data_manager: ixDataExamples.IxTestDataManager;
+        process_data_manager: AxoDataExamples.AxoProcessDataManager;
+        test_data_manager: AxoDataExamples.AxoTestDataManager;
     END_VAR
 
     METHOD PROTECTED OVERRIDE Main        

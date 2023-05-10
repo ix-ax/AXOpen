@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "path": "AXOpen.sln",
+    "projects": [
+      "core\\tests\\AXOpen.Core.Tests\\axopen_core_tests.csproj",
+      "data\\tests\\AXOpen.Repository.Integration.Tests_L1\\axopen_repository_integration_tests_L1.csproj",
+      "data\\tests\\AXOpen.Data.Tests\\axopen_data_tests.csproj"
+    ]
+  }
+}

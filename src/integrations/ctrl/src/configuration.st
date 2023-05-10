@@ -4,20 +4,26 @@ CONFIGURATION MyConfiguration
     PROGRAM P2 WITH Main: ProgramExample;
 
     VAR_GLOBAL
-        ixcoreTasks : IxTaskExamples.Tasks;
-        ixcoreSequencers : IxSequencerExamples.SequencerExample;
         {#ix-attr:[Container(Layout.Wrap)]}
         MainContext : MyContext;
         Recipe : Recipe;
-        myComponentExample : IxComponentExamples.ComponentExampleContext;
-        myComponentHeaderOnlyExample : IxComponentExamples.ComponentHeaderOnlyExampleContext;
         {#ix-set:AttributeName = "If counting PLC is alive"}
         I_am_alive : ULINT;
-        
-        ixcore_remote_tasks : IxRemoteTaskExamples.RemoteTasks;
-        
-        process_data_manager: ixDataExamples.IxProcessDataManager;
-        test_data_manager: ixDataExamples.IxTestDataManager;
+        AxoSequencers : AxoSequencerExamples.SequencerExample;
+        AxoSequencerContainer : AxoSequencerContainerExamples.SequencerContainerExample;
+        AxoTasks : AxoTaskExamples.Tasks;
+        AxoTaskDocu : AxoTaskExamples.AxoTaskDocuExample;
+        myComponentExample : AxoComponentExamples.ComponentExampleContext;
+        myComponentHeaderOnlyExample : AxoComponentExamples.ComponentHeaderOnlyExampleContext;
+        AxoRemoteTasks : AxoRemoteTaskExamples.RemoteTasks;
+        AxoToggleTasks : AxoToggleTaskExamples.Tasks;
+        AxoToggleTaskDocu : AxoToggleTaskExamples.AxoToggleTaskDocuExample;
+        AxoMomentaryTasks : AxoMomentaryTaskExamples.Tasks;
+        AxoMomentaryTaskDocu : AxoMomentaryTaskExamples.AxoMomentaryTaskDocuExample;
+        AxoDataExamplesDocu : AxoDataExamplesDocu.Context;
+
+        process_data_manager: AxoDataExamples.AxoProcessDataManager;
+        test_data_manager: AxoDataExamples.AxoTestDataManager;
        
         // Issues
         gh_ptku_8 : Layouts.Tabbed.weather;

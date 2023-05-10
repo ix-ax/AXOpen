@@ -1,8 +1,8 @@
 ﻿using System;
-using Ix.Base.Data;
-using Ix.Framework.Data;
+using AXOpen.Base.Data;
+using AXOpen.Data;
 
-namespace Ix.Framework.Data.MongoDb
+namespace AXOpen.Data.MongoDb
 {
     public static class Repository
     {

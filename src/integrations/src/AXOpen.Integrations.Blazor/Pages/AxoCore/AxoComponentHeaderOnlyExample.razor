@@ -1,0 +1,28 @@
+﻿@page "/AxoComponentHeaderOnlyExample"
+@using axopen_integrations
+@using AXOpen.Core;
+<h3>AxoComponentHeaderOnlyExample</h3>
+
+<div class="container">
+    <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+        Simple AxoComponent example
+    </div>
+    <div class="container text-left">
+        <div class="row">
+        <div class="col">
+            <RenderableContentControl Context="@Entry.Plc.myComponentHeaderOnlyExample.ActivateManualControl" Presentation="Control" />
+        </div>
+        <div class="col">
+            <RenderableContentControl Context="@Entry.Plc.myComponentHeaderOnlyExample.MyComponentWithHeaderOnly._isManuallyControllable" Presentation="Display" />
+        </div>
+        </div>
+        <div class="col">
+            //<RenderedView>
+            <RenderableContentControl 
+                Context="@Entry.Plc.myComponentHeaderOnlyExample.MyComponentWithHeaderOnly"
+                Presentation="Command" />
+             //</RenderedView>
+        </div>
+    </div>
+   
+</div>

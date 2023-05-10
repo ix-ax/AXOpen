@@ -1,0 +1,55 @@
+﻿@page "/AxoToggleTask"
+@using axopen_integrations
+@using AXOpen.Core;
+<h3>AxoToggleTask</h3>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header d-flex">
+            <div class="h4 p-0 w-100 mb-4 text-primary border-bottom border-primary">Simple Toggle Task Example.</div>
+        </div>
+        <div class="card card-body">
+            <div class="container text-left">
+                <div class="row">
+                    <div class="col">
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoToggleTasks" Presentation="Command"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoToggleTasks" Presentation="Command" Class="ps-2" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>AxoToggleTaskView Component="@Entry.Plc.AxoToggleTasks._toggleTask1" Disable=false </label>
+                            <AxoToggleTaskView Component="@Entry.Plc.AxoToggleTasks._toggleTask1" Disable=false />
+                        </div>
+                        <div class="card ps-2">
+                            <label>AxoToggleTaskView Component="@Entry.Plc.AxoToggleTasks._toggleTask2" Disable=false </label>
+                            <AxoToggleTaskView Component="@Entry.Plc.AxoToggleTasks._toggleTask2" Disable=false />
+                        </div>
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoToggleTasks" Presentation="Control"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoToggleTasks" Presentation="Control" Class="card m-2 p-2" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoToggleTasks" Presentation="Status"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoToggleTasks" Presentation="Status" Class="ps-2" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>AxoToggleTaskView Component="@Entry.Plc.AxoToggleTasks._toggleTask1" Disable=true </label>
+                            <AxoToggleTaskView Component="@Entry.Plc.AxoToggleTasks._toggleTask1" Disable=true />
+                        </div>
+                        <div class="card ps-2">
+                            <label>AxoToggleTaskView Component="@Entry.Plc.AxoToggleTasks._toggleTask2" Disable=true </label>
+                            <AxoToggleTaskView Component="@Entry.Plc.AxoToggleTasks._toggleTask2" Disable=true />
+                        </div>
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoToggleTasks" Presentation="Display"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoToggleTasks" Presentation="Display" Class="card m-2 p-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+

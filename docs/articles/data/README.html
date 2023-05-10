@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Data | System.Dynamic.ExpandoObject </title>
+    <title>AxoData | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Data | System.Dynamic.ExpandoObject ">
+    <meta name="title" content="AxoData | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
     <link rel="shortcut icon" href="../../images/favicon.ico">
@@ -36,7 +36,7 @@
               </button>
 
               <a class="navbar-brand" href="../../index.html">
-                <p class="text-logo">IX-FRAMEWORK</p>
+                <p class="text-logo">AXOpen</p>
               </a>            </div>
             <div class="collapse navbar-collapse" id="navbar">
               <form class="navbar-form navbar-right" role="search" id="search">
@@ -77,8 +77,179 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="data">Data</h1>
+<h1 id="axodata">AxoData</h1>
 
+<p><code>AXOpen.Data</code> library provides a simple yet powerful data exchange between PLC and an arbitrary data repository. It includes the implementation of a series of repository operations known as CRUD (Create Read Update Delete), accessible directly from the PLC.</p>
+<h2 id="benefits">Benefits</h2>
+<p>The main benefit of this solution is data scalability; once the repository is set up, any modification of the data structure(s) will result in an automatic update of mapped objects. And therefore, there is no need for additional coding and configuration.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The basic PLC block is <code>AxoDataExchange</code>, which has its .NET counterpart (or .NET twin) that handles complex repository operations using a modified <code>AxoRemoteTask</code>, which is a form of RPC (Remote Procedure Call), that allows you to execute the code from the PLC in a remote .NET application.</p>
+<h2 id="implemented-repositories">Implemented repositories</h2>
+<p>The <code>AxoDataExchange</code> uses a predefined interface, <code>IRepository</code>, that allows for the virtually unlimited implementation of different target repositories.</p>
+<p>At this point, AXOpen supports these repositories directly:</p>
+<ul>
+<li>InMemory</li>
+<li>Json</li>
+<li>MongoDB</li>
+<li>RavenDB</li>
+</ul>
+<h2 id="getting-started">Getting started</h2>
+<h3 id="data-exchange-manager">Data exchange manager</h3>
+<p>For the data exchange to work, we must create a class extending the <code>AxoDataExchange</code>.</p>
+<pre><code class="lang-smalltalk">CLASS AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange 
+    VAR PUBLIC                           
+        {#ix-attr:[AxoDataEntityAttribute]}
+        Data       : AxoProductionData;    // &lt;-  Manager will operate on this member.                   
+    END_VAR  
+END_CLASS
+</code></pre><h3 id="data-exchange-object">Data exchange object</h3>
+<p>We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with <code>DataEntityAttribute</code>.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p><code>DataEntityAttribute</code> must be attributed to only one member <code>AxoDataExchange</code> object and is used to locate data object that contains data to be exchanged between PLC and the target repository. An exception is thrown when <code>DataEntityAttribute</code> is missing or multiple members have the annotation.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The 'Data' variable must be of a type that extends <code>AxoDataEntity</code>.</p>
+</div>
+<pre><code class="lang-smalltalk">CLASS AxoProductionData EXTENDS AXOpen.Data.AxoDataEntity
+    VAR PUBLIC
+        {#ix-set:AttributeName = &quot;Some string data&quot;}
+        SomeData : STRING;
+        {#ix-set:AttributeName = &quot;Some number&quot;}
+        SomeNumber : INT;
+        {#ix-set:AttributeName = &quot;Some boolean&quot;}
+        SomeBool : BOOL;
+    END_VAR 
+END_CLASS
+</code></pre><h3 id="data-exchange-initialization-in-plc">Data exchange initialization in PLC</h3>
+<p>As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of <code>AxoTask</code>, which allows for invoking a C# code. We will now need to create an instance of <code>AxoProcessDataManager</code> in a context object (<code>AxoContext</code>) (or as a member of another class that derives from <code>AxoObject</code>). We will also need to call <code>DataManager</code> in the Main method of appropriate context.</p>
+<pre><code class="lang-smalltalk">CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
+    VAR PUBLIC
+        DataManager : AxoProcessDataManager;
+    END_VAR
+    
+    METHOD OVERRIDE Main 
+        DataManager.Run(THIS);
+    END_METHOD          
+END_CLASS
+</code></pre>
+<p>Instantiate context in a configuration</p>
+<pre><code>CONFIGURATION MyConfiguration
+    VAR_GLOBAL
+        _myContext : Context;       
+    END_VAR
+END_CONFIGURATION
+</code></pre>
+<p>Execute the context in a program</p>
+<pre><code>PROGRAM MAIN
+VAR_EXTERNAL
+    _myContext : Context;
+END_VAR
+
+_myContext.Run();
+
+</code></pre>
+<h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
+<p>At this point, we have everything ready in the PLC.</p>
+<p>We must now tell the <code>DataManager</code> what repository we will use. We will work with data stored in files in JSON format.</p>
+<p>Let's create a configuration for the repository and initialize remote data exchange:</p>
+<pre><code class="lang-csharp">var exampleRepositorySettings =
+    new AXOpen.Data.Json.JsonRepositorySettings&lt;Pocos.AxoDataExamplesDocu.AxoProductionData&gt;(
+        Path.Combine(Environment.CurrentDirectory, &quot;exampledata&quot;));
+
+var exampleRepository = 
+    Ix.Repository.Json.Repository.Factory(exampleRepositorySettings);
+
+Entry.Plc.AxoDataExamplesDocu.DataManager.InitializeRemoteDataExchange(exampleRepository);
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p><code>MyData</code> should be of type from <code>Pocos</code>.</p>
+</div>
+<h3 id="usage">Usage</h3>
+<p>Now we can freely shuffle the data between PLC and the local folder.</p>
+<pre><code class="lang-smalltalk">CLASS UseManager
+    VAR
+        _create : BOOL;
+        _read : BOOL;
+        _update : BOOL;
+        _delete : BOOL;
+        _id : STRING;
+    END_VAR   
+
+    METHOD Use
+        VAR_IN_OUT
+            DataManager : AxoProcessDataManager;
+        END_VAR    
+        IF(_create) THEN
+            IF(DataManager.Create(_id).IsDone()) THEN
+                _create := FALSE;
+            END_IF;
+        END_IF;
+        
+        IF(_read) THEN
+            IF(DataManager.Read(_id).IsDone()) THEN
+                _read := FALSE;
+            END_IF;
+        END_IF;
+        
+        IF(_update) THEN
+            IF(DataManager.Update(_id).IsDone()) THEN
+                _update := FALSE;
+            END_IF;
+        END_IF;
+        
+        IF(_delete) THEN
+            IF(DataManager.Delete(_id).IsDone()) THEN
+                _delete := FALSE;
+            END_IF;
+        END_IF;
+    END_METHOD        
+END_CLASS
+</code></pre><h2 id="data-visualization">Data visualization</h2>
+<h3 id="automated-rendering-using-renderablecontentcontrol">Automated rendering using <code>RenderableContentControl</code></h3>
+<p>With <code>Command</code> presentation type, options exist for adding, editing, and deleting records.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;Entry.Plc.AxoDataExamplesDocu.DataManager&quot; Presentation=&quot;Command&quot;&gt;&lt;/RenderableContentControl&gt;
+</code></pre>
+<p><img src="../../images/Command.png" alt="Command"></p>
+<p>If you use <code>Status</code> presentation type, data will be only displayed and cannot be manipulated.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;Entry.Plc.AxoDataExamplesDocu.DataManager&quot; Presentation=&quot;Status&quot;&gt;&lt;/RenderableContentControl&gt;
+</code></pre>
+<p><img src="../../images/Status.png" alt="Status"></p>
+<h3 id="custom-columns">Custom columns</h3>
+<p>There is a possibility to add custom columns if it is needed. You must add <code>AXOpen.Data.AxoColumnData</code> view as a child in <code>AxoDataView</code>. The <code>BindingValue</code> must be set in <code>ColumnData</code> and contains a string representing the attribute name of custom columns. If you want to add a custom header name, you can set the name in <code>HeaderName</code> attribute. Also, there is an attribute to make the column not clickable, which is clickable by default. The example using all attributes:</p>
+<pre><code class="lang-csharp">&lt;AxoDataView Vm=&quot;VM&quot; Presentation=&quot;Command&quot;&gt;
+    &lt;AxoColumnData HeaderName=&quot;Some data&quot; BindingValue=&quot;SomeData&quot; Clickable=&quot;false&quot; /&gt;
+    &lt;AxoColumnData HeaderName=&quot;A number&quot; BindingValue=&quot;SomeNumber&quot; Clickable=&quot;false&quot; /&gt;
+    &lt;AxoColumnData HeaderName=&quot;Yes/No&quot; BindingValue=&quot;SomeBool&quot; Clickable=&quot;false&quot; /&gt;
+&lt;/AxoDataView&gt;
+</code></pre>
+<p>When adding data view manually, you will need to create ViewModel:</p>
+<pre><code class="lang-csharp">@code {
+    protected AxoDataViewModel&lt;Pocos.AxoDataExamplesDocu.AxoProductionData, AxoDataExamplesDocu.AxoProductionData&gt; VM { get; } =
+        AxoDataViewModelCreator.Create&lt;Pocos.AxoDataExamplesDocu.AxoProductionData, AxoDataExamplesDocu.AxoProductionData&gt;
+            (Entry.Plc.AxoDataExamplesDocu.DataManager.GetRepository&lt;Pocos.AxoDataExamplesDocu.AxoProductionData&gt;(),
+                Entry.Plc.AxoDataExamplesDocu.DataManager);
+}
+
+</code></pre>
+<p><img src="../../images/CustomColumns.png" alt="Custom columns"></p>
+<h3 id="exportimport">Export/Import</h3>
+<p>If you want to be able to export data, you must add <code>CanExport</code> attribute with <code>true</code> value. Like this:</p>
+<pre><code>&lt;AxoDataView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; CanExport=&quot;true&quot; /&gt;
+</code></pre>
+<p>With this option, buttons for export and import data will appear. After clicking on the export button, the <code>csv</code> file will be created, which contains all existing records. If you want to import data, you must upload <code>csv</code> file with an equal data structure as we get in the export file.</p>
+<p><img src="../../images/Export.png" alt="Export"></p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.</p>
+</div>
+<h3 id="modal-detail-view">Modal detail view</h3>
+<p>The Detail View is default shown like modal view. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with <code>ModalDetailView</code> attribute. This change will show a detail view under the record table. Example with <code>ModalDetailView</code> attribute:</p>
+<pre><code>&lt;AxoDataView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; ModalDetailView=&quot;false&quot; /&gt;
+</code></pre>
+<p><img src="../../images/NotModalDetailView.png" alt="Not Modal detail view"></p>
 </article>
           </div>
 
@@ -87,7 +258,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/ix.framework/blob/dev/docfx/articles/data/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/data/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

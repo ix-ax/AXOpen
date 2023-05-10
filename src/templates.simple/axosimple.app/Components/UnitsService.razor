@@ -1,0 +1,30 @@
+﻿@using AXOpen.Core;
+@using AXSharp.Connector
+@inherits RenderableComponentBase
+
+
+
+<div class="container">
+    <!-- TASK DETAILS -->
+    <div class="row">
+        @if (ServiceTask?.Status.Cyclic == (ushort)eAxoTaskState.Busy)
+        {
+            <RenderableContentControl Context="Components" Presentation="Command-Control" />
+        }
+    </div>
+</div>
+
+@code
+{
+    [Parameter]
+    public ITwinObject? Components { get; set; }
+
+    [Parameter]
+    public AxoTask? ServiceTask { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        this.UpdateValuesOnChange(ServiceTask);
+    }
+}

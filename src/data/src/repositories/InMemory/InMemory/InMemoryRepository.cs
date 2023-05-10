@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Ix.Base.Data;
+using AXOpen.Base.Data;
 
-namespace Ix.Framework.Data.InMemory
+namespace AXOpen.Data.InMemory
 {
     /// <summary>
     /// Provides in memory data repository.
@@ -50,7 +50,7 @@ namespace Ix.Framework.Data.InMemory
             }
             catch (ArgumentException argumentException)
             {
-                throw new DuplicateIdException($"Record with ID {identifier} already exists in this collection.", argumentException);
+                throw new DuplicateIdException($"Record with ID '{identifier}' already exists in this collection.", argumentException);
             }
                                               
         }
@@ -99,39 +99,60 @@ namespace Ix.Framework.Data.InMemory
 
         protected override IEnumerable<T> GetRecordsNvi(string identifier, int limit, int skip, eSearchMode searchMode)
         {
-            if(string.IsNullOrEmpty(identifier) || string.IsNullOrWhiteSpace(identifier) || identifier == "*")
+            var filetered = new List<T>();
+
+            if (string.IsNullOrEmpty(identifier) || string.IsNullOrWhiteSpace(identifier) || identifier == "*")
             {
-                return this.Records.Select(p => p.Value);
+                foreach (var item in this.Records.Skip(skip).Take(limit))
+                {
+                    filetered.Add(item.Value);
+                }
             }
-            
-            switch (searchMode)
+            else
             {
-                case eSearchMode.StartsWith:
-                    return this.Records.Where(p => p.Key.StartsWith(identifier)).Select(p => p.Value);                    
-                case eSearchMode.Contains:
-                    return this.Records.Where(p => p.Key.Contains(identifier)).Select(p => p.Value);
-                case eSearchMode.Exact:
-                default:
-                    return this.Records.Where(p => p.Key == identifier).Select(p => p.Value);                    
-            }          
+                IEnumerable<KeyValuePair<string, T>> files;
+
+                switch (searchMode)
+                {
+                    case eSearchMode.StartsWith:
+                        files = this.Records.Where(p => p.Key.StartsWith(identifier));
+                        break;
+                    case eSearchMode.Contains:
+                        files = this.Records.Where(p =>p.Key.Contains(identifier));
+                        break;
+                    case eSearchMode.Exact:
+                    default:
+                        files = this.Records.Where(p => p.Key == identifier);
+                        break;
+                }
+
+                foreach (var item in files.Skip(skip).Take(limit))
+                {
+                    filetered.Add(item.Value);
+                }
+            }
+
+            return filetered;
         }
 
         protected override long FilteredCountNvi(string id, eSearchMode searchMode)
         {
-            if (id == "*")
+            if (string.IsNullOrEmpty(id) || string.IsNullOrWhiteSpace(id) || id == "*")
             {
                 return this.Records.Select(p => true).Count();
             }
-
-            switch (searchMode)
+            else
             {
-                case eSearchMode.StartsWith:
-                    return this.Records.Where(p => p.Key.StartsWith(id)).LongCount();
-                case eSearchMode.Contains:
-                    return this.Records.Where(p => p.Key.Contains(id)).LongCount();
-                case eSearchMode.Exact:
-                default:
-                    return this.Records.Where(p => p.Key == id).LongCount();
+                switch (searchMode)
+                {
+                    case eSearchMode.StartsWith:
+                        return this.Records.Where(p => p.Key.StartsWith(id)).LongCount();
+                    case eSearchMode.Contains:
+                        return this.Records.Where(p => p.Key.Contains(id)).LongCount();
+                    case eSearchMode.Exact:
+                    default:
+                        return this.Records.Where(p => p.Key == id).LongCount();
+                }
             }
         }
 

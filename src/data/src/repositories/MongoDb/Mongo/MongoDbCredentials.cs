@@ -1,4 +1,4 @@
-﻿namespace Ix.Framework.Data.MongoDb
+﻿namespace AXOpen.Data.MongoDb
 {
     /// <summary>
     /// To use MongoDbCrendetials you must at first create a database with users

@@ -1,11 +1,11 @@
-USING ix.framework.core;
-USING ix.framework.data;
-USING ix.framework.probers;
+USING AXOpen.Core;
+USING AXOpen.Data;
+USING AXOpen.Probers;
 
 NAMESPACE IntegrationLightDirect    
-    CLASS DataExchangeLightTestsContext EXTENDS IxContext
+    CLASS DataExchangeLightTestsContext EXTENDS AxoContext
         VAR PUBLIC
-            DM : IDataExchange;
+            DM : IAxoDataExchange;
             CreateTest : DataCreateTest;
             ReadTest : DataReadTest;
             UpdateTest : DataUpdateTest;     
@@ -14,7 +14,7 @@ NAMESPACE IntegrationLightDirect
       
         METHOD PUBLIC InjectDM
             VAR_INPUT
-                iDM : IDataExchange;
+                iDM : IAxoDataExchange;
             END_VAR    
             DM := iDM;
         END_METHOD    
@@ -37,14 +37,14 @@ NAMESPACE IntegrationLightDirect
 
     
 
-    CLASS DataCreateTest EXTENDS ProberWithCompletedCondition
+    CLASS DataCreateTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
-            Manager : IDataExchange;         
+            Manager : IAxoDataExchange;         
             Identifier : STRING[254];
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
             VAR
-                _taskState : IIxTaskState;
+                _taskState : IAxoTaskState;
             END_VAR                                    
             IF(Manager <> NULL) THEN
                 _taskState := Manager.Create(Identifier);                                                
@@ -62,20 +62,20 @@ NAMESPACE IntegrationLightDirect
 
         METHOD PUBLIC InjectManger
             VAR_INPUT
-                Injectee : IDataExchange;      
+                Injectee : IAxoDataExchange;      
             END_VAR    
             Manager := Injectee;
         END_METHOD    
     END_CLASS
    
-    CLASS DataReadTest EXTENDS ProberWithCompletedCondition
+    CLASS DataReadTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
-            Manager : IDataExchange;         
+            Manager : IAxoDataExchange;         
             Identifier : STRING[254];
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
             VAR
-                _taskState : IIxTaskState;
+                _taskState : IAxoTaskState;
             END_VAR                                    
             IF(Manager <> NULL) THEN
                 _taskState := Manager.Read(Identifier);                                                
@@ -93,20 +93,20 @@ NAMESPACE IntegrationLightDirect
 
         METHOD PUBLIC InjectManger
             VAR_INPUT
-                Injectee : IDataExchange;      
+                Injectee : IAxoDataExchange;      
             END_VAR    
             Manager := Injectee;
         END_METHOD    
     END_CLASS
 
-    CLASS DataUpdateTest EXTENDS ProberWithCompletedCondition
+    CLASS DataUpdateTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
-            Manager : IDataExchange;         
+            Manager : IAxoDataExchange;         
             Identifier : STRING[254];
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
             VAR
-                _taskState : IIxTaskState;
+                _taskState : IAxoTaskState;
             END_VAR                                    
             IF(Manager <> NULL) THEN
                 _taskState := Manager.Update(Identifier);                                                
@@ -124,20 +124,20 @@ NAMESPACE IntegrationLightDirect
 
         METHOD PUBLIC InjectManger
             VAR_INPUT
-                Injectee : IDataExchange;      
+                Injectee : IAxoDataExchange;      
             END_VAR    
             Manager := Injectee;
         END_METHOD    
     END_CLASS
 
-    CLASS DataDeleteTest EXTENDS ProberWithCompletedCondition
+    CLASS DataDeleteTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
-            Manager : IDataExchange;         
+            Manager : IAxoDataExchange;         
             Identifier : STRING[254];
         END_VAR           
         METHOD PROTECTED OVERRIDE Test : BOOL  
             VAR
-                _taskState : IIxTaskState;
+                _taskState : IAxoTaskState;
             END_VAR                                    
             IF(Manager <> NULL) THEN
                 _taskState := Manager.Delete(Identifier);                                                
@@ -155,20 +155,20 @@ NAMESPACE IntegrationLightDirect
 
         METHOD PUBLIC InjectManger
             VAR_INPUT
-                Injectee : IDataExchange;      
+                Injectee : IAxoDataExchange;      
             END_VAR    
             Manager := Injectee;
         END_METHOD    
     END_CLASS
 
-    CLASS DataManager EXTENDS ix.framework.data.DataExchange 
+    CLASS DataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC     
-            {#ix-attr:[DataEntityAttribute]}         
+            {#ix-attr:[AxoDataEntityAttribute]}         
             _data       : DataSet;
         END_VAR          
     END_CLASS    
     
-    CLASS DataSet EXTENDS ix.framework.data.DataEntity
+    CLASS DataSet EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             SomeData : STRING;
         END_VAR 

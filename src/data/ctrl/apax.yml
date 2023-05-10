@@ -1,5 +1,5 @@
-name: "@ix-ax/ix.framework.data"
-version                                                                                                                         : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
+name: "@ix-ax/axopen.data"
+version                                                                                                                                                                                                                                : '0.1.4-alpha.53'
 type: lib
 targets:
 #  - "1500"
@@ -9,10 +9,9 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/ix.framework.core"                                                                                     : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
+  "@ix-ax/axopen.core"                                                                                                                                                                                            : '0.1.4-alpha.53'
 devDependencies:
   "@ax/sdk": 3.0.8
-
-scripts:
-  postbuild:                
-      - dotnet ixc
+scripts:  
+  postbuild: 
+    - dotnet ixc

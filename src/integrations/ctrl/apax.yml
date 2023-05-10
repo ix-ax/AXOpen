@@ -1,5 +1,5 @@
-name: "integrations"
-version                                                                                   : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
+name: "axopen.integrations"
+version                                                                                                                                                                                 : '0.1.4-alpha.53'
 type: app
 targets:
 #  - "1500"
@@ -8,10 +8,11 @@ targets:
   - plcsim
   - axunit-llvm
 dependencies:
-  "@ix-ax/ix.framework.core"                                                                                    : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
-  "@ix-ax/ix.framework.data"                                                                                    : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
-  "@ix-ax/ix.framework.probers"                                                                                 : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
+  "@ix-ax/axopen.core"                                                                                                                                                                                  : '0.1.4-alpha.53'
+  "@ix-ax/axopen.data"                                                                                                                                                                                  : '0.1.4-alpha.53'
+  "@ix-ax/axopen.probers"                                                                                                                                                                               : '0.1.4-alpha.53'
   "@ax/sdk": ^3.0.11
+  "@ax/sld": ^0.14.2
 variables:
   APAX_BUILD_ARGS: [ -d ]
 
@@ -44,7 +45,7 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project ..\\integration.blazor\\integration.blazor.csproj
+    - dotnet watch --project ..\\src\\AXOpen.Integrations.Blazor\\axopen_integrations_blazor.csproj
   rr:
     - apax build
     - apax download

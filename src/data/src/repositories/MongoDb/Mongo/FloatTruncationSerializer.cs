@@ -2,7 +2,7 @@
 using MongoDB.Bson.Serialization.Serializers;
 using System;
 
-namespace Ix.Framework.Data.MongoDb
+namespace AXOpen.Data.MongoDb
 {
     /// <summary>
     /// Writes the float value to mongo as double as reads it back as float.    

@@ -1,0 +1,87 @@
+﻿@namespace AXOpen.Core
+@inherits RenderableComplexComponentBase<AxoSequencer>
+
+
+<div class="card-body">
+    <div class="row">
+        <div class="col">
+            @if (HasTaskControlButton)
+            {
+                @if (IsControllable)
+                {
+                    <AXOpen.Core.AxoTaskCommandView Component="@Component"/>
+                }
+                else
+                {
+                    <AXOpen.Core.AxoTaskStatusView Component="@Component"/>
+                }
+            }
+        </div>
+    </div>
+    @if (HasSettings)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <RenderableContentControl Context="@Component.SequenceMode" Presentation="@(IsControllable ? "Control" : "Display")"/>
+                </div>
+                <div class="col">
+                    <RenderableContentControl Context="@Component.SteppingMode" Presentation="@(IsControllable ? "Control" : "Display")"/>
+                </div>
+            </div>
+        </div>
+    }
+
+    @if (HasStepControls)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="@(IsControllable ? "Command" : "Status")"/>
+                </div>
+                <div class="col">
+                    <RenderableContentControl Context="@Component.StepIn" Presentation="@(IsControllable ? "Command" : "Status")"/>
+                </div>
+                <div class="col">
+                    <RenderableContentControl Context="@Component.StepForwardCommand" Presentation="@(IsControllable ? "Command" : "Status")"/>
+                </div>
+            </div>
+        </div>
+    }
+    @if (HasStepDetails)
+    {
+        <div style="height: 300px; overflow: auto;">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Duration</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var step in this.Steps.Where(p => p != null && p.Order.Cyclic != 0))
+                {
+                    if (step.IsActive.Cyclic)
+                    {
+                        <tr @ref="@activeStepReference" class="@UpdateStepRowColors(step)">
+                            <th scope="row">@UpdateStepDescription(step)</th>
+                            <td>@UpdateTotalDurationDisplay(step)</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr class="@UpdateStepRowColors(step)">
+                            <th scope="row">@UpdateStepDescription(step)</th>
+                            <td>@UpdateTotalDurationDisplay(step)</td>
+                        </tr>
+                    }
+
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+
+

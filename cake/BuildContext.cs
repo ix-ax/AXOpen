@@ -18,6 +18,7 @@ using Cake.Common.Tools.DotNet.Test;
 using Cake.Core;
 using Cake.Frosting;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Octokit;
 using Polly;
 using static NuGet.Packaging.PackagingConstants;
 using Path = System.IO.Path;
@@ -77,7 +78,7 @@ public class BuildContext : FrostingContext
 
     public string ArtifactsNugets => EnsureFolder(Path.Combine(Artifacts, "nugets"));
 
-    public string PackableNugetsSlnf => Path.Combine(RootDir, "ix.framework-packable-only.slnf");
+    public string PackableNugetsSlnf => Path.Combine(RootDir, "AXOpen-packable-only.slnf");
 
     public string WorkDirName => Environment.WorkingDirectory.GetDirectoryName();
 
@@ -137,17 +138,19 @@ public class BuildContext : FrostingContext
 
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
     {
-        ("abstractions", "ix.framework.abstractions"),
-        ("utils", "ix.framework.utils"),
-        ("core", "ix.framework.core"),
-        ("messaging", "ix.framework.messaging"),
-        ("data", "ix.framework.data"),
-        ("probers", "ix.framework.probers"),
+        ("abstractions", "axopen.abstractions"),
+        ("simatic1500", "axopen.simatic1500"),
+        ("utils", "axopen.utils"),
+        ("core", "axopen.core"),
+        ("messaging", "axopen.messaging"),
+        ("data", "axopen.data"),
+        ("probers", "axopen.probers"),
     };
 
     public IEnumerable<(string folder, string name, string targetIp, string targetPlatform)> Integrations { get; } = new[]
     {
-        ("integrations", "ix.integrations", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),        
+        ("integrations", "ix.integrations", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
+        ("templates.simple", "templates.simple", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
     };
 
     public string GitHubUser { get; } = System.Environment.GetEnvironmentVariable("GH_USER");

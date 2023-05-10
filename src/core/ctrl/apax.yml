@@ -1,5 +1,5 @@
-name: "@ix-ax/ix.framework.core"
-version                                                         : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
+name: "@ix-ax/axopen.core"
+version                                                                                                                                                                              : '0.1.4-alpha.53'
 type: lib
 targets:
   #  - "1500"
@@ -14,10 +14,6 @@ scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ax/system-strings": ^4.2.3
-  "@ax/simatic-1500-clocks": ^3.0.6
-  "@ax/system-serde": ^1.3.13
-  "@ax/system-bitaccess": ^5.0.4
-  "@ax/system-datetime": ^3.1.3
-  "@ix-ax/ix.framework.abstractions"                                                   : '0.1.4-44--NEW-FEATURE-ix-data-Implement-IxDataExchange-based-on-TcoDataExchange.142'
+  "@ax/system-timer": 3.0.9
+  "@ix-ax/axopen.abstractions"      : '0.1.4-alpha.53'
  

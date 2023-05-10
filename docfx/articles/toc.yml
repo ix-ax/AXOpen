@@ -1,21 +1,27 @@
 - name: Introduction
   href: intro.md
-- name: ix.framework.core
+- name: AXOpen.Core
   href: ~/articles/core/README.md  
   items:
-  - name: Context
-    href: ~/articles/core/IXCONTEXT.md
-  - name: Object
-    href: ~/articles/core/IXOBJECT.md
-  - name: Task
-    href: ~/articles/core/IXTASK.md
-  - name: Remote Task
-    href: ~/articles/core/IXREMOTETASK.md  
-  - name: Step
-    href: ~/articles/core/IXSTEP.md
-  - name: Sequencer
-    href: ~/articles/core/IXSEQUENCER.md  
-  - name: Component
-    href: ~/articles/core/IXCOMPONENT.md  
-- name: ix.framework.data
+  - name: AxoContext
+    href: ~/articles/core/AXOCONTEXT.md
+  - name: AxoObject
+    href: ~/articles/core/AXOOBJECT.md
+  - name: AxoTask
+    href: ~/articles/core/AXOTASK.md
+  - name: AxoToggleTask
+    href: ~/articles/core/AXOTOGGLETASK.md
+  - name: AxoMomentaryTask
+    href: ~/articles/core/AXOMOMENTARYTASK.md
+  - name: AxoRemoteTask
+    href: ~/articles/core/AXOREMOTETASK.md  
+  - name: AxoStep
+    href: ~/articles/core/AXOSTEP.md
+  - name: AxoSequencer
+    href: ~/articles/core/AXOSEQUENCER.md  
+  - name: AxoSequencerContainer
+    href: ~/articles/core/AXOSEQUENCERCONTAINER.md  
+  - name: AxoComponent
+    href: ~/articles/core/AXOCOMPONENT.md  
+- name: AXOpen.Data
   href: ~/articles/data/README.md

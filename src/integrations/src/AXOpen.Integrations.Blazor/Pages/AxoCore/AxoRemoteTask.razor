@@ -1,0 +1,48 @@
+﻿@page "/AxoRemoteTask"
+@using axopen_integrations
+@using AXOpen.Core;
+<h3>AxoTask</h3>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header d-flex">
+            <div class="h4 p-0 w-100 mb-4 text-primary border-bottom border-primary">Simple Command Task Example.</div>
+            <RenderableContentControl Context="@Entry.Plc.AxoRemoteTasks._remoteTaskInvokeFromPlc" Presentation="Control"></RenderableContentControl>
+        </div>
+        <div class="card card-body">
+            <div class="container text-left">
+                <div class="row">
+                    <div class="col">
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoRemoteTasks" Presentation="Command"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoRemoteTasks" Presentation="Command" Class="ps-2" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>AxoTaskCommandView Component="@Entry.Plc.AxoRemoteTasks._remoteTask" HideRestoreButton="true"</label>
+                            <AxoTaskCommandView Component="@Entry.Plc.AxoRemoteTasks._remoteTask" HideRestoreButton="true" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoRemoteTasks" Presentation="Control"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoRemoteTasks" Presentation="Control" Class="card m-2 p-2" />
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoRemoteTasks" Presentation="Status"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoRemoteTasks" Presentation="Status" Class="ps-2" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>AxoTaskStatusView Component="@Entry.Plc.AxoRemoteTasks._remoteTask" HideRestoreButton="true"</label>
+                            <AxoTaskStatusView Component="@Entry.Plc.AxoRemoteTasks._remoteTask" HideRestoreButton="true" />
+                        </div>
+                        <div class="card ps-2">
+                            <label>RenderableContentControl Context="@Entry.Plc.AxoRemoteTasks" Presentation="Display"</label>
+                            <RenderableContentControl Context="@Entry.Plc.AxoRemoteTasks" Presentation="Display" Class="card m-2 p-2" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+

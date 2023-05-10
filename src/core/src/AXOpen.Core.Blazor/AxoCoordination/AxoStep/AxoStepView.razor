@@ -1,0 +1,30 @@
+﻿@namespace AXOpen.Core
+@using AXSharp.Connector.ValueTypes;
+@using AXSharp.Connector;
+@inherits RenderableComplexComponentBase<AxoStep>
+
+
+
+<div class="container text-left">
+    <div class="row @RowClass">
+        <div class="col">
+            @*Left here for the future, just to store the idea that each step could be displayed as an AxoTask *@
+@*            @if (IsControllable)
+            {
+                <AxoTaskCommandView Component="@Component" Description="@Description" />
+            }
+            else
+            {
+                <AxoTaskStatusView Component="@Component" Description="@Description" HideRestoreButton="true" />
+            }*@
+            @Description
+        </div>
+        <div class="col">
+            @TotalDurationDisplay
+        </div>
+        <div class="col">
+            @Humanizer.DateHumanizeExtensions.Humanize(Component.StartTimeStamp.Cyclic)
+        </div>
+    </div>
+</div>
+

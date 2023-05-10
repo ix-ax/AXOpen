@@ -1,0 +1,1019 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AxoDataViewModel&lt;T, O&gt;
+ | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AxoDataViewModel&lt;T, O&gt;
+ | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2">
+
+
+  <h1 id="AXOpen_Data_ViewModels_AxoDataViewModel_2" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2" class="text-break">Class AxoDataViewModel&lt;T, O&gt;
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">object</span></div>
+    <div class="level1"><span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject</span></div>
+    <div class="level2"><span class="xref">AxoDataViewModel&lt;T, O&gt;</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.ComponentModel.INotifyPropertyChanged</span></div>
+    <div><span class="xref">System.ComponentModel.INotifyPropertyChanging</span></div>
+    <div><a class="xref" href="AXOpen.Data.Interfaces.IAxoDataViewModel.html">IAxoDataViewModel</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.OnPropertyChanging(System.ComponentModel.PropertyChangingEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.OnPropertyChanged(string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.OnPropertyChanging(string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetProperty&lt;T&gt;(ref T, T, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetProperty&lt;T&gt;(ref T, T, System.Collections.Generic.IEqualityComparer&lt;T&gt;, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetProperty&lt;T&gt;(T, T, System.Action&lt;T&gt;, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetProperty&lt;T&gt;(T, T, System.Collections.Generic.IEqualityComparer&lt;T&gt;, System.Action&lt;T&gt;, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetProperty&lt;TModel, T&gt;(T, T, TModel, System.Action&lt;TModel, T&gt;, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetProperty&lt;TModel, T&gt;(T, T, System.Collections.Generic.IEqualityComparer&lt;T&gt;, TModel, System.Action&lt;TModel, T&gt;, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetPropertyAndNotifyOnCompletion(ref CommunityToolkit.Mvvm.ComponentModel.ObservableObject.TaskNotifier, System.Threading.Tasks.Task, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetPropertyAndNotifyOnCompletion(ref CommunityToolkit.Mvvm.ComponentModel.ObservableObject.TaskNotifier, System.Threading.Tasks.Task, System.Action&lt;System.Threading.Tasks.Task&gt;, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetPropertyAndNotifyOnCompletion&lt;T&gt;(ref CommunityToolkit.Mvvm.ComponentModel.ObservableObject.TaskNotifier&lt;T&gt;, System.Threading.Tasks.Task&lt;T&gt;, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.SetPropertyAndNotifyOnCompletion&lt;T&gt;(ref CommunityToolkit.Mvvm.ComponentModel.ObservableObject.TaskNotifier&lt;T&gt;, System.Threading.Tasks.Task&lt;T&gt;, System.Action&lt;System.Threading.Tasks.Task&lt;T&gt;&gt;, string)</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.PropertyChanged</span>
+    </div>
+    <div>
+      <span class="xref">CommunityToolkit.Mvvm.ComponentModel.ObservableObject.PropertyChanging</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Data.html">Data</a>.<a class="xref" href="AXOpen.Data.ViewModels.html">ViewModels</a></h6>
+  <h6><strong>Assembly</strong>: axopen_data_blazor.dll</h6>
+  <h5 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AxoDataViewModel&lt;T, O&gt; : ObservableObject, INotifyPropertyChanged, INotifyPropertyChanging, IAxoDataViewModel where T : IBrowsableDataObject, new() where O : class</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="parametername">O</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2__ctor_AXOpen_Base_Data_IRepository__0__AXOpen_Data_AxoDataExchange_.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.%23ctor(AXOpen.Base.Data.IRepository%7B%600%7D%2CAXOpen.Data.AxoDataExchange)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L24">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2__ctor_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.#ctor*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2__ctor_AXOpen_Base_Data_IRepository__0__AXOpen_Data_AxoDataExchange_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.#ctor(AXOpen.Base.Data.IRepository{`0},AXOpen.Data.AxoDataExchange)">AxoDataViewModel(IRepository&lt;T&gt;, AxoDataExchange)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoDataViewModel(IRepository&lt;T&gt; repository, AxoDataExchange dataExchange)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXOpen.Base.Data.IRepository&lt;T&gt;</span>&lt;T&gt;</td>
+        <td><span class="parametername">repository</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXOpen.Data.AxoDataExchange.html">AxoDataExchange</a></td>
+        <td><span class="parametername">dataExchange</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_Changes.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.Changes%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L47">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Changes_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Changes*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Changes" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Changes">Changes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ValueChangeItem&gt; Changes { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List&lt;T&gt;</span>&lt;<a class="xref" href="AXOpen.Data.ValueChangeItem.html">ValueChangeItem</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_CreateItemId.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.CreateItemId%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L276">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_CreateItemId_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.CreateItemId*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_CreateItemId" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.CreateItemId">CreateItemId</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CreateItemId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_CrudData.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.CrudData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L37">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_CrudData_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.CrudData*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_CrudData" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.CrudData">CrudData</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICrudDataObject CrudData { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXOpen.Data.ICrudDataObject.html">ICrudDataObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_DataBrowser.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.DataBrowser%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L44">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_DataBrowser_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.DataBrowser*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_DataBrowser" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.DataBrowser">DataBrowser</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataBrowser&lt;T&gt; DataBrowser { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXOpen.Base.Data.DataBrowser&lt;T&gt;</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_DataExchange.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.DataExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L45">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_DataExchange_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.DataExchange*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_DataExchange" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.DataExchange">DataExchange</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoDataExchange DataExchange { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXOpen.Data.AxoDataExchange.html">AxoDataExchange</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_FilterById.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.FilterById%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L272">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_FilterById_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.FilterById*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_FilterById" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.FilterById">FilterById</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FilterById { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_FilteredCount.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.FilteredCount%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L274">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_FilteredCount_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.FilteredCount*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_FilteredCount" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.FilteredCount">FilteredCount</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long FilteredCount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">long</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_IsBusy.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.IsBusy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L277">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_IsBusy_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.IsBusy*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_IsBusy" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.IsBusy">IsBusy</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsBusy { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_Limit.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.Limit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L271">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Limit_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Limit*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Limit" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Limit">Limit</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Limit { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_OnlineData.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.OnlineData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L35">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_OnlineData_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.OnlineData*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_OnlineData" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.OnlineData">OnlineData</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITwinObject OnlineData { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_Page.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.Page%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L275">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Page_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Page*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Page" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Page">Page</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Page { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_Records.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.Records%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L269">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Records_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Records*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Records" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Records">Records</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ObservableCollection&lt;IBrowsableDataObject&gt; Records { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.ObjectModel.ObservableCollection&lt;T&gt;</span>&lt;<span class="xref">AXOpen.Base.Data.IBrowsableDataObject</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_SearchMode.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.SearchMode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L273">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_SearchMode_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.SearchMode*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_SearchMode" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.SearchMode">SearchMode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public eSearchMode SearchMode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXOpen.Base.Data.eSearchMode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_SelectedRecord.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.SelectedRecord%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L51">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_SelectedRecord_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.SelectedRecord*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_SelectedRecord" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.SelectedRecord">SelectedRecord</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IBrowsableDataObject SelectedRecord { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXOpen.Base.Data.IBrowsableDataObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_Copy.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.Copy%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L159">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Copy_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Copy*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Copy" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Copy">Copy()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Copy()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_CreateNew.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.CreateNew%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L117">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_CreateNew_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.CreateNew*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_CreateNew" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.CreateNew">CreateNew()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task CreateNew()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_Delete.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.Delete%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L144">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Delete_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Delete*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Delete" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Delete">Delete()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Delete()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_Edit.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.Edit%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L191">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Edit_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Edit*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Edit" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Edit">Edit()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Edit()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_ExportData.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.ExportData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L228">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_ExportData_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.ExportData*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_ExportData" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.ExportData">ExportData()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ExportData()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_FillObservableRecords.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.FillObservableRecords%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L90">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_FillObservableRecords_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.FillObservableRecords*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_FillObservableRecords" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.FillObservableRecords">FillObservableRecords()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void FillObservableRecords()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_FillObservableRecordsAsync.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.FillObservableRecordsAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L79">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_FillObservableRecordsAsync_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.FillObservableRecordsAsync*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_FillObservableRecordsAsync" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.FillObservableRecordsAsync">FillObservableRecordsAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task FillObservableRecordsAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_Filter.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.Filter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L102">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Filter_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Filter*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_Filter" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.Filter">Filter()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Filter()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_ImportData.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.ImportData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L249">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_ImportData_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.ImportData*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_ImportData" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.ImportData">ImportData()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ImportData()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_LoadFromPlc.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.LoadFromPlc%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L206">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_LoadFromPlc_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.LoadFromPlc*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_LoadFromPlc" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.LoadFromPlc">LoadFromPlc()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task LoadFromPlc()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_RefreshFilter.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.RefreshFilter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L108">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_RefreshFilter_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.RefreshFilter*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_RefreshFilter" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.RefreshFilter">RefreshFilter()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RefreshFilter()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2_SendToPlc.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602.SendToPlc%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L200">View Source</a>
+  </span>
+  <a id="AXOpen_Data_ViewModels_AxoDataViewModel_2_SendToPlc_" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.SendToPlc*"></a>
+  <h4 id="AXOpen_Data_ViewModels_AxoDataViewModel_2_SendToPlc" data-uid="AXOpen.Data.ViewModels.AxoDataViewModel`2.SendToPlc">SendToPlc()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task SendToPlc()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.ComponentModel.INotifyPropertyChanged</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.INotifyPropertyChanging</span>
+  </div>
+  <div>
+      <a class="xref" href="AXOpen.Data.Interfaces.IAxoDataViewModel.html">IAxoDataViewModel</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ViewModels_AxoDataViewModel_2.md&amp;value=---%0Auid%3A%20AXOpen.Data.ViewModels.AxoDataViewModel%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data.Blazor/ViewModels/AxoDataViewModel.cs/#L21" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

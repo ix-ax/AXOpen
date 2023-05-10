@@ -1,0 +1,20 @@
+﻿@page "/ui/io"
+@using AXSharp.Connector
+@using AXOpen.Data;
+@inherits RenderableComponentBase
+
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h1>Inputs</h1>
+            <RenderableContentControl Context="Entry.Plc.Inputs" Presentation="Control"/>
+        </div>
+        <div class="col">
+            <h1>Outputs</h1>
+            <RenderableContentControl Context="Entry.Plc.Outputs" Presentation="Control"/>
+        </div>
+    </div>
+</div>
