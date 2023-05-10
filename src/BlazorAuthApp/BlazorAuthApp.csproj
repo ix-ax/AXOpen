@@ -21,6 +21,7 @@
     <ProjectReference Include="..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\data\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />
+    <ProjectReference Include="..\Security\Security.csproj" />
   </ItemGroup>
 
 </Project>
