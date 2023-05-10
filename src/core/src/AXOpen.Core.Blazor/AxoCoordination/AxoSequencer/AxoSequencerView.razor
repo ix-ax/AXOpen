@@ -59,7 +59,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach (var step in this.Steps.Where(p => p != null && p.Order.Cyclic != 0))
+                @foreach (var step in this.Steps.Where(p => p != null && p.Order.Cyclic != 0).OrderBy(p => p.Order.Cyclic))
                 {
                     if (step.IsActive.Cyclic)
                     {
