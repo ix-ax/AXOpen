@@ -235,6 +235,11 @@
       "@ax/target-mc7plus": "4.3.249"
     }
   },
+  "@ax/simatic-1500-clocks": {
+    "version": "3.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/simatic-1500-clocks/-/simatic-1500-clocks-3.0.6.tgz",
+    "integrity": "sha512-kh1LWR+jMvYgRjr7RkdNRHX0pJn3KcDl0U2sTxA6CEKvuIBcWPZGsSWYcVyPFORzYTshA7p4oDuxYx4GwnOoKw=="
+  },
   "@ax/sld": {
     "version": "0.14.2",
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/sld/-/sld-0.14.2.tgz",
@@ -317,6 +322,11 @@
       "@ax/st-docs": "4.3.249"
     }
   },
+  "@ax/system-bitaccess": {
+    "version": "5.0.4",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-bitaccess/-/system-bitaccess-5.0.4.tgz",
+    "integrity": "sha512-MhvZdQ20KGKXpHnlcCk61I71runyiQSaO2F0cF1WY+xk3DRc80zRU+yQV56qhWyMsUxP6uaWOHtb+nuLnpJ2BQ=="
+  },
   "@ax/system-datetime": {
     "version": "3.1.3",
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-datetime/-/system-datetime-3.1.3.tgz",
@@ -326,6 +336,14 @@
     "version": "3.1.7",
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-math/-/system-math-3.1.7.tgz",
     "integrity": "sha512-GF3uvdcZw7D/S9yUcj1ZzBJMdF/jC8GvN8JyvAH8q4x2NVHWp+aV6T1M4PqEmRvhXQQ7mQv+xsUvZuBjnOFyGg=="
+  },
+  "@ax/system-serde": {
+    "version": "1.3.13",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/system-serde/-/system-serde-1.3.13.tgz",
+    "integrity": "sha512-aXJ0APhFrbnmiZcsMjRUestGJaRi8OWUdWnfrULmVUTgquheYBGAeSMQXkKzssyd2jfhR+fipp81LIK7CZNBCw==",
+    "dependencies": {
+      "@ax/system-strings": "4.2.3"
+    }
   },
   "@ax/system-strings": {
     "version": "4.2.3",

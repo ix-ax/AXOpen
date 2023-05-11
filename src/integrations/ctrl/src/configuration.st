@@ -21,6 +21,8 @@ CONFIGURATION MyConfiguration
         AxoMomentaryTasks : AxoMomentaryTaskExamples.Tasks;
         AxoMomentaryTaskDocu : AxoMomentaryTaskExamples.AxoMomentaryTaskDocuExample;
         AxoDataExamplesDocu : AxoDataExamplesDocu.Context;
+        AxoMessengers : AxoStaticMessengerExample.Messengers;
+        AxoRtc : AxoRtc.AxoS71500Rtc;
 
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;
