@@ -7,7 +7,6 @@
 @code{
     protected override void OnInitialized()
     {
-        string name = SecurityManager.Manager.UserName;
         SecurityManager.Manager.Service.DeAuthenticateCurrentUser();
         //TcoAppDomain.Current.Logger.Information($"User '{name}' logged out. {{@sender}}", new { UserName = name });
         _navigationManager.NavigateTo("", forceLoad: true);

@@ -55,53 +55,6 @@ namespace Security
             set
             {
                 externalAuthorization = value;
-                externalAuthorization.AuthorizationRequest += ExternalAuthorization_AuthorizationRequest;
-                externalAuthorization.AuthorizationTokenChange += ExternalAuthorization_AuthorizationTokenChange;
-            }
-        }
-
-        private void ExternalAuthorization_AuthorizationTokenChange(string token)
-        {
-            ChangeToken(SecurityManager.Manager.Principal.Identity.Name, token);
-        }
-
-        public void ChangeToken(string userName, string token)
-        {
-
-            if (_users.Exists(p => !string.IsNullOrEmpty(p.AuthenticationToken)
-                                   && p.AuthenticationToken == this.CalculateHash(token, string.Empty)
-                                   && p.Username != userName))
-            {
-                throw new ExistingTokenException();
-            }
-
-
-            var authenticated = _users.FirstOrDefault(p => p.Username == userName);
-
-            if (authenticated != null)
-            {
-                var user = this.UserRepository.Read(userName);
-                user.AuthenticationToken = this.CalculateHash(token, string.Empty);
-                this.UserRepository.Update(userName, user);
-            }
-        }
-
-        private void ExternalAuthorization_AuthorizationRequest(string token, bool deauthenticateWhenSame)
-        {
-            var userName = SecurityManager.Manager.Principal.Identity.Name;
-            var currentUser = _users.FirstOrDefault(u => u.Username.Equals(userName));
-
-            // De authenticate when the token matches the token of currently authenticated user.
-            if (currentUser != null && this.CalculateHash(token, string.Empty) == currentUser.AuthenticationToken)
-            {
-                if (deauthenticateWhenSame)
-                {
-                    this.DeAuthenticateCurrentUser();
-                }
-            }
-            else
-            {
-                var authenticatedUser = this.AuthenticateUser(token);                
             }
         }
 
@@ -129,12 +82,12 @@ namespace Security
 
         private void CreateDefaultUser()
         {
-            var user = new User("admin", null, new string[] { "AdminGroup" }, false, null);
+            var user = new User("admin", null, new string[] { "AdminGroup" }, false);
             user.SecurityStamp = Guid.NewGuid().ToString();
             user.PasswordHash = CalculateHash("admin", "admin");
 
             var userEntity = new UserData(user);
-            UserRepository.Create(userEntity.Username, userEntity);
+            UserRepository.Create(userEntity.UserName, userEntity);
         }
 
         private readonly System.Timers.Timer deauthenticateTimer = new System.Timers.Timer();
@@ -169,8 +122,8 @@ namespace Security
 
         public IUser AuthenticateUser(string username, string password)
         {
-            UserData userData = _users.FirstOrDefault(u => u.Username.Equals(username)
-                 && u.HashedPassword.Equals(CalculateHash(password, u.Username))
+            UserData userData = _users.FirstOrDefault(u => u.UserName.Equals(username)
+                 && u.HashedPassword.Equals(CalculateHash(password, u.UserName))
                  && true);
             //
             if (userData == null)
@@ -188,7 +141,7 @@ namespace Security
 
         private User AuthenticateUser(UserData userData)
         {
-            var user = new User(userData.Username, userData.Email, userData.Roles.ToArray(), userData.CanUserChangePassword, userData.Level);
+            var user = new User(userData.UserName, userData.Email, userData.Roles.ToArray(), userData.CanUserChangePassword);
 
             AppIdentity.AppPrincipal customPrincipal = Thread.CurrentPrincipal as AppIdentity.AppPrincipal;
             if (customPrincipal == null)
@@ -214,12 +167,12 @@ namespace Security
             bool roleHashMatches = false;
             if (userData.RoleHash != null)
             {
-                roleHashMatches = userData.RoleHash.Equals(CalculateRoleHash(userData.Roles, userData.Username));
+                roleHashMatches = userData.RoleHash.Equals(CalculateRoleHash(userData.Roles, userData.UserName));
             }
             else
             {
-                userData.RoleHash = CalculateRoleHash(userData.Roles, userData.Username);
-                roleHashMatches = userData.RoleHash.Equals(CalculateRoleHash(userData.Roles, userData.Username));
+                userData.RoleHash = CalculateRoleHash(userData.Roles, userData.UserName);
+                roleHashMatches = userData.RoleHash.Equals(CalculateRoleHash(userData.Roles, userData.UserName));
             }
 
 
@@ -228,30 +181,6 @@ namespace Security
             {
                 throw new UnauthorizedAccessException("AccessDeniedPermissions");
             }
-        }
-
-        public User AuthenticateUser(string token)
-        {
-            if (string.IsNullOrEmpty(token))
-            {
-                OnUserAuthenticateFailed?.Invoke("empty token");
-                this.DeAuthenticateCurrentUser();
-                //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User has failed to authenticate with a token (empty token).{{payload}}", new { });
-                throw new UnauthorizedAccessException("AccessDeniedEmptyToken");
-            }
-
-            var userData = _users.FirstOrDefault(u => u.AuthenticationToken != null && u.AuthenticationToken.Equals(CalculateHash(token, string.Empty)));
-            if (userData == null)
-            {
-                OnUserAuthenticateFailed?.Invoke("unknown token");
-                this.DeAuthenticateCurrentUser();
-                //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User has failed to authenticate with a token (non-existing token).{{payload}}", new { });
-                throw new UnauthorizedAccessException("AccessDeniedInvalidToken");
-            }
-
-            VerifyRolesHash(userData);
-
-            return AuthenticateUser(userData);
         }
 
         public void DeAuthenticateCurrentUser()

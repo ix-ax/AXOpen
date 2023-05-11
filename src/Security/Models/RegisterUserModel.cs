@@ -19,8 +19,6 @@ namespace Security
 
         public bool CanUserChangePassword { get; set; }
 
-        public string Level { get; set; }
-
         public string Email { get; set; }
 
         public string Group { get; set; }

@@ -5,33 +5,19 @@ namespace Security
 {
     public class GroupData : IBrowsableDataObject
     {
-        private string _name;
-        public ObservableCollection<string> Roles { get; set; }
-        public string SecurityStamp { get; set; }
         public dynamic RecordId { get; set; }
-        public DateTime _Created { get; set; }
         public string DataEntityId { get; set; }
-        public DateTime _Modified { get; set; }
+        public string Name { get; set; }
+        public ObservableCollection<string> Roles { get; set; }
+        public string RoleHash { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Modified { get; set; }
+        public List<string> Changes = new List<string>();
 
         public GroupData(string name)
         {
             Name = name;
             Roles = new ObservableCollection<string>();
-        }
-        
-        public string Name
-        {
-            get => _name; set
-            {
-                _name = value;
-            }
-        }
-
-        private List<string> _changes = new List<string>();
-        public List<string> Changes
-        {
-            get { return this._changes; }
-            set { this._changes = value; }
         }
     }
 }

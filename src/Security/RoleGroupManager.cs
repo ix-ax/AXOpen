@@ -43,7 +43,7 @@ namespace Security
             try
             {
                 var data = new GroupData(name);
-                data._Created = DateTime.Now;
+                data.Created = DateTime.Now;
                 groupRepo.Create(name, data);
             }
             catch (DuplicateIdException)
@@ -82,7 +82,7 @@ namespace Security
                 if (data != null)
                 {
                     data.Roles.Add(role);
-                    data._Modified = DateTime.Now;
+                    data.Modified = DateTime.Now;
                 }
                 else
                 {
@@ -116,7 +116,7 @@ namespace Security
                     {
                         data.Roles.Add(role);
                     }
-                    data._Modified = DateTime.Now;
+                    data.Modified = DateTime.Now;
                 }
                 else
                 {
@@ -152,7 +152,7 @@ namespace Security
                     {
                         data.Roles.Remove(role);
                     }
-                    data._Modified = DateTime.Now;
+                    data.Modified = DateTime.Now;
                 }
                 else
                 {

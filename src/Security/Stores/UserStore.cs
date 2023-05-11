@@ -168,7 +168,7 @@ namespace Security
                 throw new ArgumentNullException(nameof(user));
 
             var userEntity = new UserData(user);
-            userEntity._Created = DateTime.Now;
+            userEntity.Created = DateTime.Now;
 
             try
             {
@@ -199,13 +199,13 @@ namespace Security
                 var userData = _unitOfWork.UserRepository.Read(user.Id);
                 if (userData != null)
                 {
-                    userData.Username = user.UserName;
+                    userData.UserName = user.UserName;
                     userData.Email = user.Email;
                     userData.HashedPassword = user.PasswordHash;
                     userData.SecurityStamp = user.SecurityStamp;
                     userData.Roles = new ObservableCollection<string>(user.Roles.ToList());
                     userData.CanUserChangePassword = user.CanUserChangePassword;
-                    userData._Modified = DateTime.Now;
+                    userData.Modified = DateTime.Now;
                 }
                 else
                 {

@@ -31,23 +31,6 @@ namespace Security
         }
 
         /// <summary>
-        /// Gets security provider for this application.
-        /// </summary>
-        public static SecurityProvider Get
-        {
-            get
-            {
-                if (provider == null)
-                {
-                    provider = Create(new DummyAuthenticationService());
-                }
-
-                return provider;
-
-            }
-        }
-
-        /// <summary>
         /// Raised on any authentication change.
         /// </summary>
         public static event OnUserAuthentication OnAnyAuthenticationEvent;

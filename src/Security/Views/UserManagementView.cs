@@ -39,7 +39,7 @@ namespace Security
             SelectedUser = new User(user);
             //_model = new RegisterUserModel();
 
-            _model.Username = user.Username;
+            _model.Username = user.UserName;
             _model.Password = "password";
             _model.ConfirmPassword = "password";
             _model.CanUserChangePassword = user.CanUserChangePassword;

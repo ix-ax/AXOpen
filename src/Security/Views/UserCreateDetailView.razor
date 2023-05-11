@@ -66,7 +66,7 @@
 
     private async void OnValidSubmit()
     {
-        _user = new User(_model.Username, _model.Email, new string[1] { _model.Group }, _model.CanUserChangePassword, null);
+        _user = new User(_model.Username, _model.Email, new string[1] { _model.Group }, _model.CanUserChangePassword);
 
         _user.SecurityStamp = Guid.NewGuid().ToString();
         _user.PasswordHash = SecurityManager.Manager.Service.CalculateHash(_model.Password, _model.Username);

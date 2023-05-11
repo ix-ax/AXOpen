@@ -30,29 +30,8 @@ namespace Security
     ///  
     /// To limit execution of methods for privileged user use <see cref="   "/>
     ///</summary>       
-    public class SecurityManager : ISecurityManager, ISecurityManagerUserInfo
+    public class SecurityManager : ISecurityManager
     {
-
-        /// <summary>
-        /// Gets the name of current user.
-        /// </summary>
-        public string UserName { get { return this.Principal.Identity.Name; } }
-
-        private SecurityManager(IRepository<UserData> repository)
-        {
-            UserRepository = repository;
-            Service = new AuthenticationService(repository);
-
-            Principal = new AppIdentity.AppPrincipal();
-            SecurityProvider.Create(Service);
-
-            if (System.Threading.Thread.CurrentPrincipal?.GetType() != typeof(AppIdentity.AppPrincipal))
-            {
-                System.Threading.Thread.CurrentPrincipal = Principal;
-                AppDomain.CurrentDomain.SetThreadPrincipal(Principal);
-            }
-        }
-
         private SecurityManager(IAuthenticationService service, IRepository<UserData> repository = null)
         {
             if(repository != null){
@@ -75,99 +54,11 @@ namespace Security
             }
         }
 
-        private SecurityManager(IRepository<UserData> repository, RoleGroupManager roleGroupManager)
-        {
-            UserRepository = repository;
-            Service = new AuthenticationService(repository, roleGroupManager);
-
-            Principal = new AppIdentity.AppPrincipal();
-            SecurityProvider.Create(Service);
-
-            if (System.Threading.Thread.CurrentPrincipal?.GetType() != typeof(AppIdentity.AppPrincipal))
-            {
-                System.Threading.Thread.CurrentPrincipal = Principal;
-                AppDomain.CurrentDomain.SetThreadPrincipal(Principal);
-            }
-        }
-
-        /// <summary>
-        /// Creates authentication service with given user data repository.
-        /// </summary>
-        /// <param name="repository">User data repository <see cref="IRepository{UserData}"/></param>
-        /// <returns>Authentication service for this application <see cref="IAuthenticationService"/>Authentication service for this application.</returns>
-        public static IAuthenticationService Create(IRepository<UserData> repository)
-        {
-            if (_manager == null)
-            {
-                _manager = new SecurityManager(repository);
-            }
-
-            return _manager.Service;
-        }
-
-        public static IAuthenticationService Create(IAuthenticationService authenticationService)
-        {
-            if (_manager == null)
-            {
-                _manager = new SecurityManager(authenticationService);
-            }
-
-            return _manager.Service;
-        }
-
         public static IAuthenticationService Create(IAuthenticationService authenticationService, IRepository<UserData> repository)
         {
             if (_manager == null)
             {
                 _manager = new SecurityManager(authenticationService, repository);
-            }
-
-            return _manager.Service;
-        }
-
-        public static IAuthenticationService Create(IRepository<UserData> repository, RoleGroupManager roleGroupManager)
-        {
-            if (_manager == null)
-            {
-                _manager = new SecurityManager(repository, roleGroupManager);
-            }
-            _roleGroupManager = roleGroupManager;
-
-            return _manager.Service;
-        }
-
-        /// <summary>
-        /// Creates authentication service with default user data repository <see cref="DefaultUserDataRepository{UserData}"/>
-        /// </summary>
-        /// <param name="usersFolder">User file storage folder.</param>
-        /// <returns>Authentication service for this application <see cref="IAuthenticationService"/>Authentication service for this application.</returns>
-        public static IAuthenticationService CreateDefault(string usersFolder = @"C:\INXTON\USERS\")
-        {
-            if (_manager == null)
-            {
-                _manager = new SecurityManager(new DefaultUserDataRepository<UserData>(usersFolder));
-            }
-
-            return _manager.Service;
-        }
-
-        /// <summary>
-        /// *Creates authentication* service with default user data repository <see cref="DefaultUserDataRepository{UserData}"/>        
-        /// </summary>        
-        ///<remarks>   
-        /// > [!TIP]
-        /// > You can create your own user repository using <see cref="IRepository{UserData}"/>        
-        /// > [!IMPORTANT]
-        /// > Default repository is designed for handling limited number of users and it should not be used in shared scenarios.
-        /// > If you would like to use shared user repository consider implementation of an appropriate <see cref="IRepository{UserData}"/> implementation.
-        ///</remarks>
-        /// <returns>Authentication service for this application <see cref="IAuthenticationService"/>Authentication service for this application.</returns>
-
-        public static IAuthenticationService CreateDefault()
-        {
-            if (_manager == null)
-            {
-                _manager = new SecurityManager(new DefaultUserDataRepository<UserData>());
             }
 
             return _manager.Service;
@@ -188,20 +79,6 @@ namespace Security
                 }
 
                 return _manager;
-            }
-        }
-
-        private static RoleGroupManager _roleGroupManager;
-        public static RoleGroupManager RoleGroupManager
-        {
-            get
-            {
-                if (_roleGroupManager == null)
-                {
-                    throw new Exception("RoleGroupManager was not created.");
-                }
-
-                return _roleGroupManager;
             }
         }
 

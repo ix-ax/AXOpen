@@ -18,8 +18,8 @@
                 {
                 <tr @onclick="@(() => GroupClicked(group))" class="@((SelectedGroupN != null) ? ((SelectedGroupN.Name == group.Name) ? "table-active" : "") : "")">
                     <th>@group.Name</th>
-                    <th>@group._Created</th>
-                    <th>@group._Modified</th>
+                    <th>@group.Created</th>
+                    <th>@group.Modified</th>
                 </tr>
                 }
             </tbody>

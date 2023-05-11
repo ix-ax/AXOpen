@@ -1,19 +1,17 @@
 {
-  "SecurityStamp": "81e9bb61-2557-401e-afd7-2e3f69db33ec",
+  "Changes": [],
   "RecordId": null,
-  "Username": "admin",
+  "DataEntityId": "admin",
+  "UserName": "admin",
   "Email": null,
   "HashedPassword": "2CSU8F1pF7oC96qilonMtES7c/IDgIdssF0fN1N7eJI=",
+  "CanUserChangePassword": true,
   "Roles": [
     "AdminGroup"
   ],
-  "CanUserChangePassword": false,
-  "_Created": "0001-01-01T00:00:00",
-  "DataEntityId": "admin",
-  "_Modified": "2023-05-10T14:33:00.7835552+02:00",
   "RoleHash": null,
-  "Level": null,
-  "AuthenticationToken": "",
-  "Changes": [],
-  "LogoutTime": "00:00:00"
+  "LogoutTime": "00:00:00",
+  "Created": "0001-01-01T00:00:00",
+  "Modified": "2023-05-11T15:13:07.3210815+02:00",
+  "SecurityStamp": "d7afda87-c9fe-49c4-8feb-4836c7bff575"
 }
