@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
     CLASS PUBLIC AxoMessageDigest
         VAR PUBLIC            
             Digest : DWORD;

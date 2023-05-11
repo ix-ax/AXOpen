@@ -7,7 +7,7 @@ USING AXOpen.Messaging.Dynamic;
 USING System.Strings;
 USING System.DateTime;
 
-NAMESPACE AXOpen.AxoMessaging_UnitTests
+NAMESPACE AXOpen.AxoMessagingDynamic_UnitTests
     CLASS TestContextI IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;

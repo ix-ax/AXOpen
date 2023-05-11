@@ -1,4 +1,4 @@
-USING AXOpen.Messaging;
+USING AXOpen.Messaging.Dynamic;
 
 NAMESPACE AXOpen.Core
     CLASS PUBLIC AxoContextEnvironment IMPLEMENTS IAxoContextEnvironment        

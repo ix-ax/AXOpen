@@ -2,7 +2,7 @@ USING AXOpen.Core;
 USING System.Strings;
 USING System.DateTime;
 USING AXOpen.Utils;
-USING AXOpen.Messaging;
+// USING AXOpen.Messaging;
 
 NAMESPACE AXOpen.Messaging.Dynamic
 	/// <summary>

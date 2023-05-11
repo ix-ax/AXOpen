@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
     INTERFACE IAxoMessages 
 	    /// <summary>
 		/// Adds message of 'debug' category to the message queue.				 
