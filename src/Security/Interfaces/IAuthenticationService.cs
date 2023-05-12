@@ -19,14 +19,6 @@ namespace Security
         /// De-authenticates current user.
         /// </summary>
         void DeAuthenticateCurrentUser(); 
-        
-        /// <summary>
-        /// Calculates hash of the password
-        /// </summary>
-        /// <param name="clearTextPassword">Plain test password</param>
-        /// <param name="salt">Salt</param>
-        /// <returns></returns>
-        string CalculateHash(string clearTextPassword, string salt);
 
         /// <summary>
         /// Changes the password of given user.
@@ -61,11 +53,6 @@ namespace Security
         /// Delegate is used to prevent/allow automatic user logout. 
         /// </summary>
         OnTimedLogoutRequestDelegate OnTimedLogoutRequest { get; set; }
-
-        /// <summary>
-        /// Get or set external authentication device handling.
-        /// </summary>
-        IExternalAuthorization ExternalAuthorization { get; set; }
 
         bool HasAuthorization(string roles, Action notAuthorizedAction = null);
     }

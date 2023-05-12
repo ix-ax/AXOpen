@@ -31,6 +31,7 @@ namespace Security
             SecurityStamp = user.SecurityStamp;
             CanUserChangePassword = user.CanUserChangePassword;
             Roles = user.Roles == null ? new ObservableCollection<string>() : new ObservableCollection<string>(user.Roles.ToList());
+            RoleHash = user.RoleHash;
             SecurityStamp = user.SecurityStamp;
         }
         public UserData(string username, string email, string hashedPassword, IEnumerable<string> roles)

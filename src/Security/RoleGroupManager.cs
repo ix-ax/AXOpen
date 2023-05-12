@@ -1,5 +1,7 @@
 ﻿using AXOpen.Base.Data;
 using Microsoft.AspNetCore.Identity;
+using Raven.Client.Documents.Queries;
+using static MongoDB.Driver.WriteConcern;
 
 namespace Security
 {
@@ -43,6 +45,7 @@ namespace Security
             try
             {
                 var data = new GroupData(name);
+                data.RoleHash = Hasher.CalculateHash(data.Roles, data.Name);
                 data.Created = DateTime.Now;
                 groupRepo.Create(name, data);
             }
@@ -82,6 +85,7 @@ namespace Security
                 if (data != null)
                 {
                     data.Roles.Add(role);
+                    data.RoleHash = Hasher.CalculateHash(data.Roles, data.Name);
                     data.Modified = DateTime.Now;
                 }
                 else
@@ -116,6 +120,7 @@ namespace Security
                     {
                         data.Roles.Add(role);
                     }
+                    data.RoleHash = Hasher.CalculateHash(data.Roles, data.Name);
                     data.Modified = DateTime.Now;
                 }
                 else
@@ -152,6 +157,7 @@ namespace Security
                     {
                         data.Roles.Remove(role);
                     }
+                    data.RoleHash = Hasher.CalculateHash(data.Roles, data.Name);
                     data.Modified = DateTime.Now;
                 }
                 else
@@ -185,6 +191,7 @@ namespace Security
                     return null;
                 }
                 data = groupRepo.Read(group);
+                Hasher.VerifyHash(data.Roles, data.RoleHash, data.Name);
             }
             catch (UnableToLocateRecordId)
             {
@@ -208,6 +215,7 @@ namespace Security
                     return null;
                 }
                 data = groupRepo.Read(group);
+                Hasher.VerifyHash(data.Roles, data.RoleHash, data.Name);
             }
             catch (UnableToLocateRecordId)
             {

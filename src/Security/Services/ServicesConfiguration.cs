@@ -1,6 +1,8 @@
 ﻿using AXOpen.Base.Data;
 using AXOpen.Data.Json;
 using AXOpen.Data.MongoDb;
+using AXOpen.Data.RavenDb;
+using AXOpen.Data.InMemory;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
@@ -69,11 +71,20 @@ namespace Security
             return (userRepo, groupRepo);
         }
 
-        //public static (IRepository<UserData>, IRepository<GroupData>) SetUpRavenDB(string path)
-        //{
+        public static (IRepository<UserData>, IRepository<GroupData>) SetUpRavenDB(string[] urls, string path = "Blazor", string certPath = "", string certPass = "")
+        {
+            IRepository<UserData> userRepo = new RavenDbRepository<UserData>(new RavenDbRepositorySettings<UserData>(urls, path, certPath, certPass));
+            IRepository<GroupData> groupRepo = new RavenDbRepository<GroupData>(new RavenDbRepositorySettings<GroupData>(urls, path, certPath, certPass));
 
+            return (userRepo, groupRepo);
+        }
 
-        //    return (userRepo, groupRepo);
-        //}
+        public static (IRepository<UserData>, IRepository<GroupData>) SetUpInMemory()
+        {
+            IRepository<UserData> userRepo = new InMemoryRepository<UserData>(new InMemoryRepositorySettings<UserData>());
+            IRepository<GroupData> groupRepo = new InMemoryRepository<GroupData>(new InMemoryRepositorySettings<GroupData>());
+
+            return (userRepo, groupRepo);
+        }
     }
 }

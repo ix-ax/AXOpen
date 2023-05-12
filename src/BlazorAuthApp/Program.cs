@@ -22,6 +22,9 @@ namespace BlazorAuthApp
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddVortexBlazorSecurity(ServicesConfiguration.SetUpJSon());
+            //builder.Services.AddVortexBlazorSecurity(ServicesConfiguration.SetUpMongo());
+            //builder.Services.AddVortexBlazorSecurity(ServicesConfiguration.SetUpRavenDB(new string[] { "https://a.ravend.ravendb.community" }, "Blazor", "C:\\Users\\branko.zachemsky\\Downloads\\ClientCertificate\\ClientCertificate.pfx"));
+            //builder.Services.AddVortexBlazorSecurity(ServicesConfiguration.SetUpInMemory());
 
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();

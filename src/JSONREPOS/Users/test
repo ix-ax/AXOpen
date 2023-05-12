@@ -1,0 +1,17 @@
+{
+  "Changes": [],
+  "RecordId": null,
+  "DataEntityId": "test",
+  "UserName": "test",
+  "Email": null,
+  "HashedPassword": "NyaDNd1pMQRb3N+SYj/4GaZCRLU9DnRtQ4eXNJ1NpXg=",
+  "CanUserChangePassword": false,
+  "Roles": [
+    "Test"
+  ],
+  "RoleHash": "2wl46NS6UbEvnHsTfofZoDujWML2n6apyFFvdqnPGVs=",
+  "LogoutTime": "00:00:00",
+  "Created": "2023-05-12T14:34:50.0347177+02:00",
+  "Modified": "2023-05-12T14:34:57.0194414+02:00",
+  "SecurityStamp": "KQJ6XMJRD6J5CMIDMZH6LENZYDAOMW5A"
+}

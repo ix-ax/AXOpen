@@ -7,6 +7,7 @@ namespace Security
         public string[] Roles { get; set; }
         public bool CanUserChangePassword { get; set; }
         public string Level { get; set; }
+        public string RoleHash { get; set; }
 
         public User()
         {

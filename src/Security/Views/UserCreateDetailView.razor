@@ -69,7 +69,8 @@
         _user = new User(_model.Username, _model.Email, new string[1] { _model.Group }, _model.CanUserChangePassword);
 
         _user.SecurityStamp = Guid.NewGuid().ToString();
-        _user.PasswordHash = SecurityManager.Manager.Service.CalculateHash(_model.Password, _model.Username);
+        _user.PasswordHash = Hasher.CalculateHash(_model.Password, _model.Username);
+        _user.RoleHash = Hasher.CalculateHash(_model.Group, _model.Username);
 
         var result = await _userManager.CreateAsync(_user);
 

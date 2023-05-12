@@ -60,7 +60,7 @@
 
         if (_model.CanUserChangePassword && _model.Password != "password")
         {
-            _user.PasswordHash = SecurityManager.Manager.Service.CalculateHash(_model.Password, _model.Username);
+            _user.PasswordHash = Hasher.CalculateHash(_model.Password, _model.Username);
         }
         _user.Email = _model.Email;
         var result = await _userManager.UpdateAsync(_user);

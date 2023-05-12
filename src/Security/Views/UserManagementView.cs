@@ -66,12 +66,17 @@ namespace Security
         {
             if (_model.Password != "password")
             {
-                SelectedUser.PasswordHash = SecurityManager.Manager.Service.CalculateHash(_model.Password, _model.Username);
+                SelectedUser.PasswordHash = Hasher.CalculateHash(_model.Password, _model.Username);
+            }
+            if (_model.Group == "Choose group")
+            {
+                _model.Group = null;
             }
             SelectedUser.UserName = _model.Username;
             SelectedUser.CanUserChangePassword = _model.CanUserChangePassword;
             SelectedUser.Email = _model.Email;
             SelectedUser.Roles = new string[1] { _model.Group };
+            SelectedUser.RoleHash = Hasher.CalculateHash(SelectedUser.Roles, _model.Username);
             var result = await _userManager.UpdateAsync(SelectedUser);
             if (result.Succeeded)
             {

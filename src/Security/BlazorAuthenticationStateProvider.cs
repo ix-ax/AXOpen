@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Security.Cryptography;
 using AXOpen.Base.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Security
 {
@@ -48,15 +49,6 @@ namespace Security
         public event OnUserAuthentication OnDeAuthenticated;
 
         public OnTimedLogoutRequestDelegate OnTimedLogoutRequest { get; set; }
-        private IExternalAuthorization externalAuthorization;
-        public IExternalAuthorization ExternalAuthorization
-        {
-            get { return this.externalAuthorization; }
-            set
-            {
-                externalAuthorization = value;
-            }
-        }
 
         private List<UserData> _users
         {
@@ -75,16 +67,12 @@ namespace Security
 
         private List<UserData> GetAllUsers() => UserRepository.GetRecords("*", Convert.ToInt32(UserRepository.Count + 1), 0).ToList();
 
-        private String CalculateRoleHash(IEnumerable<string> roles, string username)
-        {
-            return CalculateHash(String.Join(",", roles.OrderByDescending(x => x).ToList()), username);
-        }
-
         private void CreateDefaultUser()
         {
             var user = new User("admin", null, new string[] { "AdminGroup" }, false);
             user.SecurityStamp = Guid.NewGuid().ToString();
-            user.PasswordHash = CalculateHash("admin", "admin");
+            user.PasswordHash = Hasher.CalculateHash("admin", "admin");
+            user.RoleHash = Hasher.CalculateHash("AdminGroup", "admin");
 
             var userEntity = new UserData(user);
             UserRepository.Create(userEntity.UserName, userEntity);
@@ -123,7 +111,7 @@ namespace Security
         public IUser AuthenticateUser(string username, string password)
         {
             UserData userData = _users.FirstOrDefault(u => u.UserName.Equals(username)
-                 && u.HashedPassword.Equals(CalculateHash(password, u.UserName))
+                 && u.HashedPassword.Equals(Hasher.CalculateHash(password, u.UserName))
                  && true);
             //
             if (userData == null)
@@ -134,7 +122,7 @@ namespace Security
                 throw new UnauthorizedAccessException("AccessDeniedCredentials");
             }
 
-            VerifyRolesHash(userData);
+            Hasher.VerifyHash(userData.Roles, userData.RoleHash, userData.UserName);
 
             return AuthenticateUser(userData);
         }
@@ -162,27 +150,6 @@ namespace Security
             return user;
         }
 
-        private void VerifyRolesHash(UserData userData)
-        {
-            bool roleHashMatches = false;
-            if (userData.RoleHash != null)
-            {
-                roleHashMatches = userData.RoleHash.Equals(CalculateRoleHash(userData.Roles, userData.UserName));
-            }
-            else
-            {
-                userData.RoleHash = CalculateRoleHash(userData.Roles, userData.UserName);
-                roleHashMatches = userData.RoleHash.Equals(CalculateRoleHash(userData.Roles, userData.UserName));
-            }
-
-
-
-            if (!roleHashMatches)
-            {
-                throw new UnauthorizedAccessException("AccessDeniedPermissions");
-            }
-        }
-
         public void DeAuthenticateCurrentUser()
         {
             AppIdentity.AppPrincipal customPrincipal = Thread.CurrentPrincipal as AppIdentity.AppPrincipal;
@@ -198,17 +165,6 @@ namespace Security
             }
         }
 
-        public string CalculateHash(string clearTextPassword, string salt)
-        {
-            // Convert the salted password to a byte array
-            byte[] saltedHashBytes = Encoding.UTF8.GetBytes(clearTextPassword + salt);
-            // Use the hash algorithm to calculate the hash
-            HashAlgorithm algorithm = new SHA256Managed();
-            byte[] hash = algorithm.ComputeHash(saltedHashBytes);
-            // Return the hash as a base64 encoded string to be compared to the stored password
-            return Convert.ToBase64String(hash);
-        }
-
         public void ChangePassword(string userName, string password, string newPassword1, string newPassword2)
         {
             if (newPassword1 != newPassword2)
@@ -219,7 +175,7 @@ namespace Security
             if (authenticated.UserName == userName)
             {
                 var user = this.UserRepository.Read(userName);
-                user.HashedPassword = this.CalculateHash(newPassword1, userName);
+                user.HashedPassword = Hasher.CalculateHash(newPassword1, userName);
                 this.UserRepository.Update(userName, user);
                 //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User '{authenticated.UserName}' has changed password.{{payload}}",
                 //    new { UserName = authenticated.UserName, CanChangePassword = authenticated.CanUserChangePassword, Roles = string.Join(",", authenticated.Roles) });

@@ -204,6 +204,7 @@ namespace Security
                     userData.HashedPassword = user.PasswordHash;
                     userData.SecurityStamp = user.SecurityStamp;
                     userData.Roles = new ObservableCollection<string>(user.Roles.ToList());
+                    userData.RoleHash = user.RoleHash;
                     userData.CanUserChangePassword = user.CanUserChangePassword;
                     userData.Modified = DateTime.Now;
                 }

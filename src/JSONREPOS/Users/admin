@@ -5,13 +5,13 @@
   "UserName": "admin",
   "Email": null,
   "HashedPassword": "2CSU8F1pF7oC96qilonMtES7c/IDgIdssF0fN1N7eJI=",
-  "CanUserChangePassword": true,
+  "CanUserChangePassword": false,
   "Roles": [
     "AdminGroup"
   ],
-  "RoleHash": null,
+  "RoleHash": "DDqGGWF067m+xzdK/hiNIkFC2ui+AArqAr+MQd+2miM=",
   "LogoutTime": "00:00:00",
   "Created": "0001-01-01T00:00:00",
-  "Modified": "2023-05-11T15:13:07.3210815+02:00",
-  "SecurityStamp": "d7afda87-c9fe-49c4-8feb-4836c7bff575"
+  "Modified": "0001-01-01T00:00:00",
+  "SecurityStamp": "bbadf003-7d34-496c-9a97-9208a6509077"
 }
