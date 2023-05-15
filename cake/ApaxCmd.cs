@@ -11,7 +11,6 @@ using System.Linq;
 using Cake.Common.Tools.ILMerge;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
-using Ix.Compiler;
 using Microsoft.Win32;
 using Octokit;
 using static NuGet.Packaging.PackagingConstants;
