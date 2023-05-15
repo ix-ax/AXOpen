@@ -1,4 +1,5 @@
 ﻿using AXOpen.Base.Data;
+using Microsoft.AspNetCore.Authentication;
 using System.Collections.ObjectModel;
 
 namespace Security
@@ -18,6 +19,7 @@ namespace Security
         public DateTime Modified { get; set; }
         public List<string> Changes = new List<string>();
         public string SecurityStamp { get; set; }
+        public string AuthenticationToken { get; set; }
 
         public UserData()
         {
@@ -28,18 +30,18 @@ namespace Security
             UserName = user.UserName;
             Email = user.Email;
             HashedPassword = user.PasswordHash;
-            SecurityStamp = user.SecurityStamp;
             CanUserChangePassword = user.CanUserChangePassword;
             Roles = user.Roles == null ? new ObservableCollection<string>() : new ObservableCollection<string>(user.Roles.ToList());
             RoleHash = user.RoleHash;
             SecurityStamp = user.SecurityStamp;
         }
-        public UserData(string username, string email, string hashedPassword, IEnumerable<string> roles)
+        public UserData(string username, string email, string hashedPassword, IEnumerable<string> roles, string authenticationToken)
         {
             UserName = username;
             Email = email;
             HashedPassword = hashedPassword;
             Roles = new ObservableCollection<string>(roles);
+            AuthenticationToken = Hasher.CalculateHash(authenticationToken, string.Empty);
         }
              
         public UserData(string username, string hashedPassword, IEnumerable<string> roles)

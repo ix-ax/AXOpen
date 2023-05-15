@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Security
 {
@@ -34,6 +35,8 @@ namespace Security
             RoleGroupManager roleGroupManager = new RoleGroupManager(repos.groupRepo);
 
             BlazorAuthenticationStateProvider blazorAuthenticationStateProvider = new BlazorAuthenticationStateProvider(repos.userRepo, roleGroupManager);
+
+            blazorAuthenticationStateProvider.ExternalAuthorization = new ExternalTokenAuthorization();
 
             SecurityManager.Create(blazorAuthenticationStateProvider, repos.userRepo);
 

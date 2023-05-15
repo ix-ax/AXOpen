@@ -49,6 +49,62 @@ namespace Security
         public event OnUserAuthentication OnDeAuthenticated;
 
         public OnTimedLogoutRequestDelegate OnTimedLogoutRequest { get; set; }
+        private IExternalAuthorization externalAuthorization;
+        public IExternalAuthorization ExternalAuthorization
+        {
+            get { return this.externalAuthorization; }
+            set
+            {
+                externalAuthorization = value;
+                externalAuthorization.AuthorizationRequest += ExternalAuthorization_AuthorizationRequest;
+                externalAuthorization.AuthorizationTokenChange += ExternalAuthorization_AuthorizationTokenChange;
+            }
+        }
+
+        private void ExternalAuthorization_AuthorizationTokenChange(string token)
+        {
+            ChangeToken(SecurityManager.Manager.Principal.Identity.Name, token);
+        }
+
+        public void ChangeToken(string userName, string token)
+        {
+
+            if (_users.Exists(p => !string.IsNullOrEmpty(p.AuthenticationToken)
+                                   && p.AuthenticationToken == Hasher.CalculateHash(token, string.Empty)
+                                   && p.UserName != userName))
+            {
+                throw new ExistingTokenException();
+            }
+
+
+            var authenticated = _users.FirstOrDefault(p => p.UserName == userName);
+
+            if (authenticated != null)
+            {
+                var user = this.UserRepository.Read(userName);
+                user.AuthenticationToken = Hasher.CalculateHash(token, string.Empty);
+                this.UserRepository.Update(userName, user);
+            }
+        }
+
+        private void ExternalAuthorization_AuthorizationRequest(string token, bool deauthenticateWhenSame)
+        {
+            var userName = SecurityManager.Manager.Principal.Identity.Name;
+            var currentUser = _users.FirstOrDefault(u => u.UserName.Equals(userName));
+
+            // De authenticate when the token matches the token of currently authenticated user.
+            if (currentUser != null && Hasher.CalculateHash(token, string.Empty) == currentUser.AuthenticationToken)
+            {
+                if (deauthenticateWhenSame)
+                {
+                    this.DeAuthenticateCurrentUser();
+                }
+            }
+            else
+            {
+                var authenticatedUser = this.AuthenticateUser(token);
+            }
+        }
 
         private List<UserData> _users
         {
@@ -150,6 +206,30 @@ namespace Security
             return user;
         }
 
+        public User AuthenticateUser(string token)
+        {
+            if (string.IsNullOrEmpty(token))
+            {
+                OnUserAuthenticateFailed?.Invoke("empty token");
+                this.DeAuthenticateCurrentUser();
+                //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User has failed to authenticate with a token (empty token).{{payload}}", new { });
+                throw new UnauthorizedAccessException("AccessDeniedEmptyToken");
+            }
+
+            var userData = _users.FirstOrDefault(u => u.AuthenticationToken != null && u.AuthenticationToken.Equals(Hasher.CalculateHash(token, string.Empty)));
+            if (userData == null)
+            {
+                OnUserAuthenticateFailed?.Invoke("unknown token");
+                this.DeAuthenticateCurrentUser();
+                //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User has failed to authenticate with a token (non-existing token).{{payload}}", new { });
+                throw new UnauthorizedAccessException("AccessDeniedInvalidToken");
+            }
+
+            Hasher.VerifyHash(userData.Roles, userData.RoleHash, userData.UserName);
+
+            return AuthenticateUser(userData);
+        }
+
         public void DeAuthenticateCurrentUser()
         {
             AppIdentity.AppPrincipal customPrincipal = Thread.CurrentPrincipal as AppIdentity.AppPrincipal;
@@ -159,6 +239,7 @@ namespace Security
                 OnDeAuthenticating?.Invoke(userName);
                 //UserAccessor.Instance.Identity = null;
                 UserAccessor.Instance.Identity = new AppIdentity.AnonymousIdentity();
+                SecurityManager.Manager.Principal.Identity = new AppIdentity.AnonymousIdentity();
                 //customPrincipal.Identity = new AppIdentity.AnonymousIdentity();
                 OnDeAuthenticated?.Invoke(userName);
                 //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User '{userName}' has de-authenticated.{{payload}}", new { UserName = userName });

@@ -33,6 +33,7 @@ namespace Security
             Email = userData.Email;
             NormalizedEmail = normalizer.NormalizeEmail(Email);
             Roles = userData.Roles.ToArray();
+            RoleHash = userData.RoleHash;
             CanUserChangePassword = userData.CanUserChangePassword;
             PasswordHash = userData.HashedPassword;
             SecurityStamp = userData.SecurityStamp;

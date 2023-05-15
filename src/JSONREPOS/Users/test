@@ -3,15 +3,16 @@
   "RecordId": null,
   "DataEntityId": "test",
   "UserName": "test",
-  "Email": null,
+  "Email": "dsd@ffd.sk",
   "HashedPassword": "NyaDNd1pMQRb3N+SYj/4GaZCRLU9DnRtQ4eXNJ1NpXg=",
-  "CanUserChangePassword": false,
+  "CanUserChangePassword": true,
   "Roles": [
-    "Test"
+    "test"
   ],
-  "RoleHash": "2wl46NS6UbEvnHsTfofZoDujWML2n6apyFFvdqnPGVs=",
+  "RoleHash": "NyaDNd1pMQRb3N+SYj/4GaZCRLU9DnRtQ4eXNJ1NpXg=",
   "LogoutTime": "00:00:00",
-  "Created": "2023-05-12T14:34:50.0347177+02:00",
-  "Modified": "2023-05-12T14:34:57.0194414+02:00",
-  "SecurityStamp": "KQJ6XMJRD6J5CMIDMZH6LENZYDAOMW5A"
+  "Created": "2023-05-15T08:14:36.6464781+02:00",
+  "Modified": "2023-05-15T12:08:21.0294291+02:00",
+  "SecurityStamp": "SBQL2U7AUXII3TUFOVAZCCYMJKUHB7JS",
+  "AuthenticationToken": "47mKTaMaEn1L3m5DAz9muidMqw636xxw7EFAK/YnPdg="
 }

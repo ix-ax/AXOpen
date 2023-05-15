@@ -54,6 +54,11 @@ namespace Security
         /// </summary>
         OnTimedLogoutRequestDelegate OnTimedLogoutRequest { get; set; }
 
+        /// <summary>
+        /// Get or set external authentication device handling.
+        /// </summary>
+        IExternalAuthorization ExternalAuthorization { get; set; }
+
         bool HasAuthorization(string roles, Action notAuthorizedAction = null);
     }
 }

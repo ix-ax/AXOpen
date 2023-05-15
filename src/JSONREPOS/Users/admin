@@ -13,5 +13,6 @@
   "LogoutTime": "00:00:00",
   "Created": "0001-01-01T00:00:00",
   "Modified": "0001-01-01T00:00:00",
-  "SecurityStamp": "bbadf003-7d34-496c-9a97-9208a6509077"
+  "SecurityStamp": "e2bdea3b-9ff1-411d-8723-05bd5fb2a49c",
+  "AuthenticationToken": null
 }

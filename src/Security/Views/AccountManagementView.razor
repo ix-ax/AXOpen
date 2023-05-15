@@ -41,8 +41,26 @@
                             <ValidationMessage For="@(() => _model.ConfirmPassword)" />
                         </div>
                     }
-                    <button type="submit" class="btn btn-primary m-2">Update</button>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary m-2">Update</button>
+                        <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#changeAuthorizationTokenModal">Change authorization token</button>
+                    </div>
                 </EditForm>
+            </div>
+        </div>
+
+        <div class="modal fade" id="changeAuthorizationTokenModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">@changeAuthorizationTokenTitle</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="SetDefault"></button>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary m-2" @onclick="WillChangeToken">@changeAuthorizationTokenButton</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="SetDefault">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
     </Authorized>
@@ -82,7 +100,7 @@
         User _user = await _userManager.FindByIdAsync(UserAccessor.Instance.Identity.Name);
 
         _model.Username = _user.UserName;
-        if(_user.Roles.Length > 0)
+        if (_user.Roles.Length > 0)
         {
             _model.Group = _user.Roles[0];
         }
@@ -90,5 +108,31 @@
         _model.CanUserChangePassword = _user.CanUserChangePassword;
         _model.Password = "password";
         _model.ConfirmPassword = "password";
+    }
+
+    private string changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
+    private string changeAuthorizationTokenButton = "Change your authorization token";
+
+    private void WillChangeToken()
+    {
+        if (SecurityManager.Manager.Service.ExternalAuthorization.WillChangeToken)
+        {
+            SecurityManager.Manager.Service.ExternalAuthorization.WillChangeToken = false;
+            changeAuthorizationTokenTitle = "Read your authorization token and press OK";
+            changeAuthorizationTokenButton = "OK";
+        }
+        else
+        {
+            SecurityManager.Manager.Service.ExternalAuthorization.WillChangeToken = true;
+            changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
+            changeAuthorizationTokenButton = "Change your authorization token";
+        }
+    }
+
+    private void SetDefault()
+    {
+        SecurityManager.Manager.Service.ExternalAuthorization.WillChangeToken = true;
+        changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
+        changeAuthorizationTokenButton = "Change your authorization token";
     }
 }
