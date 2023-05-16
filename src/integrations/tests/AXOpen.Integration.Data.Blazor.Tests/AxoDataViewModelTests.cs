@@ -1,6 +1,6 @@
+using AxoDataExamplesDocu;
 using axopen_integrations;
 using AXOpen.Data.Interfaces;
-using AXOpen.Data.ViewModels;
 using AXOpen.Data;
 using AXSharp.Connector;
 using AXOpen.Data.InMemory;
@@ -14,21 +14,22 @@ namespace integration.data.blazor.tests
         = new(ConnectorAdapterBuilder.Build()
             .CreateDummy());
 
-        private IAxoDataViewModel _vm;
+        private AxoDataExchangeViewModel _vm;
         public AxoDataViewModelTests()
         {
           
             var dataObject = _plc.process_data_manager; 
 
             var repo = AXOpen.Data.InMemory.Repository.Factory(new InMemoryRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>());
-            dataObject.InitializeRepository(repo);
+            dataObject.SetRepository(repo);
 
-            var data = dataObject.DataHeavy;
+            var data = dataObject.DataEntity;
 
-            var exchangeViewModel = new AxoDataExchangeBaseViewModel{ 
+            var exchangeViewModel = new AxoDataExchangeViewModel
+            { 
                 Model = dataObject,
                 };
-            _vm = exchangeViewModel.DataViewModel;
+            _vm = exchangeViewModel;
             
         }
         [Fact]

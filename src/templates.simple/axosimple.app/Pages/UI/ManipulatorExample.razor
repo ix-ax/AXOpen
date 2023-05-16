@@ -1,9 +1,18 @@
 ﻿@page "/ui/ManipulatorExample"
 @using axosimple.hmi.Components;
+@using AXOpen.Data;
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="100"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components"></UnitsService>
 <UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared.Set" PollingInterval="100"></UnitsData>
 
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared" Presentation="Command"></RenderableContentControl>
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Data" Presentation="Command"></RenderableContentControl>
+@*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared" Presentation="Command"></RenderableContentControl>*@
+<AxoDataExchangeView Vm="_vm"></AxoDataExchangeView>
 
+
+@*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Data" Presentation="Command"></RenderableContentControl>*@
+
+@code
+{
+    private AxoDataExchangeViewModel _vm = new AxoDataExchangeViewModel { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared };
+};
+}

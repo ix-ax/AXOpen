@@ -13,8 +13,6 @@ namespace AXOpen.Data.Interfaces
 {
     public interface IAxoDataViewModel
     {
-        AxoDataExchange DataExchange { get; }
-
         ObservableCollection<IBrowsableDataObject> Records { get; set; }
         IBrowsableDataObject SelectedRecord { get; set; }
         Task FillObservableRecordsAsync();

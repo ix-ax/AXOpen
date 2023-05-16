@@ -43,7 +43,9 @@ NAMESPACE examples.PneumaticManipulator
     CLASS FragmentProcessDataManger
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
-            {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
+            {#ix-generic:TOnline}
+            {#ix-generic:TPlain as POCO}
+            {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}            
             Set : FragmentProcessData;
         END_VAR
     END_CLASS

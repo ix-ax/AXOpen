@@ -307,7 +307,7 @@ namespace AXOpen.Base.Data
                         identifier = DataHelpers.CreateUid().ToString();
                     }
 
-                    data.DataEntityId = identifier.Trim();
+                    ((IBrowsableDataObject)data).DataEntityId = identifier.Trim();
                     OnCreate?.Invoke(identifier, data);
                 }
                 try
@@ -361,7 +361,7 @@ namespace AXOpen.Base.Data
                     OnUpdate?.Invoke(identifier, data);
                     if (data.DataEntityId != identifier)
                     {
-                        var idMismatchEx = new IdentifierValueMismatchedException($"Record identifier '[_data._Id]' '{data.DataEntityId}' has different value than " +
+                        var idMismatchEx = new IdentifierValueMismatchedException($"Record identifier '[_data.DataEntityId]' '{data.DataEntityId}' has different value than " +
                             $"requested identifier for update '{identifier}'\n" +
                             $"Value passed as 'identifier' must be the same as the value contained in the '_id' member of the data object.");
                         OnUpdateFailed?.Invoke(identifier, data, idMismatchEx);

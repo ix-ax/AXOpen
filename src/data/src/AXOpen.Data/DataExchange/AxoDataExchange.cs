@@ -1,230 +1,281 @@
-﻿using System;
-using System.Linq;
+﻿// ix_ax_axopen_data
+// Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
+// Contributors: https://github.com/ix-ax/axsharp/graphs/contributors
+// See the LICENSE file in the repository root for more information.
+// https://github.com/ix-ax/axsharp/blob/dev/LICENSE
+// Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
+
 using System.Reflection;
-using System.Reflection.Metadata.Ecma335;
-using AXOpen.Data;
-using AXSharp.Connector;
 using AXOpen.Base.Data;
+using AXSharp.Connector;
 
+namespace AXOpen.Data;
 
-namespace AXOpen.Data
+/// <summary>
+///     Provides mechanism for structured data exchange between the controller and an arbitrary repository.
+/// </summary>
+/// <typeparam name="TOnline">Online data twin object of <see cref="AxoDataEntity" /></typeparam>
+/// <typeparam name="TPlain">POCO twin of <see cref="Pocos.AXOpen.Data.AxoDataEntity" /></typeparam>
+public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEntity
+    where TPlain : Pocos.AXOpen.Data.IAxoDataEntity
 {
-    public partial class AxoDataExchange
+    private TOnline _dataEntity;
+
+    /// <summary>
+    ///     Gets <see cref="AxoDataEntity" /> associated with this <see cref="AxoDataExchange{TOnline,TPlain}" />.
+    /// </summary>
+    public TOnline DataEntity
     {
-        /// <summary>An interface which grants access to certain operations in DataExchange viewmodel, like searching by id, invoking search or filling the searchbox</summary>
-        public IDataExchangeOperations DataExchangeOperations { get; set; }
-
-        private dynamic _dataEntity;
-
-        public T GetDataEntity<T>() where T : class 
+        get
         {
-            return (T)this.DataEntity;
+            if (_dataEntity == null) _dataEntity = (TOnline)GetDataSetProperty<AxoDataEntityAttribute>();
+
+            return _dataEntity;
         }
+    }
 
-        public ITwinObject DataHeavy => (ITwinObject)this.DataEntity;
+    /// <summary>
+    ///     Get strongly typed repository associated with this <see cref="AxoDataExchange{TOnline,TPlain}" />.
+    /// </summary>
+    public IRepository<TPlain> DataRepository { get; private set; }
 
-        private PropertyInfo? GetDataSetPropertyInfo<TA>() where TA : Attribute
+    /// <summary>
+    ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this
+    ///     <see cref="AxoDataExchange{TOnline,TPlain}" /> and controller.
+    /// </summary>
+    public ITwinObject Data => DataEntity as ITwinObject;
+
+
+    /// <inheritdoc />
+    public IRepository? Repository => DataRepository as IRepository;
+
+    /// <inheritdoc />
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip,
+        eSearchMode searchMode)
+    {
+        return DataRepository.GetRecords(identifier, limit, skip, searchMode).Cast<IBrowsableDataObject>();
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
+    {
+        return DataRepository.GetRecords(identifier).Cast<IBrowsableDataObject>();
+    }
+
+    /// <inheritdoc />
+    public bool RemoteCreate(string identifier)
+    {
+        CreateTask.ReadAsync().Wait();
+        DataEntity.DataEntityId.SetAsync(identifier).Wait();
+        var cloned = ((ITwinObject)DataEntity).OnlineToPlain<TPlain>().Result;
+
+        Repository.Create(identifier, cloned);
+        return true;
+    }
+
+    /// <inheritdoc />
+    public bool RemoteRead(string identifier)
+    {
+        ReadTask.ReadAsync().Wait();
+
+        try
         {
-            var properties = this.GetType().GetProperties();
-            PropertyInfo? DataPropertyInfo = null;
-
-            // iterate properties and look for AxoDataEntityAttribute
-            foreach (var prop in properties)
-            {
-                var attr = prop.GetCustomAttribute<TA>();
-                if (attr != null)
-                {
-                    //if already set, that means multiple data attributes are present, we want to throw error
-                    if (DataPropertyInfo != null)
-                    {
-                        throw new MultipleDataEntityAttributeException($"{this.GetType().ToString()} contains multiple {nameof(TA)}s! Make sure it contains only one.");
-                    }
-                    DataPropertyInfo = prop;
-                    break;
-                }
-            }
-
-            if (DataPropertyInfo == null)
-            {
-                throw new Exception($"There is no member annotated with '{nameof(AxoDataEntityAttribute)}' in '{this.Symbol}'.");
-            }
-
-            return DataPropertyInfo;
-        }
-
-        private ICrudDataObject? GetDataSetProperty<TA>() where TA : Attribute
-        {
-            var dataObjectPropertyInfo = this.GetDataSetPropertyInfo<TA>();
-            var dataObject = dataObjectPropertyInfo?.GetValue(this) as AXOpen.Data.AxoDataEntity;
-            if (dataObject == null)
-            {
-                throw new Exception($"Data member annotated with '{nameof(TA)}' in '{this.Symbol}'  does not inherit from '{nameof(AxoDataEntity)}'");
-            }
-
-            return dataObject;
-        }
-
-        protected ICrudDataObject DataEntity
-        {
-            get
-            {
-                if (this._dataEntity == null)
-                {
-                    this._dataEntity = GetDataSetProperty<AxoDataEntityAttribute>();
-                }
-
-                return this._dataEntity;
-            }
-        }
-
-        private IRepository _repository;
-
-        public IRepository<T> GetRepository<T>() where T : IBrowsableDataObject
-            => _repository as IRepository<T>;
-
-        public IRepository GetRepository() => _repository ??
-            throw new RepositoryNotInitializedException($"Repository '{Symbol}' is not initialized. You must initialize repository by calling " +
-                $"'{nameof(InitializeRepository)}' method with respective parameters.");
-
-        public void InitializeRepository(IRepository repository) 
-            => _repository = repository;
-
-        public void InitializeRepository<T>(IRepository<T> repository) where T : IBrowsableDataObject
-            => _repository = repository as IRepository;
-
-        public void InitializeRemoteDataExchange()
-        {
-            CreateTask.InitializeExclusively(Create);
-            ReadTask.InitializeExclusively(Read);
-            UpdateTask.InitializeExclusively(Update);
-            DeleteTask.InitializeExclusively(Delete);
-            this.WriteAsync().Wait();
-            //_idExistsTask.InitializeExclusively(Exists);
-            //_createOrUpdateTask.Initialize(CreateOrUpdate);
-        }
-
-        public void DeInitializeRemoteDataExchange()
-        {
-            CreateTask.DeInitialize();
-            ReadTask.DeInitialize();
-            UpdateTask.DeInitialize();
-            DeleteTask.DeInitialize();
-            this.WriteAsync().Wait();
-            //_idExistsTask.InitializeExclusively(Exists);
-            //_createOrUpdateTask.Initialize(CreateOrUpdate);
-        }
-
-        public void InitializeRemoteDataExchange<T>(IRepository<T> repository) where T : IBrowsableDataObject
-        {
-            this.InitializeRepository(repository);
-            this.InitializeRemoteDataExchange();
-        }
-
-        internal bool Create()
-        {
-            CreateTask.ReadAsync().Wait();
-            DataEntity.DataEntityId.SetAsync(CreateTask.DataEntityIdentifier.LastValue).Wait();
-            var cloned = this.DataEntity.OnlineToPlainAsync().Result;
-
-            try
-            {
-                _repository.Create(CreateTask.DataEntityIdentifier.LastValue, cloned);
-                return true;
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
-
-        private bool CreateOrUpdate()
-        {
-            //_createOrUpdateTask.Read();
-            //var id = _createOrUpdateTask._identifier.LastValue;
-            //Onliner._EntityId.Synchron = id;
-            //if (!this._repository.Exists(id))
-            //{                
-            //    var cloned = this.Onliner.CreatePlainerType();
-            //    this.Onliner.FlushOnlineToPlain(cloned);
-            //    try
-            //    {
-            //        _repository.Create(id, cloned);
-            //        return true;
-            //    }
-            //    catch (Exception exception)
-            //    {
-            //        throw exception;
-            //    }
-            //}
-            //else
-            //{
-            //    var cloned = this.Onliner.CreatePlainerType();
-            //    this.Onliner.FlushOnlineToPlain(cloned);
-            //    _repository.Update(id, cloned);
-            //    return true;
-            //}
-            //
+            var record = Repository.Read(identifier);
+            ((ITwinObject)DataEntity).PlainToShadow(record).Wait();
             return true;
         }
-
-        internal bool Read()
+        catch (Exception exception)
         {
-            ReadTask.ReadAsync().Wait();
+            throw exception;
+        }
+    }
 
-            try
+    /// <inheritdoc />
+    public bool RemoteUpdate(string identifier)
+    {
+        UpdateTask.ReadAsync().Wait();
+        DataEntity.DataEntityId.SetAsync(identifier).Wait();
+        var cloned = ((ITwinObject)DataEntity).OnlineToPlain<TPlain>().Result;
+        Repository.Update(identifier, cloned);
+        return true;
+    }
+
+    /// <inheritdoc />
+    public bool RemoteDelete(string identifier)
+    {
+        UpdateTask.ReadAsync().Wait();
+        DataEntity.DataEntityId.SetAsync(identifier).Wait();
+        var cloned = ((ITwinObject)DataEntity).OnlineToPlain<TPlain>().Result;
+        Repository.Update(identifier, cloned);
+        return true;
+    }
+
+    private PropertyInfo? GetDataSetPropertyInfo<TA>() where TA : Attribute
+    {
+        var properties = GetType().GetProperties();
+        PropertyInfo? DataPropertyInfo = null;
+
+        // iterate properties and look for AxoDataEntityAttribute
+        foreach (var prop in properties)
+        {
+            var attr = prop.GetCustomAttribute<TA>();
+            if (attr != null)
             {
-                object record = _repository.Read(ReadTask.DataEntityIdentifier.LastValue);
-                DataEntity.PlainToOnlineAsync(record).Wait();
-                return true;
-            }
-            catch (Exception exception)
-            {
-                throw exception;
+                //if already set, that means multiple data attributes are present, we want to throw error
+                if (DataPropertyInfo != null)
+                    throw new MultipleDataEntityAttributeException(
+                        $"{GetType()} contains multiple {nameof(TA)}s! Make sure it contains only one.");
+                DataPropertyInfo = prop;
+                break;
             }
         }
-        internal bool Update()
-        {
-            UpdateTask.ReadAsync().Wait();
-            DataEntity.DataEntityId.SetAsync(UpdateTask.DataEntityIdentifier.LastValue).Wait();
-            var cloned = this.DataEntity.OnlineToPlainAsync().Result;
-            try
-            {
-                _repository.Update(UpdateTask.DataEntityIdentifier.Cyclic, cloned);
-                return true;
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
 
-        internal bool Delete()
-        {
-            DeleteTask.ReadAsync().Wait();
-            try
-            {
-                _repository.Delete(DeleteTask.DataEntityIdentifier.LastValue);
-                return true;
-            }
-            catch (Exception exception)
-            {
-                throw exception;
-            }
-        }
+        if (DataPropertyInfo == null)
+            throw new Exception($"There is no member annotated with '{nameof(AxoDataEntityAttribute)}' in '{Symbol}'.");
 
-        private bool Exists()
-        {
-            //_idExistsTask.Read();
-            //try
-            //{
-            //    _idExistsTask._exists.Synchron = _repository.Exists(_idExistsTask._identifier.Cyclic);                
-            //    return true;
-            //}
-            //catch (Exception exception)
-            //{
-            //    throw exception;
-            //}
-            return true;
-        }
+        return DataPropertyInfo;
+    }
+
+    private ICrudDataObject? GetDataSetProperty<TA>() where TA : Attribute
+    {
+        var dataObjectPropertyInfo = GetDataSetPropertyInfo<TA>();
+        var dataObject = dataObjectPropertyInfo?.GetValue(this) as AxoDataEntity;
+        if (dataObject == null)
+            throw new Exception(
+                $"Data member annotated with '{nameof(TA)}' in '{Symbol}'  does not inherit from '{nameof(AxoDataEntity)}'");
+
+        return dataObject;
+    }
+
+    /// <summary>
+    ///     Sets repository for this instance of <see cref="AxoDataExchange{TOnline,TPlain}" />
+    /// </summary>
+    /// <param name="repository"></param>
+    public void SetRepository(IRepository<TPlain> repository)
+    {
+        DataRepository = repository;
+    }
+
+    /// <summary>
+    ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
+    /// </summary>
+    public void InitializeRemoteDataExchange()
+    {
+        CreateTask.InitializeExclusively(RemoteCreate);
+        ReadTask.InitializeExclusively(RemoteRead);
+        UpdateTask.InitializeExclusively(RemoteUpdate);
+        DeleteTask.InitializeExclusively(RemoteDelete);
+        this.WriteAsync().Wait();
+        //_idExistsTask.InitializeExclusively(Exists);
+        //_createOrUpdateTask.Initialize(CreateOrUpdate);
+    }
+
+    /// <summary>
+    ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
+    /// </summary>
+    /// <param name="repository">Repository to be associated with this <see cref="AxoDataExchange{TOnline,TPlain}" /></param>
+    public void InitializeRemoteDataExchange(IRepository<TPlain> repository)
+    {
+        SetRepository(repository);
+        InitializeRemoteDataExchange();
+    }
+
+    /// <summary>
+    ///     Terminates data exchange between controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
+    /// </summary>
+    public void DeInitializeRemoteDataExchange()
+    {
+        CreateTask.DeInitialize();
+        ReadTask.DeInitialize();
+        UpdateTask.DeInitialize();
+        DeleteTask.DeInitialize();
+        this.WriteAsync().Wait();
+        //_idExistsTask.InitializeExclusively(Exists);
+        //_createOrUpdateTask.Initialize(CreateOrUpdate);
+    }
+
+    private bool RemoteCreate()
+    {
+        return RemoteCreate(CreateTask.DataEntityIdentifier.GetAsync().Result);
+    }
+
+    private bool RemoteCreateOrUpdate()
+    {
+        //_createOrUpdateTask.Read();
+        //var id = _createOrUpdateTask._identifier.LastValue;
+        //Onliner._EntityId.Synchron = id;
+        //if (!this._repository.Exists(id))
+        //{                
+        //    var cloned = this.Onliner.CreatePlainerType();
+        //    this.Onliner.FlushOnlineToPlain(cloned);
+        //    try
+        //    {
+        //        _repository.Create(id, cloned);
+        //        return true;
+        //    }
+        //    catch (Exception exception)
+        //    {
+        //        throw exception;
+        //    }
+        //}
+        //else
+        //{
+        //    var cloned = this.Onliner.CreatePlainerType();
+        //    this.Onliner.FlushOnlineToPlain(cloned);
+        //    _repository.Update(id, cloned);
+        //    return true;
+        //}
+        //
+        return true;
+    }
+
+    private bool RemoteRead()
+    {
+        return RemoteRead(ReadTask.DataEntityIdentifier.GetAsync().Result);
+    }
+
+    private bool RemoteUpdate()
+    {
+        return RemoteUpdate(UpdateTask.DataEntityIdentifier.GetAsync().Result);
+    }
+
+    private bool RemoteDelete()
+    {
+        return RemoteDelete(DeleteTask.DataEntityIdentifier.GetAsync().Result);
+    }
+
+    private bool RemoteExists()
+    {
+        //_idExistsTask.Read();
+        //try
+        //{
+        //    _idExistsTask._exists.Synchron = _repository.Exists(_idExistsTask._identifier.Cyclic);                
+        //    return true;
+        //}
+        //catch (Exception exception)
+        //{
+        //    throw exception;
+        //}
+        return true;
+    }
+
+    public async Task CreateAsync(string identifier, TPlain plain)
+    {
+        await Task.Run(() => Repository?.Create(identifier, plain));
+    }
+
+    public async Task<TPlain> ReadAsync(string identifier)
+    {
+        return await Task.Run(() => DataRepository.Read(identifier));
+    }
+
+    public async Task UpdateAsync(string identifier, TPlain data)
+    {
+        await Task.Run(() => Repository.Update(identifier, data));
+    }
+
+    public async Task DeleteAsync(string identifier)
+    {
+        await Task.Run(() => Repository.Delete(identifier));
     }
 }

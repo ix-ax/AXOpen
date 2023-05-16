@@ -9,20 +9,20 @@ using AXOpen.Base.Data;
 using AXOpen.Core;
 using AXOpen.Core.blazor.Toaster;
 using AXOpen.Data.Interfaces;
-using AXOpen.Data.ViewModels;
+using AXOpen.Data;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 
 namespace AXOpen.Data;
 
-public partial class AxoDataView
+public partial class AxoDataExchangeView
 {
     private readonly List<AxoColumnData> Columns = new();
 
-    [Parameter] public IAxoDataViewModel Vm { get; set; }
+    [Parameter] public AxoDataExchangeViewModel Vm { get; set; }
 
-    [Parameter] public string Presentation { get; set; }
+    [Parameter] public string Presentation { get; set; } = "Command";
 
     [Parameter] public bool ModalDataView { get; set; } = true;
 

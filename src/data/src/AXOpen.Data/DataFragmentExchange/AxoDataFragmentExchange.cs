@@ -19,12 +19,11 @@ public class AxoDataFragmentAttribute : Attribute
 
 public partial class AxoDataFragmentExchange
 {
-    protected AxoDataExchange[] DataFragments { get; private set; }
+    protected IAxoDataExchange[] DataFragments { get; private set; }
 
-    
     public T? Builder<T>() where T : AxoDataFragmentExchange
     {
-        DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, AxoDataExchange>().ToArray();
+        DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         Operation.InitializeExclusively(Handle);
         Operation.WriteAsync().Wait();
         return this as T;
@@ -59,8 +58,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var framents in DataFragments)
         {
-            framents?.CreateTask.DataEntityIdentifier.SetAsync(identifier).Wait();
-            framents?.Create();
+            framents?.RemoteCreate(identifier);
         }
     }
 
@@ -68,8 +66,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var framents in DataFragments)
         {
-            framents?.ReadTask.DataEntityIdentifier.SetAsync(identifier).Wait();
-            framents?.Read();
+            framents?.RemoteRead(identifier);
         }
     }
 
@@ -77,8 +74,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var framents in DataFragments)
         {
-            framents?.UpdateTask.DataEntityIdentifier.SetAsync(identifier).Wait();
-            framents?.Update();
+            framents?.RemoteUpdate(identifier);
         }
     }
 
@@ -86,12 +82,11 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var framents in DataFragments)
         {
-            framents?.DeleteTask.DataEntityIdentifier.SetAsync(identifier).Wait();
-            framents?.Delete();
+            framents?.RemoteDelete(identifier);
         }
     }
 
-    public IEnumerable<PropertyInfo>? GetDataSetPropertyInfo<TA>() where TA : Attribute
+    private IEnumerable<PropertyInfo>? GetDataSetPropertyInfo<TA>() where TA : Attribute
     {
         var properties = this.GetType().GetProperties();
         List<PropertyInfo>? DataPropertyInfo = new List<PropertyInfo>();
@@ -114,7 +109,7 @@ public partial class AxoDataFragmentExchange
         return DataPropertyInfo;
     }
 
-    public IEnumerable<TS>? GetDataSetProperty<TA, TS>() where TA : Attribute where TS : class
+    private IEnumerable<TS>? GetDataSetProperty<TA, TS>() where TA : Attribute where TS : class
     {
         return this.GetDataSetPropertyInfo<TA>()?.Select(p => p.GetValue(this) as TS);
     }

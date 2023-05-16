@@ -1,10 +1,9 @@
 ﻿@page "/ui/ProcessData"
 @using AXSharp.Connector
 @using AXOpen.Data;
-@using AXOpen.Data.ViewModels
 
 <div class="container-fluid">
     <div class="row">
-        @*<RenderableContentControl Context="@Entry.Plc.Context.ProductionSettings" Presentation="Command"></RenderableContentControl>*@
+        <RenderableContentControl Context="@Entry.Plc.Context.ProcessData" Presentation="Command"></RenderableContentControl>
     </div>
 </div>

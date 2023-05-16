@@ -5,6 +5,7 @@ USING AXOpen.Data;
 NAMESPACE axosimple
     CLASS PUBLIC Context EXTENDS AxoContext                   
         VAR PUBLIC
+            ProcessData : ProcessData;
             PneumaticManipulator : examples.PneumaticManipulator.CU;                       
             Inputs : REF_TO axosimple.Inputs;
             Outputs : REF_TO axosimple.Outputs;
@@ -27,8 +28,19 @@ NAMESPACE axosimple
 
     CLASS SharedProductionDataManager EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
+            {#ix-generic:TOnline}
+            {#ix-generic:TPlain as POCO}
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
             Set : SharedProductionData;
+        END_VAR        
+    END_CLASS
+
+    CLASS ProcessData EXTENDS AXOpen.Data.AxoDataFragmentExchange
+        VAR PUBLIC        
+            {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
+            Set : SharedProductionDataManager;
+            {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
+            Manip : examples.PneumaticManipulator.FragmentProcessDataManger;
         END_VAR        
     END_CLASS
 END_NAMESPACE
