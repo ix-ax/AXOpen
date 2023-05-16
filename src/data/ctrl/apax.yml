@@ -5,11 +5,12 @@ targets:
 #  - "1500"
 #  - llvm
 #  - axunit
-  - axunit-llvm
+  - llvm
 files:
   - src
 dependencies:
   "@ix-ax/axopen.core"                                                                                                                                                                                             : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
+  "@ax/axunit-library": ^4.0.6
 devDependencies:
   "@ax/sdk": 3.0.8
 scripts:  

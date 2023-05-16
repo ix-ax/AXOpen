@@ -1,10 +1,11 @@
 name: "@ix-ax/axopen.messaging"
-version                                                                                                                                       : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
+version: '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
 type: lib
 targets:
-  #  - "1500"
+  # - "1500"
   #  - llvm
   #  - axunit
+  - llvm
   - axunit-llvm
 files:
   - src
@@ -15,11 +16,12 @@ scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ax/system-strings": ^4.2.3
-  "@ax/simatic-1500-clocks": ^3.0.6
-  "@ax/system-serde": ^1.3.13
-  "@ax/system-bitaccess": ^5.0.4
-  "@ax/system-datetime": ^3.1.3
-  "@ix-ax/axopen.core"                                                                                                                                       : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
-  "@ix-ax/axopen.utils"                                                                                                                                       : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
-  "@ix-ax/axopen.abstractions"                                                                                                                                       : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
+  # "@ax/system-strings": ^4.2.3
+  # "@ax/simatic-1500-clocks": ^3.0.6
+  # "@ax/system-serde": ^1.3.13
+  # "@ax/system-bitaccess": ^5.0.4
+  # "@ax/system-datetime": ^3.1.3
+  "@ix-ax/axopen.core": '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
+  "@ix-ax/axopen.utils": '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
+  "@ix-ax/axopen.abstractions": '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
+  "@ax/axunit-library": ^4.0.6

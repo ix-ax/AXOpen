@@ -5,7 +5,7 @@ targets:
   #  - "1500"
   #  - llvm
   #  - axunit
-  - axunit-llvm
+  - llvm
 files:
   - src
 devDependencies:
@@ -16,4 +16,5 @@ scripts:
 dependencies:
   "@ax/system-timer": 3.0.9
   "@ix-ax/axopen.abstractions"       : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
+  "@ax/axunit-library": ^4.0.6
  

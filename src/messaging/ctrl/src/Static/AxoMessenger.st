@@ -44,12 +44,7 @@ NAMESPACE AXOpen.Messaging.Static
             
             IF IsActive THEN
                 IF  Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
-                    IsActive := FALSE;
-                    ActiveContextCount := ULINT#0;
-                    Fallen := Context.GetRtc().NowUTC();
-                    IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
-                        WaitingForAcknowledge := TRUE;
-                    END_IF;
+                    THIS.Deactivate();
                 END_IF;
             ELSE
                 AcknowledgedBeforeFallen := FALSE;
@@ -108,7 +103,9 @@ NAMESPACE AXOpen.Messaging.Static
             ActivateOnCondition := THIS;
 
             IF _condition THEN
-                ActivateOnCondition := THIS.Activate(_category);                            
+                ActivateOnCondition := THIS.Activate(_category);                    
+            ELSE
+                THIS.Deactivate();        
             END_IF;
 
         END_METHOD   
@@ -131,15 +128,30 @@ NAMESPACE AXOpen.Messaging.Static
 
             Acknowledged := Context.GetRtc().NowUTC();
         END_METHOD    
-    
+
+        METHOD PRIVATE Deactivate
+            IF AXOpen.Core.IsNullContext(Context) THEN
+                RETURN;
+            END_IF;
+
+            IF IsActive THEN
+                IsActive := FALSE;
+                ActiveContextCount := ULINT#0;
+                Fallen := Context.GetRtc().NowUTC();
+                IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
+                    WaitingForAcknowledge := TRUE;
+                END_IF;
+            END_IF;
+        END_METHOD   
+
         METHOD PUBLIC RequireAcknowledgement : IAxoMessageProperties
             AcknowledgementRequired := TRUE;
             RequireAcknowledgement := THIS;
         END_METHOD
 
-        METHOD PUBLIC DontRequireAcknowledgement : IAxoMessageProperties
+        METHOD PUBLIC DoNotRequireAcknowledgement : IAxoMessageProperties
             AcknowledgementRequired := FALSE;
-            DontRequireAcknowledgement := THIS;
+            DoNotRequireAcknowledgement := THIS;
         END_METHOD
 
         METHOD PUBLIC IsAcknowledgementRequired : BOOL
