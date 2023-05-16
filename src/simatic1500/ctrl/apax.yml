@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.simatic1500"
-version : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
+version: '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
 type: lib
 targets:
   #  - "1500"
@@ -9,10 +9,10 @@ targets:
 files:
   - src
 dependencies:
-  "@ax/simatic-1500": 3.0.2  
-  "@ix-ax/axopen.abstractions" : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
+  "@ax/simatic-1500": 3.0.2
+  "@ix-ax/axopen.abstractions": '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
 devDependencies:
-  "@ax/sdk": 3.0.8
+  "@ax/sdk": 3.0.18
 
 scripts:
   postbuild:

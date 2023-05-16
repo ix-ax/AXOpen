@@ -11,16 +11,10 @@ files:
   - src
 devDependencies:
   "@ax/sdk": 3.0.18
-
 scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  # "@ax/system-strings": ^4.2.3
-  # "@ax/simatic-1500-clocks": ^3.0.6
-  # "@ax/system-serde": ^1.3.13
-  # "@ax/system-bitaccess": ^5.0.4
-  # "@ax/system-datetime": ^3.1.3
   "@ix-ax/axopen.core": '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
   "@ix-ax/axopen.utils": '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
   "@ix-ax/axopen.abstractions": '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
