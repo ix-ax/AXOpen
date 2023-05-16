@@ -8,7 +8,7 @@ targets:
 files:
   - bin
 devDependencies:
-  "@ax/sdk": 3.0.12
+  "@ax/sdk": 3.0.18
 dependencies:
   "@ax/system-strings": ^4.2.3
 scripts:  

@@ -10,7 +10,7 @@ targets:
 files:
   - src
 devDependencies:
-  "@ax/sdk": 3.0.8
+  "@ax/sdk": 3.0.18
 
 scripts:
   postbuild:

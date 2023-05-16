@@ -8,7 +8,7 @@ targets:
   - llvm
   - plcsim
 devDependencies:
-  "@ax/sdk": 3.0.8
+  "@ax/sdk": 3.0.18
   "@ax/sld": ^0.14.2
 dependencies:
    "@ix-ax/axopen.core"                  : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.65'
