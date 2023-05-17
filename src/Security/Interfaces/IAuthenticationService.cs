@@ -19,15 +19,6 @@ namespace Security
         /// De-authenticates current user.
         /// </summary>
         void DeAuthenticateCurrentUser(); 
-
-        /// <summary>
-        /// Changes the password of given user.
-        /// </summary>
-        /// <param name="userName">User name</param>
-        /// <param name="password">Old password</param>
-        /// <param name="newPassword1">New password</param>
-        /// <param name="newPassword2">New password</param>
-        void ChangePassword(string userName, string password, string newPassword1, string newPassword2);
         
         /// <summary>
         /// Occurs when the uses is successfully authenticated.
@@ -58,7 +49,5 @@ namespace Security
         /// Get or set external authentication device handling.
         /// </summary>
         IExternalAuthorization ExternalAuthorization { get; set; }
-
-        bool HasAuthorization(string roles, Action notAuthorizedAction = null);
     }
 }

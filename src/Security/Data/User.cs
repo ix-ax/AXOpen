@@ -9,11 +9,6 @@ namespace Security
         public string Level { get; set; }
         public string RoleHash { get; set; }
 
-        public User()
-        {
-
-        }
-
         public User(string username, string email, string[] roles, bool canUserChangePassword)
         {
             var normalizer = new UpperInvariantLookupNormalizer();

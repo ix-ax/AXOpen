@@ -3,7 +3,7 @@
   "RecordId": null,
   "DataEntityId": "admin",
   "UserName": "admin",
-  "Email": null,
+  "Email": "fdsd@d",
   "HashedPassword": "2CSU8F1pF7oC96qilonMtES7c/IDgIdssF0fN1N7eJI=",
   "CanUserChangePassword": false,
   "Roles": [
@@ -12,7 +12,7 @@
   "RoleHash": "DDqGGWF067m+xzdK/hiNIkFC2ui+AArqAr+MQd+2miM=",
   "LogoutTime": "00:00:00",
   "Created": "0001-01-01T00:00:00",
-  "Modified": "2023-05-17T09:24:24.9337332+02:00",
-  "SecurityStamp": "ff227d28-5ce0-438f-b10a-fe188cee1483",
+  "Modified": "2023-05-17T09:50:32.7776986+02:00",
+  "SecurityStamp": "5f4ff12d-e398-499e-ab49-9da0e507b2cb",
   "AuthenticationToken": null
 }

@@ -21,7 +21,9 @@ namespace BlazorAuthApp
 
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddVortexBlazorSecurity(ServicesConfiguration.SetUpJSon());
+            //ExternalAuthorization externalAuthorization = ExternalTokenAuthorization.CreatePlcTokenReader("sff", true);
+
+            builder.Services.AddVortexBlazorSecurity(ServicesConfiguration.SetUpJSon(), Roles.CreateRoles());
             //builder.Services.AddVortexBlazorSecurity(ServicesConfiguration.SetUpMongo());
             //builder.Services.AddVortexBlazorSecurity(ServicesConfiguration.SetUpRavenDB(new string[] { "https://a.ravend.ravendb.community" }, "Blazor", "C:\\Users\\branko.zachemsky\\Downloads\\ClientCertificate\\ClientCertificate.pfx"));
             //builder.Services.AddVortexBlazorSecurity(ServicesConfiguration.SetUpInMemory());

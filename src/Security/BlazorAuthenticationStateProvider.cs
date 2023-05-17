@@ -245,27 +245,5 @@ namespace Security
                 //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User '{userName}' has de-authenticated.{{payload}}", new { UserName = userName });
             }
         }
-
-        public void ChangePassword(string userName, string password, string newPassword1, string newPassword2)
-        {
-            if (newPassword1 != newPassword2)
-                throw new PasswordsDoNotMatchException("PasswordMismatch");
-
-            var authenticated = AuthenticateUser(userName, password);
-
-            if (authenticated.UserName == userName)
-            {
-                var user = this.UserRepository.Read(userName);
-                user.HashedPassword = Hasher.CalculateHash(newPassword1, userName);
-                this.UserRepository.Update(userName, user);
-                //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User '{authenticated.UserName}' has changed password.{{payload}}",
-                //    new { UserName = authenticated.UserName, CanChangePassword = authenticated.CanUserChangePassword, Roles = string.Join(",", authenticated.Roles) });
-            }
-        }
-
-        public bool HasAuthorization(string roles, Action notAuthorizedAction = null)
-        {
-            return AuthorizationChecker.HasAuthorization(roles, notAuthorizedAction);
-        }
     }
 }

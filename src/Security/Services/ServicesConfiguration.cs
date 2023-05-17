@@ -14,7 +14,10 @@ namespace Security
     public static class ServicesConfiguration
     {
         public static void AddVortexBlazorSecurity(this IServiceCollection services,
-            (IRepository<UserData> userRepo, IRepository<GroupData> groupRepo) repos)
+            (IRepository<UserData> userRepo, IRepository<GroupData> groupRepo) repos,
+            List<Role>? roles = null,
+            ExternalAuthorization? externalAuthorization = null
+            )
         {
             services.AddIdentity<User, Role>(identity =>
             {
@@ -34,9 +37,17 @@ namespace Security
 
             RoleGroupManager roleGroupManager = new RoleGroupManager(repos.groupRepo);
 
+            if (roles != null)
+            {
+                roleGroupManager.CreateRoles(roles);
+            }
+
             BlazorAuthenticationStateProvider blazorAuthenticationStateProvider = new BlazorAuthenticationStateProvider(repos.userRepo, roleGroupManager);
 
-            //blazorAuthenticationStateProvider.ExternalAuthorization = ExternalTokenAuthorization.CreatePlcTokenReader("sff", true);
+            if(externalAuthorization != null)
+            {
+                blazorAuthenticationStateProvider.ExternalAuthorization = externalAuthorization;
+            }
 
             SecurityManager.Create(blazorAuthenticationStateProvider, repos.userRepo);
 

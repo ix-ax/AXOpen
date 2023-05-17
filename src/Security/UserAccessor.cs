@@ -20,8 +20,6 @@ namespace Security
             set
             {
                 _identity = value;
-                this.DisplayUserName = _identity.Name;
-                this.DisplayUserLevel = _identity.Level;
                 OnPropertyChanged(nameof(Identity));
             }
         }
@@ -38,43 +36,6 @@ namespace Security
 
         private UserAccessor()
         {
-        }
-
-        string displayUserName;
-        public string DisplayUserName
-        {
-            get
-            {
-                return displayUserName;
-            }
-            set
-            {
-                if (displayUserName == value)
-                {
-                    return;
-                }
-
-                displayUserName = value;
-                OnPropertyChanged();
-            }
-        }
-        string displayUserLevel;
-        public string DisplayUserLevel
-        {
-            get
-            {
-                return displayUserLevel;
-            }
-            set
-            {
-                if (displayUserLevel == value)
-                {
-                    return;
-                }
-
-                displayUserLevel = value;
-                OnPropertyChanged();
-            }
         }
 
         #region propertychanged

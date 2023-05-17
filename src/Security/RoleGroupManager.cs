@@ -37,6 +37,19 @@ namespace Security
             return IdentityResult.Success;
         }
 
+        public IdentityResult CreateRoles(List<Role> roles)
+        {
+            if (roles == null)
+                throw new ArgumentNullException(nameof(roles));
+
+            foreach(Role role in roles)
+            {
+                this.inAppRoleCollection.Add(role);
+            }
+            
+            return IdentityResult.Success;
+        }
+
         public IdentityResult CreateGroup(string name)
         {
             if (name == null || name == "")
@@ -199,30 +212,6 @@ namespace Security
             }
 
             return new List<string>(data.Roles);
-        }
-
-        public string GetRolesFromGroupString(string group)
-        {
-            if (group == null || group == "")
-                return null;
-
-            GroupData data = null;
-
-            try
-            {
-                if (!groupRepo.Exists(group))
-                {
-                    return null;
-                }
-                data = groupRepo.Read(group);
-                Hasher.VerifyHash(data.Roles, data.RoleHash, data.Name);
-            }
-            catch (UnableToLocateRecordId)
-            {
-                return null;
-            }
-
-            return String.Join(",", data.Roles);
         }
 
         public List<GroupData> GetAllGroup()

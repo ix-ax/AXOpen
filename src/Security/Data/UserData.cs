@@ -35,20 +35,5 @@ namespace Security
             RoleHash = user.RoleHash;
             SecurityStamp = user.SecurityStamp;
         }
-        public UserData(string username, string email, string hashedPassword, IEnumerable<string> roles, string authenticationToken)
-        {
-            UserName = username;
-            Email = email;
-            HashedPassword = hashedPassword;
-            Roles = new ObservableCollection<string>(roles);
-            AuthenticationToken = Hasher.CalculateHash(authenticationToken, string.Empty);
-        }
-             
-        public UserData(string username, string hashedPassword, IEnumerable<string> roles)
-        {
-            UserName = username;
-            HashedPassword = hashedPassword;
-            Roles = new ObservableCollection<string>(roles);
-        }
     }
 }

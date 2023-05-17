@@ -30,7 +30,7 @@ namespace Security
     ///  
     /// To limit execution of methods for privileged user use <see cref="   "/>
     ///</summary>       
-    public class SecurityManager : ISecurityManager
+    public class SecurityManager
     {
         private SecurityManager(IAuthenticationService service, IRepository<UserData> repository)
         {
@@ -39,7 +39,7 @@ namespace Security
             Service = service;
 
             Principal = new AppIdentity.AppPrincipal();
-            SecurityProvider.Create(Service);
+            //SecurityProvider.Create(Service);
 
             if (System.Threading.Thread.CurrentPrincipal?.GetType() != typeof(AppIdentity.AppPrincipal))
             {
@@ -76,39 +76,7 @@ namespace Security
             }
         }
 
-        List<Role> availableRoles = new List<Role>() { new Role("Administrator", "AdminGroup") };
-
-        public IEnumerable<Role> AvailableRoles
-        {
-            get
-            {
-                return availableRoles;
-            }
-        }
-
-        public IEnumerable<string> AvailableGroups() => availableRoles.Select(o => o.DefaultGroup).Distinct();
-
-        /// <summary>
-        /// Get the existing role or add the rule if not present in the system.
-        /// </summary>
-        /// <param name="role">Role to create or retrieve.</param>
-        /// <returns>Requested role</returns>
-        public Role GetOrCreateRole(Role role)
-        {
-            if (!this.availableRoles.Contains(role))
-            {
-                this.availableRoles.Add(role);
-            }
-
-            return role;
-        }
-
         public IRepository<UserData> UserRepository { get; }
-
-        /// <summary>
-        /// Gets weather the security manager is initialized.
-        /// </summary>
-        public static bool IsInitialized { get { return _manager != null; } }
     }
 
     public class SecurityManagerNotInitializedException : Exception
