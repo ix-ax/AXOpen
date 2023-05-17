@@ -1,6 +1,6 @@
 USING AXOpen.Utils;
 
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
     CLASS PUBLIC AxoMessengerEnv IMPLEMENTS IAxoMessengerEnv
 		VAR
 			_minLevel : eAxoMessageCategory;

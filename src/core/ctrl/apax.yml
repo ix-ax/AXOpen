@@ -1,19 +1,20 @@
 name: "@ix-ax/axopen.core"
-version                                                                                                                                                                              : '0.1.4-alpha.53'
+version                                                                                                                                                                                : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
 type: lib
 targets:
   #  - "1500"
   #  - llvm
-  #  - axunit
   - axunit-llvm
+  - llvm
 files:
   - src
 devDependencies:
-  "@ax/sdk": 3.0.8  
+  "@ax/sdk": 3.0.18  
 scripts:
   postbuild:
     - dotnet ixc
 dependencies:
   "@ax/system-timer": 3.0.9
-  "@ix-ax/axopen.abstractions"      : '0.1.4-alpha.53'
+  "@ix-ax/axopen.abstractions"        : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
+  "@ax/axunit-library": ^4.0.6
  

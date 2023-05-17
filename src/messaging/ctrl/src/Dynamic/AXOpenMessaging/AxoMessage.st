@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
     ///<summary>
     /// Complete message details including time stamp, message text, message category, identity of the message provider, context cycle in which the message was posted.
     ///</summary>

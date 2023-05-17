@@ -3,10 +3,11 @@ USING AXOpen.Rtc;
 USING AXOpen.Core;
 USING AXOpen.Utils;
 USING AXOpen.Messaging;
+USING AXOpen.Messaging.Dynamic;
 USING System.Strings;
 USING System.DateTime;
 
-NAMESPACE AXOpen.AxoMessaging_UnitTests
+NAMESPACE AXOpen.AxoMessagingDynamic_UnitTests
     CLASS TestContextI IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;

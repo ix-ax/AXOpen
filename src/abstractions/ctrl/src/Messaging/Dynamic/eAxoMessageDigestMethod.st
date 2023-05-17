@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
     /// <summary>
     /// Message digest methods used to create fingerprint of a message.							
     /// </summary>			

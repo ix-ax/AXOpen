@@ -1,14 +1,14 @@
 name: "@ix-ax/axopen.abstractions"
-version                                                                                                                                                                                                   : '0.1.4-alpha.53'
+version                                                                                                                                                                                                     : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
 type: lib
 targets:
   - "1500"
-  - llvm
   - axunit-llvm
+  - llvm
 files:
   - bin
 devDependencies:
-  "@ax/sdk": 3.0.12
+  "@ax/sdk": 3.0.18
 dependencies:
   "@ax/system-strings": ^4.2.3
 scripts:  

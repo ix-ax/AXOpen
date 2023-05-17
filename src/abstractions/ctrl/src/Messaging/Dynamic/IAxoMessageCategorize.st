@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
     INTERFACE IAxoMessageCategorize 
 		/// <summary>
         /// Categorizes and creates the message as 'debug'.								 
