@@ -32,13 +32,35 @@ namespace AXOpen.Messaging.Static
             get
             {
                 string retval = "btn-default";
-                if (IsActive  && !AcknowledgedBeforeFallen) { retval = "btn-danger"; }
-                if (!IsActive &&  WaitingForAcknowledge && !AcknowledgedBeforeFallen) { retval = "btn-warning"; }
-                if (IsActive  && !WaitingForAcknowledge && AcknowledgedBeforeFallen) { retval = "btn-success"; }
+                if(IsActive)
+                {
+                    retval = AckBtnBackgroundColor;
+                }
                 return retval;
             }
         }
 
+
+        private string AckBtnBackgroundColor
+        {
+            get
+            {
+                string retval = "btn-default";
+                if (Component.Category.Cyclic < 600)         // Upto warning level excluding
+                {
+                    retval = "btn-info";
+                }
+                else if (Component.Category.Cyclic < 700)   //From warning level including, upto error level excluding
+                {
+                    retval = "btn-warning";
+                }
+                else if (Component.Category.Cyclic <= 1200) //From error level including, upto catastrophic level including
+                {
+                    retval = "btn-danger";
+                }
+                return retval;
+            }
+        }
         private string Category
         {
             get
