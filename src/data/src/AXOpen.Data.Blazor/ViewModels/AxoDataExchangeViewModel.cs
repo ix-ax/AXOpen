@@ -16,6 +16,7 @@ using AXSharp.Connector;
 using CommunityToolkit.Mvvm.Messaging;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Linq.Expressions;
+using System.Numerics;
 
 namespace AXOpen.Data
 {
@@ -32,13 +33,6 @@ namespace AXOpen.Data
             set => this.DataExchange = (IAxoDataExchange)value;
         }
 
-        //private DataBrowser<T> CreateBrowsable(IRepository<T> repository)
-        //{
-        //    return AXOpen.Base.Data.DataBrowser.Factory(DataExchange.Repository);
-        //}
-
-        //public DataBrowser<T> DataBrowser { get; set; }
-        
         public List<ValueChangeItem> Changes { get; set; }
 
         private IBrowsableDataObject _selectedRecord;
@@ -61,7 +55,8 @@ namespace AXOpen.Data
                 _selectedRecord = value;
                 if (value != null)
                 {
-                    ((ITwinObject)DataExchange.Data).PlainToShadow(value).Wait();
+                    DataExchange.FromPlainsToShadows(value);
+                    //--((ITwinObject)DataExchange.Data).PlainToShadow(value).Wait();
                     //CrudData.Changes = ((Pocos.AXOpen.Data.IAxoDataEntity)_selectedRecord).Changes;
                     //Changes = CrudData.Changes;
                 }
@@ -77,7 +72,7 @@ namespace AXOpen.Data
             return Task.Run(async () =>
             {
                 IsBusy = true;
-                FillObservableRecords();
+                UpdateObservableRecords();
                 IsBusy = false;
             });
         }
@@ -91,6 +86,8 @@ namespace AXOpen.Data
                 this.Records.Add(item);
             }
 
+            FilteredCount = CountFiltered(FilterById, SearchMode);
+            
             return Records;
         }
 
@@ -99,15 +96,9 @@ namespace AXOpen.Data
             return this.DataExchange.Repository.FilteredCount(id, searchMode);
         }
 
-        public void FillObservableRecords()
+        public void UpdateObservableRecords()
         {
-            var filtered = Filter(FilterById, Limit, Page * Limit, SearchMode).ToList();
-            foreach (var item in filtered)
-            {
-                Records.Add(item);
-            }
-            
-            FilteredCount = CountFiltered(FilterById, SearchMode);
+            Filter(FilterById, Limit, Page * Limit, SearchMode).ToList();
         }
 
         public async Task Filter()
@@ -151,78 +142,105 @@ namespace AXOpen.Data
 
         public async Task CreateNew()
         {
-
-            var plainer = ((ITwinObject)DataExchange.Data).CreatePoco() as Pocos.AXOpen.Data.AxoDataEntity;
-
-            if (plainer == null)
-                throw new WrongTypeOfDataObjectException(
-                    $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
-
-            if (CreateItemId != null)
-                plainer.DataEntityId = CreateItemId;
-
             try
             {
-                this.DataExchange.Repository.Create(plainer.DataEntityId, plainer);
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Item was successfully created!", 10)));
+                DataExchange.CreateNew(CreateItemId);
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!",
+                    "Item was successfully created!", 10)));
             }
-            catch (DuplicateIdException)
+            catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to create new record!",
+                    e.Message, 10)));
+                throw;
             }
-
-            var plain = FindById(plainer.DataEntityId);
-            await ((ITwinObject)DataExchange.Data).PlainToShadow(plain);
-            FillObservableRecords();
-            CreateItemId = null;
+            finally
+            {
+                await FillObservableRecordsAsync();
+                CreateItemId = null;
+            }
         }
 
         public void Delete()
         {
-            var plainer = ((ITwinObject)DataExchange.Data).CreatePoco() as Pocos.AXOpen.Data.AxoDataEntity;
+            try
+            {
+                DataExchange.Delete(SelectedRecord.DataEntityId);
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!",
+                    "Item was successfully deleted!", 10)));
+            }
+            catch (Exception e)
+            {
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to delete",
+                    e.Message, 10)));
+            }
+            finally
+            {
+                UpdateObservableRecords();
+            }
+            
 
-            if (plainer == null)
-                throw new WrongTypeOfDataObjectException(
-                    $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
-            plainer.DataEntityId = SelectedRecord.DataEntityId;
+            //-- var plainer = ((ITwinObject)DataExchange.Data).CreatePoco() as Pocos.AXOpen.Data.AxoDataEntity;
 
-            DataExchange.Repository.Delete(((IBrowsableDataObject)plainer).DataEntityId);
-            SelectedRecord = null;
-            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 10)));
-            FillObservableRecords();
+            //if (plainer == null)
+            //    throw new WrongTypeOfDataObjectException(
+            //        $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
+            //plainer.DataEntityId = SelectedRecord.DataEntityId;
+
+            //DataExchange.Repository.Delete(((IBrowsableDataObject)plainer).DataEntityId);
+            //SelectedRecord = null;
+            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 10)));
+            
         }
 
         public async Task Copy()
         {
-            var plainer = await ((ITwinObject)DataExchange.Data).ShadowToPlain<dynamic>();
-
-            if (plainer == null)
-                throw new WrongTypeOfDataObjectException(
-                    $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
-
-            if (CreateItemId != null)
-            {
-                plainer.DataEntityId = CreateItemId;
-            }
-            else
-            {
-                plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}";
-            }
-
             try
             {
-                DataExchange.Repository.Create(plainer.DataEntityId, plainer);
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Copied!", "Item was successfully copied!", 10)));
+                await DataExchange.CreateCopy(CreateItemId);
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Copied!",
+                    "Item was successfully copied!", 10)));
             }
-            catch (DuplicateIdException)
+            catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to copy!", e.Message,
+                    10)));
+            }
+            finally
+            {
+                UpdateObservableRecords();
+                CreateItemId = null;
             }
 
-            var foundPlain = this.FindById(plainer.DataEntityId);
-            await ((ITwinObject)DataExchange.Data).PlainToShadow(foundPlain);
-            FillObservableRecords();
-            CreateItemId = null;
+            //-- var plainer = await ((ITwinObject)DataExchange.Data).ShadowToPlain<dynamic>();
+
+            //if (plainer == null)
+            //    throw new WrongTypeOfDataObjectException(
+            //        $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
+
+            //if (CreateItemId != null)
+            //{
+            //    plainer.DataEntityId = CreateItemId;
+            //}
+            //else
+            //{
+            //    plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}";
+            //}
+
+            //try
+            //{
+            //    DataExchange.Repository.Create(plainer.DataEntityId, plainer);
+            //    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Copied!", "Item was successfully copied!", 10)));
+            //}
+            //catch (DuplicateIdException)
+            //{
+            //    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
+            //}
+
+            //var foundPlain = this.FindById(plainer.DataEntityId);
+            //await ((ITwinObject)DataExchange.Data).PlainToShadow(foundPlain);
+            //UpdateObservableRecords();
+            //CreateItemId = null;
         }
 
         public IEnumerable<DataItemValidation> UpdateRecord(Pocos.AXOpen.Data.AxoDataEntity data)
@@ -238,40 +256,60 @@ namespace AXOpen.Data
 
         public async Task Edit()
         {
-            var plainer = await ((ITwinObject)DataExchange.Data).ShadowToPlain<dynamic>();
-            //CrudData.ChangeTracker.SaveObservedChanges(plainer);
-            UpdateRecord(plainer);
-            SelectedRecord = plainer;
+            //--var plainer = await ((ITwinObject)DataExchange.Data).ShadowToPlain<dynamic>();
+            ////CrudData.ChangeTracker.SaveObservedChanges(plainer);
+            //UpdateRecord(plainer);
+            //SelectedRecord = plainer;
+
+            await DataExchange.UpdateFromShadows();
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Edited!", "Item was successfully edited!", 10)));
-            FillObservableRecords();
+            UpdateObservableRecords();
         }
 
         public async Task SendToPlc()
         {
-            await ((ITwinObject)DataExchange.Data).PlainToOnline(SelectedRecord);
+            //-- await ((ITwinObject)DataExchange.Data).PlainToOnline(SelectedRecord);
+            await DataExchange.FromShadowsToController(SelectedRecord);
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
         }
 
         public async Task LoadFromPlc()
         {
-            var plainer = await ((ITwinObject)DataExchange.Data).OnlineToPlain<dynamic>();
-
-            if (CreateItemId != null)
-                plainer.DataEntityId = CreateItemId;
-
             try
             {
-                DataExchange.Repository.Create(plainer.DataEntityId, plainer);
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
+                await DataExchange.LoadFromPlc(CreateItemId);
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!",
+                    "Item was successfully loaded from PLC!", 10)));
             }
-            catch (DuplicateIdException)
+            catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
+                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger",
+                    "Failed to create new record from the controller", e.Message, 10)));
             }
-            var plain = FindById(plainer.DataEntityId);
-            await ((ITwinObject)DataExchange.Data).PlainToShadow(plain);
-            FillObservableRecords();
-            CreateItemId = null;
+            finally
+            {
+                await FillObservableRecordsAsync();
+                CreateItemId = null;
+            }
+
+            //---var plainer = await ((ITwinObject)DataExchange.Data).OnlineToPlain<dynamic>();
+
+            //if (CreateItemId != null)
+            //    plainer.DataEntityId = CreateItemId;
+
+            //try
+            //{
+            //    DataExchange.Repository.Create(plainer.DataEntityId, plainer);
+            //    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
+            //}
+            //catch (DuplicateIdException)
+            //{
+            //    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
+            //}
+            //var plain = FindById(plainer.DataEntityId);
+            //await ((ITwinObject)DataExchange.Data).PlainToShadow(plain);
+            //FillObservableRecords();
+            //CreateItemId = null;
         }
 
         public IEnumerable<string> Export(Expression<Func<IPlain, bool>> expression, char separator = ';')
@@ -414,7 +452,7 @@ namespace AXOpen.Data
                 }
 
                 this.Import(imports);
-                this.FillObservableRecords();
+                this.UpdateObservableRecords();
                 WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Imported!", "Data was successfully imported!", 10)));
             }
             catch (Exception e)

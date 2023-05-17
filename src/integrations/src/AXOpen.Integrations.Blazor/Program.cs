@@ -5,7 +5,6 @@ using AXOpen.Core.blazor.Toaster;
 using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using AXOpen.Data.DependencyInjection;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace axopen_integrations_blazor
@@ -23,7 +22,6 @@ namespace axopen_integrations_blazor
             
             builder.Services.AddIxBlazorServices();
 
-            builder.Services.RegisterIxDataServices();
             builder.Services.AddSingleton<ToastService>();
 
             Entry.Plc.Connector.BuildAndStart();

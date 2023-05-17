@@ -45,7 +45,8 @@ NAMESPACE examples.PneumaticManipulator
         VAR PUBLIC
             {#ix-generic:TOnline}
             {#ix-generic:TPlain as POCO}
-            {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}            
+            {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}        
+            {#ix-attr:[Container(Layout.Stack)]}        
             Set : FragmentProcessData;
         END_VAR
     END_CLASS

@@ -5,9 +5,11 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
+using System.Numerics;
 using System.Reflection;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
+
 
 namespace AXOpen.Data;
 
@@ -277,5 +279,50 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task DeleteAsync(string identifier)
     {
         await Task.Run(() => Repository.Delete(identifier));
+    }
+
+    public async Task CreateNew(string identifier)
+    {
+        this.Repository.Create(identifier, this.Data.CreatePoco());
+        var plain = Repository.Read(identifier);
+        Data.PlainToShadow(plain);
+    }
+
+    public void FromPlainsToShadows(IBrowsableDataObject entity)
+    {
+        this.Data.PlainToShadow(Repository.Read(entity.DataEntityId));
+    }
+
+    public async Task UpdateFromShadows()
+    {
+        var plainer = await((ITwinObject)Data).ShadowToPlain<dynamic>();
+        //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+        Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+    }
+
+    public async Task FromShadowsToController(IBrowsableDataObject selected)
+    {
+         await Data.PlainToOnline(selected);
+    }
+
+    public async Task LoadFromPlc(string recordId)
+    {
+        var plainer = await Data.OnlineToPlain<dynamic>();
+        plainer.DataEntityId = recordId;
+        Repository.Create(plainer.DataEntityId, plainer);
+        var plain = Repository.Read(plainer.DataEntityId);
+        Data.PlainToShadow(plain);
+    }
+
+    public async Task Delete(string recordId)
+    {
+        Repository.Delete(recordId);
+    }
+
+    public async Task CreateCopy(string recordId)
+    {
+        var source = await Data.ShadowToPlain<IBrowsableDataObject>();
+        source.DataEntityId = recordId;
+        Repository.Create(source.DataEntityId, source);
     }
 }

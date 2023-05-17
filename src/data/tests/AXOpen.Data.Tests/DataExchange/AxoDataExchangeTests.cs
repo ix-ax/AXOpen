@@ -13,6 +13,10 @@ using AXSharp.Connector;
 
 namespace AXOpen.Data.Tests
 {
+    using TOnline = AXOpen.Data.AxoDataEntity;
+    using TPlain = Pocos.AXOpen.Data.AxoDataEntity;
+    using Pocos.AXOpen.Data;
+
     public class AxoDataExchangeTests
     {
 
@@ -109,7 +113,7 @@ namespace AXOpen.Data.Tests
 
 
             Assert.Equal(1, repo.Count);
-            
-        }
+
+        }        
     }
 }

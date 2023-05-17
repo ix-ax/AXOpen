@@ -20,6 +20,21 @@ namespace AXOpen.Data
         /// </summary>
         ITwinObject Data { get; }
 
+
+        void FromPlainsToShadows(IBrowsableDataObject entity);
+
+        Task UpdateFromShadows();
+
+        Task FromShadowsToController(IBrowsableDataObject selected);
+
+        Task LoadFromPlc(string recordId);
+
+        Task Delete(string recordId);
+
+        Task CreateNew(string identifier);
+
+        Task CreateCopy(string identifier);
+        
         /// <summary>
         /// Provides handler for remote (controller's) request to create new data entry in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
         /// </summary>

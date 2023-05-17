@@ -1,3 +1,4 @@
+using System.Reflection;
 using AXOpen.Data.InMemory;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
@@ -37,6 +38,12 @@ var a = Entry.Plc.Context.PneumaticManipulator
     .Builder<examples.PneumaticManipulator.ProcessDataManger>();
 a.Data.InitializeRemoteDataExchange(productionDataRepository);
 a.Shared.InitializeRemoteDataExchange(headerDataRepository);
+
+var b = Entry.Plc.Context.ProcessData
+    .Builder<ProcessData>();
+
+b.Manip.InitializeRemoteDataExchange(productionDataRepository);
+b.Set.InitializeRemoteDataExchange(headerDataRepository);
 
 var app = builder.Build();
 

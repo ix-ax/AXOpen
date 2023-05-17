@@ -5,17 +5,12 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
+using System.Collections.Generic;
 using System.Reflection;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
 
 namespace AXOpen.Data;
-
-[System.AttributeUsage(System.AttributeTargets.Property)]
-public class AxoDataFragmentAttribute : Attribute
-{
-
-}
 
 public partial class AxoDataFragmentExchange
 {
@@ -26,6 +21,8 @@ public partial class AxoDataFragmentExchange
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         Operation.InitializeExclusively(Handle);
         Operation.WriteAsync().Wait();
+        Data = new FragmentedDataCompound(this, DataFragments.Select(p => p.Data).Cast<ITwinElement>().ToList());
+        Repository = new CompoundRepository(DataFragments);
         return this as T;
     }
 
@@ -38,52 +35,140 @@ public partial class AxoDataFragmentExchange
         switch (operation)
         {
             case eCrudOperation.Create:
-                this.Create(identifier);
+                this.RemoteCreate(identifier);
                 break;
             case eCrudOperation.Read:
-                this.Read(identifier);
+                this.RemoteRead(identifier);
                 break;
             case eCrudOperation.Update:
-                this.Update(identifier);
+                this.RemoteUpdate(identifier);
                 break;
             case eCrudOperation.Delete:
-                this.Delete(identifier);
+                this.RemoteDelete(identifier);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
-    private void Create(string identifier)
+    public IRepository? Repository { get; private set; }
+
+    public ITwinObject Data { get; private set; }
+
+    public async Task CreateNew(string identifier)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment?.Repository.Create(identifier, fragment.Data.CreatePoco());
+        }
+
+        DataFragments.First().Repository.Read(identifier);
+    }
+
+    public void FromPlainsToShadows(IBrowsableDataObject entity)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.Data.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
+        }
+    }
+
+    public async Task UpdateFromShadows()
+    {
+        foreach (var fragment in DataFragments)
+        {
+            var plainer = await (fragment.Data).ShadowToPlain<dynamic>();
+            //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+            fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+        }
+    }
+
+    public async Task FromShadowsToController(IBrowsableDataObject selected)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            await fragment.Data.PlainToOnline(fragment.Repository.Read(selected.DataEntityId));
+        }
+    }
+
+    public async Task LoadFromPlc(string recordId)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            var plainer = await fragment.Data.OnlineToPlain<dynamic>();
+            plainer.DataEntityId = recordId;
+            fragment.Repository.Create(plainer.DataEntityId, plainer);
+            var plain = fragment.Repository.Read(plainer.DataEntityId);
+            fragment.Data.PlainToShadow(plain);
+        }
+    }
+
+    public async Task Delete(string recordId)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.Repository.Delete(recordId);
+        }
+    }
+
+    public async Task CreateCopy(string recordId)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            var source = await fragment.Data.ShadowToPlain<IBrowsableDataObject>();
+            source.DataEntityId = recordId;
+            fragment.Repository.Create(source.DataEntityId, source);
+        }
+    }
+
+    public bool RemoteCreate(string identifier)
     {
         foreach (var framents in DataFragments)
         {
             framents?.RemoteCreate(identifier);
         }
+
+        return true;
     }
 
-    private void Read(string identifier)
+    public bool RemoteRead(string identifier)
     {
         foreach (var framents in DataFragments)
         {
             framents?.RemoteRead(identifier);
         }
+
+        return true;
     }
 
-    private void Update(string identifier)
+    public bool RemoteUpdate(string identifier)
     {
         foreach (var framents in DataFragments)
         {
             framents?.RemoteUpdate(identifier);
         }
+
+        return true;
     }
 
-    private void Delete(string identifier)
+    public bool RemoteDelete(string identifier)
     {
         foreach (var framents in DataFragments)
         {
             framents?.RemoteDelete(identifier);
         }
+
+        return true;
+    }
+
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode)
+    {
+        return ((dynamic)Repository).GetRecords(identifier, limit, skip, searchMode);
+    }
+
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
+    {
+        return ((dynamic)Repository).GetRecords(identifier);
     }
 
     private IEnumerable<PropertyInfo>? GetDataSetPropertyInfo<TA>() where TA : Attribute

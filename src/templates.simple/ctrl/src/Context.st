@@ -31,14 +31,15 @@ NAMESPACE axosimple
             {#ix-generic:TOnline}
             {#ix-generic:TPlain as POCO}
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
+            {#ix-attr:[Container(Layout.Stack)]}    
             Set : SharedProductionData;
         END_VAR        
     END_CLASS
-
+    
     CLASS ProcessData EXTENDS AXOpen.Data.AxoDataFragmentExchange
-        VAR PUBLIC        
+        VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Set : SharedProductionDataManager;
+            Set : SharedProductionDataManager;            
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
             Manip : examples.PneumaticManipulator.FragmentProcessDataManger;
         END_VAR        
