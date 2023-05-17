@@ -36,7 +36,7 @@ namespace Security
 
             BlazorAuthenticationStateProvider blazorAuthenticationStateProvider = new BlazorAuthenticationStateProvider(repos.userRepo, roleGroupManager);
 
-            blazorAuthenticationStateProvider.ExternalAuthorization = new ExternalTokenAuthorization();
+            //blazorAuthenticationStateProvider.ExternalAuthorization = ExternalTokenAuthorization.CreatePlcTokenReader("sff", true);
 
             SecurityManager.Create(blazorAuthenticationStateProvider, repos.userRepo);
 

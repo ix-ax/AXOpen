@@ -32,15 +32,9 @@ namespace Security
     ///</summary>       
     public class SecurityManager : ISecurityManager
     {
-        private SecurityManager(IAuthenticationService service, IRepository<UserData> repository = null)
+        private SecurityManager(IAuthenticationService service, IRepository<UserData> repository)
         {
-            if(repository != null){
-                UserRepository = repository;
-            }
-            else
-            {
-                UserRepository = new AnonymousRepository();
-            }
+            UserRepository = repository;
             
             Service = service;
 
