@@ -30,7 +30,7 @@ namespace Security
 
         private ObservableCollection<UserData> AllUsers {
             get {
-                return new ObservableCollection<UserData>(SecurityManager.Manager.UserRepository.GetRecords());
+                return new ObservableCollection<UserData>(_blazorAuthenticationStateProvider.UserRepository.GetRecords());
             }
             }
 

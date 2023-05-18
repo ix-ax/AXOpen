@@ -5,6 +5,8 @@
 @using CommunityToolkit.Mvvm.Messaging;
 @using Microsoft.AspNetCore.Components.Forms
 
+@inject BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider
+
 <div class="card">
     <h4 class="card-header">Log in</h4>
     <div class="card-body">
@@ -32,7 +34,7 @@
     {
         try
         {
-            SecurityManager.Manager.Service.AuthenticateUser(_model.Username, _model.Password);
+            _blazorAuthenticationStateProvider.AuthenticateUser(_model.Username, _model.Password);
             //TcoAppDomain.Current.Logger.Information($"User '{_model.Username}' logged in. {{@sender}}", new { UserName = _model.Username });
             _navigationManager.NavigateTo("", forceLoad: true);
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Logged!", "User logged in.", 10)));

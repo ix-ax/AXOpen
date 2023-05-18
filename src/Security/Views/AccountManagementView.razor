@@ -7,6 +7,7 @@
 @using Microsoft.AspNetCore.Identity;
 
 @inject UserManager<User> _userManager
+@inject BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider
 
 <AuthorizeView>
     <Authorized>
@@ -115,15 +116,15 @@
 
     private void WillChangeToken()
     {
-        if (SecurityManager.Manager.Service.ExternalAuthorization.WillChangeToken)
+        if (_blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken)
         {
-            SecurityManager.Manager.Service.ExternalAuthorization.WillChangeToken = false;
+            _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = false;
             changeAuthorizationTokenTitle = "Read your authorization token and press OK";
             changeAuthorizationTokenButton = "OK";
         }
         else
         {
-            SecurityManager.Manager.Service.ExternalAuthorization.WillChangeToken = true;
+            _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = true;
             changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
             changeAuthorizationTokenButton = "Change your authorization token";
         }
@@ -131,7 +132,7 @@
 
     private void SetDefault()
     {
-        SecurityManager.Manager.Service.ExternalAuthorization.WillChangeToken = true;
+        _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = true;
         changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
         changeAuthorizationTokenButton = "Change your authorization token";
     }

@@ -23,7 +23,9 @@ namespace Security
         }
 
         [Inject]
-        private RoleGroupManager _roleGroupManager { get; set; }
+        private BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider { get; set; }
+
+        private RoleGroupManager _roleGroupManager { get { return _blazorAuthenticationStateProvider.roleGroupManager; } }
 
         private IList<RoleData> AvailableRoles { get; set; }
         private IList<RoleData> AssignedRoles { get; set; }

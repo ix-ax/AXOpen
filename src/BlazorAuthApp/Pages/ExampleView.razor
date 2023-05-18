@@ -1,7 +1,7 @@
 ﻿@page "/Example"
 
 @using Security;
-@inject RoleGroupManager _roleGroupManager
+@inject BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider
 
 <h3>Example</h3>
 
@@ -24,7 +24,7 @@
             </NotAuthorized>
         </AuthorizeView>
 
-        <AuthorizeView Roles="@_roleGroupManager.GetRolesFromGroupString("AdminGroup")">
+        <AuthorizeView Roles="@_blazorAuthenticationStateProvider.roleGroupManager.GetRolesFromGroupString("AdminGroup")">
             <div class="card">
                 <div class="card-body">
                     <h4>You can see this, only if you have some role from AdminGroup</h4>
@@ -49,7 +49,7 @@
             </NotAuthorized>
         </AuthorizeView>
 
-        <AuthorizeView Roles="@_roleGroupManager.GetRolesFromGroupString("Test")">
+        <AuthorizeView Roles="@_blazorAuthenticationStateProvider.roleGroupManager.GetRolesFromGroupString("Test")">
             <div class="card">
                 <div class="card-body">
                     <h4>You can see this, only if you have some role from Test</h4>

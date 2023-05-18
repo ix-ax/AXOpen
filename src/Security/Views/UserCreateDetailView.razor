@@ -4,8 +4,8 @@
 @using CommunityToolkit.Mvvm.Messaging;
 @using Microsoft.AspNetCore.Components.Authorization;
 @using Microsoft.AspNetCore.Identity;
-@using Microsoft.AspNetCore.Components.Forms
-@inject RoleGroupManager _roleGroupManager
+@using Microsoft.AspNetCore.Components.Forms;
+@inject BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider
 @inject UserManager<User> _userManager
 @inject NavigationManager _navigationManager
 
@@ -44,7 +44,7 @@
                         <label>Group</label>
                         <select class="form-select" aria-label="Default select example" @bind="@_model.Group">
                             <option selected>Choose group</option>
-                            @foreach (var group in _roleGroupManager.GetAllGroup())
+                            @foreach (var group in _blazorAuthenticationStateProvider.roleGroupManager.GetAllGroup())
                             {
                                 <option value="@group.Name">@group.Name</option>
                             }

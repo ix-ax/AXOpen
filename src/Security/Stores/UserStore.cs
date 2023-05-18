@@ -20,11 +20,11 @@ namespace Security
         IUserClaimStore<User>,
         IQueryableUserStore<User>
     {
-        private readonly IRepositoryService _unitOfWork;
-        public UserStore(IRepositoryService unitOfWork, IdentityErrorDescriber errorDescriber = null)
+        private readonly BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider;
+        public UserStore(BlazorAuthenticationStateProvider blazorAuthenticationStateProvider, IdentityErrorDescriber errorDescriber = null)
         {
             ErrorDescriber = errorDescriber;
-            _unitOfWork = unitOfWork;
+            _blazorAuthenticationStateProvider = blazorAuthenticationStateProvider;
         }
         /// <summary>
         /// Gets or sets the <see cref="IdentityErrorDescriber"/> for any error that occurred with the current operation.
@@ -37,7 +37,7 @@ namespace Security
         {
             get
             {
-                return _unitOfWork.UserRepository.GetRecords("*").Select(x => new User(x)).AsQueryable();
+                return _blazorAuthenticationStateProvider.UserRepository.GetRecords("*").Select(x => new User(x)).AsQueryable();
             }
         }
         /// <summary>
@@ -47,14 +47,14 @@ namespace Security
         {
             get
             {
-                return _unitOfWork.RoleGroupManager.inAppRoleCollection;
+                return _blazorAuthenticationStateProvider.roleGroupManager.inAppRoleCollection;
             }
         }
         private RoleGroupManager _roleGroupManager
         {
             get
             {
-                return _unitOfWork.RoleGroupManager;
+                return _blazorAuthenticationStateProvider.roleGroupManager;
             }
         }
 
@@ -172,7 +172,7 @@ namespace Security
 
             try
             {
-                _unitOfWork.UserRepository.Create(user.UserName, userEntity);
+                _blazorAuthenticationStateProvider.UserRepository.Create(user.UserName, userEntity);
             }
             catch (DuplicateIdException)
             {
@@ -196,7 +196,7 @@ namespace Security
                 throw new ArgumentNullException(nameof(user));
             try
             {
-                var userData = _unitOfWork.UserRepository.Read(user.Id);
+                var userData = _blazorAuthenticationStateProvider.UserRepository.Read(user.Id);
                 if (userData != null)
                 {
                     userData.UserName = user.UserName;
@@ -213,7 +213,7 @@ namespace Security
                     return Task.FromResult(IdentityResult.Failed(new IdentityError { Description = $"User with username {user.UserName} doesn't exists." }));
                 }
 
-                _unitOfWork.UserRepository.Update(user.UserName, userData);
+                _blazorAuthenticationStateProvider.UserRepository.Update(user.UserName, userData);
             }
             catch (UnableToLocateRecordId)
             {
@@ -236,7 +236,7 @@ namespace Security
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            _unitOfWork.UserRepository.Delete(user.UserName);
+            _blazorAuthenticationStateProvider.UserRepository.Delete(user.UserName);
 
             return Task.FromResult(IdentityResult.Success);
         }
@@ -257,7 +257,7 @@ namespace Security
             User user;
             try
             {
-                var userData = _unitOfWork.UserRepository.Read(entityId);
+                var userData = _blazorAuthenticationStateProvider.UserRepository.Read(entityId);
                 user = new User(userData);
             }
             catch (UnableToLocateRecordId)
@@ -286,7 +286,7 @@ namespace Security
             User user;
             try
             {
-                var userData = _unitOfWork.UserRepository.Read(normalizedUserName);
+                var userData = _blazorAuthenticationStateProvider.UserRepository.Read(normalizedUserName);
                 user = new User(userData);
             }
             catch (UnableToLocateRecordId)

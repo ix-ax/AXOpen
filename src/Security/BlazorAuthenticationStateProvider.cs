@@ -12,8 +12,8 @@ namespace Security
     /// </summary>
     public class BlazorAuthenticationStateProvider : AuthenticationStateProvider, IAuthenticationService
     {
-        private IRepository<UserData> UserRepository;
-        private RoleGroupManager roleGroupManager;
+        public IRepository<UserData> UserRepository;
+        public RoleGroupManager roleGroupManager;
 
         public BlazorAuthenticationStateProvider(IRepository<UserData> userRepo, RoleGroupManager roleGroupManager)
         {
@@ -63,7 +63,7 @@ namespace Security
 
         private void ExternalAuthorization_AuthorizationTokenChange(string token)
         {
-            ChangeToken(SecurityManager.Manager.Principal.Identity.Name, token);
+            ChangeToken(UserAccessor.Instance.Identity.Name, token);
         }
 
         public void ChangeToken(string userName, string token)
@@ -89,7 +89,7 @@ namespace Security
 
         private void ExternalAuthorization_AuthorizationRequest(string token, bool deauthenticateWhenSame)
         {
-            var userName = SecurityManager.Manager.Principal.Identity.Name;
+            var userName = UserAccessor.Instance.Identity.Name;
             var currentUser = _users.FirstOrDefault(u => u.UserName.Equals(userName));
 
             // De authenticate when the token matches the token of currently authenticated user.
@@ -239,7 +239,7 @@ namespace Security
                 OnDeAuthenticating?.Invoke(userName);
                 //UserAccessor.Instance.Identity = null;
                 UserAccessor.Instance.Identity = new AppIdentity.AnonymousIdentity();
-                SecurityManager.Manager.Principal.Identity = new AppIdentity.AnonymousIdentity();
+                //SecurityManager.Manager.Principal.Identity = new AppIdentity.AnonymousIdentity();
                 //customPrincipal.Identity = new AppIdentity.AnonymousIdentity();
                 OnDeAuthenticated?.Invoke(userName);
                 //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User '{userName}' has de-authenticated.{{payload}}", new { UserName = userName });

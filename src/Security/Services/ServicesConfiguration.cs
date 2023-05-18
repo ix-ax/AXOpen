@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 using Microsoft.AspNetCore.Authentication;
+using Amazon.Auth.AccessControlPolicy;
 
 namespace Security
 {
@@ -32,8 +33,15 @@ namespace Security
             //.AddCustomStores()
             .AddDefaultTokenProviders();
 
-            services.AddTransient<IUserStore<User>, UserStore>();
-            services.AddTransient<IRoleStore<Role>, RoleStore>();
+            if (System.Threading.Thread.CurrentPrincipal?.GetType() != typeof(AppIdentity.AppPrincipal))
+            {
+                var principal = new AppIdentity.AppPrincipal();
+                System.Threading.Thread.CurrentPrincipal = principal;
+                AppDomain.CurrentDomain.SetThreadPrincipal(principal);
+            }
+
+            services.AddScoped<IUserStore<User>, UserStore>();
+            //services.AddScoped<IRoleStore<Role>, RoleStore>();
 
             RoleGroupManager roleGroupManager = new RoleGroupManager(repos.groupRepo);
 
@@ -49,12 +57,8 @@ namespace Security
                 blazorAuthenticationStateProvider.ExternalAuthorization = externalAuthorization;
             }
 
-            SecurityManager.Create(blazorAuthenticationStateProvider, repos.userRepo);
-
-            services.AddScoped<RoleGroupManager>(p => roleGroupManager);
+            services.AddSingleton(blazorAuthenticationStateProvider);
             
-            services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));
-            //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<User>>();
             services.AddScoped<AuthenticationStateProvider, BlazorAuthenticationStateProvider>(p => blazorAuthenticationStateProvider);
         }
 

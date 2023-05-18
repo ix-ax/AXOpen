@@ -3,11 +3,12 @@
 @using AXOpen.Core.blazor.Toaster;
 @using CommunityToolkit.Mvvm.Messaging;
 @inject NavigationManager _navigationManager
+@inject BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider
 
 @code{
     protected override void OnInitialized()
     {
-        SecurityManager.Manager.Service.DeAuthenticateCurrentUser();
+        _blazorAuthenticationStateProvider.DeAuthenticateCurrentUser();
         //TcoAppDomain.Current.Logger.Information($"User '{name}' logged out. {{@sender}}", new { UserName = name });
         _navigationManager.NavigateTo("", forceLoad: true);
         WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loggout!", "User logged out.", 10)));

@@ -13,11 +13,11 @@ namespace Security
         IRoleStore<Role>,
         IQueryableRoleStore<Role>
     {
-        private readonly IRepositoryService _unitOfWork;
-        public RoleStore(IRepositoryService unitOfWork,IdentityErrorDescriber errorDescriber = null)
+        private readonly BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider;
+        public RoleStore(BlazorAuthenticationStateProvider blazorAuthenticationStateProvider, IdentityErrorDescriber errorDescriber = null)
         {
             ErrorDescriber = errorDescriber;
-            _unitOfWork = unitOfWork;
+            _blazorAuthenticationStateProvider = blazorAuthenticationStateProvider;
             
         }
         /// <summary>
@@ -27,14 +27,14 @@ namespace Security
         public IList<Role> _roleCollection {
             get 
             {
-                return _unitOfWork.RoleGroupManager.inAppRoleCollection.ToList();
+                return _blazorAuthenticationStateProvider.roleGroupManager.inAppRoleCollection.ToList();
             }
         }
         public IQueryable<Role> Roles
         {
             get
             {
-                return _unitOfWork.RoleGroupManager.inAppRoleCollection.AsQueryable();
+                return _blazorAuthenticationStateProvider.roleGroupManager.inAppRoleCollection.AsQueryable();
                 //return _unitOfWork.RoleRepository.GetRecords("*").Select(x => new IdentityRole(x.Name)).AsQueryable();
             }
         }
