@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.messaging"
-version : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
+version  : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
 type: lib
 targets:
   # - "1500"
@@ -14,7 +14,7 @@ scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ix-ax/axopen.core" : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
-  "@ix-ax/axopen.utils" : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
-  "@ix-ax/axopen.abstractions" : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
+  "@ix-ax/axopen.core"  : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+  "@ix-ax/axopen.utils"  : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+  "@ix-ax/axopen.abstractions"  : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
   "@ax/axunit-library": ^4.0.6

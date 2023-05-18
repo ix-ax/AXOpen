@@ -19,6 +19,7 @@ PROGRAM MyProgram
         AxoDataExamplesDocu : AxoDataExamplesDocu.Context;
 
         AxoMessengers : AxoStaticMessengerExample.Messengers;
+        AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
 
         // Integration test
         Integrations : IntegrationTests.Integrations;
@@ -42,7 +43,8 @@ PROGRAM MyProgram
     AxoDataExamplesDocu.Run();
     AxoMessengers.Run();
     AxoMessengers.InjectRtc(AxoRtc);
-
+    AxoMessengersDocu.Run();
+    AxoMessengersDocu.InjectRtc(AxoRtc);
 
     
     // Integration tests

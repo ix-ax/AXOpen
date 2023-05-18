@@ -24,9 +24,9 @@
     "integrity": "sha512-rMK4IdvXJUWISQswNIYJ95HUWhlvEl8D1x9t/bSJB0olEAei0yb95F1I0lJoOuYu1gFCH3S/8eiAwCvlW7MrTA=="
   },
   "@ax/axunit-library": {
-    "version": "3.0.6",
-    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-library/-/axunit-library-3.0.6.tgz",
-    "integrity": "sha512-DlO8pb1gN7UGPPp3s7dUod0V3er+GHcUMQNVwVYwFsjo6kfhzCYtup2hh2EUPIETgo6svJv6bg5ADC85YlpAQA=="
+    "version": "4.0.6",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-library/-/axunit-library-4.0.6.tgz",
+    "integrity": "sha512-sgg1SNngQ9lTP/v8e+AyZq6hCf+563P3S4xep6uCdHIZMmW9GYkvKTjh56+ZKQMpGFrcr9Sn0Aw6dE7mbINwXg=="
   },
   "@ax/axunit-llvm-runner-gen": {
     "version": "3.0.6",
