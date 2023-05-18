@@ -28,7 +28,6 @@ namespace Security
         public bool IsAuthenticated { get { return !string.IsNullOrEmpty(Name); } }
         #endregion
 
-
         public class AnonymousIdentity : AppIdentity
         {
             public AnonymousIdentity()

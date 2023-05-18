@@ -23,12 +23,13 @@ namespace Security
 
         public override Task<AuthenticationState> GetAuthenticationStateAsync()
         {
-            if (UserAccessor.Instance.Identity != null && UserAccessor.Instance.Identity.Name != string.Empty)
+            AppIdentity.AppPrincipal customPrincipal = Thread.CurrentPrincipal as AppIdentity.AppPrincipal;
+            if (customPrincipal != null && customPrincipal.Identity != null && customPrincipal.Identity.Name != string.Empty)
             {
                 var claims = new List<Claim>();
-                claims.Add(new Claim(ClaimTypes.Name, UserAccessor.Instance.Identity.Name));
+                claims.Add(new Claim(ClaimTypes.Name, customPrincipal.Identity.Name));
 
-                foreach (var role in UserAccessor.Instance.Identity.Roles)
+                foreach (var role in customPrincipal.Identity.Roles)
                 {
                     claims.Add(new Claim(ClaimTypes.Role, role));
                 }
@@ -63,7 +64,7 @@ namespace Security
 
         private void ExternalAuthorization_AuthorizationTokenChange(string token)
         {
-            ChangeToken(UserAccessor.Instance.Identity.Name, token);
+            ChangeToken(Thread.CurrentPrincipal.Identity.Name, token);
         }
 
         public void ChangeToken(string userName, string token)
@@ -89,7 +90,7 @@ namespace Security
 
         private void ExternalAuthorization_AuthorizationRequest(string token, bool deauthenticateWhenSame)
         {
-            var userName = UserAccessor.Instance.Identity.Name;
+            var userName = Thread.CurrentPrincipal.Identity.Name;
             var currentUser = _users.FirstOrDefault(u => u.UserName.Equals(userName));
 
             // De authenticate when the token matches the token of currently authenticated user.
@@ -199,9 +200,7 @@ namespace Security
             }
 
             customPrincipal.Identity = new AppIdentity(user.UserName, user.Email, roles, user.CanUserChangePassword, user.Level);
-            //System.Security.Claims.ClaimsPrincipal.Ide = customPrincipal.Identity;
-            //AuthenticationState = customPrincipal.Identity;
-            UserAccessor.Instance.Identity = customPrincipal.Identity;
+            Thread.CurrentPrincipal = customPrincipal;
             OnUserAuthenticateSuccess?.Invoke(user.UserName);
             SetUserTimedOutDeAuthentication(userData.LogoutTime);
             //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User '{user.UserName}' has authenticated.{{payload}}", new { UserName = user.UserName, CanChangePassword = user.CanUserChangePassword, Roles = string.Join(",", user.Roles), Id = user.Id });
@@ -239,10 +238,9 @@ namespace Security
             {
                 var userName = customPrincipal.Identity.Name;
                 OnDeAuthenticating?.Invoke(userName);
-                //UserAccessor.Instance.Identity = null;
-                UserAccessor.Instance.Identity = new AppIdentity.AnonymousIdentity();
-                //SecurityManager.Manager.Principal.Identity = new AppIdentity.AnonymousIdentity();
-                //customPrincipal.Identity = new AppIdentity.AnonymousIdentity();
+
+                customPrincipal.Identity = new AppIdentity.AnonymousIdentity();
+                Thread.CurrentPrincipal = customPrincipal;
                 OnDeAuthenticated?.Invoke(userName);
                 //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User '{userName}' has de-authenticated.{{payload}}", new { UserName = userName });
             }

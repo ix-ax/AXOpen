@@ -98,7 +98,7 @@
     {
         _model = new RegisterUserModel();
 
-        User _user = await _userManager.FindByIdAsync(UserAccessor.Instance.Identity.Name);
+        User _user = await _userManager.FindByIdAsync(Thread.CurrentPrincipal.Identity.Name);
 
         _model.Username = _user.UserName;
         if (_user.Roles.Length > 0)
