@@ -22,10 +22,41 @@ namespace Security
 
         public bool CanUserChangePassword { get; private set;}
 
-#region IIdentity Members
+        #region IIdentity Members
         public string AuthenticationType { get { return "Custom authentication"; } }
 
         public bool IsAuthenticated { get { return !string.IsNullOrEmpty(Name); } }
-#endregion
+        #endregion
+
+
+        public class AnonymousIdentity : AppIdentity
+        {
+            public AnonymousIdentity()
+                : base(string.Empty, string.Empty, new string[] { }, false, string.Empty)
+            { }
+        }
+
+        public class AppPrincipal : IPrincipal
+        {
+            private AppIdentity _identity;
+
+            public AppIdentity Identity
+            {
+                get { return _identity ?? new AnonymousIdentity(); }
+                set { _identity = value; }
+            }
+
+            #region IPrincipal Members
+            IIdentity IPrincipal.Identity
+            {
+                get { return this.Identity; }
+            }
+
+            public bool IsInRole(string role)
+            {
+                return _identity.Roles.Contains(role);
+            }
+            #endregion
+        }
     }
 }

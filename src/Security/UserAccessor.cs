@@ -8,21 +8,11 @@ using System.Threading.Tasks;
 
 namespace Security
 {
-    public class UserAccessor : INotifyPropertyChanged
+    public class UserAccessor
     {
         private static UserAccessor _instance;
 
-        private AppIdentity _identity;
-
-        public AppIdentity Identity
-        {
-            get => _identity;
-            set
-            {
-                _identity = value;
-                OnPropertyChanged(nameof(Identity));
-            }
-        }
+        public AppIdentity Identity { get; set; }
 
         public static UserAccessor Instance
         {
@@ -37,13 +27,5 @@ namespace Security
         private UserAccessor()
         {
         }
-
-        #region propertychanged
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null) =>
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-        #endregion
     }
 }

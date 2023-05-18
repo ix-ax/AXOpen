@@ -199,6 +199,8 @@ namespace Security
             }
 
             customPrincipal.Identity = new AppIdentity(user.UserName, user.Email, roles, user.CanUserChangePassword, user.Level);
+            //System.Security.Claims.ClaimsPrincipal.Ide = customPrincipal.Identity;
+            //AuthenticationState = customPrincipal.Identity;
             UserAccessor.Instance.Identity = customPrincipal.Identity;
             OnUserAuthenticateSuccess?.Invoke(user.UserName);
             SetUserTimedOutDeAuthentication(userData.LogoutTime);

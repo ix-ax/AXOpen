@@ -41,7 +41,7 @@ namespace Security
             }
 
             services.AddScoped<IUserStore<User>, UserStore>();
-            //services.AddScoped<IRoleStore<Role>, RoleStore>();
+            services.AddScoped<IRoleStore<Role>, RoleStore>();
 
             RoleGroupManager roleGroupManager = new RoleGroupManager(repos.groupRepo);
 
