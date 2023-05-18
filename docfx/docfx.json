@@ -2,10 +2,12 @@
   "metadata": [
     {
       "src":  [
-        {        
+        {
           "files": [
+            "abstractions/src/**.csproj",
             "core/src/**.csproj",
-            "data/src/**.csproj"           
+            "data/src/**.csproj",
+            "messaging/src/**.csproj"
           ],
           "exclude": [
             "**Test*.csproj",

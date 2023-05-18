@@ -3,7 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Messaging.Static    
     {#ix-prop: public string MessageText }
     {#ix-prop: public string Help }
-    CLASS AxoMessenger IMPLEMENTS IAxoMessageProperties        
+    CLASS AxoMessenger IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties        
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
             IsActive : BOOL;
@@ -65,7 +65,7 @@ NAMESPACE AXOpen.Messaging.Static
             THIS.Serve(_object.GetContext());
         END_METHOD
 
-        METHOD PUBLIC Activate : IAxoMessageProperties
+        METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
                 _category : eAxoMessageCategory;
             END_VAR
@@ -94,7 +94,7 @@ NAMESPACE AXOpen.Messaging.Static
             Activate := THIS;
         END_METHOD   
         
-        METHOD PUBLIC ActivateOnCondition : IAxoMessageProperties
+        METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
                 _condition : BOOL;
                 _category : eAxoMessageCategory;
@@ -144,12 +144,12 @@ NAMESPACE AXOpen.Messaging.Static
             END_IF;
         END_METHOD   
 
-        METHOD PUBLIC RequireAcknowledgement : IAxoMessageProperties
+        METHOD PUBLIC RequireAcknowledgement : AXOpen.Messaging.Static.IAxoMessageProperties
             AcknowledgementRequired := TRUE;
             RequireAcknowledgement := THIS;
         END_METHOD
 
-        METHOD PUBLIC DoNotRequireAcknowledgement : IAxoMessageProperties
+        METHOD PUBLIC DoNotRequireAcknowledgement : AXOpen.Messaging.Static.IAxoMessageProperties
             AcknowledgementRequired := FALSE;
             DoNotRequireAcknowledgement := THIS;
         END_METHOD

@@ -1,5 +1,5 @@
 name: "axosimple"
-version                   : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
+version                    : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
 type: app
 registries:
   '@ix-ax': https://npm.pkg.github.com/  
@@ -12,10 +12,10 @@ devDependencies:
   "@ax/sdk": 3.0.18
   "@ax/sld": ^0.14.2
 dependencies:
-   "@ix-ax/axopen.core"                    : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
-   "@ix-ax/axopen.data"                    : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
-   "@ix-ax/axopen.messaging"               : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
-   "@ix-ax/axopen.simatic1500"             : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
+   "@ix-ax/axopen.core"                     : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+   "@ix-ax/axopen.data"                     : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+   "@ix-ax/axopen.messaging"                : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+   "@ix-ax/axopen.simatic1500"              : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
    "@ax/axunit-library"                   : ^4.0.6
 
 variables:
