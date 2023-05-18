@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
     INTERFACE IAxoMessageTextBuilder 
 		/// <summary>			
 		/// Appends string to the message text. 

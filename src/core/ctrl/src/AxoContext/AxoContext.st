@@ -60,7 +60,6 @@ NAMESPACE AXOpen.Core
             PeekIdentity := _identityCounter;
         END_METHOD
 
-
         VAR PRIVATE            
             NULL_RTC : _NULL_RTC;
             _rtc : IAxoRtc;

@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
     INTERFACE IAxoMessenger 
 		/// <summary>
 		/// Clears the message content.

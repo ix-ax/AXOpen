@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Messaging
+NAMESPACE AXOpen.Messaging.Dynamic
     INTERFACE IAxoMessageProperties 
         METHOD Pin: IAxoMessageProperties END_METHOD
         METHOD IsPinned: BOOL END_METHOD
