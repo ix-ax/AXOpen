@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Data 
+NAMESPACE AXOpen.Data     
     {#ix-generic:<TOnline, TPlain>}
     CLASS AxoDataExchange EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IAxoDataExchange
         VAR PUBLIC

@@ -5,14 +5,12 @@
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components"></UnitsService>
 <UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared.Set" PollingInterval="100"></UnitsData>
 
-@*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared" Presentation="Command"></RenderableContentControl>*@
-<AxoDataExchangeView Vm="_vm"></AxoDataExchangeView>
-
+<DataExchangeView Vm="_vm"></DataExchangeView>
 
 @*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Data" Presentation="Command"></RenderableContentControl>*@
 
 @code
 {
-    private AxoDataExchangeViewModel _vm = new AxoDataExchangeViewModel { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared };
+    private DataExchangeViewModel _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared };
 }
 

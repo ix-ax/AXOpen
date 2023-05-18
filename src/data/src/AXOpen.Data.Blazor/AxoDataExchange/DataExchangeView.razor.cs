@@ -16,13 +16,13 @@ using Microsoft.AspNetCore.Components.Forms;
 
 namespace AXOpen.Data;
 
-public partial class AxoDataExchangeView
+public partial class DataExchangeView
 {
-    private readonly List<AxoColumnData> Columns = new();
+    private readonly List<ColumnData> Columns = new();
 
-    [Parameter] public AxoDataExchangeViewModel Vm { get; set; }
+    [Parameter] public DataExchangeViewModel Vm { get; set; }
 
-    [Parameter] public string Presentation { get; set; } = "Command";
+    [Parameter] public string Presentation { get; set; } = "Status";
 
     [Parameter] public bool ModalDataView { get; set; } = true;
 
@@ -39,7 +39,7 @@ public partial class AxoDataExchangeView
     private int MaxPage =>
         (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
 
-    public void AddLine(AxoColumnData line)
+    public void AddLine(ColumnData line)
     {
         if (!Columns.Contains(line))
         {
@@ -48,7 +48,7 @@ public partial class AxoDataExchangeView
         }
     }
 
-    public void RemoveLine(AxoColumnData line)
+    public void RemoveLine(ColumnData line)
     {
         if (Columns.Contains(line))
         {

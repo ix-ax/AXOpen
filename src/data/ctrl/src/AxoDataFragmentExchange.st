@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Data 
+NAMESPACE AXOpen.Data    
     CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoObject IMPLEMENTS IAxoDataExchange               
         VAR PUBLIC           
             Operation : AxoDataCrudTask;

@@ -20,7 +20,7 @@ using System.Numerics;
 
 namespace AXOpen.Data
 {
-    public class AxoDataExchangeViewModel : RenderableViewModelBase 
+    public class DataExchangeViewModel : RenderableViewModelBase 
     {
         public IAxoDataExchange DataExchange
         {

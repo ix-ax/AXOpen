@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Data.Interfaces
 {
-    public interface IAxoDataViewModel
+    public interface IDataViewModel
     {
         ObservableCollection<IBrowsableDataObject> Records { get; set; }
         IBrowsableDataObject SelectedRecord { get; set; }
