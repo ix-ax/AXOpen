@@ -42,7 +42,11 @@ namespace axopen_integrations_blazor
             Entry.Plc.MainContext.test_data_manager.InitializeRemoteDataExchange(repository2);
 
             
-            Entry.Plc.Integrations.DM.InitializeRemoteDataExchange(Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
+            Entry.Plc.Integrations.DM
+                .InitializeRemoteDataExchange(
+                    Ix.Repository.Json.
+                        Repository.Factory
+                            (new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
 
             //<AxoDataExampleDocuIntialization>
             var exampleRepositorySettings =

@@ -11,9 +11,9 @@ using AXSharp.Connector.Localizations;
 namespace AXOpen.Data;
 
 [Container(Layout.Tabs)]
-public class FragmentedDataCompound : ITwinObject
+public class AxoFragmentedDataCompound : ITwinObject
 {
-    public FragmentedDataCompound(ITwinObject parent, IList<ITwinElement> kids)
+    public AxoFragmentedDataCompound(ITwinObject parent, IList<ITwinElement> kids)
     {
         this._parent = parent;
         this._symbolTail = string.Empty;

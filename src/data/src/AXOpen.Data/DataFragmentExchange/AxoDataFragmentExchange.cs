@@ -21,8 +21,8 @@ public partial class AxoDataFragmentExchange
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         Operation.InitializeExclusively(Handle);
         Operation.WriteAsync().Wait();
-        Data = new FragmentedDataCompound(this, DataFragments.Select(p => p.Data).Cast<ITwinElement>().ToList());
-        Repository = new CompoundRepository(DataFragments);
+        Data = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.Data).Cast<ITwinElement>().ToList());
+        Repository = new AxoCompoundRepository(DataFragments);
         return this as T;
     }
 
@@ -55,25 +55,28 @@ public partial class AxoDataFragmentExchange
 
     public ITwinObject Data { get; private set; }
 
-    public async Task CreateNew(string identifier)
+    public async Task CreateNewAsync(string identifier)
+    {
+        await Task.Run(() =>
+        {
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.Repository.Create(identifier, fragment.Data.CreatePoco());
+            }
+
+            DataFragments.First().Repository.Read(identifier);
+        });
+    }
+
+    public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
     {
         foreach (var fragment in DataFragments)
         {
-            fragment?.Repository.Create(identifier, fragment.Data.CreatePoco());
-        }
-
-        DataFragments.First().Repository.Read(identifier);
-    }
-
-    public void FromPlainsToShadows(IBrowsableDataObject entity)
-    {
-        foreach (var fragment in DataFragments)
-        {
-            fragment.Data.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
+            await fragment.Data.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
         }
     }
 
-    public async Task UpdateFromShadows()
+    public async Task UpdateFromShadowsAsync()
     {
         foreach (var fragment in DataFragments)
         {
@@ -83,7 +86,7 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    public async Task FromShadowsToController(IBrowsableDataObject selected)
+    public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected)
     {
         foreach (var fragment in DataFragments)
         {
@@ -91,7 +94,7 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    public async Task LoadFromPlc(string recordId)
+    public async Task CreateDataFromControllerAsync(string recordId)
     {
         foreach (var fragment in DataFragments)
         {
@@ -103,15 +106,12 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    public async Task Delete(string recordId)
+    public async Task Delete(string identifier)
     {
-        foreach (var fragment in DataFragments)
-        {
-            fragment.Repository.Delete(recordId);
-        }
+        await Task.Run(() => { foreach (var fragment in DataFragments) { fragment.Repository.Delete(identifier); } });
     }
 
-    public async Task CreateCopy(string recordId)
+    public async Task CreateCopyCurrentShadowsAsync(string recordId)
     {
         foreach (var fragment in DataFragments)
         {
@@ -123,9 +123,9 @@ public partial class AxoDataFragmentExchange
 
     public bool RemoteCreate(string identifier)
     {
-        foreach (var framents in DataFragments)
+        foreach (var fragment in DataFragments)
         {
-            framents?.RemoteCreate(identifier);
+            fragment?.RemoteCreate(identifier);
         }
 
         return true;
@@ -133,9 +133,9 @@ public partial class AxoDataFragmentExchange
 
     public bool RemoteRead(string identifier)
     {
-        foreach (var framents in DataFragments)
+        foreach (var fragment in DataFragments)
         {
-            framents?.RemoteRead(identifier);
+            fragment?.RemoteRead(identifier);
         }
 
         return true;
@@ -143,9 +143,9 @@ public partial class AxoDataFragmentExchange
 
     public bool RemoteUpdate(string identifier)
     {
-        foreach (var framents in DataFragments)
+        foreach (var fragment in DataFragments)
         {
-            framents?.RemoteUpdate(identifier);
+            fragment?.RemoteUpdate(identifier);
         }
 
         return true;
@@ -153,9 +153,9 @@ public partial class AxoDataFragmentExchange
 
     public bool RemoteDelete(string identifier)
     {
-        foreach (var framents in DataFragments)
+        foreach (var fragment in DataFragments)
         {
-            framents?.RemoteDelete(identifier);
+            fragment?.RemoteDelete(identifier);
         }
 
         return true;

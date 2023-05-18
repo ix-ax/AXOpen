@@ -9,10 +9,10 @@ using AXOpen.Base.Data;
 
 namespace AXOpen.Data;
 
-public class CompoundRepository : IRepository
+public class AxoCompoundRepository : IRepository
 {
 
-    public CompoundRepository(IEnumerable<IAxoDataExchange> dataFragments)
+    public AxoCompoundRepository(IEnumerable<IAxoDataExchange> dataFragments)
     {
         DataFragments = dataFragments;
     }
@@ -67,5 +67,10 @@ public class CompoundRepository : IRepository
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode)
     {
         return ((dynamic)DataFragments.First().Repository).GetRecords(identifier, limit, skip, searchMode);
+    }
+
+    public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)
+    {
+        return ((dynamic)DataFragments.First().Repository).GetRecords(identifier);
     }
 }

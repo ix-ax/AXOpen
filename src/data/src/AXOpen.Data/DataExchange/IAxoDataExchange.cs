@@ -20,20 +20,52 @@ namespace AXOpen.Data
         /// </summary>
         ITwinObject Data { get; }
 
+        /// <summary>
+        /// Copies the data from the repository(ies) to shadows of this twin object.
+        /// </summary>
+        /// <param name="entity">Data entity object.</param>
+        Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity);
 
-        void FromPlainsToShadows(IBrowsableDataObject entity);
+        /// <summary>
+        /// Updates data form shadows of this object to respective record in the repository.
+        /// </summary>
+        /// <returns>Task</returns>
+        Task UpdateFromShadowsAsync();
 
-        Task UpdateFromShadows();
+        /// <summary>
+        /// Loads data from respective record of the repository into the controller.
+        /// </summary>
+        /// <param name="entity">Entity to be loaded into the controller.</param>
+        /// <returns></returns>
+        Task FromRepositoryToControllerAsync(IBrowsableDataObject entity);
 
-        Task FromShadowsToController(IBrowsableDataObject selected);
+        /// <summary>
+        /// Load data from controller and creates new record in the repository.
+        /// </summary>
+        /// <param name="recordId"></param>
+        /// <returns></returns>
+        Task CreateDataFromControllerAsync(string recordId);
 
-        Task LoadFromPlc(string recordId);
+        /// <summary>
+        /// Deletes record from the repository.
+        /// </summary>
+        /// <param name="identifier">Id of the record.</param>
+        /// <returns>Task</returns>
+        Task Delete(string identifier);
 
-        Task Delete(string recordId);
+        /// <summary>
+        /// Creates new record in the repository.
+        /// </summary>
+        /// <param name="identifier">Id of the record.</param>
+        /// <returns>Task</returns>
+        Task CreateNewAsync(string identifier);
 
-        Task CreateNew(string identifier);
-
-        Task CreateCopy(string identifier);
+        /// <summary>
+        /// Create new record of the current data present in the shadows of this object in the repository.
+        /// </summary>
+        /// <param name="identifier">Id of the new record</param>
+        /// <returns></returns>
+        Task CreateCopyCurrentShadowsAsync(string identifier);
         
         /// <summary>
         /// Provides handler for remote (controller's) request to create new data entry in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>

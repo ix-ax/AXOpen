@@ -55,7 +55,7 @@ namespace AXOpen.Data
                 _selectedRecord = value;
                 if (value != null)
                 {
-                    DataExchange.FromPlainsToShadows(value);
+                    DataExchange.FromRepositoryToShadowsAsync(value);
                     //--((ITwinObject)DataExchange.Data).PlainToShadow(value).Wait();
                     //CrudData.Changes = ((Pocos.AXOpen.Data.IAxoDataEntity)_selectedRecord).Changes;
                     //Changes = CrudData.Changes;
@@ -144,7 +144,7 @@ namespace AXOpen.Data
         {
             try
             {
-                DataExchange.CreateNew(CreateItemId);
+                await DataExchange.CreateNewAsync(CreateItemId);
                 WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!",
                     "Item was successfully created!", 10)));
             }
@@ -197,7 +197,7 @@ namespace AXOpen.Data
         {
             try
             {
-                await DataExchange.CreateCopy(CreateItemId);
+                await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId);
                 WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Copied!",
                     "Item was successfully copied!", 10)));
             }
@@ -261,7 +261,7 @@ namespace AXOpen.Data
             //UpdateRecord(plainer);
             //SelectedRecord = plainer;
 
-            await DataExchange.UpdateFromShadows();
+            await DataExchange.UpdateFromShadowsAsync();
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Edited!", "Item was successfully edited!", 10)));
             UpdateObservableRecords();
         }
@@ -269,7 +269,7 @@ namespace AXOpen.Data
         public async Task SendToPlc()
         {
             //-- await ((ITwinObject)DataExchange.Data).PlainToOnline(SelectedRecord);
-            await DataExchange.FromShadowsToController(SelectedRecord);
+            await DataExchange.FromRepositoryToControllerAsync(SelectedRecord);
             WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
         }
 
@@ -277,7 +277,7 @@ namespace AXOpen.Data
         {
             try
             {
-                await DataExchange.LoadFromPlc(CreateItemId);
+                await DataExchange.CreateDataFromControllerAsync(CreateItemId);
                 WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!",
                     "Item was successfully loaded from PLC!", 10)));
             }

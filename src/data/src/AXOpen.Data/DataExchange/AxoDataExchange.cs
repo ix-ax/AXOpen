@@ -78,17 +78,16 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public bool RemoteRead(string identifier)
     {
-        ReadTask.ReadAsync().Wait();
-
         try
         {
+            ReadTask.ReadAsync().Wait();
             var record = Repository.Read(identifier);
-            ((ITwinObject)DataEntity).PlainToShadow(record).Wait();
+            ((ITwinObject)DataEntity).PlainToOnline(record).Wait();
             return true;
         }
         catch (Exception exception)
         {
-            throw exception;
+            throw;
         }
     }
 
@@ -105,10 +104,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public bool RemoteDelete(string identifier)
     {
-        UpdateTask.ReadAsync().Wait();
+        DeleteTask.ReadAsync().Wait();
         DataEntity.DataEntityId.SetAsync(identifier).Wait();
-        var cloned = ((ITwinObject)DataEntity).OnlineToPlain<TPlain>().Result;
-        Repository.Update(identifier, cloned);
+        Repository.Delete(identifier);
         return true;
     }
 
@@ -281,31 +279,36 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         await Task.Run(() => Repository.Delete(identifier));
     }
 
-    public async Task CreateNew(string identifier)
+    /// <inheritdoc />
+    public async Task CreateNewAsync(string identifier)
     {
         this.Repository.Create(identifier, this.Data.CreatePoco());
         var plain = Repository.Read(identifier);
         Data.PlainToShadow(plain);
     }
 
-    public void FromPlainsToShadows(IBrowsableDataObject entity)
+    /// <inheritdoc />
+    public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
     {
-        this.Data.PlainToShadow(Repository.Read(entity.DataEntityId));
+        await this.Data.PlainToShadow(Repository.Read(entity.DataEntityId));
     }
 
-    public async Task UpdateFromShadows()
+    /// <inheritdoc />
+    public async Task UpdateFromShadowsAsync()
     {
         var plainer = await((ITwinObject)Data).ShadowToPlain<dynamic>();
         //CrudData.ChangeTracker.SaveObservedChanges(plainer);
         Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
     }
 
-    public async Task FromShadowsToController(IBrowsableDataObject selected)
+    /// <inheritdoc />
+    public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected)
     {
-         await Data.PlainToOnline(selected);
+         await Data.PlainToOnline(Repository.Read(selected.DataEntityId));
     }
 
-    public async Task LoadFromPlc(string recordId)
+    /// <inheritdoc />
+    public async Task CreateDataFromControllerAsync(string recordId)
     {
         var plainer = await Data.OnlineToPlain<dynamic>();
         plainer.DataEntityId = recordId;
@@ -314,12 +317,14 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         Data.PlainToShadow(plain);
     }
 
-    public async Task Delete(string recordId)
+    /// <inheritdoc />
+    public async Task Delete(string identifier)
     {
-        Repository.Delete(recordId);
+        Repository.Delete(identifier);
     }
 
-    public async Task CreateCopy(string recordId)
+    /// <inheritdoc />
+    public async Task CreateCopyCurrentShadowsAsync(string recordId)
     {
         var source = await Data.ShadowToPlain<IBrowsableDataObject>();
         source.DataEntityId = recordId;
