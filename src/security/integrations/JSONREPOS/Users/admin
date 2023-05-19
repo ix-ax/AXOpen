@@ -1,0 +1,18 @@
+{
+  "Changes": [],
+  "RecordId": null,
+  "DataEntityId": "admin",
+  "UserName": "admin",
+  "Email": null,
+  "HashedPassword": "2CSU8F1pF7oC96qilonMtES7c/IDgIdssF0fN1N7eJI=",
+  "CanUserChangePassword": false,
+  "Roles": [
+    "AdminGroup"
+  ],
+  "RoleHash": "DDqGGWF067m+xzdK/hiNIkFC2ui+AArqAr+MQd+2miM=",
+  "LogoutTime": "00:00:00",
+  "Created": "0001-01-01T00:00:00",
+  "Modified": "0001-01-01T00:00:00",
+  "SecurityStamp": "ba1a1b34-bb95-400d-9421-31c94ad8043b",
+  "AuthenticationToken": null
+}
