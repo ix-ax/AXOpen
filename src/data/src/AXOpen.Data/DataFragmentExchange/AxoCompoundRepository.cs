@@ -50,7 +50,7 @@ public class AxoCompoundRepository : IRepository
     {
         foreach (var dataFragment in DataFragments)
         { 
-            dataFragment.Data.PlainToShadow(dataFragment.Repository.Read(identifier));
+            dataFragment.RefUIData.PlainToShadow(dataFragment.Repository.Read(identifier));
         }
 
         return null;

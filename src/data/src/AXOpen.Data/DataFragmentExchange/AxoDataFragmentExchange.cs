@@ -21,7 +21,7 @@ public partial class AxoDataFragmentExchange
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         Operation.InitializeExclusively(Handle);
         Operation.WriteAsync().Wait();
-        Data = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.Data).Cast<ITwinElement>().ToList());
+        RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
         Repository = new AxoCompoundRepository(DataFragments);
         return this as T;
     }
@@ -53,7 +53,7 @@ public partial class AxoDataFragmentExchange
 
     public IRepository? Repository { get; private set; }
 
-    public ITwinObject Data { get; private set; }
+    public ITwinObject RefUIData { get; private set; }
 
     public async Task CreateNewAsync(string identifier)
     {
@@ -61,7 +61,7 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.Repository.Create(identifier, fragment.Data.CreatePoco());
+                fragment?.Repository.Create(identifier, fragment.RefUIData.CreatePoco());
             }
 
             DataFragments.First().Repository.Read(identifier);
@@ -72,7 +72,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-            await fragment.Data.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
+            await fragment.RefUIData.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
         }
     }
 
@@ -80,7 +80,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-            var plainer = await (fragment.Data).ShadowToPlain<dynamic>();
+            var plainer = await (fragment.RefUIData).ShadowToPlain<dynamic>();
             //CrudData.ChangeTracker.SaveObservedChanges(plainer);
             fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
         }
@@ -90,7 +90,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-            await fragment.Data.PlainToOnline(fragment.Repository.Read(selected.DataEntityId));
+            await fragment.RefUIData.PlainToOnline(fragment.Repository.Read(selected.DataEntityId));
         }
     }
 
@@ -98,11 +98,11 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-            var plainer = await fragment.Data.OnlineToPlain<dynamic>();
+            var plainer = await fragment.RefUIData.OnlineToPlain<dynamic>();
             plainer.DataEntityId = recordId;
             fragment.Repository.Create(plainer.DataEntityId, plainer);
             var plain = fragment.Repository.Read(plainer.DataEntityId);
-            fragment.Data.PlainToShadow(plain);
+            fragment.RefUIData.PlainToShadow(plain);
         }
     }
 
@@ -115,7 +115,7 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-            var source = await fragment.Data.ShadowToPlain<IBrowsableDataObject>();
+            var source = await fragment.RefUIData.ShadowToPlain<IBrowsableDataObject>();
             source.DataEntityId = recordId;
             fragment.Repository.Create(source.DataEntityId, source);
         }

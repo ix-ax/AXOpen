@@ -57,7 +57,7 @@ NAMESPACE examples.PneumaticManipulator
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
             Shared : SharedProductionDataManager;
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Data : FragmentProcessDataManger;
+            DataManger : FragmentProcessDataManger;
         END_VAR
 
         METHOD PUBLIC Run
@@ -67,7 +67,7 @@ NAMESPACE examples.PneumaticManipulator
             THIS.Initialize(Parent);
             Operation.Initialize(THIS);
             Shared.Run(Parent);
-            Data.Run(Parent);
+            DataManger.Run(Parent);
             Operation.Execute();
         END_METHOD
     END_CLASS
@@ -202,7 +202,7 @@ NAMESPACE examples.PneumaticManipulator
             THIS.AndThen(Steps[8], components^.GripperCylinder.MoveToHome);
             
             IF(Steps[10].Execute(THIS, TRUE, 'Create data id')) THEN
-                ProcessData^.Data.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
+                ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
                 THIS.MoveNext();
             END_IF;    
 

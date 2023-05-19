@@ -152,7 +152,6 @@ namespace AXOpen.Data
             {
                 WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to create new record!",
                     e.Message, 10)));
-                throw;
             }
             finally
             {
@@ -211,36 +210,6 @@ namespace AXOpen.Data
                 UpdateObservableRecords();
                 CreateItemId = null;
             }
-
-            //-- var plainer = await ((ITwinObject)DataExchange.Data).ShadowToPlain<dynamic>();
-
-            //if (plainer == null)
-            //    throw new WrongTypeOfDataObjectException(
-            //        $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
-
-            //if (CreateItemId != null)
-            //{
-            //    plainer.DataEntityId = CreateItemId;
-            //}
-            //else
-            //{
-            //    plainer.DataEntityId = $"Copy of {SelectedRecord.DataEntityId}";
-            //}
-
-            //try
-            //{
-            //    DataExchange.Repository.Create(plainer.DataEntityId, plainer);
-            //    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Copied!", "Item was successfully copied!", 10)));
-            //}
-            //catch (DuplicateIdException)
-            //{
-            //    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
-            //}
-
-            //var foundPlain = this.FindById(plainer.DataEntityId);
-            //await ((ITwinObject)DataExchange.Data).PlainToShadow(foundPlain);
-            //UpdateObservableRecords();
-            //CreateItemId = null;
         }
 
         public IEnumerable<DataItemValidation> UpdateRecord(Pocos.AXOpen.Data.AxoDataEntity data)

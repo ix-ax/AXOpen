@@ -45,7 +45,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     ///     Gets <see cref="AxoDataEntity" /> as <see cref="ITwinObject" /> that provides exchange mechanisms between this
     ///     <see cref="AxoDataExchange{TOnline,TPlain}" /> and controller.
     /// </summary>
-    public ITwinObject Data => DataEntity as ITwinObject;
+    public ITwinObject RefUIData => DataEntity as ITwinObject;
 
 
     /// <inheritdoc />
@@ -282,21 +282,21 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public async Task CreateNewAsync(string identifier)
     {
-        this.Repository.Create(identifier, this.Data.CreatePoco());
+        this.Repository.Create(identifier, this.RefUIData.CreatePoco());
         var plain = Repository.Read(identifier);
-        Data.PlainToShadow(plain);
+        RefUIData.PlainToShadow(plain);
     }
 
     /// <inheritdoc />
     public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
     {
-        await this.Data.PlainToShadow(Repository.Read(entity.DataEntityId));
+        await this.RefUIData.PlainToShadow(Repository.Read(entity.DataEntityId));
     }
 
     /// <inheritdoc />
     public async Task UpdateFromShadowsAsync()
     {
-        var plainer = await((ITwinObject)Data).ShadowToPlain<dynamic>();
+        var plainer = await((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
         //CrudData.ChangeTracker.SaveObservedChanges(plainer);
         Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
     }
@@ -304,17 +304,17 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected)
     {
-         await Data.PlainToOnline(Repository.Read(selected.DataEntityId));
+         await RefUIData.PlainToOnline(Repository.Read(selected.DataEntityId));
     }
 
     /// <inheritdoc />
     public async Task CreateDataFromControllerAsync(string recordId)
     {
-        var plainer = await Data.OnlineToPlain<dynamic>();
+        var plainer = await RefUIData.OnlineToPlain<dynamic>();
         plainer.DataEntityId = recordId;
         Repository.Create(plainer.DataEntityId, plainer);
         var plain = Repository.Read(plainer.DataEntityId);
-        Data.PlainToShadow(plain);
+        RefUIData.PlainToShadow(plain);
     }
 
     /// <inheritdoc />
@@ -326,7 +326,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public async Task CreateCopyCurrentShadowsAsync(string recordId)
     {
-        var source = await Data.ShadowToPlain<IBrowsableDataObject>();
+        var source = await RefUIData.ShadowToPlain<IBrowsableDataObject>();
         source.DataEntityId = recordId;
         Repository.Create(source.DataEntityId, source);
     }

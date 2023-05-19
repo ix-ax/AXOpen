@@ -2,7 +2,7 @@
 @using AXSharp.Connector
 @using AXOpen.Data;
 
-<div class="container-fluid">
+@*<div class="container-fluid">
     <div class="row">
         <DataExchangeView Vm="_vm">
             <AxoColumnData HeaderName="Comes from" BindingValue="ComesFrom" Clickable="false" />
@@ -15,3 +15,10 @@
 {
     private DataExchangeViewModel _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.ProcessData };
 }
+*@
+
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.DataManger" Presentation="Command"></RenderableContentControl>
+
+@*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared" Presentation="Command"></RenderableContentControl>
+
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Data" Presentation="Command"></RenderableContentControl>*@

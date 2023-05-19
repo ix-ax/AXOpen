@@ -2,7 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Data     
     {#ix-generic:<TOnline, TPlain>}
-    CLASS AxoDataExchange EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IAxoDataExchange
+    CLASS AxoDataExchange EXTENDS AxoDataExchangeBase IMPLEMENTS IAxoDataExchange
         VAR PUBLIC
            {#ix-set:AttributeName =  "<#Create#>"} 
            CreateTask  : AxoDataExchangeTask; 

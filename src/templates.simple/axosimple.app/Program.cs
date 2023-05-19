@@ -36,7 +36,7 @@ var headerDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.Shared
 var a = Entry.Plc.Context.PneumaticManipulator
     .ProcessData
     .Builder<examples.PneumaticManipulator.ProcessDataManger>();
-a.Data.InitializeRemoteDataExchange(productionDataRepository);
+a.DataManger.InitializeRemoteDataExchange(productionDataRepository);
 a.Shared.InitializeRemoteDataExchange(headerDataRepository);
 
 var b = Entry.Plc.Context.ProcessData

@@ -96,7 +96,7 @@ namespace integration.data.blazor.tests
                 RecipeName=recipe
             };
 
-             await _vm.DataExchange.Data.PlainToShadow(_vm.SelectedRecord);
+             await _vm.DataExchange.RefUIData.PlainToShadow(_vm.SelectedRecord);
              await _vm.Edit();
 
             //assert

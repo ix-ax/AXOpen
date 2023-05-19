@@ -16,9 +16,9 @@ namespace AXOpen.Data
         IRepository? Repository { get; }
 
         /// <summary>
-        /// Gets data of this AxoDataExchange object.
+        /// Gets data of this AxoDataExchange object for automated UI generation.
         /// </summary>
-        ITwinObject Data { get; }
+        ITwinObject RefUIData { get; }
 
         /// <summary>
         /// Copies the data from the repository(ies) to shadows of this twin object.

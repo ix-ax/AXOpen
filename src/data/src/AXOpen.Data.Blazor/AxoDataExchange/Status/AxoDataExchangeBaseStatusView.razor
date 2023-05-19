@@ -1,0 +1,10 @@
+﻿@namespace AXOpen.Data
+@inherits RenderableComplexComponentBase<AxoDataExchangeBase>;
+
+<DataExchangeView Vm="_vm" Presentation="Status"></DataExchangeView>
+
+@code
+{
+    private DataExchangeViewModel _vm => new DataExchangeViewModel { Model = this.Component };
+}
+

@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE AXOpen.Data    
-    CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoObject IMPLEMENTS IAxoDataExchange               
+    CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoDataExchangeBase IMPLEMENTS IAxoDataExchange               
         VAR PUBLIC           
             Operation : AxoDataCrudTask;
         END_VAR   
