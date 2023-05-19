@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.simatic1500"
-version  : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+version         : '0.1.4-alpha.66'
 type: lib
 targets:
   #  - "1500"
@@ -9,7 +9,7 @@ files:
   - src
 dependencies:
   "@ax/simatic-1500": 3.0.2
-  "@ix-ax/axopen.abstractions"  : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+  "@ix-ax/axopen.abstractions"         : '0.1.4-alpha.66'
   "@ax/axunit-library": ^4.0.6  
 devDependencies:
   "@ax/sdk": 3.0.18
