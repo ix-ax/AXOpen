@@ -234,6 +234,8 @@ namespace Security
             {
                 return null;
             }
+            if(data.Roles == null || data.Roles.Count == 0)
+                return null;
 
             return String.Join(",", data.Roles);
         }

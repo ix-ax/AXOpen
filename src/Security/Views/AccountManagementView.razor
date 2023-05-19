@@ -44,7 +44,10 @@
                     }
                     <div class="d-flex justify-content-between">
                         <button type="submit" class="btn btn-primary m-2">Update</button>
-                        <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#changeAuthorizationTokenModal">Change authorization token</button>
+                        @if (_blazorAuthenticationStateProvider.ExternalAuthorization != null)
+                        {
+                            <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#changeAuthorizationTokenModal">Change authorization token</button>
+                        }
                     </div>
                 </EditForm>
             </div>
