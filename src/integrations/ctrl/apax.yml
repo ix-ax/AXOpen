@@ -1,5 +1,5 @@
 name: "axopen.integrations"
-version                                                                                                                                                                                    : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+version                                                                                                                                                                                       : '0.1.4-alpha.66'
 type: app
 targets:
 #  - "1500"
@@ -11,11 +11,11 @@ devDependencies:
   "@ax/sld": ^0.14.2
 
 dependencies:
-  "@ix-ax/axopen.core"            : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
-  "@ix-ax/axopen.data"            : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
-  "@ix-ax/axopen.probers"         : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
-  "@ix-ax/axopen.messaging"       : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
-  "@ix-ax/axopen.simatic1500"     : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+  "@ix-ax/axopen.core"               : '0.1.4-alpha.66'
+  "@ix-ax/axopen.data"               : '0.1.4-alpha.66'
+  "@ix-ax/axopen.probers"            : '0.1.4-alpha.66'
+  "@ix-ax/axopen.messaging"          : '0.1.4-alpha.66'
+  "@ix-ax/axopen.simatic1500"        : '0.1.4-alpha.66'
   "@ax/axunit-library"          : ^4.0.6
 
 variables:

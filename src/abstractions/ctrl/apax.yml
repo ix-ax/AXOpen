@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.abstractions"
-version                                                                                                                                                                                                      : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
+version                                                                                                                                                                                                             : '0.1.4-alpha.66'
 type: lib
 targets:
   - "1500"
