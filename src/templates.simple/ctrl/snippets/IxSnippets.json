@@ -1,0 +1,93 @@
+
+{
+    "attritubePropertyName":
+    {
+        "prefix": ["attName"],
+        "scope": "st",
+        "body":[
+        "{#ix-set:AttributeName = \"<#${1:name}#>\"} ",
+        "$0"
+        ],
+    "description": "Add Name attribute"
+    },
+  
+    "attritubeLayoutTabs":
+    {
+        "prefix": ["attTabs","tabs"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[Container(Layout.Tabs)]}",
+        "$0"
+        ],
+    "description": "Add layout Tab attribute"
+    },
+   
+    "attributeLayoutWrap":
+    {
+        "prefix": ["attWrap","wrap"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[Container(Layout.Wrap)]}",
+        "$0"
+        ],
+    "description": "Add layout Wrap attribute"
+    },
+
+    "attributeLayoutStack":
+    {
+        "prefix": ["attStack","stack"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[Container(Layout.Stack)]}",
+        "$0"
+        ],
+    "description": "Add layout Stack attribute"
+    },
+
+    "attributeLayoutUniformGrid":
+    {
+        "prefix": ["attuniformGrid","uniformGrid","grid"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[Container(Layout.UniformGrid)]}",
+        "$0"
+        ],
+    "description": "Add layout UniformGrid attribute"
+    },
+
+    "attributeContainerGroupBox":
+    {
+        "prefix": ["attgroupbox","groupBox"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[Container(Layout.Stack)]}",
+        "{#ix-attr:[Group(GroupLayout.GroupBox)]}",
+        "$0"
+        ],
+    "description": "Add group and GroupBox attribute"
+    },
+
+    "attributeContainerBorder":
+    {
+        "prefix": ["attborder","borderaAttr"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[Container(Layout.Stack)]}",
+        "{#ix-attr:[Group(GroupLayout.Border)]}",
+        "$0"
+        ],
+    "description": "Add group Border attribute"
+    },
+
+
+    "attritubeRenderIgnore":
+    {
+        "prefix": ["attIgnore","ignore"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[RenderIgnore()]}",
+        "$0"
+        ],
+    "description": "RenderIgnore attribute when rendering"
+    }
+}
