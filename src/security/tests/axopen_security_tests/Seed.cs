@@ -10,102 +10,60 @@ namespace AxOpen.Security.Tests
         }
         public void SeedData()
         {
-            ExistUser = new User
+            ExistUser = new User("exist", "exist@exist.com", new List<string>().ToArray(), false)
             {
-                UserName = "exist",
-                NormalizedUserName = "EXIST",
-                Email = "exist@exist.com",
-                NormalizedEmail = "EXIST@EXIST.COM",
-                Roles = new List<string>().ToArray(),
                 Id = "exist",
-                CanUserChangePassword = false,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                ConcurrencyStamp = Guid.NewGuid().ToString(),
-                PasswordHash = "password"
+                PasswordHash = Hasher.CalculateHash("exist", "exist"),
+                RoleHash = Hasher.CalculateHash("", "exist")
             };
 
-            NoExistUser = new User
+            NoExistUser = new User("noexist", "noexist@noexist.com", new List<string>().ToArray(), false)
             {
-                UserName = "noexist",
-                NormalizedUserName = "NOEXIST",
-                Email = "noexist@noexist.com",
-                NormalizedEmail = "NOEXIST@NOEXIST.COM",
-                Roles = new List<string>().ToArray(),
                 Id = "noexist",
-                CanUserChangePassword = false,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                ConcurrencyStamp = Guid.NewGuid().ToString(),
-                PasswordHash = "password"
+                PasswordHash = Hasher.CalculateHash("noexist", "noexist"),
+                RoleHash = Hasher.CalculateHash("", "noexist")
             };
 
-            CreateUser = new User
+            CreateUser = new User("create", "create@create.com", new List<string>().ToArray(), false)
             {
-                UserName = "create",
-                NormalizedUserName = "CREATE",
-                Email = "create@create.com",
-                NormalizedEmail = "CREATE@CREATE.COM",
-                Roles = new List<string>().ToArray(),
                 Id = "create",
-                CanUserChangePassword = false,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                ConcurrencyStamp = Guid.NewGuid().ToString(),
-                PasswordHash = "password"
+                PasswordHash = Hasher.CalculateHash("create", "create"),
+                RoleHash = Hasher.CalculateHash("", "create")
             };
 
-            RemoveUser = new User
+            RemoveUser = new User("remove", "remove@remove.com", new List<string>().ToArray(), false)
             {
-                UserName = "remove",
-                NormalizedUserName = "REMOVE",
-                Email = "remove@remove.com",
-                NormalizedEmail = "REMOVE@REMOVE.COM",
-                Roles = new List<string>().ToArray(),
                 Id = "remove",
-                CanUserChangePassword = false,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                ConcurrencyStamp = Guid.NewGuid().ToString(),
-                PasswordHash = "password"
+                PasswordHash = Hasher.CalculateHash("remove", "remove"),
+                RoleHash = Hasher.CalculateHash("", "remove")
             };
 
-            UpdateUser = new User
+            UpdateUser = new User("update", "update@update.com", new List<string>().ToArray(), false)
             {
-                UserName = "update",
-                NormalizedUserName = "UPDATE",
-                Email = "update@update.com",
-                NormalizedEmail = "UPDATE@UPDATE.COM",
-                Roles = new List<string>().ToArray(),
                 Id = "update",
-                CanUserChangePassword = false,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                ConcurrencyStamp = Guid.NewGuid().ToString(),
-                PasswordHash = "password"
+                PasswordHash = Hasher.CalculateHash("update", "update"),
+                RoleHash = Hasher.CalculateHash("", "update")
             };
 
-            AdminUser = new User
+            AdminUser = new User("admin", "admin@admin.com", new string[] { "AdminGroup" }, false)
             {
-                UserName = "admin",
-                NormalizedUserName = "ADMIN",
-                Email = "admin@admin.com",
-                NormalizedEmail = "ADMIN@ADMIN.COM",
-                Roles = new string[] { "AdminGroup" },
                 Id = "admin",
-                CanUserChangePassword = true,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                ConcurrencyStamp = Guid.NewGuid().ToString(),
-                PasswordHash = "password"
+                PasswordHash = Hasher.CalculateHash("admin", "admin"),
+                RoleHash = Hasher.CalculateHash("", "admin")
             };
 
-            DefaultUser = new User
+            DefaultUser = new User("default", "default@default.com", new string[] { "DefaultGroup" }, false)
             {
-                UserName = "default",
-                NormalizedUserName = "DEFAULT",
-                Email = "default@default.com",
-                NormalizedEmail = "DEFAULT@DEFAULT.COM",
-                Roles = new string[] { "DefaultGroup" },
                 Id = "default",
-                CanUserChangePassword = true,
                 SecurityStamp = Guid.NewGuid().ToString(),
-                ConcurrencyStamp = Guid.NewGuid().ToString(),
-                PasswordHash = "password"
+                PasswordHash = Hasher.CalculateHash("default", "default"),
+                RoleHash = Hasher.CalculateHash("", "default")
             };
         }
 

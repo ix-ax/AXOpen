@@ -20,7 +20,8 @@ namespace AxOpen.Security.Tests
             _inMemoryRepoGroup = new InMemoryRepository<GroupData>();
             _roleGroupManager = new RoleGroupManager(_inMemoryRepoGroup);
             //Repository = new RepositoryService(_inMemoryRepoUser, _roleGroupManager);
-           
+
+            SeedData = new Seed();
 
             _inMemoryRepoUser.Create(SeedData.ExistUser.UserName, new UserData(SeedData.ExistUser));
             _inMemoryRepoUser.Create(SeedData.RemoveUser.UserName, new UserData(SeedData.RemoveUser));
@@ -43,7 +44,6 @@ namespace AxOpen.Security.Tests
 
             Basp = new BlazorAuthenticationStateProvider(_inMemoryRepoUser, _roleGroupManager);
             UserStore = new UserStore(Basp);
-            SeedData = new Seed();
         }
 
         public UserStore UserStore { get; set; }
