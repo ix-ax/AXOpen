@@ -55,7 +55,7 @@ namespace AxOpen.Security.Tests
                 Id = "admin",
                 SecurityStamp = Guid.NewGuid().ToString(),
                 PasswordHash = Hasher.CalculateHash("admin", "admin"),
-                RoleHash = Hasher.CalculateHash("", "admin")
+                RoleHash = Hasher.CalculateHash("AdminGroup", "admin")
             };
 
             DefaultUser = new User("default", "default@default.com", new string[] { "DefaultGroup" }, false)

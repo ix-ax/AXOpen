@@ -53,5 +53,8 @@
     protected override void OnInitialized()
     {
         _model = new LoginUserModel();
+        //_blazorAuthenticationStateProvider.OnDeAuthenticated += LogoutTimerExpired;
+
     }
+   
 }

@@ -1,4 +1,6 @@
-﻿<CascadingAuthenticationState>
+﻿@inject BlazorAuthenticationStateProvider _basp
+@inject NavigationManager _nm
+<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="new[] { typeof(AxOpen.Security.BlazorSecurity).Assembly }">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -12,3 +14,19 @@
         </NotFound>
     </Router>
 </CascadingAuthenticationState>
+
+@code {
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        //_model = new LoginUserModel();
+        _basp.OnDeAuthenticated += LogoutTimerExpired;
+
+    }
+
+    void LogoutTimerExpired(string name)
+    {
+        _nm.NavigateTo("", forceLoad: true);
+    }
+
+}

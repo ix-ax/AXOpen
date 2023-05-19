@@ -52,7 +52,7 @@ namespace AxOpen.Security
                 blazorAuthenticationStateProvider.ExternalAuthorization = externalAuthorization;
             }
 
-            services.AddSingleton(blazorAuthenticationStateProvider);
+            services.AddScoped( p => blazorAuthenticationStateProvider);
             
             services.AddScoped<AuthenticationStateProvider, BlazorAuthenticationStateProvider>(p => blazorAuthenticationStateProvider);
         }

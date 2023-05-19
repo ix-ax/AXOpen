@@ -202,7 +202,7 @@ namespace AxOpen.Security
             customPrincipal.Identity = new AppIdentity(user.UserName, user.Email, roles, user.CanUserChangePassword, user.Level);
             Thread.CurrentPrincipal = customPrincipal;
             OnUserAuthenticateSuccess?.Invoke(user.UserName);
-            SetUserTimedOutDeAuthentication(userData.LogoutTime);
+            SetUserTimedOutDeAuthentication(new TimeSpan(0,0,10));
             //TcOpen.Inxton.TcoAppDomain.Current.Logger.Information($"User '{user.UserName}' has authenticated.{{payload}}", new { UserName = user.UserName, CanChangePassword = user.CanUserChangePassword, Roles = string.Join(",", user.Roles), Id = user.Id });
             return user;
         }
