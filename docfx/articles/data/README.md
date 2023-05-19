@@ -31,10 +31,11 @@ For the data exchange to work, we must create a class extending the `AxoDataExch
 
 ### Data exchange object
 
-We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `DataEntityAttribute`. 
+We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `AxoDataEntityAttribute` and   `#ix-generic:TOnline` and `#ix-generic:TPlain as POCO` attributes that provide type information for the data exchange.
 
 > [!IMPORTANT]
-> `DataEntityAttribute` must be attributed to only one member `AxoDataExchange` object and is used to locate data object that contains data to be exchanged between PLC and the target repository. An exception is thrown when `DataEntityAttribute` is missing or multiple members have the annotation.
+> `AxoDataEntityAttribute`, `#ix-generic:TOnline` and `#ix-generic:TPlain as POCO` must be attributed to only one member `AxoDataExchange` object and is used to locate data object that contains data to be exchanged between PLC and the target repository. 
+An exception is thrown when `DataEntityAttribute` is missing or multiple members have the annotation. 
 
 
 > [!IMPORTANT]
@@ -140,7 +141,7 @@ With this option, buttons for export and import data will appear. After clicking
 The Detail View is default shown like modal view. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show a detail view under the record table. Example with `ModalDetailView` attribute:
 
 ~~~
-<AxoDataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
+<DataExchangeView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
 ~~~
 
 ![Not Modal detail view](~/images/NotModalDetailView.png)

@@ -114,7 +114,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_integration_tests", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{AE9D9AAE-0A33-473E-84CB-0AC972FD9A26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "axo.snippetify", "tools\src\axo.snippetify\axo.snippetify.csproj", "{D892F56E-D5BA-470F-85BE-16C777AC5559}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axo.snippetify", "tools\src\axo.snippetify\axo.snippetify.csproj", "{D892F56E-D5BA-470F-85BE-16C777AC5559}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{71A7EE6D-7F41-4336-9B7E-6166F35EDF59}"
 EndProject

@@ -163,6 +163,8 @@ NAMESPACE IntegrationLightDirect
 
     CLASS DataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC     
+            {#ix-generic:TOnline}              
+            {#ix-generic:TPlain as POCO}
             {#ix-attr:[AxoDataEntityAttribute]}         
             _data       : DataSet;
         END_VAR          

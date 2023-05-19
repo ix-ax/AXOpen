@@ -5,7 +5,6 @@ using AXOpen.Core.blazor.Toaster;
 using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using AXOpen.Data.DependencyInjection;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace axopen_integrations_blazor
@@ -23,7 +22,6 @@ namespace axopen_integrations_blazor
             
             builder.Services.AddIxBlazorServices();
 
-            builder.Services.RegisterIxDataServices();
             builder.Services.AddSingleton<ToastService>();
 
             Entry.Plc.Connector.BuildAndStart();
@@ -44,7 +42,11 @@ namespace axopen_integrations_blazor
             Entry.Plc.MainContext.test_data_manager.InitializeRemoteDataExchange(repository2);
 
             
-            Entry.Plc.Integrations.DM.InitializeRemoteDataExchange(Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
+            Entry.Plc.Integrations.DM
+                .InitializeRemoteDataExchange(
+                    Ix.Repository.Json.
+                        Repository.Factory
+                            (new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
 
             //<AxoDataExampleDocuIntialization>
             var exampleRepositorySettings =

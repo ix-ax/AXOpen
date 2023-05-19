@@ -1,6 +1,6 @@
 ﻿@page "/DocuExamples/AxoDataDocuExamples"
 @using AXOpen.Data;
-@using AXOpen.Data.ViewModels
+
 
 <h3>Editable</h3>
 //<CommandView>
@@ -12,19 +12,16 @@
 //</DisplayView>
 
 //<CustomColumns>
-<AxoDataView Vm="VM" Presentation="Command">
-    <AxoColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
-    <AxoColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
-    <AxoColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
-</AxoDataView>
+<DataExchangeView Vm="VM" Presentation="Command">
+    <ColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
+    <ColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
+    <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
+</DataExchangeView>
 //</CustomColumns>
 
 //<CustomColumnsCode>
 @code {
-    protected AxoDataViewModel<Pocos.AxoDataExamplesDocu.AxoProductionData, AxoDataExamplesDocu.AxoProductionData> VM { get; } =
-        AxoDataViewModelCreator.Create<Pocos.AxoDataExamplesDocu.AxoProductionData, AxoDataExamplesDocu.AxoProductionData>
-            (Entry.Plc.AxoDataExamplesDocu.DataManager.GetRepository<Pocos.AxoDataExamplesDocu.AxoProductionData>(),
-                Entry.Plc.AxoDataExamplesDocu.DataManager);
+    protected DataExchangeViewModel VM { get; } = new () { Model = Entry.Plc.AxoDataExamplesDocu.DataManager };
 }
 
 //</CustomColumnsCode>

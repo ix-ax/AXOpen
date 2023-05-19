@@ -4,7 +4,9 @@ NAMESPACE AxoDataExamplesDocu
     
     //<ProcessDataMangerDeclaration>
     CLASS AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange 
-        VAR PUBLIC                           
+        VAR PUBLIC             
+            {#ix-generic:TOnline}              
+            {#ix-generic:TPlain as POCO}
             {#ix-attr:[AxoDataEntityAttribute]}
             Data       : AxoProductionData;    // <-  Manager will operate on this member.                   
         END_VAR  

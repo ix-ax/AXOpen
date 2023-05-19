@@ -401,12 +401,5 @@ FodyWeavers.xsd
 artifacts/
 .idea/
 /src/integrations/integration.blazor/Data/processdata
-/src/simatic1500/ctrl/apax-lock.json
-/src/abstractions/ctrl/apax-lock.json
-/src/utils/ctrl/apax-lock.json
-/src/templates.simple/ctrl/apax-lock.json
-/src/probers/ctrl/apax-lock.json
-/src/messaging/ctrl/apax-lock.json
-/src/integrations/ctrl/apax-lock.json
-/src/data/ctrl/apax-lock.json
-/src/core/ctrl/apax-lock.json
+
+apax-lock.json

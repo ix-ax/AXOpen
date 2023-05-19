@@ -6,7 +6,7 @@
 @using AXOpen.Data.Interfaces;
 @using AXOpen.Core.blazor.Toaster;
 @using AXOpen.Core;
-@using AXOpen.Data.ViewModels;
+@using AXOpen.Data;
 
 @if (Vm == null)
 {
@@ -56,7 +56,7 @@ else
                     <CascadingValue Value="this" IsFixed>
                         @ChildContent
                     </CascadingValue>
-                    @foreach (AxoColumnData column in Columns)
+                    @foreach (ColumnData column in Columns)
                     {
                         if (column.HeaderName is null || column.HeaderName == "")
                         {
@@ -105,7 +105,7 @@ else
                             {
                                 <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
 
-                                @foreach (AxoColumnData column in Columns)
+                                @foreach (ColumnData column in Columns)
                                 {
                                     if (column.Clickable)
                                     {
@@ -121,7 +121,7 @@ else
                             {
                                 <td style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
 
-                                @foreach (AxoColumnData column in Columns)
+                                @foreach (ColumnData column in Columns)
                                 {
                                     if (column.Clickable)
                                     {
@@ -223,7 +223,7 @@ else
     @if (!ModalDataView && Vm.SelectedRecord != null)
     {
         <div class="border p-2">
-            <RenderableContentControl Context="Vm.DataExchange.DataHeavy" Presentation="ShadowDisplay"></RenderableContentControl>
+            <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
             @if (Presentation.Equals("Command"))
             {
                 <div class="d-flex justify-content-end mt-3">
@@ -305,7 +305,7 @@ else
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <RenderableContentControl Context="Vm.DataExchange.DataHeavy" Presentation="ShadowDisplay"></RenderableContentControl>
+                <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
             </div>
             <div class="modal-footer">
                 @if (Presentation.Equals("Command"))
@@ -329,7 +329,7 @@ else
                 <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <RenderableContentControl Context="Vm.DataExchange.DataHeavy" Presentation="ShadowControl"></RenderableContentControl>
+                <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowControl"></RenderableContentControl>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Edit()">Save</button>
@@ -397,104 +397,3 @@ else
         </div>
     </div>
 </div>
-
-
-@code {
-
-    [Parameter]
-    public IAxoDataViewModel Vm { get; set; }
-
-    [Parameter]
-    public string Presentation { get; set; }
-
-    [Parameter]
-    public bool ModalDataView { get; set; } = true;
-
-    [Parameter]
-    public bool CanExport { get; set; } = false;
-
-    [Parameter]
-    public RenderFragment ChildContent { get; set; }
-
-    private readonly List<AxoColumnData> Columns = new();
-
-    private Guid ViewGuid { get; } = new Guid();
-    private string Create { get; set; } = "";
-
-    private bool isFileLoaded { get; set; } = false;
-    private bool isLoadingFile { get; set; }
-
-    private int MaxPage { get { return (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit); } }
-
-    public void AddLine(AxoColumnData line)
-    {
-        if (!Columns.Contains(line))
-        {
-            Columns.Add(line);
-            StateHasChanged();
-        }
-    }
-
-    public void RemoveLine(AxoColumnData line)
-    {
-        if (Columns.Contains(line))
-        {
-            Columns.Remove(line);
-            StateHasChanged();
-        }
-    }
-
-    private int mod(int x, int m)
-    {
-        int r = x % m;
-        return r < 0 ? r + m : r;
-    }
-
-    private async Task setSearchModeAsync(AXOpen.Base.Data.eSearchMode searchMode)
-    {
-        Vm.SearchMode = searchMode;
-
-        await Vm.FillObservableRecordsAsync();
-    }
-
-    private async Task setLimitAsync(int limit)
-    {
-        int oldLimit = Vm.Limit;
-        Vm.Limit = limit;
-
-        Vm.Page = (Vm.Page * oldLimit) / Vm.Limit;
-
-        await Vm.FillObservableRecordsAsync();
-    }
-
-    private async Task setPageAsync(int page)
-    {
-        Vm.Page = page;
-
-        await Vm.FillObservableRecordsAsync();
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        await Vm.FillObservableRecordsAsync();
-    }
-
-    private async Task LoadFile(InputFileChangeEventArgs e)
-    {
-        isLoadingFile = true;
-        isFileLoaded = false;
-
-        try
-        {
-            await using FileStream fs = new("importData.csv", FileMode.Create);
-            await e.File.OpenReadStream().CopyToAsync(fs);
-        }
-        catch (Exception ex)
-        {
-            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", ex.Message, 10)));
-        }
-
-        isLoadingFile = false;
-        isFileLoaded = true;
-    }
-}
