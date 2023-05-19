@@ -20,7 +20,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 	/// 		</note>					
 	/// 	</remarks>			 
 	/// </summary>			
-    CLASS AxoMessenger (*EXTENDS AxoObject*) IMPLEMENTS IAxoMessenger, IAxoMessageProperties, IAxoMessageTextBuilder, IAxoMessageCategorize, IAxoMessages
+    CLASS AxoMessenger (*EXTENDS AxoObject*) IMPLEMENTS IAxoMessenger, AXOpen.Messaging.Dynamic.IAxoMessageProperties, IAxoMessageTextBuilder, IAxoMessageCategorize, IAxoMessages
 		VAR
 			/// <summary>
 			/// 	Most important message of this instance of messenger; stores the most important message from the last context cycle. 
@@ -60,42 +60,42 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// <summary>
 		/// Categorizes and creates the message as 'debug'.								 
 		/// </summary>		
-		METHOD PUBLIC AsDebug : IAxoMessageProperties				
+		METHOD PUBLIC AsDebug : AXOpen.Messaging.Dynamic.IAxoMessageProperties				
 			AsDebug := THIS.Post(THIS.StringBuilder()^.AsString(), eAxoMessageCategory#Debug);			
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'error'.								 
 		/// </summary>		
-		METHOD PUBLIC AsError : IAxoMessageProperties
+		METHOD PUBLIC AsError : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			AsError := THIS.Post(THIS.StringBuilder()^.AsString(), eAxoMessageCategory#Error);
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'fatal'.								 
 		/// </summary>		
-		METHOD PUBLIC AsFatal : IAxoMessageProperties
+		METHOD PUBLIC AsFatal : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			AsFatal := THIS.Post(THIS.StringBuilder()^.AsString(), eAxoMessageCategory#Fatal);
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'information'.								 
 		/// </summary>		
-		METHOD PUBLIC AsInfo : IAxoMessageProperties
+		METHOD PUBLIC AsInfo : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			AsInfo := THIS.Post(THIS.StringBuilder()^.AsString(), eAxoMessageCategory#Info);
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'trace'.								 
 		/// </summary>		
-		METHOD PUBLIC AsTrace : IAxoMessageProperties
+		METHOD PUBLIC AsTrace : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			AsTrace := THIS.Post(THIS.StringBuilder()^.AsString(), eAxoMessageCategory#Trace);
 		END_METHOD
 		
 		/// <summary>
 		/// Categorizes and creates the message as 'warning'.								 
 		/// </summary>		
-		METHOD PUBLIC AsWarning : IAxoMessageProperties
+		METHOD PUBLIC AsWarning : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			AsWarning := THIS.Post(THIS.StringBuilder()^.AsString(), eAxoMessageCategory#Warning);
 		END_METHOD
 		
@@ -103,7 +103,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// Adds message of 'catastrophic' category to the message queue.
 		/// Use this category when there is a situation when the device cannot continue operations due to irrecoverable failure.				 
 		/// </summary>		
-		METHOD PUBLIC Catastrophic : IAxoMessageProperties
+		METHOD PUBLIC Catastrophic : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 
@@ -117,7 +117,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// Adds message of 'critical' category to the message queue.
 		/// Use this category when a critical error occured, that is not recoverable by the means of software (reset/restore) and a detailed inspection is required.				 
 		/// </summary>		
-		METHOD PUBLIC Critical : IAxoMessageProperties
+		METHOD PUBLIC Critical : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 
@@ -131,7 +131,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// Adds message of 'debug' category to the message queue.	
 		/// Use when you need to report debug information for you as programmer. 			 
 		/// </summary>		
-		METHOD PUBLIC Debug : IAxoMessageProperties
+		METHOD PUBLIC Debug : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 
@@ -147,7 +147,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// to deliver expected result. 
 		/// Do not use this category to report information about failed process like measurement or detection.				 
 		/// </summary>		
-		METHOD PUBLIC Error : IAxoMessageProperties
+		METHOD PUBLIC Error : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 
@@ -161,7 +161,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// Adds message of 'information' category to the message queue.	
 		/// Use when you want to deliver information to the user, that has only informative character and does not adversely affect a process.			 
 		/// </summary>		
-		METHOD PUBLIC Info : IAxoMessageProperties
+		METHOD PUBLIC Info : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 
@@ -175,7 +175,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// Adds message of 'notification' category to the message queue.
 		/// Use this category when you want to report a notification that may be of interest to the user, but does not adveresly affect a process.			 
 		/// </summary>		
-		METHOD PUBLIC Notify : IAxoMessageProperties
+		METHOD PUBLIC Notify : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 
@@ -189,7 +189,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// Adds message of 'programming error' category to the message queue.	
 		/// Use this category to inform about a possible programming error, defect in settings or missing information at a level of programming or system or process settings.			 
 		/// </summary>		
-		METHOD PUBLIC Programming : IAxoMessageProperties
+		METHOD PUBLIC Programming : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 
@@ -204,7 +204,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// Use when you need to track detailed information about internal states of the program for detailed visibility. 
 		/// This is lowest level of category that can be used in production, for detailed observation of PLC program.			 
 		/// </summary>		
-		METHOD PUBLIC Trace : IAxoMessageProperties
+		METHOD PUBLIC Trace : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 
@@ -219,7 +219,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// Use this category when you want to report to the user an information about a possible problem, that may adversly affect a process.
 		/// Information in this cateogory aims to help the user to identify a problem, the cause of such problem does not necessarily stops the process.				 
 		/// </summary>		
-		METHOD PUBLIC Warning : IAxoMessageProperties
+		METHOD PUBLIC Warning : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 
@@ -549,7 +549,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// <note type="important">
 		/// 	Pinned messages do no accept incomming messages on the same messenger. The incomming messages will be though the context logger when active.
 		/// </note>
-		METHOD PUBLIC Pin: IAxoMessageProperties 
+		METHOD PUBLIC Pin: AXOpen.Messaging.Dynamic.IAxoMessageProperties 
 			IF NOT(_Parent = NULL) THEN
 				IF NOT(_Parent.GetContext()= NULL) THEN
 					IF(_pinnable) THEN
@@ -582,7 +582,7 @@ NAMESPACE AXOpen.Messaging.Dynamic
 		/// <summary>
 		/// Creates message of given category for this messenger.						 
 		/// </summary>		
-		METHOD PUBLIC Post : IAxoMessageProperties
+		METHOD PUBLIC Post : AXOpen.Messaging.Dynamic.IAxoMessageProperties
 			VAR_INPUT
 				/// <summary>
 				/// Arbitrary message string.			 

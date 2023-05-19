@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.probers"
-version                                                                                                                                                                                    : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
+version                                                                                                                                                                                     : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
 type: lib
 targets:
 #  - "1500"
@@ -8,7 +8,7 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                                                    : '0.1.4-55-Create-unit-tests-for-messaging-tranfered-from-tco.72'
+  "@ix-ax/axopen.core"                                                                                                                                                                                     : '0.1.4-83-Add-documentation-for-AxoMessenger.65'
   "@ax/axunit-library": ^4.0.6
 devDependencies:
   "@ax/sdk": 3.0.8
