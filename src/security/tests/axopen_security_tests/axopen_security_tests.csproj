@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -24,7 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
-    <ProjectReference Include="..\..\src\AXOpen.Security\axopen_security_blazor.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Security\axopen_security_blazor_old.csproj" />
   </ItemGroup>
 
 </Project>

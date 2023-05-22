@@ -1,18 +1,23 @@
 {
-  "Changes": [],
-  "RecordId": null,
-  "DataEntityId": "admin",
-  "UserName": "admin",
-  "Email": null,
-  "HashedPassword": "2CSU8F1pF7oC96qilonMtES7c/IDgIdssF0fN1N7eJI=",
+  "Group": "AdminGroup",
   "CanUserChangePassword": false,
-  "Roles": [
-    "AdminGroup"
-  ],
-  "RoleHash": "DDqGGWF067m+xzdK/hiNIkFC2ui+AArqAr+MQd+2miM=",
-  "LogoutTime": "00:00:00",
-  "Created": "0001-01-01T00:00:00",
-  "Modified": "0001-01-01T00:00:00",
-  "SecurityStamp": "ba1a1b34-bb95-400d-9421-31c94ad8043b",
-  "AuthenticationToken": null
+  "Level": null,
+  "RoleHash": null,
+  "RecordId": null,
+  "DataEntityId": "ADMIN",
+  "Id": "ccc9743a-f208-4b59-aa96-cc760801f9aa",
+  "UserName": "admin",
+  "NormalizedUserName": "ADMIN",
+  "Email": null,
+  "NormalizedEmail": null,
+  "EmailConfirmed": false,
+  "PasswordHash": "AQAAAAIAAYagAAAAEIHASmxXuBVUqJ1UTYEpdkTXrQDCmPYGpjDDZhIGsJT/aNB/v3t95yfYFJGp2lYlCQ==",
+  "SecurityStamp": "30b56b49-e15d-4336-ab83-b6937d03ac48",
+  "ConcurrencyStamp": "e2930da2-92e1-41af-9b9f-30152cc73104",
+  "PhoneNumber": null,
+  "PhoneNumberConfirmed": false,
+  "TwoFactorEnabled": false,
+  "LockoutEnd": null,
+  "LockoutEnabled": false,
+  "AccessFailedCount": 0
 }
