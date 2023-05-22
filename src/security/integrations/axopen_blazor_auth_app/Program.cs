@@ -12,6 +12,8 @@ using AXOpen.Base.Data;
 using AXOpen.Data.Json;
 using AxOpen.Security.Entities;
 using axopen_blazor_auth_app;
+using AxOpen.Security;
+using AXOpen.Data.MongoDb;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,10 +29,7 @@ builder.Services.AddServerSideBlazor();
 //builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
 
-var userRepo = SetUpJson();
-
-var roleManager = Roles.Create();
-builder.Services.AddVortexBlazorSecurity(userRepo, roleManager);
+builder.Services.AddVortexBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
 
 var app = builder.Build();
 
@@ -61,15 +60,45 @@ app.MapFallbackToPage("/_Host");
 app.Run();
 
 
-static IRepository<User> SetUpJson()
+static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\..\\..\\..\\JSONREPOS\\")
 {
     var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
-    var repositoryDirectory = Path.GetFullPath($"{executingAssemblyFile.Directory}..\\..\\..\\..\\..\\JSONREPOS\\");
+    var repositoryDirectory = Path.GetFullPath($"{executingAssemblyFile.Directory}{path}");
 
     if (!Directory.Exists(repositoryDirectory))
     {
         Directory.CreateDirectory(repositoryDirectory);
     }
 
-    return new JsonRepository<User>(new JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
+
+    IRepository<User> userRepo = new JsonRepository<User>(new JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
+    IRepository<Group> groupRepo = new JsonRepository<Group>(new JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
+
+    return (userRepo, groupRepo);
 }
+
+static (IRepository<User>, IRepository<Group>) SetUpMongo(string path = "Blazor")
+{
+    var mongoUri = "mongodb://localhost:27017";
+
+    IRepository<User> userRepo = new MongoDbRepository<User>(new MongoDbRepositorySettings<User>(mongoUri, path, "Users"));
+    IRepository<Group> groupRepo = new MongoDbRepository<Group>(new MongoDbRepositorySettings<Group>(mongoUri, path, "Groups"));
+
+    return (userRepo, groupRepo);
+}
+
+//public static (IRepository<UserData>, IRepository<GroupData>) SetUpRavenDB(string[] urls, string path = "Blazor", string certPath = "", string certPass = "")
+//{
+//    IRepository<UserData> userRepo = new RavenDbRepository<UserData>(new RavenDbRepositorySettings<UserData>(urls, path, certPath, certPass));
+//    IRepository<GroupData> groupRepo = new RavenDbRepository<GroupData>(new RavenDbRepositorySettings<GroupData>(urls, path, certPath, certPass));
+
+//    return (userRepo, groupRepo);
+//}
+
+//public static (IRepository<UserData>, IRepository<GroupData>) SetUpInMemory()
+//{
+//    IRepository<UserData> userRepo = new InMemoryRepository<UserData>(new InMemoryRepositorySettings<UserData>());
+//    IRepository<GroupData> groupRepo = new InMemoryRepository<GroupData>(new InMemoryRepositorySettings<GroupData>());
+
+//    return (userRepo, groupRepo);
+//}

@@ -1,0 +1,12 @@
+{
+  "Changes": [],
+  "RecordId": null,
+  "DataEntityId": "AdminGroup",
+  "Name": "AdminGroup",
+  "Roles": [
+    "Administrator"
+  ],
+  "RoleHash": null,
+  "Created": "2023-05-22T15:25:43.526546+02:00",
+  "Modified": "2023-05-22T15:25:43.7404577+02:00"
+}

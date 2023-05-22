@@ -48,7 +48,7 @@ namespace AxOpen.Security.Stores
         {
             get
             {
-                return _unitOfWork.RoleInAppRepository.InAppRoleCollection;
+                return _unitOfWork.RoleInAppRepository.inAppRoleCollection;
             }
         }
        
@@ -353,24 +353,12 @@ namespace AxOpen.Security.Stores
                 throw new ArgumentNullException(nameof(normalizedRoleName));
 
 
-            var role = _roleCollection.FirstOrDefault(x=>x.NormalizedName == normalizedRoleName);
-            //if (role == null)
-            //{
-            //    throw new InvalidOperationException(string.Format(System.Globalization.CultureInfo.CurrentCulture, $"Role {0} does not exist.", normalizedRoleName));
-            //}
-            //if (user.Roles == null)
-            //{
-            //    user.Roles = new List<string>
-            //    {
-            //        role.Name
-            //    }.ToArray();
-            //}
-            //else
-            //{
-            //    List<string> userRolesClone = user.Roles.ToList();
-            //    userRolesClone.Add(role.Name);
-            //    user.Roles = userRolesClone.ToArray();
-            //}
+            var role = _unitOfWork.RoleInAppRepository.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
+            if (role == null)
+            {
+                throw new InvalidOperationException(string.Format(System.Globalization.CultureInfo.CurrentCulture, $"Role {0} does not exist.", normalizedRoleName));
+            }
+            user.Group = role.DataEntityId;
 
             return Task.CompletedTask;
         }
@@ -391,13 +379,11 @@ namespace AxOpen.Security.Stores
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
 
-            //var roleName= _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName).Name;
-            //if (roleName != null)
-            //{
-            //    var tempList  = user.Roles.ToList();
-            //    tempList.Remove(roleName);
-            //    user.Roles = tempList.ToArray();
-            //}
+            var role = _unitOfWork.RoleInAppRepository.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
+            if (role != null)
+            {
+                user.Group = String.Empty;
+            }
 
             return Task.CompletedTask;
         }
@@ -411,14 +397,11 @@ namespace AxOpen.Security.Stores
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            //if (user == null)
-            //    throw new ArgumentNullException(nameof(user));
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
 
-            //IList<string> roleNames = user.Roles
-            //    .ToList();
+            IList<string> roleNames = _unitOfWork.RoleInAppRepository.GetRolesFromGroup(user.Group);
 
-
-            IList<string> roleNames = new List<string>();
             return Task.FromResult(roleNames);
         }
         /// <summary>
@@ -433,17 +416,15 @@ namespace AxOpen.Security.Stores
         {
             cancellationToken.ThrowIfCancellationRequested();
 
-            //if (user == null)
-            //    throw new ArgumentNullException(nameof(user));
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
 
-            //if (string.IsNullOrWhiteSpace(normalizedRoleName))
-            //    throw new ArgumentNullException(nameof(normalizedRoleName));
+            if (string.IsNullOrWhiteSpace(normalizedRoleName))
+                throw new ArgumentNullException(nameof(normalizedRoleName));
 
 
-            //var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
-            //return Task.FromResult(user.Roles.Contains(blazorRole.Name));
-
-            return Task.FromResult(false);
+            var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
+            return Task.FromResult(_unitOfWork.RoleInAppRepository.GetRolesFromGroup(user.Group).Contains(blazorRole.Name));
         }
 
 
@@ -457,11 +438,11 @@ namespace AxOpen.Security.Stores
         /// </returns>
         public Task<IList<User>> GetUsersInRoleAsync(string normalizedRoleName, CancellationToken cancellationToken = default)
         {
-            //var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
-            //if (blazorRole == null)
-            //    throw (new Exception("Role doesn't exists"));
+            var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
+            if (blazorRole == null)
+                throw (new Exception("Role doesn't exists"));
 
-            //IList<User> usersInRole = Users.Where(x => x.Roles.Contains(blazorRole.Name)).ToList();
+            IList<User> usersInRole = Users.Where(x => _unitOfWork.RoleInAppRepository.GetRolesFromGroup(x.Group).Contains(blazorRole.Name)).ToList();
             IList<User> x = new List<User>();
             return Task.FromResult(x);
         }

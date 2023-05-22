@@ -80,7 +80,7 @@
                             <label>Group</label>
                             <select class="form-select" aria-label="Default select example" @bind="@SelectedGroup">
                                 <option selected>Choose group</option>
-                                @foreach (var groupName in _roleManager.InAppGroupCollection)
+                                @foreach (var groupName in _roleManager.inAppRoleCollection)
                                 {
                                     <option value="@groupName">@groupName</option>
                                 }

@@ -8,25 +8,26 @@ using System.Threading.Tasks;
 
 namespace axopen_blazor_auth_app
 {
-    internal class Roles
+    public static class Roles
     {
-        private static BlazorRoleManager _roleManager { get; set; }
-        private Roles()
+        public static List<Role> CreateRoles()
         {
-            _roleManager = new BlazorRoleManager();
-            _roleManager.CreateRole(new Role(process_settings_access, "AdminGroup"));
-            _roleManager.CreateRole(new Role(process_traceability_access, "AdminGroup"));
-            _roleManager.CreateRole(new Role(technology_settings_access, "Maintenance"));
-            _roleManager.CreateRole(new Role(manual_start, "Maintenance"));
-            //SecurityManager.Manager.GetOrCreateRole(new Role(process_traceability_access, "Administrator"));
-            //SecurityManager.Manager.GetOrCreateRole(new Role(technology_settings_access, "Maintenance"));
-            //SecurityManager.Manager.GetOrCreateRole(new Role(ground_position_start, "Operator"));
-            //SecurityManager.Manager.GetOrCreateRole(new Role(automat_start, "Operator"));
-            //SecurityManager.Manager.GetOrCreateRole(new Role(manual_start, "Maintenance"));
-            //SecurityManager.Manager.GetOrCreateRole(new Role(station_details, "Maintenance"));
-            //SecurityManager.Manager.GetOrCreateRole(new Role(sequencer_step, "Maintenance"));
-            //SecurityManager.Manager.GetOrCreateRole(new Role(technology_ground_all, "Maintenance"));
-            //SecurityManager.Manager.GetOrCreateRole(new Role(technology_automat_all, "Maintenance"));
+            var roles = new List<Role>
+            {
+                new Role(process_settings_access),
+                new Role(process_traceability_access),
+                new Role(can_user_open_technological_settings),
+                new Role(ground_position_start),
+                new Role(automat_start),
+                new Role(station_details),
+                new Role(technology_settings_access),
+                new Role(manual_start),
+                new Role(sequencer_step),
+                new Role(technology_automat_all),
+                new Role(technology_ground_all)
+            };
+
+            return roles;
         }
 
         public const string process_settings_access = nameof(process_settings_access);
@@ -40,14 +41,5 @@ namespace axopen_blazor_auth_app
         public const string sequencer_step = nameof(sequencer_step);
         public const string technology_automat_all = nameof(technology_automat_all);
         public const string technology_ground_all = nameof(technology_ground_all);
-
-        private static Roles _roles;
-
-        public static BlazorRoleManager Create()
-        {
-            _roles = new Roles();
-            return _roleManager;
-        }
-
     }
 }

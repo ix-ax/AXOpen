@@ -12,9 +12,9 @@ namespace AxOpen.Security.Services
     public class RepositoryService : IRepositoryService
     {
         private readonly IRepository<User>  _userRepository;
-        private readonly BlazorRoleManager _roleInAppRepository;
+        private readonly RoleGroupManager _roleInAppRepository;
         private bool _disposed;
-        public RepositoryService(IRepository<User> userRepository,BlazorRoleManager roleInAppRepository)
+        public RepositoryService(IRepository<User> userRepository, RoleGroupManager roleInAppRepository)
         {
             _userRepository = userRepository;
             _roleInAppRepository = roleInAppRepository;
@@ -27,7 +27,7 @@ namespace AxOpen.Security.Services
             }
         }
 
-        public BlazorRoleManager RoleInAppRepository
+        public RoleGroupManager RoleInAppRepository
         {
             get
             {

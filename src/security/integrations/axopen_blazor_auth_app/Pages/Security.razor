@@ -6,7 +6,7 @@
 @using AxOpen.Security.Entities
 @inject UserManager<User> _userManager
 @inject SignInManager<User> _signInManager
-@inject BlazorRoleManager _roleManager
+@inject RoleGroupManager _roleManager
 <h3>Security</h3>
 
 
@@ -22,7 +22,7 @@
     </NotAuthorized>
 </AuthorizeView>
 
-<AuthorizeView Roles="@_roleManager.GetGroupRoleString("AdminGroup")">
+<AuthorizeView Roles="@_roleManager.GetRolesFromGroupString("AdminGroup")">
 
     <p>You can see this only and only if you have some role from AdminGroup</p>
 </AuthorizeView>

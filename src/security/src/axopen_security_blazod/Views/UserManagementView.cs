@@ -31,7 +31,7 @@ namespace AxOpen.Security.Views
         [Inject]
         private SignInManager<User> _signInManager { get; set; }
         [Inject]
-        private BlazorRoleManager _roleManager { get; set; }
+        private RoleGroupManager _roleManager { get; set; }
 
         private User SelectedUser { get; set; }
         private IQueryable<User> Users { get; set; }
@@ -62,7 +62,7 @@ namespace AxOpen.Security.Views
         {
             SelectedUser = user;
             var userAssignedRoles = await _userManager.GetRolesAsync(user);
-            AssignedRoles = _roleManager.InAppRoleCollection.Where(p => userAssignedRoles.Any(p2 => p2 == p.Name)).Select(x=> new RoleData(x)).ToList(); 
+            AssignedRoles = _roleManager.inAppRoleCollection.Where(p => userAssignedRoles.Any(p2 => p2 == p.Name)).Select(x=> new RoleData(x)).ToList(); 
             AvailableRoles = GetAvailableRoles();
             IsUserUpdated = false;
             StateHasChanged();
@@ -74,7 +74,7 @@ namespace AxOpen.Security.Views
         }
 
         private IList<RoleData> GetAvailableRoles() =>
-            _roleManager.InAppRoleCollection
+            _roleManager.inAppRoleCollection
                 .Where(x => !AssignedRoles.Select(x => x.Role.Name).Contains(x.Name))
                 .Select(x => new RoleData(x))
                 .ToList();
