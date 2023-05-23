@@ -7,7 +7,6 @@ namespace AxOpen.Security.Entities
     {
         public string Group { get; set; }
         public bool CanUserChangePassword { get; set; }
-        public string Level { get; set; }
         public string RoleHash { get; set; }
         public dynamic RecordId { get; set; }
         public string DataEntityId { get; set; }
