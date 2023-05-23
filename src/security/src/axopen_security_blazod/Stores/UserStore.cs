@@ -188,7 +188,7 @@ namespace AxOpen.Security.Stores
                 throw new ArgumentNullException(nameof(user));
             try
             {
-                var userData = _unitOfWork.UserRepository.Read(user.Id);
+                var userData = _unitOfWork.UserRepository.Read(user.UserName);
                 if (userData != null)
                 {
                     userData.UserName = user.UserName;
@@ -402,6 +402,9 @@ namespace AxOpen.Security.Stores
 
             IList<string> roleNames = _unitOfWork.RoleInAppRepository.GetRolesFromGroup(user.Group);
 
+            if(roleNames == null)
+                return Task.FromResult((IList<string>)new List<string>());
+
             return Task.FromResult(roleNames);
         }
         /// <summary>
@@ -424,7 +427,12 @@ namespace AxOpen.Security.Stores
 
 
             var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
-            return Task.FromResult(_unitOfWork.RoleInAppRepository.GetRolesFromGroup(user.Group).Contains(blazorRole.Name));
+            var roleNames = _unitOfWork.RoleInAppRepository.GetRolesFromGroup(user.Group);
+
+            if (roleNames == null)
+                return Task.FromResult(false);
+
+            return Task.FromResult(roleNames.Contains(blazorRole.Name));
         }
 
 
@@ -442,9 +450,8 @@ namespace AxOpen.Security.Stores
             if (blazorRole == null)
                 throw (new Exception("Role doesn't exists"));
 
-            IList<User> usersInRole = Users.Where(x => _unitOfWork.RoleInAppRepository.GetRolesFromGroup(x.Group).Contains(blazorRole.Name)).ToList();
-            IList<User> x = new List<User>();
-            return Task.FromResult(x);
+            IList<User> usersInRole = Users.Where(x => (_unitOfWork.RoleInAppRepository.GetRolesFromGroup(x.Group) != null ? _unitOfWork.RoleInAppRepository.GetRolesFromGroup(x.Group).Contains(blazorRole.Name) : false)).ToList();
+            return Task.FromResult(usersInRole);
         }
         // <summary>
         /// Sets the provided security <paramref name="stamp"/> for the specified <paramref name="user"/>.

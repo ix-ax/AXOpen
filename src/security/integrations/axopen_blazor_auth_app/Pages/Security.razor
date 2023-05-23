@@ -1,43 +1,9 @@
-﻿@page "/security"
-@using System.Security.Claims;
-@using AxOpen.Security;
-@using AxOpen.Security.Views;
-@using Microsoft.AspNetCore.Identity;
-@using AxOpen.Security.Entities
-@inject UserManager<User> _userManager
-@inject SignInManager<User> _signInManager
-@inject RoleGroupManager _roleManager
+﻿@page "/Security"
+
 <h3>Security</h3>
 
-
-
-<AuthorizeView Roles="Administrator" >
-    <Authorized>
-        <UserManagementView @ref="@UserMgmtView"></UserManagementView>
-
-
-    </Authorized>
-    <NotAuthorized>
-        <p>Sorry, you are not authorized to see UserManagement. Please log in as administrator.</p>
-    </NotAuthorized>
-</AuthorizeView>
-
-<AuthorizeView Roles="@_roleManager.GetRolesFromGroupString("AdminGroup")">
-
-    <p>You can see this only and only if you have some role from AdminGroup</p>
-</AuthorizeView>
-
-
-
-
-
-
+<AxOpen.Security.Views.SecurityManagementView />
 
 @code {
-
-
-
-    private UserManagementView UserMgmtView { get; set; }
-
 
 }

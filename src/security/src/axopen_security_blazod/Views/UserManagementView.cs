@@ -1,70 +1,50 @@
-﻿using AxOpen.Security;
-using AxOpen.Security.Entities;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Microsoft.JSInterop;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-
+using System.Linq;
+using AxOpen.Security.Entities;
+using AxOpen.Security.Models;
 
 namespace AxOpen.Security.Views
 {
     public partial class UserManagementView
     {
-
         private class RoleData
         {
-            public RoleData(Role role) 
+            public RoleData(Role role)
             {
                 Role = role;
             }
             public Role Role { get; set; }
             public bool IsSelected { get; set; }
-         
         }
 
         [Inject]
         private UserManager<User> _userManager { get; set; }
-        [Inject]
-        private SignInManager<User> _signInManager { get; set; }
-        [Inject]
-        private RoleGroupManager _roleManager { get; set; }
 
         private User SelectedUser { get; set; }
-        private IQueryable<User> Users { get; set; }
-        private IList<RoleData> AvailableRoles { get; set; }
-        private IList<RoleData> AssignedRoles { get; set; }
-        public bool IsUserUpdated { get; set; }
+        private RegisterUserModel _model { get; set; }
 
-        public void RoleAdded()
-        {
-            AvailableRoles = GetAvailableRoles();
-            StateHasChanged();
-        }
+        private ObservableCollection<User> AllUsers {
+            get {
+                return new ObservableCollection<User>(_repositoryService.UserRepository.GetRecords());
+            }
+            }
 
-        public async Task AssignRoles()
-        {
-            await _userManager.AddToRolesAsync(SelectedUser, AvailableRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
-            await RowClicked(SelectedUser);
-        }
-
-        public async Task ReturnRoles()
-        {
-            await _userManager.RemoveFromRolesAsync(SelectedUser, AssignedRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
-            await RowClicked(SelectedUser);
-        }
-
-        public string SelectedGroup { get; set; }
-        public async Task RowClicked(User user)
+        public void RowClicked(User user)
         {
             SelectedUser = user;
-            var userAssignedRoles = await _userManager.GetRolesAsync(user);
-            AssignedRoles = _roleManager.inAppRoleCollection.Where(p => userAssignedRoles.Any(p2 => p2 == p.Name)).Select(x=> new RoleData(x)).ToList(); 
-            AvailableRoles = GetAvailableRoles();
-            IsUserUpdated = false;
+            //_model = new RegisterUserModel();
+
+            _model.Username = user.UserName;
+            _model.Password = "password";
+            _model.ConfirmPassword = "password";
+            _model.CanUserChangePassword = user.CanUserChangePassword;
+            _model.Email = user.Email;
+            _model.Group = user.Group;
+
             StateHasChanged();
         }
 
@@ -73,50 +53,44 @@ namespace AxOpen.Security.Views
             SelectedUser = null;
         }
 
-        private IList<RoleData> GetAvailableRoles() =>
-            _roleManager.inAppRoleCollection
-                .Where(x => !AssignedRoles.Select(x => x.Role.Name).Contains(x.Name))
-                .Select(x => new RoleData(x))
-                .ToList();
-
-        
-
         public async Task DeleteUser(User user)
         {
             await _userManager.DeleteAsync(user);
             SelectedUser = null;
+            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "User succesfully deleted!", 10)));
+            //TcoAppDomain.Current.Logger.Information($"User '{user.UserName}' deleted. {{@sender}}", new { UserName = user.UserName });
         }
 
-        public async Task OnAddGroupClicked(string selectedGroup)
+        private async void OnValidUpdate()
         {
-            var filtered = AvailableRoles.Where(x => x.Role.DefaultGroup == selectedGroup);
-            foreach (var item in AvailableRoles)
+            if (_model.Password != "password")
             {
-                if(filtered.Contains(item))
-                    item.IsSelected = true;
+                //SelectedUser.PasswordHash = Hasher.CalculateHash(_model.Password, _model.Username);
             }
-            await AssignRoles();
-            
-        }
-
-        public async Task OnRemoveGroupClicked(string selectedGroup)
-        {
-            var filtered = AssignedRoles.Where(x => x.Role.DefaultGroup == selectedGroup);
-            foreach (var item in AssignedRoles)
+            if (_model.Group == "Choose group")
             {
-                if (filtered.Contains(item))
-                    item.IsSelected = true;
+                _model.Group = null;
             }
-            await ReturnRoles();
-
+            SelectedUser.UserName = _model.Username;
+            SelectedUser.CanUserChangePassword = _model.CanUserChangePassword;
+            SelectedUser.Email = _model.Email;
+            SelectedUser.Group = _model.Group;
+            //SelectedUser.RoleHash = Hasher.CalculateHash(SelectedUser.Roles, _model.Username);
+            var result = await _userManager.UpdateAsync(SelectedUser);
+            if (result.Succeeded)
+            {
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Updated!", "User succesfully updated!", 10)));
+                //TcoAppDomain.Current.Logger.Information($"User '{SelectedUser.UserName}' updated. {{@sender}}", new { UserName = SelectedUser.UserName, Group = SelectedUser.Roles });
+            }
+            else
+            {
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not updated!", "User was not updated!", 10)));
+            }
         }
 
-
-        public async Task UpdateUser(User user)
+        protected override void OnInitialized()
         {
-            await _userManager.UpdateAsync(user);
-            IsUserUpdated = true;
+            _model = new RegisterUserModel();
         }
-
     }
 }

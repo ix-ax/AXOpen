@@ -11,6 +11,8 @@ namespace AxOpen.Security.Entities
         public string RoleHash { get; set; }
         public dynamic RecordId { get; set; }
         public string DataEntityId { get; set; }
+        public string Created { get; set; }
+        public string Modified { get; set; }
 
         public User(string username, string email, string group, bool canUserChangePassword)
         {
