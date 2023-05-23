@@ -45,7 +45,7 @@
                         <label>Group</label>
                         <select class="form-select" aria-label="Default select example" @bind="@_model.Group">
                             <option selected>Choose group</option>
-                            @foreach (var group in _repositoryService.RoleInAppRepository.GetAllGroup())
+                            @foreach (var group in _repositoryService.RoleGroupManager.GetAllGroup())
                             {
                                 <option value="@group.Name">@group.Name</option>
                             }
@@ -70,6 +70,7 @@
         _user = new User(_model.Username, _model.Email, _model.Group, _model.CanUserChangePassword);
 
         _user.SecurityStamp = Guid.NewGuid().ToString();
+        _user.Created = DateTime.Now.ToString();
         //_user.PasswordHash = Hasher.CalculateHash(_model.Password, _model.Username);
         //_user.RoleHash = Hasher.CalculateHash(_model.Group, _model.Username);
 

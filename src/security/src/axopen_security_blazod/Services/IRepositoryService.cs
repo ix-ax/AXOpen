@@ -11,7 +11,7 @@ namespace AxOpen.Security.Services
     public interface IRepositoryService : IDisposable
     {
         IRepository<User> UserRepository { get; }
-        RoleGroupManager RoleInAppRepository { get; }
+        RoleGroupManager RoleGroupManager { get; }
 
     }
 }

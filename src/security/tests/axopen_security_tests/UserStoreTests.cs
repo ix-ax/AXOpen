@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using Microsoft.AspNetCore.Identity;
 using AxOpen.Security;
 using AXOpen.Base.Data;
+using AxOpen.Security.Entities;
 
 namespace AxOpen.Security.Tests
 {
@@ -27,7 +28,7 @@ namespace AxOpen.Security.Tests
             //Act
             var result = await _fixture.UserStore.CreateAsync(_fixture.SeedData.CreateUser);
             //Assert
-            var user = _fixture.Basp.UserRepository.Read("create");
+            var user = _fixture.Repository.UserRepository.Read("CREATE");
             Assert.NotNull(user);
             Assert.True(result.Succeeded);
         }
@@ -36,8 +37,10 @@ namespace AxOpen.Security.Tests
         public async Task CreateAsync_Exist_Failed()
         {
             //Arrange
+            var user = _fixture.SeedData.ExistUser;
+            var x = new User(user.UserName, user.Email, user.Group, false);
             //Act
-            var result = await _fixture.UserStore.CreateAsync(_fixture.SeedData.ExistUser);
+            var result = await _fixture.UserStore.CreateAsync(x);
             //Assert
             Assert.False(result.Succeeded);
         }
@@ -65,13 +68,13 @@ namespace AxOpen.Security.Tests
         public async Task DeleteAsync_Success()
         {
             //Arrange
-            UserData user = null;
+            User user = null;
             //Act
             var result = await _fixture.UserStore.DeleteAsync(_fixture.SeedData.RemoveUser);
             //Assert
             try
             {
-                user = _fixture.Basp.UserRepository.Read(_fixture.SeedData.RemoveUser.Id);
+                user = _fixture.Repository.UserRepository.Read(_fixture.SeedData.RemoveUser.Id);
             }
             catch (UnableToLocateRecordId)
             {
@@ -84,13 +87,13 @@ namespace AxOpen.Security.Tests
         public async Task DeleteAsync_NoExist_Failed()
         {
             //Arrange
-            UserData user = null;
+            User user = null;
             //Act
             var result = await _fixture.UserStore.DeleteAsync(_fixture.SeedData.NoExistUser);
             //Assert
             try
             {
-                user = _fixture.Basp.UserRepository.Read(_fixture.SeedData.RemoveUser.Id);
+                user = _fixture.Repository.UserRepository.Read(_fixture.SeedData.RemoveUser.Id);
             }
             catch (UnableToLocateRecordId)
             {
@@ -853,24 +856,24 @@ namespace AxOpen.Security.Tests
         public async Task UpdateAsync_Success()
         {
             //Arrange
-            var userData = _fixture.Basp.UserRepository.Read(_fixture.SeedData.UpdateUser.UserName);
-            var user = new User(userData);
+            var userData = _fixture.Repository.UserRepository.Read(_fixture.SeedData.UpdateUser.UserName);
+            var user = new User(userData.UserName,userData.Email,userData.Group,userData.CanUserChangePassword);
             user.Email = "newupdate@newupdate.com";
             user.PasswordHash = "password";
             user.SecurityStamp = Guid.NewGuid().ToString();
             user.CanUserChangePassword = true;
-            user.Roles = new string[] { "NEWROLE1", "NEWROLE2" };
+            user.Group = "NEWGROUP";
             //Act
             var result = await _fixture.UserStore.UpdateAsync(user);
             //Assert
             Assert.True(result.Succeeded);
-            var updatedUser = _fixture.Basp.UserRepository.Read(_fixture.SeedData.UpdateUser.UserName);
+            var updatedUser = _fixture.Repository.UserRepository.Read(_fixture.SeedData.UpdateUser.UserName);
             Assert.Equal(user.UserName, updatedUser.UserName);
             Assert.Equal(user.Email, updatedUser.Email);
-            Assert.Equal(user.PasswordHash, updatedUser.HashedPassword);
+            Assert.Equal(user.PasswordHash, updatedUser.PasswordHash);
             Assert.Equal(user.SecurityStamp, updatedUser.SecurityStamp);
             Assert.Equal(user.CanUserChangePassword, updatedUser.CanUserChangePassword);
-            Assert.Equal(user.Roles, updatedUser.Roles);
+            Assert.Equal(user.Group, updatedUser.Group);
         }
 
         [Fact]

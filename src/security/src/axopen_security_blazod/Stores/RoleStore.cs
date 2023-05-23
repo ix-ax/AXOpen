@@ -29,14 +29,14 @@ namespace AxOpen.Security.Stores
         public IList<Role> _roleCollection {
             get 
             {
-                return _unitOfWork.RoleInAppRepository.inAppRoleCollection.ToList();
+                return _unitOfWork.RoleGroupManager.inAppRoleCollection.ToList();
             }
         }
         public IQueryable<Role> Roles
         {
             get
             {
-                return _unitOfWork.RoleInAppRepository.inAppRoleCollection.AsQueryable();
+                return _unitOfWork.RoleGroupManager.inAppRoleCollection.AsQueryable();
                 //return _unitOfWork.RoleRepository.GetRecords("*").Select(x => new IdentityRole(x.Name)).AsQueryable();
             }
         }

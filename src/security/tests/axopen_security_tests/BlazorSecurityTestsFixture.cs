@@ -1,4 +1,7 @@
 ﻿using AxOpen.Security;
+using AxOpen.Security.Entities;
+using AxOpen.Security.Services;
+using AxOpen.Security.Stores;
 using AXOpen.Data.InMemory;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -11,23 +14,23 @@ namespace AxOpen.Security.Tests
 {
     public class BlazorSecurityTestsFixture : IDisposable
     {
-        private InMemoryRepository<UserData> _inMemoryRepoUser;
-        private InMemoryRepository<GroupData> _inMemoryRepoGroup;
+        private InMemoryRepository<User> _inMemoryRepoUser;
+        private InMemoryRepository<Group> _inMemoryRepoGroup;
         private RoleGroupManager _roleGroupManager;
         public BlazorSecurityTestsFixture()
         {
-            _inMemoryRepoUser = new InMemoryRepository<UserData>();
-            _inMemoryRepoGroup = new InMemoryRepository<GroupData>();
+            _inMemoryRepoUser = new InMemoryRepository<User>();
+            _inMemoryRepoGroup = new InMemoryRepository<Group>();
             _roleGroupManager = new RoleGroupManager(_inMemoryRepoGroup);
             //Repository = new RepositoryService(_inMemoryRepoUser, _roleGroupManager);
 
-            SeedData = new Seed();
+            SeedData = new Seed(new PasswordHasher<User>());
 
-            _inMemoryRepoUser.Create(SeedData.ExistUser.UserName, new UserData(SeedData.ExistUser));
-            _inMemoryRepoUser.Create(SeedData.RemoveUser.UserName, new UserData(SeedData.RemoveUser));
-            _inMemoryRepoUser.Create(SeedData.UpdateUser.UserName, new UserData(SeedData.UpdateUser));
-            _inMemoryRepoUser.Create(SeedData.AdminUser.UserName, new UserData(SeedData.AdminUser));
-            _inMemoryRepoUser.Create(SeedData.DefaultUser.UserName, new UserData(SeedData.DefaultUser));
+            _inMemoryRepoUser.Create(SeedData.ExistUser.UserName, SeedData.ExistUser);
+            _inMemoryRepoUser.Create(SeedData.RemoveUser.UserName, SeedData.RemoveUser);
+            _inMemoryRepoUser.Create(SeedData.UpdateUser.UserName, SeedData.UpdateUser);
+            _inMemoryRepoUser.Create(SeedData.AdminUser.UserName, SeedData.AdminUser);
+            _inMemoryRepoUser.Create(SeedData.DefaultUser.UserName, SeedData.DefaultUser);
 
             _roleGroupManager.CreateRole(new Role("RemoveRole"));
             _roleGroupManager.CreateRole(new Role("UpdateRole"));
@@ -42,19 +45,19 @@ namespace AxOpen.Security.Tests
             _roleGroupManager.AddRolesToGroup("DefaultGroup", new string[] { "Administrator", "Default" });
             _roleGroupManager.AddRolesToGroup("RemoveRolesGroup", new string[] { "Administrator", "Default" });
 
-            Basp = new BlazorAuthenticationStateProvider(_inMemoryRepoUser, _roleGroupManager);
-            UserStore = new UserStore(Basp);
+            Repository = new RepositoryService(_inMemoryRepoUser, _roleGroupManager);
+            UserStore = new UserStore(Repository);
         }
-
+        public IRepositoryService Repository { get; set; }
         public UserStore UserStore { get; set; }
         public Seed SeedData { get; set; }
 
-        //public IRepositoryService Repository { get; set; }
-        public BlazorAuthenticationStateProvider Basp { get; set; }
         public void Dispose()
         {
-            _inMemoryRepoUser = new InMemoryRepository<UserData>();
-            Basp = new BlazorAuthenticationStateProvider(_inMemoryRepoUser, _roleGroupManager);
+            _inMemoryRepoUser = new InMemoryRepository<User>();
+            _inMemoryRepoGroup = new InMemoryRepository<Group>();
+            _roleGroupManager = new RoleGroupManager(_inMemoryRepoGroup);
+            Repository = new RepositoryService(_inMemoryRepoUser, _roleGroupManager);
         }
     }
 }

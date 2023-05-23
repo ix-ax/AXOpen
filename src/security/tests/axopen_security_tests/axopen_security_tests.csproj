@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
+    <ProjectReference Include="..\..\src\axopen_security_blazod\axopen_security_blazor.csproj" />
   </ItemGroup>
 
 </Project>

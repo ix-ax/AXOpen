@@ -71,6 +71,7 @@ namespace AxOpen.Security.Views
             SelectedUser.CanUserChangePassword = _model.CanUserChangePassword;
             SelectedUser.Email = _model.Email;
             SelectedUser.Group = _model.Group;
+            SelectedUser.Modified = DateTime.Now.ToString();
             if (_model.Password != "password")
             {
                 SelectedUser.PasswordHash = _userManager.PasswordHasher.HashPassword(SelectedUser, _model.Password);
@@ -79,6 +80,7 @@ namespace AxOpen.Security.Views
             var result = await _userManager.UpdateAsync(SelectedUser);
             if (result.Succeeded)
             {
+
                 //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Updated!", "User succesfully updated!", 10)));
                 //TcoAppDomain.Current.Logger.Information($"User '{SelectedUser.UserName}' updated. {{@sender}}", new { UserName = SelectedUser.UserName, Group = SelectedUser.Roles });
             }

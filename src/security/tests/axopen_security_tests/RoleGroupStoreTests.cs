@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AxOpen.Security.Entities;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,10 +26,10 @@ namespace AxOpen.Security.Tests
             var group = "UpdateGroup";
             var expectedRoles = new string[] { "NEWROLE1", "NEWROLE2" };
             //Act
-            var result = _fixture.Basp.roleGroupManager.AddRolesToGroup(group, expectedRoles);
+            var result = _fixture.Repository.RoleGroupManager.AddRolesToGroup(group, expectedRoles);
             //Assert
             Assert.True(result.Succeeded);
-            var roles = _fixture.Basp.roleGroupManager.GetRolesFromGroup(group);
+            var roles = _fixture.Repository.RoleGroupManager.GetRolesFromGroup(group);
             Assert.Contains(expectedRoles[0], roles);
             Assert.Contains(expectedRoles[1], roles);
         }
@@ -40,10 +41,10 @@ namespace AxOpen.Security.Tests
             var group = "NoExistGroup";
             var expectedRoles = new string[] { "NEWROLE1", "NEWROLE2" };
             //Act
-            var result = _fixture.Basp.roleGroupManager.AddRolesToGroup(group, expectedRoles);
+            var result = _fixture.Repository.RoleGroupManager.AddRolesToGroup(group, expectedRoles);
             //Assert
             Assert.False(result.Succeeded);
-            var roles = _fixture.Basp.roleGroupManager.GetRolesFromGroup(group);
+            var roles = _fixture.Repository.RoleGroupManager.GetRolesFromGroup(group);
             Assert.Null(roles);
         }
 
@@ -55,7 +56,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.AddRolesToGroup("", new string[] { "" });
+                result = _fixture.Repository.RoleGroupManager.AddRolesToGroup("", new string[] { "" });
             }
             catch (Exception)
             {
@@ -73,7 +74,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.AddRolesToGroup(null, null);
+                result = _fixture.Repository.RoleGroupManager.AddRolesToGroup(null, null);
             }
             catch (Exception)
             {
@@ -91,10 +92,10 @@ namespace AxOpen.Security.Tests
             var group = "UpdateGroup";
             var role = "NEWROLE3";
             //Act
-            var result = _fixture.Basp.roleGroupManager.AddRoleToGroup(group, role);
+            var result = _fixture.Repository.RoleGroupManager.AddRoleToGroup(group, role);
             //Assert
             Assert.True(result.Succeeded);
-            var roles = _fixture.Basp.roleGroupManager.GetRolesFromGroup(group);
+            var roles = _fixture.Repository.RoleGroupManager.GetRolesFromGroup(group);
             Assert.Contains(role, roles);
         }
 
@@ -106,7 +107,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.AddRoleToGroup("", "");
+                result = _fixture.Repository.RoleGroupManager.AddRoleToGroup("", "");
             }
             catch (Exception)
             {
@@ -124,7 +125,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.AddRoleToGroup(null, null);
+                result = _fixture.Repository.RoleGroupManager.AddRoleToGroup(null, null);
             }
             catch (Exception)
             {
@@ -141,12 +142,12 @@ namespace AxOpen.Security.Tests
             //Arrange
             var group = "CreateGroup";
             //Act
-            var result = _fixture.Basp.roleGroupManager.CreateGroup(group);
+            var result = _fixture.Repository.RoleGroupManager.CreateGroup(group);
             //Assert
             Assert.True(result.Succeeded);
-            var groups = _fixture.Basp.roleGroupManager.GetAllGroup();
+            var groups = _fixture.Repository.RoleGroupManager.GetAllGroup();
             bool found = false;
-            foreach (GroupData data in groups)
+            foreach (Group data in groups)
             {
                 if (data.Name == group) found = true;
             }
@@ -161,7 +162,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.CreateGroup("");
+                result = _fixture.Repository.RoleGroupManager.CreateGroup("");
             }
             catch (Exception)
             {
@@ -179,7 +180,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.CreateGroup(null);
+                result = _fixture.Repository.RoleGroupManager.CreateGroup(null);
             }
             catch (Exception)
             {
@@ -196,10 +197,10 @@ namespace AxOpen.Security.Tests
             //Arrange
             var expectedRole = new Role("CreateRole");
             //Act
-            var result = _fixture.Basp.roleGroupManager.CreateRole(expectedRole);
+            var result = _fixture.Repository.RoleGroupManager.CreateRole(expectedRole);
             //Assert
             Assert.True(result.Succeeded);
-            var role = _fixture.Basp.roleGroupManager.inAppRoleCollection.Find(x => x.Name == expectedRole.Name);
+            var role = _fixture.Repository.RoleGroupManager.inAppRoleCollection.Find(x => x.Name == expectedRole.Name);
             Assert.Equal(expectedRole, role);
         }
 
@@ -211,7 +212,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.CreateRole(null);
+                result = _fixture.Repository.RoleGroupManager.CreateRole(null);
             }
             catch (Exception)
             {
@@ -228,12 +229,12 @@ namespace AxOpen.Security.Tests
             //Arrange
             var group = "RemoveGroup";
             //Act
-            var result = _fixture.Basp.roleGroupManager.DeleteGroup(group);
+            var result = _fixture.Repository.RoleGroupManager.DeleteGroup(group);
             //Assert
             Assert.True(result.Succeeded);
-            var groups = _fixture.Basp.roleGroupManager.GetAllGroup();
+            var groups = _fixture.Repository.RoleGroupManager.GetAllGroup();
             bool found = false;
-            foreach (GroupData data in groups)
+            foreach (Group data in groups)
             {
                 if (data.Name == group) found = true;
             }
@@ -248,7 +249,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.DeleteGroup(null);
+                result = _fixture.Repository.RoleGroupManager.DeleteGroup(null);
             }
             catch (Exception)
             {
@@ -264,7 +265,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            var groups = _fixture.Basp.roleGroupManager.GetAllGroup();
+            var groups = _fixture.Repository.RoleGroupManager.GetAllGroup();
             //Assert
             Assert.NotNull(groups);
         }
@@ -277,7 +278,7 @@ namespace AxOpen.Security.Tests
             var group = "DefaultGroup";
             var expectedRoles = new string[] { "Administrator", "Default" };
             //Act
-            var roles = _fixture.Basp.roleGroupManager.GetRolesFromGroup(group);
+            var roles = _fixture.Repository.RoleGroupManager.GetRolesFromGroup(group);
             //Assert
             Assert.Equal(expectedRoles, roles);
         }
@@ -287,7 +288,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            List<string> result = _fixture.Basp.roleGroupManager.GetRolesFromGroup("NoExistGroup");
+            List<string> result = _fixture.Repository.RoleGroupManager.GetRolesFromGroup("NoExistGroup");
             //Assert
             Assert.Null(result);
         }
@@ -297,7 +298,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            List<string> result = _fixture.Basp.roleGroupManager.GetRolesFromGroup("");
+            List<string> result = _fixture.Repository.RoleGroupManager.GetRolesFromGroup("");
             //Assert
             Assert.Null(result);
         }
@@ -307,7 +308,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            List<string> result = _fixture.Basp.roleGroupManager.GetRolesFromGroup(null);
+            List<string> result = _fixture.Repository.RoleGroupManager.GetRolesFromGroup(null);
             //Assert
             Assert.Null(result);
         }
@@ -320,7 +321,7 @@ namespace AxOpen.Security.Tests
             var group = "DefaultGroup";
             var expectedRoles = "Administrator,Default";
             //Act
-            var roles = _fixture.Basp.roleGroupManager.GetRolesFromGroupString(group);
+            var roles = _fixture.Repository.RoleGroupManager.GetRolesFromGroupString(group);
             //Assert
             Assert.Equal(expectedRoles, roles);
         }
@@ -330,7 +331,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            string result = _fixture.Basp.roleGroupManager.GetRolesFromGroupString("NoExistGroup");
+            string result = _fixture.Repository.RoleGroupManager.GetRolesFromGroupString("NoExistGroup");
             //Assert
             Assert.Null(result);
         }
@@ -340,7 +341,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            string result = _fixture.Basp.roleGroupManager.GetRolesFromGroupString("");
+            string result = _fixture.Repository.RoleGroupManager.GetRolesFromGroupString("");
             //Assert
             Assert.Null(result);
         }
@@ -350,7 +351,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            string result = _fixture.Basp.roleGroupManager.GetRolesFromGroupString(null);
+            string result = _fixture.Repository.RoleGroupManager.GetRolesFromGroupString(null);
             //Assert
             Assert.Null(result);
         }
@@ -363,10 +364,10 @@ namespace AxOpen.Security.Tests
             var group = "RemoveRolesGroup";
             var expectedRoles = new string[] { "Administrator" };
             //Act
-            var result = _fixture.Basp.roleGroupManager.RemoveRolesFromGroup(group, expectedRoles);
+            var result = _fixture.Repository.RoleGroupManager.RemoveRolesFromGroup(group, expectedRoles);
             //Assert
             Assert.True(result.Succeeded);
-            var roles = _fixture.Basp.roleGroupManager.GetRolesFromGroup(group);
+            var roles = _fixture.Repository.RoleGroupManager.GetRolesFromGroup(group);
             Assert.Contains("Default", roles);
         }
 
@@ -375,7 +376,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            IdentityResult result = _fixture.Basp.roleGroupManager.RemoveRolesFromGroup("NoExistGroup", new string[] { "NoExistRole" });
+            IdentityResult result = _fixture.Repository.RoleGroupManager.RemoveRolesFromGroup("NoExistGroup", new string[] { "NoExistRole" });
             //Assert
             Assert.False(result.Succeeded);
         }
@@ -388,7 +389,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.RemoveRolesFromGroup("", new string[] { "" });
+                result = _fixture.Repository.RoleGroupManager.RemoveRolesFromGroup("", new string[] { "" });
             }
             catch (Exception)
             {
@@ -406,7 +407,7 @@ namespace AxOpen.Security.Tests
             //Act
             try
             {
-                result = _fixture.Basp.roleGroupManager.RemoveRolesFromGroup(null, null);
+                result = _fixture.Repository.RoleGroupManager.RemoveRolesFromGroup(null, null);
             }
             catch (Exception)
             {

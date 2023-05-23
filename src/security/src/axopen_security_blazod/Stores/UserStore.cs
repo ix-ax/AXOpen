@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AxOpen.Security.Stores
+namespace AxOpen.Security.Stores    
 {
     public class UserStore:
         IUserStore<User>,
@@ -48,7 +48,7 @@ namespace AxOpen.Security.Stores
         {
             get
             {
-                return _unitOfWork.RoleInAppRepository.inAppRoleCollection;
+                return _unitOfWork.RoleGroupManager.inAppRoleCollection;
             }
         }
        
@@ -197,6 +197,7 @@ namespace AxOpen.Security.Stores
                     userData.SecurityStamp = user.SecurityStamp;
                     userData.Group = user.Group;
                     userData.CanUserChangePassword = user.CanUserChangePassword;
+                    userData.Modified = user.Modified;
                 }
                 else
                 {
@@ -353,7 +354,7 @@ namespace AxOpen.Security.Stores
                 throw new ArgumentNullException(nameof(normalizedRoleName));
 
 
-            var role = _unitOfWork.RoleInAppRepository.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
+            var role = _unitOfWork.RoleGroupManager.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
             if (role == null)
             {
                 throw new InvalidOperationException(string.Format(System.Globalization.CultureInfo.CurrentCulture, $"Role {0} does not exist.", normalizedRoleName));
@@ -379,7 +380,7 @@ namespace AxOpen.Security.Stores
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
 
-            var role = _unitOfWork.RoleInAppRepository.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
+            var role = _unitOfWork.RoleGroupManager.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
             if (role != null)
             {
                 user.Group = String.Empty;
@@ -400,7 +401,7 @@ namespace AxOpen.Security.Stores
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            IList<string> roleNames = _unitOfWork.RoleInAppRepository.GetRolesFromGroup(user.Group);
+            IList<string> roleNames = _unitOfWork.RoleGroupManager.GetRolesFromGroup(user.Group);
 
             if(roleNames == null)
                 return Task.FromResult((IList<string>)new List<string>());
@@ -427,7 +428,7 @@ namespace AxOpen.Security.Stores
 
 
             var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
-            var roleNames = _unitOfWork.RoleInAppRepository.GetRolesFromGroup(user.Group);
+            var roleNames = _unitOfWork.RoleGroupManager.GetRolesFromGroup(user.Group);
 
             if (roleNames == null)
                 return Task.FromResult(false);
@@ -450,7 +451,7 @@ namespace AxOpen.Security.Stores
             if (blazorRole == null)
                 throw (new Exception("Role doesn't exists"));
 
-            IList<User> usersInRole = Users.Where(x => (_unitOfWork.RoleInAppRepository.GetRolesFromGroup(x.Group) != null ? _unitOfWork.RoleInAppRepository.GetRolesFromGroup(x.Group).Contains(blazorRole.Name) : false)).ToList();
+            IList<User> usersInRole = Users.Where(x => (_unitOfWork.RoleGroupManager.GetRolesFromGroup(x.Group) != null ? _unitOfWork.RoleGroupManager.GetRolesFromGroup(x.Group).Contains(blazorRole.Name) : false)).ToList();
             return Task.FromResult(usersInRole);
         }
         // <summary>

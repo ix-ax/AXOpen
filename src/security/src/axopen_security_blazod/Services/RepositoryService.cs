@@ -27,7 +27,7 @@ namespace AxOpen.Security.Services
             }
         }
 
-        public RoleGroupManager RoleInAppRepository
+        public RoleGroupManager RoleGroupManager
         {
             get
             {

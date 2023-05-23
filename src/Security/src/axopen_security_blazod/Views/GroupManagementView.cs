@@ -23,7 +23,7 @@ namespace AxOpen.Security.Views
         [Inject]
         private IRepositoryService _repositoryService { get; set; }
 
-        private RoleGroupManager _roleGroupManager { get { return _repositoryService.RoleInAppRepository; } }
+        private RoleGroupManager _roleGroupManager { get { return _repositoryService.RoleGroupManager; } }
 
         private IList<RoleData> AvailableRoles { get; set; }
         private IList<RoleData> AssignedRoles { get; set; }

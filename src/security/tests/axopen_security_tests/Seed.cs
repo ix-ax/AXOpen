@@ -1,70 +1,78 @@
 ﻿using AxOpen.Security;
+using AxOpen.Security.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace AxOpen.Security.Tests
 {
     public class Seed
     {
-        public Seed()
+        public PasswordHasher<User> Hasher { get; set; }
+        public Seed(PasswordHasher<User> _hasher)
         {
+            Hasher = _hasher;
             SeedData();
         }
         public void SeedData()
         {
-            ExistUser = new User("exist", "exist@exist.com", new List<string>().ToArray(), false)
+            ExistUser = new User("EXIST", "exist@exist.com", "", false)
             {
-                Id = "exist",
+                Id = "EXIST",
                 SecurityStamp = Guid.NewGuid().ToString(),
-                PasswordHash = Hasher.CalculateHash("exist", "exist"),
-                RoleHash = Hasher.CalculateHash("", "exist")
+
             };
 
-            NoExistUser = new User("noexist", "noexist@noexist.com", new List<string>().ToArray(), false)
-            {
-                Id = "noexist",
-                SecurityStamp = Guid.NewGuid().ToString(),
-                PasswordHash = Hasher.CalculateHash("noexist", "noexist"),
-                RoleHash = Hasher.CalculateHash("", "noexist")
-            };
+            ExistUser.PasswordHash = Hasher.HashPassword(ExistUser, "EXIST");
 
-            CreateUser = new User("create", "create@create.com", new List<string>().ToArray(), false)
+            NoExistUser = new User("NOEXIST", "noexist@noexist.com", "", false)
             {
-                Id = "create",
+                Id = "NOEXIST",
                 SecurityStamp = Guid.NewGuid().ToString(),
-                PasswordHash = Hasher.CalculateHash("create", "create"),
-                RoleHash = Hasher.CalculateHash("", "create")
+            
             };
+            NoExistUser.PasswordHash = Hasher.HashPassword(NoExistUser, "NOEXIST");
 
-            RemoveUser = new User("remove", "remove@remove.com", new List<string>().ToArray(), false)
-            {
-                Id = "remove",
-                SecurityStamp = Guid.NewGuid().ToString(),
-                PasswordHash = Hasher.CalculateHash("remove", "remove"),
-                RoleHash = Hasher.CalculateHash("", "remove")
-            };
 
-            UpdateUser = new User("update", "update@update.com", new List<string>().ToArray(), false)
+            CreateUser = new User("CREATE", "create@create.com", "", false)
             {
-                Id = "update",
+                Id = "CREATE",
                 SecurityStamp = Guid.NewGuid().ToString(),
-                PasswordHash = Hasher.CalculateHash("update", "update"),
-                RoleHash = Hasher.CalculateHash("", "update")
-            };
+              
 
-            AdminUser = new User("admin", "admin@admin.com", new string[] { "AdminGroup" }, false)
-            {
-                Id = "admin",
-                SecurityStamp = Guid.NewGuid().ToString(),
-                PasswordHash = Hasher.CalculateHash("admin", "admin"),
-                RoleHash = Hasher.CalculateHash("AdminGroup", "admin")
             };
+            CreateUser.PasswordHash = Hasher.HashPassword(CreateUser, "CREATE");
 
-            DefaultUser = new User("default", "default@default.com", new string[] { "DefaultGroup" }, false)
+            RemoveUser = new User("REMOVE", "remove@remove.com", "", false)
             {
-                Id = "default",
+                Id = "REMOVE",
                 SecurityStamp = Guid.NewGuid().ToString(),
-                PasswordHash = Hasher.CalculateHash("default", "default"),
-                RoleHash = Hasher.CalculateHash("", "default")
+                
             };
+            RemoveUser.PasswordHash = Hasher.HashPassword(RemoveUser, "REMOVE");
+
+            UpdateUser = new User("UPDATE", "update@update.com", "", false)
+            {
+                Id = "UPDATE",
+                SecurityStamp = Guid.NewGuid().ToString(),
+              
+            };
+            UpdateUser.PasswordHash = Hasher.HashPassword(UpdateUser, "UPDATE");
+
+            AdminUser = new User("ADMIN", "admin@admin.com", "AdminGroup" , false)
+            {
+                Id = "ADMIN",
+                SecurityStamp = Guid.NewGuid().ToString(),
+  
+            };
+            AdminUser.PasswordHash = Hasher.HashPassword(AdminUser, "ADMIN");
+
+            DefaultUser = new User("DEFAULT", "default@default.com", "DefaultGroup" , false)
+            {
+                Id = "DEFAULT",
+                SecurityStamp = Guid.NewGuid().ToString(),
+            };
+            DefaultUser.PasswordHash = Hasher.HashPassword(DefaultUser, "DEFAULT");
+
+
         }
 
         public User ExistUser { get; set; }
