@@ -7,6 +7,7 @@
 @using Microsoft.AspNetCore.Identity;
 @namespace AxOpen.Security.Views
 @inject UserManager<User> _userManager
+@inject SignInManager<User> _signInManager
 @inject IRepositoryService _repositoryService
 @inject AuthenticationStateProvider _authenticationStateProvider
 
@@ -32,6 +33,11 @@
                     </div>
                     @if (_model.CanUserChangePassword)
                     {
+                        <div class="form-group">
+                            <label>Old Password</label>
+                            <InputText @bind-Value="_model.OldPassword" type="password" class="form-control" />
+                            <ValidationMessage For="@(() => _model.OldPassword)" />
+                        </div>
                         <div class="form-group">
                             <label>Password</label>
                             <InputText @bind-Value="_model.Password" type="password" class="form-control" />
@@ -75,7 +81,7 @@
 </AuthorizeView>
 
 @code {
-    private RegisterUserModel _model { get; set; }
+    private ManageUserModel _model { get; set; }
 
     private async void OnValidUpdate()
     {
@@ -83,12 +89,13 @@
 
         if (_model.CanUserChangePassword && _model.Password != "password")
         {
-            await _userManager.ResetPasswordAsync(_user, _user.SecurityStamp, _model.Password);
+            await _userManager.ChangePasswordAsync(_user, _model.OldPassword, _model.Password);
         }
         _user.Email = _model.Email;
         var result = await _userManager.UpdateAsync(_user);
         if (result.Succeeded)
         {
+            _signInManager.RefreshSignInAsync(_user);
             //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Updated!", "User succesfully updated.", 10)));
             //TcoAppDomain.Current.Logger.Information($"User '{_user.UserName}' has changed.{{payload}}", new { UserName = _user.UserName, Email = _user.Email, CanChangePassword = _user.CanUserChangePassword, Group = string.Join(",", _user.Roles) });
         }
@@ -100,7 +107,7 @@
 
     protected override async void OnInitialized()
     {
-        _model = new RegisterUserModel();
+        _model = new ManageUserModel();
 
         User _user = await _userManager.FindByIdAsync(_authenticationStateProvider.GetAuthenticationStateAsync().Result.User.Identity.Name);
 

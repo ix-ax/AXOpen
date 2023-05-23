@@ -62,7 +62,7 @@
 </AuthorizeView>
 
 @code {
-    private RegisterUserModel _model { get; set; }
+    private CreateUserModel _model { get; set; }
     private User _user { get; set; }
 
     private async void OnValidSubmit()
@@ -89,6 +89,6 @@
 
     protected override void OnInitialized()
     {
-        _model = new RegisterUserModel();
+        _model = new CreateUserModel();
     }
 }

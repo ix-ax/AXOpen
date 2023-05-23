@@ -14,7 +14,9 @@
                             <li><a class="dropdown-item" href="Identity/Account/Manage" style="margin-left: 0;">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <a class="dropdown-item" href="Identity/Account/Logout" style="margin-left: 0;">Log out</a>
+                                <form class="form-inline" asp-area="Identity" action="Identity/Account/Logout" asp-route-returnUrl="/" method="post">
+                                    <button class="dropdown-item" type="submit">Log out</button>
+                                </form>
                             </li>
                         </ul>
                     </li>

@@ -8,10 +8,14 @@ using System.Threading.Tasks;
 
 namespace AxOpen.Security.Models
 {
-    public class RegisterUserModel
+    public class ManageUserModel
     {
         [Required]
         public string Username { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string OldPassword { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

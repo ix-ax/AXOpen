@@ -25,7 +25,7 @@ namespace AxOpen.Security.Views
         private UserManager<User> _userManager { get; set; }
 
         private User SelectedUser { get; set; }
-        private RegisterUserModel _model { get; set; }
+        private CreateUserModel _model { get; set; }
 
         private ObservableCollection<User> AllUsers {
             get {
@@ -63,10 +63,6 @@ namespace AxOpen.Security.Views
 
         private async void OnValidUpdate()
         {
-            if (_model.Password != "password")
-            {
-                //SelectedUser.PasswordHash = Hasher.CalculateHash(_model.Password, _model.Username);
-            }
             if (_model.Group == "Choose group")
             {
                 _model.Group = null;
@@ -75,6 +71,10 @@ namespace AxOpen.Security.Views
             SelectedUser.CanUserChangePassword = _model.CanUserChangePassword;
             SelectedUser.Email = _model.Email;
             SelectedUser.Group = _model.Group;
+            if (_model.Password != "password")
+            {
+                SelectedUser.PasswordHash = _userManager.PasswordHasher.HashPassword(SelectedUser, _model.Password);
+            }
             //SelectedUser.RoleHash = Hasher.CalculateHash(SelectedUser.Roles, _model.Username);
             var result = await _userManager.UpdateAsync(SelectedUser);
             if (result.Succeeded)
@@ -90,7 +90,7 @@ namespace AxOpen.Security.Views
 
         protected override void OnInitialized()
         {
-            _model = new RegisterUserModel();
+            _model = new CreateUserModel();
         }
     }
 }
