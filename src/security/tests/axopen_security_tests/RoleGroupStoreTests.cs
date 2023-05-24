@@ -321,7 +321,7 @@ namespace AxOpen.Security.Tests
             var group = "DefaultGroup";
             var expectedRoles = "Administrator,Default";
             //Act
-            var roles = _fixture.Repository.RoleGroupManager.GetRolesFromGroupString(group);
+            var roles = _fixture.Repository.RoleGroupManager.GetRoles(group);
             //Assert
             Assert.Equal(expectedRoles, roles);
         }
@@ -331,7 +331,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            string result = _fixture.Repository.RoleGroupManager.GetRolesFromGroupString("NoExistGroup");
+            string result = _fixture.Repository.RoleGroupManager.GetRoles("NoExistGroup");
             //Assert
             Assert.Null(result);
         }
@@ -341,7 +341,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            string result = _fixture.Repository.RoleGroupManager.GetRolesFromGroupString("");
+            string result = _fixture.Repository.RoleGroupManager.GetRoles("");
             //Assert
             Assert.Null(result);
         }
@@ -351,7 +351,7 @@ namespace AxOpen.Security.Tests
         {
             //Arrange
             //Act
-            string result = _fixture.Repository.RoleGroupManager.GetRolesFromGroupString(null);
+            string result = _fixture.Repository.RoleGroupManager.GetRoles(null);
             //Assert
             Assert.Null(result);
         }

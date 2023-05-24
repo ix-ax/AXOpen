@@ -217,7 +217,7 @@ namespace AxOpen.Security
             return new List<string>(data.Roles);
         }
 
-        public string GetRolesFromGroupString(string group)
+        public string GetRoles(string group)
         {
             return String.Join(",", GetRolesFromGroup(group));
         }
