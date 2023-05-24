@@ -29,7 +29,7 @@ builder.Services.AddServerSideBlazor();
 //builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
 
-builder.Services.AddVortexBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
+builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
 
 var app = builder.Build();
 

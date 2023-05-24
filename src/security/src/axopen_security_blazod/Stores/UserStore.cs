@@ -11,9 +11,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AxOpen.Security.Stores    
+namespace AxOpen.Security.Stores
 {
-    public class UserStore:
+    public class UserStore :
         IUserStore<User>,
         IUserPasswordStore<User>,
         IUserRoleStore<User>,
@@ -26,6 +26,8 @@ namespace AxOpen.Security.Stores
         {
             ErrorDescriber = errorDescriber;
             _unitOfWork = unitOfWork;
+
+            CreateDefaultUser();
         }
         /// <summary>
         /// Gets or sets the <see cref="IdentityErrorDescriber"/> for any error that occurred with the current operation.
@@ -51,7 +53,22 @@ namespace AxOpen.Security.Stores
                 return _unitOfWork.RoleGroupManager.inAppRoleCollection;
             }
         }
-       
+
+        private void CreateDefaultUser()
+        {
+            if (!Users.Any())
+            {
+                //create default admin user
+                var user = new User("admin", null, "AdminGroup", false);
+                user.SecurityStamp = Guid.NewGuid().ToString();
+                user.PasswordHash = new PasswordHasher<User>().HashPassword(user, "admin");
+                user.Group = "AdminGroup";
+                user.GroupHash = new PasswordHasher<User>().HashPassword(user, "AdminGroup");
+
+                _unitOfWork.UserRepository.Create(user.NormalizedUserName, user);
+            }
+        }
+
         private bool _disposed;
         protected void ThrowIfDisposed()
         {
@@ -95,7 +112,7 @@ namespace AxOpen.Security.Stores
                 throw new ArgumentNullException(nameof(user));
 
             return Task.FromResult(user.UserName);
-        }  
+        }
         /// <summary>
         /// Sets the given <paramref name="userName" /> for the specified <paramref name="user"/>.
         /// </summary>
@@ -161,6 +178,7 @@ namespace AxOpen.Security.Stores
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
+            user.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
 
             try
             {
@@ -168,7 +186,7 @@ namespace AxOpen.Security.Stores
             }
             catch (DuplicateIdException)
             {
-                return Task.FromResult(IdentityResult.Failed(new IdentityError { Description = $"User with username {user.UserName} already exists."}));
+                return Task.FromResult(IdentityResult.Failed(new IdentityError { Description = $"User with username {user.UserName} already exists." }));
             }
 
             return Task.FromResult(IdentityResult.Success);
@@ -196,6 +214,7 @@ namespace AxOpen.Security.Stores
                     userData.PasswordHash = user.PasswordHash;
                     userData.SecurityStamp = user.SecurityStamp;
                     userData.Group = user.Group;
+                    userData.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
                     userData.CanUserChangePassword = user.CanUserChangePassword;
                     userData.Modified = user.Modified;
                 }
@@ -203,7 +222,7 @@ namespace AxOpen.Security.Stores
                 {
                     return Task.FromResult(IdentityResult.Failed(new IdentityError { Description = $"User with username {user.UserName} doesn't exists." }));
                 }
-                
+
                 _unitOfWork.UserRepository.Update(user.NormalizedUserName, userData);
             }
             catch (UnableToLocateRecordId)
@@ -249,13 +268,14 @@ namespace AxOpen.Security.Stores
             try
             {
                 user = _unitOfWork.UserRepository.Read(entityId);
-              
+
+                if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                    user = null;
             }
             catch (UnableToLocateRecordId)
             {
                 user = null;
             }
-            
 
             return Task.FromResult(user);
         }
@@ -278,13 +298,15 @@ namespace AxOpen.Security.Stores
             try
             {
                 user = _unitOfWork.UserRepository.Read(normalizedUserName);
+
+                if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                    user = null;
             }
             catch (UnableToLocateRecordId)
             {
                 user = null;
             }
-           
-            
+
             return Task.FromResult(user);
         }
         /// <summary>
@@ -360,6 +382,7 @@ namespace AxOpen.Security.Stores
                 throw new InvalidOperationException(string.Format(System.Globalization.CultureInfo.CurrentCulture, $"Role {0} does not exist.", normalizedRoleName));
             }
             user.Group = role.DataEntityId;
+            user.GroupHash = new PasswordHasher<User>().HashPassword(user, role.DataEntityId);
 
             return Task.CompletedTask;
         }
@@ -384,6 +407,7 @@ namespace AxOpen.Security.Stores
             if (role != null)
             {
                 user.Group = String.Empty;
+                user.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
             }
 
             return Task.CompletedTask;
@@ -401,9 +425,12 @@ namespace AxOpen.Security.Stores
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
+            if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                return Task.FromResult((IList<string>)new List<string>());
+
             IList<string> roleNames = _unitOfWork.RoleGroupManager.GetRolesFromGroup(user.Group);
 
-            if(roleNames == null)
+            if (roleNames == null)
                 return Task.FromResult((IList<string>)new List<string>());
 
             return Task.FromResult(roleNames);
@@ -425,6 +452,9 @@ namespace AxOpen.Security.Stores
 
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
+
+            if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                return Task.FromResult(false);
 
 
             var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
@@ -513,6 +543,6 @@ namespace AxOpen.Security.Stores
             return Task.FromResult((IList<User>)new List<User>());
         }
 
-        
+
     }
 }

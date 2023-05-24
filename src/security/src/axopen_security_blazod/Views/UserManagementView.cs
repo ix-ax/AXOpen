@@ -25,7 +25,7 @@ namespace AxOpen.Security.Views
         private UserManager<User> _userManager { get; set; }
 
         private User SelectedUser { get; set; }
-        private CreateUserModel _model { get; set; }
+        private UpdateUserModel _model { get; set; }
 
         private ObservableCollection<User> AllUsers {
             get {
@@ -36,11 +36,8 @@ namespace AxOpen.Security.Views
         public void RowClicked(User user)
         {
             SelectedUser = user;
-            //_model = new RegisterUserModel();
 
             _model.Username = user.UserName;
-            _model.Password = "password";
-            _model.ConfirmPassword = "password";
             _model.CanUserChangePassword = user.CanUserChangePassword;
             _model.Email = user.Email;
             _model.Group = user.Group;
@@ -72,7 +69,7 @@ namespace AxOpen.Security.Views
             SelectedUser.Email = _model.Email;
             SelectedUser.Group = _model.Group;
             SelectedUser.Modified = DateTime.Now.ToString();
-            if (_model.Password != "password")
+            if (_model.Password != null && _model.Password != "" && _model.ConfirmPassword != null && _model.ConfirmPassword == _model.Password)
             {
                 SelectedUser.PasswordHash = _userManager.PasswordHasher.HashPassword(SelectedUser, _model.Password);
             }
@@ -92,7 +89,7 @@ namespace AxOpen.Security.Views
 
         protected override void OnInitialized()
         {
-            _model = new CreateUserModel();
+            _model = new UpdateUserModel();
         }
     }
 }
