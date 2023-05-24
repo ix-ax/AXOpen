@@ -64,13 +64,10 @@ static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\
 {
     var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
     var repositoryDirectory = Path.GetFullPath($"{executingAssemblyFile.Directory}{path}");
-
     if (!Directory.Exists(repositoryDirectory))
     {
         Directory.CreateDirectory(repositoryDirectory);
     }
-
-
     IRepository<User> userRepo = new JsonRepository<User>(new JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
     IRepository<Group> groupRepo = new JsonRepository<Group>(new JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
 
