@@ -64,6 +64,7 @@ namespace AxOpen.Security.Stores
                 user.PasswordHash = new PasswordHasher<User>().HashPassword(user, "admin");
                 user.Group = "AdminGroup";
                 user.GroupHash = new PasswordHasher<User>().HashPassword(user, "AdminGroup");
+                user.Created = DateTime.Now.ToString();
 
                 _unitOfWork.UserRepository.Create(user.NormalizedUserName, user);
             }

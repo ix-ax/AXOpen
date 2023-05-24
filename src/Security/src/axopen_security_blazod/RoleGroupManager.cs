@@ -22,7 +22,7 @@ namespace AxOpen.Security
         {
             CreateRole(new Role("Administrator"));
 
-            if (!(GetAllGroup()).Select(x => x.Name).Contains("AdminGroup"))
+            if (!GetAllGroup().Any())
             {
                 CreateGroup("AdminGroup");
                 AddRoleToGroup("AdminGroup", "Administrator");
