@@ -8,6 +8,7 @@ NAMESPACE AXOpen.Data
             CrudOperation : eCrudOperation;
         END_VAR
 
+        
         METHOD PUBLIC Invoke : IAxoTaskState
             VAR_INPUT
                 identifier : STRING[254];

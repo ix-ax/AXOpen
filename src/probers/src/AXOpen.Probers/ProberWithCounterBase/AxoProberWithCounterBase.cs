@@ -16,7 +16,7 @@ namespace AXOpen.Probers
         /// <returns>Task</returns>
         public async Task RunTest(uint numberOfCycles)
         {
-            await this.Restore();
+            this.Restore();
 
             while (true)
             {
@@ -32,7 +32,7 @@ namespace AXOpen.Probers
 
             await this.RequredNumberOfCycles.SetAsync(numberOfCycles);
             
-            this.Execute();
+            this.ExecuteAsync();
 
             while (true)
             {

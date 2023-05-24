@@ -7,12 +7,9 @@ using System.Threading.Tasks;
 namespace AXOpen.Core
 {
     public partial class AxoComponent
-    {        
-     
-        
+    {
     }
 
-    
     public class ComponentHeaderAttribute : Attribute
     {
         public ComponentHeaderAttribute()
