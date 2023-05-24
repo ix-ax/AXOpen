@@ -27,6 +27,19 @@ NAMESPACE AXOpen.Data
         END_METHOD 
 
         METHOD Restore        
-        END_METHOD    
+        END_METHOD 
+        
+        METHOD Run 
+            VAR_INPUT
+                context : IAxoContext;
+            END_VAR
+            
+        END_METHOD
+
+        METHOD Run 
+            VAR_INPUT
+                parent : IAxoObject;
+            END_VAR            
+        END_METHOD
     END_INTERFACE
 END_NAMESPACE    

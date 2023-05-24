@@ -16,14 +16,27 @@ public partial class AxoDataFragmentExchange
 {
     protected IAxoDataExchange[] DataFragments { get; private set; }
 
-    public T? Builder<T>() where T : AxoDataFragmentExchange
+    public T? CreateBuilder<T>() where T : AxoDataFragmentExchange
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
-        Operation.InitializeExclusively(Handle);
-        Operation.WriteAsync().Wait();
         RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
         Repository = new AxoCompoundRepository(DataFragments);
         return this as T;
+    }
+
+    /// <summary>
+    ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
+    /// </summary>
+    public void InitializeRemoteDataExchange()
+    {
+        Operation.InitializeExclusively(Handle);
+        this.WriteAsync().Wait();
+    }
+
+    public void DeInitializeRemoteDataExchange()
+    {
+        Operation.DeInitialize();
+        this.WriteAsync().Wait();
     }
 
     private void Handle()

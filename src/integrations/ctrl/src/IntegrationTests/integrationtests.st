@@ -3,6 +3,7 @@ NAMESPACE IntegrationTests
         VAR PUBLIC
              Probers : ProbersTestContext;             
              DataExchangeLightTestsContext : IntegrationLightDirect.DataExchangeLightTestsContext;
+             DataFragmentContext : IntegrationAxoDataFramentsExchange.AxoDataFragmentExchangeContext;
              DM : IntegrationLightDirect.DataManager;
         END_VAR
         
@@ -11,6 +12,7 @@ NAMESPACE IntegrationTests
             DM.Run(DataExchangeLightTestsContext);                     
             DataExchangeLightTestsContext.InjectDM(DM);
             DataExchangeLightTestsContext.Run();
+            DataFragmentContext.Run();
         END_METHOD
     END_CLASS
 END_NAMESPACE

@@ -2,9 +2,11 @@ using axopen_integrations_blazor.Data;
 using axopen_integrations;
 using AXSharp.Connector;
 using AXOpen.Core.blazor.Toaster;
+using AXOpen.Data.Json;
 using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Pocos.IntegrationAxoDataFramentsExchange;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace axopen_integrations_blazor
@@ -47,6 +49,15 @@ namespace axopen_integrations_blazor
                     Ix.Repository.Json.
                         Repository.Factory
                             (new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
+
+            var pdfBuilder =
+                Entry.Plc.Integrations.DataFragmentContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
+
+            pdfBuilder.Set.SetRepository(new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(
+                new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(Path.Combine(Environment.CurrentDirectory, "data-framents", "set"))));
+            pdfBuilder.Manip.SetRepository(
+                new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>( new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>(Path.Combine(Environment.CurrentDirectory, "data-framents", "fm"))));
+
 
             //<AxoDataExampleDocuIntialization>
             var exampleRepositorySettings =
