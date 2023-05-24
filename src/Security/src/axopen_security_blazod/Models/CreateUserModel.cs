@@ -21,6 +21,7 @@ namespace AxOpen.Security.Models
         [Compare("Password", ErrorMessage = "Confirm password doesn't match. Type again!")]
         public string ConfirmPassword { get; set; }
 
+        [Required]
         public bool CanUserChangePassword { get; set; }
 
         public string Email { get; set; }

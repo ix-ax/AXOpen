@@ -87,7 +87,7 @@
     {
         User _user = await _userManager.FindByIdAsync(_model.Username);
 
-        if (_model.CanUserChangePassword && _model.Password != "password")
+        if (_model.CanUserChangePassword && _model.OldPassword != null && _model.OldPassword != "" && _model.Password != null && _model.Password != "" && _model.ConfirmPassword != null && _model.ConfirmPassword == _model.Password)
         {
             await _userManager.ChangePasswordAsync(_user, _model.OldPassword, _model.Password);
         }
@@ -115,8 +115,6 @@
         _model.Group = _user.Group;
         _model.Email = _user.Email;
         _model.CanUserChangePassword = _user.CanUserChangePassword;
-        _model.Password = "password";
-        _model.ConfirmPassword = "password";
     }
 
     private string changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";

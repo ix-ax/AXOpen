@@ -1,0 +1,13 @@
+{
+  "Changes": [],
+  "RecordId": null,
+  "DataEntityId": "TestGroup",
+  "Name": "TestGroup",
+  "Roles": [
+    "Administrator",
+    "can_user_open_technological_settings"
+  ],
+  "RolesHash": "AQAAAAIAAYagAAAAEBGhPLPldfcpyUb0w/LTIC4OuU1GBh6wUyipiTCHlMjxA1CdFHCRPjyVmIXwYMHUpA==",
+  "Created": "2023-05-24T11:53:38.8465757+02:00",
+  "Modified": "2023-05-24T11:56:39.826438+02:00"
+}

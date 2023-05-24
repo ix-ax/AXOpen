@@ -1,6 +1,7 @@
 ﻿using AxOpen.Security.Entities;
 using AXOpen.Base.Data;
 using Microsoft.AspNetCore.Identity;
+using System.Xml.Linq;
 
 
 namespace AxOpen.Security
@@ -58,7 +59,7 @@ namespace AxOpen.Security
             try
             {
                 var data = new Group(name);
-                //data.RoleHash = Hasher.CalculateHash(data.Roles, data.Name);
+                data.RolesHash = new PasswordHasher<Group>().HashPassword(data, "");
                 data.Created = DateTime.Now;
                 groupRepo.Create(name, data);
             }
@@ -98,7 +99,7 @@ namespace AxOpen.Security
                 if (data != null)
                 {
                     data.Roles.Add(role);
-                    //data.RoleHash = Hasher.CalculateHash(data.Roles, data.Name);
+                    data.RolesHash = new PasswordHasher<Group>().HashPassword(data, String.Join(",", data.Roles));
                     data.Modified = DateTime.Now;
                 }
                 else
@@ -133,7 +134,7 @@ namespace AxOpen.Security
                     {
                         data.Roles.Add(role);
                     }
-                    //data.RoleHash = Hasher.CalculateHash(data.Roles, data.Name);
+                    data.RolesHash = new PasswordHasher<Group>().HashPassword(data, String.Join(",", data.Roles));
                     data.Modified = DateTime.Now;
                 }
                 else
@@ -162,7 +163,7 @@ namespace AxOpen.Security
 
             try
             {
-                Group data = null;
+                Group? data = null;
                 data = groupRepo.Read(group);
                 if (data != null)
                 {
@@ -170,7 +171,7 @@ namespace AxOpen.Security
                     {
                         data.Roles.Remove(role);
                     }
-                    //data.RoleHash = Hasher.CalculateHash(data.Roles, data.Name);
+                    data.RolesHash = new PasswordHasher<Group>().HashPassword(data, String.Join(",", data.Roles));
                     data.Modified = DateTime.Now;
                 }
                 else
@@ -193,7 +194,7 @@ namespace AxOpen.Security
         public List<string> GetRolesFromGroup(string group)
         {
             if (group == null || group == "")
-                return null;
+                return new List<string>();
 
             Group data = null;
 
@@ -201,14 +202,16 @@ namespace AxOpen.Security
             {
                 if (!groupRepo.Exists(group))
                 {
-                    return null;
+                    return new List<string>();
                 }
                 data = groupRepo.Read(group);
-                //Hasher.VerifyHash(data.Roles, data.RoleHash, data.Name);
+
+                if (new PasswordHasher<Group>().VerifyHashedPassword(data, data.RolesHash, String.Join(",", data.Roles)) == PasswordVerificationResult.Failed)
+                    return new List<string>();
             }
             catch (UnableToLocateRecordId)
             {
-                return null;
+                return new List<string>();
             }
 
             return new List<string>(data.Roles);
@@ -216,28 +219,7 @@ namespace AxOpen.Security
 
         public string GetRolesFromGroupString(string group)
         {
-            if (group == null || group == "")
-                return null;
-
-            Group data = null;
-
-            try
-            {
-                if (!groupRepo.Exists(group))
-                {
-                    return null;
-                }
-                data = groupRepo.Read(group);
-                //Hasher.VerifyHash(data.Roles, data.RoleHash, data.Name);
-            }
-            catch (UnableToLocateRecordId)
-            {
-                return null;
-            }
-            if(data.Roles == null || data.Roles.Count == 0)
-                return null;
-
-            return String.Join(",", data.Roles);
+            return String.Join(",", GetRolesFromGroup(group));
         }
 
         public List<Group> GetAllGroup()

@@ -6,8 +6,8 @@ namespace AxOpen.Security.Entities
     public class User : IdentityUser<string>, IBrowsableDataObject
     {
         public string Group { get; set; }
+        public string GroupHash { get; set; }
         public bool CanUserChangePassword { get; set; }
-        public string RoleHash { get; set; }
         public dynamic RecordId { get; set; }
         public string DataEntityId { get; set; }
         public string Created { get; set; }
