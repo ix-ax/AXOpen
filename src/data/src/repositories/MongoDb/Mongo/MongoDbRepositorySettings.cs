@@ -48,7 +48,8 @@ namespace AXOpen.Data.MongoDb
         public MongoDbRepositorySettings(string connectionString, string databaseName, string collectionName, MongoDbCredentials credentials)
         {
             SetupSerialisationAndMapping();
-            Client = GetClient(connectionString, credentials);
+            //Client = GetClient(connectionString, credentials);
+            Client = GetClient(connectionString);
             Database = GetDatabase(databaseName);
             Collection = GetCollection(collectionName);
         }

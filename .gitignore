@@ -401,3 +401,5 @@ FodyWeavers.xsd
 artifacts/
 .idea/
 /src/integrations/integration.blazor/Data/processdata
+
+apax-lock.json

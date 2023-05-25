@@ -18,10 +18,18 @@ PROGRAM MyProgram
 
         AxoDataExamplesDocu : AxoDataExamplesDocu.Context;
 
+        AxoMessengers : AxoStaticMessengerExample.Messengers;
+        AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
+
+        AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
+
         // Integration test
         Integrations : IntegrationTests.Integrations;
+        AxoRtc : AxoRtc.AxoS71500Rtc;
+
     END_VAR    
     I_am_alive := I_am_alive + ULINT#1;
+
     MainContext.Run();
     AxoTasks.Run();
     AxoTaskDocu.Run();
@@ -35,6 +43,11 @@ PROGRAM MyProgram
     AxoMomentaryTasks.Run();
     AxoMomentaryTaskDocu.Run();
     AxoDataExamplesDocu.Run();
+    AxoMessengers.Run();
+    AxoMessengers.InjectRtc(AxoRtc);
+    AxoMessengersDocu.Run();
+    AxoMessengersDocu.InjectRtc(AxoRtc);
+    AxoDataFragmentExchangeContext.Run();
     
     // Integration tests
     Integrations.Run();      

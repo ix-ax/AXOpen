@@ -5,30 +5,44 @@ USING AXOpen.Data;
 NAMESPACE axosimple
     CLASS PUBLIC Context EXTENDS AxoContext                   
         VAR PUBLIC
-            PneumaticManipulator : examples.PneumaticManipulator.CU;            
-            ProductionSettings : ProductionSettingsHandler;
+            ProcessData : ProcessData;
+            PneumaticManipulator : examples.PneumaticManipulator.CU;                       
             Inputs : REF_TO axosimple.Inputs;
             Outputs : REF_TO axosimple.Outputs;
         END_VAR      
         
-        METHOD PROTECTED OVERRIDE Main
-            
-            ProductionSettings.Run(THIS);
-            
-            IF(Inputs <> NULL AND Outputs <> NULL) THEN                
-                PneumaticManipulator.Run(THIS, Inputs^, Outputs^);               
-            END_IF;   
-            
-            
+        METHOD PROTECTED OVERRIDE Main                                   
+           IF(Inputs <> NULL AND Outputs <> NULL) THEN                
+               PneumaticManipulator.Run(THIS, Inputs^, Outputs^);               
+           END_IF;                           
         END_METHOD        
-    END_CLASS
+    END_CLASS   
     
-    CLASS ProductionSettingsHandler EXTENDS AXOpen.Data.AxoDataExchange
+    
+    CLASS SharedProductionData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
-            {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
-            PneumaticManipulator : examples.PneumaticManipulator.ProcessData;
+            ComesFrom : INT;
+            GoesTo : INT;
         END_VAR        
     END_CLASS
-  
+
+    CLASS SharedProductionDataManager EXTENDS AXOpen.Data.AxoDataExchange
+        VAR PUBLIC
+            {#ix-generic:TOnline}
+            {#ix-generic:TPlain as POCO}
+            {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
+            {#ix-attr:[Container(Layout.Stack)]}    
+            Set : SharedProductionData;
+        END_VAR        
+    END_CLASS
+    
+    CLASS ProcessData EXTENDS AXOpen.Data.AxoDataFragmentExchange
+        VAR PUBLIC                    
+            {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
+            Set : SharedProductionDataManager;            
+            {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
+            Manip : examples.PneumaticManipulator.FragmentProcessDataManger;
+        END_VAR        
+    END_CLASS
 END_NAMESPACE
 

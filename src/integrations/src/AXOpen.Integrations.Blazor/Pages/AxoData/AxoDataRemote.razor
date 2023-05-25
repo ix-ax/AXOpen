@@ -1,8 +1,9 @@
 ﻿@page "/AxoDataRemote"
+@using AXOpen.Data
 <h3>AxoDataRemote</h3>
 
 @*<RenderableContentControl Context="Entry.Plc.MainContext.process_data_manager_remote_exec" Presentation="Command-Control"></RenderableContentControl>*@
-<RenderableContentControl Context="Entry.Plc.Integrations.DM" Presentation="Command-Control"/>
+<DataExchangeView Vm="@_vm"/>
 
 <ul class="nav nav-tabs">
     <li class="nav-item">
@@ -23,5 +24,5 @@
     </li>
 </ul>
 @code {
-
+    private DataExchangeViewModel _vm = new DataExchangeViewModel { Model = Entry.Plc.Integrations.DM };
 }

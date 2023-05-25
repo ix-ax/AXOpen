@@ -1,0 +1,2388 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AxoMessenger
+ | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AxoMessenger
+ | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger">
+
+
+  <h1 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger" class="text-break">Class AxoMessenger
+</h1>
+  <div class="markdown level0 summary"><p>Provides mechanism for delivering static messages to the supervising applications (SCADA/HMI).<remarks><note>Each messenger has a single placeholder for the message; it stores the most important message from the last context cycle.If there are more messages in a single cycle for the same messenger then less important messages are discarded and replaced bythe message with the category of higher severity.</note><note>Messenger can send the data to context logger. There is a maximum limit of 10 different messages per messenger in 2 consecutive context cycles.The messages that exceed this limit won't be logged when <code>OnEventRisen</code> logging is set.Take this behaviour into account when designing your system.</note></remarks></p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">AxoMessenger</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessenger.html">IAxoMessenger</a></div>
+    <div><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></div>
+    <div><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></div>
+    <div><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageCategorize.html">IAxoMessageCategorize</a></div>
+    <div><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessages.html">IAxoMessages</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="plc.AXOpen.Messaging.Dynamic.html">plc.AXOpen.Messaging.Dynamic</a></h6>
+  <h6><strong>Assembly</strong>: .dll</h6>
+  <h5 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS AxoMessenger</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger__mime" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger._mime">_mime</h4>
+  <div class="markdown level1 summary"><p>Most important message of this instance of messenger; stores the most important message from the last context cycle.If there are more messages in a single cycle for the samemessenger then less important messages are discarded and replaced by the message with the category of higher severity.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_mime : AXOpen.Messaging.Dynamic.AxoMessage</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger__Parent" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger._Parent">_Parent</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_Parent : AXOpen.Core.IAxoObject</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger__contextIdentity" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger._contextIdentity">_contextIdentity</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_contextIdentity : ULINT</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger__mds" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger._mds">_mds</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_mds : ARRAY [0..10] OF AXOpen.Messaging.Dynamic.AxoMessageDigest</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger__condition" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger._condition">_condition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_condition : AXOpen.Messaging.Dynamic.eAxoMessageCondition</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger__pinnable" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger._pinnable">_pinnable</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_pinnable : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_tmpMessageText" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.tmpMessageText">tmpMessageText</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">tmpMessageText : STRING[160]</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_refStringBuilder" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.refStringBuilder">refStringBuilder</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">refStringBuilder : REF_TO AXOpen.Utils.AxoStringBuilder</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger__conflictingStringBuilder" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger._conflictingStringBuilder">_conflictingStringBuilder</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_conflictingStringBuilder : AXOpen.Utils.AxoStringBuilder</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_GetMime__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.GetMime()">GetMime</h4>
+  <div class="markdown level1 summary"><p>Gets the Most Important Message of this messenger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.AxoMessage GetMime()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXOpen.Messaging.Dynamic.AxoMessage</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_AsDebug__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.AsDebug()">AsDebug</h4>
+  <div class="markdown level1 summary"><p>Categorizes and creates the message as 'debug'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties AsDebug()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_AsError__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.AsError()">AsError</h4>
+  <div class="markdown level1 summary"><p>Categorizes and creates the message as 'error'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties AsError()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_AsFatal__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.AsFatal()">AsFatal</h4>
+  <div class="markdown level1 summary"><p>Categorizes and creates the message as 'fatal'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties AsFatal()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_AsInfo__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.AsInfo()">AsInfo</h4>
+  <div class="markdown level1 summary"><p>Categorizes and creates the message as 'information'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties AsInfo()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_AsTrace__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.AsTrace()">AsTrace</h4>
+  <div class="markdown level1 summary"><p>Categorizes and creates the message as 'trace'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties AsTrace()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_AsWarning__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.AsWarning()">AsWarning</h4>
+  <div class="markdown level1 summary"><p>Categorizes and creates the message as 'warning'.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties AsWarning()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Catastrophic_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Catastrophic(STRING[160])">Catastrophic</h4>
+  <div class="markdown level1 summary"><p>Adds message of 'catastrophic' category to the message queue.Use this category when there is a situation when the device cannot continue operations due to irrecoverable failure.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Catastrophic(in plc.STRING[160] Message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Critical_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Critical(STRING[160])">Critical</h4>
+  <div class="markdown level1 summary"><p>Adds message of 'critical' category to the message queue.Use this category when a critical error occured, that is not recoverable by the means of software (reset/restore) and a detailed inspection is required.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Critical(in plc.STRING[160] Message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Debug_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Debug(STRING[160])">Debug</h4>
+  <div class="markdown level1 summary"><p>Adds message of 'debug' category to the message queue.Use when you need to report debug information for you as programmer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Debug(in plc.STRING[160] Message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Error_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Error(STRING[160])">Error</h4>
+  <div class="markdown level1 summary"><p>Adds message of 'error' category to the message queue.Use this categoty when there is a failure that cannot be immediately recovered and an intervention is needed. This is typically a situation when a device failsto deliver expected result.Do not use this category to report information about failed process like measurement or detection.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Error(in plc.STRING[160] Message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Info_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Info(STRING[160])">Info</h4>
+  <div class="markdown level1 summary"><p>Adds message of 'information' category to the message queue.Use when you want to deliver information to the user, that has only informative character and does not adversely affect a process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Info(in plc.STRING[160] Message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Notify_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Notify(STRING[160])">Notify</h4>
+  <div class="markdown level1 summary"><p>Adds message of 'notification' category to the message queue.Use this category when you want to report a notification that may be of interest to the user, but does not adveresly affect a process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Notify(in plc.STRING[160] Message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Programming_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Programming(STRING[160])">Programming</h4>
+  <div class="markdown level1 summary"><p>Adds message of 'programming error' category to the message queue.Use this category to inform about a possible programming error, defect in settings or missing information at a level of programming or system or process settings.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Programming(in plc.STRING[160] Message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Trace_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Trace(STRING[160])">Trace</h4>
+  <div class="markdown level1 summary"><p>Adds message of 'trace' category to the message queue.Use when you need to track detailed information about internal states of the program for detailed visibility.This is lowest level of category that can be used in production, for detailed observation of PLC program.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Trace(in plc.STRING[160] Message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Warning_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Warning(STRING[160])">Warning</h4>
+  <div class="markdown level1 summary"><p>Adds message of 'warning' category to the message queue.Use this category when you want to report to the user an information about a possible problem, that may adversly affect a process.Information in this cateogory aims to help the user to identify a problem, the cause of such problem does not necessarily stops the process.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Warning(in plc.STRING[160] Message)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_BOOL_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(BOOL)">Append</h4>
+  <div class="markdown level1 summary"><p>Appends string to the message text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.BOOL Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_BOOL__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><note>The size of the resulting string should not be more than '160' characters. The characters exceeding this size will be truncated.</note></p>
+</div>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_BYTE_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(BYTE)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.BYTE Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BYTE</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_WORD_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(WORD)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.WORD Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">WORD</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_DWORD_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(DWORD)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.DWORD Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DWORD</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_LWORD_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(LWORD)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.LWORD Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LWORD</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_SINT_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(SINT)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.SINT Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">SINT</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_INT_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(INT)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.INT Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">INT</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_DINT_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(DINT)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.DINT Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DINT</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_LINT_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(LINT)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.LINT Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LINT</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_USINT_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(USINT)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.USINT Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">USINT</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_UINT_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(UINT)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.UINT Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UINT</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_UDINT_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(UDINT)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.UDINT Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">UDINT</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_ULINT_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(ULINT)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.ULINT Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ULINT</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_REAL_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(REAL)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.REAL Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">REAL</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_LREAL_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(LREAL)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.LREAL Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LREAL</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_TIME_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(TIME)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.TIME Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TIME</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_LTIME_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(LTIME)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.LTIME Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LTIME</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_DATE_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(DATE)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.DATE Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DATE</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_LDATE_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(LDATE)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.LDATE Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LDATE</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_TIME_OF_DAY_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(TIME_OF_DAY)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.TIME_OF_DAY Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TIME_OF_DAY</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_LTIME_OF_DAY_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(LTIME_OF_DAY)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.LTIME_OF_DAY Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LTIME_OF_DAY</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_DATE_AND_TIME_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(DATE_AND_TIME)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.DATE_AND_TIME Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DATE_AND_TIME</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_LDATE_AND_TIME_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(LDATE_AND_TIME)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.LDATE_AND_TIME Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">LDATE_AND_TIME</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_CHAR_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(CHAR)">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.CHAR Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">CHAR</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Append_STRING_160__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Append(STRING[160])">Append</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Append(in plc.STRING[160] Data)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Data</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_As__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.As()">As</h4>
+  <div class="markdown level1 summary"><p>Gets categorization methods for fluent message builder.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageCategorize As()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageCategorize.html">IAxoMessageCategorize</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Build__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Build()">Build</h4>
+  <div class="markdown level1 summary"><p>Initiates new message text building for this messenger in fluent-like fashion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder Build()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Clear__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Clear()">Clear</h4>
+  <div class="markdown level1 summary"><p>Clears the message content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Clear()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Compose_STRING_160__eAxoMessageCategory_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Compose(STRING[160],eAxoMessageCategory)">Compose</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected AXOpen.Messaging.Dynamic.AxoMessage Compose(in plc.STRING[160] Message,in plc.AXOpen.Messaging.eAxoMessageCategory Category)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.eAxoMessageCategory.html">eAxoMessageCategory</a></td>
+        <td><span class="parametername">Category</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXOpen.Messaging.Dynamic.AxoMessage</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Digest_STRING_254__eAxoMessageDigestMethod_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Digest(STRING[254],eAxoMessageDigestMethod)">Digest</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private DWORD Digest(in plc.STRING[254] Message,in plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod inDigestType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[254]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.html">eAxoMessageDigestMethod</a></td>
+        <td><span class="parametername">inDigestType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DWORD</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Initialize_IAxoObject_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Initialize(IAxoObject)">Initialize</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Initialize(in plc.AXOpen.Core.IAxoObject ParentObject)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></td>
+        <td><span class="parametername">ParentObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_OnCondition_BOOL_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.OnCondition(BOOL)">OnCondition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessages OnCondition(in plc.BOOL inCondition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">inCondition</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessages.html">IAxoMessages</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Pin__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Pin()">Pin</h4>
+  <div class="markdown level1 summary"><p>Pins this message that no other message will override it.The messenger won't accept new messages until acknowledged in diagnostics view by user, unipenned by <code>Unpin()</code> methods or cleared by <code>Clear()</code> methodof this messenger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Pin()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_IsPinned__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.IsPinned()">IsPinned</h4>
+  <div class="markdown level1 summary"><p>Gets <code>true</code> when this messenger is pinned (awaiting acknowledgement in diagnostics view).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL IsPinned()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_IsActive__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.IsActive()">IsActive</h4>
+  <div class="markdown level1 summary"><p>Gets <code>true</code> when this messenger is active.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL IsActive()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_Post_STRING_160__eAxoMessageCategory_" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.Post(STRING[160],eAxoMessageCategory)">Post</h4>
+  <div class="markdown level1 summary"><p>Creates message of given category for this messenger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Dynamic.IAxoMessageProperties Post(in plc.STRING[160] Message,in plc.AXOpen.Messaging.eAxoMessageCategory Category)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">STRING[160]</span></td>
+        <td><span class="parametername">Message</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.eAxoMessageCategory.html">eAxoMessageCategory</a></td>
+        <td><span class="parametername">Category</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_StringBuilder__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.StringBuilder()">StringBuilder</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public REF_TO AXOpen.Utils.AxoStringBuilder StringBuilder()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">REF_TO AXOpen.Utils.AxoStringBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessenger_UnPin__" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessenger.UnPin()">UnPin</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID UnPin()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessenger.html">IAxoMessenger</a>
+  </div>
+  <div>
+      <a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a>
+  </div>
+  <div>
+      <a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a>
+  </div>
+  <div>
+      <a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageCategorize.html">IAxoMessageCategorize</a>
+  </div>
+  <div>
+      <a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessages.html">IAxoMessages</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

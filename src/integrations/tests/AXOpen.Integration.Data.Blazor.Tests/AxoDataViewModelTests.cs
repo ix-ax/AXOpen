@@ -1,6 +1,6 @@
+using AxoDataExamplesDocu;
 using axopen_integrations;
 using AXOpen.Data.Interfaces;
-using AXOpen.Data.ViewModels;
 using AXOpen.Data;
 using AXSharp.Connector;
 using AXOpen.Data.InMemory;
@@ -14,21 +14,22 @@ namespace integration.data.blazor.tests
         = new(ConnectorAdapterBuilder.Build()
             .CreateDummy());
 
-        private IAxoDataViewModel _vm;
+        private DataExchangeViewModel _vm;
         public AxoDataViewModelTests()
         {
           
             var dataObject = _plc.process_data_manager; 
 
             var repo = AXOpen.Data.InMemory.Repository.Factory(new InMemoryRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>());
-            dataObject.InitializeRepository(repo);
+            dataObject.SetRepository(repo);
 
-            var data = dataObject.DataHeavy;
+            var data = dataObject.DataEntity;
 
-            var exchangeViewModel = new AxoDataExchangeBaseViewModel{ 
+            var exchangeViewModel = new DataExchangeViewModel
+            { 
                 Model = dataObject,
                 };
-            _vm = exchangeViewModel.DataViewModel;
+            _vm = exchangeViewModel;
             
         }
         [Fact]
@@ -38,14 +39,14 @@ namespace integration.data.blazor.tests
         }
 
         [Fact]
-        public void test_DataViewModel_Create()
+        public async void test_DataViewModel_Create()
         {
             //arrange
             var id = "createId";
             _vm.CreateItemId=id;
 
             //act
-            _vm.CreateNew();
+            await _vm.CreateNew();
 
             //assert
             var record = _vm.Records.FirstOrDefault(p=> p.DataEntityId == id);
@@ -55,14 +56,14 @@ namespace integration.data.blazor.tests
         }
 
         [Fact]
-        public void test_DataViewModel_Delete()
+        public async void test_DataViewModel_Delete()
         {
             //arrange
             var id = "testDelete";
             _vm.CreateItemId=id;
 
             //act
-            _vm.CreateNew();
+            await _vm.CreateNew();
             var record = _vm.Records.FirstOrDefault(p=> p.DataEntityId == id);
 
             _vm.SelectedRecord = new Pocos.AxoDataExamples.AxoProductionData
@@ -78,7 +79,7 @@ namespace integration.data.blazor.tests
         }
 
         [Fact]
-        public void test_DataViewModel_Edit()
+        public async void test_DataViewModel_Edit()
         {
             //arrange
             var id = "testEdit";
@@ -86,7 +87,7 @@ namespace integration.data.blazor.tests
             _vm.CreateItemId=id;
 
             //act
-            _vm.CreateNew();
+            await _vm.CreateNew();
             var record = _vm.Records.FirstOrDefault(p=> p.DataEntityId == id);
 
              _vm.SelectedRecord = new Pocos.AxoDataExamples.AxoProductionData
@@ -94,8 +95,9 @@ namespace integration.data.blazor.tests
                 DataEntityId=record.DataEntityId,
                 RecipeName=recipe
             };
-            
-           _vm.Edit();
+
+             await _vm.DataExchange.RefUIData.PlainToShadow(_vm.SelectedRecord);
+             await _vm.Edit();
 
             //assert
             var foundRecord = _vm.Records.FirstOrDefault(p=> p.DataEntityId == id);
@@ -105,21 +107,27 @@ namespace integration.data.blazor.tests
         }
 
         [Fact]
-        public void test_DataViewModel_Copy()
+        public async void test_DataViewModel_Copy()
         {
              //arrange
             var id = "testCopy";
-            _vm.CreateItemId=id;
-            _vm.SelectedRecord = new Pocos.AxoDataExamples.AxoProductionData
+            var p = new Pocos.AxoDataExamples.AxoProductionData
             {
-                DataEntityId=id,
+                DataEntityId = id,
             };
-            var copyId = $"Copy of {_vm.SelectedRecord.DataEntityId}";
+
+            _vm.DataExchange.Repository.Create(id, p);
+
+            _vm.SelectedRecord = p;
+
 
             //act
+            _vm.CreateItemId = id;
+            // await _vm.CreateNew();
 
-            _vm.CreateNew();
-            _vm.Copy();
+            var copyId = $"Copy of {_vm.SelectedRecord.DataEntityId}";
+            _vm.CreateItemId = copyId;
+            await _vm.Copy();
 
             //assert
             var foundRecord = _vm.Records.FirstOrDefault(p=> p.DataEntityId == copyId);

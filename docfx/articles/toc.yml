@@ -25,8 +25,19 @@
     href: ~/articles/core/AXOCOMPONENT.md  
 - name: AXOpen.Data
   href: ~/articles/data/README.md
+  items:
+  - name: Data exchange
+    href: ~/articles/data/AxoDataExchange.md
+  - name: Data fragmets exchange
+    href: ~/articles/data/AxoDataFragmentExchange.md
+- name: AXOpen.Messaging
+  href: ~/articles/messaging/README.md
+  items:
+  - name: AxoMessenger
+    href: ~/articles/messaging/AXOMESSENGER.md
 - name: AXOpen.Security
   href: ~/articles/security/README.md  
   items:
   - name: Installation
     href: ~/articles/security/INSTALLATION.md
+

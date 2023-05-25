@@ -10,3 +10,5 @@ testresult
 
 # ignore generated cs files
 *.g.cs
+
+sandbox/**

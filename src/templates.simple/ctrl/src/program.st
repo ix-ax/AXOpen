@@ -12,5 +12,6 @@ PROGRAM MyProgram
 
     Context.InjectRtc(S71500Rtc);
     // Executes the main context of this application.
-    Context.Run();                
+    Context.Run();    
+                
 END_PROGRAM

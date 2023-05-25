@@ -1,18 +1,18 @@
 name: "@ix-ax/axopen.simatic1500"
-version: '0.1.4-alpha.53'
+version         : '0.1.4-alpha.66'
 type: lib
 targets:
   #  - "1500"
-  #  - llvm
-  #  - axunit
   - axunit-llvm
+  - llvm  
 files:
   - src
 dependencies:
-  "@ax/simatic-1500": 3.0.2  
-  "@ix-ax/axopen.abstractions": '0.1.4-alpha.53'
+  "@ax/simatic-1500": 3.0.2
+  "@ix-ax/axopen.abstractions"         : '0.1.4-alpha.66'
+  "@ax/axunit-library": ^4.0.6  
 devDependencies:
-  "@ax/sdk": 3.0.8
+  "@ax/sdk": 3.0.18
 
 scripts:
   postbuild:

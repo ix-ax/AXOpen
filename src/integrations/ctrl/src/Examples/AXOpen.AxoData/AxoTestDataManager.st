@@ -9,6 +9,8 @@ NAMESPACE AxoDataExamples
             _read       : BOOL;
             _update     : BOOL;
             _delete     : BOOL;
+            {#ix-generic:TOnline}              
+            {#ix-generic:TPlain as POCO}
             {#ix-attr:[AxoDataEntityAttribute]}
             _data       : AxoTestData;
         END_VAR  

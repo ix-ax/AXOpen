@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AXOpen.Messaging | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="AXOpen.Messaging | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="axopenmessaging"><strong>AXOpen.Messaging</strong></h1>
+
+<p><strong>AXOpen.Messaging</strong> provides basic blocks for providing messaging.</p>
+<h1 id="basic-concepts">Basic concepts</h1>
+<h1 id="axomessenger">AxoMessenger</h1>
+<p>Static <code>AxoMessenger</code> is a class that provides mechanism for delivering static message to the supervising applications (SCADA/HMI). This static messenger uses the text defined in the declaration. This text cannot be changed during runtime as the text is &quot;transfered&quot; just once during the compilation and it is not read during the runtime. The PLC code of the <code>AxoMessenger</code> just ensures the activation, deactivation and acknowledgement of the message.</p>
+<p><code>AxoMessenger</code> contains following public methods.</p>
+<p><code>Serve()</code> - this method must be called cyclically. It ensures the inicialization of the instance, so as the deactivation of the message.</p>
+<pre><code class="lang-mermaid">  classDiagram
+    class AxoMessenger{
+        +Serve(IAxoContext _context)
+        +Serve(IAxoObject _object)        
+    }     
+</code></pre>
+<p><code>Activate(category)</code> - this method immediatelly activate the message of the category where category is of the type <code>eAxoMessageCategory</code>. Deactivation is detected after one PLC cycle without calling the method <code>Activate</code>.</p>
+<p><code>ActivateOnCondition(condition,category)</code> - this method activate the message of the category where category is of the type <code>eAxoMessageCategory</code> on the rising edge of the condition and imidiatelly deactivate the message on the falling edge of the condition. The <code>ActivateOnCondition</code> method is designed to be called cyclically.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Do not use the both activation methods on the same <code>AxoMessenger</code> instance, please use just one of them.</p>
+</div>
+<p><code>Acknowledge()</code> - acknowledge the message if required. The message could be acknowledged so as before deactivation so as after.</p>
+<p>Depending on the <a href="/apictrl/abstractions/plc.AXOpen.Messaging.eAxoMessageCategory.html">eAxoMessageCategory</a> the messenger should require the acknowledgement.</p>
+<p>By default the acknowledgement is not required for the levels <code>Trace</code>,<code>Debug</code>,<code>Info</code>,<code>TimedOut</code>,<code>Notification</code> and <code>Warning</code>.
+This could be overwritten by calling the <code>RequireAcknowledgement()</code> method.
+Contrariwise, the acknowledgement is required for the levels <code>Error</code>,<code>ProgrammingError</code>,<code>Critical</code>,<code>Fatal</code> and <code>Catastrophic</code> by default. This could be overwritten by calling the <code>DoNotRequireAcknowledgement()</code> method.</p>
+<p><strong>Attributes <code>MessageText</code> and <code>Help</code></strong></p>
+<p>These attributes are used to set the values of the static texts of the messenger. These values are read out at the compilation time transfered to .NET counterpart and set as a constant strings. Therefore they can't be changed at the runtime.</p>
+<p>Example of declaration the instance and defining the attributes <code>MessageText</code> and <code>Help</code>.</p>
+<pre><code class="lang-smalltalk">{#ix-set:MessageText = &quot;&lt;#Message text for messenger 1#&gt;&quot;}
+{#ix-set:Help = &quot;&lt;#Help text for messenger 1#&gt;&quot;}
+_messenger1 : AxoMessenger;
+</code></pre>
+<p><strong>How to use <code>AxoMessenger</code></strong></p>
+<p>The instance of the <code>AxoMessenger</code> must be defined inside the <code>AxoContext</code> or <code>AxoObject</code>.
+Inside the <code>Main()</code> method of the related <code>AxoContext</code> or inside the cyclically called method of the <code>AxoObject</code> following rules must be applied. The <code>Serve()</code> method of the instance of the <code>AxoMessenger</code> must be called cyclically.
+The <code>Activate</code> method should be used called the required condition or the <code>AcitvateOnCondition</code> should be called cyclically. Avoid to mix using the both methods with the same instance.</p>
+<pre><code class="lang-smalltalk">CLASS Messengers EXTENDS AXOpen.Core.AxoContext
+    VAR PUBLIC
+        {#ix-set:MessageText = &quot;&lt;#Message text for messenger 1#&gt;&quot;}
+        {#ix-set:Help = &quot;&lt;#Help text for messenger 1#&gt;&quot;}
+        _messenger1 : AxoMessenger;
+        _messenger1condition : BOOL;
+        {#ix-set:MessageText = &quot;&lt;#Message text for messenger 2#&gt;&quot;}
+        {#ix-set:MessageText = &quot;&lt;#Message text for messenger 2#&gt;&quot;}
+        _messenger2 : AxoMessenger;
+        _messenger2condition : BOOL;
+   END_VAR    
+
+   METHOD PROTECTED OVERRIDE Main
+        _messenger1.Serve(THIS);    
+        IF _messenger1condition THEN
+            _messenger1.Activate(eAxoMessageCategory#Error);
+        END_IF;
+
+        _messenger2.Serve(THIS);    
+        _messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Warning);
+    END_METHOD
+END_CLASS    
+</code></pre>
+<p>If neccessary, the default behaviour of the acknowledgeable messenger should be changed as follows.</p>
+<pre><code class="lang-smalltalk">_messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Error).DoNotRequireAcknowledgement();
+</code></pre>
+<p>Contrariwise, the default behaviour of the unacknowledgeable messenger should be changed as follows.</p>
+<pre><code class="lang-smalltalk">_messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Warning).RequireAcknowledgement();
+</code></pre>
+<p><strong>How to visualize <code>AxoMessenger</code></strong></p>
+<p>On the UI side use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoMessenger</code>.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMessengersDocu._messenger1&quot; Presentation=&quot;Command-Control&quot; Class=&quot;ps-2&quot;/&gt;
+</code></pre></article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/messaging/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>
