@@ -16,14 +16,32 @@ public partial class AxoDataFragmentExchange
 {
     protected IAxoDataExchange[] DataFragments { get; private set; }
 
-    public T? Builder<T>() where T : AxoDataFragmentExchange
+    public T? CreateBuilder<T>() where T : AxoDataFragmentExchange
+    {
+        return CreateBuilder() as T;
+    }
+
+    public object CreateBuilder() 
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
-        Operation.InitializeExclusively(Handle);
-        Operation.WriteAsync().Wait();
         RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
         Repository = new AxoCompoundRepository(DataFragments);
-        return this as T;
+        return this;
+    }
+
+    /// <summary>
+    ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
+    /// </summary>
+    public void InitializeRemoteDataExchange()
+    {
+        Operation.InitializeExclusively(Handle);
+        this.WriteAsync().Wait();
+    }
+
+    public void DeInitializeRemoteDataExchange()
+    {
+        Operation.DeInitialize();
+        this.WriteAsync().Wait();
     }
 
     private void Handle()
@@ -163,7 +181,7 @@ public partial class AxoDataFragmentExchange
 
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier, int limit, int skip, eSearchMode searchMode)
     {
-        return ((dynamic)Repository).GetRecords(identifier, limit, skip, searchMode);
+        return ((dynamic)Repository)?.GetRecords(identifier, limit, skip, searchMode);
     }
 
     public IEnumerable<IBrowsableDataObject> GetRecords(string identifier)

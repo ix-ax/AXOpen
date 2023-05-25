@@ -46,7 +46,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
@@ -69,7 +69,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             var sharedRepo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
             var manipRepo = new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>();
             s.Set.SetRepository(sharedRepo);
@@ -94,7 +94,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
@@ -124,7 +124,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
@@ -150,7 +150,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             var sharedRepo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
             var manipRepo = new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>();
             s.Set.SetRepository(sharedRepo);
@@ -176,7 +176,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             var sharedRepo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
             var manipRepo = new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>();
             s.Set.SetRepository(sharedRepo);
@@ -202,7 +202,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
@@ -222,7 +222,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
@@ -242,7 +242,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
@@ -268,7 +268,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
@@ -300,7 +300,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
@@ -327,7 +327,7 @@ namespace AXOpen.Data.Fragments.Tests
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             var sut = new ProcessData(parent, "a", "b");
-            var s = sut.Builder<ProcessData>();
+            var s = sut.CreateBuilder<ProcessData>();
             s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
             s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
 
