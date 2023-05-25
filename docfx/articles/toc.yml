@@ -35,3 +35,9 @@
   items:
   - name: AxoMessenger
     href: ~/articles/messaging/AXOMESSENGER.md
+- name: AXOpen.Security
+  href: ~/articles/security/README.md  
+  items:
+  - name: Installation
+    href: ~/articles/security/INSTALLATION.md
+
