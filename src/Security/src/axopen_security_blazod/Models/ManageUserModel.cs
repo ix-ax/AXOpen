@@ -26,7 +26,7 @@ namespace AxOpen.Security.Models
         public bool CanUserChangePassword { get; set; }
 
         public string Email { get; set; }
-
+        [Required]
         public string Group { get; set; }
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)

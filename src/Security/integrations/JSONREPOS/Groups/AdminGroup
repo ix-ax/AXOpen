@@ -4,9 +4,20 @@
   "DataEntityId": "AdminGroup",
   "Name": "AdminGroup",
   "Roles": [
-    "Administrator"
+    "Administrator",
+    "process_settings_access",
+    "process_traceability_access",
+    "can_user_open_technological_settings",
+    "ground_position_start",
+    "automat_start",
+    "station_details",
+    "technology_settings_access",
+    "manual_start",
+    "sequencer_step",
+    "technology_automat_all",
+    "technology_ground_all"
   ],
-  "RolesHash": "AQAAAAIAAYagAAAAEBrnCXcXttSAgL4EzQ/RxiNuQNtTgt3r8RH/20PmfHlzEFIXSZdmnofka+kmwo5zeQ==",
-  "Created": "2023-05-24T11:53:22.087009+02:00",
-  "Modified": "2023-05-24T11:53:22.3992105+02:00"
+  "RolesHash": "AQAAAAIAAYagAAAAEBbI55z9CWohP507+9u87BirSCXoU14Op2lG0XH/e5ikxCVZvwp1cbUrOncNPWeQZA==",
+  "Created": "2023-05-24T14:25:43.4379549+02:00",
+  "Modified": "2023-05-24T14:26:37.0141252+02:00"
 }
