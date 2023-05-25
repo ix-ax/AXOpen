@@ -58,18 +58,7 @@ NAMESPACE examples.PneumaticManipulator
             Shared : SharedProductionDataManager;
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
             DataManger : FragmentProcessDataManger;
-        END_VAR
-
-        METHOD PUBLIC Run
-            VAR_INPUT
-                Parent : IAxoObject;
-            END_VAR
-            THIS.Initialize(Parent);
-            Operation.Initialize(THIS);
-            Shared.Run(Parent);
-            DataManger.Run(Parent);
-            Operation.Execute();
-        END_METHOD
+        END_VAR        
     END_CLASS
 
     ///<summary>
