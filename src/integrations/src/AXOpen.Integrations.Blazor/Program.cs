@@ -1,12 +1,15 @@
+using AXOpen;
 using axopen_integrations_blazor.Data;
 using axopen_integrations;
 using AXSharp.Connector;
 using AXOpen.Core.blazor.Toaster;
 using AXOpen.Data.Json;
+using AXOpen.Logging;
 using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Pocos.IntegrationAxoDataFramentsExchange;
+using Serilog;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace axopen_integrations_blazor
@@ -25,6 +28,10 @@ namespace axopen_integrations_blazor
             builder.Services.AddIxBlazorServices();
 
             builder.Services.AddSingleton<ToastService>();
+
+            AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
+                .WriteTo.Console().MinimumLevel.Debug()
+                .CreateLogger()));
 
             Entry.Plc.Connector.BuildAndStart();
 

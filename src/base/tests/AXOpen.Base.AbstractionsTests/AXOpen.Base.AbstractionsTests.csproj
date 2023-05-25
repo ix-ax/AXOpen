@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>
