@@ -1,0 +1,22 @@
+{
+  "Changes": [],
+  "RecordId": null,
+  "DataEntityId": "TestGroup",
+  "Name": "TestGroup",
+  "Roles": [
+    "process_settings_access",
+    "process_traceability_access",
+    "can_user_open_technological_settings",
+    "ground_position_start",
+    "automat_start",
+    "station_details",
+    "technology_settings_access",
+    "manual_start",
+    "sequencer_step",
+    "technology_automat_all",
+    "technology_ground_all"
+  ],
+  "RolesHash": "AQAAAAIAAYagAAAAEJa2HI87bhl3WsBfLPIVry7j5+KqDPKACpY4V5xNsjM7eAh3y6zwnEmrQGMF0V5d+g==",
+  "Created": "2023-05-24T14:36:17.9331501+02:00",
+  "Modified": "2023-05-24T14:41:49.443397+02:00"
+}

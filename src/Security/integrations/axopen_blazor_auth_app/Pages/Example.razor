@@ -1,0 +1,74 @@
+﻿ @page "/Example"
+
+@using AxOpen.Security.Services;
+@inject IRepositoryService _repositoryService
+@inject AuthenticationStateProvider _asp
+<h3>Example</h3>
+
+<div class="container-fluid">
+    <div class="mt-2">
+        <AuthorizeView Roles="Administrator">
+            <Authorized>
+                <div class="card">
+                    <div class="card-body">
+                        <h4>You have role Administrator.</h4>
+                        <h4>Your name is: @context.User.Identity.Name</h4>
+                    </div>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="card">
+                    <div class="card-body">
+                        <h4>You dont have role Administrator.</h4>
+                    </div>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+
+        <AuthorizeView Roles="@_repositoryService.RoleGroupManager.GetRoles("AdminGroup")">
+            <Authorized>
+                <div class="card">
+                    <div class="card-body">
+                        <h4>You have some role from AdminGroup.</h4>
+                    </div>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="card">
+                    <div class="card-body">
+                        <h4>You dont have some role from AdminGroup.</h4>
+                    </div>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+
+        <AuthorizeView Roles="automat_start, manual_start, process_settings_access">
+            <Authorized>
+                <div class="card">
+                    <div class="card-body">
+                        <h4>You have any of the roles: automat_start, manual_start, process_settings_access.</h4>
+                    </div>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div class="card">
+                    <div class="card-body">
+                        <h4>You dont have any of the roles: automat-start, manual-start, precess-settings-access.</h4>
+                    </div>
+                </div>
+            </NotAuthorized>
+        </AuthorizeView>
+    </div>
+</div>
+
+
+@code
+{
+    public string Test { get; set; } = "cau";
+    protected override async Task OnInitializedAsync()
+    {
+        var context = await _asp.GetAuthenticationStateAsync();
+        var isAuth = context.User.Identity.IsAuthenticated;
+
+    }
+}

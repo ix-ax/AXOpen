@@ -1,0 +1,21 @@
+﻿@inherits LayoutComponentBase
+
+<PageTitle>axopen_blazor_auth_app</PageTitle>
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+   @* //<LoginDisplayCode>*@
+    <main>
+        <div class="top-row px-4 auth">
+            <AxOpen.Security.Views.LoginDisplay/>
+        </div>
+
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+   @* //</LoginDisplayCode>*@
+</div>
