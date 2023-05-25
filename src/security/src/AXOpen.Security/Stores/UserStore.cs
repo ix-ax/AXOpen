@@ -1,5 +1,6 @@
-﻿using AXOpen.Base.Data;
-using Microsoft.AspNetCore.Components;
+﻿using AxOpen.Security.Entities;
+using AxOpen.Security.Services;
+using AXOpen.Base.Data;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AxOpen.Security
+namespace AxOpen.Security.Stores
 {
     public class UserStore :
         IUserStore<User>,
@@ -20,11 +21,13 @@ namespace AxOpen.Security
         IUserClaimStore<User>,
         IQueryableUserStore<User>
     {
-        private readonly BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider;
-        public UserStore(BlazorAuthenticationStateProvider blazorAuthenticationStateProvider, IdentityErrorDescriber errorDescriber = null)
+        private readonly IRepositoryService _unitOfWork;
+        public UserStore(IRepositoryService unitOfWork, IdentityErrorDescriber errorDescriber = null)
         {
             ErrorDescriber = errorDescriber;
-            _blazorAuthenticationStateProvider = blazorAuthenticationStateProvider;
+            _unitOfWork = unitOfWork;
+
+            CreateDefaultUser();
         }
         /// <summary>
         /// Gets or sets the <see cref="IdentityErrorDescriber"/> for any error that occurred with the current operation.
@@ -37,7 +40,7 @@ namespace AxOpen.Security
         {
             get
             {
-                return _blazorAuthenticationStateProvider.UserRepository.GetRecords("*").Select(x => new User(x)).AsQueryable();
+                return _unitOfWork.UserRepository.GetRecords("*").AsQueryable();
             }
         }
         /// <summary>
@@ -47,14 +50,23 @@ namespace AxOpen.Security
         {
             get
             {
-                return _blazorAuthenticationStateProvider.roleGroupManager.inAppRoleCollection;
+                return _unitOfWork.RoleGroupManager.inAppRoleCollection;
             }
         }
-        private RoleGroupManager _roleGroupManager
+
+        private void CreateDefaultUser()
         {
-            get
+            if (!Users.Any())
             {
-                return _blazorAuthenticationStateProvider.roleGroupManager;
+                //create default admin user
+                var user = new User("admin", null, "AdminGroup", false);
+                user.SecurityStamp = Guid.NewGuid().ToString();
+                user.PasswordHash = new PasswordHasher<User>().HashPassword(user, "admin");
+                user.Group = "AdminGroup";
+                user.GroupHash = new PasswordHasher<User>().HashPassword(user, "AdminGroup");
+                user.Created = DateTime.Now.ToString();
+
+                _unitOfWork.UserRepository.Create(user.NormalizedUserName, user);
             }
         }
 
@@ -167,12 +179,11 @@ namespace AxOpen.Security
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            var userEntity = new UserData(user);
-            userEntity.Created = DateTime.Now;
+            user.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
 
             try
             {
-                _blazorAuthenticationStateProvider.UserRepository.Create(user.UserName, userEntity);
+                _unitOfWork.UserRepository.Create(user.NormalizedUserName, user);
             }
             catch (DuplicateIdException)
             {
@@ -196,24 +207,24 @@ namespace AxOpen.Security
                 throw new ArgumentNullException(nameof(user));
             try
             {
-                var userData = _blazorAuthenticationStateProvider.UserRepository.Read(user.Id);
+                var userData = _unitOfWork.UserRepository.Read(user.UserName);
                 if (userData != null)
                 {
                     userData.UserName = user.UserName;
                     userData.Email = user.Email;
-                    userData.HashedPassword = user.PasswordHash;
+                    userData.PasswordHash = user.PasswordHash;
                     userData.SecurityStamp = user.SecurityStamp;
-                    userData.Roles = new ObservableCollection<string>(user.Roles.ToList());
-                    userData.RoleHash = user.RoleHash;
+                    userData.Group = user.Group;
+                    userData.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
                     userData.CanUserChangePassword = user.CanUserChangePassword;
-                    userData.Modified = DateTime.Now;
+                    userData.Modified = user.Modified;
                 }
                 else
                 {
                     return Task.FromResult(IdentityResult.Failed(new IdentityError { Description = $"User with username {user.UserName} doesn't exists." }));
                 }
 
-                _blazorAuthenticationStateProvider.UserRepository.Update(user.UserName, userData);
+                _unitOfWork.UserRepository.Update(user.NormalizedUserName, userData);
             }
             catch (UnableToLocateRecordId)
             {
@@ -236,7 +247,7 @@ namespace AxOpen.Security
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            _blazorAuthenticationStateProvider.UserRepository.Delete(user.UserName);
+            _unitOfWork.UserRepository.Delete(user.NormalizedUserName);
 
             return Task.FromResult(IdentityResult.Success);
         }
@@ -257,14 +268,15 @@ namespace AxOpen.Security
             User user;
             try
             {
-                var userData = _blazorAuthenticationStateProvider.UserRepository.Read(entityId);
-                user = new User(userData);
+                user = _unitOfWork.UserRepository.Read(entityId);
+
+                if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                    user = null;
             }
             catch (UnableToLocateRecordId)
             {
                 user = null;
             }
-
 
             return Task.FromResult(user);
         }
@@ -286,14 +298,15 @@ namespace AxOpen.Security
             User user;
             try
             {
-                var userData = _blazorAuthenticationStateProvider.UserRepository.Read(normalizedUserName);
-                user = new User(userData);
+                user = _unitOfWork.UserRepository.Read(normalizedUserName);
+
+                if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                    user = null;
             }
             catch (UnableToLocateRecordId)
             {
                 user = null;
             }
-
 
             return Task.FromResult(user);
         }
@@ -355,36 +368,24 @@ namespace AxOpen.Security
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
         public Task AddToRoleAsync(User user, string normalizedRoleName, CancellationToken cancellationToken = default)
         {
-            //cancellationToken.ThrowIfCancellationRequested();
+            cancellationToken.ThrowIfCancellationRequested();
 
-            //if (user == null)
-            //    throw new ArgumentNullException(nameof(user));
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
 
-            //if (string.IsNullOrWhiteSpace(normalizedRoleName))
-            //    throw new ArgumentNullException(nameof(normalizedRoleName));
+            if (string.IsNullOrWhiteSpace(normalizedRoleName))
+                throw new ArgumentNullException(nameof(normalizedRoleName));
 
 
-            //var role = _roleCollection.FirstOrDefault(x=>x.NormalizedName == normalizedRoleName);
-            //if (role == null)
-            //{
-            //    throw new InvalidOperationException(string.Format(System.Globalization.CultureInfo.CurrentCulture, $"Role {0} does not exist.", normalizedRoleName));
-            //}
-            //if (user.Roles == null)
-            //{
-            //    user.Roles = new List<string>
-            //    {
-            //        role.Name
-            //    }.ToArray();
-            //}
-            //else
-            //{
-            //    List<string> userRolesClone = user.Roles.ToList();
-            //    userRolesClone.Add(role.Name);
-            //    user.Roles = userRolesClone.ToArray();
-            //}
+            var role = _unitOfWork.RoleGroupManager.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
+            if (role == null)
+            {
+                throw new InvalidOperationException(string.Format(System.Globalization.CultureInfo.CurrentCulture, $"Role {0} does not exist.", normalizedRoleName));
+            }
+            user.Group = role.DataEntityId;
+            user.GroupHash = new PasswordHasher<User>().HashPassword(user, role.DataEntityId);
 
-            //return Task.CompletedTask;
-            throw new Exception("Not implemented!");
+            return Task.CompletedTask;
         }
         /// <summary>
         /// Removes the given <paramref name="normalizedRoleName"/> from the specified <paramref name="user"/>.
@@ -395,24 +396,22 @@ namespace AxOpen.Security
         /// <returns>The <see cref="Task"/> that represents the asynchronous operation.</returns>
         public Task RemoveFromRoleAsync(User user, string normalizedRoleName, CancellationToken cancellationToken = default)
         {
-            //cancellationToken.ThrowIfCancellationRequested();
+            cancellationToken.ThrowIfCancellationRequested();
 
-            //if (user == null)
-            //    throw new ArgumentNullException(nameof(user));
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
 
-            //if (string.IsNullOrWhiteSpace(normalizedRoleName))
-            //    throw new ArgumentNullException(nameof(normalizedRoleName));
+            if (string.IsNullOrWhiteSpace(normalizedRoleName))
+                throw new ArgumentNullException(nameof(normalizedRoleName));
 
-            //var roleName= _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName).Name;
-            //if (roleName != null)
-            //{
-            //    var tempList  = user.Roles.ToList();
-            //    tempList.Remove(roleName);
-            //    user.Roles = tempList.ToArray();
-            //}
+            var role = _unitOfWork.RoleGroupManager.GetAllGroup().FirstOrDefault(x => x.DataEntityId == normalizedRoleName);
+            if (role != null)
+            {
+                user.Group = String.Empty;
+                user.GroupHash = new PasswordHasher<User>().HashPassword(user, user.Group);
+            }
 
-            //return Task.CompletedTask;
-            throw new Exception("Not implemented!");
+            return Task.CompletedTask;
         }
         /// <summary>
         /// Retrieves the roles the specified <paramref name="user"/> is a member of.
@@ -427,22 +426,16 @@ namespace AxOpen.Security
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            string groupName = "";
-            if (user.Roles.Length > 0)
-            {
-                groupName = user.Roles[0];
-            }
+            if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                return Task.FromResult((IList<string>)new List<string>());
 
-            IList<string> roles = _roleGroupManager.GetRolesFromGroup(groupName);
+            IList<string> roleNames = _unitOfWork.RoleGroupManager.GetRolesFromGroup(user.Group);
 
-            if (roles == null)
-            {
-                roles = new List<string>();
-            }
+            if (roleNames == null)
+                return Task.FromResult((IList<string>)new List<string>());
 
-            return Task.FromResult(roles);
+            return Task.FromResult(roleNames);
         }
-
         /// <summary>
         /// Returns a flag indicating if the specified user is a member of the give <paramref name="normalizedRoleName"/>.
         /// </summary>
@@ -461,11 +454,17 @@ namespace AxOpen.Security
             if (string.IsNullOrWhiteSpace(normalizedRoleName))
                 throw new ArgumentNullException(nameof(normalizedRoleName));
 
-            
+            if (new PasswordHasher<User>().VerifyHashedPassword(user, user.GroupHash, user.Group) == PasswordVerificationResult.Failed)
+                return Task.FromResult(false);
+
+
             var blazorRole = _roleCollection.FirstOrDefault(x => x.NormalizedName == normalizedRoleName);
-            if (blazorRole == null)
-                throw (new Exception("Role doesn't exists"));
-            return Task.FromResult(_roleGroupManager.GetRolesFromGroup(user.Roles[0]).Contains(blazorRole.Name));
+            var roleNames = _unitOfWork.RoleGroupManager.GetRolesFromGroup(user.Group);
+
+            if (roleNames == null)
+                return Task.FromResult(false);
+
+            return Task.FromResult(roleNames.Contains(blazorRole.Name));
         }
 
 
@@ -483,8 +482,7 @@ namespace AxOpen.Security
             if (blazorRole == null)
                 throw (new Exception("Role doesn't exists"));
 
-            IList<User> usersInRole = null;
-            usersInRole = Users.Where(x => x.Roles.Length > 0).Where(x => _roleGroupManager.GetAllGroup().Select(x => x.Name).Contains(x.Roles[0])).Where(x => _roleGroupManager.GetRolesFromGroup(x.Roles[0]).Contains(blazorRole.Name)).ToList();
+            IList<User> usersInRole = Users.Where(x => (_unitOfWork.RoleGroupManager.GetRolesFromGroup(x.Group) != null ? _unitOfWork.RoleGroupManager.GetRolesFromGroup(x.Group).Contains(blazorRole.Name) : false)).ToList();
             return Task.FromResult(usersInRole);
         }
         // <summary>

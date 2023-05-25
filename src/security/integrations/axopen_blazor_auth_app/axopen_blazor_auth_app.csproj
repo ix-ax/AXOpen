@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -25,7 +25,8 @@
     <ProjectReference Include="..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\RavenDb\AXOpen.Data.RavenDb\AXOpen.Data.RavenDb.csproj" />
-    <ProjectReference Include="..\..\src\axopen_security_blazod\axopen_security_blazor.csproj" />
+    <ProjectReference Include="..\..\src\AXOpen.Security\axopen_security_blazor.csproj" />
+
   </ItemGroup>
 
 </Project>

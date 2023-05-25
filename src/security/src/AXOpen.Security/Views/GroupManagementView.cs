@@ -1,13 +1,12 @@
-using AXOpen.Core.blazor.Toaster;
-using AXOpen.Core;
-using CommunityToolkit.Mvvm.Messaging;
+using AxOpen.Security.Entities;
+using AxOpen.Security.Services;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AxOpen.Security
+namespace AxOpen.Security.Views
 {
     public partial class GroupManagementView
     {
@@ -22,29 +21,62 @@ namespace AxOpen.Security
         }
 
         [Inject]
-        private BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider { get; set; }
+        private IRepositoryService _repositoryService { get; set; }
 
-        private RoleGroupManager _roleGroupManager { get { return _blazorAuthenticationStateProvider.roleGroupManager; } }
+        private RoleGroupManager _roleGroupManager { get { return _repositoryService.RoleGroupManager; } }
 
         private IList<RoleData> AvailableRoles { get; set; }
         private IList<RoleData> AssignedRoles { get; set; }
 
-        public GroupData SelectedGroupN { get; set; }
+
+        private bool selectAllAvailable;
+
+        public bool SelectAllAvailable
+        {
+            get { return selectAllAvailable; }
+            set 
+            {
+                selectAllAvailable = value;
+                foreach (RoleData role in AvailableRoles)
+                {
+                    role.IsSelected = selectAllAvailable;
+                }
+            }
+        }
+
+        private bool selectAllAssigned;
+
+        public bool SelectAllAssigned
+        {
+            get { return selectAllAssigned; }
+            set
+            {
+                selectAllAssigned = value;
+                foreach (RoleData role in AssignedRoles)
+                {
+                    role.IsSelected = selectAllAssigned;
+                }
+            }
+        }
+
+        public Group SelectedGroupN { get; set; }
         public string newGroupName { get; set; }
 
         public void AssignRoles()
         {
             _roleGroupManager.AddRolesToGroup(SelectedGroupN.Name, AvailableRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
             GroupClicked(SelectedGroupN);
+            SelectAllAvailable = false;
         }
 
         public void ReturnRoles()
         {
             _roleGroupManager.RemoveRolesFromGroup(SelectedGroupN.Name, AssignedRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
             GroupClicked(SelectedGroupN);
+            SelectAllAssigned = false;
         }
 
-        public void GroupClicked(GroupData group)
+        public void GroupClicked(Group group)
         {
             SelectedGroupN = group;
             AssignedRoles = _roleGroupManager.GetRolesFromGroup(group.Name).Select(x => new RoleData(_roleGroupManager.inAppRoleCollection.Where(x1 => x1.Name == x).FirstOrDefault())).ToList();
@@ -61,32 +93,32 @@ namespace AxOpen.Security
         {
             if(newGroupName == null || newGroupName == "")
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Name!", "Wrong group name", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Name!", "Wrong group name", 10)));
                 return;
             }
             var result = _roleGroupManager.CreateGroup(newGroupName);
             if (result.Succeeded)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Group successfully created!", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Group successfully created!", 10)));
             }
             else
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not created!", "Group was not created.", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not created!", "Group was not created.", 10)));
             }
             StateHasChanged();
         }
 
-        public void DeleteGroup(GroupData group)
+        public void DeleteGroup(Group group)
         {
             SelectedGroupN = null;
             var result = _roleGroupManager.DeleteGroup(group.Name);
             if (result.Succeeded)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Group successfully deleted", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Group successfully deleted", 10)));
             }
             else
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not deleted!", "Group was not deleted.", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not deleted!", "Group was not deleted.", 10)));
             }
             StateHasChanged();
         }

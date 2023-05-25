@@ -1,20 +1,26 @@
-﻿using AXOpen.Base.Data;
+﻿using AxOpen.Security.Entities;
+using AxOpen.Security.Stores;
+using AXOpen.Base.Data;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-using Microsoft.AspNetCore.Authentication;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AxOpen.Security
+
+namespace AxOpen.Security.Services
 {
     public static class ServicesConfiguration
     {
-        public static void AddVortexBlazorSecurity(this IServiceCollection services,
-            (IRepository<UserData> userRepo, IRepository<GroupData> groupRepo) repos,
-            List<Role>? roles = null,
-            ExternalAuthorization? externalAuthorization = null
-            )
+
+        public static void ConfigureAxBlazorSecurity(this IServiceCollection services,
+            (IRepository<User> userRepo, IRepository<Group> groupRepo) repos,
+            List<Role>? roles = null)
         {
+
             services.AddIdentity<User, Role>(identity =>
             {
                 identity.Password.RequireDigit = false;
@@ -25,79 +31,18 @@ namespace AxOpen.Security
                 identity.Password.RequiredUniqueChars = 0;
             }
             )
-            //.AddCustomStores()
             .AddDefaultTokenProviders();
 
-            if (System.Threading.Thread.CurrentPrincipal?.GetType() != typeof(AppIdentity.AppPrincipal))
-            {
-                var principal = new AppIdentity.AppPrincipal();
-                System.Threading.Thread.CurrentPrincipal = principal;
-                AppDomain.CurrentDomain.SetThreadPrincipal(principal);
-            }
-
-            services.AddScoped<IUserStore<User>, UserStore>();
-            services.AddScoped<IRoleStore<Role>, RoleStore>();
+            services.AddTransient<IUserStore<User>, UserStore>();
+            services.AddTransient<IRoleStore<Role>, RoleStore>();
 
             RoleGroupManager roleGroupManager = new RoleGroupManager(repos.groupRepo);
-
             if (roles != null)
             {
                 roleGroupManager.CreateRoles(roles);
             }
 
-            BlazorAuthenticationStateProvider blazorAuthenticationStateProvider = new BlazorAuthenticationStateProvider(repos.userRepo, roleGroupManager);
-
-            if(externalAuthorization != null)
-            {
-                blazorAuthenticationStateProvider.ExternalAuthorization = externalAuthorization;
-            }
-
-            services.AddScoped( p => blazorAuthenticationStateProvider);
-            
-            services.AddScoped<AuthenticationStateProvider, BlazorAuthenticationStateProvider>(p => blazorAuthenticationStateProvider);
+             services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));
         }
-
-        //public static (IRepository<UserData>, IRepository<GroupData>) SetUpJSon(string path = "..\\..\\..\\..\\..\\JSONREPOS\\")
-        //{
-        //    var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
-        //    var repositoryDirectory = Path.GetFullPath($"{executingAssemblyFile.Directory}{path}");
-
-        //    if (!Directory.Exists(repositoryDirectory))
-        //    {
-        //        Directory.CreateDirectory(repositoryDirectory);
-        //    }
-
-
-        //    IRepository<UserData> userRepo = new JsonRepository<UserData>(new JsonRepositorySettings<UserData>(Path.Combine(repositoryDirectory, "Users")));
-        //    IRepository<GroupData> groupRepo = new JsonRepository<GroupData>(new JsonRepositorySettings<GroupData>(Path.Combine(repositoryDirectory, "Groups")));
-
-        //    return (userRepo, groupRepo);
-        //}
-
-        //public static (IRepository<UserData>, IRepository<GroupData>) SetUpMongo(string path = "Blazor")
-        //{
-        //    var mongoUri = "mongodb://localhost:27017";
-
-        //    IRepository<UserData> userRepo = new MongoDbRepository<UserData>(new MongoDbRepositorySettings<UserData>(mongoUri, path, "Users"));
-        //    IRepository<GroupData> groupRepo = new MongoDbRepository<GroupData>(new MongoDbRepositorySettings<GroupData>(mongoUri, path, "Groups"));
-
-        //    return (userRepo, groupRepo);
-        //}
-
-        //public static (IRepository<UserData>, IRepository<GroupData>) SetUpRavenDB(string[] urls, string path = "Blazor", string certPath = "", string certPass = "")
-        //{
-        //    IRepository<UserData> userRepo = new RavenDbRepository<UserData>(new RavenDbRepositorySettings<UserData>(urls, path, certPath, certPass));
-        //    IRepository<GroupData> groupRepo = new RavenDbRepository<GroupData>(new RavenDbRepositorySettings<GroupData>(urls, path, certPath, certPass));
-
-        //    return (userRepo, groupRepo);
-        //}
-
-        //public static (IRepository<UserData>, IRepository<GroupData>) SetUpInMemory()
-        //{
-        //    IRepository<UserData> userRepo = new InMemoryRepository<UserData>(new InMemoryRepositorySettings<UserData>());
-        //    IRepository<GroupData> groupRepo = new InMemoryRepository<GroupData>(new InMemoryRepositorySettings<GroupData>());
-
-        //    return (userRepo, groupRepo);
-        //}
     }
 }

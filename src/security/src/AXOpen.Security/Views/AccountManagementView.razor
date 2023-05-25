@@ -1,13 +1,15 @@
 ﻿@page "/Identity/Account/Manage"
-@using AXOpen.Core;
-@using AXOpen.Core.blazor.Toaster;
-@using CommunityToolkit.Mvvm.Messaging;
+@using AxOpen.Security.Entities;
+@using AxOpen.Security.Models;
+@using AxOpen.Security.Services;
 @using Microsoft.AspNetCore.Components.Forms;
 @using Microsoft.AspNetCore.Components.Authorization;
 @using Microsoft.AspNetCore.Identity;
-@namespace AxOpen.Security
+@namespace AxOpen.Security.Views
 @inject UserManager<User> _userManager
-@inject BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider
+@inject SignInManager<User> _signInManager
+@inject IRepositoryService _repositoryService
+@inject AuthenticationStateProvider _authenticationStateProvider
 
 <AuthorizeView>
     <Authorized>
@@ -32,6 +34,11 @@
                     @if (_model.CanUserChangePassword)
                     {
                         <div class="form-group">
+                            <label>Old Password</label>
+                            <InputText @bind-Value="_model.OldPassword" type="password" class="form-control" />
+                            <ValidationMessage For="@(() => _model.OldPassword)" />
+                        </div>
+                        <div class="form-group">
                             <label>Password</label>
                             <InputText @bind-Value="_model.Password" type="password" class="form-control" />
                             <ValidationMessage For="@(() => _model.Password)" />
@@ -44,16 +51,16 @@
                     }
                     <div class="d-flex justify-content-between">
                         <button type="submit" class="btn btn-primary m-2">Update</button>
-                        @if (_blazorAuthenticationStateProvider.ExternalAuthorization != null)
+                        @*@if (_repositoryService.ExternalAuthorization != null)
                         {
                             <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#changeAuthorizationTokenModal">Change authorization token</button>
-                        }
+                        }*@
                     </div>
                 </EditForm>
             </div>
         </div>
 
-        <div class="modal fade" id="changeAuthorizationTokenModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
+        @*<div class="modal fade" id="changeAuthorizationTokenModal" data-bs-backdrop="static" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -66,7 +73,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </Authorized>
     <NotAuthorized>
         <p>Sorry, you are not logged in. Please log in.</p>
@@ -74,69 +81,65 @@
 </AuthorizeView>
 
 @code {
-    private RegisterUserModel _model { get; set; }
+    private ManageUserModel _model { get; set; }
 
     private async void OnValidUpdate()
     {
         User _user = await _userManager.FindByIdAsync(_model.Username);
 
-        if (_model.CanUserChangePassword && _model.Password != "password")
+        if (_model.CanUserChangePassword && _model.OldPassword != null && _model.OldPassword != "" && _model.Password != null && _model.Password != "" && _model.ConfirmPassword != null && _model.ConfirmPassword == _model.Password)
         {
-            _user.PasswordHash = Hasher.CalculateHash(_model.Password, _model.Username);
+            await _userManager.ChangePasswordAsync(_user, _model.OldPassword, _model.Password);
         }
         _user.Email = _model.Email;
         var result = await _userManager.UpdateAsync(_user);
         if (result.Succeeded)
         {
-            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Updated!", "User succesfully updated.", 10)));
+            _signInManager.RefreshSignInAsync(_user);
+            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Updated!", "User succesfully updated.", 10)));
             //TcoAppDomain.Current.Logger.Information($"User '{_user.UserName}' has changed.{{payload}}", new { UserName = _user.UserName, Email = _user.Email, CanChangePassword = _user.CanUserChangePassword, Group = string.Join(",", _user.Roles) });
         }
         else
         {
-            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Not updated!", "User was not updated.", 10)));
+            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Not updated!", "User was not updated.", 10)));
         }
     }
 
     protected override async void OnInitialized()
     {
-        _model = new RegisterUserModel();
+        _model = new ManageUserModel();
 
-        User _user = await _userManager.FindByIdAsync(Thread.CurrentPrincipal.Identity.Name);
+        User _user = await _userManager.FindByIdAsync(_authenticationStateProvider.GetAuthenticationStateAsync().Result.User.Identity.Name);
 
         _model.Username = _user.UserName;
-        if (_user.Roles.Length > 0)
-        {
-            _model.Group = _user.Roles[0];
-        }
+        _model.Group = _user.Group;
         _model.Email = _user.Email;
         _model.CanUserChangePassword = _user.CanUserChangePassword;
-        _model.Password = "password";
-        _model.ConfirmPassword = "password";
     }
 
     private string changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
     private string changeAuthorizationTokenButton = "Change your authorization token";
 
-    private void WillChangeToken()
-    {
-        if (_blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken)
-        {
-            _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = false;
-            changeAuthorizationTokenTitle = "Read your authorization token and press OK";
-            changeAuthorizationTokenButton = "OK";
-        }
-        else
-        {
-            _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = true;
-            changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
-            changeAuthorizationTokenButton = "Change your authorization token";
-        }
-    }
+    //private void WillChangeToken()
+    //{
+    //    if (_blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken)
+    //    {
+    //        _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = false;
+    //        changeAuthorizationTokenTitle = "Read your authorization token and press OK";
+    //        changeAuthorizationTokenButton = "OK";
+    //    }
+    //    else
+    //    {
+    //        _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = true;
+    //        changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
+    //        changeAuthorizationTokenButton = "Change your authorization token";
+    //    }
+    //}
 
-    private void SetDefault()
-    {
-        _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = true;
-        changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
-        changeAuthorizationTokenButton = "Change your authorization token";
-    }
+    //private void SetDefault()
+    //{
+    //    _blazorAuthenticationStateProvider.ExternalAuthorization.WillChangeToken = true;
+    //    changeAuthorizationTokenTitle = "Are you sure you want to change your authorization token?";
+    //    changeAuthorizationTokenButton = "Change your authorization token";
+    //}
 }

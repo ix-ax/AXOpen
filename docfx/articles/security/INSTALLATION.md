@@ -43,22 +43,8 @@ Within AXOpen 4 different types of repositories are available:
 - RavenDB
 
 For example, the Json repository can be configured as follows:
-```C#
-static (IRepository<User>, IRepository<Group>) SetUpJson(string path ="\\JSONREPOS\\")
-{
-    var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
-    var repositoryDirectory = Path.GetFullPath($"{executingAssemblyFile.Directory}{path}");
-    if (!Directory.Exists(repositoryDirectory))
-    {
-        Directory.CreateDirectory(repositoryDirectory);
-    }
-    IRepository<User> userRepo = new JsonRepository<User>(new JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
-    IRepository<Group> groupRepo = new JsonRepository<Group>(new JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
 
-    return (userRepo, groupRepo);
-}
-
-```
+[!code-csharp[](../../../src/security/integrations/axopen_blazor_auth_app/Program.cs?name=SetupJson)]
 
 Add `SetUpJson` method in `Program.cs` file.
 
@@ -89,9 +75,9 @@ public static class Roles
 
 Finally, the `AxBlazorSecurity` security can be configured in DI container of Blazor application. Go to `Program.cs` file and add following line to builder:
 
-```C#
-builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
-```
+
+[!code-csharp[](../../../src/security/integrations/axopen_blazor_auth_app/Program.cs?name=AxConfiguration)]
+
 
 The first parameter is set up repository and the second parameter are created roles.
 
@@ -109,6 +95,7 @@ Go to `MainLayout.razor` located in `Shared` folder and add `LoginDisplay` view 
     </article>
 </main>
 ```
+
 
 Within `Pages` of the Blazor application, create new `Security.razor` page and add there `SecurityManagementView`.
 

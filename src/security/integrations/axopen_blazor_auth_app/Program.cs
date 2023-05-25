@@ -17,20 +17,13 @@ using AXOpen.Data.MongoDb;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//    options.UseSqlServer(connectionString));
-//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//    .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-//builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 builder.Services.AddSingleton<WeatherForecastService>();
-
+//<AxConfiguration>
 builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
-
+//</AxConfiguration>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -60,6 +53,7 @@ app.MapFallbackToPage("/_Host");
 app.Run();
 
 
+//<SetupJson>
 static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\..\\..\\..\\JSONREPOS\\")
 {
     var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
@@ -73,7 +67,7 @@ static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\
 
     return (userRepo, groupRepo);
 }
-
+//</SetupJson>
 static (IRepository<User>, IRepository<Group>) SetUpMongo(string path = "Blazor")
 {
     var mongoUri = "mongodb://localhost:27017";

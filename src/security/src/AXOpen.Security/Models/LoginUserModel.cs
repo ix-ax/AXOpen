@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AxOpen.Security
+namespace AxOpen.Security.Models
 {
     public class LoginUserModel
     {
+
         [Required]
         public string Username { get; set; }
 

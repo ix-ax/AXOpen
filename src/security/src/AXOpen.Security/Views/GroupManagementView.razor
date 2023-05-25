@@ -1,4 +1,4 @@
-﻿@namespace AxOpen.Security
+﻿@namespace AxOpen.Security.Views
 
 <div class="card" style="min-height: 20vh; max-height: 40vh">
     <div class="card-header">
@@ -44,7 +44,7 @@
 <div class="card mt-4">
     <div class="card-header">
         <div class="d-flex">
-            <h4 class="me-auto">Selected group:</h4>
+            <h4 class="me-auto">Selected group: @SelectedGroupN.Name</h4>
             <button type="button" class="btn-close align-self-center" @onclick="@(() => CloseGroupDetail())"></button>
         </div>
     </div>
@@ -54,6 +54,10 @@
                 <div class="card" style="min-height: 40vh">
                     <div class="card-header">
                         <h5>Available roles:</h5>
+                            <label class="mt-2 mb-2">
+                                <input class="form-check-input me-1" type="checkbox" @bind="@SelectAllAvailable">
+                                Select all
+                            </label>
                     </div>
                     <div class="card-body">
                         @if (AvailableRoles != null)
@@ -85,6 +89,10 @@
                 <div class="card" style="min-height: 40vh">
                     <div class="card-header">
                         <h5>Assigned roles:</h5>
+                            <label class="mt-2 mb-2">
+                                <input class="form-check-input me-1" type="checkbox" @bind="@SelectAllAssigned">
+                                Select all
+                            </label>
                     </div>
                     <div class="crad-body">
                         @if (AssignedRoles != null)

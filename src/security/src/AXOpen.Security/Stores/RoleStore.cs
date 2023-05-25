@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using AxOpen.Security.Entities;
+using AxOpen.Security.Services;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,17 +9,17 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace AxOpen.Security
+namespace AxOpen.Security.Stores
 {
     public class RoleStore :
         IRoleStore<Role>,
         IQueryableRoleStore<Role>
     {
-        private readonly BlazorAuthenticationStateProvider _blazorAuthenticationStateProvider;
-        public RoleStore(BlazorAuthenticationStateProvider blazorAuthenticationStateProvider, IdentityErrorDescriber errorDescriber = null)
+        private readonly IRepositoryService _unitOfWork;
+        public RoleStore(IRepositoryService unitOfWork,IdentityErrorDescriber errorDescriber = null)
         {
             ErrorDescriber = errorDescriber;
-            _blazorAuthenticationStateProvider = blazorAuthenticationStateProvider;
+            _unitOfWork = unitOfWork;
             
         }
         /// <summary>
@@ -27,14 +29,14 @@ namespace AxOpen.Security
         public IList<Role> _roleCollection {
             get 
             {
-                return _blazorAuthenticationStateProvider.roleGroupManager.inAppRoleCollection.ToList();
+                return _unitOfWork.RoleGroupManager.inAppRoleCollection.ToList();
             }
         }
         public IQueryable<Role> Roles
         {
             get
             {
-                return _blazorAuthenticationStateProvider.roleGroupManager.inAppRoleCollection.AsQueryable();
+                return _unitOfWork.RoleGroupManager.inAppRoleCollection.AsQueryable();
                 //return _unitOfWork.RoleRepository.GetRecords("*").Select(x => new IdentityRole(x.Name)).AsQueryable();
             }
         }
