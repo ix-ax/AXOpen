@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,11 +77,11 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axomomentarytask">AxoMomentaryTask</h1>
+<h1 id="axomomentarytask" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="1">AxoMomentaryTask</h1>
 
-<p>AxoMomentaryTask provides basic  momentary function. It is mainly designed for some manual operations from the UI side. AxoMomentaryTask needs to be initialized to set the proper AxoContext.</p>
-<p><strong>AxoMomentaryTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="3">AxoMomentaryTask provides basic  momentary function. It is mainly designed for some manual operations from the UI side. AxoMomentaryTask needs to be initialized to set the proper AxoContext.</p>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="5"><strong sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="5">AxoMomentaryTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="7">CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Momentary task example#&gt;&quot;}
         {#ix-set:AttributeStateOnDesc = &quot;&lt;#Currently On#&gt;&quot;}
@@ -96,33 +96,33 @@
     END_METHOD
 END_CLASS  
 </code></pre>
-<p>To check the state of the task there are two methods:</p>
-<ul>
-<li><code>IsSwitchOn()</code> - returns <code>TRUE</code> if the state of the task is <code>TRUE</code>.</li>
-<li><code>IsSwitchOff()</code> - returns <code>TRUE</code> if the state of the task is <code>FALSE</code>.</li>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="9">To check the state of the task there are two methods:</p>
+<ul sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10">
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10">IsSwitchOn()</code> - returns <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10">TRUE</code> if the state of the task is <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="11"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="11">IsSwitchOff()</code> - returns <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="11">TRUE</code> if the state of the task is <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="11">FALSE</code>.</li>
 </ul>
-<p>Example of using <code>IsSwitchOn()</code> method:</p>
-<pre><code class="lang-smalltalk">IF _myMomentaryTask.IsSwitchedOn() THEN
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="13">Example of using <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="13">IsSwitchOn()</code> method:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="14">IF _myMomentaryTask.IsSwitchedOn() THEN
     ; // do something 
 END_IF;
 </code></pre>
-<p>Example of using <code>IsSwitchOff()</code> method:</p>
-<pre><code class="lang-smalltalk">IF _myMomentaryTask.IsSwitchedOff() THEN
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="16">Example of using <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="16">IsSwitchOff()</code> method:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="17">IF _myMomentaryTask.IsSwitchedOff() THEN
     ; // do something 
 END_IF;
 </code></pre>
-<p>Moreover, there are five more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
-<p>To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the <code>AxoMomentaryTask</code> needs to be created. The required method with <code>PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="19">Moreover, there are five more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="21">To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="21">AxoMomentaryTask</code> needs to be created. The required method with <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="21">PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
 These methods are:</p>
-<ul>
-<li><code>OnSwitchedOn()</code> - executes once when the task changes its state from <code>FALSE</code> to <code>TRUE</code>.</li>
-<li><code>OnSwitchedOff()</code> - executes once when the task changes its state from <code>TRUE</code> to <code>FALSE</code>.</li>
-<li><code>OnStateChanged()</code> - executes once when the task changes its state.</li>
-<li><code>SwitchedOn()</code> - executes repeatedly while the task is in <code>TRUE</code> state.</li>
-<li><code>SwitchedOff()</code> - executes repeatedly while the task is in <code>FALSE</code> state.</li>
+<ul sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23">
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23">OnSwitchedOn()</code> - executes once when the task changes its state from <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23">FALSE</code> to <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="24"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="24">OnSwitchedOff()</code> - executes once when the task changes its state from <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="24">TRUE</code> to <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="24">FALSE</code>.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="25"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="25">OnStateChanged()</code> - executes once when the task changes its state.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="26"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="26">SwitchedOn()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="26">TRUE</code> state.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="27"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="27">SwitchedOff()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="27">FALSE</code> state.</li>
 </ul>
-<p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyMomentaryTaskExample Extends AxoMomentaryTask
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="29">Example of implementing &quot;event-like&quot; methods:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="31">CLASS MyMomentaryTaskExample Extends AxoMomentaryTask
     VAR
         OnSwitchedOnCounter : ULINT;
         OnSwitchedOffCounter : ULINT;
@@ -152,24 +152,24 @@ These methods are:</p>
     END_METHOD
 END_CLASS
 </code></pre>
-<p><strong>How to visualize <code>AxoMomentaryTask</code></strong></p>
-<p>On the UI side there are several possibilities how to visualize the <code>AxoMomentaryTask</code>.
-You use the <code>AxoMomentaryTaskView</code> and set its Component according the placement of the instance of the <code>AxoMomentaryTask</code>.
-Based on the value of <code>Disable</code> the control element could be controllable:</p>
-<pre><code class="lang-csharp">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;false&quot; /&gt;
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="33"><strong sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="33">How to visualize <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="33">AxoMomentaryTask</code></strong></p>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="35">On the UI side there are several possibilities how to visualize the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="35">AxoMomentaryTask</code>.
+You use the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="36">AxoMomentaryTaskView</code> and set its Component according the placement of the instance of the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="36">AxoMomentaryTask</code>.
+Based on the value of <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="37">Disable</code> the control element could be controllable:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="38">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
-<p>or display only:</p>
-<pre><code class="lang-csharp">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;true&quot; /&gt;
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="39">or display only:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="40">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
-<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoMomentaryTask</code>.
-Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Command&quot; /&gt;
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="42">The next possibility is to use the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="42">RenderableContentControl</code> and set its Context according the placement of the instance of the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="42">AxoMomentaryTask</code>.
+Again as before the element could be controlable when the value of the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="43">Presentation</code> is <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="43">Command</code>:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="44">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Status&quot; /&gt;
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="45">or display only when the value of the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="45">Presentation</code> is <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="45">Status</code></p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="46">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Status&quot; /&gt;
 </code></pre>
-<p>The displayed result should looks like:</p>
-<p><img src="../../images/AxoMomentaryTaskExampleVisu.gif" alt="Alt text"></p>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="48">The displayed result should looks like:</p>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="50"><img src="../../images/AxoMomentaryTaskExampleVisu.gif" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="50" alt="Alt text"></p>
 </article>
           </div>
 

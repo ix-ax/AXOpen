@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AXOpen.Security | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="AXOpen.Security | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="axopensecurity" sourcefile="articles/security/README.md" sourcestartlinenumber="1">AXOpen.Security</h1>
+
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="3">AxOpen.Security is library which provides authentication and authorization in Blazor AX applications. It is based on a default solution for authentication in Blazor, which is extended by using implemented repositories within Ax.Open.Data. As a result, multiple storage providers for security can be used.</p>
+<h2 id="installation" sourcefile="articles/security/README.md" sourcestartlinenumber="5">Installation</h2>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="7">The security library is available in form of NuGet package. Detailed installation instructions of security into empty Blazor project is located in <a href="INSTALLATION.html" sourcefile="articles/security/README.md" sourcestartlinenumber="7">security installation article</a>.</p>
+<h2 id="basic-concepts" sourcefile="articles/security/README.md" sourcestartlinenumber="9">Basic concepts</h2>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="11">Each user is limited to having just a single group. A group is formed by a collection of multiple roles. When a user is assigned to a group, they possess all the roles associated with that group.
+It is possible for a single role to be assigned to multiple groups.</p>
+<h2 id="security-views" sourcefile="articles/security/README.md" sourcestartlinenumber="14">Security views</h2>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="16">SecurityManagementView component serves for managing users. It is available only if user is logged in with administrator rights.</p>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="18">When user is logged in with administrator rights, it is possible to modify all available users and groups. Administrator can delete users or change group.</p>
+<h3 id="user-management" sourcefile="articles/security/README.md" sourcestartlinenumber="20">User management</h3>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="22">The SecurityManagementView component includes a tab dedicated to user management. Within this tab, users can be updated or newly created. When a user is selected, a card is displayed showing the current data for that user, there is an option to update or delete user.</p>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="24"><img src="../../images/UserManagement.png" sourcefile="articles/security/README.md" sourcestartlinenumber="24" alt="user management"></p>
+<h3 id="group-management" sourcefile="articles/security/README.md" sourcestartlinenumber="26">Group Management</h3>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="28">The SecurityManagementView component includes a tab for group management. Within this tab, groups can be updated or newly created. When a group is selected, a card is displayed showing the assigned roles for that group. Users have the option assigned or unassign roles or delete group.</p>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="30"><img src="../../images/GroupManagement.png" sourcefile="articles/security/README.md" sourcestartlinenumber="30" alt="group management"></p>
+<h3 id="account-management" sourcefile="articles/security/README.md" sourcestartlinenumber="32">Account Management</h3>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="34">In account management view is possible to change the your user data, like email address or password.</p>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="36"><img src="../../images/AccountManagement.png" sourcefile="articles/security/README.md" sourcestartlinenumber="36" alt="account management"></p>
+<h3 id="user-create" sourcefile="articles/security/README.md" sourcestartlinenumber="38">User Create</h3>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="40">In user create view is possible to new user.</p>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="42"><img src="../../images/CreateUser.png" sourcefile="articles/security/README.md" sourcestartlinenumber="42" alt="Create user"></p>
+<h2 id="authorizeview-and-authenticationcontext" sourcefile="articles/security/README.md" sourcestartlinenumber="44">AuthorizeView and AuthenticationContext</h2>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="46">There are two ways how to work with authentication and authorization.</p>
+<ul sourcefile="articles/security/README.md" sourcestartlinenumber="48">
+<li sourcefile="articles/security/README.md" sourcestartlinenumber="48">Use of the <code sourcefile="articles/security/README.md" sourcestartlinenumber="48">AuthorizeView</code> component in Blazor component</li>
+<li sourcefile="articles/security/README.md" sourcestartlinenumber="49">Use of the <code sourcefile="articles/security/README.md" sourcestartlinenumber="49">AuthenticationStateProvider</code> within a C# class</li>
+</ul>
+<h3 id="use-of-authorizeview" sourcefile="articles/security/README.md" sourcestartlinenumber="51">Use of AuthorizeView</h3>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="53">The <code sourcefile="articles/security/README.md" sourcestartlinenumber="53">AuthorizeView</code> is used to create a secure views within a Blazor application. It contains two child components <code sourcefile="articles/security/README.md" sourcestartlinenumber="53">Authorized</code> and <code sourcefile="articles/security/README.md" sourcestartlinenumber="53">NotAuthorized</code>, which serves for visualizing view in a corresponded views. In addition, the parameter <code sourcefile="articles/security/README.md" sourcestartlinenumber="53">Roles</code> can be used to specified roles, based on which the authorized view is shown.</p>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="55">The <code sourcefile="articles/security/README.md" sourcestartlinenumber="55">AuthorizeView</code> contain base class named <code sourcefile="articles/security/README.md" sourcestartlinenumber="55">context</code>, which is used to access identity of currently logged in user.</p>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="57">The example of usage of <code sourcefile="articles/security/README.md" sourcestartlinenumber="57">AuthorizeView</code> within a Blazor component is shown below:</p>
+<pre><code class="lang-html" sourcefile="articles/security/README.md" sourcestartlinenumber="59">&lt;AuthorizeView Roles=&quot;Administrator&quot;&gt;
+    &lt;Authorized&gt;
+        &lt;h4&gt;You have role Administrator.&lt;/h4&gt;
+        &lt;h4&gt;Your name is: @context.User.Identity.Name&lt;/h4&gt;
+    &lt;/Authorized&gt;
+    &lt;NotAuthorized&gt;
+            &lt;h4&gt;You dont have role Administrator.&lt;/h4&gt;
+    &lt;/NotAuthorized&gt;
+&lt;/AuthorizeView&gt;
+</code></pre>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="71">If the user is authenticated and is also authorized with the <code sourcefile="articles/security/README.md" sourcestartlinenumber="71">Administrator</code> role, the authorized view is shown. Otherwise, non-authorized view is displayed.</p>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="73">Also, there is a possibility to call method from <code sourcefile="articles/security/README.md" sourcestartlinenumber="73">RoleGroupManager</code> called <code sourcefile="articles/security/README.md" sourcestartlinenumber="73">GetRoles</code>, which takes as parameter name of the group and returns corresponded roles. <code sourcefile="articles/security/README.md" sourcestartlinenumber="73">RoleGroupManager</code> is accessible from <code sourcefile="articles/security/README.md" sourcestartlinenumber="73">IRepositoryService</code>.</p>
+<pre><code class="lang-html" sourcefile="articles/security/README.md" sourcestartlinenumber="75">@inject IRepositoryService rs
+
+&lt;AuthorizeView Roles=&quot;@rs.RoleGroupManager.GetRoles(&quot;AdminGroup&quot;)&quot;&gt;
+</code></pre>
+<h3 id="use-of-authenticationstateprovider" sourcefile="articles/security/README.md" sourcestartlinenumber="81">Use of AuthenticationStateProvider</h3>
+<p sourcefile="articles/security/README.md" sourcestartlinenumber="83">The <code sourcefile="articles/security/README.md" sourcestartlinenumber="83">AuthenticationStateProvider</code> serves for accessing current logged in user and his claims. This provider can be injected to any C# class (either from constructor injection (in ViewModel) or with <code sourcefile="articles/security/README.md" sourcestartlinenumber="83">Inject</code> attribute in Blazor component), where user need to work with authentication context. The authentication context of current user can be accessed in following way:</p>
+<pre><code class="lang-C#" sourcefile="articles/security/README.md" sourcestartlinenumber="85">@page &quot;/mypage&quot;
+@inject AuthenticationStateProvider _asp
+
+@code
+{
+    protected override async Task OnInitializedAsync()
+    {
+        var context = await _asp.GetAuthenticationStateAsync();
+        var isAuth = context.User.Identity.IsAuthenticated;
+        if (isAuth)
+        {
+            Console.Writeline(&quot;I'm authenticated&quot;);
+        }
+    }
+}
+
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/security/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

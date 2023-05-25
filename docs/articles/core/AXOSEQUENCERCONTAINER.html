@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,13 +77,13 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axosequencercontainer">AxoSequencerContainer</h1>
+<h1 id="axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="1">AxoSequencerContainer</h1>
 
-<p><code>AxoSequencerContainer</code> is an <code>AxoCordinator</code> class that extends from <code>AxoSequencer</code>. The main difference is that this class is abstract so it is not possible to instantiate it directly. The user-defined class that extends from <code>AxoSequencerContainer</code> needs to be created and then instantiated.</p>
-<p>In the extended class <code>MAIN()</code> method needs to be created and all sequencer logic needs to be placed there. Then the sequencer is called via <code>Run(IAxoObject)</code> or <code>Run(IAxoContext)</code> methods, that ensure initialization of the sequencer with <code>AxoObject</code> or with <code>AxoContext</code>. Moreover the <code>Run()</code> method also ensures calling the <code>Open()</code> method, so it is not neccessary to call it explicitelly in comparison with <code>AxoSequencer</code>.</p>
-<h3 id="example-of-using-axosequencercontainer">Example of using AxoSequencerContainer</h3>
-<h4 id="example-of-the-declaration-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of the declaration of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
+<p sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3"><code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3">AxoSequencerContainer</code> is an <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3">AxoCordinator</code> class that extends from <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3">AxoSequencer</code>. The main difference is that this class is abstract so it is not possible to instantiate it directly. The user-defined class that extends from <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3">AxoSequencerContainer</code> needs to be created and then instantiated.</p>
+<p sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">In the extended class <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">MAIN()</code> method needs to be created and all sequencer logic needs to be placed there. Then the sequencer is called via <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">Run(IAxoObject)</code> or <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">Run(IAxoContext)</code> methods, that ensure initialization of the sequencer with <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">AxoObject</code> or with <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">AxoContext</code>. Moreover the <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">Run()</code> method also ensures calling the <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">Open()</code> method, so it is not neccessary to call it explicitelly in comparison with <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">AxoSequencer</code>.</p>
+<h3 id="example-of-using-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="7">Example of using AxoSequencerContainer</h3>
+<h4 id="example-of-the-declaration-of-the-user-defined-class-that-extends-from-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="8">Example of the declaration of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="9">CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
     VAR PUBLIC
         _step_1 : AxoStep;
         _step_2 : AxoStep;
@@ -91,9 +91,9 @@
         _myCounter : ULINT;
     END_VAR
 END_CLASS
-</code></pre><h4 id="example-of-implementation-main-method-inside-the-user-defined-class-that-extends-from-axosequencercontainer">Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer</h4>
-<p>All the custom logic of the sequencer needs to be placed here.</p>
-<pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE MAIN 
+</code></pre><h4 id="example-of-implementation-main-method-inside-the-user-defined-class-that-extends-from-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="10">Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer</h4>
+<p sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="11">All the custom logic of the sequencer needs to be placed here.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="12">METHOD PROTECTED OVERRIDE MAIN 
     _step_1.Initialize(THIS);
     _step_2.Initialize(THIS);
     _step_3.Initialize(THIS);
@@ -122,12 +122,12 @@ END_CLASS
         END_IF;    
     END_IF; 
 END_METHOD
-</code></pre><h4 id="example-of-declaration-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of declaration of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">VAR PUBLIC
+</code></pre><h4 id="example-of-declaration-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="13">Example of declaration of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="14">VAR PUBLIC
     _mySequencerContainer : AxoSequencerContainerDocuExample;
 END_VAR
-</code></pre><h4 id="example-of-calling-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of calling of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">_mySequencerContainer.Run(THIS);
+</code></pre><h4 id="example-of-calling-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="15">Example of calling of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="16">_mySequencerContainer.Run(THIS);
 </code></pre></article>
           </div>
 

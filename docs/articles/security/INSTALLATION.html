@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Installation | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Installation | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="installation" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="1">Installation</h1>
+
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="3">All necessary logic for security is located in AxOpen.Security library.</p>
+<h2 id="1-install-axopensecurity-nuget-package-or-add-reference-to-this-project" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="5">1. Install AxOpen.Security NuGet package or add reference to this project</h2>
+<h2 id="2-add-reference-to-axopensecurity-assembly" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="7">2. Add reference to AxOpen.Security assembly.</h2>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="9">Go to <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="9">App.razor</code> and add <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="9">AdditionalAssemblies</code> as parameter of <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="9">Router</code> component. The following line must be added to <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="9">Router</code> component:</p>
+<pre><code class="lang-C#" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="11">AdditionalAssemblies=&quot;new[] { typeof(BlazorSecurity).Assembly}&quot;&gt;
+</code></pre>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="15">Also, make sure, that <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="15">Router</code> component is wrapped inside <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="15">CascadingAuthenticationState</code> component. At the end, the <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="15">Router</code> component should look like this:</p>
+<pre><code class="lang-html" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="17">&lt;CascadingAuthenticationState&gt;
+    &lt;Router AppAssembly=&quot;@typeof(App).Assembly&quot; 
+            AdditionalAssemblies=&quot;new[] { typeof(BlazorSecurity).Assembly}&quot;&gt;
+            ...
+    &lt;/Router&gt;
+&lt;/CascadingAuthenticationState&gt;
+</code></pre>
+<h2 id="3-configure-ax-blazor-security-services-in-dependency-injection-container-of-blazor-application-located-in-programcs-file" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="26">3. Configure Ax Blazor security services in dependency injection container of Blazor application located in <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="26">Program.cs</code> file.</h2>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="28">To correctly configure security services you must:</p>
+<ul sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="30">
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="30">configure repository</li>
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="31">create in-app roles</li>
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="32">configure AxBlazorSecurity in DI container</li>
+</ul>
+<h3 id="configuring-repository" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="34"><strong sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="34">Configuring repository</strong></h3>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="35">The security requires 2 instances of repositories:</p>
+<ul sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="36">
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="36">for persistence of user data</li>
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="37">for persistence of groups of roles</li>
+</ul>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="39">Within AXOpen 4 different types of repositories are available:</p>
+<ul sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="40">
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="40">InMemory</li>
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="41">Json</li>
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="42">MongoDB</li>
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="43">RavenDB</li>
+</ul>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="45">For example, the Json repository can be configured as follows:</p>
+<pre><code class="lang-csharp" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="47">static (IRepository&lt;User&gt;, IRepository&lt;Group&gt;) SetUpJSon(string path = &quot;..\\..\\..\\..\\..\\JSONREPOS\\&quot;)
+{
+    var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
+    var repositoryDirectory = Path.GetFullPath($&quot;{executingAssemblyFile.Directory}{path}&quot;);
+    if (!Directory.Exists(repositoryDirectory))
+    {
+        Directory.CreateDirectory(repositoryDirectory);
+    }
+    IRepository&lt;User&gt; userRepo = new JsonRepository&lt;User&gt;(new JsonRepositorySettings&lt;User&gt;(Path.Combine(repositoryDirectory, &quot;Users&quot;)));
+    IRepository&lt;Group&gt; groupRepo = new JsonRepository&lt;Group&gt;(new JsonRepositorySettings&lt;Group&gt;(Path.Combine(repositoryDirectory, &quot;Groups&quot;)));
+
+    return (userRepo, groupRepo);
+}
+</code></pre>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="49">Add <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="49">SetUpJson</code> method in <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="49">Program.cs</code> file.</p>
+<h3 id="creating-in-app-roles" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="51"><strong sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="51">Creating in-app roles</strong></h3>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="53">In your Blazor application create new static class <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="53">Roles</code> and specify the roles, that will be used in your application. You can add as many roles as you want. The <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="53">Roles</code> class can be defined like this:</p>
+<pre><code class="lang-C#" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="55">public static class Roles
+{
+    public static List&lt;Role&gt; CreateRoles()
+    {
+        var roles = new List&lt;Role&gt;
+        {
+            new Role(process_settings_access),
+            new Role(process_traceability_access),
+        };
+
+        return roles;
+    }
+
+    public const string process_settings_access = nameof(process_settings_access);
+    public const string process_traceability_access = nameof(process_traceability_access);
+}
+</code></pre>
+<h3 id="configure-axblazorsecurity-services" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="74"><strong sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="74">Configure AxBlazorSecurity services</strong></h3>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="76">Finally, the <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="76">AxBlazorSecurity</code> security can be configured in DI container of Blazor application. Go to <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="76">Program.cs</code> file and add following line to builder:</p>
+<pre><code class="lang-csharp" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="79">builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
+</code></pre>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="82">The first parameter is set up repository and the second parameter are created roles.</p>
+<h2 id="4-add-security-views-to-application" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="84">4. Add security views to application</h2>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="86">Go to <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="86">MainLayout.razor</code> located in <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="86">Shared</code> folder and add <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="86">LoginDisplay</code> view inside top bar.</p>
+<pre><code class="lang-html" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="87">&lt;main&gt;
+    &lt;div class=&quot;top-row px-4 auth&quot;&gt;
+        &lt;AxOpen.Security.Views.LoginDisplay/&gt;
+    &lt;/div&gt;
+
+    &lt;article class=&quot;content px-4&quot;&gt;
+        @Body
+    &lt;/article&gt;
+&lt;/main&gt;
+</code></pre>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="100">Within <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="100">Pages</code> of the Blazor application, create new <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="100">Security.razor</code> page and add there <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="100">SecurityManagementView</code>.</p>
+<pre><code class="lang-html" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="102">@page &quot;/Security&quot;
+
+&lt;h3&gt;Security&lt;/h3&gt;
+
+&lt;AxOpen.Security.Views.SecurityManagementView /&gt;
+
+</code></pre>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="111">Add you security view inside the navigation menu in <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="111">NavMenu.razor</code>:</p>
+<pre><code class="lang-html" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="113">&lt;div class=&quot;nav-item px-3&quot;&gt;
+    &lt;NavLink class=&quot;nav-link&quot; href=&quot;security&quot;&gt;
+        &lt;span class=&quot;oi oi-list-rich&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Security
+    &lt;/NavLink&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="default-login" sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="120">Default login</h2>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="122">If everything done correctly, now security should be available in Blazor application.
+Now it should be possible to log-in with default user.
+The default user is created on application startup with following credentials:</p>
+<ul sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="126">
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="126">Username: <strong sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="126">admin</strong></li>
+<li sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="127">Password: <strong sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="127">admin</strong></li>
+</ul>
+<p sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="129">The user has default <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="129">Administrator</code> role and is in default <code sourcefile="articles/security/INSTALLATION.md" sourcestartlinenumber="129">AdminGroup</code>.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/security/INSTALLATION.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

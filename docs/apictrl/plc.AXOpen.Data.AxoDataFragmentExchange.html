@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -83,7 +83,8 @@
 
   <h1 id="plc_AXOpen_Data_AxoDataFragmentExchange" data-uid="plc.AXOpen.Data.AxoDataFragmentExchange" class="text-break">Class AxoDataFragmentExchange
 </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">Provides base class for any composite/fragmetes data exchange combining one or more AxoDataExchange object.<strong sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">For configuration and set up see <a href="../articles/data/AxoDataFragmentExchange.html" sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">here</a></strong></p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -157,7 +158,8 @@
 
 
   <h4 id="plc_AXOpen_Data_AxoDataFragmentExchange_Create_STRING_254__" data-uid="plc.AXOpen.Data.AxoDataFragmentExchange.Create(STRING[254])">Create</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">Creates new entry into each associated remote repository from respective data entity.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -198,7 +200,8 @@
 
 
   <h4 id="plc_AXOpen_Data_AxoDataFragmentExchange_Read_STRING_254__" data-uid="plc.AXOpen.Data.AxoDataFragmentExchange.Read(STRING[254])">Read</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">Reads data from each associated remote repository and copies it into respective data entities.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -239,7 +242,8 @@
 
 
   <h4 id="plc_AXOpen_Data_AxoDataFragmentExchange_Update_STRING_254__" data-uid="plc.AXOpen.Data.AxoDataFragmentExchange.Update(STRING[254])">Update</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">Updates data in each associated remote repository from respective data entities.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -280,7 +284,8 @@
 
 
   <h4 id="plc_AXOpen_Data_AxoDataFragmentExchange_Delete_STRING_254__" data-uid="plc.AXOpen.Data.AxoDataFragmentExchange.Delete(STRING[254])">Delete</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">Deletes data entry from each associated remote repository with given ID.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -327,6 +332,92 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public VOID Restore()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Data_AxoDataFragmentExchange_Run_IAxoContext_" data-uid="plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoContext)">Run</h4>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">Runs intialization and cyclical handling of this AxoDataExchange.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Run(in plc.AXOpen.Core.IAxoContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoContext.html">IAxoContext</a></td>
+        <td><span class="parametername">context</span></td>
+        <td><p sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">Root context of this object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Data_AxoDataFragmentExchange_Run_IAxoObject_" data-uid="plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoObject)">Run</h4>
+  <div class="markdown level1 summary"><p sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">Runs intialization and cyclical handling of this AxoDataExchange.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Run(in plc.AXOpen.Core.IAxoObject parent)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></td>
+        <td><span class="parametername">parent</span></td>
+        <td><p sourcefile="apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.yml" sourcestartlinenumber="1">Parent of this object</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>

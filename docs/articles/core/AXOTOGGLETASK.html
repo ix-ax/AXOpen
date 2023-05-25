@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,11 +77,11 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axotoggletask">AxoToggleTask</h1>
+<h1 id="axotoggletask" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="1">AxoToggleTask</h1>
 
-<p>AxoToggleTask provides basic switching on and off functions. AxoToggleTask needs to be initialized to set the proper AxoContext.</p>
-<p><strong>AxoToggleTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="3">AxoToggleTask provides basic switching on and off functions. AxoToggleTask needs to be initialized to set the proper AxoContext.</p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="5"><strong sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="5">AxoToggleTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="7">CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Toggle task example#&gt;&quot;}
         {#ix-set:AttributeStateOnDesc = &quot;&lt;#SwitchedOn#&gt;&quot;}
@@ -97,55 +97,55 @@
     END_METHOD
 END_CLASS  
 </code></pre>
-<p>There are three key methods for managing the AxoToggleTask:</p>
-<ul>
-<li><code>SwitchOn()</code> -ones is called and the <code>AxoToggleTask</code> is not Disabled, changes the state of the <code>AxoToggleTask</code> to <code>TRUE</code> if its previous state was <code>FALSE</code>. (can be called fire&amp;forget or cyclically). The method returns <code>TRUE</code> if the change of the state was performed, otherwise <code>FALSE</code>.</li>
-<li><code>SwitchOff()</code> -ones is called and the <code>AxoToggleTask</code> is not Disabled, changes the state of the <code>AxoToggleTask</code> to <code>FALSE</code> if its previous state was <code>TRUE</code>. (can be called fire&amp;forget or cyclically). The method returns <code>TRUE</code> if the change of the state was performed, otherwise <code>FALSE</code>.</li>
-<li><code>Toggle()</code> -ones is called and the <code>AxoToggleTask</code> is not Disabled, changes the state of the <code>AxoToggleTask</code> to <code>TRUE</code> if its previous state was <code>FALSE</code> and vice-versa . (can be called fire&amp;forget or cyclically). The method returns <code>TRUE</code> if the change of the state was performed, otherwise <code>FALSE</code>.</li>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="9">There are three key methods for managing the AxoToggleTask:</p>
+<ul sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">SwitchOn()</code> -ones is called and the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">AxoToggleTask</code> is not Disabled, changes the state of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">AxoToggleTask</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">TRUE</code> if its previous state was <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">FALSE</code>. (can be called fire&amp;forget or cyclically). The method returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">TRUE</code> if the change of the state was performed, otherwise <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">FALSE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">SwitchOff()</code> -ones is called and the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">AxoToggleTask</code> is not Disabled, changes the state of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">AxoToggleTask</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">FALSE</code> if its previous state was <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">TRUE</code>. (can be called fire&amp;forget or cyclically). The method returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">TRUE</code> if the change of the state was performed, otherwise <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">FALSE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">Toggle()</code> -ones is called and the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">AxoToggleTask</code> is not Disabled, changes the state of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">AxoToggleTask</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">TRUE</code> if its previous state was <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">FALSE</code> and vice-versa . (can be called fire&amp;forget or cyclically). The method returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">TRUE</code> if the change of the state was performed, otherwise <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">FALSE</code>.</li>
 </ul>
-<p>The methods <code>SwitchOn()</code> and <code>SwitchOff()</code> are designed to be used inside automatic logic, where change to exact value has to be performed, while <code>Toggle()</code> is designed to be used mostly in connection with manual control.</p>
-<p>Example of using <code>SwitchOn()</code> method with its return value.</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.SwitchOn() THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="15">The methods <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="15">SwitchOn()</code> and <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="15">SwitchOff()</code> are designed to be used inside automatic logic, where change to exact value has to be performed, while <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="15">Toggle()</code> is designed to be used mostly in connection with manual control.</p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="17">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="17">SwitchOn()</code> method with its return value.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="18">IF _myToggleTask.SwitchOn() THEN
     ; // do something on rising edge
 END_IF;
 </code></pre>
-<p>Example of using <code>SwitchOff()</code> method with its return value.</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.SwitchOff()THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="20">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="20">SwitchOff()</code> method with its return value.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="21">IF _myToggleTask.SwitchOff()THEN
     ; // do something on falling edge
 END_IF;
 </code></pre>
-<p>Example of using <code>Toggle()</code> method with its return value.</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.Toggle()THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="23">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="23">Toggle()</code> method with its return value.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="24">IF _myToggleTask.Toggle()THEN
     ; // do something on state change
 END_IF;
 </code></pre>
-<p>To check the state of the task there are two methods:</p>
-<ul>
-<li><code>IsSwitchOn()</code> - returns <code>TRUE</code> if the state of the task is <code>TRUE</code>.</li>
-<li><code>IsSwitchOff()</code> - returns <code>TRUE</code> if the state of the task is <code>FALSE</code>.</li>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="26">To check the state of the task there are two methods:</p>
+<ul sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27">
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27">IsSwitchOn()</code> - returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27">TRUE</code> if the state of the task is <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="28"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="28">IsSwitchOff()</code> - returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="28">TRUE</code> if the state of the task is <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="28">FALSE</code>.</li>
 </ul>
-<p>Example of using <code>IsSwitchOn()</code> method:</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.IsSwitchedOn() THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="30">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="30">IsSwitchOn()</code> method:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="31">IF _myToggleTask.IsSwitchedOn() THEN
     ; // do something 
 END_IF;
 </code></pre>
-<p>Example of using <code>IsSwitchOff()</code> method:</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.IsSwitchedOff() THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="33">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="33">IsSwitchOff()</code> method:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="34">IF _myToggleTask.IsSwitchedOff() THEN
     ; // do something 
 END_IF;
 </code></pre>
-<p>Moreover, there are five more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
-<p>To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the <code>AxoToggleTask</code> needs to be created. The required method with <code>PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="36">Moreover, there are five more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="38">To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="38">AxoToggleTask</code> needs to be created. The required method with <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="38">PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
 These methods are:</p>
-<ul>
-<li><code>OnSwitchedOn()</code> - executes once when the task changes its state from <code>FALSE</code> to <code>TRUE</code>.</li>
-<li><code>OnSwitchedOff()</code> - executes once when the task changes its state from <code>TRUE</code> to <code>FALSE</code>.</li>
-<li><code>OnStateChanged()</code> - executes once when the task changes its state.</li>
-<li><code>SwitchedOn()</code> - executes repeatedly while the task is in <code>TRUE</code> state.</li>
-<li><code>SwitchedOff()</code> - executes repeatedly while the task is in <code>FALSE</code> state.</li>
+<ul sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40">
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40">OnSwitchedOn()</code> - executes once when the task changes its state from <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40">FALSE</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="41"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="41">OnSwitchedOff()</code> - executes once when the task changes its state from <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="41">TRUE</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="41">FALSE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="42"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="42">OnStateChanged()</code> - executes once when the task changes its state.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="43"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="43">SwitchedOn()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="43">TRUE</code> state.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="44"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="44">SwitchedOff()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="44">FALSE</code> state.</li>
 </ul>
-<p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyToogleTaskExample Extends AxoToggleTask
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="46">Example of implementing &quot;event-like&quot; methods:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="48">CLASS MyToogleTaskExample Extends AxoToggleTask
     VAR
         OnSwitchedOnCounter : ULINT;
         OnSwitchedOffCounter : ULINT;
@@ -175,24 +175,24 @@ These methods are:</p>
     END_METHOD
 END_CLASS
 </code></pre>
-<p><strong>How to visualize <code>AxoToggleTask</code></strong></p>
-<p>On the UI side there are several possibilities how to visualize the <code>AxoToggleTask</code>.
-You use the <code>AxoToggleTaskView</code> and set its Component according the placement of the instance of the <code>AxoToggleTask</code>.
-Based on the value of <code>Disable</code> the control element could be controllable:</p>
-<pre><code class="lang-csharp">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;false&quot; /&gt;
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="50"><strong sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="50">How to visualize <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="50">AxoToggleTask</code></strong></p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="52">On the UI side there are several possibilities how to visualize the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="52">AxoToggleTask</code>.
+You use the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="53">AxoToggleTaskView</code> and set its Component according the placement of the instance of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="53">AxoToggleTask</code>.
+Based on the value of <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="54">Disable</code> the control element could be controllable:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="55">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
-<p>or display only:</p>
-<pre><code class="lang-csharp">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;true&quot; /&gt;
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="56">or display only:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="57">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
-<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoToggleTask</code>.
-Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Command&quot; /&gt;
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="59">The next possibility is to use the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="59">RenderableContentControl</code> and set its Context according the placement of the instance of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="59">AxoToggleTask</code>.
+Again as before the element could be controlable when the value of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="60">Presentation</code> is <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="60">Command</code>:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="61">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Status&quot; /&gt;
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="62">or display only when the value of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="62">Presentation</code> is <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="62">Status</code></p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="63">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Status&quot; /&gt;
 </code></pre>
-<p>The displayed result should looks like:</p>
-<p><img src="../../images/AxoToggleTaskExampleVisu.gif" alt="Alt text"></p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="65">The displayed result should looks like:</p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="67"><img src="../../images/AxoToggleTaskExampleVisu.gif" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="67" alt="Alt text"></p>
 </article>
           </div>
 
