@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,11 +77,11 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axotask">AxoTask</h1>
+<h1 id="axotask" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="1">AxoTask</h1>
 
-<p>AxoTask provides basic task execution. AxoTask needs to be initialized to set the proper AxoContext.</p>
-<p><strong>AxoTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="3">AxoTask provides basic task execution. AxoTask needs to be initialized to set the proper AxoContext.</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="5"><strong sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="5">AxoTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="7">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
@@ -96,23 +96,23 @@
 
 END_CLASS  
 </code></pre>
-<p>There are two key methods for managing the AxoTask:</p>
-<ul>
-<li><code>Invoke()</code> fires the execution of the AxoTask (can be called fire&amp;forget or cyclically)</li>
-<li><code>Execute()</code> method must be called cyclically. The method returns <code>TRUE</code> when the AxoTask is required to run until enters <code>Done</code> state or terminates in error.</li>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="9">There are two key methods for managing the AxoTask:</p>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="11">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="11"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="11">Invoke()</code> fires the execution of the AxoTask (can be called fire&amp;forget or cyclically)</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="12"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="12">Execute()</code> method must be called cyclically. The method returns <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="12">TRUE</code> when the AxoTask is required to run until enters <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="12">Done</code> state or terminates in error.</li>
 </ul>
-<p>For termination of the execution of the AxoTask there are following methods:</p>
-<ul>
-<li><code>DoneWhen(Done_Condition)</code> - terminates the execution of the AxoTask and enters the <code>Done</code> state when the <code>Done_Condition</code> is <code>TRUE</code>.</li>
-<li><code>ThrowWhen(Error_Condition)</code> - terminates the execution of the AxoTask and enters the <code>Error</code> state when the <code>Error_Condition</code> is <code>TRUE</code>.</li>
-<li><code>Abort()</code> - terminates the execution of the AxoTask and enters the <code>Ready</code> state if the AxoTask is in the <code>Busy</code> state, otherwise does nothing.</li>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="14">For termination of the execution of the AxoTask there are following methods:</p>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">DoneWhen(Done_Condition)</code> - terminates the execution of the AxoTask and enters the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">Done</code> state when the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">Done_Condition</code> is <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16">ThrowWhen(Error_Condition)</code> - terminates the execution of the AxoTask and enters the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16">Error</code> state when the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16">Error_Condition</code> is <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="17"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="17">Abort()</code> - terminates the execution of the AxoTask and enters the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="17">Ready</code> state if the AxoTask is in the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="17">Busy</code> state, otherwise does nothing.</li>
 </ul>
-<p>To reset the AxoTask from any state in any moment there is following method:</p>
-<ul>
-<li><code>Restore()</code> acts as reset of the AxoTask (sets the state into <code>Ready</code> state from any state of the AxoTask).</li>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="19">To reset the AxoTask from any state in any moment there is following method:</p>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="20">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="20"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="20">Restore()</code> acts as reset of the AxoTask (sets the state into <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="20">Ready</code> state from any state of the AxoTask).</li>
 </ul>
-<p>Moreover, there are seven more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
-<pre><code class="lang-mermaid">flowchart TD
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="22">Moreover, there are seven more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
+<pre><code class="lang-mermaid" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="24">flowchart TD
     classDef states fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
     classDef actions fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
     classDef events fill:#80FF00,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
@@ -174,8 +174,8 @@ END_CLASS
         a6--&gt;s1
     end
 </code></pre>
-<p>Example of using AxoTask:</p>
-<pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="88">Example of using AxoTask:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="90">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
@@ -201,56 +201,56 @@ END_CLASS
     END_METHOD
 END_CLASS  
 </code></pre>
-<p>The AxoTask executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and it does not need cyclical calling.</p>
-<pre><code class="lang-smalltalk">_myTask.Invoke();
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="92">The AxoTask executes upon the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="92">Invoke</code> method call. <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="92">Invoke</code> fires the execution of <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="92">Execute</code> logic upon the first call, and it does not need cyclical calling.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="94">_myTask.Invoke();
 </code></pre>
-<p><code>Invoke()</code> method returns IAxoTaskState with the following members:</p>
-<ul>
-<li><code>IsBusy</code> indicates the execution started and is running.</li>
-<li><code>IsDone</code> indicates the execution completed with success.</li>
-<li><code>HasError</code> indicates the execution terminated with a failure.</li>
-<li><code>IsAborted</code> indicates that the execution of the AxoTask has been aborted. It should continue by calling the method <code>Resume()</code>.</li>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="96"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="96">Invoke()</code> method returns IAxoTaskState with the following members:</p>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="98">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="98"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="98">IsBusy</code> indicates the execution started and is running.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="99"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="99">IsDone</code> indicates the execution completed with success.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="100"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="100">HasError</code> indicates the execution terminated with a failure.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="101"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="101">IsAborted</code> indicates that the execution of the AxoTask has been aborted. It should continue by calling the method <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="101">Resume()</code>.</li>
 </ul>
-<p>Examples of using:
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="103">Examples of using:
 Invoking the AxoTask and waiting for its completion at the same place.</p>
-<pre><code class="lang-smalltalk">IF _myTask.Invoke().IsDone() THEN
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="105">IF _myTask.Invoke().IsDone() THEN
     ; //Do something
 END_IF;
 </code></pre>
-<p>Invoking the AxoTask and waiting for its completion at the different places.</p>
-<pre><code class="lang-smalltalk">_myTask.Invoke();
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="106">Invoking the AxoTask and waiting for its completion at the different places.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="107">_myTask.Invoke();
 
 IF _myTask.IsDone() THEN
     ; //Do something
 END_IF;
 </code></pre>
-<p>Checking if the AxoTask is executing.</p>
-<pre><code class="lang-smalltalk"> IF _myTask.Invoke().IsBusy() THEN
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="108">Checking if the AxoTask is executing.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="109"> IF _myTask.Invoke().IsBusy() THEN
     ; //Do something
 END_IF;
 </code></pre>
-<p>Check for the AxoTask's error state.</p>
-<pre><code class="lang-smalltalk">IF _myTask.Invoke().HasError() THEN
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="110">Check for the AxoTask's error state.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="111">IF _myTask.Invoke().HasError() THEN
     ; //Do something
 END_IF;
 </code></pre>
-<p>The AxoTask can be started only from the <code>Ready</code> state by calling the <code>Invoke()</code> method in the same Context cycle as the <code>Execute()</code> method is called, regardless the order of the methods calls. After AxoTask completion, the state of the AxoTask will remain in Done, unless:</p>
-<p>1.) AxoTask's <code>Restore</code> method is called (AxoTask changes it's state to <code>Ready</code> state).</p>
-<p>2.) <code>Invoke</code> method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the <code>Kicking</code> state.</p>
-<p>The AxoTask may finish also in an <code>Error</code> state. In that case, the only possibility to get out of <code>Error</code> state is by calling the <code>Restore()</code> method.</p>
-<p>To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the AxoTask needs to be created. The required method with <code>PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="113">The AxoTask can be started only from the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="113">Ready</code> state by calling the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="113">Invoke()</code> method in the same Context cycle as the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="113">Execute()</code> method is called, regardless the order of the methods calls. After AxoTask completion, the state of the AxoTask will remain in Done, unless:</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="115">1.) AxoTask's <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="115">Restore</code> method is called (AxoTask changes it's state to <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="115">Ready</code> state).</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="117">2.) <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="117">Invoke</code> method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="117">Kicking</code> state.</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="120">The AxoTask may finish also in an <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="120">Error</code> state. In that case, the only possibility to get out of <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="120">Error</code> state is by calling the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="120">Restore()</code> method.</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="122">To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the AxoTask needs to be created. The required method with <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="122">PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
 These methods are:</p>
-<ul>
-<li><code>OnAbort()</code> - executes once when the task is aborted.</li>
-<li><code>OnResume()</code> - executes once when the task is resumed.</li>
-<li><code>OnDone()</code> - executes once when the task reaches the <code>Done</code> state.</li>
-<li><code>OnError()</code> - executes once when the task reaches the <code>Error</code> state.</li>
-<li><code>OnRestore()</code> - executes once when the task is restored.</li>
-<li><code>OnStart()</code> - executes once when the task starts (at the moment of transition from the <code>Kicking</code> state into the <code>Busy</code> state).</li>
-<li><code>WhileError()</code> - executes repeatedly while the task is in <code>Error</code> state (and <code>Execute()</code> method is called).</li>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="124">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="124"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="124">OnAbort()</code> - executes once when the task is aborted.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="125"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="125">OnResume()</code> - executes once when the task is resumed.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="126"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="126">OnDone()</code> - executes once when the task reaches the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="126">Done</code> state.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="127"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="127">OnError()</code> - executes once when the task reaches the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="127">Error</code> state.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="128"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="128">OnRestore()</code> - executes once when the task is restored.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="129"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="129">OnStart()</code> - executes once when the task starts (at the moment of transition from the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="129">Kicking</code> state into the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="129">Busy</code> state).</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="130"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="130">WhileError()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="130">Error</code> state (and <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="130">Execute()</code> method is called).</li>
 </ul>
-<p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="132">Example of implementing &quot;event-like&quot; methods:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="133">CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
     VAR
         OnAbortCounter : ULINT;
         OnResumeCounter : ULINT;
@@ -289,24 +289,24 @@ These methods are:</p>
     END_METHOD           
 END_CLASS
 </code></pre>
-<p><strong>How to visualize <code>AxoTask</code></strong></p>
-<p>On the UI side there are several possibilities how to visualize the <code>AxoTask</code>.
-You use the <code>AxoTaskView</code> and set its Component according the placement of the instance of the <code>AxoTask</code>.
-Based on the value of <code>Disable</code> the control element could be controllable:</p>
-<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;false&quot; /&gt;
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="135"><strong sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="135">How to visualize <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="135">AxoTask</code></strong></p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="137">On the UI side there are several possibilities how to visualize the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="137">AxoTask</code>.
+You use the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="138">AxoTaskView</code> and set its Component according the placement of the instance of the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="138">AxoTask</code>.
+Based on the value of <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="139">Disable</code> the control element could be controllable:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="140">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
-<p>or display only:</p>
-<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;true&quot; /&gt;
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="141">or display only:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="142">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
-<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoTask</code>.
-Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="144">The next possibility is to use the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="144">RenderableContentControl</code> and set its Context according the placement of the instance of the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="144">AxoTask</code>.
+Again as before the element could be controlable when the value of the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="145">Presentation</code> is <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="145">Command</code>:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="146">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Status&quot;/&gt;
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="147">or display only when the value of the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="147">Presentation</code> is <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="147">Status</code></p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="148">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Status&quot;/&gt;
 </code></pre>
-<p>The displayed result should looks like:</p>
-<p><img src="../../images/AxoTaskExampleVisu.gif" alt="Alt text"></p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="150">The displayed result should looks like:</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="152"><img src="../../images/AxoTaskExampleVisu.gif" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="152" alt="Alt text"></p>
 </article>
           </div>
 

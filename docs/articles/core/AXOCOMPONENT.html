@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,23 +77,23 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axocomponent">AxoComponent</h1>
+<h1 id="axocomponent" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="1">AxoComponent</h1>
 
-<p><code>AxoComponent</code> is an abstract class extending the AxoObject, and it is the base building block for the &quot;hardware-related devices&quot; like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, &quot;virtual devices&quot; like counter, database, etc. <code>AxoComponent</code> is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the <code>AxoComponent</code> is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory.</p>
-<p><code>Restore()</code> - inside this method, the logic for resetting the AxoComponent or restoring it from any state to its initial state should be placed.</p>
-<p><code>ManualControl()</code> - inside this method, the logic for manual operations with the component should be placed. To be able to control the <code>AxoComponent</code> instance manually, the method <code>ActivateManualControl()</code> of this instance needs to be called cyclically.</p>
-<p>The base class contains two additional method to deal with the manual control of the <code>AxoComponent</code>.
-<code>ActivateManualControl()</code> - when this method is called cyclically, the <code>AxoComponent</code> changes its behavior to manually controllable and ensure the call of the <code>ManualControl()</code> method in the derived class.</p>
-<p><code>IsManuallyControllable()</code> -returns <code>TRUE</code> when the <code>AxoComponent</code> is manually controllable.</p>
-<p><strong>Layout attributes <code>ComponentHeader</code> and <code>ComponentDetails</code></strong></p>
-<p>The visual view of the extended <code>AxoComponent</code> on the UI side could be done both ways. Manually with complete control over the design or by using the auto-rendering mechanism of the <code>RenderableContentControl</code> (TODO add a link to docu of the RenderableContentControl) element, which is, in most cases, more than perfect.
-To take full advantage of the auto-rendering mechanism, the base class has implemented the additional layout attributes <code>ComponentHeader</code> and <code>ComponentDetails(TabName)</code>. The auto-rendered view is divided into two parts: the fAxoed one and the expandable one.
-All <code>AxoComponent</code> members with the <code>ComponentHeader</code> layout attribute defined will be displayed in the fixed part.
-All members with the <code>ComponentDetails(TabName)</code> layout attribute defined will be displayed in the expandable part inside the <code>TabControl</code> with &quot;TabName&quot;.
-All members are added in the order in which they are defined, taking into account their layout attributes like <code>Container(Layout.Wrap)</code> or <code>Container(Layout.Stack)</code>.</p>
-<p><strong>How to implement <code>AxoComponent</code></strong></p>
-<p>Example of the implementation very simple <code>AxoComponent</code> with members placed only inside the Header.</p>
-<pre><code class="lang-smalltalk">{#ix-attr:[Container(Layout.Stack)]}
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="3"><code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="3">AxoComponent</code> is an abstract class extending the AxoObject, and it is the base building block for the &quot;hardware-related devices&quot; like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, &quot;virtual devices&quot; like counter, database, etc. <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="3">AxoComponent</code> is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="3">AxoComponent</code> is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="5"><code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="5">Restore()</code> - inside this method, the logic for resetting the AxoComponent or restoring it from any state to its initial state should be placed.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="7"><code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="7">ManualControl()</code> - inside this method, the logic for manual operations with the component should be placed. To be able to control the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="7">AxoComponent</code> instance manually, the method <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="7">ActivateManualControl()</code> of this instance needs to be called cyclically.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="9">The base class contains two additional method to deal with the manual control of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="9">AxoComponent</code>.
+<code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="10">ActivateManualControl()</code> - when this method is called cyclically, the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="10">AxoComponent</code> changes its behavior to manually controllable and ensure the call of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="10">ManualControl()</code> method in the derived class.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="12"><code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="12">IsManuallyControllable()</code> -returns <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="12">TRUE</code> when the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="12">AxoComponent</code> is manually controllable.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="14"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="14">Layout attributes <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="14">ComponentHeader</code> and <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="14">ComponentDetails</code></strong></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="16">The visual view of the extended <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="16">AxoComponent</code> on the UI side could be done both ways. Manually with complete control over the design or by using the auto-rendering mechanism of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="16">RenderableContentControl</code> (TODO add a link to docu of the RenderableContentControl) element, which is, in most cases, more than perfect.
+To take full advantage of the auto-rendering mechanism, the base class has implemented the additional layout attributes <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="17">ComponentHeader</code> and <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="17">ComponentDetails(TabName)</code>. The auto-rendered view is divided into two parts: the fAxoed one and the expandable one.
+All <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="18">AxoComponent</code> members with the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="18">ComponentHeader</code> layout attribute defined will be displayed in the fixed part.
+All members with the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="19">ComponentDetails(TabName)</code> layout attribute defined will be displayed in the expandable part inside the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="19">TabControl</code> with &quot;TabName&quot;.
+All members are added in the order in which they are defined, taking into account their layout attributes like <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="20">Container(Layout.Wrap)</code> or <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="20">Container(Layout.Stack)</code>.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="22"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="22">How to implement <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="22">AxoComponent</code></strong></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="24">Example of the implementation very simple <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="24">AxoComponent</code> with members placed only inside the Header.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="25">{#ix-attr:[Container(Layout.Stack)]}
 {#ix-set:AttributeName = &quot;AxoComponent with header only example&quot;}
 CLASS PUBLIC AxoComponentHeaderOnlyExample EXTENDS AXOpen.Core.AxoComponent 
     METHOD PROTECTED OVERRIDE Restore: IAxoTask 
@@ -144,9 +144,9 @@ CLASS PUBLIC AxoComponentHeaderOnlyExample EXTENDS AXOpen.Core.AxoComponent
     END_VAR
 END_CLASS
 </code></pre>
-<p><strong>How to use <code>AxoComponent</code></strong></p>
-<p>The instance of the extended <code>AxoComponent</code> must be defined inside the <code>AxoContext</code>.</p>
-<pre><code class="lang-smalltalk">CLASS ComponentHeaderOnlyExampleContext EXTENDS AxoContext
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="27"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="27">How to use <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="27">AxoComponent</code></strong></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="29">The instance of the extended <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="29">AxoComponent</code> must be defined inside the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="29">AxoContext</code>.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="30">CLASS ComponentHeaderOnlyExampleContext EXTENDS AxoContext
      VAR PUBLIC
          {#ix-set:AttributeName = &quot;Very simple component example with header only defined&quot;}
          MyComponentWithHeaderOnly : AxoComponentHeaderOnlyExample;  
@@ -175,20 +175,20 @@ END_CLASS
      END_METHOD
  END_CLASS
 </code></pre>
-<p>Inside the <code>Main()</code> method of the related <code>AxoContext</code> following rules must be applied. The <code>Initialize()</code> method of the extended instance of the <code>AxoComponent</code> must be called first.
-The <code>Run()</code> method with the respective input and output variables must be called afterwards.</p>
-<p><strong>How to visualize <code>AxoComponent</code></strong></p>
-<p>On the UI side use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoComponent</code>.</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl 
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">Inside the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">Main()</code> method of the related <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">AxoContext</code> following rules must be applied. The <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">Initialize()</code> method of the extended instance of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">AxoComponent</code> must be called first.
+The <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="33">Run()</code> method with the respective input and output variables must be called afterwards.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="35"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="35">How to visualize <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="35">AxoComponent</code></strong></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="37">On the UI side use the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="37">RenderableContentControl</code> and set its Context according the placement of the instance of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="37">AxoComponent</code>.</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="38">&lt;RenderableContentControl 
     Context=&quot;@Entry.Plc.myComponentHeaderOnlyExample.MyComponentWithHeaderOnly&quot;
     Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>The rendered result should then looks as follows:</p>
-<p><img src="../../images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif" alt="Alt text"></p>
-<p>In case of more complex <code>AxoComponent</code> the most important members should be placed in the fixed part (Header) and the rest of the members should be placed inside the expandable part (Details). The members inside the expandable part should be organize inside the tabs.</p>
-<p><strong>More complex <code>AxoComponent</code></strong>
-Example of the implementation more complex <code>AxoComponent</code> with members placed also in several tabs inside the expandable part (Details).</p>
-<pre><code class="lang-smalltalk">{#ix-attr:[Container(Layout.Stack)]}
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="40">The rendered result should then looks as follows:</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="42"><img src="../../images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="42" alt="Alt text"></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="44">In case of more complex <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="44">AxoComponent</code> the most important members should be placed in the fixed part (Header) and the rest of the members should be placed inside the expandable part (Details). The members inside the expandable part should be organize inside the tabs.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="46"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="46">More complex <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="46">AxoComponent</code></strong>
+Example of the implementation more complex <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="47">AxoComponent</code> with members placed also in several tabs inside the expandable part (Details).</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="49">{#ix-attr:[Container(Layout.Stack)]}
 {#ix-set:AttributeName = &quot;AxoComponent example name&quot;}
 CLASS PUBLIC AxoComponentExample EXTENDS AXOpen.Core.AxoComponent  
     METHOD PROTECTED OVERRIDE Restore: IAxoTask 
@@ -290,8 +290,8 @@ CLASS PUBLIC AxoComponentExample EXTENDS AXOpen.Core.AxoComponent
     END_VAR
 END_CLASS
 </code></pre>
-<p>For the complex types of the <code>AxoComponent</code> it is also recomended to organize partial groups of the members into the classes as it is in this example.</p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC Header_ComponentExample
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="51">For the complex types of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="51">AxoComponent</code> it is also recomended to organize partial groups of the members into the classes as it is in this example.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="53">CLASS PUBLIC Header_ComponentExample
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Start&quot;}
         Start : AxoTask;
@@ -365,8 +365,8 @@ CLASS PUBLIC Help_ComponentExample
     END_VAR
 END_CLASS
 </code></pre>
-<p>Instantiate and call the <code>AxoComponent</code> instance.</p>
-<pre><code class="lang-smalltalk">CLASS ComponentExampleContext EXTENDS AxoContext
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="55">Instantiate and call the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="55">AxoComponent</code> instance.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="57">CLASS ComponentExampleContext EXTENDS AxoContext
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Component example name&quot;}
         MyComponent : AxoComponentExample;  
@@ -395,13 +395,13 @@ END_CLASS
     END_METHOD
 END_CLASS
 </code></pre>
-<p>UI side of the <code>AxoComponent</code>.</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl 
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="59">UI side of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="59">AxoComponent</code>.</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="60">&lt;RenderableContentControl 
     Context=&quot;@Entry.Plc.myComponentExample.MyComponent&quot; 
     Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>and the rendered result:</p>
-<p><img src="../../images/ComplexComponentExample.gif" alt="Alt text"></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="62">and the rendered result:</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="64"><img src="../../images/ComplexComponentExample.gif" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="64" alt="Alt text"></p>
 </article>
           </div>
 

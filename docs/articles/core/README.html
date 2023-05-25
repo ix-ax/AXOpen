@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,46 +77,46 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axopencore"><strong>AXOpen.Core</strong></h1>
+<h1 id="axopencore" sourcefile="articles/core/README.md" sourcestartlinenumber="1"><strong sourcefile="articles/core/README.md" sourcestartlinenumber="1">AXOpen.Core</strong></h1>
 
-<p><strong>AXOpen.Core</strong> provides basic blocks for building AXOpen applications.</p>
-<h1 id="basic-concepts">Basic concepts</h1>
-<h1 id="axocontext">AxoContext</h1>
-<p>AxoContext encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any <strong>direct inter-context access to members must be avoided</strong>.</p>
-<div class="NOTE">
+<p sourcefile="articles/core/README.md" sourcestartlinenumber="3"><strong sourcefile="articles/core/README.md" sourcestartlinenumber="3">AXOpen.Core</strong> provides basic blocks for building AXOpen applications.</p>
+<h1 id="basic-concepts" sourcefile="articles/core/README.md" sourcestartlinenumber="5">Basic concepts</h1>
+<h1 id="axocontext" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="1">AxoContext</h1>
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="3">AxoContext encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any <strong sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="3">direct inter-context access to members must be avoided</strong>.</p>
+<div class="NOTE" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="6">
 <h5>Note</h5>
-<p>Each AxoContext must belong to a single PLC task.Multiple AxoContexts can be however running on the same task.</p>
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="7">Each AxoContext must belong to a single PLC task.Multiple AxoContexts can be however running on the same task.</p>
 </div>
-<pre><code class="lang-mermaid">  classDiagram
+<pre><code class="lang-mermaid" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="10">  classDiagram
     class Context{
         +Main()*
         +Run()        
     }     
 </code></pre>
-<p>In its basic implementation AxoContext has relatively simple interface. <code>Main</code> is the method where we place all calls of our sub-routines. <strong>In other words the <code>Run</code> is the root of the call tree of our program.</strong></p>
-<p><code>Run</code> method runs the AxoContext. It must be called cyclically within a program unit that is attached to a cyclic <code>task</code>.</p>
-<h2 id="why-do-we-need-axocontext">Why do we need AxoContext</h2>
-<p><code>AxoContext</code> provides counters, object identification and other information about the execution of the program. These information is then used by the objects contained at different levels of the AxoContext.</p>
-<h2 id="how-axocontext-works">How AxoContext works</h2>
-<p>When you call <code>Run</code> method on an instance of a AxoContext, it will ensure opening AxoContext, running <code>Main</code> method (root of all your program calls) and AxoContext closing.</p>
-<pre><code class="lang-mermaid">  flowchart LR
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="18">In its basic implementation AxoContext has relatively simple interface. <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="18">Main</code> is the method where we place all calls of our sub-routines. <strong sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="18">In other words the <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="18">Run</code> is the root of the call tree of our program.</strong></p>
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="20"><code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="20">Run</code> method runs the AxoContext. It must be called cyclically within a program unit that is attached to a cyclic <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="20">task</code>.</p>
+<h2 id="why-do-we-need-axocontext" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="22">Why do we need AxoContext</h2>
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="24"><code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="24">AxoContext</code> provides counters, object identification and other information about the execution of the program. These information is then used by the objects contained at different levels of the AxoContext.</p>
+<h2 id="how-axocontext-works" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="26">How AxoContext works</h2>
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="28">When you call <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="28">Run</code> method on an instance of a AxoContext, it will ensure opening AxoContext, running <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="28">Main</code> method (root of all your program calls) and AxoContext closing.</p>
+<pre><code class="lang-mermaid" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="31">  flowchart LR
     classDef run fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
     classDef main fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                                                                           
     id1(Open):::run--&gt;id2(#Main*):::main--&gt;id3(Close):::run--&gt;id1
 </code></pre>
-<h2 id="how-to-use-axocontext">How to use AxoContext</h2>
-<p>Base class for the AxoContext is <code>AXOpen.Core.AxoContext</code>. The entry point of call execution of the AxoContext is <code>Main</code> method. Notice that the <code>AxoContext</code> class is abstract and cannot be instantiated if not extended. <code>Main</code> method must be overridden in derived class notice the use of override keyword and also that the method is <code>protected</code> which means the it is visible only from within the <code>AxoContext</code> and derived classes.</p>
-<p><strong>How to extend AxoContext class</strong></p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC AxoContextExample EXTENDS  AXOpen.Core.AxoContext
+<h2 id="how-to-use-axocontext" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="38">How to use AxoContext</h2>
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">Base class for the AxoContext is <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">AXOpen.Core.AxoContext</code>. The entry point of call execution of the AxoContext is <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">Main</code> method. Notice that the <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">AxoContext</code> class is abstract and cannot be instantiated if not extended. <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">Main</code> method must be overridden in derived class notice the use of override keyword and also that the method is <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">protected</code> which means the it is visible only from within the <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">AxoContext</code> and derived classes.</p>
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="43"><strong sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="43">How to extend AxoContext class</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="45">CLASS PUBLIC AxoContextExample EXTENDS  AXOpen.Core.AxoContext
     METHOD PROTECTED OVERRIDE Main 
         // Here goes all your logic for given AxoContext.
         ;
     END_METHOD
 END_CLASS
 </code></pre>
-<p>Cyclical call of the AxoContext logic (<code>Main</code> method) is ensured when AxoContext <code>Run</code> method is called. <code>Run</code> method is public therefore accessible and visible to any part of the program that whishes to call it.</p>
-<p><strong>How to start AxoContext's execution</strong></p>
-<pre><code class="lang-smalltalk">PROGRAM ProgramExample
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="48">Cyclical call of the AxoContext logic (<code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="48">Main</code> method) is ensured when AxoContext <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="48">Run</code> method is called. <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="48">Run</code> method is public therefore accessible and visible to any part of the program that whishes to call it.</p>
+<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="50"><strong sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="50">How to start AxoContext's execution</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="52">PROGRAM ProgramExample
     VAR
         MyContext : AxoContextExample;
     END_VAR    
@@ -124,16 +124,16 @@ END_CLASS
     MyContext.Run();
 
 END_PROGRAM
-</code></pre><h1 id="axoobject">AxoObject</h1>
-<p>AxoObject is the base class for any other classes of AXOpen.Core. It provides access to the parent AxoObject and the AxoContext in which it was initialized.</p>
-<pre><code class="lang-mermaid">  classDiagram
+</code></pre><h1 id="axoobject" sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="1">AxoObject</h1>
+<p sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="3">AxoObject is the base class for any other classes of AXOpen.Core. It provides access to the parent AxoObject and the AxoContext in which it was initialized.</p>
+<pre><code class="lang-mermaid" sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="6">  classDiagram
     class Object{
         +Initialize(IAxoContext context)
         +Initialize(IAxoObject parent)        
     }     
 </code></pre>
-<p><strong>AxoObject initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.AxoContext
+<p sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="14"><strong sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="14">AxoObject initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="15">CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.AxoContext
     VAR
         _myObject : AxoObject;
     END_VAR
@@ -142,8 +142,8 @@ END_PROGRAM
     END_METHOD
 END_CLASS
 </code></pre>
-<p><strong>AxoObject initialization within another AxoObject</strong></p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC MyParentObject  EXTENDS AxoContext
+<p sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="17"><strong sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="17">AxoObject initialization within another AxoObject</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="18">CLASS PUBLIC MyParentObject  EXTENDS AxoContext
     VAR
         _myChildObject  : AxoObject;
     END_VAR
@@ -151,10 +151,10 @@ END_CLASS
         _myChildObject.Initialize(THIS);            
     END_METHOD
 END_CLASS
-</code></pre><h1 id="axotask">AxoTask</h1>
-<p>AxoTask provides basic task execution. AxoTask needs to be initialized to set the proper AxoContext.</p>
-<p><strong>AxoTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+</code></pre><h1 id="axotask" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="1">AxoTask</h1>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="3">AxoTask provides basic task execution. AxoTask needs to be initialized to set the proper AxoContext.</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="5"><strong sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="5">AxoTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="7">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
@@ -169,23 +169,23 @@ END_CLASS
 
 END_CLASS  
 </code></pre>
-<p>There are two key methods for managing the AxoTask:</p>
-<ul>
-<li><code>Invoke()</code> fires the execution of the AxoTask (can be called fire&amp;forget or cyclically)</li>
-<li><code>Execute()</code> method must be called cyclically. The method returns <code>TRUE</code> when the AxoTask is required to run until enters <code>Done</code> state or terminates in error.</li>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="9">There are two key methods for managing the AxoTask:</p>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="11">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="11"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="11">Invoke()</code> fires the execution of the AxoTask (can be called fire&amp;forget or cyclically)</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="12"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="12">Execute()</code> method must be called cyclically. The method returns <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="12">TRUE</code> when the AxoTask is required to run until enters <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="12">Done</code> state or terminates in error.</li>
 </ul>
-<p>For termination of the execution of the AxoTask there are following methods:</p>
-<ul>
-<li><code>DoneWhen(Done_Condition)</code> - terminates the execution of the AxoTask and enters the <code>Done</code> state when the <code>Done_Condition</code> is <code>TRUE</code>.</li>
-<li><code>ThrowWhen(Error_Condition)</code> - terminates the execution of the AxoTask and enters the <code>Error</code> state when the <code>Error_Condition</code> is <code>TRUE</code>.</li>
-<li><code>Abort()</code> - terminates the execution of the AxoTask and enters the <code>Ready</code> state if the AxoTask is in the <code>Busy</code> state, otherwise does nothing.</li>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="14">For termination of the execution of the AxoTask there are following methods:</p>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">DoneWhen(Done_Condition)</code> - terminates the execution of the AxoTask and enters the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">Done</code> state when the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">Done_Condition</code> is <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="15">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16">ThrowWhen(Error_Condition)</code> - terminates the execution of the AxoTask and enters the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16">Error</code> state when the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16">Error_Condition</code> is <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="16">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="17"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="17">Abort()</code> - terminates the execution of the AxoTask and enters the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="17">Ready</code> state if the AxoTask is in the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="17">Busy</code> state, otherwise does nothing.</li>
 </ul>
-<p>To reset the AxoTask from any state in any moment there is following method:</p>
-<ul>
-<li><code>Restore()</code> acts as reset of the AxoTask (sets the state into <code>Ready</code> state from any state of the AxoTask).</li>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="19">To reset the AxoTask from any state in any moment there is following method:</p>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="20">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="20"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="20">Restore()</code> acts as reset of the AxoTask (sets the state into <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="20">Ready</code> state from any state of the AxoTask).</li>
 </ul>
-<p>Moreover, there are seven more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
-<pre><code class="lang-mermaid">flowchart TD
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="22">Moreover, there are seven more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
+<pre><code class="lang-mermaid" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="24">flowchart TD
     classDef states fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
     classDef actions fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
     classDef events fill:#80FF00,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
@@ -247,8 +247,8 @@ END_CLASS
         a6--&gt;s1
     end
 </code></pre>
-<p>Example of using AxoTask:</p>
-<pre><code class="lang-smalltalk">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="88">Example of using AxoTask:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="90">CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Task name#&gt;&quot;}
         _myTask : AxoTask;
@@ -274,56 +274,56 @@ END_CLASS
     END_METHOD
 END_CLASS  
 </code></pre>
-<p>The AxoTask executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and it does not need cyclical calling.</p>
-<pre><code class="lang-smalltalk">_myTask.Invoke();
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="92">The AxoTask executes upon the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="92">Invoke</code> method call. <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="92">Invoke</code> fires the execution of <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="92">Execute</code> logic upon the first call, and it does not need cyclical calling.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="94">_myTask.Invoke();
 </code></pre>
-<p><code>Invoke()</code> method returns IAxoTaskState with the following members:</p>
-<ul>
-<li><code>IsBusy</code> indicates the execution started and is running.</li>
-<li><code>IsDone</code> indicates the execution completed with success.</li>
-<li><code>HasError</code> indicates the execution terminated with a failure.</li>
-<li><code>IsAborted</code> indicates that the execution of the AxoTask has been aborted. It should continue by calling the method <code>Resume()</code>.</li>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="96"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="96">Invoke()</code> method returns IAxoTaskState with the following members:</p>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="98">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="98"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="98">IsBusy</code> indicates the execution started and is running.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="99"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="99">IsDone</code> indicates the execution completed with success.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="100"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="100">HasError</code> indicates the execution terminated with a failure.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="101"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="101">IsAborted</code> indicates that the execution of the AxoTask has been aborted. It should continue by calling the method <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="101">Resume()</code>.</li>
 </ul>
-<p>Examples of using:
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="103">Examples of using:
 Invoking the AxoTask and waiting for its completion at the same place.</p>
-<pre><code class="lang-smalltalk">IF _myTask.Invoke().IsDone() THEN
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="105">IF _myTask.Invoke().IsDone() THEN
     ; //Do something
 END_IF;
 </code></pre>
-<p>Invoking the AxoTask and waiting for its completion at the different places.</p>
-<pre><code class="lang-smalltalk">_myTask.Invoke();
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="106">Invoking the AxoTask and waiting for its completion at the different places.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="107">_myTask.Invoke();
 
 IF _myTask.IsDone() THEN
     ; //Do something
 END_IF;
 </code></pre>
-<p>Checking if the AxoTask is executing.</p>
-<pre><code class="lang-smalltalk"> IF _myTask.Invoke().IsBusy() THEN
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="108">Checking if the AxoTask is executing.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="109"> IF _myTask.Invoke().IsBusy() THEN
     ; //Do something
 END_IF;
 </code></pre>
-<p>Check for the AxoTask's error state.</p>
-<pre><code class="lang-smalltalk">IF _myTask.Invoke().HasError() THEN
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="110">Check for the AxoTask's error state.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="111">IF _myTask.Invoke().HasError() THEN
     ; //Do something
 END_IF;
 </code></pre>
-<p>The AxoTask can be started only from the <code>Ready</code> state by calling the <code>Invoke()</code> method in the same Context cycle as the <code>Execute()</code> method is called, regardless the order of the methods calls. After AxoTask completion, the state of the AxoTask will remain in Done, unless:</p>
-<p>1.) AxoTask's <code>Restore</code> method is called (AxoTask changes it's state to <code>Ready</code> state).</p>
-<p>2.) <code>Invoke</code> method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the <code>Kicking</code> state.</p>
-<p>The AxoTask may finish also in an <code>Error</code> state. In that case, the only possibility to get out of <code>Error</code> state is by calling the <code>Restore()</code> method.</p>
-<p>To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the AxoTask needs to be created. The required method with <code>PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="113">The AxoTask can be started only from the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="113">Ready</code> state by calling the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="113">Invoke()</code> method in the same Context cycle as the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="113">Execute()</code> method is called, regardless the order of the methods calls. After AxoTask completion, the state of the AxoTask will remain in Done, unless:</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="115">1.) AxoTask's <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="115">Restore</code> method is called (AxoTask changes it's state to <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="115">Ready</code> state).</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="117">2.) <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="117">Invoke</code> method is not called for two or more consecutive cycles of its context (that usually means the same as PLC cycle); successive call of Invoke will switch the task into the Ready state and immediately into the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="117">Kicking</code> state.</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="120">The AxoTask may finish also in an <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="120">Error</code> state. In that case, the only possibility to get out of <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="120">Error</code> state is by calling the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="120">Restore()</code> method.</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="122">To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the AxoTask needs to be created. The required method with <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="122">PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
 These methods are:</p>
-<ul>
-<li><code>OnAbort()</code> - executes once when the task is aborted.</li>
-<li><code>OnResume()</code> - executes once when the task is resumed.</li>
-<li><code>OnDone()</code> - executes once when the task reaches the <code>Done</code> state.</li>
-<li><code>OnError()</code> - executes once when the task reaches the <code>Error</code> state.</li>
-<li><code>OnRestore()</code> - executes once when the task is restored.</li>
-<li><code>OnStart()</code> - executes once when the task starts (at the moment of transition from the <code>Kicking</code> state into the <code>Busy</code> state).</li>
-<li><code>WhileError()</code> - executes repeatedly while the task is in <code>Error</code> state (and <code>Execute()</code> method is called).</li>
+<ul sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="124">
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="124"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="124">OnAbort()</code> - executes once when the task is aborted.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="125"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="125">OnResume()</code> - executes once when the task is resumed.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="126"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="126">OnDone()</code> - executes once when the task reaches the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="126">Done</code> state.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="127"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="127">OnError()</code> - executes once when the task reaches the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="127">Error</code> state.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="128"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="128">OnRestore()</code> - executes once when the task is restored.</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="129"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="129">OnStart()</code> - executes once when the task starts (at the moment of transition from the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="129">Kicking</code> state into the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="129">Busy</code> state).</li>
+<li sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="130"><code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="130">WhileError()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="130">Error</code> state (and <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="130">Execute()</code> method is called).</li>
 </ul>
-<p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="132">Example of implementing &quot;event-like&quot; methods:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="133">CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
     VAR
         OnAbortCounter : ULINT;
         OnResumeCounter : ULINT;
@@ -362,28 +362,28 @@ These methods are:</p>
     END_METHOD           
 END_CLASS
 </code></pre>
-<p><strong>How to visualize <code>AxoTask</code></strong></p>
-<p>On the UI side there are several possibilities how to visualize the <code>AxoTask</code>.
-You use the <code>AxoTaskView</code> and set its Component according the placement of the instance of the <code>AxoTask</code>.
-Based on the value of <code>Disable</code> the control element could be controllable:</p>
-<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;false&quot; /&gt;
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="135"><strong sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="135">How to visualize <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="135">AxoTask</code></strong></p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="137">On the UI side there are several possibilities how to visualize the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="137">AxoTask</code>.
+You use the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="138">AxoTaskView</code> and set its Component according the placement of the instance of the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="138">AxoTask</code>.
+Based on the value of <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="139">Disable</code> the control element could be controllable:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="140">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
-<p>or display only:</p>
-<pre><code class="lang-csharp">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;true&quot; /&gt;
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="141">or display only:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="142">&lt;AxoTaskView Component=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
-<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoTask</code>.
-Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="144">The next possibility is to use the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="144">RenderableContentControl</code> and set its Context according the placement of the instance of the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="144">AxoTask</code>.
+Again as before the element could be controlable when the value of the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="145">Presentation</code> is <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="145">Command</code>:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="146">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Status&quot;/&gt;
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="147">or display only when the value of the <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="147">Presentation</code> is <code sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="147">Status</code></p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="148">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoTaskDocu._myTask&quot; Presentation=&quot;Status&quot;/&gt;
 </code></pre>
-<p>The displayed result should looks like:</p>
-<p><img src="../../images/AxoTaskExampleVisu.gif" alt="Alt text"></p>
-<h1 id="axotoggletask">AxoToggleTask</h1>
-<p>AxoToggleTask provides basic switching on and off functions. AxoToggleTask needs to be initialized to set the proper AxoContext.</p>
-<p><strong>AxoToggleTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="150">The displayed result should looks like:</p>
+<p sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="152"><img src="../../images/AxoTaskExampleVisu.gif" sourcefile="articles/core/AXOTASK.md" sourcestartlinenumber="152" alt="Alt text"></p>
+<h1 id="axotoggletask" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="1">AxoToggleTask</h1>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="3">AxoToggleTask provides basic switching on and off functions. AxoToggleTask needs to be initialized to set the proper AxoContext.</p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="5"><strong sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="5">AxoToggleTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="7">CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Toggle task example#&gt;&quot;}
         {#ix-set:AttributeStateOnDesc = &quot;&lt;#SwitchedOn#&gt;&quot;}
@@ -399,55 +399,55 @@ Again as before the element could be controlable when the value of the <code>Pre
     END_METHOD
 END_CLASS  
 </code></pre>
-<p>There are three key methods for managing the AxoToggleTask:</p>
-<ul>
-<li><code>SwitchOn()</code> -ones is called and the <code>AxoToggleTask</code> is not Disabled, changes the state of the <code>AxoToggleTask</code> to <code>TRUE</code> if its previous state was <code>FALSE</code>. (can be called fire&amp;forget or cyclically). The method returns <code>TRUE</code> if the change of the state was performed, otherwise <code>FALSE</code>.</li>
-<li><code>SwitchOff()</code> -ones is called and the <code>AxoToggleTask</code> is not Disabled, changes the state of the <code>AxoToggleTask</code> to <code>FALSE</code> if its previous state was <code>TRUE</code>. (can be called fire&amp;forget or cyclically). The method returns <code>TRUE</code> if the change of the state was performed, otherwise <code>FALSE</code>.</li>
-<li><code>Toggle()</code> -ones is called and the <code>AxoToggleTask</code> is not Disabled, changes the state of the <code>AxoToggleTask</code> to <code>TRUE</code> if its previous state was <code>FALSE</code> and vice-versa . (can be called fire&amp;forget or cyclically). The method returns <code>TRUE</code> if the change of the state was performed, otherwise <code>FALSE</code>.</li>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="9">There are three key methods for managing the AxoToggleTask:</p>
+<ul sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">SwitchOn()</code> -ones is called and the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">AxoToggleTask</code> is not Disabled, changes the state of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">AxoToggleTask</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">TRUE</code> if its previous state was <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">FALSE</code>. (can be called fire&amp;forget or cyclically). The method returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">TRUE</code> if the change of the state was performed, otherwise <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="11">FALSE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">SwitchOff()</code> -ones is called and the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">AxoToggleTask</code> is not Disabled, changes the state of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">AxoToggleTask</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">FALSE</code> if its previous state was <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">TRUE</code>. (can be called fire&amp;forget or cyclically). The method returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">TRUE</code> if the change of the state was performed, otherwise <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="12">FALSE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">Toggle()</code> -ones is called and the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">AxoToggleTask</code> is not Disabled, changes the state of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">AxoToggleTask</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">TRUE</code> if its previous state was <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">FALSE</code> and vice-versa . (can be called fire&amp;forget or cyclically). The method returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">TRUE</code> if the change of the state was performed, otherwise <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="13">FALSE</code>.</li>
 </ul>
-<p>The methods <code>SwitchOn()</code> and <code>SwitchOff()</code> are designed to be used inside automatic logic, where change to exact value has to be performed, while <code>Toggle()</code> is designed to be used mostly in connection with manual control.</p>
-<p>Example of using <code>SwitchOn()</code> method with its return value.</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.SwitchOn() THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="15">The methods <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="15">SwitchOn()</code> and <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="15">SwitchOff()</code> are designed to be used inside automatic logic, where change to exact value has to be performed, while <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="15">Toggle()</code> is designed to be used mostly in connection with manual control.</p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="17">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="17">SwitchOn()</code> method with its return value.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="18">IF _myToggleTask.SwitchOn() THEN
     ; // do something on rising edge
 END_IF;
 </code></pre>
-<p>Example of using <code>SwitchOff()</code> method with its return value.</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.SwitchOff()THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="20">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="20">SwitchOff()</code> method with its return value.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="21">IF _myToggleTask.SwitchOff()THEN
     ; // do something on falling edge
 END_IF;
 </code></pre>
-<p>Example of using <code>Toggle()</code> method with its return value.</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.Toggle()THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="23">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="23">Toggle()</code> method with its return value.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="24">IF _myToggleTask.Toggle()THEN
     ; // do something on state change
 END_IF;
 </code></pre>
-<p>To check the state of the task there are two methods:</p>
-<ul>
-<li><code>IsSwitchOn()</code> - returns <code>TRUE</code> if the state of the task is <code>TRUE</code>.</li>
-<li><code>IsSwitchOff()</code> - returns <code>TRUE</code> if the state of the task is <code>FALSE</code>.</li>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="26">To check the state of the task there are two methods:</p>
+<ul sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27">
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27">IsSwitchOn()</code> - returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27">TRUE</code> if the state of the task is <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="27">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="28"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="28">IsSwitchOff()</code> - returns <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="28">TRUE</code> if the state of the task is <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="28">FALSE</code>.</li>
 </ul>
-<p>Example of using <code>IsSwitchOn()</code> method:</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.IsSwitchedOn() THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="30">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="30">IsSwitchOn()</code> method:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="31">IF _myToggleTask.IsSwitchedOn() THEN
     ; // do something 
 END_IF;
 </code></pre>
-<p>Example of using <code>IsSwitchOff()</code> method:</p>
-<pre><code class="lang-smalltalk">IF _myToggleTask.IsSwitchedOff() THEN
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="33">Example of using <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="33">IsSwitchOff()</code> method:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="34">IF _myToggleTask.IsSwitchedOff() THEN
     ; // do something 
 END_IF;
 </code></pre>
-<p>Moreover, there are five more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
-<p>To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the <code>AxoToggleTask</code> needs to be created. The required method with <code>PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="36">Moreover, there are five more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="38">To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="38">AxoToggleTask</code> needs to be created. The required method with <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="38">PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
 These methods are:</p>
-<ul>
-<li><code>OnSwitchedOn()</code> - executes once when the task changes its state from <code>FALSE</code> to <code>TRUE</code>.</li>
-<li><code>OnSwitchedOff()</code> - executes once when the task changes its state from <code>TRUE</code> to <code>FALSE</code>.</li>
-<li><code>OnStateChanged()</code> - executes once when the task changes its state.</li>
-<li><code>SwitchedOn()</code> - executes repeatedly while the task is in <code>TRUE</code> state.</li>
-<li><code>SwitchedOff()</code> - executes repeatedly while the task is in <code>FALSE</code> state.</li>
+<ul sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40">
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40">OnSwitchedOn()</code> - executes once when the task changes its state from <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40">FALSE</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="40">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="41"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="41">OnSwitchedOff()</code> - executes once when the task changes its state from <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="41">TRUE</code> to <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="41">FALSE</code>.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="42"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="42">OnStateChanged()</code> - executes once when the task changes its state.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="43"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="43">SwitchedOn()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="43">TRUE</code> state.</li>
+<li sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="44"><code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="44">SwitchedOff()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="44">FALSE</code> state.</li>
 </ul>
-<p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyToogleTaskExample Extends AxoToggleTask
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="46">Example of implementing &quot;event-like&quot; methods:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="48">CLASS MyToogleTaskExample Extends AxoToggleTask
     VAR
         OnSwitchedOnCounter : ULINT;
         OnSwitchedOffCounter : ULINT;
@@ -477,28 +477,28 @@ These methods are:</p>
     END_METHOD
 END_CLASS
 </code></pre>
-<p><strong>How to visualize <code>AxoToggleTask</code></strong></p>
-<p>On the UI side there are several possibilities how to visualize the <code>AxoToggleTask</code>.
-You use the <code>AxoToggleTaskView</code> and set its Component according the placement of the instance of the <code>AxoToggleTask</code>.
-Based on the value of <code>Disable</code> the control element could be controllable:</p>
-<pre><code class="lang-csharp">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;false&quot; /&gt;
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="50"><strong sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="50">How to visualize <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="50">AxoToggleTask</code></strong></p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="52">On the UI side there are several possibilities how to visualize the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="52">AxoToggleTask</code>.
+You use the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="53">AxoToggleTaskView</code> and set its Component according the placement of the instance of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="53">AxoToggleTask</code>.
+Based on the value of <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="54">Disable</code> the control element could be controllable:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="55">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
-<p>or display only:</p>
-<pre><code class="lang-csharp">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;true&quot; /&gt;
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="56">or display only:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="57">&lt;AxoToggleTaskView Component=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
-<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoToggleTask</code>.
-Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Command&quot; /&gt;
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="59">The next possibility is to use the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="59">RenderableContentControl</code> and set its Context according the placement of the instance of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="59">AxoToggleTask</code>.
+Again as before the element could be controlable when the value of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="60">Presentation</code> is <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="60">Command</code>:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="61">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Status&quot; /&gt;
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="62">or display only when the value of the <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="62">Presentation</code> is <code sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="62">Status</code></p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="63">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoToggleTaskDocu._myToggleTask&quot; Presentation=&quot;Status&quot; /&gt;
 </code></pre>
-<p>The displayed result should looks like:</p>
-<p><img src="../../images/AxoToggleTaskExampleVisu.gif" alt="Alt text"></p>
-<h1 id="axomomentarytask">AxoMomentaryTask</h1>
-<p>AxoMomentaryTask provides basic  momentary function. It is mainly designed for some manual operations from the UI side. AxoMomentaryTask needs to be initialized to set the proper AxoContext.</p>
-<p><strong>AxoMomentaryTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="65">The displayed result should looks like:</p>
+<p sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="67"><img src="../../images/AxoToggleTaskExampleVisu.gif" sourcefile="articles/core/AXOTOGGLETASK.md" sourcestartlinenumber="67" alt="Alt text"></p>
+<h1 id="axomomentarytask" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="1">AxoMomentaryTask</h1>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="3">AxoMomentaryTask provides basic  momentary function. It is mainly designed for some manual operations from the UI side. AxoMomentaryTask needs to be initialized to set the proper AxoContext.</p>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="5"><strong sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="5">AxoMomentaryTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="7">CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;&lt;#Momentary task example#&gt;&quot;}
         {#ix-set:AttributeStateOnDesc = &quot;&lt;#Currently On#&gt;&quot;}
@@ -513,33 +513,33 @@ Again as before the element could be controlable when the value of the <code>Pre
     END_METHOD
 END_CLASS  
 </code></pre>
-<p>To check the state of the task there are two methods:</p>
-<ul>
-<li><code>IsSwitchOn()</code> - returns <code>TRUE</code> if the state of the task is <code>TRUE</code>.</li>
-<li><code>IsSwitchOff()</code> - returns <code>TRUE</code> if the state of the task is <code>FALSE</code>.</li>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="9">To check the state of the task there are two methods:</p>
+<ul sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10">
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10">IsSwitchOn()</code> - returns <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10">TRUE</code> if the state of the task is <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="10">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="11"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="11">IsSwitchOff()</code> - returns <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="11">TRUE</code> if the state of the task is <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="11">FALSE</code>.</li>
 </ul>
-<p>Example of using <code>IsSwitchOn()</code> method:</p>
-<pre><code class="lang-smalltalk">IF _myMomentaryTask.IsSwitchedOn() THEN
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="13">Example of using <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="13">IsSwitchOn()</code> method:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="14">IF _myMomentaryTask.IsSwitchedOn() THEN
     ; // do something 
 END_IF;
 </code></pre>
-<p>Example of using <code>IsSwitchOff()</code> method:</p>
-<pre><code class="lang-smalltalk">IF _myMomentaryTask.IsSwitchedOff() THEN
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="16">Example of using <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="16">IsSwitchOff()</code> method:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="17">IF _myMomentaryTask.IsSwitchedOff() THEN
     ; // do something 
 END_IF;
 </code></pre>
-<p>Moreover, there are five more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
-<p>To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the <code>AxoMomentaryTask</code> needs to be created. The required method with <code>PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="19">Moreover, there are five more &quot;event-like&quot; methods that are called when a specific event occurs (see the chart below).</p>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="21">To implement any of the already mentioned &quot;event-like&quot; methods the new class that extends from the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="21">AxoMomentaryTask</code> needs to be created. The required method with <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="21">PROTECTED OVERRIDE</code> access modifier needs to be created as well, and the custom logic needs to be placed in.
 These methods are:</p>
-<ul>
-<li><code>OnSwitchedOn()</code> - executes once when the task changes its state from <code>FALSE</code> to <code>TRUE</code>.</li>
-<li><code>OnSwitchedOff()</code> - executes once when the task changes its state from <code>TRUE</code> to <code>FALSE</code>.</li>
-<li><code>OnStateChanged()</code> - executes once when the task changes its state.</li>
-<li><code>SwitchedOn()</code> - executes repeatedly while the task is in <code>TRUE</code> state.</li>
-<li><code>SwitchedOff()</code> - executes repeatedly while the task is in <code>FALSE</code> state.</li>
+<ul sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23">
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23">OnSwitchedOn()</code> - executes once when the task changes its state from <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23">FALSE</code> to <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="23">TRUE</code>.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="24"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="24">OnSwitchedOff()</code> - executes once when the task changes its state from <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="24">TRUE</code> to <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="24">FALSE</code>.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="25"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="25">OnStateChanged()</code> - executes once when the task changes its state.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="26"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="26">SwitchedOn()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="26">TRUE</code> state.</li>
+<li sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="27"><code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="27">SwitchedOff()</code> - executes repeatedly while the task is in <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="27">FALSE</code> state.</li>
 </ul>
-<p>Example of implementing &quot;event-like&quot; methods:</p>
-<pre><code class="lang-smalltalk">CLASS MyMomentaryTaskExample Extends AxoMomentaryTask
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="29">Example of implementing &quot;event-like&quot; methods:</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="31">CLASS MyMomentaryTaskExample Extends AxoMomentaryTask
     VAR
         OnSwitchedOnCounter : ULINT;
         OnSwitchedOffCounter : ULINT;
@@ -569,75 +569,75 @@ These methods are:</p>
     END_METHOD
 END_CLASS
 </code></pre>
-<p><strong>How to visualize <code>AxoMomentaryTask</code></strong></p>
-<p>On the UI side there are several possibilities how to visualize the <code>AxoMomentaryTask</code>.
-You use the <code>AxoMomentaryTaskView</code> and set its Component according the placement of the instance of the <code>AxoMomentaryTask</code>.
-Based on the value of <code>Disable</code> the control element could be controllable:</p>
-<pre><code class="lang-csharp">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;false&quot; /&gt;
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="33"><strong sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="33">How to visualize <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="33">AxoMomentaryTask</code></strong></p>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="35">On the UI side there are several possibilities how to visualize the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="35">AxoMomentaryTask</code>.
+You use the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="36">AxoMomentaryTaskView</code> and set its Component according the placement of the instance of the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="36">AxoMomentaryTask</code>.
+Based on the value of <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="37">Disable</code> the control element could be controllable:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="38">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;false&quot; /&gt;
 </code></pre>
-<p>or display only:</p>
-<pre><code class="lang-csharp">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;true&quot; /&gt;
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="39">or display only:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="40">&lt;AxoMomentaryTaskView Component=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Disable=&quot;true&quot; /&gt;
 </code></pre>
-<p>The next possibility is to use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoMomentaryTask</code>.
-Again as before the element could be controlable when the value of the <code>Presentation</code> is <code>Command</code>:</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Command&quot; /&gt;
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="42">The next possibility is to use the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="42">RenderableContentControl</code> and set its Context according the placement of the instance of the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="42">AxoMomentaryTask</code>.
+Again as before the element could be controlable when the value of the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="43">Presentation</code> is <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="43">Command</code>:</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="44">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>or display only when the value of the <code>Presentation</code> is <code>Status</code></p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Status&quot; /&gt;
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="45">or display only when the value of the <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="45">Presentation</code> is <code sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="45">Status</code></p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="46">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMomentaryTaskDocu._myMomentaryTask&quot; Presentation=&quot;Status&quot; /&gt;
 </code></pre>
-<p>The displayed result should looks like:</p>
-<p><img src="../../images/AxoMomentaryTaskExampleVisu.gif" alt="Alt text"></p>
-<h1 id="axoremotetask">AxoRemoteTask</h1>
-<p><code>AxoRemoteTask</code> provides task execution, where the execution of the task is deferred to .NET environment. AxoRemoteTask derives from <a href="AXOTASK.html">AxoTask</a>.</p>
-<p><code>AxoRemoteTask</code> needs to be initialized to set the proper AxoContext.</p>
-<div class="IMPORTANT">
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="48">The displayed result should looks like:</p>
+<p sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="50"><img src="../../images/AxoMomentaryTaskExampleVisu.gif" sourcefile="articles/core/AXOMOMENTARYTASK.md" sourcestartlinenumber="50" alt="Alt text"></p>
+<h1 id="axoremotetask" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="1">AxoRemoteTask</h1>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="3"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="3">AxoRemoteTask</code> provides task execution, where the execution of the task is deferred to .NET environment. AxoRemoteTask derives from <a href="AXOTASK.html" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="3">AxoTask</a>.</p>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="5"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="5">AxoRemoteTask</code> needs to be initialized to set the proper AxoContext.</p>
+<div class="IMPORTANT" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="7">
 <h5>Important</h5>
-<p>The deferred execution in .NET environment is not hard-real time nor deterministic. You would typically use the AxoRemoteTask when it would be hard to achieve a goal in the PLC, but you can delegate the access to the non-hard-real and nondeterministic environment. Examples of such use would be database access, complex calculations, and email sending.</p>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="8">The deferred execution in .NET environment is not hard-real time nor deterministic. You would typically use the AxoRemoteTask when it would be hard to achieve a goal in the PLC, but you can delegate the access to the non-hard-real and nondeterministic environment. Examples of such use would be database access, complex calculations, and email sending.</p>
 </div>
-<p><strong>AxoTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">_remoteTask.Initialize(THIS); // THIS = IAxoContext 
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="10"><strong sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="10">AxoTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="12">_remoteTask.Initialize(THIS); // THIS = IAxoContext 
 </code></pre>
-<p>There are two key methods for managing the AxoRemoteTask:</p>
-<ul>
-<li><code>Invoke()</code> fires the execution of the AxoRemoteTask (can be called fire&amp;forget or cyclically)</li>
-<li><code>Execute()</code> method must be called cyclically. <em>In contrast to <code>AxoTask</code> the method does not execute any logic. You will need to call the <code>Execute</code> method cyclically which will deffer the logic execution in .NET environment.</em></li>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="14">There are two key methods for managing the AxoRemoteTask:</p>
+<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="16">
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="16"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="16">Invoke()</code> fires the execution of the AxoRemoteTask (can be called fire&amp;forget or cyclically)</li>
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17">Execute()</code> method must be called cyclically. <em sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17">In contrast to <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17">AxoTask</code> the method does not execute any logic. You will need to call the <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17">Execute</code> method cyclically which will deffer the logic execution in .NET environment.</em></li>
 </ul>
-<p>There are the following differences in behavior of DoneWhen and ThrowWhen methods:</p>
-<ul>
-<li><em><code>DoneWhen(Done_Condition)</code></em> - Unlike AxoTask <strong>Done condition is handled internally. It does not have an effect.</strong></li>
-<li><em><code>ThrowWhen(Error_Condition)</code></em> - Unlike AxoTask <strong>Exception emission is handled internally. It does not have an effect.</strong></li>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="20">There are the following differences in behavior of DoneWhen and ThrowWhen methods:</p>
+<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22">
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22"><em sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22">DoneWhen(Done_Condition)</code></em> - Unlike AxoTask <strong sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22">Done condition is handled internally. It does not have an effect.</strong></li>
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="23"><em sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="23"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="23">ThrowWhen(Error_Condition)</code></em> - Unlike AxoTask <strong sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="23">Exception emission is handled internally. It does not have an effect.</strong></li>
 </ul>
-<p>For termination of the execution of the AxoRemoteTask there are the following methods:</p>
-<ul>
-<li><code>Abort()</code> - terminates the execution of the AxoRemoteTask and enters the <code>Ready</code> state if the AxoRemoteTask is in the <code>Busy</code> state; otherwise does nothing.</li>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="25">For termination of the execution of the AxoRemoteTask there are the following methods:</p>
+<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26">
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26">Abort()</code> - terminates the execution of the AxoRemoteTask and enters the <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26">Ready</code> state if the AxoRemoteTask is in the <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26">Busy</code> state; otherwise does nothing.</li>
 </ul>
-<p>To reset the AxoRemoteTask from any state at any moment, there is the following method:</p>
-<ul>
-<li><code>Restore()</code> acts as a reset of the AxoRemoteTask (sets the state into <code>Ready</code> from any state of the AxoRemoteTask).</li>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="28">To reset the AxoRemoteTask from any state at any moment, there is the following method:</p>
+<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="29">
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="29"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="29">Restore()</code> acts as a reset of the AxoRemoteTask (sets the state into <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="29">Ready</code> from any state of the AxoRemoteTask).</li>
 </ul>
-<p>The <code>AxoRemoteTask</code> executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and <code>Invoke</code> does not need cyclical calling.</p>
-<pre><code class="lang-smalltalk">_remoteTask.Invoke('hello');                            
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">The <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">AxoRemoteTask</code> executes upon the <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">Invoke</code> method call. <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">Invoke</code> fires the execution of <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">Execute</code> logic upon the first call, and <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">Invoke</code> does not need cyclical calling.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="33">_remoteTask.Invoke('hello');                            
 </code></pre>
-<p><code>Invoke()</code> method returns IAxoTaskState with the following members:</p>
-<ul>
-<li><code>IsBusy</code> indicates the execution started and is running.</li>
-<li><code>IsDone</code> indicates the execution completed with success.</li>
-<li><code>HasError</code> indicates the execution terminated with a failure.</li>
-<li><code>IsAborted</code> indicates that the execution of the AxoRemoteTask has been aborted. It should continue by calling the method <code>Resume()</code>.</li>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="35"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="35">Invoke()</code> method returns IAxoTaskState with the following members:</p>
+<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="37">
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="37"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="37">IsBusy</code> indicates the execution started and is running.</li>
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="38"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="38">IsDone</code> indicates the execution completed with success.</li>
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="39"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="39">HasError</code> indicates the execution terminated with a failure.</li>
+<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="40"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="40">IsAborted</code> indicates that the execution of the AxoRemoteTask has been aborted. It should continue by calling the method <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="40">Resume()</code>.</li>
 </ul>
-<h2 id="task-initialization-in-net">Task initialization in .NET</h2>
-<pre><code class="lang-csharp">Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'&quot;));
+<h2 id="task-initialization-in-net" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="42">Task initialization in .NET</h2>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="44">Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'&quot;));
 </code></pre>
-<p>In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.</p>
-<p><img src="../../images/remote_exect.gif" alt="Alt text"></p>
-<h2 id="executing-from-plc">Executing from PLC</h2>
-<p>Invoking the AxoRemoteTask and waiting for its completion at the same place.</p>
-<pre><code class="lang-smalltalk">IF(_remoteTask.Invoke('hello').IsDone()) THEN
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="46">In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.</p>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="48"><img src="../../images/remote_exect.gif" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="48" alt="Alt text"></p>
+<h2 id="executing-from-plc" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="51">Executing from PLC</h2>
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="53">Invoking the AxoRemoteTask and waiting for its completion at the same place.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="54">IF(_remoteTask.Invoke('hello').IsDone()) THEN
     _doneCounter := _doneCounter + 1; 
 END_IF;    
 </code></pre>
-<p>Invoking the AxoRemoteTask and waiting for its completion at the different places.</p>
-<pre><code class="lang-smalltalk">
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="55">Invoking the AxoRemoteTask and waiting for its completion at the different places.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="56">
 // Fire &amp; Forget
 _remoteTask.Invoke('hello');
 
@@ -647,67 +647,67 @@ IF(_remoteTask.IsDone()) THEN
 END_IF;    
 
 </code></pre>
-<p>Checking if the AxoRemoteTask is executing.</p>
-<pre><code class="lang-smalltalk">IF(_remoteTask.IsBusy()) THEN
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="57">Checking if the AxoRemoteTask is executing.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="58">IF(_remoteTask.IsBusy()) THEN
     ;// Do something after task started
 END_IF;   
 </code></pre>
-<p>Check for the AxoRemoteTask's error state.</p>
-<pre><code class="lang-smalltalk">IF(_remoteTask.HasError()) THEN
+<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="59">Check for the AxoRemoteTask's error state.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="60">IF(_remoteTask.HasError()) THEN
     ;// Do something when an exception occurs on remote task.
 END_IF;   
-</code></pre><h1 id="axostep">AxoStep</h1>
-<p>AxoStep is an extension class of the AxoTask and provides the basics for the coordinated controlled execution of the task in the desired order based on the coordination mechanism used.</p>
-<p>AxoStep contains the <code>Execute()</code> method so as its base class overloaded and extended by following parameters:</p>
-<ul>
-<li>coord (mandatory): instance of the coordination controlling the execution of the AxoStep.</li>
-<li>Enable (optional): if this value is <code>FALSE</code>, AxoStep body is not executed and the current order of the execution is incremented.</li>
-<li>Description (optional): AxoStep description text describing the action the AxoStep is providing.</li>
+</code></pre><h1 id="axostep" sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="1">AxoStep</h1>
+<p sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="3">AxoStep is an extension class of the AxoTask and provides the basics for the coordinated controlled execution of the task in the desired order based on the coordination mechanism used.</p>
+<p sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="5">AxoStep contains the <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="5">Execute()</code> method so as its base class overloaded and extended by following parameters:</p>
+<ul sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="7">
+<li sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="7">coord (mandatory): instance of the coordination controlling the execution of the AxoStep.</li>
+<li sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="8">Enable (optional): if this value is <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="8">FALSE</code>, AxoStep body is not executed and the current order of the execution is incremented.</li>
+<li sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="9">Description (optional): AxoStep description text describing the action the AxoStep is providing.</li>
 </ul>
-<p>AxoStep class contains following public members:</p>
-<ul>
-<li>Order: Order of the AxoStep in the coordination. This value can be set by calling the method <code>SetStepOrder()</code> and read by the method <code>GetStepOrder()</code>.</li>
-<li>StepDescription: AxoStep description text describing the action the AxoStep is providing. This value can be set by calling the <code>Execute()</code> method with <code>Description</code> parameter.</li>
-<li>IsActive: if <code>TRUE</code>, the AxoStep is currently executing, or is in the order of the execution, otherwise <code>FALSE</code>. This value can be set by calling the method <code>SetIsActive()</code> and read by the method <code>GetIsActive()</code>.</li>
-<li>IsEnabled: if <code>FALSE</code>, AxoStep body is not executed and the current order of the execution is incremented. This value can be set by calling the method <code>SetIsEnabled()</code> or  calling the <code>Execute()</code> method with <code>Enable</code> parameter and read by the method <code>GetIsEnabled()</code>.</li>
+<p sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="11">AxoStep class contains following public members:</p>
+<ul sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="13">
+<li sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="13">Order: Order of the AxoStep in the coordination. This value can be set by calling the method <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="13">SetStepOrder()</code> and read by the method <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="13">GetStepOrder()</code>.</li>
+<li sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="14">StepDescription: AxoStep description text describing the action the AxoStep is providing. This value can be set by calling the <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="14">Execute()</code> method with <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="14">Description</code> parameter.</li>
+<li sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="15">IsActive: if <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="15">TRUE</code>, the AxoStep is currently executing, or is in the order of the execution, otherwise <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="15">FALSE</code>. This value can be set by calling the method <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="15">SetIsActive()</code> and read by the method <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="15">GetIsActive()</code>.</li>
+<li sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="16">IsEnabled: if <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="16">FALSE</code>, AxoStep body is not executed and the current order of the execution is incremented. This value can be set by calling the method <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="16">SetIsEnabled()</code> or  calling the <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="16">Execute()</code> method with <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="16">Enable</code> parameter and read by the method <code sourcefile="articles/core/AXOSTEP.md" sourcestartlinenumber="16">GetIsEnabled()</code>.</li>
 </ul>
-<h1 id="axosequencer">AxoSequencer</h1>
-<p>AxoSequencer is an AxoCordinator class provides triggering the AxoStep-s inside the sequence in the order they are written.</p>
-<p>AxoSequencer extends from AxoTask so it also has to be initialized by calling its <code>Initialize()</code> method and started using its <code>Invoke()</code> method.</p>
-<p>AxoSequencer contains following methods:</p>
-<ul>
-<li><code>Open()</code>: this method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code>if</code> condition. It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the AxoSequencer is in the configuring state. From the second context cycle after the AxoSequencer has been invoked the AxoSequencer change its state to running and starts the execution from the first step upto the last one. When AxoSequencer is in running state, order of the step cannot be changed.</li>
-<li><code>MoveNext()</code>: Terminates the currently executed step and moves the AxoSequencer's pointer to the next step in order of execution.</li>
-<li><code>RequestStep()</code>: Terminates the currently executed step and set the AxoSequencer's pointer to the order of the <code>RequestedStep</code>. When the order of the <code>RequestedStep</code> is higher than the order of the currently finished step (the requested step is &quot;after&quot; the current one) the requested step is started in the same context cycle. When the order of the <code>RequestedStep</code> is lower than the order of the currently finished step (the requested step is &quot;before&quot; the current one) the requested step is started in the next context cycle.</li>
-<li><code>CompleteSequence()</code>: Terminates the currently executed step, completes (finishes) the execution of this AxoSequencer and set the coordination state to Idle. If the <code>SequenceMode</code> of the AxoSequencer is set to <code>Cyclic</code>, following <code>Open()</code> method call in the next context cycle switch it again into the configuring state, reasign the order of the individual steps (even if the orders have been changed) and subsequently set AxoSequencer back into the running state. If the <code>SequenceMode</code> of the AxoSequencer is set to <code>RunOnce</code>, terminates also execution of the AxoSequencer itself.</li>
-<li>`GetCoordinatorState()': Returns the current state of the AxoSequencer.
-<ul>
-<li><code>Idle</code></li>
-<li><code>Configuring</code>: assigning the orders to the steps, no step is executed.</li>
-<li><code>Running</code>: orders to the steps are already assigned, step is executed.</li>
-</ul>
-</li>
-<li><code>SetSteppingMode()</code>: Sets the stepping mode of the AxoSequencer. Following values are possible.
-<ul>
-<li><code>None</code>:</li>
-<li><code>StepByStep</code>: if this mode is choosen, each step needs to be started by the invocation of the <code>StepIn</code> commmand.</li>
-<li><code>Continous</code>: if this mode is choosen (default), each step is started automaticcaly after the previous one has been completed.</li>
+<h1 id="axosequencer" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="1">AxoSequencer</h1>
+<p sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="3">AxoSequencer is an AxoCordinator class provides triggering the AxoStep-s inside the sequence in the order they are written.</p>
+<p sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="5">AxoSequencer extends from AxoTask so it also has to be initialized by calling its <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="5">Initialize()</code> method and started using its <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="5">Invoke()</code> method.</p>
+<p sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="7">AxoSequencer contains following methods:</p>
+<ul sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="8">
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="8"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="8">Open()</code>: this method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="8">if</code> condition. It provides some configuration mechanism that ensures that the steps are going to be executed in the order, they are written. During the very first call of the sequence, no step is executed as the AxoSequencer is in the configuring state. From the second context cycle after the AxoSequencer has been invoked the AxoSequencer change its state to running and starts the execution from the first step upto the last one. When AxoSequencer is in running state, order of the step cannot be changed.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="9"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="9">MoveNext()</code>: Terminates the currently executed step and moves the AxoSequencer's pointer to the next step in order of execution.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="10"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="10">RequestStep()</code>: Terminates the currently executed step and set the AxoSequencer's pointer to the order of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="10">RequestedStep</code>. When the order of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="10">RequestedStep</code> is higher than the order of the currently finished step (the requested step is &quot;after&quot; the current one) the requested step is started in the same context cycle. When the order of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="10">RequestedStep</code> is lower than the order of the currently finished step (the requested step is &quot;before&quot; the current one) the requested step is started in the next context cycle.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="11"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="11">CompleteSequence()</code>: Terminates the currently executed step, completes (finishes) the execution of this AxoSequencer and set the coordination state to Idle. If the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="11">SequenceMode</code> of the AxoSequencer is set to <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="11">Cyclic</code>, following <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="11">Open()</code> method call in the next context cycle switch it again into the configuring state, reasign the order of the individual steps (even if the orders have been changed) and subsequently set AxoSequencer back into the running state. If the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="11">SequenceMode</code> of the AxoSequencer is set to <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="11">RunOnce</code>, terminates also execution of the AxoSequencer itself.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="12">`GetCoordinatorState()': Returns the current state of the AxoSequencer.
+<ul sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="13">
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="13"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="13">Idle</code></li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="14"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="14">Configuring</code>: assigning the orders to the steps, no step is executed.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="15"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="15">Running</code>: orders to the steps are already assigned, step is executed.</li>
 </ul>
 </li>
-<li><code>GetSteppingMode()</code>: Gets the current stepping mode of the AxoSequencer.</li>
-<li><code>SetSequenceMode()</code>: Sets the sequence mode of the AxoSequencer. Following values are possible.
-<ul>
-<li><code>None</code>:</li>
-<li><code>RunOnce</code>: if this mode is choosen, after calling the method <code>CompleteSequence()</code> the execution of the sequence is terminated.</li>
-<li><code>Cyclic</code>: if this mode is choosen (default), after calling the method <code>CompleteSequence()</code> the execution of the sequence is &quot;reordered&quot; and started from beginning.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="16"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="16">SetSteppingMode()</code>: Sets the stepping mode of the AxoSequencer. Following values are possible.
+<ul sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="17">
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="17"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="17">None</code>:</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="18"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="18">StepByStep</code>: if this mode is choosen, each step needs to be started by the invocation of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="18">StepIn</code> commmand.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="19"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="19">Continous</code>: if this mode is choosen (default), each step is started automaticcaly after the previous one has been completed.</li>
 </ul>
 </li>
-<li><code>GetSequenceMode()</code>: Gets the current sequence mode of the AxoSequencer.</li>
-<li><code>GetNumberOfConfiguredSteps()</code>: Gets the number of the configured steps in the sequence.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="20"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="20">GetSteppingMode()</code>: Gets the current stepping mode of the AxoSequencer.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="21"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="21">SetSequenceMode()</code>: Sets the sequence mode of the AxoSequencer. Following values are possible.
+<ul sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="22">
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="22"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="22">None</code>:</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="23"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="23">RunOnce</code>: if this mode is choosen, after calling the method <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="23">CompleteSequence()</code> the execution of the sequence is terminated.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="24"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="24">Cyclic</code>: if this mode is choosen (default), after calling the method <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="24">CompleteSequence()</code> the execution of the sequence is &quot;reordered&quot; and started from beginning.</li>
 </ul>
-<h3 id="example-of-using-axosequencer">Example of using AxoSequencer</h3>
-<h4 id="example-of-the-declaration-of-the-axosequencer-and-axostep">Example of the declaration of the AxoSequencer and AxoStep</h4>
-<pre><code class="lang-smalltalk">CLASS AxoSequencerDocuExample EXTENDS  AXOpen.Core.AxoContext
+</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="25"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="25">GetSequenceMode()</code>: Gets the current sequence mode of the AxoSequencer.</li>
+<li sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="26"><code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="26">GetNumberOfConfiguredSteps()</code>: Gets the number of the configured steps in the sequence.</li>
+</ul>
+<h3 id="example-of-using-axosequencer" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="28">Example of using AxoSequencer</h3>
+<h4 id="example-of-the-declaration-of-the-axosequencer-and-axostep" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="29">Example of the declaration of the AxoSequencer and AxoStep</h4>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="30">CLASS AxoSequencerDocuExample EXTENDS  AXOpen.Core.AxoContext
     VAR PUBLIC
         _mySequencer : AXOpen.Core.AxoSequencer;
         _step_1 : AxoStep;
@@ -716,17 +716,17 @@ END_IF;
         _myCounter : ULINT;
     END_VAR
 END_CLASS
-</code></pre><h4 id="initialization">Initialization</h4>
-<p>Initialization of the context needs to be called first. It does not need to be called cyclically, just once.</p>
-<pre><code class="lang-smalltalk">METHOD PUBLIC Initialize
+</code></pre><h4 id="initialization" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="31">Initialization</h4>
+<p sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="32">Initialization of the context needs to be called first. It does not need to be called cyclically, just once.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="33">METHOD PUBLIC Initialize
     _mySequencer.Initialize(THIS);
     _step_1.Initialize(THIS);
     _step_2.Initialize(THIS);
     _step_3.Initialize(THIS);
 END_METHOD
-</code></pre><h4 id="open">Open</h4>
-<p>The <code>Open()</code> method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code>if</code> condition, as follows.</p>
-<pre><code class="lang-smalltalk">THIS.Initialize();    
+</code></pre><h4 id="open" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="34">Open</h4>
+<p sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="35">The <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="35">Open()</code> method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="35">if</code> condition, as follows.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="36">THIS.Initialize();    
 IF _mySequencer.Open() THEN
     //All sequence logic needs to be placed inside the condition
     _myCounter := _myCounter + ULINT#1;
@@ -750,9 +750,9 @@ IF _mySequencer.Open() THEN
         END_IF;
     END_IF;
 END_IF;
-</code></pre><h4 id="step">Step</h4>
-<p>Example of the most simple use of the <code>Execute()</code> method of the <code>AxoStep</code> class, only with the AxoCoordinator defined.</p>
-<pre><code class="lang-smalltalk">IF _step_1.Execute(_mySequencer) THEN
+</code></pre><h4 id="step" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="37">Step</h4>
+<p sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="38">Example of the most simple use of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="38">Execute()</code> method of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="38">AxoStep</code> class, only with the AxoCoordinator defined.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="39">IF _step_1.Execute(_mySequencer) THEN
     _myCounter := _myCounter + ULINT#1;
     // do something
     IF (_myCounter MOD ULINT#5) = ULINT#0 THEN
@@ -761,9 +761,9 @@ END_IF;
     END_IF;
 END_IF;
 </code></pre>
-<p>Example of use of the <code>Execute()</code> method of the <code>AxoStep</code> class with the Enable condition.
+<p sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="40">Example of use of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="40">Execute()</code> method of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="40">AxoStep</code> class with the Enable condition.
 This step is going to be executed just in the first run of the sequence, as during the second one, the Enable parameter will have the value of FALSE.</p>
-<pre><code class="lang-smalltalk">IF _step_2.Execute(coord := _mySequencer, Enable := _myCounter &lt;= ULINT#20) THEN
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="42">IF _step_2.Execute(coord := _mySequencer, Enable := _myCounter &lt;= ULINT#20) THEN
     _myCounter := _myCounter + ULINT#1;
     IF _myCounter = ULINT#20 THEN
         // Jumping to step 1. As it is jumping backwards, the execution of step 1  
@@ -772,20 +772,20 @@ This step is going to be executed just in the first run of the sequence, as duri
     END_IF;
 END_IF;
 </code></pre>
-<p>Example of use of the <code>Execute()</code> method of the <code>AxoStep</code> class with all three parameters defined.</p>
-<pre><code class="lang-smalltalk">IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := 'This is a description of the step 3' ) THEN
+<p sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="43">Example of use of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="43">Execute()</code> method of the <code sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="43">AxoStep</code> class with all three parameters defined.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCER.md" sourcestartlinenumber="44">IF _step_3.Execute(coord := _mySequencer, Enable := TRUE, Description := 'This is a description of the step 3' ) THEN
     _myCounter := _myCounter + ULINT#1;
     IF (_myCounter MOD ULINT#7) = ULINT#0 THEN
         // Finalize the sequence and initiate the execution from the first step.
         _mySequencer.CompleteSequence();
     END_IF;
 END_IF;
-</code></pre><h1 id="axosequencercontainer">AxoSequencerContainer</h1>
-<p><code>AxoSequencerContainer</code> is an <code>AxoCordinator</code> class that extends from <code>AxoSequencer</code>. The main difference is that this class is abstract so it is not possible to instantiate it directly. The user-defined class that extends from <code>AxoSequencerContainer</code> needs to be created and then instantiated.</p>
-<p>In the extended class <code>MAIN()</code> method needs to be created and all sequencer logic needs to be placed there. Then the sequencer is called via <code>Run(IAxoObject)</code> or <code>Run(IAxoContext)</code> methods, that ensure initialization of the sequencer with <code>AxoObject</code> or with <code>AxoContext</code>. Moreover the <code>Run()</code> method also ensures calling the <code>Open()</code> method, so it is not neccessary to call it explicitelly in comparison with <code>AxoSequencer</code>.</p>
-<h3 id="example-of-using-axosequencercontainer">Example of using AxoSequencerContainer</h3>
-<h4 id="example-of-the-declaration-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of the declaration of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
+</code></pre><h1 id="axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="1">AxoSequencerContainer</h1>
+<p sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3"><code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3">AxoSequencerContainer</code> is an <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3">AxoCordinator</code> class that extends from <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3">AxoSequencer</code>. The main difference is that this class is abstract so it is not possible to instantiate it directly. The user-defined class that extends from <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="3">AxoSequencerContainer</code> needs to be created and then instantiated.</p>
+<p sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">In the extended class <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">MAIN()</code> method needs to be created and all sequencer logic needs to be placed there. Then the sequencer is called via <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">Run(IAxoObject)</code> or <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">Run(IAxoContext)</code> methods, that ensure initialization of the sequencer with <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">AxoObject</code> or with <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">AxoContext</code>. Moreover the <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">Run()</code> method also ensures calling the <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">Open()</code> method, so it is not neccessary to call it explicitelly in comparison with <code sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="5">AxoSequencer</code>.</p>
+<h3 id="example-of-using-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="7">Example of using AxoSequencerContainer</h3>
+<h4 id="example-of-the-declaration-of-the-user-defined-class-that-extends-from-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="8">Example of the declaration of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="9">CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
     VAR PUBLIC
         _step_1 : AxoStep;
         _step_2 : AxoStep;
@@ -793,9 +793,9 @@ END_IF;
         _myCounter : ULINT;
     END_VAR
 END_CLASS
-</code></pre><h4 id="example-of-implementation-main-method-inside-the-user-defined-class-that-extends-from-axosequencercontainer">Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer</h4>
-<p>All the custom logic of the sequencer needs to be placed here.</p>
-<pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE MAIN 
+</code></pre><h4 id="example-of-implementation-main-method-inside-the-user-defined-class-that-extends-from-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="10">Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer</h4>
+<p sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="11">All the custom logic of the sequencer needs to be placed here.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="12">METHOD PROTECTED OVERRIDE MAIN 
     _step_1.Initialize(THIS);
     _step_2.Initialize(THIS);
     _step_3.Initialize(THIS);
@@ -824,28 +824,28 @@ END_CLASS
         END_IF;    
     END_IF; 
 END_METHOD
-</code></pre><h4 id="example-of-declaration-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of declaration of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">VAR PUBLIC
+</code></pre><h4 id="example-of-declaration-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="13">Example of declaration of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="14">VAR PUBLIC
     _mySequencerContainer : AxoSequencerContainerDocuExample;
 END_VAR
-</code></pre><h4 id="example-of-calling-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of calling of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">_mySequencerContainer.Run(THIS);
-</code></pre><h1 id="axocomponent">AxoComponent</h1>
-<p><code>AxoComponent</code> is an abstract class extending the AxoObject, and it is the base building block for the &quot;hardware-related devices&quot; like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, &quot;virtual devices&quot; like counter, database, etc. <code>AxoComponent</code> is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the <code>AxoComponent</code> is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory.</p>
-<p><code>Restore()</code> - inside this method, the logic for resetting the AxoComponent or restoring it from any state to its initial state should be placed.</p>
-<p><code>ManualControl()</code> - inside this method, the logic for manual operations with the component should be placed. To be able to control the <code>AxoComponent</code> instance manually, the method <code>ActivateManualControl()</code> of this instance needs to be called cyclically.</p>
-<p>The base class contains two additional method to deal with the manual control of the <code>AxoComponent</code>.
-<code>ActivateManualControl()</code> - when this method is called cyclically, the <code>AxoComponent</code> changes its behavior to manually controllable and ensure the call of the <code>ManualControl()</code> method in the derived class.</p>
-<p><code>IsManuallyControllable()</code> -returns <code>TRUE</code> when the <code>AxoComponent</code> is manually controllable.</p>
-<p><strong>Layout attributes <code>ComponentHeader</code> and <code>ComponentDetails</code></strong></p>
-<p>The visual view of the extended <code>AxoComponent</code> on the UI side could be done both ways. Manually with complete control over the design or by using the auto-rendering mechanism of the <code>RenderableContentControl</code> (TODO add a link to docu of the RenderableContentControl) element, which is, in most cases, more than perfect.
-To take full advantage of the auto-rendering mechanism, the base class has implemented the additional layout attributes <code>ComponentHeader</code> and <code>ComponentDetails(TabName)</code>. The auto-rendered view is divided into two parts: the fAxoed one and the expandable one.
-All <code>AxoComponent</code> members with the <code>ComponentHeader</code> layout attribute defined will be displayed in the fixed part.
-All members with the <code>ComponentDetails(TabName)</code> layout attribute defined will be displayed in the expandable part inside the <code>TabControl</code> with &quot;TabName&quot;.
-All members are added in the order in which they are defined, taking into account their layout attributes like <code>Container(Layout.Wrap)</code> or <code>Container(Layout.Stack)</code>.</p>
-<p><strong>How to implement <code>AxoComponent</code></strong></p>
-<p>Example of the implementation very simple <code>AxoComponent</code> with members placed only inside the Header.</p>
-<pre><code class="lang-smalltalk">{#ix-attr:[Container(Layout.Stack)]}
+</code></pre><h4 id="example-of-calling-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="15">Example of calling of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOSEQUENCERCONTAINER.md" sourcestartlinenumber="16">_mySequencerContainer.Run(THIS);
+</code></pre><h1 id="axocomponent" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="1">AxoComponent</h1>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="3"><code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="3">AxoComponent</code> is an abstract class extending the AxoObject, and it is the base building block for the &quot;hardware-related devices&quot; like a pneumatic piston, servo drive, robot, etc., so as for the, let's say, &quot;virtual devices&quot; like counter, database, etc. <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="3">AxoComponent</code> is designed to group all possible methods, tasks, settings, and status information into one consistent class. As the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="3">AxoComponent</code> is an abstract class, it cannot be instantiated and must be extended. In the extended class, two methods are mandatory.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="5"><code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="5">Restore()</code> - inside this method, the logic for resetting the AxoComponent or restoring it from any state to its initial state should be placed.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="7"><code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="7">ManualControl()</code> - inside this method, the logic for manual operations with the component should be placed. To be able to control the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="7">AxoComponent</code> instance manually, the method <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="7">ActivateManualControl()</code> of this instance needs to be called cyclically.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="9">The base class contains two additional method to deal with the manual control of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="9">AxoComponent</code>.
+<code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="10">ActivateManualControl()</code> - when this method is called cyclically, the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="10">AxoComponent</code> changes its behavior to manually controllable and ensure the call of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="10">ManualControl()</code> method in the derived class.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="12"><code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="12">IsManuallyControllable()</code> -returns <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="12">TRUE</code> when the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="12">AxoComponent</code> is manually controllable.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="14"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="14">Layout attributes <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="14">ComponentHeader</code> and <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="14">ComponentDetails</code></strong></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="16">The visual view of the extended <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="16">AxoComponent</code> on the UI side could be done both ways. Manually with complete control over the design or by using the auto-rendering mechanism of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="16">RenderableContentControl</code> (TODO add a link to docu of the RenderableContentControl) element, which is, in most cases, more than perfect.
+To take full advantage of the auto-rendering mechanism, the base class has implemented the additional layout attributes <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="17">ComponentHeader</code> and <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="17">ComponentDetails(TabName)</code>. The auto-rendered view is divided into two parts: the fAxoed one and the expandable one.
+All <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="18">AxoComponent</code> members with the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="18">ComponentHeader</code> layout attribute defined will be displayed in the fixed part.
+All members with the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="19">ComponentDetails(TabName)</code> layout attribute defined will be displayed in the expandable part inside the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="19">TabControl</code> with &quot;TabName&quot;.
+All members are added in the order in which they are defined, taking into account their layout attributes like <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="20">Container(Layout.Wrap)</code> or <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="20">Container(Layout.Stack)</code>.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="22"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="22">How to implement <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="22">AxoComponent</code></strong></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="24">Example of the implementation very simple <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="24">AxoComponent</code> with members placed only inside the Header.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="25">{#ix-attr:[Container(Layout.Stack)]}
 {#ix-set:AttributeName = &quot;AxoComponent with header only example&quot;}
 CLASS PUBLIC AxoComponentHeaderOnlyExample EXTENDS AXOpen.Core.AxoComponent 
     METHOD PROTECTED OVERRIDE Restore: IAxoTask 
@@ -896,9 +896,9 @@ CLASS PUBLIC AxoComponentHeaderOnlyExample EXTENDS AXOpen.Core.AxoComponent
     END_VAR
 END_CLASS
 </code></pre>
-<p><strong>How to use <code>AxoComponent</code></strong></p>
-<p>The instance of the extended <code>AxoComponent</code> must be defined inside the <code>AxoContext</code>.</p>
-<pre><code class="lang-smalltalk">CLASS ComponentHeaderOnlyExampleContext EXTENDS AxoContext
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="27"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="27">How to use <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="27">AxoComponent</code></strong></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="29">The instance of the extended <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="29">AxoComponent</code> must be defined inside the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="29">AxoContext</code>.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="30">CLASS ComponentHeaderOnlyExampleContext EXTENDS AxoContext
      VAR PUBLIC
          {#ix-set:AttributeName = &quot;Very simple component example with header only defined&quot;}
          MyComponentWithHeaderOnly : AxoComponentHeaderOnlyExample;  
@@ -927,20 +927,20 @@ END_CLASS
      END_METHOD
  END_CLASS
 </code></pre>
-<p>Inside the <code>Main()</code> method of the related <code>AxoContext</code> following rules must be applied. The <code>Initialize()</code> method of the extended instance of the <code>AxoComponent</code> must be called first.
-The <code>Run()</code> method with the respective input and output variables must be called afterwards.</p>
-<p><strong>How to visualize <code>AxoComponent</code></strong></p>
-<p>On the UI side use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoComponent</code>.</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl 
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">Inside the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">Main()</code> method of the related <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">AxoContext</code> following rules must be applied. The <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">Initialize()</code> method of the extended instance of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="32">AxoComponent</code> must be called first.
+The <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="33">Run()</code> method with the respective input and output variables must be called afterwards.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="35"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="35">How to visualize <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="35">AxoComponent</code></strong></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="37">On the UI side use the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="37">RenderableContentControl</code> and set its Context according the placement of the instance of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="37">AxoComponent</code>.</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="38">&lt;RenderableContentControl 
     Context=&quot;@Entry.Plc.myComponentHeaderOnlyExample.MyComponentWithHeaderOnly&quot;
     Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>The rendered result should then looks as follows:</p>
-<p><img src="../../images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif" alt="Alt text"></p>
-<p>In case of more complex <code>AxoComponent</code> the most important members should be placed in the fixed part (Header) and the rest of the members should be placed inside the expandable part (Details). The members inside the expandable part should be organize inside the tabs.</p>
-<p><strong>More complex <code>AxoComponent</code></strong>
-Example of the implementation more complex <code>AxoComponent</code> with members placed also in several tabs inside the expandable part (Details).</p>
-<pre><code class="lang-smalltalk">{#ix-attr:[Container(Layout.Stack)]}
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="40">The rendered result should then looks as follows:</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="42"><img src="../../images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="42" alt="Alt text"></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="44">In case of more complex <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="44">AxoComponent</code> the most important members should be placed in the fixed part (Header) and the rest of the members should be placed inside the expandable part (Details). The members inside the expandable part should be organize inside the tabs.</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="46"><strong sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="46">More complex <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="46">AxoComponent</code></strong>
+Example of the implementation more complex <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="47">AxoComponent</code> with members placed also in several tabs inside the expandable part (Details).</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="49">{#ix-attr:[Container(Layout.Stack)]}
 {#ix-set:AttributeName = &quot;AxoComponent example name&quot;}
 CLASS PUBLIC AxoComponentExample EXTENDS AXOpen.Core.AxoComponent  
     METHOD PROTECTED OVERRIDE Restore: IAxoTask 
@@ -1042,8 +1042,8 @@ CLASS PUBLIC AxoComponentExample EXTENDS AXOpen.Core.AxoComponent
     END_VAR
 END_CLASS
 </code></pre>
-<p>For the complex types of the <code>AxoComponent</code> it is also recomended to organize partial groups of the members into the classes as it is in this example.</p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC Header_ComponentExample
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="51">For the complex types of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="51">AxoComponent</code> it is also recomended to organize partial groups of the members into the classes as it is in this example.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="53">CLASS PUBLIC Header_ComponentExample
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Start&quot;}
         Start : AxoTask;
@@ -1117,8 +1117,8 @@ CLASS PUBLIC Help_ComponentExample
     END_VAR
 END_CLASS
 </code></pre>
-<p>Instantiate and call the <code>AxoComponent</code> instance.</p>
-<pre><code class="lang-smalltalk">CLASS ComponentExampleContext EXTENDS AxoContext
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="55">Instantiate and call the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="55">AxoComponent</code> instance.</p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="57">CLASS ComponentExampleContext EXTENDS AxoContext
     VAR PUBLIC
         {#ix-set:AttributeName = &quot;Component example name&quot;}
         MyComponent : AxoComponentExample;  
@@ -1147,13 +1147,13 @@ END_CLASS
     END_METHOD
 END_CLASS
 </code></pre>
-<p>UI side of the <code>AxoComponent</code>.</p>
-<pre><code class="lang-csharp">&lt;RenderableContentControl 
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="59">UI side of the <code sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="59">AxoComponent</code>.</p>
+<pre><code class="lang-csharp" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="60">&lt;RenderableContentControl 
     Context=&quot;@Entry.Plc.myComponentExample.MyComponent&quot; 
     Presentation=&quot;Command&quot; /&gt;
 </code></pre>
-<p>and the rendered result:</p>
-<p><img src="../../images/ComplexComponentExample.gif" alt="Alt text"></p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="62">and the rendered result:</p>
+<p sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="64"><img src="../../images/ComplexComponentExample.gif" sourcefile="articles/core/AXOCOMPONENT.md" sourcestartlinenumber="64" alt="Alt text"></p>
 </article>
           </div>
 

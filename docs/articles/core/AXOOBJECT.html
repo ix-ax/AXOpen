@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,17 +77,17 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axoobject">AxoObject</h1>
+<h1 id="axoobject" sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="1">AxoObject</h1>
 
-<p>AxoObject is the base class for any other classes of AXOpen.Core. It provides access to the parent AxoObject and the AxoContext in which it was initialized.</p>
-<pre><code class="lang-mermaid">  classDiagram
+<p sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="3">AxoObject is the base class for any other classes of AXOpen.Core. It provides access to the parent AxoObject and the AxoContext in which it was initialized.</p>
+<pre><code class="lang-mermaid" sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="6">  classDiagram
     class Object{
         +Initialize(IAxoContext context)
         +Initialize(IAxoObject parent)        
     }     
 </code></pre>
-<p><strong>AxoObject initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.AxoContext
+<p sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="14"><strong sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="14">AxoObject initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="15">CLASS PUBLIC MyContext EXTENDS  AXOpen.Core.AxoContext
     VAR
         _myObject : AxoObject;
     END_VAR
@@ -96,8 +96,8 @@
     END_METHOD
 END_CLASS
 </code></pre>
-<p><strong>AxoObject initialization within another AxoObject</strong></p>
-<pre><code class="lang-smalltalk">CLASS PUBLIC MyParentObject  EXTENDS AxoContext
+<p sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="17"><strong sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="17">AxoObject initialization within another AxoObject</strong></p>
+<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOOBJECT.md" sourcestartlinenumber="18">CLASS PUBLIC MyParentObject  EXTENDS AxoContext
     VAR
         _myChildObject  : AxoObject;
     END_VAR
