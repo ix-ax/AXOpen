@@ -19,7 +19,10 @@
       "integrations\\src\\AXOpen.Integrations\\axopen_integrations.csproj",
       "integrations\\tests\\AXOpen.Integration.Tests\\axopen_integration_tests.csproj",
       "probers\\src\\AXOpen.Probers\\ix_ax_axopen_probers.csproj",
-      "probers\\tests\\AXOpen.Probers.Tests\\axopen_probers_tests.csproj"
+      "probers\\tests\\AXOpen.Probers.Tests\\axopen_probers_tests.csproj",
+      "data\\tests\\AXOpen.Data.Tests\\axopen_data_tests.csproj",
+      "data\\tests\\AXOpen.Repository.Integration.Tests_L1\\axopen_repository_integration_tests_L1.csproj",
+      "security\\tests\\axopen_security_tests\\axopen_security_tests.csproj"      
     ]
   }
 }
