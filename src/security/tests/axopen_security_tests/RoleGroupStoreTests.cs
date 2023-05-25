@@ -45,7 +45,7 @@ namespace AxOpen.Security.Tests
             //Assert
             Assert.False(result.Succeeded);
             var roles = _fixture.Repository.RoleGroupManager.GetRolesFromGroup(group);
-            Assert.Null(roles);
+            Assert.False(roles.Any());
         }
 
         [Fact]
@@ -290,7 +290,7 @@ namespace AxOpen.Security.Tests
             //Act
             List<string> result = _fixture.Repository.RoleGroupManager.GetRolesFromGroup("NoExistGroup");
             //Assert
-            Assert.Null(result);
+            Assert.False(result.Any());
         }
 
         [Fact]
@@ -300,7 +300,7 @@ namespace AxOpen.Security.Tests
             //Act
             List<string> result = _fixture.Repository.RoleGroupManager.GetRolesFromGroup("");
             //Assert
-            Assert.Null(result);
+            Assert.False(result.Any());
         }
 
         [Fact]
@@ -310,7 +310,7 @@ namespace AxOpen.Security.Tests
             //Act
             List<string> result = _fixture.Repository.RoleGroupManager.GetRolesFromGroup(null);
             //Assert
-            Assert.Null(result);
+            Assert.False(result.Any());
         }
 
         //GetRolesFromGroupString
@@ -333,7 +333,7 @@ namespace AxOpen.Security.Tests
             //Act
             string result = _fixture.Repository.RoleGroupManager.GetRoles("NoExistGroup");
             //Assert
-            Assert.Null(result);
+            Assert.Equal("", result);
         }
 
         [Fact]
@@ -343,7 +343,7 @@ namespace AxOpen.Security.Tests
             //Act
             string result = _fixture.Repository.RoleGroupManager.GetRoles("");
             //Assert
-            Assert.Null(result);
+            Assert.Equal("", result);
         }
 
         [Fact]
@@ -353,7 +353,7 @@ namespace AxOpen.Security.Tests
             //Act
             string result = _fixture.Repository.RoleGroupManager.GetRoles(null);
             //Assert
-            Assert.Null(result);
+            Assert.Equal("", result);
         }
 
         //RemoveRolesFromGroup
