@@ -1,7 +1,10 @@
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Data 
-    INTERFACE IAxoDataExchange
+NAMESPACE AXOpen.Data
+    ///<summary>
+    /// Provides abastaction for data exchange.      
+    /// </summary>   
+    INTERFACE IAxoDataExchange        
         METHOD Create : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];

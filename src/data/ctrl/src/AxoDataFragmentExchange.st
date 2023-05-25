@@ -2,12 +2,20 @@ USING AXOpen.Core;
 USING AXOpen.Core;
 USING AXOpen.Core;
 
-NAMESPACE AXOpen.Data    
+NAMESPACE AXOpen.Data
+    ///<summary>
+    /// Provides base class for any composite/fragmetes data exchange combining one or more AxoDataExchange object.
+    /// **For configuration and set up see [here](~/articles/data/AxoDataFragmentExchange.md)**  
+    /// </summary>       
     CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoDataExchangeBase IMPLEMENTS IAxoDataExchange               
         VAR PUBLIC           
             Operation : AxoDataCrudTask;
         END_VAR   
-                
+              
+        ///<summary>
+        /// Creates new entry into each associated remote repository from respective data entity.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param>  
         METHOD PUBLIC Create : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
@@ -15,6 +23,10 @@ NAMESPACE AXOpen.Data
             Create := Operation.Invoke(Identifier, eCrudOperation#Create);       
         END_METHOD       
         
+        ///<summary>
+        /// Reads data from each associated remote repository and copies it into respective data entities.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param>  
         METHOD PUBLIC Read : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
@@ -22,6 +34,10 @@ NAMESPACE AXOpen.Data
             Read := Operation.Invoke(Identifier, eCrudOperation#Read);             
         END_METHOD 
     
+        ///<summary>
+        /// Updates data in each associated remote repository from respective data entities.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param> 
         METHOD PUBLIC Update : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
@@ -29,6 +45,10 @@ NAMESPACE AXOpen.Data
             Update := Operation.Invoke(Identifier, eCrudOperation#Update);        
         END_METHOD 
     
+        ///<summary>
+        /// Deletes data entry from each associated remote repository with given ID.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param> 
         METHOD PUBLIC Delete : IAxoTaskState
             VAR_INPUT
                 Identifier : STRING[254];
@@ -40,6 +60,10 @@ NAMESPACE AXOpen.Data
             Operation.Restore();      
         END_METHOD 
         
+        ///<summary>
+        /// Runs intialization and cyclical handling of this AxoDataExchange.
+        /// </summary> 
+        /// <param name="context">Root context of this object</param>
         METHOD PUBLIC Run 
             VAR_INPUT
                 context : IAxoContext;
@@ -49,6 +73,10 @@ NAMESPACE AXOpen.Data
             Operation.Execute();
         END_METHOD
 
+        ///<summary>
+        /// Runs intialization and cyclical handling of this AxoDataExchange.        
+        /// </summary>                 
+        /// <param name="parent">Parent of this object</param>
         METHOD PUBLIC Run 
             VAR_INPUT
                 parent : IAxoObject;

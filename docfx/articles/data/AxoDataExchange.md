@@ -100,7 +100,7 @@ When adding data view manually, you will need to create ViewModel:
 
 ![Custom columns](~/images/CustomColumns.png)
 
-### Export/Import
+<!-- ### Export/Import
 
 If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
 
@@ -113,7 +113,7 @@ With this option, buttons for export and import data will appear. After clicking
 ![Export](~/images/Export.png)
 
 > [!IMPORTANT]
-> Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.
+> Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data. -->
 
 ### Modal detail view
 

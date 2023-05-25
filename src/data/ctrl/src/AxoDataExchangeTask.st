@@ -1,7 +1,9 @@
 USING AXOpen.Core;
 
 NAMESPACE AXOpen.Data
-
+    ///<summary>
+    /// Extends AxoRemoteTask for data operation within AxoData    
+    /// </summary>  
     CLASS AxoDataExchangeTask
         EXTENDS AXOpen.Core.AxoRemoteTask
         VAR PUBLIC
