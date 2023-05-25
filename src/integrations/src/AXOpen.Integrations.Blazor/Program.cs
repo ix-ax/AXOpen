@@ -2,9 +2,11 @@ using axopen_integrations_blazor.Data;
 using axopen_integrations;
 using AXSharp.Connector;
 using AXOpen.Core.blazor.Toaster;
+using AXOpen.Data.Json;
 using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using Pocos.IntegrationAxoDataFramentsExchange;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace axopen_integrations_blazor
@@ -48,6 +50,15 @@ namespace axopen_integrations_blazor
                         Repository.Factory
                             (new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
 
+            var pdfBuilder =
+                Entry.Plc.Integrations.DataFragmentContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
+
+            pdfBuilder.Set.SetRepository(new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(
+                new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents", "set"))));
+            pdfBuilder.Manip.SetRepository(
+                new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>( new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents", "fm"))));
+
+
             //<AxoDataExampleDocuIntialization>
             var exampleRepositorySettings =
                 new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamplesDocu.AxoProductionData>(
@@ -58,6 +69,20 @@ namespace axopen_integrations_blazor
             
             Entry.Plc.AxoDataExamplesDocu.DataManager.InitializeRemoteDataExchange(exampleRepository);
             //</AxoDataExampleDocuIntialization>
+
+
+            //<AxoDataFragmentedExampleDocuIntialization>
+
+            var scatteredDataBuilder =
+                Entry.Plc.AxoDataFragmentExchangeContext.ProcessData.CreateBuilder<AxoDataFramentsExchangeDocuExample.ProcessDataManager>();
+
+            // Setting up repositories
+            scatteredDataBuilder.SharedHeader.SetRepository(new JsonRepository<Pocos.AxoDataFramentsExchangeDocuExample.SharedDataHeaderData>(
+                new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataFramentsExchangeDocuExample.SharedDataHeaderData>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents-docu", "set"))));
+            scatteredDataBuilder.Station_1.SetRepository(
+                new JsonRepository<Pocos.AxoDataFramentsExchangeDocuExample.Station_1_Data>(
+                    new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataFramentsExchangeDocuExample.Station_1_Data>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents", "fm"))));
+            //</AxoDataFragmentedExampleDocuIntialization>
 
             var app = builder.Build();
 

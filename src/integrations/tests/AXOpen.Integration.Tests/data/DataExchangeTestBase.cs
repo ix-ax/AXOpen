@@ -12,7 +12,7 @@ using Pocos.IntegrationLightDirect;
 using Raven.Embedded;
 
 
-namespace integrations.data
+namespace integrations.data.single
 {
 
     using System;

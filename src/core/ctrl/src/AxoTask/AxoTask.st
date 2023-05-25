@@ -189,6 +189,7 @@ NAMESPACE AXOpen.Core
 
             IF _isNullContext THEN
                 Status := eAxoTaskState#Error;
+                ErrorDetails := 'NULL CONTEXT';
             END_IF;
             THIS.UpdateState();
 

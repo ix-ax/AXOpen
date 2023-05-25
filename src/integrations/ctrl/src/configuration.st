@@ -24,7 +24,7 @@ CONFIGURATION MyConfiguration
         AxoMessengers : AxoStaticMessengerExample.Messengers;
         AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
         AxoRtc : AxoRtc.AxoS71500Rtc;
-
+        AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;
        

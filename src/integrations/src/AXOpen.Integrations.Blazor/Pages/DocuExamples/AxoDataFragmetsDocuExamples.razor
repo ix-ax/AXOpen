@@ -1,0 +1,27 @@
+﻿@page "/DocuExamples/AxoDataFragmetsDocuExamples"
+@using AXOpen.Data;
+
+
+<h3>Editable</h3>
+//<CommandView>
+    <RenderableContentControl Context="Entry.Plc.AxoDataFragmentExchangeContext.ProcessData" Presentation="Command"></RenderableContentControl>
+//</CommandView>
+<h3>Readonly</h3>
+//<DisplayView>
+    <RenderableContentControl Context="Entry.Plc.AxoDataFragmentExchangeContext.ProcessData" Presentation="Status"></RenderableContentControl>
+//</DisplayView>
+
+//<CustomColumns>
+<DataExchangeView Vm="VM" Presentation="Command">
+    <ColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
+    <ColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
+    <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
+</DataExchangeView>
+//</CustomColumns>
+
+//<CustomColumnsCode>
+@code {
+        protected DataExchangeViewModel VM { get; } = new() { Model = Entry.Plc.AxoDataFragmentExchangeContext.ProcessData };
+}
+
+//</CustomColumnsCode>

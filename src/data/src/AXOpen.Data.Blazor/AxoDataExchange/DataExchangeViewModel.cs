@@ -144,6 +144,14 @@ namespace AXOpen.Data
         {
             try
             {
+                if (string.IsNullOrEmpty(CreateItemId))
+                {
+                    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Cannot create!",
+                        "New entry name cannot be empty. Please provide an ID", 10)));
+
+                    return;
+                }
+
                 await DataExchange.CreateNewAsync(CreateItemId);
                 WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!",
                     "Item was successfully created!", 10)));

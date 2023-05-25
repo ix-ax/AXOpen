@@ -21,6 +21,8 @@ PROGRAM MyProgram
         AxoMessengers : AxoStaticMessengerExample.Messengers;
         AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
 
+        AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
+
         // Integration test
         Integrations : IntegrationTests.Integrations;
         AxoRtc : AxoRtc.AxoS71500Rtc;
@@ -45,7 +47,7 @@ PROGRAM MyProgram
     AxoMessengers.InjectRtc(AxoRtc);
     AxoMessengersDocu.Run();
     AxoMessengersDocu.InjectRtc(AxoRtc);
-
+    AxoDataFragmentExchangeContext.Run();
     
     // Integration tests
     Integrations.Run();      

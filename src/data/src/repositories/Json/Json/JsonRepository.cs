@@ -172,6 +172,7 @@ namespace AXOpen.Data.Json
 
         private bool RecordExists(string identifier)
         {
+            if (string.IsNullOrEmpty(identifier)) return false;
             return File.Exists(Path.Combine(this.Location, identifier));
         }
 

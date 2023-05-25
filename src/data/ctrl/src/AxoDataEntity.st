@@ -1,12 +1,12 @@
-NAMESPACE AXOpen.Data
+NAMESPACE AXOpen.Data 
     ///<summary>
-    /// Base class for any data entity used in `AxoData`.
-    ///</summary>  
+    /// Base class for any exchangable data in <see cref="AxoDataExchange"/>.  
+    /// </summary>
     CLASS AxoDataEntity IMPLEMENTS IAxoDataEntity
         VAR PUBLIC
             ///<summary>
-            /// Gets or sets identifier for this data entity.
-            ///</summary> 
+            /// Gets or sets data entity identifier.
+            /// </summary>
             {#ix-attr:[RenderIgnore()]}            
             DataEntityId : STRING[254];
         END_VAR        
