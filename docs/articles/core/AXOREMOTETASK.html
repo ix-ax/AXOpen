@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,58 +77,58 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axoremotetask" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="1">AxoRemoteTask</h1>
+<h1 id="axoremotetask">AxoRemoteTask</h1>
 
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="3"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="3">AxoRemoteTask</code> provides task execution, where the execution of the task is deferred to .NET environment. AxoRemoteTask derives from <a href="AXOTASK.html" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="3">AxoTask</a>.</p>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="5"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="5">AxoRemoteTask</code> needs to be initialized to set the proper AxoContext.</p>
-<div class="IMPORTANT" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="7">
+<p><code>AxoRemoteTask</code> provides task execution, where the execution of the task is deferred to .NET environment. AxoRemoteTask derives from <a href="AXOTASK.html">AxoTask</a>.</p>
+<p><code>AxoRemoteTask</code> needs to be initialized to set the proper AxoContext.</p>
+<div class="IMPORTANT">
 <h5>Important</h5>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="8">The deferred execution in .NET environment is not hard-real time nor deterministic. You would typically use the AxoRemoteTask when it would be hard to achieve a goal in the PLC, but you can delegate the access to the non-hard-real and nondeterministic environment. Examples of such use would be database access, complex calculations, and email sending.</p>
+<p>The deferred execution in .NET environment is not hard-real time nor deterministic. You would typically use the AxoRemoteTask when it would be hard to achieve a goal in the PLC, but you can delegate the access to the non-hard-real and nondeterministic environment. Examples of such use would be database access, complex calculations, and email sending.</p>
 </div>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="10"><strong sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="10">AxoTask initialization within a AxoContext</strong></p>
-<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="12">_remoteTask.Initialize(THIS); // THIS = IAxoContext 
+<p><strong>AxoTask initialization within a AxoContext</strong></p>
+<pre><code class="lang-smalltalk">_remoteTask.Initialize(THIS); // THIS = IAxoContext 
 </code></pre>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="14">There are two key methods for managing the AxoRemoteTask:</p>
-<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="16">
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="16"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="16">Invoke()</code> fires the execution of the AxoRemoteTask (can be called fire&amp;forget or cyclically)</li>
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17">Execute()</code> method must be called cyclically. <em sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17">In contrast to <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17">AxoTask</code> the method does not execute any logic. You will need to call the <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="17">Execute</code> method cyclically which will deffer the logic execution in .NET environment.</em></li>
+<p>There are two key methods for managing the AxoRemoteTask:</p>
+<ul>
+<li><code>Invoke()</code> fires the execution of the AxoRemoteTask (can be called fire&amp;forget or cyclically)</li>
+<li><code>Execute()</code> method must be called cyclically. <em>In contrast to <code>AxoTask</code> the method does not execute any logic. You will need to call the <code>Execute</code> method cyclically which will deffer the logic execution in .NET environment.</em></li>
 </ul>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="20">There are the following differences in behavior of DoneWhen and ThrowWhen methods:</p>
-<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22">
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22"><em sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22">DoneWhen(Done_Condition)</code></em> - Unlike AxoTask <strong sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="22">Done condition is handled internally. It does not have an effect.</strong></li>
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="23"><em sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="23"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="23">ThrowWhen(Error_Condition)</code></em> - Unlike AxoTask <strong sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="23">Exception emission is handled internally. It does not have an effect.</strong></li>
+<p>There are the following differences in behavior of DoneWhen and ThrowWhen methods:</p>
+<ul>
+<li><em><code>DoneWhen(Done_Condition)</code></em> - Unlike AxoTask <strong>Done condition is handled internally. It does not have an effect.</strong></li>
+<li><em><code>ThrowWhen(Error_Condition)</code></em> - Unlike AxoTask <strong>Exception emission is handled internally. It does not have an effect.</strong></li>
 </ul>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="25">For termination of the execution of the AxoRemoteTask there are the following methods:</p>
-<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26">
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26">Abort()</code> - terminates the execution of the AxoRemoteTask and enters the <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26">Ready</code> state if the AxoRemoteTask is in the <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="26">Busy</code> state; otherwise does nothing.</li>
+<p>For termination of the execution of the AxoRemoteTask there are the following methods:</p>
+<ul>
+<li><code>Abort()</code> - terminates the execution of the AxoRemoteTask and enters the <code>Ready</code> state if the AxoRemoteTask is in the <code>Busy</code> state; otherwise does nothing.</li>
 </ul>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="28">To reset the AxoRemoteTask from any state at any moment, there is the following method:</p>
-<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="29">
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="29"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="29">Restore()</code> acts as a reset of the AxoRemoteTask (sets the state into <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="29">Ready</code> from any state of the AxoRemoteTask).</li>
+<p>To reset the AxoRemoteTask from any state at any moment, there is the following method:</p>
+<ul>
+<li><code>Restore()</code> acts as a reset of the AxoRemoteTask (sets the state into <code>Ready</code> from any state of the AxoRemoteTask).</li>
 </ul>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">The <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">AxoRemoteTask</code> executes upon the <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">Invoke</code> method call. <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">Invoke</code> fires the execution of <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">Execute</code> logic upon the first call, and <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="31">Invoke</code> does not need cyclical calling.</p>
-<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="33">_remoteTask.Invoke('hello');                            
+<p>The <code>AxoRemoteTask</code> executes upon the <code>Invoke</code> method call. <code>Invoke</code> fires the execution of <code>Execute</code> logic upon the first call, and <code>Invoke</code> does not need cyclical calling.</p>
+<pre><code class="lang-smalltalk">_remoteTask.Invoke('hello');                            
 </code></pre>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="35"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="35">Invoke()</code> method returns IAxoTaskState with the following members:</p>
-<ul sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="37">
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="37"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="37">IsBusy</code> indicates the execution started and is running.</li>
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="38"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="38">IsDone</code> indicates the execution completed with success.</li>
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="39"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="39">HasError</code> indicates the execution terminated with a failure.</li>
-<li sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="40"><code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="40">IsAborted</code> indicates that the execution of the AxoRemoteTask has been aborted. It should continue by calling the method <code sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="40">Resume()</code>.</li>
+<p><code>Invoke()</code> method returns IAxoTaskState with the following members:</p>
+<ul>
+<li><code>IsBusy</code> indicates the execution started and is running.</li>
+<li><code>IsDone</code> indicates the execution completed with success.</li>
+<li><code>HasError</code> indicates the execution terminated with a failure.</li>
+<li><code>IsAborted</code> indicates that the execution of the AxoRemoteTask has been aborted. It should continue by calling the method <code>Resume()</code>.</li>
 </ul>
-<h2 id="task-initialization-in-net" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="42">Task initialization in .NET</h2>
-<pre><code class="lang-csharp" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="44">Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'&quot;));
+<h2 id="task-initialization-in-net">Task initialization in .NET</h2>
+<pre><code class="lang-csharp">Entry.Plc.AxoRemoteTasks._remoteTask.Initialize(() =&gt; Console.WriteLine($&quot;Remote task executed PLC sent this string: '{Entry.Plc.AxoRemoteTasks._remoteTask.Message.GetAsync().Result}'&quot;));
 </code></pre>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="46">In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.</p>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="48"><img src="../../images/remote_exect.gif" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="48" alt="Alt text"></p>
-<h2 id="executing-from-plc" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="51">Executing from PLC</h2>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="53">Invoking the AxoRemoteTask and waiting for its completion at the same place.</p>
-<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="54">IF(_remoteTask.Invoke('hello').IsDone()) THEN
+<p>In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.</p>
+<p><img src="../../images/remote_exect.gif" alt="Alt text"></p>
+<h2 id="executing-from-plc">Executing from PLC</h2>
+<p>Invoking the AxoRemoteTask and waiting for its completion at the same place.</p>
+<pre><code class="lang-smalltalk">IF(_remoteTask.Invoke('hello').IsDone()) THEN
     _doneCounter := _doneCounter + 1; 
 END_IF;    
 </code></pre>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="55">Invoking the AxoRemoteTask and waiting for its completion at the different places.</p>
-<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="56">
+<p>Invoking the AxoRemoteTask and waiting for its completion at the different places.</p>
+<pre><code class="lang-smalltalk">
 // Fire &amp; Forget
 _remoteTask.Invoke('hello');
 
@@ -138,13 +138,13 @@ IF(_remoteTask.IsDone()) THEN
 END_IF;    
 
 </code></pre>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="57">Checking if the AxoRemoteTask is executing.</p>
-<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="58">IF(_remoteTask.IsBusy()) THEN
+<p>Checking if the AxoRemoteTask is executing.</p>
+<pre><code class="lang-smalltalk">IF(_remoteTask.IsBusy()) THEN
     ;// Do something after task started
 END_IF;   
 </code></pre>
-<p sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="59">Check for the AxoRemoteTask's error state.</p>
-<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOREMOTETASK.md" sourcestartlinenumber="60">IF(_remoteTask.HasError()) THEN
+<p>Check for the AxoRemoteTask's error state.</p>
+<pre><code class="lang-smalltalk">IF(_remoteTask.HasError()) THEN
     ;// Do something when an exception occurs on remote task.
 END_IF;   
 </code></pre></article>

@@ -89,6 +89,30 @@
 </h3>
       <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.AxoMessageDigest.html">AxoMessageDigest</a></h4>
       <section></section>
+      <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.AxoMessengerEnv.html">AxoMessengerEnv</a></h4>
+      <section></section>
+      <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.AxoMessenger.html">AxoMessenger</a></h4>
+      <section><p>Provides mechanism for delivering static messages to the supervising applications (SCADA/HMI).<remarks><note>Each messenger has a single placeholder for the message; it stores the most important message from the last context cycle.If there are more messages in a single cycle for the same messenger then less important messages are discarded and replaced bythe message with the category of higher severity.</note><note>Messenger can send the data to context logger. There is a maximum limit of 10 different messages per messenger in 2 consecutive context cycles.The messages that exceed this limit won't be logged when <code>OnEventRisen</code> logging is set.Take this behaviour into account when designing your system.</note></remarks></p>
+</section>
+    <h3 id="structs">Structs
+</h3>
+      <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.AxoMessage.html">AxoMessage</a></h4>
+      <section><p>Complete message details including time stamp, message text, message category, identity of the message provider, context cycle in which the message was posted.</p>
+</section>
+    <h3 id="interfaces">Interfaces
+</h3>
+      <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageCategorize.html">IAxoMessageCategorize</a></h4>
+      <section></section>
+      <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageProperties.html">IAxoMessageProperties</a></h4>
+      <section></section>
+      <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessages.html">IAxoMessages</a></h4>
+      <section></section>
+      <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessageTextBuilder.html">IAxoMessageTextBuilder</a></h4>
+      <section></section>
+      <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessenger.html">IAxoMessenger</a></h4>
+      <section></section>
+      <h4><a class="xref" href="plc.AXOpen.Messaging.Dynamic.IAxoMessengerEnv.html">IAxoMessengerEnv</a></h4>
+      <section></section>
 </article>
           </div>
 

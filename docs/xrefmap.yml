@@ -8129,22 +8129,28 @@ references:
   fullName.vb: AXOpen.Data.AxoDataFragmentExchange.New
   nameWithType: AxoDataFragmentExchange.AxoDataFragmentExchange
   nameWithType.vb: AxoDataFragmentExchange.New
-- uid: AXOpen.Data.AxoDataFragmentExchange.Builder*
-  name: Builder
-  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_Builder_
-  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.Builder
+- uid: AXOpen.Data.AxoDataFragmentExchange.CreateBuilder
+  name: CreateBuilder()
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_CreateBuilder
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.CreateBuilder
+  fullName: AXOpen.Data.AxoDataFragmentExchange.CreateBuilder()
+  nameWithType: AxoDataFragmentExchange.CreateBuilder()
+- uid: AXOpen.Data.AxoDataFragmentExchange.CreateBuilder*
+  name: CreateBuilder
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_CreateBuilder_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.CreateBuilder
   isSpec: "True"
-  fullName: AXOpen.Data.AxoDataFragmentExchange.Builder
-  nameWithType: AxoDataFragmentExchange.Builder
-- uid: AXOpen.Data.AxoDataFragmentExchange.Builder``1
-  name: Builder<T>()
-  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_Builder__1
-  commentId: M:AXOpen.Data.AxoDataFragmentExchange.Builder``1
-  name.vb: Builder(Of T)()
-  fullName: AXOpen.Data.AxoDataFragmentExchange.Builder<T>()
-  fullName.vb: AXOpen.Data.AxoDataFragmentExchange.Builder(Of T)()
-  nameWithType: AxoDataFragmentExchange.Builder<T>()
-  nameWithType.vb: AxoDataFragmentExchange.Builder(Of T)()
+  fullName: AXOpen.Data.AxoDataFragmentExchange.CreateBuilder
+  nameWithType: AxoDataFragmentExchange.CreateBuilder
+- uid: AXOpen.Data.AxoDataFragmentExchange.CreateBuilder``1
+  name: CreateBuilder<T>()
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_CreateBuilder__1
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.CreateBuilder``1
+  name.vb: CreateBuilder(Of T)()
+  fullName: AXOpen.Data.AxoDataFragmentExchange.CreateBuilder<T>()
+  fullName.vb: AXOpen.Data.AxoDataFragmentExchange.CreateBuilder(Of T)()
+  nameWithType: AxoDataFragmentExchange.CreateBuilder<T>()
+  nameWithType.vb: AxoDataFragmentExchange.CreateBuilder(Of T)()
 - uid: AXOpen.Data.AxoDataFragmentExchange.CreateCopyCurrentShadowsAsync(System.String)
   name: CreateCopyCurrentShadowsAsync(string)
   href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_CreateCopyCurrentShadowsAsync_System_String_
@@ -8219,6 +8225,19 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.AxoDataFragmentExchange.DataFragments
   nameWithType: AxoDataFragmentExchange.DataFragments
+- uid: AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange
+  name: DeInitializeRemoteDataExchange()
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_DeInitializeRemoteDataExchange
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange
+  fullName: AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange()
+  nameWithType: AxoDataFragmentExchange.DeInitializeRemoteDataExchange()
+- uid: AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange*
+  name: DeInitializeRemoteDataExchange
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_DeInitializeRemoteDataExchange_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange
+  nameWithType: AxoDataFragmentExchange.DeInitializeRemoteDataExchange
 - uid: AXOpen.Data.AxoDataFragmentExchange.Delete(System.String)
   name: Delete(string)
   href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_Delete_System_String_
@@ -8286,6 +8305,19 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.AxoDataFragmentExchange.GetRecords
   nameWithType: AxoDataFragmentExchange.GetRecords
+- uid: AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange
+  name: InitializeRemoteDataExchange()
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_InitializeRemoteDataExchange
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange
+  fullName: AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange()
+  nameWithType: AxoDataFragmentExchange.InitializeRemoteDataExchange()
+- uid: AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange*
+  name: InitializeRemoteDataExchange
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_InitializeRemoteDataExchange_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange
+  nameWithType: AxoDataFragmentExchange.InitializeRemoteDataExchange
 - uid: AXOpen.Data.AxoDataFragmentExchange.OnlineToPlain*
   name: OnlineToPlain
   href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_OnlineToPlain_
@@ -15028,6 +15060,18 @@ references:
   name: AxoCoordinatorStates
   href: apictrl/plc.AXOpen.Core.AxoCoordinatorStates.html
   fullName: AxoCoordinatorStates
+- uid: plc.AXOpen.Core.AxoCoordinatorStates.Configuring
+  name: Configuring := 1
+  href: apictrl/plc.AXOpen.Core.AxoCoordinatorStates.html#plc_AXOpen_Core_AxoCoordinatorStates_Configuring
+  fullName: Configuring
+- uid: plc.AXOpen.Core.AxoCoordinatorStates.Idle
+  name: Idle := 0
+  href: apictrl/plc.AXOpen.Core.AxoCoordinatorStates.html#plc_AXOpen_Core_AxoCoordinatorStates_Idle
+  fullName: Idle
+- uid: plc.AXOpen.Core.AxoCoordinatorStates.Running
+  name: Running := 2
+  href: apictrl/plc.AXOpen.Core.AxoCoordinatorStates.html#plc_AXOpen_Core_AxoCoordinatorStates_Running
+  fullName: Running
 - uid: plc.AXOpen.Core.AxoMomentaryTask
   name: AxoMomentaryTask
   href: apictrl/plc.AXOpen.Core.AxoMomentaryTask.html
@@ -15680,14 +15724,66 @@ references:
   name: eAxoSequenceMode
   href: apictrl/plc.AXOpen.Core.eAxoSequenceMode.html
   fullName: eAxoSequenceMode
+- uid: plc.AXOpen.Core.eAxoSequenceMode.Cyclic
+  name: Cyclic := 2
+  href: apictrl/plc.AXOpen.Core.eAxoSequenceMode.html#plc_AXOpen_Core_eAxoSequenceMode_Cyclic
+  fullName: Cyclic
+- uid: plc.AXOpen.Core.eAxoSequenceMode.None
+  name: None := 0
+  href: apictrl/plc.AXOpen.Core.eAxoSequenceMode.html#plc_AXOpen_Core_eAxoSequenceMode_None
+  fullName: None
+- uid: plc.AXOpen.Core.eAxoSequenceMode.RunOnce
+  name: RunOnce := 1
+  href: apictrl/plc.AXOpen.Core.eAxoSequenceMode.html#plc_AXOpen_Core_eAxoSequenceMode_RunOnce
+  fullName: RunOnce
 - uid: plc.AXOpen.Core.eAxoSteppingMode
   name: eAxoSteppingMode
   href: apictrl/plc.AXOpen.Core.eAxoSteppingMode.html
   fullName: eAxoSteppingMode
+- uid: plc.AXOpen.Core.eAxoSteppingMode.Continous
+  name: Continous := 2
+  href: apictrl/plc.AXOpen.Core.eAxoSteppingMode.html#plc_AXOpen_Core_eAxoSteppingMode_Continous
+  fullName: Continous
+- uid: plc.AXOpen.Core.eAxoSteppingMode.None
+  name: None := 0
+  href: apictrl/plc.AXOpen.Core.eAxoSteppingMode.html#plc_AXOpen_Core_eAxoSteppingMode_None
+  fullName: None
+- uid: plc.AXOpen.Core.eAxoSteppingMode.StepByStep
+  name: StepByStep := 1
+  href: apictrl/plc.AXOpen.Core.eAxoSteppingMode.html#plc_AXOpen_Core_eAxoSteppingMode_StepByStep
+  fullName: StepByStep
 - uid: plc.AXOpen.Core.eAxoTaskState
   name: eAxoTaskState
   href: apictrl/plc.AXOpen.Core.eAxoTaskState.html
   fullName: eAxoTaskState
+- uid: plc.AXOpen.Core.eAxoTaskState.Aborted
+  name: Aborted := 5
+  href: apictrl/plc.AXOpen.Core.eAxoTaskState.html#plc_AXOpen_Core_eAxoTaskState_Aborted
+  fullName: Aborted
+- uid: plc.AXOpen.Core.eAxoTaskState.Busy
+  name: Busy := 3
+  href: apictrl/plc.AXOpen.Core.eAxoTaskState.html#plc_AXOpen_Core_eAxoTaskState_Busy
+  fullName: Busy
+- uid: plc.AXOpen.Core.eAxoTaskState.Disabled
+  name: Disabled := 0
+  href: apictrl/plc.AXOpen.Core.eAxoTaskState.html#plc_AXOpen_Core_eAxoTaskState_Disabled
+  fullName: Disabled
+- uid: plc.AXOpen.Core.eAxoTaskState.Done
+  name: Done := 4
+  href: apictrl/plc.AXOpen.Core.eAxoTaskState.html#plc_AXOpen_Core_eAxoTaskState_Done
+  fullName: Done
+- uid: plc.AXOpen.Core.eAxoTaskState.Error
+  name: Error := 10
+  href: apictrl/plc.AXOpen.Core.eAxoTaskState.html#plc_AXOpen_Core_eAxoTaskState_Error
+  fullName: Error
+- uid: plc.AXOpen.Core.eAxoTaskState.Kicking
+  name: Kicking := 2
+  href: apictrl/plc.AXOpen.Core.eAxoTaskState.html#plc_AXOpen_Core_eAxoTaskState_Kicking
+  fullName: Kicking
+- uid: plc.AXOpen.Core.eAxoTaskState.Ready
+  name: Ready := 1
+  href: apictrl/plc.AXOpen.Core.eAxoTaskState.html#plc_AXOpen_Core_eAxoTaskState_Ready
+  fullName: Ready
 - uid: plc.AXOpen.Core.IAxoComponent
   name: IAxoComponent
   href: apictrl/plc.AXOpen.Core.IAxoComponent.html
@@ -16032,9 +16128,37 @@ references:
   name: Restore
   href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_Restore__
   fullName: Restore
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoContext)
+  name: Run
+  href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_Run_IAxoContext_
+  fullName: Run
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoObject)
+  name: Run
+  href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_Run_IAxoObject_
+  fullName: Run
 - uid: plc.AXOpen.Data.AxoDataFragmentExchange.Update(STRING[254])
   name: Update
   href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_Update_STRING_254__
+  fullName: Update
+- uid: plc.AXOpen.Data.eCrudOperation
+  name: eCrudOperation
+  href: apictrl/plc.AXOpen.Data.eCrudOperation.html
+  fullName: eCrudOperation
+- uid: plc.AXOpen.Data.eCrudOperation.Create
+  name: Create
+  href: apictrl/plc.AXOpen.Data.eCrudOperation.html#plc_AXOpen_Data_eCrudOperation_Create
+  fullName: Create
+- uid: plc.AXOpen.Data.eCrudOperation.Delete
+  name: Delete
+  href: apictrl/plc.AXOpen.Data.eCrudOperation.html#plc_AXOpen_Data_eCrudOperation_Delete
+  fullName: Delete
+- uid: plc.AXOpen.Data.eCrudOperation.Read
+  name: Read
+  href: apictrl/plc.AXOpen.Data.eCrudOperation.html#plc_AXOpen_Data_eCrudOperation_Read
+  fullName: Read
+- uid: plc.AXOpen.Data.eCrudOperation.Update
+  name: Update
+  href: apictrl/plc.AXOpen.Data.eCrudOperation.html#plc_AXOpen_Data_eCrudOperation_Update
   fullName: Update
 - uid: plc.AXOpen.Data.IAxoDataEntity
   name: IAxoDataEntity
@@ -16060,6 +16184,14 @@ references:
   name: Restore
   href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html#plc_AXOpen_Data_IAxoDataExchange_Restore__
   fullName: Restore
+- uid: plc.AXOpen.Data.IAxoDataExchange.Run(IAxoContext)
+  name: Run
+  href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html#plc_AXOpen_Data_IAxoDataExchange_Run_IAxoContext_
+  fullName: Run
+- uid: plc.AXOpen.Data.IAxoDataExchange.Run(IAxoObject)
+  name: Run
+  href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html#plc_AXOpen_Data_IAxoDataExchange_Run_IAxoObject_
+  fullName: Run
 - uid: plc.AXOpen.Data.IAxoDataExchange.Update(STRING[254])
   name: Update
   href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html#plc_AXOpen_Data_IAxoDataExchange_Update_STRING_254__
@@ -16068,10 +16200,58 @@ references:
   name: AxoIntConstants
   href: apictrl/plc.AXOpen.Messaging.AxoIntConstants.html
   fullName: AxoIntConstants
+- uid: plc.AXOpen.Messaging.AxoIntConstants.MAX_MESSAGE_TEXT_LENGHT
+  name: MAX_MESSAGE_TEXT_LENGHT := 160
+  href: apictrl/plc.AXOpen.Messaging.AxoIntConstants.html#plc_AXOpen_Messaging_AxoIntConstants_MAX_MESSAGE_TEXT_LENGHT
+  fullName: MAX_MESSAGE_TEXT_LENGHT
+- uid: plc.AXOpen.Messaging.AxoIntConstants.MDS_MAX_INDEX
+  name: MDS_MAX_INDEX := 10
+  href: apictrl/plc.AXOpen.Messaging.AxoIntConstants.html#plc_AXOpen_Messaging_AxoIntConstants_MDS_MAX_INDEX
+  fullName: MDS_MAX_INDEX
 - uid: plc.AXOpen.Messaging.Dynamic
   name: plc.AXOpen.Messaging.Dynamic
   href: apictrl/plc.AXOpen.Messaging.Dynamic.html
   fullName: Dynamic
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage
+  name: AxoMessage
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html
+  fullName: AxoMessage
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage.Category
+  name: Category
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html#plc_AXOpen_Messaging_Dynamic_AxoMessage_Category
+  fullName: Category
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage.Cycle
+  name: Cycle
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html#plc_AXOpen_Messaging_Dynamic_AxoMessage_Cycle
+  fullName: Cycle
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage.ExpectDequeing
+  name: ExpectDequeing
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html#plc_AXOpen_Messaging_Dynamic_AxoMessage_ExpectDequeing
+  fullName: ExpectDequeing
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage.Identity
+  name: Identity
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html#plc_AXOpen_Messaging_Dynamic_AxoMessage_Identity
+  fullName: Identity
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage.MessageDigest
+  name: MessageDigest
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html#plc_AXOpen_Messaging_Dynamic_AxoMessage_MessageDigest
+  fullName: MessageDigest
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage.PerCycleCount
+  name: PerCycleCount
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html#plc_AXOpen_Messaging_Dynamic_AxoMessage_PerCycleCount
+  fullName: PerCycleCount
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage.Pinned
+  name: Pinned
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html#plc_AXOpen_Messaging_Dynamic_AxoMessage_Pinned
+  fullName: Pinned
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage.Text
+  name: Text
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html#plc_AXOpen_Messaging_Dynamic_AxoMessage_Text
+  fullName: Text
+- uid: plc.AXOpen.Messaging.Dynamic.AxoMessage.TimeStamp
+  name: TimeStamp
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html#plc_AXOpen_Messaging_Dynamic_AxoMessage_TimeStamp
+  fullName: TimeStamp
 - uid: plc.AXOpen.Messaging.Dynamic.AxoMessageDigest
   name: AxoMessageDigest
   href: apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessageDigest.html
@@ -16404,10 +16584,38 @@ references:
   name: eAxoMessageCondition
   href: apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageCondition.html
   fullName: eAxoMessageCondition
+- uid: plc.AXOpen.Messaging.Dynamic.eAxoMessageCondition.Active
+  name: Active := 10
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageCondition.html#plc_AXOpen_Messaging_Dynamic_eAxoMessageCondition_Active
+  fullName: Active
+- uid: plc.AXOpen.Messaging.Dynamic.eAxoMessageCondition.Inactive
+  name: Inactive := 20
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageCondition.html#plc_AXOpen_Messaging_Dynamic_eAxoMessageCondition_Inactive
+  fullName: Inactive
+- uid: plc.AXOpen.Messaging.Dynamic.eAxoMessageCondition.Unconditional
+  name: Unconditional := 0
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageCondition.html#plc_AXOpen_Messaging_Dynamic_eAxoMessageCondition_Unconditional
+  fullName: Unconditional
 - uid: plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod
   name: eAxoMessageDigestMethod
   href: apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.html
   fullName: eAxoMessageDigestMethod
+- uid: plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.CRC16
+  name: CRC16 := 16
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.html#plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod_CRC16
+  fullName: CRC16
+- uid: plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.CRC32
+  name: CRC32 := 32
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.html#plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod_CRC32
+  fullName: CRC32
+- uid: plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.CRC8
+  name: CRC8 := 8
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.html#plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod_CRC8
+  fullName: CRC8
+- uid: plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.NONE
+  name: NONE := 32767
+  href: apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.html#plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod_NONE
+  fullName: NONE
 - uid: plc.AXOpen.Messaging.Dynamic.IAxoMessageCategorize
   name: IAxoMessageCategorize
   href: apictrl/plc.AXOpen.Messaging.Dynamic.IAxoMessageCategorize.html
@@ -16652,6 +16860,58 @@ references:
   name: eAxoMessageCategory
   href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html
   fullName: eAxoMessageCategory
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.All
+  name: All := 0
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_All
+  fullName: All
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Catastrophic
+  name: Catastrophic := 1200
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_Catastrophic
+  fullName: Catastrophic
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Critical
+  name: Critical := 1000
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_Critical
+  fullName: Critical
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Debug
+  name: Debug := 200
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_Debug
+  fullName: Debug
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Error
+  name: Error := 700
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_Error
+  fullName: Error
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Fatal
+  name: Fatal := 1100
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_Fatal
+  fullName: Fatal
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Info
+  name: Info := 300
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_Info
+  fullName: Info
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.None
+  name: None := 32000
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_None
+  fullName: None
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Notification
+  name: Notification := 500
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_Notification
+  fullName: Notification
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
+  name: ProgrammingError := 900
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_ProgrammingError
+  fullName: ProgrammingError
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.TimedOut
+  name: TimedOut := 400
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_TimedOut
+  fullName: TimedOut
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Trace
+  name: Trace := 100
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_Trace
+  fullName: Trace
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Warning
+  name: Warning := 600
+  href: apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html#plc_AXOpen_Messaging_eAxoMessageCategory_Warning
+  fullName: Warning
 - uid: plc.AXOpen.Messaging.Static
   name: plc.AXOpen.Messaging.Static
   href: apictrl/plc.AXOpen.Messaging.Static.html

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,43 +77,43 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axopenmessaging" sourcefile="articles/messaging/README.md" sourcestartlinenumber="1"><strong sourcefile="articles/messaging/README.md" sourcestartlinenumber="1">AXOpen.Messaging</strong></h1>
+<h1 id="axopenmessaging"><strong>AXOpen.Messaging</strong></h1>
 
-<p sourcefile="articles/messaging/README.md" sourcestartlinenumber="3"><strong sourcefile="articles/messaging/README.md" sourcestartlinenumber="3">AXOpen.Messaging</strong> provides basic blocks for providing messaging.</p>
-<h1 id="basic-concepts" sourcefile="articles/messaging/README.md" sourcestartlinenumber="5">Basic concepts</h1>
-<h1 id="axomessenger" sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="1">AxoMessenger</h1>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="3">Static <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="3">AxoMessenger</code> is a class that provides mechanism for delivering static message to the supervising applications (SCADA/HMI). This static messenger uses the text defined in the declaration. This text cannot be changed during runtime as the text is &quot;transfered&quot; just once during the compilation and it is not read during the runtime. The PLC code of the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="3">AxoMessenger</code> just ensures the activation, deactivation and acknowledgement of the message.</p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="5"><code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="5">AxoMessenger</code> contains following public methods.</p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="7"><code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="7">Serve()</code> - this method must be called cyclically. It ensures the inicialization of the instance, so as the deactivation of the message.</p>
-<pre><code class="lang-mermaid" sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="9">  classDiagram
+<p><strong>AXOpen.Messaging</strong> provides basic blocks for providing messaging.</p>
+<h1 id="basic-concepts">Basic concepts</h1>
+<h1 id="axomessenger">AxoMessenger</h1>
+<p>Static <code>AxoMessenger</code> is a class that provides mechanism for delivering static message to the supervising applications (SCADA/HMI). This static messenger uses the text defined in the declaration. This text cannot be changed during runtime as the text is &quot;transfered&quot; just once during the compilation and it is not read during the runtime. The PLC code of the <code>AxoMessenger</code> just ensures the activation, deactivation and acknowledgement of the message.</p>
+<p><code>AxoMessenger</code> contains following public methods.</p>
+<p><code>Serve()</code> - this method must be called cyclically. It ensures the inicialization of the instance, so as the deactivation of the message.</p>
+<pre><code class="lang-mermaid">  classDiagram
     class AxoMessenger{
         +Serve(IAxoContext _context)
         +Serve(IAxoObject _object)        
     }     
 </code></pre>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="17"><code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="17">Activate(category)</code> - this method immediatelly activate the message of the category where category is of the type <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="17">eAxoMessageCategory</code>. Deactivation is detected after one PLC cycle without calling the method <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="17">Activate</code>.</p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="19"><code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="19">ActivateOnCondition(condition,category)</code> - this method activate the message of the category where category is of the type <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="19">eAxoMessageCategory</code> on the rising edge of the condition and imidiatelly deactivate the message on the falling edge of the condition. The <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="19">ActivateOnCondition</code> method is designed to be called cyclically.</p>
-<div class="NOTE" sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="21">
+<p><code>Activate(category)</code> - this method immediatelly activate the message of the category where category is of the type <code>eAxoMessageCategory</code>. Deactivation is detected after one PLC cycle without calling the method <code>Activate</code>.</p>
+<p><code>ActivateOnCondition(condition,category)</code> - this method activate the message of the category where category is of the type <code>eAxoMessageCategory</code> on the rising edge of the condition and imidiatelly deactivate the message on the falling edge of the condition. The <code>ActivateOnCondition</code> method is designed to be called cyclically.</p>
+<div class="NOTE">
 <h5>Note</h5>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="22">Do not use the both activation methods on the same <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="22">AxoMessenger</code> instance, please use just one of them.</p>
+<p>Do not use the both activation methods on the same <code>AxoMessenger</code> instance, please use just one of them.</p>
 </div>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="24"><code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="24">Acknowledge()</code> - acknowledge the message if required. The message could be acknowledged so as before deactivation so as after.</p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="26">Depending on the <a href="/apictrl/abstractions/plc.AXOpen.Messaging.eAxoMessageCategory.html" sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="26">eAxoMessageCategory</a> the messenger should require the acknowledgement.</p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="28">By default the acknowledgement is not required for the levels <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="28">Trace</code>,<code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="28">Debug</code>,<code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="28">Info</code>,<code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="28">TimedOut</code>,<code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="28">Notification</code> and <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="28">Warning</code>.
-This could be overwritten by calling the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="29">RequireAcknowledgement()</code> method.
-Contrariwise, the acknowledgement is required for the levels <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="30">Error</code>,<code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="30">ProgrammingError</code>,<code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="30">Critical</code>,<code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="30">Fatal</code> and <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="30">Catastrophic</code> by default. This could be overwritten by calling the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="30">DoNotRequireAcknowledgement()</code> method.</p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="32"><strong sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="32">Attributes <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="32">MessageText</code> and <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="32">Help</code></strong></p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="34">These attributes are used to set the values of the static texts of the messenger. These values are read out at the compilation time transfered to .NET counterpart and set as a constant strings. Therefore they can't be changed at the runtime.</p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="36">Example of declaration the instance and defining the attributes <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="36">MessageText</code> and <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="36">Help</code>.</p>
-<pre><code class="lang-smalltalk" sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="37">{#ix-set:MessageText = &quot;&lt;#Message text for messenger 1#&gt;&quot;}
+<p><code>Acknowledge()</code> - acknowledge the message if required. The message could be acknowledged so as before deactivation so as after.</p>
+<p>Depending on the <a href="/apictrl/abstractions/plc.AXOpen.Messaging.eAxoMessageCategory.html">eAxoMessageCategory</a> the messenger should require the acknowledgement.</p>
+<p>By default the acknowledgement is not required for the levels <code>Trace</code>,<code>Debug</code>,<code>Info</code>,<code>TimedOut</code>,<code>Notification</code> and <code>Warning</code>.
+This could be overwritten by calling the <code>RequireAcknowledgement()</code> method.
+Contrariwise, the acknowledgement is required for the levels <code>Error</code>,<code>ProgrammingError</code>,<code>Critical</code>,<code>Fatal</code> and <code>Catastrophic</code> by default. This could be overwritten by calling the <code>DoNotRequireAcknowledgement()</code> method.</p>
+<p><strong>Attributes <code>MessageText</code> and <code>Help</code></strong></p>
+<p>These attributes are used to set the values of the static texts of the messenger. These values are read out at the compilation time transfered to .NET counterpart and set as a constant strings. Therefore they can't be changed at the runtime.</p>
+<p>Example of declaration the instance and defining the attributes <code>MessageText</code> and <code>Help</code>.</p>
+<pre><code class="lang-smalltalk">{#ix-set:MessageText = &quot;&lt;#Message text for messenger 1#&gt;&quot;}
 {#ix-set:Help = &quot;&lt;#Help text for messenger 1#&gt;&quot;}
 _messenger1 : AxoMessenger;
 </code></pre>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="39"><strong sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="39">How to use <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="39">AxoMessenger</code></strong></p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="41">The instance of the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="41">AxoMessenger</code> must be defined inside the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="41">AxoContext</code> or <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="41">AxoObject</code>.
-Inside the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="42">Main()</code> method of the related <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="42">AxoContext</code> or inside the cyclically called method of the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="42">AxoObject</code> following rules must be applied. The <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="42">Serve()</code> method of the instance of the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="42">AxoMessenger</code> must be called cyclically.
-The <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="43">Activate</code> method should be used called the required condition or the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="43">AcitvateOnCondition</code> should be called cyclically. Avoid to mix using the both methods with the same instance.</p>
-<pre><code class="lang-smalltalk" sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="44">CLASS Messengers EXTENDS AXOpen.Core.AxoContext
+<p><strong>How to use <code>AxoMessenger</code></strong></p>
+<p>The instance of the <code>AxoMessenger</code> must be defined inside the <code>AxoContext</code> or <code>AxoObject</code>.
+Inside the <code>Main()</code> method of the related <code>AxoContext</code> or inside the cyclically called method of the <code>AxoObject</code> following rules must be applied. The <code>Serve()</code> method of the instance of the <code>AxoMessenger</code> must be called cyclically.
+The <code>Activate</code> method should be used called the required condition or the <code>AcitvateOnCondition</code> should be called cyclically. Avoid to mix using the both methods with the same instance.</p>
+<pre><code class="lang-smalltalk">CLASS Messengers EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         {#ix-set:MessageText = &quot;&lt;#Message text for messenger 1#&gt;&quot;}
         {#ix-set:Help = &quot;&lt;#Help text for messenger 1#&gt;&quot;}
@@ -136,15 +136,15 @@ The <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber=
     END_METHOD
 END_CLASS    
 </code></pre>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="46">If neccessary, the default behaviour of the acknowledgeable messenger should be changed as follows.</p>
-<pre><code class="lang-smalltalk" sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="47">_messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Error).DoNotRequireAcknowledgement();
+<p>If neccessary, the default behaviour of the acknowledgeable messenger should be changed as follows.</p>
+<pre><code class="lang-smalltalk">_messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Error).DoNotRequireAcknowledgement();
 </code></pre>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="48">Contrariwise, the default behaviour of the unacknowledgeable messenger should be changed as follows.</p>
-<pre><code class="lang-smalltalk" sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="49">_messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Warning).RequireAcknowledgement();
+<p>Contrariwise, the default behaviour of the unacknowledgeable messenger should be changed as follows.</p>
+<pre><code class="lang-smalltalk">_messenger2.ActivateOnCondition(_messenger2condition,eAxoMessageCategory#Warning).RequireAcknowledgement();
 </code></pre>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="51"><strong sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="51">How to visualize <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="51">AxoMessenger</code></strong></p>
-<p sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="53">On the UI side use the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="53">RenderableContentControl</code> and set its Context according the placement of the instance of the <code sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="53">AxoMessenger</code>.</p>
-<pre><code class="lang-csharp" sourcefile="articles/messaging/AXOMESSENGER.md" sourcestartlinenumber="54">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMessengersDocu._messenger1&quot; Presentation=&quot;Command-Control&quot; Class=&quot;ps-2&quot;/&gt;
+<p><strong>How to visualize <code>AxoMessenger</code></strong></p>
+<p>On the UI side use the <code>RenderableContentControl</code> and set its Context according the placement of the instance of the <code>AxoMessenger</code>.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoMessengersDocu._messenger1&quot; Presentation=&quot;Command-Control&quot; Class=&quot;ps-2&quot;/&gt;
 </code></pre></article>
           </div>
 

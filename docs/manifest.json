@@ -814,7 +814,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.AxoDataFragmentExchange.html",
-          "hash": "dbKjhp5zldufFqbpHMoY2YBCarMCdUvcbVz0BAE+z84="
+          "hash": "l+ha/reQQ9yXHLgjRr1j8Hu0fsO0nZVcvIdlUEk7Hl0="
         }
       },
       "version": ""
@@ -880,7 +880,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.DataExchangeViewModel.html",
-          "hash": "HIzO1Xc5OlcXCgc8tiLERgb2Kr3Ws4+C4K11qXZKAEA="
+          "hash": "yzTTHLCJn3Hg3Ws9jFjY0QqJczpl7+8Lvx+vnRrl0io="
         }
       },
       "version": ""
@@ -1012,7 +1012,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.Json.JsonRepository-1.html",
-          "hash": "drgqHpwqw7EVwPrZbT34ALcLSAyhYrELhXkxxHqB/K0="
+          "hash": "qndiT3X7RotRXSNXcRFAtErHNQo/HglfRq0PqRKFUdA="
         }
       },
       "version": ""
@@ -1078,7 +1078,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.MongoDb.MongoDbRepositorySettings-1.html",
-          "hash": "H6jfzmNaNbMYQTBpiqAztiBro437BVLH4niRr/5QXSc="
+          "hash": "XSJxj28GbmKsqyYf9MRiSJHfgVsf+c0Bgr2kZW559z4="
         }
       },
       "version": ""
@@ -1936,7 +1936,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Pocos.AXOpen.Data.AxoDataFragmentExchange.html",
-          "hash": "LudBXLxtkCJ+s8Da5MBylwT5vUspC9RIHUzG26EWA6k="
+          "hash": "11QLi1vwF22woVI1gXpREMLo2U1D+TCPxrMe71u+DIQ="
         }
       },
       "version": ""
@@ -2343,7 +2343,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.AxoCoordinatorStates.html",
-          "hash": "WikYfR9SW8dpnMD22v7QcRnLdh6Ah1jCJUNjKe/Jp0M="
+          "hash": "ZPu3o8w2b4+vieCexyKKmMvTIMRsW6UCIaAYM7NBucY="
         }
       },
       "version": ""
@@ -2629,7 +2629,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.eAxoSequenceMode.html",
-          "hash": "uq9yfl6Oj+An4zQAj5dKVgENuQSQZQ+TIpdI9bP1Bz0="
+          "hash": "gMQrrk8Nwy8pzugRzQx/u2JWByXAI9wSEqHGOHPgQI4="
         }
       },
       "version": ""
@@ -2640,7 +2640,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.eAxoSteppingMode.html",
-          "hash": "qWkkV9k9A4wtr0lb4tleppFrvk4Q3V/cLvZBeppFSnw="
+          "hash": "g//0SP1SwzMMNmTYdVyhg/dHHAlIiVZoinyxDJ5elew="
         }
       },
       "version": ""
@@ -2651,7 +2651,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.eAxoTaskState.html",
-          "hash": "JvyzjeyQK5Ga5kDE7nZ4h+FECfkFxYCOqK+NdWVRHj8="
+          "hash": "YqtRGbjOCDCIk3wfeTI5JxPIrxd44xCW3ELbVrdP1U8="
         }
       },
       "version": ""
@@ -2673,7 +2673,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.AxoDataCrudTask.html",
-          "hash": "svE1ecjIPgDjObOCw67K08ArIJd7/bC3Z8fXBcLtwzg="
+          "hash": "HpoBlKvrRzdj4vdGTj3hdX5emnJHCXqBnKGbw1zsOKo="
         }
       },
       "version": ""
@@ -2684,7 +2684,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.AxoDataEntity.html",
-          "hash": "fy0tWeBDbpUVcPcTegStsxW6SommySYjObAQB4N51HM="
+          "hash": "SvPXMytK3yJjcTXXfAc2A4kWrPWd6JBva7yxrjMbdZY="
         }
       },
       "version": ""
@@ -2695,7 +2695,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.AxoDataExchange.html",
-          "hash": "uqRplKbkC0gL12MWuqg0R8XE2+Q4tbLkAjopVwjoa7M="
+          "hash": "Y78QirVGkt+2tj7WYPRGXXmmIQDsuagaq26dNsQFk+I="
         }
       },
       "version": ""
@@ -2706,7 +2706,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.AxoDataExchangeBase.html",
-          "hash": "ya+HWm/u577CG+hanzuCIPBGjiXSADVXgH5aZRYi3dc="
+          "hash": "vEat0hPfIUqGGPpNRIG1kgAP0Hq8wlTAT40/uXZnogw="
         }
       },
       "version": ""
@@ -2717,7 +2717,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.AxoDataExchangeTask.html",
-          "hash": "1nDKOu2fSnPVD9rGam7j3Az2/pS2eKuKyKChAewmlIg="
+          "hash": "xohSYkRJECc4wAIXsfbAeHRiCjtN+zSsjfdDDx3YsFc="
         }
       },
       "version": ""
@@ -2728,7 +2728,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html",
-          "hash": "M6oW3Uw2sno0P0BNn7xEuIsoBPH0yriC+qNm2F/LQvk="
+          "hash": "t6vh40ZtOvhho7PoyxF90v+78SwHY6FmSFah54hFvXk="
         }
       },
       "version": ""
@@ -2750,7 +2750,18 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.IAxoDataExchange.html",
-          "hash": "CyyNXy/h74nSQB4EVR6Qw3EQpWjntbvwVn5bkx8vysU="
+          "hash": "e09TeX2cOiNFNtb6RmR8NG2R6anIfjBIASbKkpYWAYA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Data.eCrudOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Data.eCrudOperation.html",
+          "hash": "zOhfEbXmTuhaWxjyNnF574PoOZzrLdz0ZYQIEr+t9Zw="
         }
       },
       "version": ""
@@ -2761,7 +2772,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.html",
-          "hash": "OGkoHYcTYdCS7//3f4BYYQDDrylPKLK5ZnOiGaECpSE="
+          "hash": "8POcP/QbyVgrg89tkw+Z2FvW7NDDr54Ry2OA0g32/fE="
         }
       },
       "version": ""
@@ -2772,7 +2783,18 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Messaging.AxoIntConstants.html",
-          "hash": "skYiP72uITSg2MEw7mtRelGVxS8qrxee3rR6sK+mpD4="
+          "hash": "/y8aQl57GXCkIZFkjeuFaNtiyxCSFQtpTJ31rOxHDbM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessage.html",
+          "hash": "TsMhFUUIVmj5BASjS2bqcc4BoftY9CMnYsRiQS4yujs="
         }
       },
       "version": ""
@@ -2794,7 +2816,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Messaging.Dynamic.AxoMessenger.html",
-          "hash": "mtck9zkASNb5EXDQ01y3kk8J+IPVAL1prOtlcqqYK6I="
+          "hash": "U7veAW6ZZ0VApS4Mvn1jfdUU0kadGWWhCBUnGl3l2R8="
         }
       },
       "version": ""
@@ -2882,7 +2904,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageCondition.html",
-          "hash": "PHfOYJMpNTLf8a4vkBZGf/1+dWMaBaqWlelfF10H5BQ="
+          "hash": "89ve/l1HcE3GKXVvCRvIvbJnkGRMFf6EqD76xqBjU4g="
         }
       },
       "version": ""
@@ -2893,7 +2915,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.html",
-          "hash": "0s16Ct8LtCuC5MXngH4ArZTb+yLJxYOs68K3Qi16dg8="
+          "hash": "hcaKpsCrM0vq0m4GasDBDnvj03/f2dKiWluA5akjWpI="
         }
       },
       "version": ""
@@ -2904,7 +2926,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Messaging.Dynamic.html",
-          "hash": "tOmoZMigLLbfIHKgCnLhOPAOJAyxT+Z14qpNpPNDKXo="
+          "hash": "j+D5qSLUngkzHyGur1A+1IMqta7/wgQXinWmTwsTo8U="
         }
       },
       "version": ""
@@ -2948,7 +2970,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.html",
-          "hash": "Ff9HJPYeY/AipIoYf5Gv1f32LOvqtW3eKGxHZputxAI="
+          "hash": "93D+oApDE6VYhWzy1xDcA5CNFcNcciL7R+bIoz4KtEg="
         }
       },
       "version": ""
@@ -3014,7 +3036,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/toc.html",
-          "hash": "pksRoWSpfrUmOKiOYB8lqM+hhpvIzj6xb52F63tUsQ0="
+          "hash": "miEQqo43q42mM3V7/PJiamBqwJLysiFdPiLE6dhEWeo="
         }
       },
       "version": ""
@@ -3142,11 +3164,33 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/data/AxoDataExchange.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/data/AxoDataExchange.html",
+          "hash": "S1u+caJVIYZqmFjgTrne4CCyBqn4/DIjuhEDl+f/Re4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/data/AxoDataFragmentExchange.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/data/AxoDataFragmentExchange.html",
+          "hash": "dZBil7wTv7NSdVYElPZmMl2KXRgU9cRYf3+kV3dkSQg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/data/README.md",
       "output": {
         ".html": {
           "relative_path": "articles/data/README.html",
-          "hash": "QC9InItE84kI1M+p1O+SxfIyg9p8XHyHHMBO0EmQP7A="
+          "hash": "74G8fPhfwNPnhzwlCgbX0uqw17yvPAg1DF5btsRo9Jc="
         }
       },
       "version": ""
@@ -3196,12 +3240,44 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "articles/security/INSTALLATION.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/security/INSTALLATION.html",
+          "hash": "F4gtWz04PmsS38UhflL5304jAXBEj4zAb1loDW/lUxU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/security/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/security/README.html",
+          "hash": "vRi4gIWHjxasotPjYyzcXgiyI6aw17AfQJdhluSAy+M="
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "T7ZEDTZvBOclsRxeZMD2ZV1bhdpvyjEfrQkn9LT34nc="
+          "hash": "CSMaw9NvakXjpW36Z+Hks45hKVPi/bP0dzpwCtcLx1w="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/AccountManagement.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/AccountManagement.png"
         }
       },
       "version": ""
@@ -3258,6 +3334,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/CreateUser.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/CreateUser.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/CustomColumns.png",
       "output": {
         "resource": {
@@ -3272,6 +3358,16 @@
       "output": {
         "resource": {
           "relative_path": "images/Export.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/GroupManagement.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/GroupManagement.png"
         }
       },
       "version": ""
@@ -3302,6 +3398,16 @@
       "output": {
         "resource": {
           "relative_path": "images/Status.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/UserManagement.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/UserManagement.png"
         }
       },
       "version": ""

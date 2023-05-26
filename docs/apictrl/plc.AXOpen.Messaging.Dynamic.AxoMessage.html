@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AxoComponent
+    <title>Struct AxoMessage
  | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AxoComponent
+    <meta name="title" content="Struct AxoMessage
  | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
@@ -78,62 +78,31 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="plc.AXOpen.Core.AxoComponent">
+            <article class="content wrap" id="_content" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage">
 
 
-  <h1 id="plc_AXOpen_Core_AxoComponent" data-uid="plc.AXOpen.Core.AxoComponent" class="text-break">Class AxoComponent
+  <h1 id="plc_AXOpen_Messaging_Dynamic_AxoMessage" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage" class="text-break">Struct AxoMessage
 </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Complete message details including time stamp, message text, message category, identity of the message provider, context cycle in which the message was posted.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
-    <div class="level1"><span class="xref">AxoComponent</span></div>
-  </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="plc.AXOpen.Core.IAxoComponent.html">IAxoComponent</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
-    </div>
-    <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
-    </div>
-    <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
-    </div>
-    <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
-    </div>
-    <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
-    </div>
-    <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoContext_">Initialize(IAxoContext)</a>
-    </div>
-    <div>
-      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Environment__">Environment()</a>
-    </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="plc.AXOpen.Core.html">plc.AXOpen.Core</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="plc.AXOpen.Messaging.Dynamic.html">plc.AXOpen.Messaging.Dynamic</a></h6>
   <h6><strong>Assembly</strong>: .dll</h6>
-  <h5 id="plc_AXOpen_Core_AxoComponent_syntax">Syntax</h5>
+  <h5 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">CLASS AxoComponent</code></pre>
+    <pre><code class="lang-csharp hljs">STRUCT AxoMessage</code></pre>
   </div>
   <h3 id="properties">Properties
 </h3>
 
 
-  <h4 id="plc_AXOpen_Core_AxoComponent__manualControlContextCycle" data-uid="plc.AXOpen.Core.AxoComponent._manualControlContextCycle">_manualControlContextCycle</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_TimeStamp" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage.TimeStamp">TimeStamp</h4>
+  <div class="markdown level1 summary"><p>Time when the message was posted.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">_manualControlContextCycle : ULINT</code></pre>
+    <pre><code class="lang-csharp hljs">TimeStamp : LDATE_AND_TIME</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -152,12 +121,13 @@
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoComponent__isManuallyControllable" data-uid="plc.AXOpen.Core.AxoComponent._isManuallyControllable">_isManuallyControllable</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_Text" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage.Text">Text</h4>
+  <div class="markdown level1 summary"><p>Text of the message.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">_isManuallyControllable : BOOL</code></pre>
+    <pre><code class="lang-csharp hljs">Text : STRING[160]</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -174,19 +144,17 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="methods">Methods
-</h3>
 
 
-  <h4 id="plc_AXOpen_Core_AxoComponent_ActivateManualControl__" data-uid="plc.AXOpen.Core.AxoComponent.ActivateManualControl()">ActivateManualControl</h4>
-  <div class="markdown level1 summary"><p>Executes the logic for manual-maintenance control.</p>
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_Identity" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage.Identity">Identity</h4>
+  <div class="markdown level1 summary"><p>Identity of the TcoObject that posted this message.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID ActivateManualControl()</code></pre>
+    <pre><code class="lang-csharp hljs">Identity : ULINT</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -203,39 +171,15 @@
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoComponent_IsManuallyControllable__" data-uid="plc.AXOpen.Core.AxoComponent.IsManuallyControllable()">IsManuallyControllable</h4>
-  <div class="markdown level1 summary"><p>Gets whether the AxoComponent is manually controllable.To make the AxoComponent manually controllable, it is necessary to call the <code>ActivateManualMode()</code> method cyclically.</p>
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_Category" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage.Category">Category</h4>
+  <div class="markdown level1 summary"><p>Message category of this message. See <span class="xref">TcoCore.eMessageCategory</span> for detailed informations.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public BOOL IsManuallyControllable()</code></pre>
+    <pre><code class="lang-csharp hljs">Category : AXOpen.Messaging.eAxoMessageCategory</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoComponent_CheckIfManualControlIsActivated__" data-uid="plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()">CheckIfManualControlIsActivated</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private VOID CheckIfManualControlIsActivated()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -252,87 +196,15 @@
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoComponent_Open__" data-uid="plc.AXOpen.Core.AxoComponent.Open()">Open</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID Open()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoComponent_Run__" data-uid="plc.AXOpen.Core.AxoComponent.Run()">Run</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID Run()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoComponent_Close__" data-uid="plc.AXOpen.Core.AxoComponent.Close()">Close</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID Close()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Core_AxoComponent_Restore__" data-uid="plc.AXOpen.Core.AxoComponent.Restore()">Restore</h4>
-  <div class="markdown level1 summary"><p>Restores this instance. This method must be implemented in derived class.</p>
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_Cycle" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage.Cycle">Cycle</h4>
+  <div class="markdown level1 summary"><p>Context cycle in which the message was posted.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected AXOpen.Core.IAxoTask Restore()</code></pre>
+    <pre><code class="lang-csharp hljs">Cycle : ULINT</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -342,22 +214,22 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="plc.AXOpen.Core.IAxoTask.html">IAxoTask</a></td>
+        <td></td>
         <td></td>
       </tr>
     </tbody>
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoComponent_ManualControl__" data-uid="plc.AXOpen.Core.AxoComponent.ManualControl()">ManualControl</h4>
-  <div class="markdown level1 summary"><p>Custom logic for manual control of the AxoComponent.This method must be implemented in derived class.</p>
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_PerCycleCount" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage.PerCycleCount">PerCycleCount</h4>
+  <div class="markdown level1 summary"><p>Count of messages of the object in the current cycle.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Protected VOID ManualControl()</code></pre>
+    <pre><code class="lang-csharp hljs">PerCycleCount : USINT</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
+  <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -372,10 +244,81 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="plc.AXOpen.Core.IAxoComponent.html">IAxoComponent</a>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_ExpectDequeing" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage.ExpectDequeing">ExpectDequeing</h4>
+  <div class="markdown level1 summary"><p>Indicates that the message is expected to be dequeed from the buffer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ExpectDequeing : BOOL</code></pre>
   </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_Pinned" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage.Pinned">Pinned</h4>
+  <div class="markdown level1 summary"><p>Indicates that the message must be persisted in the alarm view until acknowledged.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Pinned : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Dynamic_AxoMessage_MessageDigest" data-uid="plc.AXOpen.Messaging.Dynamic.AxoMessage.MessageDigest">MessageDigest</h4>
+  <div class="markdown level1 summary"><p>Stores message digest of this message text.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">MessageDigest : DWORD</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
 

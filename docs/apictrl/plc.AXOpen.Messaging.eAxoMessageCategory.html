@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -83,15 +83,90 @@
 
   <h1 id="plc_AXOpen_Messaging_eAxoMessageCategory" data-uid="plc.AXOpen.Messaging.eAxoMessageCategory" class="text-break">Enum eAxoMessageCategory
 </h1>
-  <div class="markdown level0 summary"><p sourcefile="apictrl/plc.AXOpen.Messaging.eAxoMessageCategory.yml" sourcestartlinenumber="1">Message categories.ATTENTION: Values must be multiply of 100</p>
+  <div class="markdown level0 summary"><p>Message categories.ATTENTION: Values must be multiply of 100</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <span class="xref">plc.AXOpen.Messaging</span></h6>
   <h6><strong>Assembly</strong>: .dll</h6>
   <h5 id="plc_AXOpen_Messaging_eAxoMessageCategory_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">eAxoMessageCategory : AXOpen.Messaging.eAxoMessageCategory</code></pre>
+    <pre><code class="lang-csharp hljs">eAxoMessageCategory : INT</code></pre>
   </div>
+  <h3 id="fields">Fields
+</h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_All">All := 0</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_Trace">Trace := 100</td>
+        <td><p>Trace message to be used for tracing purpose.Use when you need to track detailed information about internal states of the program for detailed visibility.This is lowest level of category that can be used in production, for detailed observation of PLC program.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_Debug">Debug := 200</td>
+        <td><p>Debug message to be used for debugging purpose only.Use when you need to report debug information for you as programmer.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_Info">Info := 300</td>
+        <td><p>Info message.Use when you want to deliver information to the user, that has only informative character and does not adversely affect a process.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_TimedOut">TimedOut := 400</td>
+        <td><p>Time-out message.Use this category when you want to report a timed-out information, that may eventually succed.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_Notification">Notification := 500</td>
+        <td><p>Notification message.Use this category when you want to report a notification that may be of interest to the user, but does not adversly affect a process.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_Warning">Warning := 600</td>
+        <td><p>Warning message.Use this category when you want to report to the user an information about a possible problem, that may adversly affect a process.Information in this cateogory aims to help the user to identify a problem, the cause of such problem does not necessarily stops the process.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_Error">Error := 700</td>
+        <td><p>Error message.Use this categoty when there is a failure that cannot be immediately recovered and an intervention is needed. This is typically a situation when a device failsto deliver expected result.Do not use this category to report information about failed process like measurement or detection.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_ProgrammingError">ProgrammingError := 900</td>
+        <td><p>Programming issue.Use this category to inform about a possible programming error, defect in settings or missing information at a level of programming or system or process settings.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_Critical">Critical := 1000</td>
+        <td><p>Critical error.Use this category when a critical error occured, that is not recoverable by the means of software (reset/restore) but device still operates under such conditions; a detailed inspection and an expert action is required.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_Fatal">Fatal := 1100</td>
+        <td><p>Fatal error.Use this category when a fatal error occured, that is not recoverable by the means of software (reset/restore) and a detailed inspection is required, the device is not able to continue without special intervention,</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_Catastrophic">Catastrophic := 1200</td>
+        <td><p>Catastrophic error.Use this category when there is a situation when the device cannot continue operations due to irrecoverable failure.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_eAxoMessageCategory_None">None := 32000</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
 </article>
           </div>
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -83,15 +83,47 @@
 
   <h1 id="plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod" data-uid="plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod" class="text-break">Enum eAxoMessageDigestMethod
 </h1>
-  <div class="markdown level0 summary"><p sourcefile="apictrl/plc.AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod.yml" sourcestartlinenumber="1">Message digest methods used to create fingerprint of a message.</p>
+  <div class="markdown level0 summary"><p>Message digest methods used to create fingerprint of a message.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="plc.AXOpen.Messaging.Dynamic.html">plc.AXOpen.Messaging.Dynamic</a></h6>
   <h6><strong>Assembly</strong>: .dll</h6>
   <h5 id="plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">eAxoMessageDigestMethod : AXOpen.Messaging.Dynamic.eAxoMessageDigestMethod</code></pre>
+    <pre><code class="lang-csharp hljs">eAxoMessageDigestMethod : INT</code></pre>
   </div>
+  <h3 id="fields">Fields
+</h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod_CRC8">CRC8 := 8</td>
+        <td><p>Fastest method with highest probability of colisions.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod_CRC16">CRC16 := 16</td>
+        <td><p>Moderate speed method with lower probability of colisions.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod_CRC32">CRC32 := 32</td>
+        <td><p>Slowest speed method with relatively low probability of colisions.</p>
+</td>
+      </tr>
+      <tr>
+        <td id="plc_AXOpen_Messaging_Dynamic_eAxoMessageDigestMethod_NONE">NONE := 32767</td>
+        <td><p>Messages are not digested the repeated messages won't be filtered out.Use this option on low performance devices.</p>
+</td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
 </article>
           </div>
 
