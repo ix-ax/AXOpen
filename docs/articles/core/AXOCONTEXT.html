@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
 
@@ -77,43 +77,43 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axocontext" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="1">AxoContext</h1>
+<h1 id="axocontext">AxoContext</h1>
 
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="3">AxoContext encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any <strong sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="3">direct inter-context access to members must be avoided</strong>.</p>
-<div class="NOTE" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="6">
+<p>AxoContext encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any <strong>direct inter-context access to members must be avoided</strong>.</p>
+<div class="NOTE">
 <h5>Note</h5>
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="7">Each AxoContext must belong to a single PLC task.Multiple AxoContexts can be however running on the same task.</p>
+<p>Each AxoContext must belong to a single PLC task.Multiple AxoContexts can be however running on the same task.</p>
 </div>
-<pre><code class="lang-mermaid" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="10">  classDiagram
+<pre><code class="lang-mermaid">  classDiagram
     class Context{
         +Main()*
         +Run()        
     }     
 </code></pre>
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="18">In its basic implementation AxoContext has relatively simple interface. <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="18">Main</code> is the method where we place all calls of our sub-routines. <strong sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="18">In other words the <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="18">Run</code> is the root of the call tree of our program.</strong></p>
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="20"><code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="20">Run</code> method runs the AxoContext. It must be called cyclically within a program unit that is attached to a cyclic <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="20">task</code>.</p>
-<h2 id="why-do-we-need-axocontext" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="22">Why do we need AxoContext</h2>
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="24"><code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="24">AxoContext</code> provides counters, object identification and other information about the execution of the program. These information is then used by the objects contained at different levels of the AxoContext.</p>
-<h2 id="how-axocontext-works" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="26">How AxoContext works</h2>
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="28">When you call <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="28">Run</code> method on an instance of a AxoContext, it will ensure opening AxoContext, running <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="28">Main</code> method (root of all your program calls) and AxoContext closing.</p>
-<pre><code class="lang-mermaid" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="31">  flowchart LR
+<p>In its basic implementation AxoContext has relatively simple interface. <code>Main</code> is the method where we place all calls of our sub-routines. <strong>In other words the <code>Run</code> is the root of the call tree of our program.</strong></p>
+<p><code>Run</code> method runs the AxoContext. It must be called cyclically within a program unit that is attached to a cyclic <code>task</code>.</p>
+<h2 id="why-do-we-need-axocontext">Why do we need AxoContext</h2>
+<p><code>AxoContext</code> provides counters, object identification and other information about the execution of the program. These information is then used by the objects contained at different levels of the AxoContext.</p>
+<h2 id="how-axocontext-works">How AxoContext works</h2>
+<p>When you call <code>Run</code> method on an instance of a AxoContext, it will ensure opening AxoContext, running <code>Main</code> method (root of all your program calls) and AxoContext closing.</p>
+<pre><code class="lang-mermaid">  flowchart LR
     classDef run fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
     classDef main fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                                                                           
     id1(Open):::run--&gt;id2(#Main*):::main--&gt;id3(Close):::run--&gt;id1
 </code></pre>
-<h2 id="how-to-use-axocontext" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="38">How to use AxoContext</h2>
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">Base class for the AxoContext is <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">AXOpen.Core.AxoContext</code>. The entry point of call execution of the AxoContext is <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">Main</code> method. Notice that the <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">AxoContext</code> class is abstract and cannot be instantiated if not extended. <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">Main</code> method must be overridden in derived class notice the use of override keyword and also that the method is <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">protected</code> which means the it is visible only from within the <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="40">AxoContext</code> and derived classes.</p>
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="43"><strong sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="43">How to extend AxoContext class</strong></p>
-<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="45">CLASS PUBLIC AxoContextExample EXTENDS  AXOpen.Core.AxoContext
+<h2 id="how-to-use-axocontext">How to use AxoContext</h2>
+<p>Base class for the AxoContext is <code>AXOpen.Core.AxoContext</code>. The entry point of call execution of the AxoContext is <code>Main</code> method. Notice that the <code>AxoContext</code> class is abstract and cannot be instantiated if not extended. <code>Main</code> method must be overridden in derived class notice the use of override keyword and also that the method is <code>protected</code> which means the it is visible only from within the <code>AxoContext</code> and derived classes.</p>
+<p><strong>How to extend AxoContext class</strong></p>
+<pre><code class="lang-smalltalk">CLASS PUBLIC AxoContextExample EXTENDS  AXOpen.Core.AxoContext
     METHOD PROTECTED OVERRIDE Main 
         // Here goes all your logic for given AxoContext.
         ;
     END_METHOD
 END_CLASS
 </code></pre>
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="48">Cyclical call of the AxoContext logic (<code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="48">Main</code> method) is ensured when AxoContext <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="48">Run</code> method is called. <code sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="48">Run</code> method is public therefore accessible and visible to any part of the program that whishes to call it.</p>
-<p sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="50"><strong sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="50">How to start AxoContext's execution</strong></p>
-<pre><code class="lang-smalltalk" sourcefile="articles/core/AXOCONTEXT.md" sourcestartlinenumber="52">PROGRAM ProgramExample
+<p>Cyclical call of the AxoContext logic (<code>Main</code> method) is ensured when AxoContext <code>Run</code> method is called. <code>Run</code> method is public therefore accessible and visible to any part of the program that whishes to call it.</p>
+<p><strong>How to start AxoContext's execution</strong></p>
+<pre><code class="lang-smalltalk">PROGRAM ProgramExample
     VAR
         MyContext : AxoContextExample;
     END_VAR    
