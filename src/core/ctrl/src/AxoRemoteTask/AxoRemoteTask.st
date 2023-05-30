@@ -23,19 +23,29 @@ NAMESPACE AXOpen.Core
             HasRemoteException : BOOL;
 
             IsBeingCalledCounter : INT;
+            {#ix-set:MessageText = "<#Remote task is not initialized by remote partner.#>"}
+            {#ix-set:Help = "<#Make sure the remote application that should handle this remote request is running and is available in the network.#>"}
+            TaskNotInitialized : AXOpen.Messaging.Static.AxoMessenger;
+
+            {#ix-set:MessageText = "<#During the execution or remote task an error occured. |[RemoteExceptionDetails]|#>"}
+            {#ix-set:Help = "<#Check detail of this remote task for more information about the problem.#>"}
+            TaskHasRemoteException : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
         
         METHOD PUBLIC OVERRIDE Execute : BOOL
             Execute := SUPER.Execute();            
+            TaskNotInitialized.Serve(THIS);    
+            TaskHasRemoteException.Serve(THIS);
 
             IF(Execute) THEN
+                TaskNotInitialized.ActivateOnCondition(NOT IsInitialized, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();
                 SUPER.ThrowWhen(NOT IsInitialized, 'THE REMOTE TASK IS NOT INITIALIZED');     
-                SUPER.ThrowWhen(HasRemoteException, ErrorDetails);           
+                SUPER.ThrowWhen(HasRemoteException, ErrorDetails);                
                 SUPER.DoneWhen(StartSignature = DoneSignature);       
                 IsBeingCalledCounter := IsBeingCalledCounter + 1;     
             END_IF;                
 
-          
+            TaskHasRemoteException.ActivateOnCondition(HasRemoteException, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();        
         END_METHOD  
                                
         // Internal use only!

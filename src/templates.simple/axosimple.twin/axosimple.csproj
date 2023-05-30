@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
     <ProjectReference Include="..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
+    <ProjectReference Include="..\..\messaging\src\AXOpen.Messaging\ix_ax_axopen_messaging.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\PlcStringResources.Designer.cs">

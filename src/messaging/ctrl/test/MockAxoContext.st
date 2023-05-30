@@ -6,11 +6,12 @@ NAMESPACE AXOpen.Core
     /// Provides base for contextualized entry of `AXOpen` application.
     /// This class is abstract and must be inherited.
     ///</summary>
-    CLASS PUBLIC ABSTRACT AxoContext IMPLEMENTS IAxoContext        
+    CLASS PUBLIC ABSTRACT MockAxoContext IMPLEMENTS IAxoContext        
         VAR PRIVATE                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
-            _identityCounter : ULINT;                           
+            _identityCounter : ULINT;   
+            _messagingLevel : eAxoMessageCategory;           
          END_VAR       
 
         ///<summary>
@@ -76,6 +77,6 @@ NAMESPACE AXOpen.Core
                 Rtc : IAxoRtc;
             END_VAR
             _rtc := Rtc;
-        END_METHOD      
+        END_METHOD       
     END_CLASS          
 END_NAMESPACE

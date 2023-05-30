@@ -34,18 +34,7 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
     
-    
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            ;
-        END_METHOD
-
-        // METHOD PUBLIC SetContextEnvironment
-        //     VAR_INPUT
-        //         inContextEnvironnment : IAxoContextEnvironment;
-        //     END_VAR
-
-        //     ;
-        // END_METHOD
+           
     END_CLASS      
 
     {TestFixture}
