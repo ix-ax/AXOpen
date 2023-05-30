@@ -72,10 +72,11 @@ NAMESPACE AXOpen.Messaging.Static
 
             Activate := THIS;
 
+            
             IF AXOpen.Core.IsNullContext(Context) THEN
                 RETURN;
             END_IF;
-
+            
             IF ActiveContextCount = ULINT#0 THEN
                 Risen := Context.GetRtc().NowUTC();
                 Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;

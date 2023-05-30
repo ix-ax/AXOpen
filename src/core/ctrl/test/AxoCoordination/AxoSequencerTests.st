@@ -34,11 +34,7 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
         METHOD PUBLIC GetRtc : IAxoRtc ; END_METHOD
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
-    
-    
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            ;
-        END_METHOD
+               
     END_CLASS  
 
     CLASS MySequencer EXTENDS AxoSequencer

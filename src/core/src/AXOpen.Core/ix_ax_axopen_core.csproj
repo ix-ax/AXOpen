@@ -28,6 +28,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\messaging\src\AXOpen.Messaging\ix_ax_axopen_messaging.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

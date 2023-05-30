@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.data"
-version                                                                                                                                                                                                                                          : '0.1.4-alpha.66'
+version                                                                                                                                                                                                                                           : '0.1.4-remove-core-deps-in-messaging.79'
 type: lib
 targets:
 #  - "1500"
@@ -8,7 +8,7 @@ targets:
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                                                                      : '0.1.4-alpha.66'
+  "@ix-ax/axopen.core"                                                                                                                                                                                                       : '0.1.4-remove-core-deps-in-messaging.79'
   "@ax/axunit-library": ^4.0.6
 devDependencies:
   "@ax/sdk": 3.0.18
