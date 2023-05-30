@@ -1,6 +1,6 @@
 USING AXOpen.Rtc;
 NAMESPACE AXOpen.Core
-    INTERFACE IAxoContext       
+    INTERFACE PUBLIC IAxoContext       
         METHOD CreateIdentity : ULINT END_METHOD
         METHOD OpenCycleCount : ULINT END_METHOD          
         METHOD GetRtc : IAxoRtc END_METHOD

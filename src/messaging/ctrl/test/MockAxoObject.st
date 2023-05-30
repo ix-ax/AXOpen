@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides base class for all classes of `AXOpen`.
     ///</summary>
-    CLASS PUBLIC AxoObject IMPLEMENTS IAxoObject
+    CLASS PUBLIC MockAxoObject IMPLEMENTS IAxoObject
         VAR PUBLIC
             {#ix-attr:[CompilerOmits("POCO")]}
             {#ix-attr:[ReadOnly()]}

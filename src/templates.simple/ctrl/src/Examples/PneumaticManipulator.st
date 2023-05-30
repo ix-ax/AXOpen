@@ -197,7 +197,7 @@ NAMESPACE examples.PneumaticManipulator
 
             IF (Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
                 //-------------------------------------------------------            
-                IF (ProcessData^.Create(ToString(THIS.GetContext().OpenCycleCount())).IsDone()) THEN // <- waits for the task to be done.
+                IF (ProcessData^.Create('aa').IsDone()) THEN // <- waits for the task to be done.
                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
                 END_IF;
 //-------------------------------------------------------

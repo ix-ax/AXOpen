@@ -1,16 +1,29 @@
 ﻿@page "/ui/ManipulatorExample"
 @using axosimple.hmi.Components;
 @using AXOpen.Data;
+@using AXOpen.Messaging.Static
+@using AXSharp.Connector;
+
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="100"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components"></UnitsService>
 <UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared.Set" PollingInterval="100"></UnitsData>
 
 <DataExchangeView Vm="_vm"></DataExchangeView>
 
+@foreach (var message in @Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>())
+{
+    if (message.IsActive.Cyclic)
+    {
+        <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
+    }
+}
+
 @*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Data" Presentation="Command"></RenderableContentControl>*@
 
 @code
 {
     private DataExchangeViewModel _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared };
+
+    
 }
 

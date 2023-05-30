@@ -1,3 +1,4 @@
+USING AXOpen.Core;
 USING AxUnit;
 USING AXOpen.Rtc;
 USING AXOpen.Core;
@@ -13,7 +14,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _openCounter : ULINT;
             _closeCounter : ULINT;
             _identityCounter : ULINT;
-            _environment : AxoContextEnvironment;	
+            _environment : IAxoContextEnvironment;	
         END_VAR       
         VAR PUBLIC       
             _object : TestObject;                 
@@ -64,14 +65,14 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         END_METHOD
     END_CLASS  
 
-    CLASS TestContextE EXTENDS AxoContext
+    CLASS TestContextE EXTENDS MockAxoContext
   
         METHOD PROTECTED OVERRIDE Main
             ;
         END_METHOD
     END_CLASS
 
-    CLASS TestObject EXTENDS AxoObject
+    CLASS TestObject EXTENDS MockAxoObject
         VAR PUBLIC 
             _messenger : AxoMessenger;
         END_VAR
