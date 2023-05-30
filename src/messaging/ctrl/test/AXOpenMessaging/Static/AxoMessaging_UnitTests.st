@@ -1,4 +1,5 @@
 USING AXOpen.Core;
+USING AXOpen.Core;
 USING AxUnit;
 USING AXOpen.Rtc;
 USING AXOpen.Core;
@@ -20,6 +21,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         END_VAR      
         VAR PRIVATE            
             NULL_RTC : _NULL_RTC;
+           
             _rtc : IAxoRtc;
          END_VAR
 
@@ -58,7 +60,12 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             END_VAR
             _rtc := Rtc;
         END_METHOD
-            
+        
+        VAR PRIVATE
+            NULL_LOGGER : _NULL_LOGGER;
+        END_VAR    
+        METHOD PUBLIC GetLogger : IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
+        METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD     
     END_CLASS  
 
     CLASS TestContextE EXTENDS MockAxoContext

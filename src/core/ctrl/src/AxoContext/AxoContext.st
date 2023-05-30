@@ -1,3 +1,4 @@
+USING AXOpen.Messaging;
 USING AXOpen.Rtc;
 USING AXOpen.Messaging;
 
@@ -10,7 +11,7 @@ NAMESPACE AXOpen.Core
         VAR PRIVATE                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
-            _identityCounter : ULINT;                           
+            _identityCounter : ULINT;                             
          END_VAR       
 
         ///<summary>
@@ -77,5 +78,25 @@ NAMESPACE AXOpen.Core
             END_VAR
             _rtc := Rtc;
         END_METHOD      
+
+        VAR PRIVATE            
+            NULL_LOGGER : _NULL_LOGGER;
+            _contextLogger : IAxoLogger;          
+        END_VAR
+
+        METHOD PUBLIC GetLogger : IAxoLogger
+            IF(_contextLogger <> NULL) THEN
+                GetLogger := _contextLogger;
+            ELSE
+                GetLogger := NULL_LOGGER;    
+            END_IF;    
+        END_METHOD
+        
+        METHOD PUBLIC InjectLogger
+            VAR_INPUT
+                _logger : IAxoLogger;
+            END_VAR
+            _contextLogger := _logger;
+        END_METHOD            
     END_CLASS          
 END_NAMESPACE

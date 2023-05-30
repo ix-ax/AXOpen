@@ -1,3 +1,4 @@
+USING AXOpen.Messaging;
 NAMESPACE AXOpen.Core
 
     CLASS PUBLIC AxoTask EXTENDS AxoObject IMPLEMENTS IAxoTask, IAxoTaskState
@@ -189,7 +190,7 @@ NAMESPACE AXOpen.Core
 
             IF _isNullContext THEN
                 Status := eAxoTaskState#Error;
-                ErrorDetails := 'NULL CONTEXT';
+                ErrorDetails := 'NULL CONTEXT';                
             END_IF;
             THIS.UpdateState();
 
@@ -215,6 +216,7 @@ NAMESPACE AXOpen.Core
         /// Restores this task.
         ///</summary>    
         METHOD PUBLIC Restore : IAxoTaskState
+            THIS.GetContext().GetLogger().Log('Task restored', eLogLevel#Verbose, THIS);
             Status := eAxoTaskState#Ready; 
             ErrorDetails := '';   
             THIS.UpdateState();

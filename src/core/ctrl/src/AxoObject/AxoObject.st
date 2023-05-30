@@ -9,7 +9,7 @@ NAMESPACE AXOpen.Core
             {#ix-attr:[CompilerOmits("POCO")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-attr:[RenderIgnore()]}
-            Identity   : ULINT := ULINT#0;
+            Identity   : ULINT := ULINT#0;                  
         END_VAR    
 
         VAR PRIVATE           
@@ -36,7 +36,7 @@ NAMESPACE AXOpen.Core
             IF(_context <> NULL) THEN
                 GetContext := _context;
             ELSE
-                GetContext := NULL_CONTEXT;    
+                GetContext := NULL_CONTEXT;                    
             END_IF;    
         END_METHOD
 

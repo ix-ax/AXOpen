@@ -77,6 +77,12 @@ NAMESPACE AXOpen.Core
                 Rtc : IAxoRtc;
             END_VAR
             _rtc := Rtc;
-        END_METHOD       
+        END_METHOD 
+        
+        VAR PRIVATE
+            NULL_LOGGER : _NULL_LOGGER;
+        END_VAR    
+        METHOD PUBLIC GetLogger : IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
+        METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD     
     END_CLASS          
 END_NAMESPACE
