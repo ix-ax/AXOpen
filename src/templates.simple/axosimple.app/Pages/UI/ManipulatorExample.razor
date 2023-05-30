@@ -3,6 +3,7 @@
 @using AXOpen.Data;
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector;
+@inherits RenderableComponentBase;
 
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="100"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components"></UnitsService>
@@ -10,7 +11,7 @@
 
 <DataExchangeView Vm="_vm"></DataExchangeView>
 
-@foreach (var message in @Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>())
+@foreach (var message in Messengers)
 {
     if (message.IsActive.Cyclic)
     {
@@ -18,12 +19,16 @@
     }
 }
 
-@*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Data" Presentation="Command"></RenderableContentControl>*@
-
 @code
 {
-    private DataExchangeViewModel _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared };
+    private DataExchangeViewModel _vm => new() { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData };
 
-    
+    private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
+
+    protected override Task OnInitializedAsync()
+    {
+        this.UpdateValuesOnChange(@Entry.Plc.Context.PneumaticManipulator);
+        return base.OnInitializedAsync();
+    }
 }
 

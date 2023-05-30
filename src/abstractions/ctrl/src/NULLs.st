@@ -11,11 +11,7 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC CreateIdentity : ULINT CreateIdentity := ULINT#0; END_METHOD
         METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                                         
         METHOD PUBLIC GetRtc : IAxoRtc GetRtc := NULL_RTC; END_METHOD
-        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
-        
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            ;
-        END_METHOD
+        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD             
     END_CLASS    
 
     ///<summary>

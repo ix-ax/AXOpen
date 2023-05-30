@@ -85,17 +85,6 @@ NAMESPACE AXOpen.Core
                 Identity   := _context.CreateIdentity();                 
             END_IF;
 
-        END_METHOD 
-
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            Environment := THIS.GetContext().Environment();
-        END_METHOD
-
-        // METHOD PUBLIC SetContextEnvironment
-        //     VAR_INPUT
-        //         inContextEnvironnment : IAxoContextEnvironment;
-        //     END_VAR
-        //     _contextEnvironment := inContextEnvironnment;
-        // END_METHOD
+        END_METHOD       
     END_CLASS    
 END_NAMESPACE    

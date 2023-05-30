@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-
+USING AXOpen.Messaging.Static;
 NAMESPACE AXOpen.Pneumatics
     CLASS Cylinder EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
@@ -29,6 +29,14 @@ NAMESPACE AXOpen.Pneumatics
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move work signal#>"}
             _MoveWorkSignal : BOOL;
+
+            {#ix-set:MessageText = "<#Move to work position did not succeed.#>"}
+            {#ix-set:Help = "<#Check the cyclinder that it is free to move, check that the air pressure reaches... and extremity sensor.#>"}
+            _MoveToWorkNotReached : AXOpen.Messaging.Static.AxoMessenger;
+
+            {#ix-set:MessageText = "<#Move to home position did not succeed.#>"}
+            {#ix-set:Help = "<#Check the cyclinder that it is free to move, check that the air pressure reaches... and extremity sensor.#>"}
+            _MoveToHomeNotReached : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
                
         METHOD PUBLIC Update 
@@ -49,6 +57,9 @@ NAMESPACE AXOpen.Pneumatics
             MoveToHome.Initialize(THIS);
             Stop.Initialize(THIS);
 
+            _MoveToWorkNotReached.Serve(THIS);
+            _MoveToHomeNotReached.Serve(THIS);
+
             IF(Stop.Execute()) THEN
                 moveHomeSignal := FALSE;
                 moveWorkSignal := FALSE;
@@ -63,6 +74,8 @@ NAMESPACE AXOpen.Pneumatics
                 moveWorkSignal := TRUE;                
                 MoveToWork.DoneWhen(workSensor);
                 MoveToHome.Restore();
+        
+                // _MoveToWorkNotReached.ActivateOnCondition(MoveToWork.Duration >= T#10S, eAxoMessageCategory#Error)            
             END_IF;        
 
             IF(MoveToHome.Execute()) THEN                

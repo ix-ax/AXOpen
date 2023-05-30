@@ -3,8 +3,7 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 
 NAMESPACE AXOpen.Core
-    NAMESPACE AxoRemoteTasksTests
-        
+    NAMESPACE AxoRemoteTasksTests        
     
      CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
@@ -36,11 +35,7 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetRtc : IAxoRtc ; END_METHOD
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
-        
-    
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            ;
-        END_METHOD
+                
     END_CLASS      
    
     {TestFixture}

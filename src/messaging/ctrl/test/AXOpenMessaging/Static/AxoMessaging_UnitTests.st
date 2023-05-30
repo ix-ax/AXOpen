@@ -13,8 +13,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         VAR PROTECTED                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
-            _identityCounter : ULINT;
-            _environment : IAxoContextEnvironment;	
+            _identityCounter : ULINT;           
         END_VAR       
         VAR PUBLIC       
             _object : TestObject;                 
@@ -59,10 +58,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             END_VAR
             _rtc := Rtc;
         END_METHOD
-    
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            Environment := _environment;
-        END_METHOD
+            
     END_CLASS  
 
     CLASS TestContextE EXTENDS MockAxoContext

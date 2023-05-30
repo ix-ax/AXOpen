@@ -11,8 +11,7 @@ NAMESPACE AXOpen.Core
             _openCounter : ULINT;
             _closeCounter : ULINT;
             _identityCounter : ULINT;   
-            _messagingLevel : eAxoMessageCategory;
-            _environment : IAxoContextEnvironment;	
+            _messagingLevel : eAxoMessageCategory;           
          END_VAR       
 
         ///<summary>
@@ -78,17 +77,6 @@ NAMESPACE AXOpen.Core
                 Rtc : IAxoRtc;
             END_VAR
             _rtc := Rtc;
-        END_METHOD
-
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            Environment := _environment;
-        END_METHOD
-
-        // METHOD PUBLIC SetContextEnvironment
-        //     VAR_INPUT
-        //         inContextEnvironnment : IAxoContextEnvironment;
-        //     END_VAR
-        //     _contextEnvironment := inContextEnvironnment;
-        // END_METHOD
+        END_METHOD       
     END_CLASS          
 END_NAMESPACE

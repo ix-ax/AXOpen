@@ -8,25 +8,25 @@ NAMESPACE AxoStaticMessengerExample
             {#ix-set:AttributeName = "<#Messenger 1#>"}
             {#ix-set:MessageText = "<#Message text for messenger 1#>"}
             {#ix-set:Help = "<#Help text for messenger 1#>"}
-            _messenger1 : AxoMessenger;
+            _messenger1 : AXOpen.Messaging.Static.AxoMessenger;
             {#ix-set:AttributeName = "<#Set to high to activate the messenger 1#>"}
             _messenger1condition : BOOL;
             {#ix-set:AttributeName = "<#Messenger 2#>"}
             {#ix-set:MessageText = "<#Message text for messenger 2#>"}
             {#ix-set:Help = "<#Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque eros, malesuada ac orci ut, ornare ullamcorper purus. Integer ultrices turpis vel est suscipit blandit. Mauris blandit eros augue, in mollis dui tincidunt vel. Sed placerat augue risus, eget pulvinar felis dictum quis. Aliquam ut interdum nisl. Aliquam et velit id turpis blandit laoreet nec ut ligula. Aliquam ac neque risus. Fusce porta mauris eget nulla iaculis mattis. Etiam auctor mi eget libero laoreet, sed interdum ipsum pellentesque. Maecenas vitae quam vitae velit tincidunt fringilla. Fusce sagittis elit sit amet tempor pretium. Donec elementum, ligula at laoreet mollis, est ipsum elementum lectus, et mollis nisi tellus id erat. In hac habitasse platea dictumst.#>"}
-            _messenger2 : AxoMessenger;
+            _messenger2 : AXOpen.Messaging.Static.AxoMessenger;
             {#ix-set:AttributeName = "<#Set to high to activate the messenger 2#>"}
             _messenger2condition : BOOL;
             {#ix-set:AttributeName = "<#Messenger 3#>"}
             {#ix-set:MessageText = "<#Message text for messenger 3#>"}
             {#ix-set:Help = "<#Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus neque eros, malesuada ac orci ut, ornare ullamcorper purus. Integer ultrices turpis vel est suscipit blandit. Mauris blandit eros augue, in mollis dui tincidunt vel. Sed placerat augue risus, eget pulvinar felis dictum quis. Aliquam ut interdum nisl. Aliquam et velit id turpis blandit laoreet nec ut ligula. Aliquam ac neque risus. Fusce porta mauris eget nulla iaculis mattis. Etiam auctor mi eget libero laoreet, sed interdum ipsum pellentesque. Maecenas vitae quam vitae velit tincidunt fringilla. Fusce sagittis elit sit amet tempor pretium. Donec elementum, ligula at laoreet mollis, est ipsum elementum lectus, et mollis nisi tellus id erat. In hac habitasse platea dictumst.#>"}
-            _messenger3 : AxoMessenger;
+            _messenger3 : AXOpen.Messaging.Static.AxoMessenger;
             {#ix-set:AttributeName = "<#Set to high to activate the messenger 3#>"}
             _messenger3condition : BOOL;
             {#ix-set:AttributeName = "<#Messenger 4#>"}
             {#ix-set:MessageText = "<#Message text for messenger 4#>"}
             {#ix-set:Help = "<#Help text for messenger 4#>"}
-            _messenger4 : AxoMessenger;
+            _messenger4 : AXOpen.Messaging.Static.AxoMessenger;
             {#ix-set:AttributeName = "<#Set to high to activate the messenger 4#>"}
             _messenger4condition : BOOL;
        END_VAR    
