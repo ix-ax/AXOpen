@@ -45,8 +45,7 @@ NAMESPACE AXOpen.Core
                 IsBeingCalledCounter := IsBeingCalledCounter + 1;     
             END_IF;                
 
-            TaskHasRemoteException.ActivateOnCondition(HasRemoteException, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();
-          
+            TaskHasRemoteException.ActivateOnCondition(HasRemoteException, AXOpen.Messaging.eAxoMessageCategory#Error).RequireAcknowledgement();        
         END_METHOD  
                                
         // Internal use only!

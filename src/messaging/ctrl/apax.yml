@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.messaging"
-version         : '0.1.4-alpha.66'
+version          : '0.1.4-remove-core-deps-in-messaging.79'
 type: lib
 targets:
   # - "1500"
@@ -14,6 +14,6 @@ scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ix-ax/axopen.utils"         : '0.1.4-alpha.66'
-  "@ix-ax/axopen.abstractions"         : '0.1.4-alpha.66'
+  "@ix-ax/axopen.utils"          : '0.1.4-remove-core-deps-in-messaging.79'
+  "@ix-ax/axopen.abstractions"          : '0.1.4-remove-core-deps-in-messaging.79'
   "@ax/axunit-library": ^4.0.6

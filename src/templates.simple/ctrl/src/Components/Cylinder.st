@@ -1,5 +1,8 @@
 USING AXOpen.Core;
+USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
+
+
 NAMESPACE AXOpen.Pneumatics
     CLASS Cylinder EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
@@ -75,7 +78,7 @@ NAMESPACE AXOpen.Pneumatics
                 MoveToWork.DoneWhen(workSensor);
                 MoveToHome.Restore();
         
-                // _MoveToWorkNotReached.ActivateOnCondition(MoveToWork.Duration >= T#10S, eAxoMessageCategory#Error)            
+                _MoveToWorkNotReached.ActivateOnCondition(MoveToWork.Duration >= T#10S, eAxoMessageCategory#Error);            
             END_IF;        
 
             IF(MoveToHome.Execute()) THEN                
@@ -83,6 +86,7 @@ NAMESPACE AXOpen.Pneumatics
                 moveWorkSignal := FALSE;
                 MoveToHome.DoneWhen(homeSensor);
                 MoveToWork.Restore();
+                _MoveToHomeNotReached.ActivateOnCondition(MoveToHome.Duration >= T#10S, eAxoMessageCategory#Error); 
             END_IF; 
             
             _HomeSensor := homeSensor;
