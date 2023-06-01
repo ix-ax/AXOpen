@@ -18,7 +18,6 @@ namespace AXOpen.Messaging
                     await Task.Delay(dequeuingInterval);
                     await Dequeue();
                 }
-
             });
         }
 
@@ -34,25 +33,25 @@ namespace AXOpen.Messaging
                     switch ((eLogLevel)entry.Level.LastValue)
                     {
                         case eLogLevel.Verbose:
-                            AxoApplication.Current.Logger.Verbose(entry.Message.LastValue, sender);
+                            AxoApplication.Current.Logger.Verbose($"{entry.Message.LastValue} : {sender.Symbol}", sender);
                             break;
                         case eLogLevel.Debug:
-                            AxoApplication.Current.Logger.Debug(entry.Message.LastValue, sender);
+                            AxoApplication.Current.Logger.Debug($"{entry.Message.LastValue} : {sender.Symbol}", sender);
                             break;
                         case eLogLevel.Information:
-                            AxoApplication.Current.Logger.Information(entry.Message.LastValue, sender);
+                            AxoApplication.Current.Logger.Information($"{entry.Message.LastValue} : {sender.Symbol}", sender);
                             break;
                         case eLogLevel.Warning:
-                            AxoApplication.Current.Logger.Warning(entry.Message.LastValue, sender);
+                            AxoApplication.Current.Logger.Warning($"{entry.Message.LastValue} : {sender.Symbol}", sender);
                             break;
                         case eLogLevel.Error:
-                            AxoApplication.Current.Logger.Error(entry.Message.LastValue, sender);
+                            AxoApplication.Current.Logger.Error($"{entry.Message.LastValue} : {sender.Symbol}", sender);
                             break;
                         case eLogLevel.Fatal:
-                            AxoApplication.Current.Logger.Fatal(entry.Message.LastValue, sender);
+                            AxoApplication.Current.Logger.Fatal($"{entry.Message.LastValue} : {sender.Symbol}", sender);
                             break;
                         default:
-                            AxoApplication.Current.Logger.Fatal(entry.Message.LastValue, sender);
+                            AxoApplication.Current.Logger.Fatal($"{entry.Message.LastValue} : {sender.Symbol}", sender);
                             break;
                     }
 

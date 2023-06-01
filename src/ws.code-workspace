@@ -1,12 +1,12 @@
 {
 	"folders": [
 		{
-			"name": "templates.simple",
-			"path": "templates.simple/ctrl"
-		},
-		{
 			"name": "core",
 			"path": "core/ctrl"
+		},
+		{
+			"name": "templates.simple",
+			"path": "templates.simple/ctrl"
 		},
 		{
 			"name": "integrations",
@@ -19,10 +19,6 @@
 		{
 			"name": "utils",
 			"path": "utils/ctrl"
-		},
-		{
-			"name": "messaging",
-			"path": "messaging/ctrl"
 		},
 		{
 			"name": "data",

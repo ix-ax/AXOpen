@@ -141,8 +141,7 @@ public class BuildContext : FrostingContext
         ("abstractions", "axopen.abstractions"),
         ("simatic1500", "axopen.simatic1500"),
         ("utils", "axopen.utils"),
-        ("core", "axopen.core"),
-        ("messaging", "axopen.messaging"),
+        ("core", "axopen.core"),       
         ("data", "axopen.data"),
         ("probers", "axopen.probers"),
     };

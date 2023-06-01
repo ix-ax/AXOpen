@@ -5,16 +5,12 @@ registries:
   '@ix-ax': https://npm.pkg.github.com/  
 targets:
   - "1500"
-  - axunit-llvm
-  - llvm
   - plcsim
 devDependencies:
-  "@ax/sdk": 3.0.18
-  "@ax/sld": ^0.14.2
+  "@ax/sdk": ^4.0.1  
 dependencies:   
    "@ix-ax/axopen.data"                         : '0.1.4-remove-core-deps-in-messaging.79'   
    "@ix-ax/axopen.simatic1500"                  : '0.1.4-remove-core-deps-in-messaging.79'
-   "@ax/axunit-library"                   : ^4.0.6
 
 variables:
   APAX_BUILD_ARGS: [ -d ]    

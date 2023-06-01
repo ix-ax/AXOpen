@@ -51,7 +51,7 @@ NAMESPACE AXOpen.Core
     CLASS PUBLIC _NULL_LOGGER IMPLEMENTS IAxoLogger                   
         METHOD PUBLIC Log 
             VAR_INPUT
-                _message : STRING[254];
+                _message : STRING[80];
                 _level : eLogLevel;
                 _sender : IAxoObject;
             END_VAR

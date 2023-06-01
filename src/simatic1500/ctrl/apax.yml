@@ -1,18 +1,15 @@
 name: "@ix-ax/axopen.simatic1500"
-version          : '0.1.4-remove-core-deps-in-messaging.79'
+version: '0.1.4-remove-core-deps-in-messaging.79'
 type: lib
 targets:
-  #  - "1500"
   - axunit-llvm
-  - llvm  
 files:
   - src
 dependencies:
-  "@ax/simatic-1500": 3.0.2
-  "@ix-ax/axopen.abstractions"          : '0.1.4-remove-core-deps-in-messaging.79'
-  "@ax/axunit-library": ^4.0.6  
+  "@ax/simatic-1500": ^4.0.8
+  "@ix-ax/axopen.abstractions": '0.1.4-remove-core-deps-in-messaging.79'
 devDependencies:
-  "@ax/sdk": 3.0.18
+  "@ax/sdk": ^4.0.1
 
 scripts:
   postbuild:

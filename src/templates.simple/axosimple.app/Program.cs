@@ -33,7 +33,14 @@ builder.Services.AddIxBlazorServices();
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.AutoSubscribeUsedVariables;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 150;
 
-Entry.Plc.Connector.IdentityProvider.ReadIdentities();
+await Entry.Plc.Connector.IdentityProvider.ReadIdentitiesAsync();
+
+
+foreach (var identity in Entry.Plc.Connector.IdentityProvider.Identities)
+{
+    Console.WriteLine($"{identity.Key}:{identity.Value.Symbol}");
+}
+
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
@@ -42,7 +49,7 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
 var productionDataRepository = new InMemoryRepositorySettings<Pocos.examples.PneumaticManipulator.FragmentProcessData> ().Factory();
 var headerDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
 
-Entry.Plc.ContextLogger.StartDequeuing();
+Entry.Plc.ContextLogger.StartDequeuing(250);
 
 var a = Entry.Plc.Context.PneumaticManipulator
     .ProcessData
