@@ -6,12 +6,12 @@ targets:
 files:
   - src
 devDependencies:
-  "@ax/sdk": ^4.0.1
+  "@ax/sdk": ^3.0.18
 scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ax/system-timer": ^4.0.1
+  "@ax/system-timer": ^3.0.9
   "@ix-ax/axopen.abstractions": '0.1.4-remove-core-deps-in-messaging.79'
-  #"@ax/axunit-library": ^4.0.6
+
 

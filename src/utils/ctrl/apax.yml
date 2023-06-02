@@ -6,9 +6,9 @@ targets:
 files:
   - src
 devDependencies:
-  "@ax/sdk": ^4.0.1
+  "@ax/sdk": ^3.0.18
 scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-   "@ax/system-serde": ^2.0.2
+  "@ax/system-serde": ^1.3.13

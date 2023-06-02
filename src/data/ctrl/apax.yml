@@ -8,7 +8,7 @@ files:
 dependencies:
   "@ix-ax/axopen.core"                                                                                                                                                                                                       : '0.1.4-remove-core-deps-in-messaging.79'
 devDependencies:
-  "@ax/sdk": ^4.0.1
+  "@ax/sdk": ^3.0.18
 scripts:  
   postbuild: 
     - dotnet ixc
