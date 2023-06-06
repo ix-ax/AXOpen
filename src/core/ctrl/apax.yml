@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.core"
-version            : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
+version             : '0.1.4-alpha.79'
 type: lib
 targets:
   - axunit-llvm
@@ -12,4 +12,4 @@ scripts:
     - dotnet ixc
 dependencies:
   "@ax/system-timer": ^3.0.9
-  "@ix-ax/axopen.abstractions"            : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
+  "@ix-ax/axopen.abstractions"             : '0.1.4-alpha.79'

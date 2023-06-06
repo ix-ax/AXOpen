@@ -1,12 +1,12 @@
 name: "@ix-ax/axopen.probers"
-version                                                                                                                                                                                                    : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
+version                                                                                                                                                                                                     : '0.1.4-alpha.79'
 type: lib
 targets:
   - axunit-llvm
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                                                                    : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
+  "@ix-ax/axopen.core"                                                                                                                                                                                                     : '0.1.4-alpha.79'
 devDependencies:
   "@ax/sdk": ^3.0.18
 variables:

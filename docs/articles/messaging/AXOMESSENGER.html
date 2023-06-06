@@ -104,7 +104,7 @@ Contrariwise, the acknowledgement is required for the levels <code>Error</code>,
 <p>Example of declaration the instance and defining the attributes <code>MessageText</code> and <code>Help</code>.</p>
 <pre><code class="lang-smalltalk">{#ix-set:MessageText = &quot;&lt;#Message text for messenger 1#&gt;&quot;}
 {#ix-set:Help = &quot;&lt;#Help text for messenger 1#&gt;&quot;}
-_messenger1 : AxoMessenger;
+_messenger1 : AXOpen.Messaging.Static.AxoMessenger;
 </code></pre>
 <p><strong>How to use <code>AxoMessenger</code></strong></p>
 <p>The instance of the <code>AxoMessenger</code> must be defined inside the <code>AxoContext</code> or <code>AxoObject</code>.
@@ -114,11 +114,11 @@ The <code>Activate</code> method should be used called the required condition or
     VAR PUBLIC
         {#ix-set:MessageText = &quot;&lt;#Message text for messenger 1#&gt;&quot;}
         {#ix-set:Help = &quot;&lt;#Help text for messenger 1#&gt;&quot;}
-        _messenger1 : AxoMessenger;
+        _messenger1 : AXOpen.Messaging.Static.AxoMessenger;
         _messenger1condition : BOOL;
         {#ix-set:MessageText = &quot;&lt;#Message text for messenger 2#&gt;&quot;}
         {#ix-set:MessageText = &quot;&lt;#Message text for messenger 2#&gt;&quot;}
-        _messenger2 : AxoMessenger;
+        _messenger2 : AXOpen.Messaging.Static.AxoMessenger;
         _messenger2condition : BOOL;
    END_VAR    
 

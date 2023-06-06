@@ -95,6 +95,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinObject</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinElement</span></div>
     <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
@@ -203,7 +204,7 @@
   <h6><strong>Assembly</strong>: ix_ax_axopen_data.dll</h6>
   <h5 id="AXOpen_Data_AxoDataExchange_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoDataExchange&lt;TOnline, TPlain&gt; : AxoDataExchangeBase, ITwinObject, ITwinElement, IAxoObject, IAxoDataExchange where TOnline : IAxoDataEntity where TPlain : IAxoDataEntity</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoDataExchange&lt;TOnline, TPlain&gt; : AxoDataExchangeBase, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoDataExchange where TOnline : IAxoDataEntity where TPlain : IAxoDataEntity</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1975,6 +1976,9 @@
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span>
+  </div>
   <div>
       <span class="xref">AXSharp.Connector.ITwinObject</span>
   </div>

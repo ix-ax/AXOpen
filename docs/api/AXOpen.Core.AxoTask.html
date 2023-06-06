@@ -96,10 +96,10 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinObject</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinElement</span></div>
     <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
-    <div><span class="xref">System.Windows.Input.ICommand</span></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
   </div>
@@ -194,7 +194,7 @@
   <h6><strong>Assembly</strong>: ix_ax_axopen_core.dll</h6>
   <h5 id="AXOpen_Core_AxoTask_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoTask : AxoObject, ITwinObject, ITwinElement, IAxoObject, ICommand, IAxoTask, IAxoTaskState</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoTask : AxoObject, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoTask, IAxoTaskState</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -203,7 +203,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.%23ctor(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L37">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L38">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask__ctor_" data-uid="AXOpen.Core.AxoTask.#ctor*"></a>
   <h4 id="AXOpen_Core_AxoTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Core.AxoTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">AxoTask(ITwinObject, string, string)</h4>
@@ -247,7 +247,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_Duration.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.Duration%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L27">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L28">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_Duration_" data-uid="AXOpen.Core.AxoTask.Duration*"></a>
   <h4 id="AXOpen_Core_AxoTask_Duration" data-uid="AXOpen.Core.AxoTask.Duration">Duration</h4>
@@ -278,7 +278,7 @@ public OnlinerLTime Duration { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_ErrorDetails.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.ErrorDetails%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L33">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L34">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_ErrorDetails_" data-uid="AXOpen.Core.AxoTask.ErrorDetails*"></a>
   <h4 id="AXOpen_Core_AxoTask_ErrorDetails" data-uid="AXOpen.Core.AxoTask.ErrorDetails">ErrorDetails</h4>
@@ -308,7 +308,7 @@ public OnlinerLTime Duration { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_IsDisabled.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.IsDisabled%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L15">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L16">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_IsDisabled_" data-uid="AXOpen.Core.AxoTask.IsDisabled*"></a>
   <h4 id="AXOpen_Core_AxoTask_IsDisabled" data-uid="AXOpen.Core.AxoTask.IsDisabled">IsDisabled</h4>
@@ -338,7 +338,7 @@ public OnlinerLTime Duration { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_RemoteAbort.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.RemoteAbort%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L21">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L22">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_RemoteAbort_" data-uid="AXOpen.Core.AxoTask.RemoteAbort*"></a>
   <h4 id="AXOpen_Core_AxoTask_RemoteAbort" data-uid="AXOpen.Core.AxoTask.RemoteAbort">RemoteAbort</h4>
@@ -368,7 +368,7 @@ public OnlinerLTime Duration { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_RemoteInvoke.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.RemoteInvoke%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L17">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L18">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_RemoteInvoke_" data-uid="AXOpen.Core.AxoTask.RemoteInvoke*"></a>
   <h4 id="AXOpen_Core_AxoTask_RemoteInvoke" data-uid="AXOpen.Core.AxoTask.RemoteInvoke">RemoteInvoke</h4>
@@ -398,7 +398,7 @@ public OnlinerLTime Duration { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_RemoteRestore.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.RemoteRestore%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L19">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L20">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_RemoteRestore_" data-uid="AXOpen.Core.AxoTask.RemoteRestore*"></a>
   <h4 id="AXOpen_Core_AxoTask_RemoteRestore" data-uid="AXOpen.Core.AxoTask.RemoteRestore">RemoteRestore</h4>
@@ -428,7 +428,7 @@ public OnlinerLTime Duration { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_RemoteResume.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.RemoteResume%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L23">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L24">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_RemoteResume_" data-uid="AXOpen.Core.AxoTask.RemoteResume*"></a>
   <h4 id="AXOpen_Core_AxoTask_RemoteResume" data-uid="AXOpen.Core.AxoTask.RemoteResume">RemoteResume</h4>
@@ -458,7 +458,7 @@ public OnlinerLTime Duration { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_StartSignature.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.StartSignature%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L25">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L26">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_StartSignature_" data-uid="AXOpen.Core.AxoTask.StartSignature*"></a>
   <h4 id="AXOpen_Core_AxoTask_StartSignature" data-uid="AXOpen.Core.AxoTask.StartSignature">StartSignature</h4>
@@ -488,7 +488,7 @@ public OnlinerLTime Duration { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_StartTimeStamp.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.StartTimeStamp%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L30">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L31">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_StartTimeStamp_" data-uid="AXOpen.Core.AxoTask.StartTimeStamp*"></a>
   <h4 id="AXOpen_Core_AxoTask_StartTimeStamp" data-uid="AXOpen.Core.AxoTask.StartTimeStamp">StartTimeStamp</h4>
@@ -519,7 +519,7 @@ public OnlinerLDateTime StartTimeStamp { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_Status.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.Status%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L11">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L12">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_Status_" data-uid="AXOpen.Core.AxoTask.Status*"></a>
   <h4 id="AXOpen_Core_AxoTask_Status" data-uid="AXOpen.Core.AxoTask.Status">Status</h4>
@@ -550,57 +550,25 @@ public OnlinerInt Status { get; }</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_CanExecute_System_Object_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.CanExecute(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_Abort.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.Abort%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L21">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L20">View Source</a>
   </span>
-  <a id="AXOpen_Core_AxoTask_CanExecute_" data-uid="AXOpen.Core.AxoTask.CanExecute*"></a>
-  <h4 id="AXOpen_Core_AxoTask_CanExecute_System_Object_" data-uid="AXOpen.Core.AxoTask.CanExecute(System.Object)">CanExecute(object)</h4>
+  <a id="AXOpen_Core_AxoTask_Abort_" data-uid="AXOpen.Core.AxoTask.Abort*"></a>
+  <h4 id="AXOpen_Core_AxoTask_Abort" data-uid="AXOpen.Core.AxoTask.Abort">Abort()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool CanExecute(object parameter = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Abort()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">object</span></td>
-        <td><span class="parametername">parameter</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">bool</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_CreateEmptyPoco.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.CreateEmptyPoco%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L182">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L183">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_CreateEmptyPoco_" data-uid="AXOpen.Core.AxoTask.CreateEmptyPoco*"></a>
   <h4 id="AXOpen_Core_AxoTask_CreateEmptyPoco" data-uid="AXOpen.Core.AxoTask.CreateEmptyPoco">CreateEmptyPoco()</h4>
@@ -627,19 +595,19 @@ public OnlinerInt Status { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_Execute_System_Object_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.Execute(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_ExecuteAsync_System_Object_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.ExecuteAsync(System.Object)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L30">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L34">View Source</a>
   </span>
-  <a id="AXOpen_Core_AxoTask_Execute_" data-uid="AXOpen.Core.AxoTask.Execute*"></a>
-  <h4 id="AXOpen_Core_AxoTask_Execute_System_Object_" data-uid="AXOpen.Core.AxoTask.Execute(System.Object)">Execute(object)</h4>
+  <a id="AXOpen_Core_AxoTask_ExecuteAsync_" data-uid="AXOpen.Core.AxoTask.ExecuteAsync*"></a>
+  <h4 id="AXOpen_Core_AxoTask_ExecuteAsync_System_Object_" data-uid="AXOpen.Core.AxoTask.ExecuteAsync(System.Object)">ExecuteAsync(object)</h4>
   <div class="markdown level1 summary"><p>Executes this task.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Execute(object parameter = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public Task ExecuteAsync(object parameter = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -658,12 +626,27 @@ public OnlinerInt Status { get; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_OnlineToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.OnlineToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L58">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L59">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_OnlineToPlain_" data-uid="AXOpen.Core.AxoTask.OnlineToPlain*"></a>
   <h4 id="AXOpen_Core_AxoTask_OnlineToPlain__1" data-uid="AXOpen.Core.AxoTask.OnlineToPlain``1">OnlineToPlain&lt;T&gt;()</h4>
@@ -710,7 +693,7 @@ public OnlinerInt Status { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_OnlineToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.OnlineToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L63">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L64">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_OnlineToPlainAsync_" data-uid="AXOpen.Core.AxoTask.OnlineToPlainAsync*"></a>
   <h4 id="AXOpen_Core_AxoTask_OnlineToPlainAsync" data-uid="AXOpen.Core.AxoTask.OnlineToPlainAsync">OnlineToPlainAsync()</h4>
@@ -740,7 +723,7 @@ public OnlinerInt Status { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoTask_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L81">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L82">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_OnlineToPlainAsync_" data-uid="AXOpen.Core.AxoTask.OnlineToPlainAsync*"></a>
   <h4 id="AXOpen_Core_AxoTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoTask_" data-uid="AXOpen.Core.AxoTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoTask)">OnlineToPlainAsync(AxoTask)</h4>
@@ -787,7 +770,7 @@ public OnlinerInt Status { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_PlainToOnline__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.PlainToOnline%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L97">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L98">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_PlainToOnline_" data-uid="AXOpen.Core.AxoTask.PlainToOnline*"></a>
   <h4 id="AXOpen_Core_AxoTask_PlainToOnline__1___0_" data-uid="AXOpen.Core.AxoTask.PlainToOnline``1(``0)">PlainToOnline&lt;T&gt;(T)</h4>
@@ -851,7 +834,7 @@ public OnlinerInt Status { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoTask_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L102">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L103">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_PlainToOnlineAsync_" data-uid="AXOpen.Core.AxoTask.PlainToOnlineAsync*"></a>
   <h4 id="AXOpen_Core_AxoTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoTask_" data-uid="AXOpen.Core.AxoTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoTask)">PlainToOnlineAsync(AxoTask)</h4>
@@ -898,7 +881,7 @@ public OnlinerInt Status { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_PlainToShadow__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.PlainToShadow%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L156">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L157">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_PlainToShadow_" data-uid="AXOpen.Core.AxoTask.PlainToShadow*"></a>
   <h4 id="AXOpen_Core_AxoTask_PlainToShadow__1___0_" data-uid="AXOpen.Core.AxoTask.PlainToShadow``1(``0)">PlainToShadow&lt;T&gt;(T)</h4>
@@ -962,7 +945,7 @@ public OnlinerInt Status { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoTask_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L161">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L162">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_PlainToShadowAsync_" data-uid="AXOpen.Core.AxoTask.PlainToShadowAsync*"></a>
   <h4 id="AXOpen_Core_AxoTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoTask_" data-uid="AXOpen.Core.AxoTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoTask)">PlainToShadowAsync(AxoTask)</h4>
@@ -1009,7 +992,7 @@ public OnlinerInt Status { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_Poll.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.Poll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L177">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L178">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_Poll_" data-uid="AXOpen.Core.AxoTask.Poll*"></a>
   <h4 id="AXOpen_Core_AxoTask_Poll" data-uid="AXOpen.Core.AxoTask.Poll">Poll()</h4>
@@ -1033,30 +1016,29 @@ public OnlinerInt Status { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; Restore()</code></pre>
+    <pre><code class="lang-csharp hljs">public void Restore()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">bool</span>&gt;</td>
-        <td><p>Returns true when the task is restored.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_ResumeTask.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.ResumeTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L25">View Source</a>
+  </span>
+  <a id="AXOpen_Core_AxoTask_ResumeTask_" data-uid="AXOpen.Core.AxoTask.ResumeTask*"></a>
+  <h4 id="AXOpen_Core_AxoTask_ResumeTask" data-uid="AXOpen.Core.AxoTask.ResumeTask">ResumeTask()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ResumeTask()</code></pre>
+  </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_ShadowToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.ShadowToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L118">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L119">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_ShadowToPlain_" data-uid="AXOpen.Core.AxoTask.ShadowToPlain*"></a>
   <h4 id="AXOpen_Core_AxoTask_ShadowToPlain__1" data-uid="AXOpen.Core.AxoTask.ShadowToPlain``1">ShadowToPlain&lt;T&gt;()</h4>
@@ -1103,7 +1085,7 @@ public OnlinerInt Status { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_ShadowToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.ShadowToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L123">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L124">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_ShadowToPlainAsync_" data-uid="AXOpen.Core.AxoTask.ShadowToPlainAsync*"></a>
   <h4 id="AXOpen_Core_AxoTask_ShadowToPlainAsync" data-uid="AXOpen.Core.AxoTask.ShadowToPlainAsync">ShadowToPlainAsync()</h4>
@@ -1133,7 +1115,7 @@ public OnlinerInt Status { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoTask_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L140">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L141">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoTask_ShadowToPlainAsync_" data-uid="AXOpen.Core.AxoTask.ShadowToPlainAsync*"></a>
   <h4 id="AXOpen_Core_AxoTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoTask_" data-uid="AXOpen.Core.AxoTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoTask)">ShadowToPlainAsync(AxoTask)</h4>
@@ -1175,38 +1157,10 @@ public OnlinerInt Status { get; }</code></pre>
       </tr>
     </tbody>
   </table>
-  <h3 id="events">Events
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask_CanExecuteChanged.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask.CanExecuteChanged%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L38">View Source</a>
-  </span>
-  <h4 id="AXOpen_Core_AxoTask_CanExecuteChanged" data-uid="AXOpen.Core.AxoTask.CanExecuteChanged">CanExecuteChanged</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public event EventHandler CanExecuteChanged</code></pre>
-  </div>
-  <h5 class="eventType">Event Type</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.EventHandler</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span>
+  </div>
   <div>
       <span class="xref">AXSharp.Connector.ITwinObject</span>
   </div>
@@ -1215,9 +1169,6 @@ public OnlinerInt Status { get; }</code></pre>
   </div>
   <div>
       <a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Input.ICommand</span>
   </div>
   <div>
       <a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a>
@@ -1236,7 +1187,7 @@ public OnlinerInt Status { get; }</code></pre>
                     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L9" class="contribution-link">View Source</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L10" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

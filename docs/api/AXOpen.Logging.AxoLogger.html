@@ -1,0 +1,1423 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AxoLogger
+ | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AxoLogger
+ | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AXOpen.Logging.AxoLogger">
+
+
+  <h1 id="AXOpen_Logging_AxoLogger" data-uid="AXOpen.Logging.AxoLogger" class="text-break">Class AxoLogger
+</h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">object</span></div>
+    <div class="level1"><span class="xref">AxoLogger</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">AXSharp.Connector.ITwinObject</span></div>
+    <div><span class="xref">AXSharp.Connector.ITwinElement</span></div>
+    <div><a class="xref" href="AXOpen.Logging.IAxoLogger.html">IAxoLogger</a></div>
+    <div><a class="xref" href="AXOpen.Logging.IAxoLoggerConfig.html">IAxoLoggerConfig</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Logging.html">Logging</a></h6>
+  <h6><strong>Assembly</strong>: ix_ax_axopen_core.dll</h6>
+  <h5 id="AXOpen_Logging_AxoLogger_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AxoLogger : ITwinObject, ITwinElement, IAxoLogger, IAxoLoggerConfig</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.%23ctor(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L21">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger__ctor_" data-uid="AXOpen.Logging.AxoLogger.#ctor*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Logging.AxoLogger.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">AxoLogger(ITwinObject, string, string)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoLogger(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
+        <td><span class="parametername">parent</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">readableTail</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td><span class="parametername">symbolTail</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_AttributeName.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.AttributeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L174">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_AttributeName_" data-uid="AXOpen.Logging.AxoLogger.AttributeName*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_AttributeName" data-uid="AXOpen.Logging.AxoLogger.AttributeName">AttributeName</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AttributeName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_Carret.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.Carret%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L12">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_Carret_" data-uid="AXOpen.Logging.AxoLogger.Carret*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_Carret" data-uid="AXOpen.Logging.AxoLogger.Carret">Carret</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerInt Carret { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ValueTypes.OnlinerInt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_Connector.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.Connector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L154">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_Connector_" data-uid="AXOpen.Logging.AxoLogger.Connector*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_Connector" data-uid="AXOpen.Logging.AxoLogger.Connector">Connector</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Connector Connector { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.Connector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_HumanReadable.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.HumanReadable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L176">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_HumanReadable_" data-uid="AXOpen.Logging.AxoLogger.HumanReadable*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_HumanReadable" data-uid="AXOpen.Logging.AxoLogger.HumanReadable">HumanReadable</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string HumanReadable { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_Interpreter.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.Interpreter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L182">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_Interpreter_" data-uid="AXOpen.Logging.AxoLogger.Interpreter*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_Interpreter" data-uid="AXOpen.Logging.AxoLogger.Interpreter">Interpreter</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Translator Interpreter { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.Localizations.Translator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_LogEntries.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.LogEntries%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L17">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_LogEntries_" data-uid="AXOpen.Logging.AxoLogger.LogEntries*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_LogEntries" data-uid="AXOpen.Logging.AxoLogger.LogEntries">LogEntries</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoLogEntry[] LogEntries { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXOpen.Logging.AxoLogEntry.html">AxoLogEntry</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_MinimumLevel.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.MinimumLevel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L14">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_MinimumLevel_" data-uid="AXOpen.Logging.AxoLogger.MinimumLevel*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_MinimumLevel" data-uid="AXOpen.Logging.AxoLogger.MinimumLevel">MinimumLevel</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EnumeratorDiscriminator(typeof(eLogLevel))]
+public OnlinerInt MinimumLevel { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ValueTypes.OnlinerInt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_Parent.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.Parent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L180">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_Parent_" data-uid="AXOpen.Logging.AxoLogger.Parent*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_Parent" data-uid="AXOpen.Logging.AxoLogger.Parent">Parent</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ITwinObject Parent { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_Symbol.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.Symbol%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L171">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_Symbol_" data-uid="AXOpen.Logging.AxoLogger.Symbol*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_Symbol" data-uid="AXOpen.Logging.AxoLogger.Symbol">Symbol</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Symbol { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_SymbolTail.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.SymbolTail%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L178">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_SymbolTail_" data-uid="AXOpen.Logging.AxoLogger.SymbolTail*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_SymbolTail" data-uid="AXOpen.Logging.AxoLogger.SymbolTail">SymbolTail</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string SymbolTail { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_AddChild_AXSharp_Connector_ITwinObject_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.AddChild(AXSharp.Connector.ITwinObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L149">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_AddChild_" data-uid="AXOpen.Logging.AxoLogger.AddChild*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_AddChild_AXSharp_Connector_ITwinObject_" data-uid="AXOpen.Logging.AxoLogger.AddChild(AXSharp.Connector.ITwinObject)">AddChild(ITwinObject)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddChild(ITwinObject twinObject)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
+        <td><span class="parametername">twinObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_AddKid_AXSharp_Connector_ITwinElement_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.AddKid(AXSharp.Connector.ITwinElement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L144">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_AddKid_" data-uid="AXOpen.Logging.AxoLogger.AddKid*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_AddKid_AXSharp_Connector_ITwinElement_" data-uid="AXOpen.Logging.AxoLogger.AddKid(AXSharp.Connector.ITwinElement)">AddKid(ITwinElement)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddKid(ITwinElement kid)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ITwinElement</span></td>
+        <td><span class="parametername">kid</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_AddValueTag_AXSharp_Connector_ITwinPrimitive_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.AddValueTag(AXSharp.Connector.ITwinPrimitive)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L139">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_AddValueTag_" data-uid="AXOpen.Logging.AxoLogger.AddValueTag*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_AddValueTag_AXSharp_Connector_ITwinPrimitive_" data-uid="AXOpen.Logging.AxoLogger.AddValueTag(AXSharp.Connector.ITwinPrimitive)">AddValueTag(ITwinPrimitive)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AddValueTag(ITwinPrimitive valueTag)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ITwinPrimitive</span></td>
+        <td><span class="parametername">valueTag</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_CreateEmptyPoco.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.CreateEmptyPoco%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L116">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_CreateEmptyPoco_" data-uid="AXOpen.Logging.AxoLogger.CreateEmptyPoco*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_CreateEmptyPoco" data-uid="AXOpen.Logging.AxoLogger.CreateEmptyPoco">CreateEmptyPoco()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoLogger CreateEmptyPoco()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Pocos.AXOpen.Logging.AxoLogger.html">AxoLogger</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_Dequeue.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.Dequeue%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoLogger/AxoLogger.cs/#L30">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_Dequeue_" data-uid="AXOpen.Logging.AxoLogger.Dequeue*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_Dequeue" data-uid="AXOpen.Logging.AxoLogger.Dequeue">Dequeue()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task Dequeue()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_GetChildren.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.GetChildren%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L122">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_GetChildren_" data-uid="AXOpen.Logging.AxoLogger.GetChildren*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_GetChildren" data-uid="AXOpen.Logging.AxoLogger.GetChildren">GetChildren()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinObject&gt; GetChildren()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinObject</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_GetConnector.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.GetConnector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L156">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_GetConnector_" data-uid="AXOpen.Logging.AxoLogger.GetConnector*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_GetConnector" data-uid="AXOpen.Logging.AxoLogger.GetConnector">GetConnector()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Connector GetConnector()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.Connector</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_GetKids.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.GetKids%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L128">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_GetKids_" data-uid="AXOpen.Logging.AxoLogger.GetKids*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_GetKids" data-uid="AXOpen.Logging.AxoLogger.GetKids">GetKids()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinElement&gt; GetKids()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinElement</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_GetParent.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.GetParent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L166">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_GetParent_" data-uid="AXOpen.Logging.AxoLogger.GetParent*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_GetParent" data-uid="AXOpen.Logging.AxoLogger.GetParent">GetParent()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITwinObject GetParent()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_GetSymbolTail.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.GetSymbolTail%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L161">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_GetSymbolTail_" data-uid="AXOpen.Logging.AxoLogger.GetSymbolTail*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_GetSymbolTail" data-uid="AXOpen.Logging.AxoLogger.GetSymbolTail">GetSymbolTail()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string GetSymbolTail()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_GetValueTags.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.GetValueTags%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L134">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_GetValueTags_" data-uid="AXOpen.Logging.AxoLogger.GetValueTags*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_GetValueTags" data-uid="AXOpen.Logging.AxoLogger.GetValueTags">GetValueTags()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinPrimitive&gt; GetValueTags()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinPrimitive</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_OnlineToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.OnlineToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L38">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_OnlineToPlain_" data-uid="AXOpen.Logging.AxoLogger.OnlineToPlain*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_OnlineToPlain__1" data-uid="AXOpen.Logging.AxoLogger.OnlineToPlain``1">OnlineToPlain&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;T&gt; OnlineToPlain&lt;T&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_OnlineToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.OnlineToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L43">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_OnlineToPlainAsync_" data-uid="AXOpen.Logging.AxoLogger.OnlineToPlainAsync*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_OnlineToPlainAsync" data-uid="AXOpen.Logging.AxoLogger.OnlineToPlainAsync">OnlineToPlainAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;AxoLogger&gt; OnlineToPlainAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Logging.AxoLogger.html">AxoLogger</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_OnlineToPlainAsync_Pocos_AXOpen_Logging_AxoLogger_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.OnlineToPlainAsync(Pocos.AXOpen.Logging.AxoLogger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L53">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_OnlineToPlainAsync_" data-uid="AXOpen.Logging.AxoLogger.OnlineToPlainAsync*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_OnlineToPlainAsync_Pocos_AXOpen_Logging_AxoLogger_" data-uid="AXOpen.Logging.AxoLogger.OnlineToPlainAsync(Pocos.AXOpen.Logging.AxoLogger)">OnlineToPlainAsync(AxoLogger)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;AxoLogger&gt; OnlineToPlainAsync(AxoLogger plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Pocos.AXOpen.Logging.AxoLogger.html">AxoLogger</a></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Logging.AxoLogger.html">AxoLogger</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_PlainToOnline__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.PlainToOnline%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L61">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_PlainToOnline_" data-uid="AXOpen.Logging.AxoLogger.PlainToOnline*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_PlainToOnline__1___0_" data-uid="AXOpen.Logging.AxoLogger.PlainToOnline``1(``0)">PlainToOnline&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task PlainToOnline&lt;T&gt;(T plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_PlainToOnlineAsync_Pocos_AXOpen_Logging_AxoLogger_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.PlainToOnlineAsync(Pocos.AXOpen.Logging.AxoLogger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L66">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_PlainToOnlineAsync_" data-uid="AXOpen.Logging.AxoLogger.PlainToOnlineAsync*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_PlainToOnlineAsync_Pocos_AXOpen_Logging_AxoLogger_" data-uid="AXOpen.Logging.AxoLogger.PlainToOnlineAsync(Pocos.AXOpen.Logging.AxoLogger)">PlainToOnlineAsync(AxoLogger)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToOnlineAsync(AxoLogger plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Pocos.AXOpen.Logging.AxoLogger.html">AxoLogger</a></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinPrimitive</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_PlainToShadow__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.PlainToShadow%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L97">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_PlainToShadow_" data-uid="AXOpen.Logging.AxoLogger.PlainToShadow*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_PlainToShadow__1___0_" data-uid="AXOpen.Logging.AxoLogger.PlainToShadow``1(``0)">PlainToShadow&lt;T&gt;(T)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task PlainToShadow&lt;T&gt;(T plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">T</span></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_PlainToShadowAsync_Pocos_AXOpen_Logging_AxoLogger_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.PlainToShadowAsync(Pocos.AXOpen.Logging.AxoLogger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L102">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_PlainToShadowAsync_" data-uid="AXOpen.Logging.AxoLogger.PlainToShadowAsync*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_PlainToShadowAsync_Pocos_AXOpen_Logging_AxoLogger_" data-uid="AXOpen.Logging.AxoLogger.PlainToShadowAsync(Pocos.AXOpen.Logging.AxoLogger)">PlainToShadowAsync(AxoLogger)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToShadowAsync(AxoLogger plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Pocos.AXOpen.Logging.AxoLogger.html">AxoLogger</a></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinPrimitive</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_Poll.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.Poll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L111">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_Poll_" data-uid="AXOpen.Logging.AxoLogger.Poll*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_Poll" data-uid="AXOpen.Logging.AxoLogger.Poll">Poll()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Poll()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_SetLogger_AXOpen_Logging_ILogger_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.SetLogger(AXOpen.Logging.ILogger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoLogger/AxoLogger.cs/#L28">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_SetLogger_" data-uid="AXOpen.Logging.AxoLogger.SetLogger*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_SetLogger_AXOpen_Logging_ILogger_" data-uid="AXOpen.Logging.AxoLogger.SetLogger(AXOpen.Logging.ILogger)">SetLogger(ILogger)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetLogger(ILogger targetLogger)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXOpen.Logging.ILogger</span></td>
+        <td><span class="parametername">targetLogger</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_ShadowToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.ShadowToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L75">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_ShadowToPlain_" data-uid="AXOpen.Logging.AxoLogger.ShadowToPlain*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_ShadowToPlain__1" data-uid="AXOpen.Logging.AxoLogger.ShadowToPlain``1">ShadowToPlain&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task&lt;T&gt; ShadowToPlain&lt;T&gt;()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;T&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_ShadowToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.ShadowToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L80">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_ShadowToPlainAsync_" data-uid="AXOpen.Logging.AxoLogger.ShadowToPlainAsync*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_ShadowToPlainAsync" data-uid="AXOpen.Logging.AxoLogger.ShadowToPlainAsync">ShadowToPlainAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;AxoLogger&gt; ShadowToPlainAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Logging.AxoLogger.html">AxoLogger</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_ShadowToPlainAsync_Pocos_AXOpen_Logging_AxoLogger_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.ShadowToPlainAsync(Pocos.AXOpen.Logging.AxoLogger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L89">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_ShadowToPlainAsync_" data-uid="AXOpen.Logging.AxoLogger.ShadowToPlainAsync*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_ShadowToPlainAsync_Pocos_AXOpen_Logging_AxoLogger_" data-uid="AXOpen.Logging.AxoLogger.ShadowToPlainAsync(Pocos.AXOpen.Logging.AxoLogger)">ShadowToPlainAsync(AxoLogger)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;AxoLogger&gt; ShadowToPlainAsync(AxoLogger plain)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Pocos.AXOpen.Logging.AxoLogger.html">AxoLogger</a></td>
+        <td><span class="parametername">plain</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Logging.AxoLogger.html">AxoLogger</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger_StartDequeuing_AXOpen_Logging_ILogger_System_Int32_.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger.StartDequeuing(AXOpen.Logging.ILogger%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoLogger/AxoLogger.cs/#L15">View Source</a>
+  </span>
+  <a id="AXOpen_Logging_AxoLogger_StartDequeuing_" data-uid="AXOpen.Logging.AxoLogger.StartDequeuing*"></a>
+  <h4 id="AXOpen_Logging_AxoLogger_StartDequeuing_AXOpen_Logging_ILogger_System_Int32_" data-uid="AXOpen.Logging.AxoLogger.StartDequeuing(AXOpen.Logging.ILogger,System.Int32)">StartDequeuing(ILogger, int)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void StartDequeuing(ILogger targetLogger, int dequeuingInterval = 100)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXOpen.Logging.ILogger</span></td>
+        <td><span class="parametername">targetLogger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">dequeuingInterval</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">AXSharp.Connector.ITwinObject</span>
+  </div>
+  <div>
+      <span class="xref">AXSharp.Connector.ITwinElement</span>
+  </div>
+  <div>
+      <a class="xref" href="AXOpen.Logging.IAxoLogger.html">IAxoLogger</a>
+  </div>
+  <div>
+      <a class="xref" href="AXOpen.Logging.IAxoLoggerConfig.html">IAxoLoggerConfig</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Logging_AxoLogger.md&amp;value=---%0Auid%3A%20AXOpen.Logging.AxoLogger%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoLogger/AxoLogger.g.cs/#L10" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

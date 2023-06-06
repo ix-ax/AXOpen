@@ -208,12 +208,12 @@
   </table>
 
 
-  <h4 id="plc_AXOpen_Core_IAxoContext_Environment__" data-uid="plc.AXOpen.Core.IAxoContext.Environment()">Environment</h4>
+  <h4 id="plc_AXOpen_Core_IAxoContext_GetLogger__" data-uid="plc.AXOpen.Core.IAxoContext.GetLogger()">GetLogger</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoContextEnvironment Environment()</code></pre>
+    <pre><code class="lang-csharp hljs">Public AXOpen.Logging.IAxoLogger GetLogger()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -225,7 +225,48 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="plc.AXOpen.Core.IAxoContextEnvironment.html">IAxoContextEnvironment</a></td>
+        <td><a class="xref" href="plc.AXOpen.Logging.IAxoLogger.html">IAxoLogger</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Core_IAxoContext_InjectLogger_IAxoLogger_" data-uid="plc.AXOpen.Core.IAxoContext.InjectLogger(IAxoLogger)">InjectLogger</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID InjectLogger(in plc.AXOpen.Logging.IAxoLogger _logger)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Logging.IAxoLogger.html">IAxoLogger</a></td>
+        <td><span class="parametername">_logger</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
         <td></td>
       </tr>
     </tbody>
