@@ -1,11 +1,5 @@
-﻿using Xunit;
-using AXOpen.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Channels;
-using System.Threading.Tasks;
+﻿using AXOpen;
+using AXOpen.Logging;
 using AXSharp.Connector;
 
 namespace AXOpen.Core.Tests
@@ -96,6 +90,57 @@ namespace AXOpen.Core.Tests
             Assert.False(await sut.HasRemoteException.GetAsync());
             Assert.False(sut.IsRunning);
         
+        }
+    }
+
+    public class AxoRemoteTaskTests2
+    {
+        private readonly AxoRemoteTask _axoTask;
+        private readonly IAxoApplication mockAxoApplication;
+        private readonly DummyLogger _logger = new DummyLogger();
+
+        public AxoRemoteTaskTests2()
+        {
+            mockAxoApplication = AxoApplication.CreateBuilder().ConfigureLogger(_logger).Build();
+            //_mockAxoApp.Logger.Returns(_logger);
+            var a = ConnectorAdapterBuilder.Build().CreateDummy();
+            _axoTask = new AxoRemoteTask(a.GetConnector(null), "a", "b");
+        }
+
+        [Fact]
+        public async void Execute_WhenCalled_ShouldLogInformationAndInvokeRemoteCommand()
+        {
+            var humanReadable = "Test Task";
+
+            _axoTask.HumanReadable = humanReadable;
+
+            await _axoTask.ExecuteAsync();
+
+            Assert.Equal("Information", _logger.LastCategory);
+            Assert.Equal($"User `NoUser` invoked command `{_axoTask.HumanReadable}`", _logger.LastMessage);
+            Assert.Equal(_axoTask, _logger.LastObject);
+            Assert.True(await _axoTask.RemoteInvoke.GetAsync());
+        }
+
+        [Fact]
+        public async void Restore_WhenCalled_SetsRemoteRestoreCyclicToTrue()
+        {
+            _axoTask.Restore();
+            Assert.True(await _axoTask.RemoteRestore.GetAsync());
+        }
+
+        [Fact]
+        public async void Abort_WhenCalled_SetsRemoteAbortCyclicToTrue()
+        {
+            _axoTask.Abort();
+            Assert.True(await _axoTask.RemoteAbort.GetAsync());
+        }
+
+        [Fact]
+        public async void ResumeTask_WhenCalled_SetsRemoteResumeCyclicToTrue()
+        {
+            _axoTask.ResumeTask();
+            Assert.True(await _axoTask.RemoteResume.GetAsync());
         }
     }
 }

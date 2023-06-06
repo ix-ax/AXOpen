@@ -7,20 +7,20 @@ namespace AXOpen.Core
     {
         private void InvokeTask()
         {
-            Component.RemoteInvoke.Cyclic = true;
+            Component.ExecuteAsync();
         }
         private void RestoreTask()
         {
+            Component.Restore();
             (this.Component as AxoRemoteTask)?.ResetExecution();
-            Component.RemoteRestore.Cyclic = true;
         }
         private void AbortTask()
         {
-            Component.RemoteAbort.Cyclic = true;
+            Component.Abort();
         }
         private void ResumeTask()
         {
-            Component.RemoteResume.Cyclic = true;
+            Component.ResumeTask();
         }
 
         private string ButtonClass

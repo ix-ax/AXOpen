@@ -1,22 +1,18 @@
 name: "axosimple"
-version                        : '0.1.4-remove-core-deps-in-messaging.79'
+version                            : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
 type: app
 registries:
   '@ix-ax': https://npm.pkg.github.com/  
 targets:
   - "1500"
-  - axunit-llvm
-  - llvm
   - plcsim
+  - axunit-llvm
 devDependencies:
-  "@ax/sdk": 3.0.18
-  "@ax/sld": ^0.14.2
-dependencies:
-   "@ix-ax/axopen.core"                         : '0.1.4-remove-core-deps-in-messaging.79'
-   "@ix-ax/axopen.data"                         : '0.1.4-remove-core-deps-in-messaging.79'
-   "@ix-ax/axopen.messaging"                    : '0.1.4-remove-core-deps-in-messaging.79'
-   "@ix-ax/axopen.simatic1500"                  : '0.1.4-remove-core-deps-in-messaging.79'
-   "@ax/axunit-library"                   : ^4.0.6
+  "@ax/sdk": ^3.0.18 
+  "@ax/sld": ^0.15.9  
+dependencies:   
+   "@ix-ax/axopen.data"                             : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
+   "@ix-ax/axopen.simatic1500"                      : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
 
 variables:
   APAX_BUILD_ARGS: [ -d ]    

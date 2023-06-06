@@ -36,7 +36,12 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetRtc : IAxoRtc GetRtc := _NULL_RTC; END_METHOD
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
-                
+        
+        VAR PRIVATE
+            NULL_LOGGER : _NULL_LOGGER;
+        END_VAR    
+        METHOD PUBLIC GetLogger : AXOpen.Logging.IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
+        METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD            
     END_CLASS      
    
     {TestFixture}

@@ -1,5 +1,7 @@
 using System.Reflection;
+using AXOpen;
 using AXOpen.Data.InMemory;
+using AXOpen.Logging;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
 using axosimple.hmi.Areas.Identity;
@@ -11,6 +13,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,10 +31,18 @@ builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuth
 builder.Services.AddIxBlazorServices();
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.AutoSubscribeUsedVariables;
-Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 150;
+Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
+
+Entry.Plc.Connector.IdentityProvider.ReadIdentities();
+
+AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
+    .WriteTo.Console().MinimumLevel.Verbose()
+    .CreateLogger()));
 
 var productionDataRepository = new InMemoryRepositorySettings<Pocos.examples.PneumaticManipulator.FragmentProcessData> ().Factory();
 var headerDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
+
+Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 10);
 
 var a = Entry.Plc.Context.PneumaticManipulator
     .ProcessData

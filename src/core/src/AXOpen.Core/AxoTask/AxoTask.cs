@@ -2,39 +2,39 @@ using System;
 using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
-using System.Windows.Input;
+using AXOpen;
+using System.ComponentModel;
 
 namespace AXOpen.Core
 {
-    public partial class AxoTask : ICommand
+    public partial class AxoTask 
     {
         /// <summary>
         /// Restore this task to ready state.
         /// </summary>
-        /// <returns>Returns true when the task is restored.</returns>
-        public async Task<bool> Restore()
+        public void Restore()
         {
-           await this.RemoteRestore.SetAsync(true);
-           return true;
+           this.RemoteRestore.Cyclic = true;
         }
 
-        public bool CanExecute(object parameter = null)
+        public void Abort()
         {
-            return !this.IsDisabled.GetAsync().Result;
+            RemoteAbort.Cyclic = true;
+        }
+
+        public void ResumeTask()
+        {
+            RemoteResume.Cyclic = true;
         }
 
         /// <summary>
         /// Executes this task.
         /// </summary>
         /// <param name="parameter"></param>
-        public async void Execute(object parameter = null)
+        public async Task ExecuteAsync(object parameter = null)
         {
-            if (CanExecute())
-            {
-               await this.RemoteInvoke.SetAsync(true);
-            }
+            AxoApplication.Current.Logger.Information($"User `{AxoApplication.Current.CurrentUser}` invoked command `{this.HumanReadable}`", this);
+            await this.RemoteInvoke.SetAsync(true);
         }
-
-        public event EventHandler CanExecuteChanged;
     }
 }

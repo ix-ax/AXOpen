@@ -7,13 +7,11 @@
 
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="100"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components"></UnitsService>
-<UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared.Set" PollingInterval="100"></UnitsData>
-
-<DataExchangeView Vm="_vm"></DataExchangeView>
+@*<UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared.Set" PollingInterval="100"></UnitsData>*@
 
 @foreach (var message in Messengers)
 {
-    if (message.IsActive.Cyclic)
+    if (message.IsActive.LastValue)
     {
         <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
     }
@@ -21,8 +19,6 @@
 
 @code
 {
-    private DataExchangeViewModel _vm => new() { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData };
-
     private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
     protected override Task OnInitializedAsync()

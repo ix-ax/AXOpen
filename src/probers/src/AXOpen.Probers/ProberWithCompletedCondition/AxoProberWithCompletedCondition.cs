@@ -15,7 +15,7 @@ namespace AXOpen.Probers
         /// <returns>Task</returns>
         public async Task RunTest()
         {
-            await this.Restore();
+            this.Restore();
 
             while (true)
             {
@@ -29,7 +29,7 @@ namespace AXOpen.Probers
                 Task.Delay(1).Wait();
             }
 
-            this.Execute();
+            this.ExecuteAsync();
 
             while (true)
             {

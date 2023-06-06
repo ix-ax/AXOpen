@@ -39,7 +39,7 @@ NAMESPACE AXOpen.Pneumatics
 
             {#ix-set:MessageText = "<#Move to home position did not succeed.#>"}
             {#ix-set:Help = "<#Check the cyclinder that it is free to move, check that the air pressure reaches... and extremity sensor.#>"}
-            _MoveToHomeNotReached : AXOpen.Messaging.Static.AxoMessenger;
+            _MoveToHomeNotReached : AXOpen.Messaging.Static.AxoMessenger;            
         END_VAR
                
         METHOD PUBLIC Update 

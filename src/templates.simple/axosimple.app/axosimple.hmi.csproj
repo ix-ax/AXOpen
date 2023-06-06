@@ -23,12 +23,13 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
     <ProjectReference Include="..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
     <ProjectReference Include="..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
-    <ProjectReference Include="..\..\messaging\src\AXOpen.Messaging.Blazor\axopen_messaging_blazor.csproj" />
     <ProjectReference Include="..\axosimple.twin\axosimple.csproj" />
   </ItemGroup>
 </Project>

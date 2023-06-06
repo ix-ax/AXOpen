@@ -1,17 +1,14 @@
 name: "@ix-ax/axopen.utils"
-version                                                                                                                                                                                           : '0.1.4-remove-core-deps-in-messaging.79'
+version       : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
 type: lib
 targets:
-  #  - "1500"
   - axunit-llvm
-  - llvm
 files:
   - src
 devDependencies:
-  "@ax/sdk": 3.0.18
+  "@ax/sdk": ^3.0.18
 scripts:
   postbuild:
     - dotnet ixc
 dependencies:
   "@ax/system-serde": ^1.3.13
-  "@ax/axunit-library": ^4.0.6
