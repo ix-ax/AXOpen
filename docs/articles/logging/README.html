@@ -149,7 +149,9 @@ axoAppBuilder.ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
 <p>This code sets up a new Serilog logger with a single sink directed to the console window. The <code>MinimumLevel.Verbose()</code> method specifies that all logs, regardless of their severity level, will be outputted to the console.</p>
 <h2 id="connecting-loggers-to-the-application">Connecting Loggers to the Application</h2>
 <p>Finally, we connect our previously defined <code>AxoLogger</code> instances, <code>LoggerOne</code> and <code>LoggerTwo</code>, to our application.</p>
-<pre><code class="lang-smalltalk"></code></pre>
+<pre><code class="lang-smalltalk">Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(AxoApplication.Current.Logger, 250);
+Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(AxoApplication.Current.Logger, 250);
+</code></pre>
 <p>The <code>StartDequeuing</code> method is now called with two parameters. The first parameter <code>AxoApplication.Current.Logger</code> refers to the instance of the logger that was created and configured in the previous step. The second parameter is <code>250</code>. This starts a loop that dequeues log messages from the <code>AxoLogger</code>'s message queue every 250 milliseconds, passing them to the configured sinks—in our case, the console window.</p>
 <h2 id="adding-custom-target-loggers">Adding Custom Target Loggers</h2>
 <p>The Serilog library allows you to add and configure custom target loggers. In the previous example, we've used <code>AxoApplication.Current.Logger</code> as our target logger. This is the logger instance created and configured during the application setup.</p>
