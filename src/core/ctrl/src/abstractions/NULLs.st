@@ -65,7 +65,14 @@ NAMESPACE AXOpen.Core
                 _level : eLogLevel;             
             END_VAR
             ;                         
-        END_METHOD   
+        END_METHOD 
+        
+        METHOD PUBLIC SetMinimumLevel : IAxoLoggerConfig
+            VAR_INPUT
+                _level : eLogLevel;  
+            END_VAR 
+            ;           
+        END_METHOD
     END_CLASS    
 END_NAMESPACE
     

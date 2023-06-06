@@ -2,7 +2,7 @@
 
 namespace AXOpen.Logging
 {
-    public interface IAxoLogger
+    public interface ILogger
     {
         void Debug(string message);
         void Debug<T>(string message, T propertyValue);

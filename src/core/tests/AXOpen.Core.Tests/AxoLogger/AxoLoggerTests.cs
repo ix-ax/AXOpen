@@ -37,12 +37,13 @@ namespace axopen_core_tests
             var dequeuingInterval = 100;
 
             // Act
-            _testClass.StartDequeuing(dequeuingInterval);
+            _testClass.StartDequeuing(AxoApplication.Current.Logger, dequeuingInterval);
         }
 
         [Fact]
         public async Task CanCallDequeue()
         {
+            _testClass.SetLogger(AxoApplication.Current.Logger);
             foreach (var level in Enum.GetValues(typeof(eLogLevel)).Cast<eLogLevel>().ToList().Where(p => p != eLogLevel.NoCat))
             {
                 await _testClass.LogEntries[0].Message.SetAsync($"this is {level} message");
@@ -53,7 +54,7 @@ namespace axopen_core_tests
 
                 // Assert
                 var logger = AxoApplication.Current.Logger as DummyLogger;
-                Assert.Equal($"this is {level} message : agnostic", logger.LastMessage);
+                Assert.Equal($"this is {level} message : ", logger.LastMessage);
                 Assert.Equal(level.ToString(), logger.LastCategory);
                 Assert.False(await _testClass.LogEntries[0].ToDequeue.GetAsync());
             }

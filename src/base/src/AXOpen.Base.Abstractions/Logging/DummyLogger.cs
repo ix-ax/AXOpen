@@ -7,7 +7,7 @@ using AXOpen.Logging;
 
 namespace AXOpen.Logging
 {
-    internal class DummyLogger : IAxoLogger
+    internal class DummyLogger : ILogger
     {
         public string LastMessage { get; private set; }
 

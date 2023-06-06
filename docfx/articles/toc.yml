@@ -36,7 +36,10 @@
   - name: AxoMessenger
     href: ~/articles/messaging/AXOMESSENGER.md
 - name: AXOpen.Logging
-  href: ~/articles/logging/AXOLLOGGER.md    
+  href: ~/articles/logging/README.md   
+  items:
+  - name: AxoLogger
+    href: ~/articles/logging/AXOLOGGER.md 
 - name: AXOpen.Security
   href: ~/articles/security/README.md  
   items:

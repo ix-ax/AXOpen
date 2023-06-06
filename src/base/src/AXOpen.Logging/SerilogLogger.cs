@@ -19,9 +19,9 @@ public static class LoggingServiceConfiguration
     }
 }
 
-public class SerilogLogger : IAxoLogger
+public class SerilogLogger : ILogger
 {
-    public SerilogLogger(ILogger logger)
+    public SerilogLogger(Serilog.ILogger logger)
     {
         Log.Logger = logger ?? Log.Logger;
     }

@@ -39,6 +39,7 @@ namespace axopen_integrations_blazor
 
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
+            Entry.Plc.Connector.IdentityProvider.ReadIdentities();
 
             var repository = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
             var repository2 = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
@@ -103,11 +104,13 @@ namespace axopen_integrations_blazor
             axoAppBuilder.ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
                 .WriteTo.Console().MinimumLevel.Verbose()
                 .CreateLogger()));
-
-            Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(250);
-            Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(250);
-
             //</AxoLoggerConfiguration>
+
+            //</AxoLoggerInitialization>
+            Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(AxoApplication.Current.Logger, 250);
+            Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(AxoApplication.Current.Logger, 250);
+            //</AxoLoggerInitialization>
+
 
 
             var app = builder.Build();

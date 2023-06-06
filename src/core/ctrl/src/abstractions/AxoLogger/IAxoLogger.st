@@ -1,7 +1,7 @@
 USING AXOpen.Core;
 USING AXOpen.Core;
 NAMESPACE AXOpen.Logging              
-    INTERFACE PUBLIC IAxoLogger                 
+    INTERFACE PUBLIC IAxoLogger EXTENDS IAxoLoggerConfig                
         METHOD Log 
             VAR_INPUT
                 _message : STRING[80];
@@ -15,7 +15,7 @@ NAMESPACE AXOpen.Logging
                 _message : STRING[80];
                 _level : eLogLevel;                
             END_VAR                         
-        END_METHOD      
+        END_METHOD       
     END_INTERFACE
 
     INTERFACE IAxoLoggerConfig

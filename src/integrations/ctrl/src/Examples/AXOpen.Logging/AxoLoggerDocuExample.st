@@ -15,12 +15,15 @@ NAMESPACE AxoLoggerExamples
         METHOD PROTECTED OVERRIDE Main                              
             // Logging to `LoggerOne`
             THIS.InjectLogger(LoggerOne);  
-            
+            // This will report only Errors and more severe
+            THIS.GetLogger().SetMinimumLevel(eLogLevel#Error);
             THIS.GetLogger().Log('Here I am logging an error.', eLogLevel#Error);                     
             THIS.GetLogger().Log('Here I am logging an infomation.', eLogLevel#Information);
            
             // Logging to `LoggerTwo`
             THIS.InjectLogger(LoggerTwo);
+            // This will report all messages from Infomation level and more severe
+            THIS.GetLogger().SetMinimumLevel(eLogLevel#Information);
             THIS.GetLogger().Log('Here I am logging an error.', eLogLevel#Error);
             THIS.GetLogger().Log('Here I am logging an infomation.', eLogLevel#Information);
             

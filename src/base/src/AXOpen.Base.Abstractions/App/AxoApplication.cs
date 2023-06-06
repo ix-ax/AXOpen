@@ -15,7 +15,7 @@ namespace AXOpen
         }
         
         /// <inheritdoc/>
-        public IAxoLogger Logger { get; private set; } = new DummyLogger();
+        public ILogger Logger { get; private set; } = new DummyLogger();
 
         public static IAxoApplicationBuilder CreateBuilder()
         {
@@ -23,7 +23,7 @@ namespace AXOpen
         }
 
         /// <inheritdoc/>
-        public IAxoApplicationBuilder ConfigureLogger(IAxoLogger logger)
+        public IAxoApplicationBuilder ConfigureLogger(ILogger logger)
         {
             Logger = logger;
             return this;

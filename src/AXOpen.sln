@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33103.184
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32802.440
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{EA794F76-EB41-46F7-BEAA-FF379716F558}"
 EndProject
@@ -125,12 +125,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_security_blazor", "security\src\AXOpen.Security\axopen_security_blazor.csproj", "{255286BF-2A5A-4EB8-BBBB-0CBCA67DEAB3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_integrations_blazor", "integrations\src\AXOpen.Integrations.Blazor\axopen_integrations_blazor.csproj", "{1EC46148-A114-4018-92BE-93F1E0273A33}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_extern", "_extern", "{9F7D9623-7C46-4154-9DE5-36EA8C2BFE13}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Connector", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj", "{EEEFE7CE-4AAF-44E3-BB10-39949981E1F6}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Connector.S71500.WebAPI", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj", "{BE8BC45C-73AC-447D-B563-F13031D90880}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -262,14 +256,6 @@ Global
 		{1EC46148-A114-4018-92BE-93F1E0273A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EC46148-A114-4018-92BE-93F1E0273A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EC46148-A114-4018-92BE-93F1E0273A33}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EEEFE7CE-4AAF-44E3-BB10-39949981E1F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEEFE7CE-4AAF-44E3-BB10-39949981E1F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEEFE7CE-4AAF-44E3-BB10-39949981E1F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEEFE7CE-4AAF-44E3-BB10-39949981E1F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BE8BC45C-73AC-447D-B563-F13031D90880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BE8BC45C-73AC-447D-B563-F13031D90880}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BE8BC45C-73AC-447D-B563-F13031D90880}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BE8BC45C-73AC-447D-B563-F13031D90880}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -324,8 +310,6 @@ Global
 		{F1769F72-2934-41EF-A1AB-B35F3F0EBCBA} = {1248626A-34D4-48B2-8401-4981029EB5FC}
 		{255286BF-2A5A-4EB8-BBBB-0CBCA67DEAB3} = {8017588A-7145-460D-ACEB-402D7005DA33}
 		{1EC46148-A114-4018-92BE-93F1E0273A33} = {FFD509A8-8D3C-4756-9B2E-10A063A246E9}
-		{EEEFE7CE-4AAF-44E3-BB10-39949981E1F6} = {9F7D9623-7C46-4154-9DE5-36EA8C2BFE13}
-		{BE8BC45C-73AC-447D-B563-F13031D90880} = {9F7D9623-7C46-4154-9DE5-36EA8C2BFE13}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

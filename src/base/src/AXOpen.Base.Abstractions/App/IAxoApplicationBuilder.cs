@@ -19,7 +19,7 @@ public interface IAxoApplicationBuilder
     /// </summary>
     /// <param name="logger">AxoLogger</param>
     /// <returns>Application builder.</returns>
-    IAxoApplicationBuilder ConfigureLogger(IAxoLogger logger);
+    IAxoApplicationBuilder ConfigureLogger(ILogger logger);
 
     /// <summary>
     /// Builds an AxoApplication.
