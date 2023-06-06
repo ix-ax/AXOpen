@@ -38,8 +38,8 @@ NAMESPACE AXOpen.Data
             VAR PRIVATE
                 NULL_LOGGER : _NULL_LOGGER;
             END_VAR    
-            METHOD PUBLIC GetLogger : AXOpen.Messaging.IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
-            METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Messaging.IAxoLogger; END_VAR ; END_METHOD 
+            METHOD PUBLIC GetLogger : AXOpen.Logging.IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
+            METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD 
         END_CLASS      
 
         {TestFixture}

@@ -1,5 +1,6 @@
 USING AXOpen.Rtc;
 USING AXOpen.Messaging;
+USING AXOpen.Logging;
 
 NAMESPACE AXOpen.Core
     ///<summary>

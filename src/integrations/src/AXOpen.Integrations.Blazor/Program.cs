@@ -91,6 +91,25 @@ namespace axopen_integrations_blazor
                     new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataFramentsExchangeDocuExample.Station_1_Data>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents", "fm"))));
             //</AxoDataFragmentedExampleDocuIntialization>
 
+
+            //<AxoAppBuilder>
+            var axoAppBuilder = AxoApplication.CreateBuilder();
+            //</AxoAppBuilder>
+
+            //<AxoLoggerConfiguration>
+
+            // Creates serilog logger with single sink to Console window.
+            
+            axoAppBuilder.ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
+                .WriteTo.Console().MinimumLevel.Verbose()
+                .CreateLogger()));
+
+            Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(250);
+            Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(250);
+
+            //</AxoLoggerConfiguration>
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

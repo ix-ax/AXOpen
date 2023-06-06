@@ -1,4 +1,4 @@
-USING AXOpen.Messaging;
+USING AXOpen.Logging;
 NAMESPACE AXOpen.Core
 
     CLASS PUBLIC AxoTask EXTENDS AxoObject IMPLEMENTS IAxoTask, IAxoTaskState

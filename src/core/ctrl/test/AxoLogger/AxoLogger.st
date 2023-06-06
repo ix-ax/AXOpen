@@ -1,4 +1,4 @@
-USING AXOpen.Messaging;
+USING AXOpen.Logging;
 USING AxUnit;
 
 NAMESPACE AXOpen.MessagingTests
@@ -11,7 +11,7 @@ NAMESPACE AXOpen.MessagingTests
 
         {Test}
         METHOD PUBLIC Log_should_log_info_message           
-            _sut.MinimumLevel(eLogLevel#Information);                     
+            _sut.SetMinimumLevel(eLogLevel#Information);                     
             _sut.Log('this is info message', eLogLevel#Information, _sender);
             AxUnit.Assert.Equal(_sut.LogEntries[_sut.Carret - 1].Message, 'this is info message');
             AxUnit.Assert.Equal(true, eLogLevel#Information = _sut.LogEntries[_sut.Carret - 1].Level);   
@@ -25,7 +25,7 @@ NAMESPACE AXOpen.MessagingTests
                 _isInformation : BOOL;
                 _isToDequeue : BOOL;
             END_VAR     
-            _sut.MinimumLevel(eLogLevel#Verbose);                     
+            _sut.SetMinimumLevel(eLogLevel#Verbose);                     
             _sut.Log('this is info message', eLogLevel#Information, _sender);
             _message := _sut.LogEntries[0].Message;
             _isInformation := eLogLevel#Information = _sut.LogEntries[0].Level;
@@ -38,16 +38,16 @@ NAMESPACE AXOpen.MessagingTests
         
         {Test}
         METHOD PUBLIC MinumuLevel_should_set_loggers_min_level            
-            _sut.MinimumLevel(eLogLevel#Error);            
-            Assert.Equal(true, eLogLevel#Error = _sut.MinLevel);            
+            _sut.SetMinimumLevel(eLogLevel#Error);            
+            Assert.Equal(true, eLogLevel#Error = _sut.MinimumLevel);            
         END_METHOD
 
         {Test}
         METHOD PUBLIC Log_should_not_log_message_when_min_level_set_higher    
-            _sut.MinimumLevel(eLogLevel#Error);        
+            _sut.SetMinimumLevel(eLogLevel#Error);        
             _sut.Log('this is verbose message', eLogLevel#Verbose);
             Assert.Equal(_sut.LogEntries[0].Message, '');
-            Assert.Equal(true, _sut.LogEntries[0].ToDequeue);
+            Assert.Equal(false, _sut.LogEntries[0].ToDequeue);
             Assert.Equal(true, eLogLevel#NoCat = _sut.LogEntries[0].Level);                
         END_METHOD
     END_CLASS    

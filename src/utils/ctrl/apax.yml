@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.utils"
-version: '0.1.4-remove-core-deps-in-messaging.79'
+version       : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
 type: lib
 targets:
   - axunit-llvm

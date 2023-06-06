@@ -1,4 +1,5 @@
 USING AXOpen.Messaging;
+USING AXOpen.Logging;
 USING AXOpen.Rtc;
 NAMESPACE AXOpen.Core
     ///<summary>
@@ -56,7 +57,15 @@ NAMESPACE AXOpen.Core
                 _sender : IAxoObject;
             END_VAR
             ;                         
-        END_METHOD    
+        END_METHOD   
+        
+        METHOD PUBLIC Log 
+            VAR_INPUT
+                _message : STRING[80];
+                _level : eLogLevel;             
+            END_VAR
+            ;                         
+        END_METHOD   
     END_CLASS    
 END_NAMESPACE
     

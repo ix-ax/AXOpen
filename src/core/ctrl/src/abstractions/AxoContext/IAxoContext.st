@@ -1,5 +1,5 @@
 USING AXOpen.Rtc;
-USING AXOpen.Messaging;
+USING AXOpen.Logging;
 NAMESPACE AXOpen.Core
     INTERFACE PUBLIC IAxoContext       
         METHOD CreateIdentity : ULINT END_METHOD

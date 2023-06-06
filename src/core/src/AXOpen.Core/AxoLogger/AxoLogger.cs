@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector;
 
-namespace AXOpen.Messaging
+namespace AXOpen.Logging
 {
     public partial class AxoLogger
     {
@@ -30,6 +30,7 @@ namespace AXOpen.Messaging
                 foreach (var entry in this.LogEntries.Where(p => p.ToDequeue.LastValue))
                 {
                     var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(entry.Sender.LastValue);
+
                     switch ((eLogLevel)entry.Level.LastValue)
                     {
                         case eLogLevel.Verbose:
@@ -48,9 +49,6 @@ namespace AXOpen.Messaging
                             AxoApplication.Current.Logger.Error($"{entry.Message.LastValue} : {sender.Symbol}", sender);
                             break;
                         case eLogLevel.Fatal:
-                            AxoApplication.Current.Logger.Fatal($"{entry.Message.LastValue} : {sender.Symbol}", sender);
-                            break;
-                        default:
                             AxoApplication.Current.Logger.Fatal($"{entry.Message.LastValue} : {sender.Symbol}", sender);
                             break;
                     }

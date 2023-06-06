@@ -4,6 +4,7 @@ USING AxUnit;
 USING AXOpen.Rtc;
 USING AXOpen.Core;
 USING AXOpen.Utils;
+USING AXOpen.Logging;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 USING System.Strings;
