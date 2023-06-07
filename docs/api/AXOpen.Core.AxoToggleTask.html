@@ -93,6 +93,7 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinObject</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinElement</span></div>
     <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
@@ -189,7 +190,7 @@
   <h6><strong>Assembly</strong>: ix_ax_axopen_core.dll</h6>
   <h5 id="AXOpen_Core_AxoToggleTask_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoToggleTask : AxoObject, ITwinObject, ITwinElement, IAxoObject, IAxoToggleTask</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoToggleTask : AxoObject, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoToggleTask</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -907,6 +908,9 @@ public OnlinerBool State { get; }</code></pre>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span>
+  </div>
   <div>
       <span class="xref">AXSharp.Connector.ITwinObject</span>
   </div>

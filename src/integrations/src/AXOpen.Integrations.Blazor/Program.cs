@@ -106,7 +106,7 @@ namespace axopen_integrations_blazor
                 .CreateLogger()));
             //</AxoLoggerConfiguration>
 
-            //</AxoLoggerInitialization>
+            //<AxoLoggerInitialization>
             Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(AxoApplication.Current.Logger, 250);
             Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(AxoApplication.Current.Logger, 250);
             //</AxoLoggerInitialization>

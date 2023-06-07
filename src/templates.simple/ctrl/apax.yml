@@ -1,5 +1,5 @@
 name: "axosimple"
-version                            : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
+version                             : '0.1.4-alpha.79'
 type: app
 registries:
   '@ix-ax': https://npm.pkg.github.com/  
@@ -11,8 +11,8 @@ devDependencies:
   "@ax/sdk": ^3.0.18 
   "@ax/sld": ^0.15.9  
 dependencies:   
-   "@ix-ax/axopen.data"                             : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
-   "@ix-ax/axopen.simatic1500"                      : '0.1.4-89--NEW-FEATURE-User-and-events-logging.89'
+   "@ix-ax/axopen.data"                              : '0.1.4-alpha.79'
+   "@ix-ax/axopen.simatic1500"                       : '0.1.4-alpha.79'
 
 variables:
   APAX_BUILD_ARGS: [ -d ]    

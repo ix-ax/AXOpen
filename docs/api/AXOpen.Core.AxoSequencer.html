@@ -95,10 +95,10 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinObject</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinElement</span></div>
     <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
-    <div><span class="xref">System.Windows.Input.ICommand</span></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
   </div>
@@ -108,13 +108,13 @@
       <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Restore">AxoTask.Restore()</a>
     </div>
     <div>
-      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_CanExecute_System_Object_">AxoTask.CanExecute(object)</a>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Abort">AxoTask.Abort()</a>
     </div>
     <div>
-      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Execute_System_Object_">AxoTask.Execute(object)</a>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ResumeTask">AxoTask.ResumeTask()</a>
     </div>
     <div>
-      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_CanExecuteChanged">AxoTask.CanExecuteChanged</a>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ExecuteAsync_System_Object_">AxoTask.ExecuteAsync(object)</a>
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Status">AxoTask.Status</a>
@@ -247,7 +247,7 @@
   <h6><strong>Assembly</strong>: ix_ax_axopen_core.dll</h6>
   <h5 id="AXOpen_Core_AxoSequencer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoSequencer : AxoTask, ITwinObject, ITwinElement, IAxoObject, ICommand, IAxoTask, IAxoTaskState</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoSequencer : AxoTask, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoTask, IAxoTaskState</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -996,6 +996,9 @@ public OnlinerInt SteppingMode { get; }</code></pre>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
+      <span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span>
+  </div>
+  <div>
       <span class="xref">AXSharp.Connector.ITwinObject</span>
   </div>
   <div>
@@ -1003,9 +1006,6 @@ public OnlinerInt SteppingMode { get; }</code></pre>
   </div>
   <div>
       <a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Input.ICommand</span>
   </div>
   <div>
       <a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a>
