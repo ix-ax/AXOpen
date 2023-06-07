@@ -16,14 +16,13 @@
     <Content Include="Shared\Menu\MenuItem.razor.css" />
     <Content Include="Shared\Menu\ExpandableMenuItem.razor.css" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.2" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
@@ -32,6 +31,7 @@
     <ProjectReference Include="..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
     <ProjectReference Include="..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
+    <ProjectReference Include="..\..\security\tests\axopen_security_tests\AXOpen.SecurityTests.csproj" />
     <ProjectReference Include="..\axosimple.twin\axosimple.csproj" />
   </ItemGroup>
 </Project>

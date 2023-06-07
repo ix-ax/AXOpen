@@ -1,6 +1,7 @@
 ﻿@using AxOpen.Security.Service
 <CascadingAuthenticationState>
-    <Router AppAssembly="@typeof(App).Assembly" AdditionalAssemblies="new[] { typeof(BlazorSecurity).Assembly}">
+    <Router AppAssembly="@typeof(App).Assembly" 
+            AdditionalAssemblies="new[] { typeof(BlazorSecurity).Assembly}">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
             <FocusOnNavigate RouteData="@routeData" Selector="h1" />

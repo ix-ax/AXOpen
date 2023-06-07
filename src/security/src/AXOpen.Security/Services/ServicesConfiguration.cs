@@ -14,11 +14,12 @@ namespace AxOpen.Security.Services
 {
     public static class ServicesConfiguration
     {
-
         public static void ConfigureAxBlazorSecurity(this IServiceCollection services,
             (IRepository<User> userRepo, IRepository<Group> groupRepo) repos,
             List<Role>? roles = null)
         {
+            services.AddTransient<IUserStore<User>, UserStore>();
+            services.AddTransient<IRoleStore<Role>, RoleStore>();
 
             services.AddIdentity<User, Role>(identity =>
             {
@@ -32,9 +33,7 @@ namespace AxOpen.Security.Services
             )
             .AddDefaultTokenProviders();
 
-            services.AddTransient<IUserStore<User>, UserStore>();
-            services.AddTransient<IRoleStore<Role>, RoleStore>();
-
+            
             RoleGroupManager roleGroupManager = new RoleGroupManager(repos.groupRepo);
             if (roles != null)
             {
