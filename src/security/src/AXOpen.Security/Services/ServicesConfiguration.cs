@@ -1,7 +1,6 @@
 ﻿using AxOpen.Security.Entities;
 using AxOpen.Security.Stores;
 using AXOpen.Base.Data;
-using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
