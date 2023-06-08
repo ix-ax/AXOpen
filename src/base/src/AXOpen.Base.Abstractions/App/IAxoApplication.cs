@@ -18,9 +18,4 @@ public interface IAxoApplication
     /// Gets logger configured for this application.
     /// </summary>
     ILogger Logger { get; }
-
-    /// <summary>
-    /// Gets current user.
-    /// </summary>
-    string CurrentUser { get; }
 }

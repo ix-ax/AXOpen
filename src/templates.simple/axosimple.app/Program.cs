@@ -1,38 +1,32 @@
 using System.Reflection;
 using AXOpen;
+using AXOpen.Base.Data;
 using AXOpen.Data.InMemory;
+using AXOpen.Data.Json;
 using AXOpen.Logging;
+using AxOpen.Security;
+using AxOpen.Security.Entities;
+using AxOpen.Security.Services;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
-using axosimple.hmi.Areas.Identity;
-using axosimple.hmi.Data;
 using axosimple;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
-
 builder.Services.AddIxBlazorServices();
 
-Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.AutoSubscribeUsedVariables;
-Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 
+Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
+Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 Entry.Plc.Connector.IdentityProvider.ReadIdentities();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
@@ -65,7 +59,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseMigrationsEndPoint();
+    //app.UseMigrationsEndPoint();
 }
 else
 {
@@ -82,8 +76,52 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+
 app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
 app.Run();
+
+static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\..\\..\\..\\JSONREPOS\\")
+{
+    var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
+    var repositoryDirectory = Path.GetFullPath($"{executingAssemblyFile.Directory}{path}");
+    if (!Directory.Exists(repositoryDirectory))
+    {
+        Directory.CreateDirectory(repositoryDirectory);
+    }
+
+    IRepository<User> userRepo = new JsonRepository<User>(new JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
+    IRepository<Group> groupRepo = new JsonRepository<Group>(new JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
+
+    return (userRepo, groupRepo);
+}
+
+public static class Roles
+{
+    public static List<Role> CreateRoles()
+    {
+        var roles = new List<Role>
+        {
+            new Role(process_settings_access),
+            new Role(process_traceability_access),
+            new Role(can_run_ground_mode),
+            new Role(can_run_automat_mode),
+            new Role(can_run_service_mode),
+        };
+
+        return roles;
+    }
+
+    public const string can_run_ground_mode = nameof(can_run_ground_mode);
+    public const string can_run_automat_mode = nameof(can_run_automat_mode);
+    public const string can_run_service_mode = nameof(can_run_service_mode);
+    public const string process_settings_access = nameof(process_settings_access);
+    public const string process_traceability_access = nameof(process_traceability_access);
+}
+
+
+
+

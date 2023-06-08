@@ -1,20 +1,22 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AXSharp.Connector;
+using Microsoft.Extensions.DependencyInjection;
+using System.Security.Principal;
 
 namespace AXOpen.Logging
 {
     public interface ILogger
     {
-        void Debug(string message);
-        void Debug<T>(string message, T propertyValue);
-        void Verbose(string message);
-        void Verbose<T>(string message, T propertyValue);
-        void Information(string message);
-        void Information<T>(string message, T propertyValue);
-        void Warning(string message);
-        void Warning<T>(string message, T propertyValue);
-        void Error(string message);
-        void Error<T>(string message, T propertyValue);
-        void Fatal(string message);
-        void Fatal<T>(string message, T propertyValue);
+        void Debug(string message, IIdentity identity);
+        void Debug(string message, ITwinElement sender, IIdentity identity, object details = null);
+        void Verbose(string message, IIdentity identity);
+        void Verbose(string message, ITwinElement sender, IIdentity identity, object details = null);
+        void Information(string message, IIdentity identity);
+        void Information(string message, ITwinElement sender, IIdentity identity, object details = null);
+        void Warning(string message, IIdentity identity);
+        void Warning(string message, ITwinElement sender, IIdentity identity, object details = null);
+        void Error(string message, IIdentity identity);
+        void Error(string message, ITwinElement sender, IIdentity identity, object details = null);
+        void Fatal(string message, IIdentity identity);
+        void Fatal(string message, ITwinElement sender, IIdentity identity, object details = null);
     }
 }

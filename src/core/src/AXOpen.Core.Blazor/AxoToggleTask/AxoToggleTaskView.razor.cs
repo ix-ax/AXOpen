@@ -1,12 +1,31 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
+using System.Security.Principal;
 
 namespace AXOpen.Core
 {
     public partial class AxoToggleTaskView : IDisposable
     {
-        private void ToggleTask()
+
+        [Inject]
+        protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+
+        protected async Task<string?> GetCurrentUserName()
         {
+            var authenticationState = await AuthenticationStateProvider?.GetAuthenticationStateAsync();
+            return authenticationState?.User?.Identity?.Name;
+        }
+
+        protected async Task<IIdentity?> GetCurrentUserIdentity()
+        {
+            var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            return authenticationState?.User?.Identity;
+        }
+
+        private async void ToggleTask()
+        {
+            AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` toggled.", Component, await GetCurrentUserIdentity());
             Component.RemoteToggle.Cyclic = true;
         }
         private string StateDescription

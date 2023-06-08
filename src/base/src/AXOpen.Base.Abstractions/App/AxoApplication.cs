@@ -35,9 +35,6 @@ namespace AXOpen
             return this;
         }
 
-        /// <inheritdoc/>
-        public string CurrentUser { get; set; } = "NoUser";
-
         /// <summary>
         /// Get currently running application.
         /// </summary>

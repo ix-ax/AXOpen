@@ -10,7 +10,15 @@
         @foreach (var task in this.Component.GetChildren().OfType<AxoTask>())
         {
             <div class="col-auto">
-                <AxoTaskCommandView Component="@task"/>
+                <AuthorizeView Roles="can_run_automat_mode">
+                    <Authorized>
+                        <AxoTaskCommandView Component="@task" />
+                    </Authorized>
+                    <NotAuthorized>
+                        <AxoTaskStatusView Component="@task" />
+                    </NotAuthorized>
+                </AuthorizeView>
+                
             </div>
         }
     </div>

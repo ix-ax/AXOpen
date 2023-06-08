@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Components;
 
 namespace axopen_blazor_auth_app.Pages
 {
@@ -8,6 +9,7 @@ namespace axopen_blazor_auth_app.Pages
     [IgnoreAntiforgeryToken]
     public class ErrorModel : PageModel
     {
+        [Inject]
         public string? RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);

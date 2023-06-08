@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Logging;
+using AXSharp.Connector;
 
 namespace AXOpen.Logging
 {
@@ -15,76 +17,76 @@ namespace AXOpen.Logging
 
         public string LastCategory { get; private set; }
 
-        public void Debug(string message)
+        public void Debug(string message, IIdentity identity)
         {
             LastMessage = message;
             LastCategory = "Debug";
         }
 
-        public void Debug<T>(string message, T propertyValue)
+        public void Debug(string message, ITwinElement sender, IIdentity identity, object details)
         {
-            Debug(message);
-            LastObject = propertyValue;
+            Debug(message, identity);
+            LastObject = sender;
         }
 
-        public void Verbose(string message)
+        public void Verbose(string message, IIdentity identity)
         {
             LastMessage = message;
             LastCategory = "Verbose";
         }
 
-        public void Verbose<T>(string message, T propertyValue)
+        public void Verbose(string message, ITwinElement sender, IIdentity identity, object details)
         {
-            Verbose(message);
-            LastObject = propertyValue;
+            Verbose(message, identity);
+            LastObject = sender;
         }
 
-        public void Information(string message)
+        public void Information(string message, IIdentity identity)
         {
             LastMessage = message;
             LastCategory = "Information";
         }
 
-        public void Information<T>(string message, T propertyValue)
+        public void Information(string message, ITwinElement sender, IIdentity identity, object details = null)
         {
-            Information(message);
-            LastObject = propertyValue;
+            Information(message, identity);
+            LastObject = sender;
         }
 
-        public void Warning(string message)
+        public void Warning(string message, IIdentity identity)
         {
             LastMessage = message;
             LastCategory = "Warning";
         }
 
-        public void Warning<T>(string message, T propertyValue)
+        public void Warning(string message, ITwinElement sender, IIdentity identity, object details)
         {
-            Warning(message);
-            LastObject = propertyValue;
+            Warning(message, identity);
+            LastObject = sender;
         }
 
-        public void Error(string message)
+        public void Error(string message, IIdentity identity)
         {
             LastMessage = message;
             LastCategory = "Error";
         }
 
-        public void Error<T>(string message, T propertyValue)
+        public void Error(string message, ITwinElement sender, IIdentity identity, object details)
         {
-            Error(message);
-            LastObject = propertyValue;
+            Error(message, identity);
+            LastObject = sender;
         }
 
-        public void Fatal(string message)
+        public void Fatal(string message, IIdentity identity)
         {
             LastMessage = message;
             LastCategory = "Fatal";
         }
 
-        public void Fatal<T>(string message, T propertyValue)
+        public void Fatal(string message, ITwinElement sender, IIdentity identity, object details)
         {
-            Fatal(message);
-            LastObject = propertyValue;
+            Fatal(message, identity);
+            LastObject = sender;
         }
     }
 }

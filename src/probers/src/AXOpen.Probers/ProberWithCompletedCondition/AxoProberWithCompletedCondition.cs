@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Core;
@@ -29,7 +30,7 @@ namespace AXOpen.Probers
                 Task.Delay(1).Wait();
             }
 
-            this.ExecuteAsync();
+            this.ExecuteAsync(new GenericIdentity("Tester"));
 
             while (true)
             {

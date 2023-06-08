@@ -4,6 +4,7 @@ using AXSharp.Connector.ValueTypes;
 using System.Collections.Generic;
 using AXOpen;
 using System.ComponentModel;
+using System.Security.Principal;
 
 namespace AXOpen.Core
 {
@@ -31,9 +32,8 @@ namespace AXOpen.Core
         /// Executes this task.
         /// </summary>
         /// <param name="parameter"></param>
-        public async Task ExecuteAsync(object parameter = null)
+        public async Task ExecuteAsync(object? parameter = null)
         {
-            AxoApplication.Current.Logger.Information($"User `{AxoApplication.Current.CurrentUser}` invoked command `{this.HumanReadable}`", this);
             await this.RemoteInvoke.SetAsync(true);
         }
     }

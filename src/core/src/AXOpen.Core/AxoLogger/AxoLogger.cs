@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector;
@@ -35,27 +36,27 @@ namespace AXOpen.Logging
 
                 foreach (var entry in this.LogEntries.Where(p => p.ToDequeue.LastValue))
                 {
-                    var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(entry.Sender.LastValue);
+                    var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(entry.Sender);
                     var senderSymbol = string.Empty; //sender?.Symbol; //TODO: Implement when ready with Identities.
                     switch ((eLogLevel)entry.Level.LastValue)
                     {
                         case eLogLevel.Verbose:
-                            _logger.Verbose($"{entry.Message.LastValue} : {senderSymbol}", sender);
+                            _logger.Verbose($"{entry.Message.LastValue} : {senderSymbol}", sender, new GenericIdentity("Controller"));
                             break;
                         case eLogLevel.Debug:
-                            _logger.Debug($"{entry.Message.LastValue} : {senderSymbol}", sender);
+                            _logger.Debug($"{entry.Message.LastValue} : {senderSymbol}", sender, new GenericIdentity("Controller"));
                             break;
                         case eLogLevel.Information:
-                            _logger.Information($"{entry.Message.LastValue} : {senderSymbol}", sender);
+                            _logger.Information($"{entry.Message.LastValue} : {senderSymbol}", sender, new GenericIdentity("Controller"));
                             break;
                         case eLogLevel.Warning:
-                            _logger.Warning($"{entry.Message.LastValue} : {senderSymbol}", sender);
+                            _logger.Warning($"{entry.Message.LastValue} : {senderSymbol}", sender, new GenericIdentity("Controller"));
                             break;
                         case eLogLevel.Error:
-                            _logger.Error($"{entry.Message.LastValue} : {senderSymbol}", sender);
+                            _logger.Error($"{entry.Message.LastValue} : {senderSymbol}", sender, new GenericIdentity("Controller"));
                             break;
                         case eLogLevel.Fatal:
-                            _logger.Fatal($"{entry.Message.LastValue} : {senderSymbol}", sender);
+                            _logger.Fatal($"{entry.Message.LastValue} : {senderSymbol}", sender, new GenericIdentity("Controller"));
                             break;
                     }
 

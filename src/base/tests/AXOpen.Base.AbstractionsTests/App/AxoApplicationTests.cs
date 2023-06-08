@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AXOpen.Logging;
 
 namespace AXOpen.Tests
 {
@@ -13,19 +14,23 @@ namespace AXOpen.Tests
         [Fact()]
         public void CreateBuilderTest()
         {
-            Assert.True(false, "This test needs an implementation");
+            var builder = AxoApplication.CreateBuilder();
+            Assert.NotNull(builder as IAxoApplicationBuilder);
         }
 
         [Fact()]
         public void ConfigureLoggerTest()
         {
-            Assert.True(false, "This test needs an implementation");
+            var builder = AxoApplication.CreateBuilder();
+            builder.ConfigureLogger(new DummyLogger());
+            Assert.IsType<DummyLogger>(AxoApplication.Current.Logger);
         }
 
         [Fact()]
         public void BuildTest()
         {
-            Assert.True(false, "This test needs an implementation");
+            var builder = AxoApplication.CreateBuilder();
+            Assert.True(builder.Build() is IAxoApplication);
         }
     }
 }
