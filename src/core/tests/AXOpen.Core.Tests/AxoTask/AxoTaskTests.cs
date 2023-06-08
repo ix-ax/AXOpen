@@ -1,3 +1,4 @@
+using System.Security.Principal;
 using AXOpen;
 using AXOpen.Logging;
 using AXSharp.Connector;
@@ -23,7 +24,7 @@ public class AxoTaskTests
         var parameter = new object();
 
         // Act
-        _testClass.ExecuteAsync(parameter);
+        _testClass.ExecuteAsync(new GenericIdentity("NoUser"));
     }
 }
 
@@ -43,7 +44,7 @@ public class AxoTaskTests2
     }
 
     [Fact]
-    public async void Execute_WhenCalled_ShouldLogInformationAndInvokeRemoteCommand()
+    public async void Restore_WhenCalled_SetsRemoteInvokeCyclicToTrue()
     {
         var humanReadable = "Test Task";
 
@@ -51,9 +52,6 @@ public class AxoTaskTests2
 
         await _axoTask.ExecuteAsync();
 
-        Assert.Equal("Information", _logger.LastCategory);
-        Assert.Equal($"User `NoUser` invoked command `{_axoTask.HumanReadable}`", _logger.LastMessage);
-        Assert.Equal(_axoTask, _logger.LastObject);
         Assert.True(await _axoTask.RemoteInvoke.GetAsync());
     }
 

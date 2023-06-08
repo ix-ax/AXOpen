@@ -1,3 +1,4 @@
+USING AXOpen.Logging;
 USING AXOpen.Core;
 
 NAMESPACE AXOpen.Messaging.Static    
@@ -82,6 +83,7 @@ NAMESPACE AXOpen.Messaging.Static
                 Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 WaitingForAcknowledge := FALSE;
+                Context.GetLogger().Log('Risen', THIS.ToLogLevel(_category));
             END_IF;
 
             ActiveContextCount := Context.OpenCycleCount();
@@ -95,6 +97,42 @@ NAMESPACE AXOpen.Messaging.Static
             Activate := THIS;
         END_METHOD   
         
+        METHOD PRIVATE ToLogLevel : eLogLevel
+            VAR_INPUT
+                _messageCategory : eAxoMessageCategory;
+            END_VAR    
+            VAR
+                
+            END_VAR    
+
+            CASE _messageCategory OF
+                eAxoMessageCategory#Trace : 
+                    ToLogLevel := eLogLevel#Verbose;
+                eAxoMessageCategory#Debug : 
+                    ToLogLevel := eLogLevel#Debug;
+                eAxoMessageCategory#Info : 
+                    ToLogLevel := eLogLevel#Information;    
+                eAxoMessageCategory#TimedOut : 
+                    ToLogLevel := eLogLevel#Information;
+                eAxoMessageCategory#Notification : 
+                    ToLogLevel := eLogLevel#Information;
+                eAxoMessageCategory#Warning : 
+                    ToLogLevel := eLogLevel#Warning;    
+                eAxoMessageCategory#Error : 
+                    ToLogLevel := eLogLevel#Error;    
+                eAxoMessageCategory#ProgrammingError : 
+                    ToLogLevel := eLogLevel#Error;     
+                eAxoMessageCategory#Critical : 
+                    ToLogLevel := eLogLevel#Fatal;  
+                eAxoMessageCategory#Fatal : 
+                    ToLogLevel := eLogLevel#Fatal;     
+                eAxoMessageCategory#Catastrophic : 
+                    ToLogLevel := eLogLevel#Fatal;              
+            END_CASE;
+
+        END_METHOD    
+
+
         METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
                 _condition : BOOL;

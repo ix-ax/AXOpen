@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AXOpen;
 
 
 namespace AxOpen.Security.Services
@@ -40,7 +41,7 @@ namespace AxOpen.Security.Services
                 roleGroupManager.CreateRoles(roles);
             }
 
-             services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));
+            services.AddScoped<IRepositoryService, RepositoryService>(provider => new RepositoryService(repos.userRepo, roleGroupManager));
         }
     }
 }

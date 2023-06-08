@@ -31,4 +31,10 @@
     <ProjectReference Include="..\..\src\AXOpen.Security\AXOpen.Security.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

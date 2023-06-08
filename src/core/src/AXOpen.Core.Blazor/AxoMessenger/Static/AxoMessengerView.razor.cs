@@ -1,16 +1,35 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
+using System.Security.Principal;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AXOpen.Messaging.Static
 {
     public partial class AxoMessengerView : IDisposable
     {
+
+        [Inject]
+        protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+
+        protected async Task<string?> GetCurrentUserName()
+        {
+            var authenticationState = await AuthenticationStateProvider?.GetAuthenticationStateAsync();
+            return authenticationState?.User?.Identity?.Name;
+        }
+
+        protected async Task<IIdentity?> GetCurrentUserIdentity()
+        {
+            var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            return authenticationState?.User?.Identity;
+        }
+
         private bool showHelp = false;
 
-        private void AcknowledgeTask()
+        private async void AcknowledgeTask()
         {
             Component.AcknowledgeRequest.Cyclic = true;
+            AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
         }
         private void Help()
         {

@@ -36,4 +36,10 @@
     <Folder Include="AxoMessenger\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Components.Authorization">
+      <HintPath>..\..\..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.AspNetCore.App\7.0.4\Microsoft.AspNetCore.Components.Authorization.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

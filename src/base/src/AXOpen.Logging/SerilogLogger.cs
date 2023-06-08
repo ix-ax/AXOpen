@@ -5,6 +5,8 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
+using System.Security.Principal;
+using AXSharp.Connector;
 using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 
@@ -26,63 +28,87 @@ public class SerilogLogger : ILogger
         Log.Logger = logger ?? Log.Logger;
     }
 
-    public void Debug(string message)
+    public void Debug(string message, IIdentity identity)
     {
-        Log.Debug(message);
+        Log.Debug("{message} {identity}",message, new { UserName = identity.Name });
     }
 
-    public void Debug<T>(string message, T propertyValue)
+    public void Debug(string message, ITwinElement sender, IIdentity identity, object details)
     {
-        Log.Debug<T>(message, propertyValue);
+        Log.Debug<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
+            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            details
+        );
     }
 
-    public void Verbose(string message)
+    public void Verbose(string message, IIdentity identity)
     {
-        Log.Verbose(message);
+        Log.Verbose("{message} {identity}", message, new { UserName = identity.Name });
     }
 
-    public void Verbose<T>(string message, T propertyValue)
+    public void Verbose(string message, ITwinElement sender, IIdentity identity, object details)
     {
-        Log.Verbose<T>(message, propertyValue);
+        Log.Verbose<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
+            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            details
+        );
     }
 
-    public void Information(string message)
+    public void Information(string message, IIdentity identity)
     {
-        Log.Information(message);
+        Log.Information("{message} {identity}", message,new { UserName = identity.Name });
     }
 
-    public void Information<T>(string message, T propertyValue)
+    public void Information(string message, ITwinElement sender, IIdentity identity, object details)
     {
-        Log.Information<T>(message, propertyValue);
+        Log.Information<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
+                                                    new { Symbol = sender.Symbol, Label = sender.HumanReadable},
+                                                                new { UserName = identity.Name, Type = identity.AuthenticationType },
+                                                                details 
+                                                                );
     }
 
-    public void Warning(string message)
+    public void Warning(string message, IIdentity identity)
     {
-        Log.Warning(message);
+        Log.Warning("{message} {identity}", message, new { UserName = identity.Name });
     }
 
-    public void Warning<T>(string message, T propertyValue)
+    public void Warning(string message, ITwinElement sender, IIdentity identity, object details)
     {
-        Log.Warning<T>(message, propertyValue);
+        Log.Warning<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
+            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            details
+        );
     }
 
-    public void Error(string message)
+    public void Error(string message, IIdentity identity)
     {
-        Log.Error(message);
+        Log.Error("{message} {identity}", message, new { UserName = identity.Name });
     }
 
-    public void Error<T>(string message, T propertyValue)
+    public void Error(string message, ITwinElement sender, IIdentity identity, object details)
     {
-        Log.Error<T>(message, propertyValue);
+        Log.Error<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
+            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            details
+        );
     }
 
-    public void Fatal(string message)
+    public void Fatal(string message, IIdentity identity)
     {
-        Log.Fatal(message);
+        Log.Fatal("{message} {identity}", message, new { UserName = identity.Name });
     }
 
-    public void Fatal<T>(string message, T propertyValue)
+    public void Fatal(string message, ITwinElement sender, IIdentity identity, object details)
     {
-        Log.Fatal<T>(message, propertyValue);
+        Log.Fatal<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
+            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            details
+        );
     }
 }

@@ -21,10 +21,6 @@
                                <form class="form-inline" asp-area="Identity" action="Identity/Account/Logout" asp-route-returnUrl="/" method="post">
                                     <button class="dropdown-item" type="submit">Log out</button>                                    
                                 </form>
-                                
-
-                              @* <button class="dropdown-item" @onclick="LogOut">Log out</button>*@
-                                
                             </li>
                         </ul>
                     </li>
@@ -36,15 +32,3 @@
         </ul>
     </div>
 </nav>
-
-
-@code
-{
-    [Inject]
-    private SignInManager<User> SignInManager { get; set; }
-
-    private async Task LogOut()
-    {
-        await SignInManager.SignOutAsync();
-    }
-}

@@ -1,4 +1,5 @@
-﻿using AXOpen;
+﻿using System.Security.Principal;
+using AXOpen;
 using AXOpen.Logging;
 using AXSharp.Connector;
 
@@ -108,17 +109,14 @@ namespace AXOpen.Core.Tests
         }
 
         [Fact]
-        public async void Execute_WhenCalled_ShouldLogInformationAndInvokeRemoteCommand()
+        public async void Restore_WhenCalled_SetsRemoteInvokeCyclicToTrue()
         {
+            
             var humanReadable = "Test Task";
 
             _axoTask.HumanReadable = humanReadable;
 
             await _axoTask.ExecuteAsync();
-
-            Assert.Equal("Information", _logger.LastCategory);
-            Assert.Equal($"User `NoUser` invoked command `{_axoTask.HumanReadable}`", _logger.LastMessage);
-            Assert.Equal(_axoTask, _logger.LastObject);
             Assert.True(await _axoTask.RemoteInvoke.GetAsync());
         }
 

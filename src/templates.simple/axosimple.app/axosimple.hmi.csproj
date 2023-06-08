@@ -31,7 +31,6 @@
     <ProjectReference Include="..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
     <ProjectReference Include="..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
-    <ProjectReference Include="..\..\security\tests\axopen_security_tests\AXOpen.SecurityTests.csproj" />
     <ProjectReference Include="..\axosimple.twin\axosimple.csproj" />
   </ItemGroup>
 </Project>

@@ -9,7 +9,6 @@ using AxOpen.Security.Entities;
 using AxOpen.Security.Services;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
-using axosimple.hmi.Areas.Identity;
 using axosimple;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -26,7 +25,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
 
 
-Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.AutoSubscribeUsedVariables;
+Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 Entry.Plc.Connector.IdentityProvider.ReadIdentities();
 
@@ -108,11 +107,17 @@ public static class Roles
         {
             new Role(process_settings_access),
             new Role(process_traceability_access),
+            new Role(can_run_ground_mode),
+            new Role(can_run_automat_mode),
+            new Role(can_run_service_mode),
         };
 
         return roles;
     }
 
+    public const string can_run_ground_mode = nameof(can_run_ground_mode);
+    public const string can_run_automat_mode = nameof(can_run_automat_mode);
+    public const string can_run_service_mode = nameof(can_run_service_mode);
     public const string process_settings_access = nameof(process_settings_access);
     public const string process_traceability_access = nameof(process_traceability_access);
 }
