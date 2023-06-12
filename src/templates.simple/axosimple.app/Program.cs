@@ -10,11 +10,14 @@ using AxOpen.Security.Services;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
 using axosimple;
+using axosimple.hmi;
+using AXSharp.Connector.Identity;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Serilog;
+using System.Security.Principal;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +30,26 @@ builder.Services.AddIxBlazorServices();
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
+
+
+Entry.Plc.Connector.IdentityProvider.ReadIdentities();
+var identities = Entry.Plc.Context.GetChildren().Flatten(p => p.GetChildren()).OfType<ITwinIdentity>().Select(p => p.Identity).ToList();
+
+var lastIdentity = identities.Max(p => p.LastValue);
+
+foreach (var identity in identities)
+{
+    if (identity.LastValue == 0)
+    {
+        identity.Cyclic = ++lastIdentity;
+    }
+}
+
+await Entry.Plc.Connector.WriteBatchAsync(identities);
+
+
+Flattener.Flatten(Entry.Plc.Context.GetChildren(), o => o.GetChildren()).OfType<ITwinIdentity>();
+
 Entry.Plc.Connector.IdentityProvider.ReadIdentities();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
@@ -36,7 +59,7 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
 var productionDataRepository = new InMemoryRepositorySettings<Pocos.examples.PneumaticManipulator.FragmentProcessData> ().Factory();
 var headerDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
 
-Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 10);
+Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 
 var a = Entry.Plc.Context.PneumaticManipulator
     .ProcessData
