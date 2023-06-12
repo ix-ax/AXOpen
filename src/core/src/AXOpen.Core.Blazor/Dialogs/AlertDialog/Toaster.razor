@@ -1,8 +1,9 @@
-﻿@namespace AXOpen.Core.blazor.Toaster
-@if (toastService.GetToasts() != null && toastService.GetToasts().Count > 0)
+﻿@namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
+@using AXSharp.Abstractions.Dialogs.AlertDialog;
+@if (_dialogService.GetToasts() != null && _dialogService.GetToasts().Count > 0)
 {
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 100;">
-        @foreach (Toast toast in toastService.GetToasts())
+        @foreach (Toast toast in _dialogService.GetToasts())
         {
             var bg = "";
             var icon = "";
@@ -31,19 +32,19 @@
                     <span class="@icon me-2" aria-hidden="true"></span>
                     <strong class="me-auto">@toast.Title</strong>
                     <small>@GetTime(toast.Posted)</small>
-                    @if (toastService.GetToasts().Count > 2)
+                    @if (_dialogService.GetToasts().Count > 2)
                     {
                         <div class="dropup">
                             <button type="button" class="btn-close" data-bs-toggle="dropdown" aria-expanded="false"></button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" @onclick="() => toastService.RemoveAllToast()">Close all</a></li>
-                                <li><a class="dropdown-item" @onclick="() => this.ClearToast(toast)">Close</a></li>
+                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveAllToast()">Close all</a></li>
+                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveToast(toast)">Close</a></li>
                             </ul>
                         </div>
                     }
                     else
                     {
-                        <button type="button" class="btn-close" @onclick="() => this.ClearToast(toast)"></button>
+                        <button type="button" class="btn-close" @onclick="() => _dialogService.RemoveToast(toast)"></button>
                     }
                 </div>
                 <div class="toast-body">
@@ -56,7 +57,7 @@
 
 @code {
     [Inject]
-    private ToastService toastService { get; set; }
+    private IDialogService _dialogService { get; set; }
 
     private string GetTime(DateTimeOffset time)
     {

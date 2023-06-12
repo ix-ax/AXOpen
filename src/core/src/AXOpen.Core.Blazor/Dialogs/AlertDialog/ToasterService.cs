@@ -1,27 +1,24 @@
-﻿using CommunityToolkit.Mvvm.Messaging;
+﻿using AXSharp.Abstractions.Dialogs.AlertDialog;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Timers;
 
-namespace AXOpen.Core.blazor.Toaster
+namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
 {
-    public class ToastService : IDisposable
+    public class ToasterService : IDialogService, IDisposable
     {
-        private List<Toast> ToastsList { get; set; } = new List<Toast>();
+        private List<IToast> ToastsList { get; set; } = new List<IToast>();
         private System.Timers.Timer Timer = new System.Timers.Timer();
 
         public event EventHandler? ToasterChanged;
 
-        public ToastService()
+        public ToasterService()
         {
             Timer.Interval = 1000;
             Timer.AutoReset = true;
             Timer.Elapsed += TimerElapsed;
             Timer.Start();
-
-
-            WeakReferenceMessenger.Default.Register<ToastMessage>(this, (r, m) =>
-            {
-                AddToast(m.Value);
-            });
         }
 
         public void AddToast(string type, string title, string message, int time)
@@ -30,19 +27,19 @@ namespace AXOpen.Core.blazor.Toaster
             ToasterChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        public void AddToast(Toast toast)
+        public void AddToast(IToast toast)
         {
             ToastsList.Add(toast);
             ToasterChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        public List<Toast> GetToasts()
+        public List<IToast> GetToasts()
         {
             ClearBurntToast();
             return ToastsList;
         }
 
-        public void RemoveToast(Toast toast)
+        public void RemoveToast(IToast toast)
         {
             ToastsList.Remove(toast);
             ToasterChanged?.Invoke(this, EventArgs.Empty);

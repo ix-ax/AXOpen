@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
 using AXOpen.Core;
-using AXOpen.Core.blazor.Toaster;
 using AXSharp.Connector.ValueTypes.Online;
 using AXSharp.Connector;
 using CommunityToolkit.Mvvm.Messaging;
@@ -146,20 +145,20 @@ namespace AXOpen.Data
             {
                 if (string.IsNullOrEmpty(CreateItemId))
                 {
-                    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Cannot create!",
-                        "New entry name cannot be empty. Please provide an ID", 10)));
+                    //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Cannot create!",
+                    //    "New entry name cannot be empty. Please provide an ID", 10)));
 
                     return;
                 }
 
                 await DataExchange.CreateNewAsync(CreateItemId);
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!",
-                    "Item was successfully created!", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!",
+                //    "Item was successfully created!", 10)));
             }
             catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to create new record!",
-                    e.Message, 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to create new record!",
+                //    e.Message, 10)));
             }
             finally
             {
@@ -173,13 +172,13 @@ namespace AXOpen.Data
             try
             {
                 DataExchange.Delete(SelectedRecord.DataEntityId);
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!",
-                    "Item was successfully deleted!", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!",
+                //    "Item was successfully deleted!", 10)));
             }
             catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to delete",
-                    e.Message, 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to delete",
+                //    e.Message, 10)));
             }
             finally
             {
@@ -205,13 +204,13 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId);
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Copied!",
-                    "Item was successfully copied!", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Copied!",
+                //    "Item was successfully copied!", 10)));
             }
             catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to copy!", e.Message,
-                    10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Failed to copy!", e.Message,
+                //    10)));
             }
             finally
             {
@@ -239,7 +238,7 @@ namespace AXOpen.Data
             //SelectedRecord = plainer;
 
             await DataExchange.UpdateFromShadowsAsync();
-            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Edited!", "Item was successfully edited!", 10)));
+            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Edited!", "Item was successfully edited!", 10)));
             UpdateObservableRecords();
         }
 
@@ -247,7 +246,7 @@ namespace AXOpen.Data
         {
             //-- await ((ITwinObject)DataExchange.Data).PlainToOnline(SelectedRecord);
             await DataExchange.FromRepositoryToControllerAsync(SelectedRecord);
-            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
+            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10)));
         }
 
         public async Task LoadFromPlc()
@@ -255,13 +254,13 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateDataFromControllerAsync(CreateItemId);
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!",
-                    "Item was successfully loaded from PLC!", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!",
+                //    "Item was successfully loaded from PLC!", 10)));
             }
             catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger",
-                    "Failed to create new record from the controller", e.Message, 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger",
+                //    "Failed to create new record from the controller", e.Message, 10)));
             }
             finally
             {
@@ -410,11 +409,11 @@ namespace AXOpen.Data
                         sw.Write(item + "\r");
                     }
                 }
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Exported!", "Data was successfully exported!", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Exported!", "Data was successfully exported!", 10)));
             }
             catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", e.Message, 10)));
+               //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", e.Message, 10)));
             }
         }
 
@@ -430,11 +429,11 @@ namespace AXOpen.Data
 
                 this.Import(imports);
                 this.UpdateObservableRecords();
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Imported!", "Data was successfully imported!", 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Imported!", "Data was successfully imported!", 10)));
             }
             catch (Exception e)
             {
-                WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", e.Message, 10)));
+                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", e.Message, 10)));
             }
         }
 

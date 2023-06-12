@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
+using System;
 
-namespace AXOpen.Core.blazor.Toaster
+namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
 {
     public partial class Toaster : ComponentBase, IDisposable
     {
@@ -8,14 +9,14 @@ namespace AXOpen.Core.blazor.Toaster
 
         protected override void OnInitialized()
         {
-            toastService!.ToasterChanged += ToastChanged;
+            _dialogService!.ToasterChanged += ToastChanged;
         }
 
         public void Dispose()
         {
-            toastService!.ToasterChanged -= ToastChanged;
+            _dialogService!.ToasterChanged -= ToastChanged;
         }
 
-        private void ClearToast(Toast toast) => toastService!.RemoveToast(toast);
+        private void ClearToast(Toast toast) => _dialogService!.RemoveToast(toast);
     }
 }

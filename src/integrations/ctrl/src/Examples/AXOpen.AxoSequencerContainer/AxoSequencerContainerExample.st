@@ -26,6 +26,9 @@ NAMESPACE AxoSequencerContainerExamples
             step_9 : AxoStep;
             {#ix-set:Description = "Step number ten"}
             step_10 : AxoStep;
+
+            _dialog : AxoDialog;
+            _eDialogAnswer : eDialogAnswer;
         END_VAR
 
 
@@ -53,7 +56,14 @@ NAMESPACE AxoSequencerContainerExamples
             IF(step_2.Execute(THIS)) THEN
                 IF(Counter >= ULINT#100) THEN
                     Counter := ULINT#0;
-                    THIS.MoveNext();
+
+                    IF(_dialog.Show()
+                        .WithOK()
+                        .WithCaption('What`s next?')
+			            .WithText('To continue click OK?')
+                        .Answer() = _eDialogAnswer.OK) THEN
+                        THIS.MoveNext();
+                    END_IF;
                 END_IF;    
             END_IF; 
 

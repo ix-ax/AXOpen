@@ -1,3 +1,4 @@
+USING VmT;
 CONFIGURATION MyConfiguration
     TASK Main(Interval := T#10ms, Priority := 1);
     PROGRAM P1 WITH Main: MyProgram;
@@ -27,6 +28,8 @@ CONFIGURATION MyConfiguration
         AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;
+
+        vmTest : VmTest;
        
         // Issues
         gh_ptku_8 : Layouts.Tabbed.weather;

@@ -1,13 +1,15 @@
 using axopen_integrations_blazor.Data;
 using axopen_integrations;
 using AXSharp.Connector;
-using AXOpen.Core.blazor.Toaster;
 using AXOpen.Data.Json;
 using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Pocos.IntegrationAxoDataFramentsExchange;
 using static System.Formats.Asn1.AsnWriter;
+using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
+using AXSharp.Abstractions.Dialogs.AlertDialog;
+using AXOpen.Core.Blazor.Dialogs.ActionDialog;
 
 namespace axopen_integrations_blazor
 {
@@ -24,7 +26,9 @@ namespace axopen_integrations_blazor
             
             builder.Services.AddIxBlazorServices();
 
-            builder.Services.AddSingleton<ToastService>();
+            builder.Services.AddScoped<IDialogService, ToasterService>();
+
+            //builder.Services.AddTcoCoreExtensions();
 
             Entry.Plc.Connector.BuildAndStart();
 

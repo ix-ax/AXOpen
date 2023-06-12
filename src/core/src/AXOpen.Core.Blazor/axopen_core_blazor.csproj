@@ -16,6 +16,10 @@
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
+	</ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
     <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
@@ -26,6 +30,8 @@
     <PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.0-alpha.106" />
     <PackageReference Include="Humanizer" Version="2.14.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>

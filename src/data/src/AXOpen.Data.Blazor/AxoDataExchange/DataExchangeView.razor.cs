@@ -7,7 +7,6 @@
 
 using AXOpen.Base.Data;
 using AXOpen.Core;
-using AXOpen.Core.blazor.Toaster;
 using AXOpen.Data.Interfaces;
 using AXOpen.Data;
 using CommunityToolkit.Mvvm.Messaging;
@@ -104,7 +103,7 @@ public partial class DataExchangeView
         }
         catch (Exception ex)
         {
-            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", ex.Message, 10)));
+            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", ex.Message, 10)));
         }
 
         isLoadingFile = false;

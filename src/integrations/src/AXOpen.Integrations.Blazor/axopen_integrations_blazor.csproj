@@ -20,6 +20,8 @@
 		<ProjectReference Include="..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
 		<ProjectReference Include="..\..\..\messaging\src\AXOpen.Messaging.Blazor\axopen_messaging_blazor.csproj" />
 		<ProjectReference Include="..\AXOpen.Integrations\axopen_integrations.csproj" />
+		<ProjectReference Include="..\..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
+		<!--<ProjectReference Include="..\..\..\..\..\AXOpen\src\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />-->
 	</ItemGroup>
 
 	<!--REF_PRJS_START
@@ -37,7 +39,6 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.0-alpha.106" />
 	</ItemGroup>
 	<!--REF_PCKG_END-->
 	<ItemGroup>
