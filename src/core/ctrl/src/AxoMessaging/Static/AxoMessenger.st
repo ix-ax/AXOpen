@@ -103,10 +103,7 @@ NAMESPACE AXOpen.Messaging.Static
             VAR_INPUT
                 _messageCategory : eAxoMessageCategory;
             END_VAR    
-            VAR
-                
-            END_VAR    
-
+            
             CASE _messageCategory OF
                 eAxoMessageCategory#Trace : 
                     ToLogLevel := eLogLevel#Verbose;
@@ -133,7 +130,6 @@ NAMESPACE AXOpen.Messaging.Static
             END_CASE;
 
         END_METHOD    
-
 
         METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT

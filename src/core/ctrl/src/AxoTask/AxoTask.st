@@ -206,7 +206,7 @@ NAMESPACE AXOpen.Core
                     Status := eAxoTaskState#Kicking;
                     THIS.GetContext().GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
                 ELSE
-                    ; //TODO - raise a message that the Execute() method is not called
+                    THIS.GetContext().GetLogger().Log('Cyclic execute is not called', eLogLevel#Debug, THIS);
                 END_IF;     
             END_IF;     
 
