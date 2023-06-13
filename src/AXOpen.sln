@@ -126,7 +126,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_integrations_blazor"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{7DEF0B7B-0F6C-4829-A1A9-2C0C2720BF3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AXOpen.Security", "security\src\AXOpen.Security\AXOpen.Security.csproj", "{52B6EFDD-8FF9-4FA7-9624-2E7D8EEDD5C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "security\src\AXOpen.Security\AXOpen.Security.csproj", "{52B6EFDD-8FF9-4FA7-9624-2E7D8EEDD5C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_extern", "_extern", "{E6ADE63C-DE38-4783-8230-8239A7B1A054}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Connector", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj", "{5DC18B04-930D-4B37-8838-DB2B8BF23563}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Connector.S71500.WebAPI", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj", "{E4404DD5-97AB-488A-B4E7-EC17E241D9CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -262,6 +268,14 @@ Global
 		{52B6EFDD-8FF9-4FA7-9624-2E7D8EEDD5C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52B6EFDD-8FF9-4FA7-9624-2E7D8EEDD5C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52B6EFDD-8FF9-4FA7-9624-2E7D8EEDD5C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC18B04-930D-4B37-8838-DB2B8BF23563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC18B04-930D-4B37-8838-DB2B8BF23563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC18B04-930D-4B37-8838-DB2B8BF23563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC18B04-930D-4B37-8838-DB2B8BF23563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4404DD5-97AB-488A-B4E7-EC17E241D9CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4404DD5-97AB-488A-B4E7-EC17E241D9CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4404DD5-97AB-488A-B4E7-EC17E241D9CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4404DD5-97AB-488A-B4E7-EC17E241D9CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -317,6 +331,8 @@ Global
 		{1EC46148-A114-4018-92BE-93F1E0273A33} = {FFD509A8-8D3C-4756-9B2E-10A063A246E9}
 		{7DEF0B7B-0F6C-4829-A1A9-2C0C2720BF3C} = {8017588A-7145-460D-ACEB-402D7005DA33}
 		{52B6EFDD-8FF9-4FA7-9624-2E7D8EEDD5C1} = {8017588A-7145-460D-ACEB-402D7005DA33}
+		{5DC18B04-930D-4B37-8838-DB2B8BF23563} = {E6ADE63C-DE38-4783-8230-8239A7B1A054}
+		{E4404DD5-97AB-488A-B4E7-EC17E241D9CB} = {E6ADE63C-DE38-4783-8230-8239A7B1A054}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

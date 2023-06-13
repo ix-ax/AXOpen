@@ -61,13 +61,17 @@ NAMESPACE AXOpen.Core
                 parent : IAxoObject;
             END_VAR   
 
-            IF(Identity = ULINT#0 AND parent <> NULL) THEN
-                _context    := parent.GetContext();  
-                Identity   := _context.CreateIdentity(); 
+            // IF(Identity = ULINT#0 AND parent <> NULL) THEN
+            //     _context    := parent.GetContext();  
+            //     Identity   := _context.CreateIdentity(); 
+            //     _parent     := parent;
+            //     RETURN;                 
+            // END_IF;            
+            IF(parent <> NULL) THEN
+                _context    := parent.GetContext();                 
                 _parent     := parent;
                 RETURN;                 
-            END_IF;
-
+            END_IF;            
         END_METHOD  
         
         ///<summary>
@@ -80,9 +84,13 @@ NAMESPACE AXOpen.Core
                 context : IAxoContext;
             END_VAR   
 
-            IF(Identity = ULINT#0 AND context <> NULL) THEN
-                _context    := context;  
-                Identity   := _context.CreateIdentity();                 
+            // IF(Identity = ULINT#0 AND context <> NULL) THEN
+            //     _context    := context;  
+            //     Identity   := _context.CreateIdentity();                 
+            // END_IF;
+
+            IF(context <> NULL) THEN
+                _context    := context;                 
             END_IF;
 
         END_METHOD       

@@ -33,28 +33,32 @@ Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 
 
-//Entry.Plc.Connector.IdentityProvider.ReadIdentities();
-//var to = Entry.Plc.Context.GetChildren().Flatten(p => p.GetChildren()).OfType<ITwinObject>();
-//var identities = to.SelectMany(p => p.GetKids()).OfType<ITwinIdentity>().Select(p => p.Identity);
-
-//var lastIdentity = identities.Max(p => p.LastValue);
-
-//foreach (var identity in identities)
-//{
-//    if (identity.LastValue == 0)
-//    {
-//        identity.Cyclic = ++lastIdentity;
-//    }
-//}
-
-//await Entry.Plc.Connector.WriteBatchAsync(identities);
+Entry.Plc.Connector.IdentityProvider.ReadIdentities();
+var identities = Entry.Plc.Context.GetChildren().Flatten(p => p.GetChildren()).OfType<ITwinIdentity>()
+    .Select(p => p.Identity);
 
 
-//Flattener.Flatten(Entry.Plc.Context.GetChildren(), o => o.GetChildren()).OfType<ITwinIdentity>();
+var lastIdentity = identities.Max(p => p.LastValue);
 
-//Entry.Plc.Connector.IdentityProvider.ReadIdentities();
+foreach (var identity in identities)
+{
+    //if (identity.LastValue == 0)
+    {
+        identity.Cyclic = ++lastIdentity;
+    }
+}
 
-//var ra = to.OfType<AxoStep>();
+await Entry.Plc.Connector.WriteBatchAsync(identities);
+
+await Entry.Plc.Connector.ReadBatchAsync(identities);
+
+foreach (var identity in identities)
+{
+    Console.WriteLine($"{identity.Symbol} : {identity.LastValue}");
+}
+
+
+Entry.Plc.Connector.IdentityProvider.RefreshIdentities();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
