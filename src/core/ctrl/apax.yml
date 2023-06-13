@@ -1,15 +1,15 @@
 name: "@ix-ax/axopen.core"
-version             : '0.1.4-alpha.79'
+version: '0.1.4-alpha.79'
 type: lib
 targets:
   - axunit-llvm
 files:
   - src
 devDependencies:
-  "@ax/sdk": ^3.0.18
+  "@ax/sdk": ^4.0.2
 scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ax/system-timer": ^3.0.9
-  "@ix-ax/axopen.abstractions"             : '0.1.4-alpha.79'
+  "@ax/system-timer": ^4.0.1
+  "@ix-ax/axopen.abstractions": '0.1.4-alpha.79'

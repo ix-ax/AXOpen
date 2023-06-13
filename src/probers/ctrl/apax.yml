@@ -1,16 +1,16 @@
 name: "@ix-ax/axopen.probers"
-version                                                                                                                                                                                                     : '0.1.4-alpha.79'
+version: '0.1.4-alpha.79'
 type: lib
 targets:
   - axunit-llvm
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                                                                     : '0.1.4-alpha.79'
+  "@ix-ax/axopen.core": '0.1.4-alpha.79'
 devDependencies:
-  "@ax/sdk": ^3.0.18
+  "@ax/sdk": ^4.0.2
 variables:
-  APAX_BUILD_ARGS: [ -d ]  
+  APAX_BUILD_ARGS: [ -d ]
 
 scripts:
   ixc:
