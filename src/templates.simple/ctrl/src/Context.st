@@ -17,23 +17,7 @@ NAMESPACE axosimple
            END_IF;                           
         END_METHOD        
     END_CLASS   
-    
-
-    
-    TYPE
-        VstupyRealne : STRUCT
-            a  AT %B1100 : INT;
-            i  AT %B120 : BYTE;            
-        END_STRUCT;
-    END_TYPE
-
-    TYPE
-        VstupyImaginarne : STRUCT
-            a  : INT;
-            i  : BYTE;            
-        END_STRUCT;
-    END_TYPE
-
+         
     CLASS SharedProductionData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             

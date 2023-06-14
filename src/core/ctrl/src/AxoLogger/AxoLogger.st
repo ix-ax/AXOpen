@@ -1,4 +1,5 @@
 USING AXOpen.Core;
+USING AXOpen.Core;
 
 NAMESPACE AXOpen.Logging
     /// <summary>
@@ -32,10 +33,13 @@ NAMESPACE AXOpen.Logging
         METHOD PUBLIC Log
             VAR_INPUT
                 _message : STRING[80];
-                _level : eLogLevel;
-                _sender : IAxoObject;
+                _level : eLogLevel;  
+                _sender : IAxoObject;              
             END_VAR
-            
+            VAR_IN_OUT
+                
+            END_VAR
+           
             IF(_level >= THIS.MinimumLevel) THEN
                 IF(Carret > 100) THEN
                     Carret := 0;

@@ -42,7 +42,7 @@ var lastIdentity = identities.Max(p => p.LastValue);
 
 foreach (var identity in identities)
 {
-    //if (identity.LastValue == 0)
+    if (identity.LastValue == 0)
     {
         identity.Cyclic = ++lastIdentity;
     }
@@ -59,6 +59,11 @@ foreach (var identity in identities)
 
 
 Entry.Plc.Connector.IdentityProvider.RefreshIdentities();
+
+foreach (var identity in identities)
+{
+    Console.WriteLine($"{identity.Symbol} : {identity.LastValue}");
+}
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()

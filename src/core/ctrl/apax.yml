@@ -3,6 +3,7 @@ version: '0.1.4-alpha.79'
 type: lib
 targets:
   - axunit-llvm
+  - llvm
 files:
   - src
 devDependencies:

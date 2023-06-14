@@ -61,7 +61,7 @@ NAMESPACE AXOpen.Core
                 _step := step;
 
                 THIS.DetermineOrder(step);   
-
+                    
                 // Stepping inside the sequence
                 IF _coordinatorState = AxoCoordinatorStates#Running THEN
                     // Stepping is possible only in StepByStepMode

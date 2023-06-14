@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
+using AXOpen.Core;
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 
@@ -40,10 +41,21 @@ namespace AXOpen.Logging
                     var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(entry.Sender.LastValue) as ITwinObject;
                     var message = string.Empty;
                     var level = (eLogLevel)entry.Level.LastValue;
+
+
+                    if (sender == null)
+                    {
+                        //var a =this.Connector.IdentityProvider.Identities[entry.Sender.LastValue];
+                        Console.Write(entry.Sender.LastValue);
+                    }
+
                     switch (sender)
                     {
                         case AxoMessenger messenger:
                             message = $"{entry.Message.LastValue} : {messenger.MessageText}";
+                            break;
+                        case AxoStep step:
+                            message = $"{entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
                             break;
                         default:
                             message = entry.Message.LastValue;

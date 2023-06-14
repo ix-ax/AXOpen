@@ -297,7 +297,7 @@ NAMESPACE AXOpen.Core
 
             IF(HasErrorState) THEN
                 Status := eAxoTaskState#Error;  
-                THIS.GetContext().GetLogger().Log('Task failed', eLogLevel#Verbose, THIS);             
+                THIS.GetContext().GetLogger().Log('Task failed', eLogLevel#Error, THIS);             
                 THIS.OnError();  
                 THIS.WhileError();   
             END_IF;    
