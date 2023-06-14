@@ -16,7 +16,7 @@ namespace axopen_integrations_blazor
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
 
@@ -39,7 +39,7 @@ namespace axopen_integrations_blazor
 
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
-            Entry.Plc.Connector.IdentityProvider.ReadIdentities();
+            await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
             var repository = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
             var repository2 = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
