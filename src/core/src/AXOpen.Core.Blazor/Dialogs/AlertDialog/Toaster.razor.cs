@@ -5,18 +5,18 @@ namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
 {
     public partial class Toaster : ComponentBase, IDisposable
     {
-        private void ToastChanged(object? sender, EventArgs e) => InvokeAsync(StateHasChanged);
+        private void AlertDialogChanged(object? sender, EventArgs e) => InvokeAsync(StateHasChanged);
 
         protected override void OnInitialized()
         {
-            _dialogService!.ToasterChanged += ToastChanged;
+            _dialogService!.AlertDialogChanged += AlertDialogChanged;
         }
 
         public void Dispose()
         {
-            _dialogService!.ToasterChanged -= ToastChanged;
+            _dialogService!.AlertDialogChanged -= AlertDialogChanged;
         }
 
-        private void ClearToast(Toast toast) => _dialogService!.RemoveToast(toast);
+        private void ClearToast(AlertDialog toast) => _dialogService!.RemoveAlertDialog(toast);
     }
 }

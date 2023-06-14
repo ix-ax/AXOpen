@@ -3,7 +3,7 @@ using System;
 
 namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
 {
-    public class Toast : IToast
+    public class AlertDialog : IAlertDialog
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Type { get; set; } = "Info";
@@ -12,7 +12,7 @@ namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
         public DateTimeOffset TimeToBurn { get; set; } = DateTimeOffset.Now.AddSeconds(30);
         public DateTimeOffset Posted { get; set; } = DateTimeOffset.Now;
 
-        public Toast(string type, string title, string message, int time)
+        public AlertDialog(string type, string title, string message, int time)
         {
             Type = type;
             Title = title;

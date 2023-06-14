@@ -12,6 +12,7 @@ using AXOpen.Data;
 using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using AXSharp.Abstractions.Dialogs.AlertDialog;
 
 namespace AXOpen.Data;
 
@@ -28,6 +29,9 @@ public partial class DataExchangeView
     [Parameter] public bool CanExport { get; set; } = false;
 
     [Parameter] public RenderFragment ChildContent { get; set; }
+
+    [Inject]
+    private IAlertDialogService _alertDialogService { get; set; }
 
     private Guid ViewGuid { get; } = new();
     private string Create { get; set; } = "";
@@ -103,7 +107,7 @@ public partial class DataExchangeView
         }
         catch (Exception ex)
         {
-            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", ex.Message, 10)));
+            _alertDialogService.AddAlertDialog("Danger", "Error!", ex.Message, 10);
         }
 
         isLoadingFile = false;

@@ -3,9 +3,9 @@ NAMESPACE AXOpen.Core
         eDialogType : INT (
             Undefined := 0,
             Info := 10,
-            Question := 20,
-            Warning := 30,
-            Error := 40
+            Success := 20,
+            Danger := 30,
+            Warning := 40
         );
     END_TYPE
 END_NAMESPACE

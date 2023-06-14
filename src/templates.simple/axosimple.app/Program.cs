@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
+using AXSharp.Abstractions.Dialogs.AlertDialog;
+using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +25,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+builder.Services.AddScoped<IAlertDialogService, ToasterService>();
+
 builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
 
 builder.Services.AddIxBlazorServices();

@@ -6,12 +6,12 @@ using System.Timers;
 
 namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
 {
-    public class ToasterService : IDialogService, IDisposable
+    public class ToasterService : IAlertDialogService, IDisposable
     {
-        private List<IToast> ToastsList { get; set; } = new List<IToast>();
+        private List<IAlertDialog> ToastsList { get; set; } = new List<IAlertDialog>();
         private System.Timers.Timer Timer = new System.Timers.Timer();
 
-        public event EventHandler? ToasterChanged;
+        public event EventHandler? AlertDialogChanged;
 
         public ToasterService()
         {
@@ -21,50 +21,50 @@ namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
             Timer.Start();
         }
 
-        public void AddToast(string type, string title, string message, int time)
+        public void AddAlertDialog(string type, string title, string message, int time)
         {
-            ToastsList.Add(new Toast(type, title, message, time));
-            ToasterChanged?.Invoke(this, EventArgs.Empty);
+            ToastsList.Add(new AlertDialog(type, title, message, time));
+            AlertDialogChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        public void AddToast(IToast toast)
+        public void AddAlertDialog(IAlertDialog toast)
         {
             ToastsList.Add(toast);
-            ToasterChanged?.Invoke(this, EventArgs.Empty);
+            AlertDialogChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        public List<IToast> GetToasts()
+        public List<IAlertDialog> GetAlertDialogs()
         {
-            ClearBurntToast();
+            ClearBurntAlertDialog();
             return ToastsList;
         }
 
-        public void RemoveToast(IToast toast)
+        public void RemoveAlertDialog(IAlertDialog toast)
         {
             ToastsList.Remove(toast);
-            ToasterChanged?.Invoke(this, EventArgs.Empty);
+            AlertDialogChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        public void RemoveAllToast()
+        public void RemoveAllAlertDialogs()
         {
             ToastsList.Clear();
-            ToasterChanged?.Invoke(this, EventArgs.Empty);
+            AlertDialogChanged?.Invoke(this, EventArgs.Empty);
         }
 
-        private void ClearBurntToast()
+        private void ClearBurntAlertDialog()
         {
             var toastsToDelete = ToastsList.Where(item => item.TimeToBurn < DateTimeOffset.Now).ToList();
             if (toastsToDelete != null && toastsToDelete.Count > 0)
             {
                 toastsToDelete.ForEach(toast => ToastsList.Remove(toast));
-                ToasterChanged?.Invoke(this, EventArgs.Empty);
+                AlertDialogChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
         private void TimerElapsed(object? sender, ElapsedEventArgs e)
         {
-            ClearBurntToast();
-            ToasterChanged?.Invoke(this, EventArgs.Empty);
+            ClearBurntAlertDialog();
+            AlertDialogChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public void Dispose()

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
@@ -13,6 +13,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AXSharp.Abstractions">
+      <HintPath>..\..\..\..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\obj\Debug\net7.0\ref\AXSharp.Abstractions.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 
