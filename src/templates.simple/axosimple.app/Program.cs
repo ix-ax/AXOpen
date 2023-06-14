@@ -1,4 +1,4 @@
-using System.Reflection;
+    using System.Reflection;
 using AXOpen;
 using AXOpen.Base.Data;
 using AXOpen.Data.InMemory;
@@ -32,6 +32,7 @@ builder.Services.AddIxBlazorServices();
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));
