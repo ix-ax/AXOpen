@@ -3,10 +3,10 @@
 @using AXOpen.Data;
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector;
-@inherits RenderableComponentBase;
+@*@inherits RenderableComponentBase;*@
 
-<UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="100"></UnitsSequences>
-<UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components"></UnitsService>
+<UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="250"></UnitsSequences>
+<UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
 @*<UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared.Set" PollingInterval="100"></UnitsData>*@
 
 @foreach (var message in Messengers)
@@ -23,7 +23,7 @@
 
     protected override Task OnInitializedAsync()
     {
-        this.UpdateValuesOnChange(@Entry.Plc.Context.PneumaticManipulator);
+    //this.UpdateValuesOnChange(@Entry.Plc.Context.PneumaticManipulator);
         return base.OnInitializedAsync();
     }
 }

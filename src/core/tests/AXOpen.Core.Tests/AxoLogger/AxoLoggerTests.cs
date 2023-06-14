@@ -49,12 +49,13 @@ namespace axopen_core_tests
                 await _testClass.LogEntries[0].Message.SetAsync($"this is {level} message");
                 await _testClass.LogEntries[0].ToDequeue.SetAsync(true);
                 await _testClass.LogEntries[0].Level.SetAsync((short)level);
+                await _testClass.LogEntries[0].Sender.SetAsync((ulong)0);
                 // Act
                 await _testClass.Dequeue();
 
                 // Assert
                 var logger = AxoApplication.Current.Logger as DummyLogger;
-                Assert.Equal($"this is {level} message : ", logger.LastMessage);
+                Assert.Equal($"!!! : [no identity provided '0']", logger.LastMessage);
                 Assert.Equal(level.ToString(), logger.LastCategory);
                 Assert.False(await _testClass.LogEntries[0].ToDequeue.GetAsync());
             }

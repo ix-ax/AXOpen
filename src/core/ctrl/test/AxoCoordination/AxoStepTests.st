@@ -1,3 +1,4 @@
+USING AXOpen.Logging;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AxUnit;
@@ -136,6 +137,6 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
             Assert.Equal('StepOne-new description', _stepOne.StepDescription);
             Assert.Equal('StepTwo', _stepTwo.StepDescription);
             Assert.Equal('StepThree', _stepThree.StepDescription);
-        END_METHOD
-    END_CLASS
+        END_METHOD  
+       END_CLASS
 END_NAMESPACE

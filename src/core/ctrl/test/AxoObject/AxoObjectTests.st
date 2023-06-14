@@ -14,7 +14,7 @@ NAMESPACE AXOpen.Core.AxoObject_Tests
     END_CLASS  
 
     {TestFixture}
-    CLASS IxObjectUnitTests EXTENDS AxoObject
+    CLASS AxoObjectUnitTests EXTENDS AxoObject
         VAR PRIVATE
             _context : TestObjContext;
          END_VAR  
@@ -30,7 +30,7 @@ NAMESPACE AXOpen.Core.AxoObject_Tests
         END_VAR    
 
         {Test}
-        METHOD PUBLIC should_assign_identity_upon_initialization_call
+        METHOD PUBLIC should_assign_context_upon_initialization_call
             VAR
                 sut : REF_TO TestObject;
                 expectedIdentity : ULINT;
@@ -42,27 +42,10 @@ NAMESPACE AXOpen.Core.AxoObject_Tests
 
             // Act/Assert           
             sut^.Initialize(THIS);
-            Assert.Equal(expectedIdentity, sut^.GetIdentity());
+            Assert.Equal(true, sut^.GetContext() = THIS.GetContext());            
         END_METHOD
 
-        {Test}
-        METHOD PUBLIC should_not_change_identity_on_repeated_call_of_initialization
-            VAR
-                sut : REF_TO TestObject;
-                expectedIdentity : ULINT;
-            END_VAR    
-            
-            // Arrange
-            sut := REF(_not_assign_identity_repeated_init);
-            expectedIdentity := THIS.GetContext().CreateIdentity() + ULINT#1;
-            
-            // Act/Assert
-            sut^.Initialize(THIS);
-            Assert.Equal(sut^.GetIdentity(), expectedIdentity);
-            sut^.Initialize(THIS);
-            Assert.Equal(sut^.GetIdentity(), expectedIdentity);
-        END_METHOD
-
+       
         {Test}
         METHOD PUBLIC should_not_crush_uninitialized_object
             VAR
@@ -81,26 +64,7 @@ NAMESPACE AXOpen.Core.AxoObject_Tests
             Assert.Equal(sut^.GetContext().CreateIdentity(), expectedIdentity);
             Assert.Equal(sut^.GetIdentity(), expectedIdentity);
            
-        END_METHOD
-
-        {Test}
-        METHOD PUBLIC should_initialize_object_with_context_as_parent
-            VAR
-                sut : REF_TO TestObject;
-                expectedIdentity : ULINT;
-            END_VAR    
-            ;
-            // Arrange
-            sut := REF(_initialize_object_with_context);
-            expectedIdentity := _context.PeekIdentity() + ULINT#1;
-            
-            // Act/Assert
-            sut^.Initialize(_context);
-            sut^.GetContext();
-                        
-            Assert.Equal(sut^.GetIdentity(), expectedIdentity);
-           
-        END_METHOD
+        END_METHOD      
     END_CLASS
 
 END_NAMESPACE

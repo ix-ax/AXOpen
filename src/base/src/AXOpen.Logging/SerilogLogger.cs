@@ -36,7 +36,7 @@ public class SerilogLogger : ILogger
     public void Debug(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Debug<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
-            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
             new { UserName = identity.Name, Type = identity.AuthenticationType },
             details
         );
@@ -50,7 +50,7 @@ public class SerilogLogger : ILogger
     public void Verbose(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Verbose<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
-            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
             new { UserName = identity.Name, Type = identity.AuthenticationType },
             details
         );
@@ -64,10 +64,9 @@ public class SerilogLogger : ILogger
     public void Information(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Information<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
-                                                    new { Symbol = sender.Symbol, Label = sender.HumanReadable},
-                                                                new { UserName = identity.Name, Type = identity.AuthenticationType },
-                                                                details 
-                                                                );
+            new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
+            new { UserName = identity.Name, Type = identity.AuthenticationType },
+            details);
     }
 
     public void Warning(string message, IIdentity identity)
@@ -78,7 +77,7 @@ public class SerilogLogger : ILogger
     public void Warning(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Warning<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
-            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
             new { UserName = identity.Name, Type = identity.AuthenticationType },
             details
         );
@@ -92,7 +91,7 @@ public class SerilogLogger : ILogger
     public void Error(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Error<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
-            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
             new { UserName = identity.Name, Type = identity.AuthenticationType },
             details
         );
@@ -106,7 +105,7 @@ public class SerilogLogger : ILogger
     public void Fatal(string message, ITwinElement sender, IIdentity identity, object details)
     {
         Log.Fatal<object, object, object>($"{message} {{sender}} {{identity}} {{details}}",
-            new { Symbol = sender.Symbol, Label = sender.HumanReadable },
+            new { Symbol = sender?.Symbol, Label = sender?.HumanReadable },
             new { UserName = identity.Name, Type = identity.AuthenticationType },
             details
         );

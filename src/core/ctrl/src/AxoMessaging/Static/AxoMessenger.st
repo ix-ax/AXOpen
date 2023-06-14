@@ -4,7 +4,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Messaging.Static    
     {#ix-prop: public string MessageText }
     {#ix-prop: public string Help }
-    CLASS AxoMessenger IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties        
+    CLASS AxoMessenger EXTENDS AxoObject IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties        
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
             IsActive : BOOL;
@@ -24,12 +24,12 @@ NAMESPACE AXOpen.Messaging.Static
             {#ix-attr:[ReadOnly()]}
             AcknowledgedBeforeFallen : BOOL;
             {#ix-attr:[ReadOnly()]}
-            Acknowledged : LDATE_AND_TIME;
+            Acknowledged : LDATE_AND_TIME;            
         END_VAR
 
         VAR PRIVATE
             ActiveContextCount : ULINT;
-            Context : IAxoContext;
+            Context : IAxoContext;           
         END_VAR
 
         METHOD PUBLIC Serve 
@@ -63,7 +63,9 @@ NAMESPACE AXOpen.Messaging.Static
             IF AXOpen.Core.IsNullContext(_object.GetContext()) THEN
                 RETURN;
             END_IF;
-            THIS.Serve(_object.GetContext());
+            THIS.Initialize(_object);
+
+            THIS.Serve(_object.GetContext());                       
         END_METHOD
 
         METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
@@ -83,7 +85,7 @@ NAMESPACE AXOpen.Messaging.Static
                 Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 WaitingForAcknowledge := FALSE;
-                Context.GetLogger().Log('Risen', THIS.ToLogLevel(_category));
+                Context.GetLogger().Log('Risen', THIS.ToLogLevel(_category), THIS);
             END_IF;
 
             ActiveContextCount := Context.OpenCycleCount();
@@ -101,10 +103,7 @@ NAMESPACE AXOpen.Messaging.Static
             VAR_INPUT
                 _messageCategory : eAxoMessageCategory;
             END_VAR    
-            VAR
-                
-            END_VAR    
-
+            
             CASE _messageCategory OF
                 eAxoMessageCategory#Trace : 
                     ToLogLevel := eLogLevel#Verbose;
@@ -131,7 +130,6 @@ NAMESPACE AXOpen.Messaging.Static
             END_CASE;
 
         END_METHOD    
-
 
         METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
@@ -176,7 +174,8 @@ NAMESPACE AXOpen.Messaging.Static
             IF IsActive THEN
                 IsActive := FALSE;
                 ActiveContextCount := ULINT#0;
-                Fallen := Context.GetRtc().NowUTC();
+                Fallen := Context.GetRtc().NowUTC();                
+                Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
                 IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
                     WaitingForAcknowledge := TRUE;
                 END_IF;

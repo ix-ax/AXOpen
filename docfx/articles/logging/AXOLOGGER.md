@@ -39,9 +39,40 @@ The `Foo` method retrieves the context's logger using `THIS.GetContext().GetLogg
 ## Summary
 Through this example, we've shown how to declare and utilize the `AxoLogger` for logging messages with different levels of severity. We've also illustrated how nested objects can retrieve and use the logger of their parent context to log messages, showcasing a flexible and potent approach to handle logging in applications with complex, nested structures.
 
+
+
 # Initialization of Logger in .NET 
 
 In this section, we'll be discussing how to initialize the logger in a .NET application, specifically using the Serilog library for logging. We'll also demonstrate how to link the logger to our `AxoLogger` instances from our previous examples: `LoggerOne` and `LoggerTwo`.
+
+## Initializing Object Identities
+
+Before you start logging with `AxoLogger`, you need to ensure the object identities are initialized. This is important because it allows the `AxoLogger` to correctly identify the source of log messages, which aids in debugging and log analysis.
+
+To initialize the object identities in a .NET part of your application, use the following method:
+
+```csharp
+await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+```
+
+This method call is usually performed during the application initialization process, right after the `AxoApplication` and loggers are configured. It constructs all the identities required by the application, preparing the `AxoLogger` for logging.
+
+Here's how it could fit into the .NET application initialization process:
+
+```csharp
+
+// Initialize the object identities.
+Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
+Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
+await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+```
+
+This sets up the `AxoApplication`, configures a logger with Serilog, initializes the object identities, and then connects `AxoLogger` instances to the application.
+
+Remember to always await the `ConstructIdentitiesAsync` method, as it is an asynchronous operation and your application should not proceed until it has been completed. This ensures all object identities are fully initialized before your `AxoLogger` instances start logging.
+
+> [!IMPORTANT]
+> Failure to initialize object identities before starting the logging process can result in incorrect or incomplete log entries, which can hinder the debugging and analysis of your application. Always ensure that object identities are correctly initialized before you start logging.
 
 ## Creating the AxoApplication
 Before initializing the logger, we first create an instance of `AxoApplication` using the `CreateBuilder` method. This sets up the application builder required for the logger configuration.
@@ -103,6 +134,23 @@ This example showcases how to initialize a logger in a .NET application using th
 
 > [!IMPORTANT]
 > In the context of logging level configuration, it's important to note that the minimum logging level of the .NET logger (set up in C#) and the `AxoLogger` (set up in the controller's software) are independent settings. You can configure them individually to fine-tune the verbosity of your logs both at the controller level and in your .NET application.
+
+
+## AxoLogger and AxoMessenger
+
+AxoMessenger uses Context AxoLogger to log the rising and falling of an alarm. There is no particular need for the configuration fo this behaviour. 
+
+Here are the mappings between eAxoMessageCategory and eLogLevel as per the code:
+
+- Trace messages are logged as Verbose.
+- Debug messages are logged as Debug.
+- Info, TimedOut, and Notification messages are logged as - Information.
+- Warning messages are logged as Warning.
+- Error and ProgrammingError messages are logged as Error.
+- Critical, Fatal, and Catastrophic messages are logged as Fatal.
+
+
+
 
 
 # Limitations
