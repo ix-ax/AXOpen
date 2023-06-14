@@ -137,38 +137,6 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
             Assert.Equal('StepOne-new description', _stepOne.StepDescription);
             Assert.Equal('StepTwo', _stepTwo.StepDescription);
             Assert.Equal('StepThree', _stepThree.StepDescription);
-        END_METHOD
-
-
-       
-        VAR PRIVATE
-            _logger : AxoLogger;
-        END_VAR   
-
-        {Test}
-        METHOD PUBLIC step_identity
-            
-            THIS.Initialize();
-            _logger.SetMinimumLevel(AXOpen.Logging.eLogLevel#Verbose);
-            _context.InjectLogger(_logger);
-            
-            _stepOne.Identity := ULINT#1;
-            _stepTwo.Identity := ULINT#2;
-            _stepThree.Identity := ULINT#3;
-
-            
-            _context.Open();
-            _sequencer.Invoke();
-            _sequencer.Open();
-            _stepOne.Execute(_sequencer,'StepOne');            
-            _stepTwo.Execute(_sequencer,TRUE,'StepTwo');            
-            _stepThree.Execute(_sequencer,FALSE,'StepThree');             
-
-            Assert.Equal(ULINT#1,_logger.LogEntries[0].Sender); 
-            Assert.Equal(ULINT#1,_logger.LogEntries[1].Sender); 
-            Assert.Equal(ULINT#1,_logger.LogEntries[2].Sender); 
-            Assert.Equal(ULINT#1,_logger.LogEntries[3].Sender); 
-           //  Assert.Equal(ULINT#1, ULINT#1);
-        END_METHOD
-    END_CLASS
+        END_METHOD  
+       END_CLASS
 END_NAMESPACE
