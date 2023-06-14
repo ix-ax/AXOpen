@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Core;
@@ -16,7 +17,7 @@ namespace AXOpen.Probers
         /// <returns>Task</returns>
         public async Task RunTest(uint numberOfCycles)
         {
-            await this.Restore();
+            this.Restore();
 
             while (true)
             {
@@ -32,7 +33,7 @@ namespace AXOpen.Probers
 
             await this.RequredNumberOfCycles.SetAsync(numberOfCycles);
             
-            this.Execute();
+            this.ExecuteAsync(new GenericIdentity("Tester"));
 
             while (true)
             {

@@ -1,22 +1,17 @@
 name: "axopen.integrations"
-version                                                                                                                                                                                       : '0.1.4-alpha.66'
+version: '0.1.4-alpha.79'
 type: app
 targets:
-#  - "1500"
+  - "1500"
   - plcsim
   - axunit-llvm
-  - llvm
 devDependencies:
-  "@ax/sdk": 3.0.18
-  "@ax/sld": ^0.14.2
-
+  "@ax/sdk": ^4.0.2
+  "@ax/sld": ^0.15.9
 dependencies:
-  "@ix-ax/axopen.core"               : '0.1.4-alpha.66'
-  "@ix-ax/axopen.data"               : '0.1.4-alpha.66'
-  "@ix-ax/axopen.probers"            : '0.1.4-alpha.66'
-  "@ix-ax/axopen.messaging"          : '0.1.4-alpha.66'
-  "@ix-ax/axopen.simatic1500"        : '0.1.4-alpha.66'
-  "@ax/axunit-library"          : ^4.0.6
+  "@ix-ax/axopen.data": '0.1.4-alpha.79'
+  "@ix-ax/axopen.probers": '0.1.4-alpha.79'
+  "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
 
 variables:
   APAX_BUILD_ARGS: [ -d ]
@@ -50,7 +45,8 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project ..\\src\\AXOpen.Integrations.Blazor\\axopen_integrations_blazor.csproj
+    - dotnet watch --project
+      ..\\src\\AXOpen.Integrations.Blazor\\axopen_integrations_blazor.csproj
   rr:
     - apax build
     - apax download

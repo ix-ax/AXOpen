@@ -1,3 +1,4 @@
+USING AXOpen.Logging;
 NAMESPACE AXOpen.Core
 
     CLASS PUBLIC AxoTask EXTENDS AxoObject IMPLEMENTS IAxoTask, IAxoTaskState
@@ -189,7 +190,7 @@ NAMESPACE AXOpen.Core
 
             IF _isNullContext THEN
                 Status := eAxoTaskState#Error;
-                ErrorDetails := 'NULL CONTEXT';
+                ErrorDetails := 'NULL CONTEXT';                
             END_IF;
             THIS.UpdateState();
 
@@ -203,6 +204,7 @@ NAMESPACE AXOpen.Core
             IF Status = eAxoTaskState#Ready THEN
                 IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
                     Status := eAxoTaskState#Kicking;
+                    THIS.GetContext().GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
                 ELSE
                     ; //TODO - raise a message that the Execute() method is not called
                 END_IF;     
@@ -215,6 +217,9 @@ NAMESPACE AXOpen.Core
         /// Restores this task.
         ///</summary>    
         METHOD PUBLIC Restore : IAxoTaskState
+            IF(Status <> eAxoTaskState#Ready AND Status <> eAxoTaskState#Disabled) THEN
+                THIS.GetContext().GetLogger().Log('Task restored', eLogLevel#Verbose, THIS);
+            END_IF;    
             Status := eAxoTaskState#Ready; 
             ErrorDetails := '';   
             THIS.UpdateState();
@@ -232,6 +237,7 @@ NAMESPACE AXOpen.Core
             END_VAR
               
             IF Condition AND Status = eAxoTaskState#Busy THEN   
+                THIS.GetContext().GetLogger().Log('Task done.', eLogLevel#Verbose, THIS);
                 Status := eAxoTaskState#Done;
                 THIS.OnDone();
             END_IF;    
@@ -265,7 +271,8 @@ NAMESPACE AXOpen.Core
                 END_IF;  
                   
                 // Don't touch this, it is used for remote execs.
-                StartSignature := THIS.GetContext().OpenCycleCount();                           
+                StartSignature := THIS.GetContext().OpenCycleCount();    
+                THIS.GetContext().GetLogger().Log('Task started.', eLogLevel#Verbose, THIS);                       
                 THIS.OnStart();
             END_IF;    
 
@@ -276,7 +283,7 @@ NAMESPACE AXOpen.Core
             THIS.UpdateState();
             Execute := Status = eAxoTaskState#Busy;
             _taskTimer(signal := Execute, duration := LT#99999D);
-            IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;          
+            IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;             
         END_METHOD    
 
         ///<summary>
@@ -289,7 +296,8 @@ NAMESPACE AXOpen.Core
             END_VAR
 
             IF(HasErrorState) THEN
-                Status := eAxoTaskState#Error;           
+                Status := eAxoTaskState#Error;  
+                THIS.GetContext().GetLogger().Log('Task failed', eLogLevel#Verbose, THIS);             
                 THIS.OnError();  
                 THIS.WhileError();   
             END_IF;    
@@ -303,11 +311,12 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 HasErrorState : BOOL;
                 ErrorDescription : STRING[254];
-            END_VAR
-            THIS.ThrowWhen(HasErrorState);
-            IF(HasErrorState) THEN
-                ErrorDetails :=  ErrorDescription;   
-            END_IF;            
+            END_VAR            
+            IF(HasErrorState) THEN                
+                ErrorDetails :=  ErrorDescription; 
+                THIS.GetContext().GetLogger().Log(ErrorDetails, eLogLevel#Verbose, THIS);  
+            END_IF;    
+            THIS.ThrowWhen(HasErrorState);        
         END_METHOD    
 
         ///<summary>

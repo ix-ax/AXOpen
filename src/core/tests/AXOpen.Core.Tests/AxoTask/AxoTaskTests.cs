@@ -1,58 +1,80 @@
+using System.Security.Principal;
+using AXOpen;
+using AXOpen.Logging;
 using AXSharp.Connector;
-using AXOpen.Core;
+using NSubstitute;
 
-namespace AXOpen.Core.Tests
+namespace AXOpen.Core.Tests;
+
+public class AxoTaskTests
 {
-    using System;
-    using Xunit;
+    private readonly AxoTask _testClass;
 
-    public class AxoTaskTests
+    public AxoTaskTests()
     {
-        private AxoTask _testClass;
-
-        public AxoTaskTests()
-        {
-            var a = ConnectorAdapterBuilder.Build().CreateDummy();
-            _testClass = new AxoTask(a.GetConnector(null) as ITwinObject, "a", "b");
-        }
-
-        [Fact]
-        public async Task CanCallCanExecute_true()
-        {
-            // Arrange
-            var parameter = new object();
-            await _testClass.IsDisabled.SetAsync(true);
-
-            // Act
-            var result = _testClass.CanExecute(parameter);
-
-            // Assert
-            Assert.False(result);
-        }
-
-        [Fact]
-        public async Task CanCallCanExecute_false()
-        {
-            // Arrange
-            var parameter = new object();
-            await _testClass.IsDisabled.SetAsync(false);
-
-            // Act
-            var result = _testClass.CanExecute(parameter);
-
-            // Assert
-            Assert.True(result);
-        }
+        var a = ConnectorAdapterBuilder.Build().CreateDummy();
+        _testClass = new AxoTask(a.GetConnector(null), "a", "b");
+    }
 
 
-        [Fact]
-        public async Task CanCallExecute()
-        {
-            // Arrange
-            var parameter = new object();
-            
-            // Act
-            _testClass.Execute(parameter);
-        }
+    [Fact]
+    public async Task CanCallExecute()
+    {
+        // Arrange
+        var parameter = new object();
+
+        // Act
+        _testClass.ExecuteAsync(new GenericIdentity("NoUser"));
     }
 }
+
+public class AxoTaskTests2
+{
+    private readonly AxoTask _axoTask;
+    private readonly IAxoApplication mockAxoApplication;
+    private readonly DummyLogger _logger = new DummyLogger();
+
+    public AxoTaskTests2()
+    {
+        
+        mockAxoApplication = AxoApplication.CreateBuilder().ConfigureLogger(_logger).Build();
+        //_mockAxoApp.Logger.Returns(_logger);
+        var a = ConnectorAdapterBuilder.Build().CreateDummy();
+        _axoTask = new AxoTask(a.GetConnector(null), "a", "b");
+    }
+
+    [Fact]
+    public async void Restore_WhenCalled_SetsRemoteInvokeCyclicToTrue()
+    {
+        var humanReadable = "Test Task";
+
+        _axoTask.HumanReadable = humanReadable;
+
+        await _axoTask.ExecuteAsync();
+
+        Assert.True(await _axoTask.RemoteInvoke.GetAsync());
+    }
+
+    [Fact]
+    public async void Restore_WhenCalled_SetsRemoteRestoreCyclicToTrue()
+    {
+        _axoTask.Restore();
+        Assert.True(await _axoTask.RemoteRestore.GetAsync());
+    }
+
+    [Fact]
+    public async void Abort_WhenCalled_SetsRemoteAbortCyclicToTrue()
+    {
+        _axoTask.Abort();
+        Assert.True(await _axoTask.RemoteAbort.GetAsync());
+    }
+
+    [Fact]
+    public async void ResumeTask_WhenCalled_SetsRemoteResumeCyclicToTrue()
+    {
+        _axoTask.ResumeTask();
+        Assert.True(await _axoTask.RemoteResume.GetAsync());
+    }
+}
+
+

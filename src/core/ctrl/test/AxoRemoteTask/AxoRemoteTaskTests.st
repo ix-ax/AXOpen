@@ -3,14 +3,14 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 
 NAMESPACE AXOpen.Core
-    NAMESPACE AxoRemoteTasksTests
-        
+    NAMESPACE AxoRemoteTasksTests        
     
      CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
             _identityCounter : ULINT;
+            _NULL_RTC : _NULL_RTC;
          END_VAR       
         METHOD PUBLIC Open : ULINT
             _openCounter := _openCounter + ULINT#1;
@@ -33,14 +33,15 @@ NAMESPACE AXOpen.Core
             CreateIdentity := _identityCounter;
         END_METHOD         
     
-        METHOD PUBLIC GetRtc : IAxoRtc ; END_METHOD
+        METHOD PUBLIC GetRtc : IAxoRtc GetRtc := _NULL_RTC; END_METHOD
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
         
-    
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            ;
-        END_METHOD
+        VAR PRIVATE
+            NULL_LOGGER : _NULL_LOGGER;
+        END_VAR    
+        METHOD PUBLIC GetLogger : AXOpen.Logging.IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
+        METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD            
     END_CLASS      
    
     {TestFixture}
@@ -50,11 +51,11 @@ NAMESPACE AXOpen.Core
            myTask : AxoRemoteTask;
            expState:  eAxoTaskState;
            actState:  eAxoTaskState;
-           initValue : ULINT;
+           initValue : ULINT;           
         END_VAR    
 
         METHOD PRIVATE Initialize
-            myTask.Initialize(_context);
+            myTask.Initialize(_context);           
         END_METHOD     
 
         METHOD Equal : BOOL

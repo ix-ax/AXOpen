@@ -1,35 +1,31 @@
 name: "axosimple"
-version                       : '0.1.4-alpha.66'
+version: '0.1.4-alpha.79'
 type: app
 registries:
-  '@ix-ax': https://npm.pkg.github.com/  
+  '@ix-ax': https://npm.pkg.github.com/
 targets:
   - "1500"
-  - axunit-llvm
-  - llvm
   - plcsim
+  - axunit-llvm
 devDependencies:
-  "@ax/sdk": 3.0.18
-  "@ax/sld": ^0.14.2
+  "@ax/sdk": ^4.0.2
+  "@ax/sld": ^0.15.9
 dependencies:
-   "@ix-ax/axopen.core"                        : '0.1.4-alpha.66'
-   "@ix-ax/axopen.data"                        : '0.1.4-alpha.66'
-   "@ix-ax/axopen.messaging"                   : '0.1.4-alpha.66'
-   "@ix-ax/axopen.simatic1500"                 : '0.1.4-alpha.66'
-   "@ax/axunit-library"                   : ^4.0.6
+  "@ix-ax/axopen.data": '0.1.4-alpha.79'
+  "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
 
 variables:
-  APAX_BUILD_ARGS: [ -d ]    
+  APAX_BUILD_ARGS: [ -d ]
 scripts:
-  ixc: 
-  - dotnet tool restore --no-cache
-  - dotnet ixc
-  - dotnet ixr
+  ixc:
+    - dotnet tool restore --no-cache
+    - dotnet ixc
+    - dotnet ixr
   postbuild: apax ixc
-  download :   
-    - apax install    
+  download:
+    - apax install
     - apax build
     # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
     # --default-server-interface is a must if you are using WebAPI      
-    - apax sld --accept-security-disclaimer -t 172.20.30.110 -i .\\bin\\plcsim\\ -r --default-server-interface    
-
+    - apax sld --accept-security-disclaimer -t 192.168.0.4 -i .\\bin\\plcsim\\
+      -r --default-server-interface

@@ -1,53 +1,6 @@
 USING AXOpen.Rtc;
 
-NAMESPACE AXOpen.Core
-
-    FUNCTION IsNullContext : BOOL
-        VAR_INPUT
-            Context : IAxoContext;
-        END_VAR
-        IF Context = NULL THEN
-            IsNullContext := TRUE;
-        ELSIF Context.CreateIdentity() = ULINT#0 THEN
-            IsNullContext := TRUE;
-        ELSE
-            IsNullContext := FALSE;
-        END_IF;
-    END_FUNCTION
-
-    ///<summary>
-    /// Provides an empty context for uninitialized objects.
-    ///</summary>
-    CLASS PUBLIC _NULL_CONTEXT IMPLEMENTS IAxoContext
-        VAR PRIVATE            
-            NULL_RTC : _NULL_RTC;
-        END_VAR
-
-        METHOD PUBLIC CreateIdentity : ULINT CreateIdentity := ULINT#0; END_METHOD
-        METHOD PUBLIC OpenCycleCount : ULINT OpenCycleCount := ULINT#0; END_METHOD                                         
-        METHOD PUBLIC GetRtc : IAxoRtc GetRtc := NULL_RTC; END_METHOD
-        METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
-        
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            ;
-        END_METHOD
-    END_CLASS    
-
-    ///<summary>
-    /// Provides an empty object for uninitialized objects.
-    ///</summary>
-    CLASS PUBLIC _NULL_OBJECT IMPLEMENTS IAxoObject
-        VAR PRIVATE
-            NULL_CONTEXT : _NULL_CONTEXT;
-        END_VAR    
-        METHOD PUBLIC GetIdentity : ULINT 
-            GetIdentity := ULINT#0; 
-        END_METHOD   
-        METHOD PUBLIC GetContext : IAxoContext 
-            GetContext := NULL_CONTEXT; 
-        END_METHOD
-    END_CLASS    
-
+NAMESPACE AXOpen.Core      
     ///<summary>
     /// Provides base class for all classes of `AXOpen`.
     ///</summary>
@@ -56,7 +9,7 @@ NAMESPACE AXOpen.Core
             {#ix-attr:[CompilerOmits("POCO")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-attr:[RenderIgnore()]}
-            Identity   : ULINT := ULINT#0;
+            Identity   : ULINT := ULINT#0;                  
         END_VAR    
 
         VAR PRIVATE           
@@ -83,7 +36,7 @@ NAMESPACE AXOpen.Core
             IF(_context <> NULL) THEN
                 GetContext := _context;
             ELSE
-                GetContext := NULL_CONTEXT;    
+                GetContext := NULL_CONTEXT;                    
             END_IF;    
         END_METHOD
 
@@ -132,17 +85,6 @@ NAMESPACE AXOpen.Core
                 Identity   := _context.CreateIdentity();                 
             END_IF;
 
-        END_METHOD 
-
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            Environment := THIS.GetContext().Environment();
-        END_METHOD
-
-        // METHOD PUBLIC SetContextEnvironment
-        //     VAR_INPUT
-        //         inContextEnvironnment : IAxoContextEnvironment;
-        //     END_VAR
-        //     _contextEnvironment := inContextEnvironnment;
-        // END_METHOD
+        END_METHOD       
     END_CLASS    
 END_NAMESPACE    

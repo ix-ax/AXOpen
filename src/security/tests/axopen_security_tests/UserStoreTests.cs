@@ -856,6 +856,12 @@ namespace AxOpen.Security.Tests
         public async Task UpdateAsync_Success()
         {
             //Arrange
+            if (!_fixture.Repository.UserRepository.Exists(_fixture.SeedData.UpdateUser.UserName))
+            {
+                var u = new User(_fixture.SeedData.UpdateUser.UserName, "", "", false);
+                _fixture.Repository.UserRepository.Create(_fixture.SeedData.UpdateUser.UserName, u);
+            }
+
             var userData = _fixture.Repository.UserRepository.Read(_fixture.SeedData.UpdateUser.UserName);
             var user = new User(userData.UserName,userData.Email,userData.Group,userData.CanUserChangePassword);
             user.Email = "newupdate@newupdate.com";

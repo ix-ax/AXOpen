@@ -94,7 +94,7 @@ public class BuildContext : FrostingContext
 
     public BuildParameters BuildParameters { get; }
 
-    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net6.0", "net7.0" };
+    public IEnumerable<string> TargetFrameworks { get; } = new List<string>() { "net7.0" };
 
     public string TestResults => Path.Combine(Environment.WorkingDirectory.FullPath, "..//TestResults//");
 
@@ -141,8 +141,7 @@ public class BuildContext : FrostingContext
         ("abstractions", "axopen.abstractions"),
         ("simatic1500", "axopen.simatic1500"),
         ("utils", "axopen.utils"),
-        ("core", "axopen.core"),
-        ("messaging", "axopen.messaging"),
+        ("core", "axopen.core"),       
         ("data", "axopen.data"),
         ("probers", "axopen.probers"),
     };

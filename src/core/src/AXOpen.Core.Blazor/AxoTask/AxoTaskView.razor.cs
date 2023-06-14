@@ -1,26 +1,49 @@
-﻿using AXSharp.Connector;
+﻿using System.Net.Http.Headers;
+using System.Security.Principal;
+using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace AXOpen.Core
 {
     public partial class AxoTaskView : IDisposable
     {
-        private void InvokeTask()
+
+        [Inject]
+        protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+
+        protected async Task<string?> GetCurrentUserName()
         {
-            Component.RemoteInvoke.Cyclic = true;
+            var authenticationState = await AuthenticationStateProvider?.GetAuthenticationStateAsync();
+            return authenticationState?.User?.Identity?.Name;
         }
-        private void RestoreTask()
+
+        protected async Task<IIdentity?> GetCurrentUserIdentity()
         {
+            var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            return authenticationState?.User?.Identity;
+        }
+
+        private async void InvokeTask()
+        {
+            AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` invoked by user action.", this.Component, await GetCurrentUserIdentity());
+            await Component.ExecuteAsync();
+        }
+        private async void RestoreTask()
+        {
+            AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` restored by user action.", Component, await GetCurrentUserIdentity());
+            Component.Restore();
             (this.Component as AxoRemoteTask)?.ResetExecution();
-            Component.RemoteRestore.Cyclic = true;
         }
-        private void AbortTask()
+        private async void AbortTask()
         {
-            Component.RemoteAbort.Cyclic = true;
+            AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` aborted by user action.", Component, await GetCurrentUserIdentity());
+            Component.Abort();
         }
-        private void ResumeTask()
+        private async void ResumeTask()
         {
-            Component.RemoteResume.Cyclic = true;
+            AxoApplication.Current.Logger.Information($"Command `{Component.HumanReadable}` resumed by user action.", Component, await GetCurrentUserIdentity());
+            Component.ResumeTask();
         }
 
         private string ButtonClass

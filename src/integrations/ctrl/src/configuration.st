@@ -28,9 +28,7 @@ CONFIGURATION MyConfiguration
         AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;
-
-        vmTest : VmTest;
-       
+        AxoLoggers : AxoLoggerExamples.Loggers;
         // Issues
         gh_ptku_8 : Layouts.Tabbed.weather;
 

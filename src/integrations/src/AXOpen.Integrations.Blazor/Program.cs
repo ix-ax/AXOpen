@@ -1,11 +1,14 @@
+using AXOpen;
 using axopen_integrations_blazor.Data;
 using axopen_integrations;
 using AXSharp.Connector;
 using AXOpen.Data.Json;
+using AXOpen.Logging;
 using AXSharp.Presentation.Blazor.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Pocos.IntegrationAxoDataFramentsExchange;
+using Serilog;
 using static System.Formats.Asn1.AsnWriter;
 using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 using AXSharp.Abstractions.Dialogs.AlertDialog;
@@ -30,12 +33,17 @@ namespace axopen_integrations_blazor
 
             //builder.Services.AddTcoCoreExtensions();
 
+            AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
+                .WriteTo.Console().MinimumLevel.Debug()
+                .CreateLogger()));
+
             Entry.Plc.Connector.BuildAndStart();
 
             Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
 
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
+            Entry.Plc.Connector.IdentityProvider.ReadIdentities();
 
             var repository = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
             var repository2 = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
@@ -87,6 +95,27 @@ namespace axopen_integrations_blazor
                 new JsonRepository<Pocos.AxoDataFramentsExchangeDocuExample.Station_1_Data>(
                     new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataFramentsExchangeDocuExample.Station_1_Data>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents", "fm"))));
             //</AxoDataFragmentedExampleDocuIntialization>
+
+
+            //<AxoAppBuilder>
+            var axoAppBuilder = AxoApplication.CreateBuilder();
+            //</AxoAppBuilder>
+
+            //<AxoLoggerConfiguration>
+
+            // Creates serilog logger with single sink to Console window.
+            
+            axoAppBuilder.ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
+                .WriteTo.Console().MinimumLevel.Verbose()
+                .CreateLogger()));
+            //</AxoLoggerConfiguration>
+
+            //<AxoLoggerInitialization>
+            Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(AxoApplication.Current.Logger, 250);
+            Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(AxoApplication.Current.Logger, 250);
+            //</AxoLoggerInitialization>
+
+
 
             var app = builder.Build();
 

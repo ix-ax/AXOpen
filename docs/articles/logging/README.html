@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Introduction to Logging with AXOpen.Core | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Introduction to Logging with AXOpen.Core | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="introduction-to-logging-with-axopencore">Introduction to Logging with AXOpen.Core</h1>
+
+<p>Effective logging is vital for monitoring the health and performance of software applications. By providing real-time insights into application behaviour and detailed diagnostic information during troubleshooting, logging plays a crucial role in development, debugging, and ongoing maintenance.</p>
+<p>In the world of PLC applications, logging can be a bit more complex due to the intricacies of the systems involved. AXOpen.Core, a library developed for industrial automation software, provides robust logging capabilities that meet these specific needs. With the AxoLogger class, it offers a potent tool for logging in both PLC controller software and .NET applications.</p>
+<p>In this guide, we explore the usage of AXOpen.Core's logging capabilities. We demonstrate how to declare, configure, and utilize the AxoLogger to log messages of various severity levels. We also cover the process of accessing a logger from within a nested object and configuring a logger in a .NET application using the Serilog library.</p>
+<p>A key aspect we will highlight is the ability to manage the verbosity of logs independently in the controller software and the .NET application, providing you with flexible control over your logging activities.</p>
+<p>Please keep in mind that excessive logging from the controller can degrade the overall system performance due to the limits imposed by the controller. There's also a limit of 100 log entries that can be stored in the logger's queue. If this limit is reached, the oldest log entries will be removed from the queue as new entries are added.</p>
+<h1 id="logging-with-axopencore">Logging with AXOpen.Core</h1>
+<h2 id="overview">Overview</h2>
+<p>In this example, we illustrate how to use the logging functionalities provided by <code>AxoLogger</code>. Our objective is to create and use loggers, produce log messages of various severity levels, and showcase how to access a logger from the context within a nested object. We'll be using two classes for our demonstration: <code>Loggers</code> and <code>ContextLoggerInNestedObject</code>.</p>
+<h2 id="loggers-class">Loggers Class</h2>
+<p>The <code>Loggers</code> class is an extension of <code>AxoContext</code>, part of the <code>AXOpen.Core</code> namespace. This class is the central hub for the logging actions carried out in this example.</p>
+<h4 id="logger-declarations">Logger Declarations</h4>
+<p>We declare two instances of <code>AxoLogger</code>, named <code>LoggerOne</code> and <code>LoggerTwo</code>. Additionally, we declare <code>InnerObject</code>, which is an instance of the <code>ContextLoggerInNestedObject</code> class.</p>
+<pre><code class="lang-smalltalk">VAR PUBLIC
+   LoggerOne : AXOpen.Logging.AxoLogger;
+   LoggerTwo : AXOpen.Logging.AxoLogger;
+   InnerObject : ContextLoggerInNestedObject;
+END_VAR    
+</code></pre><h4 id="logging-activities">Logging Activities</h4>
+<p>In the <code>Main</code> method, we first inject <code>LoggerOne</code> into <code>THIS</code>, which refers to the current instance of <code>Loggers</code>. Following this injection, we set the minimum log level for <code>LoggerOne</code> to <code>Error</code> using <code>THIS.GetLogger().SetMinimumLevel(eLogLevel#Error);</code>. This configuration ensures that <code>LoggerOne</code> will only log messages with a severity level of <code>Error</code> or higher.</p>
+<p>Subsequently, we create an error log message and an informational log message using <code>LoggerOne</code>. Note that due to the log level setting, the informational message will not be logged.</p>
+<p>Next, we inject <code>LoggerTwo</code> into <code>THIS</code> and set the minimum log level for <code>LoggerTwo</code> to <code>Information</code> using <code>THIS.GetLogger().SetMinimumLevel(eLogLevel#Information);</code>. This configuration will cause <code>LoggerTwo</code> to log all messages with a severity level of <code>Information</code> or higher.</p>
+<p>We then create an error log message and an informational log message using <code>LoggerTwo</code>. Due to the log level setting, both messages will be logged.</p>
+<p>Finally, we initialize <code>InnerObject</code> and invoke its <code>Foo</code> method to showcase logging from within a nested object.</p>
+<p>By adjusting the minimum log level for each logger, we can control the severity of messages that each logger will handle. This offers flexibility in categorizing and prioritizing log messages based on their importance.</p>
+<pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE Main                              
+    // Logging to `LoggerOne`
+    THIS.InjectLogger(LoggerOne);  
+    // This will report only Errors and more severe
+    THIS.GetLogger().SetMinimumLevel(eLogLevel#Error);
+    THIS.GetLogger().Log('Here I am logging an error.', eLogLevel#Error);                     
+    THIS.GetLogger().Log('Here I am logging an infomation.', eLogLevel#Information);
+   
+    // Logging to `LoggerTwo`
+    THIS.InjectLogger(LoggerTwo);
+    // This will report all messages from Infomation level and more severe
+    THIS.GetLogger().SetMinimumLevel(eLogLevel#Information);
+    THIS.GetLogger().Log('Here I am logging an error.', eLogLevel#Error);
+    THIS.GetLogger().Log('Here I am logging an infomation.', eLogLevel#Information);
+    
+    // Logging from inner object
+    InnerObject.Initialize(THIS);
+    InnerObject.Foo();
+END_METHOD            
+</code></pre><h2 id="logging-from-nested-objects">Logging from nested objects</h2>
+<p>This class demonstrates how to fetch and log messages using a logger from a parent context from within a nested object.</p>
+<p>The <code>Foo</code> method retrieves the context's logger using <code>THIS.GetContext().GetLogger()</code> and logs an <code>Error</code> level message. This shows how to access and use the logger of a containing context, enabling nested objects to utilize the same logging functionalities as their parent.</p>
+<pre><code class="lang-smalltalk">CLASS ContextLoggerInNestedObject EXTENDS AxoObject        
+    METHOD PUBLIC Foo
+        THIS.GetContext().GetLogger().Log('Loggin on context logger', eLogLevel#Error, THIS);
+    END_METHOD    
+END_CLASS
+</code></pre><h2 id="summary">Summary</h2>
+<p>Through this example, we've shown how to declare and utilize the <code>AxoLogger</code> for logging messages with different levels of severity. We've also illustrated how nested objects can retrieve and use the logger of their parent context to log messages, showcasing a flexible and potent approach to handle logging in applications with complex, nested structures.</p>
+<h1 id="initialization-of-logger-in-net">Initialization of Logger in .NET</h1>
+<p>In this section, we'll be discussing how to initialize the logger in a .NET application, specifically using the Serilog library for logging. We'll also demonstrate how to link the logger to our <code>AxoLogger</code> instances from our previous examples: <code>LoggerOne</code> and <code>LoggerTwo</code>.</p>
+<h2 id="creating-the-axoapplication">Creating the AxoApplication</h2>
+<p>Before initializing the logger, we first create an instance of <code>AxoApplication</code> using the <code>CreateBuilder</code> method. This sets up the application builder required for the logger configuration.</p>
+<pre><code class="lang-smalltalk">var axoAppBuilder = AxoApplication.CreateBuilder();
+</code></pre><h2 id="configuring-the-logger">Configuring the Logger</h2>
+<p>Next, we configure our logger. We are using the Serilog library, a popular .NET logging library that allows flexible and complex logging setups. In this example, we're creating a simple setup where all logs of any level (<code>Verbose</code> level and above) will be written to the console.</p>
+<pre><code class="lang-smalltalk">
+// Creates serilog logger with single sink to Console window.
+
+axoAppBuilder.ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
+    .WriteTo.Console().MinimumLevel.Verbose()
+    .CreateLogger()));
+</code></pre>
+<p>This code sets up a new Serilog logger with a single sink directed to the console window. The <code>MinimumLevel.Verbose()</code> method specifies that all logs, regardless of their severity level, will be outputted to the console.</p>
+<h2 id="connecting-loggers-to-the-application">Connecting Loggers to the Application</h2>
+<p>Finally, we connect our previously defined <code>AxoLogger</code> instances, <code>LoggerOne</code> and <code>LoggerTwo</code>, to our application.</p>
+<pre><code class="lang-smalltalk">Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(AxoApplication.Current.Logger, 250);
+Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(AxoApplication.Current.Logger, 250);
+</code></pre>
+<p>The <code>StartDequeuing</code> method is now called with two parameters. The first parameter <code>AxoApplication.Current.Logger</code> refers to the instance of the logger that was created and configured in the previous step. The second parameter is <code>250</code>. This starts a loop that dequeues log messages from the <code>AxoLogger</code>'s message queue every 250 milliseconds, passing them to the configured sinks—in our case, the console window.</p>
+<h2 id="adding-custom-target-loggers">Adding Custom Target Loggers</h2>
+<p>The Serilog library allows you to add and configure custom target loggers. In the previous example, we've used <code>AxoApplication.Current.Logger</code> as our target logger. This is the logger instance created and configured during the application setup.</p>
+<p>However, if you want to log messages to a different target, you can create and configure additional Serilog loggers. For example, you might want to create a logger that writes to a file, a database, or a remote logging server.</p>
+<p>To add a new target logger, you would follow similar steps as before, but specify your custom target in the <code>WriteTo</code> method.</p>
+<pre><code class="lang-csharp">var fileLogger = new LoggerConfiguration()
+    .WriteTo.File(&quot;log.txt&quot;)
+    .CreateLogger();
+
+var databaseLogger = new LoggerConfiguration()
+    .WriteTo.MyDatabase(myConnectionString)
+    .CreateLogger();
+</code></pre>
+<p>In these examples, <code>fileLogger</code> is a logger that writes logs to a text file named <code>log.txt</code>, and <code>databaseLogger</code> is a logger that writes logs to a database, using a connection string <code>myConnectionString</code>. The <code>WriteTo.MyDatabase(myConnectionString)</code> method is a placeholder; replace this with the appropriate method for your specific database sink.</p>
+<p>After creating these loggers, you can connect them to your <code>AxoLogger</code> instances using the <code>StartDequeuing</code> method, just as we did before with <code>AxoApplication.Current.Logger</code>.</p>
+<pre><code class="lang-csharp">Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(fileLogger, 250);
+Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(databaseLogger, 250);
+</code></pre>
+<p>In this configuration, <code>LoggerOne</code> will send its queued log messages to <code>log.txt</code> every quarter of a second, while <code>LoggerTwo</code> will send its messages to the specified database.</p>
+<p>Please note that these are just examples, and the Serilog library supports many different types of log targets (also known as &quot;sinks&quot;), which you can use to customize the logging behavior of your application as needed. Always refer to the official Serilog documentation for more detailed information and the latest features.</p>
+<h2 id="summary-1">Summary</h2>
+<p>This example showcases how to initialize a logger in a .NET application using the Serilog library and then how to connect the <code>AxoLogger</code> instances from our <code>Loggers</code> class to it. With this setup, the <code>AxoLogger</code> instances will send their queued log messages to the console every quarter of a second.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In the context of logging level configuration, it's important to note that the minimum logging level of the .NET logger (set up in C#) and the <code>AxoLogger</code> (set up in the controller's software) are independent settings. You can configure them individually to fine-tune the verbosity of your logs both at the controller level and in your .NET application.</p>
+</div>
+<h1 id="limitations">Limitations</h1>
+<h2 id="log-entry-limit">Log Entry Limit</h2>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Please note that the <code>AxoLogger</code> instances in this example (<code>LoggerOne</code> and <code>LoggerTwo</code>) have an internal limit of 100 log entries. This means that once the number of log entries in the logger's queue reaches this limit, any new log entries will be discarded until older log entries are dequeued and the total number drops below this limit.</p>
+</div>
+<p>This limit is designed to prevent excessive memory usage if the dequeuing process is unable to keep up with the rate of new log entries. Regularly dequeuing log entries, as shown in this example with the <code>StartDequeuing(250)</code> calls, helps to ensure that log entries are processed promptly and do not exceed this limit.</p>
+<p>As always, it is important to consider the potential for high rates of log entries when designing your application's logging strategy and ensure that your dequeuing interval and log entry limit are appropriately configured for your specific needs.</p>
+<h1 id="logging-performance-considerations">Logging Performance Considerations</h1>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Logging in an application, while essential for debugging and monitoring, can impact the overall performance of your controller, especially when logging at high rates. The controller may have resource limitations such as CPU power and memory, which can be strained by excessive logging activities.</p>
+</div>
+<p>Each log operation involves creating the log entry, formatting it, and adding it to the logger's message queue. These operations consume computational resources and memory. If the log entry queue becomes excessively large due to high logging rates and insufficient dequeuing, it can further strain the controller's resources.</p>
+<p>Also, note that the communication between the controller and the logger can introduce additional latency, especially if network-based logging is used. If a large number of log entries are sent over the network, this can congest the network and slow down other network operations.</p>
+<p>Therefore, it is crucial to balance the need for detailed logging with the impact on the controller's performance and resource usage. It's recommended to carefully select what needs to be logged based on its importance and potential to aid in debugging and monitoring. Optimizing the logging level, choosing an appropriate dequeuing interval, and regularly reviewing and maintaining your logging strategy can help to minimize the performance impact.</p>
+<p>Always keep these considerations in mind when designing and implementing logging in your applications, particularly in resource-constrained environments such as controllers.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/logging/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

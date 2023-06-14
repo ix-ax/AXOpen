@@ -21,7 +21,8 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
+	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
     <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -38,4 +39,7 @@
 	  <ProjectReference Include="..\AXOpen.Core\ix_ax_axopen_core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="AxoMessenger\" />
+  </ItemGroup>
 </Project>

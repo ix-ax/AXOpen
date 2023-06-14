@@ -6,11 +6,11 @@ NAMESPACE AxoStaticMessengerDocuExample
         VAR PUBLIC
             {#ix-set:MessageText = "<#Message text for messenger 1#>"}
             {#ix-set:Help = "<#Help text for messenger 1#>"}
-            _messenger1 : AxoMessenger;
+            _messenger1 : AXOpen.Messaging.Static.AxoMessenger;
             _messenger1condition : BOOL;
             {#ix-set:MessageText = "<#Message text for messenger 2#>"}
             {#ix-set:MessageText = "<#Message text for messenger 2#>"}
-            _messenger2 : AxoMessenger;
+            _messenger2 : AXOpen.Messaging.Static.AxoMessenger;
             _messenger2condition : BOOL;
        END_VAR    
     

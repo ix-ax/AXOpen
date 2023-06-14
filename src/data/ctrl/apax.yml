@@ -1,17 +1,14 @@
 name: "@ix-ax/axopen.data"
-version                                                                                                                                                                                                                                          : '0.1.4-alpha.66'
+version: '0.1.4-alpha.79'
 type: lib
 targets:
-#  - "1500"
   - axunit-llvm
-  - llvm
 files:
   - src
 dependencies:
-  "@ix-ax/axopen.core"                                                                                                                                                                                                      : '0.1.4-alpha.66'
-  "@ax/axunit-library": ^4.0.6
+  "@ix-ax/axopen.core": '0.1.4-alpha.79'
 devDependencies:
-  "@ax/sdk": 3.0.18
-scripts:  
-  postbuild: 
+  "@ax/sdk": ^4.0.2
+scripts:
+  postbuild:
     - dotnet ixc

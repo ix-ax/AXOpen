@@ -21,10 +21,6 @@
 			"path": "utils/ctrl"
 		},
 		{
-			"name": "messaging",
-			"path": "messaging/ctrl"
-		},
-		{
 			"name": "data",
 			"path": "data/ctrl"
 		},

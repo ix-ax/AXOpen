@@ -8,9 +8,16 @@
     "process_settings_access",
     "process_traceability_access",
     "can_user_open_technological_settings",
-    "ground_position_start"
+    "ground_position_start",
+    "automat_start",
+    "station_details",
+    "technology_settings_access",
+    "manual_start",
+    "sequencer_step",
+    "technology_automat_all",
+    "technology_ground_all"
   ],
-  "RolesHash": "AQAAAAIAAYagAAAAEOSebWCNUuX0vDgFfY8vzrt/raI9msUQuJIFaBMY6vdSuOpYX02l+kSBBkt58ZBO+A==",
+  "RolesHash": "AQAAAAIAAYagAAAAELf8x4N2PYkSBucG9D7FFJejzVqyE3bpmoZ3RzMCZlHNCCiF9T78q+h7PGxB3LxB7g==",
   "Created": "2023-05-24T14:25:43.4379549+02:00",
-  "Modified": "2023-05-25T14:19:17.2205596+02:00"
+  "Modified": "2023-06-07T10:35:50.2023276+02:00"
 }

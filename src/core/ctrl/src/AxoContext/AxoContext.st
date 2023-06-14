@@ -1,5 +1,6 @@
-USING AXOpen.Rtc;
 USING AXOpen.Messaging;
+USING AXOpen.Rtc;
+USING AXOpen.Logging;
 
 NAMESPACE AXOpen.Core
     ///<summary>
@@ -10,9 +11,7 @@ NAMESPACE AXOpen.Core
         VAR PRIVATE                        
             _openCounter : ULINT;
             _closeCounter : ULINT;
-            _identityCounter : ULINT;   
-            _messagingLevel : eAxoMessageCategory;
-            _environment : IAxoContextEnvironment;	
+            _identityCounter : ULINT;                             
          END_VAR       
 
         ///<summary>
@@ -78,29 +77,26 @@ NAMESPACE AXOpen.Core
                 Rtc : IAxoRtc;
             END_VAR
             _rtc := Rtc;
-        END_METHOD
+        END_METHOD      
 
-        METHOD PUBLIC Environment : IAxoContextEnvironment
-            Environment := _environment;
-        END_METHOD
-
-        // METHOD PUBLIC SetContextEnvironment
-        //     VAR_INPUT
-        //         inContextEnvironnment : IAxoContextEnvironment;
-        //     END_VAR
-        //     _contextEnvironment := inContextEnvironnment;
-        // END_METHOD
-    END_CLASS    
-    
-    ///<summary>
-    /// Provides an empty RTC object for uninitialized RTC.
-    ///</summary>
-    CLASS PUBLIC _NULL_RTC IMPLEMENTS IAxoRtc
-        VAR PRIVATE
-            _null_time : LDATE_AND_TIME := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+        VAR PRIVATE            
+            NULL_LOGGER : _NULL_LOGGER;
+            _contextLogger : IAxoLogger;          
         END_VAR
-        METHOD PUBLIC NowUTC : LDATE_AND_TIME
-            NowUTC := _null_time;
+
+        METHOD PUBLIC GetLogger : IAxoLogger
+            IF(_contextLogger <> NULL) THEN
+                GetLogger := _contextLogger;
+            ELSE
+                GetLogger := NULL_LOGGER;    
+            END_IF;    
         END_METHOD
-    END_CLASS    
+        
+        METHOD PUBLIC InjectLogger
+            VAR_INPUT
+                _logger : IAxoLogger;
+            END_VAR
+            _contextLogger := _logger;
+        END_METHOD            
+    END_CLASS          
 END_NAMESPACE

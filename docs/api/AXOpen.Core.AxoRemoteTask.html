@@ -95,10 +95,10 @@
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinObject</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinElement</span></div>
     <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
-    <div><span class="xref">System.Windows.Input.ICommand</span></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
   </div>
@@ -108,13 +108,13 @@
       <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Restore">AxoTask.Restore()</a>
     </div>
     <div>
-      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_CanExecute_System_Object_">AxoTask.CanExecute(object)</a>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Abort">AxoTask.Abort()</a>
     </div>
     <div>
-      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Execute_System_Object_">AxoTask.Execute(object)</a>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ResumeTask">AxoTask.ResumeTask()</a>
     </div>
     <div>
-      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_CanExecuteChanged">AxoTask.CanExecuteChanged</a>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ExecuteAsync_System_Object_">AxoTask.ExecuteAsync(object)</a>
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Status">AxoTask.Status</a>
@@ -247,7 +247,7 @@
   <h6><strong>Assembly</strong>: ix_ax_axopen_core.dll</h6>
   <h5 id="AXOpen_Core_AxoRemoteTask_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoRemoteTask : AxoTask, ITwinObject, ITwinElement, IAxoObject, ICommand, IAxoTask, IAxoTaskState</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoRemoteTask : AxoTask, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoTask, IAxoTaskState</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -256,7 +256,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.%23ctor(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L21">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L25">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask__ctor_" data-uid="AXOpen.Core.AxoRemoteTask.#ctor*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Core.AxoRemoteTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">AxoRemoteTask(ITwinObject, string, string)</h4>
@@ -477,6 +477,66 @@
       </tr>
     </tbody>
   </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_TaskHasRemoteException.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.TaskHasRemoteException%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L21">View Source</a>
+  </span>
+  <a id="AXOpen_Core_AxoRemoteTask_TaskHasRemoteException_" data-uid="AXOpen.Core.AxoRemoteTask.TaskHasRemoteException*"></a>
+  <h4 id="AXOpen_Core_AxoRemoteTask_TaskHasRemoteException" data-uid="AXOpen.Core.AxoRemoteTask.TaskHasRemoteException">TaskHasRemoteException</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoMessenger TaskHasRemoteException { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXOpen.Messaging.Static.AxoMessenger.html">AxoMessenger</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_TaskNotInitialized.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.TaskNotInitialized%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L19">View Source</a>
+  </span>
+  <a id="AXOpen_Core_AxoRemoteTask_TaskNotInitialized_" data-uid="AXOpen.Core.AxoRemoteTask.TaskNotInitialized*"></a>
+  <h4 id="AXOpen_Core_AxoRemoteTask_TaskNotInitialized" data-uid="AXOpen.Core.AxoRemoteTask.TaskNotInitialized">TaskNotInitialized</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoMessenger TaskNotInitialized { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXOpen.Messaging.Static.AxoMessenger.html">AxoMessenger</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
   <span class="small pull-right mobile-hide">
@@ -484,7 +544,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_CreateEmptyPoco.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.CreateEmptyPoco%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L120">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L142">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_CreateEmptyPoco_" data-uid="AXOpen.Core.AxoRemoteTask.CreateEmptyPoco*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_CreateEmptyPoco" data-uid="AXOpen.Core.AxoRemoteTask.CreateEmptyPoco">CreateEmptyPoco()</h4>
@@ -668,7 +728,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_OnlineToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.OnlineToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L32">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L42">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_OnlineToPlain_" data-uid="AXOpen.Core.AxoRemoteTask.OnlineToPlain*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_OnlineToPlain__1" data-uid="AXOpen.Core.AxoRemoteTask.OnlineToPlain``1">OnlineToPlain&lt;T&gt;()</h4>
@@ -715,7 +775,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_OnlineToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.OnlineToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L37">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L47">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_OnlineToPlainAsync_" data-uid="AXOpen.Core.AxoRemoteTask.OnlineToPlainAsync*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_OnlineToPlainAsync" data-uid="AXOpen.Core.AxoRemoteTask.OnlineToPlainAsync">OnlineToPlainAsync()</h4>
@@ -745,7 +805,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoRemoteTask_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoRemoteTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L49">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L61">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_OnlineToPlainAsync_" data-uid="AXOpen.Core.AxoRemoteTask.OnlineToPlainAsync*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoRemoteTask_" data-uid="AXOpen.Core.AxoRemoteTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoRemoteTask)">OnlineToPlainAsync(AxoRemoteTask)</h4>
@@ -792,7 +852,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_PlainToOnline__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.PlainToOnline%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L59">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L73">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_PlainToOnline_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToOnline*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_PlainToOnline__1___0_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToOnline``1(``0)">PlainToOnline&lt;T&gt;(T)</h4>
@@ -856,7 +916,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoRemoteTask_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoRemoteTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L64">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L78">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_PlainToOnlineAsync_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToOnlineAsync*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoRemoteTask_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoRemoteTask)">PlainToOnlineAsync(AxoRemoteTask)</h4>
@@ -903,7 +963,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_PlainToShadow__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.PlainToShadow%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L100">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L120">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_PlainToShadow_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToShadow*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_PlainToShadow__1___0_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToShadow``1(``0)">PlainToShadow&lt;T&gt;(T)</h4>
@@ -967,7 +1027,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoRemoteTask_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoRemoteTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L105">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L125">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_PlainToShadowAsync_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToShadowAsync*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoRemoteTask_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoRemoteTask)">PlainToShadowAsync(AxoRemoteTask)</h4>
@@ -1014,7 +1074,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_Poll.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.Poll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L115">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L137">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_Poll_" data-uid="AXOpen.Core.AxoRemoteTask.Poll*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_Poll" data-uid="AXOpen.Core.AxoRemoteTask.Poll">Poll()</h4>
@@ -1060,7 +1120,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_ShadowToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.ShadowToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L74">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L90">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_ShadowToPlain_" data-uid="AXOpen.Core.AxoRemoteTask.ShadowToPlain*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_ShadowToPlain__1" data-uid="AXOpen.Core.AxoRemoteTask.ShadowToPlain``1">ShadowToPlain&lt;T&gt;()</h4>
@@ -1107,7 +1167,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_ShadowToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.ShadowToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L79">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L95">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_ShadowToPlainAsync_" data-uid="AXOpen.Core.AxoRemoteTask.ShadowToPlainAsync*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_ShadowToPlainAsync" data-uid="AXOpen.Core.AxoRemoteTask.ShadowToPlainAsync">ShadowToPlainAsync()</h4>
@@ -1137,7 +1197,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoRemoteTask_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoRemoteTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L90">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L108">View Source</a>
   </span>
   <a id="AXOpen_Core_AxoRemoteTask_ShadowToPlainAsync_" data-uid="AXOpen.Core.AxoRemoteTask.ShadowToPlainAsync*"></a>
   <h4 id="AXOpen_Core_AxoRemoteTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoRemoteTask_" data-uid="AXOpen.Core.AxoRemoteTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoRemoteTask)">ShadowToPlainAsync(AxoRemoteTask)</h4>
@@ -1212,6 +1272,9 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
   </table>
   <h3 id="implements">Implements</h3>
   <div>
+      <span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span>
+  </div>
+  <div>
       <span class="xref">AXSharp.Connector.ITwinObject</span>
   </div>
   <div>
@@ -1219,9 +1282,6 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
   </div>
   <div>
       <a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a>
-  </div>
-  <div>
-      <span class="xref">System.Windows.Input.ICommand</span>
   </div>
   <div>
       <a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a>
