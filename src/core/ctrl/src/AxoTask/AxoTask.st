@@ -66,7 +66,7 @@ NAMESPACE AXOpen.Core
         VAR PRIVATE
             _openCycleCountInvoke : ULINT;
             _openCycleCountExecute : ULINT;
-            _taskTimer : System.Timer.OnDelay;
+            _taskTimer : System.Timer.OnDelay;          
         END_VAR 
         
         ///<summary>
@@ -203,10 +203,10 @@ NAMESPACE AXOpen.Core
             // task should not be Invoked, if the execute method was not called in this or previous PLC cycle
             IF Status = eAxoTaskState#Ready THEN
                 IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
-                    Status := eAxoTaskState#Kicking;
-                    THIS.GetContext().GetLogger().Log('Task invoked', eLogLevel#Verbose, THIS);
+                    Status := eAxoTaskState#Kicking;                    
+                    THIS.LogTask('Task invoked', eLogLevel#Verbose, THIS);
                 ELSE
-                    THIS.GetContext().GetLogger().Log('Cyclic execute is not called', eLogLevel#Debug, THIS);
+                    THIS.LogTask('Cyclic execute is not called', eLogLevel#Debug, THIS);
                 END_IF;     
             END_IF;     
 
@@ -218,7 +218,7 @@ NAMESPACE AXOpen.Core
         ///</summary>    
         METHOD PUBLIC Restore : IAxoTaskState
             IF(Status <> eAxoTaskState#Ready AND Status <> eAxoTaskState#Disabled) THEN
-                THIS.GetContext().GetLogger().Log('Task restored', eLogLevel#Verbose, THIS);
+                THIS.LogTask('Task restored', eLogLevel#Verbose, THIS);
             END_IF;    
             Status := eAxoTaskState#Ready; 
             ErrorDetails := '';   
@@ -237,7 +237,7 @@ NAMESPACE AXOpen.Core
             END_VAR
               
             IF Condition AND Status = eAxoTaskState#Busy THEN   
-                THIS.GetContext().GetLogger().Log('Task done.', eLogLevel#Verbose, THIS);
+                THIS.LogTask('Task done.', eLogLevel#Verbose, THIS);
                 Status := eAxoTaskState#Done;
                 THIS.OnDone();
             END_IF;    
@@ -272,7 +272,7 @@ NAMESPACE AXOpen.Core
                   
                 // Don't touch this, it is used for remote execs.
                 StartSignature := THIS.GetContext().OpenCycleCount();    
-                THIS.GetContext().GetLogger().Log('Task started.', eLogLevel#Verbose, THIS);                       
+                THIS.LogTask('Task started.', eLogLevel#Verbose, THIS);                       
                 THIS.OnStart();
             END_IF;    
 
@@ -286,6 +286,20 @@ NAMESPACE AXOpen.Core
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;             
         END_METHOD    
 
+        METHOD PRIVATE LogTask 
+            VAR_INPUT
+                _message : STRING[80];
+                _level : eLogLevel;
+                _sender : IAxoObject;
+            END_VAR
+            VAR
+                _castIIAxoStep : IAxoStep;
+            END_VAR               
+            _castIIAxoStep ?= _sender;
+            IF(_castIIAxoStep <> NULL) THEN RETURN; END_IF;            
+            THIS.GetContext().GetLogger().Log(_message, _level, THIS);       
+        END_METHOD
+
         ///<summary>
         /// Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`
         /// task in error state stops its execution.
@@ -297,13 +311,13 @@ NAMESPACE AXOpen.Core
 
             IF(HasErrorState) THEN
                 Status := eAxoTaskState#Error;  
-                THIS.GetContext().GetLogger().Log('Task failed', eLogLevel#Error, THIS);             
+                THIS.LogTask('Task failed', eLogLevel#Error, THIS);             
                 THIS.OnError();  
                 THIS.WhileError();   
             END_IF;    
         END_METHOD    
     
-         ///<summary>
+        ///<summary>
         /// Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`
         /// task in error state stops its execution.
         ///</summary>    
@@ -314,7 +328,7 @@ NAMESPACE AXOpen.Core
             END_VAR            
             IF(HasErrorState) THEN                
                 ErrorDetails :=  ErrorDescription; 
-                THIS.GetContext().GetLogger().Log(ErrorDetails, eLogLevel#Verbose, THIS);  
+                THIS.LogTask(ErrorDetails, eLogLevel#Verbose, THIS);  
             END_IF;    
             THIS.ThrowWhen(HasErrorState);        
         END_METHOD    

@@ -31,40 +31,7 @@ builder.Services.AddIxBlazorServices();
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
-
-
-Entry.Plc.Connector.IdentityProvider.ReadIdentities();
-var identities = Entry.Plc.Context.GetChildren().Flatten(p => p.GetChildren()).OfType<ITwinIdentity>()
-    .Select(p => p.Identity);
-
-
-var lastIdentity = identities.Max(p => p.LastValue);
-
-foreach (var identity in identities)
-{
-    if (identity.LastValue == 0)
-    {
-        identity.Cyclic = ++lastIdentity;
-    }
-}
-
-await Entry.Plc.Connector.WriteBatchAsync(identities);
-
-await Entry.Plc.Connector.ReadBatchAsync(identities);
-
-foreach (var identity in identities)
-{
-    Console.WriteLine($"{identity.Symbol} : {identity.LastValue}");
-}
-
-
-Entry.Plc.Connector.IdentityProvider.RefreshIdentities();
-
-foreach (var identity in identities)
-{
-    Console.WriteLine($"{identity.Symbol} : {identity.LastValue}");
-}
-
+await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));

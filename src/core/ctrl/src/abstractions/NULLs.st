@@ -58,7 +58,7 @@ NAMESPACE AXOpen.Core
             END_VAR   
             ;         
         END_METHOD   
-        
+               
         METHOD PUBLIC Log 
             VAR_INPUT
                 _message : STRING[80];

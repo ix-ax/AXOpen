@@ -36,18 +36,12 @@ namespace AXOpen.Logging
             {
                 await this.ReadAsync();
 
+                var index = 0;
                 foreach (var entry in this.LogEntries.Where(p => p.ToDequeue.LastValue))
                 {
                     var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(entry.Sender.LastValue) as ITwinObject;
                     var message = string.Empty;
                     var level = (eLogLevel)entry.Level.LastValue;
-
-
-                    if (sender == null)
-                    {
-                        //var a =this.Connector.IdentityProvider.Identities[entry.Sender.LastValue];
-                        Console.Write(entry.Sender.LastValue);
-                    }
 
                     switch (sender)
                     {
@@ -57,12 +51,15 @@ namespace AXOpen.Logging
                         case AxoStep step:
                             message = $"{entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
                             break;
+                        case null:
+                            message = $"!!!{message} : [no identity provided '{entry.Sender.LastValue}']";
+                            break;
                         default:
                             message = entry.Message.LastValue;
                             break;
                     }
 
-                    CreateLogEntry(level, message, sender);
+                    CreateLogEntry(level, $"{message}", sender);
 
                     await entry.ToDequeue.SetAsync(false);
                 }

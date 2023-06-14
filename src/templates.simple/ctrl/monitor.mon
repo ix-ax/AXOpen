@@ -1,4 +1,4 @@
-Context.PneumaticManipulator.AutomatSequence
+ContextLogger.LogEntries
 # Context.PneumaticManipulator.ProcessData.Operation
 #Context.PneumaticManipulator.ProcessData.Data.CreateTask.ErrorDetails
 #Context.PneumaticManipulator.ProcessData.Shared.CreateTask.ErrorDetails

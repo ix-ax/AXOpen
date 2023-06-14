@@ -16,6 +16,6 @@ PROGRAM MyProgram
     Context.InjectLogger(ContextLogger);
     // Executes the main context of this application.
     Context.Run();     
- 
+     
 
 END_PROGRAM

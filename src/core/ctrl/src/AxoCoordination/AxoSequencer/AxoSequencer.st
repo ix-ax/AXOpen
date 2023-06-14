@@ -44,6 +44,7 @@ NAMESPACE AXOpen.Core
                         THIS.OnBeforeSequenceStart();
                         CurrentOrder := ULINT#1;
                         _coordinatorState := AxoCoordinatorStates#Running;
+                        THIS.GetContext().GetLogger().Log('Sequence in config state :', AXOpen.Logging.eLogLevel#Verbose, THIS);
                 END_CASE;    
                 Open := TRUE;
             END_IF;
@@ -118,6 +119,7 @@ NAMESPACE AXOpen.Core
                 IF step.GetIsActive() AND (step.IsReady() OR step.IsDone() OR SteppingMode = eAxoSteppingMode#StepByStep) THEN
                     IF (SteppingMode = eAxoSteppingMode#Continous) THEN
                         step.Invoke();
+                        THIS.GetContext().GetLogger().Log('Starts step :', AXOpen.Logging.eLogLevel#Verbose, step);
                     // Invoke the step in a case of step mode when StepIn Command is invoked
                     ELSIF (SteppingMode = eAxoSteppingMode#StepByStep) THEN
                         IF StepIn.Execute() THEN
@@ -140,6 +142,7 @@ NAMESPACE AXOpen.Core
             IF SUPER.Execute() THEN
                 IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
                 IF _coordinatorState = AxoCoordinatorStates#Running THEN
+                    THIS.GetContext().GetLogger().Log('Step done :', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
                     CurrentOrder := CurrentOrder + ULINT#1;
@@ -158,8 +161,9 @@ NAMESPACE AXOpen.Core
             END_VAR
             IF SUPER.Execute() THEN
                 IF THIS.InvalidContext(RequestedStep) THEN RETURN; END_IF;         
-                IF RequestedStep.GetStepOrder() <> ULINT#0 AND
+                IF RequestedStep.GetStepOrder() <> ULINT#0 AND                    
                     _coordinatorState = AxoCoordinatorStates#Running THEN
+                    THIS.GetContext().GetLogger().Log('Step request to step :', AXOpen.Logging.eLogLevel#Verbose, RequestedStep);
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
                     CurrentOrder := RequestedStep.GetStepOrder();
@@ -185,6 +189,7 @@ NAMESPACE AXOpen.Core
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
                     THIS.OnCompleteSequence();
+                    THIS.GetContext().GetLogger().Log('Sequence completed :', AXOpen.Logging.eLogLevel#Verbose, THIS);
                 END_IF;
             END_IF;
         END_METHOD    
