@@ -68,14 +68,30 @@ namespace AxOpen.Security.Views
 
         public void AssignRoles()
         {
-            _roleGroupManager.AddRolesToGroup(SelectedGroupN.Name, AvailableRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
+            var result = _roleGroupManager.AddRolesToGroup(SelectedGroupN.Name, AvailableRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
+            if (result.Succeeded)
+            {
+                _alertDialogService.AddAlertDialog("Success", "Updated!", "Group successfully updated!", 10);
+            }
+            else
+            {
+                _alertDialogService.AddAlertDialog("Warning", "Not updated!", "Group was not updated.", 10);
+            }
             GroupClicked(SelectedGroupN);
             SelectAllAvailable = false;
         }
 
         public void ReturnRoles()
         {
-            _roleGroupManager.RemoveRolesFromGroup(SelectedGroupN.Name, AssignedRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
+            var result = _roleGroupManager.RemoveRolesFromGroup(SelectedGroupN.Name, AssignedRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
+            if (result.Succeeded)
+            {
+                _alertDialogService.AddAlertDialog("Success", "Updated!", "Group successfully updated!", 10);
+            }
+            else
+            {
+                _alertDialogService.AddAlertDialog("Warning", "Not updated!", "Group was not updated.", 10);
+            }
             GroupClicked(SelectedGroupN);
             SelectAllAssigned = false;
         }
