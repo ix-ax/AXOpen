@@ -18,8 +18,6 @@ PROGRAM MyProgram
 
         AxoDataExamplesDocu : AxoDataExamplesDocu.Context;
 
-        vmTest : VmT.VmTest;
-
         AxoMessengers : AxoStaticMessengerExample.Messengers;
         AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
 

@@ -1,7 +1,0 @@
-NAMESPACE AXOpen.Core
-    CLASS PUBLIC AxoAlertDialog
-        VAR PUBLIC      
-
-        END_VAR
-    END_CLASS
-END_NAMESPACE

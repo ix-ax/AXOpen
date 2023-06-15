@@ -1,6 +1,5 @@
 ﻿@page "/"
 @using AXSharp.Abstractions.Dialogs.AlertDialog;
-@using AXSharp.Presentation.Blazor.Controls.Dialogs.ActionDialog
 @using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 @inject IAlertDialogService DialogService
 
@@ -13,17 +12,9 @@ Welcome to your new app.
 
 <button type="button" class="btn btn-primary" @onclick="CreateToast">Add Toast</button>
 
-
-@if (_dialogService != null )
-{
-    //<TcoDialogLocatorView DialogService="_dialogService" DialogId="AxoSequencerContainer"></TcoDialogLocatorView>
-}
-
 @code {
     public void CreateToast()
     {
         DialogService.AddAlertDialog("Success", "Test", "test", 30);
     }
-
-    public static DialogProxyServiceBlazor _dialogService { get; set; } = DialogProxyServiceBlazor.Create(new[] { Entry.Plc.AxoSequencerContainer });
 }
