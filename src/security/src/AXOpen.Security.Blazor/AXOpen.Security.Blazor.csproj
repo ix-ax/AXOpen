@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.110" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
@@ -22,11 +23,5 @@
 
   <ItemGroup>
 	  <ProjectReference Include="..\AXOpen.Security\AXOpen.Security.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="AXSharp.Abstractions">
-      <HintPath>..\..\..\..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\obj\Debug\net7.0\ref\AXSharp.Abstractions.dll</HintPath>
-    </Reference>
   </ItemGroup>
 </Project>
