@@ -1,4 +1,5 @@
 ﻿@page "/Identity/Account/Manage"
+@using AXSharp.Abstractions.Dialogs.AlertDialog;
 @using AxOpen.Security.Entities;
 @using AxOpen.Security.Models;
 @using AxOpen.Security.Services;
@@ -9,6 +10,7 @@
 @inject UserManager<User> _userManager
 @inject SignInManager<User> _signInManager
 @inject IRepositoryService _repositoryService
+@inject IAlertDialogService _alertDialogService
 @inject AuthenticationStateProvider _authenticationStateProvider
 
 <AuthorizeView>
@@ -96,12 +98,12 @@
         if (result.Succeeded)
         {
             _signInManager.RefreshSignInAsync(_user);
-            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Updated!", "User succesfully updated.", 10)));
+            _alertDialogService.AddAlertDialog("Success", "Updated!", "User succesfully updated.", 10);
             //TcoAppDomain.Current.Logger.Information($"User '{_user.UserName}' has changed.{{payload}}", new { UserName = _user.UserName, Email = _user.Email, CanChangePassword = _user.CanUserChangePassword, Group = string.Join(",", _user.Roles) });
         }
         else
         {
-            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Not updated!", "User was not updated.", 10)));
+            _alertDialogService.AddAlertDialog("Success", "Not updated!", "User was not updated.", 10);
         }
     }
 

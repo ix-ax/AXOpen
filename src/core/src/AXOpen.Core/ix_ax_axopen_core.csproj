@@ -8,8 +8,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.108" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.108" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.110" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.0-alpha.110" />
 		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
