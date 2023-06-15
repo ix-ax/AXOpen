@@ -1,12 +1,12 @@
-﻿<div class="ms-1">
+﻿@implements IDisposable
+<div class="ms-1">
     <nav aria-label="breadcrumb" class="ms-3">
         <ol class="breadcrumb">
             @foreach (var link in uri)
             {
                 if (link != uri.Last())
                 {
-                    partialLink += "/" + link;
-                    <li class="breadcrumb-item h5"><a href="@partialLink">@link</a></li>
+                    <li class="breadcrumb-item h5"><a href="@string.Join("/", uri.Take(Array.IndexOf(uri, link) + 1))">@link</a></li>
                 }
                 else
                 {
@@ -19,14 +19,25 @@
 
 @code {
     [Inject]
-    private NavigationManager? MyNavigationManager { get; set; }
+    private NavigationManager MyNavigationManager { get; set; }
 
     public string[] uri { get; set; }
-
-    private string partialLink { get; set; }
 
     protected override void OnInitialized()
     {
         uri = MyNavigationManager.ToBaseRelativePath(MyNavigationManager.Uri).Split('/');
+
+        MyNavigationManager.LocationChanged += LocationChanged;
+    }
+
+    void LocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        uri = MyNavigationManager.ToBaseRelativePath(e.Location).Split('/');
+        StateHasChanged();
+    }
+
+    void IDisposable.Dispose()
+    {
+        MyNavigationManager.LocationChanged -= LocationChanged;
     }
 }
