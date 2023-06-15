@@ -4403,13 +4403,13 @@ references:
   fullName: AXOpen.Core.AxoTask.ErrorDetails
   nameWithType: AxoTask.ErrorDetails
 - uid: AXOpen.Core.AxoTask.ExecuteAsync(System.Object)
-  name: ExecuteAsync(object)
+  name: ExecuteAsync(object?)
   href: api/AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ExecuteAsync_System_Object_
   commentId: M:AXOpen.Core.AxoTask.ExecuteAsync(System.Object)
   name.vb: ExecuteAsync(Object)
-  fullName: AXOpen.Core.AxoTask.ExecuteAsync(object)
+  fullName: AXOpen.Core.AxoTask.ExecuteAsync(object?)
   fullName.vb: AXOpen.Core.AxoTask.ExecuteAsync(Object)
-  nameWithType: AxoTask.ExecuteAsync(object)
+  nameWithType: AxoTask.ExecuteAsync(object?)
   nameWithType.vb: AxoTask.ExecuteAsync(Object)
 - uid: AXOpen.Core.AxoTask.ExecuteAsync*
   name: ExecuteAsync
@@ -4745,6 +4745,19 @@ references:
   commentId: T:AXOpen.Core.AxoTaskView
   fullName: AXOpen.Core.AxoTaskView
   nameWithType: AxoTaskView
+- uid: AXOpen.Core.AxoTaskView.AuthenticationStateProvider
+  name: AuthenticationStateProvider
+  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_AuthenticationStateProvider
+  commentId: P:AXOpen.Core.AxoTaskView.AuthenticationStateProvider
+  fullName: AXOpen.Core.AxoTaskView.AuthenticationStateProvider
+  nameWithType: AxoTaskView.AuthenticationStateProvider
+- uid: AXOpen.Core.AxoTaskView.AuthenticationStateProvider*
+  name: AuthenticationStateProvider
+  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_AuthenticationStateProvider_
+  commentId: Overload:AXOpen.Core.AxoTaskView.AuthenticationStateProvider
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoTaskView.AuthenticationStateProvider
+  nameWithType: AxoTaskView.AuthenticationStateProvider
 - uid: AXOpen.Core.AxoTaskView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
   name: BuildRenderTree(RenderTreeBuilder)
   href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
@@ -4784,6 +4797,32 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.AxoTaskView.Disable
   nameWithType: AxoTaskView.Disable
+- uid: AXOpen.Core.AxoTaskView.GetCurrentUserIdentity
+  name: GetCurrentUserIdentity()
+  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_GetCurrentUserIdentity
+  commentId: M:AXOpen.Core.AxoTaskView.GetCurrentUserIdentity
+  fullName: AXOpen.Core.AxoTaskView.GetCurrentUserIdentity()
+  nameWithType: AxoTaskView.GetCurrentUserIdentity()
+- uid: AXOpen.Core.AxoTaskView.GetCurrentUserIdentity*
+  name: GetCurrentUserIdentity
+  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_GetCurrentUserIdentity_
+  commentId: Overload:AXOpen.Core.AxoTaskView.GetCurrentUserIdentity
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoTaskView.GetCurrentUserIdentity
+  nameWithType: AxoTaskView.GetCurrentUserIdentity
+- uid: AXOpen.Core.AxoTaskView.GetCurrentUserName
+  name: GetCurrentUserName()
+  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_GetCurrentUserName
+  commentId: M:AXOpen.Core.AxoTaskView.GetCurrentUserName
+  fullName: AXOpen.Core.AxoTaskView.GetCurrentUserName()
+  nameWithType: AxoTaskView.GetCurrentUserName()
+- uid: AXOpen.Core.AxoTaskView.GetCurrentUserName*
+  name: GetCurrentUserName
+  href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_GetCurrentUserName_
+  commentId: Overload:AXOpen.Core.AxoTaskView.GetCurrentUserName
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoTaskView.GetCurrentUserName
+  nameWithType: AxoTaskView.GetCurrentUserName
 - uid: AXOpen.Core.AxoTaskView.HideRestoreButton
   name: HideRestoreButton
   href: api/AXOpen.Core.AxoTaskView.html#AXOpen_Core_AxoTaskView_HideRestoreButton
@@ -5123,6 +5162,19 @@ references:
   commentId: T:AXOpen.Core.AxoToggleTaskView
   fullName: AXOpen.Core.AxoToggleTaskView
   nameWithType: AxoToggleTaskView
+- uid: AXOpen.Core.AxoToggleTaskView.AuthenticationStateProvider
+  name: AuthenticationStateProvider
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_AuthenticationStateProvider
+  commentId: P:AXOpen.Core.AxoToggleTaskView.AuthenticationStateProvider
+  fullName: AXOpen.Core.AxoToggleTaskView.AuthenticationStateProvider
+  nameWithType: AxoToggleTaskView.AuthenticationStateProvider
+- uid: AXOpen.Core.AxoToggleTaskView.AuthenticationStateProvider*
+  name: AuthenticationStateProvider
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_AuthenticationStateProvider_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskView.AuthenticationStateProvider
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTaskView.AuthenticationStateProvider
+  nameWithType: AxoToggleTaskView.AuthenticationStateProvider
 - uid: AXOpen.Core.AxoToggleTaskView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
   name: BuildRenderTree(RenderTreeBuilder)
   href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
@@ -5175,6 +5227,32 @@ references:
   isSpec: "True"
   fullName: AXOpen.Core.AxoToggleTaskView.Dispose
   nameWithType: AxoToggleTaskView.Dispose
+- uid: AXOpen.Core.AxoToggleTaskView.GetCurrentUserIdentity
+  name: GetCurrentUserIdentity()
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_GetCurrentUserIdentity
+  commentId: M:AXOpen.Core.AxoToggleTaskView.GetCurrentUserIdentity
+  fullName: AXOpen.Core.AxoToggleTaskView.GetCurrentUserIdentity()
+  nameWithType: AxoToggleTaskView.GetCurrentUserIdentity()
+- uid: AXOpen.Core.AxoToggleTaskView.GetCurrentUserIdentity*
+  name: GetCurrentUserIdentity
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_GetCurrentUserIdentity_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskView.GetCurrentUserIdentity
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTaskView.GetCurrentUserIdentity
+  nameWithType: AxoToggleTaskView.GetCurrentUserIdentity
+- uid: AXOpen.Core.AxoToggleTaskView.GetCurrentUserName
+  name: GetCurrentUserName()
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_GetCurrentUserName
+  commentId: M:AXOpen.Core.AxoToggleTaskView.GetCurrentUserName
+  fullName: AXOpen.Core.AxoToggleTaskView.GetCurrentUserName()
+  nameWithType: AxoToggleTaskView.GetCurrentUserName()
+- uid: AXOpen.Core.AxoToggleTaskView.GetCurrentUserName*
+  name: GetCurrentUserName
+  href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_GetCurrentUserName_
+  commentId: Overload:AXOpen.Core.AxoToggleTaskView.GetCurrentUserName
+  isSpec: "True"
+  fullName: AXOpen.Core.AxoToggleTaskView.GetCurrentUserName
+  nameWithType: AxoToggleTaskView.GetCurrentUserName
 - uid: AXOpen.Core.AxoToggleTaskView.IsDisabled
   name: IsDisabled
   href: api/AXOpen.Core.AxoToggleTaskView.html#AXOpen_Core_AxoToggleTaskView_IsDisabled
@@ -12899,58 +12977,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
   nameWithType: AxoMessenger.AcknowledgeRequest
-- uid: AXOpen.Messaging.Static.AxoMessenger.AddChild(AXSharp.Connector.ITwinObject)
-  name: AddChild(ITwinObject)
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_AddChild_AXSharp_Connector_ITwinObject_
-  commentId: M:AXOpen.Messaging.Static.AxoMessenger.AddChild(AXSharp.Connector.ITwinObject)
-  fullName: AXOpen.Messaging.Static.AxoMessenger.AddChild(AXSharp.Connector.ITwinObject)
-  nameWithType: AxoMessenger.AddChild(ITwinObject)
-- uid: AXOpen.Messaging.Static.AxoMessenger.AddChild*
-  name: AddChild
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_AddChild_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.AddChild
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.AddChild
-  nameWithType: AxoMessenger.AddChild
-- uid: AXOpen.Messaging.Static.AxoMessenger.AddKid(AXSharp.Connector.ITwinElement)
-  name: AddKid(ITwinElement)
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_AddKid_AXSharp_Connector_ITwinElement_
-  commentId: M:AXOpen.Messaging.Static.AxoMessenger.AddKid(AXSharp.Connector.ITwinElement)
-  fullName: AXOpen.Messaging.Static.AxoMessenger.AddKid(AXSharp.Connector.ITwinElement)
-  nameWithType: AxoMessenger.AddKid(ITwinElement)
-- uid: AXOpen.Messaging.Static.AxoMessenger.AddKid*
-  name: AddKid
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_AddKid_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.AddKid
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.AddKid
-  nameWithType: AxoMessenger.AddKid
-- uid: AXOpen.Messaging.Static.AxoMessenger.AddValueTag(AXSharp.Connector.ITwinPrimitive)
-  name: AddValueTag(ITwinPrimitive)
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_AddValueTag_AXSharp_Connector_ITwinPrimitive_
-  commentId: M:AXOpen.Messaging.Static.AxoMessenger.AddValueTag(AXSharp.Connector.ITwinPrimitive)
-  fullName: AXOpen.Messaging.Static.AxoMessenger.AddValueTag(AXSharp.Connector.ITwinPrimitive)
-  nameWithType: AxoMessenger.AddValueTag(ITwinPrimitive)
-- uid: AXOpen.Messaging.Static.AxoMessenger.AddValueTag*
-  name: AddValueTag
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_AddValueTag_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.AddValueTag
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.AddValueTag
-  nameWithType: AxoMessenger.AddValueTag
-- uid: AXOpen.Messaging.Static.AxoMessenger.AttributeName
-  name: AttributeName
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_AttributeName
-  commentId: P:AXOpen.Messaging.Static.AxoMessenger.AttributeName
-  fullName: AXOpen.Messaging.Static.AxoMessenger.AttributeName
-  nameWithType: AxoMessenger.AttributeName
-- uid: AXOpen.Messaging.Static.AxoMessenger.AttributeName*
-  name: AttributeName
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_AttributeName_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.AttributeName
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.AttributeName
-  nameWithType: AxoMessenger.AttributeName
 - uid: AXOpen.Messaging.Static.AxoMessenger.Category
   name: Category
   href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Category
@@ -12964,19 +12990,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Messaging.Static.AxoMessenger.Category
   nameWithType: AxoMessenger.Category
-- uid: AXOpen.Messaging.Static.AxoMessenger.Connector
-  name: Connector
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Connector
-  commentId: P:AXOpen.Messaging.Static.AxoMessenger.Connector
-  fullName: AXOpen.Messaging.Static.AxoMessenger.Connector
-  nameWithType: AxoMessenger.Connector
-- uid: AXOpen.Messaging.Static.AxoMessenger.Connector*
-  name: Connector
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Connector_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.Connector
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.Connector
-  nameWithType: AxoMessenger.Connector
 - uid: AXOpen.Messaging.Static.AxoMessenger.CreateEmptyPoco
   name: CreateEmptyPoco()
   href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_CreateEmptyPoco
@@ -13003,84 +13016,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Messaging.Static.AxoMessenger.Fallen
   nameWithType: AxoMessenger.Fallen
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetChildren
-  name: GetChildren()
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetChildren
-  commentId: M:AXOpen.Messaging.Static.AxoMessenger.GetChildren
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetChildren()
-  nameWithType: AxoMessenger.GetChildren()
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetChildren*
-  name: GetChildren
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetChildren_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.GetChildren
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetChildren
-  nameWithType: AxoMessenger.GetChildren
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetConnector
-  name: GetConnector()
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetConnector
-  commentId: M:AXOpen.Messaging.Static.AxoMessenger.GetConnector
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetConnector()
-  nameWithType: AxoMessenger.GetConnector()
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetConnector*
-  name: GetConnector
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetConnector_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.GetConnector
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetConnector
-  nameWithType: AxoMessenger.GetConnector
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetKids
-  name: GetKids()
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetKids
-  commentId: M:AXOpen.Messaging.Static.AxoMessenger.GetKids
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetKids()
-  nameWithType: AxoMessenger.GetKids()
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetKids*
-  name: GetKids
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetKids_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.GetKids
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetKids
-  nameWithType: AxoMessenger.GetKids
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetParent
-  name: GetParent()
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetParent
-  commentId: M:AXOpen.Messaging.Static.AxoMessenger.GetParent
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetParent()
-  nameWithType: AxoMessenger.GetParent()
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetParent*
-  name: GetParent
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetParent_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.GetParent
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetParent
-  nameWithType: AxoMessenger.GetParent
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetSymbolTail
-  name: GetSymbolTail()
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetSymbolTail
-  commentId: M:AXOpen.Messaging.Static.AxoMessenger.GetSymbolTail
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetSymbolTail()
-  nameWithType: AxoMessenger.GetSymbolTail()
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetSymbolTail*
-  name: GetSymbolTail
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetSymbolTail_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.GetSymbolTail
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetSymbolTail
-  nameWithType: AxoMessenger.GetSymbolTail
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetValueTags
-  name: GetValueTags()
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetValueTags
-  commentId: M:AXOpen.Messaging.Static.AxoMessenger.GetValueTags
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetValueTags()
-  nameWithType: AxoMessenger.GetValueTags()
-- uid: AXOpen.Messaging.Static.AxoMessenger.GetValueTags*
-  name: GetValueTags
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_GetValueTags_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.GetValueTags
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.GetValueTags
-  nameWithType: AxoMessenger.GetValueTags
 - uid: AXOpen.Messaging.Static.AxoMessenger.Help
   name: Help
   href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Help
@@ -13094,32 +13029,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Messaging.Static.AxoMessenger.Help
   nameWithType: AxoMessenger.Help
-- uid: AXOpen.Messaging.Static.AxoMessenger.HumanReadable
-  name: HumanReadable
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_HumanReadable
-  commentId: P:AXOpen.Messaging.Static.AxoMessenger.HumanReadable
-  fullName: AXOpen.Messaging.Static.AxoMessenger.HumanReadable
-  nameWithType: AxoMessenger.HumanReadable
-- uid: AXOpen.Messaging.Static.AxoMessenger.HumanReadable*
-  name: HumanReadable
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_HumanReadable_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.HumanReadable
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.HumanReadable
-  nameWithType: AxoMessenger.HumanReadable
-- uid: AXOpen.Messaging.Static.AxoMessenger.Interpreter
-  name: Interpreter
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Interpreter
-  commentId: P:AXOpen.Messaging.Static.AxoMessenger.Interpreter
-  fullName: AXOpen.Messaging.Static.AxoMessenger.Interpreter
-  nameWithType: AxoMessenger.Interpreter
-- uid: AXOpen.Messaging.Static.AxoMessenger.Interpreter*
-  name: Interpreter
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Interpreter_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.Interpreter
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.Interpreter
-  nameWithType: AxoMessenger.Interpreter
 - uid: AXOpen.Messaging.Static.AxoMessenger.IsActive
   name: IsActive
   href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_IsActive
@@ -13194,19 +13103,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Messaging.Static.AxoMessenger.OnlineToPlainAsync
   nameWithType: AxoMessenger.OnlineToPlainAsync
-- uid: AXOpen.Messaging.Static.AxoMessenger.Parent
-  name: Parent
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Parent
-  commentId: P:AXOpen.Messaging.Static.AxoMessenger.Parent
-  fullName: AXOpen.Messaging.Static.AxoMessenger.Parent
-  nameWithType: AxoMessenger.Parent
-- uid: AXOpen.Messaging.Static.AxoMessenger.Parent*
-  name: Parent
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Parent_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.Parent
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.Parent
-  nameWithType: AxoMessenger.Parent
 - uid: AXOpen.Messaging.Static.AxoMessenger.PlainToOnline*
   name: PlainToOnline
   href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_PlainToOnline_
@@ -13326,32 +13222,6 @@ references:
   isSpec: "True"
   fullName: AXOpen.Messaging.Static.AxoMessenger.ShadowToPlainAsync
   nameWithType: AxoMessenger.ShadowToPlainAsync
-- uid: AXOpen.Messaging.Static.AxoMessenger.Symbol
-  name: Symbol
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Symbol
-  commentId: P:AXOpen.Messaging.Static.AxoMessenger.Symbol
-  fullName: AXOpen.Messaging.Static.AxoMessenger.Symbol
-  nameWithType: AxoMessenger.Symbol
-- uid: AXOpen.Messaging.Static.AxoMessenger.Symbol*
-  name: Symbol
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_Symbol_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.Symbol
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.Symbol
-  nameWithType: AxoMessenger.Symbol
-- uid: AXOpen.Messaging.Static.AxoMessenger.SymbolTail
-  name: SymbolTail
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_SymbolTail
-  commentId: P:AXOpen.Messaging.Static.AxoMessenger.SymbolTail
-  fullName: AXOpen.Messaging.Static.AxoMessenger.SymbolTail
-  nameWithType: AxoMessenger.SymbolTail
-- uid: AXOpen.Messaging.Static.AxoMessenger.SymbolTail*
-  name: SymbolTail
-  href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_SymbolTail_
-  commentId: Overload:AXOpen.Messaging.Static.AxoMessenger.SymbolTail
-  isSpec: "True"
-  fullName: AXOpen.Messaging.Static.AxoMessenger.SymbolTail
-  nameWithType: AxoMessenger.SymbolTail
 - uid: AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge
   name: WaitingForAcknowledge
   href: api/AXOpen.Messaging.Static.AxoMessenger.html#AXOpen_Messaging_Static_AxoMessenger_WaitingForAcknowledge
@@ -13421,6 +13291,19 @@ references:
   commentId: T:AXOpen.Messaging.Static.AxoMessengerView
   fullName: AXOpen.Messaging.Static.AxoMessengerView
   nameWithType: AxoMessengerView
+- uid: AXOpen.Messaging.Static.AxoMessengerView.AuthenticationStateProvider
+  name: AuthenticationStateProvider
+  href: api/AXOpen.Messaging.Static.AxoMessengerView.html#AXOpen_Messaging_Static_AxoMessengerView_AuthenticationStateProvider
+  commentId: P:AXOpen.Messaging.Static.AxoMessengerView.AuthenticationStateProvider
+  fullName: AXOpen.Messaging.Static.AxoMessengerView.AuthenticationStateProvider
+  nameWithType: AxoMessengerView.AuthenticationStateProvider
+- uid: AXOpen.Messaging.Static.AxoMessengerView.AuthenticationStateProvider*
+  name: AuthenticationStateProvider
+  href: api/AXOpen.Messaging.Static.AxoMessengerView.html#AXOpen_Messaging_Static_AxoMessengerView_AuthenticationStateProvider_
+  commentId: Overload:AXOpen.Messaging.Static.AxoMessengerView.AuthenticationStateProvider
+  isSpec: "True"
+  fullName: AXOpen.Messaging.Static.AxoMessengerView.AuthenticationStateProvider
+  nameWithType: AxoMessengerView.AuthenticationStateProvider
 - uid: AXOpen.Messaging.Static.AxoMessengerView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)
   name: BuildRenderTree(RenderTreeBuilder)
   href: api/AXOpen.Messaging.Static.AxoMessengerView.html#AXOpen_Messaging_Static_AxoMessengerView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_
@@ -13447,6 +13330,32 @@ references:
   isSpec: "True"
   fullName: AXOpen.Messaging.Static.AxoMessengerView.Dispose
   nameWithType: AxoMessengerView.Dispose
+- uid: AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserIdentity
+  name: GetCurrentUserIdentity()
+  href: api/AXOpen.Messaging.Static.AxoMessengerView.html#AXOpen_Messaging_Static_AxoMessengerView_GetCurrentUserIdentity
+  commentId: M:AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserIdentity
+  fullName: AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserIdentity()
+  nameWithType: AxoMessengerView.GetCurrentUserIdentity()
+- uid: AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserIdentity*
+  name: GetCurrentUserIdentity
+  href: api/AXOpen.Messaging.Static.AxoMessengerView.html#AXOpen_Messaging_Static_AxoMessengerView_GetCurrentUserIdentity_
+  commentId: Overload:AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserIdentity
+  isSpec: "True"
+  fullName: AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserIdentity
+  nameWithType: AxoMessengerView.GetCurrentUserIdentity
+- uid: AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserName
+  name: GetCurrentUserName()
+  href: api/AXOpen.Messaging.Static.AxoMessengerView.html#AXOpen_Messaging_Static_AxoMessengerView_GetCurrentUserName
+  commentId: M:AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserName
+  fullName: AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserName()
+  nameWithType: AxoMessengerView.GetCurrentUserName()
+- uid: AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserName*
+  name: GetCurrentUserName
+  href: api/AXOpen.Messaging.Static.AxoMessengerView.html#AXOpen_Messaging_Static_AxoMessengerView_GetCurrentUserName_
+  commentId: Overload:AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserName
+  isSpec: "True"
+  fullName: AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserName
+  nameWithType: AxoMessengerView.GetCurrentUserName
 - uid: AXOpen.Messaging.Static.AxoMessengerView.OnInitialized
   name: OnInitialized()
   href: api/AXOpen.Messaging.Static.AxoMessengerView.html#AXOpen_Messaging_Static_AxoMessengerView_OnInitialized
@@ -14684,6 +14593,10 @@ references:
   name: IsReady
   href: apictrl/plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_IsReady__
   fullName: IsReady
+- uid: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  name: LogTask
+  href: apictrl/plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_LogTask_STRING_80__eLogLevel_IAxoObject_
+  fullName: LogTask
 - uid: plc.AXOpen.Core.AxoTask.OnAbort()
   name: OnAbort
   href: apictrl/plc.AXOpen.Core.AxoTask.html#plc_AXOpen_Core_AxoTask_OnAbort__
@@ -15576,6 +15489,10 @@ references:
   name: Serve
   href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Serve_IAxoObject_
   fullName: Serve
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  name: ToLogLevel
+  href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_ToLogLevel_eAxoMessageCategory_
+  fullName: ToLogLevel
 - uid: plc.AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge
   name: WaitingForAcknowledge
   href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_WaitingForAcknowledge

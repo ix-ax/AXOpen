@@ -6,10 +6,9 @@ NAMESPACE AXOpen.Core
     ///</summary>
     CLASS PUBLIC AxoObject IMPLEMENTS IAxoObject
         VAR PUBLIC
-            {#ix-attr:[CompilerOmits("POCO")]}
-            {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[CompilerOmits("POCO")]}      
             {#ix-attr:[RenderIgnore()]}
-            Identity   : ULINT := ULINT#0;                  
+            Identity   : ULINT := ULINT#0;                                            
         END_VAR    
 
         VAR PRIVATE           
@@ -25,7 +24,7 @@ NAMESPACE AXOpen.Core
         ///<summary>
         /// Gets unique identity of this object in given context.
         ///</summary>
-        METHOD PUBLIC GetIdentity : ULINT 
+        METHOD PUBLIC GetIdentity : ULINT                  
             GetIdentity := Identity;
         END_METHOD
             
@@ -59,15 +58,13 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC Initialize
             VAR_INPUT
                 parent : IAxoObject;
-            END_VAR   
-
-            IF(Identity = ULINT#0 AND parent <> NULL) THEN
-                _context    := parent.GetContext();  
-                Identity   := _context.CreateIdentity(); 
+            END_VAR                           
+            // CHANGE: Identity is now provided by the higher level application.
+            IF(parent <> NULL) THEN
+                _context    := parent.GetContext();                 
                 _parent     := parent;
                 RETURN;                 
-            END_IF;
-
+            END_IF;            
         END_METHOD  
         
         ///<summary>
@@ -79,12 +76,10 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 context : IAxoContext;
             END_VAR   
-
-            IF(Identity = ULINT#0 AND context <> NULL) THEN
-                _context    := context;  
-                Identity   := _context.CreateIdentity();                 
+            // CHANGE: Identity is now provided by the higher level application.
+            IF(context <> NULL) THEN
+                _context    := context;                 
             END_IF;
-
         END_METHOD       
     END_CLASS    
 END_NAMESPACE    

@@ -138,6 +138,7 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 Active : BOOL;
             END_VAR
+            IF(NOT THIS.IsActive AND Active) THEN THIS.GetContext().GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); END_IF;
             IsActive := Active;
         END_METHOD
 

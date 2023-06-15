@@ -53,3 +53,5 @@ Contrariwise, the default behaviour of the unacknowledgeable messenger should be
 On the UI side use the `RenderableContentControl` and set its Context according the placement of the instance of the `AxoMessenger`.
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoMessagingStaticDocu.razor?name=RenderedView)]
 
+
+See also [AxoLogger](../logging/AXOLOGGER.md#axologger-and-axomessenger)

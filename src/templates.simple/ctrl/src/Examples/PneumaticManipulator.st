@@ -226,7 +226,7 @@ NAMESPACE examples.PneumaticManipulator
                 _components : REF_TO Components;
                 _processData : REF_TO ProcessDataManger;
                 _parent : IAxoObject;
-            END_VAR
+            END_VAR            
             Components := _components;
             ProcessData := _processData;
             SUPER.Run(_parent);
@@ -236,10 +236,10 @@ NAMESPACE examples.PneumaticManipulator
         ///</summary>
 
         METHOD PROTECTED OVERRIDE Main
-            IF (Components = NULL OR ProcessData = NULL) THEN
-                RETURN;
-            END_IF;
-            // This sequecner executes the steps in cycles from top to botton
+            // IF (Components = NULL OR ProcessData = NULL) THEN
+            //     RETURN;
+            // END_IF;
+            // This sequecner executes the steps in cycles from top to bottom
             // in the same order they are written in the program
             // Each step in the sequence must can be used only once.
             // This sets the sequence to run once (top-botton) and stops with done after closing.

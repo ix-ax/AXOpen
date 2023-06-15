@@ -1,4 +1,5 @@
 USING AXOpen.Core;
+USING AXOpen.Core;
 
 NAMESPACE AXOpen.Logging
     /// <summary>
@@ -32,10 +33,10 @@ NAMESPACE AXOpen.Logging
         METHOD PUBLIC Log
             VAR_INPUT
                 _message : STRING[80];
-                _level : eLogLevel;
-                _sender : IAxoObject;
+                _level : eLogLevel;  
+                _sender : IAxoObject;              
             END_VAR
-            
+           
             IF(_level >= THIS.MinimumLevel) THEN
                 IF(Carret > 100) THEN
                     Carret := 0;
@@ -43,7 +44,7 @@ NAMESPACE AXOpen.Logging
                 
                 LogEntries[Carret].Message := _message;
                 LogEntries[Carret].Level := _level;
-                
+                                
                 IF(_sender <> NULL) THEN
                     LogEntries[Carret].Sender := _sender.GetIdentity();
                 END_IF;
@@ -52,7 +53,7 @@ NAMESPACE AXOpen.Logging
                 Carret := Carret + 1;
             END_IF;
         END_METHOD
-        
+              
         /// <summary>
         /// Log method that captures a message and logging level.
         /// </summary>

@@ -11,11 +11,11 @@ PROGRAM MyProgram
     Context.Inputs := REF(Inputs);
     Context.Outputs := REF(Outputs);
    
-    ContextLogger.SetMinimumLevel(AXOpen.Logging.eLogLevel#Warning);
+    ContextLogger.SetMinimumLevel(AXOpen.Logging.eLogLevel#Verbose);
     Context.InjectRtc(S71500Rtc);
     Context.InjectLogger(ContextLogger);
     // Executes the main context of this application.
     Context.Run();     
- 
+     
 
 END_PROGRAM

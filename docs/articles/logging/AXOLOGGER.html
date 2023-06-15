@@ -128,6 +128,25 @@ END_CLASS
 <p>Through this example, we've shown how to declare and utilize the <code>AxoLogger</code> for logging messages with different levels of severity. We've also illustrated how nested objects can retrieve and use the logger of their parent context to log messages, showcasing a flexible and potent approach to handle logging in applications with complex, nested structures.</p>
 <h1 id="initialization-of-logger-in-net">Initialization of Logger in .NET</h1>
 <p>In this section, we'll be discussing how to initialize the logger in a .NET application, specifically using the Serilog library for logging. We'll also demonstrate how to link the logger to our <code>AxoLogger</code> instances from our previous examples: <code>LoggerOne</code> and <code>LoggerTwo</code>.</p>
+<h2 id="initializing-object-identities">Initializing Object Identities</h2>
+<p>Before you start logging with <code>AxoLogger</code>, you need to ensure the object identities are initialized. This is important because it allows the <code>AxoLogger</code> to correctly identify the source of log messages, which aids in debugging and log analysis.</p>
+<p>To initialize the object identities in a .NET part of your application, use the following method:</p>
+<pre><code class="lang-csharp">await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+</code></pre>
+<p>This method call is usually performed during the application initialization process, right after the <code>AxoApplication</code> and loggers are configured. It constructs all the identities required by the application, preparing the <code>AxoLogger</code> for logging.</p>
+<p>Here's how it could fit into the .NET application initialization process:</p>
+<pre><code class="lang-csharp">
+// Initialize the object identities.
+Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
+Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
+await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
+</code></pre>
+<p>This sets up the <code>AxoApplication</code>, configures a logger with Serilog, initializes the object identities, and then connects <code>AxoLogger</code> instances to the application.</p>
+<p>Remember to always await the <code>ConstructIdentitiesAsync</code> method, as it is an asynchronous operation and your application should not proceed until it has been completed. This ensures all object identities are fully initialized before your <code>AxoLogger</code> instances start logging.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Failure to initialize object identities before starting the logging process can result in incorrect or incomplete log entries, which can hinder the debugging and analysis of your application. Always ensure that object identities are correctly initialized before you start logging.</p>
+</div>
 <h2 id="creating-the-axoapplication">Creating the AxoApplication</h2>
 <p>Before initializing the logger, we first create an instance of <code>AxoApplication</code> using the <code>CreateBuilder</code> method. This sets up the application builder required for the logger configuration.</p>
 <pre><code class="lang-smalltalk">var axoAppBuilder = AxoApplication.CreateBuilder();
@@ -172,6 +191,17 @@ Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(databaseLogger, 250);
 <h5>Important</h5>
 <p>In the context of logging level configuration, it's important to note that the minimum logging level of the .NET logger (set up in C#) and the <code>AxoLogger</code> (set up in the controller's software) are independent settings. You can configure them individually to fine-tune the verbosity of your logs both at the controller level and in your .NET application.</p>
 </div>
+<h2 id="axologger-and-axomessenger">AxoLogger and AxoMessenger</h2>
+<p>AxoMessenger uses Context AxoLogger to log the rising and falling of an alarm. There is no particular need for the configuration fo this behaviour.</p>
+<p>Here are the mappings between eAxoMessageCategory and eLogLevel as per the code:</p>
+<ul>
+<li>Trace messages are logged as Verbose.</li>
+<li>Debug messages are logged as Debug.</li>
+<li>Info, TimedOut, and Notification messages are logged as - Information.</li>
+<li>Warning messages are logged as Warning.</li>
+<li>Error and ProgrammingError messages are logged as Error.</li>
+<li>Critical, Fatal, and Catastrophic messages are logged as Fatal.</li>
+</ul>
 <h1 id="limitations">Limitations</h1>
 <h2 id="log-entry-limit">Log Entry Limit</h2>
 <div class="IMPORTANT">

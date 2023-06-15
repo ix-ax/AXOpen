@@ -1,6 +1,7 @@
 ﻿using System;
 using AXSharp.Connector;
 using System.ComponentModel;
+using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace AXOpen.Core
@@ -107,7 +108,7 @@ namespace AXOpen.Core
                     await this.ErrorDetails.SetAsync(ex.Message);
                     RemoteExecutionException = ex;
                     RemoteExceptionDetails = ex.ToString();
-                    // TODO: Add logging
+                    AxoApplication.Current.Logger.Error(ex.ToString(), this, new GenericIdentity("Controller"));
                     return;
                 }
                 finally

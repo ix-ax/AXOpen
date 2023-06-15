@@ -17,10 +17,10 @@ NAMESPACE axosimple
            END_IF;                           
         END_METHOD        
     END_CLASS   
-    
-    
+         
     CLASS SharedProductionData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
+            
             ComesFrom : INT;
             GoesTo : INT;
         END_VAR        

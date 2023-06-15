@@ -88,16 +88,82 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">object</span></div>
-    <div class="level1"><span class="xref">AxoMessenger</span></div>
+    <div class="level1"><a class="xref" href="AXOpen.Core.AxoObject.html">AxoObject</a></div>
+    <div class="level2"><span class="xref">AxoMessenger</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinObject</span></div>
     <div><span class="xref">AXSharp.Connector.ITwinElement</span></div>
+    <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
     <div><a class="xref" href="AXOpen.Messaging.Static.IAxoMessageProperties.html">IAxoMessageProperties</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Identity">AxoObject.Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.OnlineToPlainAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.PlainToOnlineAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.ShadowToPlainAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_PlainToShadowAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.PlainToShadowAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetChildren">AxoObject.GetChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetKids">AxoObject.GetKids()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetValueTags">AxoObject.GetValueTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AddValueTag_AXSharp_Connector_ITwinPrimitive_">AxoObject.AddValueTag(ITwinPrimitive)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AddKid_AXSharp_Connector_ITwinElement_">AxoObject.AddKid(ITwinElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AddChild_AXSharp_Connector_ITwinObject_">AxoObject.AddChild(ITwinObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Connector">AxoObject.Connector</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetConnector">AxoObject.GetConnector()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetSymbolTail">AxoObject.GetSymbolTail()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetParent">AxoObject.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Symbol">AxoObject.Symbol</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AttributeName">AxoObject.AttributeName</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_HumanReadable">AxoObject.HumanReadable</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_SymbolTail">AxoObject.SymbolTail</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Parent">AxoObject.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Interpreter">AxoObject.Interpreter</a>
+    </div>
     <div>
       <span class="xref">object.Equals(object)</span>
     </div>
@@ -124,7 +190,7 @@
   <h6><strong>Assembly</strong>: ix_ax_axopen_core.dll</h6>
   <h5 id="AXOpen_Messaging_Static_AxoMessenger_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoMessenger : ITwinObject, ITwinElement, IAxoMessageProperties</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoMessenger : AxoObject, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoMessageProperties</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -133,7 +199,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.%23ctor(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L50">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L51">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger__ctor_" data-uid="AXOpen.Messaging.Static.AxoMessenger.#ctor*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Messaging.Static.AxoMessenger.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">AxoMessenger(ITwinObject, string, string)</h4>
@@ -177,7 +243,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Acknowledged.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Acknowledged%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L45">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L46">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_Acknowledged_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Acknowledged*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_Acknowledged" data-uid="AXOpen.Messaging.Static.AxoMessenger.Acknowledged">Acknowledged</h4>
@@ -208,7 +274,7 @@ public OnlinerLDateTime Acknowledged { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_AcknowledgedBeforeFallen.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.AcknowledgedBeforeFallen%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L42">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L43">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_AcknowledgedBeforeFallen_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AcknowledgedBeforeFallen*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_AcknowledgedBeforeFallen" data-uid="AXOpen.Messaging.Static.AxoMessenger.AcknowledgedBeforeFallen">AcknowledgedBeforeFallen</h4>
@@ -239,7 +305,7 @@ public OnlinerBool AcknowledgedBeforeFallen { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_AcknowledgementRequired.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L37">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L38">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_AcknowledgementRequired_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_AcknowledgementRequired" data-uid="AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired">AcknowledgementRequired</h4>
@@ -270,7 +336,7 @@ public OnlinerBool AcknowledgementRequired { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_AcknowledgeRequest.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L40">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L41">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_AcknowledgeRequest_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_AcknowledgeRequest" data-uid="AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest">AcknowledgeRequest</h4>
@@ -297,40 +363,10 @@ public OnlinerBool AcknowledgementRequired { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_AttributeName.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.AttributeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L258">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_AttributeName_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AttributeName*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_AttributeName" data-uid="AXOpen.Messaging.Static.AxoMessenger.AttributeName">AttributeName</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string AttributeName { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Category.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Category%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L21">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L22">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_Category_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Category*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_Category" data-uid="AXOpen.Messaging.Static.AxoMessenger.Category">Category</h4>
@@ -359,40 +395,10 @@ public OnlinerInt Category { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Connector.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Connector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L238">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_Connector_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Connector*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_Connector" data-uid="AXOpen.Messaging.Static.AxoMessenger.Connector">Connector</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Connector Connector { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.Connector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Fallen.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Fallen%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L31">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L32">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_Fallen_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Fallen*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_Fallen" data-uid="AXOpen.Messaging.Static.AxoMessenger.Fallen">Fallen</h4>
@@ -423,7 +429,7 @@ public OnlinerLDateTime Fallen { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Help.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Help%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L16">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L17">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_Help_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Help*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_Help" data-uid="AXOpen.Messaging.Static.AxoMessenger.Help">Help</h4>
@@ -450,70 +456,10 @@ public OnlinerLDateTime Fallen { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_HumanReadable.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.HumanReadable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L260">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_HumanReadable_" data-uid="AXOpen.Messaging.Static.AxoMessenger.HumanReadable*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_HumanReadable" data-uid="AXOpen.Messaging.Static.AxoMessenger.HumanReadable">HumanReadable</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string HumanReadable { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Interpreter.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Interpreter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L266">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_Interpreter_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Interpreter*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_Interpreter" data-uid="AXOpen.Messaging.Static.AxoMessenger.Interpreter">Interpreter</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Translator Interpreter { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.Localizations.Translator</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_IsActive.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.IsActive%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L18">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L19">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_IsActive_" data-uid="AXOpen.Messaging.Static.AxoMessenger.IsActive*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_IsActive" data-uid="AXOpen.Messaging.Static.AxoMessenger.IsActive">IsActive</h4>
@@ -544,7 +490,7 @@ public OnlinerBool IsActive { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_MessageCode.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.MessageCode%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L25">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L26">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_MessageCode_" data-uid="AXOpen.Messaging.Static.AxoMessenger.MessageCode*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_MessageCode" data-uid="AXOpen.Messaging.Static.AxoMessenger.MessageCode">MessageCode</h4>
@@ -575,7 +521,7 @@ public OnlinerULInt MessageCode { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_MessageText.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.MessageText%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L13">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L14">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_MessageText_" data-uid="AXOpen.Messaging.Static.AxoMessenger.MessageText*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_MessageText" data-uid="AXOpen.Messaging.Static.AxoMessenger.MessageText">MessageText</h4>
@@ -602,40 +548,10 @@ public OnlinerULInt MessageCode { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Parent.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Parent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L264">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_Parent_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Parent*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_Parent" data-uid="AXOpen.Messaging.Static.AxoMessenger.Parent">Parent</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ITwinObject Parent { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Risen.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Risen%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L28">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L29">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_Risen_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Risen*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_Risen" data-uid="AXOpen.Messaging.Static.AxoMessenger.Risen">Risen</h4>
@@ -663,70 +579,10 @@ public OnlinerLDateTime Risen { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Symbol.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Symbol%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L255">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_Symbol_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Symbol*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_Symbol" data-uid="AXOpen.Messaging.Static.AxoMessenger.Symbol">Symbol</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Symbol { get; protected set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_SymbolTail.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.SymbolTail%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L262">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_SymbolTail_" data-uid="AXOpen.Messaging.Static.AxoMessenger.SymbolTail*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_SymbolTail" data-uid="AXOpen.Messaging.Static.AxoMessenger.SymbolTail">SymbolTail</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected string SymbolTail { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_WaitingForAcknowledge.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L34">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L35">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_WaitingForAcknowledge_" data-uid="AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_WaitingForAcknowledge" data-uid="AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge">WaitingForAcknowledge</h4>
@@ -756,106 +612,10 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_AddChild_AXSharp_Connector_ITwinObject_.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.AddChild(AXSharp.Connector.ITwinObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L233">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_AddChild_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AddChild*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_AddChild_AXSharp_Connector_ITwinObject_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AddChild(AXSharp.Connector.ITwinObject)">AddChild(ITwinObject)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddChild(ITwinObject twinObject)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td><span class="parametername">twinObject</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_AddKid_AXSharp_Connector_ITwinElement_.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.AddKid(AXSharp.Connector.ITwinElement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L228">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_AddKid_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AddKid*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_AddKid_AXSharp_Connector_ITwinElement_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AddKid(AXSharp.Connector.ITwinElement)">AddKid(ITwinElement)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddKid(ITwinElement kid)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinElement</span></td>
-        <td><span class="parametername">kid</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_AddValueTag_AXSharp_Connector_ITwinPrimitive_.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.AddValueTag(AXSharp.Connector.ITwinPrimitive)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L223">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_AddValueTag_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AddValueTag*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_AddValueTag_AXSharp_Connector_ITwinPrimitive_" data-uid="AXOpen.Messaging.Static.AxoMessenger.AddValueTag(AXSharp.Connector.ITwinPrimitive)">AddValueTag(ITwinPrimitive)</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void AddValueTag(ITwinPrimitive valueTag)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinPrimitive</span></td>
-        <td><span class="parametername">valueTag</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_CreateEmptyPoco.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.CreateEmptyPoco%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L200">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L201">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_CreateEmptyPoco_" data-uid="AXOpen.Messaging.Static.AxoMessenger.CreateEmptyPoco*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_CreateEmptyPoco" data-uid="AXOpen.Messaging.Static.AxoMessenger.CreateEmptyPoco">CreateEmptyPoco()</h4>
@@ -882,190 +642,10 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_GetChildren.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.GetChildren%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L206">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_GetChildren_" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetChildren*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_GetChildren" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetChildren">GetChildren()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinObject&gt; GetChildren()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinObject</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_GetConnector.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.GetConnector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L240">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_GetConnector_" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetConnector*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_GetConnector" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetConnector">GetConnector()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Connector GetConnector()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.Connector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_GetKids.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.GetKids%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L212">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_GetKids_" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetKids*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_GetKids" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetKids">GetKids()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinElement&gt; GetKids()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinElement</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_GetParent.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.GetParent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L250">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_GetParent_" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetParent*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_GetParent" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetParent">GetParent()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ITwinObject GetParent()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_GetSymbolTail.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.GetSymbolTail%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L245">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_GetSymbolTail_" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetSymbolTail*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_GetSymbolTail" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetSymbolTail">GetSymbolTail()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetSymbolTail()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_GetValueTags.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.GetValueTags%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L218">View Source</a>
-  </span>
-  <a id="AXOpen_Messaging_Static_AxoMessenger_GetValueTags_" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetValueTags*"></a>
-  <h4 id="AXOpen_Messaging_Static_AxoMessenger_GetValueTags" data-uid="AXOpen.Messaging.Static.AxoMessenger.GetValueTags">GetValueTags()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinPrimitive&gt; GetValueTags()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinPrimitive</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_OnlineToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.OnlineToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L82">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L77">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_OnlineToPlain_" data-uid="AXOpen.Messaging.Static.AxoMessenger.OnlineToPlain*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_OnlineToPlain__1" data-uid="AXOpen.Messaging.Static.AxoMessenger.OnlineToPlain``1">OnlineToPlain&lt;T&gt;()</h4>
@@ -1073,7 +653,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task&lt;T&gt; OnlineToPlain&lt;T&gt;()</code></pre>
+    <pre><code class="lang-csharp hljs">public override Task&lt;T&gt; OnlineToPlain&lt;T&gt;()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1105,12 +685,14 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_OnlineToPlain__1">AxoObject.OnlineToPlain&lt;T&gt;()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_OnlineToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.OnlineToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L87">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L82">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_OnlineToPlainAsync_" data-uid="AXOpen.Messaging.Static.AxoMessenger.OnlineToPlainAsync*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_OnlineToPlainAsync" data-uid="AXOpen.Messaging.Static.AxoMessenger.OnlineToPlainAsync">OnlineToPlainAsync()</h4>
@@ -1140,7 +722,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_OnlineToPlainAsync_Pocos_AXOpen_Messaging_Static_AxoMessenger_.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.OnlineToPlainAsync(Pocos.AXOpen.Messaging.Static.AxoMessenger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L104">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L100">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_OnlineToPlainAsync_" data-uid="AXOpen.Messaging.Static.AxoMessenger.OnlineToPlainAsync*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_OnlineToPlainAsync_Pocos_AXOpen_Messaging_Static_AxoMessenger_" data-uid="AXOpen.Messaging.Static.AxoMessenger.OnlineToPlainAsync(Pocos.AXOpen.Messaging.Static.AxoMessenger)">OnlineToPlainAsync(AxoMessenger)</h4>
@@ -1187,7 +769,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_PlainToOnline__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.PlainToOnline%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L119">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L116">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_PlainToOnline_" data-uid="AXOpen.Messaging.Static.AxoMessenger.PlainToOnline*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_PlainToOnline__1___0_" data-uid="AXOpen.Messaging.Static.AxoMessenger.PlainToOnline``1(``0)">PlainToOnline&lt;T&gt;(T)</h4>
@@ -1195,7 +777,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task PlainToOnline&lt;T&gt;(T plain)</code></pre>
+    <pre><code class="lang-csharp hljs">public override Task PlainToOnline&lt;T&gt;(T plain)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1244,12 +826,14 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">AXOpen.Core.AxoObject.PlainToOnline&lt;T&gt;(T)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_PlainToOnlineAsync_Pocos_AXOpen_Messaging_Static_AxoMessenger_.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.PlainToOnlineAsync(Pocos.AXOpen.Messaging.Static.AxoMessenger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L124">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L121">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_PlainToOnlineAsync_" data-uid="AXOpen.Messaging.Static.AxoMessenger.PlainToOnlineAsync*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_PlainToOnlineAsync_Pocos_AXOpen_Messaging_Static_AxoMessenger_" data-uid="AXOpen.Messaging.Static.AxoMessenger.PlainToOnlineAsync(Pocos.AXOpen.Messaging.Static.AxoMessenger)">PlainToOnlineAsync(AxoMessenger)</h4>
@@ -1304,7 +888,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task PlainToShadow&lt;T&gt;(T plain)</code></pre>
+    <pre><code class="lang-csharp hljs">public override Task PlainToShadow&lt;T&gt;(T plain)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1353,6 +937,8 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">AXOpen.Core.AxoObject.PlainToShadow&lt;T&gt;(T)</span></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_PlainToShadowAsync_Pocos_AXOpen_Messaging_Static_AxoMessenger_.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.PlainToShadowAsync(Pocos.AXOpen.Messaging.Static.AxoMessenger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
@@ -1405,7 +991,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_Poll.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.Poll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L195">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L196">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_Poll_" data-uid="AXOpen.Messaging.Static.AxoMessenger.Poll*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_Poll" data-uid="AXOpen.Messaging.Static.AxoMessenger.Poll">Poll()</h4>
@@ -1420,7 +1006,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_ShadowToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.ShadowToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L139">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L137">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_ShadowToPlain_" data-uid="AXOpen.Messaging.Static.AxoMessenger.ShadowToPlain*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_ShadowToPlain__1" data-uid="AXOpen.Messaging.Static.AxoMessenger.ShadowToPlain``1">ShadowToPlain&lt;T&gt;()</h4>
@@ -1428,7 +1014,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task&lt;T&gt; ShadowToPlain&lt;T&gt;()</code></pre>
+    <pre><code class="lang-csharp hljs">public override Task&lt;T&gt; ShadowToPlain&lt;T&gt;()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1460,12 +1046,14 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_ShadowToPlain__1">AxoObject.ShadowToPlain&lt;T&gt;()</a></div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_ShadowToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.ShadowToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L144">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L142">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_ShadowToPlainAsync_" data-uid="AXOpen.Messaging.Static.AxoMessenger.ShadowToPlainAsync*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_ShadowToPlainAsync" data-uid="AXOpen.Messaging.Static.AxoMessenger.ShadowToPlainAsync">ShadowToPlainAsync()</h4>
@@ -1495,7 +1083,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger_ShadowToPlainAsync_Pocos_AXOpen_Messaging_Static_AxoMessenger_.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger.ShadowToPlainAsync(Pocos.AXOpen.Messaging.Static.AxoMessenger)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L160">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L159">View Source</a>
   </span>
   <a id="AXOpen_Messaging_Static_AxoMessenger_ShadowToPlainAsync_" data-uid="AXOpen.Messaging.Static.AxoMessenger.ShadowToPlainAsync*"></a>
   <h4 id="AXOpen_Messaging_Static_AxoMessenger_ShadowToPlainAsync_Pocos_AXOpen_Messaging_Static_AxoMessenger_" data-uid="AXOpen.Messaging.Static.AxoMessenger.ShadowToPlainAsync(Pocos.AXOpen.Messaging.Static.AxoMessenger)">ShadowToPlainAsync(AxoMessenger)</h4>
@@ -1539,10 +1127,16 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
+      <span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span>
+  </div>
+  <div>
       <span class="xref">AXSharp.Connector.ITwinObject</span>
   </div>
   <div>
       <span class="xref">AXSharp.Connector.ITwinElement</span>
+  </div>
+  <div>
+      <a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a>
   </div>
   <div>
       <a class="xref" href="AXOpen.Messaging.Static.IAxoMessageProperties.html">IAxoMessageProperties</a>
@@ -1558,7 +1152,7 @@ public OnlinerBool WaitingForAcknowledge { get; }</code></pre>
                     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessenger.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessenger%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L10" class="contribution-link">View Source</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoMessaging/Static/AxoMessenger.g.cs/#L11" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
