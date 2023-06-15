@@ -1,5 +1,6 @@
 ﻿@page "/Identity/Account/Register"
 @namespace AxOpen.Security.Views
+@using AXSharp.Abstractions.Dialogs.AlertDialog;
 @using AxOpen.Security.Entities;
 @using AxOpen.Security.Models;
 @using AxOpen.Security.Services;
@@ -8,6 +9,7 @@
 @using Microsoft.AspNetCore.Components.Forms;
 @inject IRepositoryService _repositoryService
 @inject UserManager<User> _userManager
+@inject IAlertDialogService _alertDialogService
 @inject NavigationManager _navigationManager
 
 <AuthorizeView Roles="Administrator">
@@ -80,12 +82,12 @@
         if (result.Succeeded)
         {
             _navigationManager.NavigateTo("");
-            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "User successfully created.", 10)));
+            _alertDialogService.AddAlertDialog("Success", "Created!", "User successfully created.", 10);
             //TcoAppDomain.Current.Logger.Information($"New user '{_model.Username}' created. {{@sender}}", new { UserName = _model.Username, Group = _model.Group });
         }
         else
         {
-            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not created!", "User was not created.", 10)));
+            _alertDialogService.AddAlertDialog("Warning", "Not created!", "User was not created.", 10);
         }
     }
 

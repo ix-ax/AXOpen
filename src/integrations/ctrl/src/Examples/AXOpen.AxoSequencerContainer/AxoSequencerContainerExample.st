@@ -53,7 +53,6 @@ NAMESPACE AxoSequencerContainerExamples
             IF(step_2.Execute(THIS)) THEN
                 IF(Counter >= ULINT#100) THEN
                     Counter := ULINT#0;
-                    THIS.MoveNext();
                 END_IF;    
             END_IF; 
 
