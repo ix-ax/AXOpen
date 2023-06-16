@@ -3,7 +3,7 @@
 @using AXOpen.Data;
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector;
-@*@inherits RenderableComponentBase;*@
+@inherits RenderableComponentBase;
 
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="250"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
@@ -23,7 +23,7 @@
 
     protected override Task OnInitializedAsync()
     {
-    //this.UpdateValuesOnChange(@Entry.Plc.Context.PneumaticManipulator);
+        this.UpdateValuesOnChange(@Entry.Plc.Context.PneumaticManipulator);
         return base.OnInitializedAsync();
     }
 }

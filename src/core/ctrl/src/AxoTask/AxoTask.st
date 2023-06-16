@@ -1,4 +1,7 @@
 USING AXOpen.Logging;
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
+
 NAMESPACE AXOpen.Core
 
     CLASS PUBLIC AxoTask EXTENDS AxoObject IMPLEMENTS IAxoTask, IAxoTaskState
@@ -61,12 +64,21 @@ NAMESPACE AXOpen.Core
             /// Contains details about the error.            
             ///</summary>                       
             ErrorDetails : STRING[254];
+
+            ///<summary>
+            /// Enable error message when task is not calling cyclically .            
+            ///</summary> 
+            {#ix-set:MessageText = "<#Cyclic Execute is not called.#>"}
+            {#ix-set:Help = "<#Check task calling in the code, task is not calling cyclically #>"}
+            _CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger;            
+             
         END_VAR    
         
         VAR PRIVATE
             _openCycleCountInvoke : ULINT;
             _openCycleCountExecute : ULINT;
-            _taskTimer : System.Timer.OnDelay;          
+            _taskTimer : System.Timer.OnDelay;  
+
         END_VAR 
         
         ///<summary>
@@ -184,16 +196,22 @@ NAMESPACE AXOpen.Core
             VAR
                 _isNullContext : BOOL;
             END_VAR;
-            
+               
+            Invoke := THIS;
+           
             _isNullContext := IsNullContext(THIS.GetContext());
 
 
             IF _isNullContext THEN
                 Status := eAxoTaskState#Error;
-                ErrorDetails := 'NULL CONTEXT';                
+                ErrorDetails := 'NULL CONTEXT'; 
+                RETURN;               
             END_IF;
+
             THIS.UpdateState();
 
+            _CyclicExecuteIsNotCalled.Serve(THIS);
+           
             IF Status = eAxoTaskState#Done AND THIS.IsNewInvokeCall() THEN
                 Status := eAxoTaskState#Ready; 
             END_IF;
@@ -203,11 +221,11 @@ NAMESPACE AXOpen.Core
             // task should not be Invoked, if the execute method was not called in this or previous PLC cycle
             IF Status = eAxoTaskState#Ready THEN
                 IF (THIS.IsExecuteCalledInThisPlcCycle() OR THIS.WasExecuteCalledInPreviousPlcCycle()) THEN
-                    Status := eAxoTaskState#Kicking;                    
-                    THIS.LogTask('Task invoked', eLogLevel#Verbose, THIS);
-                ELSE
-                    THIS.LogTask('Cyclic execute is not called', eLogLevel#Debug, THIS);
-                END_IF;     
+                    Status := eAxoTaskState#Kicking;      
+                    THIS.LogTask('Task invoked', eLogLevel#Verbose, THIS);                                             
+                  ELSE                                         
+                    _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError);                     
+                 END_IF;     
             END_IF;     
 
             Invoke := THIS;
@@ -283,6 +301,8 @@ NAMESPACE AXOpen.Core
             THIS.UpdateState();
             Execute := Status = eAxoTaskState#Busy;
             _taskTimer(signal := Execute, duration := LT#99999D);
+            
+
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;             
         END_METHOD    
 
