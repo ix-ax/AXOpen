@@ -9,13 +9,23 @@
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
 @*<UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared.Set" PollingInterval="100"></UnitsData>*@
 
-@foreach (var message in Messengers)
-{
-    if (message.IsActive.LastValue)
-    {
-        <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
-    }
-}
+
+<div id="my-div" class="card">
+    <div class="card-header">
+        Alarms
+    </div>
+    <div class="card-body">
+        @foreach (var message in Messengers)
+        {
+            if (message.IsActive.LastValue)
+            {
+                <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
+            }
+        }
+    </div>
+</div>
+
+
 
 @code
 {
