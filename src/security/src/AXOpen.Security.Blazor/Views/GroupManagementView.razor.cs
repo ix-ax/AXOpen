@@ -1,5 +1,6 @@
 using AxOpen.Security.Entities;
 using AxOpen.Security.Services;
+using AXSharp.Abstractions.Dialogs.AlertDialog;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,9 @@ namespace AxOpen.Security.Views
 
         [Inject]
         private IRepositoryService _repositoryService { get; set; }
+
+        [Inject]
+        private IAlertDialogService _alertDialogService { get; set; }
 
         private RoleGroupManager _roleGroupManager { get { return _repositoryService.RoleGroupManager; } }
 
@@ -64,14 +68,30 @@ namespace AxOpen.Security.Views
 
         public void AssignRoles()
         {
-            _roleGroupManager.AddRolesToGroup(SelectedGroupN.Name, AvailableRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
+            var result = _roleGroupManager.AddRolesToGroup(SelectedGroupN.Name, AvailableRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
+            if (result.Succeeded)
+            {
+                _alertDialogService.AddAlertDialog("Success", "Updated!", "Group successfully updated!", 10);
+            }
+            else
+            {
+                _alertDialogService.AddAlertDialog("Warning", "Not updated!", "Group was not updated.", 10);
+            }
             GroupClicked(SelectedGroupN);
             SelectAllAvailable = false;
         }
 
         public void ReturnRoles()
         {
-            _roleGroupManager.RemoveRolesFromGroup(SelectedGroupN.Name, AssignedRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
+            var result = _roleGroupManager.RemoveRolesFromGroup(SelectedGroupN.Name, AssignedRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
+            if (result.Succeeded)
+            {
+                _alertDialogService.AddAlertDialog("Success", "Updated!", "Group successfully updated!", 10);
+            }
+            else
+            {
+                _alertDialogService.AddAlertDialog("Warning", "Not updated!", "Group was not updated.", 10);
+            }
             GroupClicked(SelectedGroupN);
             SelectAllAssigned = false;
         }
@@ -93,17 +113,17 @@ namespace AxOpen.Security.Views
         {
             if(newGroupName == null || newGroupName == "")
             {
-                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Name!", "Wrong group name", 10)));
+                _alertDialogService.AddAlertDialog("Warning", "Name!", "Wrong group name", 10);
                 return;
             }
             var result = _roleGroupManager.CreateGroup(newGroupName);
             if (result.Succeeded)
             {
-                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Created!", "Group successfully created!", 10)));
+                _alertDialogService.AddAlertDialog("Success", "Created!", "Group successfully created!", 10);
             }
             else
             {
-                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not created!", "Group was not created.", 10)));
+                _alertDialogService.AddAlertDialog("Warning", "Not created!", "Group was not created.", 10);
             }
             StateHasChanged();
         }
@@ -114,11 +134,11 @@ namespace AxOpen.Security.Views
             var result = _roleGroupManager.DeleteGroup(group.Name);
             if (result.Succeeded)
             {
-                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Group successfully deleted", 10)));
+                _alertDialogService.AddAlertDialog("Success", "Deleted!", "Group successfully deleted", 10);
             }
             else
             {
-                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not deleted!", "Group was not deleted.", 10)));
+                _alertDialogService.AddAlertDialog("Warning", "Not deleted!", "Group was not deleted.", 10);
             }
             StateHasChanged();
         }

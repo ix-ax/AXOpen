@@ -1,0 +1,30 @@
+﻿@namespace VmT
+@inherits RenderableViewModelComponentBase<VMTestServiceViewModel>
+<h1>VMTest with ViewModel</h1>
+
+<div class="card">
+    <p>IxBool: @ViewModel.Component.my_string</p>
+    <p>IxInt: @ViewModel.Component.my_bool</p>
+    <p>IxString: @ViewModel.Component.my_int</p>
+</div>
+
+<button type="button" class="btn btn-primary" @onclick="CreateToast">Add Toast</button>
+
+
+@code {
+    //public VMTestServiceViewModel ViewModel { get; set; }
+
+    protected override void OnInitialized()
+    {
+        //ViewModel = new VMTestServiceViewModel(_ts);
+        UpdateValuesOnChange(ViewModel.Component);
+    }
+
+    public void CreateToast()
+    {
+        AlertDialogService.AddAlertDialog("Success", "Test", "test", 30);
+        //_toastService.AddToast("Success", "Test", "test", 30);
+    }
+
+    
+}

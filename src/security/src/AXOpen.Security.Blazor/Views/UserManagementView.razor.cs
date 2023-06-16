@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using AxOpen.Security.Entities;
 using AxOpen.Security.Models;
+using AXSharp.Abstractions.Dialogs.AlertDialog;
 
 namespace AxOpen.Security.Views
 {
@@ -23,6 +24,9 @@ namespace AxOpen.Security.Views
 
         [Inject]
         private UserManager<User> _userManager { get; set; }
+
+        [Inject]
+        private IAlertDialogService _alertDialogService { get; set; }
 
         private User SelectedUser { get; set; }
         private UpdateUserModel _model { get; set; }
@@ -54,7 +58,7 @@ namespace AxOpen.Security.Views
         {
             await _userManager.DeleteAsync(user);
             SelectedUser = null;
-            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "User succesfully deleted!", 10)));
+            _alertDialogService.AddAlertDialog("Success", "Deleted!", "User succesfully deleted!", 10);
             //TcoAppDomain.Current.Logger.Information($"User '{user.UserName}' deleted. {{@sender}}", new { UserName = user.UserName });
         }
 
@@ -78,12 +82,12 @@ namespace AxOpen.Security.Views
             if (result.Succeeded)
             {
 
-                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Updated!", "User succesfully updated!", 10)));
+                _alertDialogService.AddAlertDialog("Success", "Updated!", "User succesfully updated!", 10);
                 //TcoAppDomain.Current.Logger.Information($"User '{SelectedUser.UserName}' updated. {{@sender}}", new { UserName = SelectedUser.UserName, Group = SelectedUser.Roles });
             }
             else
             {
-                //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Warning", "Not updated!", "User was not updated!", 10)));
+                _alertDialogService.AddAlertDialog("Warning", "Not updated!", "User was not updated!", 10);
             }
         }
 

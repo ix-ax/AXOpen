@@ -17,6 +17,8 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Serilog;
+using AXSharp.Abstractions.Dialogs.AlertDialog;
+using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 using System.Security.Principal;
 using AXOpen.Core;
 
@@ -27,6 +29,8 @@ builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
+
+builder.Services.AddScoped<IAlertDialogService, ToasterService>();
 
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
