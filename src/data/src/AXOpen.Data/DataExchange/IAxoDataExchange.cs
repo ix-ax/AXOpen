@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
+using System.Linq.Expressions;
 
 namespace AXOpen.Data
 {
@@ -112,5 +113,9 @@ namespace AXOpen.Data
         /// <param name="identifier">Record identifier. Use of '*' will provide no filter to the query. <see cref="Pocos.AXOpen.Data.IAxoDataEntity.DataEntityId"/></param>
         /// <returns>Record from the associated repository meeting criteria.</returns>
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier);
+
+        void ExportData(string path, char separator = ';');
+
+        void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';');
     }
 }

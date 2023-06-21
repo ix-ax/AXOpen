@@ -6,9 +6,12 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using System.Collections.Generic;
+using System.IO.Compression;
+using System.Linq.Expressions;
 using System.Reflection;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes.Online;
 
 namespace AXOpen.Data;
 
@@ -215,5 +218,37 @@ public partial class AxoDataFragmentExchange
     private IEnumerable<TS>? GetDataSetProperty<TA, TS>() where TA : Attribute where TS : class
     {
         return this.GetDataSetPropertyInfo<TA>()?.Select(p => p.GetValue(this) as TS);
+    }
+
+    public void ExportData(string path, char separator = ';')
+    {
+        if (Directory.Exists("wwwroot/exportDataPrepare"))
+            Directory.Delete("wwwroot/exportDataPrepare", true);
+
+        Directory.CreateDirectory("wwwroot/exportDataPrepare");
+
+        File.Delete(path);
+            
+
+        foreach (var fragment in DataFragments)
+        {
+            fragment?.ExportData("wwwroot/exportDataPrepare/" + fragment.ToString(), separator);
+        }
+        ZipFile.CreateFromDirectory("wwwroot/exportDataPrepare", path);
+    }
+
+    public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
+    {
+        if (Directory.Exists("wwwroot/importDataPrepare"))
+            Directory.Delete("wwwroot/importDataPrepare", true);
+
+        Directory.CreateDirectory("wwwroot/importDataPrepare");
+
+        ZipFile.ExtractToDirectory(path, "wwwroot/importDataPrepare");
+
+        foreach (var fragment in DataFragments)
+        {
+            fragment?.ImportData("wwwroot/importDataPrepare/" + fragment.ToString(), crudDataObject, separator);
+        }
     }
 }

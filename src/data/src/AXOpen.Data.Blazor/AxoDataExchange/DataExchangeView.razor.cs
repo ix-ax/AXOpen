@@ -102,7 +102,7 @@ public partial class DataExchangeView
 
         try
         {
-            await using FileStream fs = new("importData.csv", FileMode.Create);
+            await using FileStream fs = new("importData.zip", FileMode.Create);
             await e.File.OpenReadStream().CopyToAsync(fs);
         }
         catch (Exception ex)
