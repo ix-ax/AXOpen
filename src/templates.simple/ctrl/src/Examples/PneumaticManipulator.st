@@ -253,17 +253,16 @@ NAMESPACE examples.PneumaticManipulator
                 //-------------------------------------------------------                  
                 IF (components^.VerticalCylinder.MoveToHome.Invoke().IsDone()) THEN // <- waits for the task to be done.                
                     THIS.MoveNext(); // <- This will move to the next step in the sequence.                    
-                END_IF;
-               // MoveToWork.Invoke();         
+                END_IF;                       
             //-------------------------------------------------------
             END_IF;
-             IF (Steps[4].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
+            
+            IF (Steps[4].Execute(THIS, TRUE, 'This will break down')) THEN
                 //-------------------------------------------------------                    
-                    THIS.MoveNext();   
-                //  MoveToWork.Invoke();   
-                    ;         
+                    THIS.MoveNext();                                   
                 //-------------------------------------------------------
             END_IF;
+
             // This is more concise way of writing steps when we execute only single task.
             THIS.AndThen(Steps[1], components^.GripperCylinder.MoveToHome);
             THIS.AndThen(Steps[2], components^.VerticalCylinder.MoveToHome);
