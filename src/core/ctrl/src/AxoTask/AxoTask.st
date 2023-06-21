@@ -210,7 +210,8 @@ NAMESPACE AXOpen.Core
 
             THIS.UpdateState();
 
-            _CyclicExecuteIsNotCalled.Serve(THIS);
+
+            _CyclicExecuteIsNotCalled.Serve(THIS); //<--- THIS is not this; 
            
             IF Status = eAxoTaskState#Done AND THIS.IsNewInvokeCall() THEN
                 Status := eAxoTaskState#Ready; 
