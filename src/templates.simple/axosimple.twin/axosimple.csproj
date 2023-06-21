@@ -13,6 +13,7 @@
     <Compile Include=".g\**" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
     <ProjectReference Include="..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
     <ProjectReference Include="..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
   </ItemGroup>

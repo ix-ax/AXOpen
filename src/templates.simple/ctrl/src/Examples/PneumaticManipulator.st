@@ -259,7 +259,8 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
              IF (Steps[4].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
                 //-------------------------------------------------------                    
-                //    THIS.MoveNext();   
+                //    THIS.MoveNext();  
+                  MoveToWork.Initialize(THIS);  
                   MoveToWork.Invoke();   
                     ;         
                 //-------------------------------------------------------

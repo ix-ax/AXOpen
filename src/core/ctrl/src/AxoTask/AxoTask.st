@@ -227,7 +227,7 @@ NAMESPACE AXOpen.Core
                     _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError);                     
                  END_IF;     
             END_IF;     
-            _CyclicExecuteIsNotCalled.Activate(eAxoMessageCategory#ProgrammingError);   
+            
             Invoke := THIS;
         END_METHOD    
 
