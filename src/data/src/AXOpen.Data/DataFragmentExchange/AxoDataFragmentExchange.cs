@@ -222,33 +222,35 @@ public partial class AxoDataFragmentExchange
 
     public void ExportData(string path, char separator = ';')
     {
-        if (Directory.Exists("wwwroot/exportDataPrepare"))
-            Directory.Delete("wwwroot/exportDataPrepare", true);
+        if (Directory.Exists(Path.GetDirectoryName(path) + "\\exportDataPrepare"))
+            Directory.Delete(Path.GetDirectoryName(path) + "\\exportDataPrepare", true);
 
-        Directory.CreateDirectory("wwwroot/exportDataPrepare");
+        Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare");
 
         File.Delete(path);
             
 
         foreach (var fragment in DataFragments)
         {
-            fragment?.ExportData("wwwroot/exportDataPrepare/" + fragment.ToString(), separator);
+            fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), separator);
         }
-        ZipFile.CreateFromDirectory("wwwroot/exportDataPrepare", path);
+        ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
     }
 
     public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
     {
-        if (Directory.Exists("wwwroot/importDataPrepare"))
-            Directory.Delete("wwwroot/importDataPrepare", true);
+        if (Directory.Exists(Path.GetDirectoryName(path) + "\\importDataPrepare"))
+            Directory.Delete(Path.GetDirectoryName(path) + "\\importDataPrepare", true);
 
-        Directory.CreateDirectory("wwwroot/importDataPrepare");
+        Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\importDataPrepare");
 
-        ZipFile.ExtractToDirectory(path, "wwwroot/importDataPrepare");
+        ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
 
         foreach (var fragment in DataFragments)
         {
-            fragment?.ImportData("wwwroot/importDataPrepare/" + fragment.ToString(), crudDataObject, separator);
+            fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, separator);
         }
+
+        Directory.Delete(Path.GetDirectoryName(path), true);
     }
 }

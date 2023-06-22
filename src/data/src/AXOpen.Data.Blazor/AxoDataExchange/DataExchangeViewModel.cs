@@ -34,12 +34,13 @@ namespace AXOpen.Data
             set => this.DataExchange = (IAxoDataExchange)value;
         }
 
+        public bool IsFileExported { get; set; } = false;
         public List<ValueChangeItem> Changes { get; set; }
 
         public IAlertDialogService AlertDialogService { get; set; }
 
         private IBrowsableDataObject _selectedRecord;
-        
+
         public IBrowsableDataObject SelectedRecord
         {
             get
@@ -90,7 +91,7 @@ namespace AXOpen.Data
             }
 
             FilteredCount = CountFiltered(FilterById, SearchMode);
-            
+
             return Records;
         }
 
@@ -182,7 +183,7 @@ namespace AXOpen.Data
             {
                 UpdateObservableRecords();
             }
-            
+
 
             //-- var plainer = ((ITwinObject)DataExchange.Data).CreatePoco() as Pocos.AXOpen.Data.AxoDataEntity;
 
@@ -194,7 +195,7 @@ namespace AXOpen.Data
             //DataExchange.Repository.Delete(((IBrowsableDataObject)plainer).DataEntityId);
             //SelectedRecord = null;
             //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 10)));
-            
+
         }
 
         public async Task Copy()
@@ -282,11 +283,15 @@ namespace AXOpen.Data
             //CreateItemId = null;
         }
 
-        public void ExportData()
+        public void ExportData(string path)
         {
+            IsFileExported = false;
+
             try
             {
-                DataExchange.ExportData("wwwroot/exportData.zip");
+                DataExchange.ExportData(path);
+
+                IsFileExported = true;
 
                 AlertDialogService.AddAlertDialog("Success", "Exported!", "Data was successfully exported!", 10);
             }
@@ -296,11 +301,11 @@ namespace AXOpen.Data
             }
         }
 
-        public void ImportData()
+        public void ImportData(string path)
         {
             try
             {
-                DataExchange.ImportData("importData.zip");
+                DataExchange.ImportData(path);
 
                 this.UpdateObservableRecords();
 
