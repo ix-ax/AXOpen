@@ -61,7 +61,7 @@ NAMESPACE AXOpen.Messaging.Static
                 _object : IAxoObject;
             END_VAR  
         
-            IF AXOpen.Core.IsNullContext(_object.GetContext()) THEN
+            IF AXOpen.Core.IsNullContext(_object.GetContext()) THEN // <- accessing _object.GetContext() seems for force the PLC to go down.
                 RETURN;
             END_IF;
 

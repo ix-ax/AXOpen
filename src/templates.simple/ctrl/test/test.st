@@ -1,11 +1,12 @@
+USING axosimple;
 USING AxUnit;
 
 NAMESPACE MyTest
 
     {TestFixture}
-    CLASS MyTestFixture
+    CLASS MyTestFixture        
         {Test}
-        METHOD PUBLIC MyTestMethod
+        METHOD PUBLIC WrongReference                       
             Assert.Equal(actual := TRUE, expected := TRUE);
         END_METHOD
     END_CLASS

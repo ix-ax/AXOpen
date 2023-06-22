@@ -210,8 +210,8 @@ NAMESPACE AXOpen.Core
 
             THIS.UpdateState();
 
-
-            _CyclicExecuteIsNotCalled.Serve(THIS); //<--- THIS is not this; 
+            //
+            _CyclicExecuteIsNotCalled.Serve(THIS); //<--- THIS is not this; Seems to pass invalid reference over interface
            
             IF Status = eAxoTaskState#Done AND THIS.IsNewInvokeCall() THEN
                 Status := eAxoTaskState#Ready; 
