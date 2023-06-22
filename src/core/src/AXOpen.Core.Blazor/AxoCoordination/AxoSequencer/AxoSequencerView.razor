@@ -1,6 +1,6 @@
 ﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoSequencer>
-
+@using Microsoft.AspNetCore.Components.Authorization;
 
 <div class="card-body">
     <div class="row">
@@ -37,13 +37,27 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="@(IsControllable ? "Command" : "Status")"/>
+                    <AuthorizeView Roles="can_skip_steps_in_sequence">
+                        <Authorized>
+                            <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="@(IsControllable ? "Command" : "Status")" />
+                        </Authorized>
+                        <NotAuthorized>
+                            <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="Status"/>
+                        </NotAuthorized>
+                    </AuthorizeView>
                 </div>
                 <div class="col">
                     <RenderableContentControl Context="@Component.StepIn" Presentation="@(IsControllable ? "Command" : "Status")"/>
                 </div>
                 <div class="col">
-                    <RenderableContentControl Context="@Component.StepForwardCommand" Presentation="@(IsControllable ? "Command" : "Status")"/>
+                    <AuthorizeView Roles="can_skip_steps_in_sequence">
+                        <Authorized>
+                            <RenderableContentControl Context="@Component.StepForwardCommand" Presentation="@(IsControllable ? "Command" : "Status")" />
+                        </Authorized>
+                        <NotAuthorized>
+                            <RenderableContentControl Context="@Component.StepForwardCommand" Presentation="Status" />
+                        </NotAuthorized>
+                    </AuthorizeView>
                 </div>
             </div>
         </div>
@@ -75,10 +89,7 @@
                             <td>@UpdateTotalDurationDisplay(step)</td>
                         </tr>
                     }
-
                 }
-                
-                    
                 </tbody>
             </table>
         </div>
