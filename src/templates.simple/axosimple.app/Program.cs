@@ -21,6 +21,7 @@ using AXSharp.Abstractions.Dialogs.AlertDialog;
 using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 using System.Security.Principal;
 using AXOpen.Core;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,6 +62,10 @@ b.Manip.InitializeRemoteDataExchange(productionDataRepository);
 b.Set.InitializeRemoteDataExchange(headerDataRepository);
 
 b.InitializeRemoteDataExchange();
+
+// Clear Temp dir
+if (Directory.Exists("wwwroot/Temp"))
+    Directory.Delete("wwwroot/Temp", true);
 
 var app = builder.Build();
 
@@ -129,7 +134,4 @@ public static class Roles
     public const string process_settings_access = nameof(process_settings_access);
     public const string process_traceability_access = nameof(process_traceability_access);
 }
-
-
-
 

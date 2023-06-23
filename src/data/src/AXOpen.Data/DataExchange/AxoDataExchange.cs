@@ -5,6 +5,7 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
+using System.IO.Compression;
 using System.Linq.Expressions;
 using System.Numerics;
 using System.Reflection;
@@ -335,13 +336,47 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     public void ExportData(string path, char separator = ';')
     {
-        IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
-        dataExporter.Export(DataRepository, path, p => true, separator);
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\exportDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\exportDataPrepare", true);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare");
+
+            File.Delete(path);
+
+            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + this.ToString(), p => true, separator);
+
+            ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
+        }
+        else
+        {
+            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            dataExporter.Export(DataRepository, path, p => true, separator);
+        }
     }
 
     public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
     {
-        IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
-        dataExporter.Import(DataRepository, path, crudDataObject, separator);
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\importDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\importDataPrepare", true);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare\\" + this.ToString(), crudDataObject, separator);
+
+            Directory.Delete(Path.GetDirectoryName(path), true);
+        }
+        else
+        {
+            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            dataExporter.Import(DataRepository, path, crudDataObject, separator);
+        }
     }
 }

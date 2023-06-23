@@ -24,7 +24,7 @@ public partial class AxoDataFragmentExchange
         return CreateBuilder() as T;
     }
 
-    public object CreateBuilder() 
+    public object CreateBuilder()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
@@ -222,35 +222,55 @@ public partial class AxoDataFragmentExchange
 
     public void ExportData(string path, char separator = ';')
     {
-        if (Directory.Exists(Path.GetDirectoryName(path) + "\\exportDataPrepare"))
-            Directory.Delete(Path.GetDirectoryName(path) + "\\exportDataPrepare", true);
-
-        Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare");
-
-        File.Delete(path);
-            
-
-        foreach (var fragment in DataFragments)
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
-            fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), separator);
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\exportDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\exportDataPrepare", true);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare");
+
+            File.Delete(path);
+
+
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), separator);
+            }
+            ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
         }
-        ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
+        else
+        {
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), separator);
+            }
+        }
     }
 
     public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
     {
-        if (Directory.Exists(Path.GetDirectoryName(path) + "\\importDataPrepare"))
-            Directory.Delete(Path.GetDirectoryName(path) + "\\importDataPrepare", true);
-
-        Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\importDataPrepare");
-
-        ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
-
-        foreach (var fragment in DataFragments)
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
-            fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, separator);
-        }
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\importDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\importDataPrepare", true);
 
-        Directory.Delete(Path.GetDirectoryName(path), true);
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, separator);
+            }
+
+            Directory.Delete(Path.GetDirectoryName(path), true);
+        }
+        else
+        {
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), crudDataObject, separator);
+            }
+        }
     }
 }

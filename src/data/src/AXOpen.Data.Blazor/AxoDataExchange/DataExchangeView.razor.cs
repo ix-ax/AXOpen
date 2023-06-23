@@ -106,9 +106,9 @@ public partial class DataExchangeView
 
         try
         {
-            Directory.CreateDirectory("wwwroot/" + ViewGuid);
+            Directory.CreateDirectory("wwwroot/Temp/" + ViewGuid);
 
-            await using FileStream fs = new("wwwroot/" + ViewGuid + "/importData.zip", FileMode.Create);
+            await using FileStream fs = new("wwwroot/Temp/" + ViewGuid + "/importData.zip", FileMode.Create);
             await e.File.OpenReadStream().CopyToAsync(fs);
 
             isFileImported = true;

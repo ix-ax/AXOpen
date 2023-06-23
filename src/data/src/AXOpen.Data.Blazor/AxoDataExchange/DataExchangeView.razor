@@ -22,7 +22,7 @@ else
                 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>Load from PLC</button>
                 @if (CanExport)
                 {
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/" + ViewGuid + "/exportData.zip"); }'>Export</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); }'>Export</button>
                     <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid" @onclick="() => isFileImported = false">Import</button>
                 }
             }
@@ -359,7 +359,7 @@ else
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Export data</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick='() => ClearFiles("wwwroot/" + ViewGuid)'></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick='() => ClearFiles("wwwroot/Temp/" + ViewGuid)'></button>
                 </div>
                 <div class="modal-body">
                     @if (!Vm.IsFileExported)
@@ -370,11 +370,11 @@ else
                     }
                     else
                     {
-                        <a download href="/@ViewGuid/exportData.zip">Download</a>
+                        <a download href="/Temp/@ViewGuid/exportData.zip">Download</a>
                     }
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick='() => ClearFiles("wwwroot/" + ViewGuid)'>Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick='() => ClearFiles("wwwroot/Temp/" + ViewGuid)'>Close</button>
                 </div>
             </div>
         </div>
@@ -400,7 +400,7 @@ else
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     }
-                    <button type="button" class="btn btn-primary @(!isFileImported || isFileImporting ? "disabled" : "")" data-bs-dismiss="modal" @onclick='() => { Vm.ImportData("wwwroot/" + ViewGuid + "/importData.zip"); isFileImported = false; _inputFileId = Guid.NewGuid().ToString(); }'>Import</button>
+                    <button type="button" class="btn btn-primary @(!isFileImported || isFileImporting ? "disabled" : "")" data-bs-dismiss="modal" @onclick='() => { Vm.ImportData("wwwroot/Temp/" + ViewGuid + "/importData.zip"); isFileImported = false; _inputFileId = Guid.NewGuid().ToString(); }'>Import</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
