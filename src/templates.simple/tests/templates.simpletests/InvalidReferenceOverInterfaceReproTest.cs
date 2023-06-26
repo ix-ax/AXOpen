@@ -41,7 +41,7 @@ namespace templates.simpletests
 
             DownloadTemplate();
 
-            var sut = Entry.Plc.Context.PneumaticManipulator;
+            var sut = Entry.Plc.Context.PneumaticManipulator; 
             sut.GroundSequence.Restore();
             await sut.GroundSequence.ExecuteAsync();
             await sut.GroundSequence.SteppingMode.SetAsync((short)eAxoSteppingMode.StepByStep);
