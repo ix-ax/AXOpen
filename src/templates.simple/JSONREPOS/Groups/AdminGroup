@@ -9,9 +9,10 @@
     "process_traceability_access",
     "can_run_ground_mode",
     "can_run_automat_mode",
-    "can_run_service_mode"
+    "can_run_service_mode",
+    "can_skip_steps_in_sequence"
   ],
-  "RolesHash": "AQAAAAIAAYagAAAAEK7v0UqQgJnc+28+oEmoyLtmz/sUm920Jv0UfLUPkiCKDtp5fn2y8YQeX/Nt7PTvZw==",
+  "RolesHash": "AQAAAAIAAYagAAAAEAgIHgdIMyj6c+q6XZheMsS+z8oTv/skZraTzGDCgYVEBkgbh/uKTXCL9YOV9r86dQ==",
   "Created": "2023-06-07T08:06:37.3429622+02:00",
-  "Modified": "2023-06-07T18:27:10.7885621+02:00"
+  "Modified": "2023-06-22T08:48:44.1564933+02:00"
 }

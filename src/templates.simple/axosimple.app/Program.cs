@@ -123,6 +123,7 @@ public static class Roles
             new Role(can_run_ground_mode),
             new Role(can_run_automat_mode),
             new Role(can_run_service_mode),
+            new Role(can_skip_steps_in_sequence),
         };
 
         return roles;
@@ -133,5 +134,6 @@ public static class Roles
     public const string can_run_service_mode = nameof(can_run_service_mode);
     public const string process_settings_access = nameof(process_settings_access);
     public const string process_traceability_access = nameof(process_traceability_access);
+    public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
 }
 
