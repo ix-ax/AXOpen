@@ -64,6 +64,12 @@ public partial class AxoDataFragmentExchange
             case eCrudOperation.Delete:
                 this.RemoteDelete(identifier);
                 break;
+            case eCrudOperation.EntityExist:
+                this.RemoteEntityExist(identifier);
+                break;
+            case eCrudOperation.CreateOrUpdate:
+                this.RemoteCreateOrUpdate(identifier);
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -174,6 +180,27 @@ public partial class AxoDataFragmentExchange
         foreach (var fragment in DataFragments)
         {
             fragment?.RemoteDelete(identifier);
+        }
+
+        return true;
+    }
+
+    public bool RemoteEntityExist(string identifier)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (!fragment.RemoteEntityExist(identifier))
+                return false;
+        }
+
+        return true;
+    }
+
+    public bool RemoteCreateOrUpdate(string identifier)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment?.RemoteCreateOrUpdate(identifier);
         }
 
         return true;

@@ -16,6 +16,10 @@ NAMESPACE AXOpen.Data
            UpdateTask  : AxoDataExchangeTask;
            {#ix-set:AttributeName =  "<#Delete#>"} 
            DeleteTask  : AxoDataExchangeTask;
+           {#ix-set:AttributeName =  "<#EntityExist#>"} 
+           EntityExistTask : AxoDataExchangeTask;
+           {#ix-set:AttributeName =  "<#CreateOrUpdate#>"} 
+           CreateOrUpdateTask : AxoDataExchangeTask;
         END_VAR
         
         METHOD PRIVATE Run
@@ -23,11 +27,15 @@ NAMESPACE AXOpen.Data
             ReadTask.Initialize(THIS);
             UpdateTask.Initialize(THIS);
             DeleteTask.Initialize(THIS);
+            EntityExistTask.Initialize(THIS);
+            CreateOrUpdateTask.Initialize(THIS);
             
             CreateTask.Execute();
             ReadTask.Execute();
             UpdateTask.Execute();
             DeleteTask.Execute();
+            EntityExistTask.Execute();
+            CreateOrUpdateTask.Execute();
         END_METHOD    
 
         ///<summary>
@@ -99,6 +107,28 @@ NAMESPACE AXOpen.Data
         END_METHOD 
 
         ///<summary>
+        /// Check if data entry exists with given ID in remote repository.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param> 
+        METHOD PUBLIC EntityExist : IAxoTaskState
+            VAR_INPUT
+                identifier : STRING[254];
+            END_VAR
+            EntityExist := EntityExistTask.Invoke(identifier);
+        END_METHOD 
+
+        ///<summary>
+        /// Creates or Updates data in remote repository from data entiry of this AxoDataExchange.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param> 
+        METHOD PUBLIC CreateOrUpdate : IAxoTaskState
+            VAR_INPUT
+                identifier : STRING[254];
+            END_VAR
+            CreateOrUpdate := CreateOrUpdateTask.Invoke(identifier);
+        END_METHOD 
+
+        ///<summary>
         /// Restores all tasks associated with this object.
         ///</summary>         
         METHOD PUBLIC Restore
@@ -106,6 +136,8 @@ NAMESPACE AXOpen.Data
             ReadTask.Restore();
             UpdateTask.Restore();
             DeleteTask.Restore();
+            EntityExistTask.Restore();
+            CreateOrUpdateTask.Restore();
         END_METHOD    
     END_CLASS    
 END_NAMESPACE

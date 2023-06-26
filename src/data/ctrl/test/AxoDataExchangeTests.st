@@ -100,6 +100,32 @@ NAMESPACE AXOpen.Data
                 _context.Close();
                 AxUnit.Assert.Equal(_dataExchange.DeleteTask.DataEntityIdentifier, expected);
             END_METHOD
+
+            {Test}
+            METHOD PUBLIC EntityExist_sets_identifier
+                VAR
+                    expected : STRING[254];
+                END_VAR    
+                _dataExchange.Initialize(_context);
+                _context.Open();
+                expected := 'EntityExistRecordIdentifier';
+                _dataExchange.EntityExist(expected);
+                _context.Close();
+                AxUnit.Assert.Equal(_dataExchange.EntityExistTask.DataEntityIdentifier, expected);
+            END_METHOD
+
+            {Test}
+            METHOD PUBLIC CreateOrUpdate_sets_identifier
+                VAR
+                    expected : STRING[254];
+                END_VAR    
+                _dataExchange.Initialize(_context);
+                _context.Open();
+                expected := 'CreateOrUpdateRecordIdentifier';
+                _dataExchange.CreateOrUpdate(expected);
+                _context.Close();
+                AxUnit.Assert.Equal(_dataExchange.CreateOrUpdateTask.DataEntityIdentifier, expected);
+            END_METHOD
         END_CLASS
     END_NAMESPACE    
 END_NAMESPACE

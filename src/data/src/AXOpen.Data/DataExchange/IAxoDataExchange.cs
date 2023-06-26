@@ -96,6 +96,20 @@ namespace AXOpen.Data
         bool RemoteDelete(string identifier);
 
         /// <summary>
+        /// Provides handler for remote (controller's) request to check if data exists in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
+        /// </summary>
+        /// <param name="identifier">Record identifier.</param>
+        /// <returns>True when success</returns>
+        bool RemoteEntityExist(string identifier);
+
+        /// <summary>
+        /// Provides handler for remote (controller's) request to create or update data in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
+        /// </summary>
+        /// <param name="identifier">Record identifier.</param>
+        /// <returns>True when success</returns>
+        bool RemoteCreateOrUpdate(string identifier);
+
+        /// <summary>
         /// Gets records meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
         /// </summary>
         /// <param name="identifier">Record identifier. Use of '*' will provide no filter to the query. <see cref="Pocos.AXOpen.Data.IAxoDataEntity.DataEntityId"/></param>

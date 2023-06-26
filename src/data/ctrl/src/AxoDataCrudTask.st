@@ -32,7 +32,7 @@ NAMESPACE AXOpen.Data
     END_CLASS
 
     TYPE
-        eCrudOperation : (Create, Read, Update, Delete);
+        eCrudOperation : (Create, Read, Update, Delete, EntityExist, CreateOrUpdate);
     END_TYPE
 
 END_NAMESPACE
