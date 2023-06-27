@@ -5,9 +5,12 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
+using System.IO.Compression;
+using System.Linq.Expressions;
 using System.Numerics;
 using System.Reflection;
 using AXOpen.Base.Data;
+using AXSharp.Abstractions.Dialogs.AlertDialog;
 using AXSharp.Connector;
 
 
@@ -19,7 +22,7 @@ namespace AXOpen.Data;
 /// <typeparam name="TOnline">Online data twin object of <see cref="AxoDataEntity" /></typeparam>
 /// <typeparam name="TPlain">POCO twin of <see cref="Pocos.AXOpen.Data.AxoDataEntity" /></typeparam>
 public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEntity
-    where TPlain : Pocos.AXOpen.Data.IAxoDataEntity
+    where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 {
     private TOnline _dataEntity;
 
@@ -296,7 +299,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public async Task UpdateFromShadowsAsync()
     {
-        var plainer = await((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
+        var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
         //CrudData.ChangeTracker.SaveObservedChanges(plainer);
         Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
     }
@@ -304,7 +307,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected)
     {
-         await RefUIData.PlainToOnline(Repository.Read(selected.DataEntityId));
+        await RefUIData.PlainToOnline(Repository.Read(selected.DataEntityId));
     }
 
     /// <inheritdoc />
@@ -329,5 +332,53 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         var source = await RefUIData.ShadowToPlain<IBrowsableDataObject>();
         source.DataEntityId = recordId;
         Repository.Create(source.DataEntityId, source);
+    }
+
+    /// <inheritdoc />
+    public void ExportData(string path, char separator = ';')
+    {
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\exportDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\exportDataPrepare", true);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare");
+
+            File.Delete(path);
+
+            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + this.ToString(), p => true, separator);
+
+            ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
+        }
+        else
+        {
+            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            dataExporter.Export(DataRepository, path, p => true, separator);
+        }
+    }
+
+    /// <inheritdoc />
+    public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
+    {
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\importDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\importDataPrepare", true);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare\\" + this.ToString(), crudDataObject, separator);
+
+            Directory.Delete(Path.GetDirectoryName(path), true);
+        }
+        else
+        {
+            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            dataExporter.Import(DataRepository, path, crudDataObject, separator);
+        }
     }
 }

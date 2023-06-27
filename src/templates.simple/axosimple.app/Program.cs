@@ -21,6 +21,8 @@ using AXSharp.Abstractions.Dialogs.AlertDialog;
 using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 using System.Security.Principal;
 using AXOpen.Core;
+using System.IO;
+using AXOpen.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -61,6 +63,9 @@ b.Manip.InitializeRemoteDataExchange(productionDataRepository);
 b.Set.InitializeRemoteDataExchange(headerDataRepository);
 
 b.InitializeRemoteDataExchange();
+
+// Clean Temp directory
+IAxoDataExchange.CleanUp();
 
 var app = builder.Build();
 
@@ -131,7 +136,4 @@ public static class Roles
     public const string process_traceability_access = nameof(process_traceability_access);
     public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
 }
-
-
-
 

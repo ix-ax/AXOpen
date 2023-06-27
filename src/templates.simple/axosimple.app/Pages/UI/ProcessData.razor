@@ -1,6 +1,8 @@
 ﻿@page "/ui/ProcessData"
+@using AXSharp.Abstractions.Dialogs.AlertDialog;
 @using AXSharp.Connector
 @using AXOpen.Data;
+@inject IAlertDialogService _alertDialogService
 
 @*<div class="container-fluid">
     <div class="row">
@@ -10,14 +12,21 @@
         </DataExchangeView>
     </div>
 </div>
-
-@code
-{
-    private DataExchangeViewModel _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.ProcessData };
-}
 *@
+@*@code
+{
+    private DataExchangeViewModel _vm;
+
+    protected override void OnInitialized()
+    {
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData, AlertDialogService = _alertDialogService };
+    }
+}*@
+
 
 <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData" Presentation="Command"></RenderableContentControl>
+
+@*<DataExchangeView Vm="@_vm" Presentation="Command" CanExport="true"></DataExchangeView>*@
 
 @*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared" Presentation="Command"></RenderableContentControl>
 
