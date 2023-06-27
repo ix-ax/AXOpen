@@ -334,6 +334,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         Repository.Create(source.DataEntityId, source);
     }
 
+    /// <inheritdoc />
     public void ExportData(string path, char separator = ';')
     {
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
@@ -357,6 +358,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         }
     }
 
+    /// <inheritdoc />
     public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
     {
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))

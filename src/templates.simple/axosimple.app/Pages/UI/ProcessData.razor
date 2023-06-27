@@ -13,7 +13,7 @@
     </div>
 </div>
 *@
-@code
+@*@code
 {
     private DataExchangeViewModel _vm;
 
@@ -21,12 +21,12 @@
     {
         _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData, AlertDialogService = _alertDialogService };
     }
-}
+}*@
 
 
 <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData" Presentation="Command"></RenderableContentControl>
 
-<DataExchangeView Vm="@_vm" Presentation="Command" CanExport="true"></DataExchangeView>
+@*<DataExchangeView Vm="@_vm" Presentation="Command" CanExport="true"></DataExchangeView>*@
 
 @*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared" Presentation="Command"></RenderableContentControl>
 

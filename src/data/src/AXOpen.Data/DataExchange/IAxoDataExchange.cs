@@ -114,8 +114,29 @@ namespace AXOpen.Data
         /// <returns>Record from the associated repository meeting criteria.</returns>
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier);
 
+        /// <summary>
+        /// Export data from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.
+        /// </summary>
+        /// <param name="path">Path to exported file.</param>
+        /// <param name="separator">Separator for individual records.</param>
         void ExportData(string path, char separator = ';');
 
+        /// <summary>
+        /// Import data from file to the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.
+        /// </summary>
+        /// <param name="path">Path to imported file.</param>
+        /// <param name="crudDataObject">Object type of the imported records.</param>
+        /// <param name="separator">Separator for individual records.</param>
         void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';');
+
+        /// <summary>
+        /// Clear directory of temporary files.
+        /// </summary>
+        /// <param name="path">Path to temp file.</param>
+        static void CleanUp(string path = "wwwroot/Temp")
+        {
+            if (Directory.Exists(path))
+                Directory.Delete(path, true);
+        }
     }
 }

@@ -22,6 +22,7 @@ using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 using System.Security.Principal;
 using AXOpen.Core;
 using System.IO;
+using AXOpen.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -63,9 +64,8 @@ b.Set.InitializeRemoteDataExchange(headerDataRepository);
 
 b.InitializeRemoteDataExchange();
 
-// Clear Temp dir
-if (Directory.Exists("wwwroot/Temp"))
-    Directory.Delete("wwwroot/Temp", true);
+// Clean Temp directory
+IAxoDataExchange.CleanUp();
 
 var app = builder.Build();
 
