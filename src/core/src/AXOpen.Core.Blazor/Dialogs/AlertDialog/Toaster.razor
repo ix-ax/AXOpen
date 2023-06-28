@@ -3,7 +3,7 @@
 @if (_dialogService.GetAlertDialogs() != null && _dialogService.GetAlertDialogs().Count > 0)
 {
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 100;">
-        @foreach (AlertDialog toast in _dialogService.GetAlertDialogs())
+        @foreach (AlertDialog toast in _dialogService.GetAlertDialogs().ToList())
         {
             var bg = "";
             var icon = "";

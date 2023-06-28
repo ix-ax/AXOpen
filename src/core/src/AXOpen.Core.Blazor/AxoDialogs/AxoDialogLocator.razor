@@ -1,0 +1,74 @@
+﻿@namespace AXOpen.Core.Blazor.AxoDialogs
+@inject NavigationManager _navigationManager
+
+<h1>cau</h1>
+@*@if ()
+{
+    <RenderableContentControl Context="_actualDialog"
+                              Presentation="Dialog"
+                              ></RenderableContentControl>
+}*@
+
+@if ( DialogService != null && DialogService.DialogInstance != null && DialogService.DialogInstance.Show)
+{
+    <RenderableContentControl 
+        Context="DialogService.DialogInstance" 
+        Presentation="Action"/>
+}
+
+
+
+@code {
+    /// <summary>
+    /// Instance of DialogService type, which corresponds to actual page.
+    /// </summary>
+    [Parameter]
+    public AxoDialogProxyService DialogService { get; set; }
+
+    /// <summary>
+    /// Pass unique value of last segment of URL, which will represent dialog id corresponding to actual page url.
+    /// </summary>
+    [Parameter]
+    public string DialogId { get; set; }
+    /// <summary>
+    /// Delay for dialog open, if you have problem with dialogs open on slower PC, increase dialog dealay (Default value is 500 ms).
+    /// </summary>
+    [Parameter]
+    public int DialogOpenDelay { get; set; }
+
+
+
+
+    private bool _showDialogHtml { get; set;}
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (DialogOpenDelay == 0) DialogOpenDelay = 500;
+        DialogService.DialogInvoked += OnDialogInvoked;
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    public async void OnDialogInvoked()
+    {
+        await Task.Delay(DialogOpenDelay);
+
+        if (DialogService.DialogInstance != null)
+        {
+            DialogService.DialogInstance.DialogId = DialogId;
+            DialogService.DialogInstance.Show = true;
+            await InvokeAsync(StateHasChanged);
+            //_actualDialog = DialogService.DialogVortex;
+ 
+
+          
+        }
+    }
+
+
+   
+
+}

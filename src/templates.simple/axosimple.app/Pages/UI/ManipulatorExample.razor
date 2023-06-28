@@ -1,9 +1,14 @@
 ﻿@page "/ui/ManipulatorExample"
+@using AXOpen.Core.Blazor.AxoDialogs;
+@using AXSharp.Abstractions.Dialogs.AlertDialog;
 @using axosimple.hmi.Components;
 @using AXOpen.Data;
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector;
 @*@inherits RenderableComponentBase;*@
+
+
+@inject IAlertDialogService _alerts
 
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="250"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
@@ -17,14 +22,53 @@
     }
 }
 
+
+
+@if(_dialogService != null)
+{
+    <AxoDialogLocator DialogService="_dialogService" DialogId="custation001"></AxoDialogLocator>
+}
+
+@*<button type="button" class="btn btn-primary" @onclick="ButtonClicked">Primary</button>*@
+
+<Button Color="ButtonColor.Primary" @onclick="(async () => { await ShowOffcanvasAsync(); })"  >Show Offcanvas</Button>
+<Offcanvas @ref="offcanvas" Placement="Placement.Bottom" UseStaticBackdrop="true" >
+    ... design your header and body
+</Offcanvas>    
+
 @code
 {
+    private Offcanvas offcanvas;
+    private async Task ShowOffcanvasAsync()
+    {
+        await offcanvas?.ShowAsync();
+    }
+    private async Task HideOffcanvasAsync()
+    {
+        await offcanvas?.HideAsync();
+    }
     private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
     protected override Task OnInitializedAsync()
     {
-    //this.UpdateValuesOnChange(@Entry.Plc.Context.PneumaticManipulator);
         return base.OnInitializedAsync();
+    }
+   
+
+    public static AxoDialogProxyService _dialogService { get; set; } = AxoDialogProxyService.Create(new[] { Entry.Plc.Context.PneumaticManipulator });
+
+    //public async void OnDialogInvoked()
+    //{
+    //    await Task.Delay(1000);
+    //    _alerts.AddAlertDialog("Success", "Hello", "Brano2", 5);
+        
+    //    await InvokeAsync(StateHasChanged);
+
+    //}
+
+    public void ButtonClicked()
+    {
+        _alerts.AddAlertDialog("Success", "Hello", "Brano", 5);
     }
 }
 

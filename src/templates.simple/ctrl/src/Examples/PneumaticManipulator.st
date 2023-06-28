@@ -143,10 +143,12 @@ NAMESPACE examples.PneumaticManipulator
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
             Steps : ARRAY[0..150] OF AxoStep;
+            _dialog : AXOpen.Core.AxoDialog;
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
             ProcessData : REF_TO ProcessDataManger;
+            
         END_VAR
 
         METHOD INTERNAL Run
@@ -200,6 +202,18 @@ NAMESPACE examples.PneumaticManipulator
                 IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
                 END_IF;
+//-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[11].Execute(THIS, TRUE, 'Show dialog')) THEN
+                //------------------------------------------------------- 
+                IF(_dialog.Show(THIS)
+                    .WithOk()
+                    .WithCaption('What`s next?')
+                    .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
+                    THIS.MoveNext(); 
+                END_IF;			           
+                    
 //-------------------------------------------------------
             END_IF;
             // This will close the sequence and will return to the first step.

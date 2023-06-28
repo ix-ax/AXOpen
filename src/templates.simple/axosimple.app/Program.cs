@@ -29,7 +29,7 @@ builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
-
+builder.Services.AddAxoCoreServices();
 builder.Services.AddScoped<IAlertDialogService, ToasterService>();
 
 
