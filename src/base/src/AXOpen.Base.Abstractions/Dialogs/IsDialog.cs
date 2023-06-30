@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Dialogs
 {
+
     public interface IsDialog : ITwinObject
     {
         string DialogId { get; set; }
         void Initialize(Action dialogAction);
 
         bool Show { get; set; }
+
+        event EventHandler Notify;
+        void NotifyNow();
     }
 }

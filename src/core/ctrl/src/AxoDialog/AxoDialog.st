@@ -37,8 +37,6 @@ NAMESPACE AXOpen.Core
             _caption := '';
             _dialogType := eDialogType#Undefined;
 
-
-        
             
             Show := THIS;
             

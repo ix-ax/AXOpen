@@ -16,9 +16,14 @@ namespace AXOpen.Core
         public IsDialog Dialog { get; private set; }
        
 
-        public void DialogAnswerOk()
+        public async Task DialogAnswerOk()  
         {
             Component._answer.Edit = (short)eDialogAnswer.OK;
+            //await HideOffcanvasAsync();
+            await ButtonClickedHide();
+       
+            //Dialog = null;
+            //await InvokeAsync(StateHasChanged);
             //TcoAppDomain.Current.Logger.Information($"{nameof(DialogAnswerOk)} of {Dialog.HumanReadable} was executed @{{payload}}.", new { Dialog.Symbol });
         }
         //public void DialogAnswerYes()

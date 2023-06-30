@@ -3,6 +3,7 @@ using AXSharp.Connector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,13 +26,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 DialogInstance = dialog;
                 DialogInstance.ReadAsync();
-              
+               
             });
-           
-            DialogInvoked?.Invoke();
-        }
-        
+            //DialogInvoked.Invoke();
 
+            //DialogInstance.Notify += new EventHandler(Notified);
+            DialogInstance.NotifyNow();
+          
+        }
 
         void UpdateDialogs(IEnumerable<ITwinObject> observedObjects)
         {

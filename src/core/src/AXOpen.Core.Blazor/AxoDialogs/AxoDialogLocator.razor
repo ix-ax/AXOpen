@@ -1,30 +1,29 @@
 ﻿@namespace AXOpen.Core.Blazor.AxoDialogs
+@using AXOpen.Dialogs;
+@using AXSharp.Connector;
 @inject NavigationManager _navigationManager
 
 <h1>cau</h1>
-@*@if ()
-{
-    <RenderableContentControl Context="_actualDialog"
-                              Presentation="Dialog"
-                              ></RenderableContentControl>
-}*@
 
-@if ( DialogService != null && DialogService.DialogInstance != null && DialogService.DialogInstance.Show)
+
+@if ( DialogInstance != null  )
 {
     <RenderableContentControl 
-        Context="DialogService.DialogInstance" 
+        Context="DialogInstance" 
         Presentation="Action"/>
 }
 
 
 
-@code {
-    /// <summary>
-    /// Instance of DialogService type, which corresponds to actual page.
-    /// </summary>
-    [Parameter]
-    public AxoDialogProxyService DialogService { get; set; }
 
+@code {
+
+
+    //[Parameter]
+    //public static AxoDialogProxyService DialogService { get; set; }
+
+    [Parameter]
+    public IEnumerable<ITwinObject> ObservedObjects { get; set; }
     /// <summary>
     /// Pass unique value of last segment of URL, which will represent dialog id corresponding to actual page url.
     /// </summary>
@@ -38,35 +37,102 @@
 
 
 
-
     private bool _showDialogHtml { get; set;}
 
 
+    public IsDialog DialogInstance { get; set; }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+
+    protected async void Queue(IsDialog dialog)
     {
+      
+        DialogInstance = dialog;
+        try
+        {
+            await DialogInstance.ReadAsync();
 
-        if (DialogOpenDelay == 0) DialogOpenDelay = 500;
-        DialogService.DialogInvoked += OnDialogInvoked;
+        }
+        catch 
+        {
+          //swallow  
+        }
+        
 
-        await base.OnAfterRenderAsync(firstRender);
+        Console.WriteLine("Queue");
+        DialogInstance.NotifyNow();
+        await InvokeAsync(StateHasChanged);
+
     }
 
-    public async void OnDialogInvoked()
+    void UpdateDialogs(IEnumerable<ITwinObject> observedObjects)
     {
-        await Task.Delay(DialogOpenDelay);
-
-        if (DialogService.DialogInstance != null)
+        if (observedObjects == null || observedObjects.Count() == 0) return;
+        foreach (var observedObject in observedObjects)
         {
-            DialogService.DialogInstance.DialogId = DialogId;
-            DialogService.DialogInstance.Show = true;
-            await InvokeAsync(StateHasChanged);
-            //_actualDialog = DialogService.DialogVortex;
+            var descendants = GetDescendants<IsDialog>(observedObject);
+            foreach (var dialog in descendants)
+            {
+                dialog.Initialize(() => Queue(dialog));
+            }
+        }
+
+    }
+
+
+    public IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
+    {
+        children = children != null ? children : new List<T>();
+
+        if (obj != null)
+        {
+            foreach (var child in obj.GetChildren())
+            {
+                var ch = child as T;
+                if (ch != null)
+                {
+                    children.Add(ch);
+                }
+
+                GetDescendants<T>(child, children);
+            }
+        }
+
+        return children;
+    }
+
+    //protected override Task OnInitializedAsync()
+    //{
+    //    //DialogService.DialogInvoked += OnDialogInvoked;
+    //    //UpdateDialogs(ObservedObjects);
+          
+    //    return base.OnInitializedAsync();   
+    //}
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if(firstRender)
+            UpdateDialogs(ObservedObjects);
+        //if (DialogOpenDelay == 0) DialogOpenDelay = 500;
+        //DialogService.DialogInvoked += OnDialogInvoked;
+
+
+    }
+
+    //public async void OnDialogInvoked()
+    //{
+    //    await Task.Delay(DialogOpenDelay);
+
+    //    if (DialogService.DialogInstance != null)
+    //    {
+    //        DialogService.DialogInstance.DialogId = DialogId;
+    //        await InvokeAsync(StateHasChanged);
+    //        //DialogService.DialogInstance.NotifyNow();
+    //        //_actualDialog = DialogService.DialogVortex;
  
 
           
-        }
-    }
+    //    }
+    //}
 
 
    

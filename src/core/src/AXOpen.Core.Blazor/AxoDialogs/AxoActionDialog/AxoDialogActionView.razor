@@ -1,116 +1,97 @@
 ﻿@inherits RenderableComplexComponentBase<AxoDialog>
 @namespace AXOpen.Core
 @using AXOpen.Dialogs;
+@using Microsoft.JSInterop;
 @inject NavigationManager _navigationManager
 
 <h1>Hello</h1>
-@*<div class="modal @ModalClass" id="@DialogId" tabindex="-1" aria-labelledby="@_labelId" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false" style="display:@ModalDisplay;">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="@_labelId">@Component._caption.Cyclic </h4>
-            </div>
-            <div class="modal-body row align-items-center">
-                <div class="col-3">
-                    @RenderDialogIcon()
-                </div>
-                <div class="col-9">
-                    <p>@Component._text.Cyclic</p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                @if (Component._hasYes.Cyclic)
-                {
-                    <button type="button" class="btn btn-secondary" @onclick="async () => { ViewModel.DialogAnswerYes(); await jsInterop.SendCloseAllDialogs(); }">Yes</button>
-                }
-                @if (ViewModel.Dialog._hasNo.Synchron)
-                {
-                    <button type="button" class="btn btn-secondary" @onclick="async () => { ViewModel.DialogAnswerNo(); await jsInterop.SendCloseAllDialogs(); }">No</button>
-                }
-                @if (ViewModel.Dialog._hasCancel.Synchron)
-                {
-                    <button type="button" class="btn btn-secondary" @onclick="async () => { ViewModel.DialogAnswerCancel(); await jsInterop.SendCloseAllDialogs(); }">Cancel</button>
-                }
-
-                @if (Component._hasOK.Cyclic)
-                {
-                    <button type="button" class="btn btn-secondary" @onclick="async () => { DialogAnswerOk(); Close(); }">Ok</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="() => Close()">Close</button>
-                }
-            </div>
-        </div>
-    </div>
-</div>*@
-
-<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-    Toggle static offcanvas
-</button>
-
-<div class="offcanvas offcanvas-bottom" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+<div class="offcanvas offcanvas-bottom @OffCanvasShow" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" sta>
     <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <div>
-            I will not close if you click outside of me.
-            @if (Component._hasOK.Cyclic)
-            {
-                <button type="button" class="btn btn-secondary" @onclick="async () => { DialogAnswerOk(); Close(); }">Ok</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" @onclick="() => Close()">Close</button>
-            }
+            <button type="button" class="btn btn-primary" @onclick="DialogAnswerOk">Hide</button>
+            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+        </div>
+        <div class="dropdown mt-3">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                Dropdown button
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
         </div>
     </div>
 </div>
 
-@*@if (ShowBackdrop)
+
+@if (ShowBackdrop)
 {
-    <div class="modal-backdrop fade show"></div>
-}*@
+    <div class="offcanvas-backdrop fade show"></div>
+}
 
 
 @code {
 
+    public string OffCanvasShow { get; set; }
+    public bool ShowBackdrop { get; set; }
 
-
-    public Guid Guid = Guid.NewGuid();
-    public string ModalDisplay = "block;";
-    public string ModalClass = "Show";
-    public bool ShowBackdrop = true;
-
-    public void Open()
+    public async Task ButtonClickedHide()
     {
-        ModalDisplay = "block;";
-        ModalClass = "Show";
-        ShowBackdrop = true;
-        Dialog.Show = true;
-        StateHasChanged();
-    }
-
-    public void Close()
-    {
-        ModalDisplay = "none";
-        ModalClass = "";
+        OffCanvasShow = "";
         ShowBackdrop = false;
-        Dialog.Show = false;
-        StateHasChanged();
+        await InvokeAsync(StateHasChanged);
+
     }
+
+
+    public IsDialog MyDialog { get; set; }
+    public bool ShowBackDrop { get; set; }
 
     public string DialogId { get; set; }
     private string _labelId;
     private string _dialogCloseId;
     protected override void OnInitialized()
     {
-        Dialog = Component;
-        //var id = ((IsDialog)Component).DialogId;
-        //_labelId = id + "Label";
+        MyDialog = Component;
         var id = "ahoj";
         DialogId = id;
-        Open();
+
 
     }
-}
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            MyDialog.Notify += new EventHandler(Notified);
+            //on first render, object is not subscribed yet, therefore we have to show dialog here
+            OffCanvasShow = "fade show";
+            ShowBackdrop = true;
+            await InvokeAsync(StateHasChanged);
+            Console.WriteLine("Notified2");
+        }
+
+
+    }
+
+    public async void Notified(object source, EventArgs e)
+    {
+        Console.WriteLine("Notified");
+        await Task.Delay(500);
+        OffCanvasShow = "fade show";
+        ShowBackdrop = true;
+        await InvokeAsync(StateHasChanged);
+        //await ShowOffcanvasAsync();
+    }
+
+   
+    
+}
 @functions {
     private RenderFragment RenderDialogIcon() => __builder =>
     {

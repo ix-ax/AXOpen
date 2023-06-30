@@ -206,13 +206,21 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
 
             IF (Steps[11].Execute(THIS, TRUE, 'Show dialog')) THEN
+                //_dialog.Restore();
                 //------------------------------------------------------- 
                 IF(_dialog.Show(THIS)
                     .WithOk()
                     .WithCaption('What`s next?')
                     .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
+                    
+                  
                     THIS.MoveNext(); 
-                END_IF;			           
+                END_IF;		
+
+            IF(Steps[12].Execute(THIS, TRUE, 'Dummy')) THEN
+                
+                THIS.MoveNext();
+            END_IF;   	           
                     
 //-------------------------------------------------------
             END_IF;
