@@ -100,20 +100,27 @@ When adding data view manually, you will need to create ViewModel:
 
 ![Custom columns](~/images/CustomColumns.png)
 
-<!-- ### Export/Import
+### Export/Import
 
 If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
 
-~~~
+~~~ HTML
 <DataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
 ~~~
 
-With this option, buttons for export and import data will appear. After clicking on the export button, the `csv` file will be created, which contains all existing records. If you want to import data, you must upload `csv` file with an equal data structure as we get in the export file.
+With this option, buttons for export and import data will appear. After clicking on the export button, the `.zip` file will be created, which contains all existing records. If you want to import data, you must upload `.zip` file with an equal data structure as we get in the export file.
 
 ![Export](~/images/Export.png)
 
+For a better user experience, it is highly recommended to clean the `Temp` directory when starting the application. The best way to do this is to add a line to add the `Program.cs` file:
+
+~~~ C#
+// Clean Temp directory
+IAxoDataExchange.CleanUp();
+~~~
+
 > [!IMPORTANT]
-> Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data. -->
+> Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.
 
 ### Modal detail view
 
