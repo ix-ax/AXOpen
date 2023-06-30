@@ -21,7 +21,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Data
 {
-    public class DataExchangeViewModel : RenderableViewModelBase 
+    public class DataExchangeViewModel : RenderableViewModelBase
     {
         public IAxoDataExchange DataExchange
         {
@@ -34,12 +34,13 @@ namespace AXOpen.Data
             set => this.DataExchange = (IAxoDataExchange)value;
         }
 
+        public bool IsFileExported { get; set; } = false;
         public List<ValueChangeItem> Changes { get; set; }
 
         public IAlertDialogService AlertDialogService { get; set; }
 
         private IBrowsableDataObject _selectedRecord;
-        
+
         public IBrowsableDataObject SelectedRecord
         {
             get
@@ -90,7 +91,7 @@ namespace AXOpen.Data
             }
 
             FilteredCount = CountFiltered(FilterById, SearchMode);
-            
+
             return Records;
         }
 
@@ -182,7 +183,7 @@ namespace AXOpen.Data
             {
                 UpdateObservableRecords();
             }
-            
+
 
             //-- var plainer = ((ITwinObject)DataExchange.Data).CreatePoco() as Pocos.AXOpen.Data.AxoDataEntity;
 
@@ -194,7 +195,7 @@ namespace AXOpen.Data
             //DataExchange.Repository.Delete(((IBrowsableDataObject)plainer).DataEntityId);
             //SelectedRecord = null;
             //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 10)));
-            
+
         }
 
         public async Task Copy()
@@ -282,127 +283,16 @@ namespace AXOpen.Data
             //CreateItemId = null;
         }
 
-        public IEnumerable<string> Export(Expression<Func<IPlain, bool>> expression, char separator = ';')
+        public void ExportData(string path)
         {
-            ////var onliner = typeof(T).Name.Replace("Plain", string.Empty);
-            //var onliner = typeof(IBrowsableDataObject).FullName.Replace("Pocos.", string.Empty);
+            IsFileExported = false;
 
-            //var adapter = new AXSharp.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
-            //var dummyConnector = adapter.GetConnector(new object[] { });
-
-            ////var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.Name == onliner);
-            //var onlinerType = Assembly.GetAssembly(typeof(IBrowsableDataObject)).GetTypes().FirstOrDefault(p => p.FullName == onliner);
-            //var prototype = Activator.CreateInstance(onlinerType, new object[] { dummyConnector, "_data", "_data" }) as ITwinObject;
-            //var exportables = DataExchange.Repository.Queryable.Where(expression);
-            //var itemExport = new StringBuilder();
-            //var export = new List<string>();
-
-            //// Create header
-            //var valueTags = prototype.RetrievePrimitives();
-            //foreach (var valueTag in valueTags)
-            //{
-            //    itemExport.Append($"{valueTag.Symbol}{separator}");
-            //}
-
-            //export.Add(itemExport.ToString());
-            //itemExport.AppendLine();
-
-            //itemExport.Clear();
-            //foreach (var valueTag in valueTags)
-            //{
-            //    itemExport.Append($"{valueTag.HumanReadable}{separator}");
-            //}
-
-            //export.Add(itemExport.ToString());
-            //itemExport.AppendLine();
-
-
-            //foreach (var document in exportables)
-            //{
-            //    itemExport.Clear();
-            //    ((dynamic)prototype).PlainToShadow(document);
-            //    var values = prototype.RetrievePrimitives();
-            //    foreach (var @value in values)
-            //    {
-            //        var val = (string)(((dynamic)@value).Shadow.ToString());
-            //        if (val.Contains(separator))
-            //        {
-            //            val = val.Replace(separator, '►');
-            //        }
-
-            //        itemExport.Append($"{val}{separator}");
-            //    }
-
-            //    export.Add(itemExport.ToString());
-
-            //}
-
-            //return export;
-            return null;
-
-        }
-
-        public void Import(IEnumerable<string> records, ITwinObject crudDataObject = null, char separator = ';')
-        {
-            //var documents = records.ToArray();
-            //var header = documents[0];
-
-            //var headerItems = header.Split(separator);
-            //var dictionary = new List<ImportItems>();
-
-            //// Prepare swappable object
-            //var onliner = typeof(T).FullName.Replace("Pocos.", string.Empty);
-
-            //var adapter = new AXSharp.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
-            //var dummyConnector = adapter.GetConnector(new object[] { });
-
-            //var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.FullName == onliner);
-
-            //ITwinObject prototype;
-
-            //if (crudDataObject == null)
-            //    prototype = Activator.CreateInstance(onlinerType, new object[] { dummyConnector, "_data", "_data" }) as ITwinObject;
-            //else
-            //    prototype = crudDataObject;
-
-            //var valueTags = prototype.RetrievePrimitives();
-
-            //// Get headered dictionary
-            //foreach (var headerItem in headerItems)
-            //{
-            //    dictionary.Add(new ImportItems() { Key = headerItem });
-            //}
-
-
-            //// Load values
-            //for (int i = 2; i < documents.Count(); i++)
-            //{
-            //    var documentItems = documents[i].Split(separator);
-            //    for (int a = 0; a < documentItems.Count(); a++)
-            //    {
-            //        dictionary[a].Value = documentItems[a];
-            //    }
-
-            //    UpdateDocument(dictionary, valueTags, prototype);
-            //}
-
-
-
-        }
-
-        public void ExportData()
-        {
             try
             {
-                var exports = this.Export(p => true);
+                DataExchange.ExportData(path);
 
-                using (var sw = new StreamWriter("wwwroot/exportData.csv"))
-                {
-                    foreach (var item in exports)
-                    {
-                        sw.Write(item + "\r");
-                    }
-                }
+                IsFileExported = true;
+
                 AlertDialogService.AddAlertDialog("Success", "Exported!", "Data was successfully exported!", 10);
             }
             catch (Exception e)
@@ -411,18 +301,14 @@ namespace AXOpen.Data
             }
         }
 
-        public void ImportData()
+        public void ImportData(string path)
         {
             try
             {
-                var imports = new List<string>();
-                foreach (var item in File.ReadAllLines("importData.csv"))
-                {
-                    imports.Add(item);
-                }
+                DataExchange.ImportData(path);
 
-                this.Import(imports);
                 this.UpdateObservableRecords();
+
                 AlertDialogService.AddAlertDialog("Success", "Imported!", "Data was successfully imported!", 10);
             }
             catch (Exception e)

@@ -6,9 +6,12 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using System.Collections.Generic;
+using System.IO.Compression;
+using System.Linq.Expressions;
 using System.Reflection;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes.Online;
 
 namespace AXOpen.Data;
 
@@ -287,5 +290,59 @@ public partial class AxoDataFragmentExchange
     private IEnumerable<TS>? GetDataSetProperty<TA, TS>() where TA : Attribute where TS : class
     {
         return this.GetDataSetPropertyInfo<TA>()?.Select(p => p.GetValue(this) as TS);
+    }
+
+    public void ExportData(string path, char separator = ';')
+    {
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\exportDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\exportDataPrepare", true);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare");
+
+            File.Delete(path);
+
+
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), separator);
+            }
+            ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
+        }
+        else
+        {
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), separator);
+            }
+        }
+    }
+
+    public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
+    {
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\importDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\importDataPrepare", true);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, separator);
+            }
+
+            Directory.Delete(Path.GetDirectoryName(path), true);
+        }
+        else
+        {
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), crudDataObject, separator);
+            }
+        }
     }
 }
