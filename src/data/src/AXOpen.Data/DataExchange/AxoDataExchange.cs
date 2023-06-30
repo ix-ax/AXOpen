@@ -195,8 +195,8 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         ReadTask.InitializeExclusively(RemoteRead);
         UpdateTask.InitializeExclusively(RemoteUpdate);
         DeleteTask.InitializeExclusively(RemoteDelete);
-        EntityExistTask.InitializeExclusively(RemoteDelete);
-        CreateOrUpdateTask.InitializeExclusively(RemoteDelete);
+        EntityExistTask.InitializeExclusively(RemoteEntityExist);
+        CreateOrUpdateTask.InitializeExclusively(RemoteCreateOrUpdate);
         this.WriteAsync().Wait();
         //_idExistsTask.InitializeExclusively(Exists);
         //_createOrUpdateTask.Initialize(CreateOrUpdate);
@@ -348,5 +348,28 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         var source = await RefUIData.ShadowToPlain<IBrowsableDataObject>();
         source.DataEntityId = recordId;
         Repository.Create(source.DataEntityId, source);
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> ExistsAsync(string recordId)
+    {
+        return Repository.Exists(recordId);
+    }
+
+    /// <inheritdoc />
+    public async Task CreateOrUpdate(string recordId)
+    {
+        if (Repository.Exists(recordId))
+        {
+            var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
+            //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+            Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+        }
+        else
+        {
+            this.Repository.Create(recordId, this.RefUIData.CreatePoco());
+            var plain = Repository.Read(recordId);
+            RefUIData.PlainToShadow(plain);
+        }
     }
 }

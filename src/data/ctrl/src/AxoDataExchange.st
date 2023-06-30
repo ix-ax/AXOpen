@@ -17,7 +17,7 @@ NAMESPACE AXOpen.Data
            {#ix-set:AttributeName =  "<#Delete#>"} 
            DeleteTask  : AxoDataExchangeTask;
            {#ix-set:AttributeName =  "<#EntityExist#>"} 
-           EntityExistTask : AxoDataExchangeTask;
+           EntityExistTask : AxoDataEntityExistTask;
            {#ix-set:AttributeName =  "<#CreateOrUpdate#>"} 
            CreateOrUpdateTask : AxoDataExchangeTask;
         END_VAR
@@ -110,11 +110,12 @@ NAMESPACE AXOpen.Data
         /// Check if data entry exists with given ID in remote repository.
         /// </summary> 
         /// <param name="identifier">Data identifier.</param> 
-        METHOD PUBLIC EntityExist : IAxoTaskState
+        METHOD PUBLIC EntityExist : IAxoDataEntityExistTask
             VAR_INPUT
                 identifier : STRING[254];
             END_VAR
-            EntityExist := EntityExistTask.Invoke(identifier);
+            EntityExistTask.Invoke(identifier);
+            EntityExist := EntityExistTask;
         END_METHOD 
 
         ///<summary>

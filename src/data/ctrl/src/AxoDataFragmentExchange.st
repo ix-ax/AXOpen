@@ -10,6 +10,8 @@ NAMESPACE AXOpen.Data
     CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoDataExchangeBase IMPLEMENTS IAxoDataExchange               
         VAR PUBLIC           
             Operation : AxoDataCrudTask;
+            EntityExistTask : AxoDataEntityExistTask;
+            CreateOrUpdateTask : AxoDataExchangeTask;
         END_VAR   
               
         ///<summary>
@@ -60,11 +62,12 @@ NAMESPACE AXOpen.Data
         /// Check if data entry exists in each associated remote repository with given ID.
         /// </summary> 
         /// <param name="identifier">Data identifier.</param> 
-        METHOD PUBLIC EntityExist : IAxoTaskState
+        METHOD PUBLIC EntityExist : IAxoDataEntityExistTask
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR
-            EntityExist := Operation.Invoke(Identifier, eCrudOperation#EntityExist);         
+            EntityExistTask.Invoke(Identifier);
+            EntityExist := EntityExistTask;
         END_METHOD 
 
         ///<summary>
@@ -75,11 +78,13 @@ NAMESPACE AXOpen.Data
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR
-            CreateOrUpdate := Operation.Invoke(Identifier, eCrudOperation#CreateOrUpdate);         
+            CreateOrUpdate := CreateOrUpdateTask.Invoke(Identifier);        
         END_METHOD 
     
         METHOD PUBLIC Restore  
-            Operation.Restore();      
+            Operation.Restore(); 
+            EntityExistTask.Restore();
+            CreateOrUpdateTask.Restore();     
         END_METHOD 
         
         ///<summary>
@@ -93,6 +98,12 @@ NAMESPACE AXOpen.Data
             THIS.Initialize(context);
             Operation.Initialize(THIS);
             Operation.Execute();
+
+            EntityExistTask.Initialize(THIS);
+            EntityExistTask.Execute();
+
+            CreateOrUpdateTask.Initialize(THIS);
+            CreateOrUpdateTask.Execute();
         END_METHOD
 
         ///<summary>
@@ -106,6 +117,12 @@ NAMESPACE AXOpen.Data
             THIS.Initialize(parent);
             Operation.Initialize(THIS);
             Operation.Execute();
+
+            EntityExistTask.Initialize(THIS);
+            EntityExistTask.Execute();
+
+            CreateOrUpdateTask.Initialize(THIS);
+            CreateOrUpdateTask.Execute();
         END_METHOD
 
     END_CLASS 

@@ -21,7 +21,7 @@ public partial class AxoDataFragmentExchange
         return CreateBuilder() as T;
     }
 
-    public object CreateBuilder() 
+    public object CreateBuilder()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
@@ -35,12 +35,16 @@ public partial class AxoDataFragmentExchange
     public void InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
+        EntityExistTask.InitializeExclusively(HandleEntityExist);
+        CreateOrUpdateTask.InitializeExclusively(HandleCreateOrUpdate);
         this.WriteAsync().Wait();
     }
 
     public void DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
+        EntityExistTask.DeInitialize();
+        CreateOrUpdateTask.DeInitialize();
         this.WriteAsync().Wait();
     }
 
@@ -64,15 +68,27 @@ public partial class AxoDataFragmentExchange
             case eCrudOperation.Delete:
                 this.RemoteDelete(identifier);
                 break;
-            case eCrudOperation.EntityExist:
-                this.RemoteEntityExist(identifier);
-                break;
-            case eCrudOperation.CreateOrUpdate:
-                this.RemoteCreateOrUpdate(identifier);
-                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private async void HandleEntityExist()
+    {
+        EntityExistTask.ReadAsync().Wait();
+        var identifier = EntityExistTask.DataEntityIdentifier.LastValue;
+
+        var result = this.RemoteEntityExist(identifier);
+
+        await EntityExistTask._exist.SetAsync(result);
+    }
+
+    private void HandleCreateOrUpdate()
+    {
+        CreateOrUpdateTask.ReadAsync().Wait();
+        var identifier = CreateOrUpdateTask.DataEntityIdentifier.LastValue;
+
+        this.RemoteCreateOrUpdate(identifier);
     }
 
     public IRepository? Repository { get; private set; }
@@ -143,6 +159,35 @@ public partial class AxoDataFragmentExchange
             source.DataEntityId = recordId;
             fragment.Repository.Create(source.DataEntityId, source);
         }
+    }
+
+    public async Task<bool> ExistsAsync(string recordId)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (!fragment.Repository.Exists(recordId))
+                return false;
+        }
+        return true;
+    }
+
+    public async Task CreateOrUpdate(string recordId)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (Repository.Exists(recordId))
+            {
+                var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
+                //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+                fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+            }
+            else
+            {
+                fragment.Repository.Create(recordId, fragment.RefUIData.CreatePoco());
+            }
+        }
+
+        DataFragments.First().Repository.Read(recordId);
     }
 
     public bool RemoteCreate(string identifier)

@@ -61,6 +61,20 @@ namespace AXOpen.Data
         Task CreateNewAsync(string identifier);
 
         /// <summary>
+        /// Check if record exists in the repository.
+        /// </summary>
+        /// <param name="identifier">Id of the record.</param>
+        /// <returns>Task</returns>
+        Task<bool> ExistsAsync(string identifier);
+
+        /// <summary>
+        /// Create or update record in the repository.
+        /// </summary>
+        /// <param name="identifier">Id of the record.</param>
+        /// <returns>Task</returns>
+        Task CreateOrUpdate(string identifier);
+
+        /// <summary>
         /// Create new record of the current data present in the shadows of this object in the repository.
         /// </summary>
         /// <param name="identifier">Id of the new record</param>
