@@ -4,17 +4,20 @@
 
 ### Data exchange manager
 
-For the data exchange to work, we must create a class extending the `AxoDataExchange`. 
+Data exchange object must be extended by `AxoDataExchange`. 
 
 [!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoData/AxoDataDocuExample.st?name=ProcessDataMangerDeclaration)]
 
 ### Data exchange object
 
-We will also need to add our data entity variable, which contains the data that we want to exchange between PLC and the repository. This variable must be annotated with `AxoDataEntityAttribute` and   `#ix-generic:TOnline` and `#ix-generic:TPlain as POCO` attributes that provide type information for the data exchange.
+The data entity variable must be created. It contains data that we want to exchange between PLC and repository. This variable must be annotated with following attributes:
+- `AxoDataEntityAttribute` -- unique attribute for finding a correct instance of data exchange.
+- `#ix-generic:TOnline` -- type information attribute.
+- `#ix-generic:TPlain as POCO` -- type information attribute.
 
 > [!NOTE]
-> `AxoDataEntityAttribute`, `#ix-generic:TOnline` and `#ix-generic:TPlain as POCO` must be attributed to only one member `AxoDataExchange` object and is used to locate data object that contains data to be exchanged between PLC and the target repository. 
-An exception is thrown when `DataEntityAttribute` is missing or multiple members have the annotation. 
+> The `AxoDataExchange` object must be unique. Annotations `AxoDataEntityAttribute`, `#ix-generic:TOnline` and `#ix-generic:TPlain as POCO` must be attributed to only one member `AxoDataExchange` object, which is used to locate data object that contains data to be exchanged between PLC and the target repository. 
+An exception is thrown when `AxoDataEntityAttribute` is missing or multiple members have the annotation. 
 
 
 > [!NOTE]
@@ -52,7 +55,7 @@ _myContext.Run();
 
 At this point, we have everything ready in the PLC.
 
-We must now tell the `DataManager` what repository we will use. We will work with data stored in files in JSON format.
+We must now tell the `DataManager` what repository to use. As a example, data repository is set as JSON files.
 
 Let's create a configuration for the repository and initialize remote data exchange:
 
@@ -120,11 +123,11 @@ IAxoDataExchange.CleanUp();
 ~~~
 
 > [!IMPORTANT]
-> Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.
+> Export and import functions creates high load on the application. Don't use them with large datasets. These function can be used only on a limited number (100 or less) documents. Typical usage would be for recipes and settings, but not for large collections of production or event data.
 
 ### Modal detail view
 
-The Detail View is default shown like modal view. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show a detail view under the record table. Example with `ModalDetailView` attribute:
+The Detail View of a record is shown like modal. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show a detail view under the record table. Example with `ModalDetailView` attribute:
 
 ~~~
 <DataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
