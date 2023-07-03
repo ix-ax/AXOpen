@@ -37,58 +37,6 @@
 }
 
 
-@code {
-    //public void Dispose()
-    //{
-    //    _dialogService.DialogInvoked -= OnDialogInvoked;
-    //}
-    //public string OffCanvasShow { get; set; }
-    //public bool ShowBackdrop { get; set; }
-
-    //public async Task CloseDialog()
-    //{
-    //    OffCanvasShow = "";
-    //    ShowBackdrop = false;
-    //    MyDialog.Show = false;
-    //    if (_dialogService.DialogInstance != null)
-    //        _dialogService.DialogInstance.Show = false;
-
-    //    _dialogService.DialogInstance = null;
-
-    //    await InvokeAsync(StateHasChanged);
-    //    await Task.Delay(500);
-
-    //}
-
-    //public async Task OpenDialog()
-    //{
-    //    OffCanvasShow = "fade show";
-    //    ShowBackdrop = true;
-    //    await InvokeAsync(StateHasChanged);
-
-    //}
-
-
-
-
-    //protected override async Task OnAfterRenderAsync(bool firstRender)
-    //{
-    //    if(firstRender)
-    //    {
-    //        MyDialog.Notify += new EventHandler(Notified);
-    //        //on first render, object is not subscribed yet, therefore we have to show dialog here
-    //        OffCanvasShow = "fade show";
-    //        ShowBackdrop = true;
-    //        await InvokeAsync(StateHasChanged);
-    //        Console.WriteLine("Notified2");
-    //    }
-
-
-    //}
-
-   
-    
-}
 @functions {
     private RenderFragment RenderDialogIcon() => __builder =>
     {

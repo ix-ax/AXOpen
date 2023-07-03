@@ -1,5 +1,7 @@
-﻿using AXOpen.Dialogs;
+﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AXOpen.Dialogs;
 using AXSharp.Connector;
+using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +18,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             ObservedObjects = new List<string>();
         }
-        //public AxoDialogProxyService(IEnumerable<ITwinObject> observedObjects) 
-        //{
-        //    UpdateDialogs(observedObjects);
-        //}
-
+  
         public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
         {
             Console.WriteLine("Objects set!");
@@ -40,15 +38,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                     Console.WriteLine("Dialogs unique initialize!");
                 }
             }
-            //ObservedObjects.AddRange(observedObjects.Select(x => x.Symbol));
-            //UpdateDialogs(observedObjects);
+
           
         }
 
-        
-
         public event Notify DialogInvoked;
-        public event Notify DialogInvoked2;
         public IsDialog DialogInstance { get; set; }
 
         protected async void Queue(IsDialog dialog)
@@ -57,22 +51,12 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 DialogInstance = dialog;
                 DialogInstance.ReadAsync();
-                DialogInstance.Show = true;
             });
                 Console.WriteLine("Queue!");
                 DialogInvoked?.Invoke();
-             //await InvokeAsync(StateHasChanged);
-            //DialogInvoked2.Invoke();
-
-            //});
-
-
-            //DialogInstance.Notify += new EventHandler(Notified);
-            //DialogInstance.NotifyNow();
 
         }
-        public bool HasBaseEventHandlerInitialized { get; set; } = false;
-        public bool HasConcreteEventHandlerInitialized { get; set; } = false;
+
         public List<string> ObservedObjects{ get; set; }
         void UpdateDialogs(ITwinObject observedObject)
         {
@@ -81,7 +65,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 dialog.Initialize(() => Queue(dialog));
             }
-            
             
         }
 
@@ -107,10 +90,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             return children;
         }
 
-        //public static AxoDialogProxyService Create(IEnumerable<ITwinObject> observedObjects)
-        //{
-        //    var dialogProxyService = new AxoDialogProxyService(observedObjects);
-        //    return dialogProxyService;
-        //}
+  
     }
 }

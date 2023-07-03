@@ -1,4 +1,5 @@
-﻿using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
@@ -9,28 +10,50 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
-    public partial class AxoDialogBaseView<T> : RenderableComplexComponentBase<T>, IDisposable
+    public partial class AxoDialogBaseView<T> : RenderableComplexComponentBase<T>, IAsyncDisposable
     {
 
         [Inject]
         public AxoDialogProxyService _dialogService { get; set; }
+        [Inject]
+        public NavigationManager _navigationManager { get; set; }
+
+
+        private DialogClient _dialogClient { get; set; }
 
         protected async override Task OnInitializedAsync()
         {
-
+            _dialogClient = new DialogClient(_navigationManager.BaseUri);
+            _dialogClient.MessageReceivedDialogClose += OnCloseDialogMessage;
             Console.WriteLine("Concrete initialized");
 
 
             _dialogService.DialogInvoked += OnDialogInvoked;
-            _dialogService.HasConcreteEventHandlerInitialized = true;
-
+            await _dialogClient.StartAsync();
         }
+        private async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
+        {
+            await Close();
+        }
+
+        private async Task Close()
+        {
+            ShowDialog = "";
+            ShowBackdrop = false;
+            _dialogService.DialogInstance = null;
+
+
+            await InvokeAsync(StateHasChanged);
+            await Task.Delay(500);
+        }
+
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             if (firstRender)
             {
-                await CloseDialog();
+                Console.WriteLine("First render");
+                await Close();
                 await OpenDialog();
             }
 
@@ -41,16 +64,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public string ShowDialog { get; set; }
         public virtual async Task CloseDialog()
         {
-            ShowDialog = "";
-            ShowBackdrop = false;
-       
-            if (_dialogService.DialogInstance != null)
-                _dialogService.DialogInstance.Show = false;
-
-            _dialogService.DialogInstance = null;
-
-            await InvokeAsync(StateHasChanged);
-            await Task.Delay(500);
+            await _dialogClient.SendDialogClose("1");
 
         }
 
@@ -66,15 +80,18 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public async void OnDialogInvoked()
         {
             Console.WriteLine("Invoke caught 2");
-            _dialogService.DialogInstance.Show = true;
             await OpenDialog();
-            //await InvokeAsync(StateHasChanged);
 
         }
 
-        public void Dispose()
+
+        public async ValueTask DisposeAsync()
         {
             _dialogService.DialogInvoked -= OnDialogInvoked;
+            if (_dialogClient != null)
+            {
+                await _dialogClient.StopAsync();
+            }
         }
     }
 }

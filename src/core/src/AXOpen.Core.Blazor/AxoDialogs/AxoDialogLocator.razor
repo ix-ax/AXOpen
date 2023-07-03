@@ -1,4 +1,5 @@
 ﻿@namespace AXOpen.Core.Blazor.AxoDialogs
+@using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 @using AXOpen.Dialogs;
 @using AXSharp.Connector;
 @inject NavigationManager _navigationManager
@@ -7,7 +8,7 @@
 <h1>cau</h1>
 
 
-@if (_dialogService.DialogInstance != null @*&& _dialogService.DialogInstance.Show == true*@)
+@if (_dialogService.DialogInstance != null )
 {
     <RenderableContentControl Context="_dialogService.DialogInstance"
                               Presentation="Action"/>
@@ -17,14 +18,7 @@
 
 
 @code {
-    public void Dispose()
-    {
-        _dialogService.DialogInvoked -= OnDialogInvoked;
-    }
-
-    //[Parameter]
-    //public static AxoDialogProxyService DialogService { get; set; }
-
+    
     [Parameter]
     public IEnumerable<ITwinObject> ObservedObjects { get; set; }
     /// <summary>
@@ -38,119 +32,33 @@
     [Parameter]
     public int DialogOpenDelay { get; set; }
 
-
-
     private bool _showDialog { get; set;}
 
 
-    //public IsDialog DialogInstance { get; set; }
 
 
     protected override void OnInitialized()
     {
         if (ObservedObjects != null)
             _dialogService.SetObservedObjects(ObservedObjects);
-        if (!_dialogService.HasBaseEventHandlerInitialized)
-        {
-            Console.WriteLine("Base initialized");
-            //_dialogService.DialogInvoked -= OnDialogInvoked;
-            _dialogService.DialogInvoked += OnDialogInvoked;
-            //_dialogService.HasBaseEventHandlerInitialized = true;
-        }
-
+        
+        Console.WriteLine("Base initialized");
+        _dialogService.DialogInvoked += OnDialogInvoked;
         base.OnInitialized();   
     }
+
 
     public async void OnDialogInvoked()
     {
         Console.WriteLine("Invoke caught 1 - RCC create");
-        _dialogService.DialogInstance.Show = true;
         await InvokeAsync(StateHasChanged);
 
     }
-    //protected async void Queue(IsDialog dialog)
-    //{
-
-    //    DialogInstance = dialog;
-    //    try
-    //    {
-    //        await DialogInstance.ReadAsync();
-
-    //    }
-    //    catch 
-    //    {
-    //      //swallow  
-        //    }
-
-
-    //    Console.WriteLine("Queue");
-    //    DialogInstance.NotifyNow();
-    //    await InvokeAsync(StateHasChanged);
-
-    //}
-
-    //void UpdateDialogs(IEnumerable<ITwinObject> observedObjects)
-    //{
-    //    if (observedObjects == null || observedObjects.Count() == 0) return;
-    //    foreach (var observedObject in observedObjects)
-    //    {
-    //        var descendants = GetDescendants<IsDialog>(observedObject);
-    //        foreach (var dialog in descendants)
-    //        {
-    //            dialog.Initialize(() => Queue(dialog));
-    //        }
-        //    }
-
-    //}
-
-
-    //public IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
-    //{
-    //    children = children != null ? children : new List<T>();
-
-    //    if (obj != null)
-    //    {
-    //        foreach (var child in obj.GetChildren())
-    //        {
-    //            var ch = child as T;
-    //            if (ch != null)
-    //            {
-    //                children.Add(ch);
-    //            }
-
-    //            GetDescendants<T>(child, children);
-    //        }
-        //    }
-
-    //    return children;
-    //}
-
-    //protected override Task OnInitializedAsync()
-    //{
-    //    //DialogService.DialogInvoked += OnDialogInvoked;
-    //    //UpdateDialogs(ObservedObjects);
-
-    //    return base.OnInitializedAsync();   
-    //}
-
-
-    //public async void OnDialogInvoked()
-    //{
-    //    await Task.Delay(DialogOpenDelay);
-
-    //    if (DialogService.DialogInstance != null)
-    //    {
-    //        DialogService.DialogInstance.DialogId = DialogId;
-    //        await InvokeAsync(StateHasChanged);
-    //        //DialogService.DialogInstance.NotifyNow();
-    //        //_actualDialog = DialogService.DialogVortex;
-
-
-
-    //    }
-        //}
-
-
+    
+    public void Dispose()
+    {
+        _dialogService.DialogInvoked -= OnDialogInvoked;
+    }
 
 
 }

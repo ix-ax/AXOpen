@@ -21,6 +21,7 @@ using AXSharp.Abstractions.Dialogs.AlertDialog;
 using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 using System.Security.Principal;
 using AXOpen.Core;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -84,11 +85,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-
+app.UseResponseCompression();
 
 app.MapControllers();
 app.MapBlazorHub();
+app.MapHub<DialogHub>("/dialoghub");
 app.MapFallbackToPage("/_Host");
+
+
+
 
 app.Run();
 
