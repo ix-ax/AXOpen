@@ -15,7 +15,5 @@ namespace AXOpen.Dialogs
 
         bool Show { get; set; }
 
-        event EventHandler Notify;
-        void NotifyNow();
     }
 }

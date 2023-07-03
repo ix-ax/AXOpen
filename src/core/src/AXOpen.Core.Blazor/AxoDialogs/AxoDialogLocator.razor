@@ -2,22 +2,25 @@
 @using AXOpen.Dialogs;
 @using AXSharp.Connector;
 @inject NavigationManager _navigationManager
-
+@inject AxoDialogProxyService _dialogService
+@implements IDisposable
 <h1>cau</h1>
 
 
-@if ( DialogInstance != null  )
+@if (_dialogService.DialogInstance != null @*&& _dialogService.DialogInstance.Show == true*@)
 {
-    <RenderableContentControl 
-        Context="DialogInstance" 
-        Presentation="Action"/>
+    <RenderableContentControl Context="_dialogService.DialogInstance"
+                              Presentation="Action"/>
 }
 
 
 
 
 @code {
-
+    public void Dispose()
+    {
+        _dialogService.DialogInvoked -= OnDialogInvoked;
+    }
 
     //[Parameter]
     //public static AxoDialogProxyService DialogService { get; set; }
@@ -37,86 +40,99 @@
 
 
 
-    private bool _showDialogHtml { get; set;}
+    private bool _showDialog { get; set;}
 
 
-    public IsDialog DialogInstance { get; set; }
+    //public IsDialog DialogInstance { get; set; }
 
 
-    protected async void Queue(IsDialog dialog)
+    protected override void OnInitialized()
     {
-      
-        DialogInstance = dialog;
-        try
+        if (ObservedObjects != null)
+            _dialogService.SetObservedObjects(ObservedObjects);
+        if (!_dialogService.HasBaseEventHandlerInitialized)
         {
-            await DialogInstance.ReadAsync();
-
+            Console.WriteLine("Base initialized");
+            //_dialogService.DialogInvoked -= OnDialogInvoked;
+            _dialogService.DialogInvoked += OnDialogInvoked;
+            //_dialogService.HasBaseEventHandlerInitialized = true;
         }
-        catch 
-        {
-          //swallow  
-        }
-        
 
-        Console.WriteLine("Queue");
-        DialogInstance.NotifyNow();
+        base.OnInitialized();   
+    }
+
+    public async void OnDialogInvoked()
+    {
+        Console.WriteLine("Invoke caught 1 - RCC create");
+        _dialogService.DialogInstance.Show = true;
         await InvokeAsync(StateHasChanged);
 
     }
+    //protected async void Queue(IsDialog dialog)
+    //{
 
-    void UpdateDialogs(IEnumerable<ITwinObject> observedObjects)
-    {
-        if (observedObjects == null || observedObjects.Count() == 0) return;
-        foreach (var observedObject in observedObjects)
-        {
-            var descendants = GetDescendants<IsDialog>(observedObject);
-            foreach (var dialog in descendants)
-            {
-                dialog.Initialize(() => Queue(dialog));
-            }
-        }
+    //    DialogInstance = dialog;
+    //    try
+    //    {
+    //        await DialogInstance.ReadAsync();
 
-    }
+    //    }
+    //    catch 
+    //    {
+    //      //swallow  
+        //    }
 
 
-    public IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
-    {
-        children = children != null ? children : new List<T>();
+    //    Console.WriteLine("Queue");
+    //    DialogInstance.NotifyNow();
+    //    await InvokeAsync(StateHasChanged);
 
-        if (obj != null)
-        {
-            foreach (var child in obj.GetChildren())
-            {
-                var ch = child as T;
-                if (ch != null)
-                {
-                    children.Add(ch);
-                }
+    //}
 
-                GetDescendants<T>(child, children);
-            }
-        }
+    //void UpdateDialogs(IEnumerable<ITwinObject> observedObjects)
+    //{
+    //    if (observedObjects == null || observedObjects.Count() == 0) return;
+    //    foreach (var observedObject in observedObjects)
+    //    {
+    //        var descendants = GetDescendants<IsDialog>(observedObject);
+    //        foreach (var dialog in descendants)
+    //        {
+    //            dialog.Initialize(() => Queue(dialog));
+    //        }
+        //    }
 
-        return children;
-    }
+    //}
+
+
+    //public IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
+    //{
+    //    children = children != null ? children : new List<T>();
+
+    //    if (obj != null)
+    //    {
+    //        foreach (var child in obj.GetChildren())
+    //        {
+    //            var ch = child as T;
+    //            if (ch != null)
+    //            {
+    //                children.Add(ch);
+    //            }
+
+    //            GetDescendants<T>(child, children);
+    //        }
+        //    }
+
+    //    return children;
+    //}
 
     //protected override Task OnInitializedAsync()
     //{
     //    //DialogService.DialogInvoked += OnDialogInvoked;
     //    //UpdateDialogs(ObservedObjects);
-          
+
     //    return base.OnInitializedAsync();   
     //}
 
-    protected override void OnAfterRender(bool firstRender)
-    {
-        if(firstRender)
-            UpdateDialogs(ObservedObjects);
-        //if (DialogOpenDelay == 0) DialogOpenDelay = 500;
-        //DialogService.DialogInvoked += OnDialogInvoked;
-
-
-    }
 
     //public async void OnDialogInvoked()
     //{
@@ -128,13 +144,13 @@
     //        await InvokeAsync(StateHasChanged);
     //        //DialogService.DialogInstance.NotifyNow();
     //        //_actualDialog = DialogService.DialogVortex;
- 
 
-          
+
+
     //    }
-    //}
+        //}
 
 
-   
+
 
 }

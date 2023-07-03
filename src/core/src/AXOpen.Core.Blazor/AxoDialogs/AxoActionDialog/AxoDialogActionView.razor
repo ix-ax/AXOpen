@@ -1,19 +1,21 @@
-﻿@inherits RenderableComplexComponentBase<AxoDialog>
-@namespace AXOpen.Core
+﻿@namespace AXOpen.Core
+@using AXOpen.Core.Blazor.AxoDialogs;
 @using AXOpen.Dialogs;
 @using Microsoft.JSInterop;
 @inject NavigationManager _navigationManager
+@inject AxoDialogProxyService _dialogService
+@inherits AxoDialogBaseView<AxoDialog>
 
 <h1>Hello</h1>
-<div class="offcanvas offcanvas-bottom @OffCanvasShow" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" sta>
+<div class="offcanvas offcanvas-bottom @base.ShowDialog" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
         <div>
-            <button type="button" class="btn btn-primary" @onclick="DialogAnswerOk">Hide</button>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+            <button type="button" class="btn btn-primary" @onclick="DialogAnswerOk">Ok</button>
+            <button type="button" class="btn btn-primary" @onclick="DialogAnswerOk">Close</button>
         </div>
         <div class="dropdown mt-3">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
@@ -29,65 +31,60 @@
 </div>
 
 
-@if (ShowBackdrop)
+@if (base.ShowBackdrop)
 {
     <div class="offcanvas-backdrop fade show"></div>
 }
 
 
 @code {
+    //public void Dispose()
+    //{
+    //    _dialogService.DialogInvoked -= OnDialogInvoked;
+    //}
+    //public string OffCanvasShow { get; set; }
+    //public bool ShowBackdrop { get; set; }
 
-    public string OffCanvasShow { get; set; }
-    public bool ShowBackdrop { get; set; }
+    //public async Task CloseDialog()
+    //{
+    //    OffCanvasShow = "";
+    //    ShowBackdrop = false;
+    //    MyDialog.Show = false;
+    //    if (_dialogService.DialogInstance != null)
+    //        _dialogService.DialogInstance.Show = false;
 
-    public async Task ButtonClickedHide()
-    {
-        OffCanvasShow = "";
-        ShowBackdrop = false;
-        await InvokeAsync(StateHasChanged);
+    //    _dialogService.DialogInstance = null;
 
-    }
+    //    await InvokeAsync(StateHasChanged);
+    //    await Task.Delay(500);
 
+    //}
 
-    public IsDialog MyDialog { get; set; }
-    public bool ShowBackDrop { get; set; }
+    //public async Task OpenDialog()
+    //{
+    //    OffCanvasShow = "fade show";
+    //    ShowBackdrop = true;
+    //    await InvokeAsync(StateHasChanged);
 
-    public string DialogId { get; set; }
-    private string _labelId;
-    private string _dialogCloseId;
-    protected override void OnInitialized()
-    {
-        MyDialog = Component;
-        var id = "ahoj";
-        DialogId = id;
-
-
-    }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if(firstRender)
-        {
-            MyDialog.Notify += new EventHandler(Notified);
-            //on first render, object is not subscribed yet, therefore we have to show dialog here
-            OffCanvasShow = "fade show";
-            ShowBackdrop = true;
-            await InvokeAsync(StateHasChanged);
-            Console.WriteLine("Notified2");
-        }
+    //}
 
 
-    }
 
-    public async void Notified(object source, EventArgs e)
-    {
-        Console.WriteLine("Notified");
-        await Task.Delay(500);
-        OffCanvasShow = "fade show";
-        ShowBackdrop = true;
-        await InvokeAsync(StateHasChanged);
-        //await ShowOffcanvasAsync();
-    }
+
+    //protected override async Task OnAfterRenderAsync(bool firstRender)
+    //{
+    //    if(firstRender)
+    //    {
+    //        MyDialog.Notify += new EventHandler(Notified);
+    //        //on first render, object is not subscribed yet, therefore we have to show dialog here
+    //        OffCanvasShow = "fade show";
+    //        ShowBackdrop = true;
+    //        await InvokeAsync(StateHasChanged);
+    //        Console.WriteLine("Notified2");
+    //    }
+
+
+    //}
 
    
     

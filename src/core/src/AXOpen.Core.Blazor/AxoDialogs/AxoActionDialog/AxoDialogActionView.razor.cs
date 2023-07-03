@@ -1,4 +1,5 @@
-﻿using AXOpen.Dialogs;
+﻿using AXOpen.Core.Blazor.AxoDialogs;
+using AXOpen.Dialogs;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Pocos.AXOpen.Core;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core
 {
-    public partial class AxoDialogActionView : RenderableComplexComponentBase<AxoDialog>
+    public partial class AxoDialogActionView : AxoDialogBaseView<AxoDialog>
     {
 
         
@@ -20,26 +21,26 @@ namespace AXOpen.Core
         {
             Component._answer.Edit = (short)eDialogAnswer.OK;
             //await HideOffcanvasAsync();
-            await ButtonClickedHide();
+            await CloseDialog();
        
             //Dialog = null;
             //await InvokeAsync(StateHasChanged);
             //TcoAppDomain.Current.Logger.Information($"{nameof(DialogAnswerOk)} of {Dialog.HumanReadable} was executed @{{payload}}.", new { Dialog.Symbol });
         }
-        //public void DialogAnswerYes()
-        //{
-        //    Dialog._answer.Synchron = (short)eDialogAnswer.Yes;
-        //    //TcoAppDomain.Current.Logger.Information($"{nameof(DialogAnswerYes)} of {Dialog.HumanReadable} was executed @{{payload}}.", new { Dialog.Symbol });
-        //}
-        //public void DialogAnswerNo()
-        //{
-        //    Dialog._answer.Synchron = (short)eDialogAnswer.No;
-        //    //TcoAppDomain.Current.Logger.Information($"{nameof(DialogAnswerNo)} of {Dialog.HumanReadable} was executed @{{payload}}.", new { Dialog.Symbol });
-        //}
-        //public void DialogAnswerCancel()
-        //{
-        //    Dialog._answer.Synchron = (short)eDialogAnswer.Cancel;
-        //    //TcoAppDomain.Current.Logger.Information($"{nameof(DialogAnswerCancel)} of {Dialog.HumanReadable} was executed @{{payload}}.", new { Dialog.Symbol });
-        //}
+        public void DialogAnswerYes()
+        {
+            Component._answer.Edit = (short)eDialogAnswer.Yes;
+            //TcoAppDomain.Current.Logger.Information($"{nameof(DialogAnswerYes)} of {Dialog.HumanReadable} was executed @{{payload}}.", new { Dialog.Symbol });
+        }
+        public void DialogAnswerNo()
+        {
+            Component._answer.Edit = (short)eDialogAnswer.No;
+            //TcoAppDomain.Current.Logger.Information($"{nameof(DialogAnswerNo)} of {Dialog.HumanReadable} was executed @{{payload}}.", new { Dialog.Symbol });
+        }
+        public void DialogAnswerCancel()
+        {
+            Component._answer.Edit = (short)eDialogAnswer.Cancel;
+            //TcoAppDomain.Current.Logger.Information($"{nameof(DialogAnswerCancel)} of {Dialog.HumanReadable} was executed @{{payload}}.", new { Dialog.Symbol });
+        }
     }
 }
