@@ -112,7 +112,7 @@ With this option, buttons for export and import data will appear. After clicking
 
 ![Export](~/images/Export.png)
 
-For a better user experience, it is highly recommended to clean the `Temp` directory when starting the application. The best way to do this is to add a line to add the `Program.cs` file:
+For a better user experience, it is strongly recommended to clean the `Temp` directory when starting the application. The best way to do this is to add the following lines to the "Program.cs" file:
 
 ~~~ C#
 // Clean Temp directory
