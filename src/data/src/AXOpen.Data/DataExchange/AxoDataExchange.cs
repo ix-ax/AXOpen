@@ -373,7 +373,8 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
             dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare\\" + this.ToString(), crudDataObject, separator);
 
-            Directory.Delete(Path.GetDirectoryName(path), true);
+            if (Directory.Exists(Path.GetDirectoryName(path)))
+                Directory.Delete(Path.GetDirectoryName(path), true);
         }
         else
         {

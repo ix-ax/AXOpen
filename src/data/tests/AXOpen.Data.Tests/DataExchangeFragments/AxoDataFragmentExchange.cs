@@ -20,6 +20,9 @@ namespace AXOpen.Data.Fragments.Tests
     using TOnline = AXOpen.Data.AxoDataEntity;
     using TPlain = Pocos.AXOpen.Data.AxoDataEntity;
     using Pocos.AXOpen.Data;
+    using System.IO.Compression;
+    using System.IO;
+    using System.Xml.Linq;
 
     public class AxoDataFragmentExchange
     {
@@ -350,6 +353,103 @@ namespace AXOpen.Data.Fragments.Tests
             var manip = sut.Manip.DataRepository.Read("hey remote create - copy");
             Assert.Equal("hey remote create - copy", manip.DataEntityId);
             Assert.Equal(4859ul, manip.CounterDelay);
+        }
+
+        [Fact()]
+        public async void ExportTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+            s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
+            s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
+
+            await sut.Set.Set.ComesFrom.SetAsync(10);
+            await sut.Set.Set.GoesTo.SetAsync(20);
+            await sut.Manip.Set.CounterDelay.SetAsync(20);
+            sut.RemoteCreate("hey remote create");
+
+            var shared = sut.Set.DataRepository.Read("hey remote create");
+            Assert.Equal(10, shared.ComesFrom);
+            Assert.Equal(20, shared.GoesTo);
+
+            var manip = sut.Manip.DataRepository.Read("hey remote create");
+            Assert.Equal(20ul, manip.CounterDelay);
+
+            var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataFragmentTest", "ExportDataFragment.zip");
+
+            // export
+            sut.ExportData(zipFile);
+
+            Assert.True(File.Exists(zipFile));
+
+            using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+            {
+                foreach (ZipArchiveEntry entry in zip.Entries)
+                {
+                    TextReader tr = new StreamReader(entry.Open());
+                    string text = tr.ReadToEnd();
+                    switch (entry.Name)
+                    {
+                        case "axosimple.SharedProductionDataManager.csv":
+                            Assert.Equal("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r", text);
+                            break;
+                        case "examples.PneumaticManipulator.FragmentProcessDataManger.csv":
+                            Assert.Equal("_data.DataEntityId;_data.CounterDelay;\r_data.DataEntityId;_data.CounterDelay;\rhey remote create;20;\r", text);
+                            break;
+                    }
+                }
+            }
+
+            // clear
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
+        public async void ImportTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+            s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
+            s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
+
+            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataFragmentTest", "importDataFragmentPrepare");
+            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataFragmentTest", "ImportDataFragment.zip");
+
+            Directory.CreateDirectory(tempDirectory);
+
+            File.Delete(zipFile);
+
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            {
+                sw.Write("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r");
+            }
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "examples.PneumaticManipulator.FragmentProcessDataManger.csv")))
+            {
+                sw.Write("_data.DataEntityId;_data.CounterDelay;\r_data.DataEntityId;_data.CounterDelay;\rhey remote create;20;\r");
+            }
+
+            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+            // import
+            sut.ImportData(zipFile);
+
+            var shared = sut.Set.DataRepository.Read("hey remote create");
+            Assert.Equal(10, shared.ComesFrom);
+            Assert.Equal(20, shared.GoesTo);
+
+            var manip = sut.Manip.DataRepository.Read("hey remote create");
+            Assert.Equal(20ul, manip.CounterDelay);
+
+            // clear
+            if (Directory.Exists(tempDirectory))
+                Directory.Delete(tempDirectory, true);
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
         }
     }
 
