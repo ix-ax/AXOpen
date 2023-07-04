@@ -8,16 +8,40 @@
 
 <h1>Hello</h1>
 <div class="offcanvas offcanvas-bottom @base.ShowDialog" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="text-center">
+        <h3 class="offcanvas-title text-center" id="offcanvasExampleLabel">@Component._caption.Cyclic</h3>
+        @if (IsYesNoCancelDialogType())
+        {
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        }
     </div>
-    <div class="offcanvas-body">
-        <div>
-            <button type="button" class="btn btn-primary" @onclick="DialogAnswerOk">Ok</button>
-            <button type="button" class="btn btn-primary" @onclick="DialogAnswerOk">Close</button>
+    <div class="offcanvas-body text-center col">
+
+
+        <div class="row">
+            <p>@Component._text.Cyclic</p>
         </div>
-        <div class="dropdown mt-3">
+       
+
+         
+
+            @if (IsOkDialogType())
+            {
+                <button type="button" class="btn btn-primary" @onclick="DialogAnswerOk">Ok</button>
+            }
+            @if (IsYesNoDialogType() && IsYesNoCancelDialogType())
+            {
+                <button type="button" class="btn btn-primary" @onclick="DialogAnswerYes">Yes</button>
+                <button type="button" class="btn btn-primary" @onclick="DialogAnswerNo">No</button>
+            }
+           @* @if (IsYesNoCancelDialogType())
+            {
+                <button type="button" class="btn btn-primary" @onclick="DialogAnswerYes">Yes</button>
+                <button type="button" class="btn btn-primary" @onclick="DialogAnswerNo">No</button>
+            }*@
+            
+       
+       @* <div class="dropdown mt-3">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
                 Dropdown button
             </button>
@@ -26,7 +50,7 @@
                 <li><a class="dropdown-item" href="#">Another action</a></li>
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
-        </div>
+        </div>*@
     </div>
 </div>
 
