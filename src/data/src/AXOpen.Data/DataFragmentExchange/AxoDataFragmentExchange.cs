@@ -335,7 +335,8 @@ public partial class AxoDataFragmentExchange
                 fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, separator);
             }
 
-            Directory.Delete(Path.GetDirectoryName(path), true);
+            if (Directory.Exists(Path.GetDirectoryName(path)))
+                Directory.Delete(Path.GetDirectoryName(path), true);
         }
         else
         {
