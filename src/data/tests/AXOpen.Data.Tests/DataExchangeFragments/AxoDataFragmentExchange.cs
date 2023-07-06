@@ -148,6 +148,102 @@ namespace AXOpen.Data.Fragments.Tests
         }
 
         [Fact]
+        public async void RemoteEntityExist_ShouldExistRecordsFromEachRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+            var sharedRepo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            var manipRepo = new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>();
+            s.Set.SetRepository(sharedRepo);
+            s.Manip.SetRepository(manipRepo);
+
+            var id = "hey";
+
+            sharedRepo.Create(id, new SharedProductionData() { ComesFrom = 55, GoesTo = 44 });
+            manipRepo.Create(id, new FragmentProcessData() { CounterDelay = 8989ul });
+
+            var result = sut.RemoteEntityExist(id);
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public async void RemoteEntityExist_ShouldNoExistRecordsFromEachRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+            var sharedRepo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            var manipRepo = new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>();
+            s.Set.SetRepository(sharedRepo);
+            s.Manip.SetRepository(manipRepo);
+
+            var id = "hey";
+
+            //sharedRepo.Create(id, new SharedProductionData() { ComesFrom = 55, GoesTo = 44 });
+            //manipRepo.Create(id, new FragmentProcessData() { CounterDelay = 8989ul });
+
+            var result = sut.RemoteEntityExist(id);
+
+            Assert.False(result);
+        }
+
+        [Fact]
+        public async void RemoteCreateOrUpdate_ShouldCreateRecordsFromEachRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+            s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
+            s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
+
+            await sut.Set.Set.ComesFrom.SetAsync(10);
+            await sut.Set.Set.GoesTo.SetAsync(20);
+            await sut.Manip.Set.CounterDelay.SetAsync(20);
+            sut.RemoteCreateOrUpdate("hey remote create");
+
+            var shared = sut.Set.DataRepository.Read("hey remote create");
+            Assert.Equal(10, shared.ComesFrom);
+            Assert.Equal(20, shared.GoesTo);
+
+            var manip = sut.Manip.DataRepository.Read("hey remote create");
+            Assert.Equal(20ul, manip.CounterDelay);
+        }
+
+        [Fact]
+        public async void RemoteCreateOrUpdate_ShouldUpdateRecordsFromEachRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+            s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
+            s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
+
+            await sut.Set.Set.ComesFrom.SetAsync(10);
+            await sut.Set.Set.GoesTo.SetAsync(20);
+            await sut.Manip.Set.CounterDelay.SetAsync(20);
+            sut.RemoteCreate("hey remote create");
+
+            await sut.Set.Set.ComesFrom.SetAsync(88);
+            await sut.Set.Set.GoesTo.SetAsync(64);
+            await sut.Manip.Set.CounterDelay.SetAsync(789);
+            sut.RemoteCreateOrUpdate("hey remote create");
+
+
+            var shared = sut.Set.DataRepository.Read("hey remote create");
+            Assert.Equal(88, shared.ComesFrom);
+            Assert.Equal(64, shared.GoesTo);
+
+            var manip = sut.Manip.DataRepository.Read("hey remote create");
+            Assert.Equal(789ul, manip.CounterDelay);
+        }
+
+        [Fact]
         public async void FromRepositoryToShadows_ShouldSetDataInShadowsFromPlainPocoObject()
         {
             var parent = NSubstitute.Substitute.For<ITwinObject>();

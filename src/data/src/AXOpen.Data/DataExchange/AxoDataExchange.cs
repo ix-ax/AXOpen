@@ -9,9 +9,11 @@ using System.IO.Compression;
 using System.Linq.Expressions;
 using System.Numerics;
 using System.Reflection;
+using System.Security.Claims;
 using AXOpen.Base.Data;
 using AXSharp.Abstractions.Dialogs.AlertDialog;
 using AXSharp.Connector;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
 namespace AXOpen.Data;
@@ -113,6 +115,34 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return true;
     }
 
+    /// <inheritdoc />
+    public bool RemoteEntityExist(string identifier)
+    {
+        EntityExistTask.ReadAsync().Wait();
+        DataEntity.DataEntityId.SetAsync(identifier).Wait();
+        return Repository.Exists(identifier);
+    }
+
+    /// <inheritdoc />
+    public bool RemoteCreateOrUpdate(string identifier)
+    {
+        CreateOrUpdateTask.ReadAsync().Wait();
+        DataEntity.DataEntityId.SetAsync(identifier).Wait();
+        var cloned = ((ITwinObject)DataEntity).OnlineToPlain<TPlain>().Result;
+
+        if (Repository.Exists(identifier))
+        {
+            Repository.Update(identifier, cloned);
+        }
+        else
+        {
+            Repository.Create(identifier, cloned);
+        }
+        return true;
+    }
+
+
+
     private PropertyInfo? GetDataSetPropertyInfo<TA>() where TA : Attribute
     {
         var properties = GetType().GetProperties();
@@ -168,6 +198,8 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         ReadTask.InitializeExclusively(RemoteRead);
         UpdateTask.InitializeExclusively(RemoteUpdate);
         DeleteTask.InitializeExclusively(RemoteDelete);
+        EntityExistTask.InitializeExclusively(RemoteEntityExist);
+        CreateOrUpdateTask.InitializeExclusively(RemoteCreateOrUpdate);
         this.WriteAsync().Wait();
         //_idExistsTask.InitializeExclusively(Exists);
         //_createOrUpdateTask.Initialize(CreateOrUpdate);
@@ -192,6 +224,8 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         ReadTask.DeInitialize();
         UpdateTask.DeInitialize();
         DeleteTask.DeInitialize();
+        EntityExistTask.DeInitialize();
+        CreateOrUpdateTask.DeInitialize();
         this.WriteAsync().Wait();
         //_idExistsTask.InitializeExclusively(Exists);
         //_createOrUpdateTask.Initialize(CreateOrUpdate);
@@ -200,36 +234,6 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     private bool RemoteCreate()
     {
         return RemoteCreate(CreateTask.DataEntityIdentifier.GetAsync().Result);
-    }
-
-    private bool RemoteCreateOrUpdate()
-    {
-        //_createOrUpdateTask.Read();
-        //var id = _createOrUpdateTask._identifier.LastValue;
-        //Onliner._EntityId.Synchron = id;
-        //if (!this._repository.Exists(id))
-        //{                
-        //    var cloned = this.Onliner.CreatePlainerType();
-        //    this.Onliner.FlushOnlineToPlain(cloned);
-        //    try
-        //    {
-        //        _repository.Create(id, cloned);
-        //        return true;
-        //    }
-        //    catch (Exception exception)
-        //    {
-        //        throw exception;
-        //    }
-        //}
-        //else
-        //{
-        //    var cloned = this.Onliner.CreatePlainerType();
-        //    this.Onliner.FlushOnlineToPlain(cloned);
-        //    _repository.Update(id, cloned);
-        //    return true;
-        //}
-        //
-        return true;
     }
 
     private bool RemoteRead()
@@ -247,19 +251,14 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         return RemoteDelete(DeleteTask.DataEntityIdentifier.GetAsync().Result);
     }
 
-    private bool RemoteExists()
+    private bool RemoteEntityExist()
     {
-        //_idExistsTask.Read();
-        //try
-        //{
-        //    _idExistsTask._exists.Synchron = _repository.Exists(_idExistsTask._identifier.Cyclic);                
-        //    return true;
-        //}
-        //catch (Exception exception)
-        //{
-        //    throw exception;
-        //}
-        return true;
+        return RemoteEntityExist(EntityExistTask.DataEntityIdentifier.GetAsync().Result);
+    }
+
+    private bool RemoteCreateOrUpdate()
+    {
+        return RemoteCreateOrUpdate(CreateOrUpdateTask.DataEntityIdentifier.GetAsync().Result);
     }
 
     public async Task CreateAsync(string identifier, TPlain plain)
@@ -280,6 +279,26 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task DeleteAsync(string identifier)
     {
         await Task.Run(() => Repository.Delete(identifier));
+    }
+
+    public async Task<bool> EntityExistAsync(string identifier)
+    {
+        return await Task.Run(() => Repository.Exists(identifier));
+    }
+
+    public async Task CreateOrUpdateAsync(string identifier, TPlain data)
+    {
+        await Task.Run(() =>
+        {
+            if (Repository.Exists(identifier))
+            {
+                Repository.Update(identifier, data);
+            }
+            else
+            {
+                Repository.Create(identifier, data);
+            }
+        });
     }
 
     /// <inheritdoc />
@@ -380,6 +399,29 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         {
             IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
             dataExporter.Import(DataRepository, path, crudDataObject, separator);
+        }
+    }
+
+    /// <inheritdoc />
+    public async Task<bool> ExistsAsync(string recordId)
+    {
+        return Repository.Exists(recordId);
+    }
+
+    /// <inheritdoc />
+    public async Task CreateOrUpdate(string recordId)
+    {
+        if (Repository.Exists(recordId))
+        {
+            var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
+            //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+            Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+        }
+        else
+        {
+            this.Repository.Create(recordId, this.RefUIData.CreatePoco());
+            var plain = Repository.Read(recordId);
+            RefUIData.PlainToShadow(plain);
         }
     }
 }

@@ -62,6 +62,20 @@ namespace AXOpen.Data
         Task CreateNewAsync(string identifier);
 
         /// <summary>
+        /// Check if record exists in the repository.
+        /// </summary>
+        /// <param name="identifier">Id of the record.</param>
+        /// <returns>Task</returns>
+        Task<bool> ExistsAsync(string identifier);
+
+        /// <summary>
+        /// Create or update record in the repository.
+        /// </summary>
+        /// <param name="identifier">Id of the record.</param>
+        /// <returns>Task</returns>
+        Task CreateOrUpdate(string identifier);
+
+        /// <summary>
         /// Create new record of the current data present in the shadows of this object in the repository.
         /// </summary>
         /// <param name="identifier">Id of the new record</param>
@@ -95,6 +109,20 @@ namespace AXOpen.Data
         /// <param name="identifier">Record identifier.</param>
         /// <returns>True when success</returns>
         bool RemoteDelete(string identifier);
+
+        /// <summary>
+        /// Provides handler for remote (controller's) request to check if data exists in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
+        /// </summary>
+        /// <param name="identifier">Record identifier.</param>
+        /// <returns>True when success</returns>
+        bool RemoteEntityExist(string identifier);
+
+        /// <summary>
+        /// Provides handler for remote (controller's) request to create or update data in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
+        /// </summary>
+        /// <param name="identifier">Record identifier.</param>
+        /// <returns>True when success</returns>
+        bool RemoteCreateOrUpdate(string identifier);
 
         /// <summary>
         /// Gets records meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
