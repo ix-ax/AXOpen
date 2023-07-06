@@ -1,4 +1,4 @@
-ContextLogger.LogEntries
+#ContextLogger.LogEntries
 # Context.PneumaticManipulator.ProcessData.Operation
 #Context.PneumaticManipulator.ProcessData.Data.CreateTask.ErrorDetails
 #Context.PneumaticManipulator.ProcessData.Shared.CreateTask.ErrorDetails
@@ -6,3 +6,8 @@ ContextLogger.LogEntries
 #Context.PneumaticManipulator.ProcessData.Operation.IsInitialized
 #Context.PneumaticManipulator.ProcessData.Data.CreateTask.IsInitialized
 #Context.PneumaticManipulator.ProcessData.Shared.CreateTask.IsInitialized
+#PlcInputs._10a1_Result_Data_128_bytes_1
+#PlcInputs._11a1_DI_8x24VDC_ST_2
+#PlcOutputs._11a1_DQ_8x24VDC_0_5A_ST_1
+Context.PneumaticManipulator.Components.Citacka.ReadedData
+Context.PneumaticManipulator.Components.Citacka._Results_128_DataString

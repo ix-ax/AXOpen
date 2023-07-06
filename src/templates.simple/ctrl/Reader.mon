@@ -1,0 +1,5 @@
+
+Context.PneumaticManipulator.Components.Citacka._AcquisitionControl
+PlcOutputs._10a1_Acquisition_Control_1
+#Context.PneumaticManipulator.Components.Citacka.ReadedData
+#Context.PneumaticManipulator.Components.Citacka._Results_128_DataString

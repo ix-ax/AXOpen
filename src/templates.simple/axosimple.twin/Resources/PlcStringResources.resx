@@ -76,14 +76,14 @@
   </data>
   <data name="AUTOMAT" xml:space="preserve">
     <value>AUTOMAT</value>
-    <comment>src\Examples\PneumaticManipulator.st,140</comment>
+    <comment>src\Examples\PneumaticManipulator.st,157</comment>
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>
-    <comment>src\Examples\PneumaticManipulator.st,212</comment>
+    <comment>src\Examples\PneumaticManipulator.st,229</comment>
   </data>
   <data name="SERVICE" xml:space="preserve">
     <value>SERVICE</value>
-    <comment>src\Examples\PneumaticManipulator.st,266</comment>
+    <comment>src\Examples\PneumaticManipulator.st,283</comment>
   </data>
 </root>
