@@ -21,7 +21,7 @@ namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
             Timer.Start();
         }
 
-        public void AddAlertDialog(string type, string title, string message, int time)
+        public void AddAlertDialog(eDialogType type, string title, string message, int time)
         {
             ToastsList.Add(new AlertDialog(type, title, message, time));
             AlertDialogChanged?.Invoke(this, EventArgs.Empty);

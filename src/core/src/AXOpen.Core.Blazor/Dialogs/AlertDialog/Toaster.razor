@@ -9,19 +9,19 @@
             var icon = "";
             switch (toast.Type)
             {
-                case "Info":
+                case eDialogType.Info:
                     bg = "bg-primary text-white";
                     icon = "oi oi-info";
                     break;
-                case "Success":
+                case eDialogType.Success:
                     bg = "bg-success text-white";
                     icon = "oi oi-circle-check";
                     break;
-                case "Danger":
+                case eDialogType.Danger:
                     bg = "bg-danger text-white";
                     icon = "oi oi-circle-x";
                     break;
-                case "Warning":
+                case eDialogType.Warning:
                     bg = "bg-warning text-dark";
                     icon = "oi oi-warning";
                     break;

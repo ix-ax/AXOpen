@@ -6,7 +6,6 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using AXOpen.Base.Data;
-using AXOpen.Core;
 using AXOpen.Data.Interfaces;
 using AXOpen.Data;
 using CommunityToolkit.Mvvm.Messaging;
@@ -107,7 +106,7 @@ public partial class DataExchangeView
         }
         catch (Exception ex)
         {
-            _alertDialogService.AddAlertDialog("Danger", "Error!", ex.Message, 10);
+            _alertDialogService.AddAlertDialog(eDialogType.Danger, "Error!", ex.Message, 10);
         }
 
         isLoadingFile = false;

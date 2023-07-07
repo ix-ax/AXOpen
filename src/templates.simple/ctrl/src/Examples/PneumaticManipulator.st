@@ -144,6 +144,7 @@ NAMESPACE examples.PneumaticManipulator
         VAR PUBLIC
             Steps : ARRAY[0..150] OF AxoStep;
             _dialog : AXOpen.Core.AxoDialog;
+            _alertDialog : AXOpen.Core.AxoAlertDialog;
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
@@ -216,14 +217,21 @@ NAMESPACE examples.PneumaticManipulator
                   
                     THIS.MoveNext(); 
                 END_IF;		
+            END_IF;
 
             IF(Steps[12].Execute(THIS, TRUE, 'Dummy')) THEN
                 
                 THIS.MoveNext();
-            END_IF;   	           
+            END_IF;   	
+            
+            IF (Steps[20].Execute(THIS, TRUE, 'Show alert dialog')) THEN
+                IF(_alertDialog.Show(THIS, eDialogType#Success, 'Sample title', 'Sample message', 30).IsDone()) THEN
+                    THIS.MoveNext(); 
+                END_IF;		
+            END_IF;
                     
 //-------------------------------------------------------
-            END_IF;
+            
             // This will close the sequence and will return to the first step.
             THIS.Close(Steps[150]);
         END_METHOD
