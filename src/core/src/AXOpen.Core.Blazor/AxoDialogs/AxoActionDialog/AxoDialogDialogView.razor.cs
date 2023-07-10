@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core
 {
-    public partial class AxoDialogActionView : AxoDialogBaseView<AxoDialog>
+    public partial class AxoDialogDialogView : AxoDialogBaseView<AxoDialog>
     {
 
         

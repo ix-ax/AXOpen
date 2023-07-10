@@ -21,6 +21,7 @@ namespace AXOpen.Core
         {
             //services.AddScoped<AxoDialogProxyService>();
             services.AddSingleton<AxoDialogContainer>();
+            services.AddSingleton<AxoDialogContainer>();
             services.AddResponseCompression(opts =>
             {
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(

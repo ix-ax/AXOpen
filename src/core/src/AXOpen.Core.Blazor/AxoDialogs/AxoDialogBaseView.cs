@@ -32,7 +32,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             //_dialogService
             //_dialogClient = new DialogClient(_navigationManager.BaseUri);
             _dialogContainer.DialogClient.MessageReceivedDialogClose += OnCloseDialogMessage;
-            _dialogContainer.DialogClient.MessageReceived += OnOpenDialogMessage;
+            _dialogContainer.DialogClient.MessageReceivedDialogOpen += OnOpenDialogMessage;
             Console.WriteLine("Concrete initialized");
 
 

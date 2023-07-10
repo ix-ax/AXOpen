@@ -55,14 +55,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
         private void HandleReceiveMessage(string message)
         {
             // raise an event to subscribers
-            MessageReceived?.Invoke(this, new MessageReceivedEventArgs(message));
+            MessageReceivedDialogOpen?.Invoke(this, new MessageReceivedEventArgs(message));
         }
         private void HandleReceiveDialogClose(string message)
         {
             // raise an event to subscribers
             MessageReceivedDialogClose?.Invoke(this, new MessageReceivedEventArgs(message));
         }
-        public event MessageReceivedEventHandler MessageReceived;
+        public event MessageReceivedEventHandler MessageReceivedDialogOpen;
         public event MessageReceivedEventHandler MessageReceivedDialogClose;
         public async Task StopAsync()
         {

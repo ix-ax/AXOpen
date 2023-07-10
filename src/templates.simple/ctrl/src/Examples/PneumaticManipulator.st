@@ -219,7 +219,21 @@ NAMESPACE examples.PneumaticManipulator
                 END_IF;		
             END_IF;
 
-            IF(Steps[12].Execute(THIS, TRUE, 'Dummy')) THEN
+            IF (Steps[13].Execute(THIS, TRUE, 'Show dialog 2')) THEN
+                //_dialog.Restore();
+                //------------------------------------------------------- 
+                IF(_dialog.Show(THIS)
+                    .WithYesNoCancel()
+                    .WithCaption('Yes no cancel?')
+                    .WithText('Pick your answer?').Answer() = eDialogAnswer#Yes) THEN
+                    THIS.MoveNext(); 
+
+                END_IF;		
+            END_IF;
+
+
+
+            IF(Steps[14].Execute(THIS, TRUE, 'Dummy')) THEN
                 
                 THIS.MoveNext();
             END_IF;   	

@@ -16,15 +16,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     public class AxoDialogProxyService
     {
         public DialogClient DialogClient { get; set; }
-        public AxoDialogProxyService()
-        {
-            ObservedObjects = new List<string>();
-        }
+    
 
-        public AxoDialogProxyService(string uri, string id, IEnumerable<ITwinObject> observedObjects)
+        public AxoDialogProxyService(string id, IEnumerable<ITwinObject> observedObjects)
         {
             ObservedObjects = new List<string>();
-            //DialogClient = new DialogClient(uri);
             DialogServiceId = id;
             SetObservedObjects(observedObjects);
         }
@@ -46,24 +42,19 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                     Console.WriteLine("Dialogs unique initialize!");
                 }
             }
-
           
         }
-
-       //   public event Notify DialogInvoked;
         public event EventHandler<AxoDialogEventArgs> DialogInvoked;
         public IsDialogType DialogInstance { get; set; }
 
         protected async void Queue(IsDialogType dialog)
         {
-            await Task.Run(() =>
-            {
-                DialogInstance = dialog;
-                DialogInstance.DialogId = DialogServiceId;
-                DialogInstance.ReadAsync();
-            });
-                Console.WriteLine("Queue!");
-                DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
+        
+            DialogInstance = dialog;
+            DialogInstance.DialogId = DialogServiceId;
+            await DialogInstance.ReadAsync();
+            Console.WriteLine("Queue!");
+            DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
 
         }
 
