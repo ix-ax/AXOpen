@@ -3,14 +3,14 @@
 @using AXOpen.Dialogs;
 @using AXSharp.Connector;
 @inject NavigationManager _navigationManager
-@inject AxoDialogProxyService _dialogService
+@inject AxoDialogContainer _dialogContainer
 @implements IDisposable
 <h1>cau</h1>
 
 
-@if (_dialogService.DialogInstance != null )
+@if (_axoDialogProxyService?.DialogInstance != null)
 {
-    <RenderableContentControl Context="_dialogService.DialogInstance"
+    <RenderableContentControl Context="_axoDialogProxyService.DialogInstance"
                               Presentation="Action"/>
 }
 
@@ -18,7 +18,7 @@
 
 
 @code {
-    
+
     [Parameter]
     public IEnumerable<ITwinObject> ObservedObjects { get; set; }
     /// <summary>
@@ -35,29 +35,60 @@
     private bool _showDialog { get; set;}
 
 
+    private AxoDialogProxyService _axoDialogProxyService { get; set; }
+    //private DialogClient _dialogClient { get; set; }
 
 
-    protected override void OnInitialized()
+
+    protected async override Task OnInitializedAsync()
     {
-        if (ObservedObjects != null)
-            _dialogService.SetObservedObjects(ObservedObjects);
-        
-        Console.WriteLine("Base initialized");
-        _dialogService.DialogInvoked += OnDialogInvoked;
+        //_dialogClient = new DialogClient(_navigationManager.BaseUri);
+
+        //if dialog id is null, set it to actual URI
+        if (string.IsNullOrEmpty(DialogId))
+        {
+            DialogId = _navigationManager.Uri;
+        }
+        //try to acquire existing dialog service instance
+        _axoDialogProxyService = _dialogContainer.DialogProxyServices.FirstOrDefault(x => x.DialogServiceId == DialogId);
+
+
+        if (_axoDialogProxyService == null)
+        {
+            // if it does not exist, create new instance with observed objects and add it into container
+            _axoDialogProxyService = new AxoDialogProxyService(_navigationManager.BaseUri, DialogId, ObservedObjects);
+            await _dialogContainer.InitializeSignalR(_navigationManager.BaseUri);
+            _dialogContainer.DialogProxyServices.Add(_axoDialogProxyService);
+        }
+
+        //if (ObservedObjects != null)
+        //{
+        //    //_axoDialogProxyService.SetObservedObjects(ObservedObjects);
+        //    _axoDialogProxyService.SetObservedObjects(ObservedObjects);
+        //}
+
+
+        Console.WriteLine($"Base initialized, ID: {DialogId}");
+        // _axoDialogProxyService.DialogInvoked += OnDialogInvoked;
+        _axoDialogProxyService.DialogInvoked += OnDialogInvoked;
         base.OnInitialized();   
     }
+    public event EventHandler<AxoDialogEventArgs> DialogInvoked2;
 
-
-    public async void OnDialogInvoked()
+    public async void OnDialogInvoked(object sender, AxoDialogEventArgs e)
     {
-        Console.WriteLine("Invoke caught 1 - RCC create");
+        //signalR here????? 
+        Console.WriteLine($"Invoke caught 1, ID: {DialogId}");
         await InvokeAsync(StateHasChanged);
+        //await _axoDialogProxyService.DialogClient.SendDialogOpen(DialogId);
+        await _dialogContainer.DialogClient.SendDialogOpen(DialogId);
+
 
     }
     
     public void Dispose()
     {
-        _dialogService.DialogInvoked -= OnDialogInvoked;
+        _axoDialogProxyService.DialogInvoked -= OnDialogInvoked;
     }
 
 }

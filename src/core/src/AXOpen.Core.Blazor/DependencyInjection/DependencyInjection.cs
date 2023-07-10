@@ -19,7 +19,8 @@ namespace AXOpen.Core
     {
         public static void AddAxoCoreServices(this IServiceCollection services)
         {
-            services.AddSingleton<AxoDialogProxyService>();
+            //services.AddScoped<AxoDialogProxyService>();
+            services.AddSingleton<AxoDialogContainer>();
             services.AddResponseCompression(opts =>
             {
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(

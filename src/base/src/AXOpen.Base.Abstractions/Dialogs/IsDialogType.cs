@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AXOpen.Dialogs
 {
 
-    public interface IsDialog : ITwinObject
+    public interface IsDialogType : ITwinObject
     {
         string DialogId { get; set; }
         void Initialize(Action dialogAction);

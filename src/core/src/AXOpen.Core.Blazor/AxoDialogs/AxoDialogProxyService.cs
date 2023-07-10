@@ -2,6 +2,7 @@
 using AXOpen.Dialogs;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +12,25 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
-    public delegate void Notify();
+    //public delegate void Notify();
     public class AxoDialogProxyService
     {
+        public DialogClient DialogClient { get; set; }
         public AxoDialogProxyService()
         {
             ObservedObjects = new List<string>();
         }
-  
+
+        public AxoDialogProxyService(string uri, string id, IEnumerable<ITwinObject> observedObjects)
+        {
+            ObservedObjects = new List<string>();
+            //DialogClient = new DialogClient(uri);
+            DialogServiceId = id;
+            SetObservedObjects(observedObjects);
+        }
+
+        public string DialogServiceId { get; set; }
+
         public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
         {
             Console.WriteLine("Objects set!");
@@ -26,13 +38,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             foreach (var item in observedObjects)
             {
                 //check if we observing symbol, if yes, we do not have to initialize new remote tasks
-                if (ObservedObjects.Contains(item.Symbol))
+                if (!ObservedObjects.Contains(item.Symbol))
                 {
-                    continue;
-                }
-                else
-                {
-                    //check no, create observer for this object
+                    //create observer for this object
                     ObservedObjects.Add(item.Symbol);
                     UpdateDialogs(item);
                     Console.WriteLine("Dialogs unique initialize!");
@@ -42,25 +50,27 @@ namespace AXOpen.Core.Blazor.AxoDialogs
           
         }
 
-        public event Notify DialogInvoked;
-        public IsDialog DialogInstance { get; set; }
+       //   public event Notify DialogInvoked;
+        public event EventHandler<AxoDialogEventArgs> DialogInvoked;
+        public IsDialogType DialogInstance { get; set; }
 
-        protected async void Queue(IsDialog dialog)
+        protected async void Queue(IsDialogType dialog)
         {
             await Task.Run(() =>
             {
                 DialogInstance = dialog;
+                DialogInstance.DialogId = DialogServiceId;
                 DialogInstance.ReadAsync();
             });
                 Console.WriteLine("Queue!");
-                DialogInvoked?.Invoke();
+                DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
 
         }
 
         public List<string> ObservedObjects{ get; set; }
         void UpdateDialogs(ITwinObject observedObject)
         {
-            var descendants = GetDescendants<IsDialog>(observedObject);
+            var descendants = GetDescendants<IsDialogType>(observedObject);
             foreach (var dialog in descendants)
             {
                 dialog.Initialize(() => Queue(dialog));

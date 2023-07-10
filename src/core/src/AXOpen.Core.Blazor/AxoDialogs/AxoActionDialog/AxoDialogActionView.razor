@@ -3,16 +3,20 @@
 @using AXOpen.Dialogs;
 @using Microsoft.JSInterop;
 @inject NavigationManager _navigationManager
-@inject AxoDialogProxyService _dialogService
+@*@inject AxoDialogProxyService _dialogService*@
 @inherits AxoDialogBaseView<AxoDialog>
 
 <h1>Hello</h1>
 <div class="offcanvas offcanvas-bottom @base.ShowDialog" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
     <div class="text-center">
+
+
+        @RenderDialogIcon()
+            
         <h3 class="offcanvas-title text-center" id="offcanvasExampleLabel">@Component._caption.Cyclic</h3>
         @if (IsYesNoCancelDialogType())
         {
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn-close" @onclick="DialogAnswerCancel"  aria-label="Close"></button>
         }
     </div>
     <div class="offcanvas-body text-center col">

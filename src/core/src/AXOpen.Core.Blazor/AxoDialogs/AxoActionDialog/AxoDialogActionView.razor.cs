@@ -14,7 +14,7 @@ namespace AXOpen.Core
     {
 
         
-        public IsDialog Dialog { get; private set; }
+        public IsDialogType Dialog { get; private set; }
 
 
         private bool IsOkDialogType() => Component._hasOK.Cyclic;

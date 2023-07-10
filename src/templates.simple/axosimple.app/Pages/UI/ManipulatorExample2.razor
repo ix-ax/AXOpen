@@ -1,4 +1,4 @@
-﻿@page "/ui/ManipulatorExample"
+﻿@page "/ui/ManipulatorExample2"
 @using AXOpen.Core.Blazor.AxoDialogs;
 @using AXSharp.Abstractions.Dialogs.AlertDialog;
 @using axosimple.hmi.Components;
@@ -10,16 +10,17 @@
 
 @*@inject IAlertDialogService _alerts*@
 
-<UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="250"></UnitsSequences>
-<UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
+<h1>Pneumatic manipulator 2</h1>
+<UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator2" PollingInterval="250"></UnitsSequences>
+<UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator2.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator2.Components" PollingInterval="250"></UnitsService>
 
 @foreach (var message in Messengers)
 {
     if (message.IsActive.LastValue)
-    { 
+    {
         <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
     }
-     
+
 }
 
 
@@ -27,7 +28,7 @@
 
 
 
-<AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>
+<AxoDialogLocator DialogId="custation002" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator2}"></AxoDialogLocator>
 
 
 <button type="button" class="btn btn-primary" @onclick="ButtonClickedShow">Show</button>
@@ -75,39 +76,39 @@
             await offcanvas?.ShowAsync();
         }
     }
-    private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
+        private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator2.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
-@*    protected override Task OnInitializedAsync()
+    @*    protected override Task OnInitializedAsync()
     {
     return base.OnInitializedAsync();
     }*@
 
 
-    //public static AxoDialogProxyService _dialogService { get; set; } = AxoDialogProxyService.Create(new[] { Entry.Plc.Context.PneumaticManipulator });
+        //public static AxoDialogProxyService _dialogService { get; set; } = AxoDialogProxyService.Create(new[] { Entry.Plc.Context.PneumaticManipulator2 });
 
-    //public async void OnDialogInvoked()
-    //{
-    //    await Task.Delay(1000);
-    //    _alerts.AddAlertDialog("Success", "Hello", "Brano2", 5);
+        //public async void OnDialogInvoked()
+        //{
+        //    await Task.Delay(1000);
+        //    _alerts.AddAlertDialog("Success", "Hello", "Brano2", 5);
 
-    //    await InvokeAsync(StateHasChanged);
+        //    await InvokeAsync(StateHasChanged);
 
-    //}
+        //}
 
         public void ButtonClickedShow()
         {
-            OffCanvasShow = "fade show";
-            ShowBackdrop = true;
-            
-        // _alerts.AddAlertDialog("Success", "Hello", "Brano", 5);
+    OffCanvasShow = "fade show";
+    ShowBackdrop = true;
+
+    // _alerts.AddAlertDialog("Success", "Hello", "Brano", 5);
         }
 
         public void ButtonClickedHide()
         {
-            OffCanvasShow = "";
-            ShowBackdrop = false;
-            StateHasChanged();
-            //_alerts.AddAlertDialog("Success", "Hello", "Brano", 5);
+    OffCanvasShow = "";
+    ShowBackdrop = false;
+    StateHasChanged();
+    //_alerts.AddAlertDialog("Success", "Hello", "Brano", 5);
         }
 }
 

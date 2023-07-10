@@ -198,13 +198,13 @@ NAMESPACE examples.PneumaticManipulator
                 THIS.MoveNext();
             END_IF;    
 
-            IF (Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
-                //-------------------------------------------------------            
-                IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
-                    THIS.MoveNext(); // <- This will move to the next step in the sequence.
-                END_IF;
-//-------------------------------------------------------
-            END_IF;
+//             IF (Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
+//                 //-------------------------------------------------------            
+//                 IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
+//                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
+//                 END_IF;
+// //-------------------------------------------------------
+//             END_IF;
 
             IF (Steps[11].Execute(THIS, TRUE, 'Show dialog')) THEN
                 //_dialog.Restore();

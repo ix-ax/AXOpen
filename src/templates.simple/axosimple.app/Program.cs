@@ -21,6 +21,7 @@ using AXSharp.Abstractions.Dialogs.AlertDialog;
 using System.Security.Principal;
 using AXOpen.Core;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AXOpen.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
