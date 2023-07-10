@@ -29,8 +29,8 @@ public partial class DataExchangeView
 
     [Parameter] public RenderFragment ChildContent { get; set; }
 
-    [Inject]
-    private IAlertDialogService _alertDialogService { get; set; }
+    //[Inject]
+    //private IAlertDialogService _alertDialogService { get; set; }
 
     private Guid ViewGuid { get; } = new();
     private string Create { get; set; } = "";
@@ -106,7 +106,7 @@ public partial class DataExchangeView
         }
         catch (Exception ex)
         {
-            _alertDialogService.AddAlertDialog(eDialogType.Danger, "Error!", ex.Message, 10);
+            //_alertDialogService.AddAlertDialog(eDialogType.Danger, "Error!", ex.Message, 10);
         }
 
         isLoadingFile = false;

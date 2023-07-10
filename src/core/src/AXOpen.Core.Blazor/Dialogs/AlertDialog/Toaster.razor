@@ -1,6 +1,5 @@
-﻿@namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
-@using AXSharp.Abstractions.Dialogs.AlertDialog;
-@if (_dialogService.GetAlertDialogs() != null && _dialogService.GetAlertDialogs().Count > 0)
+﻿@*@*@namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
+@*@if (_dialogService.GetAlertDialogs() != null && _dialogService.GetAlertDialogs().Count > 0)
 {
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 100;">
         @foreach (AlertDialog toast in _dialogService.GetAlertDialogs().ToList())
@@ -54,9 +53,9 @@
         }
     </div>
 }
-
-@code {
-    [Inject]
+*@
+@*@code {
+    //[Inject]
     private IAlertDialogService _dialogService { get; set; }
 
     private string GetTime(DateTimeOffset time)
@@ -75,4 +74,4 @@
             return $"{Math.Round(calcTime.TotalMinutes)} mins ago";
         }
     }
-}
+}*@
