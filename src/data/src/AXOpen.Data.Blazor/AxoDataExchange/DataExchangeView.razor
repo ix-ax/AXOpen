@@ -1,6 +1,7 @@
 ﻿@namespace AXOpen.Data
 @using AXOpen.Data;
 @using AXSharp.Abstractions.Dialogs.AlertDialog;
+@using AXSharp.Connector;
 @using CommunityToolkit.Mvvm.ComponentModel;
 @using CommunityToolkit.Mvvm.Messaging;
 @using Microsoft.AspNetCore.Components.Forms;
@@ -374,6 +375,7 @@ else
                     }
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportCustomModal-@ViewGuid">Customizable</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick='() => ClearFiles("wwwroot/Temp/" + ViewGuid)'>Close</button>
                 </div>
             </div>
@@ -402,6 +404,79 @@ else
                     }
                     <button type="button" class="btn btn-primary @(!isFileImported || isFileImporting ? "disabled" : "")" data-bs-dismiss="modal" @onclick='() => { Vm.ImportData("wwwroot/Temp/" + ViewGuid + "/importData.zip"); isFileImported = false; _inputFileId = Guid.NewGuid().ToString(); }'>Import</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exportCustomModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Export data</h1>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion">
+                        @{bool firstIteration = true;}
+                        @foreach (var db in Vm.DataExchange.RefUIData.GetChildren())
+                        {
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button @(firstIteration ? "" : "collapsed")" type="button" data-bs-toggle="collapse" data-bs-target="#@db.ToString()-@ViewGuid" aria-expanded="@(firstIteration ? "true" : "false")" aria-controls="@db.ToString()-@ViewGuid">
+                                        @db.ToString()
+                                    </button>
+                                </h2>
+                                <div id="@db.ToString()-@ViewGuid" class="accordion-collapse collapse @(firstIteration ? "show" : "")">
+                                    <div class="accordion-body">
+                                        <ul class="list-group">
+                                            @foreach (var item in Vm.GetValueTags(db))
+                                            {
+                                                <li class="list-group-item">
+                                                    <input class="form-check-input me-1" type="checkbox" value="" id="@item.Symbol-@db.ToString()-@ViewGuid" checked>
+                                                    <label class="form-check-label" for="@item.Symbol-@db.ToString()-@ViewGuid">@item.Symbol</label>
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            firstIteration = false;
+                        }
+                    </div>
+                    <div class="input-group mt-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.Export</button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item @(Vm.Export == DataExchangeViewModel.eExportMode.First ? "active" : "")" @onclick="() => Vm.Export = DataExchangeViewModel.eExportMode.First">First</a></li>
+                            <li><a class="dropdown-item @(Vm.Export == DataExchangeViewModel.eExportMode.Last ? "active" : "")" @onclick="() => Vm.Export = DataExchangeViewModel.eExportMode.Last">Last</a></li>
+                            <li><a class="dropdown-item @(Vm.Export == DataExchangeViewModel.eExportMode.Exact ? "active" : "")" @onclick="() => Vm.Export = DataExchangeViewModel.eExportMode.Exact">Exact</a></li>
+                        </ul>
+                        @if (Vm.Export == DataExchangeViewModel.eExportMode.Exact)
+                        {
+                            <div class="input-group-text">From</div>
+                            <input type="text" class="form-control" placeholder="From" @bind="Vm.FirstNumber">
+                            <div class="input-group-text">To</div>
+                            <input type="text" class="form-control" placeholder="To" @bind="Vm.SecondNumber">
+                        }
+                        else
+                        {
+                            <input type="text" class="form-control" @bind="Vm.FirstNumber">
+                        }
+                        <div class="input-group-text">records</div>
+                    </div>
+                    <div class="btn-group mt-2" role="group" aria-label="File type">
+                        <button type="button" class="btn @(Vm.FileType == DataExchangeViewModel.eFileType.csv ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.FileType = DataExchangeViewModel.eFileType.csv">csv</button>
+                        <button type="button" class="btn @(Vm.FileType == DataExchangeViewModel.eFileType.txt ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.FileType = DataExchangeViewModel.eFileType.txt">txt</button>
+                        <button type="button" class="btn @(Vm.FileType == DataExchangeViewModel.eFileType.excel ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.FileType = DataExchangeViewModel.eFileType.excel">excel</button>
+                    </div>
+                    <div class="input-group mt-2 d-inline-flex w-25 align-middle">
+                        <span class="input-group-text" id="basic-addon1">Separator</span>
+                        <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.Separator">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); }'>Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid">Close</button>
                 </div>
             </div>
         </div>

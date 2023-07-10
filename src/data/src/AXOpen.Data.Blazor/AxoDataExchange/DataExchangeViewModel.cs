@@ -326,5 +326,31 @@ namespace AXOpen.Data
         public int Page { get; set; } = 0;
         public string CreateItemId { get; set; }
         public bool IsBusy { get; set; }
+
+        public eExportMode Export;
+        public int FirstNumber = 50;
+        public int SecondNumber = 100;
+        public eFileType FileType;
+        public char Separator = ';';
+
+        public enum eExportMode
+        {
+            First,
+            Last,
+            Exact
+        }
+
+        public enum eFileType
+        {
+            csv,
+            txt,
+            excel
+        }
+
+        public IEnumerable<ITwinPrimitive> GetValueTags(ITwinObject obj)
+        {
+            var prototype = Activator.CreateInstance(obj.GetType(), new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
+            return prototype.RetrievePrimitives();
+        }
     }
 }
