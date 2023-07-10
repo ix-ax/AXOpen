@@ -202,7 +202,7 @@ namespace AXOpen.Data.Tests
         {
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
-            
+
             var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
             var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
             sut.SetRepository(repo);
@@ -228,7 +228,7 @@ namespace AXOpen.Data.Tests
             sut.SetRepository(repo);
 
 
-      
+
             repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68});
 
             sut.RemoteRead("hey remote create");
@@ -510,7 +510,7 @@ namespace AXOpen.Data.Tests
 
             sut.Set.ComesFrom.Shadow = 101;
             sut.Set.GoesTo.Shadow = 201;
-           
+
 
             sut.CreateCopyCurrentShadowsAsync("hey remote create - new");
 
@@ -681,7 +681,53 @@ namespace AXOpen.Data.Tests
 
             using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
             {
-                sw.Write("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r");
+                sw.Write(
+                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r" +
+                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r" +
+                    "hey remote create;48;68;\r"
+                    );
+            }
+
+            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+            // import
+            sut.ImportData(zipFile);
+
+            var shared = sut.DataRepository.Read("hey remote create");
+            Assert.Equal(48, shared.ComesFrom);
+            Assert.Equal(68, shared.GoesTo);
+
+            // clear
+            if (Directory.Exists(tempDirectory))
+                Directory.Delete(tempDirectory, true);
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
+        public async void ImportTestWithExtraElements()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTestWithExtraElements", "importDataPrepare");
+            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTestWithExtraElements", "ImportData.zip");
+
+            Directory.CreateDirectory(tempDirectory);
+
+            File.Delete(zipFile);
+
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            {
+                sw.Write(
+                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
+                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
+                    "hey remote create;48;68;130;\r"
+                    );
             }
 
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
