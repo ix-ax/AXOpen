@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
+using System.Linq.Expressions;
 
 namespace AXOpen.Data
 {
@@ -61,6 +62,20 @@ namespace AXOpen.Data
         Task CreateNewAsync(string identifier);
 
         /// <summary>
+        /// Check if record exists in the repository.
+        /// </summary>
+        /// <param name="identifier">Id of the record.</param>
+        /// <returns>Task</returns>
+        Task<bool> ExistsAsync(string identifier);
+
+        /// <summary>
+        /// Create or update record in the repository.
+        /// </summary>
+        /// <param name="identifier">Id of the record.</param>
+        /// <returns>Task</returns>
+        Task CreateOrUpdate(string identifier);
+
+        /// <summary>
         /// Create new record of the current data present in the shadows of this object in the repository.
         /// </summary>
         /// <param name="identifier">Id of the new record</param>
@@ -96,6 +111,20 @@ namespace AXOpen.Data
         bool RemoteDelete(string identifier);
 
         /// <summary>
+        /// Provides handler for remote (controller's) request to check if data exists in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
+        /// </summary>
+        /// <param name="identifier">Record identifier.</param>
+        /// <returns>True when success</returns>
+        bool RemoteEntityExist(string identifier);
+
+        /// <summary>
+        /// Provides handler for remote (controller's) request to create or update data in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
+        /// </summary>
+        /// <param name="identifier">Record identifier.</param>
+        /// <returns>True when success</returns>
+        bool RemoteCreateOrUpdate(string identifier);
+
+        /// <summary>
         /// Gets records meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
         /// </summary>
         /// <param name="identifier">Record identifier. Use of '*' will provide no filter to the query. <see cref="Pocos.AXOpen.Data.IAxoDataEntity.DataEntityId"/></param>
@@ -112,5 +141,30 @@ namespace AXOpen.Data
         /// <param name="identifier">Record identifier. Use of '*' will provide no filter to the query. <see cref="Pocos.AXOpen.Data.IAxoDataEntity.DataEntityId"/></param>
         /// <returns>Record from the associated repository meeting criteria.</returns>
         IEnumerable<IBrowsableDataObject> GetRecords(string identifier);
+
+        /// <summary>
+        /// Export data from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.
+        /// </summary>
+        /// <param name="path">Path to exported file.</param>
+        /// <param name="separator">Separator for individual records.</param>
+        void ExportData(string path, char separator = ';');
+
+        /// <summary>
+        /// Import data from file to the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.
+        /// </summary>
+        /// <param name="path">Path to imported file.</param>
+        /// <param name="crudDataObject">Object type of the imported records.</param>
+        /// <param name="separator">Separator for individual records.</param>
+        void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';');
+
+        /// <summary>
+        /// Clear directory of temporary files.
+        /// </summary>
+        /// <param name="path">Path to temp file.</param>
+        static void CleanUp(string path = "wwwroot/Temp")
+        {
+            if (Directory.Exists(path))
+                Directory.Delete(path, true);
+        }
     }
 }

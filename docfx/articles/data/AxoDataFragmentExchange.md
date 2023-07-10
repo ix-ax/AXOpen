@@ -96,6 +96,28 @@ When adding data view manually, you will need to create ViewModel:
 > [!NOTE]
 > Custom columns can only added from master fragment (first declared repository).
 
+### Export/Import
+
+If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
+
+~~~ HTML
+<DataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
+~~~
+
+With this option, buttons for export and import data will appear. After clicking on the export button, the `.zip` file will be created, which contains all existing records. If you want to import data, you must upload `.zip` file with an equal data structure as we get in the export file.
+
+![Export](~/images/Export.png)
+
+For a better user experience, it is strongly recommended to clean the `Temp` directory when starting the application. The best way to do this is to add the following lines to the "Program.cs" file:
+
+~~~ C#
+// Clean Temp directory
+IAxoDataExchange.CleanUp();
+~~~
+
+> [!IMPORTANT]
+> Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.
+
 ### Modal detail view
 
 The Detail View is default shown like modal view. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show a detail view under the record table. Example with `ModalDetailView` attribute:

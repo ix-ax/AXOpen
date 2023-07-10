@@ -9,8 +9,11 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
+using AXOpen.Core;
 using AXSharp.Connector.ValueTypes.Online;
 using AXSharp.Connector;
+using CommunityToolkit.Mvvm.Messaging;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Linq.Expressions;
 using System.Numerics;
 using AXSharp.Abstractions.Dialogs.AlertDialog;
@@ -18,7 +21,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Data
 {
-    public class DataExchangeViewModel : RenderableViewModelBase 
+    public class DataExchangeViewModel : RenderableViewModelBase
     {
         public IAxoDataExchange DataExchange
         {
@@ -31,12 +34,13 @@ namespace AXOpen.Data
             set => this.DataExchange = (IAxoDataExchange)value;
         }
 
+        public bool IsFileExported { get; set; } = false;
         public List<ValueChangeItem> Changes { get; set; }
 
         public IAlertDialogService AlertDialogService { get; set; }
 
         private IBrowsableDataObject _selectedRecord;
-        
+
         public IBrowsableDataObject SelectedRecord
         {
             get
@@ -87,7 +91,7 @@ namespace AXOpen.Data
             }
 
             FilteredCount = CountFiltered(FilterById, SearchMode);
-            
+
             return Records;
         }
 
@@ -146,16 +150,16 @@ namespace AXOpen.Data
             {
                 if (string.IsNullOrEmpty(CreateItemId))
                 {
-                    //AlertDialogService.AddAlertDialog("Danger", "Cannot create!", "New entry name cannot be empty. Please provide an ID", 10);
+                    AlertDialogService.AddAlertDialog("Danger", "Cannot create!", "New entry name cannot be empty. Please provide an ID", 10);
                     return;
                 }
 
                 await DataExchange.CreateNewAsync(CreateItemId);
-                //AlertDialogService.AddAlertDialog("Success", "Created!", "Item was successfully created!", 10);
+                AlertDialogService.AddAlertDialog("Success", "Created!", "Item was successfully created!", 10);
             }
             catch (Exception e)
             {
-                //AlertDialogService.AddAlertDialog("Danger", "Failed to create new record!", e.Message, 10);
+                AlertDialogService.AddAlertDialog("Danger", "Failed to create new record!", e.Message, 10);
             }
             finally
             {
@@ -169,17 +173,17 @@ namespace AXOpen.Data
             try
             {
                 DataExchange.Delete(SelectedRecord.DataEntityId);
-                //AlertDialogService.AddAlertDialog("Success", "Deleted!", "Item was successfully deleted!", 10);
+                AlertDialogService.AddAlertDialog("Success", "Deleted!", "Item was successfully deleted!", 10);
             }
             catch (Exception e)
             {
-                //AlertDialogService.AddAlertDialog("Danger", "Failed to delete", e.Message, 10);
+                AlertDialogService.AddAlertDialog("Danger", "Failed to delete", e.Message, 10);
             }
             finally
             {
                 UpdateObservableRecords();
             }
-            
+
 
             //-- var plainer = ((ITwinObject)DataExchange.Data).CreatePoco() as Pocos.AXOpen.Data.AxoDataEntity;
 
@@ -191,7 +195,7 @@ namespace AXOpen.Data
             //DataExchange.Repository.Delete(((IBrowsableDataObject)plainer).DataEntityId);
             //SelectedRecord = null;
             //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 10)));
-            
+
         }
 
         public async Task Copy()
@@ -199,11 +203,11 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId);
-                //AlertDialogService.AddAlertDialog("Success", "Copied!", "Item was successfully copied!", 10);
+                AlertDialogService.AddAlertDialog("Success", "Copied!", "Item was successfully copied!", 10);
             }
             catch (Exception e)
             {
-               // AlertDialogService.AddAlertDialog("Danger", "Failed to copy!", e.Message, 10);
+                AlertDialogService.AddAlertDialog("Danger", "Failed to copy!", e.Message, 10);
             }
             finally
             {
@@ -231,7 +235,7 @@ namespace AXOpen.Data
             //SelectedRecord = plainer;
 
             await DataExchange.UpdateFromShadowsAsync();
-            //AlertDialogService.AddAlertDialog("Success", "Edited!", "Item was successfully edited!", 10);
+            AlertDialogService.AddAlertDialog("Success", "Edited!", "Item was successfully edited!", 10);
             UpdateObservableRecords();
         }
 
@@ -239,7 +243,7 @@ namespace AXOpen.Data
         {
             //-- await ((ITwinObject)DataExchange.Data).PlainToOnline(SelectedRecord);
             await DataExchange.FromRepositoryToControllerAsync(SelectedRecord);
-            //AlertDialogService.AddAlertDialog("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10);
+            AlertDialogService.AddAlertDialog("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10);
         }
 
         public async Task LoadFromPlc()
@@ -247,11 +251,11 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateDataFromControllerAsync(CreateItemId);
-                //AlertDialogService.AddAlertDialog("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
+                AlertDialogService.AddAlertDialog("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
             }
             catch (Exception e)
             {
-                //AlertDialogService.AddAlertDialog("Danger", "Failed to create new record from the controller", e.Message, 10);
+                AlertDialogService.AddAlertDialog("Danger", "Failed to create new record from the controller", e.Message, 10);
             }
             finally
             {
@@ -279,152 +283,37 @@ namespace AXOpen.Data
             //CreateItemId = null;
         }
 
-        public IEnumerable<string> Export(Expression<Func<IPlain, bool>> expression, char separator = ';')
+        public void ExportData(string path)
         {
-            ////var onliner = typeof(T).Name.Replace("Plain", string.Empty);
-            //var onliner = typeof(IBrowsableDataObject).FullName.Replace("Pocos.", string.Empty);
+            IsFileExported = false;
 
-            //var adapter = new AXSharp.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
-            //var dummyConnector = adapter.GetConnector(new object[] { });
-
-            ////var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.Name == onliner);
-            //var onlinerType = Assembly.GetAssembly(typeof(IBrowsableDataObject)).GetTypes().FirstOrDefault(p => p.FullName == onliner);
-            //var prototype = Activator.CreateInstance(onlinerType, new object[] { dummyConnector, "_data", "_data" }) as ITwinObject;
-            //var exportables = DataExchange.Repository.Queryable.Where(expression);
-            //var itemExport = new StringBuilder();
-            //var export = new List<string>();
-
-            //// Create header
-            //var valueTags = prototype.RetrievePrimitives();
-            //foreach (var valueTag in valueTags)
-            //{
-            //    itemExport.Append($"{valueTag.Symbol}{separator}");
-            //}
-
-            //export.Add(itemExport.ToString());
-            //itemExport.AppendLine();
-
-            //itemExport.Clear();
-            //foreach (var valueTag in valueTags)
-            //{
-            //    itemExport.Append($"{valueTag.HumanReadable}{separator}");
-            //}
-
-            //export.Add(itemExport.ToString());
-            //itemExport.AppendLine();
-
-
-            //foreach (var document in exportables)
-            //{
-            //    itemExport.Clear();
-            //    ((dynamic)prototype).PlainToShadow(document);
-            //    var values = prototype.RetrievePrimitives();
-            //    foreach (var @value in values)
-            //    {
-            //        var val = (string)(((dynamic)@value).Shadow.ToString());
-            //        if (val.Contains(separator))
-            //        {
-            //            val = val.Replace(separator, '►');
-            //        }
-
-            //        itemExport.Append($"{val}{separator}");
-            //    }
-
-            //    export.Add(itemExport.ToString());
-
-            //}
-
-            //return export;
-            return null;
-
-        }
-
-        public void Import(IEnumerable<string> records, ITwinObject crudDataObject = null, char separator = ';')
-        {
-            //var documents = records.ToArray();
-            //var header = documents[0];
-
-            //var headerItems = header.Split(separator);
-            //var dictionary = new List<ImportItems>();
-
-            //// Prepare swappable object
-            //var onliner = typeof(T).FullName.Replace("Pocos.", string.Empty);
-
-            //var adapter = new AXSharp.Connector.ConnectorAdapter(typeof(DummyConnectorFactory));
-            //var dummyConnector = adapter.GetConnector(new object[] { });
-
-            //var onlinerType = Assembly.GetAssembly(typeof(T)).GetTypes().FirstOrDefault(p => p.FullName == onliner);
-
-            //ITwinObject prototype;
-
-            //if (crudDataObject == null)
-            //    prototype = Activator.CreateInstance(onlinerType, new object[] { dummyConnector, "_data", "_data" }) as ITwinObject;
-            //else
-            //    prototype = crudDataObject;
-
-            //var valueTags = prototype.RetrievePrimitives();
-
-            //// Get headered dictionary
-            //foreach (var headerItem in headerItems)
-            //{
-            //    dictionary.Add(new ImportItems() { Key = headerItem });
-            //}
-
-
-            //// Load values
-            //for (int i = 2; i < documents.Count(); i++)
-            //{
-            //    var documentItems = documents[i].Split(separator);
-            //    for (int a = 0; a < documentItems.Count(); a++)
-            //    {
-            //        dictionary[a].Value = documentItems[a];
-            //    }
-
-            //    UpdateDocument(dictionary, valueTags, prototype);
-            //}
-
-
-
-        }
-
-        public void ExportData()
-        {
             try
             {
-                var exports = this.Export(p => true);
+                DataExchange.ExportData(path);
 
-                using (var sw = new StreamWriter("wwwroot/exportData.csv"))
-                {
-                    foreach (var item in exports)
-                    {
-                        sw.Write(item + "\r");
-                    }
-                }
-                //AlertDialogService.AddAlertDialog("Success", "Exported!", "Data was successfully exported!", 10);
+                IsFileExported = true;
+
+                AlertDialogService.AddAlertDialog("Success", "Exported!", "Data was successfully exported!", 10);
             }
             catch (Exception e)
             {
-                //AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
+                AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
             }
         }
 
-        public void ImportData()
+        public void ImportData(string path)
         {
             try
             {
-                var imports = new List<string>();
-                foreach (var item in File.ReadAllLines("importData.csv"))
-                {
-                    imports.Add(item);
-                }
+                DataExchange.ImportData(path);
 
-                this.Import(imports);
                 this.UpdateObservableRecords();
-                //AlertDialogService.AddAlertDialog("Success", "Imported!", "Data was successfully imported!", 10);
+
+                AlertDialogService.AddAlertDialog("Success", "Imported!", "Data was successfully imported!", 10);
             }
             catch (Exception e)
             {
-                //AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
+                AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
             }
         }
 

@@ -12,6 +12,7 @@ using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using AXSharp.Abstractions.Dialogs.AlertDialog;
+using System.IO;
 
 namespace AXOpen.Data;
 
@@ -32,11 +33,11 @@ public partial class DataExchangeView
     //[Inject]
     //private IAlertDialogService _alertDialogService { get; set; }
 
-    private Guid ViewGuid { get; } = new();
+    private Guid ViewGuid { get; } = Guid.NewGuid();
     private string Create { get; set; } = "";
 
-    private bool isFileLoaded { get; set; } = false;
-    private bool isLoadingFile { get; set; }
+    private bool isFileImported { get; set; } = false;
+    private bool isFileImporting { get; set; } = false;
 
     private int MaxPage =>
         (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
@@ -92,24 +93,36 @@ public partial class DataExchangeView
     protected override async Task OnInitializedAsync()
     {
         await Vm.FillObservableRecordsAsync();
+
     }
+
+    private string _inputFileId = Guid.NewGuid().ToString();
 
     private async Task LoadFile(InputFileChangeEventArgs e)
     {
-        isLoadingFile = true;
-        isFileLoaded = false;
+        isFileImported = false;
+        isFileImporting = true;
 
         try
         {
-            await using FileStream fs = new("importData.csv", FileMode.Create);
+            Directory.CreateDirectory("wwwroot/Temp/" + ViewGuid);
+
+            await using FileStream fs = new("wwwroot/Temp/" + ViewGuid + "/importData.zip", FileMode.Create);
             await e.File.OpenReadStream().CopyToAsync(fs);
+
+            isFileImported = true;
         }
         catch (Exception ex)
         {
             //_alertDialogService.AddAlertDialog(eDialogType.Danger, "Error!", ex.Message, 10);
         }
 
-        isLoadingFile = false;
-        isFileLoaded = true;
+        isFileImporting = false;
+    }
+
+    private void ClearFiles(string path)
+    {
+        if(Directory.Exists(path))
+            Directory.Delete(path, true);
     }
 }

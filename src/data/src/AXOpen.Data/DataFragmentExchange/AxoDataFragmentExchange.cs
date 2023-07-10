@@ -6,9 +6,12 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using System.Collections.Generic;
+using System.IO.Compression;
+using System.Linq.Expressions;
 using System.Reflection;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes.Online;
 
 namespace AXOpen.Data;
 
@@ -21,7 +24,7 @@ public partial class AxoDataFragmentExchange
         return CreateBuilder() as T;
     }
 
-    public object CreateBuilder() 
+    public object CreateBuilder()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
@@ -35,12 +38,16 @@ public partial class AxoDataFragmentExchange
     public void InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
+        EntityExistTask.InitializeExclusively(HandleEntityExist);
+        CreateOrUpdateTask.InitializeExclusively(HandleCreateOrUpdate);
         this.WriteAsync().Wait();
     }
 
     public void DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
+        EntityExistTask.DeInitialize();
+        CreateOrUpdateTask.DeInitialize();
         this.WriteAsync().Wait();
     }
 
@@ -67,6 +74,24 @@ public partial class AxoDataFragmentExchange
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    private async void HandleEntityExist()
+    {
+        EntityExistTask.ReadAsync().Wait();
+        var identifier = EntityExistTask.DataEntityIdentifier.LastValue;
+
+        var result = this.RemoteEntityExist(identifier);
+
+        await EntityExistTask._exist.SetAsync(result);
+    }
+
+    private void HandleCreateOrUpdate()
+    {
+        CreateOrUpdateTask.ReadAsync().Wait();
+        var identifier = CreateOrUpdateTask.DataEntityIdentifier.LastValue;
+
+        this.RemoteCreateOrUpdate(identifier);
     }
 
     public IRepository? Repository { get; private set; }
@@ -139,6 +164,35 @@ public partial class AxoDataFragmentExchange
         }
     }
 
+    public async Task<bool> ExistsAsync(string recordId)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (!fragment.Repository.Exists(recordId))
+                return false;
+        }
+        return true;
+    }
+
+    public async Task CreateOrUpdate(string recordId)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (Repository.Exists(recordId))
+            {
+                var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
+                //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+                fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
+            }
+            else
+            {
+                fragment.Repository.Create(recordId, fragment.RefUIData.CreatePoco());
+            }
+        }
+
+        DataFragments.First().Repository.Read(recordId);
+    }
+
     public bool RemoteCreate(string identifier)
     {
         foreach (var fragment in DataFragments)
@@ -174,6 +228,27 @@ public partial class AxoDataFragmentExchange
         foreach (var fragment in DataFragments)
         {
             fragment?.RemoteDelete(identifier);
+        }
+
+        return true;
+    }
+
+    public bool RemoteEntityExist(string identifier)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (!fragment.RemoteEntityExist(identifier))
+                return false;
+        }
+
+        return true;
+    }
+
+    public bool RemoteCreateOrUpdate(string identifier)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment?.RemoteCreateOrUpdate(identifier);
         }
 
         return true;
@@ -215,5 +290,60 @@ public partial class AxoDataFragmentExchange
     private IEnumerable<TS>? GetDataSetProperty<TA, TS>() where TA : Attribute where TS : class
     {
         return this.GetDataSetPropertyInfo<TA>()?.Select(p => p.GetValue(this) as TS);
+    }
+
+    public void ExportData(string path, char separator = ';')
+    {
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\exportDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\exportDataPrepare", true);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare");
+
+            File.Delete(path);
+
+
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), separator);
+            }
+            ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
+        }
+        else
+        {
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), separator);
+            }
+        }
+    }
+
+    public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
+    {
+        if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
+        {
+            if (Directory.Exists(Path.GetDirectoryName(path) + "\\importDataPrepare"))
+                Directory.Delete(Path.GetDirectoryName(path) + "\\importDataPrepare", true);
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
+
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, separator);
+            }
+
+            if (Directory.Exists(Path.GetDirectoryName(path)))
+                Directory.Delete(Path.GetDirectoryName(path), true);
+        }
+        else
+        {
+            foreach (var fragment in DataFragments)
+            {
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), crudDataObject, separator);
+            }
+        }
     }
 }
