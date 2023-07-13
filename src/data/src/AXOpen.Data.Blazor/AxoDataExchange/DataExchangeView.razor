@@ -215,7 +215,7 @@ else
                         <li class="page-item @(Vm.Page == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
                     }
 
-                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync((Vm.Page + 1) % (MaxPage + 1))" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="async () => { if (MaxPage != -1) await setPageAsync((Vm.Page + 1) % (MaxPage + 1)); }" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
                 </ul>
             </nav>
         </div>
