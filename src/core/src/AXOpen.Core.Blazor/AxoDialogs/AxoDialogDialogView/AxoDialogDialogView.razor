@@ -6,54 +6,49 @@
 @inherits AxoDialogBaseView<AxoDialog>
 @inject AuthenticationStateProvider _asp
     
-<h1>Hello</h1>
-<div class="offcanvas offcanvas-bottom  @base.ShowDialog" tabindex="-1" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
-    <div class="text-center">
 
-
-        <div>
-            @RenderDialogIcon()
-            
-            <h3 class="offcanvas-title text-center" id="offcanvasExampleLabel">@Component._caption.Cyclic</h3>
+<ModalDialog @ref="@base.ModalDialog" >
+    <HeaderTemplate>
+        <div class="text-center d-flex">
+        @RenderDialogIcon()
+        <h3 class="modal-title m-2 ">@Component._caption.Cyclic</h3>
+        
         </div>
-      
-    </div>
-    <div class="offcanvas-body text-center">
+        @if (IsYesNoCancelDialogType())
+        {
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" disabled="@ButtonDisabled()" @onclick="DialogAnswerCancel"> </button>
+        }
+       
+    </HeaderTemplate>
+    <BodyTemplate>
+    <p>@Component._text.Cyclic</p>
+    <div class="d-flex justify-content-center ">
 
 
-        <div class="row">
-            <p>@Component._text.Cyclic</p>
-        </div>
+        @if (IsOkDialogType())
+        {
+                <button type="button" class="btn btn-primary m-2 w-50" disabled=@ButtonDisabled() @onclick="DialogAnswerOk">Ok</button>
+
+        }
+        @if (IsYesNoDialogType() || IsYesNoCancelDialogType())
+        {
+                <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerYes" disabled=@ButtonDisabled()>Yes</button>
+                <button type="button" class="btn btn-primary m-2 w-50" @onclick="DialogAnswerNo" disabled=@ButtonDisabled()>No</button>
+        }
      
-
-            @if (IsOkDialogType())
-            {
-                <button type="button" class="btn btn-primary m-2" disabled=@ButtonDisabled() @onclick="DialogAnswerOk">Ok</button>
-           
-            }
-            @if (IsYesNoDialogType() || IsYesNoCancelDialogType())
-            {
-            <button type="button" class="btn btn-primary m-2" @onclick="DialogAnswerYes" disabled=@ButtonDisabled()>Yes</button>
-            <button type="button" class="btn btn-primary m-2" @onclick="DialogAnswerNo" disabled=@ButtonDisabled()>No</button>
-            }
-            @if (IsYesNoCancelDialogType())
-            {
-            <button type="button" class="btn btn-primary m-2" @onclick="DialogAnswerCancel" disabled="@ButtonDisabled()" aria-label="Close">Close</button>
-            }
-            @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
-            {
-                <p>You are not authorized, please log in.</p>
-                <a href="Identity/Account/Login">Log In</a>
-            }
-          
+        
     </div>
-</div>
+    <div>
+        @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
+        {
+            <p>You are not authorized, please <a href="Identity/Account/Login">Log In</a>.</p>
+        }
+    </div>
+    </BodyTemplate>
+</ModalDialog>
 
 
-@if (base.ShowBackdrop)
-{
-    <div class="offcanvas-backdrop fade show"></div>
-}
+
 
 
 

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
-    public partial class AxoDialogBaseView<T> : RenderableComplexComponentBase<T> where T : AxoDialogBase
+    public partial class AxoDialogBaseView<T> :  RenderableComplexComponentBase<T>,IDisposable where T : AxoDialogBase
     {
 
         [Inject]
@@ -22,6 +22,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public NavigationManager _navigationManager { get; set; }
 
 
+
+        protected ModalDialog ModalDialog;
         private string _dialogId;
         private AxoDialogProxyService _myProxyService;
         protected async override Task OnInitializedAsync()
@@ -30,17 +32,25 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             AxoDialogProxyService proxy;
             _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out proxy);
             _myProxyService = proxy;
-            _dialogContainer.DialogClient.MessageReceivedDialogClose += OnCloseDialogMessage;
-            _dialogContainer.DialogClient.MessageReceivedDialogOpen += OnOpenDialogMessage;
+
+            //if (_myProxyService.DialogInstance != null)
+            //{
+
+            //    ShowDialog = "";
+            //    ShowBackdrop = false;
+            //    StateHasChanged();
+            //    await OpenDialog();
+            //}
+            Console.WriteLine($"Initialize {_myProxyService.DialogInstance.ToString()}");
+            
+
+            
         }
         private async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
         {
             if (_dialogId == e.Message.ToString())
             {
                 await Close();
-                if(_myProxyService != null)
-                    _myProxyService.IsDialogInvoked = false;
-    
             }
         }
         private async void OnOpenDialogMessage(object sender, MessageReceivedEventArgs e)
@@ -51,7 +61,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
         }
 
-        
+
 
 
 
@@ -60,18 +70,28 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
             if (firstRender)
             {
+                Console.WriteLine($"Initialize after render {_myProxyService.DialogInstance?.ToString()}");
                 if (_myProxyService.DialogInstance != null)
                 {
-
-                    ShowBackdrop = false;
-                    await OpenDialog();
+                    await ModalDialog.Open();
                 }
+                _dialogContainer.DialogClient.MessageReceivedDialogClose += OnCloseDialogMessage;
+                _dialogContainer.DialogClient.MessageReceivedDialogOpen += OnOpenDialogMessage;
+
+                //await ModalDialog.Open();
+                //if (_myProxyService.DialogInstance != null)
+                //{
+
+                //    ShowDialog = "";
+                //    ShowBackdrop = false;
+                //    StateHasChanged();
+                //    await OpenDialog();
+                //}
             }
-         
+
         }
 
         public bool ShowBackdrop { get; set; }
-        public string IsDialogInvoked { get; set; }
         public string ShowDialog { get; set; }
         public virtual async Task CloseDialog()
         {
@@ -80,20 +100,34 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         private async Task Close()
         {
-            ShowDialog = "";
-            ShowBackdrop = false;
-            _myProxyService.DialogInstance = null;
-            await InvokeAsync(StateHasChanged);
+            await ModalDialog.Close();
+
+            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out var x);
+            x.DialogInstance = null;
+            _myProxyService = x;
+            //_myProxyService.DialogInstance = null;
+            Console.WriteLine($"after close {_myProxyService.DialogInstance?.ToString()}");
+            await Task.Delay(200);
+            //ShowDialog = "";
+            //ShowBackdrop = false;
+            //_myProxyService.DialogInstance = null;
+            //await InvokeAsync(StateHasChanged);
 
         }
 
         public virtual async Task OpenDialog()
         {
-            ShowDialog = "show";
-            ShowBackdrop = true;
-            await InvokeAsync(StateHasChanged);
+            await ModalDialog.Open();
+            //ShowDialog = "show";
+            //ShowBackdrop = true;
+            //await InvokeAsync(StateHasChanged);
         }
 
-     
+        public void Dispose()
+        {
+            _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
+            _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
+        }
+
     }
 }

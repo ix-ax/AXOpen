@@ -144,6 +144,8 @@ NAMESPACE examples.PneumaticManipulator
         VAR PUBLIC
             Steps : ARRAY[0..150] OF AxoStep;
             _dialog : AXOpen.Core.AxoDialog;
+            _dialog1 : AXOpen.Core.AxoDialog;
+            _dialog2 : AXOpen.Core.AxoDialog;
             // _alertDialog : AXOpen.Core.AxoAlertDialog;
         END_VAR
         VAR PRIVATE
@@ -233,7 +235,7 @@ NAMESPACE examples.PneumaticManipulator
                 IF(Steps[12].Duration > T#2000ms) THEN
             
 
-                    IF(_dialog.Show(THIS)
+                    IF(_dialog1.Show(THIS)
                         .WithYesNoCancel()
                         .WithCaption('YesNoCancel dialog')
                         .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
@@ -250,7 +252,7 @@ NAMESPACE examples.PneumaticManipulator
                 IF(Steps[13].Duration > T#2000ms) THEN
             
 
-                    IF(_dialog.Show(THIS)
+                    IF(_dialog2.Show(THIS)
                         .WithYesNo()
                         .WithCaption('YesNo dialog')
                         .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN

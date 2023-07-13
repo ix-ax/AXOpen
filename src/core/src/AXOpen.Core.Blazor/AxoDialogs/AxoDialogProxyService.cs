@@ -25,7 +25,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         }
 
         public string DialogServiceId { get; set; }
-        public bool IsDialogInvoked { get; set; }
 
         public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
         {
@@ -52,7 +51,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             DialogInstance.DialogId = DialogServiceId;
             await DialogInstance.ReadAsync();
             DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
-            IsDialogInvoked = true;
         }
 
         public List<string> ObservedObjects{ get; set; }

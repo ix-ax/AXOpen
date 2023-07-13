@@ -30,13 +30,50 @@
 <AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>
 
 
+@*
 
+<button class="btn btn-primary">Open Dialog</button>
+<button class="btn btn-primary" @onclick="() => ModalDialog.Open()">Click me!</button>
+
+<ModalDialog @ref="@ModalDialog" Title="Hello World">
+    <div class="row">
+        <h3>Lorem Ipsum</h3>
+        <hr>
+        <p>em </p>
+        <button class="btn btn-primary"  @onclick="() => ModalDialog.Close()">Close</button>
+    </div>
+</ModalDialog>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Launch static backdrop modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" style="align-items: flex-end;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>*@
 
 <button class="btn btn-primary" @onclick="@showAlert">Show alert</button>
 
 
 @code
 {
+    private ModalDialog ModalDialog { get; set; }
     private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
     private void showAlert()
     {
