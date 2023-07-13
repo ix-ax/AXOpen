@@ -10,7 +10,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     {
         public AxoDialogEventArgs(string id)
         {
-                DialogId = id;
+            DialogId = id;
         }
         public string DialogId { get; set; }
     }

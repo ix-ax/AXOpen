@@ -5,7 +5,8 @@
 @inject NavigationManager _navigationManager
 @inject AxoDialogContainer _dialogContainer
 @implements IDisposable
-<h1>cau</h1>
+
+
 
 
 @if (_axoDialogProxyService?.DialogInstance != null)
@@ -19,18 +20,21 @@
 
 @code {
 
+    /// <summary>
+    /// List of objects, which are observed for dialogs. Example: ObservedObjects="new[] {Entry.Plc.Context.CU0, Entry.Plc.Context.CU1}"
+    /// </summary>
     [Parameter]
     public IEnumerable<ITwinObject> ObservedObjects { get; set; }
     /// <summary>
-    /// Pass unique value of last segment of URL, which will represent dialog id corresponding to actual page url.
+    /// Unique ID of dialog, which is used to synchronize dialogs across clients. Make sure you pass unique value, otherwise inconsistencies may occur. When no value provided, URI is used as a ID. 
     /// </summary>
     [Parameter]
     public string DialogId { get; set; }
     /// <summary>
-    /// Delay for dialog open, if you have problem with dialogs open on slower PC, increase dialog dealay (Default value is 500 ms).
+    /// The opening dialog delay. Ff you have problems with dialogs opening on slower PC, increase dialog delay (Default value is 100 ms).
     /// </summary>
     [Parameter]
-    public int DialogOpenDelay { get; set; }
+    public int DialogOpenDelay { get; set; } = 100;
 
 
     private AxoDialogProxyService _axoDialogProxyService { get; set; }
@@ -45,31 +49,32 @@
         {
             DialogId = _navigationManager.Uri;
         }
+
         //try to acquire existing dialog service instance
-        _axoDialogProxyService = _dialogContainer.DialogProxyServices.FirstOrDefault(x => x.DialogServiceId == DialogId);
+        AxoDialogProxyService proxy;
+        var proxyExists = _dialogContainer.DialogProxyServicesDictionary.TryGetValue(DialogId, out proxy);
 
-
-        if (_axoDialogProxyService == null)
+        if (!proxyExists)
         {
             // if it does not exist, create new instance with observed objects and add it into container
             _axoDialogProxyService = new AxoDialogProxyService(DialogId, ObservedObjects);
             await _dialogContainer.InitializeSignalR(_navigationManager.BaseUri);
-            _dialogContainer.DialogProxyServices.Add(_axoDialogProxyService);
+            _dialogContainer.DialogProxyServicesDictionary.TryAdd(DialogId, _axoDialogProxyService);
+        }
+        else
+        {
+            _axoDialogProxyService = proxy;
         }
 
-
-        Console.WriteLine($"Base initialized, ID: {DialogId}");
         _axoDialogProxyService.DialogInvoked += OnDialogInvoked;
         base.OnInitialized();   
     }
 
     public async void OnDialogInvoked(object sender, AxoDialogEventArgs e)
     {
-        Console.WriteLine($"Invoke caught 1, ID: {DialogId}");
         await InvokeAsync(StateHasChanged);
+        await Task.Delay(DialogOpenDelay);
         await _dialogContainer.DialogClient.SendDialogOpen(DialogId);
-
-
     }
     
     public void Dispose()

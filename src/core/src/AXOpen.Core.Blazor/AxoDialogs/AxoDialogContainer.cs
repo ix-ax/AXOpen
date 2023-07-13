@@ -28,9 +28,10 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public List<string> ObservedObjects { get; set; } = new List<string>();
 
         public List<AxoDialogProxyService> DialogProxyServices { get; set; } = new List<AxoDialogProxyService>();
+
+        public Dictionary<string,AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string,AxoDialogProxyService>();
         public async ValueTask DisposeAsync()
         {
-            //_dialogService.DialogInvoked -= OnDialogInvoked;
             if (DialogClient != null)
             {
                 await DialogClient.StopAsync();

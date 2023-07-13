@@ -1,6 +1,6 @@
 ﻿@page "/ui/ManipulatorExample"
+@using AXOpen.Base.Dialogs;
 @using AXOpen.Core.Blazor.AxoDialogs;
-@using AXSharp.Abstractions.Dialogs.AlertDialog;
 @using axosimple.hmi.Components;
 @using AXOpen.Data;
 @using AXOpen.Messaging.Static
@@ -8,7 +8,7 @@
 @*@inherits RenderableComponentBase;*@
 
 
-@*@inject IAlertDialogService _alerts*@
+@inject IAlertDialogService _alerts
 
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="250"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
@@ -30,84 +30,18 @@
 <AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>
 
 
-<button type="button" class="btn btn-primary" @onclick="ButtonClickedShow">Show</button>
-<button type="button" class="btn btn-primary" @onclick="ButtonClickedHide">Hide</button>
 
 
-<div class="offcanvas offcanvas-bottom @OffCanvasShow" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" sta>
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-        <div>
-            <button type="button" class="btn btn-primary" @onclick="ButtonClickedHide">Hide</button>
-            Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-        </div>
-        <div class="dropdown mt-3">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                Dropdown button
-            </button>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-@if (ShowBackdrop)
-{
-    <div class="offcanvas-backdrop fade show"></div>
-}
+<button class="btn btn-primary" @onclick="@showAlert">Show alert</button>
 
 
 @code
 {
-    public string OffCanvasShow { get; set; }
-    public bool ShowBackdrop { get; set; }
-    @code {
-        private Offcanvas offcanvas;
-
-        private async Task OnShowOffcanvasClick()
-        {
-            await offcanvas?.ShowAsync();
-        }
-    }
     private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
-
-@*    protected override Task OnInitializedAsync()
+    private void showAlert()
     {
-    return base.OnInitializedAsync();
-    }*@
-
-
-    //public static AxoDialogProxyService _dialogService { get; set; } = AxoDialogProxyService.Create(new[] { Entry.Plc.Context.PneumaticManipulator });
-
-    //public async void OnDialogInvoked()
-    //{
-    //    await Task.Delay(1000);
-    //    _alerts.AddAlertDialog("Success", "Hello", "Brano2", 5);
-
-    //    await InvokeAsync(StateHasChanged);
-
-    //}
-
-        public void ButtonClickedShow()
-        {
-            OffCanvasShow = "fade show";
-            ShowBackdrop = true;
-            
-        // _alerts.AddAlertDialog("Success", "Hello", "Brano", 5);
-        }
-
-        public void ButtonClickedHide()
-        {
-            OffCanvasShow = "";
-            ShowBackdrop = false;
-            StateHasChanged();
-            //_alerts.AddAlertDialog("Success", "Hello", "Brano", 5);
-        }
+        _alerts.AddAlertDialog(eAlertDialogType.Info, "Ahoj", "som dialog", 5);
+        StateHasChanged();
+    }
 }
 

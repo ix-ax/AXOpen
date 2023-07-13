@@ -1,5 +1,7 @@
-﻿using AXOpen.Core.Blazor.AxoDialogs;
+﻿using AXOpen.Base.Dialogs;
+using AXOpen.Core.Blazor.AxoDialogs;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AXOpen.Core.Blazor.Dialogs.AlertDialog;
 using BlazorBootstrap;
 using Humanizer;
 using Microsoft.AspNetCore.Builder;
@@ -19,19 +21,15 @@ namespace AXOpen.Core
     {
         public static void AddAxoCoreServices(this IServiceCollection services)
         {
-            //services.AddScoped<AxoDialogProxyService>();
             services.AddSingleton<AxoDialogContainer>();
-            services.AddSingleton<AxoDialogContainer>();
+            services.AddScoped<IAlertDialogService, ToasterService>();
             services.AddResponseCompression(opts =>
             {
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
                       new[] { "application/octet-stream" });
             });
 
-            //services.UseResponseCompression();
-
-
-            //services.MapHub<ChatHub>("/chathub");
+          
             services.AddBlazorBootstrap(); // Add this line
         }
 

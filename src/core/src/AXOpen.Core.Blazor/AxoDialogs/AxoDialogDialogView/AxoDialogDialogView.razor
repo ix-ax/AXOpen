@@ -3,40 +3,47 @@
 @using AXOpen.Dialogs;
 @using Microsoft.JSInterop;
 @inject NavigationManager _navigationManager
-@*@inject AxoDialogProxyService _dialogService*@
 @inherits AxoDialogBaseView<AxoDialog>
-
+@inject AuthenticationStateProvider _asp
+    
 <h1>Hello</h1>
-<div class="offcanvas offcanvas-bottom @base.ShowDialog" data-bs-backdrop="static" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel" >
+<div class="offcanvas offcanvas-bottom  @base.ShowDialog" tabindex="-1" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
     <div class="text-center">
 
 
-        @RenderDialogIcon()
+        <div>
+            @RenderDialogIcon()
             
-        <h3 class="offcanvas-title text-center" id="offcanvasExampleLabel">@Component._caption.Cyclic</h3>
-        @if (IsYesNoCancelDialogType())
-        {
-            <button type="button" class="btn-close" @onclick="DialogAnswerCancel"  aria-label="Close"></button>
-        }
+            <h3 class="offcanvas-title text-center" id="offcanvasExampleLabel">@Component._caption.Cyclic</h3>
+        </div>
+      
     </div>
-    <div class="offcanvas-body text-center col">
+    <div class="offcanvas-body text-center">
 
 
         <div class="row">
             <p>@Component._text.Cyclic</p>
         </div>
-       
-
-         
+     
 
             @if (IsOkDialogType())
             {
-                <button type="button" class="btn btn-primary" @onclick="DialogAnswerOk">Ok</button>
+                <button type="button" class="btn btn-primary m-2" disabled=@ButtonDisabled() @onclick="DialogAnswerOk">Ok</button>
+           
             }
-            @if (IsYesNoDialogType() && IsYesNoCancelDialogType())
+            @if (IsYesNoDialogType() || IsYesNoCancelDialogType())
             {
-                <button type="button" class="btn btn-primary" @onclick="DialogAnswerYes">Yes</button>
-                <button type="button" class="btn btn-primary" @onclick="DialogAnswerNo">No</button>
+            <button type="button" class="btn btn-primary m-2" @onclick="DialogAnswerYes" disabled=@ButtonDisabled()>Yes</button>
+            <button type="button" class="btn btn-primary m-2" @onclick="DialogAnswerNo" disabled=@ButtonDisabled()>No</button>
+            }
+            @if (IsYesNoCancelDialogType())
+            {
+            <button type="button" class="btn btn-primary m-2" @onclick="DialogAnswerCancel" disabled="@ButtonDisabled()" aria-label="Close">Close</button>
+            }
+            @if (!_asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated)
+            {
+                <p>You are not authorized, please log in.</p>
+                <a href="Identity/Account/Login">Log In</a>
             }
           
     </div>
@@ -49,7 +56,13 @@
 }
 
 
+
 @functions {
+
+    private bool ButtonDisabled()
+    {
+        return _asp.GetAuthenticationStateAsync().Result.User.Identity.IsAuthenticated ? false : true;
+    }
     private RenderFragment RenderDialogIcon() => __builder =>
     {
         var parsedEnum = (eDialogType)Enum.Parse(typeof(eDialogType), Component._dialogType.Cyclic.ToString());
@@ -65,6 +78,9 @@
                 <svg width="50" height="50" fill="currentColor" class="bi bi-info" viewBox="0 0 16 16">
                     <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                 </svg>
+                break;
+            case eDialogType.Success:
+                <svg width="50" height="50" fill="#1eff00" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" /></svg>
                 break;
             case eDialogType.Warning:
                 <svg width="50" height="50" fill="#ebc634" class="bi bi-exclamation-triangle" viewBox="0 0 16 16">

@@ -195,7 +195,10 @@ NAMESPACE examples.PneumaticManipulator
             
             IF(Steps[10].Execute(THIS, TRUE, 'Create data id')) THEN
                 ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
-                THIS.MoveNext();
+                THIS.MoveNext(); 
+
+               
+
             END_IF;    
 
 //             IF (Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
@@ -209,27 +212,56 @@ NAMESPACE examples.PneumaticManipulator
             IF (Steps[11].Execute(THIS, TRUE, 'Show dialog')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
-                IF(_dialog.Show(THIS)
-                    .WithOk()
-                    .WithCaption('What`s next?')
-                    .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
+                IF(Steps[11].Duration > T#2000ms) THEN
+            
+
+                    IF(_dialog.Show(THIS)
+                        .WithOk()
+                        .WithType(eDialogType#Success)
+                        .WithCaption('What`s next?')
+                        .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
+                        
                     
-                  
-                    THIS.MoveNext(); 
-                END_IF;		
+                        THIS.MoveNext(); 
+                    END_IF;	
+                END_IF;	
             END_IF;
 
-            IF (Steps[13].Execute(THIS, TRUE, 'Show dialog 2')) THEN
+            IF (Steps[12].Execute(THIS, TRUE, 'Show dialog')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
-                IF(_dialog.Show(THIS)
-                    .WithYesNoCancel()
-                    .WithCaption('Yes no cancel?')
-                    .WithText('Pick your answer?').Answer() = eDialogAnswer#Yes) THEN
-                    THIS.MoveNext(); 
+                IF(Steps[12].Duration > T#2000ms) THEN
+            
 
-                END_IF;		
+                    IF(_dialog.Show(THIS)
+                        .WithYesNoCancel()
+                        .WithCaption('YesNoCancel dialog')
+                        .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
+                        
+                    
+                        THIS.MoveNext(); 
+                    END_IF;	
+                END_IF;	
             END_IF;
+
+            IF (Steps[13].Execute(THIS, TRUE, 'Show dialog')) THEN
+                //_dialog.Restore();
+                //------------------------------------------------------- 
+                IF(Steps[13].Duration > T#2000ms) THEN
+            
+
+                    IF(_dialog.Show(THIS)
+                        .WithYesNo()
+                        .WithCaption('YesNo dialog')
+                        .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
+                        
+                    
+                        THIS.MoveNext(); 
+                    END_IF;	
+                END_IF;	
+            END_IF;
+
+          
 
 
 

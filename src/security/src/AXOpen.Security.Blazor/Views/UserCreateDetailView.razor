@@ -1,6 +1,5 @@
 ﻿@page "/Identity/Account/Register"
 @namespace AxOpen.Security.Views
-@using AXSharp.Abstractions.Dialogs.AlertDialog;
 @using AxOpen.Security.Entities;
 @using AxOpen.Security.Models;
 @using AxOpen.Security.Services;
@@ -82,12 +81,11 @@
         if (result.Succeeded)
         {
             _navigationManager.NavigateTo("");
-            _alertDialogService.AddAlertDialog("Success", "Created!", "User successfully created.", 10);
-            //TcoAppDomain.Current.Logger.Information($"New user '{_model.Username}' created. {{@sender}}", new { UserName = _model.Username, Group = _model.Group });
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Success, "Created!", "User successfully created.", 10);
         }
         else
         {
-            _alertDialogService.AddAlertDialog("Warning", "Not created!", "User was not created.", 10);
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, "Not created!", "User was not created.", 10);
         }
     }
 

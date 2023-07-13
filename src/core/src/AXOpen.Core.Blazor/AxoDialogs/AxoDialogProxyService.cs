@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
-    //public delegate void Notify();
     public class AxoDialogProxyService
     {
         public DialogClient DialogClient { get; set; }
@@ -26,10 +25,10 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         }
 
         public string DialogServiceId { get; set; }
+        public bool IsDialogInvoked { get; set; }
 
         public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
         {
-            Console.WriteLine("Objects set!");
             if (observedObjects == null || observedObjects.Count() == 0) return;
             foreach (var item in observedObjects)
             {
@@ -39,7 +38,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                     //create observer for this object
                     ObservedObjects.Add(item.Symbol);
                     UpdateDialogs(item);
-                    Console.WriteLine("Dialogs unique initialize!");
                 }
             }
           
@@ -53,9 +51,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             DialogInstance = dialog;
             DialogInstance.DialogId = DialogServiceId;
             await DialogInstance.ReadAsync();
-            Console.WriteLine("Queue!");
             DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
-
+            IsDialogInvoked = true;
         }
 
         public List<string> ObservedObjects{ get; set; }
@@ -68,7 +65,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
             
         }
-
 
         public IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
         {

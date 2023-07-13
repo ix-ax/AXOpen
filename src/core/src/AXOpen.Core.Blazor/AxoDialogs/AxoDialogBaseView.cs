@@ -1,6 +1,7 @@
 ﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Dialogs;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using BlazorBootstrap;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using System;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
-    public partial class AxoDialogBaseView<T> : RenderableComplexComponentBase<T>, IAsyncDisposable where T : AxoDialogBase
+    public partial class AxoDialogBaseView<T> : RenderableComplexComponentBase<T> where T : AxoDialogBase
     {
 
         [Inject]
@@ -22,28 +23,24 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
 
         private string _dialogId;
-        private DialogClient _dialogClient { get; set; }
-
-        private AxoDialogProxyService _dialogService{ get; set; }
+        private AxoDialogProxyService _myProxyService;
         protected async override Task OnInitializedAsync()
         {
-
             _dialogId = Component.DialogId;
-            //_dialogService
-            //_dialogClient = new DialogClient(_navigationManager.BaseUri);
+            AxoDialogProxyService proxy;
+            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out proxy);
+            _myProxyService = proxy;
             _dialogContainer.DialogClient.MessageReceivedDialogClose += OnCloseDialogMessage;
             _dialogContainer.DialogClient.MessageReceivedDialogOpen += OnOpenDialogMessage;
-            Console.WriteLine("Concrete initialized");
-
-
-            //_dialogService.DialogInvoked += OnDialogInvoked;
-            //await _dialogClient.StartAsync();
         }
         private async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
         {
             if (_dialogId == e.Message.ToString())
             {
                 await Close();
+                if(_myProxyService != null)
+                    _myProxyService.IsDialogInvoked = false;
+    
             }
         }
         private async void OnOpenDialogMessage(object sender, MessageReceivedEventArgs e)
@@ -54,63 +51,49 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             }
         }
 
-        private async Task Close()
-        {
-            ShowDialog = "";
-            ShowBackdrop = false;
-            //_dialogService.DialogInstance = null;
+        
 
-
-            await InvokeAsync(StateHasChanged);
-            await Task.Delay(500);
-        }
 
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
+
             if (firstRender)
             {
-                Console.WriteLine("First render");
-                await Close();
-                await OpenDialog();
+                if (_myProxyService.DialogInstance != null)
+                {
+
+                    ShowBackdrop = false;
+                    await OpenDialog();
+                }
             }
-
-
+         
         }
 
         public bool ShowBackdrop { get; set; }
+        public string IsDialogInvoked { get; set; }
         public string ShowDialog { get; set; }
         public virtual async Task CloseDialog()
         {
             await _dialogContainer.DialogClient.SendDialogClose(_dialogId);
+        }
+
+        private async Task Close()
+        {
+            ShowDialog = "";
+            ShowBackdrop = false;
+            _myProxyService.DialogInstance = null;
+            await InvokeAsync(StateHasChanged);
 
         }
 
         public virtual async Task OpenDialog()
         {
-
-            ShowDialog = "fade show";
+            ShowDialog = "show";
             ShowBackdrop = true;
             await InvokeAsync(StateHasChanged);
         }
-       
 
-        public async void OnDialogInvoked(object sender, AxoDialogEventArgs e)
-        {
-            //Console.Write(e.DialogId);
-            Console.WriteLine($"Invoke caught 2, ID: {e.DialogId}");
-            await OpenDialog();
-
-        }
-
-
-        public async ValueTask DisposeAsync()
-        {
-            //_dialogService.DialogInvoked -= OnDialogInvoked;
-            if (_dialogClient != null)
-            {
-                await _dialogClient.StopAsync();
-            }
-        }
+     
     }
 }

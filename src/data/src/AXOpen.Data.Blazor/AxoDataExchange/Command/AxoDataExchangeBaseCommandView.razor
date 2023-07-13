@@ -1,13 +1,14 @@
 ﻿@namespace AXOpen.Data
-@using AXSharp.Abstractions.Dialogs.AlertDialog;
+
+
 @inherits RenderableComplexComponentBase<AxoDataExchangeBase>;
-@*@inject IAlertDialogService _alertDialogService*@
+@inject IAlertDialogService _alertDialogService
 
 <DataExchangeView Vm="_vm" Presentation="Command"></DataExchangeView>
 
 @code
 {
-    private DataExchangeViewModel _vm => new DataExchangeViewModel { Model = this.Component/*, AlertDialogService = _alertDialogService */};
+    private DataExchangeViewModel _vm => new DataExchangeViewModel { Model = this.Component, AlertDialogService = _alertDialogService };
 
 }
 

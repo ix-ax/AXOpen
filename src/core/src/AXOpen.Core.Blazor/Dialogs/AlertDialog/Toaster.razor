@@ -1,5 +1,7 @@
-﻿@*@*@namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
-@*@if (_dialogService.GetAlertDialogs() != null && _dialogService.GetAlertDialogs().Count > 0)
+﻿@using AXOpen.Base.Dialogs;
+
+
+@if (_dialogService.GetAlertDialogs() != null && _dialogService.GetAlertDialogs().Count > 0)
 {
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 100;">
         @foreach (AlertDialog toast in _dialogService.GetAlertDialogs().ToList())
@@ -8,19 +10,19 @@
             var icon = "";
             switch (toast.Type)
             {
-                case eDialogType.Info:
+                case eAlertDialogType.Info:
                     bg = "bg-primary text-white";
                     icon = "oi oi-info";
                     break;
-                case eDialogType.Success:
+                case eAlertDialogType.Success:
                     bg = "bg-success text-white";
                     icon = "oi oi-circle-check";
                     break;
-                case eDialogType.Danger:
+                case eAlertDialogType.Danger:
                     bg = "bg-danger text-white";
                     icon = "oi oi-circle-x";
                     break;
-                case eDialogType.Warning:
+                case eAlertDialogType.Warning:
                     bg = "bg-warning text-dark";
                     icon = "oi oi-warning";
                     break;
@@ -53,9 +55,9 @@
         }
     </div>
 }
-*@
-@*@code {
-    //[Inject]
+
+@code {
+    [Inject]
     private IAlertDialogService _dialogService { get; set; }
 
     private string GetTime(DateTimeOffset time)
@@ -74,4 +76,4 @@
             return $"{Math.Round(calcTime.TotalMinutes)} mins ago";
         }
     }
-}*@
+}
