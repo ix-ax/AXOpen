@@ -354,8 +354,22 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     /// <inheritdoc />
-    public void ExportData(string path, char separator = ';')
+    public void ExportData(string path, Dictionary<string, FragmentData>? fragments = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, eFileType exportFileType = eFileType.csv, char separator = ';')
     {
+        if (fragments == null)
+            fragments = new Dictionary<string, FragmentData>();
+
+        IDataExporter<TPlain, TOnline> dataExporter = null;
+        switch (exportFileType)
+        {
+            case eFileType.csv:
+                dataExporter = new CSVDataExporter<TPlain, TOnline>();
+                break;
+            case eFileType.txt:
+                dataExporter = new TXTDataExporter<TPlain, TOnline>();
+                break;
+        }
+
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
             if (Directory.Exists(Path.GetDirectoryName(path) + "\\exportDataPrepare"))
@@ -365,15 +379,17 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
             File.Delete(path);
 
-            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
-            dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + this.ToString(), p => true, separator);
+            FragmentData a = fragments.GetValueOrDefault(RefUIData.ToString(), new FragmentData(true, new Dictionary<string, bool>()));
+            if (a.Exported)
+                dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + this.ToString(), p => true, a.Data, exportMode, firstNumber, secondNumber, separator);
 
             ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
         }
         else
         {
-            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
-            dataExporter.Export(DataRepository, path, p => true, separator);
+            FragmentData a = fragments.GetValueOrDefault(RefUIData.ToString(), new FragmentData(true, new Dictionary<string, bool>()));
+            if(a.Exported)
+                dataExporter.Export(DataRepository, path, p => true, a.Data, exportMode, firstNumber, secondNumber, separator);
         }
     }
 
@@ -389,7 +405,23 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
             ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
 
-            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            IDataExporter<TPlain, TOnline> dataExporter = null;
+
+            var files = Directory.GetFiles(Path.GetDirectoryName(path) + "\\importDataPrepare", this.ToString() + "*");
+
+            if (files == null || files.Length == 0)
+                return;
+
+            switch (Path.GetExtension(files.First()))
+            {
+                case ".csv":
+                    dataExporter = new CSVDataExporter<TPlain, TOnline>();
+                    break;
+                case ".txt":
+                    dataExporter = new TXTDataExporter<TPlain, TOnline>();
+                    break;
+            }
+
             dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare\\" + this.ToString(), crudDataObject, separator);
 
             if (Directory.Exists(Path.GetDirectoryName(path)))
@@ -397,7 +429,23 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         }
         else
         {
-            IDataExporter<TPlain, TOnline> dataExporter = new CSVDataExporter<TPlain, TOnline>();
+            IDataExporter<TPlain, TOnline> dataExporter = null;
+
+            var files = Directory.GetFiles(Path.GetDirectoryName(path), this.ToString() + "*");
+
+            if (files == null || files.Length == 0)
+                return;
+
+            switch (Path.GetExtension(files.First()))
+            {
+                case ".csv":
+                    dataExporter = new CSVDataExporter<TPlain, TOnline>();
+                    break;
+                case ".txt":
+                    dataExporter = new TXTDataExporter<TPlain, TOnline>();
+                    break;
+            }
+            
             dataExporter.Import(DataRepository, path, crudDataObject, separator);
         }
     }

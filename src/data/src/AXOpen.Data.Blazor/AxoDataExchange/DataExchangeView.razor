@@ -392,7 +392,11 @@ else
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="formFile" class="form-label">File input</label>
-                        <InputFile @key=@(_inputFileId) class="form-control col-10" id="formFile" OnChange="@LoadFile" />
+                        <InputFile @key=@(_inputFileId) class="form-control col-10" id="formFile" accept=".zip" OnChange="@LoadFile" />
+                    </div>
+                    <div class="input-group d-inline-flex w-25 align-middle">
+                        <span class="input-group-text">Separator</span>
+                        <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.Separator">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -419,22 +423,23 @@ else
                 <div class="modal-body">
                     <div class="accordion">
                         @{bool firstIteration = true;}
-                        @foreach (var db in Vm.DataExchange.RefUIData.GetChildren())
+                        @foreach (var fragment in Vm.DataExchange.RefUIData.GetChildren().DefaultIfEmpty(Vm.DataExchange.RefUIData))
                         {
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button @(firstIteration ? "" : "collapsed")" type="button" data-bs-toggle="collapse" data-bs-target="#@db.ToString()-@ViewGuid" aria-expanded="@(firstIteration ? "true" : "false")" aria-controls="@db.ToString()-@ViewGuid">
-                                        @db.ToString()
+                                    <button class="accordion-button @(firstIteration ? "" : "collapsed") @(Vm.GetFragmentExportedValue(fragment.ToString()) ? "" : "bg-danger bg-opacity-25 text-black")" type="button" data-bs-toggle="collapse" data-bs-target="#@fragment.ToString().Replace(".", "_")-@ViewGuid" aria-expanded="@(firstIteration ? "true" : "false")" aria-controls="@fragment.ToString().Replace(".", "_")-@ViewGuid">
+                                        <input class="form-check-input mt-0 me-2" type="checkbox" value="" checked @onchange="@((ChangeEventArgs __e) => Vm.ChangeFragmentsValue(__e, fragment.ToString()))">
+                                        @fragment.ToString()
                                     </button>
                                 </h2>
-                                <div id="@db.ToString()-@ViewGuid" class="accordion-collapse collapse @(firstIteration ? "show" : "")">
+                                <div id="@fragment.ToString().Replace(".", "_")-@ViewGuid" class="accordion-collapse collapse @(firstIteration ? "show" : "")">
                                     <div class="accordion-body">
                                         <ul class="list-group">
-                                            @foreach (var item in Vm.GetValueTags(db))
+                                            @foreach (var item in Vm.GetValueTags(fragment))
                                             {
                                                 <li class="list-group-item">
-                                                    <input class="form-check-input me-1" type="checkbox" value="" id="@item.Symbol-@db.ToString()-@ViewGuid" checked>
-                                                    <label class="form-check-label" for="@item.Symbol-@db.ToString()-@ViewGuid">@item.Symbol</label>
+                                                    <input class="form-check-input me-1" type="checkbox" value="" id="@fragment.ToString()-@item.Symbol-@ViewGuid" checked @onchange="@((ChangeEventArgs __e) => Vm.ChangeFragmentDataValue(__e, item.Symbol, fragment.ToString()))">
+                                                    <label class="form-check-label" for="@fragment.ToString()-@item.Symbol-@ViewGuid">@item.Symbol</label>
                                                 </li>
                                             }
                                         </ul>
@@ -445,13 +450,13 @@ else
                         }
                     </div>
                     <div class="input-group mt-2">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.Export</button>
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.ExportMode</button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item @(Vm.Export == DataExchangeViewModel.eExportMode.First ? "active" : "")" @onclick="() => Vm.Export = DataExchangeViewModel.eExportMode.First">First</a></li>
-                            <li><a class="dropdown-item @(Vm.Export == DataExchangeViewModel.eExportMode.Last ? "active" : "")" @onclick="() => Vm.Export = DataExchangeViewModel.eExportMode.Last">Last</a></li>
-                            <li><a class="dropdown-item @(Vm.Export == DataExchangeViewModel.eExportMode.Exact ? "active" : "")" @onclick="() => Vm.Export = DataExchangeViewModel.eExportMode.Exact">Exact</a></li>
+                            <li><a class="dropdown-item @(Vm.ExportMode == eExportMode.First ? "active" : "")" @onclick="() => Vm.ExportMode = eExportMode.First">First</a></li>
+                            <li><a class="dropdown-item @(Vm.ExportMode == eExportMode.Last ? "active" : "")" @onclick="() => Vm.ExportMode = eExportMode.Last">Last</a></li>
+                            <li><a class="dropdown-item @(Vm.ExportMode == eExportMode.Exact ? "active" : "")" @onclick="() => Vm.ExportMode = eExportMode.Exact">Exact</a></li>
                         </ul>
-                        @if (Vm.Export == DataExchangeViewModel.eExportMode.Exact)
+                        @if (Vm.ExportMode == eExportMode.Exact)
                         {
                             <div class="input-group-text">From</div>
                             <input type="text" class="form-control" placeholder="From" @bind="Vm.FirstNumber">
@@ -465,12 +470,11 @@ else
                         <div class="input-group-text">records</div>
                     </div>
                     <div class="btn-group mt-2" role="group" aria-label="File type">
-                        <button type="button" class="btn @(Vm.FileType == DataExchangeViewModel.eFileType.csv ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.FileType = DataExchangeViewModel.eFileType.csv">csv</button>
-                        <button type="button" class="btn @(Vm.FileType == DataExchangeViewModel.eFileType.txt ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.FileType = DataExchangeViewModel.eFileType.txt">txt</button>
-                        <button type="button" class="btn @(Vm.FileType == DataExchangeViewModel.eFileType.excel ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.FileType = DataExchangeViewModel.eFileType.excel">excel</button>
+                        <button type="button" class="btn @(Vm.ExportFileType == eFileType.csv ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.ExportFileType = eFileType.csv">csv</button>
+                        <button type="button" class="btn @(Vm.ExportFileType == eFileType.txt ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.ExportFileType = eFileType.txt">txt</button>
                     </div>
                     <div class="input-group mt-2 d-inline-flex w-25 align-middle">
-                        <span class="input-group-text" id="basic-addon1">Separator</span>
+                        <span class="input-group-text">Separator</span>
                         <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.Separator">
                     </div>
                 </div>

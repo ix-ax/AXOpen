@@ -147,7 +147,7 @@ namespace AXOpen.Data
         /// </summary>
         /// <param name="path">Path to exported file.</param>
         /// <param name="separator">Separator for individual records.</param>
-        void ExportData(string path, char separator = ';');
+        void ExportData(string path, Dictionary<string, FragmentData> fragments = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, eFileType exportFileType = eFileType.csv, char separator = ';');
 
         /// <summary>
         /// Import data from file to the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>.

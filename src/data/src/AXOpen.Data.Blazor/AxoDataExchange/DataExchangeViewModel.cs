@@ -18,6 +18,8 @@ using System.Linq.Expressions;
 using System.Numerics;
 using AXSharp.Abstractions.Dialogs.AlertDialog;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Newtonsoft.Json.Linq;
 
 namespace AXOpen.Data
 {
@@ -289,7 +291,7 @@ namespace AXOpen.Data
 
             try
             {
-                DataExchange.ExportData(path);
+                DataExchange.ExportData(path, Fragments, ExportMode, FirstNumber, SecondNumber, ExportFileType, Separator);
 
                 IsFileExported = true;
 
@@ -305,7 +307,7 @@ namespace AXOpen.Data
         {
             try
             {
-                DataExchange.ImportData(path);
+                DataExchange.ImportData(path, separator: Separator);
 
                 this.UpdateObservableRecords();
 
@@ -327,30 +329,54 @@ namespace AXOpen.Data
         public string CreateItemId { get; set; }
         public bool IsBusy { get; set; }
 
-        public eExportMode Export;
-        public int FirstNumber = 50;
-        public int SecondNumber = 100;
-        public eFileType FileType;
-        public char Separator = ';';
-
-        public enum eExportMode
-        {
-            First,
-            Last,
-            Exact
-        }
-
-        public enum eFileType
-        {
-            csv,
-            txt,
-            excel
-        }
+        public Dictionary<string, FragmentData> Fragments { get; set; } = new();
+        public eExportMode ExportMode { get; set; } = eExportMode.First;
+        public int FirstNumber { get; set; } = 50;
+        public int SecondNumber { get; set; } = 100;
+        public eFileType ExportFileType { get; set; } = eFileType.csv;
+        public char Separator { get; set; } = ';';
 
         public IEnumerable<ITwinPrimitive> GetValueTags(ITwinObject obj)
         {
             var prototype = Activator.CreateInstance(obj.GetType(), new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
             return prototype.RetrievePrimitives();
+        }
+
+        public void ChangeFragmentDataValue(ChangeEventArgs __e, string fragmentDataKey, string fragmentKey)
+        {
+            if (!Fragments.ContainsKey(fragmentKey))
+            {
+                Fragments.Add(fragmentKey, new FragmentData(true, new Dictionary<string, bool>()));
+                Fragments[fragmentKey].Data.Add(fragmentDataKey, (bool)__e.Value);
+            }
+            else
+            {
+                if (!Fragments[fragmentKey].Data.ContainsKey(fragmentDataKey))
+                {
+                    Fragments[fragmentKey].Data.Add(fragmentDataKey, (bool)__e.Value);
+                }
+                else
+                {
+                    Fragments[fragmentKey].Data[fragmentDataKey] = (bool)__e.Value;
+                }
+            }
+        }
+
+        public void ChangeFragmentsValue(ChangeEventArgs __e, string fragmentKey)
+        {
+            if (!Fragments.ContainsKey(fragmentKey))
+            {
+                Fragments.Add(fragmentKey, new FragmentData((bool)__e.Value, new Dictionary<string, bool>()));
+            }
+            else
+            {
+                Fragments[fragmentKey].Exported = (bool)__e.Value;
+            }
+        }
+
+        public bool GetFragmentExportedValue(string fragmentKey)
+        {
+            return Fragments.GetValueOrDefault(fragmentKey, new FragmentData(true, new Dictionary<string, bool>())).Exported;
         }
     }
 }
