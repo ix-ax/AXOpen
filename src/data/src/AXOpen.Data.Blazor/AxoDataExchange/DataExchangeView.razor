@@ -106,7 +106,7 @@ else
                             {
                                 <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
 
-                                @foreach (ColumnData column in Columns)
+                                @foreach (ColumnData column in Columns.ToList())
                                 {
                                     if (column.Clickable)
                                     {
@@ -375,7 +375,7 @@ else
                     }
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportCustomModal-@ViewGuid">Customizable</button>
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportCustomModal-@ViewGuid">Customize</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick='() => ClearFiles("wwwroot/Temp/" + ViewGuid)'>Close</button>
                 </div>
             </div>
@@ -426,12 +426,16 @@ else
                         @foreach (var fragment in Vm.DataExchange.RefUIData.GetChildren().DefaultIfEmpty(Vm.DataExchange.RefUIData))
                         {
                             <div class="accordion-item">
-                                <h2 class="accordion-header">
-                                    <button class="accordion-button @(firstIteration ? "" : "collapsed") @(Vm.GetFragmentExportedValue(fragment.ToString()) ? "" : "bg-danger bg-opacity-25 text-black")" type="button" data-bs-toggle="collapse" data-bs-target="#@fragment.ToString().Replace(".", "_")-@ViewGuid" aria-expanded="@(firstIteration ? "true" : "false")" aria-controls="@fragment.ToString().Replace(".", "_")-@ViewGuid">
-                                        <input class="form-check-input mt-0 me-2" type="checkbox" value="" checked @onchange="@((ChangeEventArgs __e) => Vm.ChangeFragmentsValue(__e, fragment.ToString()))">
-                                        @fragment.ToString()
-                                    </button>
-                                </h2>
+                                <div class="accordion-header">
+                                    <div class="input-group flex-nowrap">
+                                        <div class="input-group-text bg-transparent border-0">
+                                            <input class="form-check-input mt-0" type="checkbox" value="" checked @onchange="@((ChangeEventArgs __e) => Vm.ChangeFragmentsValue(__e, fragment.ToString()))">
+                                        </div>
+                                        <button class="accordion-button @(firstIteration ? "" : "collapsed")" type="button" data-bs-toggle="collapse" data-bs-target="#@fragment.ToString().Replace(".", "_")-@ViewGuid" aria-expanded="@(firstIteration ? "true" : "false")" aria-controls="@fragment.ToString().Replace(".", "_")-@ViewGuid">
+                                            @fragment.ToString()
+                                        </button>
+                                    </div>
+                                </div>
                                 <div id="@fragment.ToString().Replace(".", "_")-@ViewGuid" class="accordion-collapse collapse @(firstIteration ? "show" : "")">
                                     <div class="accordion-body">
                                         <ul class="list-group">
@@ -479,6 +483,15 @@ else
                     </div>
                 </div>
                 <div class="modal-footer">
+                    @if (!Vm.GetFragmentsExportedValue())
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This file may not be able to be imported!
+                            </div>
+                        </div>
+                    }
                     <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); }'>Save</button>
                     <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid">Close</button>
                 </div>

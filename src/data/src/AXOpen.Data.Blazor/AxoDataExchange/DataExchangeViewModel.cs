@@ -378,5 +378,21 @@ namespace AXOpen.Data
         {
             return Fragments.GetValueOrDefault(fragmentKey, new FragmentData(true, new Dictionary<string, bool>())).Exported;
         }
+
+        public bool GetFragmentsExportedValue()
+        {
+            foreach(var fragment in Fragments)
+            {
+                if(!fragment.Value.Exported)
+                    return false;
+
+                foreach (var fragmentData in fragment.Value.Data)
+                {
+                    if (!fragmentData.Value)
+                        return false;
+                }
+            }
+            return true;
+        }
     }
 }
