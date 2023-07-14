@@ -46,7 +46,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         protected async void Queue(IsDialogType dialog)
         {
-        
             DialogInstance = dialog;
             DialogInstance.DialogId = DialogServiceId;
             await DialogInstance.ReadAsync();

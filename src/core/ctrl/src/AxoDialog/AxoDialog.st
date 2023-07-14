@@ -1,4 +1,7 @@
 NAMESPACE AXOpen.Core
+    ///<summary>
+    /// AxoDialog class, which represents structure of base dialog.
+    ///</summary>
     CLASS PUBLIC AxoDialog EXTENDS AxoDialogBase IMPLEMENTS IAxoDialogFormat, IAxoDialogAnswer
 
         VAR PUBLIC      
@@ -13,22 +16,23 @@ NAMESPACE AXOpen.Core
             _externalCloseReq : BOOL;
             _closeSignal : BOOL;
         END_VAR
-
         
-
+        ///<summary>
+        /// Show method, which serves for initializing remote task and invoking dialog from PLC.
+        ///</summary>
         METHOD PUBLIC Show : IAxoDialogFormat
             VAR_INPUT
                 _parent : IAxoObject;
             END_VAR    
 
             THIS.Initialize(_parent);
-
-            THIS.Invoke();
-            SUPER.Execute();
+            //before task initialization, set _asnwer to #NoAnswer to avoid inconsitencies
             IF (THIS.Status = eAxoTaskState#Ready) THEN
                 _answer := eDialogAnswer#NoAnswer;
             END_IF;
 
+            THIS.Invoke();
+            SUPER.Execute();
             _hasOK := false;
             _hasYes := false;
             _hasNo := false;
@@ -37,14 +41,16 @@ NAMESPACE AXOpen.Core
             _caption := '';
             _dialogType := eDialogType#Undefined;
 
-            
             Show := THIS;
-            
+            //after task is done and some answer is provided, restore this task
             IF (THIS.Status = eAxoTaskState#Done && _answer <> eDialogAnswer#NoAnswer) THEN
-                THIS.Restore();
+                THIS.Restore();       
             END_IF;
+        
+            
         END_METHOD
-    
+
+        
 
 
 

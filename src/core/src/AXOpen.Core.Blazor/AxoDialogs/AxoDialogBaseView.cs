@@ -33,17 +33,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out proxy);
             _myProxyService = proxy;
 
-            //if (_myProxyService.DialogInstance != null)
-            //{
-
-            //    ShowDialog = "";
-            //    ShowBackdrop = false;
-            //    StateHasChanged();
-            //    await OpenDialog();
-            //}
-            Console.WriteLine($"Initialize {_myProxyService.DialogInstance.ToString()}");
-            
-
             
         }
         private async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
@@ -62,31 +51,17 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         }
 
 
-
-
-
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-
             if (firstRender)
             {
-                Console.WriteLine($"Initialize after render {_myProxyService.DialogInstance?.ToString()}");
                 if (_myProxyService.DialogInstance != null)
                 {
                     await ModalDialog.Open();
                 }
                 _dialogContainer.DialogClient.MessageReceivedDialogClose += OnCloseDialogMessage;
                 _dialogContainer.DialogClient.MessageReceivedDialogOpen += OnOpenDialogMessage;
-
-                //await ModalDialog.Open();
-                //if (_myProxyService.DialogInstance != null)
-                //{
-
-                //    ShowDialog = "";
-                //    ShowBackdrop = false;
-                //    StateHasChanged();
-                //    await OpenDialog();
-                //}
+               
             }
 
         }
@@ -102,25 +77,16 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             await ModalDialog.Close();
 
-            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out var x);
-            x.DialogInstance = null;
-            _myProxyService = x;
-            //_myProxyService.DialogInstance = null;
+            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out var proxy);
+            proxy.DialogInstance = null;
+            _myProxyService = proxy;
             Console.WriteLine($"after close {_myProxyService.DialogInstance?.ToString()}");
-            await Task.Delay(200);
-            //ShowDialog = "";
-            //ShowBackdrop = false;
-            //_myProxyService.DialogInstance = null;
-            //await InvokeAsync(StateHasChanged);
-
+           
         }
 
         public virtual async Task OpenDialog()
         {
             await ModalDialog.Open();
-            //ShowDialog = "show";
-            //ShowBackdrop = true;
-            //await InvokeAsync(StateHasChanged);
         }
 
         public void Dispose()

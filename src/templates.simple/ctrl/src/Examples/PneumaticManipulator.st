@@ -146,6 +146,7 @@ NAMESPACE examples.PneumaticManipulator
             _dialog : AXOpen.Core.AxoDialog;
             _dialog1 : AXOpen.Core.AxoDialog;
             _dialog2 : AXOpen.Core.AxoDialog;
+            _eDialogAnswer : INT;
             // _alertDialog : AXOpen.Core.AxoAlertDialog;
         END_VAR
         VAR PRIVATE
@@ -225,31 +226,60 @@ NAMESPACE examples.PneumaticManipulator
                         
                     
                         THIS.MoveNext(); 
+                        //_dialog.Restore();
                     END_IF;	
                 END_IF;	
             END_IF;
 
-            IF (Steps[12].Execute(THIS, TRUE, 'Show dialog')) THEN
+
+            IF (Steps[12].Execute(THIS, TRUE, 'Dummy')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
                 IF(Steps[12].Duration > T#2000ms) THEN
             
 
-                    IF(_dialog1.Show(THIS)
-                        .WithYesNoCancel()
-                        .WithCaption('YesNoCancel dialog')
-                        .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
-                        
                     
                         THIS.MoveNext(); 
-                    END_IF;	
                 END_IF;	
             END_IF;
+
+
 
             IF (Steps[13].Execute(THIS, TRUE, 'Show dialog')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
                 IF(Steps[13].Duration > T#2000ms) THEN
+            
+                    _eDialogAnswer := _dialog1.Show(THIS)
+                    .WithYesNoCancel()
+                    .WithCaption('YesNoCancel dialog')
+                    .WithText('Click yes to continue?').Answer();
+
+                    IF( _eDialogAnswer > eDialogAnswer#NoAnswer) THEN
+                        IF( _eDialogAnswer = eDialogAnswer#Yes) THEN
+                            THIS.MoveNext(); 
+                        END_IF;	
+
+                    //_dialog1._answer := eDialogAnswer#NoAnswer;
+                    //_dialog1.Restore();
+                END_IF;	
+                    
+                END_IF;	
+            END_IF;
+
+            IF (Steps[14].Execute(THIS, TRUE, 'Dummy')) THEN
+                //_dialog.Restore();
+                //------------------------------------------------------- 
+                IF(Steps[14].Duration > T#2000ms) THEN
+                    
+                        THIS.MoveNext(); 
+                END_IF;	
+            END_IF;
+
+            IF (Steps[15].Execute(THIS, TRUE, 'Show dialog')) THEN
+                //_dialog.Restore();
+                //------------------------------------------------------- 
+                IF(Steps[15].Duration > T#2000ms) THEN
             
 
                     IF(_dialog2.Show(THIS)
@@ -259,7 +289,10 @@ NAMESPACE examples.PneumaticManipulator
                         
                     
                         THIS.MoveNext(); 
+                        //_dialog2.Restore();
                     END_IF;	
+
+         
                 END_IF;	
             END_IF;
 
@@ -267,7 +300,7 @@ NAMESPACE examples.PneumaticManipulator
 
 
 
-            IF(Steps[14].Execute(THIS, TRUE, 'Dummy')) THEN
+            IF(Steps[16].Execute(THIS, TRUE, 'Dummy')) THEN
                 
                 THIS.MoveNext();
             END_IF;   	

@@ -5,10 +5,6 @@
 @using AXOpen.Data;
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector;
-@*@inherits RenderableComponentBase;*@
-
-
-@*@inject IAlertDialogService _alerts*@
 
 <h1>Pneumatic manipulator 2</h1>
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator2" PollingInterval="250"></UnitsSequences>
@@ -25,63 +21,14 @@
 
 
 
-
-
-
 <AxoDialogLocator DialogId="custation002" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator2}"></AxoDialogLocator>
-
-
-<button type="button" class="btn btn-primary" @onclick="ButtonClickedShow">Show</button>
-<button type="button" class="btn btn-primary" @onclick="ButtonClickedHide">Hide</button>
-
 
 
 
 @code
 {
-    public string OffCanvasShow { get; set; }
-    public bool ShowBackdrop { get; set; }
-    @code {
-        private Offcanvas offcanvas;
-
-        private async Task OnShowOffcanvasClick()
-        {
-            await offcanvas?.ShowAsync();
-        }
-    }
-        private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator2.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
-
-    @*    protected override Task OnInitializedAsync()
-    {
-    return base.OnInitializedAsync();
-    }*@
-
-
-        //public static AxoDialogProxyService _dialogService { get; set; } = AxoDialogProxyService.Create(new[] { Entry.Plc.Context.PneumaticManipulator2 });
-
-        //public async void OnDialogInvoked()
-        //{
-        //    await Task.Delay(1000);
-        //    _alerts.AddAlertDialog("Success", "Hello", "Brano2", 5);
-
-        //    await InvokeAsync(StateHasChanged);
-
-        //}
-
-        public void ButtonClickedShow()
-        {
-    OffCanvasShow = "fade show";
-    ShowBackdrop = true;
-
-    // _alerts.AddAlertDialog("Success", "Hello", "Brano", 5);
-        }
-
-        public void ButtonClickedHide()
-        {
-    OffCanvasShow = "";
-    ShowBackdrop = false;
-    StateHasChanged();
-    //_alerts.AddAlertDialog("Success", "Hello", "Brano", 5);
-        }
+  
+     private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator2.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
+   
 }
 
