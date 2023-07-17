@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 
-namespace AXOpen.Core.Blazor.Dialogs.AlertDialog
+namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
-    public partial class Toaster : ComponentBase, IDisposable
+    public partial class AxoAlertToast : ComponentBase, IDisposable
     {
         private void AlertDialogChanged(object? sender, EventArgs e) => InvokeAsync(StateHasChanged);
 

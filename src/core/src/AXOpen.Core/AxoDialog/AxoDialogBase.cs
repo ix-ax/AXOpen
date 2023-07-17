@@ -11,7 +11,6 @@ namespace AXOpen.Core
     public partial class AxoDialogBase : IsDialogType
     {
         public string DialogId { get; set; }
-        public bool Show { get; set; }
 
     }
 }

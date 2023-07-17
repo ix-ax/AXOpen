@@ -1,25 +1,20 @@
 ﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Dialogs;
 using AXSharp.Connector;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
-    public class AxoDialogProxyService
+    public class AxoDialogProxyService : IAxoDialogProxyServiceSingleton
     {
         public DialogClient DialogClient { get; set; }
-    
+
+        public AxoDialogProxyService()
+        {
+             
+        }
 
         public AxoDialogProxyService(string id, IEnumerable<ITwinObject> observedObjects)
         {
-            ObservedObjects = new List<string>();
             DialogServiceId = id;
             SetObservedObjects(observedObjects);
         }
@@ -42,17 +37,18 @@ namespace AXOpen.Core.Blazor.AxoDialogs
           
         }
         public event EventHandler<AxoDialogEventArgs> DialogInvoked;
-        public IsDialogType DialogInstance { get; set; }
+        public IsDialogType DialogInstance { get; set; } 
 
         protected async void Queue(IsDialogType dialog)
         {
             DialogInstance = dialog;
             DialogInstance.DialogId = DialogServiceId;
+            Console.WriteLine($"Queue! {dialog.GetType()}");
             await DialogInstance.ReadAsync();
             DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
         }
 
-        public List<string> ObservedObjects{ get; set; }
+        public List<string> ObservedObjects{ get; set; } = new List<string>();
         void UpdateDialogs(ITwinObject observedObject)
         {
             var descendants = GetDescendants<IsDialogType>(observedObject);
@@ -63,7 +59,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             
         }
 
-        public IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
+        private IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
         {
             children = children != null ? children : new List<T>();
 

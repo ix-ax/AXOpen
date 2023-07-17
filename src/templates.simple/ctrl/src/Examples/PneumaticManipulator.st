@@ -146,8 +146,8 @@ NAMESPACE examples.PneumaticManipulator
             _dialog : AXOpen.Core.AxoDialog;
             _dialog1 : AXOpen.Core.AxoDialog;
             _dialog2 : AXOpen.Core.AxoDialog;
-            _eDialogAnswer : INT;
-            // _alertDialog : AXOpen.Core.AxoAlertDialog;
+            _alertDialog : AXOpen.Core.AxoAlertDialog;
+
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
@@ -196,7 +196,7 @@ NAMESPACE examples.PneumaticManipulator
             THIS.AndThen(Steps[7], components^.HorizontalCylinder.MoveToHome);
             THIS.AndThen(Steps[8], components^.GripperCylinder.MoveToHome);
             
-            IF(Steps[10].Execute(THIS, TRUE, 'Create data id')) THEN
+            IF(Steps[9].Execute(THIS, TRUE, 'Create data id')) THEN
                 ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
                 THIS.MoveNext(); 
 
@@ -204,7 +204,7 @@ NAMESPACE examples.PneumaticManipulator
 
             END_IF;    
 
-//             IF (Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
+//             IF (Steps[10].Execute(THIS, TRUE, 'Save data.')) THEN
 //                 //-------------------------------------------------------            
 //                 IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
 //                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
@@ -212,8 +212,27 @@ NAMESPACE examples.PneumaticManipulator
 // //-------------------------------------------------------
 //             END_IF;
 
+
+            IF (Steps[10].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+                //-------------------------------------------------------        
+                
+                IF(Steps[10].Duration > T#2000ms) THEN
+
+                   _alertDialog.Show(THIS)
+                        .WithTitle('Plc alert')
+                        .WithType(eDialogType#Success)
+                        .WithMessage('This is alert invoked from plc!')
+                        .WithTimeToBurn(UINT#10);
+
+                        
+                    
+                            THIS.MoveNext(); 
+               
+                END_IF;	
+            //-------------------------------------------------------
+            END_IF;
+
             IF (Steps[11].Execute(THIS, TRUE, 'Show dialog')) THEN
-                //_dialog.Restore();
                 //------------------------------------------------------- 
                 IF(Steps[11].Duration > T#2000ms) THEN
             
@@ -235,7 +254,7 @@ NAMESPACE examples.PneumaticManipulator
             IF (Steps[12].Execute(THIS, TRUE, 'Dummy')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
-                IF(Steps[12].Duration > T#2000ms) THEN
+                IF(Steps[12].Duration > T#500ms) THEN
             
 
                     
@@ -250,27 +269,24 @@ NAMESPACE examples.PneumaticManipulator
                 //------------------------------------------------------- 
                 IF(Steps[13].Duration > T#2000ms) THEN
             
-                    _eDialogAnswer := _dialog1.Show(THIS)
-                    .WithYesNoCancel()
-                    .WithCaption('YesNoCancel dialog')
-                    .WithText('Click yes to continue?').Answer();
-
-                    IF( _eDialogAnswer > eDialogAnswer#NoAnswer) THEN
-                        IF( _eDialogAnswer = eDialogAnswer#Yes) THEN
+                        IF(_dialog1.Show(THIS)
+                            .WithYesNo()
+                            .WithCaption('YesNoCancel dialog')
+                            .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
+                            
+                        
                             THIS.MoveNext(); 
-                        END_IF;	
 
-                    //_dialog1._answer := eDialogAnswer#NoAnswer;
-                    //_dialog1.Restore();
+                        END_IF;	
+    
                 END_IF;	
                     
-                END_IF;	
             END_IF;
 
             IF (Steps[14].Execute(THIS, TRUE, 'Dummy')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
-                IF(Steps[14].Duration > T#2000ms) THEN
+                IF(Steps[14].Duration > T#500ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	

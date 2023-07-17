@@ -26,22 +26,22 @@ namespace AXOpen.Core
         public async Task DialogAnswerOk()  
         {
             Component._answer.Edit = (short)eDialogAnswer.OK;
-            await CloseDialog();
+            await CloseDialogsWithSignalR();
         }
         public async Task DialogAnswerYes()
         {
             Component._answer.Edit = (short)eDialogAnswer.Yes;
-            await CloseDialog();
+            await CloseDialogsWithSignalR();
         }
         public async Task DialogAnswerNo()
         {
             Component._answer.Edit = (short)eDialogAnswer.No;
-            await CloseDialog();
+            await CloseDialogsWithSignalR();
         }
         public async Task DialogAnswerCancel()
         {
             Component._answer.Edit = (short)eDialogAnswer.Cancel;
-            await CloseDialog();
+            await CloseDialogsWithSignalR();
         }
     }
 }

@@ -66,9 +66,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         }
 
-        public bool ShowBackdrop { get; set; }
-        public string ShowDialog { get; set; }
-        public virtual async Task CloseDialog()
+        public virtual async Task CloseDialogsWithSignalR()
         {
             await _dialogContainer.DialogClient.SendDialogClose(_dialogId);
         }
@@ -80,7 +78,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out var proxy);
             proxy.DialogInstance = null;
             _myProxyService = proxy;
-            Console.WriteLine($"after close {_myProxyService.DialogInstance?.ToString()}");
            
         }
 

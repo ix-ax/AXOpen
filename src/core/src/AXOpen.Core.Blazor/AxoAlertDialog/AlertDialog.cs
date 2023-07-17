@@ -1,7 +1,7 @@
 ﻿using AXOpen.Base.Dialogs;
 using System;
 
-namespace AXOpen.Core.Blazor.Dialogs.AlertDialog
+namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
     public class AlertDialog : IAlertDialog
     {

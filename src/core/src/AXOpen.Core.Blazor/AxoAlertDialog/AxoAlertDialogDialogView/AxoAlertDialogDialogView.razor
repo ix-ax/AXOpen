@@ -1,0 +1,22 @@
+﻿@using AXOpen.Core.Blazor.AxoDialogs;
+
+@inject AxoAlertDialogService _dialogService;
+@inherits AxoDialogBaseView<AXOpen.Core.AxoAlertDialog>
+
+
+ 
+
+
+<h3>AxoAlertDialogDialogView</h3>
+
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("Initialized");
+        var x = (AXOpen.Core.AxoAlertDialog)Component;
+        base.OnInitialized();
+    }
+
+}

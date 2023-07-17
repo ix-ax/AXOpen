@@ -1,6 +1,7 @@
 ﻿@using AXOpen.Base.Dialogs;
 
 
+
 @if (_dialogService.GetAlertDialogs() != null && _dialogService.GetAlertDialogs().Count > 0)
 {
     <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 100;">
@@ -26,6 +27,12 @@
                     bg = "bg-warning text-dark";
                     icon = "oi oi-warning";
                     break;
+
+                default:
+                    bg = "bg-primary text-white";
+                    icon = "oi oi-info";
+                    break;
+
             }
 
             <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">

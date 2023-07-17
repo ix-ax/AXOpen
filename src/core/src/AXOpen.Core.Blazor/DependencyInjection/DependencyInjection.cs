@@ -1,19 +1,11 @@
 ﻿using AXOpen.Base.Dialogs;
+using AXOpen.Core.Blazor.AxoAlertDialog;
 using AXOpen.Core.Blazor.AxoDialogs;
-using AXOpen.Core.Blazor.AxoDialogs.Hubs;
-using AXOpen.Core.Blazor.Dialogs.AlertDialog;
 using BlazorBootstrap;
-using Humanizer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AXOpen.Core
 {
@@ -22,7 +14,8 @@ namespace AXOpen.Core
         public static void AddAxoCoreServices(this IServiceCollection services)
         {
             services.AddSingleton<AxoDialogContainer>();
-            services.AddScoped<IAlertDialogService, ToasterService>();
+            services.AddScoped<IAlertDialogService, AxoAlertDialogService>();
+            //services.AddSingleton<IAxoDialogProxyServiceSingleton, AxoDialogProxyService>();
             services.AddResponseCompression(opts =>
             {
                 opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(

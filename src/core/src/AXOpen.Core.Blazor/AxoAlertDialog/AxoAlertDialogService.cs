@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Timers;
 
-namespace AXOpen.Core.Blazor.Dialogs.AlertDialog
+namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
-    public class ToasterService : IAlertDialogService, IDisposable
+    public class AxoAlertDialogService : IAlertDialogService, IDisposable
     {
         private List<IAlertDialog> ToastsList { get; set; } = new List<IAlertDialog>();
         private System.Timers.Timer Timer = new System.Timers.Timer();
 
         public event EventHandler? AlertDialogChanged;
 
-        public ToasterService()
+        public AxoAlertDialogService()
         {
             Timer.Interval = 1000;
             Timer.AutoReset = true;
