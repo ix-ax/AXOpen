@@ -80,6 +80,33 @@ public static class ApaxCmd
         context.ApaxBuild((app.folder, app.name));
     }
 
+    public static void ApaxUpdate(this BuildContext context, (string folder, string name) lib)
+    {
+        context.Log.Information($"apax update started for '{lib.folder} : {lib.name}'");
+        var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = "update --all",
+            WorkingDirectory = context.GetAxFolder(lib),
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        });
+
+        process.WaitForExit();
+        var exitcode = process.GetExitCode();
+        context.Log.Information($"apax update exited with '{exitcode}'");
+
+        if (exitcode != 0)
+        {
+            throw new BuildFailedException();
+        }
+    }
+
+    public static void ApaxUpdate(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        context.ApaxUpdate((app.folder, app.name));
+    }
+
     public static void ApaxPack(this BuildContext context, (string folder, string name) lib)
     {
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
