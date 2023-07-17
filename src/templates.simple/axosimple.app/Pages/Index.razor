@@ -1,3 +1,23 @@
-﻿@page "/"
+﻿@inject NavigationManager NavigationManager
 
-<PageTitle>Index</PageTitle>
+@page "/"
+
+<select class="form-select" aria-label="Theme select" @bind="Theme" @bind:event="oninput">
+    <option selected>Choose color theme</option>
+    <option value="mts">MTS default</option>
+    <option value="tropical">Tropical</option>
+    <option value="jupiter">Jupiter</option>
+</select>
+
+@code {
+    private string theme;
+    public string Theme
+    {
+        get => theme;
+        set
+        {
+            theme = value;
+            NavigationManager.NavigateTo($"/theme?theme={theme}", true);
+        }
+    }
+}
