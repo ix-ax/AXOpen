@@ -5,6 +5,7 @@
 // https://github.com/ix-ax/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/ix-ax/ix/blob/master/notices.md
 
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -92,8 +93,33 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("Build")]
+[TaskName("ApaxUpdateTask")]
 [IsDependentOn(typeof(ProvisionTask))]
+public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+        if (!context.BuildParameters.DoApaxUpdate)
+            return;
+
+        context.Libraries.ToList().ForEach(lib =>
+        {
+            context.ApaxUpdate(lib);
+        });
+
+        context.Integrations.ToList().ForEach(proj =>
+        {
+            context.ApaxUpdate(proj);
+        });
+
+
+
+        context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.sln"), context.DotNetBuildSettings);
+    }
+}
+
+[TaskName("Build")]
+[IsDependentOn(typeof(ApaxUpdateTask))]
 public sealed class BuildTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
