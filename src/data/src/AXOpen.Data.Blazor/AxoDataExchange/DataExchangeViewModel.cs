@@ -20,6 +20,7 @@ using AXSharp.Abstractions.Dialogs.AlertDialog;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Newtonsoft.Json.Linq;
+using System.ComponentModel;
 
 namespace AXOpen.Data
 {
@@ -291,7 +292,7 @@ namespace AXOpen.Data
 
             try
             {
-                DataExchange.ExportData(path, Fragments, ExportMode, FirstNumber, SecondNumber, ExportFileType, Separator);
+                DataExchange.ExportData(path, CustomExportData, ExportMode, FirstNumber, SecondNumber, ExportFileType, Separator);
 
                 IsFileExported = true;
 
@@ -329,66 +330,64 @@ namespace AXOpen.Data
         public string CreateItemId { get; set; }
         public bool IsBusy { get; set; }
 
-        public Dictionary<string, FragmentData> Fragments { get; set; } = new();
+        public Dictionary<string, ExportData> CustomExportData { get; set; } = new();
         public eExportMode ExportMode { get; set; } = eExportMode.First;
         public int FirstNumber { get; set; } = 50;
         public int SecondNumber { get; set; } = 100;
         public eFileType ExportFileType { get; set; } = eFileType.csv;
         public char Separator { get; set; } = ';';
 
-        public IEnumerable<ITwinPrimitive> GetValueTags(ITwinObject obj)
+        public IEnumerable<ITwinElement> GetValueTags(Type type)
         {
-            var prototype = Activator.CreateInstance(obj.GetType(), new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
-            return prototype.RetrievePrimitives();
+            var prototype = Activator.CreateInstance(type, new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
+            return prototype.GetKids();
         }
 
-        public void ChangeFragmentDataValue(ChangeEventArgs __e, string fragmentDataKey, string fragmentKey)
+        public void ChangeCustomExportDataValue(ChangeEventArgs __e, string fragmentKey)
         {
-            if (!Fragments.ContainsKey(fragmentKey))
+            if (!CustomExportData.ContainsKey(fragmentKey))
             {
-                Fragments.Add(fragmentKey, new FragmentData(true, new Dictionary<string, bool>()));
-                Fragments[fragmentKey].Data.Add(fragmentDataKey, (bool)__e.Value);
+                CustomExportData.Add(fragmentKey, new ExportData((bool)__e.Value, new Dictionary<string, bool>()));
             }
             else
             {
-                if (!Fragments[fragmentKey].Data.ContainsKey(fragmentDataKey))
+                CustomExportData[fragmentKey].Exported = (bool)__e.Value;
+            }
+        }
+
+        public void ChangeCustomExportDataValue(ChangeEventArgs __e, string fragmentKey, string key)
+        {
+            if (!CustomExportData.ContainsKey(fragmentKey))
+            {
+                CustomExportData.Add(fragmentKey, new ExportData(true, new Dictionary<string, bool>()));
+                CustomExportData[fragmentKey].Data.Add(key, (bool)__e.Value);
+            }
+            else
+            {
+                if (!CustomExportData[fragmentKey].Data.ContainsKey(key))
                 {
-                    Fragments[fragmentKey].Data.Add(fragmentDataKey, (bool)__e.Value);
+                    CustomExportData[fragmentKey].Data.Add(key, (bool)__e.Value);
                 }
                 else
                 {
-                    Fragments[fragmentKey].Data[fragmentDataKey] = (bool)__e.Value;
+                    CustomExportData[fragmentKey].Data[key] = (bool)__e.Value;
                 }
             }
+            StateHasChangedDelegate.Invoke();
         }
 
-        public void ChangeFragmentsValue(ChangeEventArgs __e, string fragmentKey)
-        {
-            if (!Fragments.ContainsKey(fragmentKey))
-            {
-                Fragments.Add(fragmentKey, new FragmentData((bool)__e.Value, new Dictionary<string, bool>()));
-            }
-            else
-            {
-                Fragments[fragmentKey].Exported = (bool)__e.Value;
-            }
-        }
-
-        public bool GetFragmentExportedValue(string fragmentKey)
-        {
-            return Fragments.GetValueOrDefault(fragmentKey, new FragmentData(true, new Dictionary<string, bool>())).Exported;
-        }
+        public Action StateHasChangedDelegate { get; set; }
 
         public bool GetFragmentsExportedValue()
         {
-            foreach(var fragment in Fragments)
+            foreach(var item in CustomExportData)
             {
-                if(!fragment.Value.Exported)
+                if(!item.Value.Exported)
                     return false;
 
-                foreach (var fragmentData in fragment.Value.Data)
+                foreach (var innerItem in item.Value.Data)
                 {
-                    if (!fragmentData.Value)
+                    if (!innerItem.Value)
                         return false;
                 }
             }

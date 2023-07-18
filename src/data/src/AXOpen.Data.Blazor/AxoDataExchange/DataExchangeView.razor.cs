@@ -94,6 +94,7 @@ public partial class DataExchangeView
     protected override async Task OnInitializedAsync()
     {
         await Vm.FillObservableRecordsAsync();
+        Vm.StateHasChangedDelegate = StateHasChanged;
 
     }
 

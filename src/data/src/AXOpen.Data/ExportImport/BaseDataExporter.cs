@@ -17,10 +17,10 @@ namespace AXOpen.Data
         {
         }
 
-        public List<string> BaseExport(IRepository<TPlain> repository, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? fragmentData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
+        public List<string> BaseExport(IRepository<TPlain> repository, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
         {
-            if (fragmentData == null)
-                fragmentData = new Dictionary<string, bool>();
+            if (customExportData == null)
+                customExportData = new Dictionary<string, bool>();
 
             var prototype = Activator.CreateInstance(typeof(TOnline), new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
 
@@ -45,8 +45,24 @@ namespace AXOpen.Data
             var valueTags = prototype.RetrievePrimitives();
             foreach (var valueTag in valueTags)
             {
-                if (!fragmentData.GetValueOrDefault(valueTag.Symbol, true))
+                bool skip = false;
+
+                int lastIndex = valueTag.Symbol.Length;
+                while (lastIndex != -1)
+                {
+                    string currentString = valueTag.Symbol.Substring(0, lastIndex);
+
+                    if (!customExportData.GetValueOrDefault(currentString, true))
+                    {
+                        skip = true;
+                        break;
+                    }
+
+                    lastIndex = currentString.LastIndexOf('.');
+                }
+                if (skip)
                     continue;
+                
                 itemExport.Append($"{valueTag.Symbol}{separator}");
             }
 
@@ -56,8 +72,24 @@ namespace AXOpen.Data
             itemExport.Clear();
             foreach (var valueTag in valueTags)
             {
-                if (!fragmentData.GetValueOrDefault(valueTag.Symbol, true))
+                bool skip = false;
+
+                int lastIndex = valueTag.Symbol.Length;
+                while (lastIndex != -1)
+                {
+                    string currentString = valueTag.Symbol.Substring(0, lastIndex);
+
+                    if (!customExportData.GetValueOrDefault(currentString, true))
+                    {
+                        skip = true;
+                        break;
+                    }
+
+                    lastIndex = currentString.LastIndexOf('.');
+                }
+                if (skip)
                     continue;
+
                 itemExport.Append($"{valueTag.HumanReadable}{separator}");
             }
 
@@ -72,8 +104,24 @@ namespace AXOpen.Data
                 var values = prototype.RetrievePrimitives();
                 foreach (var @value in values)
                 {
-                    if (!fragmentData.GetValueOrDefault(@value.Symbol, true))
+                    bool skip = false;
+
+                    int lastIndex = @value.Symbol.Length;
+                    while (lastIndex != -1)
+                    {
+                        string currentString = @value.Symbol.Substring(0, lastIndex);
+
+                        if (!customExportData.GetValueOrDefault(currentString, true))
+                        {
+                            skip = true;
+                            break;
+                        }
+
+                        lastIndex = currentString.LastIndexOf('.');
+                    }
+                    if (skip)
                         continue;
+
                     var val = (string)(((dynamic)@value).Shadow.ToString());
                     if (val.Contains(separator))
                     {

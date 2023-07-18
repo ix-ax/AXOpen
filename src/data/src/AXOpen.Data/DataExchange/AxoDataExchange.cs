@@ -354,10 +354,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     /// <inheritdoc />
-    public void ExportData(string path, Dictionary<string, FragmentData>? fragments = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, eFileType exportFileType = eFileType.csv, char separator = ';')
+    public void ExportData(string path, Dictionary<string, ExportData>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, eFileType exportFileType = eFileType.csv, char separator = ';')
     {
-        if (fragments == null)
-            fragments = new Dictionary<string, FragmentData>();
+        if (customExportData == null)
+            customExportData = new Dictionary<string, ExportData>();
 
         IDataExporter<TPlain, TOnline> dataExporter = null;
         switch (exportFileType)
@@ -379,17 +379,17 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
             File.Delete(path);
 
-            FragmentData a = fragments.GetValueOrDefault(RefUIData.ToString(), new FragmentData(true, new Dictionary<string, bool>()));
-            if (a.Exported)
-                dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + this.ToString(), p => true, a.Data, exportMode, firstNumber, secondNumber, separator);
+            ExportData exportData = customExportData.GetValueOrDefault(RefUIData.ToString(), new ExportData(true, new Dictionary<string, bool>()));
+            if (exportData.Exported)
+                dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + this.ToString(), p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
 
             ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
         }
         else
         {
-            FragmentData a = fragments.GetValueOrDefault(RefUIData.ToString(), new FragmentData(true, new Dictionary<string, bool>()));
-            if(a.Exported)
-                dataExporter.Export(DataRepository, path, p => true, a.Data, exportMode, firstNumber, secondNumber, separator);
+            ExportData exportData = customExportData.GetValueOrDefault(RefUIData.ToString(), new ExportData(true, new Dictionary<string, bool>()));
+            if(exportData.Exported)
+                dataExporter.Export(DataRepository, path, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
         }
     }
 
