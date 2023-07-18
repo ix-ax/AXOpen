@@ -213,30 +213,30 @@ NAMESPACE examples.PneumaticManipulator
 //             END_IF;
 
 
-            IF (Steps[10].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
-                //-------------------------------------------------------        
+            // IF (Steps[10].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+            //     //-------------------------------------------------------        
                 
-                IF(Steps[10].Duration > T#2000ms) THEN
+            //     IF(Steps[10].Duration > T#2000ms) THEN
 
-                   _alertDialog.Show(THIS)
-                        .WithTitle('Plc alert')
-                        .WithType(eDialogType#Success)
-                        .WithMessage('This is alert invoked from plc!')
-                        .WithTimeToBurn(UINT#10);
+            //        _alertDialog.Show(THIS)
+            //             .WithTitle('Plc alert')
+            //             .WithType(eDialogType#Success)
+            //             .WithMessage('This is alert invoked from plc!')
+            //             .WithTimeToBurn(UINT#10);
 
-                    if(_alertDialog.IsDone()) THEN
+            //         if(_alertDialog.IsDone()) THEN
                     
-                            THIS.MoveNext(); 
-                    END_IF;	
-                END_IF;	
-            //-------------------------------------------------------
-            END_IF;
+            //                 THIS.MoveNext(); 
+            //         END_IF;	
+            //     END_IF;	
+            // //-------------------------------------------------------
+            // END_IF;
 
 
             IF (Steps[11].Execute(THIS, TRUE, 'Dummy')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
-                IF(Steps[11].Duration > T#2500ms) THEN
+                IF(Steps[11].Duration > T#1000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
@@ -244,7 +244,7 @@ NAMESPACE examples.PneumaticManipulator
 
             IF (Steps[12].Execute(THIS, TRUE, 'Show dialog')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[12].Duration > T#2000ms) THEN
+                IF(Steps[12].Duration > T#1000ms) THEN
             
 
                     IF(_dialog.Show(THIS)
@@ -266,7 +266,7 @@ NAMESPACE examples.PneumaticManipulator
             IF (Steps[13].Execute(THIS, TRUE, 'Dummy')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
-                IF(Steps[13].Duration > T#500ms) THEN
+                IF(Steps[13].Duration > T#1000ms) THEN
             
 
                     
@@ -279,10 +279,11 @@ NAMESPACE examples.PneumaticManipulator
             IF (Steps[14].Execute(THIS, TRUE, 'Show dialog')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
-                IF(Steps[14].Duration > T#2000ms) THEN
+                IF(Steps[14].Duration > T#1000ms) THEN
             
                         IF(_dialog1.Show(THIS)
-                            .WithYesNo()
+                            .WithYesNoCancel()
+                            .WithType(eDialogType#Warning)
                             .WithCaption('YesNoCancel dialog')
                             .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
                             
@@ -298,7 +299,7 @@ NAMESPACE examples.PneumaticManipulator
             IF (Steps[15].Execute(THIS, TRUE, 'Dummy')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
-                IF(Steps[15].Duration > T#500ms) THEN
+                IF(Steps[15].Duration > T#1000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
@@ -307,11 +308,12 @@ NAMESPACE examples.PneumaticManipulator
             IF (Steps[16].Execute(THIS, TRUE, 'Show dialog')) THEN
                 //_dialog.Restore();
                 //------------------------------------------------------- 
-                IF(Steps[16].Duration > T#2000ms) THEN
+                IF(Steps[16].Duration > T#1000ms) THEN
             
 
                     IF(_dialog2.Show(THIS)
                         .WithYesNo()
+                        .WithType(eDialogType#Danger)
                         .WithCaption('YesNo dialog')
                         .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
                         

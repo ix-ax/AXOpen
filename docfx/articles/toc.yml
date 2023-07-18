@@ -23,6 +23,8 @@
     href: ~/articles/core/AXOSEQUENCERCONTAINER.md  
   - name: AxoComponent
     href: ~/articles/core/AXOCOMPONENT.md  
+  - name: AxoDialog
+    href: ~/articles/core/AXODIALOG.md
   - name: AlertDialog
     href: ~/articles/core/ALERTDIALOG.md  
 - name: AXOpen.Data

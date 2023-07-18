@@ -6,7 +6,6 @@
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector;
 
-<h1>Pneumatic manipulator 2</h1>
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator2" PollingInterval="250"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator2.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator2.Components" PollingInterval="250"></UnitsService>
 
