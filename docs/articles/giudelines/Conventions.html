@@ -1,0 +1,464 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>WORK IN PROGRESS... | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="WORK IN PROGRESS... | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="work-in-progress">WORK IN PROGRESS...</h1>
+
+<h1 id="axopen-conventions">AXOpen Conventions</h1>
+<table>
+<thead>
+<tr>
+<th>REVISION</th>
+<th>DATE</th>
+<th>NOTES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0</td>
+<td>July 2023</td>
+<td>Initial release</td>
+</tr>
+</tbody>
+</table>
+<h2 id="introduction">Introduction</h2>
+<p>Thanks for taking the time to read this document. Here we aim to outline a set of rules that will help us write consistent libraries that will serve their other consumers and us.</p>
+<p>This document modifies recommendations from <a href="https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/54043198675164555.html&amp;id=">Beckhoff TwinCAT conventions</a> for TcOpen project(s).</p>
+<p>This document defines the minimum coding standards and will be updated as the project develops in time.</p>
+<h3 id="why-do-we-need-to-agree-on-conventions">Why do we need to agree on conventions</h3>
+<ul>
+<li>They create a consistent look to the code so that readers can focus on content, not layout.</li>
+<li>They enable readers to understand the code more quickly by making assumptions based on previous experience.</li>
+<li>They facilitate copying, changing, and maintaining the code.</li>
+<li>They demonstrate Structured Text best practices.</li>
+</ul>
+<h3 id="terminology">Terminology</h3>
+<p>For this document are terms</p>
+<ul>
+<li><code>Function block</code> and <code>class</code> <strong>interchangeable</strong>.</li>
+<li><code> Type</code> is the common name for any <code>FB</code>, <code>STRUCT</code>, <code>UNION</code>.</li>
+</ul>
+<h3 id="a-general-note-on-naming">A general note on naming</h3>
+<p>Names should be self-describing, readable considered in calling context. Use of prefixes is discouraged, except for those outlined in this document. For example to inform/warn about some property like a pointer, reference, IN_OUT reference, or to aid to CoDeSys IntelliSense to narrow the scope of search.</p>
+<h3 id="general-note-on-the-use-of-plc-language">General note on the use of PLC-Language</h3>
+<p>TcOpen uses exclusively IEC 61131-3 Structured Test (ST), strongly leaning to the OOP paradigm.</p>
+<h2 id="naming">Naming</h2>
+<blockquote>
+<p><strong>Type Naming</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Block type</th>
+<th>Notation</th>
+<th>Prefix</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FB/CLASS name</td>
+<td>PascalCase</td>
+<td>NoPrefix</td>
+<td><code>Cyclinder</code></td>
+</tr>
+<tr>
+<td>ENUM type name</td>
+<td>PascalCase</td>
+<td><code>e</code></td>
+<td><code>eMachineState.Start</code></td>
+</tr>
+<tr>
+<td>INTERFACE name</td>
+<td>PascalCase</td>
+<td><code>I</code></td>
+<td><code>ICyclinder</code></td>
+</tr>
+<tr>
+<td>FUNCTION name</td>
+<td>PascalCase</td>
+<td>NoPrefix</td>
+<td><code>Add()</code></td>
+</tr>
+<tr>
+<td>STRUCT name</td>
+<td>PascalCase</td>
+<td>NoPrefix</td>
+<td><code>Data</code></td>
+</tr>
+<tr>
+<td>UNION name</td>
+<td>PascalCase</td>
+<td>NoPrefix</td>
+<td><code>Control</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Class member naming</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Variable section</th>
+<th>Notation</th>
+<th>Prefix</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>METHOD name</td>
+<td>PascalCase</td>
+<td>NoPrefix</td>
+<td><code>MoveToWork()</code></td>
+</tr>
+<tr>
+<td>METHOD arguments</td>
+<td>camelCase</td>
+<td>NoPrefix</td>
+<td><code>targetPosition  : LREAL</code></td>
+</tr>
+<tr>
+<td>PROPERTY name</td>
+<td>PascalCase</td>
+<td>NoPrefix</td>
+<td><code>IsEnabled</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>FB/class member naming</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Variable section</th>
+<th>Notation</th>
+<th>Prefix</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VAR_INPUT</td>
+<td>camelCase</td>
+<td><code>in</code></td>
+<td><code>inActualPosition  : LREAL</code></td>
+</tr>
+<tr>
+<td>VAR_OUTPUT</td>
+<td>camelCase</td>
+<td><code>out</code></td>
+<td><code>outActualPosition  : LREAL</code></td>
+</tr>
+<tr>
+<td>VAR_IN_OUT</td>
+<td>camelCase</td>
+<td><code>ino</code></td>
+<td><code>inoActualPosition  : LREAL</code></td>
+</tr>
+<tr>
+<td>VAR</td>
+<td>camelCase</td>
+<td><code>_</code></td>
+<td><code>_actualPosition  : LREAL</code>,</td>
+</tr>
+<tr>
+<td>VAR_STAT</td>
+<td>camelCase</td>
+<td><code>_</code></td>
+<td><code>_actualPosition  : LREAL</code>,</td>
+</tr>
+<tr>
+<td>VAR_INST</td>
+<td>camelCase</td>
+<td><code>_</code></td>
+<td><code>_actualPosition  : LREAL</code> ,</td>
+</tr>
+<tr>
+<td>VAR CONSTANT</td>
+<td>UpperCase</td>
+<td>NoPrefix</td>
+<td><code>MAX_747_CRUISING_ALTITUDE</code></td>
+</tr>
+<tr>
+<td>REFERENCE</td>
+<td>PascalCase</td>
+<td><code>ref</code></td>
+<td><code>refDrive</code></td>
+</tr>
+<tr>
+<td>POINTER</td>
+<td>PascalCase</td>
+<td><code>p</code></td>
+<td><code>pCyclinder</code></td>
+</tr>
+<tr>
+<td>INTERFACE name</td>
+<td>PascalCase</td>
+<td>NoPrefix</td>
+<td><code>Cyclinder</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>STRUCT member naming</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Notation</th>
+<th>Prefix</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VARIABLE</td>
+<td>PascalCase</td>
+<td>NoPrefix</td>
+<td><code>ActualPosition</code></td>
+</tr>
+<tr>
+<td>REFERENCE</td>
+<td>PascalCase</td>
+<td><code>ref</code></td>
+<td><code>refDrive</code></td>
+</tr>
+<tr>
+<td>POINTER</td>
+<td>PascalCase</td>
+<td><code>p</code></td>
+<td><code>pCyclinder</code></td>
+</tr>
+<tr>
+<td>INTERFACE name</td>
+<td>PascalCase</td>
+<td>NoPrefix</td>
+<td><code>Cyclinder</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Features to avoid</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Avoid</th>
+<th>Use instead</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACTION</td>
+<td>METHOD</td>
+</tr>
+<tr>
+<td>TRANSITION</td>
+<td>TcoOpen Framework coordination primitives</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Features to prefer</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>IF YOU REALLY MUST</th>
+<th>EVERYWHERE ELSE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FUNCTION</td>
+<td>PRG.METHOD OR FB.METHOD</td>
+</tr>
+</tbody>
+</table>
+<h2 id="identifiers">Identifiers</h2>
+<p>Any identifier (variable, methods, properties) should have an identifier that clearly expresses intent. Identifiers with less than <code>4</code> characters should be avoided (unless they represent well-known acronyms or expressions). There is no formal constraint on a maximum number of characters; however, about 25 characters should suffice to name the variable appropriately.</p>
+<h2 id="scope">Scope</h2>
+<p>All variables should be declared closest to the scope where they are used. Avoid using global declarations unless it is necessary or the global scope is required for the application.</p>
+<h3 id="gvls-prgs">GVLs, PRGs</h3>
+<p>Generally, the global scope should be avoided where possible.
+GVLs, PRGs, and Parameter lists must specify <code>{attribute 'qualified_only'}</code> to ensure access is fully scoped in the code. <a href="https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/9007201784510091.html&amp;id=8098035924341237087">Beckhoff Infosys Doc here</a>.</p>
+<p>GVLs, PRGs should not be accessible from outside the library and should use the <code>INTERNAL</code> access modifier.</p>
+<h2 id="member-variables">Member Variables</h2>
+<p>Class (FB) member variables should begin with underscore <code>_</code>, followed by the variable name.</p>
+<pre><code class="lang-iecst">VAR
+    _trigger : BOOL;
+    _counter : INT;
+    _analogStatus : AnalogStatus;
+END_VAR
+</code></pre>
+<h3 id="constants">Constants</h3>
+<p>Use constants instead of magic numbers. Constants should be all caps.</p>
+<p>Where magic numbers are required for low-level domain-specific operations, these should be managed in the highest level block that makes sense without breaking an abstraction layer. I.e. Do not add <code>SiemensTempSensorModBusStatusWordRegister : WORD:= 3;</code> to a GVL of constants. Add this to the appropriate class that handles that device.</p>
+<h2 id="arrays">Arrays</h2>
+<p>Arrays should be 0 based index due to consistency when used on HMI platforms (based on JavaScript, TypeScript, C#).</p>
+<pre><code class="lang-PASCAL">VAR
+    myArray     : ARRAY[0..9] OF BOOL; // Prefered
+    myArray1    : ARRAY[1..10] OF BOOL; // AVOID
+END_VAR
+</code></pre>
+<h2 id="namespaces">Namespaces</h2>
+<p>Variables defined in referenced libraries must be declared using a fully qualified name with the namespace.</p>
+<pre><code class="lang-Pascal">VAR
+    _mixer : fbMixer; // AVOID!
+    _mixer : Mixers.fbMixer; // Like this
+END_VAR
+</code></pre>
+<h2 id="methods">Methods</h2>
+<p>Methods names should clearly state the intent. Method name should not have any prefix. The methods should be used to perform some action (Movement, Measurement, Trigger etc.). For obtaining or setting values, prefer properties.</p>
+<pre><code class="lang-Pascal">piston.MoveToWork();
+laser.Measure();
+dmcReader.Trigger();
+</code></pre>
+<h2 id="properties">Properties</h2>
+<p>Property names should clearly describe intent. Properties should not start with any prefix.</p>
+<h2 id="function-block-parameter-transfer">Function Block parameter transfer</h2>
+<p>Whenever a parameter transfer is required during the construction of a class, use the <code>FB_init</code> method, the data passed at the object construction should be immutable and must not be changed at runtime.
+For a cyclical update of parameters, use <code>VAR_INPUT/OUTPUT/IN_OUT</code>. Cyclical logic is required to be placed in the body of the function block. The FB's body must be called in an appropriate place to be preferably executed in each cycle of the PLC task.</p>
+<h2 id="static-classes">Static classes</h2>
+<p>For static-like behavior, use <code>PROGRAM</code>.</p>
+<h2 id="component">Component</h2>
+<ul>
+<li>Component must inherit from <code>TcoCore.TcoComponent</code></li>
+<li>Components methods and properties should not be marked FINAL (sealed)</li>
+<li>Component should implement appropriate <code>INTERFACE</code> for a public contract; this is the interface that the consumers of the library will use to interact with the component. It represents the public contract that must not change during the lifetime of the particular major version of the library/framework. See <a href="https://semver.org/">semantic versioning</a>.</li>
+<li>Component members must explicitly state access modifier for methods and properties (<code>PUBLIC</code>, <code>INTERNAL</code>, <code>PROTECTED</code>, or <code>PRIVATE</code>)</li>
+<li>Component should properly hide implementation details by marking methods preferably <code>PROTECTED</code>.</li>
+<li>Consider using the <code>PRIVATE</code> access modifier to prevent any access to that member if you deem it necessary. Be aware, though, that private members cannot be overridden by a derived class.</li>
+<li>If there are any testing methods in the same library with the component, these must be marked <code>INTERNAL</code>.</li>
+<li>Each action of the component should be implemented using the <code>TcoTask</code> class. There is no exception to this rule, even for the actions that require a single cycle to complete. Task's <code>Invoke</code> should be placed into a method with an appropriate name (MoveAbsolute, MoveHome, Measure).</li>
+</ul>
+<h3 id="cyclic-call">Cyclic call</h3>
+<p>Each component implements the logic required to run cyclically in the <em>body</em> of the Function Block. The body of the Function Block must be called from an appropriate place in the PLC program.</p>
+<h3 id="components-methods">Components methods</h3>
+<p>The methods that perform actions <strong>MUST</strong> return <code>TcoCore.ITcoTaskStatus</code> (typically <code>TcoCore.TcoTask</code>). This rule applies even to the logic that requires a single-cycle execution.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/giudelines/Conventions.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>
