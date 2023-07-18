@@ -1,15 +1,6 @@
 ﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
-using AXOpen.Dialogs;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
-using BlazorBootstrap;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
@@ -22,18 +13,14 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         public NavigationManager _navigationManager { get; set; }
 
 
-
         protected ModalDialog ModalDialog;
         private string _dialogId;
         private AxoDialogProxyService _myProxyService;
         protected async override Task OnInitializedAsync()
         {
             _dialogId = Component.DialogId;
-            AxoDialogProxyService proxy;
-            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out proxy);
+            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out AxoDialogProxyService proxy);
             _myProxyService = proxy;
-
-            
         }
         private async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
         {
@@ -57,13 +44,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 if (_myProxyService.DialogInstance != null)
                 {
-                    await ModalDialog.Open();
+                   await ModalDialog.Open();
                 }
                 _dialogContainer.DialogClient.MessageReceivedDialogClose += OnCloseDialogMessage;
                 _dialogContainer.DialogClient.MessageReceivedDialogOpen += OnOpenDialogMessage;
-               
             }
-
         }
 
         public virtual async Task CloseDialogsWithSignalR()
@@ -74,7 +59,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         private async Task Close()
         {
             await ModalDialog.Close();
-
             _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out var proxy);
             proxy.DialogInstance = null;
             _myProxyService = proxy;

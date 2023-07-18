@@ -19,3 +19,19 @@
     </div>
 </div>
 
+
+
+<button class="btn btn-primary" @onclick=SetInputs>Set inputs</button>
+
+
+@functions
+{
+    private void SetInputs()
+    {
+        var inputs = Entry.Plc.Inputs.B0;
+        foreach (var input in inputs)
+        {
+            input.Cyclic = true;
+        }
+    }
+}

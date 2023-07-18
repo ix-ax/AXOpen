@@ -9,6 +9,11 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
 
         protected override void OnInitialized()
         {
+
+            if(_dialogServiceParameter != null && !UseScopedAlerts) 
+            {
+                _dialogService = _dialogServiceParameter;
+            }
             _dialogService!.AlertDialogChanged += AlertDialogChanged;
         }
 
@@ -17,6 +22,5 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
             _dialogService!.AlertDialogChanged -= AlertDialogChanged;
         }
 
-        //private void ClearToast(AlertDialog toast) => _dialogService!.RemoveAlertDialog(toast);
     }
 }

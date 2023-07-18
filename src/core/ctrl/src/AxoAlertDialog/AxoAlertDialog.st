@@ -1,6 +1,6 @@
 NAMESPACE AXOpen.Core
     
-    CLASS PUBLIC AxoAlertDialog EXTENDS AxoDialogBase IMPLEMENTS IAxoAlertDialogFormat
+    CLASS PUBLIC AxoAlertDialog EXTENDS AxoRemoteTask IMPLEMENTS IAxoAlertDialogFormat
 
         VAR PUBLIC      
             _dialogType : eDialogType;
@@ -27,9 +27,9 @@ NAMESPACE AXOpen.Core
 
             Show := THIS;
 
-            IF (THIS.Status = eAxoTaskState#Done) THEN
-                THIS.Restore();      
-            END_IF;
+            // IF (THIS.Status = eAxoTaskState#Done) THEN
+            //     THIS.Restore();      
+            // END_IF;
         END_METHOD
     
 

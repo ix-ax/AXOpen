@@ -1,4 +1,5 @@
-﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+﻿using AXOpen.Base.Abstractions.Dialogs;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXSharp.Connector;
 using System;
 using System.Collections.Generic;

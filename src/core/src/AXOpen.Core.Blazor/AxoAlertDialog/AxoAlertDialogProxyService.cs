@@ -1,25 +1,24 @@
 ﻿using AXOpen.Base.Abstractions.Dialogs;
-using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AXOpen.Base.Dialogs;
+using AXOpen.Core.Blazor.AxoDialogs;
 using AXOpen.Dialogs;
 using AXSharp.Connector;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AXOpen.Core.Blazor.AxoDialogs
+namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
-    public class AxoDialogProxyService : AxoDialogProxyServiceBase
+    public class AxoAlertDialogProxyService : AxoDialogProxyServiceBase
     {
-        public AxoDialogProxyService()
+        public AxoAlertDialogProxyService()
         {
-             
+            DialogService = new AxoAlertDialogService();
         }
 
-        public AxoDialogProxyService(string id, IEnumerable<ITwinObject> observedObjects)
-        {
-            DialogServiceId = id;
-            SetObservedObjects(observedObjects);
-        }
-
-        public string DialogServiceId { get; set; }
-
+        public IAlertDialogService DialogService { get; set; }
         public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
         {
             if (observedObjects == null || observedObjects.Count() == 0) return;
@@ -30,23 +29,21 @@ namespace AXOpen.Core.Blazor.AxoDialogs
                 {
                     //create observer for this object
                     ObservedObjects.Add(item.Symbol);
-                    UpdateDialogs<IsModalDialogType>(item);
+                    UpdateDialogs<IsAlertDialogType>(item);
                 }
             }
-          
+
         }
-        public event EventHandler<AxoDialogEventArgs> DialogInvoked;
+        public event EventHandler<AxoDialogEventArgs> AlertDialogInvoked;
 
         protected async void Queue(IsDialogType dialog)
         {
             DialogInstance = dialog;
-            DialogInstance.DialogId = DialogServiceId;
-            Console.WriteLine($"Queue! {dialog.GetType()}");
             await DialogInstance.ReadAsync();
-            DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
+            AlertDialogInvoked?.Invoke(this, new AxoDialogEventArgs(string.Empty));
         }
 
-        public List<string> ObservedObjects{ get; set; } = new List<string>();
+        public List<string> ObservedObjects { get; set; } = new List<string>();
         void UpdateDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
         {
             var descendants = GetDescendants<T>(observedObject);
@@ -54,11 +51,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 dialog.Initialize(() => Queue(dialog));
             }
-            
+
         }
-
-        
-
-  
     }
 }

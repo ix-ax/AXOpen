@@ -1,12 +1,4 @@
 ﻿using AXOpen.Core.Blazor.AxoDialogs;
-using AXOpen.Dialogs;
-using AXSharp.Presentation.Blazor.Controls.RenderableContent;
-using Pocos.AXOpen.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AXOpen.Core
 {
