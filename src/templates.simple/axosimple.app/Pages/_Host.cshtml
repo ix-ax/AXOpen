@@ -11,10 +11,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="~/" />
-    
+
     @*Custom Bootstrap*@
     @switch (Request.Cookies["theme"])
     {
+        case "bootstrap":
+            <link rel="stylesheet" href="~/css/custom/bootstrap_default_custom.css" />
+            break;
         case "mts":
             <link rel="stylesheet" href="~/css/custom/mts.css" />
             break;
@@ -25,7 +28,7 @@
             <link rel="stylesheet" href="~/css/custom/jupiter.css" />
             break;
         default:
-            <link rel="stylesheet" href="~/css/bootstrap/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/custom/bootstrap_default_custom.css" />
             break;
     }
 
