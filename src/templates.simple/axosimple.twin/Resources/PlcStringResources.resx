@@ -80,10 +80,10 @@
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>
-    <comment>src\Examples\PneumaticManipulator.st,353</comment>
+    <comment>src\Examples\PneumaticManipulator.st,339</comment>
   </data>
   <data name="SERVICE" xml:space="preserve">
     <value>SERVICE</value>
-    <comment>src\Examples\PneumaticManipulator.st,407</comment>
+    <comment>src\Examples\PneumaticManipulator.st,393</comment>
   </data>
 </root>

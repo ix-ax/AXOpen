@@ -7,7 +7,13 @@
 #Context.PneumaticManipulator.ProcessData.Data.CreateTask.IsInitialized
 #Context.PneumaticManipulator.ProcessData.Shared.CreateTask.IsInitialized
 
-Context.PneumaticManipulator.AutomatSequence._eDialogAnswer
+
+
 #Context.PneumaticManipulator.AutomatSequence._dialog
-Context.PneumaticManipulator.AutomatSequence._dialog1
+Context.PneumaticManipulator.AutomatSequence._dialog1._closeSignal
+Context.PneumaticManipulator.AutomatSequence._dialog1._answer
+Context.PneumaticManipulator.AutomatSequence._externalClose
+Context.PneumaticManipulator.AutomatSequence._dialog1._edgeDetected
+#Context.PneumaticManipulator.AutomatSequence._dialog1
+
 #Context.PneumaticManipulator.AutomatSequence._dialog2

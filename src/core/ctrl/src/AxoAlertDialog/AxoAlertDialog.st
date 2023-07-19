@@ -16,20 +16,20 @@ NAMESPACE AXOpen.Core
 
             THIS.Initialize(_parent);
 
+            IF (THIS.Status = eAxoTaskState#Ready) THEN
+                _dialogType := eDialogType#Undefined;
+            END_IF;
             
             THIS.Invoke();
             SUPER.Execute();
 
-            _dialogType := eDialogType#Undefined;
+         
             _title := '';
             _message := '';
             _timeToBurn := UINT#5;
 
             Show := THIS;
 
-            // IF (THIS.Status = eAxoTaskState#Done) THEN
-            //     THIS.Restore();      
-            // END_IF;
         END_METHOD
     
 
@@ -64,6 +64,11 @@ NAMESPACE AXOpen.Core
         END_VAR
         _dialogType := inDialogType;
         WithType := THIS;
+    END_METHOD
+
+    METHOD PUBLIC IsShown : BOOL
+
+        IsShown := THIS.IsDone();
     END_METHOD
 
 

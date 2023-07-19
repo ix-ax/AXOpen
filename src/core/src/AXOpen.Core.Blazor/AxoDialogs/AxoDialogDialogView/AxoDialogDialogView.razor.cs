@@ -13,7 +13,25 @@ namespace AXOpen.Core
         
 
         private bool IsYesNoCancelDialogType() => Component._hasYes.Cyclic && Component._hasNo.Cyclic && Component._hasCancel.Cyclic;
-        
+
+
+        protected override void OnInitialized()
+        {
+            Console.WriteLine("INITIALIZED!");
+            Console.WriteLine($"CLOSE SIGNAL VALUE: {Component._closeSignal.Cyclic}");
+            Component._closeSignal.PropertyChanged += OnCloseSignal;
+            base.OnInitialized();
+
+        }
+
+        private async void OnCloseSignal(object sender, EventArgs e) 
+        {
+            Console.WriteLine("CLOSE!");
+            if(Component._closeSignal.LastValue == true && Component._answer.LastValue != (short)eDialogAnswer.NoAnswer)
+            {
+                await CloseDialogsWithSignalR();
+            }
+        }
 
         public async Task DialogAnswerOk()  
         {

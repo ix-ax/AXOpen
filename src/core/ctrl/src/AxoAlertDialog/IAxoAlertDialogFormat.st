@@ -24,6 +24,8 @@ NAMESPACE AXOpen.Core
             END_VAR
         END_METHOD
 
+        METHOD IsShown : BOOL
+        END_METHOD
         
     END_INTERFACE
 END_NAMESPACE

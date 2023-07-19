@@ -16,12 +16,12 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         protected ModalDialog ModalDialog;
         private string _dialogId;
         private AxoDialogProxyService _myProxyService;
-        protected async override Task OnInitializedAsync()
-        {
-            _dialogId = Component.DialogId;
-            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out AxoDialogProxyService proxy);
-            _myProxyService = proxy;
-        }
+        //protected async override Task OnInitializedAsync()
+        //{
+        //    _dialogId = Component.DialogId;
+        //    _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out AxoDialogProxyService proxy);
+        //    _myProxyService = proxy;
+        //}
         private async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
         {
             if (_dialogId == e.Message.ToString())
@@ -40,6 +40,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
+            _dialogId = Component.DialogId;
+            _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out AxoDialogProxyService proxy);
+            _myProxyService = proxy;
             if (firstRender)
             {
                 if (_myProxyService.DialogInstance != null)

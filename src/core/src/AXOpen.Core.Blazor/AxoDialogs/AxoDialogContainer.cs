@@ -23,8 +23,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             if (DialogClient == null)
             {
                 DialogClient = new DialogClient(uri);
-                await DialogClient.StartAsync();
+                
             }
+            await DialogClient.StartAsync();
         }
         public List<string> ObservedObjects { get; set; } = new List<string>();
 

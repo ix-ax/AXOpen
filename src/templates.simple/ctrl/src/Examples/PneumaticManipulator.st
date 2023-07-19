@@ -147,7 +147,7 @@ NAMESPACE examples.PneumaticManipulator
             _dialog1 : AXOpen.Core.AxoDialog;
             _dialog2 : AXOpen.Core.AxoDialog;
             _alertDialog : AXOpen.Core.AxoAlertDialog;
-
+            _externalClose : BOOL;
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
@@ -200,87 +200,70 @@ NAMESPACE examples.PneumaticManipulator
                 ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
                 THIS.MoveNext(); 
 
-               
-
             END_IF;    
 
-//             IF (Steps[10].Execute(THIS, TRUE, 'Save data.')) THEN
-//                 //-------------------------------------------------------            
-//                 IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
-//                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
-//                 END_IF;
-// //-------------------------------------------------------
-//             END_IF;
+            IF (Steps[10].Execute(THIS, TRUE, 'Save data.')) THEN
+                //-------------------------------------------------------            
+                IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
+                    THIS.MoveNext(); // <- This will move to the next step in the sequence.
+                END_IF;
+                //-------------------------------------------------------
+            END_IF;
 
 
-            // IF (Steps[10].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
-            //     //-------------------------------------------------------        
-                
-            //     IF(Steps[10].Duration > T#2000ms) THEN
+            IF (Steps[11].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+                //-------------------------------------------------------        
+                _externalClose := FALSE;
 
-            //        _alertDialog.Show(THIS)
-            //             .WithTitle('Plc alert')
-            //             .WithType(eDialogType#Success)
-            //             .WithMessage('This is alert invoked from plc!')
-            //             .WithTimeToBurn(UINT#10);
-
-            //         if(_alertDialog.IsDone()) THEN
-                    
-            //                 THIS.MoveNext(); 
-            //         END_IF;	
-            //     END_IF;	
-            // //-------------------------------------------------------
-            // END_IF;
+                   IF(_alertDialog.Show(THIS)
+                        .WithTitle('Plc alert')
+                        .WithType(eDialogType#Success)
+                        .WithMessage('This is alert invoked from plc!')
+                        .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+                        THIS.MoveNext(); 
+                    END_IF;	
 
 
-            IF (Steps[11].Execute(THIS, TRUE, 'Dummy')) THEN
-                //_dialog.Restore();
+            //-------------------------------------------------------
+            END_IF;
+
+
+            IF (Steps[12].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[11].Duration > T#1000ms) THEN
+                IF(Steps[12].Duration > T#1000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
             END_IF;
 
-            IF (Steps[12].Execute(THIS, TRUE, 'Show dialog')) THEN
+            IF (Steps[13].Execute(THIS, TRUE, 'Show dialog')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[12].Duration > T#1000ms) THEN
             
-
                     IF(_dialog.Show(THIS)
                         .WithOk()
                         .WithType(eDialogType#Success)
                         .WithCaption('What`s next?')
                         .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
+
                         
-                    
                         THIS.MoveNext(); 
-                        //_dialog.Restore();
-                    END_IF;	
 
-                    
                 END_IF;	
             END_IF;
 
 
-            IF (Steps[13].Execute(THIS, TRUE, 'Dummy')) THEN
-                //_dialog.Restore();
-                //------------------------------------------------------- 
-                IF(Steps[13].Duration > T#1000ms) THEN
-            
-
-                    
-                        THIS.MoveNext(); 
-                END_IF;	
-            END_IF;
-
-
-
-            IF (Steps[14].Execute(THIS, TRUE, 'Show dialog')) THEN
-                //_dialog.Restore();
+            IF (Steps[14].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
                 IF(Steps[14].Duration > T#1000ms) THEN
-            
+                    
+                        THIS.MoveNext(); 
+                END_IF;	
+            END_IF;
+
+
+
+            IF (Steps[15].Execute(THIS, TRUE, 'Show dialog')) THEN
+                //------------------------------------------------------- 
                         IF(_dialog1.Show(THIS)
                             .WithYesNoCancel()
                             .WithType(eDialogType#Warning)
@@ -291,25 +274,19 @@ NAMESPACE examples.PneumaticManipulator
                             THIS.MoveNext(); 
 
                         END_IF;	
-    
-                END_IF;	
                     
             END_IF;
 
-            IF (Steps[15].Execute(THIS, TRUE, 'Dummy')) THEN
-                //_dialog.Restore();
+            IF (Steps[16].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[15].Duration > T#1000ms) THEN
+                IF(Steps[16].Duration > T#1000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
             END_IF;
 
-            IF (Steps[16].Execute(THIS, TRUE, 'Show dialog')) THEN
-                //_dialog.Restore();
+            IF (Steps[17].Execute(THIS, TRUE, 'Show dialog')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[16].Duration > T#1000ms) THEN
-            
 
                     IF(_dialog2.Show(THIS)
                         .WithYesNo()
@@ -319,28 +296,37 @@ NAMESPACE examples.PneumaticManipulator
                         
                     
                         THIS.MoveNext(); 
-                        //_dialog2.Restore();
                     END_IF;	
 
-         
-                END_IF;	
             END_IF;
 
           
 
-
-
-            IF(Steps[17].Execute(THIS, TRUE, 'Dummy')) THEN
+            IF(Steps[18].Execute(THIS, TRUE, 'External close of dialog')) THEN
                 
-                THIS.MoveNext();
+                IF(_dialog1.ShowWithExternalClose(THIS,FALSE,FALSE,_externalClose,FALSE)
+                    .WithYesNoCancel()
+                    .WithType(eDialogType#Warning)
+                    .WithCaption('YesNoCancel dialog')
+                    .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
+                    
+                    THIS.MoveNext(); 
+
+
+                END_IF;	
+
+                IF(Steps[18].Duration > T#3000ms) THEN
+                    
+                    _externalClose := TRUE;
+                    THIS.MoveNext(); 
+                   
+
+            END_IF;	
+
+
+
             END_IF;   	
             
-            // IF (Steps[20].Execute(THIS, TRUE, 'Show alert dialog')) THEN
-            //     IF(_alertDialog.Show(THIS, eDialogType#Success, 'Sample title', 'Sample message', 30).IsDone()) THEN
-            //         THIS.MoveNext(); 
-            //     END_IF;		
-            // END_IF;
-                    
 //-------------------------------------------------------
             
             // This will close the sequence and will return to the first step.
