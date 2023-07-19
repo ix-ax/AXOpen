@@ -33,4 +33,7 @@ public class BuildParameters
 
     [Option('r', "do-publish-release", Required = false, Default = false, HelpText = "Publishes release on GH")]
     public bool DoPublishRelease { get; set; }
+
+    [Option('u', "do-apax-update", Required = false, Default = false, HelpText = "Publishes release on GH")]
+    public bool DoApaxUpdate { get; set; }
 }

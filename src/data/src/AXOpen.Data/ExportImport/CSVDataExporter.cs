@@ -139,6 +139,12 @@ namespace AXOpen.Data
                 if (!string.IsNullOrEmpty(item.Key))
                 {
                     var tag = valueTags.FirstOrDefault(p => p.Symbol == item.Key);
+
+                    if (tag == null)
+                    {
+                        continue; // not exist!
+                    }
+
                     OnlinerBase type = tag as OnlinerBase;
 
                     if (type is OnlinerString || type is OnlinerWString)

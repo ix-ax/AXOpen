@@ -6812,6 +6812,198 @@ references:
   fullName.vb: AXOpen.Data.AxoDataEntityAttributeNotFoundException.New
   nameWithType: AxoDataEntityAttributeNotFoundException.AxoDataEntityAttributeNotFoundException
   nameWithType.vb: AxoDataEntityAttributeNotFoundException.New
+- uid: AXOpen.Data.AxoDataEntityExistTask
+  name: AxoDataEntityExistTask
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html
+  commentId: T:AXOpen.Data.AxoDataEntityExistTask
+  fullName: AXOpen.Data.AxoDataEntityExistTask
+  nameWithType: AxoDataEntityExistTask
+- uid: AXOpen.Data.AxoDataEntityExistTask._exist
+  name: _exist
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask__exist
+  commentId: P:AXOpen.Data.AxoDataEntityExistTask._exist
+  fullName: AXOpen.Data.AxoDataEntityExistTask._exist
+  nameWithType: AxoDataEntityExistTask._exist
+- uid: AXOpen.Data.AxoDataEntityExistTask._exist*
+  name: _exist
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask__exist_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask._exist
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask._exist
+  nameWithType: AxoDataEntityExistTask._exist
+- uid: AXOpen.Data.AxoDataEntityExistTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)
+  name: AxoDataEntityExistTask(ITwinObject, string, string)
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)
+  name.vb: New(ITwinObject, String, String)
+  fullName: AXOpen.Data.AxoDataEntityExistTask.AxoDataEntityExistTask(AXSharp.Connector.ITwinObject, string, string)
+  fullName.vb: AXOpen.Data.AxoDataEntityExistTask.New(AXSharp.Connector.ITwinObject, String, String)
+  nameWithType: AxoDataEntityExistTask.AxoDataEntityExistTask(ITwinObject, string, string)
+  nameWithType.vb: AxoDataEntityExistTask.New(ITwinObject, String, String)
+- uid: AXOpen.Data.AxoDataEntityExistTask.#ctor*
+  name: AxoDataEntityExistTask
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask__ctor_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXOpen.Data.AxoDataEntityExistTask.AxoDataEntityExistTask
+  fullName.vb: AXOpen.Data.AxoDataEntityExistTask.New
+  nameWithType: AxoDataEntityExistTask.AxoDataEntityExistTask
+  nameWithType.vb: AxoDataEntityExistTask.New
+- uid: AXOpen.Data.AxoDataEntityExistTask.CreateEmptyPoco
+  name: CreateEmptyPoco()
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_CreateEmptyPoco
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.CreateEmptyPoco
+  fullName: AXOpen.Data.AxoDataEntityExistTask.CreateEmptyPoco()
+  nameWithType: AxoDataEntityExistTask.CreateEmptyPoco()
+- uid: AXOpen.Data.AxoDataEntityExistTask.CreateEmptyPoco*
+  name: CreateEmptyPoco
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_CreateEmptyPoco_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.CreateEmptyPoco
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.CreateEmptyPoco
+  nameWithType: AxoDataEntityExistTask.CreateEmptyPoco
+- uid: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlain*
+  name: OnlineToPlain
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_OnlineToPlain_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.OnlineToPlain
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlain
+  nameWithType: AxoDataEntityExistTask.OnlineToPlain
+- uid: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlain``1
+  name: OnlineToPlain<T>()
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_OnlineToPlain__1
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.OnlineToPlain``1
+  name.vb: OnlineToPlain(Of T)()
+  fullName: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlain<T>()
+  fullName.vb: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlain(Of T)()
+  nameWithType: AxoDataEntityExistTask.OnlineToPlain<T>()
+  nameWithType.vb: AxoDataEntityExistTask.OnlineToPlain(Of T)()
+- uid: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlainAsync
+  name: OnlineToPlainAsync()
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_OnlineToPlainAsync
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.OnlineToPlainAsync
+  fullName: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlainAsync()
+  nameWithType: AxoDataEntityExistTask.OnlineToPlainAsync()
+- uid: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlainAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  name: OnlineToPlainAsync(AxoDataEntityExistTask)
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_OnlineToPlainAsync_Pocos_AXOpen_Data_AxoDataEntityExistTask_
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.OnlineToPlainAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  fullName: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlainAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  nameWithType: AxoDataEntityExistTask.OnlineToPlainAsync(AxoDataEntityExistTask)
+- uid: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlainAsync*
+  name: OnlineToPlainAsync
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_OnlineToPlainAsync_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.OnlineToPlainAsync
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.OnlineToPlainAsync
+  nameWithType: AxoDataEntityExistTask.OnlineToPlainAsync
+- uid: AXOpen.Data.AxoDataEntityExistTask.PlainToOnline*
+  name: PlainToOnline
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_PlainToOnline_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.PlainToOnline
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.PlainToOnline
+  nameWithType: AxoDataEntityExistTask.PlainToOnline
+- uid: AXOpen.Data.AxoDataEntityExistTask.PlainToOnline``1(``0)
+  name: PlainToOnline<T>(T)
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_PlainToOnline__1___0_
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.PlainToOnline``1(``0)
+  name.vb: PlainToOnline(Of T)(T)
+  fullName: AXOpen.Data.AxoDataEntityExistTask.PlainToOnline<T>(T)
+  fullName.vb: AXOpen.Data.AxoDataEntityExistTask.PlainToOnline(Of T)(T)
+  nameWithType: AxoDataEntityExistTask.PlainToOnline<T>(T)
+  nameWithType.vb: AxoDataEntityExistTask.PlainToOnline(Of T)(T)
+- uid: AXOpen.Data.AxoDataEntityExistTask.PlainToOnlineAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  name: PlainToOnlineAsync(AxoDataEntityExistTask)
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_PlainToOnlineAsync_Pocos_AXOpen_Data_AxoDataEntityExistTask_
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.PlainToOnlineAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  fullName: AXOpen.Data.AxoDataEntityExistTask.PlainToOnlineAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  nameWithType: AxoDataEntityExistTask.PlainToOnlineAsync(AxoDataEntityExistTask)
+- uid: AXOpen.Data.AxoDataEntityExistTask.PlainToOnlineAsync*
+  name: PlainToOnlineAsync
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_PlainToOnlineAsync_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.PlainToOnlineAsync
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.PlainToOnlineAsync
+  nameWithType: AxoDataEntityExistTask.PlainToOnlineAsync
+- uid: AXOpen.Data.AxoDataEntityExistTask.PlainToShadow*
+  name: PlainToShadow
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_PlainToShadow_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.PlainToShadow
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.PlainToShadow
+  nameWithType: AxoDataEntityExistTask.PlainToShadow
+- uid: AXOpen.Data.AxoDataEntityExistTask.PlainToShadow``1(``0)
+  name: PlainToShadow<T>(T)
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_PlainToShadow__1___0_
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.PlainToShadow``1(``0)
+  name.vb: PlainToShadow(Of T)(T)
+  fullName: AXOpen.Data.AxoDataEntityExistTask.PlainToShadow<T>(T)
+  fullName.vb: AXOpen.Data.AxoDataEntityExistTask.PlainToShadow(Of T)(T)
+  nameWithType: AxoDataEntityExistTask.PlainToShadow<T>(T)
+  nameWithType.vb: AxoDataEntityExistTask.PlainToShadow(Of T)(T)
+- uid: AXOpen.Data.AxoDataEntityExistTask.PlainToShadowAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  name: PlainToShadowAsync(AxoDataEntityExistTask)
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_PlainToShadowAsync_Pocos_AXOpen_Data_AxoDataEntityExistTask_
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.PlainToShadowAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  fullName: AXOpen.Data.AxoDataEntityExistTask.PlainToShadowAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  nameWithType: AxoDataEntityExistTask.PlainToShadowAsync(AxoDataEntityExistTask)
+- uid: AXOpen.Data.AxoDataEntityExistTask.PlainToShadowAsync*
+  name: PlainToShadowAsync
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_PlainToShadowAsync_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.PlainToShadowAsync
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.PlainToShadowAsync
+  nameWithType: AxoDataEntityExistTask.PlainToShadowAsync
+- uid: AXOpen.Data.AxoDataEntityExistTask.Poll
+  name: Poll()
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_Poll
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.Poll
+  fullName: AXOpen.Data.AxoDataEntityExistTask.Poll()
+  nameWithType: AxoDataEntityExistTask.Poll()
+- uid: AXOpen.Data.AxoDataEntityExistTask.Poll*
+  name: Poll
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_Poll_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.Poll
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.Poll
+  nameWithType: AxoDataEntityExistTask.Poll
+- uid: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlain*
+  name: ShadowToPlain
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_ShadowToPlain_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.ShadowToPlain
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlain
+  nameWithType: AxoDataEntityExistTask.ShadowToPlain
+- uid: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlain``1
+  name: ShadowToPlain<T>()
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_ShadowToPlain__1
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.ShadowToPlain``1
+  name.vb: ShadowToPlain(Of T)()
+  fullName: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlain<T>()
+  fullName.vb: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlain(Of T)()
+  nameWithType: AxoDataEntityExistTask.ShadowToPlain<T>()
+  nameWithType.vb: AxoDataEntityExistTask.ShadowToPlain(Of T)()
+- uid: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlainAsync
+  name: ShadowToPlainAsync()
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_ShadowToPlainAsync
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.ShadowToPlainAsync
+  fullName: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlainAsync()
+  nameWithType: AxoDataEntityExistTask.ShadowToPlainAsync()
+- uid: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlainAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  name: ShadowToPlainAsync(AxoDataEntityExistTask)
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_ShadowToPlainAsync_Pocos_AXOpen_Data_AxoDataEntityExistTask_
+  commentId: M:AXOpen.Data.AxoDataEntityExistTask.ShadowToPlainAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  fullName: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlainAsync(Pocos.AXOpen.Data.AxoDataEntityExistTask)
+  nameWithType: AxoDataEntityExistTask.ShadowToPlainAsync(AxoDataEntityExistTask)
+- uid: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlainAsync*
+  name: ShadowToPlainAsync
+  href: api/AXOpen.Data.AxoDataEntityExistTask.html#AXOpen_Data_AxoDataEntityExistTask_ShadowToPlainAsync_
+  commentId: Overload:AXOpen.Data.AxoDataEntityExistTask.ShadowToPlainAsync
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataEntityExistTask.ShadowToPlainAsync
+  nameWithType: AxoDataEntityExistTask.ShadowToPlainAsync
 - uid: AXOpen.Data.AxoDataExchange`2
   name: AxoDataExchange<TOnline, TPlain>
   href: api/AXOpen.Data.AxoDataExchange-2.html
@@ -6929,6 +7121,59 @@ references:
   fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).CreateNewAsync
   nameWithType: AxoDataExchange<TOnline, TPlain>.CreateNewAsync
   nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).CreateNewAsync
+- uid: AXOpen.Data.AxoDataExchange`2.CreateOrUpdate(System.String)
+  name: CreateOrUpdate(string)
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_CreateOrUpdate_System_String_
+  commentId: M:AXOpen.Data.AxoDataExchange`2.CreateOrUpdate(System.String)
+  name.vb: CreateOrUpdate(String)
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.CreateOrUpdate(string)
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).CreateOrUpdate(String)
+  nameWithType: AxoDataExchange<TOnline, TPlain>.CreateOrUpdate(string)
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).CreateOrUpdate(String)
+- uid: AXOpen.Data.AxoDataExchange`2.CreateOrUpdate*
+  name: CreateOrUpdate
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_CreateOrUpdate_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.CreateOrUpdate
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.CreateOrUpdate
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).CreateOrUpdate
+  nameWithType: AxoDataExchange<TOnline, TPlain>.CreateOrUpdate
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).CreateOrUpdate
+- uid: AXOpen.Data.AxoDataExchange`2.CreateOrUpdateAsync(System.String,`1)
+  name: CreateOrUpdateAsync(string, TPlain)
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_CreateOrUpdateAsync_System_String__1_
+  commentId: M:AXOpen.Data.AxoDataExchange`2.CreateOrUpdateAsync(System.String,`1)
+  name.vb: CreateOrUpdateAsync(String, TPlain)
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.CreateOrUpdateAsync(string, TPlain)
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).CreateOrUpdateAsync(String, TPlain)
+  nameWithType: AxoDataExchange<TOnline, TPlain>.CreateOrUpdateAsync(string, TPlain)
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).CreateOrUpdateAsync(String, TPlain)
+- uid: AXOpen.Data.AxoDataExchange`2.CreateOrUpdateAsync*
+  name: CreateOrUpdateAsync
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_CreateOrUpdateAsync_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.CreateOrUpdateAsync
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.CreateOrUpdateAsync
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).CreateOrUpdateAsync
+  nameWithType: AxoDataExchange<TOnline, TPlain>.CreateOrUpdateAsync
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).CreateOrUpdateAsync
+- uid: AXOpen.Data.AxoDataExchange`2.CreateOrUpdateTask
+  name: CreateOrUpdateTask
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_CreateOrUpdateTask
+  commentId: P:AXOpen.Data.AxoDataExchange`2.CreateOrUpdateTask
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.CreateOrUpdateTask
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).CreateOrUpdateTask
+  nameWithType: AxoDataExchange<TOnline, TPlain>.CreateOrUpdateTask
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).CreateOrUpdateTask
+- uid: AXOpen.Data.AxoDataExchange`2.CreateOrUpdateTask*
+  name: CreateOrUpdateTask
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_CreateOrUpdateTask_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.CreateOrUpdateTask
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.CreateOrUpdateTask
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).CreateOrUpdateTask
+  nameWithType: AxoDataExchange<TOnline, TPlain>.CreateOrUpdateTask
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).CreateOrUpdateTask
 - uid: AXOpen.Data.AxoDataExchange`2.CreateTask
   name: CreateTask
   href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_CreateTask
@@ -7050,6 +7295,77 @@ references:
   fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).DeleteTask
   nameWithType: AxoDataExchange<TOnline, TPlain>.DeleteTask
   nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).DeleteTask
+- uid: AXOpen.Data.AxoDataExchange`2.EntityExistAsync(System.String)
+  name: EntityExistAsync(string)
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_EntityExistAsync_System_String_
+  commentId: M:AXOpen.Data.AxoDataExchange`2.EntityExistAsync(System.String)
+  name.vb: EntityExistAsync(String)
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.EntityExistAsync(string)
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).EntityExistAsync(String)
+  nameWithType: AxoDataExchange<TOnline, TPlain>.EntityExistAsync(string)
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).EntityExistAsync(String)
+- uid: AXOpen.Data.AxoDataExchange`2.EntityExistAsync*
+  name: EntityExistAsync
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_EntityExistAsync_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.EntityExistAsync
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.EntityExistAsync
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).EntityExistAsync
+  nameWithType: AxoDataExchange<TOnline, TPlain>.EntityExistAsync
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).EntityExistAsync
+- uid: AXOpen.Data.AxoDataExchange`2.EntityExistTask
+  name: EntityExistTask
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_EntityExistTask
+  commentId: P:AXOpen.Data.AxoDataExchange`2.EntityExistTask
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.EntityExistTask
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).EntityExistTask
+  nameWithType: AxoDataExchange<TOnline, TPlain>.EntityExistTask
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).EntityExistTask
+- uid: AXOpen.Data.AxoDataExchange`2.EntityExistTask*
+  name: EntityExistTask
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_EntityExistTask_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.EntityExistTask
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.EntityExistTask
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).EntityExistTask
+  nameWithType: AxoDataExchange<TOnline, TPlain>.EntityExistTask
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).EntityExistTask
+- uid: AXOpen.Data.AxoDataExchange`2.ExistsAsync(System.String)
+  name: ExistsAsync(string)
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_ExistsAsync_System_String_
+  commentId: M:AXOpen.Data.AxoDataExchange`2.ExistsAsync(System.String)
+  name.vb: ExistsAsync(String)
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.ExistsAsync(string)
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).ExistsAsync(String)
+  nameWithType: AxoDataExchange<TOnline, TPlain>.ExistsAsync(string)
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).ExistsAsync(String)
+- uid: AXOpen.Data.AxoDataExchange`2.ExistsAsync*
+  name: ExistsAsync
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_ExistsAsync_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.ExistsAsync
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.ExistsAsync
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).ExistsAsync
+  nameWithType: AxoDataExchange<TOnline, TPlain>.ExistsAsync
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).ExistsAsync
+- uid: AXOpen.Data.AxoDataExchange`2.ExportData(System.String,System.Char)
+  name: ExportData(string, char)
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_ExportData_System_String_System_Char_
+  commentId: M:AXOpen.Data.AxoDataExchange`2.ExportData(System.String,System.Char)
+  name.vb: ExportData(String, Char)
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.ExportData(string, char)
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).ExportData(String, Char)
+  nameWithType: AxoDataExchange<TOnline, TPlain>.ExportData(string, char)
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).ExportData(String, Char)
+- uid: AXOpen.Data.AxoDataExchange`2.ExportData*
+  name: ExportData
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_ExportData_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.ExportData
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.ExportData
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).ExportData
+  nameWithType: AxoDataExchange<TOnline, TPlain>.ExportData
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).ExportData
 - uid: AXOpen.Data.AxoDataExchange`2.FromRepositoryToControllerAsync(AXOpen.Base.Data.IBrowsableDataObject)
   name: FromRepositoryToControllerAsync(IBrowsableDataObject)
   href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_FromRepositoryToControllerAsync_AXOpen_Base_Data_IBrowsableDataObject_
@@ -7111,6 +7427,24 @@ references:
   fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).GetRecords
   nameWithType: AxoDataExchange<TOnline, TPlain>.GetRecords
   nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).GetRecords
+- uid: AXOpen.Data.AxoDataExchange`2.ImportData(System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name: ImportData(string, ITwinObject, char)
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_ImportData_System_String_AXSharp_Connector_ITwinObject_System_Char_
+  commentId: M:AXOpen.Data.AxoDataExchange`2.ImportData(System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name.vb: ImportData(String, ITwinObject, Char)
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.ImportData(string, AXSharp.Connector.ITwinObject, char)
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).ImportData(String, AXSharp.Connector.ITwinObject, Char)
+  nameWithType: AxoDataExchange<TOnline, TPlain>.ImportData(string, ITwinObject, char)
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).ImportData(String, ITwinObject, Char)
+- uid: AXOpen.Data.AxoDataExchange`2.ImportData*
+  name: ImportData
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_ImportData_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.ImportData
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.ImportData
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).ImportData
+  nameWithType: AxoDataExchange<TOnline, TPlain>.ImportData
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).ImportData
 - uid: AXOpen.Data.AxoDataExchange`2.InitializeRemoteDataExchange
   name: InitializeRemoteDataExchange()
   href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_InitializeRemoteDataExchange
@@ -7337,6 +7671,24 @@ references:
   fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).RemoteCreate
   nameWithType: AxoDataExchange<TOnline, TPlain>.RemoteCreate
   nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).RemoteCreate
+- uid: AXOpen.Data.AxoDataExchange`2.RemoteCreateOrUpdate(System.String)
+  name: RemoteCreateOrUpdate(string)
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_RemoteCreateOrUpdate_System_String_
+  commentId: M:AXOpen.Data.AxoDataExchange`2.RemoteCreateOrUpdate(System.String)
+  name.vb: RemoteCreateOrUpdate(String)
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.RemoteCreateOrUpdate(string)
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).RemoteCreateOrUpdate(String)
+  nameWithType: AxoDataExchange<TOnline, TPlain>.RemoteCreateOrUpdate(string)
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).RemoteCreateOrUpdate(String)
+- uid: AXOpen.Data.AxoDataExchange`2.RemoteCreateOrUpdate*
+  name: RemoteCreateOrUpdate
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_RemoteCreateOrUpdate_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.RemoteCreateOrUpdate
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.RemoteCreateOrUpdate
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).RemoteCreateOrUpdate
+  nameWithType: AxoDataExchange<TOnline, TPlain>.RemoteCreateOrUpdate
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).RemoteCreateOrUpdate
 - uid: AXOpen.Data.AxoDataExchange`2.RemoteDelete(System.String)
   name: RemoteDelete(string)
   href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_RemoteDelete_System_String_
@@ -7355,6 +7707,24 @@ references:
   fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).RemoteDelete
   nameWithType: AxoDataExchange<TOnline, TPlain>.RemoteDelete
   nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).RemoteDelete
+- uid: AXOpen.Data.AxoDataExchange`2.RemoteEntityExist(System.String)
+  name: RemoteEntityExist(string)
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_RemoteEntityExist_System_String_
+  commentId: M:AXOpen.Data.AxoDataExchange`2.RemoteEntityExist(System.String)
+  name.vb: RemoteEntityExist(String)
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.RemoteEntityExist(string)
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).RemoteEntityExist(String)
+  nameWithType: AxoDataExchange<TOnline, TPlain>.RemoteEntityExist(string)
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).RemoteEntityExist(String)
+- uid: AXOpen.Data.AxoDataExchange`2.RemoteEntityExist*
+  name: RemoteEntityExist
+  href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_RemoteEntityExist_
+  commentId: Overload:AXOpen.Data.AxoDataExchange`2.RemoteEntityExist
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataExchange<TOnline, TPlain>.RemoteEntityExist
+  fullName.vb: AXOpen.Data.AxoDataExchange(Of TOnline, TPlain).RemoteEntityExist
+  nameWithType: AxoDataExchange<TOnline, TPlain>.RemoteEntityExist
+  nameWithType.vb: AxoDataExchange(Of TOnline, TPlain).RemoteEntityExist
 - uid: AXOpen.Data.AxoDataExchange`2.RemoteRead(System.String)
   name: RemoteRead(string)
   href: api/AXOpen.Data.AxoDataExchange-2.html#AXOpen_Data_AxoDataExchange_2_RemoteRead_System_String_
@@ -8044,6 +8414,35 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.AxoDataFragmentExchange.CreateNewAsync
   nameWithType: AxoDataFragmentExchange.CreateNewAsync
+- uid: AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(System.String)
+  name: CreateOrUpdate(string)
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdate_System_String_
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(System.String)
+  name.vb: CreateOrUpdate(String)
+  fullName: AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(string)
+  fullName.vb: AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(String)
+  nameWithType: AxoDataFragmentExchange.CreateOrUpdate(string)
+  nameWithType.vb: AxoDataFragmentExchange.CreateOrUpdate(String)
+- uid: AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate*
+  name: CreateOrUpdate
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdate_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate
+  nameWithType: AxoDataFragmentExchange.CreateOrUpdate
+- uid: AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  name: CreateOrUpdateTask
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdateTask
+  commentId: P:AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  fullName: AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  nameWithType: AxoDataFragmentExchange.CreateOrUpdateTask
+- uid: AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask*
+  name: CreateOrUpdateTask
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdateTask_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  nameWithType: AxoDataFragmentExchange.CreateOrUpdateTask
 - uid: AXOpen.Data.AxoDataFragmentExchange.DataFragments
   name: DataFragments
   href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_DataFragments
@@ -8086,6 +8485,51 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.AxoDataFragmentExchange.Delete
   nameWithType: AxoDataFragmentExchange.Delete
+- uid: AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  name: EntityExistTask
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_EntityExistTask
+  commentId: P:AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  fullName: AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  nameWithType: AxoDataFragmentExchange.EntityExistTask
+- uid: AXOpen.Data.AxoDataFragmentExchange.EntityExistTask*
+  name: EntityExistTask
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_EntityExistTask_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  nameWithType: AxoDataFragmentExchange.EntityExistTask
+- uid: AXOpen.Data.AxoDataFragmentExchange.ExistsAsync(System.String)
+  name: ExistsAsync(string)
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_ExistsAsync_System_String_
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.ExistsAsync(System.String)
+  name.vb: ExistsAsync(String)
+  fullName: AXOpen.Data.AxoDataFragmentExchange.ExistsAsync(string)
+  fullName.vb: AXOpen.Data.AxoDataFragmentExchange.ExistsAsync(String)
+  nameWithType: AxoDataFragmentExchange.ExistsAsync(string)
+  nameWithType.vb: AxoDataFragmentExchange.ExistsAsync(String)
+- uid: AXOpen.Data.AxoDataFragmentExchange.ExistsAsync*
+  name: ExistsAsync
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_ExistsAsync_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.ExistsAsync
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.ExistsAsync
+  nameWithType: AxoDataFragmentExchange.ExistsAsync
+- uid: AXOpen.Data.AxoDataFragmentExchange.ExportData(System.String,System.Char)
+  name: ExportData(string, char)
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_ExportData_System_String_System_Char_
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.ExportData(System.String,System.Char)
+  name.vb: ExportData(String, Char)
+  fullName: AXOpen.Data.AxoDataFragmentExchange.ExportData(string, char)
+  fullName.vb: AXOpen.Data.AxoDataFragmentExchange.ExportData(String, Char)
+  nameWithType: AxoDataFragmentExchange.ExportData(string, char)
+  nameWithType.vb: AxoDataFragmentExchange.ExportData(String, Char)
+- uid: AXOpen.Data.AxoDataFragmentExchange.ExportData*
+  name: ExportData
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_ExportData_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.ExportData
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.ExportData
+  nameWithType: AxoDataFragmentExchange.ExportData
 - uid: AXOpen.Data.AxoDataFragmentExchange.FromRepositoryToControllerAsync(AXOpen.Base.Data.IBrowsableDataObject)
   name: FromRepositoryToControllerAsync(IBrowsableDataObject)
   href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_FromRepositoryToControllerAsync_AXOpen_Base_Data_IBrowsableDataObject_
@@ -8137,6 +8581,22 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.AxoDataFragmentExchange.GetRecords
   nameWithType: AxoDataFragmentExchange.GetRecords
+- uid: AXOpen.Data.AxoDataFragmentExchange.ImportData(System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name: ImportData(string, ITwinObject, char)
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_ImportData_System_String_AXSharp_Connector_ITwinObject_System_Char_
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.ImportData(System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name.vb: ImportData(String, ITwinObject, Char)
+  fullName: AXOpen.Data.AxoDataFragmentExchange.ImportData(string, AXSharp.Connector.ITwinObject, char)
+  fullName.vb: AXOpen.Data.AxoDataFragmentExchange.ImportData(String, AXSharp.Connector.ITwinObject, Char)
+  nameWithType: AxoDataFragmentExchange.ImportData(string, ITwinObject, char)
+  nameWithType.vb: AxoDataFragmentExchange.ImportData(String, ITwinObject, Char)
+- uid: AXOpen.Data.AxoDataFragmentExchange.ImportData*
+  name: ImportData
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_ImportData_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.ImportData
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.ImportData
+  nameWithType: AxoDataFragmentExchange.ImportData
 - uid: AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange
   name: InitializeRemoteDataExchange()
   href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_InitializeRemoteDataExchange
@@ -8298,6 +8758,22 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.AxoDataFragmentExchange.RemoteCreate
   nameWithType: AxoDataFragmentExchange.RemoteCreate
+- uid: AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate(System.String)
+  name: RemoteCreateOrUpdate(string)
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_RemoteCreateOrUpdate_System_String_
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate(System.String)
+  name.vb: RemoteCreateOrUpdate(String)
+  fullName: AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate(string)
+  fullName.vb: AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate(String)
+  nameWithType: AxoDataFragmentExchange.RemoteCreateOrUpdate(string)
+  nameWithType.vb: AxoDataFragmentExchange.RemoteCreateOrUpdate(String)
+- uid: AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate*
+  name: RemoteCreateOrUpdate
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_RemoteCreateOrUpdate_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate
+  nameWithType: AxoDataFragmentExchange.RemoteCreateOrUpdate
 - uid: AXOpen.Data.AxoDataFragmentExchange.RemoteDelete(System.String)
   name: RemoteDelete(string)
   href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_RemoteDelete_System_String_
@@ -8314,6 +8790,22 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.AxoDataFragmentExchange.RemoteDelete
   nameWithType: AxoDataFragmentExchange.RemoteDelete
+- uid: AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist(System.String)
+  name: RemoteEntityExist(string)
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_RemoteEntityExist_System_String_
+  commentId: M:AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist(System.String)
+  name.vb: RemoteEntityExist(String)
+  fullName: AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist(string)
+  fullName.vb: AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist(String)
+  nameWithType: AxoDataFragmentExchange.RemoteEntityExist(string)
+  nameWithType.vb: AxoDataFragmentExchange.RemoteEntityExist(String)
+- uid: AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist*
+  name: RemoteEntityExist
+  href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_RemoteEntityExist_
+  commentId: Overload:AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist
+  isSpec: "True"
+  fullName: AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist
+  nameWithType: AxoDataFragmentExchange.RemoteEntityExist
 - uid: AXOpen.Data.AxoDataFragmentExchange.RemoteRead(System.String)
   name: RemoteRead(string)
   href: api/AXOpen.Data.AxoDataFragmentExchange.html#AXOpen_Data_AxoDataFragmentExchange_RemoteRead_System_String_
@@ -8800,6 +9292,70 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.ColumnData.OnInitialized
   nameWithType: ColumnData.OnInitialized
+- uid: AXOpen.Data.CSVDataExporter`2
+  name: CSVDataExporter<TPlain, TOnline>
+  href: api/AXOpen.Data.CSVDataExporter-2.html
+  commentId: T:AXOpen.Data.CSVDataExporter`2
+  name.vb: CSVDataExporter(Of TPlain, TOnline)
+  fullName: AXOpen.Data.CSVDataExporter<TPlain, TOnline>
+  fullName.vb: AXOpen.Data.CSVDataExporter(Of TPlain, TOnline)
+  nameWithType: CSVDataExporter<TPlain, TOnline>
+  nameWithType.vb: CSVDataExporter(Of TPlain, TOnline)
+- uid: AXOpen.Data.CSVDataExporter`2.#ctor
+  name: CSVDataExporter()
+  href: api/AXOpen.Data.CSVDataExporter-2.html#AXOpen_Data_CSVDataExporter_2__ctor
+  commentId: M:AXOpen.Data.CSVDataExporter`2.#ctor
+  name.vb: New()
+  fullName: AXOpen.Data.CSVDataExporter<TPlain, TOnline>.CSVDataExporter()
+  fullName.vb: AXOpen.Data.CSVDataExporter(Of TPlain, TOnline).New()
+  nameWithType: CSVDataExporter<TPlain, TOnline>.CSVDataExporter()
+  nameWithType.vb: CSVDataExporter(Of TPlain, TOnline).New()
+- uid: AXOpen.Data.CSVDataExporter`2.#ctor*
+  name: CSVDataExporter
+  href: api/AXOpen.Data.CSVDataExporter-2.html#AXOpen_Data_CSVDataExporter_2__ctor_
+  commentId: Overload:AXOpen.Data.CSVDataExporter`2.#ctor
+  isSpec: "True"
+  name.vb: New
+  fullName: AXOpen.Data.CSVDataExporter<TPlain, TOnline>.CSVDataExporter
+  fullName.vb: AXOpen.Data.CSVDataExporter(Of TPlain, TOnline).New
+  nameWithType: CSVDataExporter<TPlain, TOnline>.CSVDataExporter
+  nameWithType.vb: CSVDataExporter(Of TPlain, TOnline).New
+- uid: AXOpen.Data.CSVDataExporter`2.Export(AXOpen.Base.Data.IRepository{`0},System.String,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Char)
+  name: Export(IRepository<TPlain>, string, Expression<Func<TPlain, bool>>, char)
+  href: api/AXOpen.Data.CSVDataExporter-2.html#AXOpen_Data_CSVDataExporter_2_Export_AXOpen_Base_Data_IRepository__0__System_String_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Char_
+  commentId: M:AXOpen.Data.CSVDataExporter`2.Export(AXOpen.Base.Data.IRepository{`0},System.String,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Char)
+  name.vb: Export(IRepository(Of TPlain), String, Expression(Of Func(Of TPlain, Boolean)), Char)
+  fullName: AXOpen.Data.CSVDataExporter<TPlain, TOnline>.Export(AXOpen.Base.Data.IRepository<TPlain>, string, System.Linq.Expressions.Expression<System.Func<TPlain, bool>>, char)
+  fullName.vb: AXOpen.Data.CSVDataExporter(Of TPlain, TOnline).Export(AXOpen.Base.Data.IRepository(Of TPlain), String, System.Linq.Expressions.Expression(Of System.Func(Of TPlain, Boolean)), Char)
+  nameWithType: CSVDataExporter<TPlain, TOnline>.Export(IRepository<TPlain>, string, Expression<Func<TPlain, bool>>, char)
+  nameWithType.vb: CSVDataExporter(Of TPlain, TOnline).Export(IRepository(Of TPlain), String, Expression(Of Func(Of TPlain, Boolean)), Char)
+- uid: AXOpen.Data.CSVDataExporter`2.Export*
+  name: Export
+  href: api/AXOpen.Data.CSVDataExporter-2.html#AXOpen_Data_CSVDataExporter_2_Export_
+  commentId: Overload:AXOpen.Data.CSVDataExporter`2.Export
+  isSpec: "True"
+  fullName: AXOpen.Data.CSVDataExporter<TPlain, TOnline>.Export
+  fullName.vb: AXOpen.Data.CSVDataExporter(Of TPlain, TOnline).Export
+  nameWithType: CSVDataExporter<TPlain, TOnline>.Export
+  nameWithType.vb: CSVDataExporter(Of TPlain, TOnline).Export
+- uid: AXOpen.Data.CSVDataExporter`2.Import(AXOpen.Base.Data.IRepository{`0},System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name: Import(IRepository<TPlain>, string, ITwinObject, char)
+  href: api/AXOpen.Data.CSVDataExporter-2.html#AXOpen_Data_CSVDataExporter_2_Import_AXOpen_Base_Data_IRepository__0__System_String_AXSharp_Connector_ITwinObject_System_Char_
+  commentId: M:AXOpen.Data.CSVDataExporter`2.Import(AXOpen.Base.Data.IRepository{`0},System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name.vb: Import(IRepository(Of TPlain), String, ITwinObject, Char)
+  fullName: AXOpen.Data.CSVDataExporter<TPlain, TOnline>.Import(AXOpen.Base.Data.IRepository<TPlain>, string, AXSharp.Connector.ITwinObject, char)
+  fullName.vb: AXOpen.Data.CSVDataExporter(Of TPlain, TOnline).Import(AXOpen.Base.Data.IRepository(Of TPlain), String, AXSharp.Connector.ITwinObject, Char)
+  nameWithType: CSVDataExporter<TPlain, TOnline>.Import(IRepository<TPlain>, string, ITwinObject, char)
+  nameWithType.vb: CSVDataExporter(Of TPlain, TOnline).Import(IRepository(Of TPlain), String, ITwinObject, Char)
+- uid: AXOpen.Data.CSVDataExporter`2.Import*
+  name: Import
+  href: api/AXOpen.Data.CSVDataExporter-2.html#AXOpen_Data_CSVDataExporter_2_Import_
+  commentId: Overload:AXOpen.Data.CSVDataExporter`2.Import
+  isSpec: "True"
+  fullName: AXOpen.Data.CSVDataExporter<TPlain, TOnline>.Import
+  fullName.vb: AXOpen.Data.CSVDataExporter(Of TPlain, TOnline).Import
+  nameWithType: CSVDataExporter<TPlain, TOnline>.Import
+  nameWithType.vb: CSVDataExporter(Of TPlain, TOnline).Import
 - uid: AXOpen.Data.DataExchangeView
   name: DataExchangeView
   href: api/AXOpen.Data.DataExchangeView.html
@@ -9049,28 +9605,15 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.DataExchangeViewModel.Edit
   nameWithType: DataExchangeViewModel.Edit
-- uid: AXOpen.Data.DataExchangeViewModel.Export(System.Linq.Expressions.Expression{System.Func{AXSharp.Connector.IPlain,System.Boolean}},System.Char)
-  name: Export(Expression<Func<IPlain, bool>>, char)
-  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_Export_System_Linq_Expressions_Expression_System_Func_AXSharp_Connector_IPlain_System_Boolean___System_Char_
-  commentId: M:AXOpen.Data.DataExchangeViewModel.Export(System.Linq.Expressions.Expression{System.Func{AXSharp.Connector.IPlain,System.Boolean}},System.Char)
-  name.vb: Export(Expression(Of Func(Of IPlain, Boolean)), Char)
-  fullName: AXOpen.Data.DataExchangeViewModel.Export(System.Linq.Expressions.Expression<System.Func<AXSharp.Connector.IPlain, bool>>, char)
-  fullName.vb: AXOpen.Data.DataExchangeViewModel.Export(System.Linq.Expressions.Expression(Of System.Func(Of AXSharp.Connector.IPlain, Boolean)), Char)
-  nameWithType: DataExchangeViewModel.Export(Expression<Func<IPlain, bool>>, char)
-  nameWithType.vb: DataExchangeViewModel.Export(Expression(Of Func(Of IPlain, Boolean)), Char)
-- uid: AXOpen.Data.DataExchangeViewModel.Export*
-  name: Export
-  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_Export_
-  commentId: Overload:AXOpen.Data.DataExchangeViewModel.Export
-  isSpec: "True"
-  fullName: AXOpen.Data.DataExchangeViewModel.Export
-  nameWithType: DataExchangeViewModel.Export
-- uid: AXOpen.Data.DataExchangeViewModel.ExportData
-  name: ExportData()
-  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_ExportData
-  commentId: M:AXOpen.Data.DataExchangeViewModel.ExportData
-  fullName: AXOpen.Data.DataExchangeViewModel.ExportData()
-  nameWithType: DataExchangeViewModel.ExportData()
+- uid: AXOpen.Data.DataExchangeViewModel.ExportData(System.String)
+  name: ExportData(string)
+  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_ExportData_System_String_
+  commentId: M:AXOpen.Data.DataExchangeViewModel.ExportData(System.String)
+  name.vb: ExportData(String)
+  fullName: AXOpen.Data.DataExchangeViewModel.ExportData(string)
+  fullName.vb: AXOpen.Data.DataExchangeViewModel.ExportData(String)
+  nameWithType: DataExchangeViewModel.ExportData(string)
+  nameWithType.vb: DataExchangeViewModel.ExportData(String)
 - uid: AXOpen.Data.DataExchangeViewModel.ExportData*
   name: ExportData
   href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_ExportData_
@@ -9155,28 +9698,15 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.DataExchangeViewModel.FindById
   nameWithType: DataExchangeViewModel.FindById
-- uid: AXOpen.Data.DataExchangeViewModel.Import(System.Collections.Generic.IEnumerable{System.String},AXSharp.Connector.ITwinObject,System.Char)
-  name: Import(IEnumerable<string>, ITwinObject, char)
-  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_Import_System_Collections_Generic_IEnumerable_System_String__AXSharp_Connector_ITwinObject_System_Char_
-  commentId: M:AXOpen.Data.DataExchangeViewModel.Import(System.Collections.Generic.IEnumerable{System.String},AXSharp.Connector.ITwinObject,System.Char)
-  name.vb: Import(IEnumerable(Of String), ITwinObject, Char)
-  fullName: AXOpen.Data.DataExchangeViewModel.Import(System.Collections.Generic.IEnumerable<string>, AXSharp.Connector.ITwinObject, char)
-  fullName.vb: AXOpen.Data.DataExchangeViewModel.Import(System.Collections.Generic.IEnumerable(Of String), AXSharp.Connector.ITwinObject, Char)
-  nameWithType: DataExchangeViewModel.Import(IEnumerable<string>, ITwinObject, char)
-  nameWithType.vb: DataExchangeViewModel.Import(IEnumerable(Of String), ITwinObject, Char)
-- uid: AXOpen.Data.DataExchangeViewModel.Import*
-  name: Import
-  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_Import_
-  commentId: Overload:AXOpen.Data.DataExchangeViewModel.Import
-  isSpec: "True"
-  fullName: AXOpen.Data.DataExchangeViewModel.Import
-  nameWithType: DataExchangeViewModel.Import
-- uid: AXOpen.Data.DataExchangeViewModel.ImportData
-  name: ImportData()
-  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_ImportData
-  commentId: M:AXOpen.Data.DataExchangeViewModel.ImportData
-  fullName: AXOpen.Data.DataExchangeViewModel.ImportData()
-  nameWithType: DataExchangeViewModel.ImportData()
+- uid: AXOpen.Data.DataExchangeViewModel.ImportData(System.String)
+  name: ImportData(string)
+  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_ImportData_System_String_
+  commentId: M:AXOpen.Data.DataExchangeViewModel.ImportData(System.String)
+  name.vb: ImportData(String)
+  fullName: AXOpen.Data.DataExchangeViewModel.ImportData(string)
+  fullName.vb: AXOpen.Data.DataExchangeViewModel.ImportData(String)
+  nameWithType: DataExchangeViewModel.ImportData(string)
+  nameWithType.vb: DataExchangeViewModel.ImportData(String)
 - uid: AXOpen.Data.DataExchangeViewModel.ImportData*
   name: ImportData
   href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_ImportData_
@@ -9197,6 +9727,19 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.DataExchangeViewModel.IsBusy
   nameWithType: DataExchangeViewModel.IsBusy
+- uid: AXOpen.Data.DataExchangeViewModel.IsFileExported
+  name: IsFileExported
+  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_IsFileExported
+  commentId: P:AXOpen.Data.DataExchangeViewModel.IsFileExported
+  fullName: AXOpen.Data.DataExchangeViewModel.IsFileExported
+  nameWithType: DataExchangeViewModel.IsFileExported
+- uid: AXOpen.Data.DataExchangeViewModel.IsFileExported*
+  name: IsFileExported
+  href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_IsFileExported_
+  commentId: Overload:AXOpen.Data.DataExchangeViewModel.IsFileExported
+  isSpec: "True"
+  fullName: AXOpen.Data.DataExchangeViewModel.IsFileExported
+  nameWithType: DataExchangeViewModel.IsFileExported
 - uid: AXOpen.Data.DataExchangeViewModel.Limit
   name: Limit
   href: api/AXOpen.Data.DataExchangeViewModel.html#AXOpen_Data_DataExchangeViewModel_Limit
@@ -9389,12 +9932,34 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.IAxoDataEntity.DataEntityId
   nameWithType: IAxoDataEntity.DataEntityId
+- uid: AXOpen.Data.IAxoDataEntityExistTask
+  name: IAxoDataEntityExistTask
+  href: api/AXOpen.Data.IAxoDataEntityExistTask.html
+  commentId: T:AXOpen.Data.IAxoDataEntityExistTask
+  fullName: AXOpen.Data.IAxoDataEntityExistTask
+  nameWithType: IAxoDataEntityExistTask
 - uid: AXOpen.Data.IAxoDataExchange
   name: IAxoDataExchange
   href: api/AXOpen.Data.IAxoDataExchange.html
   commentId: T:AXOpen.Data.IAxoDataExchange
   fullName: AXOpen.Data.IAxoDataExchange
   nameWithType: IAxoDataExchange
+- uid: AXOpen.Data.IAxoDataExchange.CleanUp(System.String)
+  name: CleanUp(string)
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_CleanUp_System_String_
+  commentId: M:AXOpen.Data.IAxoDataExchange.CleanUp(System.String)
+  name.vb: CleanUp(String)
+  fullName: AXOpen.Data.IAxoDataExchange.CleanUp(string)
+  fullName.vb: AXOpen.Data.IAxoDataExchange.CleanUp(String)
+  nameWithType: IAxoDataExchange.CleanUp(string)
+  nameWithType.vb: IAxoDataExchange.CleanUp(String)
+- uid: AXOpen.Data.IAxoDataExchange.CleanUp*
+  name: CleanUp
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_CleanUp_
+  commentId: Overload:AXOpen.Data.IAxoDataExchange.CleanUp
+  isSpec: "True"
+  fullName: AXOpen.Data.IAxoDataExchange.CleanUp
+  nameWithType: IAxoDataExchange.CleanUp
 - uid: AXOpen.Data.IAxoDataExchange.CreateCopyCurrentShadowsAsync(System.String)
   name: CreateCopyCurrentShadowsAsync(string)
   href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_CreateCopyCurrentShadowsAsync_System_String_
@@ -9443,6 +10008,22 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.IAxoDataExchange.CreateNewAsync
   nameWithType: IAxoDataExchange.CreateNewAsync
+- uid: AXOpen.Data.IAxoDataExchange.CreateOrUpdate(System.String)
+  name: CreateOrUpdate(string)
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_CreateOrUpdate_System_String_
+  commentId: M:AXOpen.Data.IAxoDataExchange.CreateOrUpdate(System.String)
+  name.vb: CreateOrUpdate(String)
+  fullName: AXOpen.Data.IAxoDataExchange.CreateOrUpdate(string)
+  fullName.vb: AXOpen.Data.IAxoDataExchange.CreateOrUpdate(String)
+  nameWithType: IAxoDataExchange.CreateOrUpdate(string)
+  nameWithType.vb: IAxoDataExchange.CreateOrUpdate(String)
+- uid: AXOpen.Data.IAxoDataExchange.CreateOrUpdate*
+  name: CreateOrUpdate
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_CreateOrUpdate_
+  commentId: Overload:AXOpen.Data.IAxoDataExchange.CreateOrUpdate
+  isSpec: "True"
+  fullName: AXOpen.Data.IAxoDataExchange.CreateOrUpdate
+  nameWithType: IAxoDataExchange.CreateOrUpdate
 - uid: AXOpen.Data.IAxoDataExchange.Delete(System.String)
   name: Delete(string)
   href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Delete_System_String_
@@ -9459,6 +10040,38 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.IAxoDataExchange.Delete
   nameWithType: IAxoDataExchange.Delete
+- uid: AXOpen.Data.IAxoDataExchange.ExistsAsync(System.String)
+  name: ExistsAsync(string)
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_ExistsAsync_System_String_
+  commentId: M:AXOpen.Data.IAxoDataExchange.ExistsAsync(System.String)
+  name.vb: ExistsAsync(String)
+  fullName: AXOpen.Data.IAxoDataExchange.ExistsAsync(string)
+  fullName.vb: AXOpen.Data.IAxoDataExchange.ExistsAsync(String)
+  nameWithType: IAxoDataExchange.ExistsAsync(string)
+  nameWithType.vb: IAxoDataExchange.ExistsAsync(String)
+- uid: AXOpen.Data.IAxoDataExchange.ExistsAsync*
+  name: ExistsAsync
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_ExistsAsync_
+  commentId: Overload:AXOpen.Data.IAxoDataExchange.ExistsAsync
+  isSpec: "True"
+  fullName: AXOpen.Data.IAxoDataExchange.ExistsAsync
+  nameWithType: IAxoDataExchange.ExistsAsync
+- uid: AXOpen.Data.IAxoDataExchange.ExportData(System.String,System.Char)
+  name: ExportData(string, char)
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_ExportData_System_String_System_Char_
+  commentId: M:AXOpen.Data.IAxoDataExchange.ExportData(System.String,System.Char)
+  name.vb: ExportData(String, Char)
+  fullName: AXOpen.Data.IAxoDataExchange.ExportData(string, char)
+  fullName.vb: AXOpen.Data.IAxoDataExchange.ExportData(String, Char)
+  nameWithType: IAxoDataExchange.ExportData(string, char)
+  nameWithType.vb: IAxoDataExchange.ExportData(String, Char)
+- uid: AXOpen.Data.IAxoDataExchange.ExportData*
+  name: ExportData
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_ExportData_
+  commentId: Overload:AXOpen.Data.IAxoDataExchange.ExportData
+  isSpec: "True"
+  fullName: AXOpen.Data.IAxoDataExchange.ExportData
+  nameWithType: IAxoDataExchange.ExportData
 - uid: AXOpen.Data.IAxoDataExchange.FromRepositoryToControllerAsync(AXOpen.Base.Data.IBrowsableDataObject)
   name: FromRepositoryToControllerAsync(IBrowsableDataObject)
   href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_FromRepositoryToControllerAsync_AXOpen_Base_Data_IBrowsableDataObject_
@@ -9510,6 +10123,22 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.IAxoDataExchange.GetRecords
   nameWithType: IAxoDataExchange.GetRecords
+- uid: AXOpen.Data.IAxoDataExchange.ImportData(System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name: ImportData(string, ITwinObject, char)
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_ImportData_System_String_AXSharp_Connector_ITwinObject_System_Char_
+  commentId: M:AXOpen.Data.IAxoDataExchange.ImportData(System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name.vb: ImportData(String, ITwinObject, Char)
+  fullName: AXOpen.Data.IAxoDataExchange.ImportData(string, AXSharp.Connector.ITwinObject, char)
+  fullName.vb: AXOpen.Data.IAxoDataExchange.ImportData(String, AXSharp.Connector.ITwinObject, Char)
+  nameWithType: IAxoDataExchange.ImportData(string, ITwinObject, char)
+  nameWithType.vb: IAxoDataExchange.ImportData(String, ITwinObject, Char)
+- uid: AXOpen.Data.IAxoDataExchange.ImportData*
+  name: ImportData
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_ImportData_
+  commentId: Overload:AXOpen.Data.IAxoDataExchange.ImportData
+  isSpec: "True"
+  fullName: AXOpen.Data.IAxoDataExchange.ImportData
+  nameWithType: IAxoDataExchange.ImportData
 - uid: AXOpen.Data.IAxoDataExchange.RefUIData
   name: RefUIData
   href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_RefUIData
@@ -9539,6 +10168,22 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.IAxoDataExchange.RemoteCreate
   nameWithType: IAxoDataExchange.RemoteCreate
+- uid: AXOpen.Data.IAxoDataExchange.RemoteCreateOrUpdate(System.String)
+  name: RemoteCreateOrUpdate(string)
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_RemoteCreateOrUpdate_System_String_
+  commentId: M:AXOpen.Data.IAxoDataExchange.RemoteCreateOrUpdate(System.String)
+  name.vb: RemoteCreateOrUpdate(String)
+  fullName: AXOpen.Data.IAxoDataExchange.RemoteCreateOrUpdate(string)
+  fullName.vb: AXOpen.Data.IAxoDataExchange.RemoteCreateOrUpdate(String)
+  nameWithType: IAxoDataExchange.RemoteCreateOrUpdate(string)
+  nameWithType.vb: IAxoDataExchange.RemoteCreateOrUpdate(String)
+- uid: AXOpen.Data.IAxoDataExchange.RemoteCreateOrUpdate*
+  name: RemoteCreateOrUpdate
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_RemoteCreateOrUpdate_
+  commentId: Overload:AXOpen.Data.IAxoDataExchange.RemoteCreateOrUpdate
+  isSpec: "True"
+  fullName: AXOpen.Data.IAxoDataExchange.RemoteCreateOrUpdate
+  nameWithType: IAxoDataExchange.RemoteCreateOrUpdate
 - uid: AXOpen.Data.IAxoDataExchange.RemoteDelete(System.String)
   name: RemoteDelete(string)
   href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_RemoteDelete_System_String_
@@ -9555,6 +10200,22 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.IAxoDataExchange.RemoteDelete
   nameWithType: IAxoDataExchange.RemoteDelete
+- uid: AXOpen.Data.IAxoDataExchange.RemoteEntityExist(System.String)
+  name: RemoteEntityExist(string)
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_RemoteEntityExist_System_String_
+  commentId: M:AXOpen.Data.IAxoDataExchange.RemoteEntityExist(System.String)
+  name.vb: RemoteEntityExist(String)
+  fullName: AXOpen.Data.IAxoDataExchange.RemoteEntityExist(string)
+  fullName.vb: AXOpen.Data.IAxoDataExchange.RemoteEntityExist(String)
+  nameWithType: IAxoDataExchange.RemoteEntityExist(string)
+  nameWithType.vb: IAxoDataExchange.RemoteEntityExist(String)
+- uid: AXOpen.Data.IAxoDataExchange.RemoteEntityExist*
+  name: RemoteEntityExist
+  href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_RemoteEntityExist_
+  commentId: Overload:AXOpen.Data.IAxoDataExchange.RemoteEntityExist
+  isSpec: "True"
+  fullName: AXOpen.Data.IAxoDataExchange.RemoteEntityExist
+  nameWithType: IAxoDataExchange.RemoteEntityExist
 - uid: AXOpen.Data.IAxoDataExchange.RemoteRead(System.String)
   name: RemoteRead(string)
   href: api/AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_RemoteRead_System_String_
@@ -9703,6 +10364,51 @@ references:
   isSpec: "True"
   fullName: AXOpen.Data.IDataExchangeOperations.SelectedRecord
   nameWithType: IDataExchangeOperations.SelectedRecord
+- uid: AXOpen.Data.IDataExporter`2
+  name: IDataExporter<TPlain, TOnline>
+  href: api/AXOpen.Data.IDataExporter-2.html
+  commentId: T:AXOpen.Data.IDataExporter`2
+  name.vb: IDataExporter(Of TPlain, TOnline)
+  fullName: AXOpen.Data.IDataExporter<TPlain, TOnline>
+  fullName.vb: AXOpen.Data.IDataExporter(Of TPlain, TOnline)
+  nameWithType: IDataExporter<TPlain, TOnline>
+  nameWithType.vb: IDataExporter(Of TPlain, TOnline)
+- uid: AXOpen.Data.IDataExporter`2.Export(AXOpen.Base.Data.IRepository{`0},System.String,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Char)
+  name: Export(IRepository<TPlain>, string, Expression<Func<TPlain, bool>>, char)
+  href: api/AXOpen.Data.IDataExporter-2.html#AXOpen_Data_IDataExporter_2_Export_AXOpen_Base_Data_IRepository__0__System_String_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Char_
+  commentId: M:AXOpen.Data.IDataExporter`2.Export(AXOpen.Base.Data.IRepository{`0},System.String,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Char)
+  name.vb: Export(IRepository(Of TPlain), String, Expression(Of Func(Of TPlain, Boolean)), Char)
+  fullName: AXOpen.Data.IDataExporter<TPlain, TOnline>.Export(AXOpen.Base.Data.IRepository<TPlain>, string, System.Linq.Expressions.Expression<System.Func<TPlain, bool>>, char)
+  fullName.vb: AXOpen.Data.IDataExporter(Of TPlain, TOnline).Export(AXOpen.Base.Data.IRepository(Of TPlain), String, System.Linq.Expressions.Expression(Of System.Func(Of TPlain, Boolean)), Char)
+  nameWithType: IDataExporter<TPlain, TOnline>.Export(IRepository<TPlain>, string, Expression<Func<TPlain, bool>>, char)
+  nameWithType.vb: IDataExporter(Of TPlain, TOnline).Export(IRepository(Of TPlain), String, Expression(Of Func(Of TPlain, Boolean)), Char)
+- uid: AXOpen.Data.IDataExporter`2.Export*
+  name: Export
+  href: api/AXOpen.Data.IDataExporter-2.html#AXOpen_Data_IDataExporter_2_Export_
+  commentId: Overload:AXOpen.Data.IDataExporter`2.Export
+  isSpec: "True"
+  fullName: AXOpen.Data.IDataExporter<TPlain, TOnline>.Export
+  fullName.vb: AXOpen.Data.IDataExporter(Of TPlain, TOnline).Export
+  nameWithType: IDataExporter<TPlain, TOnline>.Export
+  nameWithType.vb: IDataExporter(Of TPlain, TOnline).Export
+- uid: AXOpen.Data.IDataExporter`2.Import(AXOpen.Base.Data.IRepository{`0},System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name: Import(IRepository<TPlain>, string, ITwinObject, char)
+  href: api/AXOpen.Data.IDataExporter-2.html#AXOpen_Data_IDataExporter_2_Import_AXOpen_Base_Data_IRepository__0__System_String_AXSharp_Connector_ITwinObject_System_Char_
+  commentId: M:AXOpen.Data.IDataExporter`2.Import(AXOpen.Base.Data.IRepository{`0},System.String,AXSharp.Connector.ITwinObject,System.Char)
+  name.vb: Import(IRepository(Of TPlain), String, ITwinObject, Char)
+  fullName: AXOpen.Data.IDataExporter<TPlain, TOnline>.Import(AXOpen.Base.Data.IRepository<TPlain>, string, AXSharp.Connector.ITwinObject, char)
+  fullName.vb: AXOpen.Data.IDataExporter(Of TPlain, TOnline).Import(AXOpen.Base.Data.IRepository(Of TPlain), String, AXSharp.Connector.ITwinObject, Char)
+  nameWithType: IDataExporter<TPlain, TOnline>.Import(IRepository<TPlain>, string, ITwinObject, char)
+  nameWithType.vb: IDataExporter(Of TPlain, TOnline).Import(IRepository(Of TPlain), String, ITwinObject, Char)
+- uid: AXOpen.Data.IDataExporter`2.Import*
+  name: Import
+  href: api/AXOpen.Data.IDataExporter-2.html#AXOpen_Data_IDataExporter_2_Import_
+  commentId: Overload:AXOpen.Data.IDataExporter`2.Import
+  isSpec: "True"
+  fullName: AXOpen.Data.IDataExporter<TPlain, TOnline>.Import
+  fullName.vb: AXOpen.Data.IDataExporter(Of TPlain, TOnline).Import
+  nameWithType: IDataExporter<TPlain, TOnline>.Import
+  nameWithType.vb: IDataExporter(Of TPlain, TOnline).Import
 - uid: AXOpen.Data.InMemory
   name: AXOpen.Data.InMemory
   href: api/AXOpen.Data.InMemory.html
@@ -15083,6 +15789,18 @@ references:
   name: DataEntityId
   href: apictrl/plc.AXOpen.Data.AxoDataEntity.html#plc_AXOpen_Data_AxoDataEntity_DataEntityId
   fullName: DataEntityId
+- uid: plc.AXOpen.Data.AxoDataEntityExistTask
+  name: AxoDataEntityExistTask
+  href: apictrl/plc.AXOpen.Data.AxoDataEntityExistTask.html
+  fullName: AxoDataEntityExistTask
+- uid: plc.AXOpen.Data.AxoDataEntityExistTask._exist
+  name: _exist
+  href: apictrl/plc.AXOpen.Data.AxoDataEntityExistTask.html#plc_AXOpen_Data_AxoDataEntityExistTask__exist
+  fullName: _exist
+- uid: plc.AXOpen.Data.AxoDataEntityExistTask.Exist()
+  name: Exist
+  href: apictrl/plc.AXOpen.Data.AxoDataEntityExistTask.html#plc_AXOpen_Data_AxoDataEntityExistTask_Exist__
+  fullName: Exist
 - uid: plc.AXOpen.Data.AxoDataExchange
   name: AxoDataExchange
   href: apictrl/plc.AXOpen.Data.AxoDataExchange.html
@@ -15091,6 +15809,14 @@ references:
   name: Create
   href: apictrl/plc.AXOpen.Data.AxoDataExchange.html#plc_AXOpen_Data_AxoDataExchange_Create_STRING_254__
   fullName: Create
+- uid: plc.AXOpen.Data.AxoDataExchange.CreateOrUpdate(STRING[254])
+  name: CreateOrUpdate
+  href: apictrl/plc.AXOpen.Data.AxoDataExchange.html#plc_AXOpen_Data_AxoDataExchange_CreateOrUpdate_STRING_254__
+  fullName: CreateOrUpdate
+- uid: plc.AXOpen.Data.AxoDataExchange.CreateOrUpdateTask
+  name: CreateOrUpdateTask
+  href: apictrl/plc.AXOpen.Data.AxoDataExchange.html#plc_AXOpen_Data_AxoDataExchange_CreateOrUpdateTask
+  fullName: CreateOrUpdateTask
 - uid: plc.AXOpen.Data.AxoDataExchange.CreateTask
   name: CreateTask
   href: apictrl/plc.AXOpen.Data.AxoDataExchange.html#plc_AXOpen_Data_AxoDataExchange_CreateTask
@@ -15103,6 +15829,14 @@ references:
   name: DeleteTask
   href: apictrl/plc.AXOpen.Data.AxoDataExchange.html#plc_AXOpen_Data_AxoDataExchange_DeleteTask
   fullName: DeleteTask
+- uid: plc.AXOpen.Data.AxoDataExchange.EntityExist(STRING[254])
+  name: EntityExist
+  href: apictrl/plc.AXOpen.Data.AxoDataExchange.html#plc_AXOpen_Data_AxoDataExchange_EntityExist_STRING_254__
+  fullName: EntityExist
+- uid: plc.AXOpen.Data.AxoDataExchange.EntityExistTask
+  name: EntityExistTask
+  href: apictrl/plc.AXOpen.Data.AxoDataExchange.html#plc_AXOpen_Data_AxoDataExchange_EntityExistTask
+  fullName: EntityExistTask
 - uid: plc.AXOpen.Data.AxoDataExchange.Read(STRING[254])
   name: Read
   href: apictrl/plc.AXOpen.Data.AxoDataExchange.html#plc_AXOpen_Data_AxoDataExchange_Read_STRING_254__
@@ -15159,10 +15893,26 @@ references:
   name: Create
   href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_Create_STRING_254__
   fullName: Create
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(STRING[254])
+  name: CreateOrUpdate
+  href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdate_STRING_254__
+  fullName: CreateOrUpdate
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  name: CreateOrUpdateTask
+  href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdateTask
+  fullName: CreateOrUpdateTask
 - uid: plc.AXOpen.Data.AxoDataFragmentExchange.Delete(STRING[254])
   name: Delete
   href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_Delete_STRING_254__
   fullName: Delete
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.EntityExist(STRING[254])
+  name: EntityExist
+  href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_EntityExist_STRING_254__
+  fullName: EntityExist
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  name: EntityExistTask
+  href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_EntityExistTask
+  fullName: EntityExistTask
 - uid: plc.AXOpen.Data.AxoDataFragmentExchange.Operation
   name: Operation
   href: apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html#plc_AXOpen_Data_AxoDataFragmentExchange_Operation
@@ -15211,6 +15961,14 @@ references:
   name: IAxoDataEntity
   href: apictrl/plc.AXOpen.Data.IAxoDataEntity.html
   fullName: IAxoDataEntity
+- uid: plc.AXOpen.Data.IAxoDataEntityExistTask
+  name: IAxoDataEntityExistTask
+  href: apictrl/plc.AXOpen.Data.IAxoDataEntityExistTask.html
+  fullName: IAxoDataEntityExistTask
+- uid: plc.AXOpen.Data.IAxoDataEntityExistTask.Exist()
+  name: Exist
+  href: apictrl/plc.AXOpen.Data.IAxoDataEntityExistTask.html#plc_AXOpen_Data_IAxoDataEntityExistTask_Exist__
+  fullName: Exist
 - uid: plc.AXOpen.Data.IAxoDataExchange
   name: IAxoDataExchange
   href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html
@@ -15219,10 +15977,18 @@ references:
   name: Create
   href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html#plc_AXOpen_Data_IAxoDataExchange_Create_STRING_254__
   fullName: Create
+- uid: plc.AXOpen.Data.IAxoDataExchange.CreateOrUpdate(STRING[254])
+  name: CreateOrUpdate
+  href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html#plc_AXOpen_Data_IAxoDataExchange_CreateOrUpdate_STRING_254__
+  fullName: CreateOrUpdate
 - uid: plc.AXOpen.Data.IAxoDataExchange.Delete(STRING[254])
   name: Delete
   href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html#plc_AXOpen_Data_IAxoDataExchange_Delete_STRING_254__
   fullName: Delete
+- uid: plc.AXOpen.Data.IAxoDataExchange.EntityExist(STRING[254])
+  name: EntityExist
+  href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html#plc_AXOpen_Data_IAxoDataExchange_EntityExist_STRING_254__
+  fullName: EntityExist
 - uid: plc.AXOpen.Data.IAxoDataExchange.Read(STRING[254])
   name: Read
   href: apictrl/plc.AXOpen.Data.IAxoDataExchange.html#plc_AXOpen_Data_IAxoDataExchange_Read_STRING_254__
@@ -16408,12 +17174,44 @@ references:
   isSpec: "True"
   fullName: Pocos.AXOpen.Data.AxoDataEntity.RecordId
   nameWithType: AxoDataEntity.RecordId
+- uid: Pocos.AXOpen.Data.AxoDataEntityExistTask
+  name: AxoDataEntityExistTask
+  href: api/Pocos.AXOpen.Data.AxoDataEntityExistTask.html
+  commentId: T:Pocos.AXOpen.Data.AxoDataEntityExistTask
+  fullName: Pocos.AXOpen.Data.AxoDataEntityExistTask
+  nameWithType: AxoDataEntityExistTask
+- uid: Pocos.AXOpen.Data.AxoDataEntityExistTask._exist
+  name: _exist
+  href: api/Pocos.AXOpen.Data.AxoDataEntityExistTask.html#Pocos_AXOpen_Data_AxoDataEntityExistTask__exist
+  commentId: P:Pocos.AXOpen.Data.AxoDataEntityExistTask._exist
+  fullName: Pocos.AXOpen.Data.AxoDataEntityExistTask._exist
+  nameWithType: AxoDataEntityExistTask._exist
+- uid: Pocos.AXOpen.Data.AxoDataEntityExistTask._exist*
+  name: _exist
+  href: api/Pocos.AXOpen.Data.AxoDataEntityExistTask.html#Pocos_AXOpen_Data_AxoDataEntityExistTask__exist_
+  commentId: Overload:Pocos.AXOpen.Data.AxoDataEntityExistTask._exist
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Data.AxoDataEntityExistTask._exist
+  nameWithType: AxoDataEntityExistTask._exist
 - uid: Pocos.AXOpen.Data.AxoDataExchange
   name: AxoDataExchange
   href: api/Pocos.AXOpen.Data.AxoDataExchange.html
   commentId: T:Pocos.AXOpen.Data.AxoDataExchange
   fullName: Pocos.AXOpen.Data.AxoDataExchange
   nameWithType: AxoDataExchange
+- uid: Pocos.AXOpen.Data.AxoDataExchange.CreateOrUpdateTask
+  name: CreateOrUpdateTask
+  href: api/Pocos.AXOpen.Data.AxoDataExchange.html#Pocos_AXOpen_Data_AxoDataExchange_CreateOrUpdateTask
+  commentId: P:Pocos.AXOpen.Data.AxoDataExchange.CreateOrUpdateTask
+  fullName: Pocos.AXOpen.Data.AxoDataExchange.CreateOrUpdateTask
+  nameWithType: AxoDataExchange.CreateOrUpdateTask
+- uid: Pocos.AXOpen.Data.AxoDataExchange.CreateOrUpdateTask*
+  name: CreateOrUpdateTask
+  href: api/Pocos.AXOpen.Data.AxoDataExchange.html#Pocos_AXOpen_Data_AxoDataExchange_CreateOrUpdateTask_
+  commentId: Overload:Pocos.AXOpen.Data.AxoDataExchange.CreateOrUpdateTask
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Data.AxoDataExchange.CreateOrUpdateTask
+  nameWithType: AxoDataExchange.CreateOrUpdateTask
 - uid: Pocos.AXOpen.Data.AxoDataExchange.CreateTask
   name: CreateTask
   href: api/Pocos.AXOpen.Data.AxoDataExchange.html#Pocos_AXOpen_Data_AxoDataExchange_CreateTask
@@ -16440,6 +17238,19 @@ references:
   isSpec: "True"
   fullName: Pocos.AXOpen.Data.AxoDataExchange.DeleteTask
   nameWithType: AxoDataExchange.DeleteTask
+- uid: Pocos.AXOpen.Data.AxoDataExchange.EntityExistTask
+  name: EntityExistTask
+  href: api/Pocos.AXOpen.Data.AxoDataExchange.html#Pocos_AXOpen_Data_AxoDataExchange_EntityExistTask
+  commentId: P:Pocos.AXOpen.Data.AxoDataExchange.EntityExistTask
+  fullName: Pocos.AXOpen.Data.AxoDataExchange.EntityExistTask
+  nameWithType: AxoDataExchange.EntityExistTask
+- uid: Pocos.AXOpen.Data.AxoDataExchange.EntityExistTask*
+  name: EntityExistTask
+  href: api/Pocos.AXOpen.Data.AxoDataExchange.html#Pocos_AXOpen_Data_AxoDataExchange_EntityExistTask_
+  commentId: Overload:Pocos.AXOpen.Data.AxoDataExchange.EntityExistTask
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Data.AxoDataExchange.EntityExistTask
+  nameWithType: AxoDataExchange.EntityExistTask
 - uid: Pocos.AXOpen.Data.AxoDataExchange.ReadTask
   name: ReadTask
   href: api/Pocos.AXOpen.Data.AxoDataExchange.html#Pocos_AXOpen_Data_AxoDataExchange_ReadTask
@@ -16497,6 +17308,32 @@ references:
   commentId: T:Pocos.AXOpen.Data.AxoDataFragmentExchange
   fullName: Pocos.AXOpen.Data.AxoDataFragmentExchange
   nameWithType: AxoDataFragmentExchange
+- uid: Pocos.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  name: CreateOrUpdateTask
+  href: api/Pocos.AXOpen.Data.AxoDataFragmentExchange.html#Pocos_AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdateTask
+  commentId: P:Pocos.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  fullName: Pocos.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  nameWithType: AxoDataFragmentExchange.CreateOrUpdateTask
+- uid: Pocos.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask*
+  name: CreateOrUpdateTask
+  href: api/Pocos.AXOpen.Data.AxoDataFragmentExchange.html#Pocos_AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdateTask_
+  commentId: Overload:Pocos.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask
+  nameWithType: AxoDataFragmentExchange.CreateOrUpdateTask
+- uid: Pocos.AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  name: EntityExistTask
+  href: api/Pocos.AXOpen.Data.AxoDataFragmentExchange.html#Pocos_AXOpen_Data_AxoDataFragmentExchange_EntityExistTask
+  commentId: P:Pocos.AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  fullName: Pocos.AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  nameWithType: AxoDataFragmentExchange.EntityExistTask
+- uid: Pocos.AXOpen.Data.AxoDataFragmentExchange.EntityExistTask*
+  name: EntityExistTask
+  href: api/Pocos.AXOpen.Data.AxoDataFragmentExchange.html#Pocos_AXOpen_Data_AxoDataFragmentExchange_EntityExistTask_
+  commentId: Overload:Pocos.AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  isSpec: "True"
+  fullName: Pocos.AXOpen.Data.AxoDataFragmentExchange.EntityExistTask
+  nameWithType: AxoDataFragmentExchange.EntityExistTask
 - uid: Pocos.AXOpen.Data.AxoDataFragmentExchange.Operation
   name: Operation
   href: api/Pocos.AXOpen.Data.AxoDataFragmentExchange.html#Pocos_AXOpen_Data_AxoDataFragmentExchange_Operation
@@ -16542,6 +17379,12 @@ references:
   isSpec: "True"
   fullName: Pocos.AXOpen.Data.IAxoDataEntity.DataEntityId
   nameWithType: IAxoDataEntity.DataEntityId
+- uid: Pocos.AXOpen.Data.IAxoDataEntityExistTask
+  name: IAxoDataEntityExistTask
+  href: api/Pocos.AXOpen.Data.IAxoDataEntityExistTask.html
+  commentId: T:Pocos.AXOpen.Data.IAxoDataEntityExistTask
+  fullName: Pocos.AXOpen.Data.IAxoDataEntityExistTask
+  nameWithType: IAxoDataEntityExistTask
 - uid: Pocos.AXOpen.Data.IAxoDataExchange
   name: IAxoDataExchange
   href: api/Pocos.AXOpen.Data.IAxoDataExchange.html
