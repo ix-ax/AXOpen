@@ -15,25 +15,18 @@
     }
 
     .nav-item ::deep a {
-        color: #000000;
         display: flex;
         align-items: center;
-        border-radius: 20px;
-        margin: 0.5rem;
+        border-radius: 0.375rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin: 0.31rem;
+        margin-right: 0px;
         line-height: 2rem;
         text-transform: uppercase;
         padding: 0.5rem 0.5rem;
         cursor: pointer;
         user-select: none;
+        position: relative;
         overflow: hidden;
     }
-
-        .nav-item ::deep a.active {
-            background-color: rgba(13, 110, 253, 1);
-            color: #000000;
-        }
-
-        .nav-item ::deep a:hover {
-            background-color: rgba(13, 110, 253, 0.6);
-            color: #000000;
-        }
