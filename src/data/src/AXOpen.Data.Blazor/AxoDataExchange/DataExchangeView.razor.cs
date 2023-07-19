@@ -63,6 +63,7 @@ public partial class DataExchangeView
 
     private int mod(int x, int m)
     {
+        if (m == 0) return 0; // avoid exception caused by % 0
         var r = x % m;
         return r < 0 ? r + m : r;
     }
