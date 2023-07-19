@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using AXSharp.Abstractions.Dialogs.AlertDialog;
 using System.IO;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 
 namespace AXOpen.Data;
 
@@ -33,6 +34,9 @@ public partial class DataExchangeView
 
     [Inject]
     private IAlertDialogService _alertDialogService { get; set; }
+
+    [Inject]
+    private ProtectedLocalStorage ProtectedLocalStore { get; set; }
 
     private Guid ViewGuid { get; } = Guid.NewGuid();
     private string Create { get; set; } = "";
@@ -124,7 +128,33 @@ public partial class DataExchangeView
 
     private void ClearFiles(string path)
     {
-        if(Directory.Exists(path))
+        if (Directory.Exists(path))
             Directory.Delete(path, true);
+    }
+
+    private class TestClass{
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public TestClass(string name, string desctription)
+        {
+            Name = name;
+            Description = desctription;
+        }
+    }
+
+    public async Task SaveCustomExportDataAsync()
+    {
+        await ProtectedLocalStore.SetAsync("a", Vm.CustomExportData);
+    }
+
+    public async Task LoadCustomExportDataAsync()
+    {
+        var result = await ProtectedLocalStore.GetAsync<Dictionary<string, ExportData>>("a");
+        if (result.Success)
+        {
+            Vm.CustomExportData = result.Value;
+            _alertDialogService.AddAlertDialog("Info", "Successed loaded!", "Custom data was successfuly loaded", 10);
+        }
+        StateHasChanged();
     }
 }

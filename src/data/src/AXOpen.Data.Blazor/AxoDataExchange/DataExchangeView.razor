@@ -23,7 +23,7 @@ else
                 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>Load from PLC</button>
                 @if (CanExport)
                 {
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); }'>Export</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); LoadCustomExportDataAsync(); }'>Export</button>
                     <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid" @onclick="() => isFileImported = false">Import</button>
                 }
             }
@@ -418,7 +418,7 @@ else
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Export data</h1>
-                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" aria-label="Close" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'></button>
                 </div>
                 <div class="modal-body">
                     <div class="accordion">
@@ -431,7 +431,7 @@ else
                                 <div class="accordion-header">
                                     <div class="input-group flex-nowrap">
                                         <div class="input-group-text bg-transparent border-0">
-                                            <input class="form-check-input mt-0" type="checkbox" value="" checked @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString()))">
+                                            <input class="form-check-input mt-0" type="checkbox" @attributes="Vm.CheckedInDictionary(Vm.GetCustomExportDataValue(fragment.ToString()))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString()))">
                                         </div>
                                         <button class="accordion-button @(firstIteration ? "" : "collapsed")" type="button" data-bs-toggle="collapse" data-bs-target="#@fragment.ToString().Replace(".", "_")-@ViewGuid" aria-expanded="@(firstIteration ? "true" : "false")" aria-controls="@fragment.ToString().Replace(".", "_")-@ViewGuid">
                                             @fragment.ToString()
@@ -446,7 +446,7 @@ else
                                                 @if (item is ITwinPrimitive)
                                                 {
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1" type="checkbox" value="" id="@fragment.ToString()-@item.Symbol-@ViewGuid" checked @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString(), item.Symbol))">
+                                                        <input class="form-check-input me-1" type="checkbox" id="@fragment.ToString()-@item.Symbol-@ViewGuid" @attributes="Vm.CheckedInDictionary(Vm.GetCustomExportDataValue(fragment.ToString(), item.Symbol))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString(), item.Symbol))">
                                                         <label class="form-check-label ms-3" for="@fragment.ToString()-@item.Symbol-@ViewGuid">@item.GetSymbolTail()</label>
                                                     </li>
                                                 }
@@ -505,8 +505,8 @@ else
                             </div>
                         </div>
                     }
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); }'>Save</button>
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid">Close</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'>Back</button>
+                    @*<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid">Close</button>*@
                 </div>
             </div>
         </div>

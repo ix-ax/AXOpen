@@ -378,6 +378,33 @@ namespace AXOpen.Data
 
         public Action StateHasChangedDelegate { get; set; }
 
+        public bool GetCustomExportDataValue(string fragmentKey)
+        {
+            var result = new Dictionary<string, object>();
+            if (CustomExportData.ContainsKey(fragmentKey))
+                return CustomExportData[fragmentKey].Exported;
+            return true;
+        }
+
+        public bool GetCustomExportDataValue(string fragmentKey, string key)
+        {
+            if (CustomExportData.ContainsKey(fragmentKey))
+            {
+                if (CustomExportData[fragmentKey].Data.ContainsKey(key))
+                    return CustomExportData[fragmentKey].Data[key];
+            }
+            return true;
+        }
+
+        public Dictionary<string, object> CheckedInDictionary(bool result)
+        {
+            var r = new Dictionary<string, object>();
+            if (result)
+                r.Add("checked", "checked");
+            return r;
+
+        }
+
         public bool GetFragmentsExportedValue()
         {
             foreach(var item in CustomExportData)

@@ -4,7 +4,7 @@
     <div class="accordion-header">
         <div class="input-group flex-nowrap">
             <div class="input-group-text bg-transparent border-0">
-                <input class="form-check-input mt-0" type="checkbox" value="" checked @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail())))">
+                <input class="form-check-input mt-0" type="checkbox" @attributes="Vm.CheckedInDictionary(Vm.GetCustomExportDataValue(Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail())))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail())))">
             </div>
             <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#@Fragment.ToString().Replace(".", "_")-@Parent.Replace(".", "_")-@AccordionContent.GetSymbolTail()-@ViewGuid" aria-expanded="false" aria-controls="@Fragment.ToString().Replace(".", "_")-@Parent.Replace(".", "_")-@AccordionContent.GetSymbolTail()-@ViewGuid">
                 @AccordionContent.GetSymbolTail()
@@ -19,7 +19,7 @@
                     @if (item is ITwinPrimitive)
                     {
                         <li class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="" id="@Fragment.ToString()-@Parent-@AccordionContent.GetSymbolTail()-@item.GetSymbolTail()-@ViewGuid" checked @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail(), item.GetSymbolTail())))">
+                            <input class="form-check-input me-1" type="checkbox" id="@Fragment.ToString()-@Parent-@AccordionContent.GetSymbolTail()-@item.GetSymbolTail()-@ViewGuid" @attributes="Vm.CheckedInDictionary(Vm.GetCustomExportDataValue(Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail(), item.GetSymbolTail())))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, Fragment.ToString(), String.Join('.', Parent, AccordionContent.GetSymbolTail(), item.GetSymbolTail())))">
                             <label class="form-check-label ms-3" for="@Fragment.ToString()-@Parent-@AccordionContent.GetSymbolTail()-@item.GetSymbolTail()-@ViewGuid">@item.GetSymbolTail()</label>
                         </li>
                     }
