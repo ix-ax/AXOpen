@@ -1,3 +1,34 @@
-﻿@page "/"
+﻿@inject NavigationManager NavigationManager
 
-<PageTitle>Index</PageTitle>
+@page "/"
+
+<label>Choose a theme</label>
+<select class="form-control" @bind="Theme" @bind:event="oninput">
+    <option value="bootstrap" selected="@(CurrentTheme == "bootstrap")">Bootstrap default</option>
+    <option value="mts" selected="@(CurrentTheme == "mts")"> MTS</option>
+    <option value="tropical" selected="@(CurrentTheme == "tropical")">Tropical</option>
+    <option value="jupiter" selected="@(CurrentTheme == "jupiter")">Jupiter</option>
+</select>
+
+@code {
+    [Inject]
+    IHttpContextAccessor HttpContextAccessor { get; set; }
+
+    public string CurrentTheme { get; set; }
+
+    private string theme;
+    public string Theme
+    {
+        get => theme;
+        set
+        {
+            theme = value;
+            NavigationManager.NavigateTo($"/theme?theme={theme}", true);
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        CurrentTheme = HttpContextAccessor.HttpContext.Request.Cookies["theme"] ?? "bootstrap";
+    }
+}

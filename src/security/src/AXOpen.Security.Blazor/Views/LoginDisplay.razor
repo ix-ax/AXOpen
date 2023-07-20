@@ -4,7 +4,7 @@
 @namespace AxOpen.Security.Views
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav me-auto mb-lg-0">
             <AuthorizeView>
                 <Authorized>
                     <li class="nav-item dropdown">
@@ -14,7 +14,7 @@
                             </svg>
                             @context.User.Identity.Name
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end">
+                        <ul class="dropdown-menu dropdown-menu-end position-absolute">
                             <li><a class="dropdown-item" href="Identity/Account/Manage" style="margin-left: 0;">Profile</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
