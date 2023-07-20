@@ -5,6 +5,9 @@ using AXSharp.Connector;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
+    /// <summary>
+    /// Proxy service for modal dialogs, where remote tasks responsible for dialogues handling are initilized. 
+    /// </summary>
     public class AxoDialogProxyService : AxoDialogProxyServiceBase
     {
         public AxoDialogProxyService()

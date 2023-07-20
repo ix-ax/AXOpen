@@ -4,6 +4,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
+    /// <summary>
+    /// Base class for dialogues, where open/close method are implemented needed for correct synchronization between dialogues.
+    /// </summary>
+    /// <typeparam name="T">Type of dialogue</typeparam>
     public partial class AxoDialogBaseView<T> :  RenderableComplexComponentBase<T>,IDisposable where T : AxoDialogBase
     {
 
@@ -16,20 +20,15 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         protected ModalDialog ModalDialog;
         private string _dialogId;
         private AxoDialogProxyService _myProxyService;
-        //protected async override Task OnInitializedAsync()
-        //{
-        //    _dialogId = Component.DialogId;
-        //    _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out AxoDialogProxyService proxy);
-        //    _myProxyService = proxy;
-        //}
-        private async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
+
+        protected async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
         {
             if (_dialogId == e.Message.ToString())
             {
                 await Close();
             }
         }
-        private async void OnOpenDialogMessage(object sender, MessageReceivedEventArgs e)
+        protected async void OnOpenDialogMessage(object sender, MessageReceivedEventArgs e)
         {
             if (_dialogId == e.Message.ToString())
             {

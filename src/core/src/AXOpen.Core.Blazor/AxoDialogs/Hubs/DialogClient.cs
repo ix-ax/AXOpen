@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
 {
+    /// <summary>
+    /// Client for SignalR communication within application, serves for synchronization of dialogues across multiple clients.
+    /// </summary>
     public class DialogClient : IAsyncDisposable
     {
         public const string HUBURL = "/dialoghub";

@@ -1,8 +1,9 @@
 ﻿using AXOpen.Core.Blazor.AxoDialogs;
+using AXSharp.Connector;
 
 namespace AXOpen.Core
 {
-    public partial class AxoDialogDialogView : AxoDialogBaseView<AxoDialog>
+    public partial class AxoDialogDialogView : AxoDialogBaseView<AxoDialog>, IDisposable
     {
 
 
@@ -17,41 +18,55 @@ namespace AXOpen.Core
 
         protected override void OnInitialized()
         {
-            Console.WriteLine("INITIALIZED!");
-            Console.WriteLine($"CLOSE SIGNAL VALUE: {Component._closeSignal.Cyclic}");
-            Component._closeSignal.PropertyChanged += OnCloseSignal;
+            Component._answer.ValueChangeEvent += OnCloseSignal;
             base.OnInitialized();
 
         }
 
         private async void OnCloseSignal(object sender, EventArgs e) 
         {
-            Console.WriteLine("CLOSE!");
-            if(Component._closeSignal.LastValue == true && Component._answer.LastValue != (short)eDialogAnswer.NoAnswer)
+            await ((AxoDialog)Component).ReadAsync();
+            var asnwer = Component._answer.LastValue;
+            if (asnwer != (short)eDialogAnswer.NoAnswer && !IsInternalClose)
             {
                 await CloseDialogsWithSignalR();
-            }
-        }
 
+            }
+            IsInternalClose = false;
+
+        }
+        private bool IsInternalClose { get; set; }
         public async Task DialogAnswerOk()  
         {
+            IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.OK;
-            await CloseDialogsWithSignalR();
+           await CloseDialogsWithSignalR();
+           
         }
         public async Task DialogAnswerYes()
         {
+            IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.Yes;
             await CloseDialogsWithSignalR();
         }
         public async Task DialogAnswerNo()
         {
+            IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.No;
             await CloseDialogsWithSignalR();
         }
         public async Task DialogAnswerCancel()
         {
+            IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.Cancel;
             await CloseDialogsWithSignalR();
+        }
+
+        public void Dispose()
+        {
+            Component._answer.ValueChangeEvent -= OnCloseSignal;
+            _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
+            _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
         }
     }
 }

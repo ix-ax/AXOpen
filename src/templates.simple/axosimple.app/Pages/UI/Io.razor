@@ -21,9 +21,18 @@
 
 
 
-<button class="btn btn-primary" @onclick=SetInputs>Set inputs</button>
+
+<div class="btn-group-vertical ">
+    <button class="btn btn-primary m-2" @onclick=SetInputs>Set inputs</button>
 
 
+    <button class="btn-primary btn m-2" @onclick=Clicked>External dialog close signal on</button>
+    <button class="btn-primary btn m-2" @onclick=Clicked2>External dialog close signal off</button>
+</div>
+
+@code {
+  
+}
 @functions
 {
     private void SetInputs()
@@ -33,5 +42,15 @@
         {
             input.Cyclic = true;
         }
+    }
+
+    private void Clicked()
+    {
+        Entry.Plc.Context.PneumaticManipulator.AutomatSequence._externalClose.Edit = true;
+    }
+
+    private void Clicked2()
+    {
+        Entry.Plc.Context.PneumaticManipulator.AutomatSequence._externalClose.Edit = false;
     }
 }

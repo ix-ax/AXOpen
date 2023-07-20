@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
+    /// <summary>
+    ///  Container for multiple AxoDialogProxyService types, based on multiple different dialogues instances and opened web clients.
+    /// </summary>
     public class AxoDialogContainer: IAsyncDisposable
     {
 

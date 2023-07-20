@@ -10,6 +10,7 @@
 @inject IAlertDialogService _scopedAlerts
 @implements IDisposable
 
+@*concrete instance of alert dialog in form of toast*@
 <AxoAlertToast _dialogServiceParameter="_dialogProxyService.DialogService" UseScopedAlerts="@UseScopedAlerts"></AxoAlertToast>
 
 @code {
@@ -20,6 +21,7 @@
 
     protected override void OnAfterRender(bool firstRender)
     {
+        // on first initialization, set objects for observation and subscribe to AlertDialog invoked event
         if (firstRender)
         {
             if (ObservedObjects != null)
@@ -32,6 +34,7 @@
 
     public async void OnDialogInvoked(object sender, AxoDialogEventArgs e)
     {
+        // if alert dialog is invoked, based on UseScopedAlerts attribute call dialog on UI
         if (_dialogProxyService.DialogInstance is AXOpen.Core.AxoAlertDialog)
         {
             AXOpen.Core.AxoAlertDialog a = (AXOpen.Core.AxoAlertDialog)_dialogProxyService.DialogInstance;

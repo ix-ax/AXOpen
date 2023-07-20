@@ -8,6 +8,9 @@ using System.Timers;
 
 namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
+    /// <summary>
+    /// Class representing implementation of alerts in Blazor.
+    /// </summary>
     public class AxoAlertDialogService : IAlertDialogService, IDisposable
     {
         private List<IAlertDialog> ToastsList { get; set; } = new List<IAlertDialog>();

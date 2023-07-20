@@ -146,8 +146,10 @@ NAMESPACE examples.PneumaticManipulator
             _dialog : AXOpen.Core.AxoDialog;
             _dialog1 : AXOpen.Core.AxoDialog;
             _dialog2 : AXOpen.Core.AxoDialog;
+            _dialog3 : AXOpen.Core.AxoDialog;
             _alertDialog : AXOpen.Core.AxoAlertDialog;
             _externalClose : BOOL;
+            _dialog3Answer: eDialogAnswer;
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
@@ -198,7 +200,18 @@ NAMESPACE examples.PneumaticManipulator
             
             IF(Steps[9].Execute(THIS, TRUE, 'Create data id')) THEN
                 ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
-                THIS.MoveNext(); 
+
+                _dialog3Answer := _dialog3.ShowWithExternalClose(THIS, _externalClose)
+                .WithOK()
+                .WithType(eDialogType#Warning)
+                .WithCaption('Hello world!')
+                .WithText('The data was written, you can also close me externally from IO page').Answer();
+
+                IF(_dialog3Answer = eDialogAnswer#Ok) THEN
+
+                    THIS.MoveNext(); 
+
+                END_IF;	
 
             END_IF;    
 
@@ -213,8 +226,6 @@ NAMESPACE examples.PneumaticManipulator
 
             IF (Steps[11].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
                 //-------------------------------------------------------        
-                _externalClose := FALSE;
-
                    IF(_alertDialog.Show(THIS)
                         .WithTitle('Plc alert')
                         .WithType(eDialogType#Success)
@@ -300,32 +311,6 @@ NAMESPACE examples.PneumaticManipulator
 
             END_IF;
 
-          
-
-            IF(Steps[18].Execute(THIS, TRUE, 'External close of dialog')) THEN
-                
-                IF(_dialog1.ShowWithExternalClose(THIS,FALSE,FALSE,_externalClose,FALSE)
-                    .WithYesNoCancel()
-                    .WithType(eDialogType#Warning)
-                    .WithCaption('YesNoCancel dialog')
-                    .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
-                    
-                    THIS.MoveNext(); 
-
-
-                END_IF;	
-
-                IF(Steps[18].Duration > T#3000ms) THEN
-                    
-                    _externalClose := TRUE;
-                    THIS.MoveNext(); 
-                   
-
-            END_IF;	
-
-
-
-            END_IF;   	
             
 //-------------------------------------------------------
             

@@ -3,6 +3,9 @@ using System;
 
 namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
+    /// <summary>
+    /// Data structure representing AlertDialog.
+    /// </summary>
     public class AlertDialog : IAlertDialog
     {
         public Guid Id { get; set; } = Guid.NewGuid();

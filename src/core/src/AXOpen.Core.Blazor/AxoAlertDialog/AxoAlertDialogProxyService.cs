@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
+    /// <summary>
+    /// Proxy service for alert dialogs, where remote tasks responsible for dialogues handling are initilized 
+    /// </summary>
     public class AxoAlertDialogProxyService : AxoDialogProxyServiceBase
     {
         public AxoAlertDialogProxyService()
@@ -36,6 +39,10 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
         }
         public event EventHandler<AxoDialogEventArgs> AlertDialogInvoked;
 
+        /// <summary>
+        ///  Invoked dialogues are handled within this method and subseqeuntly event is raised in application, which is then handled in UI.
+        /// </summary>
+        /// <param name="dialog"></param>
         protected async void Queue(IsDialogType dialog)
         {
             Console.WriteLine("!!!QUEUE");

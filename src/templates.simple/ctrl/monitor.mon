@@ -10,10 +10,11 @@
 
 
 #Context.PneumaticManipulator.AutomatSequence._dialog
-Context.PneumaticManipulator.AutomatSequence._dialog1._closeSignal
-Context.PneumaticManipulator.AutomatSequence._dialog1._answer
+Context.PneumaticManipulator.AutomatSequence._dialog3._closeSignal
+Context.PneumaticManipulator.AutomatSequence._dialog3._answer
 Context.PneumaticManipulator.AutomatSequence._externalClose
-Context.PneumaticManipulator.AutomatSequence._dialog1._edgeDetected
+Context.PneumaticManipulator.AutomatSequence._dialog3._edgeDetected
+Context.PneumaticManipulator.AutomatSequence._dialog3._testClose
 #Context.PneumaticManipulator.AutomatSequence._dialog1
 
 #Context.PneumaticManipulator.AutomatSequence._dialog2

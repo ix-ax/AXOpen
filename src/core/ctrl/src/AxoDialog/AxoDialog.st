@@ -17,9 +17,9 @@ NAMESPACE AXOpen.Core
             _externalCloseReq : BOOL;
             _closeSignal : BOOL;
             _risingEdge : RisingEdge;
-            _edgeDetected : BOOL;
         END_VAR
         
+
         ///<summary>
         /// Show method, which serves for initializing remote task and invoking dialog from PLC.
         ///</summary>
@@ -47,7 +47,9 @@ NAMESPACE AXOpen.Core
             Show := THIS;
             //after task is done and some answer is provided, restore this task
             IF (THIS.Status = eAxoTaskState#Done && _answer <> eDialogAnswer#NoAnswer) THEN
-                THIS.Restore();       
+                
+                THIS.Restore();   
+                    
             END_IF;
             
         
@@ -56,7 +58,7 @@ NAMESPACE AXOpen.Core
 
 
          ///<summary>
-        /// Show method, which serves for initializing remote task and invoking dialog from PLC.
+        /// Show method with a possibility to close dialog externally by setting a signal.
         ///</summary>
         METHOD PUBLIC ShowWithExternalClose : IAxoDialogFormat
             VAR_INPUT
@@ -90,19 +92,20 @@ NAMESPACE AXOpen.Core
             _dialogType := eDialogType#Undefined;
 
             ShowWithExternalClose := THIS;
-
-            //_risingEdge(signal := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal, detected => edgeDetected);
-            _risingEdge(signal := inNoAnswerSignal, detected => edgeDetected);
+            // watch close signals on rising edge
+            _risingEdge(signal := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal, detected => edgeDetected);
             IF edgeDetected THEN
                 _closeSignal := TRUE;
                 IF inOkAnswerSignal THEN
                     _answer := eDialogAnswer#Ok;
                 ELSIF	inYesAnswerSignal THEN
-                    _answer:= eDialogAnswer#Yes;
+                    _answer := eDialogAnswer#Yes;
                 ELSIF	inNoAnswerSignal THEN
-                    _answer:= eDialogAnswer#No;
+                    _answer := eDialogAnswer#No;
                 ELSIF	inCancelAnswerSignal THEN 
-                    _answer:= eDialogAnswer#Cancel;END_IF;
+                    _answer := eDialogAnswer#Cancel;
+                END_IF;
+         
             END_IF;
 
             //after task is done and some answer is provided, restore this task
@@ -115,11 +118,6 @@ NAMESPACE AXOpen.Core
         
             
         END_METHOD
-
-
-        
-
-
 
     
     METHOD PUBLIC WithCaption : IAxoDialogAnswer
