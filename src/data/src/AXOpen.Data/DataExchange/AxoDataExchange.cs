@@ -388,7 +388,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         else
         {
             ExportData exportData = customExportData.GetValueOrDefault(RefUIData.ToString(), new ExportData(true, new Dictionary<string, bool>()));
-            if(exportData.Exported)
+            if (exportData.Exported)
                 dataExporter.Export(DataRepository, path, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
         }
     }
@@ -445,7 +445,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
                     dataExporter = new TXTDataExporter<TPlain, TOnline>();
                     break;
             }
-            
+
             dataExporter.Import(DataRepository, path, crudDataObject, separator);
         }
     }

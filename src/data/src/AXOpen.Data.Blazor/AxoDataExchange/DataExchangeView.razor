@@ -396,7 +396,7 @@ else
                     </div>
                     <div class="input-group d-inline-flex w-25 align-middle">
                         <span class="input-group-text">Separator</span>
-                        <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.Separator">
+                        <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.ExportSet.Separator">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -431,7 +431,7 @@ else
                                 <div class="accordion-header">
                                     <div class="input-group flex-nowrap">
                                         <div class="input-group-text bg-transparent border-0">
-                                            <input class="form-check-input mt-0" type="checkbox" @attributes="Vm.CheckedInDictionary(Vm.GetCustomExportDataValue(fragment.ToString()))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString()))">
+                                            <input class="form-check-input mt-0" type="checkbox" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(fragment.ToString()))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString()))">
                                         </div>
                                         <button class="accordion-button @(firstIteration ? "" : "collapsed")" type="button" data-bs-toggle="collapse" data-bs-target="#@fragment.ToString().Replace(".", "_")-@ViewGuid" aria-expanded="@(firstIteration ? "true" : "false")" aria-controls="@fragment.ToString().Replace(".", "_")-@ViewGuid">
                                             @fragment.ToString()
@@ -439,14 +439,14 @@ else
                                     </div>
                                 </div>
                                 <div id="@fragment.ToString().Replace(".", "_")-@ViewGuid" class="accordion-collapse collapse @(firstIteration ? "show" : "")">
-                                    <div class="accordion-body">
+                                    <div class="accordion-body @(Vm.GetCustomExportDataValue(fragment.ToString()) ? "" : "opacity-25")">
                                         <ul class="list-group">
                                             @foreach (var item in Vm.GetValueTags(fragment.GetType()))
                                             {
                                                 @if (item is ITwinPrimitive)
                                                 {
                                                     <li class="list-group-item">
-                                                        <input class="form-check-input me-1" type="checkbox" id="@fragment.ToString()-@item.Symbol-@ViewGuid" @attributes="Vm.CheckedInDictionary(Vm.GetCustomExportDataValue(fragment.ToString(), item.Symbol))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString(), item.Symbol))">
+                                                        <input class="form-check-input me-1" type="checkbox" id="@fragment.ToString()-@item.Symbol-@ViewGuid" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(fragment.ToString(), item.Symbol))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString(), item.Symbol))">
                                                         <label class="form-check-label ms-3" for="@fragment.ToString()-@item.Symbol-@ViewGuid">@item.GetSymbolTail()</label>
                                                     </li>
                                                 }
@@ -466,34 +466,34 @@ else
                 <div class="modal-footer">
                     <div class="col-12">
                         <div class="input-group mt-2">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.ExportMode</button>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.ExportSet.ExportMode</button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item @(Vm.ExportMode == eExportMode.First ? "active" : "")" @onclick="() => Vm.ExportMode = eExportMode.First">First</a></li>
-                                <li><a class="dropdown-item @(Vm.ExportMode == eExportMode.Last ? "active" : "")" @onclick="() => Vm.ExportMode = eExportMode.Last">Last</a></li>
-                                <li><a class="dropdown-item @(Vm.ExportMode == eExportMode.Exact ? "active" : "")" @onclick="() => Vm.ExportMode = eExportMode.Exact">Exact</a></li>
+                                <li><a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.First ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.First">First</a></li>
+                                <li><a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.Last ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.Last">Last</a></li>
+                                <li><a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.Exact ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.Exact">Exact</a></li>
                             </ul>
-                            @if (Vm.ExportMode == eExportMode.Exact)
+                            @if (Vm.ExportSet.ExportMode == eExportMode.Exact)
                             {
                                 <div class="input-group-text">From</div>
-                                <input type="text" class="form-control" placeholder="From" @bind="Vm.FirstNumber">
+                                <input type="text" class="form-control" placeholder="From" @bind="Vm.ExportSet.FirstNumber">
                                 <div class="input-group-text">To</div>
-                                <input type="text" class="form-control" placeholder="To" @bind="Vm.SecondNumber">
+                                <input type="text" class="form-control" placeholder="To" @bind="Vm.ExportSet.SecondNumber">
                             }
                             else
                             {
-                                <input type="text" class="form-control" @bind="Vm.FirstNumber">
+                                <input type="text" class="form-control" @bind="Vm.ExportSet.FirstNumber">
                             }
                             <div class="input-group-text">records</div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="btn-group mt-2" role="group" aria-label="File type">
-                            <button type="button" class="btn @(Vm.ExportFileType == eFileType.csv ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.ExportFileType = eFileType.csv">csv</button>
-                            <button type="button" class="btn @(Vm.ExportFileType == eFileType.txt ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.ExportFileType = eFileType.txt">txt</button>
+                            <button type="button" class="btn @(Vm.ExportSet.ExportFileType == eFileType.csv ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.ExportSet.ExportFileType = eFileType.csv">csv</button>
+                            <button type="button" class="btn @(Vm.ExportSet.ExportFileType == eFileType.txt ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.ExportSet.ExportFileType = eFileType.txt">txt</button>
                         </div>
                         <div class="input-group mt-2 d-inline-flex w-25 align-middle">
                             <span class="input-group-text">Separator</span>
-                            <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.Separator">
+                            <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.ExportSet.Separator">
                         </div>
                     </div>
                     @if (!Vm.GetFragmentsExportedValue())
@@ -506,7 +506,6 @@ else
                         </div>
                     }
                     <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'>Back</button>
-                    @*<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid">Close</button>*@
                 </div>
             </div>
         </div>

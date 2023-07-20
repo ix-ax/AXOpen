@@ -292,7 +292,7 @@ namespace AXOpen.Data
 
             try
             {
-                DataExchange.ExportData(path, CustomExportData, ExportMode, FirstNumber, SecondNumber, ExportFileType, Separator);
+                DataExchange.ExportData(path, ExportSet.CustomExportData, ExportSet.ExportMode, ExportSet.FirstNumber, ExportSet.SecondNumber, ExportSet.ExportFileType, ExportSet.Separator);
 
                 IsFileExported = true;
 
@@ -308,7 +308,7 @@ namespace AXOpen.Data
         {
             try
             {
-                DataExchange.ImportData(path, separator: Separator);
+                DataExchange.ImportData(path, separator: ExportSet.Separator);
 
                 this.UpdateObservableRecords();
 
@@ -330,12 +330,17 @@ namespace AXOpen.Data
         public string CreateItemId { get; set; }
         public bool IsBusy { get; set; }
 
-        public Dictionary<string, ExportData> CustomExportData { get; set; } = new();
-        public eExportMode ExportMode { get; set; } = eExportMode.First;
-        public int FirstNumber { get; set; } = 50;
-        public int SecondNumber { get; set; } = 100;
-        public eFileType ExportFileType { get; set; } = eFileType.csv;
-        public char Separator { get; set; } = ';';
+        public ExportSettings ExportSet { get; set; } = new();
+
+        public class ExportSettings
+        {
+            public Dictionary<string, ExportData> CustomExportData { get; set; } = new();
+            public eExportMode ExportMode { get; set; } = eExportMode.First;
+            public int FirstNumber { get; set; } = 50;
+            public int SecondNumber { get; set; } = 100;
+            public eFileType ExportFileType { get; set; } = eFileType.csv;
+            public char Separator { get; set; } = ';';
+        }
 
         public IEnumerable<ITwinElement> GetValueTags(Type type)
         {
@@ -345,32 +350,32 @@ namespace AXOpen.Data
 
         public void ChangeCustomExportDataValue(ChangeEventArgs __e, string fragmentKey)
         {
-            if (!CustomExportData.ContainsKey(fragmentKey))
+            if (!ExportSet.CustomExportData.ContainsKey(fragmentKey))
             {
-                CustomExportData.Add(fragmentKey, new ExportData((bool)__e.Value, new Dictionary<string, bool>()));
+                ExportSet.CustomExportData.Add(fragmentKey, new ExportData((bool)__e.Value, new Dictionary<string, bool>()));
             }
             else
             {
-                CustomExportData[fragmentKey].Exported = (bool)__e.Value;
+                ExportSet.CustomExportData[fragmentKey].Exported = (bool)__e.Value;
             }
         }
 
         public void ChangeCustomExportDataValue(ChangeEventArgs __e, string fragmentKey, string key)
         {
-            if (!CustomExportData.ContainsKey(fragmentKey))
+            if (!ExportSet.CustomExportData.ContainsKey(fragmentKey))
             {
-                CustomExportData.Add(fragmentKey, new ExportData(true, new Dictionary<string, bool>()));
-                CustomExportData[fragmentKey].Data.Add(key, (bool)__e.Value);
+                ExportSet.CustomExportData.Add(fragmentKey, new ExportData(true, new Dictionary<string, bool>()));
+                ExportSet.CustomExportData[fragmentKey].Data.Add(key, (bool)__e.Value);
             }
             else
             {
-                if (!CustomExportData[fragmentKey].Data.ContainsKey(key))
+                if (!ExportSet.CustomExportData[fragmentKey].Data.ContainsKey(key))
                 {
-                    CustomExportData[fragmentKey].Data.Add(key, (bool)__e.Value);
+                    ExportSet.CustomExportData[fragmentKey].Data.Add(key, (bool)__e.Value);
                 }
                 else
                 {
-                    CustomExportData[fragmentKey].Data[key] = (bool)__e.Value;
+                    ExportSet.CustomExportData[fragmentKey].Data[key] = (bool)__e.Value;
                 }
             }
             StateHasChangedDelegate.Invoke();
@@ -381,25 +386,25 @@ namespace AXOpen.Data
         public bool GetCustomExportDataValue(string fragmentKey)
         {
             var result = new Dictionary<string, object>();
-            if (CustomExportData.ContainsKey(fragmentKey))
-                return CustomExportData[fragmentKey].Exported;
+            if (ExportSet.CustomExportData.ContainsKey(fragmentKey))
+                return ExportSet.CustomExportData[fragmentKey].Exported;
             return true;
         }
 
         public bool GetCustomExportDataValue(string fragmentKey, string key)
         {
-            if (CustomExportData.ContainsKey(fragmentKey))
+            if (ExportSet.CustomExportData.ContainsKey(fragmentKey))
             {
-                if (CustomExportData[fragmentKey].Data.ContainsKey(key))
-                    return CustomExportData[fragmentKey].Data[key];
+                if (ExportSet.CustomExportData[fragmentKey].Data.ContainsKey(key))
+                    return ExportSet.CustomExportData[fragmentKey].Data[key];
             }
             return true;
         }
 
-        public Dictionary<string, object> CheckedInDictionary(bool result)
+        public Dictionary<string, object> InDictionary(bool check)
         {
             var r = new Dictionary<string, object>();
-            if (result)
+            if (check)
                 r.Add("checked", "checked");
             return r;
 
@@ -407,9 +412,9 @@ namespace AXOpen.Data
 
         public bool GetFragmentsExportedValue()
         {
-            foreach(var item in CustomExportData)
+            foreach (var item in ExportSet.CustomExportData)
             {
-                if(!item.Value.Exported)
+                if (!item.Value.Exported)
                     return false;
 
                 foreach (var innerItem in item.Value.Data)

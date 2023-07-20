@@ -249,6 +249,12 @@ namespace AXOpen.Data
                 case OnlinerByte c:
                     return byte.Parse(@value);
 
+                case OnlinerChar c:
+                    return char.Parse(@value);
+
+                case OnlinerWChar c:
+                    return char.Parse(@value);
+
                 case OnlinerDate c:
                     return DateTime.Parse(@value);
 
@@ -269,6 +275,12 @@ namespace AXOpen.Data
 
                 case OnlinerLTime c:
                     return TimeSpan.Parse(@value);
+
+                case OnlinerLTimeOfDay c:
+                    return TimeSpan.Parse(@value);
+
+                case OnlinerLDateTime c:
+                    return DateTime.Parse(@value);
 
                 case OnlinerLWord c:
                     return ulong.Parse(@value);

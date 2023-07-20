@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Components.Forms;
 using AXSharp.Abstractions.Dialogs.AlertDialog;
 using System.IO;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using static AXOpen.Data.DataExchangeViewModel;
 
 namespace AXOpen.Data;
 
@@ -132,28 +133,17 @@ public partial class DataExchangeView
             Directory.Delete(path, true);
     }
 
-    private class TestClass{
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public TestClass(string name, string desctription)
-        {
-            Name = name;
-            Description = desctription;
-        }
-    }
-
     public async Task SaveCustomExportDataAsync()
     {
-        await ProtectedLocalStore.SetAsync("a", Vm.CustomExportData);
+        await ProtectedLocalStore.SetAsync(Vm.DataExchange.ToString(), Vm.ExportSet);
     }
 
     public async Task LoadCustomExportDataAsync()
     {
-        var result = await ProtectedLocalStore.GetAsync<Dictionary<string, ExportData>>("a");
+        var result = await ProtectedLocalStore.GetAsync<ExportSettings>(Vm.DataExchange.ToString());
         if (result.Success)
         {
-            Vm.CustomExportData = result.Value;
-            _alertDialogService.AddAlertDialog("Info", "Successed loaded!", "Custom data was successfuly loaded", 10);
+            Vm.ExportSet = result.Value;
         }
         StateHasChanged();
     }
