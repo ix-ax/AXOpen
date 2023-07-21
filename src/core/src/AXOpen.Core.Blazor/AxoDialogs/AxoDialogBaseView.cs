@@ -58,7 +58,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             await _dialogContainer.DialogClient.SendDialogClose(_dialogId);
         }
 
-        private async Task Close()
+        protected async Task Close()
         {
             await ModalDialog.Close();
             _dialogContainer.DialogProxyServicesDictionary.TryGetValue(_dialogId, out var proxy);

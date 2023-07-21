@@ -76,7 +76,7 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
         {
             if (Timer != null)
             {
-                Timer.Elapsed += TimerElapsed;
+                Timer.Elapsed -= TimerElapsed;
                 Timer.Stop();
             }
         }

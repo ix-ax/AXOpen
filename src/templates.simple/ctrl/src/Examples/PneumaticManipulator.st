@@ -199,7 +199,7 @@ NAMESPACE examples.PneumaticManipulator
             THIS.AndThen(Steps[8], components^.GripperCylinder.MoveToHome);
             
             IF(Steps[9].Execute(THIS, TRUE, 'Create data id')) THEN
-                ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
+                //ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
 
                 _dialog3Answer := _dialog3.ShowWithExternalClose(THIS, _externalClose)
                 .WithOK()
@@ -217,37 +217,38 @@ NAMESPACE examples.PneumaticManipulator
 
             IF (Steps[10].Execute(THIS, TRUE, 'Save data.')) THEN
                 //-------------------------------------------------------            
-                IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
-                    THIS.MoveNext(); // <- This will move to the next step in the sequence.
-                END_IF;
+                // IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
+                //     THIS.MoveNext(); // <- This will move to the next step in the sequence.
+                // END_IF;
+                THIS.MoveNext();
                 //-------------------------------------------------------
             END_IF;
 
 
-            IF (Steps[11].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
-                //-------------------------------------------------------        
-                   IF(_alertDialog.Show(THIS)
-                        .WithTitle('Plc alert')
-                        .WithType(eDialogType#Success)
-                        .WithMessage('This is alert invoked from plc!')
-                        .WithTimeToBurn(UINT#5).IsShown() = true) THEN
-                        THIS.MoveNext(); 
-                    END_IF;	
+            // IF (Steps[11].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+            //     //-------------------------------------------------------        
+            //        IF(_alertDialog.Show(THIS)
+            //             .WithTitle('Plc alert')
+            //             .WithType(eDialogType#Success)
+            //             .WithMessage('This is alert invoked from plc!')
+            //             .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+            //             THIS.MoveNext(); 
+            //         END_IF;	
 
 
-            //-------------------------------------------------------
-            END_IF;
+            // //-------------------------------------------------------
+            // END_IF;
 
 
             IF (Steps[12].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[12].Duration > T#1000ms) THEN
+                IF(Steps[12].Duration > T#2000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
             END_IF;
 
-            IF (Steps[13].Execute(THIS, TRUE, 'Show dialog')) THEN
+            IF (Steps[13].Execute(THIS, TRUE, 'Show dialog 0')) THEN
                 //------------------------------------------------------- 
             
                     IF(_dialog.Show(THIS)
@@ -265,7 +266,7 @@ NAMESPACE examples.PneumaticManipulator
 
             IF (Steps[14].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[14].Duration > T#1000ms) THEN
+                IF(Steps[14].Duration > T#2000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
@@ -273,7 +274,7 @@ NAMESPACE examples.PneumaticManipulator
 
 
 
-            IF (Steps[15].Execute(THIS, TRUE, 'Show dialog')) THEN
+            IF (Steps[15].Execute(THIS, TRUE, 'Show dialog 1')) THEN
                 //------------------------------------------------------- 
                         IF(_dialog1.Show(THIS)
                             .WithYesNoCancel()
@@ -290,13 +291,13 @@ NAMESPACE examples.PneumaticManipulator
 
             IF (Steps[16].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[16].Duration > T#1000ms) THEN
+                IF(Steps[16].Duration > T#2000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
             END_IF;
 
-            IF (Steps[17].Execute(THIS, TRUE, 'Show dialog')) THEN
+            IF (Steps[17].Execute(THIS, TRUE, 'Show dialog 2')) THEN
                 //------------------------------------------------------- 
 
                     IF(_dialog2.Show(THIS)

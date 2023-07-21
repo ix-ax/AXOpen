@@ -21,14 +21,15 @@ namespace AXOpen.Core.Blazor.AxoDialogs
           
         }
 
-        public async Task InitializeSignalR(string uri)
+        public bool InitializeSignalR(string uri)
         {
             if (DialogClient == null)
             {
                 DialogClient = new DialogClient(uri);
-                
+                return true;
             }
-            await DialogClient.StartAsync();
+            return false;
+           
         }
         public List<string> ObservedObjects { get; set; } = new List<string>();
 

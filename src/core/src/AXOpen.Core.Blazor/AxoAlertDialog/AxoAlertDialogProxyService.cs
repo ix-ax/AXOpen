@@ -45,7 +45,7 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
         /// <param name="dialog"></param>
         protected async void Queue(IsDialogType dialog)
         {
-            Console.WriteLine("!!!QUEUE");
+            //Console.WriteLine("!!!QUEUE");
             DialogInstance = dialog;
             await DialogInstance.ReadAsync();
             AlertDialogInvoked?.Invoke(this, new AxoDialogEventArgs(string.Empty));

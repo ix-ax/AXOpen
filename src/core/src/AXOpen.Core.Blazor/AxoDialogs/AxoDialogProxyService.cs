@@ -44,7 +44,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             DialogInstance = dialog;
             DialogInstance.DialogId = DialogServiceId;
-            Console.WriteLine($"Queue! {dialog.GetType()}");
+            Console.WriteLine($"Queue! {dialog.GetType()}, symbol: {DialogInstance.Symbol}");
             await DialogInstance.ReadAsync();
             DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
         }

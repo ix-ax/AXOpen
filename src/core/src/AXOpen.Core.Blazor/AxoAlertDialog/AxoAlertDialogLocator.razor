@@ -46,7 +46,7 @@
             {
                 _dialogProxyService.DialogService.AddAlertDialog((eAlertDialogType)a._dialogType.Cyclic, a._title.Cyclic, a._message.Cyclic, a._timeToBurn.Cyclic);
             }
-            _dialogProxyService.DialogInstance = null;
+            //_dialogProxyService.DialogInstance = null;
             await InvokeAsync(StateHasChanged);
         }
        

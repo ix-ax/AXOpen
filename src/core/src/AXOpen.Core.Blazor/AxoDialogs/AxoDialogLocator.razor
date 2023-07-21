@@ -58,7 +58,8 @@
         {
             // if it does not exist, create new instance with observed objects and add it into container
             _axoDialogProxyService = new AxoDialogProxyService(DialogId, ObservedObjects);
-            await _dialogContainer.InitializeSignalR(_navigationManager.BaseUri);
+            var isFirstInitialize = _dialogContainer.InitializeSignalR(_navigationManager.BaseUri);
+            if (isFirstInitialize) await _dialogContainer.DialogClient.StartAsync();
             _dialogContainer.DialogProxyServicesDictionary.TryAdd(DialogId, _axoDialogProxyService);
         }
         else

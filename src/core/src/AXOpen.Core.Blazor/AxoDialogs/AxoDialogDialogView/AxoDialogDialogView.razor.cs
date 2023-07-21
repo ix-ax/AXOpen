@@ -25,14 +25,16 @@ namespace AXOpen.Core
 
         private async void OnCloseSignal(object sender, EventArgs e) 
         {
-            await ((AxoDialog)Component).ReadAsync();
+           
+            //await ((AxoDialog)Component).ReadAsync();
             var asnwer = Component._answer.LastValue;
             if (asnwer != (short)eDialogAnswer.NoAnswer && !IsInternalClose)
             {
-                await CloseDialogsWithSignalR();
+                Console.WriteLine("Closing with external!");
+                await base.Close();
 
             }
-            IsInternalClose = false;
+            
 
         }
         private bool IsInternalClose { get; set; }
@@ -40,33 +42,41 @@ namespace AXOpen.Core
         {
             IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.OK;
-           await CloseDialogsWithSignalR();
-           
+            Console.WriteLine("Close Ok!");
+            await CloseDialogsWithSignalR();
+            IsInternalClose = false;
+
         }
         public async Task DialogAnswerYes()
         {
             IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.Yes;
+            Console.WriteLine("Close YEs!");
             await CloseDialogsWithSignalR();
+            IsInternalClose = false;
         }
         public async Task DialogAnswerNo()
         {
             IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.No;
+            Console.WriteLine("Close No!");
             await CloseDialogsWithSignalR();
+            IsInternalClose = false;
         }
         public async Task DialogAnswerCancel()
         {
             IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.Cancel;
+            Console.WriteLine("Close Cancel!");
             await CloseDialogsWithSignalR();
+            IsInternalClose = false;
         }
 
         public void Dispose()
         {
             Component._answer.ValueChangeEvent -= OnCloseSignal;
-            _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
-            _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
+            //_dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
+            //_dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
         }
     }
 }
