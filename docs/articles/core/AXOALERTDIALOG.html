@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>AxoSequencerContainer | System.Dynamic.ExpandoObject </title>
+    <title>AlertDialog | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="AxoSequencerContainer | System.Dynamic.ExpandoObject ">
+    <meta name="title" content="AlertDialog | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
     <link rel="shortcut icon" href="../../images/favicon.ico">
@@ -77,58 +77,97 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="axosequencercontainer">AxoSequencerContainer</h1>
+<h1 id="alertdialog">AlertDialog</h1>
 
-<p><code>AxoSequencerContainer</code> is an <code>AxoCordinator</code> class that extends from <code>AxoSequencer</code>. The main difference is that this class is abstract so it is not possible to instantiate it directly. The user-defined class that extends from <code>AxoSequencerContainer</code> needs to be created and then instantiated.</p>
-<p>In the extended class <code>MAIN()</code> method needs to be created and all sequencer logic needs to be placed there. Then the sequencer is called via <code>Run(IAxoObject)</code> or <code>Run(IAxoContext)</code> methods, that ensure initialization of the sequencer with <code>AxoObject</code> or with <code>AxoContext</code>. Moreover the <code>Run()</code> method also ensures calling the <code>Open()</code> method, so it is not neccessary to call it explicitelly in comparison with <code>AxoSequencer</code>.</p>
-<h3 id="example-of-using-axosequencercontainer">Example of using AxoSequencerContainer</h3>
-<h4 id="example-of-the-declaration-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of the declaration of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
-    VAR PUBLIC
-        _step_1 : AxoStep;
-        _step_2 : AxoStep;
-        _step_3 : AxoStep;
-        _myCounter : ULINT;
-    END_VAR
-END_CLASS
-</code></pre><h4 id="example-of-implementation-main-method-inside-the-user-defined-class-that-extends-from-axosequencercontainer">Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer</h4>
-<p>All the custom logic of the sequencer needs to be placed here.</p>
-<pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE MAIN 
-    _step_1.Initialize(THIS);
-    _step_2.Initialize(THIS);
-    _step_3.Initialize(THIS);
+<p>The AlertDialog class provides a notification mechanism in application in form of toasts.</p>
+<p><img src="../../images/AlertDialog.png" alt="Alert Dialog"></p>
+<h2 id="in-app-usage">In-app usage</h2>
+<p>Alerts dialogs can be simply called anywhere from application by injecting <code>IAlertDialogService</code> and calling <code>AddAlertDialog(type, title, message, time)</code> method.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>IAlertDialogService</code> is a scoped service, therefore alerts are unique to each client and are not synchronized.</p>
+</div>
+<ol>
+<li>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file.</li>
+</ol>
+<pre><code class="lang-C#">builder.Services.AddAxoCoreServices();
+</code></pre>
+<ol start="2">
+<li>Add <code>AxoAlertToast</code> instance to <code>MainLayout.razor</code> file.</li>
+</ol>
+<pre><code class="lang-HTML">@using AXOpen.Core.Blazor.AxoAlertDialog
 
-    _myCounter := _myCounter + ULINT#1;
+&lt;div class=&quot;page&quot;&gt;
+    &lt;main&gt;
+        &lt;TopRow /&gt;
+        &lt;article class=&quot;content px-4&quot;&gt;
+            @Body
+        &lt;/article&gt;
+    &lt;/main&gt;
+    &lt;NavMenu /&gt;
 
-    IF(_step_1.Execute(THIS)) THEN  
-        IF(_myCounter &gt;= ULINT#100 ) THEN
-            _myCounter := ULINT#0;
-            THIS.MoveNext();
-        END_IF;    
-    END_IF;    
+   &lt;AxoAlertToast/&gt;
 
-    IF(_step_2.Execute(THIS)) THEN
-        IF(_myCounter &gt;= ULINT#100) THEN
-            _myCounter := ULINT#0;
-            THIS.MoveNext();
-        END_IF;    
-    END_IF; 
-
-    IF(_step_3.Execute(THIS)) THEN
-        IF(_myCounter &gt;= ULINT#100) THEN
-            _myCounter := ULINT#0;
-            _step_3.ThrowWhen(TRUE);
-            THIS.CompleteSequence();
-        END_IF;    
-    END_IF; 
-END_METHOD
-</code></pre><h4 id="example-of-declaration-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of declaration of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">VAR PUBLIC
-    _mySequencerContainer : AxoSequencerContainerDocuExample;
+&lt;/div&gt;
+</code></pre>
+<ol start="2">
+<li>Inject <code>IAlertDialogService</code> into you Blazor component</li>
+</ol>
+<pre><code class="lang-C#">@inject IAlertDialogService _alerts
+</code></pre>
+<ol start="3">
+<li>Invoke notification toast from your Blazor view</li>
+</ol>
+<pre><code class="lang-C#">_alertDialogService.AddAlertDialog(type, title, message, time);
+</code></pre>
+<p>Where:</p>
+<ul>
+<li><strong>type</strong>: <code>eAlertDialogType</code> enum representing visualization type:
+<ul>
+<li>Undefined</li>
+<li>Info</li>
+<li>Success</li>
+<li>Danger</li>
+<li>Warning</li>
+</ul>
+</li>
+<li><strong>title</strong>: Refers to the header of alert</li>
+<li><strong>message</strong>: Corresponds to the message</li>
+<li><strong>time</strong>: Specifies the duration in <em>seconds</em> for which the alert will be displayed</li>
+</ul>
+<h2 id="invoking-alerts-from-plc">Invoking alerts from PLC</h2>
+<p>Alerts can be invoked from plc similarly like <a href="AXODIALOG.html">AxoDialog</a>, however there is no need for user interaction.</p>
+<pre><code>VAR PUBLIC
+    _alertDialog : AXOpen.Core.AxoAlertDialog;
 END_VAR
-</code></pre><h4 id="example-of-calling-of-the-instance-of-the-user-defined-class-that-extends-from-axosequencercontainer">Example of calling of the instance of the user-defined class that extends from AxoSequencerContainer</h4>
-<pre><code class="lang-smalltalk">_mySequencerContainer.Run(THIS);
-</code></pre></article>
+//...
+IF(_alertDialog.Show(THIS)
+    .WithTitle('Plc alert')
+    .WithType(eDialogType#Success)
+    .WithMessage('This is alert invoked from plc!')
+    .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+    //when task is done, move next
+    THIS.MoveNext(); 
+END_IF;	
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Alerts</code> invoked from PLC are synchronized across clients. However it is also possible to use scoped alerts like above.</p>
+</div>
+<ol>
+<li><p>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file.</p>
+</li>
+<li><p>Add <code>AxoAlertDialogLocator</code> with provided list of observed objects to your view. You can add it either to:</p>
+<ul>
+<li><code>MainLayout.razor</code> file, where in consequence alerts will be displayed and synchronized across whole application.</li>
+<li>Your own razor file, where alerts will be synchronized across multiple clients but only displayed within that specific razor page.</li>
+</ul>
+</li>
+</ol>
+<pre><code class="lang-HTML">&lt;AxoAlertDialogLocator ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot; UseScopedAlerts=false/&gt;
+</code></pre>
+<p>If <code>UseScopedAlerts</code> is set to <code>true</code>, these alerts won't be synchronized across multiple clients and will use scoped <code>IAlertDialogService</code>.</p>
+</article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">
@@ -136,7 +175,7 @@ END_VAR
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/12-_NEW-FEATURE_Invokable_dialogues_from_PLC/docfx/articles/core/AXOSEQUENCERCONTAINER.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/12-_NEW-FEATURE_Invokable_dialogues_from_PLC/docfx/articles/core/AXOALERTDIALOG.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

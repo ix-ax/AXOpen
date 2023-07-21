@@ -76,6 +76,7 @@ NAMESPACE AXOpen.Core
             //before task initialization, set _asnwer to #NoAnswer to avoid inconsitencies
             IF (THIS.Status = eAxoTaskState#Ready) THEN
                 _answer := eDialogAnswer#NoAnswer;
+                _closeSignal := FALSE;
             END_IF;
 
             THIS.Invoke();
@@ -93,6 +94,7 @@ NAMESPACE AXOpen.Core
 
             ShowWithExternalClose := THIS;
             // watch close signals on rising edge
+            
             _risingEdge(signal := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal, detected => edgeDetected);
             IF edgeDetected THEN
                 _closeSignal := TRUE;
@@ -111,7 +113,7 @@ NAMESPACE AXOpen.Core
             //after task is done and some answer is provided, restore this task
             IF (THIS.Status = eAxoTaskState#Done && _answer <> eDialogAnswer#NoAnswer) THEN
                 _externalCloseReq := FALSE;
-                _closeSignal := FALSE;
+                //_closeSignal := FALSE;
                 THIS.Restore();       
             END_IF;
             

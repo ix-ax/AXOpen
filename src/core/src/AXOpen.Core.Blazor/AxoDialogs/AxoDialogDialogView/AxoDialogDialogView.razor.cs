@@ -18,21 +18,19 @@ namespace AXOpen.Core
 
         protected override void OnInitialized()
         {
-            Component._answer.ValueChangeEvent += OnCloseSignal;
+            Component._closeSignal.ValueChangeEvent += OnCloseSignal;
             base.OnInitialized();
 
         }
 
         private async void OnCloseSignal(object sender, EventArgs e) 
         {
-           
-            //await ((AxoDialog)Component).ReadAsync();
-            var asnwer = Component._answer.LastValue;
-            if (asnwer != (short)eDialogAnswer.NoAnswer && !IsInternalClose)
+            Console.WriteLine("I'm about to close!");
+            if (Component._closeSignal.Cyclic)
             {
                 Console.WriteLine("Closing with external!");
+                //await CloseDialogsWithSignalR();
                 await base.Close();
-
             }
             
 
@@ -67,7 +65,7 @@ namespace AXOpen.Core
         {
             IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.Cancel;
-            Console.WriteLine("Close Cancel!");
+           // Console.WriteLine("Close Cancel!");
             await CloseDialogsWithSignalR();
             IsInternalClose = false;
         }
@@ -75,8 +73,8 @@ namespace AXOpen.Core
         public void Dispose()
         {
             Component._answer.ValueChangeEvent -= OnCloseSignal;
-            //_dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
-            //_dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
+            _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
+            _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
         }
     }
 }

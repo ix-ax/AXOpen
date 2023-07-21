@@ -225,7 +225,7 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
 
 
-            // IF (Steps[11].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+            // IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
             //     //-------------------------------------------------------        
             //        IF(_alertDialog.Show(THIS)
             //             .WithTitle('Plc alert')
@@ -240,15 +240,15 @@ NAMESPACE examples.PneumaticManipulator
             // END_IF;
 
 
-            IF (Steps[12].Execute(THIS, TRUE, 'Dummy')) THEN
+            IF (Steps[20].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[12].Duration > T#2000ms) THEN
+                IF(Steps[20].Duration > T#2000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
             END_IF;
 
-            IF (Steps[13].Execute(THIS, TRUE, 'Show dialog 0')) THEN
+            IF (Steps[30].Execute(THIS, TRUE, 'Show dialog 0')) THEN
                 //------------------------------------------------------- 
             
                     IF(_dialog.Show(THIS)
@@ -264,9 +264,9 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
 
 
-            IF (Steps[14].Execute(THIS, TRUE, 'Dummy')) THEN
+            IF (Steps[40].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[14].Duration > T#2000ms) THEN
+                IF(Steps[40].Duration > T#2000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
@@ -274,7 +274,7 @@ NAMESPACE examples.PneumaticManipulator
 
 
 
-            IF (Steps[15].Execute(THIS, TRUE, 'Show dialog 1')) THEN
+            IF (Steps[50].Execute(THIS, TRUE, 'Show dialog 1')) THEN
                 //------------------------------------------------------- 
                         IF(_dialog1.Show(THIS)
                             .WithYesNoCancel()
@@ -289,15 +289,15 @@ NAMESPACE examples.PneumaticManipulator
                     
             END_IF;
 
-            IF (Steps[16].Execute(THIS, TRUE, 'Dummy')) THEN
+            IF (Steps[60].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[16].Duration > T#2000ms) THEN
+                IF(Steps[60].Duration > T#2000ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
             END_IF;
 
-            IF (Steps[17].Execute(THIS, TRUE, 'Show dialog 2')) THEN
+            IF (Steps[70].Execute(THIS, TRUE, 'Show dialog 2')) THEN
                 //------------------------------------------------------- 
 
                     IF(_dialog2.Show(THIS)
