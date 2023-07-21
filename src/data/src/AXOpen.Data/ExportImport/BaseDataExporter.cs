@@ -256,7 +256,7 @@ namespace AXOpen.Data
                     return char.Parse(@value);
 
                 case OnlinerDate c:
-                    return DateTime.Parse(@value);
+                    return DateOnly.Parse(@value);
 
                 case OnlinerDInt c:
                     return int.Parse(@value);
