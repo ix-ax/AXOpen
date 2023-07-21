@@ -20,54 +20,35 @@ namespace AXOpen.Core
         {
             Component._closeSignal.ValueChangeEvent += OnCloseSignal;
             base.OnInitialized();
-
         }
 
         private async void OnCloseSignal(object sender, EventArgs e) 
         {
-            Console.WriteLine("I'm about to close!");
             if (Component._closeSignal.Cyclic)
             {
-                Console.WriteLine("Closing with external!");
-                //await CloseDialogsWithSignalR();
-                await base.Close();
+                //this is probably reduntant (normal Close should enough, however some wierdness is occuring
+                await CloseDialogsWithSignalR();
             }
-            
-
         }
-        private bool IsInternalClose { get; set; }
         public async Task DialogAnswerOk()  
         {
-            IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.OK;
-            Console.WriteLine("Close Ok!");
             await CloseDialogsWithSignalR();
-            IsInternalClose = false;
-
         }
         public async Task DialogAnswerYes()
         {
-            IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.Yes;
-            Console.WriteLine("Close YEs!");
             await CloseDialogsWithSignalR();
-            IsInternalClose = false;
         }
         public async Task DialogAnswerNo()
         {
-            IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.No;
-            Console.WriteLine("Close No!");
             await CloseDialogsWithSignalR();
-            IsInternalClose = false;
         }
         public async Task DialogAnswerCancel()
         {
-            IsInternalClose = true;
             Component._answer.Edit = (short)eDialogAnswer.Cancel;
-           // Console.WriteLine("Close Cancel!");
             await CloseDialogsWithSignalR();
-            IsInternalClose = false;
         }
 
         public void Dispose()

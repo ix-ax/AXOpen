@@ -225,19 +225,19 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
 
 
-            // IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
-            //     //-------------------------------------------------------        
-            //        IF(_alertDialog.Show(THIS)
-            //             .WithTitle('Plc alert')
-            //             .WithType(eDialogType#Success)
-            //             .WithMessage('This is alert invoked from plc!')
-            //             .WithTimeToBurn(UINT#5).IsShown() = true) THEN
-            //             THIS.MoveNext(); 
-            //         END_IF;	
+            IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+                //-------------------------------------------------------        
+                   IF(_alertDialog.Show(THIS)
+                        .WithTitle('Plc alert')
+                        .WithType(eDialogType#Success)
+                        .WithMessage('This is alert invoked from plc!')
+                        .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+                        THIS.MoveNext(); 
+                    END_IF;	
 
 
-            // //-------------------------------------------------------
-            // END_IF;
+            //-------------------------------------------------------
+            END_IF;
 
 
             IF (Steps[20].Execute(THIS, TRUE, 'Dummy')) THEN
