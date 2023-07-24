@@ -8,7 +8,7 @@ files:
 dependencies:
   "@ix-ax/axopen.core": '0.1.4-alpha.79'
 devDependencies:
-  "@ax/sdk": ^4.0.2
+  "@ax/sdk": ^4.0.3
 scripts:
   postbuild:
     - dotnet ixc

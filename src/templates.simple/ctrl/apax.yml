@@ -8,7 +8,7 @@ targets:
   - plcsim
   - axunit-llvm
 devDependencies:
-  "@ax/sdk": ^4.0.2
+  "@ax/sdk": ^4.0.3
   "@ax/sld": ^0.15.9
 dependencies:
   "@ix-ax/axopen.data": '0.1.4-alpha.79'

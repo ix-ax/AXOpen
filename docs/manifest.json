@@ -198,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Core.AxoSequencerView.html",
-          "hash": "9Lt9AraZ0GUTedPYz2KBVcCi4kPYbOz5Wa/hRMG6wh0="
+          "hash": "DgiixD7UwP7RzCazSkUtDvRG8f45+vZecOaHIz7bPUA="
         }
       },
       "version": ""
@@ -678,11 +678,22 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Data.AxoDataEntityExistTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Data.AxoDataEntityExistTask.html",
+          "hash": "Bwba0m2CrNMrN1os9oNvOsyCenNbLefhZkqCjU5tN5c="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AXOpen.Data.AxoDataExchange-2.yml",
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.AxoDataExchange-2.html",
-          "hash": "zgaU1YISGIPt31MuiF9ZoTuMi285gEJ/X86mXZSe/Nc="
+          "hash": "rm4R1ylRIz8Li/8r4wY499Up+6IdcRwNpz3g4w/aucA="
         }
       },
       "version": ""
@@ -726,7 +737,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.AxoDataExchangeTask.html",
-          "hash": "B5IkWYg/hRCz9BmBXnBPBIKjq0CjNN4CLqQ+sLEOzNA="
+          "hash": "9xdaIgD4g/vwP8hHxE9FEIT5XzWpC8FoGJmZT1JYtsU="
         }
       },
       "version": ""
@@ -748,7 +759,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.AxoDataFragmentExchange.html",
-          "hash": "HP1AfCee+JWDbJlu8QQ0iBfjr64YUe3V4IWwMzJZa5o="
+          "hash": "gNVduvMf93OMtX8+VpLXqaH0N/a9B4YDhAitpBip914="
         }
       },
       "version": ""
@@ -788,6 +799,17 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Data.CSVDataExporter-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Data.CSVDataExporter-2.html",
+          "hash": "rz4UGk9a9i+RA3xzcffrif2zeQqlZjHgAallqFRt28M="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AXOpen.Data.ColumnData.yml",
       "output": {
         ".html": {
@@ -803,7 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.DataExchangeView.html",
-          "hash": "p718ou/7s98iqHBLp/KPkbWl5W2ZdFSKvQLf90wCA7M="
+          "hash": "FAUbvz3wih1LHz8h/f+/4pQXFlo74iCFarUd8vQpOnQ="
         }
       },
       "version": ""
@@ -814,7 +836,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.DataExchangeViewModel.html",
-          "hash": "409N9Kp7Y5EOZ3CuWpXo9P/zOVFuAvZ1JQ1Nvy2iw7o="
+          "hash": "mEfsdt+H8xIDEaEjIX9cWuPfg+c24LiWNdbOxBZBoJc="
         }
       },
       "version": ""
@@ -832,11 +854,22 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Data.IAxoDataEntityExistTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Data.IAxoDataEntityExistTask.html",
+          "hash": "dY4gLA3D+Ni7xb1QgGi7NecwapSunv+2+kgRPrNZ9LA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AXOpen.Data.IAxoDataExchange.yml",
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.IAxoDataExchange.html",
-          "hash": "l4ll55OM+yVSq3g1ZJSeCxVDvsznhhRjptwTmIuH2iI="
+          "hash": "aMyKtCfQAMUPyFg6epT4Qivy48U+LQSGW/pnVhilVLs="
         }
       },
       "version": ""
@@ -859,6 +892,17 @@
         ".html": {
           "relative_path": "api/AXOpen.Data.IDataExchangeOperations.html",
           "hash": "yGcvnZ5U831n/c+8oIULvy41jLEDNWDnRrSLge6OZDY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Data.IDataExporter-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Data.IDataExporter-2.html",
+          "hash": "TnoGJR0ytf8nqKTrEGFSjKhmxKtoCFPJkRpqGEl4LNM="
         }
       },
       "version": ""
@@ -1177,7 +1221,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.html",
-          "hash": "+Ww6A0C0oTL0j0lPGwcZ3OrlNbaEsbZ69AmB/ryuC00="
+          "hash": "89d0HCYpWEPXHiCNbC2sANimjg50BQjLwtHw4d/Mjt0="
         }
       },
       "version": ""
@@ -1756,11 +1800,22 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Data.AxoDataEntityExistTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Data.AxoDataEntityExistTask.html",
+          "hash": "BvrAGMsVIx3fpNVgzAbxJAV+ZzzfluQsosmSZbTG7oY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Pocos.AXOpen.Data.AxoDataExchange.yml",
       "output": {
         ".html": {
           "relative_path": "api/Pocos.AXOpen.Data.AxoDataExchange.html",
-          "hash": "fAWNDJ9L/t2ja6HK4JqIgBtnpiLk4Q2FlChmxTFMsvw="
+          "hash": "YJLzWstAbnjLnbvBcLWngbHmLZsSElvM1qCs6lI+79s="
         }
       },
       "version": ""
@@ -1782,7 +1837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Pocos.AXOpen.Data.AxoDataExchangeTask.html",
-          "hash": "rmd+RxnfVlKJ8ZlCp25dCG5J+mcU8GyrCTsssb375Vg="
+          "hash": "+tZD9RzicZyZE+GfFCc7TgHtYMs1xDrP5prFJQY5iDw="
         }
       },
       "version": ""
@@ -1793,7 +1848,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Pocos.AXOpen.Data.AxoDataFragmentExchange.html",
-          "hash": "11QLi1vwF22woVI1gXpREMLo2U1D+TCPxrMe71u+DIQ="
+          "hash": "CEFnouuorvmFoJ1Ce3CDAPzu2G05eQ6+fQi/QhssRNo="
         }
       },
       "version": ""
@@ -1805,6 +1860,17 @@
         ".html": {
           "relative_path": "api/Pocos.AXOpen.Data.IAxoDataEntity.html",
           "hash": "h32I5rqKK2hJMxhtr7PgGa0AT7Kgkxf6aNIm2PrRh64="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Data.IAxoDataEntityExistTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Data.IAxoDataEntityExistTask.html",
+          "hash": "oGm4GszYgNhwAWCT+KmKkNPK4NYQohwy8Lrd18xOAE8="
         }
       },
       "version": ""
@@ -1826,7 +1892,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Pocos.AXOpen.Data.html",
-          "hash": "G7ZLbcJhVe/jYpfiyljWXz7h0V5Xw6TfTlC3q0qZbow="
+          "hash": "1ZP2VjHZ6g2bRwZwXdloKdm0F5BMPSNgRxDYxoQ0who="
         }
       },
       "version": ""
@@ -2057,7 +2123,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "yYhhHTwzxHbM9ulTCzbOh9yfaDEJUeT+n2H8DEu8OG4="
+          "hash": "6QeJF1gPBN9/uox11yTTbjWGqhujTlpr4C2s1RdMFa8="
         }
       },
       "version": ""
@@ -2449,11 +2515,22 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Data.AxoDataEntityExistTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Data.AxoDataEntityExistTask.html",
+          "hash": "AweIuEnSW6XJYqohMesKrTfAsRXBSw6Aju3HT2Pi2+Y="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "apictrl/plc.AXOpen.Data.AxoDataExchange.yml",
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.AxoDataExchange.html",
-          "hash": "YOAAORImxrEOcg9CJ93nAA+wOWGmjSpD2YtOS0h9VBM="
+          "hash": "V1ZY7bcjVmA66DnqLK2twF3SCDBkBPnrjF3uUIYb4fk="
         }
       },
       "version": ""
@@ -2486,7 +2563,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.AxoDataFragmentExchange.html",
-          "hash": "pgXrGFIY+nt6JEqnppNkAof/NEnHs53hgeWKNSN6hpY="
+          "hash": "0PFhidqPuJaDZquEnzBSwjq79RAQif1RfR/rfcm1e3o="
         }
       },
       "version": ""
@@ -2504,11 +2581,22 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Data.IAxoDataEntityExistTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Data.IAxoDataEntityExistTask.html",
+          "hash": "sjxra4YZGzr7KJ0Nt7eUsGPnCeHZ2gaF38LQoOxZyjo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "apictrl/plc.AXOpen.Data.IAxoDataExchange.yml",
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.IAxoDataExchange.html",
-          "hash": "e09TeX2cOiNFNtb6RmR8NG2R6anIfjBIASbKkpYWAYA="
+          "hash": "RV4GITgE8iDGShD5cntCBx1P5iAqyCfDGZmMxq4VYfM="
         }
       },
       "version": ""
@@ -2530,7 +2618,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Data.html",
-          "hash": "8POcP/QbyVgrg89tkw+Z2FvW7NDDr54Ry2OA0g32/fE="
+          "hash": "5/6Af4+/0iLLSCZJp9yCaM6KPIml00MiFVOr82Y0yh4="
         }
       },
       "version": ""
@@ -2706,7 +2794,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/toc.html",
-          "hash": "jDu84WAhD6oRN1tJxq7+ZEf4iVAM3w5VZw/eWqeslxo="
+          "hash": "19uEpyQ5KtPrX+na9fcK8yskCDTYjBe8LhzEkZc8djE="
         }
       },
       "version": ""
@@ -2849,7 +2937,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/data/AxoDataExchange.html",
-          "hash": "S1u+caJVIYZqmFjgTrne4CCyBqn4/DIjuhEDl+f/Re4="
+          "hash": "H2kmL3PP/7UmzQaDy5JT82uhmCXSdIM++dCJTD/hsV8="
         }
       },
       "version": ""
@@ -2860,7 +2948,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/data/AxoDataFragmentExchange.html",
-          "hash": "dZBil7wTv7NSdVYElPZmMl2KXRgU9cRYf3+kV3dkSQg="
+          "hash": "TI3YlSRSxbOsbARqDIbc5Q6AWQCyjtokt7+mA2aKG2o="
         }
       },
       "version": ""
@@ -2871,7 +2959,29 @@
       "output": {
         ".html": {
           "relative_path": "articles/data/README.html",
-          "hash": "74G8fPhfwNPnhzwlCgbX0uqw17yvPAg1DF5btsRo9Jc="
+          "hash": "xH6L22qeUqZju6lpXCrszPoxIytTCeESlyMDVM7bSB4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/giudelines/Conventions.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/giudelines/Conventions.html",
+          "hash": "+XhZM9uVhwSIkWyIkzSU6tv8z9z9/dc03MruglSn2rs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/giudelines/componets.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/giudelines/componets.html",
+          "hash": "N4q4tnrmRTNYtTjUBticJ7mvpXu8ZnY8t2hg9JcsNZw="
         }
       },
       "version": ""
@@ -2965,12 +3075,26 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/themes/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/themes/README.html",
+          "hash": "mJj2HSfCYEop6V/iypTHojKEEBqRfuyWZXnZUQZgCCs="
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "yL2G8xha5sZNOa5IdAYCTMlRC1+iLEHGHEd0JDppwe4="
+          "hash": "Co/1h8WauVu4X+oW18v+AGcBcDkQZj4oADQ8HAdZmcU="
         }
       },
       "version": ""
