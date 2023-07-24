@@ -23,7 +23,7 @@ else
                 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>Load from PLC</button>
                 @if (CanExport)
                 {
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); LoadCustomExportDataAsync(); }'>Export</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); LoadCustomExportDataAsync(); }'>Export</button>
                     <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid" @onclick="() => isFileImported = false">Import</button>
                 }
             }
@@ -138,7 +138,7 @@ else
                             @if (Presentation.Equals("Command"))
                             {
                                 <td>
-                                    <button type="button" class="btn btn-primary px-3 py-0" title="Copy" @onclick="() => { Vm.SelectedRecord = item; Vm.Copy(); }">
+                                    <button type="button" class="btn btn-primary px-3 py-0" title="Copy" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Vm.SelectedRecord = item; Create = "Copy"; }'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
                                             <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
                                         </svg>
@@ -406,7 +406,7 @@ else
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     }
-                    <button type="button" class="btn btn-primary @(!isFileImported || isFileImporting ? "disabled" : "")" data-bs-dismiss="modal" @onclick='() => { Vm.ImportData("wwwroot/Temp/" + ViewGuid + "/importData.zip"); isFileImported = false; _inputFileId = Guid.NewGuid().ToString(); }'>Import</button>
+                    <button type="button" class="btn btn-primary @(!isFileImported || isFileImporting ? "disabled" : "")" data-bs-dismiss="modal" @onclick='async () => { await Vm.ImportDataAsync("wwwroot/Temp/" + ViewGuid + "/importData.zip"); isFileImported = false; _inputFileId = Guid.NewGuid().ToString(); }'>Import</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -418,7 +418,7 @@ else
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Export data</h1>
-                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" aria-label="Close" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'></button>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" aria-label="Close" @onclick='async () => { Vm.IsFileExported = false; await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'></button>
                 </div>
                 <div class="modal-body">
                     <div class="accordion">
@@ -505,7 +505,7 @@ else
                             </div>
                         </div>
                     }
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='() => { Vm.IsFileExported = false; Vm.ExportData("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'>Back</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'>Back</button>
                 </div>
             </div>
         </div>

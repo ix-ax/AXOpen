@@ -160,6 +160,10 @@ namespace AXOpen.Data
                 dictionary.Add(new ImportItems() { Key = headerItem });
             }
 
+            if(!dictionary.Exists(p => p.Key.Contains("DataEntityId")))
+            {
+                throw new Exception("DataEntityId is missing in the import file");
+            }
 
             // Load values
             for (int i = 2; i < documents.Count(); i++)

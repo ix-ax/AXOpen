@@ -53,11 +53,6 @@ namespace AXOpen.Data
 
             set
             {
-                if (_selectedRecord == value)
-                {
-                    return;
-                }
-
                 // CrudData.ChangeTracker.StopObservingChanges();
                 _selectedRecord = value;
                 if (value != null)
@@ -286,42 +281,47 @@ namespace AXOpen.Data
             //CreateItemId = null;
         }
 
-        public void ExportData(string path)
+        public Task ExportDataAsync(string path)
         {
             IsFileExported = false;
 
-            try
+            return Task.Run(() =>
             {
-                DataExchange.ExportData(path, ExportSet.CustomExportData, ExportSet.ExportMode, ExportSet.FirstNumber, ExportSet.SecondNumber, ExportSet.ExportFileType, ExportSet.Separator);
+                try
+                {
+                    DataExchange.ExportData(path, ExportSet.CustomExportData, ExportSet.ExportMode, ExportSet.FirstNumber, ExportSet.SecondNumber, ExportSet.ExportFileType, ExportSet.Separator);
 
-                IsFileExported = true;
+                    IsFileExported = true;
 
-                AlertDialogService.AddAlertDialog("Success", "Exported!", "Data was successfully exported!", 10);
-            }
-            catch (Exception e)
-            {
-                AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
-            }
+                    AlertDialogService.AddAlertDialog("Success", "Exported!", "Data was successfully exported!", 10);
+                }
+                catch (Exception e)
+                {
+                    AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
+                }
+            });
         }
 
-        public void ImportData(string path)
+        public Task ImportDataAsync(string path)
         {
-            try
+            return Task.Run(() =>
             {
-                DataExchange.ImportData(path, separator: ExportSet.Separator);
+                try
+                {
+                    DataExchange.ImportData(path, separator: ExportSet.Separator);
 
-                this.UpdateObservableRecords();
+                    this.UpdateObservableRecords();
 
-                AlertDialogService.AddAlertDialog("Success", "Imported!", "Data was successfully imported!", 10);
-            }
-            catch (Exception e)
-            {
-                AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
-            }
+                    AlertDialogService.AddAlertDialog("Success", "Imported!", "Data was successfully imported!", 10);
+                }
+                catch (Exception e)
+                {
+                    AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
+                }
+            });
         }
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
-
         public int Limit { get; set; } = 10;
         public string FilterById { get; set; } = "";
         public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
