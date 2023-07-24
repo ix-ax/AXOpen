@@ -14,9 +14,10 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
              
         }
-
-        public AxoDialogProxyService(string id, IEnumerable<ITwinObject> observedObjects)
+        private AxoDialogContainer _axoDialogContainer;
+        public AxoDialogProxyService(AxoDialogContainer dialogContainer,string id, IEnumerable<ITwinObject> observedObjects)
         {
+            _axoDialogContainer = dialogContainer;
             DialogServiceId = id;
             SetObservedObjects(observedObjects);
         }
@@ -29,10 +30,10 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             foreach (var item in observedObjects)
             {
                 //check if we observing symbol, if yes, we do not have to initialize new remote tasks
-                if (!ObservedObjects.Contains(item.Symbol))
+                if (!_axoDialogContainer.ObservedObjects.Contains(item.Symbol))
                 {
                     //create observer for this object
-                    ObservedObjects.Add(item.Symbol);
+                    _axoDialogContainer.ObservedObjects.Add(item.Symbol);
                     UpdateDialogs<IsModalDialogType>(item);
                 }
             }
@@ -44,7 +45,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         {
             DialogInstance = dialog;
             DialogInstance.DialogId = DialogServiceId;
-            Console.WriteLine($"Queue! {dialog.GetType()}, symbol: {DialogInstance.Symbol}");
             await DialogInstance.ReadAsync();
             DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
         }

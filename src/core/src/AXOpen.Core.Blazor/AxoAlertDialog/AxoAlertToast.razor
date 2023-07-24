@@ -68,10 +68,7 @@
     private IAlertDialogService _dialogService { get; set; }
 
     [Parameter]
-    public IAlertDialogService _dialogServiceParameter { get; set; }
-    [Parameter]
-    public bool UseScopedAlerts { get; set; }
-
+    public IAlertDialogService _parameterDialogService { get; set; }
 
     private string GetTime(DateTimeOffset time)
     {

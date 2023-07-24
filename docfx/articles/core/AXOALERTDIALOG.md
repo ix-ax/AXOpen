@@ -61,7 +61,7 @@ Where:
 
 ## Invoking alerts from PLC
 
-Alerts can be invoked from plc similarly like [AxoDialog](./AXODIALOG.md), however there is no need for user interaction.
+Alerts can be invoked from PLC similarly like [AxoDialog](./AXODIALOG.md), however there is no need for user interaction.
 
 ```
 VAR PUBLIC
@@ -79,18 +79,23 @@ END_IF;
 ```
 
 > [!NOTE]
-> `Alerts` invoked from PLC are synchronized across clients. However it is also possible to use scoped alerts like above.
+> `Alerts` invoked from PLC are synchronized across clients. 
 
 1. Make sure your Blazor application references `axopen_core_blazor` project and AxoCore services are added to builder in `Program.cs` file.
 
-2. Add `AxoAlertDialogLocator` with provided list of observed objects to your view. You can add it either to:
+2. Make sure your `MainLayout.razor` file contains instance of `<AxoAlertToast/>` component.
+
+3. Add `AxoAlertDialogLocator` with provided list of observed objects to your view. You can add it either to:
 
     - `MainLayout.razor` file, where in consequence alerts will be displayed and synchronized across whole application.
     - Your own razor file, where alerts will be synchronized across multiple clients but only displayed within that specific razor page.
+
+> [!NOTE]
+> Make sure, that exist only one instance of `AxoAlertDialogLocator` either in `MainLayout.razor` or in your own page.
+
 ```HTML
-<AxoAlertDialogLocator ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}" UseScopedAlerts=false/>
+<AxoAlertDialogLocator ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"/>
 ```
 
-If `UseScopedAlerts` is set to `true`, these alerts won't be synchronized across multiple clients and will use scoped `IAlertDialogService`.
 
 

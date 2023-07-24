@@ -16,22 +16,24 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
     /// </summary>
     public class AxoAlertDialogProxyService : AxoDialogProxyServiceBase
     {
-        public AxoAlertDialogProxyService()
-        {
-            DialogService = new AxoAlertDialogService();
-        }
 
-        public IAlertDialogService DialogService { get; set; }
+        private AxoDialogContainer _axoDialogContainer;
+        public AxoAlertDialogProxyService(AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedOjects)
+        {
+            _axoDialogContainer = dialogContainer;
+            SetObservedObjects(observedOjects);
+        }
+        public IAlertDialogService ScopedAlertDialogService = new AxoAlertDialogService();
         public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
         {
             if (observedObjects == null || observedObjects.Count() == 0) return;
             foreach (var item in observedObjects)
             {
                 //check if we observing symbol, if yes, we do not have to initialize new remote tasks
-                if (!ObservedObjects.Contains(item.Symbol))
+                if (!_axoDialogContainer.ObservedObjectsAlerts.Contains(item.Symbol))
                 {
                     //create observer for this object
-                    ObservedObjects.Add(item.Symbol);
+                    _axoDialogContainer.ObservedObjectsAlerts.Add(item.Symbol);
                     UpdateDialogs<IsAlertDialogType>(item);
                 }
             }
@@ -45,7 +47,6 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
         /// <param name="dialog"></param>
         protected async void Queue(IsDialogType dialog)
         {
-            //Console.WriteLine("!!!QUEUE");
             DialogInstance = dialog;
             await DialogInstance.ReadAsync();
             AlertDialogInvoked?.Invoke(this, new AxoDialogEventArgs(string.Empty));

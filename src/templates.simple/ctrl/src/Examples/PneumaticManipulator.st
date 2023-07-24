@@ -149,7 +149,6 @@ NAMESPACE examples.PneumaticManipulator
             _dialog3 : AXOpen.Core.AxoDialog;
             _alertDialog : AXOpen.Core.AxoAlertDialog;
             _externalClose : BOOL;
-            _dialog3Answer: eDialogAnswer;
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
@@ -199,27 +198,17 @@ NAMESPACE examples.PneumaticManipulator
             THIS.AndThen(Steps[8], components^.GripperCylinder.MoveToHome);
             
             IF(Steps[9].Execute(THIS, TRUE, 'Create data id')) THEN
-                //ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
 
-                _dialog3Answer := _dialog3.ShowWithExternalClose(THIS, _externalClose)
-                .WithOK()
-                .WithType(eDialogType#Warning)
-                .WithCaption('Hello world!')
-                .WithText('The data was written, you can also close me externally from IO page').Answer();
-
-                IF(_dialog3Answer = eDialogAnswer#Ok) THEN
-
-                    THIS.MoveNext(); 
-
-                END_IF;	
+                ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
+                THIS.MoveNext(); 
 
             END_IF;    
 
             IF (Steps[10].Execute(THIS, TRUE, 'Save data.')) THEN
                 //-------------------------------------------------------            
-                // IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
-                //     THIS.MoveNext(); // <- This will move to the next step in the sequence.
-                // END_IF;
+                IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
+                    THIS.MoveNext(); // <- This will move to the next step in the sequence.
+                END_IF;
                 THIS.MoveNext();
                 //-------------------------------------------------------
             END_IF;
@@ -242,7 +231,7 @@ NAMESPACE examples.PneumaticManipulator
 
             IF (Steps[20].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[20].Duration > T#2000ms) THEN
+                IF(Steps[20].Duration > T#100ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
@@ -266,7 +255,7 @@ NAMESPACE examples.PneumaticManipulator
 
             IF (Steps[40].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[40].Duration > T#2000ms) THEN
+                IF(Steps[40].Duration > T#100ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
@@ -291,7 +280,7 @@ NAMESPACE examples.PneumaticManipulator
 
             IF (Steps[60].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
-                IF(Steps[60].Duration > T#2000ms) THEN
+                IF(Steps[60].Duration > T#100ms) THEN
                     
                         THIS.MoveNext(); 
                 END_IF;	
@@ -312,7 +301,6 @@ NAMESPACE examples.PneumaticManipulator
 
             END_IF;
 
-            
 //-------------------------------------------------------
             
             // This will close the sequence and will return to the first step.

@@ -3,6 +3,7 @@
 @using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 @using AXOpen.Dialogs;
 @using AXSharp.Connector;
+@using Microsoft.AspNetCore.SignalR.Client;
 @inject NavigationManager _navigationManager
 @inject AxoDialogContainer _dialogContainer
 @implements IDisposable
@@ -50,6 +51,9 @@
         {
             DialogId = _navigationManager.Uri;
         }
+        //initialize signalR
+        _dialogContainer.InitializeSignalR(_navigationManager.BaseUri);
+        await _dialogContainer.DialogClient.StartAsync();
 
         //try to acquire existing dialog service instance
         var proxyExists = _dialogContainer.DialogProxyServicesDictionary.TryGetValue(DialogId, out AxoDialogProxyService proxy);
@@ -57,9 +61,7 @@
         if (!proxyExists)
         {
             // if it does not exist, create new instance with observed objects and add it into container
-            _axoDialogProxyService = new AxoDialogProxyService(DialogId, ObservedObjects);
-            var isFirstInitialize = _dialogContainer.InitializeSignalR(_navigationManager.BaseUri);
-            if (isFirstInitialize) await _dialogContainer.DialogClient.StartAsync();
+            _axoDialogProxyService = new AxoDialogProxyService(_dialogContainer, DialogId, ObservedObjects);
             _dialogContainer.DialogProxyServicesDictionary.TryAdd(DialogId, _axoDialogProxyService);
         }
         else
@@ -71,10 +73,11 @@
         base.OnInitialized();   
     }
 
-    public async void OnDialogInvoked(object sender, AxoDialogEventArgs e)
+    public async void OnDialogInvoked(object? sender, AxoDialogEventArgs e)
     {
         await InvokeAsync(StateHasChanged);
         await Task.Delay(DialogOpenDelay);
+      
         await _dialogContainer.DialogClient.SendDialogOpen(DialogId);
     }
     

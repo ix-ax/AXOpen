@@ -1,4 +1,5 @@
 ﻿using AXOpen.Base.Abstractions.Dialogs;
+using AXOpen.Core.Blazor.AxoAlertDialog;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXSharp.Connector;
 using System;
@@ -21,21 +22,15 @@ namespace AXOpen.Core.Blazor.AxoDialogs
           
         }
 
-        public bool InitializeSignalR(string uri)
+        public void InitializeSignalR(string uri)
         {
-            if (DialogClient == null)
-            {
-                DialogClient = new DialogClient(uri);
-                return true;
-            }
-            return false;
-           
+            DialogClient = new DialogClient(uri);
         }
         public List<string> ObservedObjects { get; set; } = new List<string>();
+        public List<string> ObservedObjectsAlerts { get; set; } = new List<string>();
 
-        public List<AxoDialogProxyService> DialogProxyServices { get; set; } = new List<AxoDialogProxyService>();
-
-        public Dictionary<string,AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string,AxoDialogProxyService>();
+        public Dictionary<string, AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string,AxoDialogProxyService>();
+        public Dictionary<string, AxoAlertDialogProxyService> AlertDialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoAlertDialogProxyService>();
         public async ValueTask DisposeAsync()
         {
             if (DialogClient != null)

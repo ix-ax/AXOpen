@@ -52,15 +52,14 @@ NAMESPACE AXOpen.Core
                     
             END_IF;
             
-        
-            
         END_METHOD
 
 
          ///<summary>
         /// Show method with a possibility to close dialog externally by setting a signal.
+        /// WARNING: This is experimental implementation of possibility to close dialogs externally. More testing need to be done.
         ///</summary>
-        METHOD PUBLIC ShowWithExternalClose : IAxoDialogFormat
+        METHOD PRIVATE ShowWithExternalClose : IAxoDialogFormat
             VAR_INPUT
                 _parent : IAxoObject;
                 inOkAnswerSignal : BOOL := FALSE;

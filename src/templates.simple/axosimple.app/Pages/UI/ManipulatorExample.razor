@@ -1,6 +1,7 @@
 ﻿@page "/ui/ManipulatorExample"
 @using AXOpen.Base.Dialogs;
 @using AXOpen.Core.Blazor.AxoDialogs;
+@using AXOpen.Core.Blazor.Dialogs
 @using axosimple.hmi.Components;
 @using AXOpen.Data;
 @using AXOpen.Messaging.Static
@@ -22,15 +23,15 @@
 }
 
 
-
 <AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>
 
+<AxoAlertDialogLocator ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"/>
 
-<AXOpen.Core.Blazor.Dialogs.AxoAlertDialogLocator ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}" UseScopedAlerts=true></AXOpen.Core.Blazor.Dialogs.AxoAlertDialogLocator>
 
 
-@*<button class="btn btn-primary" @onclick="@showAlert">Show alert</button>*@
-<div @ref="keyDownDiv" @onkeydown="KeyPress"></div>
+
+<button class="btn btn-primary" @onclick="@showAlert">Show alert</button>
+
 
 @code
 {
@@ -39,18 +40,11 @@
     private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
     private void showAlert()
     {
-        _alerts.AddAlertDialog(eAlertDialogType.Info, "Ahoj", "som dialog", 5);
+        _alerts.AddAlertDialog(eAlertDialogType.Info, "Ahoj", "som dialog", 60);
         StateHasChanged();
     }
 
-    private void KeyPress()
-    {
-        Console.WriteLine("PRESSED");
-    }
 
-    protected async override Task OnAfterRenderAsync(bool firstrender)
-    {
-        await keyDownDiv.FocusAsync();
-    }
+
 }
 

@@ -9,10 +9,9 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
 
         protected override void OnInitialized()
         {
-
-            if(_dialogServiceParameter != null && !UseScopedAlerts) 
+            if(_parameterDialogService != null)
             {
-                _dialogService = _dialogServiceParameter;
+                _dialogService = _parameterDialogService;
             }
             _dialogService!.AlertDialogChanged += AlertDialogChanged;
         }

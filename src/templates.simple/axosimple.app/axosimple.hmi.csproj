@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-ixsharpblazor-hmi-ee3150da-5237-49bc-b265-f512331ded6c</UserSecretsId>
     <RootNamespace>axosimple.hmi</RootNamespace>
+	  <UseRazorSourceGenerator>true</UseRazorSourceGenerator>
+
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Pages\Index.razor.css" />
@@ -17,9 +19,9 @@
     <Content Include="Shared\Menu\ExpandableMenuItem.razor.css" />
   </ItemGroup>
 
-	<ItemGroup>
+	<!--<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 	<ItemGroup>
 	  <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
