@@ -5,7 +5,7 @@
     "priority": 0.1
   },
   "homepages": [],
-  "source_base_path": "C:/W/Develop/gh/ix-ax/AXOpen/docfx",
+  "source_base_path": "D:/Inxton/ax-framework/AXOpen/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -17,2113 +17,12 @@
       }
     },
     {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoComponent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoComponent.html",
-          "hash": "S97S/QAZez7MYEKiD+RkgUdsPRQsWrAIMET/fEQYKYA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoComponentCommandView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoComponentCommandView.html",
-          "hash": "j/zALKYcvJUIeoZ+3aqPThEfExHUXLX2fPLFzPt+zQ8="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoComponentStatusView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoComponentStatusView.html",
-          "hash": "1Xcy/w2hW8PYEmAQnJFXrMw90QqLz2d7zPv4Nl2JAEU="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoComponentView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoComponentView.html",
-          "hash": "gvrG+diwH//eZVSIXywyykr5Re0eAJI3LMjc9UNvDXo="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoContext.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoContext.html",
-          "hash": "X2fDyebAOpnQGA2FecGBaTZL9w/GEhoc0+pi9pxRjtk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoCoordinatorStates.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoCoordinatorStates.html",
-          "hash": "//xx/xWoRB300j/xMykmUMUXrb0pgnbJHS5eU3HEBQs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoMomentaryTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoMomentaryTask.html",
-          "hash": "Jbz4aEefxL21yx68vTA8f62BwvdG4XvRQDOptiBmxqk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoMomentaryTaskCommandView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoMomentaryTaskCommandView.html",
-          "hash": "gDdgRZpRZ7SggeRxrIO/pGAPG7P4Ib4zdEukUfJumx0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoMomentaryTaskStatusView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoMomentaryTaskStatusView.html",
-          "hash": "z0Dmul+EM/XselOsbhUU8WP2BQgYR/G12LvwZxVaQzw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoMomentaryTaskView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoMomentaryTaskView.html",
-          "hash": "OO7C2MSX0+h9zZAJ/q2razMNK4hUx1IQariTTxffgtE="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoObject.html",
-          "hash": "JuMWb+t/YNrJiUYr3dDsQ7HWoDlGpkuv8cqEeXL8x7k="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoRemoteTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoRemoteTask.html",
-          "hash": "qKdCn3tdJ9MNwCwVYKeekM0EQIW3Imj37Rw/A7eK5uk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoSequencer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoSequencer.html",
-          "hash": "6AbCoZEo1iovZfmkGgWsN9jkhV6/DcMRZcaH1516n+U="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoSequencerCommandView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoSequencerCommandView.html",
-          "hash": "A7Ru64sXIzB/W5qlsgRNAWsUKICxeQtMOHp3ASWLAZw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoSequencerContainer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoSequencerContainer.html",
-          "hash": "+Hv+BQMOix9I9wfK2VNguTgC7VGFbsxadBfo2bXOvbc="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoSequencerStatusView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoSequencerStatusView.html",
-          "hash": "R68PDhEN9ODqTSRE1zOdCUs7alhaRngehuHq/YaxH2U="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoSequencerView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoSequencerView.html",
-          "hash": "DgiixD7UwP7RzCazSkUtDvRG8f45+vZecOaHIz7bPUA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoStep.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoStep.html",
-          "hash": "R8N9d9qgxMz2cdF8F4NrphaX7XzmvgLy4sRceGod2Sw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoStepCommandView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoStepCommandView.html",
-          "hash": "bYDUophPzKKZwhj0u1Z8U8HmJvD2g/5b3bfvnXHGgqs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoStepStatusView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoStepStatusView.html",
-          "hash": "NP/XtPZf7lAZDKpiCzai4+VHBEFm6zXXgrUxr39Tt5g="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoStepView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoStepView.html",
-          "hash": "rn6xFDrl1plaIaZVnReAr7nkuh+pBahpnzBHo3dRPP8="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoTask.html",
-          "hash": "wtpGLG39N641SkhiP3dgPUrrJ/6TqF2mZ/T0y6AiPYA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoTaskCommandView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoTaskCommandView.html",
-          "hash": "bTUaEs6ixvFBC8mnUKEV7bvgmOKzz6VjLX2tDSj+Gg4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoTaskStatusView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoTaskStatusView.html",
-          "hash": "OUVxh9Isq80tgRD4szc9Ld86HRBMFu/fJne3ZPx6Egc="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoTaskView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoTaskView.html",
-          "hash": "ADrA5W7tH+1497UPYDrZdJFfLRMRjVkR9Zvu/xvSfOA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoToggleTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoToggleTask.html",
-          "hash": "pOPwiLXq4yTCuauaVZLVpXzfXrM9kuBZOTIhoLT/rhc="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoToggleTaskCommandView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoToggleTaskCommandView.html",
-          "hash": "/Sk2DViF8c6fJCx/TEFUJZf0QrvtcQWQFgOj2wJ1x9U="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoToggleTaskStatusView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoToggleTaskStatusView.html",
-          "hash": "zbI9tXW1dvKdG/Kj5By4zH7dyeL26Zy81l29qpTgr3E="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.AxoToggleTaskView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.AxoToggleTaskView.html",
-          "hash": "yzDmDqjYApaFDl88B9SEShQfVNLJAwxp4mJgbVnHjDY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.Blazor._Imports.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.Blazor._Imports.html",
-          "hash": "CBjNZiRNTJyTW/f0gc7TOcov3qn51l84RqbQOPpCDsU="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.Blazor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.Blazor.html",
-          "hash": "9MEWlya5HQH1xZRvNHehN38a52DcYn5EGrnMuY+XL50="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.ComponentDetailsAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.ComponentDetailsAttribute.html",
-          "hash": "W+Oux+zQjSNm7QT4GnYkAg3bkhrNTkIN7Wka/LElBxs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.ComponentGroupContext.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.ComponentGroupContext.html",
-          "hash": "06n+vvEgPhvdonhCuJwZiB+/1/C3VJBECGZZtOQgM4E="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.ComponentHeaderAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.ComponentHeaderAttribute.html",
-          "hash": "6xm/4C1qQF0hkwphVHjq+Ladx005vlmbdzktP6JuSMs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoComponent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoComponent.html",
-          "hash": "6nFIG5OL+CD4R89UqDHOVRewNrl8veuyBHN20I+4amE="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoContext.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoContext.html",
-          "hash": "/pbebu+5dB9BYFkN41C2IpsRE/Ge8w4gXlkQ7/sSAHM="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoCoordinator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoCoordinator.html",
-          "hash": "eHzzBagqXWVtPnUH00cynWS8TNFBplTJvkYDZUm2Y5I="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoManuallyControllable.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoManuallyControllable.html",
-          "hash": "4+7jhaXUcu194E7sGrNHwFXI+QsrH2aXA/bgtXRNRYg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoMomentaryTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoMomentaryTask.html",
-          "hash": "8k4BuuACytIEhrB09QN6vvf/h4I0S/srjrJNTPyzIhw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoObject.html",
-          "hash": "4eb0LpwO8c26F32vQ/rUdQ3qIhQgfUIkh6p1zg8LyS4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoStep.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoStep.html",
-          "hash": "snGXSCvvIf+lVRRZUaI4gdkAtWEgFHhq2ioIFwlNpgg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoTask.html",
-          "hash": "56ydrNA8bFjbEJmu0iRfowN4PpAz+KM8gizjSALV5Z0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoTaskState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoTaskState.html",
-          "hash": "5N5lx1G8/WXsUHLob1HEfcvJlqx5+AtRHIbk6pom1bo="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.IAxoToggleTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.IAxoToggleTask.html",
-          "hash": "PTw/zxaE8z+CxprzVLNsf35WU5mIwWbtmtEafJhdWhI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.MultipleRemoteCallInitializationException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.MultipleRemoteCallInitializationException.html",
-          "hash": "+qveP85s+4jsiIwKJjvt7uSsqRvI7bch10Hra8ZOJOk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.Resources.PlcStringResources.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.Resources.PlcStringResources.html",
-          "hash": "VK2xrFfmbaaza6LJJ8FuVztDPMyTIeeOA9EVLqMhn6o="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.Resources.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.Resources.html",
-          "hash": "p/m10ssQO39oPGVDSuMoJC12YPKjpr7oM6dg67nYYJQ="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core._NULL_CONTEXT.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core._NULL_CONTEXT.html",
-          "hash": "ZvkrRMMpGZZqJjpKPCbxIOmdr9V95oByelwMknA4RZQ="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core._NULL_LOGGER.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core._NULL_LOGGER.html",
-          "hash": "nmArksHPJZn3EXMT3v+OC0bTFIdgS15uaseL1ZDTZVM="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core._NULL_OBJECT.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core._NULL_OBJECT.html",
-          "hash": "QGBkd6EhCTxf8LmpNAJ/cRYrtyZhBryuM6magfeu2co="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core._NULL_RTC.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core._NULL_RTC.html",
-          "hash": "AkReL6dfW8GwkFXCnXoEC0YdvVi1pMMBo6U+eafZLdE="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.eAxoSequenceMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.eAxoSequenceMode.html",
-          "hash": "n/qCsJRDZ8q/h1Nkdd0enFmtkxExR5KOlW4azAY5ehA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.eAxoSteppingMode.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.eAxoSteppingMode.html",
-          "hash": "gu8VkvJepcyLrMVQH7e5od3QDW4wb0TGmhFNXvgZo7M="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.eAxoTaskState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.eAxoTaskState.html",
-          "hash": "z3FZkYqx+PR4rTxTk5aYI8kvp79oHnZTYVYowsNjyD8="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Core.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Core.html",
-          "hash": "OYqpN29Qug+kSwRrPt6uD5d2u+MQHxRRnHKGbr4mnbI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoCompoundRepository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoCompoundRepository.html",
-          "hash": "5Ab4HUCl5Y1+1Xs/P765qAmw2boUsJeUUlIMhSjzDdE="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataCrudTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataCrudTask.html",
-          "hash": "SJDuR2dJ2+BgjAdUSAGl/AoWqewAoxPp0XHTn6ag8EI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataEntity.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataEntity.html",
-          "hash": "Uy4pgCMA9FC+mOo/UYFo3pBKe0rpVzqeKD4ChoGo54g="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataEntityAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataEntityAttribute.html",
-          "hash": "rXTGyRvhdiOtJNzVarqzjmVM0Wh07uwK3sl45+lTDH4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataEntityAttributeNotFoundException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataEntityAttributeNotFoundException.html",
-          "hash": "y6i2av64vmGZWtf+O//WRmUPBN2C/OsbJ7iVbn+Vm2Y="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataEntityExistTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataEntityExistTask.html",
-          "hash": "Bwba0m2CrNMrN1os9oNvOsyCenNbLefhZkqCjU5tN5c="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataExchange-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataExchange-2.html",
-          "hash": "rm4R1ylRIz8Li/8r4wY499Up+6IdcRwNpz3g4w/aucA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataExchangeBase.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataExchangeBase.html",
-          "hash": "zi4NWhd6po+N23TuCcNS0BF6bbcbnanaN7XSoPvZdz8="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataExchangeBaseCommandView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataExchangeBaseCommandView.html",
-          "hash": "qB1p8jgxjiPr7POgpwtC386V3ZOrGMHwYQckgZ4DZxg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataExchangeBaseStatusView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataExchangeBaseStatusView.html",
-          "hash": "XpD58fWpB3fpXAjH4n6rbH3eJSWwMgEnmUGckos6c8Y="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataExchangeTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataExchangeTask.html",
-          "hash": "9xdaIgD4g/vwP8hHxE9FEIT5XzWpC8FoGJmZT1JYtsU="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataFragmentAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataFragmentAttribute.html",
-          "hash": "XBeslz4ffJ525Vs3V1amJeqf6YxxB9OEIZE36gpToH0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoDataFragmentExchange.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoDataFragmentExchange.html",
-          "hash": "gNVduvMf93OMtX8+VpLXqaH0N/a9B4YDhAitpBip914="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.AxoFragmentedDataCompound.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.AxoFragmentedDataCompound.html",
-          "hash": "3yI3qrCr8c/r9/rDSpcENfkakw1y4BYUzP28F9dJybk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.Blazor._Imports.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.Blazor._Imports.html",
-          "hash": "xsGNGOQz2rwCFaSXgFnseOYy85SVBocGT+Zn4dMU010="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.Blazor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.Blazor.html",
-          "hash": "HAUpeqqV0H9kOFwrZ1RNssnmsrWxyC0wqScW/0bS0hE="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.CSVDataExporter-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.CSVDataExporter-2.html",
-          "hash": "rz4UGk9a9i+RA3xzcffrif2zeQqlZjHgAallqFRt28M="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.ColumnData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.ColumnData.html",
-          "hash": "8qzQKnDpFBHnwhCMoV8tZt8JhP8ECaalq0zdbP3DJ4c="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.DataExchangeView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.DataExchangeView.html",
-          "hash": "FAUbvz3wih1LHz8h/f+/4pQXFlo74iCFarUd8vQpOnQ="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.DataExchangeViewModel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.DataExchangeViewModel.html",
-          "hash": "mEfsdt+H8xIDEaEjIX9cWuPfg+c24LiWNdbOxBZBoJc="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.IAxoDataEntity.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.IAxoDataEntity.html",
-          "hash": "NP8QSEAXyEMx+tYA2tjx1o2XNpUvyUHgZ1lZk2ILz8s="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.IAxoDataEntityExistTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.IAxoDataEntityExistTask.html",
-          "hash": "dY4gLA3D+Ni7xb1QgGi7NecwapSunv+2+kgRPrNZ9LA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.IAxoDataExchange.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.IAxoDataExchange.html",
-          "hash": "aMyKtCfQAMUPyFg6epT4Qivy48U+LQSGW/pnVhilVLs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.ICrudDataObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.ICrudDataObject.html",
-          "hash": "yt2RiVEogEo5w2NJvh8Zx80Y0hCB3ikrjMt8MMwR/qs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.IDataExchangeOperations.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.IDataExchangeOperations.html",
-          "hash": "yGcvnZ5U831n/c+8oIULvy41jLEDNWDnRrSLge6OZDY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.IDataExporter-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.IDataExporter-2.html",
-          "hash": "TnoGJR0ytf8nqKTrEGFSjKhmxKtoCFPJkRpqGEl4LNM="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.InMemory.InMemoryRepository-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.InMemory.InMemoryRepository-1.html",
-          "hash": "hh4oLKM/pkdTOJ6f9+YcDufcEURS7K060W6u4BG+k1k="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.InMemory.InMemoryRepositorySettings-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.InMemory.InMemoryRepositorySettings-1.html",
-          "hash": "UpEeoq5czT8iIfn21gs6ZOnn0evoAnxzwtFo6p7yURk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.InMemory.Repository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.InMemory.Repository.html",
-          "hash": "ZHGpth3H1yg93IWNsJgXTgPj/WPBjQmrZB9Gq4pCKDA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.InMemory.SameObjectReferenceException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.InMemory.SameObjectReferenceException.html",
-          "hash": "Gx2C8CLSqiU8wjFDoXJFdoI0y4n+0E3sPLl6X1CW3Gw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.InMemory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.InMemory.html",
-          "hash": "B8Ivzi/aRNN+Dzsnntd3cYXt7B6U6EzLLbFa2lSilHo="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.Interfaces.IDataViewModel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.Interfaces.IDataViewModel.html",
-          "hash": "MQYnH5e+IBdLnUYna+X+KsOfFUJYKvl8IHTVoHd+468="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.Interfaces.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.Interfaces.html",
-          "hash": "F0b3ApE7zY/lQwi2rEADaXx2jTTvPxQjNOXOhFAZRf0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.Json.JsonRepository-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.Json.JsonRepository-1.html",
-          "hash": "qndiT3X7RotRXSNXcRFAtErHNQo/HglfRq0PqRKFUdA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.Json.JsonRepositorySettings-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.Json.JsonRepositorySettings-1.html",
-          "hash": "NFPoFN7/ASeGXDr+MBLrnQ/1CDuGQKoyK72w/5CNHhA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.Json.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.Json.html",
-          "hash": "vdNlfO0QRjpNlsIpIg+EgGtC+n6bpwblO2tuU2JLrek="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.MongoDb.FloatTruncationSerializer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.MongoDb.FloatTruncationSerializer.html",
-          "hash": "0GjmnJo8h34J+kyTOF0jlMl2/NzoeBgHF+pWB92wP9E="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.MongoDb.MongoDbCredentials.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.MongoDb.MongoDbCredentials.html",
-          "hash": "gXG8770CENyn0REKqaawtaSycmvO9g4rQsRmu7XRAtk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.MongoDb.MongoDbRepository-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.MongoDb.MongoDbRepository-1.html",
-          "hash": "Q1vw3w8a93xtMiOTOStSSPDKsE+lRqTsV9/pu5Do1SI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.MongoDb.MongoDbRepositorySettings-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.MongoDb.MongoDbRepositorySettings-1.html",
-          "hash": "XSJxj28GbmKsqyYf9MRiSJHfgVsf+c0Bgr2kZW559z4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.MongoDb.Repository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.MongoDb.Repository.html",
-          "hash": "TMQUdBetk4WG+z9xD6NFtYEJ9fE6NuMp6ZSKp5+UkUs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.MongoDb.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.MongoDb.html",
-          "hash": "q+Y03cJZ2kubjZZb9ISSXBt55IAf4Wb4DFT75KNys6A="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.MultipleDataEntityAttributeException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.MultipleDataEntityAttributeException.html",
-          "hash": "rze6kl39xVJHK0BBUeOM6cDr/3Q+CjYdJtSURdyRg8s="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.MultipleRemoteCallInitializationException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.MultipleRemoteCallInitializationException.html",
-          "hash": "CStevQPrX0TaIc7KeMi82lDgGTcgvrIRj0uXPZ73M4s="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.RavenDb.RavenDbRepository-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.RavenDb.RavenDbRepository-1.html",
-          "hash": "5TeIITTeF7AKIiSasMX6fzn+LkFNPedfTzRxRr9ZM8w="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.RavenDb.RavenDbRepositorySettings-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.RavenDb.RavenDbRepositorySettings-1.html",
-          "hash": "bPJx9WjPRZOQyCznzZaiIzvUCjuXzM471obcEJ1jnLI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.RavenDb.RavenDbRepositorySettingsBase-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.RavenDb.RavenDbRepositorySettingsBase-1.html",
-          "hash": "hbMMCtDsCVrS1jtKaaZ1V36sHopz8gOl5SZzzCJLLbE="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.RavenDb.SharedData.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.RavenDb.SharedData.html",
-          "hash": "c11LW2fJ6KvL0ZjqDDj9hjyZB5IBb7BatS2SJAoAkWk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.RavenDb.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.RavenDb.html",
-          "hash": "Igxr6u8Jx9TEMusOMJa7F12y6feF6UZIlskovhy3AIg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.ValueChangeItem.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.ValueChangeItem.html",
-          "hash": "FMeIbYnjdkCNBqYfqGfCp9+4NdS2J1ZARQQakywl2ro="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.ValueChangeTracker.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.ValueChangeTracker.html",
-          "hash": "VDZdFVQAXu4ViIoxd0KzZ9NAVAz5UZJHNTQshKFLxko="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.ValueItemDescriptor.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.ValueItemDescriptor.html",
-          "hash": "x0qeJaXy+RCrilS5tTcayhLhN4TVE3HBT8vgjIoJsAo="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.WrongTypeOfDataObjectException.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.WrongTypeOfDataObjectException.html",
-          "hash": "F6LK57GpWfWOk6fRZmdS/kehXn3/dZgiJv1vHjK8JkQ="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.eCrudOperation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.eCrudOperation.html",
-          "hash": "dCSoKBsuUqiCHkiteZOwjAuZemTIYlgBT1+96IJFGCg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Data.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Data.html",
-          "hash": "89d0HCYpWEPXHiCNbC2sANimjg50BQjLwtHw4d/Mjt0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Logging.AxoLogEntry.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Logging.AxoLogEntry.html",
-          "hash": "o6yIh/riY+6yvISeBNXHCb7kHE1Rne4NTVndBlcL31w="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Logging.AxoLogger.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Logging.AxoLogger.html",
-          "hash": "m+irL1qIUHGV2NHIDGfNrXCtMyyLTYlBdZGEmHWFdgc="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Logging.IAxoLogger.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Logging.IAxoLogger.html",
-          "hash": "YR136w4qM7lUWr8wFc4/ld3WpAVjMX5p9AgkC2Id/Bk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Logging.IAxoLoggerConfig.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Logging.IAxoLoggerConfig.html",
-          "hash": "aTFDpwAO2rGJnsYFB0o/YvWzNZyQ8heCZ/tR3x+Cfak="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Logging.eLogLevel.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Logging.eLogLevel.html",
-          "hash": "BXEPg38R0axTK6RowgFm293rzmj1laUlBhh5ycG4C7k="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Logging.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Logging.html",
-          "hash": "3KpRNF/8kErytvez488SsB7tWfUjrZQKk9M3CN7NpeQ="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Messaging.Static.AxoMessenger.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Messaging.Static.AxoMessenger.html",
-          "hash": "fcskUS3a+TUUJiDG19TpRQu9JYgHPRzbN3Inlgz5Q9w="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Messaging.Static.AxoMessengerCommandView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Messaging.Static.AxoMessengerCommandView.html",
-          "hash": "UkeamwuQquYoY3cwzwzOdrd15Cb2NhyMKVG4Cyc+SAQ="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Messaging.Static.AxoMessengerStatusView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Messaging.Static.AxoMessengerStatusView.html",
-          "hash": "sgSBHHoWKfmlUCDBI9N0LFc4Ixwe9mIM0UdxEV9V5ds="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Messaging.Static.AxoMessengerView.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Messaging.Static.AxoMessengerView.html",
-          "hash": "c+wOcGi4HhntM3qaj9NZNao0bvbUorhMWLCfZDFYjik="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Messaging.Static.IAxoMessageProperties.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Messaging.Static.IAxoMessageProperties.html",
-          "hash": "kQa471tRV2PL/s4au/McB0sg/0W6GNUAH7upWR3YHV0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Messaging.Static.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Messaging.Static.html",
-          "hash": "mkxwCFtDo6RLR1mXemk3CCGm6uDwKhOyMmQLm06Hx3M="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Messaging.eAxoMessageCategory.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Messaging.eAxoMessageCategory.html",
-          "hash": "Zeq92H9z64Pq12eX4D5hw7DuWxWpm/8RM4kyS1XFkH0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Messaging.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Messaging.html",
-          "hash": "OxAfOzTFyqBrigJXx5SXwGQtmT91c6Nl7D5PUGDXjmY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Rtc.IAxoRtc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Rtc.IAxoRtc.html",
-          "hash": "Rej+wi78FXaF3TKaXc/7f9rEfhbBQjaGv5s0uDm2UqA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Rtc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Rtc.html",
-          "hash": "CUmvzIaitvurZSKGWs+dJfTi7bZPqwl3KsXR8mVesEI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Utils.AxoStringBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Utils.AxoStringBuilder.html",
-          "hash": "bl5Vp62Vef85eq1+LpGp7Fa+B8+wDFNcffpOSVpMONg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Utils.IAxoStringBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Utils.IAxoStringBuilder.html",
-          "hash": "R/YnyVlIRsUyzh/P93ZnxFipSC2uZCAFsBfNn+Ynh9Q="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXOpen.Utils.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXOpen.Utils.html",
-          "hash": "p0niB1Hg8WzDi+HISGgnAtf/AY6sc+l1x+FJ38P7WdU="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog.AlertDialog.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog.AlertDialog.html",
-          "hash": "vV1B6rX0mRD5kaBl5G9BDEpYBd0AxIZzkrQCZZEgGtI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog.Toaster.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog.Toaster.html",
-          "hash": "j9NAMDrlS5I97hZBgNx2Ilas/qreiyq+HG7cjjMXmmI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog.ToasterService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog.ToasterService.html",
-          "hash": "Xl3c5WvJdmEc0/zseNRn7Tcb0FIGJFPKzsOSCVNSTu4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog.html",
-          "hash": "vNQU9Eazug0ti+XGuWJU4qTQfFsK3ZWRXZgBtCWOJDk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Ix.Repository.Json.Repository.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Ix.Repository.Json.Repository.html",
-          "hash": "HbgmxfIuxakCspa/C9LhFizB16v0dV2bmhYomrSH4Ds="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Ix.Repository.Json.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Ix.Repository.Json.html",
-          "hash": "S7w0x8RsbkDeG3GIdk7/tDIaDQAogV9sMRQHXxT/DfQ="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoComponent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoComponent.html",
-          "hash": "pd6wqtg90g4jZLF8i8agPYrU0SOUHVMU+c8ZKHLYKJY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoContext.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoContext.html",
-          "hash": "vIsunLwJVnoWxAI3emVCoXxubi+RRHsOnJ6CJHNVrDE="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoMomentaryTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoMomentaryTask.html",
-          "hash": "P83ryY1D0gynyCdDQnl7jY0xm8Qu7SfutHYp+4slbo4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoObject.html",
-          "hash": "mLlQ3r/sKlWT9m40Nliorth+ptsinQ8H+p2UJTdsYwA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoRemoteTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoRemoteTask.html",
-          "hash": "A5B3QomOjv1+Em5sgDxySs1iS+C4rVmlci8oRNqvA14="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoSequencer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoSequencer.html",
-          "hash": "IUfaXepJaoxUrG9pz9qxeRe8zX2v1Ug6ZurW/onZccY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoSequencerContainer.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoSequencerContainer.html",
-          "hash": "m+HOscdCIYpkHQ+KAE1WuqZBVrnv4Z8Gw+OQz/s7sWs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoStep.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoStep.html",
-          "hash": "Oecd26XwPQdBnzcNPSt0Qp3EW9XcfozmXotC49s5DN8="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoTask.html",
-          "hash": "mih+ETuQGFrDwt1fO0fZ9OoeCRsRJLfAVC2QBA43lmA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.AxoToggleTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.AxoToggleTask.html",
-          "hash": "3tcMq+PVNN3xQ8K38a5NUezA1rcgaE1AV4CcXBuSofg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoComponent.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoComponent.html",
-          "hash": "Zq9j4SV6GxnXRaqs9/WT6+UduTBfP4JmiOYN5OSP1Hk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoContext.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoContext.html",
-          "hash": "7CWy4rIeENBFTLPNN0i95KALPkRiZuUv4CsjDYRc4Bk="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoCoordinator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoCoordinator.html",
-          "hash": "eykadqnuerjogp34Q2AxFtMiK+0fwxcTlD1fmBqRtQI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoManuallyControllable.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoManuallyControllable.html",
-          "hash": "gWiLnZ5Fhp8OLoLP7Xu7qVpdlTAv43egKrwbZIDFqys="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoMomentaryTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoMomentaryTask.html",
-          "hash": "/ftK6xzyeLpSJDMuFVf4HeJ+U6aRQU9EbulnQJsdjck="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoObject.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoObject.html",
-          "hash": "dUg5sf7glvrBFO63ei6ustSPGDahHUBTBWeeGv8nLVQ="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoStep.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoStep.html",
-          "hash": "W7QDjQvzc2U1Ujs8v5RNZBhXPe9rw+k3omOSuBsm7uc="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoTask.html",
-          "hash": "TriY+IwPxfiq+7xLEPjoK9iUR6r7tdCiiX3GJxq4478="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoTaskState.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoTaskState.html",
-          "hash": "p2L/7kXFUi49jUL2/S8y5QqZ36aWIyfcYlvJxQyEtXE="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.IAxoToggleTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.IAxoToggleTask.html",
-          "hash": "72ZRY8JfhWP36/mAAlrujQoy1VevQkIn2G8hzTkc6q8="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core._NULL_CONTEXT.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core._NULL_CONTEXT.html",
-          "hash": "+hA8AnUC6ULeklGvPi4owir4chw126wpz8ozE9oZvXs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core._NULL_LOGGER.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core._NULL_LOGGER.html",
-          "hash": "9RyxY3YzMbKC3EzVoP2tAjef56ZB2OtOtPkXdoyEy2g="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core._NULL_OBJECT.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core._NULL_OBJECT.html",
-          "hash": "uBJJtPD8PqbrqbsfTOssZb/ltIJV95pmmHR87U2zNys="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core._NULL_RTC.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core._NULL_RTC.html",
-          "hash": "T0waLFOrNuRvx5BcC7ItI8C6B5i1mWUjOo5XwP6bI5M="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Core.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Core.html",
-          "hash": "I4aT5b2QyNyRjuz6MzOFawckKVq44kL151VnD0LZ4JA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.AxoDataCrudTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.AxoDataCrudTask.html",
-          "hash": "Tr4fRKiu0fnGoKjLH//7gBcycL2aidEVryzE9u0AOKM="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.AxoDataEntity.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.AxoDataEntity.html",
-          "hash": "Cs9SK8SWy4IIWJ2TEAnPmP6C2w0fKH6SSwjpqmWxyjw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.AxoDataEntityExistTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.AxoDataEntityExistTask.html",
-          "hash": "BvrAGMsVIx3fpNVgzAbxJAV+ZzzfluQsosmSZbTG7oY="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.AxoDataExchange.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.AxoDataExchange.html",
-          "hash": "YJLzWstAbnjLnbvBcLWngbHmLZsSElvM1qCs6lI+79s="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.AxoDataExchangeBase.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.AxoDataExchangeBase.html",
-          "hash": "G8n7olqOblt0o5mMGa1fD47PPPVqt6L6QSsEyI2GJG0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.AxoDataExchangeTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.AxoDataExchangeTask.html",
-          "hash": "+tZD9RzicZyZE+GfFCc7TgHtYMs1xDrP5prFJQY5iDw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.AxoDataFragmentExchange.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.AxoDataFragmentExchange.html",
-          "hash": "CEFnouuorvmFoJ1Ce3CDAPzu2G05eQ6+fQi/QhssRNo="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.IAxoDataEntity.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.IAxoDataEntity.html",
-          "hash": "h32I5rqKK2hJMxhtr7PgGa0AT7Kgkxf6aNIm2PrRh64="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.IAxoDataEntityExistTask.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.IAxoDataEntityExistTask.html",
-          "hash": "oGm4GszYgNhwAWCT+KmKkNPK4NYQohwy8Lrd18xOAE8="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.IAxoDataExchange.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.IAxoDataExchange.html",
-          "hash": "shcD5LXpXiKWC8+BCv88kJhNpRWHlqAl/8P3UcMMFUg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Data.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Data.html",
-          "hash": "1ZP2VjHZ6g2bRwZwXdloKdm0F5BMPSNgRxDYxoQ0who="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Logging.AxoLogEntry.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Logging.AxoLogEntry.html",
-          "hash": "KW3aClQXu1Q6QZrVxDWzxlpENoL4OguWanwZxreRLgI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Logging.AxoLogger.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Logging.AxoLogger.html",
-          "hash": "YUQzyeVNYYM49yuxnNE3RpOFfyE+s30jlLwHXeRBGCw="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Logging.IAxoLogger.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Logging.IAxoLogger.html",
-          "hash": "8SEPxG2okahOhevjIql+26/2B4Yuuojka9WBdYt7Ke0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Logging.IAxoLoggerConfig.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Logging.IAxoLoggerConfig.html",
-          "hash": "avWnnc/G+t09WtSZcGi7rkmaoRq6OfZ67dId0lq3Zrs="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Logging.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Logging.html",
-          "hash": "mW5MpDNlFAipWpTimuadRxCzT1XhiXwVJZuZToruJWg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Messaging.Static.AxoMessenger.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Messaging.Static.AxoMessenger.html",
-          "hash": "lGDQgtCU1YBJcuK1KpneSU7gZc+YUmTInxbCx3XT3pA="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Messaging.Static.IAxoMessageProperties.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Messaging.Static.IAxoMessageProperties.html",
-          "hash": "x/3coOrHETf0fJ9cSbEAPQ1+qKG6UiuCbbZSPTGyOVg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Messaging.Static.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Messaging.Static.html",
-          "hash": "XoW8sgaF1l9uAPVZL6NCYOD6ZroAhfsTvrmQnwVylm0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Rtc.IAxoRtc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Rtc.IAxoRtc.html",
-          "hash": "u1r+w0Z5Sh4Km/5SM2Ez5I6/1RHtRDvkDbhcoCjbVPI="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Rtc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Rtc.html",
-          "hash": "lXtCUZYfpW1tfRzno4eshLR6WuruWpcHGMCDvMc2Qr0="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Utils.AxoStringBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Utils.AxoStringBuilder.html",
-          "hash": "Y45LS5dFrRgpYLf4ErD3WiKWCKYeLkwvemG15vfWlHo="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Utils.IAxoStringBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Utils.IAxoStringBuilder.html",
-          "hash": "qgoIME7hIiYP6c1ufOxlC9as4hIdgwoI7P5CPM50fMU="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Pocos.AXOpen.Utils.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Pocos.AXOpen.Utils.html",
-          "hash": "Fymua6/YP3Vx6TpfcZZkb98aFKtulYb1PYypiIQGAT4="
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Conceptual",
       "source_relative_path": "api/index.md",
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "Mczi24jX3z9+5VJQP03QjC2ONqaSIu4Qjr9s8tdnGcg="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ix_ax_axopen_abstractions.PlcTranslator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ix_ax_axopen_abstractions.PlcTranslator.html",
-          "hash": "62ceZrslVt0pcr+P4+3oEY3kuKWe7EBU7OjIhSU8CCU="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ix_ax_axopen_abstractions.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ix_ax_axopen_abstractions.html",
-          "hash": "uNgU+9jp46h0XTNuwvfaq7RIUsWnawcFQTK5W+a4QN4="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ix_ax_axopen_core.PlcTranslator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ix_ax_axopen_core.PlcTranslator.html",
-          "hash": "qaUtaonXD2WFmP4C10En0JpuDpfPILQg4J+5lJglIzo="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ix_ax_axopen_core.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ix_ax_axopen_core.html",
-          "hash": "7gpSUWZt9dl07Ufy5es/+8IyTufFpo626E8KYHDY0zM="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ix_ax_axopen_data.PlcTranslator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ix_ax_axopen_data.PlcTranslator.html",
-          "hash": "mYRCPcAqG/HdSli93RGM7a/bEAk0y6+NHh/0y6jcrbc="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/ix_ax_axopen_data.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/ix_ax_axopen_data.html",
-          "hash": "l8+/HcwrySVy7heMRLRVXpb7fqwKSkz8zYvqV9W3fAo="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "api/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/toc.html",
-          "hash": "6QeJF1gPBN9/uox11yTTbjWGqhujTlpr4C2s1RdMFa8="
+          "hash": "EOsXzG8ZMYei6mWBr3cMQfDWJDHDoSC4NucAqsyLLmc="
         }
       },
       "version": ""
@@ -2134,7 +33,18 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/index.html",
-          "hash": "hg7WDPlLRJtwOqVMZ6hSuGIQeiren7U5pthSaY/U1s4="
+          "hash": "1xft5W9k2hDWrqIh/CPUJmKlKRFsX0YcEhZp0f1CpaU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Core.AxoAlertDialog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Core.AxoAlertDialog.html",
+          "hash": "lBJ0zd6wEakyOivEQcqHBSJl7HPqO8TLKYkgQoGXLAc="
         }
       },
       "version": ""
@@ -2168,6 +78,28 @@
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.AxoCoordinatorStates.html",
           "hash": "ZPu3o8w2b4+vieCexyKKmMvTIMRsW6UCIaAYM7NBucY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Core.AxoDialog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Core.AxoDialog.html",
+          "hash": "H2NzvCZjPEd02FKyTlywwKVQLH0itRGktljdlxQ3ODo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Core.AxoDialogBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Core.AxoDialogBase.html",
+          "hash": "c+sYAIPnU6nrzYFp7JvsUnNvms/f3QmbGZyz71c5sVE="
         }
       },
       "version": ""
@@ -2262,6 +194,17 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Core.IAxoAlertDialogFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Core.IAxoAlertDialogFormat.html",
+          "hash": "sf9k3otNulrqVBtun7RLVfvIRc+AODq7GK5OpXPpu8k="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "apictrl/plc.AXOpen.Core.IAxoComponent.yml",
       "output": {
         ".html": {
@@ -2289,6 +232,28 @@
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.IAxoCoordinator.html",
           "hash": "vaa9fgjBlwTQG+Q+EZPmTuUaghXCLsW/rDlmw2xjigw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Core.IAxoDialogAnswer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Core.IAxoDialogAnswer.html",
+          "hash": "alrD1gw4r1yYuVF2IAMz2/sQULL2jNibGnZlmFZuRDg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Core.IAxoDialogFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Core.IAxoDialogFormat.html",
+          "hash": "BRbt2dkcwhWouC7rjV8EgkiFdYV2ohUPf6oNnb9fET8="
         }
       },
       "version": ""
@@ -2482,11 +447,33 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Core.eDialogAnswer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Core.eDialogAnswer.html",
+          "hash": "6g6VpVvQt+TcE54q2R2igZFfzv96txSzKJKrYnpg2ds="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Core.eDialogType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Core.eDialogType.html",
+          "hash": "SjeyyI30+JHbrk+6eeKOlkuFOIvgPuCF9XyqrS7xaaM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "apictrl/plc.AXOpen.Core.yml",
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.html",
-          "hash": "ghRhdJ+bUB6Kg+fFH4KpyRNQCrbdSfz/FNcmZ1reJAE="
+          "hash": "+9Jy533jQjY5D8kKVZyOhFpkV3LzzgVxhKZ9IQC1c4A="
         }
       },
       "version": ""
@@ -2794,18 +781,18 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/toc.html",
-          "hash": "19uEpyQ5KtPrX+na9fcK8yskCDTYjBe8LhzEkZc8djE="
+          "hash": "YDrOInFc3XcIykTHd8AFcrKK0xKIVRRqVqKFrhNz/7o="
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/core/ALERTDIALOG.md",
+      "source_relative_path": "articles/core/AXOALERTDIALOG.md",
       "output": {
         ".html": {
-          "relative_path": "articles/core/ALERTDIALOG.html",
-          "hash": "k2OZRmvPD+MsOxm7e8FiskgrxEDcumx26pW3YOYPRxo="
+          "relative_path": "articles/core/AXOALERTDIALOG.html",
+          "hash": "YKlTgFgQdBL+7GaRhLbv8NG4b2CcMHtLRVhPnkjFmBM="
         }
       },
       "version": ""
@@ -2816,7 +803,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOCOMPONENT.html",
-          "hash": "BEgm2wk4Mfp5NKcsZYJFxcjV0ajaBD0VCYrEG5gb5dk="
+          "hash": "GbuA8aKgqVbICqtlvre8Wz8432uXYg4DwwpY6Y0YW/4="
         }
       },
       "version": ""
@@ -2827,7 +814,21 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOCONTEXT.html",
-          "hash": "U+1y13LvP0knO6pR3cjFUXA+WP/UDS10K0EikdDXdWc="
+          "hash": "IbadClA+6zlqcq+rMjViZwXAnGaxr+MbEsyKtwrgehQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/core/AXODIALOG.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/core/AXODIALOG.html",
+          "hash": "LElD+uiJqj0LSu60NmVxz4Tvs2GFtDnJBdscLGock6E="
         }
       },
       "version": ""
@@ -2838,7 +839,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOMOMENTARYTASK.html",
-          "hash": "UMPpMigSnDwIUr8/+dEZHiXW2L7PMZ68HB6VZad72wk="
+          "hash": "rSOdPQJ5XSLJr0vwzf84V7wBmTXs4g0RxUmrWIRoM8M="
         }
       },
       "version": ""
@@ -2849,7 +850,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOOBJECT.html",
-          "hash": "F/NNz9SI/OV1G2Fu+h1e0tW3ZvECEl4cFacA9YrFVYo="
+          "hash": "uSHX/FjruDODZKn0jQpOKOhdorCrh45DNVDf1SrY2eM="
         }
       },
       "version": ""
@@ -2860,7 +861,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOREMOTETASK.html",
-          "hash": "azhH97r8MbjZQzGm5PcVJUdGZMLp+r0AOmhys1XjWho="
+          "hash": "wJqPaPECWqPWZznUTdz9SeWFwZ2HR/j2HaBXP3PvZyk="
         }
       },
       "version": ""
@@ -2871,7 +872,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOSEQUENCER.html",
-          "hash": "5Yf21Y+Oy5EAf9dZAeJ/N4pX7vT3gdQhjY1OiW3Gsfg="
+          "hash": "OnyuxS3vxSKYf1ilGkYbJaqnNwfgYxEgzCzI6/3tILw="
         }
       },
       "version": ""
@@ -2882,7 +883,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOSEQUENCERCONTAINER.html",
-          "hash": "pAnMqSxQO5zQt9q7zFCqnSXYp9XZPEOdfPsgZmTRtuY="
+          "hash": "ZvLRF5nHQfKiDJXZkKo2xGHicc9JMm5ceuIoWV3hgiE="
         }
       },
       "version": ""
@@ -2893,7 +894,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOSTEP.html",
-          "hash": "p5PpxdX/0IavPofdN/s6MuZ9dYeE6dfXdyrcy/sI6mM="
+          "hash": "DBQoQO5GZDMpbq1cEesYsFHa5b4NyIwbbjSvMP4jR/4="
         }
       },
       "version": ""
@@ -2904,7 +905,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOTASK.html",
-          "hash": "TOYZFZX1Kzz5OiLmjC2Y2vWisoPfqyHcoMVmknWOYJQ="
+          "hash": "ZrAPABa6X354Gkj5xmPPxhzufS15hSeMOnJDvVjqdDo="
         }
       },
       "version": ""
@@ -2915,18 +916,21 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOTOGGLETASK.html",
-          "hash": "EoptR5tgEel8AkYsFV7VKC8XT3Q187Za0IxbopCMsKU="
+          "hash": "euSR/V/gtBMgAiJfvrkFWTEckRyxAs5yeJybyDv2KK8="
         }
       },
       "version": ""
     },
     {
+      "log_codes": [
+        "include-not-found"
+      ],
       "type": "Conceptual",
       "source_relative_path": "articles/core/README.md",
       "output": {
         ".html": {
           "relative_path": "articles/core/README.html",
-          "hash": "CIQ+nbDpIv2tdKtYKrk2ey+bv/8ktCfLvLNHTul9p/E="
+          "hash": "bvkTGbo67hZIXuoSFhF2hiETp3O5dOBiZaddTqiCnAs="
         }
       },
       "version": ""
@@ -2937,7 +941,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/data/AxoDataExchange.html",
-          "hash": "H2kmL3PP/7UmzQaDy5JT82uhmCXSdIM++dCJTD/hsV8="
+          "hash": "6jEl2FxX1lvIDBkevNRmZHq+xFEwDLsdQo5VTjN2WlI="
         }
       },
       "version": ""
@@ -2948,7 +952,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/data/AxoDataFragmentExchange.html",
-          "hash": "TI3YlSRSxbOsbARqDIbc5Q6AWQCyjtokt7+mA2aKG2o="
+          "hash": "pWCqRlFCHoLPwLl+jGkt7IJyt0bLVbF08p9621dyhbA="
         }
       },
       "version": ""
@@ -2959,7 +963,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/data/README.html",
-          "hash": "xH6L22qeUqZju6lpXCrszPoxIytTCeESlyMDVM7bSB4="
+          "hash": "AxcjiPRmj8xhnoqGJUPZkZKZFVULgUVLoC3JgNNcW2Y="
         }
       },
       "version": ""
@@ -2970,7 +974,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/giudelines/Conventions.html",
-          "hash": "+XhZM9uVhwSIkWyIkzSU6tv8z9z9/dc03MruglSn2rs="
+          "hash": "mG0JeScSIre/jNFuTx7vySfAyYn+9FMMrEXHvwG3KOU="
         }
       },
       "version": ""
@@ -2981,7 +985,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/giudelines/componets.html",
-          "hash": "N4q4tnrmRTNYtTjUBticJ7mvpXu8ZnY8t2hg9JcsNZw="
+          "hash": "u/vJ+ICJ2hWUx2jY+VEn0yxOXxMQEQbM8ELpEa6pEGI="
         }
       },
       "version": ""
@@ -2992,7 +996,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "QWPHWKX34mtN98y7Jclb1zE5WRfCloWcjuXWVUsn75M="
+          "hash": "2nchhLUuLyc9/M/Gm9qZtG2R3YuerUt4qusH3sysBbc="
         }
       },
       "version": ""
@@ -3003,7 +1007,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/logging/AXOLOGGER.html",
-          "hash": "6fFrOwO8TWv8gF52UgfTkBU0EI2uMHzYyahD2b6NUQI="
+          "hash": "EFAAAPYeELSBupARfWrD0HZmZOK1Cl+CLqDxWfGtgrA="
         }
       },
       "version": ""
@@ -3014,7 +1018,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/logging/README.html",
-          "hash": "qj7I+aeqmKRDSud9jg/O93nwWv6sBgUQWS9ryL0nH1Q="
+          "hash": "T1V2Xiy/SOe6miP60JhyajJ1BVM9RlPjUywPwZM/wWE="
         }
       },
       "version": ""
@@ -3025,7 +1029,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/messaging/AXOMESSENGER.html",
-          "hash": "R7ODUqf2y/D3ExlUrKcplJyOhG0tHRWTtEt+3B3hWf0="
+          "hash": "WwxGRvIdBXeX/Fv5ZzZRsiKMYGlKp3QfYFBfB0G8BD8="
         }
       },
       "version": ""
@@ -3036,7 +1040,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/messaging/README.html",
-          "hash": "xZQg1cgEoJxazwqHC2nBpj2T6HxTDkSDWNaZQbMQyvQ="
+          "hash": "Rnk12+LlmJ4tlmTZFlrHWfCqEruLoXpwjktkBOW7dlc="
         }
       },
       "version": ""
@@ -3047,7 +1051,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/rendering/intro.html",
-          "hash": "ZVCgGBRRT0ziekEyn9WD96E2jVCZGucK08F19OD7Abw="
+          "hash": "iF77qgmsgx+Zqv5GHC72gS8VpZg+ZXafuQNCxeThESI="
         }
       },
       "version": ""
@@ -3058,7 +1062,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/security/INSTALLATION.html",
-          "hash": "F4gtWz04PmsS38UhflL5304jAXBEj4zAb1loDW/lUxU="
+          "hash": "UwpH9W7Dd0GsRhi3ZM7mJvtBVtyrAJJtxDFy8rwL5tI="
         }
       },
       "version": ""
@@ -3069,7 +1073,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/security/README.html",
-          "hash": "vRi4gIWHjxasotPjYyzcXgiyI6aw17AfQJdhluSAy+M="
+          "hash": "EePCPyvOxEDVqejbPEp4VmREF/Su4ZilVhxoqDkjDdE="
         }
       },
       "version": ""
@@ -3083,7 +1087,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/themes/README.html",
-          "hash": "mJj2HSfCYEop6V/iypTHojKEEBqRfuyWZXnZUQZgCCs="
+          "hash": "DQOGXMdxeSlwvaTUuAXW5b3ICAvB3Gc0LaLrvqFPAdw="
         }
       },
       "version": ""
@@ -3094,7 +1098,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "Co/1h8WauVu4X+oW18v+AGcBcDkQZj4oADQ8HAdZmcU="
+          "hash": "UTkkvGHIaHgNUvebDmxGDOIGJEu3+YcSSoz2i+p0nuY="
         }
       },
       "version": ""
@@ -3291,6 +1295,36 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/dialog-external-close.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/dialog-external-close.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/dialog-sync.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/dialog-sync.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/dialog-types.gif",
+      "output": {
+        "resource": {
+          "relative_path": "images/dialog-types.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/favicon.ico",
       "output": {
         "resource": {
@@ -3331,6 +1365,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/ok-dialog.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/ok-dialog.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/remote_exect.gif",
       "output": {
         "resource": {
@@ -3345,7 +1389,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "tfzLPEO/wOsxv5Ter2xO3dYpsNPcJyfY8ba680j1sJY="
+          "hash": "VXDO5L0kPvglZD0OM1oW+XP4eRuUCJfZPmTFqGFHs4U="
         }
       },
       "version": ""
@@ -3356,7 +1400,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "mTvyPG+4JskieR1L8sKHMfvZjjhfUtsRRKGywysy0W4="
+          "hash": "WRpoxEgD7Lc2Nk8VnA+bLVPLkZpGs7GcLOe4BG28QOc="
         }
       },
       "version": ""
