@@ -9,15 +9,12 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
-using AXOpen.Core;
 using AXSharp.Connector.ValueTypes.Online;
 using AXSharp.Connector;
-using CommunityToolkit.Mvvm.Messaging;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Linq.Expressions;
 using System.Numerics;
-using AXSharp.Abstractions.Dialogs.AlertDialog;
 using Microsoft.AspNetCore.Components;
+using AXOpen.Base.Dialogs;
 
 namespace AXOpen.Data
 {
@@ -32,6 +29,11 @@ namespace AXOpen.Data
         {
             get => this.DataExchange;
             set => this.DataExchange = (IAxoDataExchange)value;
+        }
+
+        public DataExchangeViewModel()
+        {
+
         }
 
         public bool IsFileExported { get; set; } = false;
@@ -55,17 +57,11 @@ namespace AXOpen.Data
                     return;
                 }
 
-                // CrudData.ChangeTracker.StopObservingChanges();
                 _selectedRecord = value;
                 if (value != null)
                 {
                     DataExchange.FromRepositoryToShadowsAsync(value);
-                    //--((ITwinObject)DataExchange.Data).PlainToShadow(value).Wait();
-                    //CrudData.Changes = ((Pocos.AXOpen.Data.IAxoDataEntity)_selectedRecord).Changes;
-                    //Changes = CrudData.Changes;
                 }
-
-                // CrudData.ChangeTracker.StartObservingChanges();
 
             }
         }
@@ -150,16 +146,16 @@ namespace AXOpen.Data
             {
                 if (string.IsNullOrEmpty(CreateItemId))
                 {
-                    AlertDialogService.AddAlertDialog("Danger", "Cannot create!", "New entry name cannot be empty. Please provide an ID", 10);
+                    AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Cannot create!", "New entry name cannot be empty. Please provide an ID", 10);
                     return;
                 }
 
                 await DataExchange.CreateNewAsync(CreateItemId);
-                AlertDialogService.AddAlertDialog("Success", "Created!", "Item was successfully created!", 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Created!", "Item was successfully created!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService.AddAlertDialog("Danger", "Failed to create new record!", e.Message, 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Failed to create new record!", e.Message, 10);
             }
             finally
             {
@@ -173,11 +169,11 @@ namespace AXOpen.Data
             try
             {
                 DataExchange.Delete(SelectedRecord.DataEntityId);
-                AlertDialogService.AddAlertDialog("Success", "Deleted!", "Item was successfully deleted!", 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "Item was successfully deleted!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService.AddAlertDialog("Danger", "Failed to delete", e.Message, 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Failed to delete", e.Message, 10);
             }
             finally
             {
@@ -185,16 +181,6 @@ namespace AXOpen.Data
             }
 
 
-            //-- var plainer = ((ITwinObject)DataExchange.Data).CreatePoco() as Pocos.AXOpen.Data.AxoDataEntity;
-
-            //if (plainer == null)
-            //    throw new WrongTypeOfDataObjectException(
-            //        $"POCO object of 'DataExchange._data' member must be of {nameof(Pocos.AXOpen.Data.IAxoDataEntity)}");
-            //plainer.DataEntityId = SelectedRecord.DataEntityId;
-
-            //DataExchange.Repository.Delete(((IBrowsableDataObject)plainer).DataEntityId);
-            //SelectedRecord = null;
-            //WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Deleted!", "Item was successfully deleted!", 10)));
 
         }
 
@@ -203,11 +189,11 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId);
-                AlertDialogService.AddAlertDialog("Success", "Copied!", "Item was successfully copied!", 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Copied!", "Item was successfully copied!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService.AddAlertDialog("Danger", "Failed to copy!", e.Message, 10);
+               AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Failed to copy!", e.Message, 10);
             }
             finally
             {
@@ -216,34 +202,19 @@ namespace AXOpen.Data
             }
         }
 
-        public IEnumerable<DataItemValidation> UpdateRecord(Pocos.AXOpen.Data.AxoDataEntity data)
-        {
-            //var validations = DataExchange.Repository.OnRecordUpdateValidation(data);
-            //if (!validations.Any(p => p.Failed))
-            {
-                DataExchange.Repository.Update(((IBrowsableDataObject)data).DataEntityId, data);
-            }
-            //return validations;
-            return null;
-        }
+      
 
         public async Task Edit()
         {
-            //--var plainer = await ((ITwinObject)DataExchange.Data).ShadowToPlain<dynamic>();
-            ////CrudData.ChangeTracker.SaveObservedChanges(plainer);
-            //UpdateRecord(plainer);
-            //SelectedRecord = plainer;
-
             await DataExchange.UpdateFromShadowsAsync();
-            AlertDialogService.AddAlertDialog("Success", "Edited!", "Item was successfully edited!", 10);
+            AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Edited!", "Item was successfully edited!", 10);
             UpdateObservableRecords();
         }
 
         public async Task SendToPlc()
         {
-            //-- await ((ITwinObject)DataExchange.Data).PlainToOnline(SelectedRecord);
             await DataExchange.FromRepositoryToControllerAsync(SelectedRecord);
-            AlertDialogService.AddAlertDialog("Success", "Sended to PLC!", "Item was successfully sended to PLC!", 10);
+            AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Sended to PLC!", "Item was successfully sended to PLC!", 10);
         }
 
         public async Task LoadFromPlc()
@@ -251,11 +222,11 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateDataFromControllerAsync(CreateItemId);
-                AlertDialogService.AddAlertDialog("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService.AddAlertDialog("Danger", "Failed to create new record from the controller", e.Message, 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Failed to create new record from the controller", e.Message, 10);
             }
             finally
             {
@@ -263,24 +234,7 @@ namespace AXOpen.Data
                 CreateItemId = null;
             }
 
-            //---var plainer = await ((ITwinObject)DataExchange.Data).OnlineToPlain<dynamic>();
-
-            //if (CreateItemId != null)
-            //    plainer.DataEntityId = CreateItemId;
-
-            //try
-            //{
-            //    DataExchange.Repository.Create(plainer.DataEntityId, plainer);
-            //    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Success", "Loaded from PLC!", "Item was successfully loaded from PLC!", 10)));
-            //}
-            //catch (DuplicateIdException)
-            //{
-            //    WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Duplicate ID!", "Item with the same ID already exists!", 10)));
-            //}
-            //var plain = FindById(plainer.DataEntityId);
-            //await ((ITwinObject)DataExchange.Data).PlainToShadow(plain);
-            //FillObservableRecords();
-            //CreateItemId = null;
+       
         }
 
         public void ExportData(string path)
@@ -293,13 +247,18 @@ namespace AXOpen.Data
 
                 IsFileExported = true;
 
-                AlertDialogService.AddAlertDialog("Success", "Exported!", "Data was successfully exported!", 10);
+            //    UpdateDocument(dictionary, valueTags, prototype);
             }
             catch (Exception e)
             {
-                AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
             }
+
+
+
         }
+
+
 
         public void ImportData(string path)
         {
@@ -308,12 +267,11 @@ namespace AXOpen.Data
                 DataExchange.ImportData(path);
 
                 this.UpdateObservableRecords();
-
-                AlertDialogService.AddAlertDialog("Success", "Imported!", "Data was successfully imported!", 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Imported!", "Data was successfully imported!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService.AddAlertDialog("Danger", "Error!", e.Message, 10);
+                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
             }
         }
 

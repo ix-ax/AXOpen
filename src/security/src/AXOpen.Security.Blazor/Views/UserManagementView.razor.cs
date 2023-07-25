@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using AxOpen.Security.Entities;
 using AxOpen.Security.Models;
-using AXSharp.Abstractions.Dialogs.AlertDialog;
+using AXOpen.Base.Dialogs;
 
 namespace AxOpen.Security.Views
 {
@@ -58,7 +58,7 @@ namespace AxOpen.Security.Views
         {
             await _userManager.DeleteAsync(user);
             SelectedUser = null;
-            _alertDialogService.AddAlertDialog("Success", "Deleted!", "User succesfully deleted!", 10);
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "User succesfully deleted!", 10);
             //TcoAppDomain.Current.Logger.Information($"User '{user.UserName}' deleted. {{@sender}}", new { UserName = user.UserName });
         }
 
@@ -82,12 +82,12 @@ namespace AxOpen.Security.Views
             if (result.Succeeded)
             {
 
-                _alertDialogService.AddAlertDialog("Success", "Updated!", "User succesfully updated!", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, "Updated!", "User succesfully updated!", 10);
                 //TcoAppDomain.Current.Logger.Information($"User '{SelectedUser.UserName}' updated. {{@sender}}", new { UserName = SelectedUser.UserName, Group = SelectedUser.Roles });
             }
             else
             {
-                _alertDialogService.AddAlertDialog("Warning", "Not updated!", "User was not updated!", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, "Not updated!", "User was not updated!", 10);
             }
         }
 

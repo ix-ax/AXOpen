@@ -3,28 +3,30 @@
 - name: AXOpen.Core
   href: ~/articles/core/README.md
   items:
-      - name: AxoContext
-        href: ~/articles/core/AXOCONTEXT.md
-      - name: AxoObject
-        href: ~/articles/core/AXOOBJECT.md
-      - name: AxoTask
-        href: ~/articles/core/AXOTASK.md
-      - name: AxoToggleTask
-        href: ~/articles/core/AXOTOGGLETASK.md
-      - name: AxoMomentaryTask
-        href: ~/articles/core/AXOMOMENTARYTASK.md
-      - name: AxoRemoteTask
-        href: ~/articles/core/AXOREMOTETASK.md
-      - name: AxoStep
-        href: ~/articles/core/AXOSTEP.md
-      - name: AxoSequencer
-        href: ~/articles/core/AXOSEQUENCER.md
-      - name: AxoSequencerContainer
-        href: ~/articles/core/AXOSEQUENCERCONTAINER.md
-      - name: AxoComponent
-        href: ~/articles/core/AXOCOMPONENT.md
-      - name: AlertDialog
-        href: ~/articles/core/ALERTDIALOG.md
+  - name: AxoContext
+    href: ~/articles/core/AXOCONTEXT.md
+  - name: AxoObject
+    href: ~/articles/core/AXOOBJECT.md
+  - name: AxoTask
+    href: ~/articles/core/AXOTASK.md
+  - name: AxoToggleTask
+    href: ~/articles/core/AXOTOGGLETASK.md
+  - name: AxoMomentaryTask
+    href: ~/articles/core/AXOMOMENTARYTASK.md
+  - name: AxoRemoteTask
+    href: ~/articles/core/AXOREMOTETASK.md  
+  - name: AxoStep
+    href: ~/articles/core/AXOSTEP.md
+  - name: AxoSequencer
+    href: ~/articles/core/AXOSEQUENCER.md  
+  - name: AxoSequencerContainer
+    href: ~/articles/core/AXOSEQUENCERCONTAINER.md  
+  - name: AxoComponent
+    href: ~/articles/core/AXOCOMPONENT.md  
+  - name: AxoDialog
+    href: ~/articles/core/AXODIALOG.md
+  - name: AxoAlertDialog
+    href: ~/articles/core/AXOALERTDIALOG.md  
 - name: AXOpen.Data
   href: ~/articles/data/README.md
   items:

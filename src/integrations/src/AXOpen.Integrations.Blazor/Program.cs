@@ -9,9 +9,6 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Pocos.IntegrationAxoDataFramentsExchange;
 using Serilog;
-using static System.Formats.Asn1.AsnWriter;
-using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
-using AXSharp.Abstractions.Dialogs.AlertDialog;
 
 namespace axopen_integrations_blazor
 {
@@ -28,7 +25,7 @@ namespace axopen_integrations_blazor
             
             builder.Services.AddIxBlazorServices();
 
-            builder.Services.AddScoped<IAlertDialogService, ToasterService>();
+            //builder.Services.AddScoped<IAlertDialogService, ToasterService>();
 
             //builder.Services.AddTcoCoreExtensions();
 

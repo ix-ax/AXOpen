@@ -1,0 +1,234 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AxoDialogs | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="AxoDialogs | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="axodialogs">AxoDialogs</h1>
+
+<p>AxoDialogs provide capability to interact with the user by rising dialogs directly from the PLC program.</p>
+<h2 id="example">Example</h2>
+<pre><code>VAR PUBLIC
+    _dialog : AXOpen.Core.AxoDialog;
+END_VAR
+//----------------------------------------------
+
+IF(_dialog.Show(THIS)
+    .WithOk()
+    .WithType(eDialogType#Success)
+    .WithCaption('What`s next?')
+    .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
+
+    //if answer is ok, move next in sequence                                 
+    THIS.MoveNext(); 
+
+END_IF;	
+</code></pre>
+<p><img src="../../images/ok-dialog.png" alt="Modal ok Dialog"></p>
+<h2 id="getting-started">Getting started</h2>
+<ol>
+<li>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file. Also, map <code>dialoghub</code> which is needed for dialog synchronization using SignalR technology.</li>
+</ol>
+<pre><code class="lang-C#">builder.Services.AddAxoCoreServices();
+//...
+app.MapHub&lt;DialogHub&gt;(&quot;/dialoghub&quot;);
+</code></pre>
+<ol start="2">
+<li>Go to your page, where you wish to have dialogs and include <code>AxoDialogLocator</code> component at the end of that page.</li>
+</ol>
+<p>Provide list of <code>ObservedObjects</code>, on which you want to observe dialogs. You can also provide <code>DialogId</code>, which serves for synchronization of dialogs between multiple clients. If <code>DialogId</code> is not provided, the current <em>URI</em> is used as an id.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Make sure, that each page has only one instance of <code>AxoDialogLocator</code> and that provided <code>DialogId</code> is unique across the application! If you wish to observe multiple objects, add them into <code>ObservedObjects</code> list.</p>
+</div>
+<pre><code class="lang-HTML">&lt;AxoDialogLocator DialogId=&quot;custation001&quot; ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot;/&gt;
+</code></pre>
+<p>Now, when dialog is invoked in PLC, it will show on all clients and pages, where <code>AxoDialogLocator</code> is present with corresponding observed objects. The answers are synchronized across multiple clients.</p>
+<h2 id="axodialog-types">AxoDialog types</h2>
+<p>AxoDialogs contains currently 3 types of predefined dialogs:</p>
+<ol>
+<li>Okay dialog</li>
+<li>YesNo dialog</li>
+<li>YesNoCancel dialog</li>
+</ol>
+<p><img src="../../images/dialog-types.gif" alt="Dialog types"></p>
+<p>Also, the visual type of corresponding dialog can be adjusted with <code>eDialogType</code> enum, which is defined as follows:</p>
+<pre><code> eDialogType : INT (
+    Undefined := 0,
+    Info := 10,
+    Success := 20,
+    Danger := 30,
+    Warning := 40
+);
+
+</code></pre>
+<h2 id="answer-synchronization-on-multiple-clients">Answer synchronization on multiple clients</h2>
+<p>Answers of dialogs are synchronized across multiple clients with the SignalR technology.</p>
+<p><img src="../../images/dialog-sync.gif" alt="Dialog sync"></p>
+<h2 id="closing-a-dialog-with-external-signal">Closing a dialog with external signal</h2>
+<p>External signals can be provided to dialog instance within a <code>ShowWithExternalClose</code> method, which can be then used to close dialog externally (for example from other page of application, or by pressing a hardware button...).</p>
+<p>4 different signals can be monitored in <code>ShowWithExternalClose</code> method:</p>
+<ul>
+<li>inOkAnswerSignal</li>
+<li>inYesAnswerSignal</li>
+<li>inNoAnswerSignal</li>
+<li>inCancelAnswerSignal</li>
+</ul>
+<p>Below is an example of closing dialog with <code>_externalCloseOkSignal</code> bool variable, which is set in other part of application:</p>
+<pre><code>VAR PUBLIC
+    _dialog : AXOpen.Core.AxoDialog;
+    _externalCloseOkSignal : BOOL;
+    _dialogAnswer : eDialogAnswer;
+END_VAR
+
+//----------------------------------------------
+_dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
+.WithOK()
+.WithType(eDialogType#Info)
+.WithCaption('Hello world!')
+.WithText('You can also close me externally!').Answer();
+
+IF(_dialog3Answer = eDialogAnswer#Ok) THEN
+    // if answer is provided, move next
+    THIS.MoveNext(); 
+
+END_IF;	
+</code></pre>
+<p><img src="../../images/dialog-external-close.gif" alt="Dialog sync"></p>
+<h2 id="creation-of-own-modal-dialog">Creation of own modal dialog</h2>
+<h3 id="plc-side">PLC side</h3>
+<ul>
+<li><p>Create own PLC instance of dialog, which extends <code>AxoDialogBase</code>.</p>
+</li>
+<li><p>Define dialog structure and corresponding show method, which will initialize and invoke remote task needed for dialog creation.</p>
+</li>
+</ul>
+<h3 id="blazor-side">Blazor side</h3>
+<ul>
+<li><p>Define Blazor view of modal dialog, which is then generated by <code>RenderableContentControl</code> according to presentation pipeline.
+For example, when Dialog plc type is <code>MyCustomModal</code>, the view must by named <code>MyCustomModalDialogView</code>, because implementation is using <code>Dialog</code> presentation type.</p>
+<p>The Blazor view must inherits from <code>@AxoDialogBaseView&lt;MyCustomModal&gt;</code>, where correct generic type of dialog from PLC must be passed. The opening/closing of dialog is managed in base class by virtual methods, which can be overridden if needed.</p>
+<p>It is recommended to use provided <code>ModalDialog</code> Blazor component, which can be customized by user needs and is fully compatible with closing/opening synchronization approach provided in base class. Otherwise, the open/close virtual methods from base class must be overridden and accordingly adapted.</p>
+</li>
+</ul>
+<p>Example implementation of basic dialog can be found in <a href="../../../src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogDialogView/AxoDialogDialogView.razor">AxoDialogDialogView.razor</a>.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/12-_NEW-FEATURE_Invokable_dialogues_from_PLC/docfx/articles/core/AXODIALOG.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

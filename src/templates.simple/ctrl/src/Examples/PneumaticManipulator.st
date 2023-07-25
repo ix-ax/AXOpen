@@ -143,10 +143,17 @@ NAMESPACE examples.PneumaticManipulator
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
             Steps : ARRAY[0..150] OF AxoStep;
+            _dialog : AXOpen.Core.AxoDialog;
+            _dialog1 : AXOpen.Core.AxoDialog;
+            _dialog2 : AXOpen.Core.AxoDialog;
+            _dialog3 : AXOpen.Core.AxoDialog;
+            _alertDialog : AXOpen.Core.AxoAlertDialog;
+            _externalClose : BOOL;
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
             ProcessData : REF_TO ProcessDataManger;
+            
         END_VAR
 
         METHOD INTERNAL Run
@@ -190,18 +197,112 @@ NAMESPACE examples.PneumaticManipulator
             THIS.AndThen(Steps[7], components^.HorizontalCylinder.MoveToHome);
             THIS.AndThen(Steps[8], components^.GripperCylinder.MoveToHome);
             
-            IF(Steps[10].Execute(THIS, TRUE, 'Create data id')) THEN
+            IF(Steps[9].Execute(THIS, TRUE, 'Create data id')) THEN
+
                 ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
-                THIS.MoveNext();
+                THIS.MoveNext(); 
+
             END_IF;    
 
-            IF (Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
+            IF (Steps[10].Execute(THIS, TRUE, 'Save data.')) THEN
                 //-------------------------------------------------------            
                 IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
                 END_IF;
-//-------------------------------------------------------
+                THIS.MoveNext();
+                //-------------------------------------------------------
             END_IF;
+
+
+            IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+                //-------------------------------------------------------        
+                   IF(_alertDialog.Show(THIS)
+                        .WithTitle('Plc alert')
+                        .WithType(eDialogType#Success)
+                        .WithMessage('This is alert invoked from plc!')
+                        .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+                        THIS.MoveNext(); 
+                    END_IF;	
+
+
+            //-------------------------------------------------------
+            END_IF;
+
+
+            IF (Steps[20].Execute(THIS, TRUE, 'Dummy')) THEN
+                //------------------------------------------------------- 
+                IF(Steps[20].Duration > T#100ms) THEN
+                    
+                        THIS.MoveNext(); 
+                END_IF;	
+            END_IF;
+
+            IF (Steps[30].Execute(THIS, TRUE, 'Show dialog 0')) THEN
+                //------------------------------------------------------- 
+            
+                    IF(_dialog.Show(THIS)
+                        .WithOk()
+                        .WithType(eDialogType#Success)
+                        .WithCaption('What`s next?')
+                        .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
+
+                        
+                        THIS.MoveNext(); 
+
+                END_IF;	
+            END_IF;
+
+
+            IF (Steps[40].Execute(THIS, TRUE, 'Dummy')) THEN
+                //------------------------------------------------------- 
+                IF(Steps[40].Duration > T#100ms) THEN
+                    
+                        THIS.MoveNext(); 
+                END_IF;	
+            END_IF;
+
+
+
+            IF (Steps[50].Execute(THIS, TRUE, 'Show dialog 1')) THEN
+                //------------------------------------------------------- 
+                        IF(_dialog1.Show(THIS)
+                            .WithYesNoCancel()
+                            .WithType(eDialogType#Warning)
+                            .WithCaption('YesNoCancel dialog')
+                            .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
+                            
+                        
+                            THIS.MoveNext(); 
+
+                        END_IF;	
+                    
+            END_IF;
+
+            IF (Steps[60].Execute(THIS, TRUE, 'Dummy')) THEN
+                //------------------------------------------------------- 
+                IF(Steps[60].Duration > T#100ms) THEN
+                    
+                        THIS.MoveNext(); 
+                END_IF;	
+            END_IF;
+
+            IF (Steps[70].Execute(THIS, TRUE, 'Show dialog 2')) THEN
+                //------------------------------------------------------- 
+
+                    IF(_dialog2.Show(THIS)
+                        .WithYesNo()
+                        .WithType(eDialogType#Danger)
+                        .WithCaption('YesNo dialog')
+                        .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
+                        
+                    
+                        THIS.MoveNext(); 
+                    END_IF;	
+
+            END_IF;
+
+//-------------------------------------------------------
+            
             // This will close the sequence and will return to the first step.
             THIS.Close(Steps[150]);
         END_METHOD
