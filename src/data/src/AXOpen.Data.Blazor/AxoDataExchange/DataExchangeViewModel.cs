@@ -15,6 +15,9 @@ using System.Linq.Expressions;
 using System.Numerics;
 using Microsoft.AspNetCore.Components;
 using AXOpen.Base.Dialogs;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
+using Newtonsoft.Json.Linq;
+using System.ComponentModel;
 
 namespace AXOpen.Data
 {
@@ -52,11 +55,7 @@ namespace AXOpen.Data
 
             set
             {
-                if (_selectedRecord == value)
-                {
-                    return;
-                }
-
+                // CrudData.ChangeTracker.StopObservingChanges();
                 _selectedRecord = value;
                 if (value != null)
                 {
@@ -237,46 +236,47 @@ namespace AXOpen.Data
        
         }
 
-        public void ExportData(string path)
+        public Task ExportDataAsync(string path)
         {
             IsFileExported = false;
 
-            try
+            return Task.Run(() =>
             {
-                DataExchange.ExportData(path);
+                try
+                {
+                    DataExchange.ExportData(path, ExportSet.CustomExportData, ExportSet.ExportMode, ExportSet.FirstNumber, ExportSet.SecondNumber, ExportSet.ExportFileType, ExportSet.Separator);
 
-                IsFileExported = true;
+                    IsFileExported = true;
 
-            //    UpdateDocument(dictionary, valueTags, prototype);
-            }
-            catch (Exception e)
-            {
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
-            }
-
-
-
+                    AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Exported!", "Data was successfully exported!", 10);
+                }
+                catch (Exception e)
+                {
+                    AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
+                }
+            });
         }
 
-
-
-        public void ImportData(string path)
+        public Task ImportDataAsync(string path)
         {
-            try
+            return Task.Run(() =>
             {
-                DataExchange.ImportData(path);
+                try
+                {
+                    DataExchange.ImportData(path, separator: ExportSet.Separator);
 
-                this.UpdateObservableRecords();
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Imported!", "Data was successfully imported!", 10);
-            }
-            catch (Exception e)
-            {
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
-            }
+                    this.UpdateObservableRecords();
+
+                    AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Imported!", "Data was successfully imported!", 10);
+                }
+                catch (Exception e)
+                {
+                    AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
+                }
+            });
         }
 
         public ObservableCollection<IBrowsableDataObject> Records { get; set; } = new ObservableCollection<IBrowsableDataObject>();
-
         public int Limit { get; set; } = 10;
         public string FilterById { get; set; } = "";
         public eSearchMode SearchMode { get; set; } = eSearchMode.Exact;
@@ -284,5 +284,101 @@ namespace AXOpen.Data
         public int Page { get; set; } = 0;
         public string CreateItemId { get; set; }
         public bool IsBusy { get; set; }
+
+        public ExportSettings ExportSet { get; set; } = new();
+
+        public class ExportSettings
+        {
+            public Dictionary<string, ExportData> CustomExportData { get; set; } = new();
+            public eExportMode ExportMode { get; set; } = eExportMode.First;
+            public int FirstNumber { get; set; } = 50;
+            public int SecondNumber { get; set; } = 100;
+            public eFileType ExportFileType { get; set; } = eFileType.csv;
+            public char Separator { get; set; } = ';';
+        }
+
+        public IEnumerable<ITwinElement> GetValueTags(Type type)
+        {
+            var prototype = Activator.CreateInstance(type, new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
+            return prototype.GetKids();
+        }
+
+        public void ChangeCustomExportDataValue(ChangeEventArgs __e, string fragmentKey)
+        {
+            if (!ExportSet.CustomExportData.ContainsKey(fragmentKey))
+            {
+                ExportSet.CustomExportData.Add(fragmentKey, new ExportData((bool)__e.Value, new Dictionary<string, bool>()));
+            }
+            else
+            {
+                ExportSet.CustomExportData[fragmentKey].Exported = (bool)__e.Value;
+            }
+        }
+
+        public void ChangeCustomExportDataValue(ChangeEventArgs __e, string fragmentKey, string key)
+        {
+            if (!ExportSet.CustomExportData.ContainsKey(fragmentKey))
+            {
+                ExportSet.CustomExportData.Add(fragmentKey, new ExportData(true, new Dictionary<string, bool>()));
+                ExportSet.CustomExportData[fragmentKey].Data.Add(key, (bool)__e.Value);
+            }
+            else
+            {
+                if (!ExportSet.CustomExportData[fragmentKey].Data.ContainsKey(key))
+                {
+                    ExportSet.CustomExportData[fragmentKey].Data.Add(key, (bool)__e.Value);
+                }
+                else
+                {
+                    ExportSet.CustomExportData[fragmentKey].Data[key] = (bool)__e.Value;
+                }
+            }
+            StateHasChangedDelegate.Invoke();
+        }
+
+        public Action StateHasChangedDelegate { get; set; }
+
+        public bool GetCustomExportDataValue(string fragmentKey)
+        {
+            var result = new Dictionary<string, object>();
+            if (ExportSet.CustomExportData.ContainsKey(fragmentKey))
+                return ExportSet.CustomExportData[fragmentKey].Exported;
+            return true;
+        }
+
+        public bool GetCustomExportDataValue(string fragmentKey, string key)
+        {
+            if (ExportSet.CustomExportData.ContainsKey(fragmentKey))
+            {
+                if (ExportSet.CustomExportData[fragmentKey].Data.ContainsKey(key))
+                    return ExportSet.CustomExportData[fragmentKey].Data[key];
+            }
+            return true;
+        }
+
+        public Dictionary<string, object> InDictionary(bool check)
+        {
+            var r = new Dictionary<string, object>();
+            if (check)
+                r.Add("checked", "checked");
+            return r;
+
+        }
+
+        public bool GetFragmentsExportedValue()
+        {
+            foreach (var item in ExportSet.CustomExportData)
+            {
+                if (!item.Value.Exported)
+                    return false;
+
+                foreach (var innerItem in item.Value.Data)
+                {
+                    if (!innerItem.Value)
+                        return false;
+                }
+            }
+            return true;
+        }
     }
 }

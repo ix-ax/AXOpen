@@ -13,10 +13,10 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Data
 {
-    public class CSVDataExporter<TPlain, TOnline> : BaseDataExporter<TPlain, TOnline>, IDataExporter<TPlain, TOnline> where TOnline : IAxoDataEntity
+    public class TXTDataExporter<TPlain, TOnline> : BaseDataExporter<TPlain, TOnline>, IDataExporter<TPlain, TOnline> where TOnline : IAxoDataEntity
     where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
     {
-        public CSVDataExporter()
+        public TXTDataExporter()
         {
         }
 
@@ -24,7 +24,7 @@ namespace AXOpen.Data
         {
             var export = BaseExport(repository, expression, customExportData, exportMode, firstNumber, secondNumber, separator);
 
-            using (var sw = new StreamWriter(path + ".csv"))
+            using (var sw = new StreamWriter(path + ".txt"))
             {
                 foreach (var item in export)
                 {
@@ -36,7 +36,7 @@ namespace AXOpen.Data
         public void Import(IRepository<TPlain> dataRepository, string path, ITwinObject crudDataObject = null, char separator = ';')
         {
             var imports = new List<string>();
-            foreach (var item in File.ReadAllLines(path + ".csv"))
+            foreach (var item in File.ReadAllLines(path + ".txt"))
             {
                 imports.Add(item);
             }
