@@ -18,10 +18,9 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Serilog;
 using AXSharp.Abstractions.Dialogs.AlertDialog;
-using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 using System.Security.Principal;
 using AXOpen.Core;
-using System.IO;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,8 +30,8 @@ builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
-
-builder.Services.AddScoped<IAlertDialogService, ToasterService>();
+builder.Services.AddAxoCoreServices();
+//builder.Services.AddScoped<IAlertDialogService, ToasterService>();
 
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
@@ -77,6 +76,8 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
+    // use response compression only in production mode
+    app.UseResponseCompression();
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
@@ -93,7 +94,11 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.MapBlazorHub();
+app.MapHub<DialogHub>("/dialoghub");
 app.MapFallbackToPage("/_Host");
+
+
+
 
 app.Run();
 

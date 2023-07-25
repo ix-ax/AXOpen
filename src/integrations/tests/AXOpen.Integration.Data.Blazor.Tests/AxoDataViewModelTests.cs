@@ -29,7 +29,7 @@ namespace integration.data.blazor.tests
             var exchangeViewModel = new DataExchangeViewModel
             {
                 Model = dataObject,
-                AlertDialogService = new AlertDialogServiceBase()
+                //AlertDialogService = new AlertDialogServiceBase()
                 };
             _vm = exchangeViewModel;
             

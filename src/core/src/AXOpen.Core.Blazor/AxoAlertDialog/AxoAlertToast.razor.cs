@@ -1,14 +1,18 @@
 ﻿using Microsoft.AspNetCore.Components;
 using System;
 
-namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
+namespace AXOpen.Core.Blazor.AxoAlertDialog
 {
-    public partial class Toaster : ComponentBase, IDisposable
+    public partial class AxoAlertToast : ComponentBase, IDisposable
     {
         private void AlertDialogChanged(object? sender, EventArgs e) => InvokeAsync(StateHasChanged);
 
         protected override void OnInitialized()
         {
+            if(_parameterDialogService != null)
+            {
+                _dialogService = _parameterDialogService;
+            }
             _dialogService!.AlertDialogChanged += AlertDialogChanged;
         }
 
@@ -17,6 +21,5 @@ namespace AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog
             _dialogService!.AlertDialogChanged -= AlertDialogChanged;
         }
 
-        private void ClearToast(AlertDialog toast) => _dialogService!.RemoveAlertDialog(toast);
     }
 }

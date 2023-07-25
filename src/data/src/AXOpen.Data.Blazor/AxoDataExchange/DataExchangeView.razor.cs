@@ -6,14 +6,13 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using AXOpen.Base.Data;
-using AXOpen.Core;
 using AXOpen.Data.Interfaces;
 using AXOpen.Data;
-using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using AXSharp.Abstractions.Dialogs.AlertDialog;
 using System.IO;
+using AXOpen.Core;
+using AXOpen.Base.Dialogs;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using static AXOpen.Data.DataExchangeViewModel;
 
@@ -122,7 +121,7 @@ public partial class DataExchangeView
         }
         catch (Exception ex)
         {
-            _alertDialogService.AddAlertDialog("Danger", "Error!", ex.Message, 10);
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", ex.Message, 10);
         }
 
         isFileImporting = false;
