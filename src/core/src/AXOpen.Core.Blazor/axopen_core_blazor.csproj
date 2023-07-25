@@ -32,7 +32,6 @@
 
   <ItemGroup>
 	  <ProjectReference Include="..\AXOpen.Core\ix_ax_axopen_core.csproj" />
-	  <!--<ProjectReference Include="C:\MTS\ix\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />-->
   </ItemGroup>
 
   <ItemGroup>

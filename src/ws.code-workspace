@@ -31,6 +31,10 @@
 		{
 			"name": "abstractions",
 			"path": "abstractions/ctrl"
+		},
+		{
+			"name": "inspectors",
+			"path": "inspectors/ctrl"
 		}
 	],
 	"settings": {}
