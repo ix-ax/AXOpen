@@ -11,7 +11,6 @@ using System.Numerics;
 using System.Reflection;
 using System.Security.Claims;
 using AXOpen.Base.Data;
-using AXSharp.Abstractions.Dialogs.AlertDialog;
 using AXSharp.Connector;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 

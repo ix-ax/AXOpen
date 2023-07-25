@@ -9,8 +9,6 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Pocos.IntegrationAxoDataFramentsExchange;
 using Serilog;
-//using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
-using AXSharp.Abstractions.Dialogs.AlertDialog;
 
 namespace axopen_integrations_blazor
 {
