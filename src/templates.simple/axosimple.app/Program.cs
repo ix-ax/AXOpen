@@ -1,4 +1,4 @@
-    using System.Reflection;
+using System.Reflection;
 using AXOpen;
 using AXOpen.Base.Data;
 using AXOpen.Data.InMemory;
@@ -17,22 +17,21 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Serilog;
-using AXSharp.Abstractions.Dialogs.AlertDialog;
-using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
 using System.Security.Principal;
 using AXOpen.Core;
-using System.IO;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
+builder.Services.AddLocalization();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
-
-builder.Services.AddScoped<IAlertDialogService, ToasterService>();
+builder.Services.AddAxoCoreServices();
+//builder.Services.AddScoped<IAlertDialogService, ToasterService>();
 
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
@@ -77,9 +76,12 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
+    // use response compression only in production mode
+    app.UseResponseCompression();
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 
 app.UseHttpsRedirection();
 
@@ -87,13 +89,22 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+var supportedCultures = new[] { "en-US", "sk-SK", "es-ES"};
+var localizationOptions = new RequestLocalizationOptions()
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
+
 app.UseAuthorization();
-
-
 
 app.MapControllers();
 app.MapBlazorHub();
+app.MapHub<DialogHub>("/dialoghub");
 app.MapFallbackToPage("/_Host");
+
+
+
 
 app.Run();
 

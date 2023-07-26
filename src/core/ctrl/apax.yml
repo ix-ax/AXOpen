@@ -14,3 +14,4 @@ scripts:
 dependencies:
   "@ax/system-timer": ^4.0.1
   "@ix-ax/axopen.abstractions": '0.1.4-alpha.79'
+  "@ax/system-edgedetection": ^5.0.7

@@ -3,18 +3,49 @@
 @using AXOpen.Data;
 @inherits RenderableComponentBase
 
-
-
-
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h1>Inputs</h1>
+            <h1>@Localizer["Inputs"]</h1>
             <RenderableContentControl Context="Entry.Plc.Inputs" Presentation="Control"/>
         </div>
         <div class="col">
-            <h1>Outputs</h1>
+            <h1>@Localizer["Outputs"]</h1>
             <RenderableContentControl Context="Entry.Plc.Outputs" Presentation="Control"/>
         </div>
     </div>
 </div>
+
+
+
+
+   <button class="btn btn-primary m-2" @onclick=SetInputs>Set inputs</button>
+
+
+
+@code {
+  
+}
+@functions
+{
+    private void SetInputs()
+    {
+        var inputs = Entry.Plc.Inputs.B0;
+        foreach (var input in inputs)
+        {
+            input.Cyclic = true;
+        }
+    }
+
+    private void Clicked()
+    {
+        Entry.Plc.Context.PneumaticManipulator.AutomatSequence._externalClose.Edit = true;
+        Entry.Plc.Context.PneumaticManipulator2.AutomatSequence._externalClose.Edit = true;
+    }
+
+    private void Clicked2()
+    {
+        Entry.Plc.Context.PneumaticManipulator.AutomatSequence._externalClose.Edit = false;
+        Entry.Plc.Context.PneumaticManipulator2.AutomatSequence._externalClose.Edit = false;
+    }
+}

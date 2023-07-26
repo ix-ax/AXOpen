@@ -1,0 +1,48 @@
+﻿
+<div class="modal modal-xl @_modalClass" tabindex="-1" role="dialog" style="display:@_modalDisplay; overflow-y: auto; ">
+    <div class="modal-dialog mw-100 w-75 modal-dialog-centered" style="align-items: flex-end;" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                @HeaderTemplate
+
+            </div>
+            <div class="modal-body">
+                @BodyTemplate
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (_showBackdrop)
+{
+    <div class="modal-backdrop fade show"></div>
+}
+
+@code {
+
+    [Parameter]
+    public RenderFragment? BodyTemplate { get; set; }
+
+    [Parameter]
+    public RenderFragment? HeaderTemplate { get; set; }
+
+    private string _modalDisplay = "none;";
+    private string _modalClass = string.Empty;
+    private bool _showBackdrop = false;
+
+    public async Task Open()
+    {
+        _modalDisplay = "flex";
+        _modalClass = "show";
+        _showBackdrop = true;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public async Task Close()
+    {
+        _modalDisplay = "none";
+        _modalClass = string.Empty;
+        _showBackdrop = false;
+        await InvokeAsync(StateHasChanged);
+    }
+}

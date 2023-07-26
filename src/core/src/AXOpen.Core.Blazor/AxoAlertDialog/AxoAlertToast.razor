@@ -1,0 +1,89 @@
+﻿@using AXOpen.Base.Dialogs;
+
+
+
+@if (_dialogService.GetAlertDialogs() != null && _dialogService.GetAlertDialogs().Count > 0)
+{
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 100;">
+        @foreach (AlertDialog toast in _dialogService.GetAlertDialogs().ToList())
+        {
+            var bg = "";
+            var icon = "";
+            switch (toast.Type)
+            {
+                case eAlertDialogType.Info:
+                    bg = "bg-primary text-white";
+                    icon = "oi oi-info";
+                    break;
+                case eAlertDialogType.Success:
+                    bg = "bg-success text-white";
+                    icon = "oi oi-circle-check";
+                    break;
+                case eAlertDialogType.Danger:
+                    bg = "bg-danger text-white";
+                    icon = "oi oi-circle-x";
+                    break;
+                case eAlertDialogType.Warning:
+                    bg = "bg-warning text-dark";
+                    icon = "oi oi-warning";
+                    break;
+
+                default:
+                    bg = "bg-primary text-white";
+                    icon = "oi oi-info";
+                    break;
+
+            }
+
+            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="toast-header @bg">
+                    <span class="@icon me-2" aria-hidden="true"></span>
+                    <strong class="me-auto">@toast.Title</strong>
+                    <small>@GetTime(toast.Posted)</small>
+                    @if (_dialogService.GetAlertDialogs().Count > 2)
+                    {
+                        <div class="dropup">
+                            <button type="button" class="btn-close" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveAllAlertDialogs()">Close all</a></li>
+                                <li><a class="dropdown-item" @onclick="() => _dialogService.RemoveAlertDialog(toast)">Close</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn-close" @onclick="() => _dialogService.RemoveAlertDialog(toast)"></button>
+                    }
+                </div>
+                <div class="toast-body">
+                    @toast.Message
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Inject]
+    private IAlertDialogService _dialogService { get; set; }
+
+    [Parameter]
+    public IAlertDialogService _parameterDialogService { get; set; }
+
+    private string GetTime(DateTimeOffset time)
+    {
+        var calcTime = -(time - DateTimeOffset.Now);
+        if (calcTime.TotalSeconds < 5)
+        {
+            return "just now";
+        }
+        else if (calcTime.TotalSeconds < 60)
+        {
+            return $"{Math.Round(calcTime.TotalSeconds)} secs ago";
+        }
+        else
+        {
+            return $"{Math.Round(calcTime.TotalMinutes)} mins ago";
+        }
+    }
+}
