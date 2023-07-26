@@ -1,4 +1,4 @@
-    using System.Reflection;
+using System.Reflection;
 using AXOpen;
 using AXOpen.Base.Data;
 using AXOpen.Data.InMemory;
@@ -28,6 +28,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
+builder.Services.AddLocalization();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
@@ -81,15 +82,21 @@ else
     app.UseHsts();
 }
 
+
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
 app.UseRouting();
 
+var supportedCultures = new[] { "en-US", "sk-SK", "es-ES"};
+var localizationOptions = new RequestLocalizationOptions()
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
+
 app.UseAuthorization();
-
-
 
 app.MapControllers();
 app.MapBlazorHub();

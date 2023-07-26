@@ -1,3 +1,39 @@
 ﻿@page "/"
+@inject NavigationManager NavigationManager
 
-<PageTitle>Index</PageTitle>
+
+<label>@Localizer["Language"]</label>
+<select class="form-control" @bind="Culture" @bind:event="oninput">
+    @foreach (var culture in supportedCultures)
+    {
+        <option value="@culture">@culture.NativeName</option>
+    }
+</select>
+
+@code {
+    private CultureInfo[] supportedCultures = new[]
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("sk-SK"),
+        new CultureInfo("es-ES")
+    };
+
+    protected override void OnInitialized()
+    {
+        Culture = CultureInfo.CurrentCulture;
+    }
+
+    private CultureInfo Culture
+    {
+        get => CultureInfo.CurrentCulture;
+        set
+        {
+            if (CultureInfo.CurrentCulture != value)
+            {
+                var cultureEscaped = Uri.EscapeDataString(value.Name);
+
+                NavigationManager.NavigateTo($"/culture?culture={cultureEscaped}", true);
+            }
+        }
+    }
+}
