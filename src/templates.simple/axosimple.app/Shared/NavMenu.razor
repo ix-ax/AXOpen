@@ -1,14 +1,15 @@
-﻿<div class="nav-menu bg-light">
+﻿<div class="nav-menu d-flex flex-column bg-light">
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="oi oi-menu ms-2 p-2" style="font-size: 1.5rem" aria-hidden="true"></span>
+        <span class="oi oi-menu p-2" style="font-size: 1.5rem" aria-hidden="true"></span>
     </button>
 
-    <div class="@NavMenuCssClass nav-scrollable">
+    <div class="@NavMenuCssClass collapse nav-scrollable">
         <nav class="flex-column">
             <MenuItem Name="Home" Link="/" Icon="oi oi-home" />
             <ExpandableMenuItem Name="UI" Icon="oi oi-align-center">
                 <MenuItem Name="Controlled unit example" Link="/ui/ManipulatorExample" Icon="oi oi-cog" />
-                <MenuItem Name="I/O" Link="/ui/Io" Icon="oi oi-arrow-circle-bottom" />
+                <MenuItem Name="Controlled unit example 2" Link="/ui/ManipulatorExample2" Icon="oi oi-cog" />
+                <MenuItem Name="I/O" Link="/ui/Io" Icon="oi oi-cog" />
                 <MenuItem Name="Process data settings" Link="ui/ProcessData" Icon="oi oi-cog"></MenuItem>
                 <MenuItem Name="User administration" Link="/Security/UserAdministration" Icon="oi oi-person"></MenuItem>
             </ExpandableMenuItem>
@@ -17,12 +18,23 @@
 </div>
 
 @code {
+    [Inject]
+    private NavigationManager? MyNavigationManager { get; set; }
+
     private bool collapseNavMenu = true;
 
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private string? NavMenuCssClass => collapseNavMenu ? null : "show";
 
-    private void ToggleNavMenu()
+    public void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
+
+    protected override void OnInitialized()
     {
-        collapseNavMenu = !collapseNavMenu;
+        MyNavigationManager.LocationChanged += OnLocationChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        collapseNavMenu = true;
+        StateHasChanged();
     }
 }

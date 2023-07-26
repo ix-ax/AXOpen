@@ -80,8 +80,8 @@ namespace AXOpen.Data.Fragments.Tests
 
             var id = "hey";
 
-            sharedRepo.Create(id, new SharedProductionData() { ComesFrom = 55, GoesTo = 44});
-            manipRepo.Create(id, new FragmentProcessData() { CounterDelay = 8989ul});
+            sharedRepo.Create(id, new SharedProductionData() { ComesFrom = 55, GoesTo = 44 });
+            manipRepo.Create(id, new FragmentProcessData() { CounterDelay = 8989ul });
 
             sut.RemoteRead(id);
 
@@ -255,9 +255,9 @@ namespace AXOpen.Data.Fragments.Tests
             s.Set.SetRepository(sharedRepo);
             s.Manip.SetRepository(manipRepo);
 
-            sharedRepo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() 
-                { ComesFrom = 185, GoesTo = 398 });
-            manipRepo.Create("hey remote create", new () { CounterDelay = 898577ul});
+            sharedRepo.Create("hey remote create", new Pocos.axosimple.SharedProductionData()
+            { ComesFrom = 185, GoesTo = 398 });
+            manipRepo.Create("hey remote create", new() { CounterDelay = 898577ul });
 
             sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" });
 
@@ -282,7 +282,7 @@ namespace AXOpen.Data.Fragments.Tests
             s.Manip.SetRepository(manipRepo);
 
             sharedRepo.Create("hey remote create", new Pocos.axosimple.SharedProductionData()
-                { ComesFrom = 485, GoesTo = 898 });
+            { ComesFrom = 485, GoesTo = 898 });
             manipRepo.Create("hey remote create", new() { CounterDelay = 5898577ul });
 
             await sut.FromRepositoryToControllerAsync(new SharedProductionData() { DataEntityId = "hey remote create" });
@@ -307,7 +307,7 @@ namespace AXOpen.Data.Fragments.Tests
 
             for (int i = 0; i < 10; i++)
             {
-               await sut.CreateNewAsync($"{i}Record");
+                await sut.CreateNewAsync($"{i}Record");
             }
 
             var actual = sut.GetRecords("Rec", 3, 0, eSearchMode.Contains);
@@ -436,7 +436,7 @@ namespace AXOpen.Data.Fragments.Tests
 
             await sut.CreateDataFromControllerAsync("hey remote create");
 
-           
+
 
             await sut.CreateCopyCurrentShadowsAsync("hey remote create - copy");
 
@@ -504,6 +504,79 @@ namespace AXOpen.Data.Fragments.Tests
         }
 
         [Fact()]
+        public async void ExportComplexTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+            s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
+            s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
+
+            await sut.Set.Set.ComesFrom.SetAsync(10);
+            await sut.Set.Set.GoesTo.SetAsync(11);
+            await sut.Manip.Set.CounterDelay.SetAsync(12);
+            sut.RemoteCreate("first");
+
+            await sut.Set.Set.ComesFrom.SetAsync(20);
+            await sut.Set.Set.GoesTo.SetAsync(21);
+            await sut.Manip.Set.CounterDelay.SetAsync(22);
+            sut.RemoteCreate("second");
+
+            var shared = sut.Set.DataRepository.Read("first");
+            Assert.Equal(10, shared.ComesFrom);
+            Assert.Equal(11, shared.GoesTo);
+
+            var manip = sut.Manip.DataRepository.Read("first");
+            Assert.Equal(12ul, manip.CounterDelay);
+
+            shared = sut.Set.DataRepository.Read("second");
+            Assert.Equal(20, shared.ComesFrom);
+            Assert.Equal(21, shared.GoesTo);
+
+            manip = sut.Manip.DataRepository.Read("second");
+            Assert.Equal(22ul, manip.CounterDelay);
+
+            var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataFragmentTest", "ExportDataFragment.zip");
+
+            var dictionary = new Dictionary<string, ExportData>
+            {
+                { "axosimple.SharedProductionData", new ExportData(false, new Dictionary<string, bool>()) },
+                { "examples.PneumaticManipulator.FragmentProcessData", new ExportData(true, new Dictionary<string, bool>
+                {
+                    { "_data.CounterDelay", false },
+                }) }
+            };
+
+            // export
+            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, eFileType.txt, '*');
+
+            Assert.True(File.Exists(zipFile));
+
+            using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+            {
+                foreach (ZipArchiveEntry entry in zip.Entries)
+                {
+                    TextReader tr = new StreamReader(entry.Open());
+                    string text = tr.ReadToEnd();
+                    switch (entry.Name)
+                    {
+                        case "examples.PneumaticManipulator.FragmentProcessDataManger.txt":
+                            Assert.Equal("_data.DataEntityId*\r_data.DataEntityId*\rsecond*\r", text);
+                            break;
+                        default:
+                            Assert.Fail("More entries tahn expected!");
+                            break;
+                    }
+                }
+            }
+
+            // clear
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
         public async void ImportTest()
         {
             var parent = NSubstitute.Substitute.For<ITwinObject>();
@@ -540,6 +613,51 @@ namespace AXOpen.Data.Fragments.Tests
 
             var manip = sut.Manip.DataRepository.Read("hey remote create");
             Assert.Equal(20ul, manip.CounterDelay);
+
+            // clear
+            if (Directory.Exists(tempDirectory))
+                Directory.Delete(tempDirectory, true);
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
+        public async void ImportComplexTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+            s.Set.SetRepository(new InMemoryRepository<Pocos.axosimple.SharedProductionData>());
+            s.Manip.SetRepository(new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>());
+
+            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataFragmentTest", "importDataFragmentPrepare");
+            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataFragmentTest", "ImportDataFragment.zip");
+
+            Directory.CreateDirectory(tempDirectory);
+
+            File.Delete(zipFile);
+
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.txt")))
+            {
+                sw.Write("_data.DataEntityId*_data.GoesTo*\r_data.DataEntityId*_data.GoesTo*\rfirst*11*\r");
+            }
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "examples.PneumaticManipulator.FragmentProcessDataManger.csv")))
+            {
+                sw.Write("_data.DataEntityId*\r_data.DataEntityId*\rfirst*\r");
+            }
+
+            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+            // import
+            sut.ImportData(zipFile, separator: '*');
+
+            var shared = sut.Set.DataRepository.Read("first");
+            Assert.Equal(0, shared.ComesFrom);
+            Assert.Equal(11, shared.GoesTo);
+
+            var manip = sut.Manip.DataRepository.Read("first");
+            Assert.Equal(0ul, manip.CounterDelay);
 
             // clear
             if (Directory.Exists(tempDirectory))

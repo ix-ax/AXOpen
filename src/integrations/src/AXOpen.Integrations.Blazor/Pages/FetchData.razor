@@ -1,7 +1,7 @@
 ﻿@page "/fetchdata"
-@using AXSharp.Abstractions.Dialogs.AlertDialog;
-@using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;
+@*@using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;*@
 @using axopen_integrations_blazor.Data
+@using AXOpen.Base.Dialogs
 @inject IAlertDialogService DialogService
 @inject WeatherForecastService ForecastService
 
@@ -53,6 +53,6 @@ else
 
     public void CreateToast()
     {
-        DialogService.AddAlertDialog("Success", "Test", "test", 30);
+        DialogService.AddAlertDialog(eAlertDialogType.Success, "Test", "test", 30);
     }
 }

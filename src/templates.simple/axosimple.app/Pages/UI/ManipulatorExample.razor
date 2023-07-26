@@ -1,30 +1,50 @@
 ﻿@page "/ui/ManipulatorExample"
+@using AXOpen.Base.Dialogs;
+@using AXOpen.Core.Blazor.AxoDialogs;
+@using AXOpen.Core.Blazor.Dialogs
 @using axosimple.hmi.Components;
 @using AXOpen.Data;
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector;
-@*@inherits RenderableComponentBase;*@
+
+
+@inject IAlertDialogService _alerts
 
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="250"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
-@*<UnitsData Data="Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared.Set" PollingInterval="100"></UnitsData>*@
 
 @foreach (var message in Messengers)
 {
     if (message.IsActive.LastValue)
-    {
+    { 
         <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
     }
+     
 }
+
+
+<AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>
+
+<AxoAlertDialogLocator ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"/>
+
+
+
+
+<button class="btn btn-primary" @onclick="@showAlert">Show alert</button>
+
 
 @code
 {
+    private ElementReference keyDownDiv;
+    private ModalDialog ModalDialog { get; set; }
     private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
-
-    protected override Task OnInitializedAsync()
+    private void showAlert()
     {
-    //this.UpdateValuesOnChange(@Entry.Plc.Context.PneumaticManipulator);
-        return base.OnInitializedAsync();
+        _alerts.AddAlertDialog(eAlertDialogType.Info, "Ahoj", "som dialog", 60);
+        StateHasChanged();
     }
+
+
+
 }
 

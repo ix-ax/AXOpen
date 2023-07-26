@@ -1,5 +1,4 @@
 ﻿@page "/Identity/Account/Manage"
-@using AXSharp.Abstractions.Dialogs.AlertDialog;
 @using AxOpen.Security.Entities;
 @using AxOpen.Security.Models;
 @using AxOpen.Security.Services;
@@ -98,12 +97,12 @@
         if (result.Succeeded)
         {
             _signInManager.RefreshSignInAsync(_user);
-            _alertDialogService.AddAlertDialog("Success", Localizer["Updated!"], Localizer["User succesfully updated."], 10);
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Updated!"], Localizer["User succesfully updated."], 10);
             //TcoAppDomain.Current.Logger.Information($"User '{_user.UserName}' has changed.{{payload}}", new { UserName = _user.UserName, Email = _user.Email, CanChangePassword = _user.CanUserChangePassword, Group = string.Join(",", _user.Roles) });
         }
         else
         {
-            _alertDialogService.AddAlertDialog("Success", Localizer["Not updated!"], Localizer["User was not updated."], 10);
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Not updated!"], Localizer["User was not updated."], 10);
         }
     }
 
