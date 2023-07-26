@@ -72,8 +72,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             await ModalDialog.Open();
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
+            base.Dispose();
             _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
             _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
         }
