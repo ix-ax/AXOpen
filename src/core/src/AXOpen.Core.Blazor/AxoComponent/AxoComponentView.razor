@@ -20,17 +20,15 @@
     <div class="card-body">
         @if (@Component._isManuallyControllable.Cyclic)
         {
-            <RenderableContentControl Presentation="Command-Control" Context="@Header"
-                                      Class="bg-light rounded-3 shadow"
-                                      LayoutClass="align-items-end"/>
+            currentPresentation = "Command-Control";
         }
         else
         {
-            <RenderableContentControl Presentation="Status-Display"
-                                      Context="@Header"
-                                      Class="bg-light rounded-3 shadow"
-                                      LayoutClass="align-items-end"/>
+            currentPresentation = "Status-Display";
         }
+        <RenderableContentControl Presentation="@currentPresentation" Context="@Header"
+                                  Class="bg-light rounded-3 shadow"
+                                  LayoutClass="align-items-end" />
     </div>
 
     @if (containsDetailsAttribute)

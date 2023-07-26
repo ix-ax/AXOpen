@@ -22,6 +22,7 @@ PROGRAM MyProgram
         AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
 
         AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
+        AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
 
         AxoLoggers : AxoLoggerExamples.Loggers;
 
@@ -30,6 +31,17 @@ PROGRAM MyProgram
         AxoRtc : AxoRtc.AxoS71500Rtc;
 
     END_VAR    
+
+    //Copy this VAR_EXTERNAL section into the declaration part of your main program file inside your project.
+	//Do not change any names, addresses or any another content.
+	VAR_EXTERNAL
+		PlcInputs : PlcInputs;
+		PlcOutputs : PlcOutputs;
+	END_VAR
+	//Copy this function call at the very beginning of your program.
+	//Do not change any names, addresses or any another content.
+	CopyInputs();
+
     I_am_alive := I_am_alive + ULINT#1;
 
     MainContext.Run();
@@ -50,11 +62,19 @@ PROGRAM MyProgram
     AxoMessengersDocu.Run();
     AxoMessengersDocu.InjectRtc(AxoRtc);
     AxoDataFragmentExchangeContext.Run();
+    
+    AxoCognexVisionDatamanExampleContext.PlcInputs := PlcInputs;
+    AxoCognexVisionDatamanExampleContext.PlcOutputs := PlcOutputs;
+    AxoCognexVisionDatamanExampleContext.Run();
+
     AxoLoggers.InjectRtc(AxoRtc);
     AxoLoggers.Run();
     // Integration tests
     Integrations.Run();      
-   
+
+ 	//Copy this function call at the very end of your program.
+	//Do not change any names, addresses or any another content.
+	CopyOutputs();  
 END_PROGRAM
 
 
@@ -97,3 +117,20 @@ CLASS MyContext EXTENDS AxoContext
     END_METHOD
 END_CLASS    
 
+
+
+
+    // Context.Inputs := REF(Inputs);
+    // Context.Outputs := REF(Outputs);
+    // Context.PlcInputs := REF(PlcInputs);
+    // Context.PlcOutputs := REF(PlcOutputs);
+
+    
+    // ContextLogger.SetMinimumLevel(AXOpen.Logging.eLogLevel#Verbose);
+    // Context.InjectRtc(S71500Rtc);
+    // Context.InjectLogger(ContextLogger);
+    // // Executes the main context of this application.
+    // Context.Run();     
+     
+
+// END_PROGRAM
