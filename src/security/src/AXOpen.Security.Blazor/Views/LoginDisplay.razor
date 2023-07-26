@@ -15,18 +15,18 @@
                             @context.User.Identity.Name
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="Identity/Account/Manage" style="margin-left: 0;">Profile</a></li>
+                            <li><a class="dropdown-item" href="Identity/Account/Manage" style="margin-left: 0;">@Localizer["Profile"]</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
                                <form class="form-inline" asp-area="Identity" action="Identity/Account/Logout" asp-route-returnUrl="/" method="post">
-                                    <button class="dropdown-item" type="submit">Log out</button>                                    
+                                    <button class="dropdown-item" type="submit">@Localizer["Log out"]</button>
                                 </form>
                             </li>
                         </ul>
                     </li>
                 </Authorized>
                 <NotAuthorized>
-                    <a class="btn btn-primary" href="Identity/Account/Login" role="button">Log in</a>
+                    <a class="btn btn-primary" href="Identity/Account/Login" role="button">@Localizer["Log in"]</a>
                 </NotAuthorized>
             </AuthorizeView>
         </ul>

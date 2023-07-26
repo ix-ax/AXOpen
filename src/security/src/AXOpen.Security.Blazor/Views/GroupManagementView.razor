@@ -2,15 +2,15 @@
 
 <div class="card" style="min-height: 20vh; max-height: 40vh">
     <div class="card-header">
-        <h4>List of groups:</h4>
+        <h4>@Localizer["List of groups:"]</h4>
     </div>
     <div class="card-body overflow-auto">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Group name</th>
-                    <th scope="col">Created</th>
-                    <th scope="col">Modified</th>
+                    <th scope="col">@Localizer["Group name"]</th>
+                    <th scope="col">@Localizer["Created"]</th>
+                    <th scope="col">@Localizer["Modified"]</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,13 +29,13 @@
 
 <div class="card mt-4">
     <div class="card-header">
-        <h5>Create new group:</h5>
+        <h5>@Localizer["Create new group"]:</h5>
     </div>
     <div class="card-body row">
         <div class="col-9">
-            <input type="text" class="form-control" @bind="newGroupName" placeholder="Group name">
+            <input type="text" class="form-control" @bind="newGroupName" placeholder=@Localizer["Group name"]>
         </div>
-        <button class="btn btn-primary col-3" @onclick="@(() => CreateGroup())">Create</button>
+        <button class="btn btn-primary col-3" @onclick="@(() => CreateGroup())">@Localizer["Create"]</button>
     </div>
 </div>
 
@@ -44,7 +44,7 @@
 <div class="card mt-4">
     <div class="card-header">
         <div class="d-flex">
-            <h4 class="me-auto">Selected group: @SelectedGroupN.Name</h4>
+            <h4 class="me-auto">@Localizer["Selected group:"] @SelectedGroupN.Name</h4>
             <button type="button" class="btn-close align-self-center" @onclick="@(() => CloseGroupDetail())"></button>
         </div>
     </div>
@@ -53,10 +53,10 @@
             <div class="col">
                 <div class="card" style="min-height: 40vh">
                     <div class="card-header">
-                        <h5>Available roles:</h5>
+                            <h5>@Localizer["Available roles:"]</h5>
                             <label class="mt-2 mb-2">
                                 <input class="form-check-input me-1" type="checkbox" @bind="@SelectAllAvailable">
-                                Select all
+                                @Localizer["Select all"]
                             </label>
                     </div>
                     <div class="card-body">
@@ -88,10 +88,10 @@
             <div class="col">
                 <div class="card" style="min-height: 40vh">
                     <div class="card-header">
-                        <h5>Assigned roles:</h5>
+                            <h5>@Localizer["Available roles:"]</h5>
                             <label class="mt-2 mb-2">
                                 <input class="form-check-input me-1" type="checkbox" @bind="@SelectAllAssigned">
-                                Select all
+                                @Localizer["Select all"]
                             </label>
                     </div>
                     <div class="crad-body">
@@ -111,7 +111,7 @@
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#deleteGroupModal">Delete</button>
+            <button type="button" class="btn btn-danger m-2" data-bs-toggle="modal" data-bs-target="#deleteGroupModal">@Localizer["Delete"]</button>
     </div>
 </div>
 }
@@ -122,15 +122,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteModalLabel">Delete group</h5>
+                    <h5 class="modal-title" id="deleteModalLabel">@Localizer["Delete group"]</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <h6>Do you want to delete group @SelectedGroupN.Name?</h6>
+                    <h6>@Localizer["Do you want to delete group"] @SelectedGroupN.Name?</h6>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger m-2" data-bs-dismiss="modal" @onclick="@(() => DeleteGroup(SelectedGroupN))">Delete</button>
+                    <button type="button" class="btn btn-secondary m-2" data-bs-dismiss="modal">@Localizer["Close"]</button>
+                    <button type="button" class="btn btn-danger m-2" data-bs-dismiss="modal" @onclick="@(() => DeleteGroup(SelectedGroupN))">@Localizer["Delete"]</button>
             </div>
         </div>
     </div>
