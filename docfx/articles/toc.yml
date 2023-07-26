@@ -47,4 +47,6 @@
   items:
   - name: Installation
     href: ~/articles/security/INSTALLATION.md
+- name: Template localization
+  href: ~/articles/localization/README.md
 
