@@ -1,0 +1,20 @@
+{
+    "For Loop": {
+      "prefix": ["example"],
+      "body": [
+        "${LINE_COMMENT} prevezme nazvo suboru: ${TM_FILENAME/(.*)\\..+$/$1/} ",
+        "${LINE_COMMENT} prevezme WORKSPACE_NAME: ${WORKSPACE_NAME} ",
+        "${LINE_COMMENT} prevezme WORKSPACE_FOLDER: ${WORKSPACE_FOLDER} ",
+        "${LINE_COMMENT} prevezme TM_FILEPATH: ${TM_FILEPATH} ",
+        "${LINE_COMMENT} prevezme RELATIVE_FILEPATH: ${RELATIVE_FILEPATH} ",
+
+        "${LINE_COMMENT} da navyber zo vstupnych premennych: ${1|BOOL,REAL,INT,DINT|}",
+        "${LINE_COMMENT} tu istu premennu pouzije aj tu: ${1}",
+        "${LINE_COMMENT} da navyber zo vstupnych premennych: ${2:nejaky text}",
+        
+        "\t$0",
+        "${LINE_COMMENT}"
+        ],
+      "description": "rozne funkcie snippetu"
+    }
+  }
