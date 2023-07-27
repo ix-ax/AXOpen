@@ -63,8 +63,8 @@ PROGRAM MyProgram
     AxoMessengersDocu.InjectRtc(AxoRtc);
     AxoDataFragmentExchangeContext.Run();
     
-    AxoCognexVisionDatamanExampleContext.PlcInputs := PlcInputs;
-    AxoCognexVisionDatamanExampleContext.PlcOutputs := PlcOutputs;
+    AxoCognexVisionDatamanExampleContext.PlcInputs := REF(PlcInputs);
+    AxoCognexVisionDatamanExampleContext.PlcOutputs := REF(PlcOutputs);
     AxoCognexVisionDatamanExampleContext.Run();
 
     AxoLoggers.InjectRtc(AxoRtc);
@@ -117,20 +117,3 @@ CLASS MyContext EXTENDS AxoContext
     END_METHOD
 END_CLASS    
 
-
-
-
-    // Context.Inputs := REF(Inputs);
-    // Context.Outputs := REF(Outputs);
-    // Context.PlcInputs := REF(PlcInputs);
-    // Context.PlcOutputs := REF(PlcOutputs);
-
-    
-    // ContextLogger.SetMinimumLevel(AXOpen.Logging.eLogLevel#Verbose);
-    // Context.InjectRtc(S71500Rtc);
-    // Context.InjectLogger(ContextLogger);
-    // // Executes the main context of this application.
-    // Context.Run();     
-     
-
-// END_PROGRAM

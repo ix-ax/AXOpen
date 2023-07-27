@@ -11,6 +11,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _readTask : AxoDatamanRead;
             {#ix-attr:[ComponentHeader()]}         
             {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[RenderIgnore()]}
             {#ix-set:AttributeName = "<#Results#>"}
             Results     :   AxoDataman_Results;
 
