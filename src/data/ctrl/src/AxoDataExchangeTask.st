@@ -12,6 +12,7 @@ NAMESPACE AXOpen.Data
 
         METHOD PUBLIC Invoke : IAxoTaskState
             VAR_INPUT
+                
                 identifier : STRING[254];
             END_VAR
             DataEntityIdentifier := identifier;

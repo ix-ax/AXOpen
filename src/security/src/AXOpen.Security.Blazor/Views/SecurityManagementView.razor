@@ -7,10 +7,10 @@
         <div name="TabControl" class="w-100">
             <ul class="nav nav-tabs mb-3">
                 <li class="nav-item">
-                    <button type="button" class="nav-link @((selected == 0) ? "active" : "")" @onclick="() => selected = 0"><b>User Management</b></button>
+                    <button type="button" class="nav-link @((selected == 0) ? "active" : "")" @onclick="() => selected = 0"><b>@Localizer["User Management"]</b></button>
                 </li>
                 <li class="nav-item">
-                    <button type="button" class="nav-link @((selected == 1) ? "active" : "")" @onclick="() => selected = 1"><b>Group Management</b></button>
+                    <button type="button" class="nav-link @((selected == 1) ? "active" : "")" @onclick="() => selected = 1"><b>@Localizer["Group Management"]</b></button>
                 </li>
             </ul>
             <div class="content">
@@ -27,7 +27,7 @@
         </div>
     </Authorized>
     <NotAuthorized>
-        <p>Sorry, you are not authorized to access user management. Please log in as administrator.</p>
+        <p>@Localizer["Sorry, you are not authorized to access user management. Please log in as administrator."]</p>
     </NotAuthorized>
 </AuthorizeView>
 

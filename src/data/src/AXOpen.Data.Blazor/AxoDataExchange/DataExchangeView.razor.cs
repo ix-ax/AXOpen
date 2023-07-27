@@ -6,14 +6,15 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using AXOpen.Base.Data;
-using AXOpen.Core;
 using AXOpen.Data.Interfaces;
 using AXOpen.Data;
-using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
-using AXSharp.Abstractions.Dialogs.AlertDialog;
 using System.IO;
+using AXOpen.Core;
+using AXOpen.Base.Dialogs;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using static AXOpen.Data.DataExchangeViewModel;
 
 namespace AXOpen.Data;
 
@@ -33,6 +34,9 @@ public partial class DataExchangeView
 
     [Inject]
     private IAlertDialogService _alertDialogService { get; set; }
+
+    [Inject]
+    private ProtectedLocalStorage ProtectedLocalStore { get; set; }
 
     private Guid ViewGuid { get; } = Guid.NewGuid();
     private string Create { get; set; } = "";
@@ -95,6 +99,7 @@ public partial class DataExchangeView
     protected override async Task OnInitializedAsync()
     {
         await Vm.FillObservableRecordsAsync();
+        Vm.StateHasChangedDelegate = StateHasChanged;
 
     }
 
@@ -116,7 +121,7 @@ public partial class DataExchangeView
         }
         catch (Exception ex)
         {
-            _alertDialogService.AddAlertDialog("Danger", "Error!", ex.Message, 10);
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", ex.Message, 10);
         }
 
         isFileImporting = false;
@@ -124,7 +129,22 @@ public partial class DataExchangeView
 
     private void ClearFiles(string path)
     {
-        if(Directory.Exists(path))
+        if (Directory.Exists(path))
             Directory.Delete(path, true);
+    }
+
+    public async Task SaveCustomExportDataAsync()
+    {
+        await ProtectedLocalStore.SetAsync(Vm.DataExchange.ToString(), Vm.ExportSet);
+    }
+
+    public async Task LoadCustomExportDataAsync()
+    {
+        var result = await ProtectedLocalStore.GetAsync<ExportSettings>(Vm.DataExchange.ToString());
+        if (result.Success)
+        {
+            Vm.ExportSet = result.Value;
+        }
+        StateHasChanged();
     }
 }

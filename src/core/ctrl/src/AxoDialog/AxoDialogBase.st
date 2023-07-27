@@ -1,0 +1,5 @@
+NAMESPACE AXOpen.Core
+    CLASS PUBLIC AxoDialogBase EXTENDS AxoRemoteTask
+
+    END_CLASS
+END_NAMESPACE

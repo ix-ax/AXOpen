@@ -1,20 +1,35 @@
-﻿@inject NavigationManager NavigationManager
+﻿@page "/"
+@inject NavigationManager NavigationManager
 
-@page "/"
 
-<label>Choose a theme</label>
+<label>@Localizer["Choose a theme"]</label>
 <select class="form-control" @bind="Theme" @bind:event="oninput">
-    <option value="bootstrap" selected="@(CurrentTheme == "bootstrap")">Bootstrap default</option>
-    <option value="mts" selected="@(CurrentTheme == "mts")"> MTS</option>
-    <option value="tropical" selected="@(CurrentTheme == "tropical")">Tropical</option>
-    <option value="jupiter" selected="@(CurrentTheme == "jupiter")">Jupiter</option>
+    @foreach (var theme in supportedThemes)
+    {
+        <option value="@theme">@theme</option>
+    }
+</select>
+
+<label>@Localizer["Language"]</label>
+<select class="form-control" @bind="Culture" @bind:event="oninput">
+    @foreach (var culture in supportedCultures)
+    {
+        <option value="@culture">@culture.NativeName</option>
+    }
 </select>
 
 @code {
     [Inject]
     IHttpContextAccessor HttpContextAccessor { get; set; }
 
-    public string CurrentTheme { get; set; }
+    private string defaultTheme = "Bootstrap";
+    private string[] supportedThemes = new[]
+    {
+        "Bootstrap",
+        "MTS",
+        "Tropical",
+        "Jupiter"
+    };
 
     private string theme;
     public string Theme
@@ -22,13 +37,46 @@
         get => theme;
         set
         {
-            theme = value;
-            NavigationManager.NavigateTo($"/theme?theme={theme}", true);
+            // Prevent initial navigation (causes error)
+            if (theme == null)
+            {
+                theme = value;
+                return;
+            }
+
+            // Prevent unnecessary navigation
+            if (theme != value)
+            {
+                theme = value;
+                NavigationManager.NavigateTo($"/theme?theme={theme}", true);
+            }
+        }
+    }
+
+    private CultureInfo[] supportedCultures = new[]
+    {
+        new CultureInfo("en-US"),
+        new CultureInfo("sk-SK"),
+        new CultureInfo("es-ES")
+    };
+    
+    private CultureInfo Culture
+    {
+        get => CultureInfo.CurrentCulture;
+        set
+        {
+            // Prevent unnecessary navigation
+            if (CultureInfo.CurrentCulture != value)
+            {
+                var cultureEscaped = Uri.EscapeDataString(value.Name);
+                NavigationManager.NavigateTo($"/culture?culture={cultureEscaped}", true);
+            }
         }
     }
 
     protected override void OnInitialized()
     {
-        CurrentTheme = HttpContextAccessor.HttpContext.Request.Cookies["theme"] ?? "bootstrap";
+        Culture = CultureInfo.CurrentCulture;
+        Theme = HttpContextAccessor.HttpContext.Request.Cookies["theme"] ?? defaultTheme;
     }
 }

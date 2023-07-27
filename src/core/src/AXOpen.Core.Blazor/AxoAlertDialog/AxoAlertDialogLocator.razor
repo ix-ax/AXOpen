@@ -1,0 +1,88 @@
+﻿@namespace AXOpen.Core.Blazor.Dialogs
+@using AXOpen.Base.Abstractions.Dialogs;
+@using AXOpen.Base.Dialogs;
+@using AXOpen.Core.Blazor.AxoAlertDialog;
+@using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+@using AXOpen.Core.Blazor.AxoDialogs;
+@using AXOpen.Dialogs;
+@using AXSharp.Connector;
+@inject NavigationManager _navigationManager
+@inject IAlertDialogService _alertDialogService
+@inject AxoDialogContainer _dialogContainer
+@implements IDisposable
+
+@*concrete instance of alert dialog in form of toast*@
+
+@if (IsScoped)
+{
+    <AxoAlertToast _parameterDialogService="_alertDialogService" />
+}
+
+@code {
+    [Parameter]
+    public IEnumerable<ITwinObject> ObservedObjects { get; set; }
+
+    [Parameter]
+    public bool IsScoped { get; set; }
+
+    private AxoAlertDialogProxyService _axoDialogProxyService { get; set; }
+
+
+    public bool IsDialogInvoked { get; set; }
+
+    protected override void OnInitialized()
+    {
+        var dialogId = _navigationManager.Uri;
+        if(IsScoped)
+        {
+            _alertDialogService = _axoDialogProxyService.ScopedAlertDialogService;
+        }
+        //try to acquire existing dialog service instance
+        var proxyExists = _dialogContainer.AlertDialogProxyServicesDictionary.TryGetValue(dialogId, out AxoAlertDialogProxyService proxy);
+
+        if (!proxyExists)
+        {
+            // if it does not exist, create new instance with observed objects and add it into container
+            _axoDialogProxyService = new AxoAlertDialogProxyService(_dialogContainer,ObservedObjects);
+            _dialogContainer.AlertDialogProxyServicesDictionary.TryAdd(dialogId, _axoDialogProxyService);
+        }
+        else
+        {
+            _axoDialogProxyService = proxy;
+        }
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        // on first initialization, set objects for observation and subscribe to AlertDialog invoked event
+        if (firstRender)
+        {
+            if (ObservedObjects != null)
+                _axoDialogProxyService.SetObservedObjects(ObservedObjects);
+
+            _axoDialogProxyService.AlertDialogInvoked += OnDialogInvoked;
+
+        }
+
+    }
+
+    public async void OnDialogInvoked(object ?sender, AxoDialogEventArgs e)
+    {
+        // if alert dialog is invoked, based on UseScopedAlerts attribute call dialog on UI
+        if (_axoDialogProxyService.DialogInstance is AXOpen.Core.AxoAlertDialog)
+        {
+            IsDialogInvoked = true;
+            AXOpen.Core.AxoAlertDialog a = (AXOpen.Core.AxoAlertDialog)_axoDialogProxyService.DialogInstance;
+     
+            _alertDialogService.AddAlertDialog((eAlertDialogType)a._dialogType.Cyclic, a._title.Cyclic, a._message.Cyclic, a._timeToBurn.Cyclic);
+            
+            await InvokeAsync(StateHasChanged);
+            IsDialogInvoked = false;
+        }
+       
+    }
+    
+    public void Dispose()
+    {
+        _axoDialogProxyService.AlertDialogInvoked -= OnDialogInvoked;
+    }
+}

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Account Manage" xml:space="preserve">
+    <value>Nastavenia</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>Meno</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>Skupina</value>
+  </data>
+  <data name="Old password" xml:space="preserve">
+    <value>Staré heslo</value>
+  </data>
+  <data name="New password" xml:space="preserve">
+    <value>Nové heslo</value>
+  </data>
+  <data name="Confirm new password" xml:space="preserve">
+    <value>Potvrďte nové heslo</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Zmeniť</value>
+  </data>
+  <data name="Sorry, you are not logged in. Please log in." xml:space="preserve">
+    <value>Nie ste prihlásený. Prosím, prihláste sa.</value>
+  </data>
+  <data name="Updated!" xml:space="preserve">
+    <value>Zmenené!</value>
+  </data>
+  <data name="User succesfully updated." xml:space="preserve">
+    <value>Užívateľské nastavenia zmenené.</value>
+  </data>
+  <data name="Not updated!" xml:space="preserve">
+    <value>Nedošlo k zmene!</value>
+  </data>
+  <data name="User was not updated." xml:space="preserve">
+    <value>Užívateľské nastavenia neboli zmenené.</value>
+  </data>
+  <data name="Sorry, you are not authorized to access user management. Please log in as administrator." xml:space="preserve">
+    <value>Na správu účtov nemáte práva. Prosím, prihláste sa do administrátorského účtu.</value>
+  </data>
+  <data name="Create new user" xml:space="preserve">
+    <value>Vytvoriť užívateľa</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Heslo</value>
+  </data>
+  <data name="Confirm password" xml:space="preserve">
+    <value>Potvrďte heslo</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Vytvoriť</value>
+  </data>
+  <data name="Sorry, you are not authorized to create new users. Please log in as administrator." xml:space="preserve">
+    <value>Na vytvorenie účtu nemáte práva. Prosím, prihláste sa do administrátorského účtu.</value>
+  </data>
+  <data name="Created!" xml:space="preserve">
+    <value>Vytvorené!</value>
+  </data>
+  <data name="User successfully created." xml:space="preserve">
+    <value>Užívateľ vytvorený.</value>
+  </data>
+  <data name="Not created!" xml:space="preserve">
+    <value>Nevytvorené!</value>
+  </data>
+  <data name="User was not created." xml:space="preserve">
+    <value>Užívateľ nebol vytvrorený.</value>
+  </data>
+  <data name="Created" xml:space="preserve">
+    <value>Vytvorené</value>
+  </data>
+  <data name="List of users:" xml:space="preserve">
+    <value>Zoznam užívateľov:</value>
+  </data>
+  <data name="Can change password" xml:space="preserve">
+    <value>Môže zmeniť heslo</value>
+  </data>
+  <data name="Modified" xml:space="preserve">
+    <value>Modified (Upravené)</value>
+  </data>
+  <data name="Selected user:" xml:space="preserve">
+    <value>Vybraný užívateľ:</value>
+  </data>
+  <data name="Choose group" xml:space="preserve">
+    <value>Vyberte skupinu</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Odstrániť</value>
+  </data>
+  <data name="Delete user" xml:space="preserve">
+    <value>Odstrániť užívateľa</value>
+  </data>
+  <data name="Do you want to delete user" xml:space="preserve">
+    <value>Chcete odstrániť užívateľa?</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Zatvoriť</value>
+  </data>
+  <data name="Deleted!" xml:space="preserve">
+    <value>Odstránené!</value>
+  </data>
+  <data name="User succesfully deleted!" xml:space="preserve">
+    <value>Užívateľ úspešne odstránený!</value>
+  </data>
+  <data name="Wrong name!" xml:space="preserve">
+    <value>Nesprávne meno!</value>
+  </data>
+  <data name="Not deleted!" xml:space="preserve">
+    <value>Neodstránené!</value>
+  </data>
+  <data name="Group successfully updated!" xml:space="preserve">
+    <value>Skupina úspešne aktualizovaná!</value>
+  </data>
+  <data name="Group was not updated." xml:space="preserve">
+    <value>Skupina nebola aktualizovaná.</value>
+  </data>
+  <data name="Wrong group name" xml:space="preserve">
+    <value>Nesprávny názov skupiny</value>
+  </data>
+  <data name="Group successfully created!" xml:space="preserve">
+    <value>Skupina úspešne vytvorená!</value>
+  </data>
+  <data name="Group was not created." xml:space="preserve">
+    <value>Skupina nebola vytvorená.</value>
+  </data>
+  <data name="Group successfully deleted" xml:space="preserve">
+    <value>Skupina úspešne odstránená</value>
+  </data>
+  <data name="Group was not deleted." xml:space="preserve">
+    <value>Skupina nebola odstránená.</value>
+  </data>
+  <data name="List of groups:" xml:space="preserve">
+    <value>Zoznam skupín:</value>
+  </data>
+  <data name="Group name" xml:space="preserve">
+    <value>Názov skupiny</value>
+  </data>
+  <data name="Create new group" xml:space="preserve">
+    <value>Vytvoriť novú skupinu</value>
+  </data>
+  <data name="Selected group:" xml:space="preserve">
+    <value>Vybraná skupina:</value>
+  </data>
+  <data name="Available roles:" xml:space="preserve">
+    <value>Dostupné role:</value>
+  </data>
+  <data name="Select all" xml:space="preserve">
+    <value>Vybrať všetko</value>
+  </data>
+  <data name="Delete group" xml:space="preserve">
+    <value>Odstrániť skupinu</value>
+  </data>
+  <data name="Do you want to delete group" xml:space="preserve">
+    <value>Chcete odstrániť skupinu?</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profil</value>
+  </data>
+  <data name="Log out" xml:space="preserve">
+    <value>Odhlásiť sa</value>
+  </data>
+  <data name="Log in" xml:space="preserve">
+    <value>Prihlásenie</value>
+  </data>
+  <data name="User Management" xml:space="preserve">
+    <value>Užívatelia</value>
+  </data>
+  <data name="Group Management" xml:space="preserve">
+    <value>Skupiny</value>
+  </data>
+</root>

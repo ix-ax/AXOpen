@@ -1,6 +1,5 @@
 ﻿@page "/Identity/Account/Register"
 @namespace AxOpen.Security.Views
-@using AXSharp.Abstractions.Dialogs.AlertDialog;
 @using AxOpen.Security.Entities;
 @using AxOpen.Security.Models;
 @using AxOpen.Security.Services;
@@ -15,22 +14,22 @@
 <AuthorizeView Roles="Administrator">
     <Authorized Context="Auth">
         <div class="card">
-            <h4 class="card-header">Create new user</h4>
+            <h4 class="card-header">@Localizer["Create new user"]</h4>
             <div class="card-body">
                 <EditForm Model="@_model" OnValidSubmit="OnValidSubmit">
                     <DataAnnotationsValidator />
                     <div class="form-group">
-                        <label>Username</label>
+                        <label>@Localizer["Username"]</label>
                         <InputText @bind-Value="_model.Username" class="form-control" />
                         <ValidationMessage For="@(() => _model.Username)" />
                     </div>
                     <div class="form-group">
-                        <label>Password</label>
+                        <label>@Localizer["Password"]</label>
                         <InputText @bind-Value="_model.Password" type="password" class="form-control" />
                         <ValidationMessage For="@(() => _model.Password)" />
                     </div>
                     <div class="form-group">
-                        <label>Confirm Password</label>
+                        <label>@Localizer["Confirm password"]</label>
                         <InputText @bind-Value="_model.ConfirmPassword" type="password" class="form-control" />
                         <ValidationMessage For="@(() => _model.ConfirmPassword)" />
                     </div>
@@ -40,15 +39,15 @@
                         <ValidationMessage For="@(() => _model.Email)" />
                     </div>
                     <div class="form-check form-switch mt-2 mb-2">
-                        <label class="form-check-label" for="checkBoxCanUserChangePassword">Can user change password</label>
+                        <label class="form-check-label" for="checkBoxCanUserChangePassword">@Localizer["Can change password"]</label>
                         <InputCheckbox @bind-Value="_model.CanUserChangePassword" class="form-check-input" id="checkBoxCanUserChangePassword" />
                         
                         <ValidationMessage For="@(() => _model.CanUserChangePassword)" />
                     </div>
                     <div class="form-group">
-                        <label>Group</label>
+                        <label>@Localizer["Group"]</label>
                         <select class="form-select" aria-label="Default select example" @bind="@_model.Group" >
-                            <option selected disabled>Choose group</option>
+                            <option selected disabled>@Localizer["Choose group"]</option>
                             @foreach (var group in _repositoryService.RoleGroupManager.GetAllGroup())
                             {
                                 <option value="@group.Name">@group.Name</option>
@@ -56,13 +55,13 @@
                         </select>
                         <ValidationMessage For="@(() => _model.Group)" />
                     </div>
-                    <button type="submit" class="btn btn-primary" id="test">Create</button>
+                    <button type="submit" class="btn btn-primary" id="test">@Localizer["Create"]</button>
                 </EditForm>
             </div>
         </div>
     </Authorized>
     <NotAuthorized>
-        <p>Sorry, you are not authorized to create new users. Please log in as administrator.</p>
+        <p>@Localizer["Sorry, you are not authorized to create new users. Please log in as administrator."]</p>
     </NotAuthorized>
 </AuthorizeView>
 
@@ -82,12 +81,11 @@
         if (result.Succeeded)
         {
             _navigationManager.NavigateTo("");
-            _alertDialogService.AddAlertDialog("Success", "Created!", "User successfully created.", 10);
-            //TcoAppDomain.Current.Logger.Information($"New user '{_model.Username}' created. {{@sender}}", new { UserName = _model.Username, Group = _model.Group });
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Created!"], Localizer["User successfully created."], 10);
         }
         else
         {
-            _alertDialogService.AddAlertDialog("Warning", "Not created!", "User was not created.", 10);
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, Localizer["Not created!"], Localizer["User was not created."], 10);
         }
     }
 
