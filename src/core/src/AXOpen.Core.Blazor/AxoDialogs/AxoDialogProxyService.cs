@@ -57,11 +57,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 dialog.Initialize(() => Queue(dialog));
             }
-            
         }
-
-        
-
-  
     }
 }

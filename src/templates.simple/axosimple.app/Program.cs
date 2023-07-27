@@ -34,7 +34,7 @@ builder.Services.AddAxoCoreServices();
 
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
-Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
+Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 10;
 Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .WriteTo
     .Console()
@@ -42,7 +42,7 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .File($"connector.log",
         outputTemplate: "{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}",
         fileSizeLimitBytes: 100000)
-    .MinimumLevel.Verbose()
+    .MinimumLevel.Debug()
     .CreateLogger());
 await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 

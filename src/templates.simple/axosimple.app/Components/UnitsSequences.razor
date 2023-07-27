@@ -18,16 +18,15 @@
                         <AxoTaskStatusView Component="@task" />
                     </NotAuthorized>
                 </AuthorizeView>
-                
             </div>
         }
     </div>
 
     <!-- TASK DETAILS -->
     <div class="row">
-        @foreach (var o in Component.GetChildren().OfType<AxoSequencer>())
+        @foreach (AxoSequencer axoSequencer in Component.GetChildren().OfType<AxoSequencer>())
         {
-            var axoSequencer = (AxoSequencer)o;
+        
             if (axoSequencer.Status.Cyclic == (ushort)eAxoTaskState.Busy)
             {
                 <AxoSequencerView Component="@axoSequencer" HasTaskControlButton="false"></AxoSequencerView>
@@ -41,6 +40,8 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        this.UpdateValuesOnChange(Component);
+
+        Component.GetChildren().OfType<AxoSequencer>().ToList().ForEach(p => UpdateValuesOnChange(p.Status));
+       
     }
 }

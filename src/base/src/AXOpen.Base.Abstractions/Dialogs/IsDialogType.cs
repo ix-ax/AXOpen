@@ -13,6 +13,8 @@ namespace AXOpen.Dialogs
         string DialogId { get; set; }
         void Initialize(Action dialogAction);
 
+        void DeInitialize();
+
 
     }
 }

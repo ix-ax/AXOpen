@@ -5,7 +5,7 @@ using System.Security.Principal;
 
 namespace AXOpen.Core
 {
-    public partial class AxoToggleTaskView : IDisposable
+    public partial class AxoToggleTaskView 
     {
 
         [Inject]
@@ -42,10 +42,7 @@ namespace AXOpen.Core
             UpdateValuesOnChange(Component);
         }
 
-        public void Dispose()
-        {
-            Component.StopPolling();
-        }
+       
 
         [Parameter]
         public bool Disable { get; set; }
