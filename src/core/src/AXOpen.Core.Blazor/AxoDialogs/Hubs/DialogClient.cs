@@ -17,11 +17,13 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
         private readonly string _hubUrl;
         public HubConnection _hubConnection;
         private bool _isConnected = false;
+        private bool _bypassSSLCertificate = false;
 
-        public DialogClient(string siteUrl)
+        public DialogClient(string siteUrl, bool bypassSSLCertificate = false)
         {
             // set the hub URL
             _hubUrl = siteUrl.TrimEnd('/') + HUBURL;
+            _bypassSSLCertificate = bypassSSLCertificate;
         }
 
         public async Task SendDialogOpen(string message)
@@ -37,10 +39,34 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
         {
             if (!_isConnected)
             {
-                _hubConnection = new HubConnectionBuilder()
-                    .WithUrl(_hubUrl)
-                    .Build();
-                
+                if (_bypassSSLCertificate)
+                {
+                    _hubConnection = new HubConnectionBuilder()
+                        .WithUrl(_hubUrl, options =>
+                        {
+                            options.UseDefaultCredentials = true;
+                            options.HttpMessageHandlerFactory = (msg) =>
+                            {
+                                if (msg is HttpClientHandler clientHandler)
+                                {
+                                    // bypass SSL certificate
+                                    clientHandler.ServerCertificateCustomValidationCallback +=
+                                        (sender, certificate, chain, sslPolicyErrors) => { return true; };
+                                }
+
+                                return msg;
+                            };
+
+                        })
+                        .Build();
+                }
+                else
+                {
+                    _hubConnection = new HubConnectionBuilder()
+                        .WithUrl(_hubUrl)
+                        .Build();
+                }
+
                 _hubConnection.On<string>(DialogMessages.RECEIVE_DIALOG_OPEN, (message) =>
                 {
                     HandleReceiveMessage(message);

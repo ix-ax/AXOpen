@@ -22,9 +22,9 @@ namespace AXOpen.Core.Blazor.AxoDialogs
           
         }
 
-        public void InitializeSignalR(string uri)
+        public void InitializeSignalR(string uri, bool bypassSSLCertificate = true)
         {
-            DialogClient = new DialogClient(uri);
+            DialogClient = new DialogClient(uri, bypassSSLCertificate);
         }
         public List<string> ObservedObjects { get; set; } = new List<string>();
         public List<string> ObservedObjectsAlerts { get; set; } = new List<string>();
