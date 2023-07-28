@@ -292,7 +292,16 @@ public partial class AxoDataFragmentExchange
         return this.GetDataSetPropertyInfo<TA>()?.Select(p => p.GetValue(this) as TS);
     }
 
-    public void ExportData(string path, Dictionary<string, ExportData> customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, eFileType exportFileType = eFileType.csv, char separator = ';')
+    /// <inheritdoc />
+    public Dictionary<string, Type> Exporters
+    {
+        get
+        {
+            return DataFragments.First().Exporters;
+        }
+    }
+
+    public void ExportData(string path, Dictionary<string, ExportData> customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, string exportFileType = "CSV", char separator = ';')
     {
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
@@ -319,7 +328,7 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
+    public void ImportData(string path, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';')
     {
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
@@ -332,7 +341,7 @@ public partial class AxoDataFragmentExchange
 
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, exportFileType, separator);
             }
 
             if (Directory.Exists(Path.GetDirectoryName(path)))
@@ -342,7 +351,7 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), crudDataObject, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), crudDataObject, exportFileType, separator);
             }
         }
     }

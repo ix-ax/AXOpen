@@ -121,6 +121,8 @@ You have the option to customize the exported files according to your preference
 
 During the importing process, it is crucial to enter the same separator that was used during the export. If the default separator was used during the export, there is no need to make any changes.
 
+You also can create own exporter. To do this, you must create a class that implements `IDataExporter<TPlain, TOnline>` interface. This interface requires you to implement the `Export`, `Import` and `GetName` method. Once you've done this, your custom exporter will be displayed in the custom export and import modal view. Users will be able to choose the exported file type through this view.
+
 For a better user experience, it is strongly recommended to clean the `Temp` directory when starting the application. The best way to do this is to add the following lines to the "Program.cs" file:
 
 ~~~ C#
