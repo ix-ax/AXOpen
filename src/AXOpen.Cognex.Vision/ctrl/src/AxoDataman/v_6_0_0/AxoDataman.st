@@ -115,44 +115,44 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         METHOD PRIVATE UpdateInputs 
-            VAR_IN_OUT
-                AcquisitionStatus : ARRAY[0..2] OF BYTE;
-                ResultsStatus : BYTE;
-                SoftEventStatus : BYTE;
-                ResultData : ARRAY[*] OF BYTE;
+            VAR_INPUT
+                AcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
+                ResultsStatus       :   REF_TO  BYTE;
+                SoftEventStatus     :   REF_TO  BYTE;
+                ResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
 
-            _AcquisitionStatus.TriggerReady                  :=      AcquisitionStatus[0].%X0;
-            _AcquisitionStatus.TriggerAcknowledge            :=      AcquisitionStatus[0].%X1;
-            _AcquisitionStatus.MissedAcquisition             :=      AcquisitionStatus[0].%X3;
-            _AcquisitionStatus.TriggerID.%B1                 :=      AcquisitionStatus[1];	 
-            _AcquisitionStatus.TriggerID.%B0                 :=      AcquisitionStatus[2];	 
+            _AcquisitionStatus.TriggerReady                  :=      AcquisitionStatus^[0].%X0;
+            _AcquisitionStatus.TriggerAcknowledge            :=      AcquisitionStatus^[0].%X1;
+            _AcquisitionStatus.MissedAcquisition             :=      AcquisitionStatus^[0].%X3;
+            _AcquisitionStatus.TriggerID.%B1                 :=      AcquisitionStatus^[1];	 
+            _AcquisitionStatus.TriggerID.%B0                 :=      AcquisitionStatus^[2];	 
 
-            _ResultsStatus.Decoding                          :=      ResultsStatus.%X0;
-            _ResultsStatus.DecodeComplete                    :=      ResultsStatus.%X1;
-            _ResultsStatus.ResultsBufferOverrun              :=      ResultsStatus.%X2;
-            _ResultsStatus.ResultsAvailable                  :=      ResultsStatus.%X3;
-            _ResultsStatus.ErrorDetected                     :=      ResultsStatus.%X7;
+            _ResultsStatus.Decoding                          :=      ResultsStatus^.%X0;
+            _ResultsStatus.DecodeComplete                    :=      ResultsStatus^.%X1;
+            _ResultsStatus.ResultsBufferOverrun              :=      ResultsStatus^.%X2;
+            _ResultsStatus.ResultsAvailable                  :=      ResultsStatus^.%X3;
+            _ResultsStatus.ErrorDetected                     :=      ResultsStatus^.%X7;
 
-            _SoftEventStatus.TrainCodeAcknowledge            :=      SoftEventStatus.%X0;
-            _SoftEventStatus.TrainMatchStringAcknowledge     :=      SoftEventStatus.%X1;
-            _SoftEventStatus.TrainFocusAcknowledge           :=      SoftEventStatus.%X2;
-            _SoftEventStatus.TrainBrightnessAcknowledge      :=      SoftEventStatus.%X3;
-            _SoftEventStatus.UntrainAcknowledge              :=      SoftEventStatus.%X4;
-            _SoftEventStatus.ExecuteDmccAcknowledge          :=      SoftEventStatus.%X5;
-            _SoftEventStatus.Reserved06                      :=      SoftEventStatus.%X6;
-            _SoftEventStatus.SetMatchStringAcknowledge       :=      SoftEventStatus.%X7;
+            _SoftEventStatus.TrainCodeAcknowledge            :=      SoftEventStatus^.%X0;
+            _SoftEventStatus.TrainMatchStringAcknowledge     :=      SoftEventStatus^.%X1;
+            _SoftEventStatus.TrainFocusAcknowledge           :=      SoftEventStatus^.%X2;
+            _SoftEventStatus.TrainBrightnessAcknowledge      :=      SoftEventStatus^.%X3;
+            _SoftEventStatus.UntrainAcknowledge              :=      SoftEventStatus^.%X4;
+            _SoftEventStatus.ExecuteDmccAcknowledge          :=      SoftEventStatus^.%X5;
+            _SoftEventStatus.Reserved06                      :=      SoftEventStatus^.%X6;
+            _SoftEventStatus.SetMatchStringAcknowledge       :=      SoftEventStatus^.%X7;
 
-            IF (LOWER_BOUND(ResultData,1) = 0) THEN
-                IF (UPPER_BOUND(ResultData,1) = 23) THEN
+            IF (LOWER_BOUND(ResultData^,1) = 0) THEN
+                IF (UPPER_BOUND(ResultData^,1) = 23) THEN
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_16B;
-                ELSIF (UPPER_BOUND(ResultData,1) = 39) THEN
+                ELSIF (UPPER_BOUND(ResultData^,1) = 39) THEN
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_32B;
-                ELSIF (UPPER_BOUND(ResultData,1) = 71) THEN
+                ELSIF (UPPER_BOUND(ResultData^,1) = 71) THEN
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_64B;
-                ELSIF (UPPER_BOUND(ResultData,1) = 135) THEN
+                ELSIF (UPPER_BOUND(ResultData^,1) = 135) THEN
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_128B;
-                ELSIF (UPPER_BOUND(ResultData,1) = 253) THEN
+                ELSIF (UPPER_BOUND(ResultData^,1) = 253) THEN
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_246B;
                 ELSE
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
@@ -162,51 +162,51 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_IF;
 
             IF(Status.ResultDataSize <> eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID) THEN
-                Results.Id.%B1          :=  ResultData[0];     
-                Results.Id.%B0          :=  ResultData[1];     
-                Results.Code.%B1        :=  ResultData[2];     
-                Results.Code.%B0        :=  ResultData[3];     
-                Results.Extended.%B1    :=  ResultData[4];     
-                Results.Extended.%B0    :=  ResultData[5];     
-                Results.Length.%B1      :=  ResultData[6];     
-                Results.Length.%B0      :=  ResultData[7];     
+                Results.Id.%B1          :=  ResultData^[0];     
+                Results.Id.%B0          :=  ResultData^[1];     
+                Results.Code.%B1        :=  ResultData^[2];     
+                Results.Code.%B0        :=  ResultData^[3];     
+                Results.Extended.%B1    :=  ResultData^[4];     
+                Results.Extended.%B0    :=  ResultData^[5];     
+                Results.Length.%B1      :=  ResultData^[6];     
+                Results.Length.%B0      :=  ResultData^[7];     
             END_IF;
 
         END_METHOD  
 
         METHOD PRIVATE UpdateOutputs 
-            VAR_IN_OUT
-                AcquisitionControl : BYTE;
-                ResultsControl : BYTE;
-                SoftEventControl : BYTE;
-                UserData : ARRAY[*] OF BYTE;
+            VAR_INPUT
+                AcquisitionControl  :   REF_TO  BYTE;
+                ResultsControl      :   REF_TO  BYTE;
+                SoftEventControl    :   REF_TO  BYTE;
+                UserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
 
-            AcquisitionControl.%X0      :=      _AcquisitionControl.TriggerEnable;
-            AcquisitionControl.%X1      :=      _AcquisitionControl.Trigger;
+            AcquisitionControl^.%X0      :=      _AcquisitionControl.TriggerEnable;
+            AcquisitionControl^.%X1      :=      _AcquisitionControl.Trigger;
 
-            ResultsControl.%X0          :=      _ResultsControl.EnableResultBuffering;
-            ResultsControl.%X1          :=      _ResultsControl.ResultsAcknowledge;
+            ResultsControl^.%X0          :=      _ResultsControl.EnableResultBuffering;
+            ResultsControl^.%X1          :=      _ResultsControl.ResultsAcknowledge;
             
-            SoftEventControl.%X0        :=      _SoftEventControl.TrainCode;
-            SoftEventControl.%X1        :=      _SoftEventControl.TrainMatchString;
-            SoftEventControl.%X2        :=      _SoftEventControl.TrainFocus;
-            SoftEventControl.%X3        :=      _SoftEventControl.TrainBrightness;
-            SoftEventControl.%X4        :=      _SoftEventControl.Untrain;
-            SoftEventControl.%X5        :=      _SoftEventControl.ExecuteDMCC;
-            SoftEventControl.%X6        :=      _SoftEventControl.Reserved06;
-            SoftEventControl.%X7        :=      _SoftEventControl.SetMatchString;
+            SoftEventControl^.%X0        :=      _SoftEventControl.TrainCode;
+            SoftEventControl^.%X1        :=      _SoftEventControl.TrainMatchString;
+            SoftEventControl^.%X2        :=      _SoftEventControl.TrainFocus;
+            SoftEventControl^.%X3        :=      _SoftEventControl.TrainBrightness;
+            SoftEventControl^.%X4        :=      _SoftEventControl.Untrain;
+            SoftEventControl^.%X5        :=      _SoftEventControl.ExecuteDMCC;
+            SoftEventControl^.%X6        :=      _SoftEventControl.Reserved06;
+            SoftEventControl^.%X7        :=      _SoftEventControl.SetMatchString;
 
-            IF (LOWER_BOUND(UserData,1) = 0) THEN
-                IF (UPPER_BOUND(UserData,1) = 19) THEN
+            IF (LOWER_BOUND(UserData^,1) = 0) THEN
+                IF (UPPER_BOUND(UserData^,1) = 19) THEN
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_16B;
-                ELSIF (UPPER_BOUND(UserData,1) = 35) THEN
+                ELSIF (UPPER_BOUND(UserData^,1) = 35) THEN
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_32B;
-                ELSIF (UPPER_BOUND(UserData,1) = 67) THEN
+                ELSIF (UPPER_BOUND(UserData^,1) = 67) THEN
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_64B;
-                ELSIF (UPPER_BOUND(UserData,1) = 131) THEN
+                ELSIF (UPPER_BOUND(UserData^,1) = 131) THEN
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_128B;
-                ELSIF (UPPER_BOUND(UserData,1) = 253) THEN
+                ELSIF (UPPER_BOUND(UserData^,1) = 253) THEN
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_250B;
                 ELSE
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
@@ -216,10 +216,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_IF;
 
             IF(Status.UserDataSize <> eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID) THEN
-                UserData[0]     :=  User.Option.%B1;   
-                UserData[1]     :=  User.Option.%B0;   
-                UserData[2]     :=  User.Length.%B1;   
-                UserData[3]     :=  User.Length.%B0;   
+                UserData^[0]     :=  User.Option.%B1;   
+                UserData^[1]     :=  User.Option.%B0;   
+                UserData^[2]     :=  User.Length.%B1;   
+                UserData^[3]     :=  User.Length.%B0;   
             END_IF;           
         END_METHOD  
 
@@ -230,16 +230,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent              :   IAxoObject; 
-            END_VAR
-            VAR_IN_OUT
-                AcquisitionControl  :   BYTE;
-                AcquisitionStatus   :   ARRAY[0..2] OF BYTE;
-                ResultsControl      :   BYTE;
-                ResultsStatus       :   BYTE;
-                SoftEventControl    :   BYTE;
-                SoftEventStatus     :   BYTE;
-                ResultData          :   ARRAY[*] OF BYTE;
-                UserData            :   ARRAY[*] OF BYTE;
+                AcquisitionControl  :   REF_TO  BYTE;
+                AcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
+                ResultsControl      :   REF_TO  BYTE;
+                ResultsStatus       :   REF_TO  BYTE;
+                SoftEventControl    :   REF_TO  BYTE;
+                SoftEventStatus     :   REF_TO  BYTE;
+                ResultData          :   REF_TO  ARRAY[*] OF BYTE;
+                UserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
             
             THIS.Initialize(parent);
@@ -251,16 +249,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent              :   IAxoContext; 
-            END_VAR
-            VAR_IN_OUT
-                AcquisitionControl  :   BYTE;
-                AcquisitionStatus   :   ARRAY[0..2] OF BYTE;
-                ResultsControl      :   BYTE;
-                ResultsStatus       :   BYTE;
-                SoftEventControl    :   BYTE;
-                SoftEventStatus     :   BYTE;
-                ResultData          :   ARRAY[*] OF BYTE;
-                UserData            :   ARRAY[*] OF BYTE;
+                AcquisitionControl  :   REF_TO  BYTE;
+                AcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
+                ResultsControl      :   REF_TO  BYTE;
+                ResultsStatus       :   REF_TO  BYTE;
+                SoftEventControl    :   REF_TO  BYTE;
+                SoftEventStatus     :   REF_TO  BYTE;
+                ResultData          :   REF_TO  ARRAY[*] OF BYTE;
+                UserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
             
             THIS.Initialize(parent);
@@ -270,15 +266,15 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         METHOD PRIVATE Execute
-            VAR_IN_OUT
-                AcquisitionControl  :   BYTE;
-                AcquisitionStatus   :   ARRAY[0..2] OF BYTE;
-                ResultsControl      :   BYTE;
-                ResultsStatus       :   BYTE;
-                SoftEventControl    :   BYTE;
-                SoftEventStatus     :   BYTE;
-                ResultData          :   ARRAY[*] OF BYTE;
-                UserData            :   ARRAY[*] OF BYTE;
+            VAR_INPUT
+                AcquisitionControl  :   REF_TO  BYTE;
+                AcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
+                ResultsControl      :   REF_TO  BYTE;
+                ResultsStatus       :   REF_TO  BYTE;
+                SoftEventControl    :   REF_TO  BYTE;
+                SoftEventStatus     :   REF_TO  BYTE;
+                ResultData          :   REF_TO  ARRAY[*] OF BYTE;
+                UserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
 
             _restoreTask.Initialize(THIS);
@@ -307,14 +303,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             //*************CLEAR*DATA*****************
             _taskDisabled := _taskDisabled OR _updateSignalStatesTask.IsBusy();
             _clearResultDataTask.IsDisabled := _taskDisabled;
-            _clearResultDataTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,Config,Status,Results);
+            _clearResultDataTask.Run(REF(_AcquisitionControl),REF(_AcquisitionStatus),REF(_ResultsControl),REF(_ResultsStatus),REF(Config),REF(Status),REF(Results));
             //****************************************
 
         
             //*************READ***********************
             _taskDisabled := _taskDisabled OR _clearResultDataTask.IsBusy();
             _readTask.IsDisabled :=  _taskDisabled;
-            _readTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,ResultData,Config,Status,Results);
+            _readTask.Run(REF(_AcquisitionControl),REF(_AcquisitionStatus),REF(_ResultsControl),REF(_ResultsStatus),REF(Config),REF(Status),REF(Results),ResultData);
             //****************************************
 
             THIS.UpdateOutputs(AcquisitionControl,ResultsControl,SoftEventControl,UserData);

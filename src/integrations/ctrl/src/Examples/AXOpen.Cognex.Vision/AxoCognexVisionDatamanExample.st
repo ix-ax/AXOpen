@@ -20,14 +20,14 @@ NAMESPACE AxoCognexVisionDatamanExamples
             END_IF;
             // Calling the main method `Run` with respective input and output variables. 
             MyDataman.Run(  parent                  :=  THIS,  
-                            AcquisitionControl      :=  PlcOutputs^._10a1_Acquisition_Control_1,
-                            AcquisitionStatus       :=  PlcInputs^._10a1_Acquisition_Status_1,
-                            ResultsControl          :=  PlcOutputs^._10a1_Results_Control_1,
-                            ResultsStatus           :=  PlcInputs^._10a1_Results_Status_1,
-                            SoftEventControl        :=  PlcOutputs^._10a1_Soft_Event_Control_1,
-                            SoftEventStatus         :=  PlcInputs^._10a1_Soft_Event_Control_1,
-                            ResultData              :=  PlcInputs^._10a1_Result_Data_128_bytes_1,
-                            UserData                :=  PlcOutputs^._10a1_User_Data_128_bytes_1);
+                            AcquisitionControl      :=  REF(PlcOutputs^._10a1_Acquisition_Control_1),
+                            AcquisitionStatus       :=  REF(PlcInputs^._10a1_Acquisition_Status_1),
+                            ResultsControl          :=  REF(PlcOutputs^._10a1_Results_Control_1),
+                            ResultsStatus           :=  REF(PlcInputs^._10a1_Results_Status_1),
+                            SoftEventControl        :=  REF(PlcOutputs^._10a1_Soft_Event_Control_1),
+                            SoftEventStatus         :=  REF(PlcInputs^._10a1_Soft_Event_Control_1),
+                            ResultData              :=  REF(PlcInputs^._10a1_Result_Data_128_bytes_1),
+                            UserData                :=  REF(PlcOutputs^._10a1_User_Data_128_bytes_1));
         END_METHOD
     END_CLASS
 END_NAMESPACE
