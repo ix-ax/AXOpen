@@ -84,5 +84,6 @@
     public void Dispose()
     {
         _axoDialogProxyService.AlertDialogInvoked -= OnDialogInvoked;
+        _axoDialogProxyService.Dispose();
     }
 }

@@ -8,13 +8,15 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     /// <summary>
     /// Proxy service for modal dialogs, where remote tasks responsible for dialogues handling are initilized. 
     /// </summary>
-    public class AxoDialogProxyService : AxoDialogProxyServiceBase
+    public class AxoDialogProxyService : AxoDialogProxyServiceBase, IDisposable
     {
         public AxoDialogProxyService()
         {
              
         }
         private AxoDialogContainer _axoDialogContainer;
+        private IEnumerable<ITwinObject> _observedObject;
+
         public AxoDialogProxyService(AxoDialogContainer dialogContainer,string id, IEnumerable<ITwinObject> observedObjects)
         {
             _axoDialogContainer = dialogContainer;
@@ -24,8 +26,12 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         public string DialogServiceId { get; set; }
 
+        
+
         public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
         {
+
+            _observedObject = observedObjects;
             if (observedObjects == null || observedObjects.Count() == 0) return;
             foreach (var item in observedObjects)
             {
@@ -57,6 +63,20 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             {
                 dialog.Initialize(() => Queue(dialog));
             }
+        }
+
+        public void Dispose()
+        {
+
+            foreach (var observedObject in _observedObject)
+            {
+                var descendants = GetDescendants<IsDialogType>(observedObject);
+                foreach (var dialog in descendants)
+                {
+                    dialog.DeInitialize();
+                }
+            }
+            
         }
     }
 }
