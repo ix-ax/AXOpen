@@ -30,3 +30,9 @@ scripts:
     # --default-server-interface is a must if you are using WebAPI      
     - apax sld --accept-security-disclaimer -t 10.10.10.1 -i .\\bin\\1500\\ -r
       --default-server-interface
+  watch:
+    - dotnet watch --project
+      ..\\axosimple.app\\axosimple.hmi.csproj
+  da:
+    - apax download
+    - apax watch

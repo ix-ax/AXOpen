@@ -22,9 +22,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 AcquisitionStatus   : AxoDataman_AcquisitionStatus;
                 ResultsControl      : AxoDataman_ResultsControl;
                 ResultsStatus       : AxoDataman_ResultsStatus;
-                Config      : AxoDataman_Config;
-                Status      : AxoDataman_Status;	
-                Results     : AxoDataman_Results;
+                Config              : AxoDataman_Config;
+                Status              : AxoDataman_Status;	
+                Results             : AxoDataman_Results;
+                sResults            : STRING[246];
             END_VAR          
 
             VAR
@@ -71,6 +72,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     FOR _index := 0 TO 245 DO
                         Results.Data[_index] := BYTE#0;
                     END_FOR;
+                    sResults := '';
                     //IF Tc2_System.MEMSET(destAddr:= ADR(THIS^.inoResults.Data) , fillByte:= 0 , n:= SIZEOF(THIS^.inoResults.Data)) >0 THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
@@ -95,6 +97,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 
                 THIS.ThrowWhen(_errorTimer.output);
+                Status.SignalStatus.Progress := _progress;
             END_IF;
                         
         END_METHOD

@@ -44,6 +44,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ResultExtended  		:	UINT;
             {attribute addProperty Name "<#Result length#>"}
             ResultLength  			:	UINT;
+
+            {attribute addProperty Name "<#Progress: just for debugging#>"}
+            Progress      			:	INT;
         END_STRUCT;
     END_TYPE 
 END_NAMESPACE

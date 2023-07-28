@@ -11,9 +11,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _readTask : AxoDatamanRead;
             {#ix-attr:[ComponentHeader()]}         
             {#ix-attr:[ReadOnly()]}
-            {#ix-attr:[RenderIgnore()]}
             {#ix-set:AttributeName = "<#Results#>"}
+            {#ix-attr:[RenderIgnore()]}
             Results     :   AxoDataman_Results;
+            {#ix-attr:[ComponentHeader()]}         
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Results#>"}
+            sResults : STRING[246];
+
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
@@ -118,8 +123,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _AcquisitionStatus.TriggerReady                  :=      AcquisitionStatus[0].%X0;
             _AcquisitionStatus.TriggerAcknowledge            :=      AcquisitionStatus[0].%X1;
             _AcquisitionStatus.MissedAcquisition             :=      AcquisitionStatus[0].%X3;
-            _AcquisitionStatus.TriggerID.%B0                 :=      AcquisitionStatus[1];	 //TODO check order of the bytes
-            _AcquisitionStatus.TriggerID.%B1                 :=      AcquisitionStatus[2];	 //TODO check order of the bytes
+            _AcquisitionStatus.TriggerID.%B1                 :=      AcquisitionStatus[1];	 
+            _AcquisitionStatus.TriggerID.%B0                 :=      AcquisitionStatus[2];	 
 
             _ResultsStatus.Decoding                          :=      ResultsStatus.%X0;
             _ResultsStatus.DecodeComplete                    :=      ResultsStatus.%X1;
@@ -155,14 +160,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_IF;
 
             IF(Config.ResultDataSize <> eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID) THEN
-                Results.Id.%B0          :=  ResultData[0];     //TODO check order of the bytes
-                Results.Id.%B1          :=  ResultData[1];     //TODO check order of the bytes
-                Results.Code.%B0        :=  ResultData[2];     //TODO check order of the bytes
-                Results.Code.%B1        :=  ResultData[3];     //TODO check order of the bytes
-                Results.Extended.%B0    :=  ResultData[4];     //TODO check order of the bytes
-                Results.Extended.%B1    :=  ResultData[5];     //TODO check order of the bytes
-                Results.Length.%B0      :=  ResultData[6];     //TODO check order of the bytes
-                Results.Length.%B1      :=  ResultData[7];     //TODO check order of the bytes
+                Results.Id.%B1          :=  ResultData[0];     
+                Results.Id.%B0          :=  ResultData[1];     
+                Results.Code.%B1        :=  ResultData[2];     
+                Results.Code.%B0        :=  ResultData[3];     
+                Results.Extended.%B1    :=  ResultData[4];     
+                Results.Extended.%B0    :=  ResultData[5];     
+                Results.Length.%B1      :=  ResultData[6];     
+                Results.Length.%B0      :=  ResultData[7];     
             END_IF;
 
         END_METHOD  
@@ -175,8 +180,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 UserData : ARRAY[*] OF BYTE;
             END_VAR
 
-            AcquisitionControl.%X0      :=      _AcquisitionControl.Trigger;
-            AcquisitionControl.%X1      :=      _AcquisitionControl.TriggerEnable;
+            AcquisitionControl.%X0      :=      _AcquisitionControl.TriggerEnable;
+            AcquisitionControl.%X1      :=      _AcquisitionControl.Trigger;
 
             ResultsControl.%X0          :=      _ResultsControl.EnableResultBuffering;
             ResultsControl.%X1          :=      _ResultsControl.ResultsAcknowledge;
@@ -209,10 +214,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_IF;
 
             IF(Config.UserDataSize <> eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID) THEN
-                UserData[0]     :=  User.Option.%B0;    //TODO check order of the bytes
-                UserData[1]     :=  User.Option.%B1;    //TODO check order of the bytes
-                UserData[2]     :=  User.Length.%B0;    //TODO check order of the bytes
-                UserData[3]     :=  User.Length.%B0;    //TODO check order of the bytes
+                UserData[0]     :=  User.Option.%B1;   
+                UserData[1]     :=  User.Option.%B0;   
+                UserData[2]     :=  User.Length.%B1;   
+                UserData[3]     :=  User.Length.%B0;   
             END_IF;           
         END_METHOD  
 
@@ -302,14 +307,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             //*************CLEAR*DATA*****************
             _taskDisabled := _taskDisabled OR _updateSignalStatesTask.IsBusy();
             _clearResultDataTask.IsDisabled := _taskDisabled;
-            _clearResultDataTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,Config,Status,Results);
+            _clearResultDataTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,Config,Status,Results,sResults);
             //****************************************
 
         
             //*************READ***********************
             _taskDisabled := _taskDisabled OR _clearResultDataTask.IsBusy();
             _readTask.IsDisabled :=  _taskDisabled;
-            _readTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,ResultData,Config,Status,Results);
+            _readTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,ResultData,Config,Status,Results,sResults);
             //****************************************
 
             THIS.UpdateOutputs(AcquisitionControl,ResultsControl,SoftEventControl,UserData);

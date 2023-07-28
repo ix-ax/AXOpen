@@ -26,6 +26,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Config              :   AxoDataman_Config;
                 Status              :   AxoDataman_Status;	
                 Results             :   AxoDataman_Results;
+                sResults            :   STRING[246];
             END_VAR          
 
             VAR
@@ -112,7 +113,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     FOR _index := TO_INT(Results.Length) TO 245 DO
                         Results.Data[_index] := BYTE#0;
                     END_FOR;
-
+                    System.SerDe.Deserialize(UINT#7, ResultData, sResults);
                     AcquisitionControl.Trigger := FALSE;
                     ResultsControl.EnableResultBuffering := FALSE;
                     ResultsControl.ResultsAcknowledge := TRUE;
@@ -123,7 +124,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 
                 THIS.ThrowWhen(_errorTimer.output);
-                
+
+                Status.SignalStatus.Progress := _progress;
             END_IF;
         END_METHOD
 
