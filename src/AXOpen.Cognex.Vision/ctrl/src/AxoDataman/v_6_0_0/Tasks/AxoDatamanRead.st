@@ -26,7 +26,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Config              :   AxoDataman_Config;
                 Status              :   AxoDataman_Status;	
                 Results             :   AxoDataman_Results;
-                sResults            :   STRING[246];
             END_VAR          
 
             VAR
@@ -96,24 +95,13 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 6 THEN
-                    THIS.ThrowWhen(Results.Code = UINT#0 OR Results.Length=UINT#0 OR Results.Length > TO_UINT(Config.ResultDataSize));
-                    // THIS^.inoResults.Length := THIS^.inoIoData.ResultData.ResultLength;
-                    // THIS^.Messenger.OnCondition(_infoTimer.Q).Warning('<#Waiting for the ResultData copied!#>').Pin(); 
-                    // IF  Tc2_System.MEMCPY(srcAddr := ADR(THIS^.inoIoData.ResultData.ResultData) , destAddr:= ADR(THIS^.inoResults.Data) ,  n:= THIS^.inoResults.Length) > 0 AND 
-                    //     Tc2_System.MEMSET(destAddr:= ADR(THIS^.inoResults.Data) + THIS^.inoResults.Length, fillByte:= 0 , n:= SIZEOF(THIS^.inoResults.Data) - THIS^.inoResults.Length)>0 THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := _progress + 1;
-                    // END_IF;
+                    THIS.ThrowWhen(Results.Code = UINT#0 OR Results.Length=UINT#0 OR Results.Length > TO_UINT(Status.ResultDataSize));
+                    THIS.CallTimers(FALSE);
+                    _progress := _progress + 1;
                 END_IF;
                 
                 IF _progress = 7 THEN
-                    FOR _index := 0 TO (TO_INT(Results.Length) - 1) DO
-                        Results.Data[_index] := ResultData[_index + 8];
-                    END_FOR;
-                    FOR _index := TO_INT(Results.Length) TO 245 DO
-                        Results.Data[_index] := BYTE#0;
-                    END_FOR;
-                    System.SerDe.Deserialize(UINT#7, ResultData, sResults);
+                    System.SerDe.Deserialize(UINT#7, ResultData, Results.Data);
                     AcquisitionControl.Trigger := FALSE;
                     ResultsControl.EnableResultBuffering := FALSE;
                     ResultsControl.ResultsAcknowledge := TRUE;

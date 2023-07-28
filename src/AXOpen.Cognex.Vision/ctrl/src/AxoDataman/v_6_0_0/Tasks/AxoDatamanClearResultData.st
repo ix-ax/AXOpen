@@ -25,7 +25,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Config              : AxoDataman_Config;
                 Status              : AxoDataman_Status;	
                 Results             : AxoDataman_Results;
-                sResults            : STRING[246];
             END_VAR          
 
             VAR
@@ -33,9 +32,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR          
 
             IF THIS.Execute() THEN
+                _infoTime := Config.InfoTime;
+                _errorTime := Config.ErrorTime;
                 IF _progress = 0 THEN
-                    _infoTime := Config.InfoTime;
-                    _errorTime := Config.ErrorTime;
+
                     // IF NOT __ISVALIDREF(inoIoData) THEN
                     //     _varInfo :=__VARINFO(inoIoData);
                     //     Messenger.Programming(_sb.Clear().Append('<#Invalid reference: #>').Append(_varInfo.Symbol).ToString()).Pin();
@@ -63,20 +63,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     AcquisitionControl.TriggerEnable := FALSE;
                     AcquisitionControl.Trigger := FALSE;
                     ResultsControl.ResultsAcknowledge := TRUE;
-                    // THIS^.Messenger.OnCondition(_infoTimer.Q).Warning('<#Waiting for the result data cleared!#>').Pin();
                     Results.Id := UINT#0; 
                     Results.Code := UINT#0; 
                     Results.Extended := UINT#0; 
                     Results.Length := UINT#0; 
 
-                    FOR _index := 0 TO 245 DO
-                        Results.Data[_index] := BYTE#0;
-                    END_FOR;
-                    sResults := '';
-                    //IF Tc2_System.MEMSET(destAddr:= ADR(THIS^.inoResults.Data) , fillByte:= 0 , n:= SIZEOF(THIS^.inoResults.Data)) >0 THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := _progress + 1;
-                    //END_IF;
+                    Results.Data := '';
+                    THIS.CallTimers(FALSE);
+                    _progress := _progress + 1;
                 END_IF;
                 
                 IF _progress = 3 THEN
@@ -115,5 +109,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _progress := 0;
             THIS.CallTimers(FALSE);
         END_METHOD
+
     END_CLASS     
 END_NAMESPACE

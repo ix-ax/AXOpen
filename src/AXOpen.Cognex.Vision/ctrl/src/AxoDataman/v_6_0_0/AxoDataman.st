@@ -6,18 +6,13 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
     CLASS PUBLIC AxoDataman EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.IAxoCodeReader     
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentHeader()]}         
+            {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "<#Read#>"}
             _readTask : AxoDatamanRead;
             {#ix-attr:[ComponentHeader()]}         
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Results#>"}
-            {#ix-attr:[RenderIgnore()]}
             Results     :   AxoDataman_Results;
-            {#ix-attr:[ComponentHeader()]}         
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Results#>"}
-            sResults : STRING[246];
 
 
             {#ix-attr:[Container(Layout.Wrap)]}
@@ -34,7 +29,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Config")]}
-            {#ix-attr:[ReadOnly()]}
             Config      :   AxoDataman_Config;
 
             {#ix-attr:[Container(Layout.Wrap)]}
@@ -42,16 +36,27 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ReadOnly()]}
             Status      :   AxoDataman_Status;
 
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("User data")]}
+            // {#ix-attr:[Container(Layout.Wrap)]}
+            // {#ix-attr:[ComponentDetails("User data")]}
+            {#ix-attr:[RenderIgnore()]}
             User        :   AxoDataman_User;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Signal tests")]}
+            _AcquisitionControl     :   AxoDataman_AcquisitionControl;
+            {#ix-attr:[ComponentDetails("Signal tests")]}
+            _AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
+            {#ix-attr:[ComponentDetails("Signal tests")]}
+            _ResultsControl         :   AxoDataman_ResultsControl;
+            {#ix-attr:[ComponentDetails("Signal tests")]}
+            _ResultsStatus          :   AxoDataman_ResultsStatus;
         END_VAR
 
         VAR PRIVATE
-            _AcquisitionControl     :   AxoDataman_AcquisitionControl;
-            _AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
-            _ResultsControl         :   AxoDataman_ResultsControl;
-            _ResultsStatus          :   AxoDataman_ResultsStatus;
+            // _AcquisitionControl     :   AxoDataman_AcquisitionControl;
+            // _AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
+            // _ResultsControl         :   AxoDataman_ResultsControl;
+            // _ResultsStatus          :   AxoDataman_ResultsStatus;
             _SoftEventControl       :   AxoDataman_SoftEventControl;
             _SoftEventStatus        :   AxoDataman_SoftEventStatus;
             _taskDisabled           :   BOOL;
@@ -73,12 +78,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             Results.Extended    :=  UINT#0;
             Results.Id          :=  UINT#0;
             Results.Length      :=  UINT#0;
-                
-            FOR _index := 0 TO 245 DO
-                Results.Data[_index] := BYTE#0;
-            END_FOR;
+            Results.Data        :=  '';
 
-            _AcquisitionControl.TriggerEnable       :=  FALSE;
+            _AcquisitionControl.TriggerEnable       :=  _ResultsStatus.ErrorDetected;
             _AcquisitionControl.Trigger             :=  FALSE;
 
             _ResultsControl.EnableResultBuffering   :=  FALSE;
@@ -99,8 +101,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 User.Data[_index] := BYTE#0;
             END_FOR;
 
-            Status.ActionDescription := '<#Restore executed!#>';
-            _restoreTask.Restore();
+            IF NOT _ResultsStatus.ErrorDetected THEN
+                Status.ActionDescription := '<#Restore executed!#>';
+                _restoreTask.DoneWhen(TRUE);
+            END_IF;
         END_METHOD
 
         ///<summary>
@@ -111,12 +115,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         METHOD PRIVATE UpdateInputs 
-            VAR_INPUT
+            VAR_IN_OUT
                 AcquisitionStatus : ARRAY[0..2] OF BYTE;
                 ResultsStatus : BYTE;
                 SoftEventStatus : BYTE;
-            END_VAR
-            VAR_IN_OUT
                 ResultData : ARRAY[*] OF BYTE;
             END_VAR
 
@@ -143,23 +145,23 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
             IF (LOWER_BOUND(ResultData,1) = 0) THEN
                 IF (UPPER_BOUND(ResultData,1) = 23) THEN
-                    Config.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_16B;
+                    Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_16B;
                 ELSIF (UPPER_BOUND(ResultData,1) = 39) THEN
-                    Config.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_32B;
+                    Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_32B;
                 ELSIF (UPPER_BOUND(ResultData,1) = 71) THEN
-                    Config.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_64B;
+                    Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_64B;
                 ELSIF (UPPER_BOUND(ResultData,1) = 135) THEN
-                    Config.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_128B;
+                    Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_128B;
                 ELSIF (UPPER_BOUND(ResultData,1) = 253) THEN
-                    Config.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_246B;
+                    Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_246B;
                 ELSE
-                    Config.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
+                    Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
                 END_IF;
             ELSE
-                Config.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
+                Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             END_IF;
 
-            IF(Config.ResultDataSize <> eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID) THEN
+            IF(Status.ResultDataSize <> eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID) THEN
                 Results.Id.%B1          :=  ResultData[0];     
                 Results.Id.%B0          :=  ResultData[1];     
                 Results.Code.%B1        :=  ResultData[2];     
@@ -197,23 +199,23 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
             IF (LOWER_BOUND(UserData,1) = 0) THEN
                 IF (UPPER_BOUND(UserData,1) = 19) THEN
-                    Config.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_16B;
+                    Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_16B;
                 ELSIF (UPPER_BOUND(UserData,1) = 35) THEN
-                    Config.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_32B;
+                    Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_32B;
                 ELSIF (UPPER_BOUND(UserData,1) = 67) THEN
-                    Config.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_64B;
+                    Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_64B;
                 ELSIF (UPPER_BOUND(UserData,1) = 131) THEN
-                    Config.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_128B;
+                    Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_128B;
                 ELSIF (UPPER_BOUND(UserData,1) = 253) THEN
-                    Config.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_250B;
+                    Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_250B;
                 ELSE
-                    Config.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
+                    Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
                 END_IF;
             ELSE
-                Config.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
+                Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
             END_IF;
 
-            IF(Config.UserDataSize <> eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID) THEN
+            IF(Status.UserDataSize <> eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID) THEN
                 UserData[0]     :=  User.Option.%B1;   
                 UserData[1]     :=  User.Option.%B0;   
                 UserData[2]     :=  User.Length.%B1;   
@@ -228,59 +230,57 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         METHOD PUBLIC Run
             VAR_INPUT
                 parent : IAxoObject; 
-                AcquisitionStatus : ARRAY[0..2] OF BYTE;
-                ResultsStatus : BYTE;
-                SoftEventStatus : BYTE;
             END_VAR
             VAR_IN_OUT
-                ResultData : ARRAY[*] OF BYTE;
                 AcquisitionControl : BYTE;
+                AcquisitionStatus : ARRAY[0..2] OF BYTE;
                 ResultsControl : BYTE;
+                ResultsStatus : BYTE;
                 SoftEventControl : BYTE;
+                SoftEventStatus : BYTE;
+                ResultData : ARRAY[*] OF BYTE;
                 UserData : ARRAY[*] OF BYTE;
             END_VAR
             
             THIS.Initialize(parent);
             THIS.Open();
-            THIS.Execute(AcquisitionStatus,ResultsStatus,SoftEventStatus,ResultData,AcquisitionControl,ResultsControl,SoftEventControl,UserData);
+            THIS.Execute(AcquisitionControl,AcquisitionStatus,ResultsControl,ResultsStatus,SoftEventControl,SoftEventStatus,ResultData,UserData);
             THIS.Close();            
         END_METHOD
 
         METHOD PUBLIC Run
             VAR_INPUT
                 parent : IAxoContext; 
-                AcquisitionStatus : ARRAY[0..2] OF BYTE;
-                ResultsStatus : BYTE;
-                SoftEventStatus : BYTE;
             END_VAR
             VAR_IN_OUT
-                ResultData : ARRAY[*] OF BYTE;
                 AcquisitionControl : BYTE;
+                AcquisitionStatus : ARRAY[0..2] OF BYTE;
                 ResultsControl : BYTE;
+                ResultsStatus : BYTE;
                 SoftEventControl : BYTE;
+                SoftEventStatus : BYTE;
+                ResultData : ARRAY[*] OF BYTE;
                 UserData : ARRAY[*] OF BYTE;
             END_VAR
             
             THIS.Initialize(parent);
             THIS.Open();
-            THIS.Execute(AcquisitionStatus,ResultsStatus,SoftEventStatus,ResultData,AcquisitionControl,ResultsControl,SoftEventControl,UserData);
+            THIS.Execute(AcquisitionControl,AcquisitionStatus,ResultsControl,ResultsStatus,SoftEventControl,SoftEventStatus,ResultData,UserData);
             THIS.Close();            
         END_METHOD
 
         METHOD PRIVATE Execute
-            VAR_INPUT
-                AcquisitionStatus : ARRAY[0..2] OF BYTE;
-                ResultsStatus : BYTE;
-                SoftEventStatus : BYTE;
-            END_VAR
             VAR_IN_OUT
-                ResultData : ARRAY[*] OF BYTE;
                 AcquisitionControl : BYTE;
+                AcquisitionStatus : ARRAY[0..2] OF BYTE;
                 ResultsControl : BYTE;
+                ResultsStatus : BYTE;
                 SoftEventControl : BYTE;
+                SoftEventStatus : BYTE;
+                ResultData : ARRAY[*] OF BYTE;
                 UserData : ARRAY[*] OF BYTE;
             END_VAR
-            
+
             _restoreTask.Initialize(THIS);
             _updateSignalStatesTask.Initialize(THIS);
             _clearResultDataTask.Initialize(THIS);
@@ -307,14 +307,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             //*************CLEAR*DATA*****************
             _taskDisabled := _taskDisabled OR _updateSignalStatesTask.IsBusy();
             _clearResultDataTask.IsDisabled := _taskDisabled;
-            _clearResultDataTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,Config,Status,Results,sResults);
+            _clearResultDataTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,Config,Status,Results);
             //****************************************
 
         
             //*************READ***********************
             _taskDisabled := _taskDisabled OR _clearResultDataTask.IsBusy();
             _readTask.IsDisabled :=  _taskDisabled;
-            _readTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,ResultData,Config,Status,Results,sResults);
+            _readTask.Run(_AcquisitionControl,_AcquisitionStatus,_ResultsControl,_ResultsStatus,ResultData,Config,Status,Results);
             //****************************************
 
             THIS.UpdateOutputs(AcquisitionControl,ResultsControl,SoftEventControl,UserData);
