@@ -229,17 +229,17 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : IAxoObject; 
+                parent              :   IAxoObject; 
             END_VAR
             VAR_IN_OUT
-                AcquisitionControl : BYTE;
-                AcquisitionStatus : ARRAY[0..2] OF BYTE;
-                ResultsControl : BYTE;
-                ResultsStatus : BYTE;
-                SoftEventControl : BYTE;
-                SoftEventStatus : BYTE;
-                ResultData : ARRAY[*] OF BYTE;
-                UserData : ARRAY[*] OF BYTE;
+                AcquisitionControl  :   BYTE;
+                AcquisitionStatus   :   ARRAY[0..2] OF BYTE;
+                ResultsControl      :   BYTE;
+                ResultsStatus       :   BYTE;
+                SoftEventControl    :   BYTE;
+                SoftEventStatus     :   BYTE;
+                ResultData          :   ARRAY[*] OF BYTE;
+                UserData            :   ARRAY[*] OF BYTE;
             END_VAR
             
             THIS.Initialize(parent);
@@ -250,17 +250,17 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : IAxoContext; 
+                parent              :   IAxoContext; 
             END_VAR
             VAR_IN_OUT
-                AcquisitionControl : BYTE;
-                AcquisitionStatus : ARRAY[0..2] OF BYTE;
-                ResultsControl : BYTE;
-                ResultsStatus : BYTE;
-                SoftEventControl : BYTE;
-                SoftEventStatus : BYTE;
-                ResultData : ARRAY[*] OF BYTE;
-                UserData : ARRAY[*] OF BYTE;
+                AcquisitionControl  :   BYTE;
+                AcquisitionStatus   :   ARRAY[0..2] OF BYTE;
+                ResultsControl      :   BYTE;
+                ResultsStatus       :   BYTE;
+                SoftEventControl    :   BYTE;
+                SoftEventStatus     :   BYTE;
+                ResultData          :   ARRAY[*] OF BYTE;
+                UserData            :   ARRAY[*] OF BYTE;
             END_VAR
             
             THIS.Initialize(parent);
@@ -271,14 +271,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PRIVATE Execute
             VAR_IN_OUT
-                AcquisitionControl : BYTE;
-                AcquisitionStatus : ARRAY[0..2] OF BYTE;
-                ResultsControl : BYTE;
-                ResultsStatus : BYTE;
-                SoftEventControl : BYTE;
-                SoftEventStatus : BYTE;
-                ResultData : ARRAY[*] OF BYTE;
-                UserData : ARRAY[*] OF BYTE;
+                AcquisitionControl  :   BYTE;
+                AcquisitionStatus   :   ARRAY[0..2] OF BYTE;
+                ResultsControl      :   BYTE;
+                ResultsStatus       :   BYTE;
+                SoftEventControl    :   BYTE;
+                SoftEventStatus     :   BYTE;
+                ResultData          :   ARRAY[*] OF BYTE;
+                UserData            :   ARRAY[*] OF BYTE;
             END_VAR
 
             _restoreTask.Initialize(THIS);
