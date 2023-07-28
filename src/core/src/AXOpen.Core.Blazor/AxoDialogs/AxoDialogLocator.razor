@@ -38,10 +38,10 @@
     [Parameter]
     public int DialogOpenDelay { get; set; } = 100;
     /// <summary>
-    /// Using SSL certificate for SignalR connection (default value is true).
+    /// Using SSL certificate for SignalR connection (default value is false).
     /// </summary>
     [Parameter]
-    public bool BypassSSLCertificate { get; set; } = true;
+    public bool BypassSSLCertificate { get; set; } = false;
 
 
     private AxoDialogProxyService _axoDialogProxyService { get; set; }

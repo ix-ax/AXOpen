@@ -45,23 +45,8 @@ If you using Eset you need to: Eset > Setup > Network > click on settings next t
 
 ### Warning
 
-If you intend to use HTTPS with a self-signed SSL certificate, you need to make additional changes in DialogClient.cs. Add the following lines:
+If you intend to use HTTPS with a self-signed SSL certificate, make sure to adjust the `BypassSSLCertificate` parameter in `AxoDialogLocator` to `true`, where the default value is `false`. Here's an example of how to do it:
 
-~~~ C#
-_hubConnection = new HubConnectionBuilder()
-    .WithUrl(_hubUrl, options => {
-        options.UseDefaultCredentials = true;
-        options.HttpMessageHandlerFactory = (msg) =>
-        {
-            if (msg is HttpClientHandler clientHandler)
-            {
-                // bypass SSL certificate
-                clientHandler.ServerCertificateCustomValidationCallback +=
-                    (sender, certificate, chain, sslPolicyErrors) => { return true; };
-            }
-
-            return msg;
-        };
-    })
-    .Build();
+~~~ HTML
+<AxoDialogLocator BypassSSLCertificate=true ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>
 ~~~

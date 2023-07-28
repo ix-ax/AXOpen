@@ -22,7 +22,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
           
         }
 
-        public void InitializeSignalR(string uri, bool bypassSSLCertificate = true)
+        public void InitializeSignalR(string uri, bool bypassSSLCertificate = false)
         {
             DialogClient = new DialogClient(uri, bypassSSLCertificate);
         }
