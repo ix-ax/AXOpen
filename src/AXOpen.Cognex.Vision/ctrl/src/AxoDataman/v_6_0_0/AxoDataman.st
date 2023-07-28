@@ -41,22 +41,22 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[RenderIgnore()]}
             User        :   AxoDataman_User;
 
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Signal tests")]}
-            _AcquisitionControl     :   AxoDataman_AcquisitionControl;
-            {#ix-attr:[ComponentDetails("Signal tests")]}
-            _AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
-            {#ix-attr:[ComponentDetails("Signal tests")]}
-            _ResultsControl         :   AxoDataman_ResultsControl;
-            {#ix-attr:[ComponentDetails("Signal tests")]}
-            _ResultsStatus          :   AxoDataman_ResultsStatus;
+            // {#ix-attr:[Container(Layout.Wrap)]}
+            // {#ix-attr:[ComponentDetails("Signal tests")]}
+            // _AcquisitionControl     :   AxoDataman_AcquisitionControl;
+            // {#ix-attr:[ComponentDetails("Signal tests")]}
+            // _AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
+            // {#ix-attr:[ComponentDetails("Signal tests")]}
+            // _ResultsControl         :   AxoDataman_ResultsControl;
+            // {#ix-attr:[ComponentDetails("Signal tests")]}
+            // _ResultsStatus          :   AxoDataman_ResultsStatus;
         END_VAR
 
         VAR PRIVATE
-            // _AcquisitionControl     :   AxoDataman_AcquisitionControl;
-            // _AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
-            // _ResultsControl         :   AxoDataman_ResultsControl;
-            // _ResultsStatus          :   AxoDataman_ResultsStatus;
+            _AcquisitionControl     :   AxoDataman_AcquisitionControl;
+            _AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
+            _ResultsControl         :   AxoDataman_ResultsControl;
+            _ResultsStatus          :   AxoDataman_ResultsStatus;
             _SoftEventControl       :   AxoDataman_SoftEventControl;
             _SoftEventStatus        :   AxoDataman_SoftEventStatus;
             _taskDisabled           :   BOOL;
@@ -114,14 +114,13 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ;
         END_METHOD
 
-        METHOD PRIVATE UpdateInputs 
+        METHOD PRIVATE UpdateInputs : BOOL
             VAR_INPUT
                 AcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
                 ResultsStatus       :   REF_TO  BYTE;
                 SoftEventStatus     :   REF_TO  BYTE;
                 ResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
-
             _AcquisitionStatus.TriggerReady                  :=      AcquisitionStatus^[0].%X0;
             _AcquisitionStatus.TriggerAcknowledge            :=      AcquisitionStatus^[0].%X1;
             _AcquisitionStatus.MissedAcquisition             :=      AcquisitionStatus^[0].%X3;
@@ -143,6 +142,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _SoftEventStatus.Reserved06                      :=      SoftEventStatus^.%X6;
             _SoftEventStatus.SetMatchStringAcknowledge       :=      SoftEventStatus^.%X7;
 
+
             IF (LOWER_BOUND(ResultData^,1) = 0) THEN
                 IF (UPPER_BOUND(ResultData^,1) = 23) THEN
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_16B;
@@ -156,8 +156,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_246B;
                 ELSE
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
+                    Status.ErrorId := UDINT#20;
+                    Status.ErrorDescription := '<#Error: ResultData has invalid size#>.';
+                    UpdateInputs := FALSE;
                 END_IF;
             ELSE
+                Status.ErrorId := UDINT#21;
+                Status.ErrorDescription := '<#Error: ResultData-lower bound index is not zero.#>.';
+                UpdateInputs := FALSE;
                 Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             END_IF;
 
@@ -170,11 +176,12 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Results.Extended.%B0    :=  ResultData^[5];     
                 Results.Length.%B1      :=  ResultData^[6];     
                 Results.Length.%B0      :=  ResultData^[7];     
+                UpdateInputs := TRUE;
             END_IF;
 
         END_METHOD  
 
-        METHOD PRIVATE UpdateOutputs 
+        METHOD PRIVATE UpdateOutputs : BOOL
             VAR_INPUT
                 AcquisitionControl  :   REF_TO  BYTE;
                 ResultsControl      :   REF_TO  BYTE;
@@ -209,20 +216,62 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 ELSIF (UPPER_BOUND(UserData^,1) = 253) THEN
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_250B;
                 ELSE
-                    Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
+                    Status.ErrorId := UDINT#22;
+                    Status.ErrorDescription := '<#Error: UserData has invalid size#>.';
+                    UpdateOutputs := FALSE;
                 END_IF;
             ELSE
-                Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
-            END_IF;
+                Status.ErrorId := UDINT#23;
+                Status.ErrorDescription := '<#Error: UserData-lower bound index is not zero.#>.';
+                UpdateOutputs := FALSE;
+        END_IF;
 
             IF(Status.UserDataSize <> eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID) THEN
                 UserData^[0]     :=  User.Option.%B1;   
                 UserData^[1]     :=  User.Option.%B0;   
                 UserData^[2]     :=  User.Length.%B1;   
                 UserData^[3]     :=  User.Length.%B0;   
+                UpdateOutputs := TRUE;
             END_IF;           
         END_METHOD  
 
+        METHOD PRIVATE IsValidReferences: BOOL
+            VAR_INPUT
+                AcquisitionControl  :   REF_TO  BYTE;
+                AcquisitionStatus   :   REF_TO  ARRAY[0..2] OF BYTE;
+                ResultsControl      :   REF_TO  BYTE;
+                ResultsStatus       :   REF_TO  BYTE;
+                SoftEventControl    :   REF_TO  BYTE;
+                SoftEventStatus     :   REF_TO  BYTE;
+                ResultData          :   REF_TO  ARRAY[*] OF BYTE;
+                UserData            :   REF_TO  ARRAY[*] OF BYTE;
+            END_VAR
+            IsValidReferences := FALSE;
+            IF AcquisitionControl = NULL THEN
+                Status.ErrorId := UDINT#11;
+                Status.ErrorDescription := '<#Error: AcquisitionControl has NULL reference#>.';
+            ELSIF AcquisitionStatus = NULL THEN
+                Status.ErrorId := UDINT#12;
+                Status.ErrorDescription := '<#Error: AcquisitionStatus has NULL reference#>.';
+            ELSIF ResultsControl = NULL THEN
+                Status.ErrorId := UDINT#13;
+                Status.ErrorDescription := '<#Error: ResultsControl has NULL reference#>.';
+            ELSIF SoftEventControl  = NULL THEN
+                Status.ErrorId := UDINT#14;
+                Status.ErrorDescription := '<#Error: SoftEventControl  has NULL reference#>.';
+            ELSIF SoftEventStatus = NULL THEN
+                Status.ErrorId := UDINT#15;
+                Status.ErrorDescription := '<#Error: SoftEventStatus has NULL reference#>.';
+            ELSIF ResultData = NULL THEN
+                Status.ErrorId := UDINT#16;
+                Status.ErrorDescription := '<#Error: ResultData has NULL reference#>.';
+            ELSIF UserData = NULL THEN
+                Status.ErrorId := UDINT#17;
+                Status.ErrorDescription := '<#Error: UserData has NULL reference#>.';
+            ELSE
+                IsValidReferences := TRUE;
+            END_IF;
+        END_METHOD
         METHOD PROTECTED OVERRIDE Open
             SUPER.Open();
         END_METHOD  
@@ -239,7 +288,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 ResultData          :   REF_TO  ARRAY[*] OF BYTE;
                 UserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
-            
+            IF parent = NULL THEN
+                Status.ErrorId := UDINT#10;
+                Status.ErrorDescription := '<#Error: Parent has NULL reference#>.';
+                RETURN;
+            END_IF;
+            IF NOT THIS.IsValidReferences(AcquisitionControl,AcquisitionStatus,ResultsControl,ResultsStatus,SoftEventControl,SoftEventStatus,ResultData,UserData) THEN
+                RETURN;
+            END_IF;
             THIS.Initialize(parent);
             THIS.Open();
             THIS.Execute(AcquisitionControl,AcquisitionStatus,ResultsControl,ResultsStatus,SoftEventControl,SoftEventStatus,ResultData,UserData);
@@ -258,7 +314,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 ResultData          :   REF_TO  ARRAY[*] OF BYTE;
                 UserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
-            
+            IF parent = NULL THEN
+                Status.ErrorId := UDINT#10;
+                Status.ErrorDescription := '<#Error: Parent has NULL reference#>.';
+                RETURN;
+            END_IF;
+            IF NOT THIS.IsValidReferences(AcquisitionControl,AcquisitionStatus,ResultsControl,ResultsStatus,SoftEventControl,SoftEventStatus,ResultData,UserData) THEN
+                RETURN;
+            END_IF;
             THIS.Initialize(parent);
             THIS.Open();
             THIS.Execute(AcquisitionControl,AcquisitionStatus,ResultsControl,ResultsStatus,SoftEventControl,SoftEventStatus,ResultData,UserData);

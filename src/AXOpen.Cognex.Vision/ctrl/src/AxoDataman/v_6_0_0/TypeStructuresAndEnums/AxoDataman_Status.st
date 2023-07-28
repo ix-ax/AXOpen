@@ -4,10 +4,12 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         AxoDataman_Status : 
         STRUCT
             ActionDescription : STRING[100];	
+            ErrorId : UDINT;	
+            ErrorDescription : STRING[100];	
             SignalStatus : AxoDataman_SignalStates;
-            ResultDataSize : eAxoDataman_ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_64B;
+            ResultDataSize : eAxoDataman_ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             {#ix-attr:[RenderIgnore()]}
-            UserDataSize : eAxoDataman_UserDataSize := eAxoDataman_UserDataSize#USER_DATA_64B;
+            UserDataSize : eAxoDataman_UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
         END_STRUCT;
     END_TYPE 
 END_NAMESPACE
