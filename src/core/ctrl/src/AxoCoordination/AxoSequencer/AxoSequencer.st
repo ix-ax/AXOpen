@@ -20,7 +20,11 @@ NAMESPACE AXOpen.Core
             _step : IAxoStep;
             _openCycleCounter : ULINT;    
             _closeCycleCounter : ULINT;    
-        END_VAR     
+        END_VAR 
+        
+        VAR CONSTANT
+            RESTORE_STEP_ID : UINT := UINT#65534;
+        END_VAR
 
         ///<summary>
         /// Opens sequencers operations.
@@ -152,6 +156,27 @@ NAMESPACE AXOpen.Core
             END_IF;
         END_METHOD
 
+
+
+        ///<summary>
+        /// Terminates the current step
+        ///</summary>
+        METHOD PUBLIC Terminate 
+          THIS.AbortCurrentStep();
+        END_METHOD
+
+        ///<summary>
+        /// Jump to requested step
+        ///</summary>
+        METHOD PUBLIC Retry 
+            VAR_INPUT
+                inAxoStep : IAxoStep;
+            END_VAR
+ 
+            THIS.RequestStep(inAxoStep);
+            
+        END_METHOD
+  
         ///<summary>
         /// Terminates the currently executed step and initiates the RequestedStep to be executed
         ///</summary>

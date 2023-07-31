@@ -148,6 +148,12 @@ NAMESPACE examples.PneumaticManipulator
             _dialog2 : AXOpen.Core.AxoDialog;
             _dialog3 : AXOpen.Core.AxoDialog;
             _alertDialog : AXOpen.Core.AxoAlertDialog;
+            _presenceInspector: AXOpen.Inspectors.AxoDigitalInspector;
+            _valueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
+            _data: AXOpen.Inspectors.AxoDigitalInspectorData;
+            _comprehensiveResult: AXOpen.Inspectors.AxoComprehensiveResult;
+            _inspectionResult:BOOL;
+            _inspectionValue:LReAL;
             _externalClose : BOOL;
         END_VAR
         VAR PRIVATE
@@ -214,20 +220,57 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
 
 
-            IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
-                //-------------------------------------------------------        
-                   IF(_alertDialog.Show(THIS)
-                        .WithTitle('Plc alert')
-                        .WithType(eDialogType#Success)
-                        .WithMessage('This is alert invoked from plc!')
-                        .WithTimeToBurn(UINT#5).IsShown() = true) THEN
-                        THIS.MoveNext(); 
-                    END_IF;	
+            // IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+            //     //-------------------------------------------------------        
+            //        IF(_alertDialog.Show(THIS)
+            //             .WithTitle('Plc alert')
+            //             .WithType(eDialogType#Success)
+            //             .WithMessage('This is alert invoked from plc!')
+            //             .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+            //             THIS.MoveNext(); 
+            //         END_IF;	
 
+
+            // //-------------------------------------------------------
+            // END_IF;
+
+            // IF (Steps[16].Execute(THIS, TRUE, 'GENERATE SIMULATED VALUES')) THEN
+            //     //--------------------------------------------
+            //     //_presenceInspector.Data();
+            //     // _data := _presenceInspector.Data()^;
+            //     // _data.RequiredStatus := TRUE;
+            //     //_presenceInspector._data.RequiredStatus := TRUE;
+            //     //_presenceInspector._data.FailTime := T#5s;
+            //     //_presenceInspector._data.NumberOfAllowedRetries := UINT#3;
+            //     //inspectionResult:= FALSE;
+            //     THIS.MoveNext(); 
+            //     //--------------------------------------------	
+            // END_IF;
+
+            IF (Steps[17].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
+                //-------------------------------------------------------
+                
+                //_presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).OnFail().Retry(Steps[1]);
+                //_presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).OnFail().Terminate();
+
+                _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+
+             
 
             //-------------------------------------------------------
             END_IF;
 
+
+            IF (Steps[18].Execute(THIS, TRUE, 'Example Analogue inspection')) THEN
+                //-------------------------------------------------------
+                
+
+                _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+
+             ;
+
+            //-------------------------------------------------------
+            END_IF;
 
             IF (Steps[20].Execute(THIS, TRUE, 'Dummy')) THEN
                 //------------------------------------------------------- 
@@ -294,8 +337,7 @@ NAMESPACE examples.PneumaticManipulator
                         .WithType(eDialogType#Danger)
                         .WithCaption('YesNo dialog')
                         .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
-                        
-                    
+
                         THIS.MoveNext(); 
                     END_IF;	
 

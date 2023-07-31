@@ -21,4 +21,8 @@
     <ProjectReference Include="..\AxOpen.Inspectors\AxOpen.Inspectors.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="AxoDataInspector\" />
+  </ItemGroup>
+
 </Project>

@@ -7,8 +7,22 @@
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector;
 
-
 @inject IAlertDialogService _alerts
+
+
+<h1>Presence inspector & Value inspector</h1>
+
+<div class="row">
+
+    <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._presenceInspector" Presentation="Control" Class="col"></RenderableContentControl>
+
+
+    <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._valueInspector" Presentation="Control" Class="col"></RenderableContentControl>
+</div>
+
+
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._inspectionResult" Presentation="Control"></RenderableContentControl>
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._inspectionValue" Presentation="Control"></RenderableContentControl>
 
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="250"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
@@ -23,26 +37,37 @@
 }
 
 
+
+<h1>template generated</h1>
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._presenceInspector" Presentation="Command"></RenderableContentControl>
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._valueInspector" Presentation="Command"></RenderableContentControl>
+
+
+
 <AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>
 
 <AxoAlertDialogLocator ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"/>
 
+<h1>Comprehensive result</h1>
+
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._comprehensiveResult"></RenderableContentControl>
 
 
-
-<button class="btn btn-primary" @onclick="@showAlert">Show alert</button>
+<button class="btn btn-primary" @onclick="@Reset">Reset comprehensive result</button>
 
 
 @code
 {
-    private ElementReference keyDownDiv;
-    private ModalDialog ModalDialog { get; set; }
+  
     private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
-    private void showAlert()
+    private void Reset()
     {
-        _alerts.AddAlertDialog(eAlertDialogType.Info, "Ahoj", "som dialog", 60);
+        Entry.Plc.Context.PneumaticManipulator.AutomatSequence._comprehensiveResult.Result.Cyclic = 0;
+        _alerts.AddAlertDialog(eAlertDialogType.Info, "Comprehenesive result", "Reseted", 3);
         StateHasChanged();
     }
+
+
 
 
 

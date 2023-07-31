@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
     <ProjectReference Include="..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
+    <ProjectReference Include="..\..\inspectors\src\AxOpen.Inspectors\AxOpen.Inspectors.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\PlcStringResources.Designer.cs">
@@ -28,5 +29,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".g\Onliners\Examples\" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,26 @@
+USING AXOpen.Core;
 NAMESPACE AXOpen.Inspectors
     INTERFACE IInspector 
     
+        METHOD Busy : BOOL
+        END_METHOD
+
+        METHOD CommonData : REF_TO AxoInspectorData
+        END_METHOD
+
+        METHOD Coordinator : IAxoCoordinator
+        END_METHOD
+
+        METHOD Done : BOOL
+        END_METHOD
+
+
+        METHOD CheckOverInspection : BOOL
+        END_METHOD
+
+        METHOD Result : eInspectorResult
+        END_METHOD
+
         
 
         METHOD OnFail : IOnFail

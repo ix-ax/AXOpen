@@ -144,6 +144,7 @@ public class BuildContext : FrostingContext
         ("core", "axopen.core"),       
         ("data", "axopen.data"),
         ("probers", "axopen.probers"),
+        ("inspectors", "axopen.inspectors"),
     };
 
     public IEnumerable<(string folder, string name, string targetIp, string targetPlatform)> Integrations { get; } = new[]

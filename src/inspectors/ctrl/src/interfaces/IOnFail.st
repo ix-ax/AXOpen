@@ -1,17 +1,22 @@
 NAMESPACE AXOpen.Inspectors
     INTERFACE IOnFail 
     
-
         METHOD CarryOn : BOOL
         END_METHOD
 
         METHOD Retry : BOOL
             VAR_INPUT
-                inFromState : INT;
+                inAxoStep : AxOpen.Core.IAxoStep;
             END_VAR
         END_METHOD
 
         METHOD Terminate : BOOL
+        END_METHOD
+
+        METHOD TerminateWithOriginStep : BOOL
+            VAR_INPUT
+                inAxoStep : AxOpen.Core.IAxoStep;
+            END_VAR
         END_METHOD
        
         

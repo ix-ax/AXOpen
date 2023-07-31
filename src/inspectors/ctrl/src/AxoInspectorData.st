@@ -1,34 +1,46 @@
 NAMESPACE AXOpen.Inspectors
 
+    ///<summary>
+    /// Data subjected to each inspector instance.
+    ///</summary>
+    CLASS AxoInspectorData 
 
-    TYPE
+        VAR PUBLIC
 
-        AxoInspectorData : STRUCT
+        
+        {#ix-set:AttributeName = "<#TimeStamp#>"}
+        Timestamp: LDATE_AND_TIME;
 
-        {#ix-set:AttributeName = "<#Time stamp#>"}
-        Timestamp: DATE_AND_TIME;
         {#ix-set:AttributeName = "<#Stab.Time#>"}
         PassTime : TIME;
+
         {#ix-set:AttributeName = "<#Timeout#>"}
         FailTime : TIME;
+
         {#ix-set:AttributeName = "<#Result#>"}
         Result : eInspectorResult;
+
         {#ix-set:AttributeName = "<#Excluded#>"}
         isExcluded: BOOL;
+
         {#ix-set:AttributeName = "<#Bypass#>"}
         IsByPassed : BOOL;
+
         {#ix-set:AttributeName = "<#Failure description#>"}
         FailureDescription : STRING;
+
         {#ix-set:AttributeName = "<#Re-tries#>"}
         NumberOfAllowedRetries : UINT;
+
         {#ix-set:AttributeName = "<#Attempts#>"}
         RetryAttemptsCount : UINT;
+
         {#ix-set:AttributeName = "<#Code#>"}
         ErrorCode : STRING;
 
-        END_STRUCT;
-    END_TYPE
+        END_VAR
 
+    END_CLASS
 
 
 END_NAMESPACE

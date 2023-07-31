@@ -134,9 +134,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6B847420-D48
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ACDBA197-69BA-49E9-9624-DC7B912E4C3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxOpen.Inspectors.Blazor", "inspectors\src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj", "{6A796A98-F570-4F35-B46B-177B4C0178DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors.Blazor", "inspectors\src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj", "{6A796A98-F570-4F35-B46B-177B4C0178DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AxOpen.Inspectors", "inspectors\src\AxOpen.Inspectors\AxOpen.Inspectors.csproj", "{C1ED4D9E-2D46-4172-AB09-F9B4244C440E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors", "inspectors\src\AxOpen.Inspectors\AxOpen.Inspectors.csproj", "{C1ED4D9E-2D46-4172-AB09-F9B4244C440E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
