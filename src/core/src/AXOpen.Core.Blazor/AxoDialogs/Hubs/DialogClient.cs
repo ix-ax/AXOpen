@@ -17,13 +17,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
         private readonly string _hubUrl;
         public HubConnection _hubConnection;
         private bool _isConnected = false;
-        private bool _bypassSSLCertificate = false;
 
-        public DialogClient(string siteUrl, bool bypassSSLCertificate = false)
+        public DialogClient(string siteUrl)
         {
             // set the hub URL
             _hubUrl = siteUrl.TrimEnd('/') + HUBURL;
-            _bypassSSLCertificate = bypassSSLCertificate;
         }
 
         public async Task SendDialogOpen(string message)
@@ -39,7 +37,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
         {
             if (!_isConnected)
             {
-                if (_bypassSSLCertificate)
+                if (DeveloperSettings.BypassSSLCertificate)
                 {
                     _hubConnection = new HubConnectionBuilder()
                         .WithUrl(_hubUrl, options =>

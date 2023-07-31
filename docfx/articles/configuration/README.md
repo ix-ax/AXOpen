@@ -45,8 +45,8 @@ If you using Eset you need to: Eset > Setup > Network > click on settings next t
 
 ### Warning
 
-If you intend to use HTTPS with a self-signed SSL certificate, make sure to adjust the `BypassSSLCertificate` parameter in `AxoDialogLocator` to `true`, where the default value is `false`. Here's an example of how to do it:
+If you intend to use HTTPS with a self-signed SSL certificate, make sure to adjust the `DeveloperSettings.BypassSSLCertificate` attribute in `Program.cs` to `true`, before start your application. Here's an example of how to do it:
 
-~~~ HTML
-<AxoDialogLocator BypassSSLCertificate=true ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>
+~~~ C#
+DeveloperSettings.BypassSSLCertificate = false;
 ~~~
