@@ -29,7 +29,7 @@ NAMESPACE AXOpen.Data
             END_VAR        
         END_METHOD 
 
-        METHOD EntityExist : IAxoDataEntityExistTask
+        METHOD EntityExist : IAxoEntityExistTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR        
