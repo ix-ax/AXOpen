@@ -36,4 +36,7 @@ public class BuildParameters
 
     [Option('u', "do-apax-update", Required = false, Default = false, HelpText = "Publishes release on GH")]
     public bool DoApaxUpdate { get; set; }
+
+    [Option('d', "do-apax-install-re-download", Required = false, Default = false, HelpText = "Forces re-download of apax packages")]
+    public bool DoApaxInstallReDownload { get; set; }
 }
