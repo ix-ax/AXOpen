@@ -71,11 +71,11 @@ namespace AxOpen.Security.Views
             var result = _roleGroupManager.AddRolesToGroup(SelectedGroupN.Name, AvailableRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
             if (result.Succeeded)
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, "Updated!", "Group successfully updated!", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Updated!"], Localizer["Group successfully updated!"], 10);
             }
             else
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, "Not updated!", "Group was not updated.", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, Localizer["Not updated!"], Localizer["Group was not updated."], 10);
             }
             GroupClicked(SelectedGroupN);
             SelectAllAvailable = false;
@@ -86,11 +86,11 @@ namespace AxOpen.Security.Views
             var result = _roleGroupManager.RemoveRolesFromGroup(SelectedGroupN.Name, AssignedRoles.Where(x => x.IsSelected == true).Select(x => x.Role.Name));
             if (result.Succeeded)
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, "Updated!", "Group successfully updated!", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Updated!"], Localizer["Group successfully updated!"], 10);
             }
             else
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, "Not updated!", "Group was not updated.", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, Localizer["Not updated!"], Localizer["Group was not updated."], 10);
             }
             GroupClicked(SelectedGroupN);
             SelectAllAssigned = false;
@@ -113,17 +113,17 @@ namespace AxOpen.Security.Views
         {
             if(newGroupName == null || newGroupName == "")
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, "Name!", "Wrong group name", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, Localizer["Wrong name!"], Localizer["Wrong group name"], 10);
                 return;
             }
             var result = _roleGroupManager.CreateGroup(newGroupName);
             if (result.Succeeded)
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, "Created!", "Group successfully created!", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Created!"], Localizer["Group successfully created!"], 10);
             }
             else
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, "Not created!", "Group was not created.", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, Localizer["Not created!"], Localizer["Group was not created."], 10);
             }
             StateHasChanged();
         }
@@ -134,11 +134,11 @@ namespace AxOpen.Security.Views
             var result = _roleGroupManager.DeleteGroup(group.Name);
             if (result.Succeeded)
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "Group successfully deleted", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Success, Localizer["Deleted!"], Localizer["Group successfully deleted"], 10);
             }
             else
             {
-                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, "Not deleted!", "Group was not deleted.", 10);
+                _alertDialogService.AddAlertDialog(eAlertDialogType.Warning, Localizer["Not deleted!"], Localizer["Group was not deleted."], 10);
             }
             StateHasChanged();
         }

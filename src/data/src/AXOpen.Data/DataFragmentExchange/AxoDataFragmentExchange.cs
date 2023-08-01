@@ -292,7 +292,7 @@ public partial class AxoDataFragmentExchange
         return this.GetDataSetPropertyInfo<TA>()?.Select(p => p.GetValue(this) as TS);
     }
 
-    public void ExportData(string path, char separator = ';')
+    public void ExportData(string path, Dictionary<string, ExportData> customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, eFileType exportFileType = eFileType.csv, char separator = ';')
     {
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
@@ -306,7 +306,7 @@ public partial class AxoDataFragmentExchange
 
             foreach (var fragment in DataFragments)
             {
-                fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), separator);
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), customExportData, exportMode, firstNumber, secondNumber, exportFileType, separator);
             }
             ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
         }
@@ -314,7 +314,7 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.ExportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), separator);
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), customExportData, exportMode, firstNumber, secondNumber, exportFileType, separator);
             }
         }
     }
