@@ -11,17 +11,36 @@
     </div>
     <div class="container text-left">
         <div class="row">
-        <div class="col">
-            <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.ActivateManualControl" Presentation="Control" />
-        </div>
-        <div class="col">
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.ActivateManualControl" Presentation="Control" />
+            </div>
+            <div class="col">
                 <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman._isManuallyControllable" Presentation="Display" />
+            </div>
         </div>
+        
+        <div class="row">
+            <div class="col">
+                ActionDescription:
+                <p class="demo-text cw-320 mt-2">
+                    Text: <b>@TextValue</b>
+                </p>
+
+                @code {
+                    string TextValue = @Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman.Status.ActionDescription.ToString();
+                }
+                @Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman.Status.ActionDescription
+            </div>
+            <div class="col">
+                ErrorDescription:
+                @Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman.Status.ErrorDescription
+            </div>
         </div>
+
+
         <div class="col">
-                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman" Presentation="Command" />
+            <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman" Presentation="Command" />
         </div>
     </div>
-   
 </div>
 

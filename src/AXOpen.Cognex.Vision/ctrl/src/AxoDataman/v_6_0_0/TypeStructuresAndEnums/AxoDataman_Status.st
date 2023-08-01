@@ -1,15 +1,14 @@
+USING AXOpen.Core;
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
-    TYPE
-        {#ix-attr:[Container(Layout.Stack)]}
-        AxoDataman_Status : 
-        STRUCT
-            ActionDescription : STRING[100];	
-            ErrorId : UDINT;	
-            ErrorDescription : STRING[100];	
+    {#ix-attr:[Container(Layout.Stack)]}
+    CLASS AxoDataman_Status EXTENDS AXOpen.Components.Abstractions.AxoComponent_Status
+        VAR PUBLIC
+            ActionDescriptionPlc : STRING[100];	
+            ErrorDescriptionPlc : STRING[100];	
             SignalStatus : AxoDataman_SignalStates;
             ResultDataSize : eAxoDataman_ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             {#ix-attr:[RenderIgnore()]}
             UserDataSize : eAxoDataman_UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
-        END_STRUCT;
-    END_TYPE 
+        END_VAR
+    END_CLASS
 END_NAMESPACE

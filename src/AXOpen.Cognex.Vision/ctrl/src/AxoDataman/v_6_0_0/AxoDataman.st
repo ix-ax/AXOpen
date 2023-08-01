@@ -36,20 +36,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ReadOnly()]}
             Status      :   AxoDataman_Status;
 
-            // {#ix-attr:[Container(Layout.Wrap)]}
-            // {#ix-attr:[ComponentDetails("User data")]}
             {#ix-attr:[RenderIgnore()]}
             User        :   AxoDataman_User;
-
-            // {#ix-attr:[Container(Layout.Wrap)]}
-            // {#ix-attr:[ComponentDetails("Signal tests")]}
-            // _AcquisitionControl     :   AxoDataman_AcquisitionControl;
-            // {#ix-attr:[ComponentDetails("Signal tests")]}
-            // _AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
-            // {#ix-attr:[ComponentDetails("Signal tests")]}
-            // _ResultsControl         :   AxoDataman_ResultsControl;
-            // {#ix-attr:[ComponentDetails("Signal tests")]}
-            // _ResultsStatus          :   AxoDataman_ResultsStatus;
         END_VAR
 
         VAR PRIVATE
@@ -102,7 +90,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_FOR;
 
             IF NOT _ResultsStatus.ErrorDetected THEN
-                Status.ActionDescription := '<#Restore executed!#>';
+                Status.ActionId := UINT#10;
+                Status.ActionDescriptionPlc := '<#Restore executed!#>';
                 _restoreTask.DoneWhen(TRUE);
             END_IF;
         END_METHOD
@@ -157,12 +146,12 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 ELSE
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
                     Status.ErrorId := UDINT#20;
-                    Status.ErrorDescription := '<#Error: ResultData has invalid size#>.';
+                    Status.ErrorDescriptionPlc := '<#Error: ResultData has invalid size!#>';
                     UpdateInputs := FALSE;
                 END_IF;
             ELSE
                 Status.ErrorId := UDINT#21;
-                Status.ErrorDescription := '<#Error: ResultData-lower bound index is not zero.#>.';
+                Status.ErrorDescriptionPlc := '<#Error: ResultData-lower bound index is not zero!#>';
                 UpdateInputs := FALSE;
                 Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             END_IF;
@@ -217,12 +206,12 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_250B;
                 ELSE
                     Status.ErrorId := UDINT#22;
-                    Status.ErrorDescription := '<#Error: UserData has invalid size#>.';
+                    Status.ErrorDescriptionPlc := '<#Error: UserData has invalid size!#>';
                     UpdateOutputs := FALSE;
                 END_IF;
             ELSE
                 Status.ErrorId := UDINT#23;
-                Status.ErrorDescription := '<#Error: UserData-lower bound index is not zero.#>.';
+                Status.ErrorDescriptionPlc := '<#Error: UserData-lower bound index is not zero!#>';
                 UpdateOutputs := FALSE;
         END_IF;
 
@@ -249,25 +238,25 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             IsValidReferences := FALSE;
             IF AcquisitionControl = NULL THEN
                 Status.ErrorId := UDINT#11;
-                Status.ErrorDescription := '<#Error: AcquisitionControl has NULL reference#>.';
+                Status.ErrorDescriptionPlc := '<#Error: AcquisitionControl has NULL reference!#>';
             ELSIF AcquisitionStatus = NULL THEN
                 Status.ErrorId := UDINT#12;
-                Status.ErrorDescription := '<#Error: AcquisitionStatus has NULL reference#>.';
+                Status.ErrorDescriptionPlc := '<#Error: AcquisitionStatus has NULL reference!#>';
             ELSIF ResultsControl = NULL THEN
                 Status.ErrorId := UDINT#13;
-                Status.ErrorDescription := '<#Error: ResultsControl has NULL reference#>.';
+                Status.ErrorDescriptionPlc := '<#Error: ResultsControl has NULL reference!#>';
             ELSIF SoftEventControl  = NULL THEN
                 Status.ErrorId := UDINT#14;
-                Status.ErrorDescription := '<#Error: SoftEventControl  has NULL reference#>.';
+                Status.ErrorDescriptionPlc := '<#Error: SoftEventControl  has NULL reference!#>';
             ELSIF SoftEventStatus = NULL THEN
                 Status.ErrorId := UDINT#15;
-                Status.ErrorDescription := '<#Error: SoftEventStatus has NULL reference#>.';
+                Status.ErrorDescriptionPlc := '<#Error: SoftEventStatus has NULL reference!#>';
             ELSIF ResultData = NULL THEN
                 Status.ErrorId := UDINT#16;
-                Status.ErrorDescription := '<#Error: ResultData has NULL reference#>.';
+                Status.ErrorDescriptionPlc := '<#Error: ResultData has NULL reference!#>';
             ELSIF UserData = NULL THEN
                 Status.ErrorId := UDINT#17;
-                Status.ErrorDescription := '<#Error: UserData has NULL reference#>.';
+                Status.ErrorDescriptionPlc := '<#Error: UserData has NULL reference!#>';
             ELSE
                 IsValidReferences := TRUE;
             END_IF;
@@ -290,7 +279,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             IF parent = NULL THEN
                 Status.ErrorId := UDINT#10;
-                Status.ErrorDescription := '<#Error: Parent has NULL reference#>.';
+                Status.ErrorDescriptionPlc := '<#Error: Parent has NULL reference!#>';
                 RETURN;
             END_IF;
             IF NOT THIS.IsValidReferences(AcquisitionControl,AcquisitionStatus,ResultsControl,ResultsStatus,SoftEventControl,SoftEventStatus,ResultData,UserData) THEN
@@ -316,7 +305,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             IF parent = NULL THEN
                 Status.ErrorId := UDINT#10;
-                Status.ErrorDescription := '<#Error: Parent has NULL reference#>.';
+                Status.ErrorDescriptionPlc := '<#Error: Parent has NULL reference!#>';
                 RETURN;
             END_IF;
             IF NOT THIS.IsValidReferences(AcquisitionControl,AcquisitionStatus,ResultsControl,ResultsStatus,SoftEventControl,SoftEventStatus,ResultData,UserData) THEN

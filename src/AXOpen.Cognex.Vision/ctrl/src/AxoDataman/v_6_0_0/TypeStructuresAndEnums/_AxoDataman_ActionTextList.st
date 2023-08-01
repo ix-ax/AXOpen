@@ -1,0 +1,11 @@
+//  Status.ActionId     := UINT#10;     Status.ActionDescriptionPlc := '<#Restore executed.#>';
+//  Status^.ActionId    := UINT#11;     Status^.ActionDescriptionPlc := '<#Clearing of the result data running.#>'; 
+//  Status^.ActionId    := UINT#12;     Status^.ActionDescriptionPlc := '<#Clearing of the result data was aborted, while not yet completed!#>'; 
+//  Status^.ActionId    := UINT#13;     Status^.ActionDescriptionPlc := '<#Clearing of the result data was completed successfully.#>'; 
+//  Status^.ActionId    := UINT#14;     Status^.ActionDescriptionPlc := '<#Clearing of the result data finished with error!#>'; 
+//  Status^.ActionId    := UINT#15;     Status^.ActionDescriptionPlc := '<#Clearing of the result data started.#>'; 
+//  Status^.ActionId    := UINT#16;     Status^.ActionDescriptionPlc := '<#Reading running#>'; 
+//  Status^.ActionId    := UINT#17;     Status^.ActionDescriptionPlc := '<#Reading was aborted, while not yet completed!#>'; 
+//  Status^.ActionId    := UINT#18;     Status^.ActionDescriptionPlc := '<#Reading was completed successfully.#>'; 
+//  Status^.ActionId    := UINT#19;     Status^.ActionDescriptionPlc := '<#Reading finished with error!#>';
+//  Status^.ActionId    := UINT#20;     Status^.ActionDescriptionPlc := '<#Reading started.#>'; 

@@ -6,9 +6,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _progress : INT := 0;
             _infoTimer :  System.Timer.OnDelay;
             _errorTimer :  System.Timer.OnDelay;
-
-            // _varInfo : __SYSTEM.VAR_INFO;
-            // _sb : TcoCore.StringBuilder;
         END_VAR
 
         VAR PRIVATE 
@@ -33,37 +30,18 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 _index : INT;
             END_VAR          
 
+            _infoTime := Config^.InfoTime;
+            _errorTime := Config^.ErrorTime;
+            _Status := Status;
             IF THIS.Execute() THEN
                 IF _progress = 0 THEN
-
-                    // IF NOT __ISVALIDREF(inoIoData) THEN
-                    //     _varInfo :=__VARINFO(inoIoData);
-                    //     Messenger.Programming(_sb.Clear().Append('<#Invalid reference: #>').Append(_varInfo.Symbol).ToString()).Pin();
-                    // ELSIF NOT __ISVALIDREF(inoConfig) THEN                                                  
-                    //     _varInfo :=__VARINFO(inoConfig);                                                    
-                    //     Messenger.Programming(_sb.Clear().Append('<#Invalid reference: #>').Append(_varInfo.Symbol).ToString()).Pin();
-                    // ELSIF NOT __ISVALIDREF(inoStatus) THEN                                                  
-                    //     _varInfo :=__VARINFO(inoStatus);                                                    
-                    //     Messenger.Programming(_sb.Clear().Append('<#Invalid reference: #>').Append(_varInfo.Symbol).ToString()).Pin();
-                    // ELSIF NOT __ISVALIDREF(inoResults) THEN                                              
-                    //     _varInfo :=__VARINFO(inoResults);                                                
-                    //     Messenger.Programming(_sb.Clear().Append('<#Invalid reference: #>').Append(_varInfo.Symbol).ToString()).Pin();
-                    // ELSE
-                        _progress := _progress + 1;
-                        _infoTime := Config^.InfoTime;
-                        _errorTime := Config^.ErrorTime;
-                        _Status := Status;
-
-                        // END_IF;
-                END_IF;
-                
-                IF _progress = 1 THEN
-                    Status^.ActionDescription := '<#Clearing of the result data running.#>'; 
+                    Status^.ActionId := UINT#11;
+                    Status^.ActionDescriptionPlc := '<#Clearing of the result data running.#>'; 
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;
                 END_IF;
                 
-                IF _progress = 2 THEN
+                IF _progress = 1 THEN
                     AcquisitionControl^.TriggerEnable := FALSE;
                     AcquisitionControl^.Trigger := FALSE;
                     ResultsControl^.ResultsAcknowledge := TRUE;
@@ -77,15 +55,18 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     _progress := _progress + 1;
                 END_IF;
                 
-                IF _progress = 3 THEN
-                    // THIS^.Messenger.OnCondition(_infoTimer.Q).Warning('<#Waiting for the signal ResultsAvailable to be reseted!#>').Pin(); 
+                IF _progress = 2 THEN
+                    IF _infoTimer.output THEN
+                        Status^.ErrorId := UDINT#1001;
+                        Status^.ErrorDescriptionPlc := '<#Waiting for the signal ResultsAvailable to be reseted.#>';
+                    END_IF;
                     IF NOT ResultsStatus^.ResultsAvailable THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
                 
-                IF _progress = 4 THEN
+                IF _progress = 3 THEN
                     ResultsControl^.ResultsAcknowledge := FALSE;
                     THIS.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
@@ -116,25 +97,29 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PROTECTED OVERRIDE OnAbort 
             IF _Status <> NULL THEN
-                _Status^.ActionDescription := '<#Clearing of the result data was aborted, while not yet completed!#>'; 
+                _Status^.ActionId := UINT#12;
+                _Status^.ActionDescriptionPlc := '<#Clearing of the result data was aborted, while not yet completed.#>'; 
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnDone 
             IF _Status <> NULL THEN
-                _Status^.ActionDescription := '<#Clearing of the result data was completed successfully.#>'; 
+                _Status^.ActionId := UINT#13;
+                _Status^.ActionDescriptionPlc := '<#Clearing of the result data was completed successfully.#>'; 
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnError 
             IF _Status <> NULL THEN
-                _Status^.ActionDescription := '<#Clearing of the result data finished with error.#>'; 
+                _Status^.ActionId := UINT#14;
+                _Status^.ActionDescriptionPlc := '<#Clearing of the result data finished with error.#>'; 
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnStart 
             IF _Status <> NULL THEN
-                _Status^.ActionDescription := '<#Clearing of the result data started.#>'; 
+                _Status^.ActionId := UINT#15;
+                _Status^.ActionDescriptionPlc := '<#Clearing of the result data started.#>'; 
             END_IF;
         END_METHOD
         
