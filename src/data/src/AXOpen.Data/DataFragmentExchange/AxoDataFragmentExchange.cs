@@ -38,20 +38,16 @@ public partial class AxoDataFragmentExchange
     public void InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
-        EntityExistTask.InitializeExclusively(HandleEntityExist);
-        CreateOrUpdateTask.InitializeExclusively(HandleCreateOrUpdate);
         this.WriteAsync().Wait();
     }
 
     public void DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
-        EntityExistTask.DeInitialize();
-        CreateOrUpdateTask.DeInitialize();
         this.WriteAsync().Wait();
     }
 
-    private void Handle()
+    private async void Handle()
     {
         Operation.ReadAsync().Wait();
         var operation = (eCrudOperation)Operation.CrudOperation.LastValue;
@@ -71,27 +67,16 @@ public partial class AxoDataFragmentExchange
             case eCrudOperation.Delete:
                 this.RemoteDelete(identifier);
                 break;
+            case eCrudOperation.CreateOrUpdate:
+                this.RemoteCreateOrUpdate(identifier);
+                break;
+            case eCrudOperation.EntityExist:
+                var result = this.RemoteEntityExist(identifier);
+                await Operation._exist.SetAsync(result);
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
-    }
-
-    private async void HandleEntityExist()
-    {
-        EntityExistTask.ReadAsync().Wait();
-        var identifier = EntityExistTask.DataEntityIdentifier.LastValue;
-
-        var result = this.RemoteEntityExist(identifier);
-
-        await EntityExistTask._exist.SetAsync(result);
-    }
-
-    private void HandleCreateOrUpdate()
-    {
-        CreateOrUpdateTask.ReadAsync().Wait();
-        var identifier = CreateOrUpdateTask.DataEntityIdentifier.LastValue;
-
-        this.RemoteCreateOrUpdate(identifier);
     }
 
     public IRepository? Repository { get; private set; }
