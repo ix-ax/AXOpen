@@ -53,4 +53,5 @@
   href: ~/articles/themes/README.md
 - name: Template localization
   href: ~/articles/localization/README.md
-
+- name: Server configuration
+  href: ~/articles/configuration/README.md

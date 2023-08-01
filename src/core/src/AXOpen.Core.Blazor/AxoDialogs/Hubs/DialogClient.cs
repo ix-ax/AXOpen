@@ -37,10 +37,34 @@ namespace AXOpen.Core.Blazor.AxoDialogs.Hubs
         {
             if (!_isConnected)
             {
-                _hubConnection = new HubConnectionBuilder()
-                    .WithUrl(_hubUrl)
-                    .Build();
-                
+                if (DeveloperSettings.BypassSSLCertificate)
+                {
+                    _hubConnection = new HubConnectionBuilder()
+                        .WithUrl(_hubUrl, options =>
+                        {
+                            options.UseDefaultCredentials = true;
+                            options.HttpMessageHandlerFactory = (msg) =>
+                            {
+                                if (msg is HttpClientHandler clientHandler)
+                                {
+                                    // bypass SSL certificate
+                                    clientHandler.ServerCertificateCustomValidationCallback +=
+                                        (sender, certificate, chain, sslPolicyErrors) => { return true; };
+                                }
+
+                                return msg;
+                            };
+
+                        })
+                        .Build();
+                }
+                else
+                {
+                    _hubConnection = new HubConnectionBuilder()
+                        .WithUrl(_hubUrl)
+                        .Build();
+                }
+
                 _hubConnection.On<string>(DialogMessages.RECEIVE_DIALOG_OPEN, (message) =>
                 {
                     HandleReceiveMessage(message);
