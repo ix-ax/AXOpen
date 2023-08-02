@@ -15,8 +15,10 @@ NAMESPACE AXOpen.Inspectors
         END_VAR
 
         VAR INTERNAL
-            _passTimer : AXOpen.Timers.OnDelayContext;
-            _failTimer : AXOpen.Timers.OnDelayContext;
+            // _passTimer : AXOpen.Timers.OnDelayContext;
+            // _failTimer : AXOpen.Timers.OnDelayContext;
+            _passTimer : OnDelay;
+            _failTimer : OnDelay;
         END_VAR
 
         
@@ -97,8 +99,8 @@ NAMESPACE AXOpen.Inspectors
             
             _inspectionData^.Result := eInspectorResult#NoAction;
 
-            _passTimer.Delay(this, FALSE, LT#0MS);
-            _failTimer.Delay(this, FALSE, LT#0MS);
+            _passTimer(FALSE, LT#0MS);
+            _failTimer(FALSE, LT#0MS);
         END_METHOD
 
        

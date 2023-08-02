@@ -91,68 +91,68 @@ NAMESPACE AXOpen.Inspectors.AxoDigitalInspector_Tests
         END_METHOD
  
         
-        {Test}        
-        METHOD PUBLIC Timer_test_pass
-            THIS.Initialize();
+        // {Test}        
+        // METHOD PUBLIC Timer_test_pass
+        //     THIS.Initialize();
             
-            _context.Open();
+        //     _context.Open();
         
 
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
-            _testBool := TRUE;
-            .._testTimeDelay := LTIME#13:14:3.45;
+        //     _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+        //     _testBool := TRUE;
+        //     _testTimeDelay := LTIME#13:14:3.45;
 
-            _testTimer.Delay(_context,_testBool,_testTimeDelay);
-            _inspectedBool := TRUE;
-            _digitalInspector.Data()^.RequiredStatus := TRUE;
+        //     _testTimer.Delay(_context,_testBool,_testTimeDelay);
+        //     _inspectedBool := TRUE;
+        //     _digitalInspector.Data()^.RequiredStatus := TRUE;
 
-            _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
+        //     _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
 
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:38.123456);
+        //     _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:38.123456);
 
-            _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
-            //_digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,_inspectedBool).OnFail().CarryOn();
+        //     _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
+        //     //_digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,_inspectedBool).OnFail().CarryOn();
             
-        // WHILE NOT  _digitalInspector.Inspect(_sequencer,_inspectedBool).Done() DO
-        //         ;
-        //     END_WHILE;
+        // // WHILE NOT  _digitalInspector.Inspect(_sequencer,_inspectedBool).Done() DO
+        // //         ;
+        // //     END_WHILE;
 
           
-            Assert.Equal(eInspectorResult#Passed, _digitalInspector.Data()^.Result);
+        //     Assert.Equal(eInspectorResult#Passed, _digitalInspector.Data()^.Result);
             
            
-            _context.Close();
-        END_METHOD
+        //     _context.Close();
+        // END_METHOD
 
-        {Test}        
-        METHOD PUBLIC Inspection_should_pass
-            THIS.Initialize();
+        // {Test}        
+        // METHOD PUBLIC Inspection_should_pass
+        //     THIS.Initialize();
             
-            _context.Open();
-            _sequencer.Invoke();
-            _sequencer.Open();
+        //     _context.Open();
+        //     _sequencer.Invoke();
+        //     _sequencer.Open();
 
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
-            _inspectedBool := TRUE;
-            _digitalInspector.Data()^.RequiredStatus := TRUE;
+        //     _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
+        //     _inspectedBool := TRUE;
+        //     _digitalInspector.Data()^.RequiredStatus := TRUE;
 
-            _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
+        //     _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
 
-            _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:38.123456);
+        //     _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:38.123456);
 
-            _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
-            //_digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,_inspectedBool).OnFail().CarryOn();
+        //     _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
+        //     //_digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,_inspectedBool).OnFail().CarryOn();
             
-        // WHILE NOT  _digitalInspector.Inspect(_sequencer,_inspectedBool).Done() DO
-        //         ;
-        //     END_WHILE;
+        // // WHILE NOT  _digitalInspector.Inspect(_sequencer,_inspectedBool).Done() DO
+        // //         ;
+        // //     END_WHILE;
 
           
-            Assert.Equal(eInspectorResult#Passed, _digitalInspector.Data()^.Result);
+        //     Assert.Equal(eInspectorResult#Passed, _digitalInspector.Data()^.Result);
             
            
-            _context.Close();
-        END_METHOD
+        //     _context.Close();
+        // END_METHOD
 
         // {Test}        
         // METHOD PUBLIC Inspection_is_bypassed

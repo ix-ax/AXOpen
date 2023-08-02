@@ -70,9 +70,10 @@ NAMESPACE AXOpen.Inspectors
              IF(NOT tmpResult) THEN
                 _lastOutValue := Status;
              END_IF;
-                
+             _inspectorTask._failTimer(TRUE, _data.FailTime);
+             _inspectorTask._passTimer(tmpResult, _data.PassTime);
    
-             IF(_inspectorTask._passTimer.Delay(THIS, tmpResult, _data.PassTime ) OR _inspectorTask._failTimer.Delay(THIS, TRUE, _data.FailTime)) THEN
+             IF(_inspectorTask._passTimer.output OR _inspectorTask._failTimer.output) THEN
                  _inspectorTask.DoneWhen(TRUE);
                 THIS.OnDone();
              END_IF;	
