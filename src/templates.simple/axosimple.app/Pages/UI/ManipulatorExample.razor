@@ -10,19 +10,39 @@
 @inject IAlertDialogService _alerts
 
 
-<h1>Presence inspector & Value inspector</h1>
-
-<div class="row">
-
-    <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._presenceInspector" Presentation="Control" Class="col"></RenderableContentControl>
 
 
-    <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._valueInspector" Presentation="Control" Class="col"></RenderableContentControl>
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+           Digital inspector & Analogue inspector & Data Inspector
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+                <h3>Digital inspector & Analogue inspector & Data Inspector</h3>
+            <div class="row">
+
+                <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._presenceInspector" Presentation="Control" Class="col"></RenderableContentControl>
+
+
+                <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._valueInspector" Presentation="Control" Class="col"></RenderableContentControl>
+
+
+                <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._dataInspector" Presentation="Control" Class="col"></RenderableContentControl>
+            </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 
 <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._inspectionResult" Presentation="Control"></RenderableContentControl>
 <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._inspectionValue" Presentation="Control"></RenderableContentControl>
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._inspectionData" Presentation="Control"></RenderableContentControl>
 
 <UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="250"></UnitsSequences>
 <UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
@@ -41,7 +61,7 @@
 <h1>template generated</h1>
 <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._presenceInspector" Presentation="Command"></RenderableContentControl>
 <RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._valueInspector" Presentation="Command"></RenderableContentControl>
-
+<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._dataInspector" Presentation="Command"></RenderableContentControl>
 
 
 <AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>

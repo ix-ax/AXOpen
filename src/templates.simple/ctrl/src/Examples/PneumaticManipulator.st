@@ -150,10 +150,12 @@ NAMESPACE examples.PneumaticManipulator
             _alertDialog : AXOpen.Core.AxoAlertDialog;
             _presenceInspector: AXOpen.Inspectors.AxoDigitalInspector;
             _valueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
+            _dataInspector: AXOpen.Inspectors.AxoDataInspector;
             _data: AXOpen.Inspectors.AxoDigitalInspectorData;
             _comprehensiveResult: AXOpen.Inspectors.AxoComprehensiveResult;
             _inspectionResult:BOOL;
-            _inspectionValue:LReAL;
+            _inspectionValue:LREAL;
+            _inspectionData: STRING;
             _externalClose : BOOL;
         END_VAR
         VAR PRIVATE
@@ -266,6 +268,17 @@ NAMESPACE examples.PneumaticManipulator
                 
 
                 _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+
+             ;
+
+            //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[19].Execute(THIS, TRUE, 'Example Data inspection')) THEN
+                //-------------------------------------------------------
+                
+
+                _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 
              ;
 

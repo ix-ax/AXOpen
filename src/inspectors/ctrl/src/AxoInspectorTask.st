@@ -1,16 +1,22 @@
 USING AXOpen.Core;
+USING AXOpen.Inspectors;
+USING AXOpen.Core;
 USING System.Timer;
+
+
 
 NAMESPACE AXOpen.Inspectors
 
     CLASS AxoInspectorTask EXTENDS AxoTask
         VAR
-            
-            _passTimer : OnDelay;
-            _failTimer : OnDelay;
             _onDoneFlag: BOOL;
             _inspectionData: REF_TO AxoInspectorData;
 
+        END_VAR
+
+        VAR INTERNAL
+            _passTimer : AXOpen.Timers.OnDelayContext;
+            _failTimer : AXOpen.Timers.OnDelayContext;
         END_VAR
 
         
@@ -28,33 +34,35 @@ NAMESPACE AXOpen.Inspectors
         END_METHOD
 
 
-        //setter
-        METHOD INTERNAL SetPassTimer
-            VAR_INPUT
-                _signal: BOOL;
-                _duration: LTIME;
-            END_VAR
-            _passTimer(signal := _signal, duration := _duration);
-        END_METHOD
+        // //setter
+        // METHOD INTERNAL SetPassTimer : BOOL
+        //     VAR_INPUT
+        //         _signal: BOOL;
+        //         _duration: LTIME;
+        //     END_VAR
+        //     SetPassTimer := _passTimer.Delay(THIS,_signal, _duration);
+        //     // _passTimer(signal := _signal, duration := _duration);
+        // END_METHOD
 
-        METHOD INTERNAL SetFailTimer
-            VAR_INPUT
-                _signal: BOOL;
-                _duration: LTIME;
-            END_VAR
-            _failTimer(signal := _signal, duration := _duration);
-        END_METHOD
+        // METHOD INTERNAL SetFailTimer : BOOL
+        //     VAR_INPUT
+        //         _signal: BOOL;
+        //         _duration: LTIME;
+        //     END_VAR
+        //     SetFailTimer := _failTimer.Delay(THIS,_signal, _duration);
+        //     // _failTimer(signal := _signal, duration := _duration);
+        // END_METHOD
 
 
-        METHOD INTERNAL GetPassTimerOutput : BOOL
+        // METHOD INTERNAL GetPassTimerOutput : BOOL
 
-            GetPassTimerOutput := _passTimer.output;
-        END_METHOD
+        //     GetPassTimerOutput := _passTimer.output;
+        // END_METHOD
 
-        METHOD INTERNAL GetFailTimerOutput : BOOL
+        // METHOD INTERNAL GetFailTimerOutput : BOOL
 
-            GetFailTimerOutput := _failtimer.output;
-        END_METHOD
+        //     GetFailTimerOutput := _failtimer.output;
+        // END_METHOD
 
         
 
@@ -89,8 +97,8 @@ NAMESPACE AXOpen.Inspectors
             
             _inspectionData^.Result := eInspectorResult#NoAction;
 
-            _passTimer(signal := FALSE, duration := T#0MS);
-            _failTimer(signal := FALSE, duration := T#0MS);
+            _passTimer.Delay(this, FALSE, LT#0MS);
+            _failTimer.Delay(this, FALSE, LT#0MS);
         END_METHOD
 
        

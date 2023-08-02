@@ -63,9 +63,11 @@ NAMESPACE AXOpen.Inspectors
 
             _data.DetectedStatus := Status;
             
+            // if star notation is enabled, comparison by chars is needed
             IF(_data.StarNotationEnabled) THEN
                 tmpResult := TRUE;
-                FOR charIndex := DINT#0 TO LengthOf(_data.RequiredStatus) DO
+                // iterate throug the string
+                FOR charIndex := DINT#1 TO LengthOf(_data.RequiredStatus) DO
 
                     //get char from required string
                     charRequired := _data.RequiredStatus[charIndex];
@@ -74,18 +76,17 @@ NAMESPACE AXOpen.Inspectors
                     //get char from detected string, only if is within a range
                     IF(LengthOf(_data.DetectedStatus) >= charIndex) THEN
                         charAcquired :=  _data.DetectedStatus[charIndex];
-                    ELSE
-                        charAcquired := ' ';
                     END_IF;	
                     
-
+                    //if it's not wild card, compare chars
                     IF(charRequired <> '*' AND charRequired <> '#') THEN
                         tmpResult := charRequired = charAcquired;
                     ELSIF(charRequired = '#') THEN
-                        ;//;tmpResult := IsNumber(charAcquired);            	
+                        // if is # wildcard, check for number
+                        tmpResult := THIS.IsCharNumber(charAcquired);            	
                     END_IF;
 
-                    
+                    // if tmpResult is false, we know that string are not the same, therefore exit
                     IF(NOT tmpResult) THEN
                         EXIT;
                     END_IF;			
@@ -99,14 +100,11 @@ NAMESPACE AXOpen.Inspectors
                 _lastOutValue := Status;
              END_IF;
                 
-             _inspectorTask.SetFailTimer(TRUE,_data.FailTime);
-             _inspectorTask.SetPassTimer(tmpResult, _data.PassTime);
-   
 
-             IF(_inspectorTask.GetFailTimerOutput() OR _inspectorTask.GetPassTimerOutput()) THEN	  
-                 _inspectorTask.DoneWhen(TRUE);
-                THIS.OnDone();
-             END_IF;	
+             IF(_inspectorTask._passTimer.Delay(THIS, tmpResult, _data.PassTime ) OR _inspectorTask._failTimer.Delay(THIS, TRUE, _data.FailTime)) THEN
+                _inspectorTask.DoneWhen(TRUE);
+               THIS.OnDone();
+            END_IF;	
         END_IF;
     END_METHOD
 
@@ -131,6 +129,33 @@ NAMESPACE AXOpen.Inspectors
         IF (_data.Result = eInspectorResult#Failed) THEN
             _data.DetectedStatus := _lastOutValue;
        END_IF;
+    END_METHOD
+
+
+    ///<summary>
+    /// Check, if character is a number
+    ///</summary>
+    METHOD IsCharNumber : BOOL
+
+        VAR_INPUT
+            inCharacter: CHAR;
+        END_VAR
+        IF (inCharacter = '0'
+            OR  inCharacter = '1'
+            OR  inCharacter = '2'
+            OR  inCharacter = '3'
+            OR  inCharacter = '4'
+            OR  inCharacter = '5'
+            OR  inCharacter = '6'
+            OR  inCharacter = '7'
+            OR  inCharacter = '8'
+            OR  inCharacter = '9') 
+            THEN
+                IsCharNumber := TRUE;
+                RETURN;
+            END_IF;
+            
+                IsCharNumber := FALSE;
     END_METHOD
 
 

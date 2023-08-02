@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -19,10 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AxOpen.Inspectors\AxOpen.Inspectors.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="AxoDataInspector\" />
   </ItemGroup>
 
 </Project>

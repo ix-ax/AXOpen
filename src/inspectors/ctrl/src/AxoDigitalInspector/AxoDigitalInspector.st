@@ -21,11 +21,12 @@ CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
         //return this instance
         Inspect := THIS;
 
-
+       
         // set task inspection data, pass a reference (an address)
         // REF(_data) will get a reference of _data variable (like & in C)
         _inspectorTask.SetInspectionData(REF(_data));
 
+        
         //here i should check, if data are overinspected
         IF(THIS.CheckOverInspection()) THEN
             RETURN;
@@ -33,27 +34,34 @@ CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
 
         //invoke inspection task
         _inspectorTask.Invoke();
-
+  
         //execute inspection task
         IF (_inspectorTask.Execute()) THEN
 
             // if data are bypassed, skip inspection
             IF (_data.IsByPassed) THEN
+           
                 _data.Result    := eInspectorResult#Bypassed;
+              
                 _data.TimeStamp := THIS.GetContext().GetRtc().NowUTC();
+               
                 _inspectorTask.DoneWhen(TRUE);
                 RETURN;
             END_IF;
         
             _data.Result := eInspectorResult#Running;
             //set timers
-            _inspectorTask.SetFailTimer(TRUE,_data.FailTime);
-            //set pass timer to start, when status is equal to required(expected value)
-            _inspectorTask.SetPassTimer(Status = _data.RequiredStatus, _data.PassTime);
-            _data.DetectedStatus := Status;    
-          
+
+            // _inspectorTask.
+            // _inspectorTask.SetFailTimer(TRUE,_data.FailTime);
+            // //set pass timer to start, when status is equal to required(expected value)
+            // _inspectorTask.SetPassTimer(Status = _data.RequiredStatus, _data.PassTime);
+            _data.DetectedStatus := Status; 
+                           
+            // _inspectorTask.DoneWhen(TRUE);
+            //     THIS.OnDone();
             // if any timer is satisfied, end inspection
-            IF(_inspectorTask.GetPassTimerOutput() OR _inspectorTask.GetFailTimerOutput()) THEN	  
+            IF(_inspectorTask._passTimer.Delay(THIS, Status, _data.PassTime ) OR _inspectorTask._failTimer.Delay(THIS, TRUE, _data.FailTime)) THEN	  
                 _inspectorTask.DoneWhen(TRUE);
                 THIS.OnDone();
             END_IF;	

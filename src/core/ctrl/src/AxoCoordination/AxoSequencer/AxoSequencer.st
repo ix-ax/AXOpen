@@ -156,18 +156,16 @@ NAMESPACE AXOpen.Core
             END_IF;
         END_METHOD
 
-
-
-        ///<summary>
-        /// Terminates the current step
-        ///</summary>
+      
+        
         METHOD PUBLIC Terminate 
-          THIS.AbortCurrentStep();
+   
+          _step.SetStepOrder(THIS,RESTORE_STEP_ID);
+          THIS.RequestStep(_step);
+          
+
         END_METHOD
 
-        ///<summary>
-        /// Jump to requested step
-        ///</summary>
         METHOD PUBLIC Retry 
             VAR_INPUT
                 inAxoStep : IAxoStep;
@@ -175,7 +173,8 @@ NAMESPACE AXOpen.Core
  
             THIS.RequestStep(inAxoStep);
             
-        END_METHOD
+  
+          END_METHOD
   
         ///<summary>
         /// Terminates the currently executed step and initiates the RequestedStep to be executed
