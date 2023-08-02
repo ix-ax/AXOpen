@@ -88,7 +88,8 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">object</span></div>
-    <div class="level1"><span class="xref">CSVDataExporter&lt;TPlain, TOnline&gt;</span></div>
+    <div class="level1"><a class="xref" href="AXOpen.Data.BaseDataExporter-2.html">BaseDataExporter</a>&lt;TPlain, TOnline&gt;</div>
+    <div class="level2"><span class="xref">CSVDataExporter&lt;TPlain, TOnline&gt;</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -96,6 +97,12 @@
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AXOpen.Data.BaseDataExporter-2.html#AXOpen_Data_BaseDataExporter_2_BaseExport_AXOpen_Base_Data_IRepository__0__System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Collections_Generic_Dictionary_System_String_System_Boolean__AXOpen_Data_eExportMode_System_Int32_System_Int32_System_Char_">BaseDataExporter&lt;TPlain, TOnline&gt;.BaseExport(IRepository&lt;TPlain&gt;, Expression&lt;Func&lt;TPlain, bool&gt;&gt;, Dictionary&lt;string, bool&gt;, eExportMode, int, int, char)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Data.BaseDataExporter-2.html#AXOpen_Data_BaseDataExporter_2_BaseImport_AXOpen_Base_Data_IRepository__0__System_Collections_Generic_List_System_String__AXSharp_Connector_ITwinObject_System_Char_">BaseDataExporter&lt;TPlain, TOnline&gt;.BaseImport(IRepository&lt;TPlain&gt;, List&lt;string&gt;, ITwinObject, char)</a>
+    </div>
     <div>
       <span class="xref">object.Equals(object)</span>
     </div>
@@ -122,7 +129,7 @@
   <h6><strong>Assembly</strong>: ix_ax_axopen_data.dll</h6>
   <h5 id="AXOpen_Data_CSVDataExporter_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class CSVDataExporter&lt;TPlain, TOnline&gt; : IDataExporter&lt;TPlain, TOnline&gt; where TPlain : IAxoDataEntity, new() where TOnline : IAxoDataEntity</code></pre>
+    <pre><code class="lang-csharp hljs">public class CSVDataExporter&lt;TPlain, TOnline&gt; : BaseDataExporter&lt;TPlain, TOnline&gt;, IDataExporter&lt;TPlain, TOnline&gt; where TPlain : IAxoDataEntity, new() where TOnline : IAxoDataEntity</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -164,18 +171,18 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_CSVDataExporter_2_Export_AXOpen_Base_Data_IRepository__0__System_String_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Char_.md&amp;value=---%0Auid%3A%20AXOpen.Data.CSVDataExporter%602.Export(AXOpen.Base.Data.IRepository%7B%600%7D%2CSystem.String%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Boolean%7D%7D%2CSystem.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_CSVDataExporter_2_Export_AXOpen_Base_Data_IRepository__0__System_String_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Collections_Generic_Dictionary_System_String_System_Boolean__AXOpen_Data_eExportMode_System_Int32_System_Int32_System_Char_.md&amp;value=---%0Auid%3A%20AXOpen.Data.CSVDataExporter%602.Export(AXOpen.Base.Data.IRepository%7B%600%7D%2CSystem.String%2CSystem.Linq.Expressions.Expression%7BSystem.Func%7B%600%2CSystem.Boolean%7D%7D%2CSystem.Collections.Generic.Dictionary%7BSystem.String%2CSystem.Boolean%7D%2CAXOpen.Data.eExportMode%2CSystem.Int32%2CSystem.Int32%2CSystem.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/ExportImport/CSVDataExporter.cs/#L23">View Source</a>
   </span>
   <a id="AXOpen_Data_CSVDataExporter_2_Export_" data-uid="AXOpen.Data.CSVDataExporter`2.Export*"></a>
-  <h4 id="AXOpen_Data_CSVDataExporter_2_Export_AXOpen_Base_Data_IRepository__0__System_String_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Char_" data-uid="AXOpen.Data.CSVDataExporter`2.Export(AXOpen.Base.Data.IRepository{`0},System.String,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Char)">Export(IRepository&lt;TPlain&gt;, string, Expression&lt;Func&lt;TPlain, bool&gt;&gt;, char)</h4>
+  <h4 id="AXOpen_Data_CSVDataExporter_2_Export_AXOpen_Base_Data_IRepository__0__System_String_System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Collections_Generic_Dictionary_System_String_System_Boolean__AXOpen_Data_eExportMode_System_Int32_System_Int32_System_Char_" data-uid="AXOpen.Data.CSVDataExporter`2.Export(AXOpen.Base.Data.IRepository{`0},System.String,System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Collections.Generic.Dictionary{System.String,System.Boolean},AXOpen.Data.eExportMode,System.Int32,System.Int32,System.Char)">Export(IRepository&lt;TPlain&gt;, string, Expression&lt;Func&lt;TPlain, bool&gt;&gt;, Dictionary&lt;string, bool&gt;, eExportMode, int, int, char)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Export(IRepository&lt;TPlain&gt; repository, string path, Expression&lt;Func&lt;TPlain, bool&gt;&gt; expression, char separator = &#39;;&#39;)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Export(IRepository&lt;TPlain&gt; repository, string path, Expression&lt;Func&lt;TPlain, bool&gt;&gt; expression, Dictionary&lt;string, bool&gt; customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = &#39;;&#39;)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -203,8 +210,58 @@
         <td></td>
       </tr>
       <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary&lt;TKey, TValue&gt;</span>&lt;<span class="xref">string</span>, <span class="xref">bool</span>&gt;</td>
+        <td><span class="parametername">customExportData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXOpen.Data.eExportMode.html">eExportMode</a></td>
+        <td><span class="parametername">exportMode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">firstNumber</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">secondNumber</span></td>
+        <td></td>
+      </tr>
+      <tr>
         <td><span class="xref">char</span></td>
         <td><span class="parametername">separator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_CSVDataExporter_2_GetName.md&amp;value=---%0Auid%3A%20AXOpen.Data.CSVDataExporter%602.GetName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/ExportImport/CSVDataExporter.cs/#L47">View Source</a>
+  </span>
+  <a id="AXOpen_Data_CSVDataExporter_2_GetName_" data-uid="AXOpen.Data.CSVDataExporter`2.GetName*"></a>
+  <h4 id="AXOpen_Data_CSVDataExporter_2_GetName" data-uid="AXOpen.Data.CSVDataExporter`2.GetName">GetName()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string GetName()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">string</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -214,7 +271,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_CSVDataExporter_2_Import_AXOpen_Base_Data_IRepository__0__System_String_AXSharp_Connector_ITwinObject_System_Char_.md&amp;value=---%0Auid%3A%20AXOpen.Data.CSVDataExporter%602.Import(AXOpen.Base.Data.IRepository%7B%600%7D%2CSystem.String%2CAXSharp.Connector.ITwinObject%2CSystem.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/ExportImport/CSVDataExporter.cs/#L81">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/ExportImport/CSVDataExporter.cs/#L36">View Source</a>
   </span>
   <a id="AXOpen_Data_CSVDataExporter_2_Import_" data-uid="AXOpen.Data.CSVDataExporter`2.Import*"></a>
   <h4 id="AXOpen_Data_CSVDataExporter_2_Import_AXOpen_Base_Data_IRepository__0__System_String_AXSharp_Connector_ITwinObject_System_Char_" data-uid="AXOpen.Data.CSVDataExporter`2.Import(AXOpen.Base.Data.IRepository{`0},System.String,AXSharp.Connector.ITwinObject,System.Char)">Import(IRepository&lt;TPlain&gt;, string, ITwinObject, char)</h4>

@@ -10,8 +10,6 @@ NAMESPACE AXOpen.Data
     CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoDataExchangeBase IMPLEMENTS IAxoDataExchange               
         VAR PUBLIC           
             Operation : AxoDataCrudTask;
-            EntityExistTask : AxoDataEntityExistTask;
-            CreateOrUpdateTask : AxoDataExchangeTask;
         END_VAR   
               
         ///<summary>
@@ -62,12 +60,12 @@ NAMESPACE AXOpen.Data
         /// Check if data entry exists in each associated remote repository with given ID.
         /// </summary> 
         /// <param name="identifier">Data identifier.</param> 
-        METHOD PUBLIC EntityExist : IAxoDataEntityExistTask
+        METHOD PUBLIC EntityExist : IAxoEntityExistTaskState
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR
-            EntityExistTask.Invoke(Identifier);
-            EntityExist := EntityExistTask;
+            Operation.Invoke(Identifier, eCrudOperation#EntityExist);
+            EntityExist := Operation;
         END_METHOD 
 
         ///<summary>
@@ -78,13 +76,11 @@ NAMESPACE AXOpen.Data
             VAR_INPUT
                 Identifier : STRING[254];
             END_VAR
-            CreateOrUpdate := CreateOrUpdateTask.Invoke(Identifier);        
+            CreateOrUpdate := Operation.Invoke(Identifier, eCrudOperation#CreateOrUpdate);         
         END_METHOD 
     
         METHOD PUBLIC Restore  
             Operation.Restore(); 
-            EntityExistTask.Restore();
-            CreateOrUpdateTask.Restore();     
         END_METHOD 
         
         ///<summary>
@@ -98,12 +94,6 @@ NAMESPACE AXOpen.Data
             THIS.Initialize(context);
             Operation.Initialize(THIS);
             Operation.Execute();
-
-            EntityExistTask.Initialize(THIS);
-            EntityExistTask.Execute();
-
-            CreateOrUpdateTask.Initialize(THIS);
-            CreateOrUpdateTask.Execute();
         END_METHOD
 
         ///<summary>
@@ -117,12 +107,6 @@ NAMESPACE AXOpen.Data
             THIS.Initialize(parent);
             Operation.Initialize(THIS);
             Operation.Execute();
-
-            EntityExistTask.Initialize(THIS);
-            EntityExistTask.Execute();
-
-            CreateOrUpdateTask.Initialize(THIS);
-            CreateOrUpdateTask.Execute();
         END_METHOD
 
     END_CLASS 

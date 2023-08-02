@@ -151,6 +151,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_cognex_vision_tests", "AXOpen.Cognex.Vision\tests\AXOpen.Cognex.Vision.Tests\axopen_cognex_vision_tests.csproj", "{58C24B69-00DC-40A7-9CC5-2AD5EE278E4B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_components_abstractions_blazor", "components.abstractions\src\AXOpen.Components.Abstractions.Blazor\axopen_components_abstractions_blazor.csproj", "{F99B9470-120F-4D27-8FD7-D1AF5C306A23}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{2B02D701-3632-4D58-9B5B-E43D9E556ACB}"
+	ProjectSection(SolutionItems) = preProject
+		templates.simple\.config\dotnet-tools.json = templates.simple\.config\dotnet-tools.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -375,6 +379,7 @@ Global
 		{96C2A3EE-76A1-4218-A04C-31AC69BCD398} = {9AA531A7-5755-4367-96AC-7B2E2710A88D}
 		{58C24B69-00DC-40A7-9CC5-2AD5EE278E4B} = {6AFC7347-C33A-451E-85C9-53CE6988FB3C}
 		{F99B9470-120F-4D27-8FD7-D1AF5C306A23} = {5107F409-9BF4-4066-A73D-DABBCBEA096C}
+		{2B02D701-3632-4D58-9B5B-E43D9E556ACB} = {0F11518E-CCE1-4B0E-A56D-66D8968EC717}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

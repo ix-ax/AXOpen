@@ -93,7 +93,6 @@
     <div class="level3"><a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a></div>
     <div class="level4"><span class="xref">AxoDataExchangeTask</span></div>
       <div class="level5"><a class="xref" href="AXOpen.Data.AxoDataCrudTask.html">AxoDataCrudTask</a></div>
-      <div class="level5"><a class="xref" href="AXOpen.Data.AxoDataEntityExistTask.html">AxoDataEntityExistTask</a></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -103,9 +102,13 @@
     <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
+    <div><a class="xref" href="AXOpen.Data.IAxoEntityExistTaskState.html">IAxoEntityExistTaskState</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_DeferredAction">AxoRemoteTask.DeferredAction</a>
+    </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_PropertyChanged">AxoRemoteTask.PropertyChanged</a>
     </div>
@@ -116,6 +119,9 @@
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_Initialize_System_Func_System_Boolean__">AxoRemoteTask.Initialize(Func&lt;bool&gt;)</a>
     </div>
     <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask__defferedActionCount">AxoRemoteTask._defferedActionCount</a>
+    </div>
+    <div>
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_InitializeExclusively_System_Action_">AxoRemoteTask.InitializeExclusively(Action)</a>
     </div>
     <div>
@@ -123,6 +129,9 @@
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_DeInitialize">AxoRemoteTask.DeInitialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_ExecuteAsync_AXSharp_Connector_ITwinPrimitive_AXSharp_Connector_ValueTypes_ValueChangedEventArgs_">AxoRemoteTask.ExecuteAsync(ITwinPrimitive, ValueChangedEventArgs)</a>
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_RemoteExecutionException">AxoRemoteTask.RemoteExecutionException</a>
@@ -306,7 +315,7 @@
   <h6><strong>Assembly</strong>: ix_ax_axopen_data.dll</h6>
   <h5 id="AXOpen_Data_AxoDataExchangeTask_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoDataExchangeTask : AxoRemoteTask, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoTask, IAxoTaskState</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoDataExchangeTask : AxoRemoteTask, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoTask, IAxoTaskState, IAxoEntityExistTaskState</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -315,7 +324,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.%23ctor(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L16">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L18">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask__ctor_" data-uid="AXOpen.Data.AxoDataExchangeTask.#ctor*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Data.AxoDataExchangeTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">AxoDataExchangeTask(ITwinObject, string, string)</h4>
@@ -356,6 +365,36 @@
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask__exist.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask._exist%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L14">View Source</a>
+  </span>
+  <a id="AXOpen_Data_AxoDataExchangeTask__exist_" data-uid="AXOpen.Data.AxoDataExchangeTask._exist*"></a>
+  <h4 id="AXOpen_Data_AxoDataExchangeTask__exist" data-uid="AXOpen.Data.AxoDataExchangeTask._exist">_exist</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerBool _exist { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ValueTypes.OnlinerBool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_DataEntityIdentifier.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.DataEntityIdentifier%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -391,7 +430,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_CreateEmptyPoco.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.CreateEmptyPoco%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L94">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L103">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_CreateEmptyPoco_" data-uid="AXOpen.Data.AxoDataExchangeTask.CreateEmptyPoco*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_CreateEmptyPoco" data-uid="AXOpen.Data.AxoDataExchangeTask.CreateEmptyPoco">CreateEmptyPoco()</h4>
@@ -421,7 +460,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_OnlineToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.OnlineToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L24">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L27">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_OnlineToPlain_" data-uid="AXOpen.Data.AxoDataExchangeTask.OnlineToPlain*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_OnlineToPlain__1" data-uid="AXOpen.Data.AxoDataExchangeTask.OnlineToPlain``1">OnlineToPlain&lt;T&gt;()</h4>
@@ -468,7 +507,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_OnlineToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.OnlineToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L29">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L32">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_OnlineToPlainAsync_" data-uid="AXOpen.Data.AxoDataExchangeTask.OnlineToPlainAsync*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_OnlineToPlainAsync" data-uid="AXOpen.Data.AxoDataExchangeTask.OnlineToPlainAsync">OnlineToPlainAsync()</h4>
@@ -498,7 +537,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_OnlineToPlainAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.OnlineToPlainAsync(Pocos.AXOpen.Data.AxoDataExchangeTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L38">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L42">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_OnlineToPlainAsync_" data-uid="AXOpen.Data.AxoDataExchangeTask.OnlineToPlainAsync*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_OnlineToPlainAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_" data-uid="AXOpen.Data.AxoDataExchangeTask.OnlineToPlainAsync(Pocos.AXOpen.Data.AxoDataExchangeTask)">OnlineToPlainAsync(AxoDataExchangeTask)</h4>
@@ -545,7 +584,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_PlainToOnline__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.PlainToOnline%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L45">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L50">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_PlainToOnline_" data-uid="AXOpen.Data.AxoDataExchangeTask.PlainToOnline*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_PlainToOnline__1___0_" data-uid="AXOpen.Data.AxoDataExchangeTask.PlainToOnline``1(``0)">PlainToOnline&lt;T&gt;(T)</h4>
@@ -609,7 +648,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_PlainToOnlineAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.PlainToOnlineAsync(Pocos.AXOpen.Data.AxoDataExchangeTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L50">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L55">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_PlainToOnlineAsync_" data-uid="AXOpen.Data.AxoDataExchangeTask.PlainToOnlineAsync*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_PlainToOnlineAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_" data-uid="AXOpen.Data.AxoDataExchangeTask.PlainToOnlineAsync(Pocos.AXOpen.Data.AxoDataExchangeTask)">PlainToOnlineAsync(AxoDataExchangeTask)</h4>
@@ -656,7 +695,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_PlainToShadow__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.PlainToShadow%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L77">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L85">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_PlainToShadow_" data-uid="AXOpen.Data.AxoDataExchangeTask.PlainToShadow*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_PlainToShadow__1___0_" data-uid="AXOpen.Data.AxoDataExchangeTask.PlainToShadow``1(``0)">PlainToShadow&lt;T&gt;(T)</h4>
@@ -720,7 +759,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_PlainToShadowAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.PlainToShadowAsync(Pocos.AXOpen.Data.AxoDataExchangeTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L82">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L90">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_PlainToShadowAsync_" data-uid="AXOpen.Data.AxoDataExchangeTask.PlainToShadowAsync*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_PlainToShadowAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_" data-uid="AXOpen.Data.AxoDataExchangeTask.PlainToShadowAsync(Pocos.AXOpen.Data.AxoDataExchangeTask)">PlainToShadowAsync(AxoDataExchangeTask)</h4>
@@ -767,7 +806,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_Poll.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.Poll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L89">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L98">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_Poll_" data-uid="AXOpen.Data.AxoDataExchangeTask.Poll*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_Poll" data-uid="AXOpen.Data.AxoDataExchangeTask.Poll">Poll()</h4>
@@ -782,7 +821,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_ShadowToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.ShadowToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L57">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L63">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_ShadowToPlain_" data-uid="AXOpen.Data.AxoDataExchangeTask.ShadowToPlain*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_ShadowToPlain__1" data-uid="AXOpen.Data.AxoDataExchangeTask.ShadowToPlain``1">ShadowToPlain&lt;T&gt;()</h4>
@@ -829,7 +868,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_ShadowToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.ShadowToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L62">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L68">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_ShadowToPlainAsync_" data-uid="AXOpen.Data.AxoDataExchangeTask.ShadowToPlainAsync*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_ShadowToPlainAsync" data-uid="AXOpen.Data.AxoDataExchangeTask.ShadowToPlainAsync">ShadowToPlainAsync()</h4>
@@ -859,7 +898,7 @@
     <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataExchangeTask_ShadowToPlainAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataExchangeTask.ShadowToPlainAsync(Pocos.AXOpen.Data.AxoDataExchangeTask)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L70">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataExchangeTask.g.cs/#L77">View Source</a>
   </span>
   <a id="AXOpen_Data_AxoDataExchangeTask_ShadowToPlainAsync_" data-uid="AXOpen.Data.AxoDataExchangeTask.ShadowToPlainAsync*"></a>
   <h4 id="AXOpen_Data_AxoDataExchangeTask_ShadowToPlainAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_" data-uid="AXOpen.Data.AxoDataExchangeTask.ShadowToPlainAsync(Pocos.AXOpen.Data.AxoDataExchangeTask)">ShadowToPlainAsync(AxoDataExchangeTask)</h4>
@@ -919,6 +958,9 @@
   </div>
   <div>
       <a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a>
+  </div>
+  <div>
+      <a class="xref" href="AXOpen.Data.IAxoEntityExistTaskState.html">IAxoEntityExistTaskState</a>
   </div>
 </article>
           </div>

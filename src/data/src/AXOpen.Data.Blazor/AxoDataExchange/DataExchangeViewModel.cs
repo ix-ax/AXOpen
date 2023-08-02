@@ -145,16 +145,16 @@ namespace AXOpen.Data
             {
                 if (string.IsNullOrEmpty(CreateItemId))
                 {
-                    AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Cannot create!", "New entry name cannot be empty. Please provide an ID", 10);
+                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Cannot create!", "New entry name cannot be empty. Please provide an ID", 10);
                     return;
                 }
 
                 await DataExchange.CreateNewAsync(CreateItemId);
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Created!", "Item was successfully created!", 10);
+                AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Created!", "Item was successfully created!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Failed to create new record!", e.Message, 10);
+                AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to create new record!", e.Message, 10);
             }
             finally
             {
@@ -168,11 +168,11 @@ namespace AXOpen.Data
             try
             {
                 DataExchange.Delete(SelectedRecord.DataEntityId);
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "Item was successfully deleted!", 10);
+                AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "Item was successfully deleted!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Failed to delete", e.Message, 10);
+                AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to delete", e.Message, 10);
             }
             finally
             {
@@ -192,7 +192,7 @@ namespace AXOpen.Data
             }
             catch (Exception e)
             {
-               AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Failed to copy!", e.Message, 10);
+               AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to copy!", e.Message, 10);
             }
             finally
             {
@@ -206,14 +206,14 @@ namespace AXOpen.Data
         public async Task Edit()
         {
             await DataExchange.UpdateFromShadowsAsync();
-            AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Edited!", "Item was successfully edited!", 10);
+            AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Edited!", "Item was successfully edited!", 10);
             UpdateObservableRecords();
         }
 
         public async Task SendToPlc()
         {
             await DataExchange.FromRepositoryToControllerAsync(SelectedRecord);
-            AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Sended to PLC!", "Item was successfully sended to PLC!", 10);
+            AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Sended to PLC!", "Item was successfully sended to PLC!", 10);
         }
 
         public async Task LoadFromPlc()
@@ -221,11 +221,11 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateDataFromControllerAsync(CreateItemId);
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
+                AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Loaded from PLC!", "Item was successfully loaded from PLC!", 10);
             }
             catch (Exception e)
             {
-                AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Failed to create new record from the controller", e.Message, 10);
+                AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to create new record from the controller", e.Message, 10);
             }
             finally
             {
@@ -248,11 +248,11 @@ namespace AXOpen.Data
 
                     IsFileExported = true;
 
-                    AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Exported!", "Data was successfully exported!", 10);
+                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Exported!", "Data was successfully exported!", 10);
                 }
                 catch (Exception e)
                 {
-                    AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
+                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
                 }
             });
         }
@@ -263,15 +263,15 @@ namespace AXOpen.Data
             {
                 try
                 {
-                    DataExchange.ImportData(path, separator: ExportSet.Separator);
+                    DataExchange.ImportData(path, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
 
                     this.UpdateObservableRecords();
 
-                    AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Imported!", "Data was successfully imported!", 10);
+                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Imported!", "Data was successfully imported!", 10);
                 }
                 catch (Exception e)
                 {
-                    AlertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
+                    AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Error!", e.Message, 10);
                 }
             });
         }
@@ -293,7 +293,7 @@ namespace AXOpen.Data
             public eExportMode ExportMode { get; set; } = eExportMode.First;
             public int FirstNumber { get; set; } = 50;
             public int SecondNumber { get; set; } = 100;
-            public eFileType ExportFileType { get; set; } = eFileType.csv;
+            public string ExportFileType { get; set; } = "CSV";
             public char Separator { get; set; } = ';';
         }
 

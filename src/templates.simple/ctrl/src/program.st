@@ -11,8 +11,8 @@ PROGRAM MyProgram
     // Never modif this the context needs references to IN/OUT structures before it is used.
     Context.Inputs := REF(Inputs);
     Context.Outputs := REF(Outputs);
-    
-    ContextLogger.SetMinimumLevel(AXOpen.Logging.eLogLevel#Verbose);
+   
+    ContextLogger.SetMinimumLevel(AXOpen.Logging.eLogLevel#Warning);
     Context.InjectRtc(S71500Rtc);
     Context.InjectLogger(ContextLogger);
     // Executes the main context of this application.

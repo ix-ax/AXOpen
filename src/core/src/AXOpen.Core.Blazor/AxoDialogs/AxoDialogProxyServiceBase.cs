@@ -10,7 +10,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 {
     public class AxoDialogProxyServiceBase
     {
-       
         public IsDialogType DialogInstance { get; set; }
         protected IEnumerable<T> GetDescendants<T>(ITwinObject obj, IList<T> children = null) where T : class
         {
@@ -32,6 +31,5 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
             return children;
         }
-
     }
 }
