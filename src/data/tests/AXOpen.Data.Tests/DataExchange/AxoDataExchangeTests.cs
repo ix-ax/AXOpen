@@ -668,7 +668,7 @@ namespace AXOpen.Data.Tests
             };
 
             // export
-            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, eFileType.csv, '*');
+            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, "CSV", '*');
 
             Assert.True(File.Exists(zipFile));
 

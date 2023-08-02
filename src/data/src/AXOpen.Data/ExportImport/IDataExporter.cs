@@ -29,5 +29,11 @@ namespace AXOpen.Data
         /// <param name="crudDataObject">Object type of the imported records.</param>
         /// <param name="separator">Separator for individual records.</param>
         void Import(IRepository<TPlain> dataRepository, string path, ITwinObject crudDataObject = null, char separator = ';');
+
+        /// <summary>
+        /// Get name of the exporter.
+        /// </summary>
+        /// <returns>Name</returns>
+        static abstract string GetName();
     }    
 }

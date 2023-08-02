@@ -263,7 +263,7 @@ namespace AXOpen.Data
             {
                 try
                 {
-                    DataExchange.ImportData(path, separator: ExportSet.Separator);
+                    DataExchange.ImportData(path, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
 
                     this.UpdateObservableRecords();
 
@@ -293,7 +293,7 @@ namespace AXOpen.Data
             public eExportMode ExportMode { get; set; } = eExportMode.First;
             public int FirstNumber { get; set; } = 50;
             public int SecondNumber { get; set; } = 100;
-            public eFileType ExportFileType { get; set; } = eFileType.csv;
+            public string ExportFileType { get; set; } = "CSV";
             public char Separator { get; set; } = ';';
         }
 
