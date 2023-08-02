@@ -151,6 +151,7 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_cognex_vision_tests", "AXOpen.Cognex.Vision\tests\AXOpen.Cognex.Vision.Tests\axopen_cognex_vision_tests.csproj", "{58C24B69-00DC-40A7-9CC5-2AD5EE278E4B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_components_abstractions_blazor", "components.abstractions\src\AXOpen.Components.Abstractions.Blazor\axopen_components_abstractions_blazor.csproj", "{F99B9470-120F-4D27-8FD7-D1AF5C306A23}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{2B02D701-3632-4D58-9B5B-E43D9E556ACB}"
 	ProjectSection(SolutionItems) = preProject
 		templates.simple\.config\dotnet-tools.json = templates.simple\.config\dotnet-tools.json

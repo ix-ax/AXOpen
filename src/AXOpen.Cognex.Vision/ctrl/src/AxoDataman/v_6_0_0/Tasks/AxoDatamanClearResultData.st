@@ -36,6 +36,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             IF THIS.Execute() THEN
                 IF _progress = 0 THEN
                     Status^.Action.Id := UINT#302;
+                    Status^.Error.Id := UINT#0;
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;
                 END_IF;
