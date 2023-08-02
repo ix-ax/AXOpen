@@ -6,7 +6,8 @@ NAMESPACE axosimple
     CLASS PUBLIC Context EXTENDS AxoContext                   
         VAR PUBLIC
             ProcessData : ProcessData;
-            PneumaticManipulator : examples.PneumaticManipulator.CU;                       
+            PneumaticManipulator : examples.PneumaticManipulator.CU;            
+            PneumaticManipulator2 : examples.PneumaticManipulator.CU;                      
             Inputs : REF_TO axosimple.Inputs;
             Outputs : REF_TO axosimple.Outputs; 
             PlcInputs :REF_TO PlcInputs;
@@ -15,7 +16,8 @@ NAMESPACE axosimple
         
         METHOD PROTECTED OVERRIDE Main                                   
            IF(Inputs <> NULL AND Outputs <> NULL) THEN                
-               PneumaticManipulator.Run(THIS, Inputs^, Outputs^, PlcInputs^, PlcOutputs^ );               
+               PneumaticManipulator.Run(THIS, Inputs^, Outputs^);   
+               PneumaticManipulator2.Run(THIS, Inputs^, Outputs^);               
            END_IF;                           
         END_METHOD        
     END_CLASS   

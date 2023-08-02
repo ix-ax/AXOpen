@@ -825,7 +825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Data.DataExchangeView.html",
-          "hash": "FAUbvz3wih1LHz8h/f+/4pQXFlo74iCFarUd8vQpOnQ="
+          "hash": "S/DA0eE+R+uUKuS4myma5+UK+fa+BpBpzqYbsrFH5Og="
         }
       },
       "version": ""
@@ -3075,26 +3075,12 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
-      "type": "Conceptual",
-      "source_relative_path": "articles/themes/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "articles/themes/README.html",
-          "hash": "mJj2HSfCYEop6V/iypTHojKEEBqRfuyWZXnZUQZgCCs="
-        }
-      },
-      "version": ""
-    },
-    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "Co/1h8WauVu4X+oW18v+AGcBcDkQZj4oADQ8HAdZmcU="
+          "hash": "yL2G8xha5sZNOa5IdAYCTMlRC1+iLEHGHEd0JDppwe4="
         }
       },
       "version": ""

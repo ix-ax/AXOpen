@@ -5,6 +5,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-ixsharpblazor-hmi-ee3150da-5237-49bc-b265-f512331ded6c</UserSecretsId>
     <RootNamespace>axosimple.hmi</RootNamespace>
+	  <UseRazorSourceGenerator>true</UseRazorSourceGenerator>
+
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Pages\Index.razor.css" />
@@ -17,11 +19,12 @@
     <Content Include="Shared\Menu\ExpandableMenuItem.razor.css" />
   </ItemGroup>
 
-	<ItemGroup>
+	<!--<ItemGroup>
 		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.9" />
 	  <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
   </ItemGroup>
   <ItemGroup>
@@ -32,5 +35,18 @@
     <ProjectReference Include="..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
     <ProjectReference Include="..\axosimple.twin\axosimple.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\BlazorResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BlazorResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\BlazorResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BlazorResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

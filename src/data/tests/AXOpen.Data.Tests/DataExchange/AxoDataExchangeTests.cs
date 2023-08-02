@@ -663,6 +663,59 @@ namespace AXOpen.Data.Tests
         }
 
         [Fact()]
+        public async void ExportComplexTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            repo.Create("first", new Pocos.axosimple.SharedProductionData() { ComesFrom = 10, GoesTo = 11 });
+            repo.Create("second", new Pocos.axosimple.SharedProductionData() { ComesFrom = 20, GoesTo = 21 });
+
+            Assert.Equal(2, repo.Count);
+
+            var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataTest", "ExportData.zip");
+
+            var dictionary = new Dictionary<string, ExportData>
+            {
+                { "axosimple.SharedProductionData", new ExportData(true, new Dictionary<string, bool>
+                {
+                    { "_data.ComesFrom", false },
+                }) },
+            };
+
+            // export
+            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, eFileType.csv, '*');
+
+            Assert.True(File.Exists(zipFile));
+
+            using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+            {
+                foreach (ZipArchiveEntry entry in zip.Entries)
+                {
+                    TextReader tr = new StreamReader(entry.Open());
+                    string text = tr.ReadToEnd();
+                    switch (entry.Name)
+                    {
+                        case "axosimple.SharedProductionDataManager.csv":
+                            Assert.Equal("_data.DataEntityId*_data.GoesTo*\r_data.DataEntityId*_data.GoesTo*\rsecond*21*\r", text);
+                            break;
+                        default:
+                            Assert.Fail("More entries tahn expected!");
+                            break;
+                    }
+                }
+            }
+
+            // clear
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
         public async void ImportTest()
         {
             var parent = NSubstitute.Substitute.For<ITwinObject>();
@@ -696,6 +749,48 @@ namespace AXOpen.Data.Tests
             var shared = sut.DataRepository.Read("hey remote create");
             Assert.Equal(48, shared.ComesFrom);
             Assert.Equal(68, shared.GoesTo);
+
+            // clear
+            if (Directory.Exists(tempDirectory))
+                Directory.Delete(tempDirectory, true);
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
+        public async void ImportComplexTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTest", "importDataPrepare");
+            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTest", "ImportData.zip");
+
+            Directory.CreateDirectory(tempDirectory);
+
+            File.Delete(zipFile);
+
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            {
+                sw.Write(
+                    "_data.DataEntityId*_data.GoesTo*\r" +
+                    "_data.DataEntityId*_data.GoesTo*\r" +
+                    "first*11*\r"
+                    );
+            }
+
+            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+            // import
+            sut.ImportData(zipFile, separator: '*');
+
+            var shared = sut.DataRepository.Read("first");
+            Assert.Equal(0, shared.ComesFrom);
+            Assert.Equal(11, shared.GoesTo);
 
             // clear
             if (Directory.Exists(tempDirectory))

@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.112" />
+    <PackageReference Include="AXSharp.Abstractions" Version="0.14.0-alpha.115" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.5" />
@@ -23,5 +23,20 @@
 
   <ItemGroup>
 	  <ProjectReference Include="..\AXOpen.Security\AXOpen.Security.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\BlazorResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BlazorResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\BlazorResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BlazorResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
