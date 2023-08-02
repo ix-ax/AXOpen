@@ -1,5 +1,3 @@
-USING System.SerDe;
-
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
     TYPE
         {#ix-attr:[Container(Layout.Stack)]}

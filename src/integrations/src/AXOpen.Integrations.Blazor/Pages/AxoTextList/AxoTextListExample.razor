@@ -1,0 +1,25 @@
+﻿@page "/AxoTextListExample"
+@using axopen_integrations
+@using AXOpen.Core;
+
+<h3>AxoTextListExample</h3>
+
+<div class="container">
+    <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+        AxoTextListExample
+    </div>
+    <div class="container text-left">
+        <div class="row">
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoTextListExampleContext._incrementTask" Presentation="Command" />
+            </div>
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoTextListExampleContext._set2zeroTask" Presentation="Command" />
+            </div>
+        </div>
+        <div class="col">
+            <RenderableContentControl Context="@Entry.Plc.AxoTextListExampleContext._myTextList" Presentation="Command" />
+        </div>
+    </div>
+</div>
+

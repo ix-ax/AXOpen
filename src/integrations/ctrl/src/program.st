@@ -22,6 +22,7 @@ PROGRAM MyProgram
         AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
 
         AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
+        AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;
         AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
 
         AxoLoggers : AxoLoggerExamples.Loggers;
@@ -62,6 +63,8 @@ PROGRAM MyProgram
     AxoMessengersDocu.Run();
     AxoMessengersDocu.InjectRtc(AxoRtc);
     AxoDataFragmentExchangeContext.Run();
+    
+    AxoTextListExampleContext.Run();
     
     AxoCognexVisionDatamanExampleContext.PlcInputs := REF(PlcInputs);
     AxoCognexVisionDatamanExampleContext.PlcOutputs := REF(PlcOutputs);

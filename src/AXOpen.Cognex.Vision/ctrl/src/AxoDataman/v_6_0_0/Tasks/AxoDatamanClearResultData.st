@@ -35,8 +35,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _Status := Status;
             IF THIS.Execute() THEN
                 IF _progress = 0 THEN
-                    Status^.ActionId := UINT#11;
-                    Status^.ActionDescriptionPlc := '<#Clearing of the result data running.#>'; 
+                    Status^.ActionId := UINT#302;
+                    Status^.Action.Id := UINT#302;
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;
                 END_IF;
@@ -57,8 +57,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 
                 IF _progress = 2 THEN
                     IF _infoTimer.output THEN
-                        Status^.ErrorId := UDINT#1001;
-                        Status^.ErrorDescriptionPlc := '<#Waiting for the signal ResultsAvailable to be reseted.#>';
+                        Status^.ErrorId := UINT#600;
+                        Status^.Error.Id := UINT#600;
                     END_IF;
                     IF NOT ResultsStatus^.ResultsAvailable THEN
                         THIS.CallTimers(FALSE);
@@ -76,7 +76,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 
                 THIS.ThrowWhen(_errorTimer.output);
-                Status^.SignalStatus.Progress := _progress;
             END_IF;
                         
         END_METHOD
@@ -97,31 +96,30 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PROTECTED OVERRIDE OnAbort 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#12;
-                _Status^.ActionDescriptionPlc := '<#Clearing of the result data was aborted, while not yet completed.#>'; 
+                _Status^.ActionId := UINT#600;
+                _Status^.Action.Id := UINT#600;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnDone 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#13;
-                _Status^.ActionDescriptionPlc := '<#Clearing of the result data was completed successfully.#>'; 
+                _Status^.ActionId := UINT#303;
+                _Status^.Action.Id := UINT#303;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnError 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#14;
-                _Status^.ActionDescriptionPlc := '<#Clearing of the result data finished with error.#>'; 
+                _Status^.ActionId := UINT#700;
+                _Status^.Action.Id := UINT#700;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnStart 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#15;
-                _Status^.ActionDescriptionPlc := '<#Clearing of the result data started.#>'; 
+                _Status^.ActionId := UINT#301;
+                _Status^.Action.Id := UINT#301;
             END_IF;
         END_METHOD
-        
     END_CLASS     
 END_NAMESPACE

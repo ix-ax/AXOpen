@@ -44,9 +44,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ResultExtended  		:	UINT;
             {#ix-set:AttributeName = "<#Result length#>"}
             ResultLength  			:	UINT;
-
-            {#ix-set:AttributeName = "<#Progress: just for debugging#>"}
-            Progress      			:	INT;
         END_STRUCT;
     END_TYPE 
 END_NAMESPACE

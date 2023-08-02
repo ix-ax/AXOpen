@@ -36,8 +36,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         
             IF THIS.Execute() THEN
                 IF _progress = 0 THEN
-                    Status^.ActionId := UINT#16;
-                    Status^.ActionDescriptionPlc := '<#Reading running.#>'; 
+                    Status^.ActionId := UINT#305;
+                    Status^.Action.Id := UINT#305;
                     THIS.CallTimers(FALSE);
                     IF ResultsStatus^.ErrorDetected THEN
                         _progress := 20;
@@ -52,8 +52,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     ResultsControl^.EnableResultBuffering := FALSE;
                     ResultsControl^.ResultsAcknowledge := ResultsStatus^.ResultsAvailable;
                     IF _infoTimer.output THEN
-                        Status^.ErrorId := UDINT#1001;
-                        Status^.ErrorDescriptionPlc := '<#Waiting for the signal ResultsAvailable to be reseted!#>';
+                        Status^.ErrorId := UINT#600;
+                        Status^.Error.Id := UINT#600;
                     END_IF;
                     IF NOT ResultsStatus^.ResultsAvailable THEN
                         THIS.CallTimers(FALSE);
@@ -63,8 +63,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 
                 IF _progress = 2 THEN
                     IF _infoTimer.output THEN
-                        Status^.ErrorId := UDINT#1002;
-                        Status^.ErrorDescriptionPlc := '<#Waiting for the signal TriggerReady to be set!#>';
+                        Status^.ErrorId := UINT#601;
+                        Status^.Error.Id := UINT#601;
                     END_IF;
                     IF AcquisitionStatus^.TriggerReady THEN
                         THIS.CallTimers(FALSE);
@@ -75,8 +75,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 IF _progress = 3 THEN
                     AcquisitionControl^.Trigger := TRUE;
                     IF _infoTimer.output THEN
-                        Status^.ErrorId := UDINT#1003;
-                        Status^.ErrorDescriptionPlc := '<#Waiting for the signal TriggerAcknowledge to be set!#>';
+                        Status^.ErrorId := UINT#602;
+                        Status^.Error.Id := UINT#602;
                     END_IF;
                     IF AcquisitionStatus^.TriggerAcknowledge THEN
                         THIS.CallTimers(FALSE);
@@ -86,8 +86,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 
                 IF _progress = 4 THEN
                     IF _infoTimer.output THEN
-                        Status^.ErrorId := UDINT#1004;
-                        Status^.ErrorDescriptionPlc := '<#Waiting for the signal ResultsAvailable to be set!#>';
+                        Status^.ErrorId := UINT#603;
+                        Status^.Error.Id := UINT#603;
                     END_IF;
                     IF ResultsStatus^.ResultsAvailable THEN
                         THIS.CallTimers(FALSE);
@@ -140,8 +140,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 THIS.CallTimers(TRUE);
                 
                 THIS.ThrowWhen(_errorTimer.output);
-
-                Status^.SignalStatus.Progress := _progress;
             END_IF;
         END_METHOD
 
@@ -161,31 +159,30 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PROTECTED OVERRIDE OnAbort 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#17;
-                _Status^.ActionDescriptionPlc := '<#Reading was aborted, while not yet completed.#>'; 
+                _Status^.ActionId := UINT#601;
+                _Status^.Action.Id := UINT#601;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnDone 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#18;
-                _Status^.ActionDescriptionPlc := '<#Reading was completed successfully.#>'; 
+                _Status^.ActionId := UINT#306;
+                _Status^.Action.Id := UINT#306;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnError 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#19;
-                _Status^.ActionDescriptionPlc := '<#Reading finished with error.#>';
+                _Status^.ActionId := UINT#701;
+                _Status^.Action.Id := UINT#701;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnStart 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#20;
-                _Status^.ActionDescriptionPlc := '<#Reading started.#>'; 
+                _Status^.ActionId := UINT#304;
+                _Status^.Action.Id := UINT#304;
             END_IF;
         END_METHOD
-        
     END_CLASS    
 END_NAMESPACE

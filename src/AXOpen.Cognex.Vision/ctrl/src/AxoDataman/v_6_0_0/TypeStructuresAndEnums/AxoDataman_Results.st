@@ -2,13 +2,13 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
     TYPE
         AxoDataman_Results : 
         STRUCT
-            {#ix-attr:[RenderIgnore()]}
+            {#ix-attr:[CompilerOmits()]} 
             Id: UINT;
-            {#ix-attr:[RenderIgnore()]}
+            {#ix-attr:[CompilerOmits()]} 
             Code: UINT;
-            {#ix-attr:[RenderIgnore()]}
+            {#ix-attr:[CompilerOmits()]} 
             Extended: UINT;
-            {#ix-attr:[RenderIgnore()]}
+            {#ix-attr:[CompilerOmits()]} 
             Length : UINT;
             Data : STRING[246];
         END_STRUCT;
