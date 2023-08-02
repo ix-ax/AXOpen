@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Template localization | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Template localization | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="template-localization"><strong>Template localization</strong></h1>
+
+<p>Localization is a useful feature of any application. It allows you to translate the application into different languages. This guide will show you how localization is achieved in our template Blazor application - <code>templates.simple</code>.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><em>Microsoft.Extensions.Localization</em> NuGet package</li>
+</ul>
+<h2 id="localization-in-blazor">Localization in Blazor</h2>
+<p>To make use of localization in Blazor, make sure that:</p>
+<ul>
+<li><p>Localization services are added in <code>Program.cs</code>:</p>
+<pre><code class="lang-csharp">builder.Services.AddLocalization();
+</code></pre>
+</li>
+<li><p>Localization middleware with supported languages is added in the correct order to the middleware pipeline in <code>Program.cs</code>:</p>
+<pre><code class="lang-csharp">var supportedCultures = new[] { &quot;en-US&quot;, &quot;sk-SK&quot;, &quot;es-ES&quot;};
+var localizationOptions = new RequestLocalizationOptions()
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
+</code></pre>
+</li>
+<li><p>In <code>_Imports.razor</code> the following <code>@using</code> directives are added:</p>
+<pre><code class="lang-csharp">@using System.Globalization
+@using Microsoft.Extensions.Localization
+</code></pre>
+</li>
+</ul>
+<p>For more information on localization in Blazor visit <a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/globalization-localization">Microsoft Docs</a>.</p>
+<h2 id="adding-support-for-a-new-language">Adding support for a new language</h2>
+<p>In order to add a new language support to the application, a resource file (<em>.resx</em>) needs to be created. Resource file are in the forefront of localization in .NET. They are used to store app data (in our case strings), that can be easily accessed and changed without recompiling the app.</p>
+<p>In our template application, resource files are located in the <code>Resources</code> folder. Create a new resource file for the language you want to add. The name of the file should be in the following format: <code>ResourceName.culture.resx</code>, where <code>culture</code> is the culture code of the language. E.g. <code>ResourceName.de.resx</code> would be a resource file for German language.</p>
+<p>If you want to make resource files easier to work with, check out <a href="https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager">ResXManager</a> extension for Visual Studio.</p>
+<p>In <code>_Imports.razor</code> make sure that the <code>@using</code> directive for the newly created resource file is added and inject the <code>IStringLocalizer</code> service of the resource file. E.g.:</p>
+<pre><code class="lang-csharp">@using axosimple.hmi.Resources
+
+@inject IStringLocalizer&lt;ResourceName&gt; Localizer
+</code></pre>
+<h2 id="changing-the-language-dynamically">Changing the language dynamically</h2>
+<p>To change the language dynamically, add a new <code>CultureInfo</code> object to the <code>supportedCultures</code> array in the code section of <code>Index.razor</code>. E.g.:</p>
+<pre><code class="lang-csharp">private CultureInfo[] supportedCultures = new[]
+{
+    new CultureInfo(&quot;en-US&quot;),
+    new CultureInfo(&quot;sk-SK&quot;),
+    new CultureInfo(&quot;es-ES&quot;),
+    new CultureInfo(&quot;de-DE&quot;) // newly added language
+};
+</code></pre>
+<p>When selecting a language from the <code>&lt;select&gt;</code> menu in <code>Index.razor</code>, a <strong>cookie</strong> with selected language is created by <code>ChangeCulture</code> method of <code>CultureController</code>.</p>
+<h2 id="using-localized-strings">Using localized strings</h2>
+<p>To use localized strings, simply use <code>Localizer</code> service previously injected in <code>_Imports.razor</code> E.g.:</p>
+<pre><code class="lang-csharp">&lt;h1&gt;@Localizer[&quot;Hello World!&quot;]&lt;/h1&gt;
+</code></pre>
+<p>If the string is not found in the resource file, the key is returned instead. If it is found, however, the localized string is returned.</p>
+<p>English:</p>
+<p><img src="../../images/hello_english.png" alt="Hello_english"></p>
+<p>Slovak:</p>
+<p><img src="../../images/ahoj_slovak.png" alt="Ahoj_slovak"></p>
+<p>Spanish:</p>
+<p><img src="../../images/hola_spanish.png" alt="Hola_spanish"></p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/localization/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>
