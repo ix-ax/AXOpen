@@ -20,6 +20,8 @@ public static class ApaxCmd
 {
     public static void ApaxInstall(this BuildContext context, (string folder, string name) lib)
     {
+        var apaxArguments = context.BuildParameters.DoApaxInstallReDownload ? "install -L -r" : "install -L";
+
         context.Log.Information($"apax install started for '{lib.folder} : {lib.name}'");
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {

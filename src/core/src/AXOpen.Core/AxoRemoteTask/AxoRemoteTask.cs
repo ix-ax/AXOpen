@@ -8,7 +8,7 @@ namespace AXOpen.Core
 {
     public partial class AxoRemoteTask 
     {
-        internal Action DeferredAction { get; private set; }
+        protected Action DeferredAction { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -36,7 +36,7 @@ namespace AXOpen.Core
             _defferedActionCount++;
         }
 
-        private int _defferedActionCount;
+        protected int _defferedActionCount;
 
         /// <summary>
         /// Initializes this  <see cref="AxoRemoteTask"/> exclusively for this <see cref="DeferredAction"/>. Any following attempt
@@ -88,7 +88,7 @@ namespace AXOpen.Core
 
         internal bool IsRunning = false;
 
-        private async void ExecuteAsync(AXSharp.Connector.ITwinPrimitive sender, AXSharp.Connector.ValueTypes.ValueChangedEventArgs args)
+        protected async void ExecuteAsync(AXSharp.Connector.ITwinPrimitive sender, AXSharp.Connector.ValueTypes.ValueChangedEventArgs args)
         {
             await (this as ITwinObject).ReadAsync();
 
