@@ -8,10 +8,12 @@ using AXSharp.Connector;
 
 namespace AXOpen.Core
 {
-    public partial class AxoAlertDialog: IsAlertDialogType
+    public partial class AxoAlertDialog : IsAlertDialogType
     {
+        /// <inheritdoc/>
         public string DialogId { get; set; }
 
+        /// <inheritdoc/>
         public new void Initialize(Action dialogAction)
         {
             DeferredAction = dialogAction;
@@ -21,6 +23,7 @@ namespace AXOpen.Core
             _defferedActionCount++;
         }
 
+        /// <inheritdoc/>
         public new void DeInitialize()
         {
             this.IsInitialized.Cyclic = false;
@@ -29,7 +32,9 @@ namespace AXOpen.Core
             _defferedActionCount--;
         }
 
-
+        /// <summary>
+        /// Releases additional resources allocated byt his dialog.
+        /// </summary>
         public void Dispose()
         {
             DeInitialize();

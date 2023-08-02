@@ -28,7 +28,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         }
         public HashSet<string> ObservedObjects { get; set; } = new HashSet<string>();
         public HashSet<string> ObservedObjectsAlerts { get; set; } = new HashSet<string>();
-
         public Dictionary<string, AxoDialogProxyService> DialogProxyServicesDictionary { get; set; } = new Dictionary<string,AxoDialogProxyService>();
         public Dictionary<string, AxoAlertDialogProxyService> AlertDialogProxyServicesDictionary { get; set; } = new Dictionary<string, AxoAlertDialogProxyService>();
         public async ValueTask DisposeAsync()

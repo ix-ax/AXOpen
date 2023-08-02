@@ -14,6 +14,10 @@ namespace AXOpen.Core
     {
         public string DialogId { get; set; }
 
+        /// <summary>
+        /// Initialized remote task for this dialog, with polling instead of cyclic subscription.
+        /// </summary>
+        /// <param name="dialogAction">Action that will be performed on remove call.</param>
         public new void Initialize(Action dialogAction)
         {
             DeferredAction = dialogAction;
@@ -23,6 +27,9 @@ namespace AXOpen.Core
             _defferedActionCount++;
         }
 
+        /// <summary>
+        /// Removes handling of this dialogue, unsubscribing from polling and removed all event handler.
+        /// </summary>
         public new void DeInitialize()
         {
             this.IsInitialized.Cyclic = false;
@@ -31,6 +38,9 @@ namespace AXOpen.Core
             _defferedActionCount--;
         }
 
+        /// <summary>
+        /// Releases additional resources allocated byt his dialog.
+        /// </summary>
         public void Dispose()
         {
             DeInitialize();
