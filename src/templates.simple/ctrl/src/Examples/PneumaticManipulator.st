@@ -15,7 +15,6 @@ NAMESPACE examples.PneumaticManipulator
             HorizontalCylinder : AXOpen.Pneumatics.Cylinder;
             VerticalCylinder : AXOpen.Pneumatics.Cylinder;
             GripperCylinder : AXOpen.Pneumatics.Cylinder;
-            Citacka : AXOpen.Cgn.DatamanReader;
         END_VAR
         
         METHOD PUBLIC Update
@@ -25,21 +24,13 @@ NAMESPACE examples.PneumaticManipulator
             VAR_IN_OUT
                 Inputs : axosimple.Inputs;
                 Outputs : axosimple.Outputs;
-                PlcInputs : PlcInputs;
-                PlcOutputs : PlcOutputs;
             END_VAR
             THIS.Initialize(parent);
             // HERE INITIALIZE YOUR COMPONENTS
             HorizontalCylinder.Update(THIS, Inputs.B0[0], Inputs.B0[1], Outputs.B0[0], Outputs.B0[1]);
             // VerticalCylinder.Update(THIS, Inputs.B0[2], Inputs.B0[3], PlcOutputs._11a1_DQ_8x24VDC_0_5A_ST_1.%X2, PlcOutputs._11a1_DQ_8x24VDC_0_5A_ST_1.%X3);
             // GripperCylinder.Update(THIS, PlcInputs._11a1_DI_8x24VDC_ST_2.%X6, PlcInputs._11a1_DI_8x24VDC_ST_2.%X7, PlcOutputs._11a1_DQ_8x24VDC_0_5A_ST_1.%X6, PlcOutputs._11a1_DQ_8x24VDC_0_5A_ST_1.%X7);
-            Citacka.Update(THIS,    PlcInputs._10a1_Acquisition_Status_1,
-                                    PlcInputs._10a1_Results_Status_1, 
-                                    PlcInputs._10a1_Soft_Event_Control_1, 
-                                    PlcInputs._10a1_Result_Data_128_bytes_1,
-                                    PlcOutputs._10a1_Acquisition_Control_1,
-                                    PlcOutputs._10a1_Results_Control_1
-                                    );
+
             
         END_METHOD
     END_CLASS
@@ -113,24 +104,18 @@ NAMESPACE examples.PneumaticManipulator
                 /// Hardware output structure
                 ///</summary>
                 Outputs : axosimple.Outputs;
-
-                PlcInputs : PlcInputs;
-                PlcOutputs : PlcOutputs;
-
             END_VAR
             THIS.Initialize(parent);
-            THIS.Execute(Inputs, Outputs, PlcInputs, PlcOutputs);
+            THIS.Execute(Inputs, Outputs);
         END_METHOD
 
         METHOD PRIVATE Execute
             VAR_IN_OUT
                 Inputs : axosimple.Inputs;
                 Outputs : axosimple.Outputs;
-                PlcInputs : PlcInputs;
-                PlcOutputs : PlcOutputs;
             END_VAR
             // Component I/O immange and management handling.
-            Components.Update(THIS, Inputs, Outputs, PlcInputs, PlcOutputs);
+            Components.Update(THIS, Inputs, Outputs);
             // Process data manager
             ProcessData.Run(THIS);
             // Handles ground sequence
@@ -411,7 +396,6 @@ NAMESPACE examples.PneumaticManipulator
             components.HorizontalCylinder.ActivateManualControl();
             components.VerticalCylinder.ActivateManualControl();
             components.GripperCylinder.ActivateManualControl();
-            components.Citacka.ActivateManualControl();
         END_METHOD
     END_CLASS
 
