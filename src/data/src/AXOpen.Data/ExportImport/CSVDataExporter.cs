@@ -43,5 +43,10 @@ namespace AXOpen.Data
 
             BaseImport(dataRepository, imports, crudDataObject, separator);
         }
+
+        public static string GetName()
+        {
+            return "CSV";
+        }
     }
 }

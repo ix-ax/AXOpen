@@ -549,7 +549,7 @@ namespace AXOpen.Data.Fragments.Tests
             };
 
             // export
-            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, eFileType.txt, '*');
+            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, "TXT", '*');
 
             Assert.True(File.Exists(zipFile));
 
@@ -642,7 +642,7 @@ namespace AXOpen.Data.Fragments.Tests
             {
                 sw.Write("_data.DataEntityId*_data.GoesTo*\r_data.DataEntityId*_data.GoesTo*\rfirst*11*\r");
             }
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "examples.PneumaticManipulator.FragmentProcessDataManger.csv")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "examples.PneumaticManipulator.FragmentProcessDataManger.txt")))
             {
                 sw.Write("_data.DataEntityId*\r_data.DataEntityId*\rfirst*\r");
             }
@@ -650,7 +650,7 @@ namespace AXOpen.Data.Fragments.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile, separator: '*');
+            sut.ImportData(zipFile, exportFileType: "TXT", separator: '*');
 
             var shared = sut.Set.DataRepository.Read("first");
             Assert.Equal(0, shared.ComesFrom);
