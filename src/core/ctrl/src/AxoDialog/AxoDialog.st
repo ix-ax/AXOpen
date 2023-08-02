@@ -31,17 +31,22 @@ NAMESPACE AXOpen.Core
                 _parent : IAxoObject;
             END_VAR    
 
+            VAR
+                callCounter : ULINT;
+            END_VAR   
+
             THIS.Initialize(_parent);
             //before task initialization, set _asnwer to #NoAnswer to avoid inconsitencies
             IF (THIS.Status = eAxoTaskState#Ready) THEN
                 _answer := eDialogAnswer#NoAnswer;
             END_IF;
             
-            IF(THIS.GetParent().GetContext().OpenCycleCount() > _lastCall + ULINT#1) THEN
-                THIS.Restore();
-            END_IF;   
-             
-            _lastCall := THIS.GetParent().GetContext().OpenCycleCount();
+           // Restores when not called for 2+ consecutive cycles of the context.
+           callCounter := THIS.GetParent().GetContext().OpenCycleCount();
+           IF(callCounter > _lastCall + ULINT#1) THEN
+               THIS.Restore();
+           END_IF;                
+           _lastCall := callCounter;
 
             THIS.Invoke();
             SUPER.Execute();
