@@ -1,15 +1,12 @@
+USING AXOpen.Core;
+
 NAMESPACE AXOpen.Components.Abstractions    
     CLASS PUBLIC AxoComponent_Status
-        VAR PUBLIC                        
+        VAR PUBLIC
             {#ix-set:AttributeName = "ActionDescription |[[1]ActionDescription]|"}
-            ActionId    :   UINT;	
+            Action    :   AXOpen.Core.AxoTextList;	
             {#ix-set:AttributeName = "ErrorDescription |[[1]ErrorDescription]|"}
-            ErrorId     :   UINT;	
-
-            {#ix-set:AttributeName = "ActionDescription |[[1]ActionDescription]|"}
-            Action    :   AxoDictionaryIdentifier;	
-            {#ix-set:AttributeName = "ErrorDescription |[[1]ErrorDescription]|"}
-            Error     :   AxoDictionaryIdentifier;	
+            Error     :   AXOpen.Core.AxoTextList;	
         END_VAR
     END_CLASS
 END_NAMESPACE

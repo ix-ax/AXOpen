@@ -57,9 +57,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             VAR
                 _index : INT;
             END_VAR
-            Status.ActionId := UINT#0;
-            Status.ErrorId  := UINT#0;
-
             Status.Action.Id := UINT#0;
             Status.Error.Id  := UINT#0;
 
@@ -95,7 +92,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_FOR;
 
             IF NOT _ResultsStatus.ErrorDetected THEN
-                Status.ActionId := UINT#300;
                 Status.Action.Id := UINT#300;
                 _restoreTask.DoneWhen(TRUE);
             END_IF;
@@ -150,12 +146,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_246B;
                 ELSE
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
-                    Status.ErrorId := UINT#708;
                     Status.Error.Id := UINT#708;
                     UpdateInputs := FALSE;
                 END_IF;
             ELSE
-                Status.ErrorId := UINT#709;
                 Status.Error.Id := UINT#709;
                 UpdateInputs := FALSE;
                 Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
@@ -210,12 +204,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 ELSIF (UPPER_BOUND(UserData^,1) = 253) THEN
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_250B;
                 ELSE
-                    Status.ErrorId := UINT#710;
                     Status.Error.Id := UINT#710;
                     UpdateOutputs := FALSE;
                 END_IF;
             ELSE
-                Status.ErrorId := UINT#711;
                 Status.Error.Id := UINT#711;
                 UpdateOutputs := FALSE;
         END_IF;
@@ -242,25 +234,18 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             IsValidReferences := FALSE;
             IF AcquisitionControl = NULL THEN
-                Status.ErrorId := UINT#701;
                 Status.Error.Id := UINT#701;
             ELSIF AcquisitionStatus = NULL THEN
-                Status.ErrorId := UINT#702;
                 Status.Error.Id := UINT#702;
             ELSIF ResultsControl = NULL THEN
-                Status.ErrorId := UINT#703;
                 Status.Error.Id := UINT#703;
             ELSIF SoftEventControl  = NULL THEN
                 Status.Error.Id := UINT#704;
-                Status.ErrorId := UINT#704;
             ELSIF SoftEventStatus = NULL THEN
-                Status.ErrorId := UINT#705;
                 Status.Error.Id := UINT#705;
             ELSIF ResultData = NULL THEN
-                Status.ErrorId := UINT#706;
                 Status.Error.Id := UINT#706;
             ELSIF UserData = NULL THEN
-                Status.ErrorId := UINT#707;
                 Status.Error.Id := UINT#707;
             ELSE
                 IsValidReferences := TRUE;
@@ -283,7 +268,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 UserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
             IF parent = NULL THEN
-                Status.ErrorId := UINT#700;
                 Status.Error.Id := UINT#700;
                 RETURN;
             END_IF;
@@ -309,7 +293,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 UserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
             IF parent = NULL THEN
-                Status.ErrorId := UINT#700;
                 Status.Error.Id := UINT#700;
                 RETURN;
             END_IF;

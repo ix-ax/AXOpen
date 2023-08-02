@@ -1,10 +1,4 @@
-﻿using System.Net.Http.Headers;
-using System.Security.Principal;
-using AXSharp.Connector;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
-
-namespace AXOpen.Core
+﻿namespace AXOpen.Core
 {
     public partial class AxoTextListView : IDisposable
     {
@@ -40,10 +34,22 @@ namespace AXOpen.Core
         {
         }
     }
+    public class AxoTextListControlView : AxoTextListView
+    {
+        public AxoTextListControlView()
+        {
+        }
+    }
 
     public class AxoTextListStatusView : AxoTextListView
     {
         public AxoTextListStatusView()
+        {
+        }
+    }
+    public class AxoTextListDisplayView : AxoTextListView
+    {
+        public AxoTextListDisplayView()
         {
         }
     }

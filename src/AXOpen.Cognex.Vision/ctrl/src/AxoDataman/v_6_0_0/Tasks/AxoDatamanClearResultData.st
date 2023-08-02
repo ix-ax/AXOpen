@@ -1,4 +1,4 @@
-//USING AXOpen.Core;
+USING AXOpen.Core;
 
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
     CLASS PUBLIC AxoDatamanClearResultData EXTENDS AXOpen.Core.AxoTask
@@ -35,7 +35,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _Status := Status;
             IF THIS.Execute() THEN
                 IF _progress = 0 THEN
-                    Status^.ActionId := UINT#302;
                     Status^.Action.Id := UINT#302;
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;
@@ -57,7 +56,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 
                 IF _progress = 2 THEN
                     IF _infoTimer.output THEN
-                        Status^.ErrorId := UINT#600;
                         Status^.Error.Id := UINT#600;
                     END_IF;
                     IF NOT ResultsStatus^.ResultsAvailable THEN
@@ -96,28 +94,24 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PROTECTED OVERRIDE OnAbort 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#600;
                 _Status^.Action.Id := UINT#600;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnDone 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#303;
                 _Status^.Action.Id := UINT#303;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnError 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#700;
                 _Status^.Action.Id := UINT#700;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnStart 
             IF _Status <> NULL THEN
-                _Status^.ActionId := UINT#301;
                 _Status^.Action.Id := UINT#301;
             END_IF;
         END_METHOD
