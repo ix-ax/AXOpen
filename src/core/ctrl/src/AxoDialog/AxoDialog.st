@@ -19,6 +19,9 @@ NAMESPACE AXOpen.Core
             _risingEdge : RisingEdge;
         END_VAR
         
+        VAR PRIVATE
+            _lastCall : ULINT;
+        END_VAR    
 
         ///<summary>
         /// Show method, which serves for initializing remote task and invoking dialog from PLC.
@@ -33,6 +36,12 @@ NAMESPACE AXOpen.Core
             IF (THIS.Status = eAxoTaskState#Ready) THEN
                 _answer := eDialogAnswer#NoAnswer;
             END_IF;
+            
+            IF(THIS.GetParent().GetContext().OpenCycleCount() > _lastCall + ULINT#1) THEN
+                THIS.Restore();
+            END_IF;   
+             
+            _lastCall := THIS.GetParent().GetContext().OpenCycleCount();
 
             THIS.Invoke();
             SUPER.Execute();

@@ -9,6 +9,11 @@ NAMESPACE AXOpen.Core
             _timeToBurn : UINT := UINT#5;
         END_VAR
 
+
+        VAR PRIVATE
+            _lastCall : ULINT;
+        END_VAR    
+
         METHOD PUBLIC Show : IAxoAlertDialogFormat
             VAR_INPUT
                 _parent : IAxoObject;
@@ -20,6 +25,12 @@ NAMESPACE AXOpen.Core
                 _dialogType := eDialogType#Undefined;
             END_IF;
             
+            IF(THIS.GetParent().GetContext().OpenCycleCount() > _lastCall + ULINT#1) THEN
+                THIS.Restore();
+            END_IF;   
+             
+            _lastCall := THIS.GetParent().GetContext().OpenCycleCount();
+
             THIS.Invoke();
             SUPER.Execute();
 

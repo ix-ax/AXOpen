@@ -21,17 +21,14 @@ namespace AXOpen.Core
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {
+            var sequencer = (AxoSequencer)element;
+            var firstLevelPrimitives = sequencer.GetValueTags().ToList();
 
-            var task = (AxoSequencer)element;
-            var kids = task.GetValueTags().ToList();
-
-
-            kids.ForEach(p =>
+            firstLevelPrimitives.ForEach(p =>
             {
                 p.StartPolling(pollingInterval, this);
                 PolledElements.Add(p);
             });
-
         }
 
         private string UpdateStepRowColors(AxoStep step)

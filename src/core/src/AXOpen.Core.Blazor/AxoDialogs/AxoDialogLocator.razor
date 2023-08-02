@@ -45,12 +45,12 @@
 
     protected override async Task OnInitializedAsync()
     {
-
         //if dialog id is null, set it to actual URI
         if (string.IsNullOrEmpty(DialogId))
         {
             DialogId = _navigationManager.Uri;
         }
+
         //initialize signalR
         _dialogContainer.InitializeSignalR(_navigationManager.BaseUri);
         await _dialogContainer.DialogClient.StartAsync();
@@ -67,6 +67,7 @@
         else
         {
             _axoDialogProxyService = proxy;
+            _axoDialogProxyService?.StartObservingObjectsForDialogues();
         }
 
         _axoDialogProxyService.DialogInvoked += OnDialogInvoked;

@@ -57,7 +57,7 @@
         if (firstRender)
         {
             if (ObservedObjects != null)
-                _axoDialogProxyService.SetObservedObjects(ObservedObjects);
+                _axoDialogProxyService.StartObserveObjects(ObservedObjects);
 
             _axoDialogProxyService.AlertDialogInvoked += OnDialogInvoked;
 

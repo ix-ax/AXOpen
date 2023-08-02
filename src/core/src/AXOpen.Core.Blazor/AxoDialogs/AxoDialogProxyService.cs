@@ -10,42 +10,31 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     /// </summary>
     public class AxoDialogProxyService : AxoDialogProxyServiceBase, IDisposable
     {
-        public AxoDialogProxyService()
-        {
-             
-        }
         private AxoDialogContainer _axoDialogContainer;
-        private IEnumerable<ITwinObject> _observedObject;
+        private readonly IEnumerable<ITwinObject> _observedObject;
 
         public AxoDialogProxyService(AxoDialogContainer dialogContainer,string id, IEnumerable<ITwinObject> observedObjects)
         {
+            _observedObject = observedObjects;
             _axoDialogContainer = dialogContainer;
             DialogServiceId = id;
-            SetObservedObjects(observedObjects);
+            StartObservingObjectsForDialogues();
         }
 
         public string DialogServiceId { get; set; }
 
-        
-
-        public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
+        public void StartObservingObjectsForDialogues()
         {
-
-            _observedObject = observedObjects;
-            if (observedObjects == null || observedObjects.Count() == 0) return;
-            foreach (var item in observedObjects)
+            if (_observedObject == null || _observedObject.Count() == 0) return;
+            foreach (var item in _observedObject)
             {
-                //check if we observing symbol, if yes, we do not have to initialize new remote tasks
-                if (!_axoDialogContainer.ObservedObjects.Contains(item.Symbol))
-                {
-                    //create observer for this object
-                    _axoDialogContainer.ObservedObjects.Add(item.Symbol);
-                    UpdateDialogs<IsModalDialogType>(item);
-                }
+                _axoDialogContainer.ObservedObjects.Add(item.Symbol);
+                UpdateDialogs<IsModalDialogType>(item);
             }
           
         }
-        public event EventHandler<AxoDialogEventArgs> DialogInvoked;
+
+        public event EventHandler<AxoDialogEventArgs>? DialogInvoked;
 
         protected async void Queue(IsDialogType dialog)
         {
@@ -55,7 +44,8 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             DialogInvoked?.Invoke(this, new AxoDialogEventArgs(DialogServiceId));
         }
 
-        public List<string> ObservedObjects{ get; set; } = new List<string>();
+        
+
         void UpdateDialogs<T>(ITwinObject observedObject) where T : class, IsDialogType
         {
             var descendants = GetDescendants<T>(observedObject);
@@ -67,7 +57,6 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         public void Dispose()
         {
-
             foreach (var observedObject in _observedObject)
             {
                 var descendants = GetDescendants<IsDialogType>(observedObject);

@@ -21,24 +21,19 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
         public AxoAlertDialogProxyService(AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedOjects)
         {
             _axoDialogContainer = dialogContainer;
-            SetObservedObjects(observedOjects);
+            StartObserveObjects(observedOjects);
         }
         public IAlertDialogService ScopedAlertDialogService = new AxoAlertDialogService();
         private IEnumerable<ITwinObject> _observedObject;
 
-        public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
+        public void StartObserveObjects(IEnumerable<ITwinObject> observedObjects)
         {
             _observedObject = observedObjects;
             if (observedObjects == null || observedObjects.Count() == 0) return;
             foreach (var item in observedObjects)
             {
-                //check if we observing symbol, if yes, we do not have to initialize new remote tasks
-                if (!_axoDialogContainer.ObservedObjectsAlerts.Contains(item.Symbol))
-                {
-                    //create observer for this object
-                    _axoDialogContainer.ObservedObjectsAlerts.Add(item.Symbol);
-                    UpdateDialogs<IsAlertDialogType>(item);
-                }
+                _axoDialogContainer.ObservedObjectsAlerts.Add(item.Symbol);
+                UpdateDialogs<IsAlertDialogType>(item);
             }
 
         }
