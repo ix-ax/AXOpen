@@ -9,17 +9,22 @@ NAMESPACE AxoTextListExample
             _incrementTask : AXOpen.Core.AxoTask;
             {#ix-set:AttributeName = "Click to reset text list Id to zero"}
             _set2zeroTask : AXOpen.Core.AxoTask;
-
-            {#ix-set:AttributeName = "Description: |[[1]Description]|"}
+            //<AxoTextListWithLevelsDefined>
+            {#ix-set:AttributeName = "Description: |[[1]TextList]|"}
             {#ix-attr:[WarningLevel(600)]}
             {#ix-attr:[ErrorLevel(700)]}
             _myTextList1 : AXOpen.Core.AxoTextList;
-            {#ix-set:AttributeName = "Same description: |[[1]Description]|"}
+            //</AxoTextListWithLevelsDefined>
+            //<AxoTextListWithoutPrefix>
+            {#ix-set:AttributeName = "|[[1]TextList]|"}
             {#ix-attr:[WarningLevel(300)]}
             {#ix-attr:[ErrorLevel(500)]}
             _myTextList2 : AXOpen.Core.AxoTextList;
-            {#ix-set:AttributeName = "Totaly different description without error elevation: |[[1]Description3]|"}
+            //</AxoTextListWithoutPrefix>
+            //<AxoTextListWithoutLevelsDefined>
+            {#ix-set:AttributeName = "Totaly different description without error elevation: |[[1]DifferentTextList]|"}
             _myTextList3 : AXOpen.Core.AxoTextList;
+            //</AxoTextListWithoutLevelsDefined>
         END_VAR    
     
         METHOD PROTECTED OVERRIDE Main

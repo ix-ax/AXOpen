@@ -1,55 +1,62 @@
-﻿namespace AxoTextListExample
+﻿
+using System.Collections.Generic;
+
+namespace AxoTextListExample
 {
     public partial class AxoTextListExampleContext : AXOpen.Core.AxoContext
     {
-        Dictionary<uint, string> descriptionDict = new Dictionary<uint, string>();
-        Dictionary<uint, string> descriptionDict3 = new Dictionary<uint, string>();
-
-        public string Description
+        //<DeclarationOfTheDictionary>
+        Dictionary<uint, string> textList = new Dictionary<uint, string>();
+        //</DeclarationOfTheDictionary>
+        public string TextList
         {
             get
             {
-                if (descriptionDict == null) { descriptionDict = new Dictionary<uint, string>(); }
-                if (descriptionDict.Count == 0)
+                //<FillingTheItemsOfTheDictionary>
+                if (textList == null) { textList = new Dictionary<uint, string>(); }
+                if (textList.Count == 0)
                 {
-                    descriptionDict.Add(0, "   ");
+                    textList.Add(0, "   ");
                     for (int i = 1; i < 1000; i++)
                     {
-                        descriptionDict.Add((uint)i, "Text list item : " + i.ToString());
+                        textList.Add((uint)i, "Text list item : " + i.ToString());
                     }
 
                 }
-                string description = "   ";
-                if (descriptionDict.TryGetValue(_myTextList1.Id.LastValue, out description))
+                //</FillingTheItemsOfTheDictionary>
+                //<ReturningTheItemBasedOnId>
+                string _textItem = "   ";
+                if (textList.TryGetValue(_myTextList1.Id.LastValue, out _textItem))
                 {
-                    return description;
+                    return _textItem;
                 }
                 else
-
                 {
                     return "   ";
                 }
+                //</ReturningTheItemBasedOnId>
             }
         }
 
-        public string Description3
+        Dictionary<uint, string> differentTextList = new Dictionary<uint, string>();
+        public string DifferentTextList
         {
             get
             {
-                if (descriptionDict3 == null) { descriptionDict3 = new Dictionary<uint, string>(); }
-                if (descriptionDict3.Count == 0)
+                if (differentTextList == null) { differentTextList = new Dictionary<uint, string>(); }
+                if (differentTextList.Count == 0)
                 {
-                    descriptionDict3.Add(0, "   ");
+                    differentTextList.Add(0, "   ");
                     for (int i = 1; i < 1000; i++)
                     {
-                        descriptionDict3.Add((uint)i, "Item from the totally different text list : " + i.ToString());
+                        differentTextList.Add((uint)i, "Item from the totally different text list : " + i.ToString());
                     }
 
                 }
-                string description3 = "   ";
-                if (descriptionDict3.TryGetValue(_myTextList3.Id.LastValue, out description3))
+                string differentTextItem = "   ";
+                if (differentTextList.TryGetValue(_myTextList3.Id.LastValue, out differentTextItem))
                 {
-                    return description3;
+                    return differentTextItem;
                 }
                 else
 

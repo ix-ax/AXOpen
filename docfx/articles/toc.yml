@@ -27,6 +27,8 @@
     href: ~/articles/core/AXODIALOG.md
   - name: AxoAlertDialog
     href: ~/articles/core/AXOALERTDIALOG.md  
+  - name: AxoTestList
+    href: ~/articles/core/AXOTEXTLIST.md  
 - name: AXOpen.Data
   href: ~/articles/data/README.md
   items:
