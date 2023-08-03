@@ -1,10 +1,4 @@
 using System;
-using AXSharp.Connector;
-using AXSharp.Connector.ValueTypes;
-using System.Collections.Generic;
-using AXOpen;
-using System.ComponentModel;
-using System.Security.Principal;
 
 namespace AXOpen.Core
 {
@@ -12,4 +6,30 @@ namespace AXOpen.Core
     {
 
     }
+    public class WarningLevelAttribute : Attribute
+    {
+        public WarningLevelAttribute()
+        {
+        }
+        public WarningLevelAttribute(uint level)
+        {
+            Level = level;
+        }
+
+        public uint Level { get; }
+    }
+
+    public class ErrorLevelAttribute : Attribute
+    {
+        public ErrorLevelAttribute()
+        {
+        }
+        public ErrorLevelAttribute(uint level)
+        {
+            Level = level;
+        }
+
+        public uint Level { get; }
+    }
+
 }
