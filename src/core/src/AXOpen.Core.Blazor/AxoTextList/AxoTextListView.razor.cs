@@ -3,17 +3,16 @@
     public partial class AxoTextListView : IDisposable
     {
 
-
-        private string _btnClass
+        private string _cardClass
         {
             get
             {
-                if (Component.Id.Cyclic < (int)AXOpen.Messaging.eAxoMessageCategory.Warning)
-                    return "btn-info";
-                else if(Component.Id.Cyclic >= (int)AXOpen.Messaging.eAxoMessageCategory.Error)
-                    return "btn-danger";
+                if (Component.Id.Cyclic < (int)Messaging.eAxoMessageCategory.Warning)
+                    return "card bg-primary text-light mb-1";
+                else if (Component.Id.Cyclic >= (int)Messaging.eAxoMessageCategory.Error)
+                    return "card bg-danger text-white mb-1";
                 else
-                    return "btn-warning";
+                    return "card bg-warning text-black mb-1";
             }
         }
 
