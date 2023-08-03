@@ -16,57 +16,57 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PUBLIC Run 
             VAR_INPUT
-                AcquisitionControl  :   REF_TO  AxoDataman_AcquisitionControl;
-                AcquisitionStatus   :   REF_TO  AxoDataman_AcquisitionStatus;
-                ResultsControl      :   REF_TO  AxoDataman_ResultsControl;
-                ResultsStatus       :   REF_TO  AxoDataman_ResultsStatus;
-                Config              :   REF_TO  AxoDataman_Config;
-                Status              :   REF_TO  AxoDataman_Status;	
-                Results             :   REF_TO  AxoDataman_Results;
-                ResultData          :   REF_TO  ARRAY[*] OF BYTE;
+                refAcquisitionControl  :   REF_TO  AxoDataman_AcquisitionControl;
+                refAcquisitionStatus   :   REF_TO  AxoDataman_AcquisitionStatus;
+                refResultsControl      :   REF_TO  AxoDataman_ResultsControl;
+                refResultsStatus       :   REF_TO  AxoDataman_ResultsStatus;
+                refConfig              :   REF_TO  AxoDataman_Config;
+                refStatus              :   REF_TO  AxoDataman_Status;	
+                refResults             :   REF_TO  AxoDataman_Results;
+                refResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR          
 
             VAR
                 _index : INT;
             END_VAR          
 
-            _infoTime := Config^.InfoTime;
-            _errorTime := Config^.ErrorTime;
-            _Status := Status;
+            _infoTime := refConfig^.InfoTime;
+            _errorTime := refConfig^.ErrorTime;
+            _Status := refStatus;
             IF THIS.Execute() THEN
                 IF _progress = 0 THEN
-                    Status^.Action.Id := UINT#302;
-                    Status^.Error.Id := UINT#0;
+                    refStatus^.Action.Id := UINT#302;
+                    refStatus^.Error.Id := UINT#0;
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;
                 END_IF;
                 
                 IF _progress = 1 THEN
-                    AcquisitionControl^.TriggerEnable := FALSE;
-                    AcquisitionControl^.Trigger := FALSE;
-                    ResultsControl^.ResultsAcknowledge := TRUE;
-                    Results^.Id := UINT#0; 
-                    Results^.Code := UINT#0; 
-                    Results^.Extended := UINT#0; 
-                    Results^.Length := UINT#0; 
+                    refAcquisitionControl^.TriggerEnable := FALSE;
+                    refAcquisitionControl^.Trigger := FALSE;
+                    refResultsControl^.ResultsAcknowledge := TRUE;
+                    refResults^.Id := UINT#0; 
+                    refResults^.Code := UINT#0; 
+                    refResults^.Extended := UINT#0; 
+                    refResults^.Length := UINT#0; 
 
-                    Results^.Data := '';
+                    refResults^.Data := '';
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;
                 END_IF;
                 
                 IF _progress = 2 THEN
                     IF _infoTimer.output THEN
-                        Status^.Error.Id := UINT#600;
+                        refStatus^.Error.Id := UINT#600;
                     END_IF;
-                    IF NOT ResultsStatus^.ResultsAvailable THEN
+                    IF NOT refResultsStatus^.ResultsAvailable THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
                 
                 IF _progress = 3 THEN
-                    ResultsControl^.ResultsAcknowledge := FALSE;
+                    refResultsControl^.ResultsAcknowledge := FALSE;
                     THIS.DoneWhen(TRUE);
                     THIS.CallTimers(FALSE);
                     _progress := 0;

@@ -16,30 +16,30 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PUBLIC Run 
             VAR_INPUT
-                AcquisitionControl  :   REF_TO  AxoDataman_AcquisitionControl;
-                AcquisitionStatus   :   REF_TO  AxoDataman_AcquisitionStatus;
-                ResultsControl      :   REF_TO  AxoDataman_ResultsControl;
-                ResultsStatus       :   REF_TO  AxoDataman_ResultsStatus;
-                Config              :   REF_TO  AxoDataman_Config;
-                Status              :   REF_TO  AxoDataman_Status;	
-                Results             :   REF_TO  AxoDataman_Results;
-                ResultData          :   REF_TO  ARRAY[*] OF BYTE;
+                refAcquisitionControl  :   REF_TO  AxoDataman_AcquisitionControl;
+                refAcquisitionStatus   :   REF_TO  AxoDataman_AcquisitionStatus;
+                refResultsControl      :   REF_TO  AxoDataman_ResultsControl;
+                refResultsStatus       :   REF_TO  AxoDataman_ResultsStatus;
+                refConfig              :   REF_TO  AxoDataman_Config;
+                refStatus              :   REF_TO  AxoDataman_Status;	
+                refResults             :   REF_TO  AxoDataman_Results;
+                refResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR          
 
             VAR
                 _index : INT;
             END_VAR          
 
-            _infoTime := Config^.InfoTime;
-            _errorTime := Config^.ErrorTime;
-            _Status := Status;
+            _infoTime := refConfig^.InfoTime;
+            _errorTime := refConfig^.ErrorTime;
+            _Status := refStatus;
         
             IF THIS.Execute() THEN
                 IF _progress = 0 THEN
-                    Status^.Action.Id := UINT#305;
-                    Status^.Error.Id := UINT#0;
+                    refStatus^.Action.Id := UINT#305;
+                    refStatus^.Error.Id := UINT#0;
                     THIS.CallTimers(FALSE);
-                    IF ResultsStatus^.ErrorDetected THEN
+                    IF refResultsStatus^.ErrorDetected THEN
                         _progress := 20;
                     ELSE
                         _progress := _progress + 1;
@@ -47,14 +47,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
 
                 IF _progress = 1 THEN
-                    AcquisitionControl^.TriggerEnable := TRUE;
-                    AcquisitionControl^.Trigger := FALSE;
-                    ResultsControl^.EnableResultBuffering := FALSE;
-                    ResultsControl^.ResultsAcknowledge := ResultsStatus^.ResultsAvailable;
+                    refAcquisitionControl^.TriggerEnable := TRUE;
+                    refAcquisitionControl^.Trigger := FALSE;
+                    refResultsControl^.EnableResultBuffering := FALSE;
+                    refResultsControl^.ResultsAcknowledge := refResultsStatus^.ResultsAvailable;
                     IF _infoTimer.output THEN
-                        Status^.Error.Id := UINT#600;
+                        refStatus^.Error.Id := UINT#600;
                     END_IF;
-                    IF NOT ResultsStatus^.ResultsAvailable THEN
+                    IF NOT refResultsStatus^.ResultsAvailable THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
@@ -62,20 +62,20 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 
                 IF _progress = 2 THEN
                     IF _infoTimer.output THEN
-                        Status^.Error.Id := UINT#601;
+                        refStatus^.Error.Id := UINT#601;
                     END_IF;
-                    IF AcquisitionStatus^.TriggerReady THEN
+                    IF refAcquisitionStatus^.TriggerReady THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
                 
                 IF _progress = 3 THEN
-                    AcquisitionControl^.Trigger := TRUE;
+                    refAcquisitionControl^.Trigger := TRUE;
                     IF _infoTimer.output THEN
-                        Status^.Error.Id := UINT#602;
+                        refStatus^.Error.Id := UINT#602;
                     END_IF;
-                    IF AcquisitionStatus^.TriggerAcknowledge THEN
+                    IF refAcquisitionStatus^.TriggerAcknowledge THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
@@ -83,50 +83,50 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 
                 IF _progress = 4 THEN
                     IF _infoTimer.output THEN
-                        Status^.Error.Id := UINT#603;
+                        refStatus^.Error.Id := UINT#603;
                     END_IF;
-                    IF ResultsStatus^.ResultsAvailable THEN
+                    IF refResultsStatus^.ResultsAvailable THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
                 
                 IF _progress = 5 THEN
-                    THIS.ThrowWhen(Results^.Code = UINT#0 OR Results^.Length=UINT#0 OR Results^.Length > TO_UINT(Status^.ResultDataSize));
+                    THIS.ThrowWhen(refResults^.Code = UINT#0 OR refResults^.Length=UINT#0 OR refResults^.Length > TO_UINT(refStatus^.ResultDataSize));
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;
                 END_IF;
                 
                 IF _progress = 6 THEN
-                    System.SerDe.Deserialize(UINT#7, ResultData^, Results^.Data);
-                    AcquisitionControl^.Trigger := FALSE;
-                    ResultsControl^.EnableResultBuffering := FALSE;
-                    ResultsControl^.ResultsAcknowledge := TRUE;
+                    System.SerDe.Deserialize(UINT#7, refResultData^, refResults^.Data);
+                    refAcquisitionControl^.Trigger := FALSE;
+                    refResultsControl^.EnableResultBuffering := FALSE;
+                    refResultsControl^.ResultsAcknowledge := TRUE;
                     THIS.DoneWhen(TRUE);
                     _progress := 0;
                 END_IF;
                 
                 IF _progress = 20 THEN
-                    AcquisitionControl^.TriggerEnable :=FALSE;
-                    AcquisitionControl^.Trigger := FALSE;
-                    ResultsControl^.EnableResultBuffering := FALSE;
-                    ResultsControl^.ResultsAcknowledge := FALSE;
-                    IF NOT AcquisitionStatus^.TriggerReady THEN
+                    refAcquisitionControl^.TriggerEnable :=FALSE;
+                    refAcquisitionControl^.Trigger := FALSE;
+                    refResultsControl^.EnableResultBuffering := FALSE;
+                    refResultsControl^.ResultsAcknowledge := FALSE;
+                    IF NOT refAcquisitionStatus^.TriggerReady THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
 
                 IF _progress = 21 THEN
-                    AcquisitionControl^.TriggerEnable :=TRUE;
-                    IF NOT ResultsStatus^.ErrorDetected THEN
+                    refAcquisitionControl^.TriggerEnable :=TRUE;
+                    IF NOT refResultsStatus^.ErrorDetected THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
                 END_IF;
 
                 IF _progress = 22 THEN
-                    AcquisitionControl^.TriggerEnable :=FALSE;
+                    refAcquisitionControl^.TriggerEnable :=FALSE;
                     IF _infoTimer.elapsedTime >= T#1s THEN
                         THIS.CallTimers(FALSE);
                         _progress :=  1;
