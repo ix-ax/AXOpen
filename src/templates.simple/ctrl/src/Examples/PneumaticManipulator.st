@@ -28,8 +28,8 @@ NAMESPACE examples.PneumaticManipulator
             THIS.Initialize(parent);
             // HERE INITIALIZE YOUR COMPONENTS
             HorizontalCylinder.Update(THIS, Inputs.B0[0], Inputs.B0[1], Outputs.B0[0], Outputs.B0[1]);
-            // VerticalCylinder.Update(THIS, Inputs.B0[2], Inputs.B0[3], PlcOutputs._11a1_DQ_8x24VDC_0_5A_ST_1.%X2, PlcOutputs._11a1_DQ_8x24VDC_0_5A_ST_1.%X3);
-            // GripperCylinder.Update(THIS, PlcInputs._11a1_DI_8x24VDC_ST_2.%X6, PlcInputs._11a1_DI_8x24VDC_ST_2.%X7, PlcOutputs._11a1_DQ_8x24VDC_0_5A_ST_1.%X6, PlcOutputs._11a1_DQ_8x24VDC_0_5A_ST_1.%X7);
+            VerticalCylinder.Update(THIS, Inputs.B0[2], Inputs.B0[3], Outputs.B0[2], Outputs.B0[3]);
+            GripperCylinder.Update(THIS, Inputs.B0[4], Inputs.B0[5], Outputs.B0[4], Outputs.B0[5]);
 
             
         END_METHOD

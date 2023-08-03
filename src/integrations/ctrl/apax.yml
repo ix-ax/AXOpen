@@ -3,8 +3,8 @@ version: '0.1.4-alpha.79'
 type: app
 targets:
   - "1500"
-  - plcsim
-  - axunit-llvm
+  #- plcsim
+  #- axunit-llvm
 devDependencies:
   "@ax/sdk": ^4.0.3
   "@ax/sld": ^0.15.9

@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\AXOpen.Cognex.Vision\src\AXOpen.Cognex.Vision\ix_ax_axopen_cognex_vision.csproj" />
+    <ProjectReference Include="..\..\..\components.cognex.vision\src\AXOpen.Cognex.Vision\ix_ax_axopen_cognex_vision.csproj" />
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
     <ProjectReference Include="..\..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
     <ProjectReference Include="..\..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />

@@ -41,7 +41,7 @@ NAMESPACE AXOpen.Core
 
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Is manually controllable#>"}
-            {attribute clr [ReadOnly()]}
+            {#ix-attr:[ReadOnly()]}
             _isManuallyControllable : BOOL;	
         END_VAR
 
