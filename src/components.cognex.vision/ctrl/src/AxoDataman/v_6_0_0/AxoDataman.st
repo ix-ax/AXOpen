@@ -260,7 +260,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
             IF _ResultsStatus.ResultsAvailable AND NOT _ResultsControl.ResultsAcknowledge AND Results.Code > UINT#0 AND Results.Length > UINT#0 THEN
                 System.SerDe.Deserialize(UINT#7, refResultData^, refResults^.Data);
-                Status.Action.Id := UINT#708;
+                Status.Action.Id := UINT#307;
             END_IF;
 
             _ResultsControl.ResultsAcknowledge := _ResultsStatus.ResultsAvailable;

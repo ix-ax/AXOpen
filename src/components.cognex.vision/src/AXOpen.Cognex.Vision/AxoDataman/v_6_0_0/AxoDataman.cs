@@ -72,7 +72,7 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                     actionDescriptionDict.Add(304   ,"Reading started.");
                     actionDescriptionDict.Add(305   ,"Reading running.");
                     actionDescriptionDict.Add(306   ,"Reading was completed successfully.");
-                    actionDescriptionDict.Add(307   ,"New data read.");
+                    actionDescriptionDict.Add(307   ,"Continous reading active: New data read.");
 
 
                     actionDescriptionDict.Add(600   ,"Clearing of the result data was aborted, while not yet completed!");

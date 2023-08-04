@@ -1,30 +1,23 @@
 name: "axopen.integrations"
 version: '0.1.4-alpha.79'
 type: app
-targets:
-  #- "1500"
-  - plcsim
-  - axunit-llvm
 devDependencies:
   "@ax/sdk": ^4.0.3
   "@ax/sld": ^0.15.9
 dependencies:
   "@ix-ax/axopen.data": '0.1.4-alpha.79'
   "@ix-ax/axopen.probers": '0.1.4-alpha.79'
-  "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'  
+  "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
   "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
   "@ax/system-serde": ^2.0.2
-  
 variables:
-  APAX_BUILD_ARGS: [ -d ]
-
+  APAX_BUILD_ARGS: [-d]
 scripts:
   ixc:
     - dotnet tool restore
     - dotnet ixc
   download:
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
@@ -44,11 +37,23 @@ scripts:
     - apax install
     - apax build
     - apax download
+  update-targets: |
+    if [ $AXBUILDTARGET_1 ]; then
+      yq -i "del(.targets)" apax.yml
+      yq -i ".targets[0] = strenv(AXBUILDTARGET_1)" apax.yml
+      if [ $AXBUILDTARGET_2 ]; then
+        yq -i ".targets[1] = strenv(AXBUILDTARGET_2)" apax.yml
+      fi
+      if [ $AXBUILDTARGET_3 ]; then
+        yq -i ".targets[2] = strenv(AXBUILDTARGET_3)" apax.yml
+      fi
+    fi
+  prebuild:
+    - apax update-targets
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project
-      ..\\src\\AXOpen.Integrations.Blazor\\axopen_integrations_blazor.csproj
+    - dotnet watch --project ..\\src\\AXOpen.Integrations.Blazor\\axopen_integrations_blazor.csproj
   rr:
     - apax build
     - apax download
@@ -59,3 +64,5 @@ scripts:
     - apax rr
   da:
     - apax do-it-all
+targets:
+  - "1500"
