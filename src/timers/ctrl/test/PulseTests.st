@@ -16,7 +16,7 @@ NAMESPACE AXOpen.Timers_tests
             _inspectedBool : BOOL;
             _rtcMock :  AxoRtcMock;  
             _signal : BOOL;
-            _testTimerPulse: AXOpen.Timers.PulseContext;
+            _testTimerPulse: AXOpen.Timers.PulseTimer;
             _pulseLength: LTIME := LTIME#5s;
         END_VAR  
 

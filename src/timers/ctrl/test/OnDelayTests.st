@@ -16,7 +16,7 @@ NAMESPACE AXOpen.Timers_tests
             _inspectedBool : BOOL;
             _rtcMock :  AxoRtcMock;  
             _signal : BOOL;
-            _testTimerOnDelay: AXOpen.Timers.OnDelayContext;
+            _testTimerOnDelay: AXOpen.Timers.OnDelayTimer;
             _testTimeDelay: LTIME := LTIME#5s;
         END_VAR  
 

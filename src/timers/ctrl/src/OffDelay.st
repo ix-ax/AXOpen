@@ -3,7 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Timers
  
     
-    CLASS OffDelayContext
+    CLASS OffDelayTimer
         VAR PUBLIC
             output : BOOL;
             elapsedTime : LTIME;
@@ -17,6 +17,16 @@ NAMESPACE AXOpen.Timers
           
         END_VAR
         
+
+        METHOD PUBLIC OffDelay : BOOL
+            VAR_INPUT 
+                Parent : IAxoObject;              
+                inSignal : BOOL;
+                TimeDelay : LTIME;
+            END_VAR    
+            OffDelay := THIS.OffDelay(Parent.GetContext(), inSignal, TimeDelay);
+        END_METHOD
+
 
         /// When IN is TRUE, Q is TRUE and ET is 0.
         /// As soon as IN becomes FALSE, the time will begin to be counted in milliseconds in ET until its value is equal to that of PT. 

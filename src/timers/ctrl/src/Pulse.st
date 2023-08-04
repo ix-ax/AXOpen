@@ -3,7 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Timers
     
     
-    CLASS PulseContext
+    CLASS PulseTimer
         VAR PUBLIC
             output : BOOL;
             elapsedTime : LTIME;
@@ -16,6 +16,14 @@ NAMESPACE AXOpen.Timers
           
         END_VAR
         
+        METHOD PUBLIC Pulse : BOOL
+            VAR_INPUT 
+                Parent : IAxoObject;              
+                inSignal : BOOL;
+                PulseLenght : LTIME;
+            END_VAR    
+            Pulse := THIS.Pulse(Parent.GetContext(), inSignal, PulseLenght);
+        END_METHOD    
 
         ///<summary>W
         /// Pulse timer, which output is TRUE only during time counting.
