@@ -1,4 +1,5 @@
 ﻿@namespace AXOpen.Data
+@using AXSharp.Connector
 @inherits RenderableComplexComponentBase<AxoDataExchangeBase>;
 @inject IAlertDialogService _alertDialogService
 <DataExchangeView Vm="_vm" Presentation="Status"></DataExchangeView>
@@ -6,5 +7,10 @@
 @code
 {
     private DataExchangeViewModel _vm => new DataExchangeViewModel { Model = this.Component, AlertDialogService = _alertDialogService };
+
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        
+    }
 }
 

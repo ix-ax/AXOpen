@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Core
 {
-    public partial class AxoMomentaryTaskView : IDisposable
+    public partial class AxoMomentaryTaskView 
     {
         private void SwitchOnTask()
         {
@@ -27,11 +27,7 @@ namespace AXOpen.Core
             UpdateValuesOnChange(Component);
         }
 
-        public void Dispose()
-        {
-            Component.StopPolling();
-            Component.RemoteSwitchOn.Cyclic = false;
-        }
+       
 
         [Parameter]
         public bool Disable { get; set; }

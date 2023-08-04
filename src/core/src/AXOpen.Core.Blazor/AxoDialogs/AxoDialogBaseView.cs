@@ -1,4 +1,5 @@
 ﻿using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using Microsoft.AspNetCore.Components;
 
@@ -8,7 +9,7 @@ namespace AXOpen.Core.Blazor.AxoDialogs
     /// Base class for dialogues, where open/close method are implemented needed for correct synchronization between dialogues.
     /// </summary>
     /// <typeparam name="T">Type of dialogue</typeparam>
-    public partial class AxoDialogBaseView<T> :  RenderableComplexComponentBase<T>,IDisposable where T : AxoDialogBase
+    public partial class AxoDialogBaseView<T> :  RenderableComplexComponentBase<T> where T : AxoDialogBase
     {
 
         [Inject]
@@ -20,6 +21,19 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         protected ModalDialog ModalDialog;
         private string _dialogId;
         private AxoDialogProxyService _myProxyService;
+
+        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        {
+            var task = (AxoDialog)element;
+            var kids = task.GetValueTags().ToList();
+
+
+            kids.ForEach(p =>
+            {
+                p.StartPolling(pollingInterval, this);
+                PolledElements.Add(p);
+            });
+        }
 
         protected async void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)
         {
@@ -72,11 +86,17 @@ namespace AXOpen.Core.Blazor.AxoDialogs
             await ModalDialog.Open();
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
+            base.Dispose();
             _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
             _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
         }
 
+        protected override void OnInitialized()
+        {
+            base.OnInitialized();
+            this.UpdateValuesOnChange(Component);
+        }
     }
 }

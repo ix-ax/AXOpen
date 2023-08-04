@@ -25,6 +25,6 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        this.UpdateValuesOnChange(ServiceTask);
+        this.UpdateValuesOnChange(ServiceTask?.Status);
     }
 }

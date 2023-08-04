@@ -38,6 +38,8 @@ namespace axopen_integrations_blazor
 
             Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
 
+
+
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
             await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();

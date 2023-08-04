@@ -102,11 +102,15 @@
     <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a></div>
     <div><a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
+    <div><a class="xref" href="AXOpen.Data.IAxoEntityExistTaskState.html">IAxoEntityExistTaskState</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
       <a class="xref" href="AXOpen.Data.AxoDataExchangeTask.html#AXOpen_Data_AxoDataExchangeTask_DataEntityIdentifier">AxoDataExchangeTask.DataEntityIdentifier</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Data.AxoDataExchangeTask.html#AXOpen_Data_AxoDataExchangeTask__exist">AxoDataExchangeTask._exist</a>
     </div>
     <div>
       <a class="xref" href="AXOpen.Data.AxoDataExchangeTask.html#AXOpen_Data_AxoDataExchangeTask_OnlineToPlainAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_">AxoDataExchangeTask.OnlineToPlainAsync(AxoDataExchangeTask)</a>
@@ -121,6 +125,9 @@
       <a class="xref" href="AXOpen.Data.AxoDataExchangeTask.html#AXOpen_Data_AxoDataExchangeTask_PlainToShadowAsync_Pocos_AXOpen_Data_AxoDataExchangeTask_">AxoDataExchangeTask.PlainToShadowAsync(AxoDataExchangeTask)</a>
     </div>
     <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_DeferredAction">AxoRemoteTask.DeferredAction</a>
+    </div>
+    <div>
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_PropertyChanged">AxoRemoteTask.PropertyChanged</a>
     </div>
     <div>
@@ -130,6 +137,9 @@
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_Initialize_System_Func_System_Boolean__">AxoRemoteTask.Initialize(Func&lt;bool&gt;)</a>
     </div>
     <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask__defferedActionCount">AxoRemoteTask._defferedActionCount</a>
+    </div>
+    <div>
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_InitializeExclusively_System_Action_">AxoRemoteTask.InitializeExclusively(Action)</a>
     </div>
     <div>
@@ -137,6 +147,9 @@
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_DeInitialize">AxoRemoteTask.DeInitialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_ExecuteAsync_AXSharp_Connector_ITwinPrimitive_AXSharp_Connector_ValueTypes_ValueChangedEventArgs_">AxoRemoteTask.ExecuteAsync(ITwinPrimitive, ValueChangedEventArgs)</a>
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_RemoteExecutionException">AxoRemoteTask.RemoteExecutionException</a>
@@ -320,7 +333,7 @@
   <h6><strong>Assembly</strong>: ix_ax_axopen_data.dll</h6>
   <h5 id="AXOpen_Data_AxoDataCrudTask_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoDataCrudTask : AxoDataExchangeTask, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoTask, IAxoTaskState</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoDataCrudTask : AxoDataExchangeTask, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoTask, IAxoTaskState, IAxoEntityExistTaskState</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -934,6 +947,9 @@ public OnlinerInt CrudOperation { get; }</code></pre>
   </div>
   <div>
       <a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a>
+  </div>
+  <div>
+      <a class="xref" href="AXOpen.Data.IAxoEntityExistTaskState.html">IAxoEntityExistTaskState</a>
   </div>
 </article>
           </div>

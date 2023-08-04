@@ -5,7 +5,7 @@ namespace AXOpen.Core
 {
     public partial class AxoDialogDialogView : AxoDialogBaseView<AxoDialog>, IDisposable
     {
-
+       
 
         private bool IsOkDialogType() => Component._hasOK.Cyclic;
         
@@ -51,8 +51,11 @@ namespace AXOpen.Core
             await CloseDialogsWithSignalR();
         }
 
-        public void Dispose()
+        
+
+        public override void Dispose()
         {
+            base.Dispose();
             Component._answer.ValueChangeEvent -= OnCloseSignal;
             _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
             _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
