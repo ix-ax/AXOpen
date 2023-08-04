@@ -65,7 +65,8 @@
     @if (HasStepDetails)
     {
         <div style="height: 300px; overflow: auto;">
-            <table class="table">
+            <AxoStepView Component="Component.CurrentStep"></AxoStepView>
+            @* <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">Description</th>
@@ -91,7 +92,7 @@
                     }
                 }
                 </tbody>
-            </table>
+            </table>*@
         </div>
     }
 </div>
