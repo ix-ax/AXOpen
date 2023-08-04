@@ -33,7 +33,8 @@
 			"path": "abstractions/ctrl"
 		},
 		{
-			"path": "timers"
+			"name": "timers",
+			"path": "timers/ctrl"
 		}
 	],
 	"settings": {}
