@@ -251,6 +251,21 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 IsValidReferences := TRUE;
             END_IF;
         END_METHOD
+
+        METHOD PRIVATE ContinuousReading
+            VAR_INPUT
+                refResults             :   REF_TO  AxoDataman_Results;
+                refResultData          :   REF_TO  ARRAY[*] OF BYTE;
+            END_VAR     
+
+            IF _ResultsStatus.ResultsAvailable AND NOT _ResultsControl.ResultsAcknowledge AND Results.Code > UINT#0 AND Results.Length > UINT#0 THEN
+                System.SerDe.Deserialize(UINT#7, refResultData^, refResults^.Data);
+                Status.Action.Id := UINT#708;
+            END_IF;
+
+            _ResultsControl.ResultsAcknowledge := _ResultsStatus.ResultsAvailable;
+        END_METHOD
+
         METHOD PROTECTED OVERRIDE Open
             SUPER.Open();
         END_METHOD  
@@ -323,6 +338,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _readTask.Initialize(THIS);
 
             THIS.UpdateInputs(refAcquisitionStatus,refResultsStatus,refSoftEventStatus,refResultData);
+
+            IF Config.ContinuousReading THEN
+	            THIS.ContinuousReading(REF(Results),refResultData);
+            END_IF;
 
             //*************RESTORE********************
             _taskDisabled := FALSE;
