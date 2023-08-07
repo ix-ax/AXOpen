@@ -49,6 +49,16 @@
   items:
       - name: Installation
         href: ~/articles/security/INSTALLATION.md
+
+- name: AXOpen.Timers
+  href: ~/articles/timers/README.md
+  items:
+      - name: OnDelayTimer
+        href: ~/articles/timers/ONDELAYTIMER.md
+      - name: OffDelayTimer
+        href: ~/articles/timers/OFFDELAYTIMER.md
+      - name: Pulse
+        href: ~/articles/timers/PULSETIMER.md
 - name: Template themes
   href: ~/articles/themes/README.md
 - name: Template localization
