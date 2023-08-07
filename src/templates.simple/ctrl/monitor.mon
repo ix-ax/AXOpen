@@ -15,8 +15,9 @@
 #Context.PneumaticManipulator.AutomatSequence._externalClose
 #Context.PneumaticManipulator.AutomatSequence._dialog3._edgeDetected
 #Context.PneumaticManipulator.AutomatSequence._dialog3._testClose
+Context.PneumaticManipulator.AutomatSequence._inspectionResult
+Context.PneumaticManipulator.AutomatSequence._presenceInspector._data
 
-Context.PneumaticManipulator.AutomatSequence._presenceInspector
 #Context.PneumaticManipulator.AutomatSequence._dialog1
 
 #Context.PneumaticManipulator.AutomatSequence._dialog2

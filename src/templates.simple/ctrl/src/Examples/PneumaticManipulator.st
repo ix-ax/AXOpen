@@ -255,7 +255,7 @@ NAMESPACE examples.PneumaticManipulator
                 //_presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).OnFail().Retry(Steps[1]);
                 //_presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).OnFail().Terminate();
 
-                _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+                _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).OnFail().CarryOn();
 
              
 

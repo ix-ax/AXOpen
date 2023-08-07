@@ -34,38 +34,6 @@ NAMESPACE AXOpen.Inspectors
             END_VAR
             _inspectionData := inInspectionData;
         END_METHOD
-
-
-        // //setter
-        // METHOD INTERNAL SetPassTimer : BOOL
-        //     VAR_INPUT
-        //         _signal: BOOL;
-        //         _duration: LTIME;
-        //     END_VAR
-        //     SetPassTimer := _passTimer.Delay(THIS,_signal, _duration);
-        //     // _passTimer(signal := _signal, duration := _duration);
-        // END_METHOD
-
-        // METHOD INTERNAL SetFailTimer : BOOL
-        //     VAR_INPUT
-        //         _signal: BOOL;
-        //         _duration: LTIME;
-        //     END_VAR
-        //     SetFailTimer := _failTimer.Delay(THIS,_signal, _duration);
-        //     // _failTimer(signal := _signal, duration := _duration);
-        // END_METHOD
-
-
-        // METHOD INTERNAL GetPassTimerOutput : BOOL
-
-        //     GetPassTimerOutput := _passTimer.output;
-        // END_METHOD
-
-        // METHOD INTERNAL GetFailTimerOutput : BOOL
-
-        //     GetFailTimerOutput := _failtimer.output;
-        // END_METHOD
-
         
 
         METHOD PUBLIC OnDoneFlag : BOOL
@@ -74,7 +42,7 @@ NAMESPACE AXOpen.Inspectors
 
 
         ///<summary>
-        /// Execture inspection task.
+        /// Execute inspection task.
         ///</summary>
         METHOD PUBLIC OVERRIDE Execute : BOOL
             

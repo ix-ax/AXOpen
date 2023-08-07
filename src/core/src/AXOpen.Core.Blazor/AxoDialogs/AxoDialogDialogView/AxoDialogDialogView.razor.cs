@@ -22,6 +22,7 @@ namespace AXOpen.Core
             base.OnInitialized();
         }
 
+        // experimental stuff for external closings
         private async void OnCloseSignal(object sender, EventArgs e) 
         {
             if (Component._closeSignal.Cyclic)

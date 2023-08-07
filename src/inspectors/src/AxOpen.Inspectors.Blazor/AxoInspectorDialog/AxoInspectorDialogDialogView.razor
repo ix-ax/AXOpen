@@ -1,0 +1,73 @@
+﻿@*namespace AXOpen.Inspectors
+@using AXOpen.Core.Blazor.AxoDialogs
+@inherits AxoDialogBaseView<AxoInspectorDialog>
+
+<h3>AxoInspectorDialogDialogView</h3>*@*@
+
+@*<ModalDialog @ref="@base.ModalDialog" >
+    <HeaderTemplate>
+        Inspection failed, you will need to decide what's next...
+    </HeaderTemplate>
+    <BodyTemplate>
+    <p>@Component._text.Cyclic</p>
+    <div class="d-flex justify-content-center ">
+
+        <h5></h5>
+            <h5>@Description</h5>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Expand
+            </button>
+
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+
+                    <RenderableContentControl Context="Component" Presentation="Display" />
+
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-secondary" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
+
+        <button type="button" class="btn btn-secondary" @onclick="Terminate">Terminate</button>
+
+        <button type="button" class="btn btn-secondary" @onclick="Override">Override</button>
+
+    </BodyTemplate>
+</ModalDialog>*@
+
+@*
+<div class="modal fade" id="@DialogId" tabindex="-1" aria-labelledby="@_labelId" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="@_labelId">Inspector dialogue</h4>
+            </div>
+            <div class="modal-body">
+                <h5>Inspection failed, you will need to decide what's next...</h5>
+                <h5>@Description</h5>
+                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    Expand
+                </button>
+
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+
+                          <RenderableContentControl Context="Component" Presentation="Display" />
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-secondary" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
+
+                <button type="button" class="btn btn-secondary"  @onclick="Terminate">Terminate</button>
+
+                <button type="button" class="btn btn-secondary"  @onclick="Override">Override</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+*@
