@@ -5,6 +5,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
     CLASS PUBLIC AxoDataman EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.IAxoCodeReader     
         VAR PUBLIC
+            ///<summary>
+            /// Restores this instance. This method must be implemented in derived class.
+            ///</summary>               
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "<#Read#>"}
@@ -51,7 +54,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_VAR
                
         ///<summary>
-		/// Restores this instance. 
+		/// Restores this instance . 
         ///</summary>   
         METHOD PROTECTED OVERRIDE Restore: IAxoTask 
             VAR
@@ -98,7 +101,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         ///<summary>
-		/// Custom logic for manual control of the AxoDataman.
+		/// Custom logic for the manual control.
         ///</summary>   
         METHOD PROTECTED OVERRIDE ManualControl
             ;
@@ -384,11 +387,15 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         METHOD PROTECTED OVERRIDE Close
             SUPER.Close();
         END_METHOD  
-    
+        ///<summary>
+		/// Clears the result data. 	
+        ///</summary>       
         METHOD PUBLIC ClearResultData : IAxoTaskState
             ClearResultData :=_clearResultDataTask.Invoke();;
         END_METHOD
-
+        ///<summary>
+		/// Triggers the reading sequence and waits for results. 	
+        ///</summary>       
         METHOD PUBLIC Read : IAxoTaskState
             Read := _readTask.Invoke();
         END_METHOD

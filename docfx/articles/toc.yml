@@ -41,6 +41,14 @@
   items:
       - name: AxoMessenger
         href: ~/articles/messaging/AXOMESSENGER.md
+- name: AXOpen.Components
+  href: ~/articles/components/README.md
+  items:
+      - name: AxoCognexVision
+        href: ~/articles/components/AXOPENCOGNEVISION/README.md
+        items:
+            - name: V_6_0_0_0
+              href: ~/articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md
 - name: AXOpen.Logging
   href: ~/articles/logging/README.md
   items:

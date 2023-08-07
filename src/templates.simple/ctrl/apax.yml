@@ -3,10 +3,6 @@ version: '0.1.4-alpha.79'
 type: app
 registries:
   '@ix-ax': https://npm.pkg.github.com/
-targets:
-  - "1500"
-  - plcsim
-  - axunit-llvm
 devDependencies:
   "@ax/sdk": ^4.0.3
   "@ax/sld": ^0.15.9
@@ -14,9 +10,8 @@ dependencies:
   "@ix-ax/axopen.data": '0.1.4-alpha.79'
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
   "@ax/system-serde": ^2.0.2
-
 variables:
-  APAX_BUILD_ARGS: [ -d ]
+  APAX_BUILD_ARGS: [-d]
 scripts:
   ixc:
     - dotnet tool restore --no-cache
@@ -29,11 +24,11 @@ scripts:
     - apax install
     - apax build
     # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
+
     # --default-server-interface is a must if you are using WebAPI      
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   watch:
-    - dotnet watch --project
-      ..\\axosimple.app\\axosimple.hmi.csproj
+    - dotnet watch --project ..\\axosimple.app\\axosimple.hmi.csproj
   da:
     - apax download
     - apax watch
@@ -71,3 +66,5 @@ scripts:
     - ..\\scripts\\StartPlcSimAdvCli.exe
     - apax install
     - apax rr
+targets:
+  - plcsim

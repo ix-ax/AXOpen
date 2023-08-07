@@ -65,4 +65,4 @@ scripts:
   da:
     - apax do-it-all
 targets:
-  - "1500"
+  - plcsim
