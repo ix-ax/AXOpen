@@ -254,13 +254,19 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
         METHOD PRIVATE ContinuousReading
             VAR_INPUT
+                refStatus              :   REF_TO  AxoDataman_Status;
                 refResults             :   REF_TO  AxoDataman_Results;
                 refResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR     
 
             IF _ResultsStatus.ResultsAvailable AND NOT _ResultsControl.ResultsAcknowledge AND Results.Code > UINT#0 AND Results.Length > UINT#0 THEN
-                System.SerDe.Deserialize(UINT#7, refResultData^, refResults^.Data);
-                Status.Action.Id := UINT#307;
+                IF refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
+                    Status.Action.Id := UINT#701;
+                    Status.Error.Id := UINT#712;
+                ELSE
+                    System.SerDe.Deserialize(UINT#7, refResultData^, refResults^.Data);
+                    Status.Action.Id := UINT#307;
+                END_IF;
             END_IF;
 
             _ResultsControl.ResultsAcknowledge := _ResultsStatus.ResultsAvailable;
@@ -340,7 +346,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             THIS.UpdateInputs(refAcquisitionStatus,refResultsStatus,refSoftEventStatus,refResultData);
 
             IF Config.ContinuousReading THEN
-	            THIS.ContinuousReading(REF(Results),refResultData);
+	            THIS.ContinuousReading(REF(Status), REF(Results),refResultData);
             END_IF;
 
             //*************RESTORE********************

@@ -89,6 +89,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnRestore 
+            _Status^.Action.Id := UINT#308;
+            _Status^.Error.Id  := UINT#0;
             _progress := 0;
             THIS.CallTimers(FALSE);
         END_METHOD

@@ -15,22 +15,18 @@
                 <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.ActivateManualControl" Presentation="Control" />
             </div>
             <div class="col">
-                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman._isManuallyControllable" Presentation="Display" />
+                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman1._isManuallyControllable" Presentation="Display" />
+            </div>
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman2._isManuallyControllable" Presentation="Display" />
             </div>
         </div>
         
-@*        <div class="row">
-            <div class="col">
-                ActionDescription: <b>@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman.Status.ActionDescription.ToString()</b>
-            </div>
-            <div class="col">
-                ErrorDescription: <b>@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman.Status.ErrorDescription.ToString()</b>
-            </div>
-        </div>*@
-
-
         <div class="col">
-            <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman" Presentation="Command" />
+            <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman1" Presentation="Command" />
+        </div>
+        <div class="col">
+            <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman2" Presentation="Command" />
         </div>
     </div>
 </div>

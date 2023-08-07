@@ -92,9 +92,15 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 5 THEN
-                    THIS.ThrowWhen(refResults^.Code = UINT#0 OR refResults^.Length=UINT#0 OR refResults^.Length > TO_UINT(refStatus^.ResultDataSize));
-                    THIS.CallTimers(FALSE);
-                    _progress := _progress + 1;
+                    IF refResults^.Code = UINT#0 OR refResults^.Length=UINT#0 OR refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
+                        THIS.ThrowWhen(TRUE);
+                        IF refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
+                            refStatus^.Error.Id := UINT#712;
+                        END_IF;
+                    ELSE
+                        THIS.CallTimers(FALSE);
+                        _progress := _progress + 1;
+                    END_IF;
                 END_IF;
                 
                 IF _progress = 6 THEN
@@ -149,6 +155,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnRestore 
+            _Status^.Action.Id := UINT#309;
+            _Status^.Error.Id  := UINT#0;
             _progress := 0;
             THIS.CallTimers(FALSE);
         END_METHOD
