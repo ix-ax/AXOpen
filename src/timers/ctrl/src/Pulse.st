@@ -2,7 +2,10 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Timers
     
-    
+    ///<summary>
+    /// PulseTimer class, which contains Pulse method representing timer.
+    /// Counting of timer start on RISING edge.
+    ///</summary>
     CLASS PulseTimer
         VAR PUBLIC
             output : BOOL;
@@ -25,7 +28,7 @@ NAMESPACE AXOpen.Timers
             Pulse := THIS.Pulse(Parent.GetContext(), inSignal, PulseLenght);
         END_METHOD    
 
-        ///<summary>W
+        ///<summary>
         /// Pulse timer, which output is TRUE only during time counting.
         /// Counting of timer start on RISING edge.
         /// 
@@ -70,7 +73,9 @@ NAMESPACE AXOpen.Timers
 
         END_METHOD    
 
-  
+        ///<summary>
+        /// Method for restoring default values of timer.
+        ///</summary>
         METHOD PUBLIC Restore
             _previousSignalStatus := FALSE;
             _currentTimeDiff := LTIME#0s;

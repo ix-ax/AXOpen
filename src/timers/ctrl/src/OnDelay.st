@@ -2,7 +2,10 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Timers
     
-    
+    ///<summary>
+    /// OnDelayTimer class, which contains OnDelay method representing timer.
+    /// Counting of timer start on RISING edge.
+    ///</summary>
     CLASS OnDelayTimer
         VAR PUBLIC
             output : BOOL;
@@ -16,7 +19,10 @@ NAMESPACE AXOpen.Timers
           
         END_VAR
         
-
+        ///<summary>
+        /// OnDelay timer, which output is TRUE when time delay is counted, otherwise always returns FALSE.
+        /// Counting of timer start on RISING edge.
+        ///</summary>
         METHOD PUBLIC OnDelay : BOOL
             VAR_INPUT 
                 Parent : IAxoObject;              
@@ -26,7 +32,7 @@ NAMESPACE AXOpen.Timers
             OnDelay := THIS.OnDelay(Parent.GetContext(), inSignal, TimeDelay);
         END_METHOD
 
-
+        /// LOGIC OF ONDELAY TIMER
         /// If IN is FALSE, Q is FALSE and ET is 0.
         /// As soon as IN becomes TRUE, the time will begin to be counted in milliseconds in ET until its value is equal to PT. 
         /// It will then remain constant. Q is TRUE when IN is TRUE and ET is equal to PT. 
@@ -82,11 +88,12 @@ NAMESPACE AXOpen.Timers
 
         END_METHOD    
 
-  
+        ///<summary>
+        /// Method for restoring default values of timer.
+        ///</summary>
         METHOD PUBLIC Restore
             _previousSignalStatus := FALSE;
             _currentTimeDiff := LTIME#0s;
-            //_startTime := LDATE_AND_TIME#1970-01-01-00:00:00.000;
         END_METHOD 
       
     END_CLASS

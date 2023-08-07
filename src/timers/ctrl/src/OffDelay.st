@@ -2,7 +2,10 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Timers
  
-    
+    ///<summary>
+    /// OffDelayTimer class, which contains OffDelay method representing timer.
+    /// Counting of timer start on FALLING edge.
+    ///</summary>
     CLASS OffDelayTimer
         VAR PUBLIC
             output : BOOL;
@@ -17,7 +20,11 @@ NAMESPACE AXOpen.Timers
           
         END_VAR
         
-
+        ///<summary>
+        /// OffDelay timer, which output it FALSE when time delay is counted, otherwise always returns TRUE.
+        /// Counting of timer start on FALLING edge.
+        /// IAxoObject is used to acquire context automatically.
+        ///</summary>
         METHOD PUBLIC OffDelay : BOOL
             VAR_INPUT 
                 Parent : IAxoObject;              
@@ -27,17 +34,19 @@ NAMESPACE AXOpen.Timers
             OffDelay := THIS.OffDelay(Parent.GetContext(), inSignal, TimeDelay);
         END_METHOD
 
+        
 
+        ///<summary>
+        /// OffDelay timer, which output it FALSE when time delay is counted, otherwise always returns TRUE.
+        /// Counting of timer start on FALLING edge.
+        /// IAxoContext is directly required.
+        /// 
         /// When IN is TRUE, Q is TRUE and ET is 0.
         /// As soon as IN becomes FALSE, the time will begin to be counted in milliseconds in ET until its value is equal to that of PT. 
         /// It will then remain constant. 
         /// Q is FALSE when IN is FALSE and ET is equal to PT. 
         /// Otherwise it is TRUE. 
-        /// Thus, Q has a falling edge when the time indicated in PT in milliseconds has run out.
-
-        ///<summary>
-        /// OffDelay timer, which output it FALSE when time delay is counted, otherwise always returns TRUE.
-        /// Counting of timer start on FALLING edge.
+        /// Thus, Q has a falling edge when the time indicated in PT in milliseconds has run out. 
         ///</summary>
         METHOD PUBLIC OffDelay : BOOL
             VAR_INPUT 
@@ -76,7 +85,7 @@ NAMESPACE AXOpen.Timers
             END_IF;    
 
 
-             // if timer is counting, compute difference and watch for end of timer
+            // if timer is counting, compute difference and watch for end of timer
             IF(THIS._isCounting) THEN
                 _currentTimeDiff := Context.GetRtc().NowUTC() - THIS._startTime ;
                 // if timer passed, set output to false
@@ -96,16 +105,14 @@ NAMESPACE AXOpen.Timers
         
         END_METHOD    
 
-        // LDT#1980-01-23-13:14:33.123456
-        // LTIME#13:14:3.45;
+        ///<summary>
+        /// Method for restoring default values of timer.
+        ///</summary>
         METHOD PUBLIC Restore
-            //_startTime := LDT#0;
             _isCounting := FALSE;
-          
             _previousSignalStatus := FALSE;
             _currentTimeDiff := LTIME#0s;
             _startTime := LDATE_AND_TIME#1970-01-01-00:00:00.000;
-
         END_METHOD   
       
     END_CLASS
