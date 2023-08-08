@@ -164,9 +164,9 @@ NAMESPACE AXOpen.Core
         
         METHOD PUBLIC Terminate 
    
-          _step.SetStepOrder(THIS,RESTORE_STEP_ID);
-          THIS.RequestStep(_step);
-          
+        //   _step.SetStepOrder(THIS,ULINT#);
+        //   THIS.RequestStep(_step);
+          ;
 
         END_METHOD
 

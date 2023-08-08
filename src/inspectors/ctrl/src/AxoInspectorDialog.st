@@ -39,7 +39,7 @@ NAMESPACE AXOpen.Inspectors
                 callCounter : ULINT;
             END_VAR   
               
-           // Restores when not called for 2+ consecutive cycles of the context.
+           //Restores when not called for 2+ consecutive cycles of the context.
            callCounter := THIS.GetParent().GetContext().OpenCycleCount();
            IF(callCounter > _lastCall + ULINT#1) THEN
                THIS.Restore();
@@ -70,16 +70,19 @@ NAMESPACE AXOpen.Inspectors
                     IF(_dialogueRetry) THEN
                         _refInspector^.Retry(inRetryStep);
                         _isAnswerProvided := TRUE;
+                        
                     END_IF;
                     
                     IF(_dialogueTerminate) THEN
                         _refInspector^.Terminate();
                         _isAnswerProvided := TRUE;
+                       
                     END_IF;
                     
                     IF(_dialogueOverride) THEN
                         _refInspector^.CarryOn();
                         _isAnswerProvided := TRUE;
+                       
                     END_IF;
 
                     // //after task is done and some answer is provided, restore this task
@@ -98,10 +101,10 @@ NAMESPACE AXOpen.Inspectors
                 END_IF;	
 
                 // //restore this task, when answer is provided and task is done
-                // IF _isAnswerProvided THEN
-                //     THIS.Restore();  
-                //     _isAnswerProvided := FALSE;
-                // END_IF;
+                IF _isAnswerProvided THEN
+                    THIS.Restore();  
+                    _isAnswerProvided := FALSE;
+                END_IF;
    
                 
                     

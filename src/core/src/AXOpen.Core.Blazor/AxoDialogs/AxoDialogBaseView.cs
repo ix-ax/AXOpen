@@ -24,8 +24,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
         {
-            var task = (AxoDialog)element;
+            var task = (AxoDialogBase)element;
             var kids = task.GetValueTags().ToList();
+
+            //var task1 = (AxoDialog)element;
+            //var kids1 = task.GetValueTags().ToList();
 
 
             kids.ForEach(p =>

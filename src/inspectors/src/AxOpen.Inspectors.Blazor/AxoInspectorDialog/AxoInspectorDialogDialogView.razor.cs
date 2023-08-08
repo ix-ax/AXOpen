@@ -83,7 +83,7 @@ namespace AXOpen.Inspectors
           
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             base.Dispose();
         }

@@ -58,8 +58,6 @@ namespace AXOpen.Core
         {
             base.Dispose();
             Component._answer.ValueChangeEvent -= OnCloseSignal;
-            _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
-            _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
         }
     }
 }
