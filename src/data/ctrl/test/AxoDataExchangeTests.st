@@ -58,7 +58,7 @@ NAMESPACE AXOpen.Data
                 expected := 'CreateRecordIdentifier';
                 _dataExchange.Create(expected);
                 _context.Close();
-                AxUnit.Assert.Equal(_dataExchange.CreateTask.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
             END_METHOD
 
             
@@ -72,7 +72,7 @@ NAMESPACE AXOpen.Data
                 expected := 'ReadRecordIdentifier';
                 _dataExchange.Read(expected);
                 _context.Close();
-                AxUnit.Assert.Equal(_dataExchange.ReadTask.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
             END_METHOD
 
             {Test}
@@ -85,7 +85,7 @@ NAMESPACE AXOpen.Data
                 expected := 'UpdateRecordIdentifier';
                 _dataExchange.Update(expected);
                 _context.Close();
-                AxUnit.Assert.Equal(_dataExchange.UpdateTask.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
             END_METHOD
 
             {Test}
@@ -98,7 +98,7 @@ NAMESPACE AXOpen.Data
                 expected := 'DeleteRecordIdentifier';
                 _dataExchange.Delete(expected);
                 _context.Close();
-                AxUnit.Assert.Equal(_dataExchange.DeleteTask.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
             END_METHOD
 
             {Test}
@@ -111,7 +111,7 @@ NAMESPACE AXOpen.Data
                 expected := 'EntityExistRecordIdentifier';
                 _dataExchange.EntityExist(expected);
                 _context.Close();
-                AxUnit.Assert.Equal(_dataExchange.EntityExistTask.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
             END_METHOD
 
             {Test}
@@ -124,7 +124,7 @@ NAMESPACE AXOpen.Data
                 expected := 'CreateOrUpdateRecordIdentifier';
                 _dataExchange.CreateOrUpdate(expected);
                 _context.Close();
-                AxUnit.Assert.Equal(_dataExchange.CreateOrUpdateTask.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
             END_METHOD
         END_CLASS
     END_NAMESPACE    

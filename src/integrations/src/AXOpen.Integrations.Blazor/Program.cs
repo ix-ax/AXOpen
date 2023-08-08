@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Pocos.IntegrationAxoDataFramentsExchange;
 using Serilog;
+using AXOpen.Core;
 
 namespace axopen_integrations_blazor
 {
@@ -22,7 +23,7 @@ namespace axopen_integrations_blazor
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
             builder.Services.AddSingleton<WeatherForecastService>();
-            
+            builder.Services.AddAxoCoreServices();
             builder.Services.AddIxBlazorServices();
 
             //builder.Services.AddScoped<IAlertDialogService, ToasterService>();
@@ -36,6 +37,8 @@ namespace axopen_integrations_blazor
             Entry.Plc.Connector.BuildAndStart();
 
             Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+
+
 
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
@@ -108,7 +111,6 @@ namespace axopen_integrations_blazor
 
             //<AxoLoggerInitialization>
             Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(AxoApplication.Current.Logger, 250);
-            Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(AxoApplication.Current.Logger, 250);
             //</AxoLoggerInitialization>
 
 

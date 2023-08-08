@@ -14,28 +14,26 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
     /// <summary>
     /// Proxy service for alert dialogs, where remote tasks responsible for dialogues handling are initilized 
     /// </summary>
-    public class AxoAlertDialogProxyService : AxoDialogProxyServiceBase
+    public class AxoAlertDialogProxyService : AxoDialogProxyServiceBase, IDisposable
     {
 
         private AxoDialogContainer _axoDialogContainer;
         public AxoAlertDialogProxyService(AxoDialogContainer dialogContainer, IEnumerable<ITwinObject> observedOjects)
         {
             _axoDialogContainer = dialogContainer;
-            SetObservedObjects(observedOjects);
+            StartObserveObjects(observedOjects);
         }
         public IAlertDialogService ScopedAlertDialogService = new AxoAlertDialogService();
-        public void SetObservedObjects(IEnumerable<ITwinObject> observedObjects)
+        private IEnumerable<ITwinObject> _observedObject;
+
+        public void StartObserveObjects(IEnumerable<ITwinObject> observedObjects)
         {
+            _observedObject = observedObjects;
             if (observedObjects == null || observedObjects.Count() == 0) return;
             foreach (var item in observedObjects)
             {
-                //check if we observing symbol, if yes, we do not have to initialize new remote tasks
-                if (!_axoDialogContainer.ObservedObjectsAlerts.Contains(item.Symbol))
-                {
-                    //create observer for this object
-                    _axoDialogContainer.ObservedObjectsAlerts.Add(item.Symbol);
-                    UpdateDialogs<IsAlertDialogType>(item);
-                }
+                _axoDialogContainer.ObservedObjectsAlerts.Add(item.Symbol);
+                UpdateDialogs<IsAlertDialogType>(item);
             }
 
         }
@@ -59,6 +57,20 @@ namespace AXOpen.Core.Blazor.AxoAlertDialog
             foreach (var dialog in descendants)
             {
                 dialog.Initialize(() => Queue(dialog));
+            }
+
+        }
+
+        public void Dispose()
+        {
+
+            foreach (var observedObject in _observedObject)
+            {
+                var descendants = GetDescendants<IsDialogType>(observedObject);
+                foreach (var dialog in descendants)
+                {
+                    dialog.DeInitialize();
+                }
             }
 
         }

@@ -19,6 +19,18 @@ namespace AXOpen.Core
 
         [Parameter] public bool HasStepDetails { get; set; } = true;
 
+        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        {
+            var sequencer = (AxoSequencer)element;
+            var firstLevelPrimitives = sequencer.GetValueTags().ToList();
+
+            firstLevelPrimitives.ForEach(p =>
+            {
+                p.StartPolling(pollingInterval, this);
+                PolledElements.Add(p);
+            });
+        }
+
         private string UpdateStepRowColors(AxoStep step)
         {
             //await this.ScrollToRow();

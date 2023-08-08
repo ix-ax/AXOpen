@@ -552,17 +552,12 @@ namespace AXOpen.Data.Tests
             var repo = new InMemoryRepository<MockData>();
             sut.InitializeRemoteDataExchange(repo);
 
-            await sut.CreateTask.DataEntityIdentifier.SetAsync("foo");
-            sut.CreateTask.StartTimeStamp.Cyclic = DateAndTime.Now;
+            await sut.Operation.DataEntityIdentifier.SetAsync("foo");
+            sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
 
-            Assert.True(await sut.CreateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.ReadTask.IsInitialized.GetAsync());
-            Assert.True(await sut.UpdateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.DeleteTask.IsInitialized.GetAsync());
-            Assert.True(await sut.EntityExistTask.IsInitialized.GetAsync());
-            Assert.True(await sut.CreateOrUpdateTask.IsInitialized.GetAsync());
+            Assert.True(await sut.Operation.IsInitialized.GetAsync());
         }
 
         [Fact()]
@@ -575,17 +570,12 @@ namespace AXOpen.Data.Tests
             sut.SetRepository(repo);
             sut.InitializeRemoteDataExchange();
 
-            await sut.CreateTask.DataEntityIdentifier.SetAsync("foo");
-            sut.CreateTask.StartTimeStamp.Cyclic = DateAndTime.Now;
+            await sut.Operation.DataEntityIdentifier.SetAsync("foo");
+            sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
 
-            Assert.True(await sut.CreateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.ReadTask.IsInitialized.GetAsync());
-            Assert.True(await sut.UpdateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.DeleteTask.IsInitialized.GetAsync());
-            Assert.True(await sut.EntityExistTask.IsInitialized.GetAsync());
-            Assert.True(await sut.CreateOrUpdateTask.IsInitialized.GetAsync());
+            Assert.True(await sut.Operation.IsInitialized.GetAsync());
         }
 
         [Fact()]
@@ -597,26 +587,16 @@ namespace AXOpen.Data.Tests
             var repo = new InMemoryRepository<MockData>();
             sut.InitializeRemoteDataExchange(repo);
 
-            await sut.CreateTask.DataEntityIdentifier.SetAsync("foo");
-            sut.CreateTask.StartTimeStamp.Cyclic = DateAndTime.Now;
+            await sut.Operation.DataEntityIdentifier.SetAsync("foo");
+            sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
 
-            Assert.True(await sut.CreateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.ReadTask.IsInitialized.GetAsync());
-            Assert.True(await sut.UpdateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.DeleteTask.IsInitialized.GetAsync());
-            Assert.True(await sut.EntityExistTask.IsInitialized.GetAsync());
-            Assert.True(await sut.CreateOrUpdateTask.IsInitialized.GetAsync());
+            Assert.True(await sut.Operation.IsInitialized.GetAsync());
 
             sut.DeInitializeRemoteDataExchange();
 
-            Assert.False(await sut.CreateTask.IsInitialized.GetAsync());
-            Assert.False(await sut.ReadTask.IsInitialized.GetAsync());
-            Assert.False(await sut.UpdateTask.IsInitialized.GetAsync());
-            Assert.False(await sut.DeleteTask.IsInitialized.GetAsync());
-            Assert.False(await sut.EntityExistTask.IsInitialized.GetAsync());
-            Assert.False(await sut.CreateOrUpdateTask.IsInitialized.GetAsync());
+            Assert.False(await sut.Operation.IsInitialized.GetAsync());
         }
 
 
@@ -688,7 +668,7 @@ namespace AXOpen.Data.Tests
             };
 
             // export
-            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, eFileType.csv, '*');
+            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, "CSV", '*');
 
             Assert.True(File.Exists(zipFile));
 

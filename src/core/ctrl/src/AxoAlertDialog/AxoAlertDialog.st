@@ -8,11 +8,20 @@ NAMESPACE AXOpen.Core
             _message : STRING;
             _timeToBurn : UINT := UINT#5;
         END_VAR
+        
+        VAR PRIVATE
+            _lastCall : ULINT;
+        END_VAR    
+
+        
 
         METHOD PUBLIC Show : IAxoAlertDialogFormat
             VAR_INPUT
                 _parent : IAxoObject;
             END_VAR
+            VAR
+                callCounter : ULINT;
+            END_VAR    
 
             THIS.Initialize(_parent);
 
@@ -20,6 +29,13 @@ NAMESPACE AXOpen.Core
                 _dialogType := eDialogType#Undefined;
             END_IF;
             
+            // Restores when not called for 2+ consecutive cycles of the context.
+            callCounter := THIS.GetParent().GetContext().OpenCycleCount();
+            IF(callCounter > _lastCall + ULINT#1) THEN
+                THIS.Restore();
+            END_IF;                
+            _lastCall := callCounter;
+
             THIS.Invoke();
             SUPER.Execute();
 

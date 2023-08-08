@@ -43,7 +43,7 @@ namespace AXOpen.Messaging.Static
 
         public void Dispose()
         {
-            Component.StopPolling();
+            Component.StopPolling(this);
         }
 
         private string BackgroundColor
