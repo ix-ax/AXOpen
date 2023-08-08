@@ -53,4 +53,6 @@
   href: ~/articles/themes/README.md
 - name: Template localization
   href: ~/articles/localization/README.md
+- name: Client Identification
+  href: ~/articles/clientIdentification/README.md
 
