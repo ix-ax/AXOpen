@@ -15,29 +15,47 @@ NAMESPACE AXOpen.Inspectors
             _dialogueOverride : BOOL;
         END_VAR
 
+        VAR PRIVATE
+            _lastCall : ULINT;
+        END_VAR    
+
         VAR
             
             _isActive : BOOL;
             _dialogIsClosed : BOOL;
             _isAnswerProvided : BOOL;
-            _refInspector : REF_TO AxoInspector;
-
+            //_refInspector : REF_TO AxoInspector;
+            
         END_VAR
-        
 
-        METHOD Show
+     
+
+        METHOD PUBLIC Show
             VAR_INPUT
-                _parent: IAxoObject;
+                _refInspector : REF_TO AxoInspector;
                 inRetryStep : IAxoStep;
             END_VAR
+            VAR
+                callCounter : ULINT;
+            END_VAR   
+              
+           // Restores when not called for 2+ consecutive cycles of the context.
+           callCounter := THIS.GetParent().GetContext().OpenCycleCount();
+           IF(callCounter > _lastCall + ULINT#1) THEN
+               THIS.Restore();
+           END_IF;                
+           _lastCall := callCounter;
 
+         
             IF(_refInspector = NULL) THEN
                 RETURN;
             END_IF;
 
-            THIS.Initialize(_parent);
+            THIS.Initialize(_refInspector^);
 
-
+            // IF (THIS.Status = eAxoTaskState#Ready) THEN
+            //     _isAnswerProvided := FALSE;
+            // END_IF;
             _isOverInspected := _refInspector^.CheckOverInspection();
 
 
@@ -63,6 +81,13 @@ NAMESPACE AXOpen.Inspectors
                         _refInspector^.CarryOn();
                         _isAnswerProvided := TRUE;
                     END_IF;
+
+                    // //after task is done and some answer is provided, restore this task
+                    // IF (THIS.Status = eAxoTaskState#Done && _isAnswerProvided) THEN
+                    //     _isAnswerProvided := FALSE;
+                    //     THIS.Restore();   
+                            
+                    // END_IF;
             
                 ELSE
 
@@ -72,11 +97,11 @@ NAMESPACE AXOpen.Inspectors
 
                 END_IF;	
 
-                //restore this task, when answer is provided and task is done
-                IF _isAnswerProvided THEN
-                    THIS.Restore();  
-                    _isAnswerProvided := FALSE;
-                END_IF;
+                // //restore this task, when answer is provided and task is done
+                // IF _isAnswerProvided THEN
+                //     THIS.Restore();  
+                //     _isAnswerProvided := FALSE;
+                // END_IF;
    
                 
                     
@@ -95,14 +120,7 @@ NAMESPACE AXOpen.Inspectors
 
         END_METHOD
 
-        METHOD SetInspector
-            VAR_INPUT
-                _inRefInspector: REF_TO AxoInspector;
-            END_VAR
-
-            _refInspector := _inRefInspector;
-
-        END_METHOD
+      
 
 END_CLASS
 

@@ -21,6 +21,14 @@ NAMESPACE AXOpen.Inspectors
         METHOD Result : eInspectorResult
         END_METHOD
 
+        METHOD Dialog : BOOL
+            VAR_INPUT
+                inStep: IAxoStep;
+            END_VAR
+
+            
+        END_METHOD
+
         
 
         METHOD OnFail : IOnFail

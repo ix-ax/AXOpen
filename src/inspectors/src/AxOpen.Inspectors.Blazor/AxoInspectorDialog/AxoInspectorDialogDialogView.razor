@@ -1,73 +1,49 @@
-﻿@*namespace AXOpen.Inspectors
+﻿@namespace AXOpen.Inspectors
 @using AXOpen.Core.Blazor.AxoDialogs
 @inherits AxoDialogBaseView<AxoInspectorDialog>
 
-<h3>AxoInspectorDialogDialogView</h3>*@*@
+<h3>AxoInspectorDialogDialogView</h3>
 
-@*<ModalDialog @ref="@base.ModalDialog" >
+<ModalDialog @ref="@base.ModalDialog" >
     <HeaderTemplate>
-        Inspection failed, you will need to decide what's next...
+        <h3>Inspection failed, you will need to decide what's next...</h3>
     </HeaderTemplate>
     <BodyTemplate>
-    <p>@Component._text.Cyclic</p>
-    <div class="d-flex justify-content-center ">
+    <div >
 
-        <h5></h5>
             <h5>@Description</h5>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            @if (Inspector != null)
+            {
+                <RenderableContentControl Context="Inspector" Presentation="Command" />
+            }
+            else
+            {
+                <p>Loading inspector... if it's taking long, something is wrong</p>
+            }
+            @* <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Expand
             </button>
 
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
 
-                    <RenderableContentControl Context="Component" Presentation="Display" />
-
+                    @if (Inspector != null)
+                    {
+                        <RenderableContentControl Context="Inspector" Presentation="Command" />
+                    }
                 </div>
-            </div>
+            </div>*@
         </div>
+        <div class="d-flex justify-content-center ">
+            <button type="button" class="btn btn-secondary m-2 w-50" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
 
-        <button type="button" class="btn btn-secondary" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
+            <button type="button" class="btn btn-secondary m-2 w-50" @onclick="Terminate">Terminate</button>
 
-        <button type="button" class="btn btn-secondary" @onclick="Terminate">Terminate</button>
-
-        <button type="button" class="btn btn-secondary" @onclick="Override">Override</button>
-
+            <button type="button" class="btn btn-secondary m-2 w-50" @onclick="Override">Override</button>
+        </div>
     </BodyTemplate>
-</ModalDialog>*@
+</ModalDialog>
 
-@*
-<div class="modal fade" id="@DialogId" tabindex="-1" aria-labelledby="@_labelId" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="@_labelId">Inspector dialogue</h4>
-            </div>
-            <div class="modal-body">
-                <h5>Inspection failed, you will need to decide what's next...</h5>
-                <h5>@Description</h5>
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Expand
-                </button>
 
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
 
-                          <RenderableContentControl Context="Component" Presentation="Display" />
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
 
-                <button type="button" class="btn btn-secondary" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
-
-                <button type="button" class="btn btn-secondary"  @onclick="Terminate">Terminate</button>
-
-                <button type="button" class="btn btn-secondary"  @onclick="Override">Override</button>
-
-            </div>
-        </div>
-    </div>
-</div>
-*@

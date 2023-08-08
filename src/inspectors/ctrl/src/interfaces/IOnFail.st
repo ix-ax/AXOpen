@@ -10,6 +10,12 @@ NAMESPACE AXOpen.Inspectors
             END_VAR
         END_METHOD
 
+        METHOD Dialog : BOOL
+            VAR_INPUT
+                inAxoStep : AxOpen.Core.IAxoStep;
+            END_VAR
+        END_METHOD
+
         METHOD Terminate : BOOL
         END_METHOD
 

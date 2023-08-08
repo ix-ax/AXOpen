@@ -136,7 +136,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ACDBA197
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors.Blazor", "inspectors\src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj", "{6A796A98-F570-4F35-B46B-177B4C0178DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors", "inspectors\src\AxOpen.Inspectors\AxOpen.Inspectors.csproj", "{C1ED4D9E-2D46-4172-AB09-F9B4244C440E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "inspectors\src\AxOpen.Inspectors\ix_ax_axopen_inspectors.csproj", "{358D781D-BE42-4298-A60F-BE0358B5B405}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -276,10 +276,10 @@ Global
 		{6A796A98-F570-4F35-B46B-177B4C0178DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A796A98-F570-4F35-B46B-177B4C0178DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A796A98-F570-4F35-B46B-177B4C0178DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C1ED4D9E-2D46-4172-AB09-F9B4244C440E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C1ED4D9E-2D46-4172-AB09-F9B4244C440E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C1ED4D9E-2D46-4172-AB09-F9B4244C440E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C1ED4D9E-2D46-4172-AB09-F9B4244C440E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{358D781D-BE42-4298-A60F-BE0358B5B405}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{358D781D-BE42-4298-A60F-BE0358B5B405}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{358D781D-BE42-4298-A60F-BE0358B5B405}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{358D781D-BE42-4298-A60F-BE0358B5B405}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -338,7 +338,7 @@ Global
 		{6B847420-D488-4E16-B599-14F7558EBD66} = {E644E81B-36C4-44B3-837F-AC1DDDB609C5}
 		{ACDBA197-69BA-49E9-9624-DC7B912E4C3D} = {E644E81B-36C4-44B3-837F-AC1DDDB609C5}
 		{6A796A98-F570-4F35-B46B-177B4C0178DC} = {6B847420-D488-4E16-B599-14F7558EBD66}
-		{C1ED4D9E-2D46-4172-AB09-F9B4244C440E} = {6B847420-D488-4E16-B599-14F7558EBD66}
+		{358D781D-BE42-4298-A60F-BE0358B5B405} = {6B847420-D488-4E16-B599-14F7558EBD66}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

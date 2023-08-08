@@ -9,14 +9,16 @@ NAMESPACE AXOpen.Inspectors
     CLASS AxoInspector EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IInspector, IOnFail
 
         
-     
+        VAR PUBLIC
+            _axoInspectorDialog : AxoInspectorDialog;
+        END_VAR
         VAR
+            
             _inspectorTask: AxoInspectorTask;
             _coordinator: IAxoCoordinator;
             _isOverInspected: BOOL;
             _busy : BOOL;
             _commonData: REF_TO AxoInspectorData;
-            //tier?
             _originalOverallResult : IAxoComprehensiveResult;
             //_refOverallResult: REF_TO AxoComprehensiveResult; //within group inspectors
 
@@ -27,7 +29,7 @@ NAMESPACE AXOpen.Inspectors
         /// GETTERS START
       
     
-    
+      
 
     
         METHOD PUBLIC Busy : BOOL
@@ -112,6 +114,20 @@ NAMESPACE AXOpen.Inspectors
         // END_IF
 
         OnFail:= THIS;
+        
+    END_METHOD
+
+    /// EVALUATION METHODS
+    METHOD PUBLIC Dialog : BOOL
+        VAR_INPUT
+            inStep: IAxoStep;
+        END_VAR
+
+        _axoInspectorDialog.Show(REF(THIS), inStep);
+        // IF(_coordinator = NULL) THEN
+        //     // here is coordinator missing, it should provide message to call it with WithCoordinator method
+        // END_IF
+
         
     END_METHOD
 
