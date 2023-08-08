@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "axsharp.ixc": {
+      "version": "0.14.0-alpha.113",
+      "commands": [
+        "ixc"
+      ]
+    },
+    "axsharp.ixr": {
+      "version": "0.14.0-alpha.113",
+      "commands": [
+        "ixr"
+      ]
+    }
+  }
+}

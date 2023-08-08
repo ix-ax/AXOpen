@@ -34,6 +34,17 @@ namespace axopen_integrations_blazor
                 .WriteTo.Console().MinimumLevel.Debug()
                 .CreateLogger()));
 
+            Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
+                                                        .WriteTo
+                                                        .Console()
+                                                        .WriteTo
+                                                        .File($"connector.log",
+                                                            outputTemplate: "{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}",
+                                                            fileSizeLimitBytes: 100000)
+                                                        .MinimumLevel.Debug()
+                                                        .CreateLogger());
+
+            Entry.Plc.Connector.ReadWriteCycleDelay = 250;
             Entry.Plc.Connector.BuildAndStart();
 
             Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;

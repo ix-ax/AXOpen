@@ -9,7 +9,7 @@ NAMESPACE axosimple
             PneumaticManipulator : examples.PneumaticManipulator.CU;            
             PneumaticManipulator2 : examples.PneumaticManipulator.CU;                      
             Inputs : REF_TO axosimple.Inputs;
-            Outputs : REF_TO axosimple.Outputs;
+            Outputs : REF_TO axosimple.Outputs; 
         END_VAR      
         
         METHOD PROTECTED OVERRIDE Main                                   

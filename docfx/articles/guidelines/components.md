@@ -5,6 +5,7 @@
 | REVISION | DATE      | NOTES           |
 |----------|-----------|-----------------|
 | 0.0      | June 2023 | Initial release |
+| 0.1      | August 2023 | Initial release |
 
 
 This document describes the format and practices for writing components in TcOpen. These are universal rules to observe. Each rule knows exception when there is a reasonable argument behind it.
@@ -12,9 +13,13 @@ This document describes the format and practices for writing components in TcOpe
 
 ## General rules
 
+## Library placement
+
+Library must be placed in `src` folder of the repository. The containing folder should be named `components`.[manufacturer].[function_group] (e.g. components.cognex.vision).
+
 ### Abstractions
 
-Each component should implement basic contract interface defined in the `AxoAbstractions` library (e.g. `AxoAbbRobot` should implenent `IAxoRobot`, `AxoCongexReader` should impement `IAxoReader`)
+Each component should implement basic contract interface defined in the `AxoAbstractions` library (e.g. `AxoAbbRobot` should implenent `IAxoRobot`, `AxoCognexReader` should impement `IAxoReader`)
 
 ### I/O variables
 

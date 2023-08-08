@@ -43,7 +43,7 @@ NAMESPACE AXOpen.Utils
 		END_IF;
 
 		FOR i := UINT#1 TO maxIndex BY UINT#1 DO
-			crc := AxoXor(SHL(crc, UINT#8),CRC_TABLE[TO_INT(AxoXor(SHR(crc, UINT#8) , serialized[i]))]);
+			crc :=SHL(crc, UINT#8) XOR CRC_TABLE[TO_INT(SHR(crc, UINT#8) XOR serialized[i])];
 		END_FOR;
 
 		AxoCRC_16 := crc;

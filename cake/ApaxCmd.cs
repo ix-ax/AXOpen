@@ -48,6 +48,7 @@ public static class ApaxCmd
             RedirectStandardError = false,
             Silent = false
         }).WaitForExit();
+        context.Log.Information($"apax clean finished for '{lib.folder} : {lib.name}'");
     }
 
     public static void ApaxClean(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
