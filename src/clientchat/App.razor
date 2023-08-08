@@ -1,0 +1,59 @@
+﻿@using Microsoft.AspNetCore.SignalR.Client;
+@using System.Net;
+@using clientchat.ClientIdentification;
+
+@inject NavigationManager NavigationManager
+@inject HubConnectionProvider HubConnectionProvider
+
+@implements IAsyncDisposable
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p role="alert">Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+
+@code {
+    [Parameter]
+    public string? IdentityCookie { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var cookieContainer = new CookieContainer();
+        var cookie = new Cookie()
+            {
+                Name = ".AspNetCore.Identity.Application",
+                Domain = NavigationManager.ToAbsoluteUri("/").Host,
+                Value = IdentityCookie
+            };
+        cookieContainer.Add(cookie);
+
+        HubConnectionProvider.HubConnection = new HubConnectionBuilder()
+            .WithUrl(NavigationManager.ToAbsoluteUri("/connectionHub"), options =>
+            {
+                options.Cookies = cookieContainer;
+            })
+            .Build();
+        
+        await HubConnectionProvider.HubConnection.StartAsync();
+
+        await base.OnInitializedAsync();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        if (HubConnectionProvider.HubConnection is not null)
+        {
+            await HubConnectionProvider.HubConnection.DisposeAsync();
+        }
+    }
+}
