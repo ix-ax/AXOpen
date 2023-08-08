@@ -1154,7 +1154,39 @@ END_CLASS
 </code></pre>
 <p>and the rendered result:</p>
 <p><img src="../../images/ComplexComponentExample.gif" alt="Alt text"></p>
-[!include[AlertDialog](ALERTDIALOG.md)]</article>
+<h1 id="alertdialog">AlertDialog</h1>
+<p>The AlertDialog class provides a fundamental implementation for displaying dialog boxes, like Toast.</p>
+<h2 id="usage">Usage</h2>
+<p>To use AlertDialog, you need to add a service to your 'Program.cs' file in your Blazor application:</p>
+<pre><code class="lang-C#">builder.Services.AddScoped&lt;IAlertDialogService, ToasterService&gt;();
+</code></pre>
+<p>Next, in your 'MainLayout.razor' file, add the following line for visualization:</p>
+<pre><code class="lang-HTML">&lt;AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog.Toaster /&gt;
+</code></pre>
+<p>Now you can use the AlertDialog wherever needed. To utilize the AlertDialog in your views or code-behind file, you must inject the 'IAlertDialogService' service:</p>
+<pre><code class="lang-C#">[Inject]
+private IAlertDialogService _alertDialogService { get; set; }
+</code></pre>
+<p>Then, you can freely use it, for example, like this:</p>
+<pre><code class="lang-C#">_alertDialogService.AddAlertDialog(type, title, message, time);
+</code></pre>
+<p>Where:</p>
+<ul>
+<li>type: represents the visualization type - Info, Success, Danger, Warning</li>
+<li>title: Refers to the header of your alert</li>
+<li>message: Corresponds to the text in your alert</li>
+<li>time: Specifies the duration in seconds for which the alert will be displayed</li>
+</ul>
+<h3 id="renderablecontentcontrol">RenderableContentControl</h3>
+<p>To use AlertDialog in a RenderableComponentBase, you need to add the 'AlertDialogService' property with the current AlertDialogService to the 'RenderableContentControl'. You can obtain the AlertDialogService from the injected service.</p>
+<pre><code class="lang-HTML">&lt;RenderableContentControl Context=&quot;Vm.Data&quot; Presentation=&quot;Display&quot; AlertDialogService=&quot;_alertDialogService&quot;&gt;&lt;/RenderableContentControl&gt;
+</code></pre>
+<p>RenderableComponentBase has the AlertDialogService property, so in any class that inherits from RenderableComponentBase, you can use the AlertDialogService, for example:</p>
+<pre><code class="lang-C#">AlertDialogService.AddAlertDialog(&quot;Success&quot;, &quot;title&quot;, &quot;message&quot;, 30);
+</code></pre>
+<h2 id="example">Example</h2>
+<p><img src="../../images/AlertDialog.png" alt="Alert Dialog"></p>
+</article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">

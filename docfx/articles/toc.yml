@@ -65,3 +65,6 @@
   href: ~/articles/localization/README.md
 - name: Server configuration
   href: ~/articles/configuration/README.md
+- name: Client Identification
+  href: ~/articles/clientIdentification/README.md
+

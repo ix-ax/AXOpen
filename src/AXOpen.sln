@@ -151,6 +151,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_cognex_vision_blazor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_cognex_vision_tests", "components.cognex.vision\tests\AXOpen.Cognex.Vision.Tests\axopen_cognex_vision_tests.csproj", "{D3094A68-880C-4637-8F90-6034951E141B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "clientchat", "clientchat", "{FEF28A3F-E141-4492-8055-3B21A1BDDAAB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "clientchat", "clientchat\clientchat.csproj", "{B3B2A1D3-A1A5-443A-975F-C44F7C2648E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -301,6 +305,10 @@ Global
 		{D3094A68-880C-4637-8F90-6034951E141B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3094A68-880C-4637-8F90-6034951E141B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3094A68-880C-4637-8F90-6034951E141B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B2A1D3-A1A5-443A-975F-C44F7C2648E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B2A1D3-A1A5-443A-975F-C44F7C2648E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B2A1D3-A1A5-443A-975F-C44F7C2648E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B2A1D3-A1A5-443A-975F-C44F7C2648E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -364,6 +372,7 @@ Global
 		{38B11CA7-A8CB-4B95-B123-92D3559CC1D2} = {7A82F34B-A479-47D4-8FB6-F9A66FE6591A}
 		{4D4B57A7-55C4-4AE2-8991-250937389412} = {7A82F34B-A479-47D4-8FB6-F9A66FE6591A}
 		{D3094A68-880C-4637-8F90-6034951E141B} = {E2BFDC17-38C1-43AD-9CB5-4FA440D2DEEA}
+		{B3B2A1D3-A1A5-443A-975F-C44F7C2648E6} = {FEF28A3F-E141-4492-8055-3B21A1BDDAAB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}
