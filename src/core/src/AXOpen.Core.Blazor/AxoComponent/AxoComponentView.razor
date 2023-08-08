@@ -35,19 +35,22 @@
     {
         <div class="@(isCollapsed ? "collapse" : null)">
             <div class="card card-body">
-                <TabControl>
-                    @foreach (var detailsTab in DetailsTabs)
-                    {
-                        <TabPage Text="@detailsTab.HumanReadable">
-                            <RenderableContentControl 
+                @if (!isCollapsed)
+                {
+                    <TabControl>
+                        @foreach (var detailsTab in DetailsTabs)
+                        {
+                            <TabPage Text="@detailsTab.HumanReadable">
+                                <RenderableContentControl 
                                 Context=@detailsTab
                                 Presentation="@currentPresentation"
                                 Class="bg-light rounded-3 shadow"
                                 LayoutClass="align-items-end" 
                                 LayoutChildrenClass="ms-0"/>
-                        </TabPage>
-                    }
-                </TabControl>
+                            </TabPage>
+                        }
+                    </TabControl>
+                }
             </div>
         </div>
     }

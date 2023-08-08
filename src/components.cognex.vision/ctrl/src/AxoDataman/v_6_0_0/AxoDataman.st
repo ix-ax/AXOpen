@@ -33,9 +33,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Status")]}
-            {#ix-set:AttributeName = "<#Update#>"}
-            _updateSignalStatesTask : AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             Status      :   AxoDataman_Status;
 
@@ -63,7 +60,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             Status.Action.Id := UINT#0;
             Status.Error.Id  := UINT#0;
 
-            _updateSignalStatesTask.Restore();
             _clearResultDataTask.Restore();
             _readTask.Restore();
              
@@ -342,11 +338,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
 
             _restoreTask.Initialize(THIS);
-            _updateSignalStatesTask.Initialize(THIS);
             _clearResultDataTask.Initialize(THIS);
             _readTask.Initialize(THIS);
 
             THIS.UpdateInputs(refAcquisitionStatus,refResultsStatus,refSoftEventStatus,refResultData);
+            THIS.UpdateSignalStates();
 
             IF Config.ContinuousReading THEN
 	            THIS.ContinuousReading(REF(Status), REF(Results),refResultData);
@@ -360,16 +356,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_IF;
             //****************************************
 
-            //*************UPDATE*********************
-            _taskDisabled := _taskDisabled OR _restoreTask.IsBusy();
-            _updateSignalStatesTask.IsDisabled:= _taskDisabled;
-            IF _updateSignalStatesTask.Execute() THEN
-                THIS.UpdateSignalStates();
-            END_IF;
-            //****************************************
-
             //*************CLEAR*DATA*****************
-            _taskDisabled := _taskDisabled OR _updateSignalStatesTask.IsBusy();
+            _taskDisabled := _taskDisabled OR _restoreTask.IsBusy();
             _clearResultDataTask.IsDisabled := _taskDisabled;
             _clearResultDataTask.Run(REF(_AcquisitionControl),REF(_AcquisitionStatus),REF(_ResultsControl),REF(_ResultsStatus),REF(Config),REF(Status),REF(Results));
             //****************************************
@@ -424,7 +412,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             Status.SignalStatus.ResultExtended  		:= 	Results.Extended;
             Status.SignalStatus.ResultLength  			:= 	Results.Length;
 
-            _updateSignalStatesTask.DoneWhen(TRUE);
         END_METHOD
     END_CLASS    
 
