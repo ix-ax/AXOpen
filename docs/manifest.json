@@ -3416,6 +3416,20 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/clientIdentification/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/clientIdentification/README.html",
+          "hash": "/L+1l8mGDFlniJLa+roAI32xIeVnp9w+Z5f0VwhdGw4="
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md",
       "output": {
@@ -3793,7 +3807,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "2m42mWOukUvGysCqf+vK3Hzh0PIuhHkqEn4VfLKuqcA="
+          "hash": "btD+qWsOaf1Oa7CibdcPXBo6MvXwxng1tMUltxfQavw="
         }
       },
       "version": ""
