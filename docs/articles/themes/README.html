@@ -191,11 +191,12 @@ div.alert-sm .alert {
 @import &quot;Bootstrap/custom/_overrides&quot;; // modified css rules
 </code></pre>
 <h2 id="3-using-a-theme">3. Using a theme</h2>
-<p>The custom compiled bootstrap files are stored in the <code>wwwroot\css\custom</code> folder. To use a new theme, an <code>&lt;option&gt;</code> element needs to be added to the <code>&lt;select&gt;</code> element in the <code>Index.razor</code> file:</p>
-<pre><code class="lang-html">&lt;select class=&quot;form-control&quot; @bind=&quot;Theme&quot; @bind:event=&quot;oninput&quot;&gt;
-    &lt;option value=&quot;bootstrap&quot; selected=&quot;@(CurrentTheme == &quot;bootstrap&quot;)&quot;&gt;Bootstrap default&lt;/option&gt;
-    &lt;option value=&quot;new_theme&quot; selected=&quot;@(CurrentTheme == &quot;new_theme&quot;)&quot;&gt;New Theme&lt;/option&gt;
-&lt;/select&gt;
+<p>The custom compiled bootstrap files are stored in the <code>wwwroot\css\custom</code> folder. Add your custom compiled bootstrap to this folder. In order to be able to switch to your newly created theme, you need to add the name of the theme to the <code>supportedThemes</code> array in the <code>Index.razor</code> file:</p>
+<pre><code class="lang-csharp">private string[] supportedThemes = new[]
+{
+    &quot;New Theme&quot;,
+    &quot;Bootstrap&quot;,
+};
 </code></pre>
 <p>Upon selecting a new theme, redirection to the <code>theme</code> uri is triggered:</p>
 <pre><code class="lang-csharp">NavigationManager.NavigateTo($&quot;/theme?theme={theme}&quot;, true);
@@ -211,10 +212,10 @@ div.alert-sm .alert {
 <p>In the <code>_Host.cshtml</code> file, the <code>css</code> file of the selected theme is loaded based on the value of the <code>theme</code> cookie:</p>
 <pre><code class="lang-html">@switch (Request.Cookies[&quot;theme&quot;]) 
 {
-    case &quot;new_theme&quot;:
+    case &quot;New Theme&quot;:
         &lt;link rel=&quot;stylesheet&quot; href=&quot;~/css/custom/new_theme.css&quot; /&gt;
         break;
-    case &quot;bootstrap&quot;:
+    case &quot;Bootstrap&quot;:
         &lt;link rel=&quot;stylesheet&quot; href=&quot;~/css/custom/bootstrap_default_custom.css&quot; /&gt;
         break; 
     default:
@@ -222,7 +223,7 @@ div.alert-sm .alert {
         break; 
 }
 </code></pre>
-<p>Make sure that the <code>value</code> attribute of the <code>&lt;option&gt;</code> element in the <code>Index.razor</code> file matches with the correct <code>case</code> string in the <code>switch</code> statement in the <code>_Host.cshtml</code> file. In case of an unknown theme name from the <code>theme</code> cookie or when the app is opened for the first time (the cookie has not been created yet), the default bootstrap theme is loaded.</p>
+<p>Make sure that the string name of your theme in <code>supportedThemes</code> array in <code>Index.razor</code> file matches with the correct <code>case</code> string in the <code>switch</code> statement in the <code>_Host.cshtml</code> file. In case of an unknown theme name from the <code>theme</code> cookie or when the app is opened for the first time (the cookie has not been created yet), the default bootstrap theme is loaded.</p>
 <p>Theme changes in action:</p>
 <p><img src="../../images/Theme_demo.gif" alt="Theme gif"></p>
 </article>
@@ -233,7 +234,7 @@ div.alert-sm .alert {
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/12-_NEW-FEATURE_Invokable_dialogues_from_PLC/docfx/articles/themes/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/themes/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

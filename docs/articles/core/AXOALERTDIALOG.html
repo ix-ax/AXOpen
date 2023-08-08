@@ -136,7 +136,7 @@
 <li><strong>time</strong>: Specifies the duration in <em>seconds</em> for which the alert will be displayed</li>
 </ul>
 <h2 id="invoking-alerts-from-plc">Invoking alerts from PLC</h2>
-<p>Alerts can be invoked from plc similarly like <a href="AXODIALOG.html">AxoDialog</a>, however there is no need for user interaction.</p>
+<p>Alerts can be invoked from PLC similarly like <a href="AXODIALOG.html">AxoDialog</a>, however there is no need for user interaction.</p>
 <pre><code>VAR PUBLIC
     _alertDialog : AXOpen.Core.AxoAlertDialog;
 END_VAR
@@ -152,10 +152,12 @@ END_IF;
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p><code>Alerts</code> invoked from PLC are synchronized across clients. However it is also possible to use scoped alerts like above.</p>
+<p><code>Alerts</code> invoked from PLC are synchronized across clients.</p>
 </div>
 <ol>
 <li><p>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file.</p>
+</li>
+<li><p>Make sure your <code>MainLayout.razor</code> file contains instance of <code>&lt;AxoAlertToast/&gt;</code> component.</p>
 </li>
 <li><p>Add <code>AxoAlertDialogLocator</code> with provided list of observed objects to your view. You can add it either to:</p>
 <ul>
@@ -164,9 +166,12 @@ END_IF;
 </ul>
 </li>
 </ol>
-<pre><code class="lang-HTML">&lt;AxoAlertDialogLocator ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot; UseScopedAlerts=false/&gt;
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure, that exist only one instance of <code>AxoAlertDialogLocator</code> either in <code>MainLayout.razor</code> or in your own page.</p>
+</div>
+<pre><code class="lang-HTML">&lt;AxoAlertDialogLocator ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot;/&gt;
 </code></pre>
-<p>If <code>UseScopedAlerts</code> is set to <code>true</code>, these alerts won't be synchronized across multiple clients and will use scoped <code>IAlertDialogService</code>.</p>
 </article>
           </div>
 
@@ -175,7 +180,7 @@ END_IF;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/12-_NEW-FEATURE_Invokable_dialogues_from_PLC/docfx/articles/core/AXOALERTDIALOG.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/core/AXOALERTDIALOG.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

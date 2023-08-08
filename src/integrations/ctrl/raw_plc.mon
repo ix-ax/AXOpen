@@ -1,0 +1,13 @@
+#I_am_alive
+#AxoMessengers._messenger1.Risen
+#AxoMessengers._messenger1.Fallen
+#AxoMessengers._messenger1.Acknowledged
+#AxoMessengers._messenger2.Risen
+#AxoMessengers._messenger2.Fallen
+#AxoMessengers._messenger2.Acknowledged
+PlcInputs._10a1_Acquisition_Status_1 
+PlcInputs._10a1_Results_Status_1 		
+PlcInputs._10a1_Soft_Event_Control_1 
+PlcOutputs._10a1_Acquisition_Control_1
+PlcOutputs._10a1_Results_Control_1 
+PlcOutputs._10a1_Soft_Event_Control_1

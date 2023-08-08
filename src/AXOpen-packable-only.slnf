@@ -4,6 +4,9 @@
     "projects": [
       "abstractions\\src\\AXOpen.Abstractions\\ix_ax_axopen_abstractions.csproj",
       "base\\src\\AXOpen.Base.Abstractions\\AXOpen.Base.Abstractions.csproj",
+      "components.abstractions\\src\\AXOpen.Components.Abstractions\\ix_ax_axopen_components_abstractions.csproj",
+      "components.cognex.vision\\src\\AXOpen.Cognex.Vision.Blazor\\axopen_cognex_vision_blazor.csproj",
+      "components.cognex.vision\\src\\AXOpen.Cognex.Vision\\ix_ax_axopen_cognex_vision.csproj",
       "core\\src\\AXOpen.Core.Blazor\\axopen_core_blazor.csproj",
       "core\\src\\AXOpen.Core\\ix_ax_axopen_core.csproj",
       "data\\src\\AXOpen.Data.Blazor\\axopen_data_blazor.csproj",
@@ -11,7 +14,7 @@
       "data\\src\\repositories\\InMemory\\AXOpen.Data.InMemory.csproj",
       "data\\src\\repositories\\Json\\AXOpen.Data.Json.csproj",
       "data\\src\\repositories\\MongoDb\\AXOpen.Data.MongoDb.csproj",
-      "data\\src\\repositories\\RavenDb\\AXOpen.Data.RavenDb\\AXOpen.Data.RavenDb.csproj",     
+      "data\\src\\repositories\\RavenDb\\AXOpen.Data.RavenDb\\AXOpen.Data.RavenDb.csproj",
       "probers\\src\\AXOpen.Probers\\ix_ax_axopen_probers.csproj",
       "utils\\src\\AXOpen.Utils\\ix_ax_axopen_utils.csproj"
     ]

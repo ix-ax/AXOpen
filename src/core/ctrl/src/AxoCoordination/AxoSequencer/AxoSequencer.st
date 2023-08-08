@@ -12,6 +12,7 @@ NAMESPACE AXOpen.Core
             StepIn : AxoTask;
             {#ix-set:AttributeName = "<<"}
             StepBackwardCommand : AxoTask;
+            CurrentStep : AxoStep;
         END_VAR   
         VAR PRIVATE
             _configurationFlowOrder : ULINT;   
@@ -20,11 +21,8 @@ NAMESPACE AXOpen.Core
             _step : IAxoStep;
             _openCycleCounter : ULINT;    
             _closeCycleCounter : ULINT;    
-        END_VAR 
-        
-        VAR CONSTANT
-            RESTORE_STEP_ID : UINT := UINT#65534;
-        END_VAR
+            _refCurrentStep : REF_TO AxoStep;
+        END_VAR     
 
         ///<summary>
         /// Opens sequencers operations.
@@ -51,7 +49,7 @@ NAMESPACE AXOpen.Core
                         THIS.GetContext().GetLogger().Log('Sequence in config state :', AXOpen.Logging.eLogLevel#Verbose, THIS);
                 END_CASE;    
                 Open := TRUE;
-            END_IF;
+            END_IF;            
         END_METHOD    
         
         METHOD INTERNAL Execute : BOOL
@@ -137,6 +135,12 @@ NAMESPACE AXOpen.Core
 
                 Execute := step.Execute();                                                              
             END_IF;
+
+            IF(THIS.CurrentOrder = step.GetStepOrder()) THEN
+                _refCurrentStep ?= step;
+                CurrentStep := _refCurrentStep^;
+            END_IF;    
+
         END_METHOD
                 
         ///<summary>

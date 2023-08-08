@@ -115,6 +115,14 @@ With this option, buttons for export and import data will appear. After clicking
 
 ![Export](~/images/Export.png)
 
+#### Custom export
+
+You have the option to customize the exported files according to your preferences. This includes selecting specific columns and rows, choosing the desired file type, and specifying the separator. It's important to note that if you don't select all columns for export, importing the files may not be done correctly.
+
+During the importing process, it is crucial to enter the same separator that was used during the export. If the default separator was used during the export, there is no need to make any changes.
+
+You also can create own exporter. To do this, you must create a class that implements `IDataExporter<TPlain, TOnline>` interface. This interface requires you to implement the `Export`, `Import` and `GetName` method. Once you've done this, your custom exporter will be displayed in the custom export and import modal view. Users will be able to choose the exported file type through this view.
+
 For a better user experience, it is strongly recommended to clean the `Temp` directory when starting the application. The best way to do this is to add the following lines to the "Program.cs" file:
 
 ~~~ C#

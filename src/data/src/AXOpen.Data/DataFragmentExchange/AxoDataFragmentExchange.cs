@@ -38,20 +38,16 @@ public partial class AxoDataFragmentExchange
     public void InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
-        EntityExistTask.InitializeExclusively(HandleEntityExist);
-        CreateOrUpdateTask.InitializeExclusively(HandleCreateOrUpdate);
         this.WriteAsync().Wait();
     }
 
     public void DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
-        EntityExistTask.DeInitialize();
-        CreateOrUpdateTask.DeInitialize();
         this.WriteAsync().Wait();
     }
 
-    private void Handle()
+    private async void Handle()
     {
         Operation.ReadAsync().Wait();
         var operation = (eCrudOperation)Operation.CrudOperation.LastValue;
@@ -71,27 +67,16 @@ public partial class AxoDataFragmentExchange
             case eCrudOperation.Delete:
                 this.RemoteDelete(identifier);
                 break;
+            case eCrudOperation.CreateOrUpdate:
+                this.RemoteCreateOrUpdate(identifier);
+                break;
+            case eCrudOperation.EntityExist:
+                var result = this.RemoteEntityExist(identifier);
+                await Operation._exist.SetAsync(result);
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
-    }
-
-    private async void HandleEntityExist()
-    {
-        EntityExistTask.ReadAsync().Wait();
-        var identifier = EntityExistTask.DataEntityIdentifier.LastValue;
-
-        var result = this.RemoteEntityExist(identifier);
-
-        await EntityExistTask._exist.SetAsync(result);
-    }
-
-    private void HandleCreateOrUpdate()
-    {
-        CreateOrUpdateTask.ReadAsync().Wait();
-        var identifier = CreateOrUpdateTask.DataEntityIdentifier.LastValue;
-
-        this.RemoteCreateOrUpdate(identifier);
     }
 
     public IRepository? Repository { get; private set; }
@@ -292,7 +277,16 @@ public partial class AxoDataFragmentExchange
         return this.GetDataSetPropertyInfo<TA>()?.Select(p => p.GetValue(this) as TS);
     }
 
-    public void ExportData(string path, char separator = ';')
+    /// <inheritdoc />
+    public Dictionary<string, Type> Exporters
+    {
+        get
+        {
+            return DataFragments.First().Exporters;
+        }
+    }
+
+    public void ExportData(string path, Dictionary<string, ExportData> customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, string exportFileType = "CSV", char separator = ';')
     {
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
@@ -306,7 +300,7 @@ public partial class AxoDataFragmentExchange
 
             foreach (var fragment in DataFragments)
             {
-                fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), separator);
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), customExportData, exportMode, firstNumber, secondNumber, exportFileType, separator);
             }
             ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
         }
@@ -314,12 +308,12 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.ExportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), separator);
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), customExportData, exportMode, firstNumber, secondNumber, exportFileType, separator);
             }
         }
     }
 
-    public void ImportData(string path, ITwinObject crudDataObject = null, char separator = ';')
+    public void ImportData(string path, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';')
     {
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
@@ -332,7 +326,7 @@ public partial class AxoDataFragmentExchange
 
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, exportFileType, separator);
             }
 
             if (Directory.Exists(Path.GetDirectoryName(path)))
@@ -342,7 +336,7 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), crudDataObject, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), crudDataObject, exportFileType, separator);
             }
         }
     }

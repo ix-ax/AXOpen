@@ -126,13 +126,14 @@ Compile these files in the following order using the `sass` compiler:
 
 ## 3. Using a theme
 
-The custom compiled bootstrap files are stored in the `wwwroot\css\custom` folder. To use a new theme, an `<option>` element needs to be added to the `<select>` element in the `Index.razor` file:
+The custom compiled bootstrap files are stored in the `wwwroot\css\custom` folder. Add your custom compiled bootstrap to this folder. In order to be able to switch to your newly created theme, you need to add the name of the theme to the `supportedThemes` array in the `Index.razor` file:
 
-```html
-<select class="form-control" @bind="Theme" @bind:event="oninput">
-    <option value="bootstrap" selected="@(CurrentTheme == "bootstrap")">Bootstrap default</option>
-    <option value="new_theme" selected="@(CurrentTheme == "new_theme")">New Theme</option>
-</select>
+```csharp
+private string[] supportedThemes = new[]
+{
+    "New Theme",
+    "Bootstrap",
+};
 ```
 
 Upon selecting a new theme, redirection to the `theme` uri is triggered:
@@ -158,10 +159,10 @@ In the `_Host.cshtml` file, the `css` file of the selected theme is loaded based
 ```html
 @switch (Request.Cookies["theme"]) 
 {
-    case "new_theme":
+    case "New Theme":
         <link rel="stylesheet" href="~/css/custom/new_theme.css" />
         break;
-    case "bootstrap":
+    case "Bootstrap":
         <link rel="stylesheet" href="~/css/custom/bootstrap_default_custom.css" />
         break; 
     default:
@@ -170,7 +171,7 @@ In the `_Host.cshtml` file, the `css` file of the selected theme is loaded based
 }
 ```
 
-Make sure that the `value` attribute of the `<option>` element in the `Index.razor` file matches with the correct `case` string in the `switch` statement in the `_Host.cshtml` file. In case of an unknown theme name from the `theme` cookie or when the app is opened for the first time (the cookie has not been created yet), the default bootstrap theme is loaded.
+Make sure that the string name of your theme in `supportedThemes` array in `Index.razor` file matches with the correct `case` string in the `switch` statement in the `_Host.cshtml` file. In case of an unknown theme name from the `theme` cookie or when the app is opened for the first time (the cookie has not been created yet), the default bootstrap theme is loaded.
 
 Theme changes in action:
 

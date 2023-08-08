@@ -1,4 +1,6 @@
-﻿using System.Net.Http.Headers;
+﻿using System.IO;
+using System.Net.Http.Headers;
+using System.Reflection;
 using System.Security.Principal;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
@@ -6,7 +8,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace AXOpen.Core
 {
-    public partial class AxoTaskView : IDisposable
+    public partial class AxoTaskView
     {
 
         [Inject]
@@ -22,6 +24,21 @@ namespace AXOpen.Core
         {
             var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
             return authenticationState?.User?.Identity;
+        }
+
+        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        {
+
+            var task = (AxoTask)element;
+            var kids = task.GetValueTags().ToList();
+
+            
+               kids.ForEach(p =>
+               {
+                   p.StartPolling(pollingInterval, this);
+                   PolledElements.Add(p);
+               });
+               
         }
 
         private async void InvokeTask()

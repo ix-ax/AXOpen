@@ -19,7 +19,7 @@ namespace AXOpen.Data
         /// <param name="path">Path to exported file.</param>
         /// <param name="expression">Expression of function for export rules.</param>
         /// <param name="separator">Separator for individual records.</param>
-        void Export(IRepository<TPlain> repository, string path, Expression<Func<TPlain, bool>> expression, char separator = ';');
+        void Export(IRepository<TPlain> repository, string path, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool> customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';');
 
         /// <summary>
         /// Import data from file to the repository.
@@ -29,5 +29,11 @@ namespace AXOpen.Data
         /// <param name="crudDataObject">Object type of the imported records.</param>
         /// <param name="separator">Separator for individual records.</param>
         void Import(IRepository<TPlain> dataRepository, string path, ITwinObject crudDataObject = null, char separator = ';');
+
+        /// <summary>
+        /// Get name of the exporter.
+        /// </summary>
+        /// <returns>Name</returns>
+        static abstract string GetName();
     }    
 }

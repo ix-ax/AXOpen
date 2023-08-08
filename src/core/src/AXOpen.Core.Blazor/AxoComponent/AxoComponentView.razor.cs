@@ -15,6 +15,15 @@ namespace AXOpen.Core
         [Parameter]
         public bool IsControllable { get; set; }
 
+        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        {
+            if (element is AxoComponent axoComponent)
+            {
+                axoComponent._isManuallyControllable.StartPolling(pollingInterval, this);
+                PolledElements.Add(axoComponent._isManuallyControllable);
+            }
+        }
+
         private IEnumerable<string> GetAllTabNames(ITwinObject twinObject)
         {
             return twinObject.GetKids().Where(p => p.GetAttribute<ComponentDetailsAttribute>() != null)
