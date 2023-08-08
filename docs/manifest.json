@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Core.AxoComponent.html",
-          "hash": "S97S/QAZez7MYEKiD+RkgUdsPRQsWrAIMET/fEQYKYA="
+          "hash": "4EmGy1OFPkXEOFtqm8eEk3e5T4lIiVxEKjmfiAskAG0="
         }
       },
       "version": ""
@@ -44,7 +44,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Core.AxoComponentCommandView.html",
-          "hash": "DtXqgim2j+rnH9RpXEkAy1Hv6g52DhX9VAzgWCl4rfA="
+          "hash": "jNcPhd/hlywX4Whf+YBh2P2h8txT4lrW5ZSP6R6QX/E="
         }
       },
       "version": ""
@@ -55,7 +55,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Core.AxoComponentStatusView.html",
-          "hash": "xotjnH3M7dg1TSmt62MtjYiUyhHBeVrXLDoQxxSNprM="
+          "hash": "ZA1IErfc1xNmdMP+AvGKXGu95+ecdrzGbvMiU+k/bJ8="
         }
       },
       "version": ""
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Core.AxoComponentView.html",
-          "hash": "5FL2JH2B4ZMQ7eo1QtX2y7tfjBqWD7XWoY0OXvKy/xs="
+          "hash": "cslVCL80VDkNpGVbp4cuJY7fgrcanrkj8ftrTXPhyXs="
         }
       },
       "version": ""
@@ -331,6 +331,72 @@
         ".html": {
           "relative_path": "api/AXOpen.Core.AxoTaskView.html",
           "hash": "nR6C4K8LbOB0q2xOqRWA+0fQ9JvaoIiniaNLq814MpY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Core.AxoTextList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Core.AxoTextList.html",
+          "hash": "vxn7SIeNTbQNnomIqop1YIFekGImGLuGhO/inz37zac="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Core.AxoTextListCommandView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Core.AxoTextListCommandView.html",
+          "hash": "3N1tQrPJ+07miZ6KlaRcE395ixlPqYGIwuqahGSFL04="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Core.AxoTextListControlView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Core.AxoTextListControlView.html",
+          "hash": "b2E7+3ePnUvM6Gi8A/MTtc9utT834xdklBeea10b+kg="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Core.AxoTextListDisplayView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Core.AxoTextListDisplayView.html",
+          "hash": "fomQSgLm8X0h7HMU16Kqt6G1vOLNrqRCRF7IzGfIUCk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Core.AxoTextListStatusView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Core.AxoTextListStatusView.html",
+          "hash": "/e7yo3XomDHzjF7yhg1MD/LcKv+8dfQJo+pet7e8fWw="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Core.AxoTextListView.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Core.AxoTextListView.html",
+          "hash": "UYEKPxyyUmvR1iOWIBp+iL3RgOgR6vSsAvuxYUaRSjQ="
         }
       },
       "version": ""
@@ -689,6 +755,17 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Core.ErrorLevelAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Core.ErrorLevelAttribute.html",
+          "hash": "mM3GyCPpuTY4NnHIOgvC0DON9J2cIYf3vvjsycr/MqY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AXOpen.Core.IAxoAlertDialogFormat.yml",
       "output": {
         ".html": {
@@ -865,6 +942,17 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/AXOpen.Core.WarningLevelAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/AXOpen.Core.WarningLevelAttribute.html",
+          "hash": "JagPnj7YvheRb+CoRECDqcBEnsbgcfMqCB7RTIbj66E="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/AXOpen.Core._NULL_CONTEXT.yml",
       "output": {
         ".html": {
@@ -968,7 +1056,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Core.html",
-          "hash": "qkmlKLjQU01HoupVuA6vrZ3e9dtp3+PZU17S5GzTjPM="
+          "hash": "M2CVCc54pBnhGbXSA0HnPh0JiFt6Fx7Of5WkkNpG3N8="
         }
       },
       "version": ""
@@ -2009,6 +2097,17 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/Pocos.AXOpen.Core.AxoTextList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Pocos.AXOpen.Core.AxoTextList.html",
+          "hash": "y97r+D7JKGFDUwBiQ8WR9VVK/TCCoaXoOevIloPcPsM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/Pocos.AXOpen.Core.AxoToggleTask.yml",
       "output": {
         ".html": {
@@ -2211,7 +2310,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Pocos.AXOpen.Core.html",
-          "hash": "VDEqD3N+tP53setK6K1DZD0KkOq3J8RWKuFhvxjjnMU="
+          "hash": "dtOoh7+YOrn/K/M9bYD2dFP0FaNXd4GBWaB8KXxxrns="
         }
       },
       "version": ""
@@ -2552,7 +2651,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "+mDrQtbpIjchd/aIf8Y1jDTFE9konwEngabj85sFVhM="
+          "hash": "44/yvqHwktPTQoNjT27FOnlM3PP/UDopF387TLCrp3w="
         }
       },
       "version": ""
@@ -2707,6 +2806,17 @@
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.AxoTask.html",
           "hash": "KhNHksVbcpZKNJYmgYfS+V1YZeouADq7Mgl0fvixtzY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Core.AxoTextList.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Core.AxoTextList.html",
+          "hash": "Qb4oHSNrvmcQGyIJP72TE6IMV01weA3EnIqAyhO/CWE="
         }
       },
       "version": ""
@@ -3003,7 +3113,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.html",
-          "hash": "+9Jy533jQjY5D8kKVZyOhFpkV3LzzgVxhKZ9IQC1c4A="
+          "hash": "/2/yYqx7eZ/gbr3VngwRGz960uFKCm2Yj/vzhcKhliU="
         }
       },
       "version": ""
@@ -3300,7 +3410,40 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/toc.html",
-          "hash": "QTsuyJ55+xM1lChuy4/rIRB+pEy6VJlD5yJpFTJCmDA="
+          "hash": "/1DZF0T7t83EqOJDnuy5hbaoqBgwhU5KYZQbVi2/AUY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.html",
+          "hash": "dS992iPHA967bixHw/xI5ut0MNRiUYNBbPITi6WxDqM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/components/AXOPENCOGNEVISION/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/components/AXOPENCOGNEVISION/README.html",
+          "hash": "2yCzzliea5Bl7IIgCgLVcYesvipLf9PC8PVTuJQkE/M="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/components/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/components/README.html",
+          "hash": "fxZ8iNh0OQuYH/0y5PgaSyuGMUVckYuUNjEes3Ecmqo="
         }
       },
       "version": ""
@@ -3441,6 +3584,20 @@
       "version": ""
     },
     {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "articles/core/AXOTEXTLIST.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/core/AXOTEXTLIST.html",
+          "hash": "xcAliGdGL332TK0+fuDlYNs54ngcxBJeoftobW6NOdo="
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "articles/core/AXOTOGGLETASK.md",
       "output": {
@@ -3500,22 +3657,22 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/giudelines/Conventions.md",
+      "source_relative_path": "articles/guidelines/Conventions.md",
       "output": {
         ".html": {
-          "relative_path": "articles/giudelines/Conventions.html",
-          "hash": "+XhZM9uVhwSIkWyIkzSU6tv8z9z9/dc03MruglSn2rs="
+          "relative_path": "articles/guidelines/Conventions.html",
+          "hash": "rmGUrSaa+AmL3V8D9TFfQPus4vuhCjA8i3wO8CDXttM="
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "articles/giudelines/componets.md",
+      "source_relative_path": "articles/guidelines/components.md",
       "output": {
         ".html": {
-          "relative_path": "articles/giudelines/componets.html",
-          "hash": "N4q4tnrmRTNYtTjUBticJ7mvpXu8ZnY8t2hg9JcsNZw="
+          "relative_path": "articles/guidelines/components.html",
+          "hash": "A/BmkEobDQUN06GtyhrRs8nipGoLXW1FifzEKrKczBs="
         }
       },
       "version": ""
@@ -3636,7 +3793,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "3mEAw/f74hMgmpAPTZnHnXr9QK0owFg5A8+G3Uhasdc="
+          "hash": "2m42mWOukUvGysCqf+vK3Hzh0PIuhHkqEn4VfLKuqcA="
         }
       },
       "version": ""
@@ -3677,6 +3834,16 @@
       "output": {
         "resource": {
           "relative_path": "images/AxoTaskExampleVisu.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/AxoTextList.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "images/AxoTextList.PNG"
         }
       },
       "version": ""

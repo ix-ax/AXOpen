@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AxoComponentStatusView
+    <title>Class AxoTextListControlView
  | System.Dynamic.ExpandoObject </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AxoComponentStatusView
+    <meta name="title" content="Class AxoTextListControlView
  | System.Dynamic.ExpandoObject ">
     <meta name="generator" content="docfx ">
   
@@ -78,10 +78,10 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="AXOpen.Core.AxoComponentStatusView">
+            <article class="content wrap" id="_content" data-uid="AXOpen.Core.AxoTextListControlView">
 
 
-  <h1 id="AXOpen_Core_AxoComponentStatusView" data-uid="AXOpen.Core.AxoComponentStatusView" class="text-break">Class AxoComponentStatusView
+  <h1 id="AXOpen_Core_AxoTextListControlView" data-uid="AXOpen.Core.AxoTextListControlView" class="text-break">Class AxoTextListControlView
 </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
@@ -90,9 +90,9 @@
     <div class="level0"><span class="xref">object</span></div>
     <div class="level1"><span class="xref">Microsoft.AspNetCore.Components.ComponentBase</span></div>
     <div class="level2"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase</span></div>
-    <div class="level3"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;T&gt;</span>&lt;<a class="xref" href="AXOpen.Core.AxoComponent.html">AxoComponent</a>&gt;</div>
-    <div class="level4"><a class="xref" href="AXOpen.Core.AxoComponentView.html">AxoComponentView</a></div>
-    <div class="level5"><span class="xref">AxoComponentStatusView</span></div>
+    <div class="level3"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;T&gt;</span>&lt;<a class="xref" href="AXOpen.Core.AxoTextList.html">AxoTextList</a>&gt;</div>
+    <div class="level4"><a class="xref" href="AXOpen.Core.AxoTextListView.html">AxoTextListView</a></div>
+    <div class="level5"><span class="xref">AxoTextListControlView</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
@@ -106,22 +106,19 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="AXOpen.Core.AxoComponentView.html#AXOpen_Core_AxoComponentView_IsControllable">AxoComponentView.IsControllable</a>
+      <a class="xref" href="AXOpen.Core.AxoTextListView.html#AXOpen_Core_AxoTextListView_OnInitialized">AxoTextListView.OnInitialized()</a>
     </div>
     <div>
-      <a class="xref" href="AXOpen.Core.AxoComponentView.html#AXOpen_Core_AxoComponentView_AddToPolling_AXSharp_Connector_ITwinElement_System_Int32_">AxoComponentView.AddToPolling(ITwinElement, int)</a>
+      <a class="xref" href="AXOpen.Core.AxoTextListView.html#AXOpen_Core_AxoTextListView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_">AxoTextListView.BuildRenderTree(RenderTreeBuilder)</a>
     </div>
     <div>
-      <a class="xref" href="AXOpen.Core.AxoComponentView.html#AXOpen_Core_AxoComponentView_OnInitialized">AxoComponentView.OnInitialized()</a>
-    </div>
-    <div>
-      <a class="xref" href="AXOpen.Core.AxoComponentView.html#AXOpen_Core_AxoComponentView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_">AxoComponentView.BuildRenderTree(RenderTreeBuilder)</a>
-    </div>
-    <div>
-      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;AXOpen.Core.AxoComponent&gt;.Component</span>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;AXOpen.Core.AxoTextList&gt;.Component</span>
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.AddToPolling(AXSharp.Connector.ITwinElement, int)</span>
     </div>
     <div>
       <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RemovePolledElements()</span>
@@ -210,26 +207,26 @@
   </div>
   <h6><strong>Namespace</strong>: <span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Core.html">Core</a></h6>
   <h6><strong>Assembly</strong>: axopen_core_blazor.dll</h6>
-  <h5 id="AXOpen_Core_AxoComponentStatusView_syntax">Syntax</h5>
+  <h5 id="AXOpen_Core_AxoTextListControlView_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoComponentStatusView : AxoComponentView, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase, IDisposable</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoTextListControlView : AxoTextListView, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase, IDisposable</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoComponentStatusView__ctor.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoComponentStatusView.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTextListControlView__ctor.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTextListControlView.%23ctor%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoComponent/AxoComponentView.razor.cs/#L104">View Source</a>
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoTextList/AxoTextListView.razor.cs/#L49">View Source</a>
   </span>
-  <a id="AXOpen_Core_AxoComponentStatusView__ctor_" data-uid="AXOpen.Core.AxoComponentStatusView.#ctor*"></a>
-  <h4 id="AXOpen_Core_AxoComponentStatusView__ctor" data-uid="AXOpen.Core.AxoComponentStatusView.#ctor">AxoComponentStatusView()</h4>
+  <a id="AXOpen_Core_AxoTextListControlView__ctor_" data-uid="AXOpen.Core.AxoTextListControlView.#ctor*"></a>
+  <h4 id="AXOpen_Core_AxoTextListControlView__ctor" data-uid="AXOpen.Core.AxoTextListControlView.#ctor">AxoTextListControlView()</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AxoComponentStatusView()</code></pre>
+    <pre><code class="lang-csharp hljs">public AxoTextListControlView()</code></pre>
   </div>
   <h3 id="implements">Implements</h3>
   <div>
@@ -258,10 +255,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoComponentStatusView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoComponentStatusView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTextListControlView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTextListControlView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoComponent/AxoComponentView.razor.cs/#L102" class="contribution-link">View Source</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoTextList/AxoTextListView.razor.cs/#L47" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
