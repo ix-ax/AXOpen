@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "PTKu",
+  "classifications": [ "AXOpen", "axolibrary" ],
+  "identity": "librarytemplate",
+  "name": "AXOpen Library Template",
+  "shortName": "librarytemplate",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "librarytemplate"
+}
