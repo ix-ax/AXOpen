@@ -12,6 +12,7 @@ using System.Reflection;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes.Online;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace AXOpen.Data;
 
@@ -83,6 +84,32 @@ public partial class AxoDataFragmentExchange
 
     public ITwinObject RefUIData { get; private set; }
 
+    public void ChangeTrackerStopObservingChanges()
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.ChangeTrackerStopObservingChanges();
+        }
+    }
+    public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.ChangeTrackerStartObservingChanges(authenticationState);
+        }
+    }
+    public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject)
+    {
+        throw new NotImplementedException();
+    }
+    public void ChangeTrackerSetChanges(IBrowsableDataObject entity)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.ChangeTrackerSetChanges(entity);
+        }
+    }
+
     public async Task CreateNewAsync(string identifier)
     {
         await Task.Run(() =>
@@ -109,7 +136,7 @@ public partial class AxoDataFragmentExchange
         foreach (var fragment in DataFragments)
         {
             var plainer = await (fragment.RefUIData).ShadowToPlain<dynamic>();
-            //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+            fragment.ChangeTrackerSaveObservedChanges(plainer);
             fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
         }
     }
@@ -166,7 +193,7 @@ public partial class AxoDataFragmentExchange
             if (Repository.Exists(recordId))
             {
                 var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
-                //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+                fragment.ChangeTrackerSaveObservedChanges(plainer);
                 fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
             }
             else

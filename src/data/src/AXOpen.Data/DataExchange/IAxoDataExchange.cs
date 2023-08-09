@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
 using System.Linq.Expressions;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace AXOpen.Data
 {
@@ -20,6 +21,11 @@ namespace AXOpen.Data
         /// Gets data of this AxoDataExchange object for automated UI generation.
         /// </summary>
         ITwinObject RefUIData { get; }
+
+        void ChangeTrackerStopObservingChanges();
+        void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState);
+        void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject);
+        void ChangeTrackerSetChanges(IBrowsableDataObject entity);
 
         /// <summary>
         /// Gets the list of available exporters.

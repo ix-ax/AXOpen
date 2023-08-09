@@ -18,6 +18,7 @@ using AXOpen.Base.Dialogs;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace AXOpen.Data
 {
@@ -39,6 +40,8 @@ namespace AXOpen.Data
 
         }
 
+        public AuthenticationStateProvider Asp { get; set; }
+
         public bool IsFileExported { get; set; } = false;
         public List<ValueChangeItem> Changes { get; set; }
 
@@ -55,13 +58,14 @@ namespace AXOpen.Data
 
             set
             {
-                // CrudData.ChangeTracker.StopObservingChanges();
+                DataExchange.ChangeTrackerStopObservingChanges();
                 _selectedRecord = value;
                 if (value != null)
                 {
                     DataExchange.FromRepositoryToShadowsAsync(value);
+                    DataExchange.ChangeTrackerSetChanges(value);
                 }
-
+                DataExchange.ChangeTrackerStartObservingChanges(Asp.GetAuthenticationStateAsync().Result);
             }
         }
 

@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Security.Claims;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
+using Microsoft.AspNetCore.Components.Authorization;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 
@@ -38,6 +39,31 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
             return _dataEntity;
         }
+    }
+
+    public ICrudDataObject? CrudDataObject
+    {
+        get
+        {
+            return ((dynamic)DataEntity) as ICrudDataObject;
+        }
+    }
+
+    public void ChangeTrackerStopObservingChanges()
+    {
+        CrudDataObject?.ChangeTracker.StopObservingChanges();
+    }
+    public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState)
+    {
+        CrudDataObject?.ChangeTracker.StartObservingChanges(authenticationState);
+    }
+    public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject)
+    {
+        CrudDataObject?.ChangeTracker.SaveObservedChanges(plainObject);
+    }
+    public void ChangeTrackerSetChanges(IBrowsableDataObject entity)
+    {
+        CrudDataObject.Changes = Repository.Read(entity.DataEntityId).Changes;
     }
 
     /// <summary>
@@ -340,7 +366,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task UpdateFromShadowsAsync()
     {
         var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
-        //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+        ChangeTrackerSaveObservedChanges(plainer);
         Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
     }
 
@@ -491,7 +517,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         if (Repository.Exists(recordId))
         {
             var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
-            //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+            ChangeTrackerSaveObservedChanges(plainer);
             Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
         }
         else
