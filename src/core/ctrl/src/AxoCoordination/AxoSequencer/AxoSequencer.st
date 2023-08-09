@@ -178,7 +178,7 @@ NAMESPACE AXOpen.Core
             THIS.RequestStep(inAxoStep);
             
   
-          END_METHOD
+        END_METHOD
   
         ///<summary>
         /// Terminates the currently executed step and initiates the RequestedStep to be executed
