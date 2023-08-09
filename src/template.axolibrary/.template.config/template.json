@@ -4,7 +4,7 @@
   "classifications": [ "AXOpen", "axolibrary" ],
   "identity": "librarytemplate",
   "name": "AXOpen Library Template",
-  "shortName": "librarytemplate",
+  "shortName": "axolibrary",
   "tags": {
     "language": "C#",
     "type": "project"
