@@ -605,7 +605,7 @@ namespace AXOpen.Data.Fragments.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile);
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
             Assert.Equal(10, shared.ComesFrom);
@@ -650,7 +650,7 @@ namespace AXOpen.Data.Fragments.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile, exportFileType: "TXT", separator: '*');
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "TXT", separator: '*');
 
             var shared = sut.Set.DataRepository.Read("first");
             Assert.Equal(0, shared.ComesFrom);
@@ -703,7 +703,7 @@ namespace AXOpen.Data.Fragments.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile);
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
             Assert.Equal(10, shared.ComesFrom);

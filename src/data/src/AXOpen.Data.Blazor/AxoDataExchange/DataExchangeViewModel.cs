@@ -19,6 +19,7 @@ using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Newtonsoft.Json.Linq;
 using System.ComponentModel;
 using Microsoft.AspNetCore.Components.Authorization;
+using System.Security.Claims;
 
 namespace AXOpen.Data
 {
@@ -154,6 +155,7 @@ namespace AXOpen.Data
                 }
 
                 await DataExchange.CreateNewAsync(CreateItemId);
+                AxoApplication.Current.Logger.Information($"Create {CreateItemId} in {DataExchange} by user action.", Asp.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Created!", "Item was successfully created!", 10);
             }
             catch (Exception e)
@@ -172,6 +174,7 @@ namespace AXOpen.Data
             try
             {
                 DataExchange.Delete(SelectedRecord.DataEntityId);
+                AxoApplication.Current.Logger.Information($"Delete {SelectedRecord.DataEntityId} in {DataExchange} by user action.", Asp.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "Item was successfully deleted!", 10);
             }
             catch (Exception e)
@@ -183,7 +186,7 @@ namespace AXOpen.Data
                 UpdateObservableRecords();
             }
 
-
+            StateHasChangedDelegate.Invoke();
 
         }
 
@@ -192,6 +195,7 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId);
+                AxoApplication.Current.Logger.Information($"Copy {CreateItemId} in {DataExchange} by user action.", Asp.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Copied!", "Item was successfully copied!", 10);
             }
             catch (Exception e)
@@ -267,7 +271,7 @@ namespace AXOpen.Data
             {
                 try
                 {
-                    DataExchange.ImportData(path, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
+                    DataExchange.ImportData(path, Asp.GetAuthenticationStateAsync().Result, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
 
                     this.UpdateObservableRecords();
 

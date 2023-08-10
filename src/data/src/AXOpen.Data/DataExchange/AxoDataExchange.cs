@@ -10,6 +10,7 @@ using System.Linq.Expressions;
 using System.Numerics;
 using System.Reflection;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
@@ -427,7 +428,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
                 {
                     value = (string)methodInfo.Invoke(null, null);
                 }
-                if(value == "" || value == null)
+                if (value == "" || value == null)
                 {
                     value = genericType.Name.Substring(0, genericType.Name.IndexOf("Data"));
                 }
@@ -471,7 +472,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     /// <inheritdoc />
-    public void ImportData(string path, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';')
+    public void ImportData(string path, AuthenticationState authenticationState, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';')
     {
         IDataExporter<TPlain, TOnline> dataExporter = Activator.CreateInstance(Exporters[exportFileType]) as IDataExporter<TPlain, TOnline>;
 
@@ -489,7 +490,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             if (files == null || files.Length == 0)
                 return;
 
-            dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare\\" + this.ToString(), crudDataObject, separator);
+            dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare\\" + this.ToString(), authenticationState, crudDataObject, separator);
 
             if (Directory.Exists(Path.GetDirectoryName(path)))
                 Directory.Delete(Path.GetDirectoryName(path), true);
@@ -501,7 +502,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             if (files == null || files.Length == 0)
                 return;
 
-            dataExporter.Import(DataRepository, path, crudDataObject, separator);
+            dataExporter.Import(DataRepository, path, authenticationState, crudDataObject, separator);
         }
     }
 

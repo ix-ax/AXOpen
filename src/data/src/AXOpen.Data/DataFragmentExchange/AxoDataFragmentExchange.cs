@@ -340,7 +340,7 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    public void ImportData(string path, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';')
+    public void ImportData(string path, AuthenticationState authenticationState, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';')
     {
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
@@ -353,7 +353,7 @@ public partial class AxoDataFragmentExchange
 
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, exportFileType, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), authenticationState, crudDataObject, exportFileType, separator);
             }
 
             if (Directory.Exists(Path.GetDirectoryName(path)))
@@ -363,7 +363,7 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), crudDataObject, exportFileType, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), authenticationState, crudDataObject, exportFileType, separator);
             }
         }
     }

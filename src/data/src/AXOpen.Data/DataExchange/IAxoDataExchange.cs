@@ -167,7 +167,7 @@ namespace AXOpen.Data
         /// <param name="path">Path to imported file.</param>
         /// <param name="crudDataObject">Object type of the imported records.</param>
         /// <param name="separator">Separator for individual records.</param>
-        void ImportData(string path, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';');
+        void ImportData(string path, AuthenticationState authenticationState, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';');
 
         /// <summary>
         /// Clear directory of temporary files.
