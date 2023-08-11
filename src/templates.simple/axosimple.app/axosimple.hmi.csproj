@@ -24,6 +24,7 @@
 	</ItemGroup>-->
 
 	<ItemGroup>
+	  <PackageReference Include="ClosedXML" Version="0.102.0" />
 	  <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.9" />
 	  <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
   </ItemGroup>
