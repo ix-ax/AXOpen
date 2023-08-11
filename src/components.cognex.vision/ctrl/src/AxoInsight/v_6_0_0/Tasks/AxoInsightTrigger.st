@@ -24,6 +24,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refConfig              :   REF_TO  AxoInsight_Config;
                 refStatus              :   REF_TO  AxoInsight_Status;	
                 refResults             :   REF_TO  AxoInsight_Results;
+                refInspectionResults   :   REF_TO  AxoByteArray255;
                 refResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR          
 
@@ -125,8 +126,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                         refStatus^.Error.Id := UINT#605;
                     END_IF;
 
-                    refAcquisitionControl^.Trigger := FALSE;
+                    // refAcquisitionControl^.Trigger := FALSE;
                     IF _inspectionCompleted <> refInspectionStatus^.InspectionCompleted THEN
+                        refAcquisitionControl^.Trigger := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
@@ -148,17 +150,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                         refStatus^.Error.Id := UINT#607;
                     END_IF;
 
-                    // refResults^.InspectionId := refResultsData.InspectionID;
-                    // refResults^.ResultCode := THIS^.inoIoData.ResultsData.ResultCode;
-                   
-                    // _size := THIS^.inoConfig.ResultDataSize;
-                    // IF  Tc2_System.MEMCPY(srcAddr := ADR(THIS^.inoIoData.ResultsData.InspectionResults) , destAddr:= ADR(THIS^.inoResults.InspectionResults) ,  n:= _size) > 0 AND 
-                    //     Tc2_System.MEMSET(destAddr:= ADR(THIS^.inoResults.InspectionResults) + _size, fillByte:= 0 , n:= SIZEOF(THIS^.inoResults.InspectionResults) - _size)>0 THEN
-                    //     THIS.CallTimers(FALSE);
-                    //     _progress := _progress + 1;
-                    // END_IF;
                     FOR _index := 0 TO (TO_INT(refStatus^.ResultDataSize) - INT#1) DO
-                        refResults^.InspectionResults.Data[_index] := refResultData^[_index + 4];
+                        refInspectionResults^.Data[_index] := refResultData^[_index + 4];
+                    END_FOR;
+                    FOR _index := refStatus^.ResultDataSize TO 254 DO
+                        refInspectionResults^.Data[_index] := BYTE#0;
                     END_FOR;
                     _progress := _progress + 1;
                 END_IF;

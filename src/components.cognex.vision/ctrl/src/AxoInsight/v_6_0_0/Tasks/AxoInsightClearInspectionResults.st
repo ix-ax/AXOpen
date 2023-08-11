@@ -23,7 +23,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refConfig              :   REF_TO  AxoInsight_Config;
                 refStatus              :   REF_TO  AxoInsight_Status;	
                 refResults             :   REF_TO  AxoInsight_Results;
-                refResultData          :   REF_TO  ARRAY[*] OF BYTE;
+                refInspectionResults   :   REF_TO  AxoByteArray255;
+                // refResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR          
 
             VAR
@@ -48,7 +49,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     refResults^.InspectionID := UINT#0; 
                     refResults^.ResultCode := UINT#0; 
 
-                    // refResults^.InspectionResults := '';
+                    FOR _index := 0 TO 254 DO
+                        // refResults^.InspectionResults.Data[_index] := BYTE#0;
+                        refInspectionResults^.Data[_index] := BYTE#0;
+                    END_FOR;
+
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;
                 END_IF;

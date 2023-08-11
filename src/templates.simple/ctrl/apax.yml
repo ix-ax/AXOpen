@@ -67,6 +67,4 @@ scripts:
     - apax install
     - apax rr
 targets:
-  - plcsim
-  - axunit-llvm
-  - llvm
+  - "1500"

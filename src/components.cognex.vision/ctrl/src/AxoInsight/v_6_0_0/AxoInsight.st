@@ -2,34 +2,41 @@ USING AXOpen.Core;
 USING AXOpen.Components.Abstractions;
 
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
-
+    {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC AxoInsight EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.IAxoVisionSensor
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "<#Read#>"}
             TriggerTask : AxoInsightTrigger;
-            {#ix-attr:[ComponentHeader()]}         
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Results#>"}
-            Results     :   AxoInsight_Results;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Inspection results#>"}
+            InspectionResults : AxoByteArray255;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Restore#>"}
             _restoreTask : AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Tasks")]}
-            {#ix-set:AttributeName = "<#Clear rinspection results#>"}
+            {#ix-set:AttributeName = "<#Clear inspection results#>"}
             ClearInspectionResultsTask : AxoInsightClearInspectionResults;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Config")]}
             Config      :   AxoInsight_Config;
 
-            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             Status      :   AxoInsight_Status;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Results#>"}
+            Results     :   AxoInsight_Results;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Status")]}
@@ -104,11 +111,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
              
             Results.InspectionID                            :=  UINT#0;
             Results.ResultCode                              :=  UINT#0;
-            // Results.InspectionResults                       :=  '';
+            
+            FOR _index := 0 TO 254 DO
+                InspectionResults.Data[_index] := BYTE#0;
+            END_FOR;
 
             AcquisitionControl.TriggerEnable                :=  FALSE;
             AcquisitionControl.Trigger					    :=  FALSE;
-            AcquisitionControl.ClearExposureComplete        :=  FALSE;
+            AcquisitionControl.ClearExposureComplete        :=  AcquisitionStatus.ExposureComplete;
             AcquisitionControl.SetOffline                   :=  FALSE;
 
 
@@ -129,27 +139,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEventControl.TriggerSoftEvent.Data[6]       :=  FALSE;
             SoftEventControl.TriggerSoftEvent.Data[7]       :=  FALSE;
 
-            FOR _index := 0 TO 54 DO
+            FOR _index := 0 TO 254 DO
                 User.UserData.Data[_index] := BYTE#0;
             END_FOR;
 
-            // SoftEventControl.TriggerSoftEvent[0]            :=  FALSE;
-            // SoftEventControl.TriggerSoftEvent[1]            :=  FALSE;
-            // SoftEventControl.TriggerSoftEvent[2]            :=  FALSE;
-            // SoftEventControl.TriggerSoftEvent[3]            :=  FALSE;
-            // SoftEventControl.TriggerSoftEvent[4]            :=  FALSE;
-            // SoftEventControl.TriggerSoftEvent[5]            :=  FALSE;
-            // SoftEventControl.TriggerSoftEvent[6]            :=  FALSE;
-            // SoftEventControl.TriggerSoftEvent[7]            :=  FALSE;
-
-            // FOR _index := 0 TO 54 DO
-            //     User.UserData[_index] := BYTE#0;
-            // END_FOR;
-
-            // IF NOT _ResultsStatus.ErrorDetected THEN
-            //     Status.Action.Id := UINT#300;
-            //     _restoreTask.DoneWhen(TRUE);
-            // END_IF;
+            IF NOT AcquisitionStatus.ExposureComplete THEN
+                Status.Action.Id := UINT#300;
+                _restoreTask.DoneWhen(TRUE);
+            END_IF;
         END_METHOD
 
         ///<summary>
@@ -179,23 +176,23 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             AcquisitionStatus.AcquisitionID.%B1             :=      refAcquisitionStatus^[1];	 
             AcquisitionStatus.AcquisitionID.%B0             :=      refAcquisitionStatus^[2];	 
 
-            InspectionStatus.SystemBusy                     :=      refInspectionStatus^.%X0;
-            InspectionStatus.InspectionCompleted            :=      refInspectionStatus^.%X1;
-            InspectionStatus.ResultsBufferOverrun           :=      refInspectionStatus^.%X2;
-            InspectionStatus.ResultsValid                   :=      refInspectionStatus^.%X3;
-            InspectionStatus.CommandExecuting               :=      refInspectionStatus^.%X4;
-            InspectionStatus.CommandComplete                :=      refInspectionStatus^.%X5;
-            InspectionStatus.CommandFailed                  :=      refInspectionStatus^.%X6;
-            InspectionStatus.ExtendedUserDataSetAcknowledge :=      refInspectionStatus^.%X7;
-            InspectionStatus.OverallJobPassFail             :=      refInspectionStatus^.%X8;
-            InspectionStatus.TestRunReady                   :=      refInspectionStatus^.%X9;
-            InspectionStatus.Error                          :=      refInspectionStatus^.%X15;
+            InspectionStatus.SystemBusy                     :=      refInspectionStatus^.%X24;
+            InspectionStatus.InspectionCompleted            :=      refInspectionStatus^.%X25;
+            InspectionStatus.ResultsBufferOverrun           :=      refInspectionStatus^.%X26;
+            InspectionStatus.ResultsValid                   :=      refInspectionStatus^.%X27;
+            InspectionStatus.CommandExecuting               :=      refInspectionStatus^.%X28;
+            InspectionStatus.CommandComplete                :=      refInspectionStatus^.%X29;
+            InspectionStatus.CommandFailed                  :=      refInspectionStatus^.%X30;
+            InspectionStatus.ExtendedUserDataSetAcknowledge :=      refInspectionStatus^.%X31;
+            InspectionStatus.OverallJobPassFail             :=      refInspectionStatus^.%X16;
+            InspectionStatus.TestRunReady                   :=      refInspectionStatus^.%X17;
+            InspectionStatus.Error                          :=      refInspectionStatus^.%X23;
 
-            InspectionStatus.ErrorCode.%B1                  :=      refInspectionStatus^.%B2;	 
-            InspectionStatus.ErrorCode.%B0                  :=      refInspectionStatus^.%B3;	 
-
-            CommandStatus.CurrentJobID.%B1                 :=      refCommandStatus^.%B0;
-            CommandStatus.CurrentJobID.%B0                 :=      refCommandStatus^.%B1;
+            InspectionStatus.ErrorCode.%B1                  :=      refInspectionStatus^.%B1;	 
+            InspectionStatus.ErrorCode.%B0                  :=      refInspectionStatus^.%B0;	 
+            
+            CommandStatus.CurrentJobID.%B1                 :=      refCommandStatus^.%B1;
+            CommandStatus.CurrentJobID.%B0                 :=      refCommandStatus^.%B0;
 
             SoftEventStatus.TriggerSoftEventAcknowledge.Data[0] :=      refSoftEventStatus^.%X0;
             SoftEventStatus.TriggerSoftEventAcknowledge.Data[1] :=      refSoftEventStatus^.%X1;
@@ -205,16 +202,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEventStatus.TriggerSoftEventAcknowledge.Data[5] :=      refSoftEventStatus^.%X5;
             SoftEventStatus.TriggerSoftEventAcknowledge.Data[6] :=      refSoftEventStatus^.%X6;
             SoftEventStatus.TriggerSoftEventAcknowledge.Data[7] :=      refSoftEventStatus^.%X7;
-
-            // SoftEventStatus.TriggerSoftEventAcknowledge[0] :=      refSoftEventStatus^.%X0;
-            // SoftEventStatus.TriggerSoftEventAcknowledge[1] :=      refSoftEventStatus^.%X1;
-            // SoftEventStatus.TriggerSoftEventAcknowledge[2] :=      refSoftEventStatus^.%X2;
-            // SoftEventStatus.TriggerSoftEventAcknowledge[3] :=      refSoftEventStatus^.%X3;
-            // SoftEventStatus.TriggerSoftEventAcknowledge[4] :=      refSoftEventStatus^.%X4;
-            // SoftEventStatus.TriggerSoftEventAcknowledge[5] :=      refSoftEventStatus^.%X5;
-            // SoftEventStatus.TriggerSoftEventAcknowledge[6] :=      refSoftEventStatus^.%X6;
-            // SoftEventStatus.TriggerSoftEventAcknowledge[7] :=      refSoftEventStatus^.%X7;
-
 
             IF (LOWER_BOUND(refResultData^,1) = 0) THEN
                 IF (UPPER_BOUND(refResultData^,1) = 19) THEN
@@ -268,8 +255,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             refInspectionControl^.%X3       :=      InspectionControl.ExecuteCommand;
             refInspectionControl^.%X7       :=      InspectionControl.ClearError;
 
-            refCommandControl^.%B0          :=      CommandControl.Command.%B1;
-            refCommandControl^.%B1          :=      CommandControl.Command.%B0;
+            refCommandControl^.%B0          :=      CommandControl.Command.%B0;
+            refCommandControl^.%B1          :=      CommandControl.Command.%B1;
             
             refSoftEventControl^.%X0        :=      SoftEventControl.TriggerSoftEvent.Data[0];
             refSoftEventControl^.%X1        :=      SoftEventControl.TriggerSoftEvent.Data[1];
@@ -279,15 +266,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             refSoftEventControl^.%X5        :=      SoftEventControl.TriggerSoftEvent.Data[5];
             refSoftEventControl^.%X6        :=      SoftEventControl.TriggerSoftEvent.Data[6];
             refSoftEventControl^.%X7        :=      SoftEventControl.TriggerSoftEvent.Data[7];
-
-            // refSoftEventControl^.%X0        :=      SoftEventControl.TriggerSoftEvent[0];
-            // refSoftEventControl^.%X1        :=      SoftEventControl.TriggerSoftEvent[1];
-            // refSoftEventControl^.%X2        :=      SoftEventControl.TriggerSoftEvent[2];
-            // refSoftEventControl^.%X3        :=      SoftEventControl.TriggerSoftEvent[3];
-            // refSoftEventControl^.%X4        :=      SoftEventControl.TriggerSoftEvent[4];
-            // refSoftEventControl^.%X5        :=      SoftEventControl.TriggerSoftEvent[5];
-            // refSoftEventControl^.%X6        :=      SoftEventControl.TriggerSoftEvent[6];
-            // refSoftEventControl^.%X7        :=      SoftEventControl.TriggerSoftEvent[7];
 
             IF (LOWER_BOUND(refUserData^,1) = 0) THEN
                 IF (UPPER_BOUND(refUserData^,1) = 15) THEN
@@ -349,26 +327,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 IsValidReferences := TRUE;
             END_IF;
         END_METHOD
-
-        // METHOD PRIVATE ContinuousReading
-        //     VAR_INPUT
-        //         refStatus              :   REF_TO  AxoDataman_Status;
-        //         refResults             :   REF_TO  AxoDataman_Results;
-        //         refResultData          :   REF_TO  ARRAY[*] OF BYTE;
-        //     END_VAR     
-
-        //     IF _ResultsStatus.ResultsAvailable AND NOT _ResultsControl.ResultsAcknowledge AND Results.Code > UINT#0 AND Results.Length > UINT#0 THEN
-        //         IF refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
-        //             Status.Action.Id := UINT#701;
-        //             Status.Error.Id := UINT#712;
-        //         ELSE
-        //             System.SerDe.Deserialize(UINT#7, refResultData^, refResults^.Data);
-        //             Status.Action.Id := UINT#307;
-        //         END_IF;
-        //     END_IF;
-
-        //     _ResultsControl.ResultsAcknowledge := _ResultsStatus.ResultsAvailable;
-        // END_METHOD
 
         METHOD PROTECTED OVERRIDE Open
             SUPER.Open();
@@ -447,7 +405,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             TriggerTask.Initialize(THIS);
 
             THIS.UpdateInputs(refAcquisitionStatus,refInspectionStatus,refCommandStatus,refSoftEventStatus,refResultData);
-            // THIS.UpdateSignalStates();
 
             //*************RESTORE********************
             _taskDisabled := FALSE;
@@ -460,14 +417,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             //*************CLEAR*DATA*****************
             _taskDisabled := _taskDisabled OR _restoreTask.IsBusy();
             ClearInspectionResultsTask.IsDisabled := _taskDisabled;
-            ClearInspectionResultsTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(Config),REF(Status),REF(Results));
+            ClearInspectionResultsTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(Config),REF(Status),REF(Results),REF(InspectionResults));
             //****************************************
 
         
             //*************READ***********************
             _taskDisabled := _taskDisabled OR ClearInspectionResultsTask.IsBusy();
             TriggerTask.IsDisabled :=  _taskDisabled;
-            TriggerTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),refResultData);
+            TriggerTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(InspectionResults),refResultData);
             //****************************************
 
             THIS.UpdateOutputs(refAcquisitionControl,refInspectionControl,refCommandControl,refSoftEventControl,refUserData);
@@ -506,31 +463,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             ChangeJob := TriggerTask.Invoke();
         END_METHOD
-        // METHOD PRIVATE UpdateSignalStates
-        //     Status.SignalStatus.TriggerEnable 			:=	_AcquisitionControl.TriggerEnable; 
-        //     Status.SignalStatus.Trigger				    :=	_AcquisitionControl.Trigger; 
-
-        //     Status.SignalStatus.EnableResultBuffering	:=	_ResultsControl.EnableResultBuffering;
-        //     Status.SignalStatus.ResultsAcknowledge		:=	_ResultsControl.ResultsAcknowledge;
-
-        //     Status.SignalStatus.TriggerReady 			:= 	_AcquisitionStatus.TriggerReady;
-        //     Status.SignalStatus.TriggerAcknowledge 	    := 	_AcquisitionStatus.TriggerAcknowledge;
-        //     Status.SignalStatus.Acquiring 				:= 	_AcquisitionStatus.Acquiring;
-        //     Status.SignalStatus.MissedAcquisition 		:= 	_AcquisitionStatus.MissedAcquisition;
-        //     Status.SignalStatus.TriggerID 				:= 	_AcquisitionStatus.TriggerID;
-
-        //     Status.SignalStatus.Decoding 				:= 	_ResultsStatus.Decoding;
-        //     Status.SignalStatus.DecodeComplete 		    := 	_ResultsStatus.DecodeComplete;
-        //     Status.SignalStatus.ResultsBufferOverrun 	:= 	_ResultsStatus.ResultsBufferOverrun;
-        //     Status.SignalStatus.ResultsAvailable 		:= 	_ResultsStatus.ResultsAvailable;
-        //     Status.SignalStatus.ErrorDetected 			:= 	_ResultsStatus.ErrorDetected;
-
-        //     Status.SignalStatus.ResultID 				:= 	Results.ID;
-        //     Status.SignalStatus.ResultCode  			:= 	Results.Code;
-        //     Status.SignalStatus.ResultExtended  		:= 	Results.Extended;
-        //     Status.SignalStatus.ResultLength  			:= 	Results.Length;
-
-        // END_METHOD
     END_CLASS    
 
 END_NAMESPACE

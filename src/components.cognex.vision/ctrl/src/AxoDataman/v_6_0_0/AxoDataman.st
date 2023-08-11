@@ -28,7 +28,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ComponentDetails("Config")]}
             Config      :   AxoDataman_Config;
 
-            {#ix-attr:[Container(Layout.Wrap)]}
+            // {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             Status      :   AxoDataman_Status;
