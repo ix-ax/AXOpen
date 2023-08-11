@@ -6,7 +6,7 @@
     <div class="accordion-item">
         <div class="accordion-header" style="border-bottom: 1px solid #dee2e6">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@ID" aria-expanded="false" aria-controls="@ID">
-                @getNameOrSymbol()
+                @getNameOrSymbol() 
             </button>
         </div>
         <div class="accordion-body row align-items-center py-1">
@@ -28,6 +28,14 @@
             <div class="col-auto">
                 <GenericIconView Result="@Component._data.Result.Cyclic" />
             </div>
+
+            <div>
+
+                @if (Component._axoInspectorDialog._isOverInspected.Cyclic)
+                {
+                    <p class="text-danger">Overinspection detected</p>
+                }
+            </div>
         </div>
         <div id="@ID" class="accordion-collapse collapse">
             <div class="accordion-body py-1">
@@ -48,5 +56,7 @@
     protected override void OnInitialized()
     {
         UpdateValuesOnChange(Component._data.Result);
+        UpdateValuesOnChange(Component._data.NumberOfAllowedRetries);
+        UpdateValuesOnChange(Component._data.RetryAttemptsCount);
     }
 }

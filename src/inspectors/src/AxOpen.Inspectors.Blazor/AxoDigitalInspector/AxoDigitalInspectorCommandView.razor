@@ -25,6 +25,13 @@
             <div class="col-auto">
                 <GenericIconView Result="@Component._data.Result.Cyclic" />
             </div>
+            <div>
+
+                @if (Component._axoInspectorDialog._isOverInspected.Cyclic)
+                {
+                    <p class="text-danger">Overinspection detected</p>
+                }
+            </div>
         </div>
         <div id="@ID" class="accordion-collapse collapse">
             <div class="accordion-body py-1">

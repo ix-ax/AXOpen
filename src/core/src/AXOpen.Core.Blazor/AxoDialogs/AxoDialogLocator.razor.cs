@@ -74,8 +74,11 @@ namespace AXOpen.Core.Blazor.AxoDialogs
         /// </summary>
         public void Dispose()
         {
-            _axoDialogProxyService.DialogInvoked -= OnDialogInvoked;
-            _axoDialogProxyService.Dispose();
+            if (_axoDialogProxyService != null)
+            {
+                _axoDialogProxyService.DialogInvoked -= OnDialogInvoked;
+                _axoDialogProxyService.Dispose();
+            }
         }
     }
 }

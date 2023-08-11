@@ -7,9 +7,10 @@ NAMESPACE AXOpen.Inspectors
 
         VAR PUBLIC
 
+            {#ix-set:AttributeName = "<#Required#>"}
             RequiredStatus : BOOL;
 
-
+            {#ix-set:AttributeName = "<#Detected#>"}
             DetectedStatus : BOOL;
       
 

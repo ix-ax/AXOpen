@@ -22,7 +22,7 @@ NAMESPACE AXOpen.Inspectors
         END_VAR
 
         
-        //getter?
+        //getter
         METHOD PUBLIC InspectionData : REF_TO AxoInspectorData
             InspectionData := _inspectionData;
         END_METHOD

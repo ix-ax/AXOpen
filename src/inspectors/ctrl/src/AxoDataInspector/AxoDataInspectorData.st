@@ -7,12 +7,13 @@ NAMESPACE AXOpen.Inspectors
 
         VAR PUBLIC
 
+            {#ix-set:AttributeName = "<#Required#>"}
             RequiredStatus: STRING;
 
-
+            {#ix-set:AttributeName = "<#Detected#>"}
             DetectedStatus : STRING;
       
-
+            {#ix-set:AttributeName = "<#Star notation#>"}
             StarNotationEnabled: BOOL;
 
         END_VAR

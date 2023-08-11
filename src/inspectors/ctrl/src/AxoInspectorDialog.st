@@ -24,7 +24,6 @@ NAMESPACE AXOpen.Inspectors
             _isActive : BOOL;
             _dialogIsClosed : BOOL;
             _isAnswerProvided : BOOL;
-            //_refInspector : REF_TO AxoInspector;
             
         END_VAR
 
@@ -83,12 +82,6 @@ NAMESPACE AXOpen.Inspectors
                        
                     END_IF;
 
-                    // //after task is done and some answer is provided, restore this task
-                    // IF (THIS.Status = eAxoTaskState#Done && _isAnswerProvided) THEN
-                    //     _isAnswerProvided := FALSE;
-                    //     THIS.Restore();   
-                            
-                    // END_IF;
             
                 ELSE
 
@@ -98,7 +91,7 @@ NAMESPACE AXOpen.Inspectors
 
                 END_IF;	
 
-                // //restore this task, when answer is provided and task is done
+                // restore this task, when answer is provided and task is done
                 IF _isAnswerProvided THEN
                     THIS.Restore();  
                     _parentInspectorRef^.RestoreInspectorTask();

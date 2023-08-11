@@ -2,7 +2,9 @@ USING System.Strings;
 
 NAMESPACE AXOpen.Inspectors
 
-
+    /// <summary>
+    /// Class representing inspection of string value with support of star notation.
+    /// </summary>
     CLASS AxoDataInspector EXTENDS AxoInspector IMPLEMENTS IAxoDataInspector
     
         VAR PUBLIC
@@ -14,7 +16,9 @@ NAMESPACE AXOpen.Inspectors
         END_VAR
     
     
-
+    /// <summary>
+    /// Inspection method, which contains main logic of inspection.
+    /// </summary>    
     METHOD PUBLIC Inspect : IInspector
         VAR_INPUT
             _parent : AXOpen.Core.IAxoObject;
@@ -97,15 +101,16 @@ NAMESPACE AXOpen.Inspectors
                 tmpResult := _data.DetectedStatus = _data.RequiredStatus;	
             END_IF;
                 
-             IF(NOT tmpResult) THEN
+            IF(NOT tmpResult) THEN
                 _lastOutValue := Status;
-             END_IF;
-             _inspectorTask._failTimer(TRUE, _data.FailTime);
-             _inspectorTask._passTimer(tmpResult, _data.PassTime);
+            END_IF;
 
-             IF(_inspectorTask._passTimer.output OR _inspectorTask._failTimer.output) THEN
+            _inspectorTask._failTimer(TRUE, _data.FailTime);
+            _inspectorTask._passTimer(tmpResult, _data.PassTime);
+
+            IF(_inspectorTask._passTimer.output OR _inspectorTask._failTimer.output) THEN
                 _inspectorTask.DoneWhen(TRUE);
-               THIS.OnDone();
+            THIS.OnDone();
             END_IF;	
         END_IF;
     END_METHOD

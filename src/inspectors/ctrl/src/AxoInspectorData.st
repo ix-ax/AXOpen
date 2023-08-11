@@ -26,17 +26,17 @@ NAMESPACE AXOpen.Inspectors
         {#ix-set:AttributeName = "<#Bypass#>"}
         IsByPassed : BOOL;
 
-        {#ix-set:AttributeName = "<#Failure description#>"}
-        FailureDescription : STRING;
-
         {#ix-set:AttributeName = "<#Re-tries#>"}
         NumberOfAllowedRetries : UINT;
 
         {#ix-set:AttributeName = "<#Attempts#>"}
         RetryAttemptsCount : UINT;
 
-        {#ix-set:AttributeName = "<#Code#>"}
-        ErrorCode : STRING;
+        // {#ix-set:AttributeName = "<#Failure description#>"}
+        // FailureDescription : STRING;
+
+        // {#ix-set:AttributeName = "<#Code#>"}
+        // ErrorCode : STRING;
 
         END_VAR
 

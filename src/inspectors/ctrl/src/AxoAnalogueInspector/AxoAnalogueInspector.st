@@ -1,6 +1,10 @@
 NAMESPACE AXOpen.Inspectors
 
 
+
+    /// <summary>
+    /// Class representing inspection of value within an interval.
+    /// </summary>
     CLASS AxoAnalogueInspector EXTENDS AxoInspector IMPLEMENTS IAxoAnalogueInspector
     
         VAR PUBLIC
@@ -12,12 +16,13 @@ NAMESPACE AXOpen.Inspectors
         END_VAR
     
     
-
+    /// <summary>
+    /// Inspection method, which contains main logic of inspection.
+    /// </summary>
     METHOD PUBLIC Inspect : IInspector
         VAR_INPUT
             _parent : AXOpen.Core.IAxoObject;
             Status : LREAL;
-            
         END_VAR
 
         VAR
@@ -48,7 +53,6 @@ NAMESPACE AXOpen.Inspectors
         //initialize and invoke inspector task
         _inspectorTask.Invoke();
 
-
         //do inspection
         IF (_inspectorTask.Execute()) THEN
             IF (_data.IsByPassed) THEN
@@ -66,18 +70,20 @@ NAMESPACE AXOpen.Inspectors
             
             _data.DetectedStatus := Status;
             
-             tmpResult := (_minimum <= _value) AND (_maximum >= _value);
-                
-             IF(NOT tmpResult) THEN
+            tmpResult := (_minimum <= _value) AND (_maximum >= _value);
+            
+            IF(NOT tmpResult) THEN
                 _lastOutValue := Status;
-             END_IF;
-             _inspectorTask._failTimer(TRUE, _data.FailTime);
-             _inspectorTask._passTimer(tmpResult, _data.PassTime);
-   
-             IF(_inspectorTask._passTimer.output OR _inspectorTask._failTimer.output) THEN
-                 _inspectorTask.DoneWhen(TRUE);
+            END_IF;
+            
+            _inspectorTask._failTimer(TRUE, _data.FailTime);
+            _inspectorTask._passTimer(tmpResult, _data.PassTime);
+
+            IF(_inspectorTask._passTimer.output OR _inspectorTask._failTimer.output) THEN
+                _inspectorTask.DoneWhen(TRUE);
                 THIS.OnDone();
-             END_IF;	
+            END_IF;	
+
         END_IF;
     END_METHOD
 

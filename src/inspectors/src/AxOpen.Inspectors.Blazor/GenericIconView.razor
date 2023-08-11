@@ -1,7 +1,6 @@
 ﻿@namespace AXOpen.Inspectors
 
-<div class="col">
-    <div class="row d-flex justify-content-center">
+    <div class="d-flex justify-content-center mt-2">
         @switch (@Result)
         {
             case 0:
@@ -41,7 +40,7 @@
                 break;
         }
     </div>
-    <div class="row d-flex justify-content-center">
+    <div class="justify-content-center">
         @switch (@Result)
         {
             case 0:
@@ -67,7 +66,7 @@
                 break;
         }
     </div>
-</div>
+
 
 @code {
     [Parameter]

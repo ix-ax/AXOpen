@@ -249,6 +249,8 @@ NAMESPACE examples.PneumaticManipulator
                 _presenceInspector.Data()^.PassTime := TIME#2s;
                 _dataInspector.Data()^.PassTime := TIME#2s;
             
+                _valueInspector.Data()^.NumberOfAllowedRetries := UINT#3;
+
                 THIS.MoveNext(); 
                 //--------------------------------------------	
             END_IF;
@@ -261,7 +263,6 @@ NAMESPACE examples.PneumaticManipulator
                 END_IF;	
              
                 
-
             END_IF;
 
 

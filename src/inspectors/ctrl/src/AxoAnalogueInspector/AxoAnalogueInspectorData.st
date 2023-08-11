@@ -7,12 +7,13 @@ NAMESPACE AXOpen.Inspectors
 
         VAR PUBLIC
 
+            {#ix-set:AttributeName = "<#Min#>"}
             RequiredMin : LREAL;
 
-
+            {#ix-set:AttributeName = "<#Detected#>"}
             DetectedStatus : LREAL;
       
-
+            {#ix-set:AttributeName = "<#Max#>"}
             RequiredMax: LREAL;
 
         END_VAR

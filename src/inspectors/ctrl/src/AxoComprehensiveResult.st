@@ -1,7 +1,6 @@
 NAMESPACE AXOpen.Inspectors
 
     CLASS AxoComprehensiveResult IMPLEMENTS IAxoComprehensiveResult
-        // this probably should not be public, but it is for test purposes
         VAR PUBLIC
 
             Result : eOverallResult;

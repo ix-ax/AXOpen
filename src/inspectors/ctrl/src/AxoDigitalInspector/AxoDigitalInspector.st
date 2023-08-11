@@ -1,6 +1,8 @@
 NAMESPACE AXOpen.Inspectors
 
-
+/// <summary>
+/// Class representing inspection of bool value.
+/// </summary>
 CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
 
     VAR PUBLIC
@@ -8,7 +10,9 @@ CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
         _data : AxoDigitalInspectorData;
     END_VAR
 
-
+    /// <summary>
+    /// Inspection method, which contains main logic of inspection.
+    /// </summary>  
     METHOD PUBLIC Inspect : IInspector
         VAR_INPUT
             _parent: AXOpen.Core.IAxoObject;
