@@ -1,0 +1,23 @@
+﻿@namespace AXOpen.Cognex.Vision.v_6_0_0_0
+@using AXSharp.Connector.ValueTypes
+@using AXSharp.Connector;
+@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
+@inherits RenderableComplexComponentBase<AxoByteArray255>;
+
+<div class="row ms-0">
+    @Component.AttributeName
+</div>
+<div class="row flex-nowrap">
+    @foreach (OnlinerByte item in Component.Data)
+    {
+        <div class="col">
+            <div >
+                @item.AttributeName.Substring(item.AttributeName.IndexOf("[")+1).Replace("]","")
+            </div>
+            <div >
+                @item.Cyclic
+            </div>
+        </div>
+    }
+</div>
+

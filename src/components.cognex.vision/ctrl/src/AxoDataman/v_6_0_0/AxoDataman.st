@@ -5,9 +5,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
     CLASS PUBLIC AxoDataman EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.IAxoCodeReader     
         VAR PUBLIC
-            ///<summary>
-            /// Restores this instance. This method must be implemented in derived class.
-            ///</summary>               
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "<#Read#>"}
@@ -145,11 +142,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_246B;
                 ELSE
                     Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
-                    Status.Error.Id := UINT#708;
+                    Status.Error.Id := UINT#709;
                     UpdateInputs := FALSE;
                 END_IF;
             ELSE
-                Status.Error.Id := UINT#709;
+                Status.Error.Id := UINT#710;
                 UpdateInputs := FALSE;
                 Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             END_IF;
@@ -203,11 +200,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 ELSIF (UPPER_BOUND(refUserData^,1) = 253) THEN
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_250B;
                 ELSE
-                    Status.Error.Id := UINT#710;
+                    Status.Error.Id := UINT#711;
                     UpdateOutputs := FALSE;
                 END_IF;
             ELSE
-                Status.Error.Id := UINT#711;
+                Status.Error.Id := UINT#712;
                 UpdateOutputs := FALSE;
         END_IF;
 
@@ -238,14 +235,16 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#702;
             ELSIF refResultsControl = NULL THEN
                 Status.Error.Id := UINT#703;
-            ELSIF refSoftEventControl  = NULL THEN
+            ELSIF refResultsStatus = NULL THEN
                 Status.Error.Id := UINT#704;
-            ELSIF refSoftEventStatus = NULL THEN
+            ELSIF refSoftEventControl  = NULL THEN
                 Status.Error.Id := UINT#705;
-            ELSIF refResultData = NULL THEN
+            ELSIF refSoftEventStatus = NULL THEN
                 Status.Error.Id := UINT#706;
-            ELSIF refUserData = NULL THEN
+            ELSIF refResultData = NULL THEN
                 Status.Error.Id := UINT#707;
+            ELSIF refUserData = NULL THEN
+                Status.Error.Id := UINT#708;
             ELSE
                 IsValidReferences := TRUE;
             END_IF;
@@ -261,7 +260,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             IF _ResultsStatus.ResultsAvailable AND NOT _ResultsControl.ResultsAcknowledge AND Results.Code > UINT#0 AND Results.Length > UINT#0 THEN
                 IF refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
                     Status.Action.Id := UINT#701;
-                    Status.Error.Id := UINT#712;
+                    Status.Error.Id := UINT#713;
                 ELSE
                     System.SerDe.Deserialize(UINT#7, refResultData^, refResults^.Data);
                     Status.Action.Id := UINT#307;

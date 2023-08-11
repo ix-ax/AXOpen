@@ -24,6 +24,7 @@ PROGRAM MyProgram
         AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
         AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;
         AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
+        AxoCognexVisionInsightExampleContext : AxoCognexVisionInsightExamples.AxoCognexVisionInsightExampleContext;
 
         AxoLoggers : AxoLoggerExamples.Loggers;
 
@@ -39,9 +40,23 @@ PROGRAM MyProgram
 		PlcInputs : PlcInputs;
 		PlcOutputs : PlcOutputs;
 	END_VAR
-	//Copy this function call at the very beginning of your program.
+
+
+
+//temp -delete this after test------>
+    // VAR_EXTERNAL
+	// 	HwInputs : HwInputs;
+	// 	HwOutputs : HwOutputs;
+	// END_VAR
+    // HwInputs.InSight_Results_250_bytes_1[4] := TO_BYTE(TO_UINT(HwInputs.InSight_Results_250_bytes_1[4]) + UINT#1);
+//<------------- temp -delete this after test
+
+
+
+
+    //Copy this function call at the very beginning of your program.
 	//Do not change any names, addresses or any another content.
-	CopyInputs();
+    CopyInputs();
 
     I_am_alive := I_am_alive + ULINT#1;
 
@@ -69,6 +84,10 @@ PROGRAM MyProgram
     AxoCognexVisionDatamanExampleContext.PlcInputs := REF(PlcInputs);
     AxoCognexVisionDatamanExampleContext.PlcOutputs := REF(PlcOutputs);
     AxoCognexVisionDatamanExampleContext.Run();
+
+    AxoCognexVisionInsightExampleContext.PlcInputs := REF(PlcInputs);
+    AxoCognexVisionInsightExampleContext.PlcOutputs := REF(PlcOutputs);
+    AxoCognexVisionInsightExampleContext.Run();
 
     AxoLoggers.InjectRtc(AxoRtc);
     AxoLoggers.Run();
