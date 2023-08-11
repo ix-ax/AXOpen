@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>WORK IN PORGRESS | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="WORK IN PORGRESS | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="work-in-porgress">WORK IN PORGRESS</h1>
+
+<h1 id="components">Components</h1>
+<table>
+<thead>
+<tr>
+<th>REVISION</th>
+<th>DATE</th>
+<th>NOTES</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.0</td>
+<td>June 2023</td>
+<td>Initial release</td>
+</tr>
+<tr>
+<td>0.1</td>
+<td>August 2023</td>
+<td>Initial release</td>
+</tr>
+</tbody>
+</table>
+<p>This document describes the format and practices for writing components in TcOpen. These are universal rules to observe. Each rule knows exception when there is a reasonable argument behind it.</p>
+<h2 id="general-rules">General rules</h2>
+<h2 id="library-placement">Library placement</h2>
+<p>Library must be placed in <code>src</code> folder of the repository. The containing folder should be named <code>components</code>.[manufacturer].[function_group] (e.g. components.cognex.vision).</p>
+<h3 id="abstractions">Abstractions</h3>
+<p>Each component should implement basic contract interface defined in the <code>AxoAbstractions</code> library (e.g. <code>AxoAbbRobot</code> should implenent <code>IAxoRobot</code>, <code>AxoCognexReader</code> should impement <code>IAxoReader</code>)</p>
+<h3 id="io-variables">I/O variables</h3>
+<ul>
+<li>Components must not contain I/O (%I*, %Q*) variables directly (no AT directive).</li>
+</ul>
+<h4 id="io-variables-naming">I/O variables naming</h4>
+<p>The AxOpen does not use Hungarian prefixes, with few exceptions. IN/OUT and REF_TO method argument  parameters are one of those exceptions where it is required to use prefixes <code>ino</code> and <code>ref</code> respectively.</p>
+<h3 id="structure">Structure</h3>
+<h4 id="config">Config</h4>
+<ul>
+<li>Config structure can contain arbitrary data relative to the configuration of the component (timeouts, parameters, etc.).</li>
+<li>Config type must be STRUCT.</li>
+<li>Config data class must be named in the following format <code>{ComponentName}Config</code> (e.g. <code>AxoCylinderConfig</code>)</li>
+<li>Config class must be accessible via <code>GetConfig</code> method that returns <code>REF_TO {ComponentName}Config</code>.</li>
+<li>The backing field of the Config property must be named <code>Config</code> (it must be public to allow access from higher level application)</li>
+<li>Config class can contain multiple nested and complex classes when it is necessary to organize better the information. Nested classes must be CLASS and must be named in the following format <code>{ComponentName}Config{Specifier}</code> where specifier is descriptive name of the nested information.</li>
+<li>Wherever possible the data must be initialized to default values (e.g., timeouts, speeds etc.). The default settings should not prevent the component from functioning unless there is a specific requirement to provide parameters relative to the component model or a particular hardware configuration (drive model, gearing ratio, etc.).</li>
+<li>Each data member of the Config structure must be documented in the code, with an example. Whenever possible, a link to more detailed documentation must also be provided in the in-code documentation.</li>
+<li>Method <code>SetConfig</code> should be implemented when it is expected an external provision of configuration at runtime.</li>
+</ul>
+<h3 id="status">Status</h3>
+<ul>
+<li>Status class can contain arbitrary data relative to the state of the component.</li>
+<li>Status type must be CLASS.</li>
+<li>Status data structure must be named in the following format <code>{ComponentName}Status</code> (e.g. <code>AxoCylinderStatus</code>)</li>
+<li>Status structure must be accessible via <code>GetStatus</code> method that returns <code>RET_TO {ComponentName}Status</code>.  - The backing field of the Status must be named <code>Status</code> (it must be public to allow access from higher level application).</li>
+<li>Status class can contain multiple nested and complex classes when it is necessary to organize the information. Nested structures must be CLASSEs and must be named in the following format <code>{ComponentName}State{Specifier}</code> where specifier is descriptive name of the nested information.</li>
+<li>Each data member of the Status structure must be documented in the code, with an example. Whenever possible, a link to more detailed documentation must also be provided in the in-code documentation.</li>
+</ul>
+<h3 id="tasks">Tasks</h3>
+<p>Operations are run by tasks (<code>AxoTask</code>).</p>
+<ul>
+<li>Member variable of the task must have the following format <code>{OperationName}Task</code>.</li>
+<li>Each task must be exposed via a method in the following format <code>{OperationName}</code> that will return <code>IAxoTaskStatus</code>.</li>
+<li>Executing logic of a task is run from the <code>Run</code> method of components class.</li>
+</ul>
+<h3 id="states">States</h3>
+<p>States are properties or methods that retrieve information about arbitrary states that do not require multiple cycles to return the result (sensor's signal state).
+All state-related members must be placed into <code>States</code> folder of the component.</p>
+<h3 id="component-requirements">Component requirements</h3>
+<p>Each component must inherit from <code>AXOpen.Core.AxoComponent</code>, which is an abstract block that requires concrete implementation of following memebers: <code>Restore()</code> method that restores the component into intial state and <code>ManualControl()</code> method that provided additional logic for manual control.</p>
+<ul>
+<li><p><code>Restore()</code> must contain logic that will bring the component's internal states into the initial state. Restore method does not mean getting the component into physical ground position/state; it serves purely the purpose of having the component ready for operations from the programatic perspective.</p>
+</li>
+<li><p><code>ManualControl()</code> method is required to be implemented. It can contain arbitrary logic that will be executed while the component is in a serviceable state.</p>
+</li>
+<li><p>Each component must implement <code>Run</code> method that will provide cyclic execution of tasks, I/O update, data transformation for given component. <code>Run</code> method is not formally required by <code>AxoComponent</code> and it can take arguments necessary for the cylic update and execution. For variaous scenarions component can implement different <code>Run</code> methods taking advantage of method overload.</p>
+</li>
+</ul>
+<h2 id="components-naming-conventions">Components naming conventions</h2>
+<p>The components for particular components are placed into appropriate library. Library name reflects the name of the manufacturer and the class of the product. POUs that belongs to a specific component reflect the product name and products' version information.</p>
+<table>
+<thead>
+<tr>
+<th>UNIT NAME</th>
+<th>PATTER</th>
+<th>EXAMPLE  (fully qualified name)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Library (namespace)</td>
+<td><code>AXOpen.{Manufacturer}.[{Group}]</code></td>
+<td><code>AXOpen.ABB.Robotics</code></td>
+</tr>
+<tr>
+<td>CLASS</td>
+<td><code>v_{ModelVersion}.Axo{Model}</code></td>
+<td><code>AXOpen.ABB.Robotics.v_1_0_0.AxoOmnicore</code></td>
+</tr>
+<tr>
+<td>CLASS Config</td>
+<td><code>v_{ModelVersion}.Axo{Model}_Config</code></td>
+<td><code>AXOpen.ABB.Robotics.v_1_0_0.AxoOmnicore_Config</code></td>
+</tr>
+<tr>
+<td>CLASS Status</td>
+<td><code>v_{ModelVersion}.Axo{Model}_Status</code></td>
+<td><code>AXOpen.ABB.Robotics.v_1_0_0.AxoOmnicore_Status</code></td>
+</tr>
+<tr>
+<td>other</td>
+<td><code>v_{ModelVersion}.Axo{Model}_{DescriptiveName}</code></td>
+<td><code>AXOpen.ABB.Robotics.v_1_0_0.AxoOmnicore_Aux</code></td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/guidelines/components.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>
