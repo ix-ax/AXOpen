@@ -59,7 +59,7 @@ namespace AXOpen.Data
         {
             foreach (var change in Changes)
             {
-                AxoApplication.Current.Logger.Information($"Value change: {change.ValueTag.HumanReadable} from {change.OldValue} to {change.NewValue} changed by user action.", _as.User.Identity);
+                AxoApplication.Current.Logger.Information($"Value change {change.ValueTag.Symbol} of {plainObject.DataEntityId} from {change.OldValue} to {change.NewValue} changed by user action.", _as.User.Identity);
             }
 
             if (DataObject.Changes == null)

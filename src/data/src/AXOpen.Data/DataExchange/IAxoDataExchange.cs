@@ -22,10 +22,34 @@ namespace AXOpen.Data
         /// </summary>
         ITwinObject RefUIData { get; }
 
+        /// <summary>
+        /// Stop observing changes of the data object with changeTracker.
+        /// </summary>
         void ChangeTrackerStopObservingChanges();
+
+        /// <summary>
+        /// Start observing changes of the data object with changeTracker.
+        /// </summary>
+        /// <param name="authenticationState">Authentication state of current logged user.</param>
         void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState);
+
+        /// <summary>
+        /// Saves observed changes from changeTracker to object.
+        /// </summary>
+        /// <param name="plainObject"></param>
         void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject);
+
+        /// <summary>
+        /// Sets changes to changeTracker.
+        /// </summary>
+        /// <param name="entity">Entity from which is set data.</param>
         void ChangeTrackerSetChanges(IBrowsableDataObject entity);
+
+        /// <summary>
+        /// Gets changes from changeTracker.
+        /// </summary>
+        /// <returns>List of ValueChangeItem that contains changes.</returns>
+        List<ValueChangeItem> ChangeTrackerGetChanges();
 
         /// <summary>
         /// Gets the list of available exporters.

@@ -44,7 +44,7 @@ namespace AXOpen.Data
         public AuthenticationStateProvider Asp { get; set; }
 
         public bool IsFileExported { get; set; } = false;
-        public List<ValueChangeItem> Changes { get; set; }
+        public List<ValueChangeItem> Changes { get; set; } = new List<ValueChangeItem>();
 
         public IAlertDialogService AlertDialogService { get; set; }
 
@@ -65,6 +65,7 @@ namespace AXOpen.Data
                 {
                     DataExchange.FromRepositoryToShadowsAsync(value);
                     DataExchange.ChangeTrackerSetChanges(value);
+                    Changes = DataExchange.ChangeTrackerGetChanges();
                 }
                 DataExchange.ChangeTrackerStartObservingChanges(Asp.GetAuthenticationStateAsync().Result);
             }

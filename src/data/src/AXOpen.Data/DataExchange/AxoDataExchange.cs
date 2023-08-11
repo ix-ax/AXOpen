@@ -50,21 +50,48 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         }
     }
 
+    /// <summary>
+    /// Stop observing changes of the data object with changeTracker.
+    /// </summary>
     public void ChangeTrackerStopObservingChanges()
     {
         CrudDataObject?.ChangeTracker.StopObservingChanges();
     }
+
+    /// <summary>
+    /// Start observing changes of the data object with changeTracker.
+    /// </summary>
+    /// <param name="authenticationState">Authentication state of current logged user.</param>
     public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState)
     {
         CrudDataObject?.ChangeTracker.StartObservingChanges(authenticationState);
     }
+
+    /// <summary>
+    /// Saves observed changes from changeTracker to object.
+    /// </summary>
+    /// <param name="plainObject"></param>
     public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject)
     {
         CrudDataObject?.ChangeTracker.SaveObservedChanges(plainObject);
     }
+
+    /// <summary>
+    /// Sets changes to changeTracker.
+    /// </summary>
+    /// <param name="entity">Entity from which is set data.</param>
     public void ChangeTrackerSetChanges(IBrowsableDataObject entity)
     {
         CrudDataObject.Changes = Repository.Read(entity.DataEntityId).Changes;
+    }
+
+    /// <summary>
+    /// Gets changes from changeTracker.
+    /// </summary>
+    /// <returns>List of ValueChangeItem that contains changes.</returns>
+    public List<ValueChangeItem> ChangeTrackerGetChanges()
+    {
+        return CrudDataObject.Changes;
     }
 
     /// <summary>

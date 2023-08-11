@@ -84,6 +84,9 @@ public partial class AxoDataFragmentExchange
 
     public ITwinObject RefUIData { get; private set; }
 
+    /// <summary>
+    /// Stop observing changes of the data object with changeTracker.
+    /// </summary>
     public void ChangeTrackerStopObservingChanges()
     {
         foreach (var fragment in DataFragments)
@@ -91,6 +94,11 @@ public partial class AxoDataFragmentExchange
             fragment.ChangeTrackerStopObservingChanges();
         }
     }
+
+    /// <summary>
+    /// Start observing changes of the data object with changeTracker.
+    /// </summary>
+    /// <param name="authenticationState">Authentication state of current logged user.</param>
     public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState)
     {
         foreach (var fragment in DataFragments)
@@ -98,16 +106,40 @@ public partial class AxoDataFragmentExchange
             fragment.ChangeTrackerStartObservingChanges(authenticationState);
         }
     }
+
+    /// <summary>
+    /// Saves observed changes from changeTracker to object.
+    /// </summary>
+    /// <param name="plainObject"></param>
     public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject)
     {
         throw new NotImplementedException();
     }
+
+    /// <summary>
+    /// Sets changes to changeTracker.
+    /// </summary>
+    /// <param name="entity">Entity from which is set data.</param>
     public void ChangeTrackerSetChanges(IBrowsableDataObject entity)
     {
         foreach (var fragment in DataFragments)
         {
             fragment.ChangeTrackerSetChanges(entity);
         }
+    }
+
+    /// <summary>
+    /// Gets changes from changeTracker.
+    /// </summary>
+    /// <returns>List of ValueChangeItem that contains changes.</returns>
+    public List<ValueChangeItem> ChangeTrackerGetChanges()
+    {
+        var changes = new List<ValueChangeItem>();
+        foreach (var fragment in DataFragments)
+        {
+            changes = changes.Concat(fragment.ChangeTrackerGetChanges()).ToList();
+        }
+        return changes;
     }
 
     public async Task CreateNewAsync(string identifier)

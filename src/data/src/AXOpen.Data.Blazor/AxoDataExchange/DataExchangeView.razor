@@ -315,6 +315,58 @@ else
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid">Edit</button>
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
                     }
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changesModal-@ViewGuid">Changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="changesModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="text-start">
+                                <th scope="col">DateTime</th>
+                                <th scope="col">UserName</th>
+                                <th scope="col">HumanReadable</th>
+                                <th scope="col">OldValue</th>
+                                <th scope="col">NewValue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!Vm.Changes.Any())
+                            {
+                                <tr class="text-center">
+                                    <td colspan="3">
+                                        <h3>Collection is empty</h3>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                @foreach (var item in Vm.Changes.ToList())
+                                {
+                                    <tr class="text-start">
+                                        <td>@item.DateTime</td>
+                                        <td>@item.UserName</td>
+                                        <td>@item.ValueTag.HumanReadable</td>
+                                        <td>@item.OldValue</td>
+                                        <td>@item.NewValue</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid">Back</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>

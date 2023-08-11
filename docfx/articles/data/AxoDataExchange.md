@@ -73,6 +73,43 @@ Now we can freely shuffle the data between PLC and the local folder.
 
 [!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoData/AxoDataDocuExample.st?name=UseManager)]
 
+### Tracking changes
+
+Every change to the data is meticulously tracked and saved. These changes are recorded in two distinct locations:
+
+1. Directly in the Database - Each record maintains its own history of changes:
+
+~~~ TXT
+{
+  "ComesFrom": 1,
+  "GoesTo": 0,
+  "RecordId": null,
+  "Changes": [
+    {
+      "DateTime": "2020-10-10T10:10:10.00",
+      "UserName": "admin",
+      "ValueTag": {
+        "HumanReadable": "PneumaticManipulator.ProcessData.Shared.Set.ComesFrom",
+        "Symbol": "Context.PneumaticManipulator.ProcessData.Shared.Set.ComesFrom"
+      },
+      "OldValue": 0,
+      "NewValue": 1
+    }
+  ],
+  "DataEntityId": "testRecord"
+}
+~~~
+
+2. In Logs - All operations involving records are meticulously logged:
+
+~~~ TXT
+[10:10:10 INF] Create testRecord in examples.PneumaticManipulator.ProcessDataManger by user action. { UserName = admin }
+[10:10:10 INF] Value change Context.PneumaticManipulator.ProcessData.Shared.Set.ComesFrom of testRecord from 0 to 1 changed by user action. { UserName = admin }
+~~~
+
+Every action as creation, update, deletion, or copying data is captured in the logs. Also every record has its own set of changes.  
+Its important to note that modifications originating from the PLC are not logged, tracked, or saved.
+
 ## Data visualization
 
 ### Automated rendering using `RenderableContentControl`
