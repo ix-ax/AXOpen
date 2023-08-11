@@ -7,6 +7,7 @@ NAMESPACE AXOpen.Inspectors
             {#ix-set:AttributeName = "<#Inspector data#>"}
             _data : AxoAnalogueInspectorData;
             // result data of inspection
+            {#ix-attr:[RenderIgnore()]}   
             _lastOutValue : LREAL;
         END_VAR
     
@@ -101,6 +102,14 @@ NAMESPACE AXOpen.Inspectors
         IF (_data.Result = eInspectorResult#Failed) THEN
             _data.DetectedStatus := _lastOutValue;
        END_IF;
+    END_METHOD
+
+    ///<summary>
+    /// Set coordinator to this instance
+    ///</summary>
+    METHOD PUBLIC Data : REF_TO AxoAnalogueInspectorData
+
+        Data := REF(_data);
     END_METHOD
 
 END_CLASS 

@@ -15,9 +15,27 @@ namespace AXOpen.Inspectors
 
         public bool RetryDisabled { get; set; } = false;
 
-        protected async override Task OnInitializedAsync()
+        protected override void OnAfterRender(bool firstRender)
         {
-       
+            _inspector = null;
+            try
+            {
+                var parent = Component.GetParent();
+
+                if (parent is AxoInspector i)
+                {
+                    _inspector = i;
+                }
+            }
+            catch (Exception)
+            {
+                //return _inspector;
+            }
+        }
+
+        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        {            
+            base.AddToPolling(element, pollingInterval);
         }
 
         public async Task Retry()
@@ -61,24 +79,8 @@ namespace AXOpen.Inspectors
         {
             get
             {
-                _inspector = null;
-                try
-                {
-                    var parent = Component.GetParent();
-
-                    if (parent is AxoInspector i)
-                    {
-                        i.ReadAsync();
-                        _inspector = i;
-                        return _inspector;
-                    }
-                    return _inspector;
-                }
-                catch (Exception)
-                {
-                    return _inspector;
-                }
-
+               
+                return _inspector;
             }
           
         }

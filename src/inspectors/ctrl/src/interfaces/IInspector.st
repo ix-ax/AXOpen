@@ -23,13 +23,15 @@ NAMESPACE AXOpen.Inspectors
 
         METHOD Dialog : BOOL
             VAR_INPUT
-                inStep: IAxoStep;
+                inRetryStep: IAxoStep;
+                inTerminateStep: IAxoStep;
             END_VAR
 
             
         END_METHOD
 
-        
+        METHOD  RestoreInspectorTask : BOOL
+        END_METHOD
 
         METHOD OnFail : IOnFail
         END_METHOD

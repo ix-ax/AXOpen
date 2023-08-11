@@ -21,7 +21,7 @@ NAMESPACE AXOpen.Inspectors
         Result : eInspectorResult;
 
         {#ix-set:AttributeName = "<#Excluded#>"}
-        isExcluded: BOOL;
+        IsExcluded: BOOL;
 
         {#ix-set:AttributeName = "<#Bypass#>"}
         IsByPassed : BOOL;

@@ -9,6 +9,7 @@ NAMESPACE AXOpen.Inspectors
             {#ix-set:AttributeName = "<#Inspector data#>"}
             _data : AxoDataInspectorData;
             // result data of inspection
+            {#ix-attr:[RenderIgnore()]}   
             _lastOutValue : STRING;
         END_VAR
     
@@ -157,6 +158,14 @@ NAMESPACE AXOpen.Inspectors
             END_IF;
             
                 IsCharNumber := FALSE;
+    END_METHOD
+
+    ///<summary>
+    /// Set coordinator to this instance
+    ///</summary>
+    METHOD PUBLIC Data : REF_TO AxoDataInspectorData
+
+        Data := REF(_data);
     END_METHOD
 
 

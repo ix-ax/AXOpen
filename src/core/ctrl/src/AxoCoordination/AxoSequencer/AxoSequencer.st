@@ -161,24 +161,6 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
       
-        
-        METHOD PUBLIC Terminate 
-   
-        //   _step.SetStepOrder(THIS,ULINT#);
-        //   THIS.RequestStep(_step);
-          ;
-
-        END_METHOD
-
-        METHOD PUBLIC Retry 
-            VAR_INPUT
-                inAxoStep : IAxoStep;
-            END_VAR
- 
-            THIS.RequestStep(inAxoStep);
-            
-  
-        END_METHOD
   
         ///<summary>
         /// Terminates the currently executed step and initiates the RequestedStep to be executed

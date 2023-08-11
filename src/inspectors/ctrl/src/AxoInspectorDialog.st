@@ -32,13 +32,15 @@ NAMESPACE AXOpen.Inspectors
 
         METHOD PUBLIC Show
             VAR_INPUT
-                _refInspector : REF_TO AxoInspector;
+                _parentInspectorRef : REF_TO AxoInspector;
                 inRetryStep : IAxoStep;
+                inTerminateStep : IAxoStep;
             END_VAR
             VAR
                 callCounter : ULINT;
             END_VAR   
-              
+
+         
            //Restores when not called for 2+ consecutive cycles of the context.
            callCounter := THIS.GetParent().GetContext().OpenCycleCount();
            IF(callCounter > _lastCall + ULINT#1) THEN
@@ -47,40 +49,36 @@ NAMESPACE AXOpen.Inspectors
            _lastCall := callCounter;
 
          
-            IF(_refInspector = NULL) THEN
+            IF(_parentInspectorRef = NULL) THEN
                 RETURN;
             END_IF;
 
-            THIS.Initialize(_refInspector^);
-
-            // IF (THIS.Status = eAxoTaskState#Ready) THEN
-            //     _isAnswerProvided := FALSE;
-            // END_IF;
-            _isOverInspected := _refInspector^.CheckOverInspection();
+            
+            _isOverInspected := _parentInspectorRef^.CheckOverInspection();
 
 
-            IF(_refInspector^.Done()) THEN	
+            IF(_parentInspectorRef^.Done()) THEN	
 
-                IF(_refInspector^.Result() = eInspectorResult#Failed) THEN
-
+                IF(_parentInspectorRef^.Result() = eInspectorResult#Failed) THEN
+                    THIS.Initialize(_parentInspectorRef^);
                     THIS.Invoke();
                     SUPER.Execute();
 
     
                     IF(_dialogueRetry) THEN
-                        _refInspector^.Retry(inRetryStep);
+                        _parentInspectorRef^.RetryWithStep(inRetryStep);
                         _isAnswerProvided := TRUE;
                         
                     END_IF;
                     
                     IF(_dialogueTerminate) THEN
-                        _refInspector^.Terminate();
+                        _parentInspectorRef^.TerminateWithStep(inTerminateStep);
                         _isAnswerProvided := TRUE;
                        
                     END_IF;
                     
                     IF(_dialogueOverride) THEN
-                        _refInspector^.CarryOn();
+                        _parentInspectorRef^.CarryOn();
                         _isAnswerProvided := TRUE;
                        
                     END_IF;
@@ -94,8 +92,8 @@ NAMESPACE AXOpen.Inspectors
             
                 ELSE
 
-                    IF(_refInspector^.Coordinator() <> NULL) THEN
-                        _refInspector^.Coordinator().MoveNext();
+                    IF(_parentInspectorRef^.Coordinator() <> NULL) THEN
+                        _parentInspectorRef^.Coordinator().MoveNext();
                     END_IF;	
 
                 END_IF;	
@@ -103,6 +101,7 @@ NAMESPACE AXOpen.Inspectors
                 // //restore this task, when answer is provided and task is done
                 IF _isAnswerProvided THEN
                     THIS.Restore();  
+                    _parentInspectorRef^.RestoreInspectorTask();
                     _isAnswerProvided := FALSE;
                 END_IF;
    
@@ -113,7 +112,7 @@ NAMESPACE AXOpen.Inspectors
         END_METHOD
 
 
-        METHOD Restore 
+        METHOD PUBLIC Restore 
 
             SUPER.Restore();
             _dialogueRetry := FALSE;	

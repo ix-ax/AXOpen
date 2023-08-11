@@ -20,39 +20,10 @@ NAMESPACE AXOpen.Inspectors
             _busy : BOOL;
             _commonData: REF_TO AxoInspectorData;
             _originalOverallResult : IAxoComprehensiveResult;
-            //_refOverallResult: REF_TO AxoComprehensiveResult; //within group inspectors
-
    
         END_VAR
-
-
-        /// GETTERS START
-      
     
       
-
-    
-        METHOD PUBLIC Busy : BOOL
-            Busy := _inspectorTask.IsBusy();
-        END_METHOD
-    
-        METHOD PUBLIC CommonData : REF_TO AXOpen.Inspectors.AxoInspectorData
-            ;
-        END_METHOD
-    
-        METHOD PUBLIC Coordinator : IAxoCoordinator
-            Coordinator := _coordinator;
-        END_METHOD
-    
-        METHOD PUBLIC Done : BOOL
-            Done := _inspectorTask.IsDone();
-        END_METHOD
-
-        METHOD PUBLIC Result : eInspectorResult
-            Result := _inspectorTask.InspectionData()^.Result;	
-        END_METHOD
-
-    
         /// <summary>
         /// Check, if data are overinspected (attempts of inspections is larger than maximum number of allowed retries)
         /// </summary>
@@ -80,7 +51,6 @@ NAMESPACE AXOpen.Inspectors
             END_IF;
             
             IsOverinspected := THIS.CheckOverInspection();
-            
         END_METHOD
     
     
@@ -94,48 +64,36 @@ NAMESPACE AXOpen.Inspectors
         END_VAR
 
         _coordinator := inCoordinator;
-
-
-        // TODO: probably restore is missing here
-        // IF(_coordinator.GetCoordinatorState() = AXOpen.Core.AxoCoordinatorStates#Idle) THEN
-        //     _inspectorTask.Restore();
-        //     // _tcoInspectorDialogue.Restore();
-        // END_IF;
-        
         _WithCoordinator := THIS;
         
     END_METHOD
 
-    /// EVALUATION METHODS
     METHOD PUBLIC OnFail : IOnFail
 
-        // IF(_coordinator = NULL) THEN
-        //     // here is coordinator missing, it should provide message to call it with WithCoordinator method
-        // END_IF
-
+        // here if is coordinator missing, it should provide message to call it with WithCoordinator method
         OnFail:= THIS;
         
     END_METHOD
 
-    /// EVALUATION METHODS
     METHOD PUBLIC Dialog : BOOL
         VAR_INPUT
-            inStep: IAxoStep;
+            inRetryStep: IAxoStep;
+            inTerminateStep: IAxoStep;
         END_VAR
+        // here if is coordinator missing, it should provide message to call it with WithCoordinator method
+        _axoInspectorDialog.Show(REF(THIS), inRetryStep, inTerminateStep);
 
-        _axoInspectorDialog.Show(REF(THIS), inStep);
-        // IF(_coordinator = NULL) THEN
-        //     // here is coordinator missing, it should provide message to call it with WithCoordinator method
-        // END_IF
-
-        
     END_METHOD
 
-    METHOD PUBLIC Retry : BOOL
+
+    ///<summary>
+    /// When inspection is done, retry provided step
+    ///</summary>
+    METHOD PUBLIC RetryWithStep : BOOL
     
         VAR_INPUT
             /// State from which the inspection will restart.	
-            inAxoStep : IAxoStep;
+            inRetryStep : IAxoStep;
         END_VAR
 
         IF(_coordinator = NULL) THEN
@@ -144,18 +102,18 @@ NAMESPACE AXOpen.Inspectors
 
         IF(THIS.Done()) THEN
             IF(THIS.Result() = eInspectorResult#Failed) THEN
-                // IF(__ISVALIDREF(_refOverallResult)) THEN
-                //     _refOverallResult := _originalOverallResult;
-                // END_IF
-                //_coordinator;
-                _coordinator.Retry(inAxoStep);
+   
+                IF(inRetryStep <> NULL) THEN
+
+                    _coordinator.RequestStep(inRetryStep);
+                END_IF;	
             ELSE
                 _coordinator.MoveNext();
             END_IF;	
         END_IF;	
 
 
-        Retry:= THIS.Done();
+        RetryWithStep:= THIS.Done();
         
     END_METHOD
 
@@ -177,11 +135,13 @@ NAMESPACE AXOpen.Inspectors
         CarryOn := THIS.Done();
     END_METHOD
 
-     ///<summary>
-    /// When inspection is done, continue to next step.
+    ///<summary>
+    /// When inspection is done, terminate provided step
     ///</summary>
-    METHOD PUBLIC Terminate : BOOL
-
+    METHOD PUBLIC TerminateWithStep : BOOL
+        VAR_INPUT
+            inTerminateStep : AXOpen.Core.IAxoStep;
+        END_VAR
         IF(_coordinator = NULL) THEN
             RETURN;			
         END_IF;
@@ -189,43 +149,22 @@ NAMESPACE AXOpen.Inspectors
         
         IF(THIS.Done()) THEN
             IF(THIS.Result() = eInspectorResult#Failed) THEN
-                _coordinator.Terminate();
+   
+                IF(inTerminateStep <> NULL) THEN
+
+                    _coordinator.RequestStep(inTerminateStep);
+              
+                END_IF;	
             ELSE
                 _coordinator.MoveNext();
             END_IF;	
         END_IF;	
         
-        Terminate := THIS.Done();
+        TerminateWithStep := THIS.Done();
     END_METHOD
 
 
-    METHOD PUBLIC TerminateWithOriginStep : BOOL
-    
-        VAR_INPUT
-            /// State from which the inspection will restart.	
-            inAxoStep : IAxoStep;
-        END_VAR
-
-        IF(_coordinator = NULL) THEN
-           RETURN;
-        END_IF;
-
-        IF(THIS.Done()) THEN
-            IF(THIS.Result() = eInspectorResult#Failed) THEN
-                // IF(__ISVALIDREF(_refOverallResult)) THEN
-                //     _refOverallResult := _originalOverallResult;
-                // END_IF
-                //_coordinator;
-                _coordinator.Retry(inAxoStep);
-            ELSE
-                _coordinator.MoveNext();
-            END_IF;	
-        END_IF;	
-
-
-        TerminateWithOriginStep:= THIS.Done();
-        
-    END_METHOD
+   
 
     ///<summary>
     /// Update commmon comprehensive result, which can be used across multiple inspectors
@@ -264,7 +203,33 @@ NAMESPACE AXOpen.Inspectors
 
 
     END_METHOD
+
+
+    METHOD PUBLIC RestoreInspectorTask : BOOL
+        _inspectorTask.Restore();
+    END_METHOD
+
+    METHOD PUBLIC Busy : BOOL
+        Busy := _inspectorTask.IsBusy();
+    END_METHOD
+
+    METHOD PUBLIC CommonData : REF_TO AXOpen.Inspectors.AxoInspectorData
+        ;
+    END_METHOD
+
+    METHOD PUBLIC Coordinator : IAxoCoordinator
+        Coordinator := _coordinator;
+    END_METHOD
+
+    METHOD PUBLIC Done : BOOL
+        Done := _inspectorTask.IsDone();
+    END_METHOD
+
+    METHOD PUBLIC Result : eInspectorResult
+        Result := _inspectorTask.InspectionData()^.Result;	
+    END_METHOD
     
+
 
 
 END_CLASS

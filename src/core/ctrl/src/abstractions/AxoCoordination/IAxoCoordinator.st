@@ -6,13 +6,12 @@ NAMESPACE AXOpen.Core
         METHOD MoveNext
         END_METHOD
 
-        METHOD Retry 
+        METHOD RequestStep
             VAR_INPUT
-                inAxoStep : IAxoStep;
+                RequestedStep : IAxoStep;
             END_VAR
         END_METHOD
 
-        METHOD Terminate 
-        END_METHOD
+    
     END_INTERFACE  
 END_NAMESPACE

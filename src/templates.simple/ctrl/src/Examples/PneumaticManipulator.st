@@ -224,78 +224,76 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
 
 
-            // IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
-            //     //-------------------------------------------------------        
-            //        IF(_alertDialog.Show(THIS)
-            //             .WithTitle('Plc alert')
-            //             .WithType(eDialogType#Success)
-            //             .WithMessage('This is alert invoked from plc!')
-            //             .WithTimeToBurn(UINT#5).IsShown() = true) THEN
-            //             THIS.MoveNext(); 
-            //         END_IF;	
+            IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+                //-------------------------------------------------------        
+                   IF(_alertDialog.Show(THIS)
+                        .WithTitle('Plc alert')
+                        .WithType(eDialogType#Success)
+                        .WithMessage('This is alert invoked from plc!')
+                        .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+                        THIS.MoveNext(); 
+                    END_IF;	
 
 
-            // //-------------------------------------------------------
-            // END_IF;
+            //-------------------------------------------------------
+            END_IF;
 
-            // IF (Steps[16].Execute(THIS, TRUE, 'GENERATE SIMULATED VALUES')) THEN
-            //     //--------------------------------------------
-            //     //_presenceInspector.Data();
-            //     // _data := _presenceInspector.Data()^;
-            //     // _data.RequiredStatus := TRUE;
-            //     //_presenceInspector._data.RequiredStatus := TRUE;
-            //     //_presenceInspector._data.FailTime := T#5s;
-            //     //_presenceInspector._data.NumberOfAllowedRetries := UINT#3;
-            //     //inspectionResult:= FALSE;
-            //     THIS.MoveNext(); 
-            //     //--------------------------------------------	
-            // END_IF;
+            IF (Steps[16].Execute(THIS, TRUE, 'Set inpsection times')) THEN
+                //--------------------------------------------
 
-            IF (Steps[17].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
-                //-------------------------------------------------------
+                _valueInspector.Data()^.FailTime := TIME#3s;
+                _presenceInspector.Data()^.FailTime := TIME#3s;
+                _dataInspector.Data()^.FailTime := TIME#3s;
+
+                _valueInspector.Data()^.PassTime := TIME#2s;
+                _presenceInspector.Data()^.PassTime := TIME#2s;
+                _dataInspector.Data()^.PassTime := TIME#2s;
+            
+                THIS.MoveNext(); 
+                //--------------------------------------------	
+            END_IF;
+        
+
+            IF (Steps[20].Execute(THIS, TRUE, 'RETRY STEP 90')) THEN
                 
-                //_presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).OnFail().Retry(Steps[1]);
-                //_presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).OnFail().Terminate();
+                IF(Steps[20].Duration > T#2000ms) THEN
+                    THIS.MoveNext(); 
+                END_IF;	
+             
+                
 
-                _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).OnFail().Dialog(Steps[1]);
+            END_IF;
 
+
+            IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
+                //-------------------------------------------------------
+
+                _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
+
+                //-------------------------------------------------------
+             END_IF;
+
+             IF (Steps[40].Execute(THIS, TRUE, 'Example Analog inspection')) THEN
+                //-------------------------------------------------------
              
 
-            //-------------------------------------------------------
-            END_IF;
+                _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
 
-
-            IF (Steps[18].Execute(THIS, TRUE, 'Example Analogue inspection')) THEN
                 //-------------------------------------------------------
-                
+             END_IF;
 
-                _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[1]);
 
-             ;
-
-            //-------------------------------------------------------
-            END_IF;
-
-            IF (Steps[19].Execute(THIS, TRUE, 'Example Data inspection')) THEN
+             IF (Steps[50].Execute(THIS, TRUE, 'Example Data inspection')) THEN
                 //-------------------------------------------------------
-                
+              
+                _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
 
-                _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[1]);
-
-             ;
-
-            //-------------------------------------------------------
+                //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[20].Execute(THIS, TRUE, 'Dummy')) THEN
-                //------------------------------------------------------- 
-                IF(Steps[20].Duration > T#100ms) THEN
-                    
-                        THIS.MoveNext(); 
-                END_IF;	
-            END_IF;
 
-            IF (Steps[30].Execute(THIS, TRUE, 'Show dialog 0')) THEN
+
+            IF (Steps[60].Execute(THIS, TRUE, 'Show dialog 0')) THEN
                 //------------------------------------------------------- 
             
                     IF(_dialog.Show(THIS)
@@ -305,61 +303,26 @@ NAMESPACE examples.PneumaticManipulator
                         .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
 
                         
-                        THIS.MoveNext(); 
-
+                        THIS.RequestStep(Steps[149]);
+                //-------------------------------------------------------
                 END_IF;	
             END_IF;
 
+            IF (Steps[145].Execute(THIS, TRUE, 'Restore origin step')) THEN
+                //-------------------------------------------------------
+ 
+                ;
 
-            IF (Steps[40].Execute(THIS, TRUE, 'Dummy')) THEN
-                //------------------------------------------------------- 
-                IF(Steps[40].Duration > T#100ms) THEN
-                    
-                        THIS.MoveNext(); 
-                END_IF;	
+            // //-------------------------------------------------------
             END_IF;
 
 
+            IF (Steps[149].Execute(THIS, TRUE, 'Dummy end')) THEN
+                //-------------------------------------------------------
+                THIS.MoveNext();
 
-            IF (Steps[50].Execute(THIS, TRUE, 'Show dialog 1')) THEN
-                //------------------------------------------------------- 
-                        IF(_dialog1.Show(THIS)
-                            .WithYesNoCancel()
-                            .WithType(eDialogType#Warning)
-                            .WithCaption('YesNoCancel dialog')
-                            .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
-                            
-                        
-                            THIS.MoveNext(); 
-
-                        END_IF;	
-                    
+                //-------------------------------------------------------
             END_IF;
-
-            IF (Steps[60].Execute(THIS, TRUE, 'Dummy')) THEN
-                //------------------------------------------------------- 
-                IF(Steps[60].Duration > T#100ms) THEN
-                    
-                        THIS.MoveNext(); 
-                END_IF;	
-            END_IF;
-
-            IF (Steps[70].Execute(THIS, TRUE, 'Show dialog 2')) THEN
-                //------------------------------------------------------- 
-
-                    IF(_dialog2.Show(THIS)
-                        .WithYesNo()
-                        .WithType(eDialogType#Danger)
-                        .WithCaption('YesNo dialog')
-                        .WithText('Click yes to continue?').Answer() = eDialogAnswer#Yes) THEN
-
-                        THIS.MoveNext(); 
-                    END_IF;	
-
-            END_IF;
-
-//-------------------------------------------------------
-            
             // This will close the sequence and will return to the first step.
             THIS.Close(Steps[150]);
         END_METHOD

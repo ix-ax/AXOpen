@@ -1,5 +1,5 @@
 ﻿@namespace AXOpen.Inspectors
-@inherits RenderableComplexComponentBase<AxoDigitalInspector>
+@inherits RenderableComplexComponentBase<AxoAnalogueInspector>
 
 
 <div class="accordion my-3">
@@ -10,17 +10,20 @@
             </button>
         </div>
         <div class="accordion-body row align-items-center py-1">
-            <div class="col-auto">
-                <RenderableContentControl Context="@Component._data.RequiredStatus" Presentation="Control" />
+            <div class="col-xl-2 col-lg-2 col-md-4">
+                <RenderableContentControl Context="@Component._data.RequiredMin" Presentation="Display" />
             </div>
-            <div class="col-auto">
-                <RenderableContentControl Context="@Component._data.DetectedStatus" Presentation="Control" />
+            <div class="col-xl-2 col-lg-2 col-md-4">
+                <RenderableContentControl Context="@Component._data.DetectedStatus" Presentation="Display" />
+            </div>
+            <div class="col-xl-2 col-lg-2 col-md-4">
+                <RenderableContentControl Context="@Component._data.RequiredMax" Presentation="Display" />
             </div>
             <div class="col-auto ms-auto">
-                <RenderableContentControl Context="@Component._data.IsByPassed" Presentation="Control" />
+                <RenderableContentControl Context="@Component._data.IsByPassed" Presentation="Display" />
             </div>
             <div class="col-auto">
-                <RenderableContentControl Context="@Component._data.IsExcluded" Presentation="Control" />
+                <RenderableContentControl Context="@Component._data.IsExcluded" Presentation="Display" />
             </div>
             <div class="col-auto">
                 <GenericIconView Result="@Component._data.Result.Cyclic" />
@@ -47,4 +50,3 @@
         UpdateValuesOnChange(Component._data.Result);
     }
 }
-

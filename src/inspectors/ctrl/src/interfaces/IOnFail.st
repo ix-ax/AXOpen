@@ -1,30 +1,34 @@
+
 NAMESPACE AXOpen.Inspectors
     INTERFACE IOnFail 
     
         METHOD CarryOn : BOOL
         END_METHOD
 
-        METHOD Retry : BOOL
+        METHOD RetryWithStep : BOOL
             VAR_INPUT
-                inAxoStep : AxOpen.Core.IAxoStep;
+                /// State from which the inspection will restart.	
+                inRetryStep : AXOpen.Core.IAxoStep;
             END_VAR
         END_METHOD
 
+       
         METHOD Dialog : BOOL
             VAR_INPUT
-                inAxoStep : AxOpen.Core.IAxoStep;
+                inRetryStep: AXOpen.Core.IAxoStep;
+                inTerminateStep: AXOpen.Core.IAxoStep;
             END_VAR
         END_METHOD
 
-        METHOD Terminate : BOOL
-        END_METHOD
 
-        METHOD TerminateWithOriginStep : BOOL
+        METHOD TerminateWithStep : BOOL
             VAR_INPUT
-                inAxoStep : AxOpen.Core.IAxoStep;
+                /// State from which the inspection will restart.	
+                inTerminateStep : AXOpen.Core.IAxoStep;
             END_VAR
         END_METHOD
-       
+
+    
         
     END_INTERFACE
 END_NAMESPACE
