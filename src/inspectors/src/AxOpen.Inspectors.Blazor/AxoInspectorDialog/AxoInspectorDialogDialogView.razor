@@ -1,6 +1,8 @@
 ﻿@namespace AXOpen.Inspectors
 @using AXOpen.Core.Blazor.AxoDialogs
+@using Microsoft.AspNetCore.Components.Authorization;
 @inherits AxoDialogBaseView<AxoInspectorDialog>
+@inject AuthenticationStateProvider _asp
 
 <h3>AxoInspectorDialogDialogView</h3>
 
@@ -20,19 +22,7 @@
             {
                 <p>Loading inspector... if it's taking long, something is wrong</p>
             }
-            @* <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Expand
-            </button>
-
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-
-                    @if (Inspector != null)
-                    {
-                        <RenderableContentControl Context="Inspector" Presentation="Command" />
-                    }
-                </div>
-            </div>*@
+     
         </div>
         <div class="d-flex justify-content-center ">
             <button type="button" class="btn btn-secondary m-2 w-50" disabled="@RetryDisabled" @onclick="Retry">Retry</button>

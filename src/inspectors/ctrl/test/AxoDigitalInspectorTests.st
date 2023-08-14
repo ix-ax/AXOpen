@@ -72,23 +72,23 @@ NAMESPACE AXOpen.Inspectors.AxoDigitalInspector_Tests
 
     {TestFixture}
     CLASS AxoDigitalInspectorTests
-        VAR PROTECTED
-            _context : TestContext;
-            _digitalInspector    : AxoDigitalInspector;
-            _inspectedBool : BOOL;
-            _sequencer  : AxoSequencer;
-            _rtcMock :  AxoRtcMock;  
+        // VAR PROTECTED
+        //     _context : TestContext;
+        //     _digitalInspector    : AxoDigitalInspector;
+        //     _inspectedBool : BOOL;
+        //     _sequencer  : AxoSequencer;
+        //     _rtcMock :  AxoRtcMock;  
 
-            _testBool : BOOL;
+        //     _testBool : BOOL;
 
-            _testTimer: AXOpen.Timers.OnDelayContext;
-            _testTimeDelay: LTIME;
-        END_VAR  
+        //     _testTimer: AXOpen.Timers.OnDelayContext;
+        //     _testTimeDelay: LTIME;
+        // END_VAR  
 
-        METHOD PRIVATE Initialize
-            _context.InjectRtc(_rtcMock);
-            _sequencer.Initialize(_context);            
-        END_METHOD
+        // METHOD PRIVATE Initialize
+        //     _context.InjectRtc(_rtcMock);
+        //     _sequencer.Initialize(_context);            
+        // END_METHOD
  
         
         // {Test}        
@@ -122,71 +122,6 @@ NAMESPACE AXOpen.Inspectors.AxoDigitalInspector_Tests
             
            
         //     _context.Close();
-        // END_METHOD
-
-        // {Test}        
-        // METHOD PUBLIC Inspection_should_pass
-        //     THIS.Initialize();
-            
-        //     _context.Open();
-        //     _sequencer.Invoke();
-        //     _sequencer.Open();
-
-        //     _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
-        //     _inspectedBool := TRUE;
-        //     _digitalInspector.Data()^.RequiredStatus := TRUE;
-
-        //     _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
-
-        //     _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:38.123456);
-
-        //     _testBool := _digitalInspector.Inspect(_sequencer,_inspectedBool).Done();
-        //     //_digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,_inspectedBool).OnFail().CarryOn();
-            
-        // // WHILE NOT  _digitalInspector.Inspect(_sequencer,_inspectedBool).Done() DO
-        // //         ;
-        // //     END_WHILE;
-
-          
-        //     Assert.Equal(eInspectorResult#Passed, _digitalInspector.Data()^.Result);
-            
-           
-        //     _context.Close();
-        // END_METHOD
-
-        // {Test}        
-        // METHOD PUBLIC Inspection_is_bypassed
-        //     THIS.Initialize();
-        //     _context.Open();
-        //     _sequencer.Invoke();
-        //     _sequencer.Open();
-
-
-        //     _inspectedBool := FALSE;
-        //     _digitalInspector.Data()^.RequiredStatus := TRUE;
-        //     _digitalInspector.Data()^.IsByPassed := TRUE;
-
-            
-        //     _digitalInspector.Inspect(_sequencer,_inspectedBool);
-
-        //     // // WHILE NOT  DO
-        //     // //     ;
-        //     // // END_WHILE;
-
-
-           
-        //    Assert.Equal(eInspectorResult#Bypassed, _digitalInspector.Data()^.Result);
-        //     // // ELSE
-        //     // //     Assert.Equal(eInspectorResult#Running, _digitalInspector.Data()^.Result);
-           
-           
-        //     _context.Close();
-        //     ;
-        // END_METHOD
-
-        // {Test}
-        // METHOD PUBLIC Execute_should_not_crush_when_coordinator_not_passed                        
-        //     _stepOne.Execute(coord := NULL);                         
         // END_METHOD
 
       

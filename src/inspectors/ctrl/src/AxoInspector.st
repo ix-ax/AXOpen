@@ -13,7 +13,6 @@ NAMESPACE AXOpen.Inspectors
             _axoInspectorDialog : AxoInspectorDialog;
         END_VAR
         VAR
-            
             _inspectorTask: AxoInspectorTask;
             _coordinator: IAxoCoordinator;
             _isOverInspected: BOOL;

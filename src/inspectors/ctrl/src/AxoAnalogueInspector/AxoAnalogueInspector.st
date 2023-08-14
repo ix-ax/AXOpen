@@ -1,3 +1,4 @@
+using AXOpen.Logging;
 NAMESPACE AXOpen.Inspectors
 
 

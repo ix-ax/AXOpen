@@ -66,7 +66,6 @@ CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
                 _inspectorTask.DoneWhen(TRUE);
                 THIS.OnDone();
               
-            
             END_IF;	
         END_IF;
 

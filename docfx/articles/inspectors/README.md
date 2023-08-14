@@ -8,7 +8,7 @@ Each inspector contains:
 
 1. `Inspect` method, which input is current parent and inspection variable
 2. `OnFail` method, which provides methods for making a decision after a failed inspection (see Handling failure section)
-3. `UpdateComprehensiveResult` methods, which input is object of type `AxoComprehesiveResult`, which can be used to gather results of all inspections.
+3. `UpdateComprehensiveResult` method, which input is object of type `AxoComprehesiveResult`, which can be used to gather results of all inspections.
 
 4. `Common data` about inspection inputs and result. See below.
 
@@ -22,14 +22,14 @@ Example of inspection within a sequencer in PLC:
 
 1. A _presenceInspector is created instance of `AxoDigitalInspector`
 
-2. A coordinator is passed to this inspector with `WithCoordinator(THIS)` method, in this case it is a sequencer, parent object.
+2. A coordinator is passed to this inspector with `WithCoordinator(THIS)` method, in this case it is a sequencer, a parent object.
 3. `Inspect` methods takes parent and inspection variable, on which inspection is performing.
 4. If inspection fails, the result is updated to `_comprehensiveResult` object with `UpdateComprehensiveResult` method.
-5. If inspection fail, `OnFail` method provides `CarryOn` method, which tells the coordinator to continue in execution.
+5. If inspection fails, `OnFail` method provides `CarryOn` method, which tells the coordinator to continue in execution.
 
 ## Common inspector data
 
-The inspectors contain common data, which are used to store data about inspection. Each inspectors contain following data:
+Inspectors contain common data, which are used to store data about inspection. Each inspector contain following data:
 
 ```C#
 Timestamp: LDATE_AND_TIME; // timestamp of inspection
