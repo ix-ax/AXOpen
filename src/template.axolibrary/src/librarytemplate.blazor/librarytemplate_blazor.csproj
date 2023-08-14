@@ -4,8 +4,8 @@
     <TargetFrameworks>net7.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <PackageId>librarytemplate.Blazor</PackageId>
-    <RootNamespace>librarytemplate.Blazor</RootNamespace>
+    <PackageId>dotnetlibs.Blazor</PackageId>
+    <RootNamespace>dotnetlibs.Blazor</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

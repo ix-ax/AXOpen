@@ -1,3 +1,4 @@
+https://github.com/dotnet/templating/wiki/Reference-for-template.json#content-manipulation
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "PTKu",
@@ -8,6 +9,39 @@
   "tags": {
     "language": "C#",
     "type": "project"
-  },
-  "sourceName": "librarytemplate"
+  },  
+  "sourceName": "librarytemplate",
+  "symbols": {
+    "axlibname": {
+      "type": "parameter",
+      "description": ".NET projects namespaces",
+      "datatype": "text",
+      "defaultValue": "axolib",
+      "replaces": "axolib"
+    },
+    "projname": {
+      "type": "parameter",
+      "description": "The name of the main class.",
+      "datatype": "text",
+      "defaultValue": "dotnetlibs",
+      "replaces": "dotnetlibs"
+    },
+    "nameLower":{
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source":"axlibname",
+        "toLower": true
+      },
+      "nameUpper":{
+        "type": "generated",
+        "generator": "casing",
+        "parameters": {
+          "source":"projname",
+          "toLower": false
+      }
+    }
+  }  
 }
+}
+  
