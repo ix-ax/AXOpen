@@ -16,7 +16,7 @@ NAMESPACE AXOpen.Inspectors
             {#ix-set:AttributeName = "<#Star notation#>"}
             StarNotationEnabled: BOOL;
 
-        END_VAR
+        END_VAR 
 
     END_CLASS
 

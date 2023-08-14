@@ -1,0 +1,110 @@
+﻿@namespace AXOpen.Inspectors
+
+<div class="accordion my-3">
+    <div class="accordion-item">
+        <div class="accordion-header" style="border-bottom: 1px solid #dee2e6">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@ID" aria-expanded="false" aria-controls="@ID">
+                @Name
+            </button>
+        </div>
+        <div class="accordion-body">
+
+            <div class="d-flex">
+                @if (IsAnalogInspectorData())
+                {
+                    <div class="p-2">
+                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" />
+                    </div>
+                    <div class="p-2">
+                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
+                    </div>
+                    <div class="p-2 me-auto">
+                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMax" Presentation="@Presentation" />
+                    </div>
+                }
+                else if(IsDigitalInspectorData())
+                {
+                    <div class="p-2">
+                        <RenderableContentControl Context="((AxoDigitalInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
+                    </div>
+                    <div class="p-2 me-auto">
+                        <RenderableContentControl Context="((AxoDigitalInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
+                    </div>
+                }
+                else if (IsDataInspectorData())
+                {
+                    <div class="p-2">
+                        <RenderableContentControl Context="((AxoDataInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
+                    </div>
+                    <div class="p-2 me-auto">
+                        <RenderableContentControl Context="((AxoDataInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
+                    </div>
+                    <div class="p-2">
+                        <RenderableContentControl Context="((AxoDataInspectorData)Data).StarNotationEnabled" Presentation="@Presentation" />
+                    </div>
+                }
+                else
+                {
+                    <p>Cannot render, unspecified inspector type</p>
+                }
+                <div class="col-auto p-2">
+                    <RenderableContentControl Context="@Data.IsByPassed" Presentation="@Presentation" />
+                </div>
+                <div class="col-auto p-2">
+                    <RenderableContentControl Context="@Data.IsExcluded" Presentation="@Presentation" />
+                </div>
+                <div class="col-auto p-2">
+                    <GenericIconView Result="@Data.Result.Cyclic" />
+                </div>
+
+                
+
+            </div>
+
+            <div>
+
+                @if (IsOverInspected)
+                {
+                    <p class="text-danger">Over-inspection detected</p>
+                }
+            </div>
+        </div>
+
+        <div id="@ID" class="accordion-collapse collapse">
+            <div class="accordion-body py-1">
+                <GenericInspectorDataView Data="@Data" Presentation="Display" />
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@code {
+
+
+    [Parameter]
+    public AxoInspectorData Data { get; set; }
+
+    [Parameter]
+    public string Presentation { get; set; }
+
+    [Parameter]
+    public bool IsOverInspected { get; set; }
+
+    [Parameter]
+    public string Name { get; set; }
+
+
+    private string ID = "M" + Guid.NewGuid().ToString();
+
+    private bool IsAnalogInspectorData() => Data is AxoAnalogueInspectorData ? true : false;
+    private bool IsDigitalInspectorData() => Data is AxoDigitalInspectorData ? true : false;
+    private bool IsDataInspectorData() => Data is AxoDataInspectorData ? true : false;
+    
+
+    
+}
+
+
