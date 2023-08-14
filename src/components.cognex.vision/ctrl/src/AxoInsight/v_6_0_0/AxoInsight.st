@@ -18,10 +18,19 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Restore#>"}
-            _restoreTask : AXOpen.Core.AxoTask;
+            RestoreTask : AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Clear inspection results#>"}
             ClearInspectionResultsTask : AxoInsightClearInspectionResults;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Required job name#>"}
+            RequiredJobName : STRING;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Change job by name#>"}
+            ChangeJobByNameTask : AxoChangeJobByName;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Change job by number#>"}
+            ChangeJobByNumberTask : AxoInsightClearInspectionResults;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Config")]}
@@ -105,9 +114,13 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             Status.Action.Id := UINT#0;
             Status.Error.Id  := UINT#0;
+            Status.CurrentJobName := '';
 
             ClearInspectionResultsTask.Restore();
             TriggerTask.Restore();
+            ChangeJobByNameTask.Restore();
+
+            RequiredJobName := '';
              
             Results.InspectionID                            :=  UINT#0;
             Results.ResultCode                              :=  UINT#0;
@@ -126,7 +139,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             InspectionControl.AcknowledgeInspectionResults  :=  FALSE;
             InspectionControl.ExtendedUserDataSet           :=  FALSE;
             InspectionControl.ExecuteCommand                :=  FALSE;
-            InspectionControl.ClearError                    :=  FALSE;
+            InspectionControl.ClearError                    :=  InspectionStatus.Error;
 
             CommandControl.Command                          :=  UINT#0;
 
@@ -143,9 +156,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 User.UserData.Data[_index] := BYTE#0;
             END_FOR;
 
-            IF NOT AcquisitionStatus.ExposureComplete THEN
+            IF NOT AcquisitionStatus.ExposureComplete AND NOT InspectionStatus.Error THEN
                 Status.Action.Id := UINT#300;
-                _restoreTask.DoneWhen(TRUE);
+                RestoreTask.DoneWhen(TRUE);
             END_IF;
         END_METHOD
 
@@ -153,7 +166,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 		/// Custom logic for the manual control.
         ///</summary>   
         METHOD PROTECTED OVERRIDE ManualControl
-            ;
+            ChangeJobByNameTask.Manual(RequiredJobName);
         END_METHOD
 
         METHOD PRIVATE UpdateInputs : BOOL
@@ -400,31 +413,37 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refUserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
 
-            _restoreTask.Initialize(THIS);
+            RestoreTask.Initialize(THIS);
             ClearInspectionResultsTask.Initialize(THIS);
             TriggerTask.Initialize(THIS);
+            ChangeJobByNameTask.Initialize(THIS);
 
             THIS.UpdateInputs(refAcquisitionStatus,refInspectionStatus,refCommandStatus,refSoftEventStatus,refResultData);
 
             //*************RESTORE********************
             _taskDisabled := FALSE;
-            _restoreTask.IsDisabled := _taskDisabled;
-            IF _restoreTask.Execute() THEN
+            RestoreTask.IsDisabled := _taskDisabled;
+            IF RestoreTask.Execute() THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************CLEAR*DATA*****************
-            _taskDisabled := _taskDisabled OR _restoreTask.IsBusy();
+            _taskDisabled := _taskDisabled OR RestoreTask.IsBusy();
             ClearInspectionResultsTask.IsDisabled := _taskDisabled;
             ClearInspectionResultsTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(Config),REF(Status),REF(Results),REF(InspectionResults));
             //****************************************
 
-        
             //*************READ***********************
             _taskDisabled := _taskDisabled OR ClearInspectionResultsTask.IsBusy();
             TriggerTask.IsDisabled :=  _taskDisabled;
             TriggerTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(InspectionResults),refResultData);
+            //****************************************
+
+            //*************CHANGE JOB BY NAME*********
+            _taskDisabled := _taskDisabled OR TriggerTask.IsBusy();
+            ChangeJobByNameTask.IsDisabled :=  _taskDisabled;
+            ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(User),REF(InspectionResults),refResultData,refUserData);
             //****************************************
 
             THIS.UpdateOutputs(refAcquisitionControl,refInspectionControl,refCommandControl,refSoftEventControl,refUserData);
@@ -461,7 +480,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             VAR_INPUT 
                 Job : STRING;
             END_VAR
-            ChangeJob := TriggerTask.Invoke();
+            ChangeJob := ChangeJobByNameTask.InvokeWithParameters(Job);
         END_METHOD
     END_CLASS    
 
