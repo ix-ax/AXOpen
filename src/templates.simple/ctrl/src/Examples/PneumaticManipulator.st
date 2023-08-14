@@ -39,6 +39,9 @@ NAMESPACE examples.PneumaticManipulator
         EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             CounterDelay : ULINT;
+            _presenceInspector: AXOpen.Inspectors.AxoDigitalInspector;
+            _valueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
+            _dataInspector: AXOpen.Inspectors.AxoDataInspector;
         END_VAR
     END_CLASS
 
@@ -73,7 +76,9 @@ NAMESPACE examples.PneumaticManipulator
             /// Handles and intializes components used by this unit.
             ///</summary>
             Components : Components;
-            ProcessData : ProcessDataManger;
+
+            ProcessData : REF_TO ProcessDataManger;
+
             ///<summary>
             /// Ground sequence. Contains logic that brings the unit into initial state.
             ///</summary>
@@ -117,9 +122,9 @@ NAMESPACE examples.PneumaticManipulator
             // Component I/O immange and management handling.
             Components.Update(THIS, Inputs, Outputs);
             // Process data manager
-            ProcessData.Run(THIS);
+            ProcessData^.Run(THIS);
             // Handles ground sequence
-            GroundSequence.Run(REF(Components), REF(ProcessData), THIS);
+            GroundSequence.Run(REF(Components), ProcessData, THIS);
             // Restores other states when Ground executes
             IF (GroundSequence.IsBusy()) THEN
                 AutomatSequence.Restore();
@@ -127,7 +132,7 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
             // Handles automatic sequence (ground must be previously done)           
             AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
-            AutomatSequence.Run(REF(Components), REF(ProcessData), THIS);
+            AutomatSequence.Run(REF(Components), ProcessData, THIS);
             // Handles service/manual mode
             ServiceMode.Run(THIS, Components);
             IF ServiceMode.IsBusy() THEN
