@@ -10,7 +10,8 @@ devDependencies:
   "@ax/sdk": ^4.0.3
 scripts:
   postbuild:
-    - dotnet ixc
+    - dotnet ixc        
 dependencies: 
   "@ix-ax/axopen.components.abstractions": '0.1.4-alpha.79'
   "@ix-ax/axopen.core" : 0.1.4-alpha.79  
+
