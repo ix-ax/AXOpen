@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "PTKu",
+  "classifications": [ "AXOpen", "axolibrary" ],
+  "identity": "librarytemplate",
+  "name": "AXOpen Library Template",
+  "shortName": "axolibrary",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },  
+  "sourceName": "librarytemplate",
+  "symbols": {
+    "axlibname": {
+      "type": "parameter",
+      "description": "AX library project name",
+      "datatype": "text",
+      "defaultValue": "axolib",
+      "replaces": "axolib"      
+    },
+    "renameDotNetTwinCsProjFileName": {
+      "type": "derived",  
+      "valueSource": "axlibname",  
+      "valueTransform": "ReplaceDotsInFileName",  
+      "fileRename": "axolib",  
+      "description": "A value derived from the 'name' param, used to rename Application1.cs"
+    },
+    "renameDotNetTwinCsProjReferences": {
+      "include" : "*.csproj",  
+      "type": "derived",  
+      "valueSource": "axlibname",  
+      "valueTransform": "ReplaceDotsInFileName",  
+      "replaces": "axolib",  
+      "description": "A value derived from the 'name' param, used to rename Application1.cs"
+    },        
+    "projname": {
+      "type": "parameter",
+      "description": ".NET name",
+      "datatype": "text",
+      "defaultValue": "dotnetlibs",
+      "replaces": "dotnetlibs",
+      "fileRename" : "dotnetlibs"
+    },        
+    "nameLower":{
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source":"axlibname",
+        "toLower": true
+      },
+      "nameUpper":{
+        "type": "generated",
+        "generator": "casing",
+        "parameters": {
+          "source":"projname",
+          "toLower": false
+      }
+    }
+  }  
+},
+"forms": {
+  "ReplaceDotsInFileName": {
+    "identifier": "replace",
+    "pattern": "\\.",        
+    "replacement": "_"  
+  }
+}
+}
+  
