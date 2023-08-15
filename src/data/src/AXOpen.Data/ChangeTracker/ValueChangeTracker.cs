@@ -67,7 +67,7 @@ namespace AXOpen.Data
                 DataObject.Changes = new List<ValueChangeItem>();
             }
 
-            Changes.AddRange(DataObject.Changes);
+            Changes.InsertRange(0, DataObject.Changes);
             ((Pocos.AXOpen.Data.IAxoDataEntity)plainObject).Changes.AddRange(Changes);
 
             Changes = new List<ValueChangeItem>();

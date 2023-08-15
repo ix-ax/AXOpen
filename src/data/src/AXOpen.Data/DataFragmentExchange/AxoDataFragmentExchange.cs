@@ -142,6 +142,32 @@ public partial class AxoDataFragmentExchange
         return changes;
     }
 
+    /// <summary>
+    /// Get object who has locked this repository.
+    /// </summary>
+    /// <param name="by"></param>
+    public object? GetLockedBy()
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (fragment.GetLockedBy() != null)
+                return fragment.GetLockedBy();
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Set object who has locked this repository.
+    /// </summary>
+    /// <param name="by"></param>
+    public void SetLockedBy(object by)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.SetLockedBy(by);
+        }
+    }
+
     public async Task CreateNewAsync(string identifier)
     {
         await Task.Run(() =>

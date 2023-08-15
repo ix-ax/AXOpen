@@ -60,15 +60,40 @@ namespace AXOpen.Data
             set
             {
                 DataExchange.ChangeTrackerStopObservingChanges();
+
                 _selectedRecord = value;
                 if (value != null)
                 {
                     DataExchange.FromRepositoryToShadowsAsync(value);
                     DataExchange.ChangeTrackerSetChanges(value);
-                    Changes = DataExchange.ChangeTrackerGetChanges();
+                    Changes = DataExchange.ChangeTrackerGetChanges().OrderBy(p => p.DateTime.Ticks).ToList();
                 }
+
                 DataExchange.ChangeTrackerStartObservingChanges(Asp.GetAuthenticationStateAsync().Result);
             }
+        }
+
+        public void Locked()
+        {
+            if (IsLockedByMeOrNull())
+            {
+                DataExchange.SetLockedBy(this);
+            }
+        }
+
+        public void UnLocked()
+        {
+            if (IsLockedByMeOrNull())
+            {
+                DataExchange.SetLockedBy(null);
+            }
+        }
+
+        public bool IsLockedByMeOrNull()
+        {
+            if(DataExchange.GetLockedBy() == null || DataExchange.GetLockedBy() == this)
+                return true;
+            return false;
         }
 
         public Task FillObservableRecordsAsync()
@@ -201,7 +226,7 @@ namespace AXOpen.Data
             }
             catch (Exception e)
             {
-               AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to copy!", e.Message, 10);
+                AlertDialogService?.AddAlertDialog(eAlertDialogType.Danger, "Failed to copy!", e.Message, 10);
             }
             finally
             {
@@ -210,7 +235,7 @@ namespace AXOpen.Data
             }
         }
 
-      
+
 
         public async Task Edit()
         {
@@ -242,7 +267,7 @@ namespace AXOpen.Data
                 CreateItemId = null;
             }
 
-       
+
         }
 
         public Task ExportDataAsync(string path)

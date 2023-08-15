@@ -95,6 +95,24 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     /// <summary>
+    /// Get object who has locked this repository.
+    /// </summary>
+    /// <param name="by"></param>
+    public object? GetLockedBy()
+    {
+        return DataEntity.LockedBy;
+    }
+
+    /// <summary>
+    /// Set object who has locked this repository.
+    /// </summary>
+    /// <param name="by"></param>
+    public void SetLockedBy(object by)
+    {
+        DataEntity.LockedBy = by;
+    }
+
+    /// <summary>
     ///     Get strongly typed repository associated with this <see cref="AxoDataExchange{TOnline,TPlain}" />.
     /// </summary>
     public IRepository<TPlain> DataRepository { get; private set; }
