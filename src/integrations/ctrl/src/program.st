@@ -42,18 +42,6 @@ PROGRAM MyProgram
 	END_VAR
 
 
-
-//temp -delete this after test------>
-    // VAR_EXTERNAL
-	// 	HwInputs : HwInputs;
-	// 	HwOutputs : HwOutputs;
-	// END_VAR
-    // HwInputs.InSight_Results_250_bytes_1[4] := TO_BYTE(TO_UINT(HwInputs.InSight_Results_250_bytes_1[4]) + UINT#1);
-//<------------- temp -delete this after test
-
-
-
-
     //Copy this function call at the very beginning of your program.
 	//Do not change any names, addresses or any another content.
     CopyInputs();
