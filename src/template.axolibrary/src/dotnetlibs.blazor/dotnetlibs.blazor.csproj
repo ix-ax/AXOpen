@@ -54,6 +54,17 @@
 	  
   </ItemGroup>
 
+	<ItemGroup>
+		<None Include="..\..\..\..\assets\icons\icon_128_128.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\..\NUGET-README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\dotnetlibs\ix_ax_axolib.csproj" />

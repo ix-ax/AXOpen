@@ -16,9 +16,23 @@
       "description": "AX library project name",
       "datatype": "text",
       "defaultValue": "axolib",
-      "replaces": "axolib",
-      "fileRename" : "axolib"
+      "replaces": "axolib"      
     },
+    "renameDotNetTwinCsProjFileName": {
+      "type": "derived",  
+      "valueSource": "axlibname",  
+      "valueTransform": "ReplaceDotsInFileName",  
+      "fileRename": "axolib",  
+      "description": "A value derived from the 'name' param, used to rename Application1.cs"
+    },
+    "renameDotNetTwinCsProjReferences": {
+      "include" : "*.csproj",  
+      "type": "derived",  
+      "valueSource": "axlibname",  
+      "valueTransform": "ReplaceDotsInFileName",  
+      "replaces": "axolib",  
+      "description": "A value derived from the 'name' param, used to rename Application1.cs"
+    },        
     "projname": {
       "type": "parameter",
       "description": ".NET name",
@@ -26,7 +40,7 @@
       "defaultValue": "dotnetlibs",
       "replaces": "dotnetlibs",
       "fileRename" : "dotnetlibs"
-    },
+    },        
     "nameLower":{
       "type": "generated",
       "generator": "casing",
@@ -43,6 +57,13 @@
       }
     }
   }  
+},
+"forms": {
+  "ReplaceDotsInFileName": {
+    "identifier": "replace",
+    "pattern": "\\.",        
+    "replacement": "_"  
+  }
 }
 }
   
