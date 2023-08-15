@@ -10,4 +10,5 @@ CONFIGURATION MyConfiguration
         S71500Rtc :  AXOpen.S71500.Rtc;  
         ContextLogger : AXOpen.Logging.AxoLogger;       
     END_VAR
+
 END_CONFIGURATION

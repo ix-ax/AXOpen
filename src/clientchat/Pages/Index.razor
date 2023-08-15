@@ -1,0 +1,96 @@
+﻿@page "/"
+
+<div class="d-flex flex-column align-items-center">
+    <div class="w-50 overflow-hidden" style="margin-bottom: 100px;">
+        @foreach (var message in messages)
+        {
+            <div class="d-flex flex-column">
+                <small class="text-dark fw-lighter text-@message.ResolveMessageAlignment()">@message.Sender</small>
+                <div class="alert alert-@message.ResolveMessageColor() text-dark mb-2 p-2">@message.Text</div>
+            </div>
+        }
+    </div>
+
+    <div class="position-fixed bottom-0 mb-2">
+        <div class="d-flex align-items-center w-75 ms-auto p-1">
+            <label class="text-nowrap me-1">
+                To user:
+            </label>
+            <input class="form-control me-1" @bind="toUserInput" placeholder="User" />
+            <button class="btn btn-warning" @onclick="ShowConnected" data-bs-toggle="modal" data-bs-target="#usersModal" disabled="@(!IsConnected)">Clients</button>
+        </div>
+        <div class="d-flex p-1">
+            <input class="form-control me-1" @bind="messageInput" placeholder="Message" />
+            <button class="btn btn-primary" @onclick="Send" disabled="@(!IsConnected)">Send</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="usersModal" tabindex="-1" aria-labelledby="usersModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Logged in users</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (connectionsCounts.Count == 0)
+                {
+                    <p class="text-center">No logged in users</p>
+                }
+                else
+                {
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Username</th>
+                                <th scope="col">Number of connections</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var user in connectionsCounts)
+                            {
+                                <tr>
+                                    <td scope="row">@user.Key</td>
+                                    <td class="text-center">@user.Value</td>
+                                    <td>
+                                        <button class="btn btn-primary" @onclick="() => ShowConnections(user.Key)" data-bs-target="#connectionsModal" data-bs-toggle="modal">
+                                            Connections
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="connectionsModal" aria-hidden="true" aria-labelledby="connectionsModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">@userToShowConnections's connections:</h1>
+                <button type="button" class="btn-close" data-bs-target="#usersModal" data-bs-toggle="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if (usersConnections.Count == 0)
+                {
+                    <p class="text-center">No connections</p>
+                }
+                else
+                {
+                    <ul class="list-unstyled">
+                        @foreach (var connection in usersConnections)
+                        {
+                            <li>@connection</li>
+                        }
+                    </ul>
+                }
+            </div>
+        </div>
+    </div>
+</div>

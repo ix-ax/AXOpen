@@ -7,6 +7,7 @@ PROGRAM MyProgram
         S71500Rtc :  AXOpen.S71500.Rtc;   
         ContextLogger : AXOpen.Logging.AxoLogger;           
     END_VAR
+    
     // Never modif this the context needs references to IN/OUT structures before it is used.
     Context.Inputs := REF(Inputs);
     Context.Outputs := REF(Outputs);
@@ -16,6 +17,4 @@ PROGRAM MyProgram
     Context.InjectLogger(ContextLogger);
     // Executes the main context of this application.
     Context.Run();     
-     
-
 END_PROGRAM

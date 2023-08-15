@@ -56,8 +56,7 @@ var headerDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.Shared
 
 //Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 
-var a = Entry.Plc.Context.PneumaticManipulator
-    .ProcessData
+var a = Entry.Plc.Context.ProcessDataPneumaticManipulator
     .CreateBuilder<examples.PneumaticManipulator.ProcessDataManger>();
 
 a.DataManger.SetRepository(productionDataRepository);
