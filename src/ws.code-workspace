@@ -33,6 +33,10 @@
 			"path": "abstractions/ctrl"
 		},
 		{
+			"name": "inspectors",
+			"path": "inspectors/ctrl"			
+		},
+		{
 			"name": "components.abstractions",
 			"path": "components.abstractions/ctrl"
 		},

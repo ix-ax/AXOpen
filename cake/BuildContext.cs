@@ -144,6 +144,7 @@ public class BuildContext : FrostingContext
         ("core", "axopen.core"),       
         ("data", "axopen.data"),
         ("probers", "axopen.probers"),
+        ("inspectors", "axopen.inspectors"),
         ("components.abstractions", "axopen.components.abstractions"),
         ("components.cognex.vision", "axopen.cognex.vision"),
     };

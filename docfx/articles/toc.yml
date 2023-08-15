@@ -36,6 +36,16 @@
         href: ~/articles/data/AxoDataExchange.md
       - name: Data fragmets exchange
         href: ~/articles/data/AxoDataFragmentExchange.md
+
+- name: AXOpen.Inspectors
+  href: ~/articles/inspectors/README.md
+  items:
+      - name: AxoDigitalInspector
+        href: ~/articles/inspectors/AXODIGITALINSPECTOR.md
+      - name: AxoAnalogueInspector
+        href: ~/articles/inspectors/AXOANALOGUEINSPECTOR.md
+      - name: AxoDataInspector
+        href: ~/articles/inspectors/AXODATAINSPECTOR.md
 - name: AXOpen.Messaging
   href: ~/articles/messaging/README.md
   items:
