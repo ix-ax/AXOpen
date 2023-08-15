@@ -34,7 +34,15 @@
 		},
 		{
 			"name": "inspectors",
-			"path": "inspectors/ctrl"
+			"path": "inspectors/ctrl"			
+		},
+		{
+			"name": "components.abstractions",
+			"path": "components.abstractions/ctrl"
+		},
+		{
+			"name": "components.cognex.vision",
+			"path": "components.cognex.vision/ctrl"
 		}
 	],
 	"settings": {}
