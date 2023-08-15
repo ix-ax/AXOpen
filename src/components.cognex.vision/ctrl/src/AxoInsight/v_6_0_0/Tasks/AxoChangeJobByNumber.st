@@ -3,7 +3,7 @@ USING System.Strings;
 USING System.SerDe;
 
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
-    CLASS PUBLIC AxoChangeJobByName EXTENDS AXOpen.Core.AxoTask
+    CLASS PUBLIC AxoChangeJobByNumber EXTENDS AXOpen.Core.AxoTask
         VAR PROTECTED
             _progress : INT := 0;
             _infoTimer :  System.Timer.OnDelay;
@@ -14,7 +14,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _infoTime   :   LTIME := LT#2S;
             _errorTime  :   LTIME := LT#5S;
             _Status     :   REF_TO  AxoInsight_Status;	
-            _jobName    :   STRING;
+            _jobNumber  :   UINT;
         END_VAR
 
         METHOD PUBLIC Run 
@@ -44,18 +44,19 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         
             IF THIS.Execute() THEN
                 IF _progress = 0 THEN
-                    refStatus^.Action.Id := UINT#311;
+                    refStatus^.Action.Id := UINT#315;
                     refStatus^.Error.Id := UINT#0;
                     refStatus^.CurrentJobName := '';
                     refStatus^.CurrentJobNumber := UINT#0;
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;
+
                 END_IF;
 
                 IF _progress = 1 THEN
                     THIS.CallTimers(FALSE);
-                    IF _jobName='' THEN
-                        refStatus^.Error.Id := UINT#715;
+                    IF _jobNumber > refConfig^.MaxJobNumber THEN
+                        refStatus^.Error.Id := UINT#719;
                         THIS.ThrowWhen(TRUE);
                     ELSE	
                         _progress := _progress + 1;
@@ -104,54 +105,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 
                 IF _progress = 5 THEN
                     IF _infoTimer.output THEN
-                        refStatus^.Error.Id := UINT#611;
-                    END_IF;
-
-                    refAcquisitionControl^.SetOffline := TRUE;
-                    IF THIS.SetAndWriteUserDataAsString(_jobName,UINT#0,refUser,refUserData,refStatus) THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := _progress + 1;
-                    END_IF;
-                END_IF;
-                
-                IF _progress = 6 THEN
-                    IF _infoTimer.output THEN
-                        refStatus^.Error.Id := UINT#612;
-                    END_IF;
-
-                    refAcquisitionControl^.SetOffline := TRUE;
-                    refInspectionControl^.ExtendedUserDataSet := TRUE;
-                    IF(refInspectionStatus^.ExtendedUserDataSetAcknowledge) THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := _progress + 1;
-                    END_IF;            
-                END_IF;
-                
-                IF _progress = 7 THEN	
-                    IF _infoTimer.output THEN
-                        refStatus^.Error.Id := UINT#613;
-                    END_IF;
-
-                    refAcquisitionControl^.SetOffline := TRUE;
-                    refInspectionControl^.ExtendedUserDataSet := FALSE;
-                    IF(NOT refInspectionStatus^.ExtendedUserDataSetAcknowledge) THEN
-                        THIS.CallTimers(FALSE);
-                        _progress := _progress + 1;
-                    END_IF;
-                END_IF;
-            
-                IF _progress = 8 THEN
-                    IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#614;
                     END_IF;
 
                     refAcquisitionControl^.SetOffline := TRUE;
-                    
-                    refCommandControl^.Command := UINT#4000;
-                    // refCommandControl^.Command := UINT#0040;
-                    // refCommandControl^.Command := UINT#16384;//16#4000;
-                    // refCommandControl^.Command := UINT#64;  //16#0040;
-
+                    refCommandControl^.Command := _jobNumber;
                     refInspectionControl^.ExecuteCommand:=TRUE;
                     
                     IF(refInspectionStatus^.CommandComplete AND NOT refInspectionStatus^.CommandFailed) THEN
@@ -162,7 +120,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     END_IF;
                 END_IF;
                 
-                IF _progress = 9 THEN
+                IF _progress = 6 THEN
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#615;
                     END_IF;
@@ -176,32 +134,31 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     END_IF;
                 END_IF;
                 
-                IF _progress = 10 THEN
+                IF _progress = 7 THEN	
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#616;
                     END_IF;
 
                     refAcquisitionControl^.SetOffline := FALSE;
-                    
                     IF(refAcquisitionStatus^.Online) THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
-                END_IF;               
+                END_IF;
 
-                IF _progress = 11 THEN
-                    refStatus^.CurrentJobName := _jobName;
+                IF _progress = 8 THEN
+                    refStatus^.CurrentJobNumber := _jobNumber;
                     refInspectionControl^.ExecuteCommand := FALSE;
                     refAcquisitionControl^.SetOffline := FALSE;
                     refInspectionControl^.ClearError := FALSE;
                     refCommandControl^.Command := UINT#0;
                     THIS.ThrowWhen(FALSE);
                     THIS.DoneWhen(TRUE);
-                    _progress := 0;
+                    _progress := 0;            
                 END_IF;               
 
                 IF _progress = 20 THEN
-                    refStatus^.Error.Id := UINT#718;
+                    refStatus^.Error.Id := UINT#720;
                     // refInspectionControl^.ExecuteCommand := FALSE;
                     // refAcquisitionControl^.SetOffline := FALSE;
                     // refCommandControl^.Command := UINT#0;
@@ -213,73 +170,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 
                 THIS.ThrowWhen(_errorTimer.output);
             END_IF;
-        END_METHOD
-
-
-        METHOD  SetUserDataAsString :   BOOL
-            VAR_INPUT
-                inValue     :   STRING;
-                inPosition  :   UINT;	
-                refUser     :   REF_TO  AxoInsight_User;
-                refUserData :   REF_TO  ARRAY[*] OF BYTE;
-                refStatus   :   REF_TO  AxoInsight_Status;	
-            END_VAR
-            VAR
-                _index : UINT;
-                _size : UINT;
-                _maxIndex : UINT; 
-                _data : ARRAY[0..255] OF BYTE;
-            END_VAR
-            
-            SetUserDataAsString := FALSE;
-
-            _size := TO_UINT(LengthOf(inValue));
-
-            _maxIndex := UINT#254;
-            
-            IF (inPosition +_size) >= TO_UINT(refStatus^.UserDataSize) THEN
-                refStatus^.Error.Id := UINT#716;
-                RETURN;
-            END_IF;
-            
-            IF (inPosition +_size) > _maxIndex THEN
-                refStatus^.Error.Id := UINT#717;
-                RETURN;
-            END_IF;
-            Serialize(UINT#0, inValue, _data);
-            FOR	_index := UINT#1 TO _size BY UINT#1 DO	
-                refUser^.UserData.Data[(inPosition + _index-UINT#1)] := _data[_index];
-            END_FOR;
-            
-            FOR	_index := inPosition +_size TO _maxIndex BY UINT#1 DO	
-                refUser^.UserData.Data[_index] := BYTE#0;
-            END_FOR;
-            
-            SetUserDataAsString := TRUE;
-        
-        END_METHOD
-
-        METHOD SetAndWriteUserDataAsString : BOOL
-            VAR_INPUT
-                inValue     :   STRING;
-                inPosition  :   UINT;	
-                refUser     :   REF_TO  AxoInsight_User;
-                refUserData :   REF_TO  ARRAY[*] OF BYTE;
-                refStatus   :   REF_TO  AxoInsight_Status;	
-            END_VAR
-            VAR
-                _index : UINT;
-                _maxIndex : UINT; 
-            END_VAR
-            
-            _maxIndex := TO_UINT(refStatus^.UserDataSize) - UINT#1; 
-
-            IF THIS.SetUserDataAsString(inValue,inPosition,refUser,refUserData,refStatus) THEN
-                FOR	_index := UINT#0 TO _maxIndex BY UINT#1 DO	
-                    refUserData^[_index] := refUser^.UserData.Data[_index + UINT#1];
-                END_FOR;
-            END_IF;
-            SetAndWriteUserDataAsString := TRUE;
         END_METHOD
         
         METHOD PRIVATE CallTimers
@@ -294,48 +184,48 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         METHOD PROTECTED OVERRIDE OnRestore 
             _Status^.Action.Id := UINT#313;
             _Status^.Error.Id  := UINT#0;
-            _Status^.CurrentJobName := '';
+            _Status^.CurrentJobNumber := UINT#0;
             _progress := 0;
             THIS.CallTimers(FALSE);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnAbort 
             IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#602;
+                _Status^.Action.Id := UINT#603;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnDone 
             IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#312;
+                _Status^.Action.Id := UINT#316;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnError 
             IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#702;
+                _Status^.Action.Id := UINT#703;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnStart 
             IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#310;
+                _Status^.Action.Id := UINT#314;
             END_IF;
         END_METHOD
         
         METHOD INTERNAL InvokeWithParameters : IAxoTaskState
             VAR_INPUT
-                inJobName : STRING;
+                inJobNumber : UINT;
             END_VAR
-            _jobName := inJobName;
+            _jobNumber := inJobNumber;
             InvokeWithParameters := THIS.Invoke();
         END_METHOD
         
         METHOD PUBLIC Manual
             VAR_INPUT
-                RequiredJobName : STRING;
+                RequiredJobNumber : UINT;
             END_VAR
-            _jobName := RequiredJobName;
+            _jobNumber := RequiredJobNumber;
         END_METHOD
     END_CLASS    
 END_NAMESPACE

@@ -22,15 +22,21 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Clear inspection results#>"}
             ClearInspectionResultsTask : AxoInsightClearInspectionResults;
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Required job name#>"}
             RequiredJobName : STRING;
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Change job by name#>"}
             ChangeJobByNameTask : AxoChangeJobByName;
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Required job number#>"}
+            RequiredJobNumber : UINT;
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Change job by number#>"}
-            ChangeJobByNumberTask : AxoInsightClearInspectionResults;
+            ChangeJobByNumberTask : AxoChangeJobByNumber;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Config")]}
@@ -42,60 +48,69 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             Status      :   AxoInsight_Status;
 
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Results#>"}
             Results     :   AxoInsight_Results;
 
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#Acquisition control#>"}
             {#ix-attr:[ReadOnly()]}
             AcquisitionControl      :   AxoInsight_AcquisitionControl;
 
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#Acquisition status#>"}
             {#ix-attr:[ReadOnly()]}
             AcquisitionStatus      :   AxoInsight_AcquisitionStatus;
 
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#Inspection control#>"}
             {#ix-attr:[ReadOnly()]}
             InspectionControl      :   AxoInsight_InspectionControl;
 
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#Inspection status#>"}
             {#ix-attr:[ReadOnly()]}
             InspectionStatus      :   AxoInsight_InspectionStatus;
 
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#Command control#>"}
             {#ix-attr:[ReadOnly()]}
             CommandControl      :   AxoInsight_CommandControl;
 
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#Command status#>"}
             {#ix-attr:[ReadOnly()]}
             CommandStatus      :   AxoInsight_CommandStatus;
 
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-set:AttributeName = "<#Soft-event control#>"}
             {#ix-attr:[ReadOnly()]}
             SoftEventControl      :           AxoInsight_SoftEventControl;
 
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#Soft-event status#>"}
             {#ix-attr:[ReadOnly()]}
             SoftEventStatus      :           AxoInsight_SoftEventStatus;
 
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#User data#>"}
             {#ix-attr:[ReadOnly()]}
@@ -119,8 +134,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ClearInspectionResultsTask.Restore();
             TriggerTask.Restore();
             ChangeJobByNameTask.Restore();
+            ChangeJobByNumberTask.Restore();
 
             RequiredJobName := '';
+            RequiredJobNumber := UINT#0;
              
             Results.InspectionID                            :=  UINT#0;
             Results.ResultCode                              :=  UINT#0;
@@ -167,6 +184,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         ///</summary>   
         METHOD PROTECTED OVERRIDE ManualControl
             ChangeJobByNameTask.Manual(RequiredJobName);
+            ChangeJobByNumberTask.Manual(RequiredJobNumber);
         END_METHOD
 
         METHOD PRIVATE UpdateInputs : BOOL
@@ -417,6 +435,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ClearInspectionResultsTask.Initialize(THIS);
             TriggerTask.Initialize(THIS);
             ChangeJobByNameTask.Initialize(THIS);
+            ChangeJobByNumberTask.Initialize(THIS);
 
             THIS.UpdateInputs(refAcquisitionStatus,refInspectionStatus,refCommandStatus,refSoftEventStatus,refResultData);
 
@@ -446,6 +465,12 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(User),REF(InspectionResults),refResultData,refUserData);
             //****************************************
 
+            //*************CHANGE JOB BY NUMBER*********
+            _taskDisabled := _taskDisabled OR ChangeJobByNameTask.IsBusy();
+            ChangeJobByNumberTask.IsDisabled :=  _taskDisabled;
+            ChangeJobByNumberTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(User),REF(InspectionResults),refResultData,refUserData);
+            //****************************************
+
             THIS.UpdateOutputs(refAcquisitionControl,refInspectionControl,refCommandControl,refSoftEventControl,refUserData);
         END_METHOD    
         
@@ -471,7 +496,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             VAR_INPUT 
                 Job : UINT;
             END_VAR
-            ChangeJob := TriggerTask.Invoke();
+            ChangeJob := ChangeJobByNumberTask.InvokeWithParameters(Job);
         END_METHOD
         ///<summary>
 		/// Change the sensor job using job name. 	

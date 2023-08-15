@@ -6,6 +6,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-set:AttributeName = "<#Current job name#>"}
             CurrentJobName : STRING;
+            {#ix-set:AttributeName = "<#Current job number#>"}
+            CurrentJobNumber : UINT;
             {#ix-set:AttributeName = "<#Result data size#>"}
             ResultDataSize : eAxoInsight_ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             {#ix-set:AttributeName = "<#User data size#>"}

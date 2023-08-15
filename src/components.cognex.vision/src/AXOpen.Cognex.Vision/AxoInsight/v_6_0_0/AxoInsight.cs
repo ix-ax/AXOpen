@@ -41,7 +41,7 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(614, "Waiting for the signal CommandComplete to be set!");
                     errorDescriptionDict.Add(615, "Waiting for the signal CommandComplete to be reseted!");
                     errorDescriptionDict.Add(616, "Waiting for the signal Online to be set!");
-                    //errorDescriptionDict.Add(6, "");
+                    errorDescriptionDict.Add(617, "");
                     //errorDescriptionDict.Add(6, "");
                     //errorDescriptionDict.Add(6, "");
                     //errorDescriptionDict.Add(6, "");
@@ -69,8 +69,8 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(716, "Index of UserData in method SetUserDataAsString exceeds the size hardware structure mapped!");
                     errorDescriptionDict.Add(717, "Index of UserData in method SetUserDataAsString exceeds the defined size!");
                     errorDescriptionDict.Add(718, "Change job by name failed. Check the value of the InspectionStatus.Error code!");
-                    //errorDescriptionDict.Add(7, "");
-                    //errorDescriptionDict.Add(7, "");
+                    errorDescriptionDict.Add(719, "Required job number is greater than the maximal value!");
+                    errorDescriptionDict.Add(720, "Change job by number failed. Check the value of the InspectionStatus.Error code!");
                     //errorDescriptionDict.Add(7, "");
                     //errorDescriptionDict.Add(7, "");
                     //errorDescriptionDict.Add(7, "");
