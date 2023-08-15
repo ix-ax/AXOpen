@@ -12,7 +12,8 @@
     <ProjectReference Include="..\..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
-    <ProjectReference Include="..\..\ix\librarytemplateapp.csproj" />
+    <ProjectReference Include="..\..\..\src\dotnetlibs.blazor\dotnetlibs.blazor.csproj" />
+    <ProjectReference Include="..\..\ix\librarytemplate.csproj" />
   </ItemGroup>
 
 </Project>

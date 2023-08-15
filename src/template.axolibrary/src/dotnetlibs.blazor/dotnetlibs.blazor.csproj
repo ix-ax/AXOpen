@@ -4,8 +4,32 @@
     <TargetFrameworks>net7.0</TargetFrameworks>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <PackageId>dotnetlibs.Blazor</PackageId>
-    <RootNamespace>dotnetlibs.Blazor</RootNamespace>
+    
+	  <RootNamespace>dotnetlibs.Blazor</RootNamespace>
+
+	  <!--NuGet Specific part-->
+	  <Description>This library is part of AXOpen framework</Description>
+	  <PackageId>dotnetlibs.Blazor</PackageId>
+	  <Title>AXOpen - librarytemplate</Title>
+
+	  <!-- NuGet Common part-->
+	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/ix-ax/AXOpen</RepositoryUrl>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <Authors>ix-ax</Authors>
+	  <Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI, Blazor</PackageTags>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <PackageIcon>icon_128_128.png</PackageIcon>
+	  <RepositoryType>git</RepositoryType>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageReleaseNotes>
+		  Release notes are published here:
+		  https://github.com/ix-ax/AXOpen/releases
+	  </PackageReleaseNotes>
+	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,6 +56,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
-    <ProjectReference Include="..\librarytemplate\ix_ax_librarytemplate.csproj" />
+    <ProjectReference Include="..\dotnetlibs\ix_ax_axolib.csproj" />
   </ItemGroup>
 </Project>

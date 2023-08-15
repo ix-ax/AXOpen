@@ -17,6 +17,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\librarytemplate\ix_ax_librarytemplate.csproj" />
+	  <ProjectReference Include="..\..\src\dotnetlibs\ix_ax_axolib.csproj" />
 	</ItemGroup>
 </Project>

@@ -5,7 +5,6 @@ using AXOpen.Core;
 using AxOpen.Security.Services;
 using AXSharp.Presentation.Blazor.Services;
 using AXSharp.Connector;
-using librarytemplateapp;
 using AXOpen.Base.Data;
 using AxOpen.Security.Entities;
 using System.Reflection;
@@ -14,6 +13,7 @@ using AxOpen.Security;
 using Serilog;
 using AXOpen;
 using AXOpen.Logging;
+using librarytemplate;
 
 var builder = WebApplication.CreateBuilder(args);
 
