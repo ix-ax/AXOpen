@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.1-alpha.130" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.1-alpha.130" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.1-alpha.130" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <Compile Include=".g\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include=".g\Onliners\ix-core\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
+  </ItemGroup>
+</Project>

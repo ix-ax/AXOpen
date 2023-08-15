@@ -27,6 +27,8 @@
     href: ~/articles/core/AXODIALOG.md
   - name: AxoAlertDialog
     href: ~/articles/core/AXOALERTDIALOG.md  
+  - name: AxoTestList
+    href: ~/articles/core/AXOTEXTLIST.md  
 - name: AXOpen.Data
   href: ~/articles/data/README.md
   items:
@@ -34,11 +36,29 @@
         href: ~/articles/data/AxoDataExchange.md
       - name: Data fragmets exchange
         href: ~/articles/data/AxoDataFragmentExchange.md
+
+- name: AXOpen.Inspectors
+  href: ~/articles/inspectors/README.md
+  items:
+      - name: AxoDigitalInspector
+        href: ~/articles/inspectors/AXODIGITALINSPECTOR.md
+      - name: AxoAnalogueInspector
+        href: ~/articles/inspectors/AXOANALOGUEINSPECTOR.md
+      - name: AxoDataInspector
+        href: ~/articles/inspectors/AXODATAINSPECTOR.md
 - name: AXOpen.Messaging
   href: ~/articles/messaging/README.md
   items:
       - name: AxoMessenger
         href: ~/articles/messaging/AXOMESSENGER.md
+- name: AXOpen.Components
+  href: ~/articles/components/README.md
+  items:
+      - name: AxoCognexVision
+        href: ~/articles/components/AXOPENCOGNEVISION/README.md
+        items:
+            - name: V_6_0_0_0
+              href: ~/articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md
 - name: AXOpen.Logging
   href: ~/articles/logging/README.md
   items:
@@ -55,3 +75,6 @@
   href: ~/articles/localization/README.md
 - name: Server configuration
   href: ~/articles/configuration/README.md
+- name: Client Identification
+  href: ~/articles/clientIdentification/README.md
+

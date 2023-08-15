@@ -1,0 +1,17 @@
+name: "@ix-ax/axopen.inspectors"
+version: '0.1.4-alpha.79'
+type: lib
+targets:
+  - axunit-llvm
+  - llvm
+files:
+  - src
+devDependencies:
+  "@ax/sdk": ^4.0.3
+scripts:
+  postbuild:
+    - dotnet ixc
+dependencies:
+  "@ax/system-timer": ^4.0.1
+  "@ix-ax/axopen.core": '0.1.4-alpha.79'
+  "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
