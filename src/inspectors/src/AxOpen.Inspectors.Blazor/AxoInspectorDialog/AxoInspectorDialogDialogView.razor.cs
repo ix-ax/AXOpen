@@ -30,8 +30,10 @@ namespace AXOpen.Inspectors
             }
             catch (Exception)
             {
-                //return _inspector;
             }
+
+            if(base.Component._isOverInspected.Cyclic)
+                RetryDisabled = true;
         }
 
         public override void AddToPolling(ITwinElement element, int pollingInterval = 250)

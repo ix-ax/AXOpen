@@ -32,7 +32,7 @@ CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
 
         
         //here i should check, if data are overinspected
-        IF(THIS.CheckOverInspection()) THEN
+        IF(THIS.IsOverInspected()) THEN
             RETURN;
         END_IF;
 

@@ -47,7 +47,7 @@ NAMESPACE AXOpen.Inspectors
         _inspectorTask.SetInspectionData(REF(_data));
         
         //check for overinspection
-        IF(THIS.CheckOverInspection())THEN
+        IF(THIS.IsOverInspected())THEN
             RETURN;
         END_IF;
 

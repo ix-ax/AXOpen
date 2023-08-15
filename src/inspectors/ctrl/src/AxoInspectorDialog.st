@@ -98,9 +98,7 @@ NAMESPACE AXOpen.Inspectors
                     _isAnswerProvided := FALSE;
                 END_IF;
    
-                
-                    
- 
+
             END_IF;	
         END_METHOD
 
