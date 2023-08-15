@@ -38,4 +38,19 @@
   <ItemGroup>
     <Folder Include="AxoMessenger\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\AxOpenCoreResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AxOpenCoreResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\AxOpenCoreResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AxOpenCoreResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

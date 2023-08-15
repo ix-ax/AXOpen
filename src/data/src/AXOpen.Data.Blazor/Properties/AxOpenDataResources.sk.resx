@@ -135,6 +135,9 @@
   <data name="Contains" xml:space="preserve">
     <value>Obsahuje</value>
   </data>
+  <data name="StartsWith" xml:space="preserve">
+    <value>StartsWith!</value>
+  </data>
   <data name="Actions" xml:space="preserve">
     <value>Akcie</value>
   </data>
@@ -165,47 +168,8 @@
   <data name="Close" xml:space="preserve">
     <value>Zatvoriť</value>
   </data>
-  <data name="Close_Duplicate[1]" xml:space="preserve">
-    <value>Zatvoriť</value>
-  </data>
-  <data name="Create_Duplicate[1]" xml:space="preserve">
-    <value>Vytvoriť</value>
-  </data>
-  <data name="Copy_Duplicate[1]" xml:space="preserve">
-    <value>Kopírovať</value>
-  </data>
-  <data name="Load from PLC_Duplicate[1]" xml:space="preserve">
-    <value>Načítať z PLC!</value>
-  </data>
-  <data name="Delete_Duplicate[1]" xml:space="preserve">
-    <value>Odstrániť</value>
-  </data>
-  <data name="Create_Duplicate[2]" xml:space="preserve">
-    <value>Vytvoriť</value>
-  </data>
-  <data name="Edit_Duplicate[1]" xml:space="preserve">
-    <value>Upraviť</value>
-  </data>
-  <data name="Send to PLC_Duplicate[1]" xml:space="preserve">
-    <value>Odoslať</value>
-  </data>
-  <data name="StartsWith" xml:space="preserve">
-    <value>StartsWith!</value>
-  </data>
   <data name="Save" xml:space="preserve">
     <value>Uložiť</value>
-  </data>
-  <data name="Close_Duplicate[2]" xml:space="preserve">
-    <value>Zatvoriť</value>
-  </data>
-  <data name="Delete_Duplicate[2]" xml:space="preserve">
-    <value>Odstrániť</value>
-  </data>
-  <data name="Delete_Duplicate[3]" xml:space="preserve">
-    <value>Odstrániť</value>
-  </data>
-  <data name="Close_Duplicate[3]" xml:space="preserve">
-    <value>Zatvoriť</value>
   </data>
   <data name="Export data" xml:space="preserve">
     <value>údaje o exporte</value>
@@ -216,9 +180,6 @@
   <data name="Customize" xml:space="preserve">
     <value>prispôsobiť</value>
   </data>
-  <data name="Close_Duplicate[4]" xml:space="preserve">
-    <value>Zatvoriť</value>
-  </data>
   <data name="Import data" xml:space="preserve">
     <value>Import údajov</value>
   </data>
@@ -228,26 +189,11 @@
   <data name="Separator" xml:space="preserve">
     <value>Oddeľovač</value>
   </data>
-  <data name="Import_Duplicate[1]" xml:space="preserve">
-    <value>Importovať</value>
-  </data>
-  <data name="Close_Duplicate[5]" xml:space="preserve">
-    <value>Zatvoriť</value>
-  </data>
-  <data name="Export data_Duplicate[1]" xml:space="preserve">
-    <value>údaje o exporte</value>
-  </data>
   <data name="First" xml:space="preserve">
     <value>Prvá</value>
   </data>
   <data name="Last" xml:space="preserve">
     <value>Posledný</value>
-  </data>
-  <data name="Exact_Duplicate[1]" xml:space="preserve">
-    <value>Presne tak!</value>
-  </data>
-  <data name="Separator_Duplicate[1]" xml:space="preserve">
-    <value>Oddeľovač</value>
   </data>
   <data name="This file may not be able to be imported!" xml:space="preserve">
     <value>Tento súbor nemusí byť možné importovať!!</value>
