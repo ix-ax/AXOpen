@@ -69,7 +69,7 @@ namespace AXOpen.Data
             }
         }
 
-        public void Locked()
+        internal void Locked()
         {
             if (IsLockedByMeOrNull())
             {
@@ -87,7 +87,7 @@ namespace AXOpen.Data
             }
         }
 
-        public bool IsLockedByMeOrNull()
+        internal bool IsLockedByMeOrNull()
         {
             if(DataExchange.GetLockedBy() == null || DataExchange.GetLockedBy() == this)
                 return true;
