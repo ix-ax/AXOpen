@@ -18,7 +18,7 @@ using static AXOpen.Data.DataExchangeViewModel;
 
 namespace AXOpen.Data;
 
-public partial class DataExchangeView
+public partial class DataExchangeView : IDisposable
 {
     private readonly List<ColumnData> Columns = new();
 
@@ -146,5 +146,11 @@ public partial class DataExchangeView
             Vm.ExportSet = result.Value;
         }
         StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if(Vm.IsLockedByMeOrNull())
+            Vm.DataExchange.SetLockedBy(null);
     }
 }

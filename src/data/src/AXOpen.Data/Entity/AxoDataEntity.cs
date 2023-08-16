@@ -14,7 +14,9 @@ namespace AXOpen.Data
             ChangeTracker = new ValueChangeTracker(this);
         }
 
-        public List<ValueChangeItem> Changes { get; set; }              
+        public List<ValueChangeItem> Changes { get; set; }
+
+        public object? LockedBy { get; set; } = null;
     }
 
 }

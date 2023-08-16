@@ -8,6 +8,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.Authorization;
+
 namespace AXOpen.Data
 {
     public class BaseDataExporter<TPlain, TOnline> where TOnline : IAxoDataEntity
@@ -138,7 +140,7 @@ namespace AXOpen.Data
             return export;
         }
 
-        public void BaseImport(IRepository<TPlain> dataRepository, List<string> imports, ITwinObject crudDataObject = null, char separator = ';')
+        public void BaseImport(IRepository<TPlain> dataRepository, List<string> imports, AuthenticationState authenticationState, ITwinObject crudDataObject = null, char separator = ';')
         {
             var documents = imports.ToArray();
             var header = documents[0];
@@ -173,11 +175,11 @@ namespace AXOpen.Data
                 {
                     dictionary[a].Value = documentItems[a];
                 }
-                UpdateDocument(dataRepository, dictionary, valueTags, prototype);
+                UpdateDocument(dataRepository, dictionary, valueTags, prototype, authenticationState);
             }
         }
 
-        private void UpdateDocument(IRepository<TPlain> dataRepository, List<ImportItems> dictionary, IEnumerable<ITwinPrimitive> valueTags, ITwinObject prototype)
+        private void UpdateDocument(IRepository<TPlain> dataRepository, List<ImportItems> dictionary, IEnumerable<ITwinPrimitive> valueTags, ITwinObject prototype, AuthenticationState authenticationState)
         {
             string id = dictionary.FirstOrDefault(p => p.Key.Contains("DataEntityId")).Value;
             var existing = dataRepository.Queryable.Where(p => p.DataEntityId == id).FirstOrDefault();
@@ -188,7 +190,7 @@ namespace AXOpen.Data
 
             ((dynamic)prototype).DataEntityId.Shadow = id;
 
-            if (existing != null) ((dynamic)prototype).ChangeTracker.StartObservingChanges();
+            if (existing != null) ((dynamic)prototype).ChangeTracker.StartObservingChanges(authenticationState);
             // Swap values to shadow
             foreach (var item in dictionary)
             {
@@ -221,16 +223,26 @@ namespace AXOpen.Data
             {
                 ((dynamic)prototype).ChangeTracker.Import(existing);
 
+                var changes = existing.Changes;
+
                 //((dynamic)existing).ShadowToPlain((dynamic)prototype);
                 existing = existing.ShadowToPlain1<TPlain>(prototype);
+
+                existing.Changes = changes;
+
                 dataRepository.Update(existing.DataEntityId, existing);
             }
             else
             {
                 TPlain newRecord = new TPlain();
                 ((dynamic)prototype).ChangeTracker.Import(newRecord);
+
+                var changes = newRecord.Changes;
+
                 //((dynamic)newRecord).ShadowToPlain((dynamic)prototype);
                 newRecord = newRecord.ShadowToPlain1<TPlain>(prototype);
+
+                newRecord.Changes = changes;
 
                 Task.Delay(1000).Wait();
 
