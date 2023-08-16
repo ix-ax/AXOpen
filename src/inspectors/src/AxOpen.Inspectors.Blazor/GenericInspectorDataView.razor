@@ -3,12 +3,15 @@
 
 
 <div class="row">
-    <div class="col-md me-2">
-        <RenderableContentControl Context="@Data.Result" Presentation="@Presentation" />
-        <RenderableContentControl Context="@Data.Timestamp" Presentation="@Presentation" />
-@*         <RenderableContentControl Context="@Data.ErrorCode" Presentation="@Presentation" />
-        <RenderableContentControl Context="@Data.FailureDescription" Presentation="@Presentation" /> *@
+    @if (Presentation != "ShadowControl")
+    {
+        <div class="col-md me-2">
+
+        <RenderableContentControl Context="@Data.Result" Presentation="Display" />
+        <RenderableContentControl Context="@Data.Timestamp" Presentation="Display" />
+
     </div>
+    }
     <div class="col-md mx-2">
      
         <RenderableContentControl Context="@Data.FailTime" Presentation="@Presentation" />
@@ -16,7 +19,10 @@
     </div>
     <div class="col-md ms-2">
         <RenderableContentControl Context="@Data.NumberOfAllowedRetries" Presentation="@Presentation" />
-        <RenderableContentControl Context="@Data.RetryAttemptsCount" Presentation="@Presentation" />
+        @if (Presentation != "ShadowControl")
+        {
+            <RenderableContentControl Context="@Data.RetryAttemptsCount" Presentation="Display" />
+        }
     </div>
 </div>
 
