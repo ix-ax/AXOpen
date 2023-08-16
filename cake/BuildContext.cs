@@ -153,6 +153,7 @@ public class BuildContext : FrostingContext
     {
         ("integrations", "ix.integrations", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
         ("templates.simple", "templates.simple", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
+        ("template.axolibrary", "template.axolibrary", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
     };
 
     public string GitHubUser { get; } = System.Environment.GetEnvironmentVariable("GH_USER");
