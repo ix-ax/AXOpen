@@ -59,8 +59,6 @@ namespace AXOpen.Data
 
             set
             {
-                DataExchange.ChangeTrackerStopObservingChanges();
-
                 _selectedRecord = value;
                 if (value != null)
                 {
@@ -68,8 +66,6 @@ namespace AXOpen.Data
                     DataExchange.ChangeTrackerSetChanges(value);
                     Changes = DataExchange.ChangeTrackerGetChanges().OrderBy(p => p.DateTime.Ticks).ToList();
                 }
-
-                DataExchange.ChangeTrackerStartObservingChanges(Asp.GetAuthenticationStateAsync().Result);
             }
         }
 
@@ -78,6 +74,7 @@ namespace AXOpen.Data
             if (IsLockedByMeOrNull())
             {
                 DataExchange.SetLockedBy(this);
+                DataExchange.ChangeTrackerStartObservingChanges(Asp.GetAuthenticationStateAsync().Result);
             }
         }
 
@@ -85,6 +82,7 @@ namespace AXOpen.Data
         {
             if (IsLockedByMeOrNull())
             {
+                DataExchange.ChangeTrackerStopObservingChanges();
                 DataExchange.SetLockedBy(null);
             }
         }
