@@ -95,7 +95,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     /// <summary>
-    /// Get object who has locked this repository.
+    /// Get object which locked this repository.
     /// </summary>
     /// <param name="by"></param>
     public object? GetLockedBy()
@@ -104,7 +104,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     }
 
     /// <summary>
-    /// Set object who has locked this repository.
+    /// Set object which locked this repository.
     /// </summary>
     /// <param name="by"></param>
     public void SetLockedBy(object by)

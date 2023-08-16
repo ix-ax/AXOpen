@@ -46,13 +46,13 @@ namespace AXOpen.Data
         void ChangeTrackerSetChanges(IBrowsableDataObject entity);
 
         /// <summary>
-        /// Get object who has locked this repository.
+        /// Get object which locked this repository.
         /// </summary>
         /// <returns></returns>
         object? GetLockedBy();
 
         /// <summary>
-        /// Set object who has locked this repository.
+        /// Set object which locked this repository.
         /// </summary>
         /// <param name="by"></param>
         void SetLockedBy(object by);

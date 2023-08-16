@@ -110,6 +110,13 @@ Every change to the data is meticulously tracked and saved. These changes are re
 Every action as creation, update, deletion, or copying data is captured in the logs. Also every record has its own set of changes.  
 Its important to note that modifications originating from the PLC are not logged, tracked, or saved.
 
+### Locking
+
+When a client is in the process of editing, copying, or attempting to delete a record, the entire repository becomes locked. While the repository is locked, no one can make edits to records, until the repository is unlocked.
+
+> [!IMPORTANT]
+> The repository is locked by clicking on the edit, copy, or delete buttons, and it can be unlocked by clicking the save or close button. If the modal is closed in an incorrect manner, such as clicking outside of it, the repository will remain locked.
+
 ## Data visualization
 
 ### Automated rendering using `RenderableContentControl`

@@ -143,7 +143,7 @@ public partial class AxoDataFragmentExchange
     }
 
     /// <summary>
-    /// Get object who has locked this repository.
+    /// Get object which locked this repository.
     /// </summary>
     /// <param name="by"></param>
     public object? GetLockedBy()
@@ -157,7 +157,7 @@ public partial class AxoDataFragmentExchange
     }
 
     /// <summary>
-    /// Set object who has locked this repository.
+    /// Set object which locked this repository.
     /// </summary>
     /// <param name="by"></param>
     public void SetLockedBy(object by)

@@ -78,7 +78,7 @@ namespace AXOpen.Data
             }
         }
 
-        public void UnLocked()
+        internal void UnLocked()
         {
             if (IsLockedByMeOrNull())
             {
