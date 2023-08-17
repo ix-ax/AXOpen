@@ -173,11 +173,11 @@ namespace AXOpen.Data
                 {
                     dictionary[a].Value = documentItems[a];
                 }
-                UpdateDocument(dataRepository, dictionary, valueTags, prototype);
+                UpdateDocument(dataRepository, dictionary, valueTags, prototype, separator);
             }
         }
 
-        private void UpdateDocument(IRepository<TPlain> dataRepository, List<ImportItems> dictionary, IEnumerable<ITwinPrimitive> valueTags, ITwinObject prototype)
+        protected void UpdateDocument(IRepository<TPlain> dataRepository, List<ImportItems> dictionary, IEnumerable<ITwinPrimitive> valueTags, ITwinObject prototype, char separator = ';')
         {
             string id = dictionary.FirstOrDefault(p => p.Key.Contains("DataEntityId")).Value;
             var existing = dataRepository.Queryable.Where(p => p.DataEntityId == id).FirstOrDefault();
@@ -205,7 +205,7 @@ namespace AXOpen.Data
 
                     if (type is OnlinerString || type is OnlinerWString)
                     {
-                        ((dynamic)tag).Shadow = (CastValue(type, item.Value) as string)?.Replace('►', ';');
+                        ((dynamic)tag).Shadow = (CastValue(type, item.Value) as string)?.Replace('►', separator);
                     }
                     else
                     {
@@ -238,10 +238,10 @@ namespace AXOpen.Data
             }
         }
 
-        private class ImportItems
+        protected class ImportItems
         {
-            internal string Key { get; set; }
-            internal dynamic Value { get; set; }
+            public string Key { get; set; }
+            public dynamic Value { get; set; }
         }
 
         private dynamic CastValue(OnlinerBase type, string @value)
