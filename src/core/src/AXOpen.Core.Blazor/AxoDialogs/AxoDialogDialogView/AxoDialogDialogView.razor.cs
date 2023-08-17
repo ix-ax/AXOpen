@@ -22,6 +22,7 @@ namespace AXOpen.Core
             base.OnInitialized();
         }
 
+        // experimental stuff for external closings
         private async void OnCloseSignal(object sender, EventArgs e) 
         {
             if (Component._closeSignal.Cyclic)
@@ -57,8 +58,6 @@ namespace AXOpen.Core
         {
             base.Dispose();
             Component._answer.ValueChangeEvent -= OnCloseSignal;
-            _dialogContainer.DialogClient.MessageReceivedDialogClose -= OnCloseDialogMessage;
-            _dialogContainer.DialogClient.MessageReceivedDialogOpen -= OnOpenDialogMessage;
         }
     }
 }

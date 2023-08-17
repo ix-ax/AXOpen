@@ -7,12 +7,45 @@
 <div class="card">
     <div class="card-header d-flex">
         <div class="p-0 w-100"><h5>@Component.AttributeName</h5></div>
-        <div class="p-0 flex-shrink-1">
+        <div class="p-1 flex-shrink-1">
             @if (containsDetailsAttribute)
             {
-                <button class="btn btn-primary" type="button" @onclick="Collapse">
-                    <span class="oi oi-chevron-top @(isCollapsed ? "open" : "")" aria-hidden="true"/>
+                <button class="btn btn-primary" type="button" @onclick="ToggleCollapseDetails">
+                    <span class="oi oi-chevron-top @(areDetailsCollapsed ? "open" : "")" aria-hidden="true"/>
                 </button>
+            }
+        </div>
+        <div class="p-1 flex-shrink-1">
+            
+            @switch (AlarmLevel)
+            {
+                case eAlarmLevel.NoAlarms:
+                    break;
+                case eAlarmLevel.Unacknowledged:
+                    <button class="btn btn-info" type="button" @onclick="ToggleAlarmsDetails">
+                        <i class="bi bi-emoji-neutral-fill bg-info" aria-hidden="true"></i>
+                    </button>
+                    break;
+                case eAlarmLevel.ActiveInfo:
+                    <button class="btn btn-info" type="button" @onclick="ToggleAlarmsDetails">
+                        <i class="bi bi-emoji-smile-fill bg-info" aria-hidden="true"></i>
+                    </button>
+                    break;
+                case eAlarmLevel.ActiveWarnings:
+                    <button class="btn btn-warning" type="button" @onclick="ToggleAlarmsDetails">
+                        <i class="bi bi-emoji-frown-fill bg-warning" aria-hidden="true"></i>
+                    </button>
+                    break;
+                case eAlarmLevel.ActiveErrors:
+                    <button class="btn btn-danger" type="button" @onclick="ToggleAlarmsDetails">
+                        <i class="bi bi-emoji-angry-fill bg-danger" aria-hidden="true"></i>
+                    </button>
+                    break;
+                default:
+                    <button class="btn btn-secondary" type="button" @onclick="ToggleAlarmsDetails">
+                        <i class="bi bi-emoji-frown-fill bg-secondary" aria-hidden="true"></i>
+                    </button>
+                    break;
             }
         </div>
     </div>
@@ -33,25 +66,38 @@
 
     @if (containsDetailsAttribute)
     {
-        <div class="@(isCollapsed ? "collapse" : null)">
+        <div class="@(areDetailsCollapsed ? "collapse" : null)">
             <div class="card card-body">
-                @if (!isCollapsed)
+                @if (!areDetailsCollapsed)
                 {
                     <TabControl>
                         @foreach (var detailsTab in DetailsTabs)
                         {
                             <TabPage Text="@detailsTab.HumanReadable">
                                 <RenderableContentControl 
-                                Context=@detailsTab
-                                Presentation="@currentPresentation"
-                                Class="bg-light rounded-3 shadow"
-                                LayoutClass="align-items-end" 
-                                LayoutChildrenClass="ms-0"/>
+                                    Context=@detailsTab
+                                    Presentation="@currentPresentation"
+                                    Class="bg-light rounded-3 shadow"
+                                    LayoutClass="align-items-end" 
+                                    LayoutChildrenClass="ms-0"/>
                             </TabPage>
                         }
                     </TabControl>
                 }
             </div>
         </div>
+    }
+    
+    @if (AlarmLevel > eAlarmLevel.NoAlarms)
+    {
+        @if (!areAlarmsCollapsed)
+        {
+            @foreach (var message in Messengers)
+            {
+                <div class=" p-1 d-block w-100">
+                    <RenderableContentControl Context="message"></RenderableContentControl>
+                </div>
+            }
+        }
     }
 </div>

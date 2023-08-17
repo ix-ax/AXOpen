@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>AXOpen.Inspectors | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="AXOpen.Inspectors | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="axopeninspectors"><strong>AXOpen.Inspectors</strong></h1>
+
+<p><strong>AXOpen.Inspectors</strong> provides mechanism of inspection of different types of data. The input value is compared to required value. If input value is the same as required value for a <em>stabilization</em> time period, the inspection will succeed. If values are different, <em>timeout</em> will occur and inspection will fail.</p>
+<p>Inspectors can integrate with coordination primitives like <a href="../core/AXOSEQUENCER.html">AxoSequencer</a>. In consequence, inspectors offer extended capabilities in decision flow for failed checks.</p>
+<p>Each inspector contains:</p>
+<ol>
+<li><p><code>Inspect</code> method, which input is current parent and inspection variable</p>
+</li>
+<li><p><code>OnFail</code> method, which provides methods for making a decision after a failed inspection (see Handling failure section)</p>
+</li>
+<li><p><code>UpdateComprehensiveResult</code> method, which input is object of type <code>AxoComprehesiveResult</code>, which can be used to gather results of all inspections.</p>
+</li>
+<li><p><code>Common data</code> about inspection inputs and result. See below.</p>
+</li>
+</ol>
+<h2 id="example-inspection">Example inspection</h2>
+<p>Example of inspection within a sequencer in PLC:</p>
+<pre><code> _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
+        .UpdateComprehensiveResult(_comprehensiveResult)
+        .OnFail().CarryOn();
+</code></pre>
+<ol>
+<li><p>A _presenceInspector is created instance of <code>AxoDigitalInspector</code></p>
+</li>
+<li><p>A coordinator is passed to this inspector with <code>WithCoordinator(THIS)</code> method, in this case it is a sequencer, a parent object.</p>
+</li>
+<li><p><code>Inspect</code> methods takes parent and inspection variable, on which inspection is performing.</p>
+</li>
+<li><p>If inspection fails, the result is updated to <code>_comprehensiveResult</code> object with <code>UpdateComprehensiveResult</code> method.</p>
+</li>
+<li><p>If inspection fails, <code>OnFail</code> method provides <code>CarryOn</code> method, which tells the coordinator to continue in execution.</p>
+</li>
+</ol>
+<h2 id="common-inspector-data">Common inspector data</h2>
+<p>Inspectors contain common data, which are used to store data about inspection. Each inspector contain following data:</p>
+<pre><code class="lang-C#">Timestamp: LDATE_AND_TIME; // timestamp of inspection
+
+PassTime : TIME; // stabilization time, inspection must be success for this period of time
+
+FailTime : TIME; // timeout, after which inspection fails
+
+Result : eInspectorResult; // result of inspection
+
+IsExcluded: BOOL; // inspection will be performed, however result will be omitted in overall result
+
+IsByPassed : BOOL; // inspection will be skipped
+
+NumberOfAllowedRetries : UINT; // maximum number of retries of inspection, from which overinspection will occur
+
+RetryAttemptsCount : UINT; // actual number of retries, if RetryAttemptsCount &gt; NumberOfAllowedRetries, overinspection occurs
+
+</code></pre>
+<h2 id="axodigitalinspector">AxoDigitalInspector</h2>
+<p>Inspector provides evaluation of <em>discrete</em> value. The input value compares against the <em>Required</em> value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time.</p>
+<p><img src="../../images/digital-inspector.png" alt="Digital inspector"></p>
+<p>Common inspector data are extended with following digital inspector data:</p>
+<pre><code class="lang-C#">RequiredStatus : BOOL; //required value for inspection
+
+DetectedStatus : BOOL; //detected value for inspection
+</code></pre>
+<h2 id="axoanalogueinspector">AxoAnalogueInspector</h2>
+<p>Provides evaluation of <em>continuous</em> values. The inspector checks that the input value falls within the limit of <em>Min</em> and <em>Max</em>. The inspection passes when the input value is within the required limit without interruption for the duration of stabilization time.</p>
+<p><img src="../../images/analog-inspector.png" alt="Analog inspector"></p>
+<p>Common inspector data are extended with following analogue inspector data:</p>
+<pre><code class="lang-C#">RequiredMin : LREAL; // min required value for inspection
+
+DetectedStatus : LREAL; // detected value
+
+RequiredMax: LREAL; // max required value for inspection
+</code></pre>
+<h2 id="axodatainspector">AxoDataInspector</h2>
+<p>Provides evaluation of alphanumerical values. The input value compares against the Required value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time. In addition to exact comparison, data inspector allows for simple pattern matching where # = any number and * = any character.</p>
+<p><img src="../../images/data-inspector.png" alt="Data inspector"></p>
+<p>Common inspector data are extended with following data inspector data:</p>
+<pre><code class="lang-C#">RequiredStatus : STRING; //required value for inspection
+
+DetectedStatus : STRING; //detected value for inspection
+
+StarNotationEnabled: BOOL; //star notation enable/disable
+
+</code></pre>
+<h2 id="handling-failure">Handling failure</h2>
+<p>When an inspector fails, OnFail() provides a series of methods for making decisions about the process. In order for this is feature to work the inspector needs to be aware of the coordinator of <code>IAxoCoordinator</code>. The coordinator must be passed to the inspector by <code>WithCoordinator(coordinator)</code> method.</p>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dialog(inRetryStep, inTerminateStep)</td>
+<td>Opens dialog for the user to take a decision. Parameter <code>inRetryStep</code> represent state from which the inspection should start again. Parameter <code>inTerminateStep</code> represent terminate state of coordinator.</td>
+</tr>
+<tr>
+<td>Retry(inRetryStep)</td>
+<td>Retries the inspector. Retry state parameter tells from which state the inspection should start again.</td>
+</tr>
+<tr>
+<td>Override()</td>
+<td>Marks the inspection as failed but continues with the following states of the coordinator.</td>
+</tr>
+<tr>
+<td>Terminate(inTerminateStep)</td>
+<td>Marks the inspection as failed and aborts the execution of the coordinator.</td>
+</tr>
+</tbody>
+</table>
+<p>The following example specify, that when inspection fails, dialog is shown and is requesting user decision.</p>
+<pre><code> _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).OnFail().Dialog(Steps[20], Steps[145]);
+</code></pre>
+<p><img src="../../images/inspection-failure-dialog.png" alt="Inspection failure"></p>
+<h2 id="over-inspection">Over-inspection</h2>
+<p>When <code>RetryAttemptsCount</code> is same as <code>NumberOfAllowedRetries</code>, no more inspection are allowed, as data are overinspected.</p>
+<p><img src="../../images/overinspected.png" alt="Overinspected"></p>
+<h2 id="preserving-overall-result">Preserving overall result</h2>
+<p>Overall result of a series of inspections can be preserved in <code>AxoComprehensiveResult</code>. Each inspector has <code>UpdateComprehensiveResult</code> method that provides the update function. Once the <code>UpdateComprehensiveResult</code> marks the overall result as Failed, successive inspection will not overwrite the result.</p>
+<pre><code>
+IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
+
+    _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
+        .UpdateComprehensiveResult(_comprehensiveResult)
+        .OnFail().CarryOn();
+
+    END_IF;
+
+    IF (Steps[40].Execute(THIS, TRUE, 'Example Analog inspection')) THEN
+
+    _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue)
+        .UpdateComprehensiveResult(_comprehensiveResult)
+        .OnFail().CarryOn();
+
+    END_IF;
+
+
+END_IF;
+</code></pre>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/inspectors/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

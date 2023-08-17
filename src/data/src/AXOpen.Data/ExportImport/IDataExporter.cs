@@ -1,5 +1,6 @@
 ﻿using AXOpen.Base.Data;
 using AXSharp.Connector;
+using Microsoft.AspNetCore.Components.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,12 +26,13 @@ namespace AXOpen.Data
         /// <summary>
         /// Import data from file to the repository.
         /// </summary>
-        /// <param name="dataRepository">Repository for import.</param>
+        /// <param name="repository">Repository for import.</param>
         /// <param name="path">Path to imported direcotry.</param>
         /// <param name="fragmentName">Name of the fragment.</param>
+        /// <param name="authenticationState">Authentication state.</param>
         /// <param name="crudDataObject">Object type of the imported records.</param>
         /// <param name="separator">Separator for individual records.</param>
-        void Import(IRepository<TPlain> dataRepository, string path, string fragmentName, ITwinObject crudDataObject = null, char separator = ';');
+        void Import(IRepository<TPlain> repository, string path, string fragmentName, AuthenticationState authenticationState, ITwinObject crudDataObject = null, char separator = ';');
 
         /// <summary>
         /// Get name of the exporter.

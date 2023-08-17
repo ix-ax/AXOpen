@@ -2,6 +2,7 @@
 using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes;
 using AXSharp.Connector.ValueTypes.Online;
+using Microsoft.AspNetCore.Components.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace AXOpen.Data
             }
         }
 
-        public void Import(IRepository<TPlain> dataRepository, string path, string fragmentName, ITwinObject crudDataObject = null, char separator = ';')
+        public void Import(IRepository<TPlain> dataRepository, string path, string fragmentName, AuthenticationState authenticationState, ITwinObject crudDataObject = null, char separator = ';')
         {
             var files = Directory.GetFiles(path, fragmentName + ".csv");
             if (files == null || files.Length == 0)
@@ -45,7 +46,7 @@ namespace AXOpen.Data
                 imports.Add(item);
             }
 
-            BaseImport(dataRepository, imports, crudDataObject, separator);
+            BaseImport(dataRepository, imports, authenticationState, crudDataObject, separator);
         }
 
         public static string GetName()

@@ -7,6 +7,7 @@ using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.CSharp.RuntimeBinder;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace axosimple.hmi.CustomExport;
 
@@ -192,7 +193,7 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
         SaveXLWorkbook(workbook, path);
     }
 
-    public void Import(IRepository<TPlain> dataRepository, string path, string fragmentName, ITwinObject crudDataObject = null, char separator = ';')
+    public void Import(IRepository<TPlain> dataRepository, string path, string fragmentName, AuthenticationState authenticationState, ITwinObject crudDataObject = null, char separator = ';')
     {
         XLWorkbook workbook;
 
@@ -240,7 +241,7 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
             {
                 dictionary[a].Value = worksheet.Cell(row, a + 1).Value.ToString();
             }
-            UpdateDocument(dataRepository, dictionary, valueTags, prototype, separator);
+            UpdateDocument(dataRepository, dictionary, valueTags, prototype, authenticationState, separator);
         }
     }
 
