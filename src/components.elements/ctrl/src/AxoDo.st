@@ -1,26 +1,26 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Elements
 
-    CLASS AxoDi EXTENDS AXOpen.Core.AxoComponent
+    CLASS AxoDo EXTENDS AXOpen.Core.AxoComponent
 
         VAR
-            _inSignal : BOOL;
+            _signal : BOOL;
 
         END_VAR
 
         VAR PUBLIC
-            
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             _signalName : STRING := 'test signal';
             
-            {#ix-set:AttributeName = "<#Check on#>"}
+            {#ix-set:AttributeName = "<#On#>"}
             {#ix-attr:[ComponentHeader()]}
-            _isTrueTask : AxoTask;
-            {#ix-set:AttributeName = "<#Check off#>"}
+            _setTask : AxoTask;
+
+            {#ix-set:AttributeName = "<#Off#>"}
             {#ix-attr:[ComponentHeader()]}
-            _isFalseTask : AxoTask;
+            _resetTask : AxoTask;
 
             {#ix-set:MessageText = "<#Expecting positive signal.#>"}
             {#ix-set:Help = "<#Check your signal input.#>"}
@@ -30,59 +30,61 @@ NAMESPACE AXOpen.Elements
             {#ix-set:Help = "<#Check your signal input.#>"}
             _messengerInfoNegative : AXOpen.Messaging.Static.AxoMessenger;
 
-            
         END_VAR
-       
 
         METHOD PROTECTED OVERRIDE Restore : IAxoTask
-            _isFalseTask.Restore();
-            _isTrueTask.Restore();
+            _setTask.Restore();
+            _resetTask.Restore();
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl
             THIS._isManuallyControllable := true;
-            ;
+
         END_METHOD
 
 
-
-        METHOD PUBLIC AxoDiSignal :BOOL
-
+        METHOD PUBLIC AxoDoSignal : BOOL
             VAR_INPUT
                 context : IAxoContext;
             END_VAR
+
             VAR_IN_OUT
-                
                 inoSignal: BOOL;
             END_VAR
 
             THIS.Initialize(context);
-            _isTrueTask.Initialize(THIS);
-            _isFalseTask.Initialize(THIS);
-
+            _setTask.Initialize(THIS);
+            _resetTask.Initialize(THIS);
             _messengerInfoPositive.Serve(THIS); 
             _messengerInfoNegative.Serve(THIS); 
 
-            THIS._inSignal := inoSignal;	
+            inoSignal := _signal;		
 
-
-            IF(_isTrueTask.Execute())THEN
-                _isTrueTask.DoneWhen(THIS.IsTrue());
+            IF(_setTask.Execute())THEN
+                _setTask.DoneWhen(THIS.Set());
             END_IF;
             
-            IF(_isFalseTask.Execute())THEN
-                _isFalseTask.DoneWhen(THIS.IsFalse());
+            IF(_resetTask.Execute())THEN
+                _resetTask.DoneWhen(THIS.Reset());
             END_IF;
 
-            
 
         END_METHOD
 
+        METHOD PUBLIC Set : BOOL
+            _signal := TRUE;
+            Set := TRUE;
+        END_METHOD
+
+        METHOD PUBLIC Reset: BOOL
+            _signal := FALSE;
+            Reset := TRUE;
+        END_METHOD
+
         METHOD PUBLIC IsTrue : BOOL
-            IsTrue := _inSignal;
+            IsTrue := _signal;
 
             IF NOT IsTrue THEN
-               
                 _messengerInfoPositive.Activate(AXOpen.Messaging.eAxoMessageCategory#Warning);
             END_IF;
 
@@ -90,7 +92,7 @@ NAMESPACE AXOpen.Elements
         END_METHOD
 
         METHOD PUBLIC IsFalse:BOOL
-            IsFalse := NOT _inSignal;
+            IsFalse := NOT _signal;
 
             IF NOT IsFalse THEN
                 
@@ -99,6 +101,7 @@ NAMESPACE AXOpen.Elements
 
 
         END_METHOD
-    END_CLASS
-
-END_NAMESPACE 
+    
+  
+END_CLASS
+END_NAMESPACE
