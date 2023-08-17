@@ -145,6 +145,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             FOR _index := 0 TO 254 DO
                 InspectionResults.Data[_index] := BYTE#0;
             END_FOR;
+            InspectionResults.DataChanged := NOT InspectionResults.DataChanged;
 
             AcquisitionControl.TriggerEnable                :=  FALSE;
             AcquisitionControl.Trigger					    :=  FALSE;
@@ -172,6 +173,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             FOR _index := 0 TO 254 DO
                 User.UserData.Data[_index] := BYTE#0;
             END_FOR;
+            User.UserData.DataChanged := NOT User.UserData.DataChanged;
 
             IF NOT AcquisitionStatus.ExposureComplete AND NOT InspectionStatus.Error THEN
                 Status.Action.Id := UINT#300;

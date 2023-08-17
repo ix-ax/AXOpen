@@ -147,10 +147,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
                     refAcquisitionControl^.SetOffline := TRUE;
                     
-                    refCommandControl^.Command := UINT#4000;
+                    // refCommandControl^.Command := UINT#4000;
                     // refCommandControl^.Command := UINT#0040;
                     // refCommandControl^.Command := UINT#16384;//16#4000;
-                    // refCommandControl^.Command := UINT#64;  //16#0040;
+                    refCommandControl^.Command := UINT#64;  //16#0040;
 
                     refInspectionControl^.ExecuteCommand:=TRUE;
                     
@@ -254,7 +254,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             FOR	_index := inPosition +_size TO _maxIndex BY UINT#1 DO	
                 refUser^.UserData.Data[_index] := BYTE#0;
             END_FOR;
-            
+            refUser^.UserData.DataChanged := NOT refUser^.UserData.DataChanged;
             SetUserDataAsString := TRUE;
         
         END_METHOD
@@ -278,6 +278,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 FOR	_index := UINT#0 TO _maxIndex BY UINT#1 DO	
                     refUserData^[_index] := refUser^.UserData.Data[_index + UINT#1];
                 END_FOR;
+                refUser^.UserData.DataChanged := NOT refUser^.UserData.DataChanged;
             END_IF;
             SetAndWriteUserDataAsString := TRUE;
         END_METHOD

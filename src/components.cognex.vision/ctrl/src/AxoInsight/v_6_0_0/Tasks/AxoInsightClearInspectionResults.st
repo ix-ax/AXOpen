@@ -50,9 +50,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     refResults^.ResultCode := UINT#0; 
 
                     FOR _index := 0 TO 254 DO
-                        // refResults^.InspectionResults.Data[_index] := BYTE#0;
                         refInspectionResults^.Data[_index] := BYTE#0;
                     END_FOR;
+                    refInspectionResults^.DataChanged := NOT refInspectionResults^.DataChanged ;
 
                     THIS.CallTimers(FALSE);
                     _progress := _progress + 1;

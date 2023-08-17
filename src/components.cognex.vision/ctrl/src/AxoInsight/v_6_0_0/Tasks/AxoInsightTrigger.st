@@ -156,6 +156,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     FOR _index := refStatus^.ResultDataSize TO 254 DO
                         refInspectionResults^.Data[_index] := BYTE#0;
                     END_FOR;
+                    refInspectionResults^.DataChanged := NOT refInspectionResults^.DataChanged ;
                     _progress := _progress + 1;
                 END_IF;
                 

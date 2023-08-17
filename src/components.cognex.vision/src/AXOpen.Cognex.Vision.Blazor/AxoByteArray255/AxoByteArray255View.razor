@@ -8,7 +8,7 @@
     @Component.AttributeName
 </div>
 <div class="row flex-nowrap">
-    @foreach (OnlinerByte item in Component.Data)
+@*     @foreach (OnlinerByte item in Component.Data)
     {
         <div class="col">
             <div >
@@ -16,6 +16,18 @@
             </div>
             <div >
                 @item.Cyclic
+            </div>
+        </div>
+    }
+ *@
+    @foreach (IndexedData<string> item in this.Data)
+    {
+        <div class="col">
+            <div>
+                @item.Index
+            </div>
+            <div>
+                @item.Data
             </div>
         </div>
     }
