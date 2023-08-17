@@ -4,27 +4,29 @@ using AXSharp.Connector;
 using System.Linq.Expressions;
 using System.Text;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.CSharp.RuntimeBinder;
+using System.Threading.Tasks;
 
 namespace axosimple.hmi.CustomExport;
 
 public class ExcelDataExporter<TPlain, TOnline> : BaseDataExporter<TPlain, TOnline>, IDataExporter<TPlain, TOnline> where TOnline : IAxoDataEntity
 where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 {
-    public XLWorkbook? Workbook;
-    public string FileName = "Export";
+    private string fileName = "Export";
 
     /// <summary>
     /// Opens a workbook if it exists in <c>directory</c> folder, otherwise creates a new one.
     /// </summary>
     /// <param name="directory">Folder directory</param>
     /// <returns></returns>
-    public XLWorkbook GetXLWorkbook(string directory)
+    private XLWorkbook GetXLWorkbook(string directory)
     {
         XLWorkbook workbook;
 
-        if (File.Exists(directory + "\\" + FileName + ".xlsx"))
+        if (File.Exists(directory + "\\" + fileName + ".xlsx"))
         {
-            workbook = new XLWorkbook(directory + "\\" + FileName + ".xlsx");
+            workbook = new XLWorkbook(directory + "\\" + fileName + ".xlsx");
         }
         else
         {
@@ -34,34 +36,23 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
 
         return workbook;
     }
+
     /// <summary>
     /// Saves the workbook in <c>directory</c> folder.
     /// </summary>
+    /// <param name="workbook">Workbook to save</param>
     /// <param name="directory">Folder directory</param>
-    public void SaveXLWorkbook(string directory)
+    private void SaveXLWorkbook(XLWorkbook workbook, string directory)
     {
-        if (Workbook.Properties.Status != "Created")
+        if (workbook.Properties.Status != "Created")
         {
-            Workbook.Save();
+            workbook.Save();
             return;
         }
 
         // reset status (it was temporarily set to identify the workbook as newly created)
-        Workbook.Properties.Status = null;
-        Workbook.SaveAs(directory + "\\" + FileName + ".xlsx");
-    }
-
-    /// <summary>
-    /// Splits path of temporary file into directory and fragment.
-    /// </summary>
-    /// <param name="directory">Dictionary path</param>
-    /// <param name="fragment">Name of fragment</param>
-    /// <param name="path">Full path</param>
-    private void GetDirectoryFragment(out string directory, out string fragment, string path)
-    {
-        var pathParts = path.Split('\\');
-        directory = string.Join('\\', pathParts.Take(pathParts.Length - 1));
-        fragment = pathParts.Last();
+        workbook.Properties.Status = null;
+        workbook.SaveAs(directory + "\\" + fileName + ".xlsx");
     }
 
     /// <summary>
@@ -84,11 +75,20 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
         return name.Substring(0, 14) + "..." + name.Substring(length - 14);
     }
 
+    private void StyleWorksheet(IXLWorksheet ws)
+    {
+        ws.Row(1).Style.Font.Bold = true;
+        ws.Row(1).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+        ws.Row(2).Style.Font.Bold = true;
+        ws.Row(2).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+        ws.Columns().AdjustToContents();
+    }
+
     public ExcelDataExporter()
     {
     }
 
-    public void Export(IRepository<TPlain> repository, string path, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
+    public void Export(IRepository<TPlain> repository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
     {
         var prototype = Activator.CreateInstance(typeof(TOnline), new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
 
@@ -109,122 +109,139 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
                 break;
         }
 
-        string directory, fragment;
-        GetDirectoryFragment(out directory, out fragment, path);
+        XLWorkbook workbook;
+        int row = 1, column = 1;
 
-        Workbook = GetXLWorkbook(directory);
-        Workbook.AddWorksheet(TrimWorksheetName(fragment));
+        workbook = GetXLWorkbook(path);
 
-        var itemExport = new StringBuilder();
+        // create worksheet (1 per fragment) with unique name
+        var worksheetName = TrimWorksheetName(fragmentName);
 
-        //Create header
-        //var valueTags = prototype.RetrievePrimitives();
-        //foreach (var valueTag in valueTags)
-        //{
-        //    bool skip = false;
-
-        //    int lastIndex = valueTag.Symbol.Length;
-        //    while (lastIndex != -1)
-        //    {
-        //        string currentString = valueTag.Symbol.Substring(0, lastIndex);
-
-        //        if (!customExportData.GetValueOrDefault(currentString, true))
-        //        {
-        //            skip = true;
-        //            break;
-        //        }
-
-        //        lastIndex = currentString.LastIndexOf('.');
-        //    }
-        //    if (skip)
-        //        continue;
-
-        //    itemExport.Append($"{valueTag.Symbol}{separator}");
-        //}
-
-        ////export.Add(itemExport.ToString());
-        ////itemExport.AppendLine();
-
-        ////itemExport.Clear();
-        ////foreach (var valueTag in valueTags)
-        ////{
-        ////    bool skip = false;
-
-        ////    int lastIndex = valueTag.Symbol.Length;
-        ////    while (lastIndex != -1)
-        ////    {
-        ////        string currentString = valueTag.Symbol.Substring(0, lastIndex);
-
-        ////        if (!customExportData.GetValueOrDefault(currentString, true))
-        ////        {
-        ////            skip = true;
-        ////            break;
-        ////        }
-
-        ////        lastIndex = currentString.LastIndexOf('.');
-        ////    }
-        ////    if (skip)
-        ////        continue;
-
-        ////    itemExport.Append($"{valueTag.HumanReadable}{separator}");
-        ////}
-
-        ////export.Add(itemExport.ToString());
-        ////itemExport.AppendLine();
-
-
-        ////foreach (var document in exportables)
-        ////{
-        ////    itemExport.Clear();
-        ////    ((dynamic)prototype).PlainToShadow(document);
-        ////    var values = prototype.RetrievePrimitives();
-        ////    foreach (var @value in values)
-        ////    {
-        ////        bool skip = false;
-
-        ////        int lastIndex = @value.Symbol.Length;
-        ////        while (lastIndex != -1)
-        ////        {
-        ////            string currentString = @value.Symbol.Substring(0, lastIndex);
-
-        ////            if (!customExportData.GetValueOrDefault(currentString, true))
-        ////            {
-        ////                skip = true;
-        ////                break;
-        ////            }
-
-        ////            lastIndex = currentString.LastIndexOf('.');
-        ////        }
-        ////        if (skip)
-        ////            continue;
-
-        ////        var val = (string)(((dynamic)@value).Shadow.ToString());
-        ////        if (val.Contains(separator))
-        ////        {
-        ////            val = val.Replace(separator, '►');
-        ////        }
-
-        ////        itemExport.Append($"{val}{separator}");
-        ////    }
-
-        ////    export.Add(itemExport.ToString());
-
-        ////}
-
-        ////return export;
-
-        SaveXLWorkbook(directory);
-    }
-
-    public void Import(IRepository<TPlain> dataRepository, string path, ITwinObject crudDataObject = null, char separator = ';')
-    {
-        var imports = new List<string>();
-        foreach (var item in File.ReadAllLines(path + ".csv"))
+        var uniqNum = 0;
+        // if worksheet with the same name already exists
+        while (workbook.Worksheets.Any(ws => ws.Name == worksheetName))
         {
-            imports.Add(item);
+            worksheetName = TrimWorksheetName(fragmentName + uniqNum++.ToString());
         }
 
-        BaseImport(dataRepository, imports, crudDataObject, separator);
+        var worksheet = workbook.Worksheets.Add(worksheetName);
+
+        // Create header
+        var valueTags = prototype.RetrievePrimitives();
+        foreach (var valueTag in valueTags)
+        {
+            bool skip = false;
+
+            int lastIndex = valueTag.Symbol.Length;
+            while (lastIndex != -1)
+            {
+                string currentString = valueTag.Symbol.Substring(0, lastIndex);
+
+                if (!customExportData.GetValueOrDefault(currentString, true))
+                {
+                    skip = true;
+                    break;
+                }
+
+                lastIndex = currentString.LastIndexOf('.');
+            }
+            if (skip)
+                continue;
+
+            worksheet.Cell(row, column).Value = valueTag.Symbol;
+            worksheet.Cell(row + 1, column).Value = valueTag.HumanReadable;
+            column++;
+        }
+
+        // To skip valueTag.Symbol and valueTag.HumanReadable
+        row += 2;
+        column = 1;
+
+        foreach (var document in exportables)
+        {
+            ((dynamic)prototype).PlainToShadow(document);
+            var values = prototype.RetrievePrimitives();
+            foreach (var @value in values)
+            {
+                bool skip = false;
+
+                int lastIndex = @value.Symbol.Length;
+                while (lastIndex != -1)
+                {
+                    string currentString = @value.Symbol.Substring(0, lastIndex);
+
+                    if (!customExportData.GetValueOrDefault(currentString, true))
+                    {
+                        skip = true;
+                        break;
+                    }
+
+                    lastIndex = currentString.LastIndexOf('.');
+                }
+                if (skip)
+                    continue;
+
+                worksheet.Cell(row, column).Value = ((dynamic)@value).Shadow.ToString();
+                column++;
+            }
+            row++;
+            column = 1;
+        }
+
+        StyleWorksheet(worksheet);
+        SaveXLWorkbook(workbook, path);
+    }
+
+    public void Import(IRepository<TPlain> dataRepository, string path, string fragmentName, ITwinObject crudDataObject = null, char separator = ';')
+    {
+        XLWorkbook workbook;
+
+        // checks if excel file exists
+        var files = Directory.GetFiles(path, "*.xlsx");
+        if (files == null || files.Length == 0)
+            return;
+
+        // .First() because idk what should happen if there are 2 files for a fragment
+        workbook = new XLWorkbook(files.First());
+
+        // checks if worksheet for given fragment exists
+        if (!workbook.Worksheets.Contains(fragmentName))
+            return;
+
+        var worksheet = workbook.Worksheet(fragmentName);
+        var dictionary = new List<ImportItems>();
+
+        ITwinObject prototype;
+        if (crudDataObject == null)
+            prototype = Activator.CreateInstance(typeof(TOnline), new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
+        else
+            prototype = crudDataObject;
+
+        var valueTags = prototype.RetrievePrimitives();
+
+        var lastRow = worksheet.LastRowUsed().RowNumber();
+        var headerItems = worksheet.Row(1).Cells().Select(c => c.Value.ToString()).ToArray();
+
+        // Get headered dictionary
+        foreach (var headerItem in headerItems)
+        {
+            dictionary.Add(new ImportItems() { Key = headerItem });
+        }
+
+        if (!dictionary.Exists(p => p.Key.Contains("DataEntityId")))
+        {
+            throw new Exception("DataEntityId is missing in the import file");
+        }
+
+        // Load values
+        for (int row = 3; row <= lastRow; row++) // row = 3 to skip Symbol and HumanReadable rows
+        {
+            for (int a = 0; a < headerItems.Length; a++)
+            {
+                dictionary[a].Value = worksheet.Cell(row, a + 1).Value.ToString();
+            }
+            UpdateDocument(dataRepository, dictionary, valueTags, prototype, separator);
+        }
     }
 
     public static string GetName()
