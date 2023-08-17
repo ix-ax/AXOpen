@@ -35,7 +35,7 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
         {
             UpdateValuesOnChange(Component);
             base.OnInitialized();
-            UpdateAndFormatData();
+            //UpdateAndFormatData();
             Component.DataChanged.Subscribe((sender, arg) => UpdateAndFormatData());
         }
 

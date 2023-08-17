@@ -126,9 +126,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                         refStatus^.Error.Id := UINT#605;
                     END_IF;
 
-                    // refAcquisitionControl^.Trigger := FALSE;
+                    refAcquisitionControl^.Trigger := FALSE;
                     IF _inspectionCompleted <> refInspectionStatus^.InspectionCompleted THEN
-                        refAcquisitionControl^.Trigger := FALSE;
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;

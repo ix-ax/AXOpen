@@ -30,6 +30,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Change job by name#>"}
             ChangeJobByNameTask : AxoChangeJobByName;
+
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Required job number#>"}
@@ -120,6 +121,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         VAR PRIVATE
             _taskDisabled : BOOL;
         END_VAR
+
         ///<summary>
 		/// Restores this instance . 
         ///</summary>   
@@ -173,6 +175,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             FOR _index := 0 TO 254 DO
                 User.UserData.Data[_index] := BYTE#0;
             END_FOR;
+
             User.UserData.DataChanged := NOT User.UserData.DataChanged;
 
             IF NOT AcquisitionStatus.ExposureComplete AND NOT InspectionStatus.Error THEN
@@ -276,6 +279,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refSoftEventControl     :   REF_TO  BYTE;
                 refUserData             :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
+            VAR
+                UserDataChanged         :   BOOL;
+                index                   :   INT;
+            END_VAR
 
             refAcquisitionControl^.%X0      :=      AcquisitionControl.TriggerEnable;
             refAcquisitionControl^.%X1      :=      AcquisitionControl.Trigger;
@@ -319,7 +326,13 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#714;
                 UpdateOutputs := FALSE;
             END_IF;
-       
+            IF User.UserData.DataChanged <> UserDataChanged THEN
+                FOR index := 0 TO Status.UserDataSize - 1 DO
+                    refUserData^[index] := User.UserData.Data[index];
+                END_FOR;
+    
+                UserDataChanged := User.UserData.DataChanged;
+            END_IF;
         END_METHOD  
 
         METHOD PRIVATE IsValidReferences: BOOL
@@ -464,13 +477,13 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             //*************CHANGE JOB BY NAME*********
             _taskDisabled := _taskDisabled OR TriggerTask.IsBusy();
             ChangeJobByNameTask.IsDisabled :=  _taskDisabled;
-            ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(User),REF(InspectionResults),refResultData,refUserData);
+            ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(User));
             //****************************************
 
             //*************CHANGE JOB BY NUMBER*********
             _taskDisabled := _taskDisabled OR ChangeJobByNameTask.IsBusy();
             ChangeJobByNumberTask.IsDisabled :=  _taskDisabled;
-            ChangeJobByNumberTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(User),REF(InspectionResults),refResultData,refUserData);
+            ChangeJobByNumberTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status));
             //****************************************
 
             THIS.UpdateOutputs(refAcquisitionControl,refInspectionControl,refCommandControl,refSoftEventControl,refUserData);

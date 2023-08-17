@@ -24,7 +24,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refStatus              :   REF_TO  AxoInsight_Status;	
                 refResults             :   REF_TO  AxoInsight_Results;
                 refInspectionResults   :   REF_TO  AxoByteArray255;
-                // refResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR          
 
             VAR

@@ -26,16 +26,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refCommandControl       :   REF_TO  AxoInsight_CommandControl;
                 refConfig               :   REF_TO  AxoInsight_Config;
                 refStatus               :   REF_TO  AxoInsight_Status;	
-                refResults              :   REF_TO  AxoInsight_Results;
-                refUser                 :   REF_TO  AxoInsight_User;
-                refInspectionResults    :   REF_TO  AxoByteArray255;
-                refResultData           :   REF_TO  ARRAY[*] OF BYTE;
-                refUserData             :   REF_TO  ARRAY[*] OF BYTE;
-            END_VAR          
-
-            VAR 
-                _index : INT;
-                _inspectionCompleted : BOOL;
             END_VAR          
 
             _infoTime := refConfig^.InfoTime;
@@ -159,9 +149,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
                 IF _progress = 20 THEN
                     refStatus^.Error.Id := UINT#720;
-                    // refInspectionControl^.ExecuteCommand := FALSE;
-                    // refAcquisitionControl^.SetOffline := FALSE;
-                    // refCommandControl^.Command := UINT#0;
+                    refInspectionControl^.ExecuteCommand := FALSE;
+                    refAcquisitionControl^.SetOffline := FALSE;
+                    refCommandControl^.Command := UINT#0;
                     THIS.ThrowWhen(TRUE);
                     THIS.DoneWhen(FALSE);
                 END_IF;               

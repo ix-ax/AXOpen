@@ -26,22 +26,13 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refCommandControl       :   REF_TO  AxoInsight_CommandControl;
                 refConfig               :   REF_TO  AxoInsight_Config;
                 refStatus               :   REF_TO  AxoInsight_Status;	
-                refResults              :   REF_TO  AxoInsight_Results;
                 refUser                 :   REF_TO  AxoInsight_User;
-                refInspectionResults    :   REF_TO  AxoByteArray255;
-                refResultData           :   REF_TO  ARRAY[*] OF BYTE;
-                refUserData             :   REF_TO  ARRAY[*] OF BYTE;
-            END_VAR          
-
-            VAR 
-                _index : INT;
-                _inspectionCompleted : BOOL;
             END_VAR          
 
             _infoTime := refConfig^.InfoTime;
             _errorTime := refConfig^.ErrorTime;
             _Status := refStatus;
-        
+
             IF THIS.Execute() THEN
                 IF _progress = 0 THEN
                     refStatus^.Action.Id := UINT#311;
@@ -108,7 +99,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     END_IF;
 
                     refAcquisitionControl^.SetOffline := TRUE;
-                    IF THIS.SetAndWriteUserDataAsString(_jobName,UINT#0,refUser,refUserData,refStatus) THEN
+                    IF THIS.SetUserDataAsString(THIS.AppendSuffix(_jobName),UINT#0,refUser,refStatus) THEN
                         THIS.CallTimers(FALSE);
                         _progress := _progress + 1;
                     END_IF;
@@ -146,12 +137,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     END_IF;
 
                     refAcquisitionControl^.SetOffline := TRUE;
-                    
-                    // refCommandControl^.Command := UINT#4000;
-                    // refCommandControl^.Command := UINT#0040;
-                    // refCommandControl^.Command := UINT#16384;//16#4000;
-                    refCommandControl^.Command := UINT#64;  //16#0040;
-
+                    refCommandControl^.Command := UINT#16384;//16#4000;
                     refInspectionControl^.ExecuteCommand:=TRUE;
                     
                     IF(refInspectionStatus^.CommandComplete AND NOT refInspectionStatus^.CommandFailed) THEN
@@ -190,7 +176,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;               
 
                 IF _progress = 11 THEN
-                    refStatus^.CurrentJobName := _jobName;
+                    refStatus^.CurrentJobName := THIS.AppendSuffix(_jobName);
                     refInspectionControl^.ExecuteCommand := FALSE;
                     refAcquisitionControl^.SetOffline := FALSE;
                     refInspectionControl^.ClearError := FALSE;
@@ -202,9 +188,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
                 IF _progress = 20 THEN
                     refStatus^.Error.Id := UINT#718;
-                    // refInspectionControl^.ExecuteCommand := FALSE;
-                    // refAcquisitionControl^.SetOffline := FALSE;
-                    // refCommandControl^.Command := UINT#0;
+                    refInspectionControl^.ExecuteCommand := FALSE;
+                    refAcquisitionControl^.SetOffline := FALSE;
+                    refCommandControl^.Command := UINT#0;
                     THIS.ThrowWhen(TRUE);
                     THIS.DoneWhen(FALSE);
                 END_IF;               
@@ -215,13 +201,26 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_IF;
         END_METHOD
 
+        METHOD INTERNAL AppendSuffix :STRING
+            VAR_INPUT
+                jobName : STRING;
+            END_VAR
+            VAR 
+                position : INT;
+            END_VAR
+            position := LengthOf(jobName) - 4;
+            IF EndOf(jobName, position) <> '.job' THEN
+                AppendSuffix := Concat(jobName,'.job');
+            ELSE
+                AppendSuffix := jobName;
+            END_IF;
+        END_METHOD
 
-        METHOD  SetUserDataAsString :   BOOL
+        METHOD  INTERNAL SetUserDataAsString :   BOOL
             VAR_INPUT
                 inValue     :   STRING;
                 inPosition  :   UINT;	
                 refUser     :   REF_TO  AxoInsight_User;
-                refUserData :   REF_TO  ARRAY[*] OF BYTE;
                 refStatus   :   REF_TO  AxoInsight_Status;	
             END_VAR
             VAR
@@ -246,44 +245,21 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refStatus^.Error.Id := UINT#717;
                 RETURN;
             END_IF;
+
             Serialize(UINT#0, inValue, _data);
-            FOR	_index := UINT#1 TO _size BY UINT#1 DO	
-                refUser^.UserData.Data[(inPosition + _index-UINT#1)] := _data[_index];
+            FOR	_index := UINT#0 TO _size BY UINT#1 DO	
+                refUser^.UserData.Data[(inPosition + _index)] := _data[_index + UINT#1];
             END_FOR;
             
             FOR	_index := inPosition +_size TO _maxIndex BY UINT#1 DO	
                 refUser^.UserData.Data[_index] := BYTE#0;
             END_FOR;
             refUser^.UserData.DataChanged := NOT refUser^.UserData.DataChanged;
+
             SetUserDataAsString := TRUE;
-        
         END_METHOD
 
-        METHOD SetAndWriteUserDataAsString : BOOL
-            VAR_INPUT
-                inValue     :   STRING;
-                inPosition  :   UINT;	
-                refUser     :   REF_TO  AxoInsight_User;
-                refUserData :   REF_TO  ARRAY[*] OF BYTE;
-                refStatus   :   REF_TO  AxoInsight_Status;	
-            END_VAR
-            VAR
-                _index : UINT;
-                _maxIndex : UINT; 
-            END_VAR
-            
-            _maxIndex := TO_UINT(refStatus^.UserDataSize) - UINT#1; 
-
-            IF THIS.SetUserDataAsString(inValue,inPosition,refUser,refUserData,refStatus) THEN
-                FOR	_index := UINT#0 TO _maxIndex BY UINT#1 DO	
-                    refUserData^[_index] := refUser^.UserData.Data[_index + UINT#1];
-                END_FOR;
-                refUser^.UserData.DataChanged := NOT refUser^.UserData.DataChanged;
-            END_IF;
-            SetAndWriteUserDataAsString := TRUE;
-        END_METHOD
-        
-        METHOD PRIVATE CallTimers
+        METHOD INTERNAL CallTimers
             VAR_INPUT
                 signal : BOOL;
             END_VAR

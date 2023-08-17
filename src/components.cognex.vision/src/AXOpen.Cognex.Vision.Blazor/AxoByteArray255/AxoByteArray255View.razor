@@ -8,28 +8,20 @@
     @Component.AttributeName
 </div>
 <div class="row flex-nowrap">
-@*     @foreach (OnlinerByte item in Component.Data)
+    @if (this.Data != null)
     {
-        <div class="col">
-            <div >
-                @item.AttributeName.Substring(item.AttributeName.IndexOf("[")+1).Replace("]","")
+        @foreach (IndexedData<string> item in this.Data)
+        {
+            <div class="col">
+                <div>
+                    @item.Index
+                </div>
+                <div>
+                    @item.Data
+                </div>
             </div>
-            <div >
-                @item.Cyclic
-            </div>
-        </div>
-    }
- *@
-    @foreach (IndexedData<string> item in this.Data)
-    {
-        <div class="col">
-            <div>
-                @item.Index
-            </div>
-            <div>
-                @item.Data
-            </div>
-        </div>
+        }
+
     }
 </div>
 
