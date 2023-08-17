@@ -10,6 +10,7 @@ using System.Linq.Expressions;
 using System.Numerics;
 using System.Reflection;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
@@ -49,6 +50,8 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             return ((dynamic)DataEntity) as ICrudDataObject;
         }
     }
+
+    public bool VerifyHash { get; set; } = false;
 
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
@@ -110,6 +113,15 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public void SetLockedBy(object by)
     {
         DataEntity.LockedBy = by;
+    }
+
+    public bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity)
+    {
+        if(!VerifyHash)
+            return true;
+        if (entity.DataEntityId == null)
+            return false;
+        return HashHelper.VerifyHash(Repository.Read(entity.DataEntityId), identity);
     }
 
     /// <summary>
@@ -397,7 +409,11 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public async Task CreateNewAsync(string identifier)
     {
-        this.Repository.Create(identifier, this.RefUIData.CreatePoco());
+        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)this.RefUIData.CreatePoco();
+        poco.Hash = HashHelper.CreateHash(poco);
+
+        this.Repository.Create(identifier, poco);
+
         var plain = Repository.Read(identifier);
         RefUIData.PlainToShadow(plain);
     }
@@ -413,6 +429,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
         ChangeTrackerSaveObservedChanges(plainer);
+        plainer.Hash = HashHelper.CreateHash(plainer);
         Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
     }
 

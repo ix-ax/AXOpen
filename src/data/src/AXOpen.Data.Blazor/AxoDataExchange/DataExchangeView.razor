@@ -273,6 +273,15 @@ else
                             </div>
                         </div>
                     }
+                    @if (!Vm.IsHashCorrect && Create.Equals("Copy"))
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This repository is been modified from outside!
+                            </div>
+                        </div>
+                    }
                     @if (Create.Equals("Create"))
                     {
                         <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="() => { Vm.CreateNew(); Vm.UnLocked(); }">Create</button>
@@ -395,6 +404,15 @@ else
                             </div>
                         </div>
                     }
+                    @if (!Vm.IsHashCorrect)
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This repository is been modified from outside!
+                            </div>
+                        </div>
+                    }
                     <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="async () => { await Vm.Edit(); Vm.UnLocked(); }">Save</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); }">Close</button>
                 </div>
@@ -416,6 +434,15 @@ else
                             <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
                             <div>
                                 This repository is locked for editing by another user!
+                            </div>
+                        </div>
+                    }
+                    @if (!Vm.IsHashCorrect)
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This repository is been modified from outside!
                             </div>
                         </div>
                     }
