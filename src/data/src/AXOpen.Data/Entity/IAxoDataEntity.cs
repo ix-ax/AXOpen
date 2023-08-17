@@ -11,6 +11,7 @@ namespace AXOpen.Data
     public partial interface IAxoDataEntity
     {
         OnlinerString DataEntityId { get; }
+        object LockedBy { get; set; }
     }
 }
 

@@ -121,7 +121,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Core.AxoDialogDialogView.html",
-          "hash": "FtARGvl77VL4nFR0AsMbvcHmzXJhiOwZnkdAzSQ68xo="
+          "hash": "f58PsSCW5cJquuqTNTLKfrfX3MhrlcJ1vq+Uv3W7gFQ="
         }
       },
       "version": ""
@@ -506,7 +506,7 @@
       "output": {
         ".html": {
           "relative_path": "api/AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView-1.html",
-          "hash": "hlq4v7SWBDfU/Q1J1tvB+fLCUsU1ToaiOpQGUy+weYg="
+          "hash": "xAhbj11fOeExPDswp0Kl1wv3+7PnAezanHnNzs/MtWI="
         }
       },
       "version": ""
@@ -2669,6 +2669,226 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html",
+          "hash": "p3gPOOnT+5ldO7ssROvmIGkC67as+obeGiID4A4RJz4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html",
+          "hash": "G9Ujmd/00I1GadsshuXyXv9DowP5OEXrmEZGkwvkwmk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html",
+          "hash": "DA92hMq4/nAGkynZRrKJANkh+j8EPZn5hYFTgYVTepk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl.html",
+          "hash": "X4so//6PU+C4CgIkm1crZ1xJlrOGA+MevMMOFdMlg5k="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.html",
+          "hash": "t3DFIz/f1lmqIV+C2I7mgKUyYfHIjdBd8W1J9atXD7U="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.html",
+          "hash": "aGvSt9TfKUkX7AgtVDBgY0eKiNCl4obIdfYXkmApP6Y="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.html",
+          "hash": "7mhHMCP5l5TeZHEL1n8HQwFK1g02WAV9CQcPbo5aGyk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl.html",
+          "hash": "89G0IAeYVkkWuMdf/e7xCt3BWtzosaMY3lTBSKsYUjA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.html",
+          "hash": "KK3amJLBls+D4m+FQw6o0uB5P3rA7jaAjnPCMueeQKQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html",
+          "hash": "2jgJgviha/lDSuwzbi5//QiiSYG6/NszgIKj9/Yi4EY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl.html",
+          "hash": "fF5AmSO3UB5Xg1Pm+L70QVFqSIHIdM6kVvj56n3n0r4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.html",
+          "hash": "Akgi7dXD97kT+f6KGS1V0UF6CFMKzd6Axv2Q7u0WuRA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status.html",
+          "hash": "WOcGDu7B4bBcgDlTHrWaX4/p0otGmozXQWYo9ODu9cE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_User.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_User.html",
+          "hash": "AjoBQDw1Vm8D72q848ujUW1KJgC7yoMgHzcWtBsAPzQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.html",
+          "hash": "yn13DK3nY31xtrOsU+3E8p1HhVrKVeHTzNMNZUjXrNQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize.html",
+          "hash": "AHArHnP+cqt8hpbu2VYHNEFfNkIoc3wJpG19V75HUhY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.html",
+          "hash": "aE6Nla/k/8BUZpTXzuiKvF0AiZerKwWipYdMoZq3Nn8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Components.Abstractions.AxoComponent_Status.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Components.Abstractions.AxoComponent_Status.html",
+          "hash": "H++arZFlWR80vf9VAJO/l+pPyh3Dr6+gl/9xFs944mM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Components.Abstractions.IAxoCodeReader.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Components.Abstractions.IAxoCodeReader.html",
+          "hash": "tZAG1jTN0V4Jn6uxUtJTzZBCkymvQOfIrLbQmseLKR0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Components.Abstractions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Components.Abstractions.html",
+          "hash": "PR6KPQF5kO2f7PS9ENXd5ngAVbBeIZ0R2jrjkyJLPP0="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "apictrl/plc.AXOpen.Core.AxoAlertDialog.yml",
       "output": {
         ".html": {
@@ -2871,7 +3091,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Core.IAxoCoordinator.html",
-          "hash": "vaa9fgjBlwTQG+Q+EZPmTuUaghXCLsW/rDlmw2xjigw="
+          "hash": "xxduLksyeNo2dtb3k6V+gnMpDgpFoq97EHMRI2MJZlE="
         }
       },
       "version": ""
@@ -3241,6 +3461,226 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoAnalogueInspector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoAnalogueInspector.html",
+          "hash": "kFUPlfT/e5GSygHkfevEErjU/ufodK0ND/L3LN3zDmo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoAnalogueInspectorData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoAnalogueInspectorData.html",
+          "hash": "4ywuCDhxhgfZhBQGs5WXs3LFYTv+ZDvCB+GSF/CCFjQ="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoComprehensiveResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoComprehensiveResult.html",
+          "hash": "QdBypU5zxkKmqEKAdSCUhsGjRFhCTb+4Ly9V+ovHteY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoDataInspector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoDataInspector.html",
+          "hash": "DJEC6YQT4NG6DTrCi07q7XT4KYdDwswfobGbNdKmjuM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoDataInspectorData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoDataInspectorData.html",
+          "hash": "7tIWogvr8gSuWuB2g8NvgVcYi+3cJ8u+siVCNO+TNUA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoDigitalInspector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoDigitalInspector.html",
+          "hash": "cdqFw1OclO3uVAU9tONkOtFv9GcrVszmr2LmXUtAU2k="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoDigitalInspectorData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoDigitalInspectorData.html",
+          "hash": "R9ZYHcnQMttBPxONVSOvQt4ErHoyAgIniYDn0Ss1YEs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspector.html",
+          "hash": "VmYYHSfc+Pl8QaEecDM7jj0QTE9u4tHvCs/LMgV1Tr8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspectorData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspectorData.html",
+          "hash": "uw+XWFbmp0B6w+sNdSU2gpM05m373DW4qnuGVLMs1/A="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspectorDialog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspectorDialog.html",
+          "hash": "kq1mR4Lp6OgdImlHgs4cLvunsWKJ7OUjWHfoFVUKa00="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspectorTask.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspectorTask.html",
+          "hash": "DNFXJa8F7UhnVCHT4s9Lgvn+5efTTTnW+ruwC7BXlts="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.IAxoAnalogueInspector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.IAxoAnalogueInspector.html",
+          "hash": "vLurmVuTDomTosbTlM32wkiSa202IY90yPjcQXXIkfA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.IAxoComprehensiveResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.IAxoComprehensiveResult.html",
+          "hash": "kofr1Dx87JVq4SF4JSKy1U+nQ4Un21HZEn0SzWuKwxM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.IAxoDataInspector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.IAxoDataInspector.html",
+          "hash": "awlaaWnhjFYXaP4pcVJ5h2tl2w/1HTPjY+jKwX2NQXs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.IAxoDigitalInspector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.IAxoDigitalInspector.html",
+          "hash": "qa22Hty2pKKUOqglS9W2F2GWBikEEHt+DkPSOZ2ESk4="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.IInspector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.IInspector.html",
+          "hash": "hcgL/w/+/Qvf8gVCjJBhzKLsVKoHTObbwRxQt2co6XE="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.IOnFail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.IOnFail.html",
+          "hash": "x0isohpWCqU24TcV4mWsENACoRW2Vtn9W1EvX2LzgHA="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.eInspectorResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.eInspectorResult.html",
+          "hash": "IkgiD29NPmns8l/l7nhLtBn2jphLVUUz+enmoBDoLSo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.eOverallResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.eOverallResult.html",
+          "hash": "A1HUYTdsl9Gyr9SBHYdyJXED/VKnkLxa8ZqK0gyjwQo="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Inspectors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Inspectors.html",
+          "hash": "bAzwjIhpjLTFNv0znDCOKtBttTTBfwmCRECtrL5Whyk="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "apictrl/plc.AXOpen.Logging.AxoLogEntry.yml",
       "output": {
         ".html": {
@@ -3410,7 +3850,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/toc.html",
-          "hash": "/1DZF0T7t83EqOJDnuy5hbaoqBgwhU5KYZQbVi2/AUY="
+          "hash": "SEBvDZJjVtpM1JblyyX+SpfAdQ5+UwwqtH0xDplggME="
         }
       },
       "version": ""
@@ -3693,6 +4133,50 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/inspectors/AXOANALOGUEINSPECTOR.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/inspectors/AXOANALOGUEINSPECTOR.html",
+          "hash": "TVoCMy+MF/HW7Elmqngf8L3V6C4f+lm2YlR35oGJEDY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/inspectors/AXODATAINSPECTOR.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/inspectors/AXODATAINSPECTOR.html",
+          "hash": "0tHyTfDL/SNITIVrWiiuvGN1807FcaSOE2o3tuYbUQM="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/inspectors/AXODIGITALINSPECTOR.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/inspectors/AXODIGITALINSPECTOR.html",
+          "hash": "xwA9e+uaBixcKAF/5DaOnt5VP7RVVFPksdKa58si280="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/inspectors/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/inspectors/README.html",
+          "hash": "Zc1Vg4JPr0I5Q2dBbfE74alkU/0X9G1PofZeLdzYizs="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/intro.md",
       "output": {
         ".html": {
@@ -3807,7 +4291,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "btD+qWsOaf1Oa7CibdcPXBo6MvXwxng1tMUltxfQavw="
+          "hash": "E0CFAYOnZ96iBt9/TzCMMiYj1FWu67YqnuGrK2/sCYk="
         }
       },
       "version": ""
@@ -4004,6 +4488,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/analog-inspector.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/analog-inspector.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/banner.png",
       "output": {
         "resource": {
@@ -4034,6 +4528,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/data-inspector.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/data-inspector.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/dialog-external-close.gif",
       "output": {
         "resource": {
@@ -4058,6 +4562,16 @@
       "output": {
         "resource": {
           "relative_path": "images/dialog-types.gif"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/digital-inspector.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/digital-inspector.png"
         }
       },
       "version": ""
@@ -4104,6 +4618,16 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/inspection-failure-dialog.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/inspection-failure-dialog.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/logo-no-background.png",
       "output": {
         "resource": {
@@ -4128,6 +4652,16 @@
       "output": {
         "resource": {
           "relative_path": "images/ok-dialog.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/overinspected.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/overinspected.png"
         }
       },
       "version": ""

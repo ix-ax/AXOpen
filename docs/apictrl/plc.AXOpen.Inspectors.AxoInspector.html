@@ -1,0 +1,792 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AxoInspector
+ | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AxoInspector
+ | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="plc.AXOpen.Inspectors.AxoInspector">
+
+
+  <h1 id="plc_AXOpen_Inspectors_AxoInspector" data-uid="plc.AXOpen.Inspectors.AxoInspector" class="text-break">Class AxoInspector
+</h1>
+  <div class="markdown level0 summary"><p>AxoInspector base class with implemented evaluation methodsEvaluation methods need IAxoCoordinator instance</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+    <div class="level1"><span class="xref">AxoInspector</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a></div>
+    <div><a class="xref" href="plc.AXOpen.Inspectors.IOnFail.html">IOnFail</a></div>
+    <div><a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetIdentity__">GetIdentity()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetContext__">GetContext()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_GetParent__">GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoObject_">Initialize(IAxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoContext_">Initialize(IAxoContext)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="plc.AXOpen.Inspectors.html">plc.AXOpen.Inspectors</a></h6>
+  <h6><strong>Assembly</strong>: .dll</h6>
+  <h5 id="plc_AXOpen_Inspectors_AxoInspector_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS AxoInspector</code></pre>
+  </div>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector__axoInspectorDialog" data-uid="plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog">_axoInspectorDialog</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_axoInspectorDialog : AXOpen.Inspectors.AxoInspectorDialog</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector__inspectorTask" data-uid="plc.AXOpen.Inspectors.AxoInspector._inspectorTask">_inspectorTask</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_inspectorTask : AXOpen.Inspectors.AxoInspectorTask</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector__coordinator" data-uid="plc.AXOpen.Inspectors.AxoInspector._coordinator">_coordinator</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_coordinator : AXOpen.Core.IAxoCoordinator</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector__isOverInspected" data-uid="plc.AXOpen.Inspectors.AxoInspector._isOverInspected">_isOverInspected</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_isOverInspected : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector__busy" data-uid="plc.AXOpen.Inspectors.AxoInspector._busy">_busy</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_busy : BOOL</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector__commonData" data-uid="plc.AXOpen.Inspectors.AxoInspector._commonData">_commonData</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_commonData : REF_TO AXOpen.Inspectors.AxoInspectorData</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector__originalOverallResult" data-uid="plc.AXOpen.Inspectors.AxoInspector._originalOverallResult">_originalOverallResult</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">_originalOverallResult : AXOpen.Inspectors.IAxoComprehensiveResult</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_CheckOverInspection__" data-uid="plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()">CheckOverInspection</h4>
+  <div class="markdown level1 summary"><p>Check, if data are overinspected (attempts of inspections is larger than maximum number of allowed retries)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL CheckOverInspection()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_IsOverInspected__" data-uid="plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()">IsOverInspected</h4>
+  <div class="markdown level1 summary"><p>Gets <code>true</code> when this inspection overruns max number of inspections.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected BOOL IsOverInspected()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector__WithCoordinator_IAxoCoordinator_" data-uid="plc.AXOpen.Inspectors.AxoInspector._WithCoordinator(IAxoCoordinator)">_WithCoordinator</h4>
+  <div class="markdown level1 summary"><p>Set passed instance of iAxoCoordinator to this inspector.This method can be called only in derived classes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Protected AXOpen.Inspectors.IInspector _WithCoordinator(in plc.AXOpen.Core.IAxoCoordinator inCoordinator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></td>
+        <td><span class="parametername">inCoordinator</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_OnFail__" data-uid="plc.AXOpen.Inspectors.AxoInspector.OnFail()">OnFail</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.IOnFail OnFail()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Inspectors.IOnFail.html">IOnFail</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_Dialog_IAxoStep_IAxoStep_" data-uid="plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)">Dialog</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Dialog(in plc.AXOpen.Core.IAxoStep inRetryStep,in plc.AXOpen.Core.IAxoStep inTerminateStep)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></td>
+        <td><span class="parametername">inRetryStep</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></td>
+        <td><span class="parametername">inTerminateStep</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_RetryWithStep_IAxoStep_" data-uid="plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)">RetryWithStep</h4>
+  <div class="markdown level1 summary"><p>When inspection is done, retry provided step</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL RetryWithStep(in plc.AXOpen.Core.IAxoStep inRetryStep)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></td>
+        <td><span class="parametername">inRetryStep</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_CarryOn__" data-uid="plc.AXOpen.Inspectors.AxoInspector.CarryOn()">CarryOn</h4>
+  <div class="markdown level1 summary"><p>When inspection is done, continue to next step.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL CarryOn()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_TerminateWithStep_IAxoStep_" data-uid="plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)">TerminateWithStep</h4>
+  <div class="markdown level1 summary"><p>When inspection is done, terminate provided step</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL TerminateWithStep(in plc.AXOpen.Core.IAxoStep inTerminateStep)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoStep.html">IAxoStep</a></td>
+        <td><span class="parametername">inTerminateStep</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_UpdateComprehensiveResult__" data-uid="plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult()">UpdateComprehensiveResult</h4>
+  <div class="markdown level1 summary"><p>Update commmon comprehensive result, which can be used across multiple inspectorsUpdates comprehensive result. The comprehensive result is set to <code>Failed</code> when any inspection fails or is inconclusive.Any bypassed or excluded inspections are not taken into account.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.IInspector UpdateComprehensiveResult()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_RestoreInspectorTask__" data-uid="plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()">RestoreInspectorTask</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL RestoreInspectorTask()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_Busy__" data-uid="plc.AXOpen.Inspectors.AxoInspector.Busy()">Busy</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Busy()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_CommonData__" data-uid="plc.AXOpen.Inspectors.AxoInspector.CommonData()">CommonData</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public REF_TO AXOpen.Inspectors.AxoInspectorData CommonData()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">REF_TO AXOpen.Inspectors.AxoInspectorData</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_Coordinator__" data-uid="plc.AXOpen.Inspectors.AxoInspector.Coordinator()">Coordinator</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Core.IAxoCoordinator Coordinator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_Done__" data-uid="plc.AXOpen.Inspectors.AxoInspector.Done()">Done</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public BOOL Done()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Inspectors_AxoInspector_Result__" data-uid="plc.AXOpen.Inspectors.AxoInspector.Result()">Result</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Inspectors.eInspectorResult Result()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Inspectors.eInspectorResult.html">eInspectorResult</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="plc.AXOpen.Inspectors.IInspector.html">IInspector</a>
+  </div>
+  <div>
+      <a class="xref" href="plc.AXOpen.Inspectors.IOnFail.html">IOnFail</a>
+  </div>
+  <div>
+      <a class="xref" href="plc.AXOpen.Core.IAxoObject.html">IAxoObject</a>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>
