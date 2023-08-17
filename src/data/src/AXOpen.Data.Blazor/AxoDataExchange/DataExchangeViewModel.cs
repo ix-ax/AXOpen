@@ -193,11 +193,11 @@ namespace AXOpen.Data
             }
         }
 
-        public void Delete()
+        public async void Delete()
         {
             try
             {
-                DataExchange.Delete(SelectedRecord.DataEntityId);
+                await DataExchange.Delete(SelectedRecord.DataEntityId);
                 AxoApplication.Current.Logger.Information($"Delete {SelectedRecord.DataEntityId} in {DataExchange} by user action.", Asp.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "Item was successfully deleted!", 10);
             }
