@@ -129,48 +129,48 @@ namespace AXOpen.Data
         /// <param name="identifier">Id of the new record</param>
         /// <returns></returns>
         Task CreateCopyCurrentShadowsAsync(string identifier);
-        
+
         /// <summary>
         /// Provides handler for remote (controller's) request to create new data entry in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
         /// </summary>
         /// <param name="identifier">Record identifier.</param>
         /// <returns>True when success</returns>
-        bool RemoteCreate(string identifier);
+        Task<bool> RemoteCreate(string identifier);
 
         /// <summary>
         /// Provides handler for remote (controller's) request to read data from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
         /// </summary>
         /// <param name="identifier">Record identifier.</param>
         /// <returns>True when success</returns>
-        bool RemoteRead(string identifier);
+        Task<bool> RemoteRead(string identifier);
 
         /// <summary>
         /// Provides handler for remote (controller's) request to update data in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
         /// </summary>
         /// <param name="identifier">Record identifier.</param>
         /// <returns>True when success</returns>
-        bool RemoteUpdate(string identifier);
+        Task<bool> RemoteUpdate(string identifier);
 
         /// <summary>
         /// Provides handler for remote (controller's) request to delete data from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
         /// </summary>
         /// <param name="identifier">Record identifier.</param>
         /// <returns>True when success</returns>
-        bool RemoteDelete(string identifier);
+        Task<bool> RemoteDelete(string identifier);
 
         /// <summary>
         /// Provides handler for remote (controller's) request to check if data exists in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
         /// </summary>
         /// <param name="identifier">Record identifier.</param>
         /// <returns>True when success</returns>
-        bool RemoteEntityExist(string identifier);
+        Task<bool> RemoteEntityExist(string identifier);
 
         /// <summary>
         /// Provides handler for remote (controller's) request to create or update data in the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
         /// </summary>
         /// <param name="identifier">Record identifier.</param>
         /// <returns>True when success</returns>
-        bool RemoteCreateOrUpdate(string identifier);
+        Task<bool> RemoteCreateOrUpdate(string identifier);
 
         /// <summary>
         /// Gets records meeting criteria from the <see cref="Repository"/> associated with this <see cref="IAxoDataExchange"/>
