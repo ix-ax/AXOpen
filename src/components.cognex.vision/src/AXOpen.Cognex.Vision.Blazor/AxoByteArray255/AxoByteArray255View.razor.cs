@@ -54,13 +54,14 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                     if (Component != null && Component.GetConnector() != null && Component.Data != null)
                     {
 
+                        await Component.ReadAsync();
                         int length = Component.Data.Length;
                         length = 255;
                         if (CurrentDisplayFormat == eDisplayFormat.Array_of_decimals)
                         {
                             for (int i = 0; i < length; i++)
                             {
-                                byte _item = await Component.Data[i].GetAsync();
+                                byte _item = Component.Data[i].LastValue;
                                 Data.Add(new IndexedData<string>(i, _item.ToString()));
                             }
                         }
@@ -68,7 +69,7 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                         {
                             for (int i = 0; i < length; i++)
                             {
-                                byte _item = await Component.Data[i].GetAsync();
+                                byte _item = Component.Data[i].LastValue;
                                 Data.Add(new IndexedData<string>(i, _item.ToString("X")));
                             }
                         }
@@ -76,7 +77,7 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                         {
                             for (int i = 0; i < length; i++)
                             {
-                                byte _byte = await Component.Data[i].GetAsync();
+                                byte _byte = Component.Data[i].LastValue;
                                 string _string = "";
                                 if (_byte > 0)
                                     _string = Encoding.UTF8.GetString(new byte[] { _byte });

@@ -53,13 +53,13 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project ..\\src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_cognex_vision_integrations_blazor.csproj
+    - dotnet watch --project ..\\app_src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
   rr:
     - apax build
     - apax download
     - apax watch
   fr:
-    - ..\\scripts\\StartPlcSimAdvCli.exe
+    - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
     - apax install
     - apax rr
   da:
@@ -67,4 +67,4 @@ scripts:
     - apax do-it-all
     - echo "Finished in :" $(expr $(date +%s) - $START) "s"
 targets:
-  - "1500"
+  - plcsim
