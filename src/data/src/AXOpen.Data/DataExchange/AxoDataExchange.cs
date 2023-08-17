@@ -432,7 +432,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
             ExportData exportData = customExportData.GetValueOrDefault(RefUIData.ToString(), new ExportData(true, new Dictionary<string, bool>()));
             if (exportData.Exported)
-                dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + this.ToString(), p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
+                dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare", this.SymbolTail, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
 
             ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
         }
@@ -440,7 +440,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         {
             ExportData exportData = customExportData.GetValueOrDefault(RefUIData.ToString(), new ExportData(true, new Dictionary<string, bool>()));
             if (exportData.Exported)
-                dataExporter.Export(DataRepository, path, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
+                dataExporter.Export(DataRepository, path, this.SymbolTail, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
         }
     }
 
@@ -458,24 +458,14 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
             ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
 
-            var files = Directory.GetFiles(Path.GetDirectoryName(path) + "\\importDataPrepare", this.ToString() + "*");
-
-            if (files == null || files.Length == 0)
-                return;
-
-            dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare\\" + this.ToString(), crudDataObject, separator);
+            dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare", this.SymbolTail, crudDataObject, separator);
 
             if (Directory.Exists(Path.GetDirectoryName(path)))
                 Directory.Delete(Path.GetDirectoryName(path), true);
         }
         else
         {
-            var files = Directory.GetFiles(Path.GetDirectoryName(path), this.ToString() + "*");
-
-            if (files == null || files.Length == 0)
-                return;
-
-            dataExporter.Import(DataRepository, path, crudDataObject, separator);
+            dataExporter.Import(DataRepository, path, this.SymbolTail, crudDataObject, separator);
         }
     }
 
