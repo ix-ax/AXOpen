@@ -1,12 +1,17 @@
-﻿using AXSharp.Connector;
+﻿using AXOpen.Messaging;
+using AXOpen.Messaging.Static;
+using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Pocos.AXOpen.Core;
+using Serilog;
 
 namespace AXOpen.Core
 {
 
     public partial class AxoComponentView : IDisposable
     {
-        private bool isCollapsed = true;
+        private bool areDetailsCollapsed = true;
+        private bool areAlarmsCollapsed = true;
         private string currentPresentation = "Status-Display";
         private bool containsHeaderAttribute;
         private bool containsDetailsAttribute;
@@ -22,6 +27,18 @@ namespace AXOpen.Core
                 axoComponent._isManuallyControllable.StartPolling(pollingInterval, this);
                 PolledElements.Add(axoComponent._isManuallyControllable);
             }
+
+            Messengers?.Select(p => p.IsActive).ToList().ForEach(messenger =>
+            {
+                messenger.StartPolling(1500, this);
+                PolledElements.Add(messenger);
+            });
+
+            Messengers?.Select(p => p.WaitingForAcknowledge).ToList().ForEach(messenger =>
+            {
+                messenger.StartPolling(1500, this);
+                PolledElements.Add(messenger);
+            });
         }
 
         private IEnumerable<string> GetAllTabNames(ITwinObject twinObject)
@@ -83,11 +100,59 @@ namespace AXOpen.Core
             tabNames = GetAllTabNames(this.Component);
             containsDetailsAttribute = this.DetailsTabs.Count() != 0;
             UpdateValuesOnChange(Component);
+
+           
         }
 
-        private void Collapse()
+        private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().OfType<AxoMessenger>();
+
+       
+        private eAlarmLevel AlarmLevel
         {
-            isCollapsed = !isCollapsed;
+            get
+            {
+                var _messengers = Messengers?.ToList();
+
+                if (_messengers == null) { return eAlarmLevel.NoAlarms; }
+                
+                if (_messengers.Any(p => p.IsActive.Cyclic))
+                {
+                    _messengers.First().GetConnector().ReadBatchAsync(_messengers.Select(p => p.Category));
+                    var seriousness = (eAxoMessageCategory)_messengers.Max(p => p.Category.LastValue);
+
+                    if(seriousness <= eAxoMessageCategory.Info)
+                        return eAlarmLevel.ActiveInfo;
+                    else if (seriousness <= eAxoMessageCategory.Warning)
+                        return eAlarmLevel.ActiveWarnings;
+                    else if (seriousness <= eAxoMessageCategory.Error)
+                        return eAlarmLevel.ActiveErrors;
+                }
+                else if (_messengers.Any(p => p.WaitingForAcknowledge.Cyclic))
+                {
+                    return eAlarmLevel.Unacknowledged;
+                }
+                
+                return eAlarmLevel.NoAlarms;
+            }
+        }
+
+        public enum eAlarmLevel
+        {
+            NoAlarms,
+            Unacknowledged,
+            ActiveInfo,
+            ActiveWarnings,
+            ActiveErrors
+        }
+
+        private void ToggleCollapseDetails()
+        {
+            areDetailsCollapsed = !areDetailsCollapsed;
+        }
+
+        private void ToggleAlarmsDetails()
+        {
+            areAlarmsCollapsed = !areAlarmsCollapsed;
         }
     }
 
