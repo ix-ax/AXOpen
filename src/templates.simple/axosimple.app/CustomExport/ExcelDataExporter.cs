@@ -89,7 +89,7 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
     {
     }
 
-    public void Export(IRepository<TPlain> repository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
+    public void Export(IRepository<TPlain> dataRepository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
     {
         var prototype = Activator.CreateInstance(typeof(TOnline), new object[] { ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(new object[] { }), "_data", "_data" }) as ITwinObject;
 
@@ -100,13 +100,13 @@ where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
         switch (exportMode)
         {
             case eExportMode.First:
-                exportables = repository.Queryable.Where(expression).Take(firstNumber);
+                exportables = dataRepository.Queryable.Where(expression).Take(firstNumber);
                 break;
             case eExportMode.Last:
-                exportables = repository.Queryable.Where(expression).TakeLast(firstNumber);
+                exportables = dataRepository.Queryable.Where(expression).TakeLast(firstNumber);
                 break;
             case eExportMode.Exact:
-                exportables = repository.Queryable.Where(expression).Skip(firstNumber - 1).Take(secondNumber - firstNumber + 1);
+                exportables = dataRepository.Queryable.Where(expression).Skip(firstNumber - 1).Take(secondNumber - firstNumber + 1);
                 break;
         }
 

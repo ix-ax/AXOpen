@@ -19,7 +19,7 @@ namespace AXOpen.Data
         {
         }
 
-        public List<string> BaseExport(IRepository<TPlain> repository, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
+        public List<string> BaseExport(IRepository<TPlain> dataRepository, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
         {
             if (customExportData == null)
                 customExportData = new Dictionary<string, bool>();
@@ -30,13 +30,13 @@ namespace AXOpen.Data
             switch (exportMode)
             {
                 case eExportMode.First:
-                    exportables = repository.Queryable.Where(expression).Take(firstNumber);
+                    exportables = dataRepository.Queryable.Where(expression).Take(firstNumber);
                     break;
                 case eExportMode.Last:
-                    exportables = repository.Queryable.Where(expression).TakeLast(firstNumber);
+                    exportables = dataRepository.Queryable.Where(expression).TakeLast(firstNumber);
                     break;
                 case eExportMode.Exact:
-                    exportables = repository.Queryable.Where(expression).Skip(firstNumber - 1).Take(secondNumber - firstNumber + 1);
+                    exportables = dataRepository.Queryable.Where(expression).Skip(firstNumber - 1).Take(secondNumber - firstNumber + 1);
                     break;
             }
 

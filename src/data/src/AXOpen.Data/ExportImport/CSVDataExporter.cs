@@ -21,9 +21,9 @@ namespace AXOpen.Data
         {
         }
 
-        public void Export(IRepository<TPlain> repository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool> customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
+        public void Export(IRepository<TPlain> dataRepository, string path, string fragmentName, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool> customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
         {
-            var export = BaseExport(repository, expression, customExportData, exportMode, firstNumber, secondNumber, separator);
+            var export = BaseExport(dataRepository, expression, customExportData, exportMode, firstNumber, secondNumber, separator);
 
             using (var sw = new StreamWriter(path + "\\" + fragmentName + ".csv"))
             {
