@@ -227,12 +227,12 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
             await sut.Set.Set.ComesFrom.SetAsync(88);
             await sut.Set.Set.GoesTo.SetAsync(64);
             await sut.Manip.Set.CounterDelay.SetAsync(789);
-            sut.RemoteCreateOrUpdate("hey remote create");
+            await sut.RemoteCreateOrUpdate("hey remote create");
 
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
@@ -374,7 +374,7 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
             sut.Set.Set.DataEntityId.Shadow = "hey remote create";
             sut.Set.Set.ComesFrom.Shadow = 188;
