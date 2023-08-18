@@ -46,9 +46,16 @@ namespace AXOpen.Data
                 object propValue = property.GetValue(@object, null);
                 if (property.PropertyType.IsValueType || property.PropertyType == typeof(string))
                 {
-                    if (property.Name == "Hash" || property.Name == "DataEntityId" || propValue == null)
+                    if (property.Name == "Hash" || propValue == null)
                         continue;
-                    stringToHash += propValue.ToString();
+                    try
+                    {
+                        stringToHash += ((dynamic)propValue).Ticks;
+                    }
+                    catch
+                    {
+                        stringToHash += propValue.ToString();
+                    }
                 }
                 else if (typeof(IEnumerable).IsAssignableFrom(property.PropertyType))
                 {
