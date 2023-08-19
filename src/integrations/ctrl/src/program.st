@@ -26,6 +26,7 @@ PROGRAM MyProgram
         AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
         AxoCognexVisionInsightExampleContext : AxoCognexVisionInsightExamples.AxoCognexVisionInsightExampleContext;
         AxoByteArrayExampleContext : AxoByteArrayExample.AxoByteArrayExampleContext;
+        AxoBoolArrayExampleContext : AxoBoolArrayExample.AxoBoolArrayExampleContext;
 
         AxoLoggers : AxoLoggerExamples.Loggers;
 
@@ -78,6 +79,7 @@ PROGRAM MyProgram
     AxoCognexVisionInsightExampleContext.PlcOutputs := REF(PlcOutputs);
     AxoCognexVisionInsightExampleContext.Run();
     AxoByteArrayExampleContext.Run();
+    AxoBoolArrayExampleContext.Run();
 
     AxoLoggers.InjectRtc(AxoRtc);
     AxoLoggers.Run();

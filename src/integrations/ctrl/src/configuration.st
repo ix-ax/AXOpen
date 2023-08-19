@@ -30,6 +30,7 @@ CONFIGURATION MyConfiguration
         AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
         AxoCognexVisionInsightExampleContext : AxoCognexVisionInsightExamples.AxoCognexVisionInsightExampleContext;
         AxoByteArrayExampleContext : AxoByteArrayExample.AxoByteArrayExampleContext;
+        AxoBoolArrayExampleContext : AxoBoolArrayExample.AxoBoolArrayExampleContext;
 
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;

@@ -18,14 +18,17 @@
         {
             @foreach (IndexedData<string> item in this.Data)
             {
-                <div class="col">
-                    <div>
-                        @item?.Index
+                if (item != null && @item.Index != null && @item.Data != null)
+                {
+                    <div class="col">
+                        <div>
+                        @item.Index
                     </div>
                     <div>
-                        @item?.Data
+                        @item.Data
                     </div>
                 </div>
+                }
             }
         }
     </div>

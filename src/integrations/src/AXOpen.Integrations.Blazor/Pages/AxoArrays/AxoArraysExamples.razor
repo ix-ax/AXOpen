@@ -1,0 +1,38 @@
+﻿@page "/AxoArraysExamples"
+@using axopen_integrations
+@using AXOpen.Core;
+
+<h3>AxoArraysExamples</h3>
+
+<div class="container">
+    <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+        AxoArraysExamples
+    </div>
+    <div class="container text-left">
+        <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+            AxoByteArraysExamples
+        </div>
+        <div class="row">
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoByteArrayExampleContext.MyArray10" Presentation="Control" />
+            </div>
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoByteArrayExampleContext.MyArray20" Presentation="Control" />
+            </div>
+        </div>
+    </div>
+    <div class="container text-left">
+        <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+            AxoBoolArraysExamples
+        </div>
+        <div class="row">
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoBoolArrayExampleContext.MyArray8" Presentation="Control" />
+            </div>
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoBoolArrayExampleContext.MyArray16" Presentation="Control" />
+            </div>
+        </div>
+    </div>
+</div>
+
