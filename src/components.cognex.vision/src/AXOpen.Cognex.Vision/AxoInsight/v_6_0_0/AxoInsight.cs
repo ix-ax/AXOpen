@@ -41,7 +41,8 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(614, "Waiting for the signal CommandComplete to be set!");
                     errorDescriptionDict.Add(615, "Waiting for the signal CommandComplete to be reseted!");
                     errorDescriptionDict.Add(616, "Waiting for the signal Online to be set!");
-                    errorDescriptionDict.Add(617, "");
+                    errorDescriptionDict.Add(617, "Waiting for the signal TriggerSoftEvent to be set!");
+                    errorDescriptionDict.Add(618, "Waiting for the signal TriggerSoftEvent to be reseted!");
                     //errorDescriptionDict.Add(6, "");
                     //errorDescriptionDict.Add(6, "");
                     //errorDescriptionDict.Add(6, "");
@@ -71,7 +72,7 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                     errorDescriptionDict.Add(718, "Change job by name failed. Check the value of the InspectionStatus.Error code!");
                     errorDescriptionDict.Add(719, "Required job number is greater than the maximal value!");
                     errorDescriptionDict.Add(720, "Change job by number failed. Check the value of the InspectionStatus.Error code!");
-                    //errorDescriptionDict.Add(7, "");
+                    errorDescriptionDict.Add(721, "Required soft event number is greater than the maximal value of 7!");
                     //errorDescriptionDict.Add(7, "");
                     //errorDescriptionDict.Add(7, "");
                     //errorDescriptionDict.Add(7, "");
@@ -129,13 +130,17 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                     actionDescriptionDict.Add(315, "Change job by number running.");
                     actionDescriptionDict.Add(316, "Change job by number was completed successfully.");
                     actionDescriptionDict.Add(317, "Change job by number restored.");
+                    actionDescriptionDict.Add(318, "Soft event started.");
+                    actionDescriptionDict.Add(319, "Soft event running.");
+                    actionDescriptionDict.Add(320, "Soft event was completed successfully.");
+                    actionDescriptionDict.Add(321, "Soft event restored.");
 
 
                     actionDescriptionDict.Add(600, "Clearing of the inspection results was aborted, while not yet completed!");
                     actionDescriptionDict.Add(601, "Reading was aborted, while not yet completed!");
                     actionDescriptionDict.Add(602, "Change job by name was aborted, while not yet completed!");
                     actionDescriptionDict.Add(603, "Change job by number was aborted, while not yet completed!");
-                    //actionDescriptionDict.Add(604, "");
+                    actionDescriptionDict.Add(604, "Soft event was aborted, while not yet completed!");
                     //actionDescriptionDict.Add(605, "");
                     //actionDescriptionDict.Add(606, "");
                     //actionDescriptionDict.Add(605, "");
@@ -160,7 +165,7 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                     actionDescriptionDict.Add(701, "Reading finished with error!");
                     actionDescriptionDict.Add(702, "Change job by name finished with error!");
                     actionDescriptionDict.Add(703, "Change job by number finished with error!");
-                    //actionDescriptionDict.Add(704, "");
+                    actionDescriptionDict.Add(704, "Soft event finished with error!");
                     //actionDescriptionDict.Add(705, "");
                     //actionDescriptionDict.Add(706, "");
                     //actionDescriptionDict.Add(706, "");

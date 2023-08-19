@@ -48,7 +48,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     refResults^.InspectionID := UINT#0; 
                     refResults^.ResultCode := UINT#0; 
 
-                    FOR _index := 0 TO 254 DO
+                    FOR _index := 0 TO 250 DO
                         refInspectionResults^.Data[_index] := BYTE#0;
                     END_FOR;
                     refInspectionResults^.DataChanged := NOT refInspectionResults^.DataChanged ;

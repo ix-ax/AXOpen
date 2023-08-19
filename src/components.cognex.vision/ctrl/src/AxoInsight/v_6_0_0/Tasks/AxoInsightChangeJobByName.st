@@ -3,7 +3,7 @@ USING System.Strings;
 USING System.SerDe;
 
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
-    CLASS PUBLIC AxoChangeJobByName EXTENDS AXOpen.Core.AxoTask
+    CLASS PUBLIC AxoInsightChangeJobByName EXTENDS AXOpen.Core.AxoTask
         VAR PROTECTED
             _progress : INT := 0;
             _infoTimer :  System.Timer.OnDelay;

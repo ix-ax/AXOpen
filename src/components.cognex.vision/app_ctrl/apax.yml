@@ -67,4 +67,4 @@ scripts:
     - apax do-it-all
     - echo "Finished in :" $(expr $(date +%s) - $START) "s"
 targets:
-  - plcsim
+  - "1500"

@@ -29,7 +29,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             RequiredJobName : STRING;
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Change job by name#>"}
-            ChangeJobByNameTask : AxoChangeJobByName;
+            ChangeJobByNameTask : AxoInsightChangeJobByName;
 
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
             {#ix-attr:[ComponentDetails("Tasks")]}
@@ -37,7 +37,15 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             RequiredJobNumber : UINT;
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Change job by number#>"}
-            ChangeJobByNumberTask : AxoChangeJobByNumber;
+            ChangeJobByNumberTask : AxoInsightChangeJobByNumber;
+
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Required soft event number#>"}
+            RequiredSoftEventNumber : UINT;
+            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-set:AttributeName = "<#Trigger soft event#>"}
+            SoftEventTask : AxoInsightSoftEvent;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Config")]}
@@ -145,10 +153,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             Results.InspectionID                            :=  UINT#0;
             Results.ResultCode                              :=  UINT#0;
             
-            FOR _index := 0 TO 254 DO
+            FOR _index := 0 TO 250 DO
                 InspectionResults.Data[_index] := BYTE#0;
             END_FOR;
-            InspectionResults.DataChanged := NOT InspectionResults.DataChanged;
+            InspectionResults.ToggleDataChangedFlag();
 
             AcquisitionControl.TriggerEnable                :=  FALSE;
             AcquisitionControl.Trigger					    :=  FALSE;
@@ -191,6 +199,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         METHOD PROTECTED OVERRIDE ManualControl
             ChangeJobByNameTask.Manual(RequiredJobName);
             ChangeJobByNumberTask.Manual(RequiredJobNumber);
+            SoftEventTask.Manual(RequiredSoftEventNumber);
         END_METHOD
 
         METHOD PRIVATE UpdateInputs : BOOL
@@ -451,6 +460,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             TriggerTask.Initialize(THIS);
             ChangeJobByNameTask.Initialize(THIS);
             ChangeJobByNumberTask.Initialize(THIS);
+            SoftEventTask.Initialize(THIS);
 
             THIS.UpdateInputs(refAcquisitionStatus,refInspectionStatus,refCommandStatus,refSoftEventStatus,refResultData);
 
@@ -480,10 +490,16 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(User));
             //****************************************
 
-            //*************CHANGE JOB BY NUMBER*********
+            //*************CHANGE JOB BY NUMBER*******
             _taskDisabled := _taskDisabled OR ChangeJobByNameTask.IsBusy();
             ChangeJobByNumberTask.IsDisabled :=  _taskDisabled;
             ChangeJobByNumberTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status));
+            //****************************************
+
+            //*************Soft event*****************
+            _taskDisabled := _taskDisabled OR ChangeJobByNameTask.IsBusy();
+            SoftEventTask.IsDisabled :=  _taskDisabled;
+            SoftEventTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(SoftEventControl),REF(SoftEventStatus));
             //****************************************
 
             THIS.UpdateOutputs(refAcquisitionControl,refInspectionControl,refCommandControl,refSoftEventControl,refUserData);
@@ -505,7 +521,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             Trigger := TriggerTask.Invoke();
         END_METHOD
         ///<summary>
-		/// Change the sensor job using job number. 	
+		/// Changes the sensor job using job number. 	
         ///</summary>       
         METHOD PUBLIC ChangeJob : IAxoTaskState
             VAR_INPUT 
@@ -514,13 +530,22 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ChangeJob := ChangeJobByNumberTask.InvokeWithParameters(Job);
         END_METHOD
         ///<summary>
-		/// Change the sensor job using job name. 	
+		/// Changes the sensor job using job name. 	
         ///</summary>       
         METHOD PUBLIC ChangeJob : IAxoTaskState
             VAR_INPUT 
                 Job : STRING;
             END_VAR
             ChangeJob := ChangeJobByNameTask.InvokeWithParameters(Job);
+        END_METHOD
+        ///<summary>
+		/// Triggers the soft event. 
+        ///</summary>       
+        METHOD PUBLIC SoftEvent : IAxoTaskState
+            VAR_INPUT 
+                EventNumber : UINT;
+            END_VAR
+            SoftEvent := SoftEventTask.InvokeWithParameters(EventNumber);
         END_METHOD
     END_CLASS    
 

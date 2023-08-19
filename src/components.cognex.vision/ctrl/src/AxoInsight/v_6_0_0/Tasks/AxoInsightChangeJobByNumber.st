@@ -3,7 +3,7 @@ USING System.Strings;
 USING System.SerDe;
 
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
-    CLASS PUBLIC AxoChangeJobByNumber EXTENDS AXOpen.Core.AxoTask
+    CLASS PUBLIC AxoInsightChangeJobByNumber EXTENDS AXOpen.Core.AxoTask
         VAR PROTECTED
             _progress : INT := 0;
             _infoTimer :  System.Timer.OnDelay;
@@ -172,7 +172,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnRestore 
-            _Status^.Action.Id := UINT#313;
+            _Status^.Action.Id := UINT#317;
             _Status^.Error.Id  := UINT#0;
             _Status^.CurrentJobNumber := UINT#0;
             _progress := 0;
