@@ -24,7 +24,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refConfig              :   REF_TO  AxoInsight_Config;
                 refStatus              :   REF_TO  AxoInsight_Status;	
                 refResults             :   REF_TO  AxoInsight_Results;
-                refInspectionResults   :   REF_TO  AxoByteArray255;
+                refInspectionResults   :   REF_TO  AxoInsight_ResultData;
                 refResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR          
 
@@ -152,7 +152,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     FOR _index := 0 TO (TO_INT(refStatus^.ResultDataSize) - INT#1) DO
                         refInspectionResults^.Data[_index] := refResultData^[_index + 4];
                     END_FOR;
-                    FOR _index := refStatus^.ResultDataSize TO 254 DO
+                    FOR _index := refStatus^.ResultDataSize TO 250 DO
                         refInspectionResults^.Data[_index] := BYTE#0;
                     END_FOR;
                     refInspectionResults^.DataChanged := NOT refInspectionResults^.DataChanged ;

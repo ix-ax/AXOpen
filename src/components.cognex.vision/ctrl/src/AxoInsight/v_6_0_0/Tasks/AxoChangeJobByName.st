@@ -26,7 +26,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refCommandControl       :   REF_TO  AxoInsight_CommandControl;
                 refConfig               :   REF_TO  AxoInsight_Config;
                 refStatus               :   REF_TO  AxoInsight_Status;	
-                refUser                 :   REF_TO  AxoInsight_User;
+                refUser                 :   REF_TO  AxoInsight_UserData;
+                // refUser                 :   REF_TO  AxoInsight_User;
             END_VAR          
 
             _infoTime := refConfig^.InfoTime;
@@ -220,7 +221,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             VAR_INPUT
                 inValue     :   STRING;
                 inPosition  :   UINT;	
-                refUser     :   REF_TO  AxoInsight_User;
+                refUser     :   REF_TO  AxoInsight_UserData;
                 refStatus   :   REF_TO  AxoInsight_Status;	
             END_VAR
             VAR
@@ -248,13 +249,13 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
             Serialize(UINT#0, inValue, _data);
             FOR	_index := UINT#0 TO _size BY UINT#1 DO	
-                refUser^.UserData.Data[(inPosition + _index)] := _data[_index + UINT#1];
+                refUser^.Data[(inPosition + _index)] := _data[_index + UINT#1];
             END_FOR;
             
             FOR	_index := inPosition +_size TO _maxIndex BY UINT#1 DO	
-                refUser^.UserData.Data[_index] := BYTE#0;
+                refUser^.Data[_index] := BYTE#0;
             END_FOR;
-            refUser^.UserData.DataChanged := NOT refUser^.UserData.DataChanged;
+            refUser^.ToggleDataChangedFlag();
 
             SetUserDataAsString := TRUE;
         END_METHOD

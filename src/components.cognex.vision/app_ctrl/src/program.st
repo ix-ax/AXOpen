@@ -9,8 +9,7 @@ PROGRAM MyProgram
     CopyInputs();
 
     I_am_alive := I_am_alive + ULINT#1;
-
-    
+        
     AxoCognexVisionExampleContext.PlcInputs := REF(PlcInputs);
     AxoCognexVisionExampleContext.PlcOutputs := REF(PlcOutputs);
     AxoCognexVisionExampleContext.Run();

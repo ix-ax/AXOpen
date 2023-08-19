@@ -29,6 +29,7 @@ CONFIGURATION MyConfiguration
         AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;
         AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
         AxoCognexVisionInsightExampleContext : AxoCognexVisionInsightExamples.AxoCognexVisionInsightExampleContext;
+        AxoByteArrayExampleContext : AxoByteArrayExample.AxoByteArrayExampleContext;
 
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;

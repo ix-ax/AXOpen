@@ -179,6 +179,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetlibs_tests", "templat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{257570C0-7053-42FE-AC92-07294185A05C}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_components_cognex_vision_integrations", "components.cognex.vision\app_src\AXOpen.Components.Cognex.Vision.Integrations\axopen_components_cognex_vision_integrations.csproj", "{D63122DF-4CFA-4100-A8BC-CF3C30583F6E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_components_cognex_vision_integrations_blazor", "components.cognex.vision\app_src\AXOpen.Components.Cognex.Vision.Integrations.Blazor\axopen_components_cognex_vision_integrations_blazor.csproj", "{B7CF53FA-5067-460A-A0F4-7D34F0079E11}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -353,6 +357,14 @@ Global
 		{ADAF1255-8D10-4C83-B6D2-73347D677D15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADAF1255-8D10-4C83-B6D2-73347D677D15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADAF1255-8D10-4C83-B6D2-73347D677D15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D63122DF-4CFA-4100-A8BC-CF3C30583F6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D63122DF-4CFA-4100-A8BC-CF3C30583F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D63122DF-4CFA-4100-A8BC-CF3C30583F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D63122DF-4CFA-4100-A8BC-CF3C30583F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7CF53FA-5067-460A-A0F4-7D34F0079E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CF53FA-5067-460A-A0F4-7D34F0079E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CF53FA-5067-460A-A0F4-7D34F0079E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CF53FA-5067-460A-A0F4-7D34F0079E11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -427,6 +439,8 @@ Global
 		{3CE75CCD-E907-49F7-8871-D9AE0E47EB8F} = {6CE1BA0C-BB5F-4105-A792-7CE352471827}
 		{ADAF1255-8D10-4C83-B6D2-73347D677D15} = {3CE75CCD-E907-49F7-8871-D9AE0E47EB8F}
 		{257570C0-7053-42FE-AC92-07294185A05C} = {31669443-69E7-4D8F-9800-E71887684792}
+		{D63122DF-4CFA-4100-A8BC-CF3C30583F6E} = {257570C0-7053-42FE-AC92-07294185A05C}
+		{B7CF53FA-5067-460A-A0F4-7D34F0079E11} = {257570C0-7053-42FE-AC92-07294185A05C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

@@ -13,7 +13,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "<#Inspection results#>"}
-            InspectionResults : AxoByteArray255;
+            InspectionResults : AxoInsight_ResultData;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
@@ -115,7 +115,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#User data#>"}
             {#ix-attr:[ReadOnly()]}
-            User        :   AxoInsight_User;
+            User        :   AxoInsight_UserData;
         END_VAR
                
         VAR PRIVATE
@@ -173,10 +173,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEventControl.TriggerSoftEvent.Data[7]       :=  FALSE;
 
             FOR _index := 0 TO 254 DO
-                User.UserData.Data[_index] := BYTE#0;
+                User.Data[_index] := BYTE#0;
             END_FOR;
 
-            User.UserData.DataChanged := NOT User.UserData.DataChanged;
+            User.ToggleDataChangedFlag();
 
             IF NOT AcquisitionStatus.ExposureComplete AND NOT InspectionStatus.Error THEN
                 Status.Action.Id := UINT#300;
@@ -326,12 +326,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#714;
                 UpdateOutputs := FALSE;
             END_IF;
-            IF User.UserData.DataChanged <> UserDataChanged THEN
+            IF User.DataChanged <> UserDataChanged THEN
                 FOR index := 0 TO Status.UserDataSize - 1 DO
-                    refUserData^[index] := User.UserData.Data[index];
+                    refUserData^[index] := User.Data[index];
                 END_FOR;
-    
-                UserDataChanged := User.UserData.DataChanged;
+                UserDataChanged := User.DataChanged;
             END_IF;
         END_METHOD  
 
