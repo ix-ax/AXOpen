@@ -99,6 +99,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#Soft-event control#>"}
             {#ix-attr:[ReadOnly()]}
             SoftEventControl      :           AxoInsight_SoftEventControl;

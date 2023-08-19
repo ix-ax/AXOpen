@@ -1,8 +1,8 @@
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
-    TYPE
-        AxoBoolArray8 : 
-        STRUCT
-            Data : ARRAY [0..7]OF BOOL;
-        END_STRUCT;
-    END_TYPE 
+    CLASS PUBLIC AxoBoolArray8 EXTENDS AXOpen.Core.AxoBoolArray  
+        VAR PUBLIC 
+            Data : ARRAY [0..7] OF BOOL;
+        END_VAR 
+    END_CLASS
 END_NAMESPACE
+
