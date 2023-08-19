@@ -127,7 +127,7 @@ namespace AXOpen.Core
                     else if (seriousness <= eAxoMessageCategory.Error)
                         return eAlarmLevel.ActiveErrors;
                 }
-                else if (_messengers.Any(p => p.WaitingForAcknowledge.Cyclic))
+                else if (_messengers.Any(p => p.WaitingForAcknowledge.LastValue))
                 {
                     return eAlarmLevel.Unacknowledged;
                 }
