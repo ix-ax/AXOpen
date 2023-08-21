@@ -84,6 +84,7 @@ namespace AXOpen.Core
                         }
                     }
                 }
+                await InvokeAsync(StateHasChanged);
             }
             catch (System.Exception ex)
             {

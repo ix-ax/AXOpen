@@ -13,7 +13,7 @@
             </button>
         </div>
     </div>
-    <div class="row flex-nowrap">
+    <div class="row ms-1 me-1 flex-nowrap" style="overflow-x: scroll; width: 75em;">
         @if (this.Data != null)
         {
             @foreach (IndexedData<string> item in this.Data)
@@ -22,12 +22,12 @@
                 {
                     <div class="col">
                         <div>
-                        @item.Index
+                            @item.Index
+                        </div>
+                        <div>
+                            @item.Data
+                        </div>
                     </div>
-                    <div>
-                        @item.Data
-                    </div>
-                </div>
                 }
             }
         }
@@ -49,15 +49,15 @@
                     <div class="modal-body">
                         <p>Display data as:</p>
                         <select class="form-control" @bind="@SelectedFormatID">
-                    
+
                             @foreach (var displayedFormat in DisplayedFormatList)
                             {
                                 <option value="@displayedFormat.DisplayFormat"> @displayedFormat.Description </option>
                             }
-                    
+
                         </select>
                         <div class="d-flex justify-content-center ">
-                            <button type="button" class="btn btn-primary m-2 w-50" @onclick="ChangeFormat" >Change format</button>
+                            <button type="button" class="btn btn-primary m-2 w-50" @onclick="ChangeFormat">Change format</button>
                             <button type="button" class="btn btn-primary m-2 w-50" @onclick="Close">Cancel</button>
                         </div>
                     </div>
@@ -113,14 +113,14 @@
         if (SelectedFormatID != previousDisplayFormat)
         {
             CurrentDisplayFormat = SelectedFormatID;
-            Refresh();
         }
-        Close();
+        await Close();
     }
 
     private async Task Refresh()
     {
         UpdateAndFormatData(null, null);
+        await InvokeAsync(StateHasChanged);
     }
 
     private class DisplayedFormat
