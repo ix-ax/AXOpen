@@ -51,7 +51,30 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         }
     }
 
-    public bool VerifyHash { get; set; } = false;
+    private bool? _verifyHash = null;
+
+    public bool VerifyHash
+    {
+        get
+        {
+            if(_verifyHash != null)
+                return (bool)_verifyHash;
+            else
+            {
+                if (this.GetType().GetCustomAttribute(typeof(AxoDataVerifyHashAttribute)) != null)
+                {
+                    _verifyHash = true;
+                    return true;
+                }
+                _verifyHash = false;
+            }
+            return false;
+        }
+        set
+        {
+            _verifyHash = value;
+        }
+    }
 
     /// <summary>
     /// Stop observing changes of the data object with changeTracker.
@@ -117,7 +140,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     public bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity)
     {
-        if(!VerifyHash)
+        if (!VerifyHash)
             return true;
         if (entity.DataEntityId == null)
             return false;
@@ -415,7 +438,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)this.RefUIData.CreatePoco();
         poco.DataEntityId = identifier;
         poco.Hash = HashHelper.CreateHash(poco);
-        
+
         this.Repository.Create(identifier, poco);
 
         var plain = Repository.Read(identifier);

@@ -25,7 +25,7 @@ namespace AXOpen.Data
             {
                 var result = new PasswordHasher<Pocos.AXOpen.Data.IAxoDataEntity>().VerifyHashedPassword(dataEntity, dataEntity.Hash, CreateStringToHash(dataEntity)) != PasswordVerificationResult.Failed;
                 if (!result)
-                    AxoApplication.Current.Logger.Information($"Data {dataEntity} has been modified from outside.", identity);
+                    AxoApplication.Current.Logger.Information($"Data {dataEntity} has external modifications.", identity);
                 return result;
             }
             catch (Exception)
@@ -48,13 +48,27 @@ namespace AXOpen.Data
                 {
                     if (property.Name == "Hash" || propValue == null)
                         continue;
-                    try
+
+                    switch (propValue.GetType().ToString())
                     {
-                        stringToHash += ((dynamic)propValue).Ticks;
-                    }
-                    catch
-                    {
-                        stringToHash += propValue.ToString();
+                        case "DateOnly":
+                            stringToHash += ((DateOnly)propValue).DayNumber;
+                            break;
+                        case "DateTime":
+                            stringToHash += ((DateTime)propValue).Ticks;
+                            break;
+                        case "DateTimeOffset":
+                            stringToHash += ((DateTimeOffset)propValue).Ticks;
+                            break;
+                        case "TimeOnly":
+                            stringToHash += ((TimeOnly)propValue).Ticks;
+                            break;
+                        case "TimeSpan":
+                            stringToHash += ((TimeSpan)propValue).Ticks;
+                            break;
+                        default:
+                            stringToHash += propValue.ToString();
+                            break;
                     }
                 }
                 else if (typeof(IEnumerable).IsAssignableFrom(property.PropertyType))
