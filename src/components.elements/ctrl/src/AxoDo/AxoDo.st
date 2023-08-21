@@ -10,10 +10,7 @@ NAMESPACE AXOpen.Elements
 
         VAR PUBLIC
 
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentHeader()]}
-            _signalName : STRING := 'test signal';
-            
+
             {#ix-set:AttributeName = "<#On#>"}
             {#ix-attr:[ComponentHeader()]}
             _setTask : AxoTask;
@@ -31,6 +28,7 @@ NAMESPACE AXOpen.Elements
             _messengerInfoNegative : AXOpen.Messaging.Static.AxoMessenger;
 
         END_VAR
+
 
         METHOD PROTECTED OVERRIDE Restore : IAxoTask
             _setTask.Restore();
@@ -91,11 +89,10 @@ NAMESPACE AXOpen.Elements
 
         END_METHOD
 
-        METHOD PUBLIC IsFalse:BOOL
+        METHOD PUBLIC IsFalse : BOOL
             IsFalse := NOT _signal;
 
             IF NOT IsFalse THEN
-                
                 _messengerInfoNegative.Activate(AXOpen.Messaging.eAxoMessageCategory#Warning);
             END_IF;
 

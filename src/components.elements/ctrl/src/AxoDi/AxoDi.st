@@ -1,6 +1,9 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Elements
 
+    /// <summary>
+    /// Class representing Digital input
+    /// </summary>
     CLASS AxoDi EXTENDS AXOpen.Core.AxoComponent
 
         VAR
@@ -10,14 +13,12 @@ NAMESPACE AXOpen.Elements
 
         VAR PUBLIC
             
-
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentHeader()]}
-            _signalName : STRING := 'test signal';
-            
+            // task, which checks if signal is on
             {#ix-set:AttributeName = "<#Check on#>"}
             {#ix-attr:[ComponentHeader()]}
             _isTrueTask : AxoTask;
+
+            // task, which checks if signal is off
             {#ix-set:AttributeName = "<#Check off#>"}
             {#ix-attr:[ComponentHeader()]}
             _isFalseTask : AxoTask;
@@ -40,12 +41,13 @@ NAMESPACE AXOpen.Elements
         END_METHOD
 
         METHOD PROTECTED OVERRIDE ManualControl
-            THIS._isManuallyControllable := true;
-            ;
+            THIS._isManuallyControllable := TRUE;
         END_METHOD
 
 
-
+        /// <summary>
+        /// Method, which implement logic for checking of digital input
+        /// </summary>
         METHOD PUBLIC AxoDiSignal :BOOL
 
             VAR_INPUT
@@ -78,25 +80,27 @@ NAMESPACE AXOpen.Elements
 
         END_METHOD
 
+        /// <summary>
+        /// Returns TRUE if signal is on. It creates alarm otherwise.
+        /// </summary>
         METHOD PUBLIC IsTrue : BOOL
             IsTrue := _inSignal;
 
             IF NOT IsTrue THEN
-               
                 _messengerInfoPositive.Activate(AXOpen.Messaging.eAxoMessageCategory#Warning);
             END_IF;
 
 
         END_METHOD
-
+        /// <summary>
+        /// Returns TRUE if signal is off. It creates alarm otherwise.
+        /// </summary>
         METHOD PUBLIC IsFalse:BOOL
             IsFalse := NOT _inSignal;
 
             IF NOT IsFalse THEN
-                
                 _messengerInfoNegative.Activate(AXOpen.Messaging.eAxoMessageCategory#Warning);
             END_IF;
-
 
         END_METHOD
     END_CLASS

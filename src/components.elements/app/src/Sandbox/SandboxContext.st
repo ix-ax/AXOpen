@@ -13,6 +13,14 @@ CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
         _testDo : AXOpen.Elements.AxoDo;  
         _testDoInput : BOOL;  
         _testDoOut: BOOL;  
+
+
+        _testAi : AXOpen.Elements.AxoAi;  
+        _testAiInput : DINT := DINT#10;  
+
+        _testAo : AXOpen.Elements.AxoAo;  
+        _testAoOutput : DINT := DINT#10;  
+        // _testDoOut: BOOL;  
     END_VAR
 
     VAR PRIVATE
@@ -27,6 +35,8 @@ CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
             _testCyclinder.ActivateManualControl();
             _testDi.ActivateManualControl();
             _testDo.ActivateManualControl();
+            _testAi.ActivateManualControl();
+            _testAo.ActivateManualControl();
         END_IF;   
 
 
@@ -40,9 +50,7 @@ CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
         
         _testDo.AxoDoSignal(THIS, _testDoInput);
 
-        IF(_testDo.IsTrue()) THEN
-            ;
-        END_IF; 
+    
 
         IF _testDoInput THEN
             _testOutSignal := TRUE;
@@ -50,5 +58,11 @@ CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
             _testOutSignal := FALSE;
         END_IF;
 
+        _testAiInput := DINT#10;
+       
+        _testAi.AxoAiSignal(THIS, _testAiInput);
+
+
+        _testAo.AxoAoSignal(THIS, _testAoOutput);
     END_METHOD
 END_CLASS
