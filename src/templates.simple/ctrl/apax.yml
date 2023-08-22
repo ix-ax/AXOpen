@@ -68,4 +68,4 @@ scripts:
     - apax install
     - apax rr
 targets:
-  - "1500"
+  - axunit-llvm

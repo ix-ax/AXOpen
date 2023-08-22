@@ -21,5 +21,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
+    <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
   </ItemGroup>
 </Project>

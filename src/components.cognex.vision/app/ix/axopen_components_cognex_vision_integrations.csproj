@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.133" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.133" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.2-alpha.133" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include=".g\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\AXOpen.Cognex.Vision\ix_ax_axopen_cognex_vision.csproj" />
+	</ItemGroup>
+</Project>
