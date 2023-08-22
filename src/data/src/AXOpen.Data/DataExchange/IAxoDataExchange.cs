@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AXOpen.Base.Data;
 using System.Linq.Expressions;
 using Microsoft.AspNetCore.Components.Authorization;
+using System.Security.Principal;
 
 namespace AXOpen.Data
 {
@@ -21,6 +22,8 @@ namespace AXOpen.Data
         /// Gets data of this AxoDataExchange object for automated UI generation.
         /// </summary>
         ITwinObject RefUIData { get; }
+
+        bool VerifyHash { get; set; }
 
         /// <summary>
         /// Stop observing changes of the data object with changeTracker.
@@ -56,6 +59,8 @@ namespace AXOpen.Data
         /// </summary>
         /// <param name="by"></param>
         void SetLockedBy(object by);
+
+        bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity);
 
         /// <summary>
         /// Gets changes from changeTracker.
