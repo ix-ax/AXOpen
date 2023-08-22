@@ -83,7 +83,7 @@ NAMESPACE Cylinder.Tests
                 context.Close();                          
                 
                 AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
-                AxUnit.Assert.Equal(TRUE, _moveHomeSignal);   
+                AxUnit.Assert.Equal(FALSE, _moveHomeSignal);   
         END_METHOD
     END_CLASS    
 END_NAMESPACE
