@@ -50,6 +50,8 @@ namespace AXOpen.Data
 
         private IBrowsableDataObject _selectedRecord;
 
+        public bool IsHashCorrect { get; set; } = true;
+
         public IBrowsableDataObject SelectedRecord
         {
             get
@@ -64,12 +66,13 @@ namespace AXOpen.Data
                 {
                     DataExchange.FromRepositoryToShadowsAsync(value);
                     DataExchange.ChangeTrackerSetChanges(value);
+                    IsHashCorrect = DataExchange.IsHashCorrect(_selectedRecord, Asp.GetAuthenticationStateAsync().Result.User.Identity);
                     Changes = DataExchange.ChangeTrackerGetChanges().OrderBy(p => p.DateTime.Ticks).ToList();
                 }
             }
         }
 
-        public void Locked()
+        internal void Locked()
         {
             if (IsLockedByMeOrNull())
             {
@@ -87,7 +90,7 @@ namespace AXOpen.Data
             }
         }
 
-        public bool IsLockedByMeOrNull()
+        internal bool IsLockedByMeOrNull()
         {
             if(DataExchange.GetLockedBy() == null || DataExchange.GetLockedBy() == this)
                 return true;
