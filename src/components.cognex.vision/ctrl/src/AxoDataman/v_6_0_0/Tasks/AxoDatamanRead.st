@@ -95,7 +95,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     IF refResults^.Code = UINT#0 OR refResults^.Length=UINT#0 OR refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
                         THIS.ThrowWhen(TRUE);
                         IF refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
-                            refStatus^.Error.Id := UINT#712;
+                            refStatus^.Error.Id := UINT#713;
                         END_IF;
                     ELSE
                         THIS.CallTimers(FALSE);

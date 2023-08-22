@@ -1,9 +1,9 @@
 USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Abstractions    
+    {#ix-attr:[Container(Layout.Stack)]}
     CLASS PUBLIC AxoComponent_Status
         VAR PUBLIC
-            {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "ActionDescription: |[[1]ActionDescription]|"}
             {#ix-attr:[WarningLevel(600)]}
             {#ix-attr:[ErrorLevel(700)]}
