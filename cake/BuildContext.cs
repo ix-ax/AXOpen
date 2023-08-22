@@ -199,6 +199,11 @@ public class BuildContext : FrostingContext
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl", "apax.yml");
     }
 
+    public string GetApaxFile(string folder, string sub)
+    {
+        return Path.Combine(Path.Combine(RootDir, folder), sub, "apax.yml");
+    }
+
     public string GetApaxFile((string folder, string name, string targetIp, string targetPlatform) app)
     {
         return GetApaxFile((app.folder, app.name));
