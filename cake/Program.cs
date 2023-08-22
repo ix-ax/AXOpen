@@ -147,6 +147,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             {
                 context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
                 context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
+                context.UpdateApaxDependencies(context.GetApaxFile(lib.folder, "app"), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
             });
         }
 
