@@ -8,7 +8,9 @@
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq.Expressions;
+using System.Numerics;
 using System.Reflection;
+using System.Security.Principal;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes.Online;
@@ -25,11 +27,23 @@ public partial class AxoDataFragmentExchange
         return CreateBuilder() as T;
     }
 
+    public bool VerifyHash { get; set; } = false;
+
     public object CreateBuilder()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
         Repository = new AxoCompoundRepository(DataFragments);
+
+        foreach (var prop in this.GetType().GetProperties())
+        {
+            var attr = prop.GetCustomAttribute(typeof(AxoDataVerifyHashAttribute));
+            if (attr != null)
+            {
+                DataFragments.First(p => p.GetType() == prop.PropertyType).VerifyHash = true;
+            }
+        }
+
         return this;
     }
 
@@ -168,13 +182,27 @@ public partial class AxoDataFragmentExchange
         }
     }
 
+    public bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (!fragment.IsHashCorrect(entity, identity))
+                return false;
+        }
+        return true;
+    }
+
     public async Task CreateNewAsync(string identifier)
     {
         await Task.Run(() =>
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.Repository.Create(identifier, fragment.RefUIData.CreatePoco());
+                Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
+                poco.DataEntityId = identifier;
+                poco.Hash = HashHelper.CreateHash(poco);
+
+                fragment?.Repository.Create(identifier, poco);
             }
 
             DataFragments.First().Repository.Read(identifier);
@@ -195,6 +223,7 @@ public partial class AxoDataFragmentExchange
         {
             var plainer = await (fragment.RefUIData).ShadowToPlain<dynamic>();
             fragment.ChangeTrackerSaveObservedChanges(plainer);
+            plainer.Hash = HashHelper.CreateHash(plainer);
             fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
         }
     }
@@ -213,6 +242,7 @@ public partial class AxoDataFragmentExchange
         {
             var plainer = await fragment.RefUIData.OnlineToPlain<dynamic>();
             plainer.DataEntityId = recordId;
+            plainer.Hash = HashHelper.CreateHash(plainer);
             fragment.Repository.Create(plainer.DataEntityId, plainer);
             var plain = fragment.Repository.Read(plainer.DataEntityId);
             fragment.RefUIData.PlainToShadow(plain);
@@ -228,8 +258,9 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-            var source = await fragment.RefUIData.ShadowToPlain<IBrowsableDataObject>();
+            var source = (Pocos.AXOpen.Data.IAxoDataEntity)await fragment.RefUIData.ShadowToPlain<IBrowsableDataObject>();
             source.DataEntityId = recordId;
+            source.Hash = HashHelper.CreateHash(source);
             fragment.Repository.Create(source.DataEntityId, source);
         }
     }
@@ -252,11 +283,16 @@ public partial class AxoDataFragmentExchange
             {
                 var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
                 fragment.ChangeTrackerSaveObservedChanges(plainer);
+                plainer.Hash = HashHelper.CreateHash(plainer);
                 fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
             }
             else
             {
-                fragment.Repository.Create(recordId, fragment.RefUIData.CreatePoco());
+                Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
+                poco.DataEntityId = recordId;
+                poco.Hash = HashHelper.CreateHash(poco);
+
+                fragment.Repository.Create(recordId, poco);
             }
         }
 
