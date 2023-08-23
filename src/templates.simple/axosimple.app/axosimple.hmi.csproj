@@ -24,7 +24,6 @@
 	</ItemGroup>-->
 
 	<ItemGroup>
-	  <PackageReference Include="ClosedXML" Version="0.102.0" />
 	  <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.9" />
 	  <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
   </ItemGroup>
@@ -34,6 +33,7 @@
     <ProjectReference Include="..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
     <ProjectReference Include="..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
     <ProjectReference Include="..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
+    <ProjectReference Include="..\..\exporters\src\AXOpen.Data\ix_ax_axopen_exporters.csproj" />
     <ProjectReference Include="..\..\inspectors\src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj" />
     <ProjectReference Include="..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
     <ProjectReference Include="..\axosimple.twin\axosimple.csproj" />

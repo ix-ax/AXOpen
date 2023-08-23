@@ -9,7 +9,7 @@ using Microsoft.CSharp.RuntimeBinder;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.Authorization;
 
-namespace axosimple.hmi.CustomExport;
+namespace ix_ax_axopen_exporters;
 
 public class ExcelDataExporter<TPlain, TOnline> : BaseDataExporter<TPlain, TOnline>, IDataExporter<TPlain, TOnline> where TOnline : IAxoDataEntity
 where TPlain : Pocos.AXOpen.Data.IAxoDataEntity, new()
