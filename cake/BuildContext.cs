@@ -160,9 +160,23 @@ public class BuildContext : FrostingContext
     
     public string GitHubToken { get; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");
 
-    public string GetAxFolder((string folder, string name) library)
+    public IEnumerable<string> GetAxFolders((string folder, string name) library)
+    {
+        return new string[]
+        {
+            Path.Combine(Path.Combine(RootDir, library.folder), "ctrl"),
+            Path.Combine(Path.Combine(RootDir, library.folder), "app")
+        };
+    }
+
+    public string GetLibFolder((string folder, string name) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl");
+    }
+
+    public string GetAppFolder((string folder, string name) library)
+    {
+        return Path.Combine(Path.Combine(RootDir, library.folder), "app");
     }
 
     public string GetAxTestResultsFolder(string axFolder)
@@ -170,14 +184,24 @@ public class BuildContext : FrostingContext
         return Path.Combine(axFolder, "testresult");
     }
 
-    public string GetAxFolder((string folder, string name, string targetIp, string targetPlatform) app)
+    public IEnumerable<string> GetAxFolders((string folder, string name, string targetIp, string targetPlatform) app)
     {
-        return GetAxFolder((app.folder, app.name));
+        return GetAxFolders((app.folder, app.name));
+    }
+
+    public string GetAppFolder((string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        return GetAppFolder((app.folder, app.name));
     }
 
     public string GetApaxFile((string folder, string name) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl", "apax.yml");
+    }
+
+    public string GetApaxFile(string folder, string sub)
+    {
+        return Path.Combine(Path.Combine(RootDir, folder), sub, "apax.yml");
     }
 
     public string GetApaxFile((string folder, string name, string targetIp, string targetPlatform) app)

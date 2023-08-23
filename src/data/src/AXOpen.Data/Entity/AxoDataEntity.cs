@@ -16,6 +16,8 @@ namespace AXOpen.Data
 
         public List<ValueChangeItem> Changes { get; set; }
 
+        public string Hash { get; set; }
+
         public object? LockedBy { get; set; } = null;
     }
 

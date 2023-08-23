@@ -1,0 +1,46 @@
+﻿@namespace AXOpen.Core
+@using AXSharp.Connector.ValueTypes
+@using AXSharp.Connector;
+@using AXSharp.Presentation.Blazor.Controls.Layouts.TabControlComponents;
+@inherits RenderableComplexComponentBase<AxoBoolArray>;
+
+<div >
+    <div class="row ">
+        <div class="col">
+            @Component.AttributeName
+            <button class="btn btn-primary" type="button" @onclick="@Refresh">
+                <span class="oi oi-reload" aria-hidden="true" />
+            </button>
+        </div>
+    </div>
+    <div class="row flex-nowrap">
+        @if (this.Data != null)
+        {
+            @foreach (IndexedData<bool> item in this.Data)
+            {
+                if (item != null && @item.Index != null && @item.Data != null)
+                {
+                    <div class="col">
+                        <div>
+                            @item.Index
+                        </div>
+                        <div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" @bind="item.Data" disabled>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        }
+    </div>
+
+</div>
+
+@code {
+
+    private async Task Refresh()
+    {
+        UpdateData(null, null);
+    }
+}
