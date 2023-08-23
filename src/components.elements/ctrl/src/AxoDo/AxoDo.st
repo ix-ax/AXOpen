@@ -1,6 +1,9 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Elements
 
+    /// <summary>
+    /// Class representing Digital output
+    /// </summary>
     CLASS AxoDo EXTENDS AXOpen.Core.AxoComponent
 
         VAR
@@ -10,7 +13,7 @@ NAMESPACE AXOpen.Elements
 
         VAR PUBLIC
 
-
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-set:AttributeName = "<#On#>"}
             {#ix-attr:[ComponentHeader()]}
             _setTask : AxoTask;
@@ -40,7 +43,9 @@ NAMESPACE AXOpen.Elements
 
         END_METHOD
 
-
+        /// <summary>
+        /// Method, which sets or reset input/output value
+        /// </summary>
         METHOD PUBLIC Run
             VAR_INPUT
                 context : IAxoContext;

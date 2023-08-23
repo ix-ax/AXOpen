@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Inspectors
 
         
         VAR PUBLIC
+            
             _axoInspectorDialog : AxoInspectorDialog;
         END_VAR
         VAR

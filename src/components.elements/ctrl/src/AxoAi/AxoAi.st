@@ -38,10 +38,9 @@ NAMESPACE AXOpen.Elements
         _messengerOutOfBoundaries : AXOpen.Messaging.Static.AxoMessenger;
     END_VAR
 
-        VAR
-            _signal : DINT;
-
-        END_VAR
+    VAR
+        _signal : DINT;
+    END_VAR
 
     /// <summary>
     /// Method, which scales input signal based on configuration

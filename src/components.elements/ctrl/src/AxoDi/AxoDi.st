@@ -8,12 +8,12 @@ NAMESPACE AXOpen.Elements
 
         VAR
             _inSignal : BOOL;
-
         END_VAR
 
         VAR PUBLIC
             
             // task, which checks if signal is on
+            {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-set:AttributeName = "<#Check on#>"}
             {#ix-attr:[ComponentHeader()]}
             _isTrueTask : AxoTask;
@@ -92,7 +92,7 @@ NAMESPACE AXOpen.Elements
         /// <summary>
         /// Returns TRUE if signal is off. It creates alarm otherwise.
         /// </summary>
-        METHOD PUBLIC IsFalse:BOOL
+        METHOD PUBLIC IsFalse : BOOL
             IsFalse := NOT _inSignal;
 
             IF NOT IsFalse THEN

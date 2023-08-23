@@ -21,7 +21,7 @@ NAMESPACE AxoIO.Tests
    
             context.Open();
             _signal := TRUE;
-            _testAxoDi.Run(context,_signal);
+            _testAxoDi.Run(context, _signal);
 
             AxUnit.Assert.Equal(TRUE, _testAxoDi.IsTrue());
             AxUnit.Assert.Equal(FALSE, _testAxoDi.IsFalse());
