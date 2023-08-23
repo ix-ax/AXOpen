@@ -14,10 +14,14 @@ variables:
   APAX_BUILD_ARGS: [-d]
 scripts:
   ixc:
+    - START=$(date +%s)
     - dotnet tool restore
     - dotnet ixc
+    - echo "Builded by ixc in :" $(expr $(date +%s) - $START) "s"
   download:
+    - START=$(date +%s)
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
@@ -63,6 +67,8 @@ scripts:
     - apax install
     - apax rr
   da:
+    - START=$(date +%s)
     - apax do-it-all
+    - echo "Finished in :" $(expr $(date +%s) - $START) "s"
 targets:
-  - plcsim
+  - axunit-llvm

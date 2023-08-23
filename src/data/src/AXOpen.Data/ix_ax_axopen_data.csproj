@@ -13,8 +13,8 @@
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.10" />
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.133" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.133" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.134" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.134" />
 	</ItemGroup>
 
 	<ItemGroup>

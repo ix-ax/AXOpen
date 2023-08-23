@@ -1,0 +1,38 @@
+﻿@page "/Simatic-ax"
+@using axopen_components_cognex_vision_integrations
+@using System.Data
+@using System.ComponentModel
+
+
+<PageTitle>simatic-ax</PageTitle>
+
+<h1>Simatic-AX + IX in Blazor</h1>
+
+
+<img src="assets/logos/ax_100.png" class="img-fluid" alt="...">
+<img src="assets/logos/logo-white_100.png" class="img-fluid" alt="...">
+<img src="assets/logos/BrandBlazor_100.png" class="img-fluid" alt="...">
+
+<br/>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <RenderableContentControl Presentation="Control-Base"
+                                      Context="@Entry.Plc.I_am_alive" PollingInterval="100" />
+        </div>
+        <div class="col">
+            <div class="pt-4">
+                <button class="btn btn-primary" @onclick="() => Entry.Plc.I_am_alive.SetAsync(0)">RESET COUNTER</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private int currentCount = 0;
+
+    
+}
