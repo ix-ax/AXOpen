@@ -8,7 +8,6 @@ NAMESPACE AXOpen.Elements
         
         VAR PUBLIC
 
-
             /// required value
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-set:AttributeName = "<#SetPoint#>"}
@@ -24,6 +23,7 @@ NAMESPACE AXOpen.Elements
             {#ix-attr:[ComponentHeader()]}
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}   
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Status#>"}
             _status : AxoAoStatus;	
     
@@ -52,7 +52,7 @@ NAMESPACE AXOpen.Elements
         /// <summary>
         /// Method, which unscales input signal based on configuration and writes it to output
         /// </summary>
-        METHOD PUBLIC AxoAoSignal
+        METHOD PUBLIC Run
 
             VAR_INPUT
                 context : IAxoContext;

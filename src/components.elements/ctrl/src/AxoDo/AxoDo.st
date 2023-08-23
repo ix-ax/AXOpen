@@ -41,7 +41,7 @@ NAMESPACE AXOpen.Elements
         END_METHOD
 
 
-        METHOD PUBLIC AxoDoSignal : BOOL
+        METHOD PUBLIC Run
             VAR_INPUT
                 context : IAxoContext;
             END_VAR

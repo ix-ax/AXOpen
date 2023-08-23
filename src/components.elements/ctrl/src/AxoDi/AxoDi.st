@@ -48,14 +48,11 @@ NAMESPACE AXOpen.Elements
         /// <summary>
         /// Method, which implement logic for checking of digital input
         /// </summary>
-        METHOD PUBLIC AxoDiSignal :BOOL
+        METHOD PUBLIC Run
 
             VAR_INPUT
                 context : IAxoContext;
-            END_VAR
-            VAR_IN_OUT
-                
-                inoSignal: BOOL;
+                inSignal: BOOL;
             END_VAR
 
             THIS.Initialize(context);
@@ -65,7 +62,7 @@ NAMESPACE AXOpen.Elements
             _messengerInfoPositive.Serve(THIS); 
             _messengerInfoNegative.Serve(THIS); 
 
-            THIS._inSignal := inoSignal;	
+            THIS._inSignal := inSignal;	
 
 
             IF(_isTrueTask.Execute())THEN

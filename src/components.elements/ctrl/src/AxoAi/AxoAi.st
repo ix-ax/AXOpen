@@ -5,7 +5,6 @@ NAMESPACE AXOpen.Elements
     /// </summary>
     CLASS AxoAi EXTENDS AXOpen.Core.AxoComponent
 
-
     VAR PUBLIC
 
         /// configuration for calculations
@@ -17,6 +16,7 @@ NAMESPACE AXOpen.Elements
         {#ix-attr:[ComponentHeader()]}
         {#ix-attr:[Container(Layout.Wrap)]}
         {#ix-attr:[Group(GroupLayout.GroupBox)]}   
+        {#ix-attr:[ReadOnly()]}
         {#ix-set:AttributeName = "<#Status#>"}
         _status : AxoAiStatus;	
 
@@ -46,22 +46,20 @@ NAMESPACE AXOpen.Elements
     /// <summary>
     /// Method, which scales input signal based on configuration
     /// </summary>
-    METHOD PUBLIC AxoAiSignal :BOOL
+    METHOD PUBLIC Run 
 
         VAR_INPUT
             context : IAxoContext;
+            inSignal: DINT;
         END_VAR
-        VAR_IN_OUT
-            
-            inoSignal: DINT;
-        END_VAR
+        
 
         THIS.Initialize(context);
         _messengerDivisionByZero.Serve(THIS); 
         _messengerGainNotDefined.Serve(THIS); 
         _messengerOutOfBoundaries.Serve(THIS);
 
-        _signal := inoSignal;
+        _signal := inSignal;
         //scaling
         _rawRange  := TO_REAL(_config.RawHigh - _config.RawLow);
         _realRange := _config.RealHigh - _config.RealLow;
