@@ -66,5 +66,3 @@ scripts:
     - apax do-it-all
 targets:
   - plcsim
-  - axunit-llvm
-  - llvm

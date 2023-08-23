@@ -5,7 +5,6 @@ devDependencies:
   "@ax/sdk": 4.0.3
 dependencies:
   "@ix-ax/axopen_components_pneumatics": 0.1.4-alpha.79
-  "@ax/axunit": ^4.0.7
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
@@ -58,7 +57,7 @@ scripts:
   rr:
     - apax build
     - apax download
-    - apax watch
+    # - apax watch
   fr:
     - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
     - apax da

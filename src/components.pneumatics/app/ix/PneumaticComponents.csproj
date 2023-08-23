@@ -7,9 +7,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.1-alpha.130" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.1-alpha.130" />
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.1-alpha.130" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.133" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.133" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.2-alpha.133" />
 	</ItemGroup>
 
 	<ItemGroup>
