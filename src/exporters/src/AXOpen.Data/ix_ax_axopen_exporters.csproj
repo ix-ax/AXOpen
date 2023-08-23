@@ -13,9 +13,6 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.10" />
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.1-alpha.134" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.1-alpha.134" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -25,10 +22,7 @@
 
 
 	<ItemGroup>
-	    <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
-	    <ProjectReference Include="..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
-	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
-	  <ProjectReference Include="..\..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
+		<ProjectReference Include="..\..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
