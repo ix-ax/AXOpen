@@ -17,7 +17,7 @@
         </div>
         <div class="p-1 flex-shrink-1">
             
-            @switch (AlarmLevel)
+            @switch (AlarmLevel().Result)
             {
                 case eAlarmLevel.NoAlarms:
                     break;
@@ -88,7 +88,7 @@
         </div>
     }
     
-    @if (AlarmLevel > eAlarmLevel.NoAlarms)
+    @if (AlarmLevel().Result > eAlarmLevel.NoAlarms)
     {
         @if (!areAlarmsCollapsed)
         {

@@ -13,8 +13,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.9" />
-	<PackageReference Include="AXSharp.Presentation.Blazor" Version="0.14.1-alpha.130" />
-	<PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.1-alpha.130" />
+	<PackageReference Include="AXSharp.Presentation.Blazor" Version="0.14.2-alpha.134" />
+	<PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.2-alpha.134" />
   </ItemGroup>
 
   <ItemGroup>

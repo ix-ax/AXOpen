@@ -16,6 +16,7 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
+		<ProjectReference Include="..\..\..\components.cognex.vision\src\AXOpen.Cognex.Vision.Blazor\axopen_cognex_vision_blazor.csproj" />
 		<ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
 		<ProjectReference Include="..\..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
 		<ProjectReference Include="..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
@@ -38,7 +39,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.1-alpha.130" />
+		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.2-alpha.134" />
 	</ItemGroup>
 	<!--REF_PCKG_END-->
 	<ItemGroup>

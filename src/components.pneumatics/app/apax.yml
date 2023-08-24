@@ -1,22 +1,69 @@
 name: "pneumaticcomponents"
-version: 0.0.0
+version: '0.1.4-alpha.79'
 type: app
-targets:
-  - "1500"
-  - plcsim
-  - axunit-llvm
-variables:
-  APAX_BUILD_ARGS:
-    - "--debug" # Generate debug information for target "1500"
 devDependencies:
   "@ax/sdk": 4.0.3
 dependencies:
-  "@ix-ax/axopen_components_pneumatics" : 0.1.4-alpha.79
+  "@ix-ax/axopen_components_pneumatics": 0.1.4-alpha.79
+variables:
+  APAX_BUILD_ARGS:
+    - "--debug" # Generate debug information for target "1500"
 scripts:
-  download:
-    - apax install -L
-    - apax build
+  ixc:
+    - START=$(date +%s)
+    - dotnet tool restore
     - dotnet ixc
-    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET --accept-security-disclaimer --default-server-interface -r
-  
-
+    - echo "Builded by ixc in :" $(expr $(date +%s) - $START) "s"
+  download:
+    - START=$(date +%s)
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
+  check+download: |
+    if [ $AXTARGET ]; then
+      if [ $AXTARGETPLATFORMINPUT ]; then
+        if ping -n 1 $AXTARGET &> /dev/null; then
+          echo "Downloading from:" $AXTARGETPLATFORMINPUT "=>" $AXTARGET
+          apax download
+        else
+          echo "Target with IP address:" $AXTARGET "is not accessible. No download is going to be performed!!!"
+        fi
+      else
+        echo "Environment variable AXTARGETPLATFORMINPUT not defined!!!"
+      fi
+    else
+      echo "Environment variable AXTARGET not defined!!!"
+    fi
+  do-it-all:
+    - apax install
+    - apax build
+    - apax download
+  update-targets: |
+    if [ $AXBUILDTARGET_1 ]; then
+      yq -i "del(.targets)" apax.yml
+      yq -i ".targets[0] = strenv(AXBUILDTARGET_1)" apax.yml
+      if [ $AXBUILDTARGET_2 ]; then
+        yq -i ".targets[1] = strenv(AXBUILDTARGET_2)" apax.yml
+      fi
+      if [ $AXBUILDTARGET_3 ]; then
+        yq -i ".targets[2] = strenv(AXBUILDTARGET_3)" apax.yml
+      fi
+    fi
+  prebuild:
+    - apax update-targets
+  postbuild:
+    - apax ixc
+  watch:
+    - dotnet watch --project ..\\app_src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
+  rr:
+    - apax build
+    - apax download
+    # - apax watch
+  fr:
+    - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
+    - apax da
+  da:
+    - START=$(date +%s)
+    - apax do-it-all
+    - echo "Finished in :" $(expr $(date +%s) - $START) "s"
+targets:
+  - plcsim

@@ -7,12 +7,16 @@ files:
   - src
 variables:
   APAX_BUILD_ARGS:
-    - "--debug" 
-  AXUNIT_TARGET_IP : "192.168.0.4"
-  SIM_ENABLED : "true"
+    - "--debug"
+  AXUNIT_TARGET_IP: "172.20.30.110"
+  SIM_ENABLED: "true"
 devDependencies:
-  "@ax/sdk": ^4.0.3  
-dependencies: 
+  "@ax/sdk": ^4.0.3
+dependencies:
   "@ix-ax/axopen.components.abstractions": '0.1.4-alpha.79'
-  "@ix-ax/axopen.core" : 0.1.4-alpha.79  
-
+  "@ix-ax/axopen.core": 0.1.4-alpha.79
+scripts:
+  download:
+    - START=$(date +%s)
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"

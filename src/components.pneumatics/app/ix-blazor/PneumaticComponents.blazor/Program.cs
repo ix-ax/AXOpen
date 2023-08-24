@@ -42,6 +42,9 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));
 
+
+//Entry.Plc.sandbox.Logger.StartDequeuing(AxoApplication.Current.Logger, 250);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
