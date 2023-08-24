@@ -2,11 +2,11 @@
 
 # Components
 
-| REVISION | DATE      | NOTES           |
-|----------|-----------|-----------------|
-| 0.0      | June 2023 | Initial release |
-| 0.1      | August 2023 | Initial release |
-| 0.2      | August 2023 | Documentation requirements |
+| REVISION |    DATE     |                 NOTES                 |
+| -------- | ----------- | ------------------------------------- |
+| 0.0      | June 2023   | Initial release                       |
+| 0.1      | August 2023 | Initial release                       |
+| 0.2      | August 2023 | Documentation requirements and others |
 
 
 This document describes the format and practices for writing components in TcOpen. These are universal rules to observe. Each rule knows exception when there is a reasonable argument behind it.
@@ -21,7 +21,7 @@ This document describes the format and practices for writing components in TcOpe
 * Component should properly hide implementation details by marking methods preferably ```PROTECTED```.
 * Consider using the ```PRIVATE``` access modifier to prevent any access to that member if you deem it necessary. Be aware, though, that private members cannot be overridden by a derived class.
 * If there are any testing methods in the same library with the component, these must be marked ```INTERNAL```.
-* Each action of the component should be implemented using the ```TcoTask``` class. There is no exception to this rule, even for the actions that require a single cycle to complete. Task's ```Invoke``` should be placed into a method with an appropriate name (MoveAbsolute, MoveHome, Measure).
+* Each action of the component should be implemented using the ```AxoTask``` class. There is no exception to this rule, even for the actions that require a single cycle to complete. Task's ```Invoke``` should be placed into a method with an appropriate name (MoveAbsolute, MoveHome, Measure).
 
 ### Cyclic call
 
@@ -110,12 +110,12 @@ The components for particular components are placed into appropriate library. Li
 ## Testing requirements
 
 - Each public and protected controller's method must be unit-tested using axunit.
-- When reasonable use integration testing using `prober`` library to test the interaction between controller and .NET twin. 
+- When reasonable use integration testing using `prober` library to test the interaction between controller and .NET twin. 
 
 
 ## Documentation requirements
 
 ### Public classes
 
-- Public and protected members (methods, fields) must have in code documentation. [See Documentation comments for more details](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/).
-- Public and protected members must have application examples (should be referenced from the actuall app code). PLC Application examples should be placed in `app/src/Documentation/` of the library folder, the code should be compilable and functional to the extent it is possible with ommited hardware. NET twin examples should be places in `app/ix-blazor` and `app-ix` folder. For details how to reference code snippet [see here](https://dotnet.github.io/docfx/docs/markdown.html?q=referebce+code&tabs=linux%2Cdotnet#code-snippet).
+- Public and protected members (methods, fields) must have in code documentation. [See Documentation comments for more details](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/) and [docfx markup](https://dotnet.github.io/docfx/docs/markdown.html?q=referebce+code&tabs=linux%2Cdotnet).
+- Public methods than implement actions and initialization must have application examples (should be referenced from the actuall app code). PLC Application examples should be placed in `app/src/Documentation/` of the library folder, the code should be compilable and functional to the extent it is possible with ommited hardware. NET twin examples should be places in `app/ix-blazor` and `app/ix` folder. For details how to reference code snippet [see here](https://dotnet.github.io/docfx/docs/markdown.html?q=referebce+code&tabs=linux%2Cdotnet#code-snippet).
