@@ -6,6 +6,8 @@
       "core\\src\\AXOpen.Core.Blazor\\axopen_core_blazor.csproj",
       "core\\src\\AXOpen.Core\\ix_ax_axopen_core.csproj",
       "core\\tests\\AXOpen.Core.Tests\\axopen_core_tests.csproj",
+      "components.cognex.vision\\tests\\AXOpen.Cognex.Vision.Tests\\axopen_cognex_vision_tests.csproj",
+      "components.pneumatics\\tests\\AXOpen.Components.Pneumatics.Tests\\AXOpen.Components.Pneumatics_tests.csproj",
       "data\\src\\AXOpen.Data.Blazor\\axopen_data_blazor.csproj",
       "data\\src\\AXOpen.Data\\ix_ax_axopen_data.csproj",
       "data\\src\\repositories\\InMemory\\AXOpen.Data.InMemory.csproj",

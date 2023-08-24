@@ -7,6 +7,8 @@
       "components.abstractions\\src\\AXOpen.Components.Abstractions\\ix_ax_axopen_components_abstractions.csproj",
       "components.cognex.vision\\src\\AXOpen.Cognex.Vision.Blazor\\axopen_cognex_vision_blazor.csproj",
       "components.cognex.vision\\src\\AXOpen.Cognex.Vision\\ix_ax_axopen_cognex_vision.csproj",
+      "components.pneumatics\\src\\AXOpen.Components.Pneumatics.blazor\\AXOpen.Components.Pneumatics.blazor.csproj",
+      "components.pneumatics\\src\\AXOpen.Components.Pneumatics\\ix_ax_axopen_components_pneumatics.csproj",
       "core\\src\\AXOpen.Core.Blazor\\axopen_core_blazor.csproj",
       "core\\src\\AXOpen.Core\\ix_ax_axopen_core.csproj",
       "data\\src\\AXOpen.Data.Blazor\\axopen_data_blazor.csproj",
