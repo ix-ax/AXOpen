@@ -207,9 +207,7 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             IF(Condition) THEN                        
                 _moveWorkSignal := FALSE;   
-                // _MoveToWorkSuspended.Activate(eAxoMessageCategory#Info);
             END_IF;   
-            //IF(Condition AND NOT _MoveToWorkTask.IsBusy()) THEN _Messenger.Activate(4, eAxoMessageCategory#Info); END_IF;
             _Messenger.ActivateOnCondition(4, Condition AND NOT _MoveToWorkTask.IsBusy(), eAxoMessageCategory#Info);
             _MoveToWorkIsSuspended := Condition;
         END_METHOD        
@@ -224,9 +222,7 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             IF(Condition) THEN                        
                 _moveHomeSignal := FALSE;   
-                // _MoveToHomeSuspended.Activate(eAxoMessageCategory#Info);
             END_IF;    
-            //IF(Condition AND NOT _MoveToHomeTask.IsBusy()) THEN _Messenger.Activate(5, eAxoMessageCategory#Info); END_IF;
             _Messenger.ActivateOnCondition(5, Condition AND NOT _MoveToHomeTask.IsBusy(), eAxoMessageCategory#Info);
             _MoveToHomeIsSuspended := Condition;
         END_METHOD    
@@ -241,9 +237,7 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             IF(Condition) THEN                        
                 _moveWorkSignal := FALSE;   
-                // _MoveToWorkAborted.Activate(eAxoMessageCategory#Info);
             END_IF;    
-            // IF(Condition) THEN _Messenger.Activate(6, eAxoMessageCategory#Info); END_IF;
             _Messenger.ActivateOnCondition(6, Condition, eAxoMessageCategory#Info);
             _MoveToWorkTask.IsDisabled := Condition;
         END_METHOD        
@@ -258,9 +252,7 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             IF(Condition) THEN                        
                 _moveHomeSignal := FALSE;   
-                // _MoveToHomeAborted.Activate(eAxoMessageCategory#Info);
             END_IF;    
-            // IF(Condition) THEN _Messenger.Activate(7, eAxoMessageCategory#Info); END_IF;
             _Messenger.ActivateOnCondition(7, Condition, eAxoMessageCategory#Info);
             _MoveToHomeTask.IsDisabled := Condition;
         END_METHOD        
