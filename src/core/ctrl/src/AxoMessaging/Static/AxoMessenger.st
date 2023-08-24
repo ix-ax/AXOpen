@@ -3,6 +3,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Messaging.Static    
     {#ix-prop: public string MessageText }
+    {#ix-prop: public string MessageTextList }
     {#ix-prop: public string Help }
     CLASS AxoMessenger EXTENDS AxoObject IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties        
         VAR PUBLIC
@@ -11,7 +12,7 @@ NAMESPACE AXOpen.Messaging.Static
             {#ix-attr:[ReadOnly()]}
             Category : eAxoMessageCategory;           
             {#ix-attr:[ReadOnly()]}
-            MessageCode : ULINT;
+            MessageCode : INT;
             {#ix-attr:[ReadOnly()]}
             Risen : LDATE_AND_TIME;
             {#ix-attr:[ReadOnly()]}
@@ -29,7 +30,7 @@ NAMESPACE AXOpen.Messaging.Static
 
         VAR PRIVATE
             ActiveContextCount : ULINT;
-            Context : IAxoContext;           
+            Context : IAxoContext;         
         END_VAR
 
         METHOD PUBLIC Serve 
@@ -42,13 +43,24 @@ NAMESPACE AXOpen.Messaging.Static
             END_IF;
 
             Context := _context;
-            
-            IF IsActive THEN
-                IF  Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
-                    THIS.Deactivate();
+
+            IF MessageCode = INT#0 THEN
+                IF IsActive THEN
+                    IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
+                        THIS.Deactivate();
+                    END_IF;
+                ELSIF AcknowledgedBeforeFallen THEN
+                    AcknowledgedBeforeFallen := FALSE;
                 END_IF;
             ELSE
-                AcknowledgedBeforeFallen := FALSE;
+                IF IsActive THEN
+                    IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
+                        THIS.Deactivate(MessageCode);
+                    END_IF;
+                ELSIF AcknowledgedBeforeFallen THEN
+                    AcknowledgedBeforeFallen := FALSE;
+                    MessageCode := INT#0;
+                END_IF;
             END_IF;
 
             IF AcknowledgeRequest THEN
@@ -74,31 +86,174 @@ NAMESPACE AXOpen.Messaging.Static
             END_VAR
 
             Activate := THIS;
-
             
             IF AXOpen.Core.IsNullContext(Context) THEN
                 RETURN;
             END_IF;
             
-            IF ActiveContextCount = ULINT#0 THEN                
+            IF MessageCode = INT#0 THEN
+                IF ActiveContextCount = ULINT#0 THEN                
+                    Risen := Context.GetRtc().NowUTC();
+                    Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+                    Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+                    WaitingForAcknowledge := FALSE;
+                    Context.GetLogger().Log('Risen', THIS.ToLogLevel(_category), THIS);
+                END_IF;
+
+                ActiveContextCount := Context.OpenCycleCount();
+
+                Category := _category;
+
+                AcknowledgementRequired := Category >= eAxoMessageCategory#Error;
+
+                IsActive := TRUE;
+            END_IF;
+
+            Activate := THIS;
+        END_METHOD   
+        
+        METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
+            VAR_INPUT
+                _messageCode : INT;
+                _category : eAxoMessageCategory;
+            END_VAR
+
+            Activate := THIS;
+            
+            IF AXOpen.Core.IsNullContext(Context) THEN
+                RETURN;
+            END_IF;
+            
+            IF NOT IsActive AND NOT WaitingForAcknowledge AND MessageCode = INT#0 AND ActiveContextCount = ULINT#0 THEN                
                 Risen := Context.GetRtc().NowUTC();
                 Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 WaitingForAcknowledge := FALSE;
                 Context.GetLogger().Log('Risen', THIS.ToLogLevel(_category), THIS);
+                MessageCode := _messageCode;
             END_IF;
-
-            ActiveContextCount := Context.OpenCycleCount();
-
-            Category := _category;
-
-            AcknowledgementRequired := Category >= eAxoMessageCategory#Error;
-
-            IsActive := TRUE;
+            IF MessageCode = _messageCode THEN
+                ActiveContextCount := Context.OpenCycleCount();
+                Category := _category;
+                AcknowledgementRequired := Category >= eAxoMessageCategory#Error;
+                IsActive := TRUE;
+            END_IF;
 
             Activate := THIS;
         END_METHOD   
         
+        
+        // METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
+        //     VAR_INPUT
+        //         _messageCode : INT;
+        //         _category : eAxoMessageCategory;
+        //     END_VAR
+
+        //     Activate := THIS;
+
+        //     IF NOT IsActive AND NOT WaitingForAcknowledge THEN
+        //         MessageCode := _messageCode;
+        //     END_IF;
+        //     Activate := THIS.Activate(_category);
+        // END_METHOD   
+
+        // METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
+        //     Activate := THIS;
+        //     Activate := THIS.Activate(eAxoMessageCategory#All);
+        // END_METHOD   
+
+        METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
+            VAR_INPUT
+                _condition : BOOL;
+                _category : eAxoMessageCategory;
+            END_VAR
+
+            ActivateOnCondition := THIS;
+
+            IF _condition THEN
+                ActivateOnCondition := THIS.Activate(_category);                    
+            ELSE
+                THIS.Deactivate();        
+            END_IF;
+        END_METHOD   
+
+        METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
+            VAR_INPUT
+                _messageCode : INT;
+                _condition : BOOL;
+                _category : eAxoMessageCategory;
+            END_VAR
+
+            ActivateOnCondition := THIS;
+
+            IF NOT IsActive AND NOT WaitingForAcknowledge AND _condition THEN
+                MessageCode := _messageCode;
+            END_IF;
+            IF _condition THEN
+                ActivateOnCondition := THIS.Activate(_messageCode,_category);                    
+            ELSE
+                THIS.Deactivate(_messageCode);        
+            END_IF;
+        END_METHOD   
+
+        METHOD PRIVATE Deactivate
+            VAR_INPUT
+                _messageCode : INT;
+            END_VAR
+
+            IF AXOpen.Core.IsNullContext(Context) THEN
+                RETURN;
+            END_IF;
+
+            IF IsActive AND MessageCode = _messageCode THEN
+                IsActive := FALSE;
+                ActiveContextCount := ULINT#0;
+                Fallen := Context.GetRtc().NowUTC();                
+                Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
+                IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
+                    WaitingForAcknowledge := TRUE;
+                ELSE
+                    MessageCode := INT#0;
+                END_IF;
+            END_IF;
+        END_METHOD   
+
+        METHOD PRIVATE Deactivate
+            IF AXOpen.Core.IsNullContext(Context) THEN
+                RETURN;
+            END_IF;
+
+            IF IsActive AND MessageCode = INT#0 THEN
+                IsActive := FALSE;
+                ActiveContextCount := ULINT#0;
+                Fallen := Context.GetRtc().NowUTC();                
+                Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
+                IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
+                    WaitingForAcknowledge := TRUE;
+                END_IF;
+            END_IF;
+        END_METHOD   
+
+        METHOD PUBLIC Acknowledge
+            IF AXOpen.Core.IsNullContext(Context) THEN
+                RETURN;
+            END_IF;
+
+            IF NOT AcknowledgementRequired THEN
+                RETURN;
+            END_IF;
+
+            IF NOT WaitingForAcknowledge THEN
+                AcknowledgedBeforeFallen := TRUE;
+            ELSE
+                WaitingForAcknowledge := FALSE;
+                MessageCode := INT#0;
+            END_IF;
+            AcknowledgeRequest := FALSE;
+
+            Acknowledged := Context.GetRtc().NowUTC();
+        END_METHOD    
+
         METHOD PRIVATE ToLogLevel : eLogLevel
             VAR_INPUT
                 _messageCategory : eAxoMessageCategory;
@@ -130,57 +285,6 @@ NAMESPACE AXOpen.Messaging.Static
             END_CASE;
 
         END_METHOD    
-
-        METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
-            VAR_INPUT
-                _condition : BOOL;
-                _category : eAxoMessageCategory;
-            END_VAR
-
-            ActivateOnCondition := THIS;
-
-            IF _condition THEN
-                ActivateOnCondition := THIS.Activate(_category);                    
-            ELSE
-                THIS.Deactivate();        
-            END_IF;
-
-        END_METHOD   
-
-        METHOD PUBLIC Acknowledge
-            IF AXOpen.Core.IsNullContext(Context) THEN
-                RETURN;
-            END_IF;
-
-            IF NOT AcknowledgementRequired THEN
-                RETURN;
-            END_IF;
-
-            IF NOT WaitingForAcknowledge THEN
-                AcknowledgedBeforeFallen := TRUE;
-            ELSE
-                WaitingForAcknowledge := FALSE;
-            END_IF;
-            AcknowledgeRequest := FALSE;
-
-            Acknowledged := Context.GetRtc().NowUTC();
-        END_METHOD    
-
-        METHOD PRIVATE Deactivate
-            IF AXOpen.Core.IsNullContext(Context) THEN
-                RETURN;
-            END_IF;
-
-            IF IsActive THEN
-                IsActive := FALSE;
-                ActiveContextCount := ULINT#0;
-                Fallen := Context.GetRtc().NowUTC();                
-                Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
-                IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
-                    WaitingForAcknowledge := TRUE;
-                END_IF;
-            END_IF;
-        END_METHOD   
 
         METHOD PUBLIC RequireAcknowledgement : AXOpen.Messaging.Static.IAxoMessageProperties
             AcknowledgementRequired := TRUE;

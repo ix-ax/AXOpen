@@ -13,14 +13,18 @@ CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
         _abortMoveToWork : BOOL;
         {#ix-set:AttributeName = "<#Abort move to home#>"}
         _abortMoveToHome : BOOL;
+
+        {#ix-attr:[Container(Layout.UniformGrid)]}
+        {#ix-set:AttributeName = "<#Work sensor simulation#>"}
+        _workSensor : BOOL;
+        {#ix-set:AttributeName = "<#Home sensor simulation#>"}
+        _homeSensor : BOOL;
         {#ix-attr:[Container(Layout.Stack)]}
         {#ix-set:AttributeName = "<#Test cylinder#>"}
         _testCyclinder : AXOpen.Components.Pneumatics.AxoCylinder;        
     END_VAR
 
     VAR PRIVATE
-        _homeSensor : BOOL;
-        _workSensor : BOOL;
         _moveHomeSignal : BOOL;
         _moveWorkSignal : BOOL;
     END_VAR    

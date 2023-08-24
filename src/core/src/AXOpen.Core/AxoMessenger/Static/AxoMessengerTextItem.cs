@@ -5,10 +5,16 @@
 // https://github.com/PTKu/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/PTKu/ix/blob/master/notices.md
 
-namespace AXOpen.Core;
+namespace AXOpen.Messaging.Static;
 
-public partial class AxoSequencerContainer
+public class AxoMessengerTextItem
 {
-    public string TabName { get; }
+    public string MessageText { get; }
+    public string HelpText { get; }
 
+    public AxoMessengerTextItem(string messageText,string helpText)
+    {
+        MessageText = messageText;
+        HelpText = helpText;
+    }
 }

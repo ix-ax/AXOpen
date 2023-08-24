@@ -133,8 +133,10 @@ namespace AXOpen.Messaging.Static
         }
         private string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
         private string Symbol => !(string.IsNullOrEmpty(Component.Symbol)) ? Component.Symbol : "Unable to retrieve symbol!";
-        private string MessageText => !(string.IsNullOrEmpty(Component.MessageText)) ? Component.MessageText : "Message text not defined!";
-        private string HelpText => !(string.IsNullOrEmpty(Component.Help)) ? Component.Help : "Help not defined!";
+        //private string MessageText => !(string.IsNullOrEmpty(Component.MessageText)) ? Component.MessageText : "Message text not defined!";
+        private string MessageText => GetMessageText();
+        //private string HelpText => !(string.IsNullOrEmpty(Component.Help)) ? Component.Help : "Help not defined!";
+        private string HelpText => GetHelpText();
         private string Risen => !(string.IsNullOrEmpty(Component.Risen.Cyclic.ToString())) ? Component.Risen.Cyclic.ToString() : "";
         private string Fallen => !(string.IsNullOrEmpty(Component.Fallen.Cyclic.ToString())) ? Component.Fallen.Cyclic.ToString() : "";
         private string Acknowledged => !(string.IsNullOrEmpty(Component.Acknowledged.Cyclic.ToString())) ? Component.Acknowledged.Cyclic.ToString() : "";
@@ -144,6 +146,68 @@ namespace AXOpen.Messaging.Static
         private bool AcknowledgementDoesNotRequired => !AcknowledgementRequired;
         private bool WaitingForAcknowledge => Component.WaitingForAcknowledge.Cyclic;
         private bool HideAckowledgeButton => !AcknowledgementRequired || AcknowledgedBeforeFallen || (!IsActive && !WaitingForAcknowledge);
+
+        private string GetMessageText()
+        {
+            int messageCode = Component.MessageCode.Cyclic;
+            string retVal = "";
+
+            if (Component.MessageCode.Cyclic == 0)
+                retVal = string.IsNullOrEmpty(Component.MessageText) ? "Message text not defined!" : Component.MessageText;
+            else
+            {
+                try
+                {
+                    if(Component.AxoMessengerTextList != null && Component.AxoMessengerTextList.Count > 0)
+                    {
+                        string _messageText = (from item in Component.AxoMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_messageText) ? "Message text not defined for the message code: " + messageCode.ToString() + " !" : _messageText;
+                    }
+                    else
+                    {
+                        retVal = "Message text not defined for the message code: " + messageCode.ToString() + " !";
+                    }
+                }
+                catch (Exception)
+                {
+                    retVal = "Message text not defined for the message code: " + messageCode.ToString() + " !";
+                    return retVal;
+                    throw;
+                }
+            }
+            return retVal;
+        }
+
+        private string GetHelpText()
+        {
+            int messageCode = Component.MessageCode.Cyclic;
+            string retVal = "";
+
+            if (Component.MessageCode.Cyclic == 0)
+                retVal = string.IsNullOrEmpty(Component.Help) ? "Help text not defined!" : Component.Help;
+            else
+            {
+                try
+                {
+                    if (Component.AxoMessengerTextList != null && Component.AxoMessengerTextList.Count > 0)
+                    {
+                        string _helpText = (from item in Component.AxoMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_helpText) ? "Help text not defined for the message code: " + messageCode.ToString() + " !" : _helpText;
+                    }
+                    else
+                    {
+                        retVal = "Help text not defined for the message code: " + messageCode.ToString() + " !";
+                    }
+                }
+                catch (Exception)
+                {
+                    retVal = "Help text not defined for the message code: " + messageCode.ToString() + " !";
+                    return retVal;
+                    throw;
+                }
+            }
+            return retVal;
+        }
     }
 
     public class AxoMessengerCommandView : AxoMessengerView
