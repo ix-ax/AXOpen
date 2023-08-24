@@ -12,4 +12,5 @@ PROGRAM MyProgram
 
     END_VAR
     sandbox.Run();    
+    documentation.Run();
 END_PROGRAM

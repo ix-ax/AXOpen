@@ -99,10 +99,29 @@
 <td>August 2023</td>
 <td>Initial release</td>
 </tr>
+<tr>
+<td>0.2</td>
+<td>August 2023</td>
+<td>Documentation requirements and others</td>
+</tr>
 </tbody>
 </table>
 <p>This document describes the format and practices for writing components in TcOpen. These are universal rules to observe. Each rule knows exception when there is a reasonable argument behind it.</p>
 <h2 id="general-rules">General rules</h2>
+<ul>
+<li>Component must inherit from <code>AXOpen.Core.AxoComponent</code></li>
+<li>Components methods and properties should not be marked FINAL (sealed)</li>
+<li>Component should implement appropriate <code>INTERFACE</code> for a public contract; this is the interface that the consumers of the library will use to interact with the component. It represents the public contract that must not change during the lifetime of the particular major version of the library/framework. See <a href="https://semver.org/">semantic versioning</a>.</li>
+<li>Component members must explicitly state access modifier for methods and properties (<code>PUBLIC</code>, <code>INTERNAL</code>, <code>PROTECTED</code>, or <code>PRIVATE</code>)</li>
+<li>Component should properly hide implementation details by marking methods preferably <code>PROTECTED</code>.</li>
+<li>Consider using the <code>PRIVATE</code> access modifier to prevent any access to that member if you deem it necessary. Be aware, though, that private members cannot be overridden by a derived class.</li>
+<li>If there are any testing methods in the same library with the component, these must be marked <code>INTERNAL</code>.</li>
+<li>Each action of the component should be implemented using the <code>AxoTask</code> class. There is no exception to this rule, even for the actions that require a single cycle to complete. Task's <code>Invoke</code> should be placed into a method with an appropriate name (MoveAbsolute, MoveHome, Measure).</li>
+</ul>
+<h3 id="cyclic-call">Cyclic call</h3>
+<p>Each component implements the logic required to run cyclically in the <em>Run</em> method of the CLASS.</p>
+<h3 id="components-methods">Components methods</h3>
+<p>The methods that perform actions <strong>MUST</strong> return <code>AXOpen.IAxoTaskStatus</code> (typically <code>AXOpen.Core.AxoTask</code>). This rule applies even to the logic that requires a single-cycle execution.</p>
 <h2 id="library-placement">Library placement</h2>
 <p>Library must be placed in <code>src</code> folder of the repository. The containing folder should be named <code>components</code>.[manufacturer].[function_group] (e.g. components.cognex.vision).</p>
 <h3 id="abstractions">Abstractions</h3>
@@ -161,7 +180,7 @@ All state-related members must be placed into <code>States</code> folder of the 
 <thead>
 <tr>
 <th>UNIT NAME</th>
-<th>PATTER</th>
+<th>PATTERN</th>
 <th>EXAMPLE  (fully qualified name)</th>
 </tr>
 </thead>
@@ -193,6 +212,17 @@ All state-related members must be placed into <code>States</code> folder of the 
 </tr>
 </tbody>
 </table>
+<h2 id="testing-requirements">Testing requirements</h2>
+<ul>
+<li>Each public and protected controller's method must be unit-tested using axunit.</li>
+<li>When reasonable use integration testing using <code>prober</code> library to test the interaction between controller and .NET twin.</li>
+</ul>
+<h2 id="documentation-requirements">Documentation requirements</h2>
+<h3 id="public-classes">Public classes</h3>
+<ul>
+<li>Public and protected members (methods, fields) must have in code documentation. <a href="https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/">See Documentation comments for more details</a> and <a href="https://dotnet.github.io/docfx/docs/markdown.html?q=referebce+code&amp;tabs=linux%2Cdotnet">docfx markup</a>.</li>
+<li>Public methods than implement actions and initialization must have application examples (should be referenced from the actuall app code). PLC Application examples should be placed in <code>app/src/Documentation/</code> of the library folder, the code should be compilable and functional to the extent it is possible with ommited hardware. NET twin examples should be places in <code>app/ix-blazor</code> and <code>app/ix</code> folder. For details how to reference code snippet <a href="https://dotnet.github.io/docfx/docs/markdown.html?q=referebce+code&amp;tabs=linux%2Cdotnet#code-snippet">see here</a>.</li>
+</ul>
 </article>
           </div>
 
@@ -201,7 +231,7 @@ All state-related members must be placed into <code>States</code> folder of the 
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/guidelines/components.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/176-_NEW-FEATURE_Create_library_for_basic_I/O_elements/docfx/articles/guidelines/components.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

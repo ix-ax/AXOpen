@@ -1,11 +1,7 @@
 ﻿using AXSharp.Connector;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AXOpen.Dialogs
+namespace AXOpen.Base.Dialogs
 {
 
     public interface IsDialogType : ITwinObject

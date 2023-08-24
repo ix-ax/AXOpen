@@ -4,17 +4,8 @@ AxoDo is used for setting values of digital inputs.
 
 ### Example
 
-```
-//define variables
-VAR
-    _testDo : AXOpen.Elements.AxoDo;  
-    _testInOutSignal : BOOL;  
-END_VAR
+[!code-smalltalk[](../../../../src/components.elements/app/src/Documentation/DocumentationContext.st?name=AxoDoDeclaration)]
 
-// set manual control
-_testDo.ActivateManualControl();
-// run AxoDO logic on input/output signal
-_testDo.Run(THIS, _testInOutSignal);
-```
+[!code-smalltalk[](../../../../src/components.elements/app/src/Documentation/DocumentationContext.st?name=AxoDoExample)]
 
 ![AxoDo](~/images/axodo.gif)

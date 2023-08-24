@@ -4,23 +4,8 @@ AxoDi is used for checking values of digital inputs.
 
 ### Example
 
-```
-//define variables
-VAR
-    _testDi : AXOpen.Elements.AxoDi;  
-    _testsignal : BOOL;  
-END_VAR
+[!code-smalltalk[](../../../../src/components.elements/app/src/Documentation/DocumentationContext.st?name=AxoDiDeclaration)]
 
-// set manual control
-_testDi.ActivateManualControl();
-_testsignal := TRUE;
-// run AxoDI logic on input signal
-_testDi.Run(THIS, _testsignal);
-
-IF _testDi.IsTrue() THEN
-    // handle signal on
-ENDIF;
-
-```
+[!code-smalltalk[](../../../../src/components.elements/app/src/Documentation/DocumentationContext.st?name=AxoDoExample)]
 
 ![AxoDi](~/images/axodi.gif)

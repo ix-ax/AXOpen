@@ -1,9 +1,5 @@
-﻿using AXOpen.Base.Abstractions.Dialogs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using AXOpen.Base.Dialogs;
 using AXSharp.Connector;
 
 namespace AXOpen.Core
