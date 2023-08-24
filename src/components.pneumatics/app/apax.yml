@@ -67,3 +67,4 @@ scripts:
     - echo "Finished in :" $(expr $(date +%s) - $START) "s"
 targets:
   - plcsim
+  - axunit-llvm
