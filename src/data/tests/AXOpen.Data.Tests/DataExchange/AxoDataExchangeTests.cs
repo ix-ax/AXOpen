@@ -847,5 +847,31 @@ namespace AXOpen.Data.Tests
 
             Assert.False(result);
         }
+
+        [Fact()]
+        public void HashAllTypesTest()
+        {
+            var a = new AllTypesTestData() { TestSbyte = 1, TestShort = 2, TestInt = 3, TestChar = 'a', TestDouble = 1.1, TestBool = true, TestString = "a", TestDateOnly = new DateOnly(2010, 10, 10), TestTimeSpan = new TimeSpan(1000), Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.True(result);
+        }
+
+        [Fact()]
+        public void HashAllTypesFalseTest()
+        {
+            var a = new AllTypesTestData() { TestSbyte = 1, TestShort = 2, TestInt = 3, TestChar = 'a', TestDouble = 1.1, TestBool = true, TestString = "a", TestDateOnly = new DateOnly(2010, 10, 10), TestTimeSpan = new TimeSpan(1000), Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            a.TestInt = 5;
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.False(result);
+        }
     }
 }
