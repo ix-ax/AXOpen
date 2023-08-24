@@ -6,12 +6,31 @@
 |----------|-----------|-----------------|
 | 0.0      | June 2023 | Initial release |
 | 0.1      | August 2023 | Initial release |
+| 0.2      | August 2023 | Documentation requirements |
 
 
 This document describes the format and practices for writing components in TcOpen. These are universal rules to observe. Each rule knows exception when there is a reasonable argument behind it.
 
 
 ## General rules
+
+* Component must inherit from ```AXOpen.Core.AxoComponent```
+* Components methods and properties should not be marked FINAL (sealed)
+* Component should implement appropriate ```INTERFACE``` for a public contract; this is the interface that the consumers of the library will use to interact with the component. It represents the public contract that must not change during the lifetime of the particular major version of the library/framework. See [semantic versioning](https://semver.org/).
+* Component members must explicitly state access modifier for methods and properties (```PUBLIC```, ```INTERNAL```, ```PROTECTED```, or ```PRIVATE```)
+* Component should properly hide implementation details by marking methods preferably ```PROTECTED```.
+* Consider using the ```PRIVATE``` access modifier to prevent any access to that member if you deem it necessary. Be aware, though, that private members cannot be overridden by a derived class.
+* If there are any testing methods in the same library with the component, these must be marked ```INTERNAL```.
+* Each action of the component should be implemented using the ```TcoTask``` class. There is no exception to this rule, even for the actions that require a single cycle to complete. Task's ```Invoke``` should be placed into a method with an appropriate name (MoveAbsolute, MoveHome, Measure).
+
+### Cyclic call
+
+Each component implements the logic required to run cyclically in the *Run* method of the CLASS. 
+
+### Components methods
+
+The methods that perform actions **MUST** return ```AXOpen.IAxoTaskStatus``` (typically ```AXOpen.Core.AxoTask```). This rule applies even to the logic that requires a single-cycle execution.
+
 
 ## Library placement
 
@@ -79,7 +98,7 @@ Each component must inherit from `AXOpen.Core.AxoComponent`, which is an abstrac
 The components for particular components are placed into appropriate library. Library name reflects the name of the manufacturer and the class of the product. POUs that belongs to a specific component reflect the product name and products' version information.
 
 
-| UNIT NAME           | PATTER                                          | EXAMPLE  (fully qualified name)                  |
+| UNIT NAME           | PATTERN                                          | EXAMPLE  (fully qualified name)                  |
 |---------------------|-------------------------------------------------|--------------------------------------------------|
 | Library (namespace) | `AXOpen.{Manufacturer}.[{Group}]`               | `AXOpen.ABB.Robotics`                            |
 | CLASS               | `v_{ModelVersion}.Axo{Model}`                   | `AXOpen.ABB.Robotics.v_1_0_0.AxoOmnicore`        |
@@ -88,4 +107,15 @@ The components for particular components are placed into appropriate library. Li
 | other               | `v_{ModelVersion}.Axo{Model}_{DescriptiveName}` | `AXOpen.ABB.Robotics.v_1_0_0.AxoOmnicore_Aux`    |
 
 
+## Testing requirements
 
+- Each public and protected controller's method must be unit-tested using axunit.
+- When reasonable use integration testing using `prober`` library to test the interaction between controller and .NET twin. 
+
+
+## Documentation requirements
+
+### Public classes
+
+- Public and protected members (methods, fields) must have in code documentation. [See Documentation comments for more details](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/).
+- Public and protected members must have application examples (should be referenced from the actuall app code). PLC Application examples should be placed in `app/src/Documentation/` of the library folder, the code should be compilable and functional to the extent it is possible with ommited hardware. NET twin examples should be places in `app/ix-blazor` and `app-ix` folder. For details how to reference code snippet [see here](https://dotnet.github.io/docfx/docs/markdown.html?q=referebce+code&tabs=linux%2Cdotnet#code-snippet).
