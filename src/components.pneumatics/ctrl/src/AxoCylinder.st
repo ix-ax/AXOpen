@@ -36,31 +36,6 @@ NAMESPACE AXOpen.Components.Pneumatics
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move work signal#>"}
             _MoveWorkSignal : BOOL;
-
-            // {#ix-set:MessageText = "<#Movement to work position did not succeed.#>"}
-            // {#ix-set:Help = "<#Check the cyclinder that it is free to move, air pressure input and extremity sensor.#>"}
-            // _MoveToWorkNotReached : AXOpen.Messaging.Static.AxoMessenger;
-
-            // {#ix-set:MessageText = "<#Movement to home position did not succeed.#>"}
-            // {#ix-set:Help = "<#Check the cyclinder that it is free to move, air pressure input and extremity sensor.#>"}
-            // _MoveToHomeNotReached : AXOpen.Messaging.Static.AxoMessenger;            
-
-            // {#ix-set:MessageText = "<#Movement to work position is temporarily suspended.#>"}
-            // {#ix-set:Help = "<#Check the blocking condition.#>"}
-            // _MoveToWorkSuspended : AXOpen.Messaging.Static.AxoMessenger;
-
-            // {#ix-set:MessageText = "<#Movement to home position is temporarily suspended.#>"}
-            // {#ix-set:Help = "<#Check the blocking condition.#>"}
-            // _MoveToHomeSuspended : AXOpen.Messaging.Static.AxoMessenger;
-
-            // {#ix-set:MessageText = "<#Movement to work position is aborted.#>"}
-            // {#ix-set:Help = "<#Check the blocking condition.#>"}
-            // _MoveToWorkAborted : AXOpen.Messaging.Static.AxoMessenger;
-
-            // {#ix-set:MessageText = "<#Movement to home position is aborted.#>"}
-            // {#ix-set:Help = "<#Check the blocking condition.#>"}
-            // _MoveToHomeAborted : AXOpen.Messaging.Static.AxoMessenger;
-
             {#ix-set:MessageTextList = "[1]:'<#Movement to work position did not succeed.#>':'<#Check the cyclinder that it is free to move, air pressure input and extremity sensor.#>';[2]:'<#Movement to home position did not succeed.#>':'<#Check the cyclinder that it is free to move, air pressure input and extremity sensor.#>';[3]:'<#Home and work position sensors are both active at the same time.#>':'<#Check the position of sensors.#>';[4]:'<#Movement to work position is temporarily suspended.#>':'<#Check the blocking condition.#>';[5]:'<#Movement to home position is temporarily suspended.#>':'<#Check the blocking condition.#>';[6]:'<#Movement to work position is aborted.#>':'<#Check the blocking condition.#>';[7]:'<#Movement to home position is aborted.#>':'<#Check the blocking condition.#>';"}
             _Messenger : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
@@ -208,7 +183,7 @@ NAMESPACE AXOpen.Components.Pneumatics
             IF(Condition) THEN                        
                 _moveWorkSignal := FALSE;   
             END_IF;   
-            _Messenger.ActivateOnCondition(4, Condition AND NOT _MoveToWorkTask.IsBusy(), eAxoMessageCategory#Info);
+            _Messenger.ActivateOnCondition(4, Condition AND _MoveToWorkTask.IsBusy(), eAxoMessageCategory#Info);
             _MoveToWorkIsSuspended := Condition;
         END_METHOD        
 
@@ -223,7 +198,7 @@ NAMESPACE AXOpen.Components.Pneumatics
             IF(Condition) THEN                        
                 _moveHomeSignal := FALSE;   
             END_IF;    
-            _Messenger.ActivateOnCondition(5, Condition AND NOT _MoveToHomeTask.IsBusy(), eAxoMessageCategory#Info);
+            _Messenger.ActivateOnCondition(5, Condition AND _MoveToHomeTask.IsBusy(), eAxoMessageCategory#Info);
             _MoveToHomeIsSuspended := Condition;
         END_METHOD    
         
