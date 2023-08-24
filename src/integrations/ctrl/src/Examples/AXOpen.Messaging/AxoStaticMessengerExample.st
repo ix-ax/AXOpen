@@ -11,7 +11,7 @@ NAMESPACE AxoStaticMessengerExample
             {#ix-set:MessageTextList = "[1]:'<#Messenger 1: message text for message code 1#>':'<#Messenger 1: help text for message code 1#>';[2]:'<#Messenger 1: message text for message code 2#>':'<#Messenger 1: help text for message code 2#>';[3]:'<#Messenger 1: message text for message code 3#>':'<#Messenger 1: help text for message code 3#>';[4]:'<#Messenger 1: message text for message code 4#>':'<#Messenger 1: help text for message code 4#>';[5]:'<#Messenger 1: message text for message code 5#>':'<#Messenger 1: help text for message code 5#>';[6]:'<#Messenger 1: message text for message code 6#>':'<#Messenger 1: help text for message code 6#>';[7]:'<#Messenger 1: message text for message code 7#>':'<#Messenger 1: help text for message code 7#>';[8]:'<#Messenger 1: message text for message code 8#>':'<#Messenger 1: help text for message code 8#>';[9]:'<#Messenger 1: message text for message code 9#>':'<#Messenger 1: help text for message code 9#>';[10]:'<#Messenger 1: message text for message code 10#>':'<#Messenger 1: help text for message code 10#>';[11]:'<#Messenger 1: message text for message code 11#>':'<#Messenger 1: help text for message code 11#>'"}
             _messenger1 : AXOpen.Messaging.Static.AxoMessenger;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-set:AttributeName = "<#Set to high to activate the messenger 1#>"}
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 1 with default value#>"}
             _messenger1condition : BOOL;
             {#ix-set:AttributeName = "<#message 1 code#>"}
             _messenger1code : INT;

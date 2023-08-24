@@ -32,7 +32,9 @@ NAMESPACE AXOpen.Messaging.Static
             ActiveContextCount : ULINT;
             Context : IAxoContext;         
         END_VAR
-
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
         METHOD PUBLIC Serve 
             VAR_INPUT
                 _context : IAxoContext;
@@ -67,7 +69,9 @@ NAMESPACE AXOpen.Messaging.Static
                 THIS.Acknowledge();
             END_IF;
         END_METHOD
-
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
         METHOD PUBLIC Serve 
             VAR_INPUT
                 _object : IAxoObject;
@@ -79,7 +83,9 @@ NAMESPACE AXOpen.Messaging.Static
 
             THIS.Serve(_object.GetContext());                       
         END_METHOD
-
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
         METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
                 _category : eAxoMessageCategory;
@@ -112,7 +118,7 @@ NAMESPACE AXOpen.Messaging.Static
             Activate := THIS;
         END_METHOD   
         
-        METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
+        METHOD PRIVATE Activate : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
                 _messageCode : INT;
                 _category : eAxoMessageCategory;
@@ -132,6 +138,7 @@ NAMESPACE AXOpen.Messaging.Static
                 Context.GetLogger().Log('Risen', THIS.ToLogLevel(_category), THIS);
                 MessageCode := _messageCode;
             END_IF;
+
             IF MessageCode = _messageCode THEN
                 ActiveContextCount := Context.OpenCycleCount();
                 Category := _category;
@@ -141,27 +148,9 @@ NAMESPACE AXOpen.Messaging.Static
 
             Activate := THIS;
         END_METHOD   
-        
-        
-        // METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
-        //     VAR_INPUT
-        //         _messageCode : INT;
-        //         _category : eAxoMessageCategory;
-        //     END_VAR
-
-        //     Activate := THIS;
-
-        //     IF NOT IsActive AND NOT WaitingForAcknowledge THEN
-        //         MessageCode := _messageCode;
-        //     END_IF;
-        //     Activate := THIS.Activate(_category);
-        // END_METHOD   
-
-        // METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
-        //     Activate := THIS;
-        //     Activate := THIS.Activate(eAxoMessageCategory#All);
-        // END_METHOD   
-
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
         METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
                 _condition : BOOL;
@@ -176,7 +165,9 @@ NAMESPACE AXOpen.Messaging.Static
                 THIS.Deactivate();        
             END_IF;
         END_METHOD   
-
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
         METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
                 _messageCode : INT;
@@ -233,7 +224,9 @@ NAMESPACE AXOpen.Messaging.Static
                 END_IF;
             END_IF;
         END_METHOD   
-
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
         METHOD PUBLIC Acknowledge
             IF AXOpen.Core.IsNullContext(Context) THEN
                 RETURN;
@@ -285,20 +278,25 @@ NAMESPACE AXOpen.Messaging.Static
             END_CASE;
 
         END_METHOD    
-
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
         METHOD PUBLIC RequireAcknowledgement : AXOpen.Messaging.Static.IAxoMessageProperties
             AcknowledgementRequired := TRUE;
             RequireAcknowledgement := THIS;
         END_METHOD
-
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
         METHOD PUBLIC DoNotRequireAcknowledgement : AXOpen.Messaging.Static.IAxoMessageProperties
             AcknowledgementRequired := FALSE;
             DoNotRequireAcknowledgement := THIS;
         END_METHOD
-
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
         METHOD PUBLIC IsAcknowledgementRequired : BOOL
             IsAcknowledgementRequired := AcknowledgementRequired;
         END_METHOD
     END_CLASS
-
 END_NAMESPACE
