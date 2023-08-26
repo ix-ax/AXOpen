@@ -7,8 +7,6 @@ USING AXOpen.Utils;
 USING AXOpen.Logging;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
-USING System.Strings;
-USING System.DateTime;
 
 NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
     CLASS TestContextI IMPLEMENTS IAxoContext         
