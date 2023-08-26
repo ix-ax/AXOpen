@@ -1,0 +1,27 @@
+﻿@namespace AXOpen.Inspectors
+@inherits RenderableComplexComponentBase<AxoDataInspector>
+
+
+
+
+<InspectorViewTemplate Data="Component._data"
+                       Name="@getNameOrSymbol()"
+                       Presentation="Control"
+                       IsOverInspected="Component._axoInspectorDialog._isOverInspected.Cyclic" />
+
+
+
+@code {
+    private string ID = "M" + Guid.NewGuid().ToString();
+
+    public string getNameOrSymbol()
+    {
+        return string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
+    }
+
+
+    protected override void OnInitialized()
+    {
+        UpdateValuesOnChange(Component._data.Result);
+    }
+}

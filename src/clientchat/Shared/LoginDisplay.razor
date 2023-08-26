@@ -1,0 +1,14 @@
+﻿<div class="ms-auto">
+    <AuthorizeView>
+        <Authorized>
+            <a href="Identity/Account/Manage" class="text-decoration-none">Logged in as <strong>@context.User.Identity.Name</strong></a>
+            <form class="d-inline-block" asp-area="Identity" action="Identity/Account/Logout" asp-route-returnUrl="/" method="post">
+                <button class="btn btn-primary m-1" type="submit">Log out</button>
+            </form>
+        </Authorized>
+        <NotAuthorized>
+            <a class="btn btn-secondary m-1" href="Identity/Account/Register" role="button">Register</a>
+            <a class="btn btn-primary m-1" href="Identity/Account/Login" role="button">Log in</a>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>

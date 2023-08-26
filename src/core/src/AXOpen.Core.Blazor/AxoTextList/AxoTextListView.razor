@@ -1,0 +1,11 @@
+﻿@namespace AXOpen.Core
+@using AXSharp.Connector;
+@using Microsoft.AspNetCore.Components.Authorization
+@inherits RenderableComplexComponentBase<AxoTextList>
+@implements IDisposable;
+
+<div class="@_cardClass">
+    <div class="d-flex align-end ms-2 me-1 mt-1 mb-1">
+        <span>@_text</span>
+    </div>
+</div>

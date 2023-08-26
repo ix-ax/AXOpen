@@ -1,0 +1,22 @@
+name: "abstractions-app"
+version: 0.0.0
+type: app
+targets:
+  - plcsim
+  - axunit-llvm
+variables:
+  APAX_BUILD_ARGS:
+    - "--debug" # Generate debug information for target "1500"
+devDependencies:
+  "@ax/sdk": 4.0.3
+dependencies:
+  "@ix-ax/axopen.abstractions" : 0.1.4-alpha.79
+  "@ix-ax/axopen.core" : 0.1.4-alpha.79
+scripts:
+  download:
+    - apax install -L
+    - apax build
+    - dotnet ixc
+    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET --accept-security-disclaimer --default-server-interface -r
+  
+

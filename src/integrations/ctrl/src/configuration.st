@@ -26,6 +26,12 @@ CONFIGURATION MyConfiguration
         AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
         AxoRtc : AxoRtc.AxoS71500Rtc;
         AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
+        AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;
+        AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
+        AxoCognexVisionInsightExampleContext : AxoCognexVisionInsightExamples.AxoCognexVisionInsightExampleContext;
+        AxoByteArrayExampleContext : AxoByteArrayExample.AxoByteArrayExampleContext;
+        AxoBoolArrayExampleContext : AxoBoolArrayExample.AxoBoolArrayExampleContext;
+
         process_data_manager: AxoDataExamples.AxoProcessDataManager;
         test_data_manager: AxoDataExamples.AxoTestDataManager;
         AxoLoggers : AxoLoggerExamples.Loggers;
@@ -35,4 +41,14 @@ CONFIGURATION MyConfiguration
         // Integration tests
         Integrations : IntegrationTests.Integrations;
     END_VAR
+
+    //Copy this VAR_GLOBAL section into your configuration file inside your project.
+	//Do not change any names, addresses or any another content.
+	VAR_GLOBAL
+		HwInputs AT %IB0 : HwInputs;
+		HwOutputs AT %QB0 : HwOutputs;
+		PlcInputs : PlcInputs;
+		PlcOutputs : PlcOutputs;
+	END_VAR
+
 END_CONFIGURATION

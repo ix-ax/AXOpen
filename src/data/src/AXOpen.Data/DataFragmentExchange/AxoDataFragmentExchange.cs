@@ -8,10 +8,13 @@
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq.Expressions;
+using System.Numerics;
 using System.Reflection;
+using System.Security.Principal;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
 using AXSharp.Connector.ValueTypes.Online;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace AXOpen.Data;
 
@@ -24,11 +27,23 @@ public partial class AxoDataFragmentExchange
         return CreateBuilder() as T;
     }
 
+    public bool VerifyHash { get; set; } = false;
+
     public object CreateBuilder()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
         RefUIData = new AxoFragmentedDataCompound(this, DataFragments.Select(p => p.RefUIData).Cast<ITwinElement>().ToList());
         Repository = new AxoCompoundRepository(DataFragments);
+
+        foreach (var prop in this.GetType().GetProperties())
+        {
+            var attr = prop.GetCustomAttribute(typeof(AxoDataVerifyHashAttribute));
+            if (attr != null)
+            {
+                DataFragments.First(p => p.GetType() == prop.PropertyType).VerifyHash = true;
+            }
+        }
+
         return this;
     }
 
@@ -83,24 +98,136 @@ public partial class AxoDataFragmentExchange
 
     public ITwinObject RefUIData { get; private set; }
 
+    /// <summary>
+    /// Stop observing changes of the data object with changeTracker.
+    /// </summary>
+    public void ChangeTrackerStopObservingChanges()
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.ChangeTrackerStopObservingChanges();
+        }
+    }
+
+    /// <summary>
+    /// Start observing changes of the data object with changeTracker.
+    /// </summary>
+    /// <param name="authenticationState">Authentication state of current logged user.</param>
+    public void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.ChangeTrackerStartObservingChanges(authenticationState);
+        }
+    }
+
+    /// <summary>
+    /// Saves observed changes from changeTracker to object.
+    /// </summary>
+    /// <param name="plainObject"></param>
+    public void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject)
+    {
+        throw new NotImplementedException();
+    }
+
+    /// <summary>
+    /// Sets changes to changeTracker.
+    /// </summary>
+    /// <param name="entity">Entity from which is set data.</param>
+    public void ChangeTrackerSetChanges(IBrowsableDataObject entity)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.ChangeTrackerSetChanges(entity);
+        }
+    }
+
+    /// <summary>
+    /// Gets changes from changeTracker.
+    /// </summary>
+    /// <returns>List of ValueChangeItem that contains changes.</returns>
+    public List<ValueChangeItem> ChangeTrackerGetChanges()
+    {
+        var changes = new List<ValueChangeItem>();
+        foreach (var fragment in DataFragments)
+        {
+            changes = changes.Concat(fragment.ChangeTrackerGetChanges()).ToList();
+        }
+        return changes;
+    }
+
+    /// <summary>
+    /// Get object which locked this repository.
+    /// </summary>
+    /// <param name="by"></param>
+    public object? GetLockedBy()
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (fragment.GetLockedBy() != null)
+                return fragment.GetLockedBy();
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Set object which locked this repository.
+    /// </summary>
+    /// <param name="by"></param>
+    public void SetLockedBy(object by)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            fragment.SetLockedBy(by);
+        }
+    }
+
+    public bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity)
+    {
+        foreach (var fragment in DataFragments)
+        {
+            if (!fragment.IsHashCorrect(entity, identity))
+                return false;
+        }
+        return true;
+    }
+
     public async Task CreateNewAsync(string identifier)
     {
         await Task.Run(() =>
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.Repository.Create(identifier, fragment.RefUIData.CreatePoco());
+                CreateNewPocoInFragmentRepository(identifier, fragment);
             }
 
             DataFragments.First().Repository.Read(identifier);
         });
     }
 
+    private static void CreateNewPocoInFragmentRepository(string identifier, IAxoDataExchange fragment)
+    {
+        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
+        poco.DataEntityId = identifier;
+        poco.Hash = HashHelper.CreateHash(poco);
+
+        fragment?.Repository.Create(identifier, poco);
+    }
+
     public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
     {
         foreach (var fragment in DataFragments)
         {
-            await fragment.RefUIData.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
+            var exist = fragment.Repository.Exists(entity.DataEntityId);
+
+            if (exist)
+            {
+                await fragment.RefUIData.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
+            }
+            else
+            {
+                CreateNewPocoInFragmentRepository(entity.DataEntityId, fragment);
+            }
         }
     }
 
@@ -109,7 +236,8 @@ public partial class AxoDataFragmentExchange
         foreach (var fragment in DataFragments)
         {
             var plainer = await (fragment.RefUIData).ShadowToPlain<dynamic>();
-            //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+            fragment.ChangeTrackerSaveObservedChanges(plainer);
+            plainer.Hash = HashHelper.CreateHash(plainer);
             fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
         }
     }
@@ -128,6 +256,7 @@ public partial class AxoDataFragmentExchange
         {
             var plainer = await fragment.RefUIData.OnlineToPlain<dynamic>();
             plainer.DataEntityId = recordId;
+            plainer.Hash = HashHelper.CreateHash(plainer);
             fragment.Repository.Create(plainer.DataEntityId, plainer);
             var plain = fragment.Repository.Read(plainer.DataEntityId);
             fragment.RefUIData.PlainToShadow(plain);
@@ -143,8 +272,9 @@ public partial class AxoDataFragmentExchange
     {
         foreach (var fragment in DataFragments)
         {
-            var source = await fragment.RefUIData.ShadowToPlain<IBrowsableDataObject>();
+            var source = (Pocos.AXOpen.Data.IAxoDataEntity)await fragment.RefUIData.ShadowToPlain<IBrowsableDataObject>();
             source.DataEntityId = recordId;
+            source.Hash = HashHelper.CreateHash(source);
             fragment.Repository.Create(source.DataEntityId, source);
         }
     }
@@ -166,12 +296,17 @@ public partial class AxoDataFragmentExchange
             if (Repository.Exists(recordId))
             {
                 var plainer = await ((ITwinObject)RefUIData).ShadowToPlain<dynamic>();
-                //CrudData.ChangeTracker.SaveObservedChanges(plainer);
+                fragment.ChangeTrackerSaveObservedChanges(plainer);
+                plainer.Hash = HashHelper.CreateHash(plainer);
                 fragment.Repository.Update(((IBrowsableDataObject)plainer).DataEntityId, plainer);
             }
             else
             {
-                fragment.Repository.Create(recordId, fragment.RefUIData.CreatePoco());
+                Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
+                poco.DataEntityId = recordId;
+                poco.Hash = HashHelper.CreateHash(poco);
+
+                fragment.Repository.Create(recordId, poco);
             }
         }
 
@@ -313,7 +448,7 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    public void ImportData(string path, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';')
+    public void ImportData(string path, AuthenticationState authenticationState, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';')
     {
         if (Path.GetExtension(path).Equals(".zip", StringComparison.OrdinalIgnoreCase))
         {
@@ -326,7 +461,7 @@ public partial class AxoDataFragmentExchange
 
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), crudDataObject, exportFileType, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), authenticationState, crudDataObject, exportFileType, separator);
             }
 
             if (Directory.Exists(Path.GetDirectoryName(path)))
@@ -336,7 +471,7 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), crudDataObject, exportFileType, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), authenticationState, crudDataObject, exportFileType, separator);
             }
         }
     }

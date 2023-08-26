@@ -20,17 +20,20 @@ public static class ApaxCmd
 {
     public static void ApaxInstall(this BuildContext context, (string folder, string name) lib)
     {
-        var apaxArguments = context.BuildParameters.DoApaxInstallReDownload ? "install -L -r" : "install -L";
-
-        context.Log.Information($"apax install started for '{lib.folder} : {lib.name}'");
-        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        foreach (var folder in context.GetAxFolders(lib))
         {
-            Arguments = "install -L",
-            WorkingDirectory = context.GetAxFolder(lib),
-            RedirectStandardOutput = false,
-            RedirectStandardError = false,
-            Silent = false
-        }).WaitForExit();
+            var apaxArguments = context.BuildParameters.DoApaxInstallReDownload ? "install -L -r" : "install -L";
+
+            context.Log.Information($"apax install started for '{lib.folder} : {lib.name}'");
+            context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            {
+                Arguments = apaxArguments,
+                WorkingDirectory = folder,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            }).WaitForExit();
+        }
     }
 
     public static void ApaxInstall(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
@@ -40,14 +43,18 @@ public static class ApaxCmd
 
     public static void ApaxClean(this BuildContext context, (string folder, string name) lib)
     {
-        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        foreach (var folder in context.GetAxFolders(lib))
         {
-            Arguments = "clean",
-            WorkingDirectory = context.GetAxFolder(lib),
-            RedirectStandardOutput = false,
-            RedirectStandardError = false,
-            Silent = false
-        }).WaitForExit();
+            context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            {
+                Arguments = "clean",
+                WorkingDirectory = folder,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            }).WaitForExit();
+            context.Log.Information($"apax clean finished for '{lib.folder} : {lib.name}'");
+        }
     }
 
     public static void ApaxClean(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
@@ -57,23 +64,26 @@ public static class ApaxCmd
 
     public static void ApaxBuild(this BuildContext context, (string folder, string name) lib)
     {
-        context.Log.Information($"apax build started for '{lib.folder} : {lib.name}'");
-        var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        foreach (var folder in context.GetAxFolders(lib))
         {
-            Arguments = "build",
-            WorkingDirectory = context.GetAxFolder(lib),
-            RedirectStandardOutput = false,
-            RedirectStandardError = false,
-            Silent = false
-        });
+            context.Log.Information($"apax build started for '{lib.folder} : {lib.name}'");
+            var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            {
+                Arguments = "build",
+                WorkingDirectory = folder,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            });
 
-        process.WaitForExit();
-        var exitcode = process.GetExitCode();
-        context.Log.Information($"apax build exited with '{exitcode}'");
+            process.WaitForExit();
+            var exitcode = process.GetExitCode();
+            context.Log.Information($"apax build exited with '{exitcode}'");
 
-        if (exitcode != 0)
-        {
-            throw new BuildFailedException();
+            if (exitcode != 0)
+            {
+                throw new BuildFailedException();
+            }
         }
     }
 
@@ -82,25 +92,33 @@ public static class ApaxCmd
         context.ApaxBuild((app.folder, app.name));
     }
 
+    public static void ApaxIxc(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
+    {
+        context.ApaxIxc((app.folder, app.name));
+    }
+
     public static void ApaxUpdate(this BuildContext context, (string folder, string name) lib)
     {
-        context.Log.Information($"apax update started for '{lib.folder} : {lib.name}'");
-        var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        foreach (var folder in context.GetAxFolders(lib))
         {
-            Arguments = "update --all",
-            WorkingDirectory = context.GetAxFolder(lib),
-            RedirectStandardOutput = false,
-            RedirectStandardError = false,
-            Silent = false
-        });
+            context.Log.Information($"apax update started for '{lib.folder} : {lib.name}'");
+            var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            {
+                Arguments = "update --all",
+                WorkingDirectory = folder,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            });
 
-        process.WaitForExit();
-        var exitcode = process.GetExitCode();
-        context.Log.Information($"apax update exited with '{exitcode}'");
+            process.WaitForExit();
+            var exitcode = process.GetExitCode();
+            context.Log.Information($"apax update exited with '{exitcode}'");
 
-        if (exitcode != 0)
-        {
-            throw new BuildFailedException();
+            if (exitcode != 0)
+            {
+                throw new BuildFailedException();
+            }
         }
     }
 
@@ -114,7 +132,7 @@ public static class ApaxCmd
         context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
             Arguments = "pack",
-            WorkingDirectory = context.GetAxFolder(lib),
+            WorkingDirectory = context.GetLibFolder(lib),
             RedirectStandardOutput = false,
             RedirectStandardError = false,
             Silent = false
@@ -123,28 +141,26 @@ public static class ApaxCmd
 
     public static void ApaxTest(this BuildContext context, (string folder, string name) lib)
     {
-        var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        foreach (var folder in context.GetAxFolders(lib))
         {
-            Arguments = "test",
-            WorkingDirectory = context.GetAxFolder(lib),
-            RedirectStandardOutput = false,
-            RedirectStandardError = false,
-            Silent = false
-        });
+            var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            {
+                Arguments = "test",
+                WorkingDirectory = folder,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            });
 
-        process.WaitForExit();
+            process.WaitForExit();
 
-        var exitcode = process.GetExitCode();
-        context.Log.Information($"apax test exited with '{exitcode}'");
+            var exitcode = process.GetExitCode();
+            context.Log.Information($"apax test exited with '{exitcode}'");
 
-        foreach (var resultFile in Directory.EnumerateFiles(context.GetAxTestResultsFolder(context.GetAxFolder(lib)), "*.xml").Select(p => new FileInfo(p)))
-        {
-            File.Copy(resultFile.FullName, Path.Combine(context.TestResultsCtrl, $"controller_{lib.name}_{resultFile.Name}.xml"));
-        }
-
-        if (exitcode != 0)
-        {
-            throw new TestFailedException();
+            if (exitcode != 0)
+            {
+                throw new TestFailedException();
+            }
         }
     }
 
@@ -155,14 +171,17 @@ public static class ApaxCmd
 
     public static void ApaxIxc(this BuildContext context, (string folder, string name) lib)
     {
-        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        foreach (var folder in context.GetAxFolders(lib))
         {
-            Arguments = "ixc",
-            WorkingDirectory = context.GetAxFolder(lib),
-            RedirectStandardOutput = false,
-            RedirectStandardError = false,
-            Silent = false
-        }).WaitForExit();
+            context.ProcessRunner.Start(Helpers.GetDotNetCommand(), new ProcessSettings()
+            {
+                Arguments = "ixc",
+                WorkingDirectory = folder,
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            }).WaitForExit();
+        }
     }
 
     public static void ApaxCopyArtifacts(this BuildContext context,  (string folder, string name) lib)
@@ -211,7 +230,7 @@ public static class ApaxCmd
         var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
             Arguments = $" sld -t {app.targetIp} -i {app.targetPlatform} --accept-security-disclaimer --default-server-interface -r",
-            WorkingDirectory = context.GetAxFolder(app),
+            WorkingDirectory = context.GetAppFolder(app),
             RedirectStandardOutput = false,
             RedirectStandardError = false,
             Silent = false

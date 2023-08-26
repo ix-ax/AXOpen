@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.9" />
+	<PackageReference Include="AXSharp.Presentation.Blazor" Version="0.14.2-alpha.134" />
+	<PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.2-alpha.134" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+    <ProjectReference Include="..\AxOpen.Inspectors\ix_ax_axopen_inspectors.csproj" />
+  </ItemGroup>
+
+</Project>

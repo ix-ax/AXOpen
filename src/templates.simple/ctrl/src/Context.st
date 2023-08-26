@@ -9,12 +9,16 @@ NAMESPACE axosimple
             PneumaticManipulator : examples.PneumaticManipulator.CU;            
             PneumaticManipulator2 : examples.PneumaticManipulator.CU;                      
             Inputs : REF_TO axosimple.Inputs;
-            Outputs : REF_TO axosimple.Outputs;
+            Outputs : REF_TO axosimple.Outputs; 
+
+            ProcessDataPneumaticManipulator : examples.PneumaticManipulator.ProcessDataManger;
         END_VAR      
         
         METHOD PROTECTED OVERRIDE Main                                   
            IF(Inputs <> NULL AND Outputs <> NULL) THEN                
+               PneumaticManipulator.ProcessData := REF(ProcessDataPneumaticManipulator);
                PneumaticManipulator.Run(THIS, Inputs^, Outputs^);   
+               PneumaticManipulator2.ProcessData := REF(ProcessDataPneumaticManipulator);
                PneumaticManipulator2.Run(THIS, Inputs^, Outputs^);               
            END_IF;                           
         END_METHOD        

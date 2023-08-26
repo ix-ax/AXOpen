@@ -1,5 +1,6 @@
 ﻿using AXOpen.Base.Data;
 using AXSharp.Connector;
+using Microsoft.AspNetCore.Components.Authorization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace AXOpen.Data
         /// <param name="path">Path to imported file.</param>
         /// <param name="crudDataObject">Object type of the imported records.</param>
         /// <param name="separator">Separator for individual records.</param>
-        void Import(IRepository<TPlain> dataRepository, string path, ITwinObject crudDataObject = null, char separator = ';');
+        void Import(IRepository<TPlain> dataRepository, string path, AuthenticationState authenticationState, ITwinObject crudDataObject = null, char separator = ';');
 
         /// <summary>
         /// Get name of the exporter.
