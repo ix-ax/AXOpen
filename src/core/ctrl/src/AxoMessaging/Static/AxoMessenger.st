@@ -3,8 +3,8 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Messaging.Static    
     {#ix-prop: public string MessageText }
-    {#ix-prop: public string MessageTextList }
     {#ix-prop: public string Help }
+    {#ix-prop: public string PlcTextList }
     CLASS AxoMessenger EXTENDS AxoObject IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties        
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
@@ -12,7 +12,7 @@ NAMESPACE AXOpen.Messaging.Static
             {#ix-attr:[ReadOnly()]}
             Category : eAxoMessageCategory;           
             {#ix-attr:[ReadOnly()]}
-            MessageCode : INT;
+            MessageCode : ULINT;
             {#ix-attr:[ReadOnly()]}
             Risen : LDATE_AND_TIME;
             {#ix-attr:[ReadOnly()]}
@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Messaging.Static
 
             Context := _context;
 
-            IF MessageCode = INT#0 THEN
+            IF MessageCode = ULINT#0 THEN
                 IF IsActive THEN
                     IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
                         THIS.Deactivate();
@@ -61,7 +61,7 @@ NAMESPACE AXOpen.Messaging.Static
                     END_IF;
                 ELSIF AcknowledgedBeforeFallen THEN
                     AcknowledgedBeforeFallen := FALSE;
-                    MessageCode := INT#0;
+                    MessageCode := ULINT#0;
                 END_IF;
             END_IF;
 
@@ -97,7 +97,7 @@ NAMESPACE AXOpen.Messaging.Static
                 RETURN;
             END_IF;
             
-            IF MessageCode = INT#0 THEN
+            IF MessageCode = ULINT#0 THEN
                 IF ActiveContextCount = ULINT#0 THEN                
                     Risen := Context.GetRtc().NowUTC();
                     Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
@@ -120,7 +120,7 @@ NAMESPACE AXOpen.Messaging.Static
         
         METHOD PRIVATE Activate : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
-                _messageCode : INT;
+                _messageCode : ULINT;
                 _category : eAxoMessageCategory;
             END_VAR
 
@@ -130,7 +130,7 @@ NAMESPACE AXOpen.Messaging.Static
                 RETURN;
             END_IF;
             
-            IF NOT IsActive AND NOT WaitingForAcknowledge AND MessageCode = INT#0 AND ActiveContextCount = ULINT#0 THEN                
+            IF NOT IsActive AND NOT WaitingForAcknowledge AND MessageCode = ULINT#0 AND ActiveContextCount = ULINT#0 THEN                
                 Risen := Context.GetRtc().NowUTC();
                 Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
                 Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;
@@ -170,16 +170,16 @@ NAMESPACE AXOpen.Messaging.Static
         ///</summary>
         METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
-                _messageCode : INT;
+                _messageCode : ULINT;
                 _condition : BOOL;
                 _category : eAxoMessageCategory;
             END_VAR
 
             ActivateOnCondition := THIS;
 
-            IF NOT IsActive AND NOT WaitingForAcknowledge AND _condition THEN
-                MessageCode := _messageCode;
-            END_IF;
+            // IF NOT IsActive AND NOT WaitingForAcknowledge AND _condition THEN
+            //     MessageCode := _messageCode;
+            // END_IF;
             IF _condition THEN
                 ActivateOnCondition := THIS.Activate(_messageCode,_category);                    
             ELSE
@@ -189,7 +189,7 @@ NAMESPACE AXOpen.Messaging.Static
 
         METHOD PRIVATE Deactivate
             VAR_INPUT
-                _messageCode : INT;
+                _messageCode : ULINT;
             END_VAR
 
             IF AXOpen.Core.IsNullContext(Context) THEN
@@ -204,7 +204,7 @@ NAMESPACE AXOpen.Messaging.Static
                 IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
                     WaitingForAcknowledge := TRUE;
                 ELSE
-                    MessageCode := INT#0;
+                    MessageCode := ULINT#0;
                 END_IF;
             END_IF;
         END_METHOD   
@@ -214,7 +214,7 @@ NAMESPACE AXOpen.Messaging.Static
                 RETURN;
             END_IF;
 
-            IF IsActive AND MessageCode = INT#0 THEN
+            IF IsActive AND MessageCode = ULINT#0 THEN
                 IsActive := FALSE;
                 ActiveContextCount := ULINT#0;
                 Fallen := Context.GetRtc().NowUTC();                
@@ -240,7 +240,7 @@ NAMESPACE AXOpen.Messaging.Static
                 AcknowledgedBeforeFallen := TRUE;
             ELSE
                 WaitingForAcknowledge := FALSE;
-                MessageCode := INT#0;
+                MessageCode := ULINT#0;
             END_IF;
             AcknowledgeRequest := FALSE;
 

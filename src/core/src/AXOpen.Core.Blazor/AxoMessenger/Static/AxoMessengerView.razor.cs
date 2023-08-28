@@ -133,9 +133,7 @@ namespace AXOpen.Messaging.Static
         }
         private string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
         private string Symbol => !(string.IsNullOrEmpty(Component.Symbol)) ? Component.Symbol : "Unable to retrieve symbol!";
-        //private string MessageText => !(string.IsNullOrEmpty(Component.MessageText)) ? Component.MessageText : "Message text not defined!";
         private string MessageText => GetMessageText();
-        //private string HelpText => !(string.IsNullOrEmpty(Component.Help)) ? Component.Help : "Help not defined!";
         private string HelpText => GetHelpText();
         private string Risen => !(string.IsNullOrEmpty(Component.Risen.Cyclic.ToString())) ? Component.Risen.Cyclic.ToString() : "";
         private string Fallen => !(string.IsNullOrEmpty(Component.Fallen.Cyclic.ToString())) ? Component.Fallen.Cyclic.ToString() : "";
@@ -149,18 +147,26 @@ namespace AXOpen.Messaging.Static
 
         private string GetMessageText()
         {
-            int messageCode = Component.MessageCode.Cyclic;
+            ulong messageCode = Component.MessageCode.Cyclic;
             string retVal = "";
 
+            //Just one static text defined inside the `MessageText` attribute in the PLC code is used
             if (Component.MessageCode.Cyclic == 0)
                 retVal = string.IsNullOrEmpty(Component.MessageText) ? "Message text not defined!" : Component.MessageText;
             else
             {
                 try
                 {
-                    if(Component.AxoMessengerTextList != null && Component.AxoMessengerTextList.Count > 0)
+                    //Several static texts defined inside the `PlcTextsList` attribute in the PLC code are used
+                    if (Component.PlcMessengerTextList != null && Component.PlcMessengerTextList.Count > 0)
                     {
-                        string _messageText = (from item in Component.AxoMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
+                        string _messageText = (from item in Component.PlcMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_messageText) ? "Message text not defined for the message code: " + messageCode.ToString() + " !" : _messageText;
+                    }
+                    //Message texts are written in .NET and passed into the component
+                    else if (Component.DotNetMessengerTextList != null && Component.DotNetMessengerTextList.Count > 0)
+                    {
+                        string _messageText = (from item in Component.DotNetMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
                         retVal = string.IsNullOrEmpty(_messageText) ? "Message text not defined for the message code: " + messageCode.ToString() + " !" : _messageText;
                     }
                     else
@@ -180,18 +186,26 @@ namespace AXOpen.Messaging.Static
 
         private string GetHelpText()
         {
-            int messageCode = Component.MessageCode.Cyclic;
+            ulong messageCode = Component.MessageCode.Cyclic;
             string retVal = "";
 
+            //Just one static text defined inside the `Help` attribute in the PLC code is used
             if (Component.MessageCode.Cyclic == 0)
                 retVal = string.IsNullOrEmpty(Component.Help) ? "Help text not defined!" : Component.Help;
             else
             {
                 try
                 {
-                    if (Component.AxoMessengerTextList != null && Component.AxoMessengerTextList.Count > 0)
+                    //Several static texts defined inside the `PlcTextsList` attribute in the PLC code are used
+                    if (Component.PlcMessengerTextList != null && Component.PlcMessengerTextList.Count > 0)
                     {
-                        string _helpText = (from item in Component.AxoMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
+                        string _helpText = (from item in Component.PlcMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_helpText) ? "Help text not defined for the message code: " + messageCode.ToString() + " !" : _helpText;
+                    }
+                    //Message texts are written in .NET and passed into the component
+                    else if (Component.DotNetMessengerTextList != null && Component.DotNetMessengerTextList.Count > 0)
+                    {
+                        string _helpText = (from item in Component.DotNetMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
                         retVal = string.IsNullOrEmpty(_helpText) ? "Help text not defined for the message code: " + messageCode.ToString() + " !" : _helpText;
                     }
                     else

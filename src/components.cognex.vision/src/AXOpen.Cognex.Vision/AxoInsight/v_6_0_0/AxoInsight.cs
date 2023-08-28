@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AXOpen.Components.Abstractions;
 
-using AXOpen.Components.Abstractions;
 namespace AXOpen.Cognex.Vision.v_6_0_0_0
 {
     public partial class AxoInsight

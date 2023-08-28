@@ -5,6 +5,7 @@
 // https://github.com/PTKu/ix/blob/master/LICENSE
 // Third party licenses: https://github.com/PTKu/ix/blob/master/notices.md
 
+using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
 using static System.Net.Mime.MediaTypeNames;
@@ -14,37 +15,37 @@ namespace AXOpen.Messaging.Static;
 public partial class AxoMessenger
 {
 
-    private List<KeyValuePair<int, AxoMessengerTextItem>> axoMessengerTextList;
-    public List<KeyValuePair<int, AxoMessengerTextItem>> AxoMessengerTextList 
+    private List<KeyValuePair<ulong, AxoMessengerTextItem>> plcMessengerTextList;
+    public List<KeyValuePair<ulong, AxoMessengerTextItem>> PlcMessengerTextList
     {
         get
         {
             try
             {
-                if (axoMessengerTextList == null)
+                if (plcMessengerTextList == null)
                 {
-                    axoMessengerTextList = new List<KeyValuePair<int, AxoMessengerTextItem>>();
-                    if(MessageTextList  != null )
+                    plcMessengerTextList = new List<KeyValuePair<ulong, AxoMessengerTextItem>>();
+                    if (PlcTextList != null)
                     {
-                        string[] items = MessageTextList.Split('\n');
-                        if (items.Length == 1 ) 
+                        string[] items = PlcTextList.Split('\n');
+                        //All message texts and help texts are in one line
+                        if (items.Length == 1)
                         {
                             string[] delimiters = { "[", "]:'", "':'", "';", "'" };
                             string[] itemSeparated = items[0].Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
                             try
                             {
-                                if(itemSeparated.Length >= 3 && itemSeparated.Length % 3 ==0  ) 
-                                { 
+                                if (itemSeparated.Length >= 3 && itemSeparated.Length % 3 == 0)
+                                {
                                     int itemsCount = itemSeparated.Length / 3;
-                                    for ( int i = 0; i < itemsCount; i++)
+                                    for (int i = 0; i < itemsCount; i++)
                                     {
-                                        int messageCode = 0;
-                                        if (Int32.TryParse(itemSeparated[3*i], out messageCode))
+                                        ulong messageCode = 0;
+                                        if (ulong.TryParse(itemSeparated[3 * i], out messageCode))
                                         {
                                             string messageText = string.IsNullOrEmpty(itemSeparated[3 * i + 1]) ? "Message text not defined for the message code: " + messageCode.ToString() + "!" : itemSeparated[3 * i + 1];
                                             string helpText = string.IsNullOrEmpty(itemSeparated[3 * i + 2]) ? "Help text not defined for the message code: " + messageCode.ToString() + "!" : itemSeparated[3 * i + 2];
-                                            KeyValuePair<int, AxoMessengerTextItem> valuePair = new KeyValuePair<int, AxoMessengerTextItem>(messageCode, new AxoMessengerTextItem(messageText, helpText));
-                                            axoMessengerTextList.Add(valuePair);
+                                            plcMessengerTextList.Add(new KeyValuePair<ulong, AxoMessengerTextItem>(messageCode, new AxoMessengerTextItem(messageText, helpText)));
                                         }
                                     }
                                 }
@@ -54,7 +55,8 @@ public partial class AxoMessenger
                                 throw;
                             }
                         }
-                        else if(items.Length > 1)
+                        //Each pair of the  Id message text and help text are in the separate line (change on the compilator side needs to be implemented)
+                        else if (items.Length > 1)
                         {
                             foreach (string item in items)
                             {
@@ -62,13 +64,12 @@ public partial class AxoMessenger
                                 string[] itemSeparated = item.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
                                 try
                                 {
-                                    int messageCode = 0;
-                                    if (Int32.TryParse(itemSeparated[0], out messageCode))
+                                    ulong messageCode = 0;
+                                    if (ulong.TryParse(itemSeparated[0], out messageCode))
                                     {
                                         string messageText = string.IsNullOrEmpty(itemSeparated[1]) ? "Message text not defined for the message code: " + messageCode.ToString() + "!" : itemSeparated[1];
                                         string helpText = string.IsNullOrEmpty(itemSeparated[2]) ? "Help text not defined for the message code: " + messageCode.ToString() + "!" : itemSeparated[2];
-                                        KeyValuePair<int, AxoMessengerTextItem> valuePair = new KeyValuePair<int, AxoMessengerTextItem>(messageCode, new AxoMessengerTextItem(messageText, helpText));
-                                        axoMessengerTextList.Add(valuePair);
+                                        plcMessengerTextList.Add(new KeyValuePair<ulong, AxoMessengerTextItem>(messageCode, new AxoMessengerTextItem(messageText, helpText)));
                                     }
                                 }
                                 catch (Exception)
@@ -80,7 +81,7 @@ public partial class AxoMessenger
 
                     }
                 }
-                return axoMessengerTextList;
+                return plcMessengerTextList;
             }
 
             catch (Exception)
@@ -92,6 +93,10 @@ public partial class AxoMessenger
         }
     }
 
+    private List<KeyValuePair<ulong, AxoMessengerTextItem>> dotNetMessengerTextList;
+    public List<KeyValuePair<ulong, AxoMessengerTextItem>> DotNetMessengerTextList
+    {
+        get{return dotNetMessengerTextList != null ? dotNetMessengerTextList : new List<KeyValuePair<ulong, AxoMessengerTextItem>>();}
+        set{dotNetMessengerTextList = value != null ? value : new List<KeyValuePair<ulong, AxoMessengerTextItem>>(); }
+    }
 }
-
-

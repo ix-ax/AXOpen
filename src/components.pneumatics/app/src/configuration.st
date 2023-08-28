@@ -5,6 +5,7 @@ CONFIGURATION MyConfiguration
     VAR_GLOBAL
         sandbox : SandboContext;
         documentation : DocumentationContext;
+        AxoRtc : AxoRtc.AxoS71500Rtc;
     END_VAR            
 END_CONFIGURATION
 

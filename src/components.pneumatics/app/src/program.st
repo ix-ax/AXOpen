@@ -2,6 +2,7 @@ PROGRAM MyProgram
     VAR_EXTERNAL
         sandbox : SandboContext;
         documentation : DocumentationContext;
+        AxoRtc : AxoRtc.AxoS71500Rtc;
     END_VAR
 
     VAR
@@ -12,4 +13,5 @@ PROGRAM MyProgram
 
     END_VAR
     sandbox.Run();    
+    sandbox.InjectRtc(AxoRtc);
 END_PROGRAM

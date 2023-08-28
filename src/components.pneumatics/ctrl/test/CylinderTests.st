@@ -200,6 +200,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._MoveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToWork().IsBusy());   
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.SuspendMoveToWorkWhile(TRUE);
@@ -210,8 +211,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._MoveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkTask.IsBusy());  
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToWork().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkSuspended.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToWorkSuspended.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -231,6 +232,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, _moveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToWork().IsBusy());   
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
@@ -241,8 +243,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._MoveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToWork().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkSuspended.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToWorkSuspended.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -262,6 +264,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(TRUE, _moveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToHome().IsBusy());   
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
@@ -272,8 +275,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, _moveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToHome().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeSuspended.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToHomeSuspended.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -293,6 +296,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(TRUE, _moveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToHome().IsBusy());   
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
@@ -303,8 +307,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._MoveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToHome().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeSuspended.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToHomeSuspended.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -314,6 +318,7 @@ NAMESPACE Cylinder.Tests
             END_VAR
 
             THIS.Init(dt); 
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.SuspendMoveToWorkWhile(TRUE);
@@ -325,8 +330,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, _moveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToWork().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkSuspended.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToWorkSuspended.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -336,6 +341,7 @@ NAMESPACE Cylinder.Tests
             END_VAR
 
             THIS.Init(dt); 
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
@@ -347,8 +353,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, _moveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToHome().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeSuspended.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToHomeSuspended.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -358,6 +364,7 @@ NAMESPACE Cylinder.Tests
             END_VAR
 
             THIS.Init(dt);  
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.MoveToWork();
@@ -378,8 +385,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._MoveHomeSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveToWorkTask.IsBusy());  
             AxUnit.Assert.Equal(FALSE, cylinder.MoveToWork().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkAborted.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToWorkAborted.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -399,6 +406,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, _moveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToWork().IsBusy());   
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
@@ -409,8 +417,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._MoveHomeSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveToWorkTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveToWork().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkAborted.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToWorkAborted.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -430,6 +438,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(TRUE, _moveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToHome().IsBusy());   
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.AbortMoveToHomeWhen(TRUE);
@@ -440,8 +449,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, _moveHomeSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveToHome().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeAborted.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToHomeAborted.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -461,6 +470,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(TRUE, _moveHomeSignal);   
             AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToHome().IsBusy());   
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
@@ -471,8 +481,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._MoveHomeSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveToHome().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeAborted.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToHomeAborted.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -482,6 +492,7 @@ NAMESPACE Cylinder.Tests
             END_VAR
 
             THIS.Init(dt); 
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.AbortMoveToWorkWhen(TRUE);
@@ -493,8 +504,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, _moveHomeSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveToWorkTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveToWork().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToWorkAborted.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToWorkAborted.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
         {Test}
@@ -504,6 +515,7 @@ NAMESPACE Cylinder.Tests
             END_VAR
 
             THIS.Init(dt); 
+            AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
             cylinder.AbortMoveToHomeWhen(TRUE);
@@ -515,8 +527,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, _moveHomeSignal);   
             AxUnit.Assert.Equal(FALSE, cylinder._MoveToHomeTask.IsBusy());   
             AxUnit.Assert.Equal(FALSE, cylinder.MoveToHome().IsBusy());   
-            // AxUnit.Assert.Equal(TRUE, cylinder._MoveToHomeAborted.IsActive);
-            // AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._MoveToHomeAborted.Risen));
+            AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
+            AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
         END_METHOD  
 
 
@@ -545,7 +557,7 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(TRUE, cylinder.MoveToHome().IsBusy());   
             AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
             AxUnit.Assert.Equal(TRUE,THIS.AreEqual(dt, cylinder._Messenger.Risen));
-            AxUnit.Assert.Equal(INT#5, cylinder._Messenger.MessageCode);
+            AxUnit.Assert.Equal(ULINT#5, cylinder._Messenger.MessageCode);
             
         END_METHOD  
     END_CLASS    
