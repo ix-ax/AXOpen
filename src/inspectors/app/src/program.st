@@ -1,6 +1,6 @@
 PROGRAM MyProgram
     VAR_EXTERNAL
-        sandbox : SandboContext;
+        sandbox : SandboxContext;
         documentation : DocumentationContext;
     END_VAR
 

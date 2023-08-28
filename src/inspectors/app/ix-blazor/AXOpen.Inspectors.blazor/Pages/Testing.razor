@@ -1,0 +1,31 @@
+﻿@page "/testing"
+@using AXOpen.Inspectors;
+@using axopen.inspectors
+
+<PageTitle>Testing</PageTitle>
+
+<button class="btn btn-primary" @onclick=StartInspection>Start inspections</button>
+<button class="btn btn-primary" @onclick=ResetInspection>Reset inspections</button>
+
+<RenderableContentControl Context="@Entry.Plc.sandbox" Presentation="Command-Control" PollingInterval="100"/>
+
+
+
+
+<p>Inspectors</p>
+@code
+{
+    private void ResetInspection()
+    {
+        Entry.Plc.sandbox._startInspection.Cyclic = false;
+        Entry.Plc.sandbox._inspectors._digitalInspector._data.Result.Cyclic = (short)eInspectorResult.NoAction; 
+        Entry.Plc.sandbox._inspectors._analogueInspector._data.Result.Cyclic = (short)eInspectorResult.NoAction;
+        Entry.Plc.sandbox._inspectors._dataInspector._data.Result.Cyclic = (short)eInspectorResult.NoAction;
+    }
+
+    private void StartInspection()
+    {
+        Entry.Plc.sandbox._startInspection.Cyclic = true;
+
+    }
+}

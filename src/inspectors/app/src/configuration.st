@@ -3,7 +3,7 @@ CONFIGURATION MyConfiguration
     PROGRAM P1 WITH Main: MyProgram;
 
     VAR_GLOBAL
-        sandbox : SandboContext;
+        sandbox : SandboxContext;
         documentation : DocumentationContext;
     END_VAR            
 END_CONFIGURATION
