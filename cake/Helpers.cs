@@ -36,6 +36,9 @@ internal class Helpers
 
     public static string GetApaxCommand()
         => RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? "apax" : "apax.cmd";
+
+    public static string GetDotNetCommand()
+        => RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ? "dotnet" : "dotnet";
     public static void CopyApaxPackages(string sourceDir, string destinationDir, string rootDir)
     {
 

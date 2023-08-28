@@ -107,6 +107,11 @@ When a client is in the process of editing, copying, or attempting to delete a r
 > [!IMPORTANT]
 > The repository is locked by clicking on the edit, copy, or delete buttons, and it can be unlocked by clicking the save or close button. If the modal is closed in an incorrect manner, such as clicking outside of it, the repository will remain locked.
 
+### Hashing
+
+Data are hashed each time they are created or updated.
+To enable hash verification, you can add the attribute: `{#ix-attr:[AXOpen.Data.AxoDataVerifyHashAttribute]}` above the data manager. With this attribute in place, the hash will be checked whenever you interact with the data. In case the verification process fails, a log will be generated, and the user will be warned about external modifications to the record.
+
 ## Data visualization
 
 ### Automated rendering using `RenderableContentControl`
