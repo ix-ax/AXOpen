@@ -1,6 +1,4 @@
-using System;
 using AXSharp.Connector;
-using System.Collections.Generic;
 using AXOpen.Messaging.Static;
 
 namespace AxoStaticMessengerExample
