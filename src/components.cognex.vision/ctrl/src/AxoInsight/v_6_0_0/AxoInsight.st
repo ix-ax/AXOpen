@@ -126,7 +126,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#User data#>"}
             {#ix-attr:[ReadOnly()]}
-            User        :   AxoInsight_UserData;
+            UserData        :   AxoInsight_UserData;
 
             {#ix-attr:[ReadOnly()]}
             _Messenger    :   AXOpen.Messaging.Static.AxoMessenger;
@@ -163,7 +163,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             Results.InspectionID                            :=  UINT#0;
             Results.ResultCode                              :=  UINT#0;
             
-            FOR _index := 0 TO 250 DO
+            FOR _index := 0 TO 249 DO
                 InspectionResults.Data[_index] := BYTE#0;
             END_FOR;
             InspectionResults.ToggleDataChangedFlag();
@@ -191,11 +191,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEventControl.TriggerSoftEvent.Data[6]       :=  FALSE;
             SoftEventControl.TriggerSoftEvent.Data[7]       :=  FALSE;
 
-            FOR _index := 0 TO 254 DO
-                User.Data[_index] := BYTE#0;
+            FOR _index := 0 TO 253 DO
+                UserData.Data[_index] := BYTE#0;
             END_FOR;
-
-            User.ToggleDataChangedFlag();
+            UserData.ToggleDataChangedFlag();
 
             IF NOT AcquisitionStatus.ExposureComplete AND NOT InspectionStatus.Error THEN
                 Status.Action.Id := UINT#300;
@@ -353,11 +352,14 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _Messenger.ActivateOnCondition(ULINT#713,Status.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_SIZE_INVALID, eAxoMessageCategory#ProgrammingError);
             _Messenger.ActivateOnCondition(ULINT#714,LOWER_BOUND(refUserData^,1) <> 0, eAxoMessageCategory#ProgrammingError);
 
-            IF User.DataChanged <> UserDataChanged THEN
+            IF(Status.UserDataSize <> eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID) AND (UserData.DataChanged <> UserDataChanged) THEN
                 FOR index := 0 TO Status.UserDataSize - 1 DO
-                    refUserData^[index] := User.Data[index];
+                    refUserData^[index] := UserData.Data[index];
                 END_FOR;
-                UserDataChanged := User.DataChanged;
+                FOR index := Status.UserDataSize TO 253 DO
+                    refUserData^[index] := BYTE#0;
+                END_FOR;
+                UserDataChanged := UserData.DataChanged;
             END_IF;
         END_METHOD  
 
@@ -497,8 +499,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEventTask.Initialize(THIS);
             
             _Messenger.Serve(THIS);
-            // _TaskMessenger.Serve(THIS);
-
+ 
             THIS.UpdateInputs(refAcquisitionStatus,refInspectionStatus,refCommandStatus,refSoftEventStatus,refResultData);
 
             //*************RESTORE********************
@@ -524,7 +525,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             //*************CHANGE JOB BY NAME*********
             _taskDisabled := _taskDisabled OR TriggerTask.IsBusy();
             ChangeJobByNameTask.IsDisabled :=  _taskDisabled;
-            ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(User),REF(_TaskMessenger));
+            ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(UserData),REF(_TaskMessenger));
             //****************************************
 
             //*************CHANGE JOB BY NUMBER*******

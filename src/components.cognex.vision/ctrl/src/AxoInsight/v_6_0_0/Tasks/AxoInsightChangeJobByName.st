@@ -39,7 +39,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _refMessenger := refMessenger;
 
             IF THIS.Execute() THEN
-                _refMessenger^.Serve(THIS);
+                refMessenger^.Serve(THIS);
                 IF _progress = 0 THEN
                     refStatus^.Action.Id := UINT#311;
                     refStatus^.Error.Id := UINT#0;
