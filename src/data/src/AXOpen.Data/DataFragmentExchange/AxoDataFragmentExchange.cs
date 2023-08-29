@@ -198,22 +198,36 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
-                poco.DataEntityId = identifier;
-                poco.Hash = HashHelper.CreateHash(poco);
-
-                fragment?.Repository.Create(identifier, poco);
+                CreateNewPocoInFragmentRepository(identifier, fragment);
             }
 
             DataFragments.First().Repository.Read(identifier);
         });
     }
 
+    private static void CreateNewPocoInFragmentRepository(string identifier, IAxoDataExchange fragment)
+    {
+        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
+        poco.DataEntityId = identifier;
+        poco.Hash = HashHelper.CreateHash(poco);
+
+        fragment?.Repository.Create(identifier, poco);
+    }
+
     public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
     {
         foreach (var fragment in DataFragments)
         {
-            await fragment.RefUIData.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
+            var exist = fragment.Repository.Exists(entity.DataEntityId);
+
+            if (exist)
+            {
+                await fragment.RefUIData.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
+            }
+            else
+            {
+                CreateNewPocoInFragmentRepository(entity.DataEntityId, fragment);
+            }
         }
     }
 
