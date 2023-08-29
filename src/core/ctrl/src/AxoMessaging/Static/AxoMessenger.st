@@ -32,6 +32,7 @@ NAMESPACE AXOpen.Messaging.Static
             ActiveContextCount : ULINT;
             Context : IAxoContext;         
         END_VAR
+ 
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>
@@ -83,6 +84,7 @@ NAMESPACE AXOpen.Messaging.Static
 
             THIS.Serve(_object.GetContext());                       
         END_METHOD
+
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>
@@ -148,6 +150,7 @@ NAMESPACE AXOpen.Messaging.Static
 
             Activate := THIS;
         END_METHOD   
+
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>
@@ -165,6 +168,7 @@ NAMESPACE AXOpen.Messaging.Static
                 THIS.Deactivate();        
             END_IF;
         END_METHOD   
+
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>
@@ -224,6 +228,7 @@ NAMESPACE AXOpen.Messaging.Static
                 END_IF;
             END_IF;
         END_METHOD   
+
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>
@@ -246,6 +251,27 @@ NAMESPACE AXOpen.Messaging.Static
 
             Acknowledged := Context.GetRtc().NowUTC();
         END_METHOD    
+        
+        ///<summary>
+        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        ///</summary>
+        METHOD PUBLIC Restore
+            IF AXOpen.Core.IsNullContext(Context) THEN
+                RETURN;
+            END_IF;
+
+            IsActive := FALSE;
+            Category := eAxoMessageCategory#All;           
+            MessageCode := ULINT#0;
+            Risen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+            Fallen := LDATE_AND_TIME#1970-01-01-00:00:00.000;
+            WaitingForAcknowledge := FALSE;
+            AcknowledgementRequired := FALSE;
+            AcknowledgeRequest := FALSE;
+            AcknowledgedBeforeFallen := FALSE;
+            Acknowledged := LDATE_AND_TIME#1970-01-01-00:00:00.000;;            
+            ActiveContextCount := ULINT#0;
+        END_METHOD   
 
         METHOD PRIVATE ToLogLevel : eLogLevel
             VAR_INPUT
@@ -278,6 +304,7 @@ NAMESPACE AXOpen.Messaging.Static
             END_CASE;
 
         END_METHOD    
+
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>
@@ -285,6 +312,7 @@ NAMESPACE AXOpen.Messaging.Static
             AcknowledgementRequired := TRUE;
             RequireAcknowledgement := THIS;
         END_METHOD
+
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>
@@ -292,6 +320,7 @@ NAMESPACE AXOpen.Messaging.Static
             AcknowledgementRequired := FALSE;
             DoNotRequireAcknowledgement := THIS;
         END_METHOD
+
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>

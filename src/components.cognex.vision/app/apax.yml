@@ -6,8 +6,10 @@ devDependencies:
   "@ax/sld": ^0.15.9
 dependencies:
   "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
+  "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
 variables:
-  APAX_BUILD_ARGS: [-d]
+  APAX_BUILD_ARGS:
+    - "--debug" # Generate debug information for target "1500"
 scripts:
   ixc:
     - START=$(date +%s)

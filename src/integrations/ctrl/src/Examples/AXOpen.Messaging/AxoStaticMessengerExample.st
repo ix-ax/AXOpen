@@ -43,11 +43,13 @@ NAMESPACE AxoStaticMessengerExample
             _messenger4condition : BOOL;
             {#ix-set:AttributeName = "<#Messenger 5#>"}
             _messenger5 : AXOpen.Messaging.Static.AxoMessenger;
-            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5#>"}
             {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5#>"}
             _messenger5condition : BOOL;
             {#ix-set:AttributeName = "<#message 5 code#>"}
             _messenger5code : UINT;
+            {#ix-set:AttributeName = "<#Set to high to call the messenger 5#>"}
+            _messenger5callcondition : BOOL;
        END_VAR    
     
         METHOD PROTECTED OVERRIDE Main
@@ -62,8 +64,12 @@ NAMESPACE AxoStaticMessengerExample
             _messenger3.Serve(THIS);    
             _messenger4.ActivateOnCondition(_messenger4condition,eAxoMessageCategory#Info).RequireAcknowledgement();
             _messenger4.Serve(THIS);    
-            _messenger5.ActivateOnCondition(_messenger5code,_messenger5condition,eAxoMessageCategory#Error).RequireAcknowledgement();
-            _messenger5.Serve(THIS);    
+            IF _messenger5callcondition THEN
+                _messenger5.ActivateOnCondition(_messenger5code,_messenger5condition,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.Serve(THIS);    
+            ELSE
+                _messenger5.Restore();
+            END_IF;
         END_METHOD
     END_CLASS    
 END_NAMESPACE

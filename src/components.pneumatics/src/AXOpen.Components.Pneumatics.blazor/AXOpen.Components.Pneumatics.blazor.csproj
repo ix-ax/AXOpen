@@ -33,10 +33,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="C:\Users\peto.kurhajec\.nuget\packages\ix.presentation.blazor.controls\0.6.0-alpha.18\contentFiles\any\net7.0\Styles\custom.scss" />
-  </ItemGroup>
-
-  <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
@@ -51,7 +47,6 @@
     <PackageReference Include="Humanizer" Version="2.14.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.8" />
-	  
   </ItemGroup>
 
 	<ItemGroup>
