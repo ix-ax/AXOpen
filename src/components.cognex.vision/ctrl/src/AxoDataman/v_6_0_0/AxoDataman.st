@@ -98,10 +98,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _TaskMessenger    :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
-        VAR PRIVATE
-            _taskDisabled           :   BOOL;
-        END_VAR
-               
         ///<summary>
 		/// Restores this instance . 
         ///</summary>   
@@ -142,8 +138,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEventControl.Reserved06 			:=  FALSE;    	
             SoftEventControl.SetMatchString 		:=  FALSE;   		
 
-            // User.Option :=  UINT#0;
-            // User.Length :=  UINT#0;
+            User.Option :=  UINT#0;
+            User.Length :=  UINT#0;
             FOR _index := 0 TO 249 DO
                 UserData.Data[_index] := BYTE#0;
             END_FOR;
@@ -289,9 +285,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refUserData^[3]     :=  User.Length.%B0;   
                 FOR index := 0 TO (TO_INT(User.Length) - INT#1) DO
                     refUserData^[index + 4] := UserData.Data[index];
-                END_FOR;
-                FOR index := TO_INT(User.Length) TO 249 DO
-                    refUserData^[index + 4] := BYTE#0;
                 END_FOR;
                 UserDataChanged := UserData.DataChanged;
             END_IF;           
@@ -447,29 +440,25 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _Messenger.Serve(THIS);
  
             THIS.UpdateInputs(refAcquisitionStatus,refResultsStatus,refSoftEventStatus,refResultData);
-            //THIS.UpdateSignalStates();
-
+ 
             IF Config.ContinuousReading THEN
 	            THIS.ContinuousReading(REF(Status), REF(Results),refResultData);
             END_IF;
 
             //*************RESTORE********************
-            _taskDisabled := FALSE;
-            RestoreTask.IsDisabled := _taskDisabled;
+            RestoreTask.IsDisabled := FALSE;
             IF RestoreTask.Execute() THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************CLEAR*DATA*****************
-            _taskDisabled := _taskDisabled OR RestoreTask.IsBusy();
-            ClearResultDataTask.IsDisabled := _taskDisabled;
+            ClearResultDataTask.IsDisabled := RestoreTask.IsBusy() OR ReadTask.IsBusy();
             ClearResultDataTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(ResultsControl),REF(ResultsStatus),REF(Config),REF(Status),REF(Results),REF(ResultData),REF(_TaskMessenger));
             //****************************************
 
             //*************READ***********************
-            _taskDisabled := _taskDisabled OR ClearResultDataTask.IsBusy();
-            ReadTask.IsDisabled :=  _taskDisabled;
+            ReadTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy();
             ReadTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(ResultsControl),REF(ResultsStatus),REF(Config),REF(Status),REF(Results),REF(ResultData),refResultData,REF(_TaskMessenger));
             //****************************************
 

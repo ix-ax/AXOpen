@@ -134,10 +134,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _TaskMessenger    :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
                
-        VAR PRIVATE
-            _taskDisabled : BOOL;
-        END_VAR
-
         ///<summary>
 		/// Restores this instance . 
         ///</summary>   
@@ -167,7 +163,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 InspectionResults.Data[_index] := BYTE#0;
             END_FOR;
             InspectionResults.ToggleDataChangedFlag();
-
+  
             AcquisitionControl.TriggerEnable                :=  FALSE;
             AcquisitionControl.Trigger					    :=  FALSE;
             AcquisitionControl.ClearExposureComplete        :=  AcquisitionStatus.ExposureComplete;
@@ -356,9 +352,6 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 FOR index := 0 TO Status.UserDataSize - 1 DO
                     refUserData^[index] := UserData.Data[index];
                 END_FOR;
-                FOR index := Status.UserDataSize TO 253 DO
-                    refUserData^[index] := BYTE#0;
-                END_FOR;
                 UserDataChanged := UserData.DataChanged;
             END_IF;
         END_METHOD  
@@ -503,40 +496,34 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             THIS.UpdateInputs(refAcquisitionStatus,refInspectionStatus,refCommandStatus,refSoftEventStatus,refResultData);
 
             //*************RESTORE********************
-            _taskDisabled := FALSE;
-            RestoreTask.IsDisabled := _taskDisabled;
+            RestoreTask.IsDisabled := FALSE;
             IF RestoreTask.Execute() THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************CLEAR*DATA*****************
-            _taskDisabled := _taskDisabled OR RestoreTask.IsBusy();
-            ClearInspectionResultsTask.IsDisabled := _taskDisabled;
+            ClearInspectionResultsTask.IsDisabled := RestoreTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy();
             ClearInspectionResultsTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(Config),REF(Status),REF(Results),REF(InspectionResults),REF(_TaskMessenger));
             //****************************************
 
             //*************READ***********************
-            _taskDisabled := _taskDisabled OR ClearInspectionResultsTask.IsBusy();
-            TriggerTask.IsDisabled :=  _taskDisabled;
+            TriggerTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy();
             TriggerTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(InspectionResults),refResultData,REF(_TaskMessenger));
             //****************************************
 
             //*************CHANGE JOB BY NAME*********
-            _taskDisabled := _taskDisabled OR TriggerTask.IsBusy();
-            ChangeJobByNameTask.IsDisabled :=  _taskDisabled;
+            ChangeJobByNameTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy();
             ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(UserData),REF(_TaskMessenger));
             //****************************************
 
             //*************CHANGE JOB BY NUMBER*******
-            _taskDisabled := _taskDisabled OR ChangeJobByNameTask.IsBusy();
-            ChangeJobByNumberTask.IsDisabled :=  _taskDisabled;
+            ChangeJobByNumberTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR SoftEventTask.IsBusy();
             ChangeJobByNumberTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(_TaskMessenger));
             //****************************************
 
             //*************Soft event*****************
-            _taskDisabled := _taskDisabled OR ChangeJobByNameTask.IsBusy();
-            SoftEventTask.IsDisabled :=  _taskDisabled;
+            SoftEventTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy();
             SoftEventTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(SoftEventControl),REF(SoftEventStatus),REF(_TaskMessenger));
             //****************************************
 
