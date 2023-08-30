@@ -82,14 +82,16 @@
 <p>Provides evaluation of alphanumerical values. The input value compares against the Required value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time. In addition to exact comparison, data inspector allows for simple pattern matching where # = any number and * = any character.</p>
 <p><img src="../../images/data-inspector.png" alt="Data inspector"></p>
 <p>Common inspector data are extended with following data inspector data:</p>
-<pre><code class="lang-C#">RequiredStatus : STRING; //required value for inspection
+<pre><code class="lang-smalltalk">      {#ix-set:AttributeName = &quot;&lt;#Required#&gt;&quot;}
+      RequiredStatus: STRING;
 
-DetectedStatus : STRING; //detected value for inspection
+      {#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
+      DetectedStatus : STRING;
 
-StarNotationEnabled: BOOL; //star notation enable/disable
+      {#ix-set:AttributeName = &quot;&lt;#Star notation#&gt;&quot;}
+      StarNotationEnabled: BOOL;
 
-</code></pre>
-</article>
+</code></pre></article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">
@@ -97,7 +99,7 @@ StarNotationEnabled: BOOL; //star notation enable/disable
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/176-_NEW-FEATURE_Create_library_for_basic_I/O_elements/docfx/articles/inspectors/AXODATAINSPECTOR.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/inspector_refactor/docfx/articles/inspectors/AXODATAINSPECTOR.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

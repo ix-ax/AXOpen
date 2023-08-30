@@ -16,15 +16,17 @@ Each inspector contains:
 
 1. Declare variables
 
-[!code-smalltalk[](../../../src/inspectors/app/src/Inspectors.st/?name=AxoInspectorDeclaration)]
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/Inspectors.st?name=AxoInspectorDeclaration)]
 
 2. Set initial inspection pass and fail timers
 
-[!code-smalltalk[](../../../src/inspectors/app/src/Inspectors.st/?name=AxoInspectorDataSet)]
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/Inspectors.st?name=AxoInspectorDataSet)]
 
 3. Run inspections
 
-[!code-smalltalk[](../../../src/inspectors/app/src/Inspectors.st/?name=AxoInspectorSimpleInspection)]
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/Inspectors.st?name=AxoInspectorSimpleInspection)]
+
+4. Check each inspector's data for results
 
 ## Example inspection with Coordinator
 Example of inspection within a sequencer in PLC:
@@ -45,24 +47,8 @@ Example of inspection within a sequencer in PLC:
 
 Inspectors contain common data, which are used to store data about inspection. Each inspector contain following data:
 
-```C#
-Timestamp: LDATE_AND_TIME; // timestamp of inspection
 
-PassTime : TIME; // stabilization time, inspection must be success for this period of time
-
-FailTime : TIME; // timeout, after which inspection fails
-
-Result : eInspectorResult; // result of inspection
-
-IsExcluded: BOOL; // inspection will be performed, however result will be omitted in overall result
-
-IsByPassed : BOOL; // inspection will be skipped
-
-NumberOfAllowedRetries : UINT; // maximum number of retries of inspection, from which overinspection will occur
-
-RetryAttemptsCount : UINT; // actual number of retries, if RetryAttemptsCount > NumberOfAllowedRetries, overinspection occurs
-
-```
+[!code-smalltalk[](../../../src/inspectors/ctrl/src/AxoInspectorData.st?name=CommonInspectorDataDeclaration)]
 
 
 
