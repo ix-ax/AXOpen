@@ -339,19 +339,19 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         switch (operation)
         {
             case eCrudOperation.Create:
-                this.RemoteCreate(identifier);
+                await this.RemoteCreate(identifier);
                 break;
             case eCrudOperation.Read:
-                this.RemoteRead(identifier);
+                await this.RemoteRead(identifier);
                 break;
             case eCrudOperation.Update:
-                this.RemoteUpdate(identifier);
+                await this.RemoteUpdate(identifier);
                 break;
             case eCrudOperation.Delete:
-                this.RemoteDelete(identifier);
+                await this.RemoteDelete(identifier);
                 break;
             case eCrudOperation.CreateOrUpdate:
-                this.RemoteCreateOrUpdate(identifier);
+                await this.RemoteCreateOrUpdate(identifier);
                 break;
             case eCrudOperation.EntityExist:
                 var result = await this.RemoteEntityExist(identifier);
