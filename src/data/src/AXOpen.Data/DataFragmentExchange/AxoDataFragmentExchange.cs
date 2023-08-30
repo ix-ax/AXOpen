@@ -222,7 +222,10 @@ public partial class AxoDataFragmentExchange
 
             if (exist)
             {
-                await fragment.RefUIData.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
+                var record = fragment.Repository.Read(entity.DataEntityId);
+                await fragment.RefUIData.PlainToShadow(record);
+                ((AxoDataEntity)fragment.RefUIData).Hash = record.Hash;
+                ((AxoDataEntity)fragment.RefUIData).Changes = record.Changes;
             }
             else
             {
