@@ -10,6 +10,7 @@ dependencies:
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
   "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
   "@ax/system-serde": ^2.0.2
+  "@ax/plc-mode": ^1.0.0
 variables:
   APAX_BUILD_ARGS: [-d]
 scripts:
@@ -17,7 +18,7 @@ scripts:
     - START=$(date +%s)
     - dotnet tool restore
     - dotnet ixc
-    - echo "Builded by ixc in :" $(expr $(date +%s) - $START) "s"
+    - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download:
     - START=$(date +%s)
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
@@ -69,6 +70,9 @@ scripts:
   da:
     - START=$(date +%s)
     - apax do-it-all
-    - echo "Finished in :" $(expr $(date +%s) - $START) "s"
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+  r:
+    - apax plc-mode set stop -t $AXTARGET -y
+    - apax plc-mode set run -t $AXTARGET -y
 targets:
   - plcsim

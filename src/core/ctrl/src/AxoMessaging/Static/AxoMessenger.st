@@ -55,21 +55,25 @@ NAMESPACE AXOpen.Messaging.Static
                 ELSIF AcknowledgedBeforeFallen THEN
                     AcknowledgedBeforeFallen := FALSE;
                 END_IF;
-            ELSE
-                IF IsActive THEN
-                    IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
-                        THIS.Deactivate(MessageCode);
-                    END_IF;
-                ELSIF AcknowledgedBeforeFallen THEN
-                    AcknowledgedBeforeFallen := FALSE;
-                    MessageCode := ULINT#0;
+                IF AcknowledgeRequest THEN
+                    THIS.Acknowledge();
                 END_IF;
             END_IF;
-
-            IF AcknowledgeRequest THEN
-                THIS.Acknowledge();
-            END_IF;
+            // ELSE
+            //     IF IsActive THEN
+            //         IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
+            //             THIS.Deactivate(MessageCode);
+            //         END_IF;
+            //     ELSIF AcknowledgedBeforeFallen THEN
+            //         AcknowledgedBeforeFallen := FALSE;
+            //         MessageCode := ULINT#0;
+            //     END_IF;
+            //     IF AcknowledgeRequest THEN
+            //         THIS.Acknowledge(MessageCode);
+            //     END_IF;
+            // END_IF;
         END_METHOD
+        
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>
@@ -181,13 +185,19 @@ NAMESPACE AXOpen.Messaging.Static
 
             ActivateOnCondition := THIS;
 
-            // IF NOT IsActive AND NOT WaitingForAcknowledge AND _condition THEN
-            //     MessageCode := _messageCode;
-            // END_IF;
             IF _condition THEN
                 ActivateOnCondition := THIS.Activate(_messageCode,_category);                    
             ELSE
                 THIS.Deactivate(_messageCode);        
+            END_IF;
+
+            IF NOT IsActive AND AcknowledgedBeforeFallen THEN
+                AcknowledgedBeforeFallen := FALSE;
+                MessageCode := ULINT#0;
+            END_IF;
+
+            IF AcknowledgeRequest THEN
+                THIS.Acknowledge(MessageCode);
             END_IF;
         END_METHOD   
 
@@ -229,10 +239,31 @@ NAMESPACE AXOpen.Messaging.Static
             END_IF;
         END_METHOD   
 
-        ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
-        ///</summary>
-        METHOD PUBLIC Acknowledge
+        METHOD PRIVATE Acknowledge
+            VAR_INPUT
+                _messageCode : ULINT;
+            END_VAR
+            IF AXOpen.Core.IsNullContext(Context) THEN
+                RETURN;
+            END_IF;
+
+            IF NOT AcknowledgementRequired THEN
+                RETURN;
+            END_IF;
+
+            IF MessageCode = _messageCode THEN
+                IF NOT WaitingForAcknowledge THEN
+                    AcknowledgedBeforeFallen := TRUE;
+                ELSE
+                    WaitingForAcknowledge := FALSE;
+                    MessageCode := ULINT#0;
+                END_IF;
+                AcknowledgeRequest := FALSE;
+                Acknowledged := Context.GetRtc().NowUTC();
+            END_IF;
+        END_METHOD    
+
+        METHOD PRIVATE Acknowledge
             IF AXOpen.Core.IsNullContext(Context) THEN
                 RETURN;
             END_IF;
@@ -248,10 +279,9 @@ NAMESPACE AXOpen.Messaging.Static
                 MessageCode := ULINT#0;
             END_IF;
             AcknowledgeRequest := FALSE;
-
             Acknowledged := Context.GetRtc().NowUTC();
         END_METHOD    
-        
+
         ///<summary>
         /// TODO-add some docu as this is PUBLIC method (unfortunately)
         ///</summary>

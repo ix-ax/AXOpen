@@ -7,6 +7,7 @@ devDependencies:
 dependencies:
   "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
+  "@ax/plc-mode": ^1.0.0
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
@@ -68,5 +69,8 @@ scripts:
     - START=$(date +%s)
     - apax do-it-all
     - echo "Finished in :" $(expr $(date +%s) - $START) "s"
+  r:
+    - apax plc-mode set stop -t $AXTARGET -y
+    - apax plc-mode set run -t $AXTARGET -y
 targets:
   - plcsim

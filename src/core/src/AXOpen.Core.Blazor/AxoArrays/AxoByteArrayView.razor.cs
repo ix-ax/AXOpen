@@ -34,10 +34,16 @@ namespace AXOpen.Core
         protected override void OnInitialized()
         {
             UpdateValuesOnChange(Component);
-            base.OnInitialized();
-            UpdateAndFormatData(null, null);
-            Component.DataChanged.Subscribe(UpdateAndFormatData);
+            base.OnInitialized();                      
         }
+
+        protected override async Task OnInitializedAsync()
+        {
+            await Task.Run(() => UpdateAndFormatData(null, null));
+            Component.DataChanged.Subscribe(UpdateAndFormatData);
+            await base.OnInitializedAsync();           
+        }
+
 
         private async void UpdateAndFormatData(ITwinPrimitive sender, ValueChangedEventArgs args)
         {

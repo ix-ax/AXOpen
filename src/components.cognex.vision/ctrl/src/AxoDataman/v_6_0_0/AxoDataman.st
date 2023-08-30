@@ -92,10 +92,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ReadOnly()]}
             UserData        :   AxoDataman_UserData;
 
-            {#ix-attr:[ReadOnly()]}
-            _Messenger    :   AXOpen.Messaging.Static.AxoMessenger;
-            {#ix-attr:[ReadOnly()]}
-            _TaskMessenger    :   AXOpen.Messaging.Static.AxoMessenger;
+            _Messenger          :   AXOpen.Messaging.Static.AxoMessenger;
+            _TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
         ///<summary>
@@ -461,6 +459,12 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ReadTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy();
             ReadTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(ResultsControl),REF(ResultsStatus),REF(Config),REF(Status),REF(Results),REF(ResultData),refResultData,REF(_TaskMessenger));
             //****************************************
+
+            _Messenger.ActivateOnCondition(ULINT#714,ClearResultDataTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#715,ReadTask.HasError(), eAxoMessageCategory#Error);
+
+            _Messenger.ActivateOnCondition(ULINT#716,ClearResultDataTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#717,ReadTask.IsAborted(), eAxoMessageCategory#Error);
 
             THIS.UpdateOutputs(refAcquisitionControl,refResultsControl,refSoftEventControl,refUserData);
         END_METHOD    
