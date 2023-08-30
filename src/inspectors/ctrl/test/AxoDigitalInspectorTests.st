@@ -72,37 +72,37 @@ NAMESPACE AXOpen.Inspectors.AxoDigitalInspector_Tests
 
     {TestFixture}
     CLASS AxoDigitalInspectorTests
-        // VAR PROTECTED
-        //     _context : TestContext;
-        //     _digitalInspector    : AxoDigitalInspector;
-        //     _inspectedBool : BOOL;
-        //     _sequencer  : AxoSequencer;
-        //     _rtcMock :  AxoRtcMock;  
+        VAR PROTECTED
+            _context : TestContext;
+            _digitalInspector    : AxoDigitalInspector;
+            _inspectedBool : BOOL;
+            _sequencer  : AxoSequencer;
+            _rtcMock :  AxoRtcMock;  
 
-        //     _testBool : BOOL;
+            _testBool : BOOL;
 
-        //     _testTimer: AXOpen.Timers.OnDelayContext;
-        //     _testTimeDelay: LTIME;
-        // END_VAR  
+            _testTimer: AXOpen.Timers.OnDelayTimer;
+            _testTimeDelay: LTIME;
+        END_VAR  
 
-        // METHOD PRIVATE Initialize
-        //     _context.InjectRtc(_rtcMock);
-        //     _sequencer.Initialize(_context);            
-        // END_METHOD
+        METHOD PRIVATE Initialize
+            _context.InjectRtc(_rtcMock);
+            _sequencer.Initialize(_context);            
+        END_METHOD
  
         
-        // {Test}        
-        // METHOD PUBLIC Timer_test_pass
-        //     THIS.Initialize();
+        {Test}        
+        METHOD PUBLIC Timer_test_pass
+            THIS.Initialize();
             
-        //     _context.Open();
+            _context.Open();
         
 
         //     _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.123456);
         //     _testBool := TRUE;
-        //     _testTimeDelay := LTIME#13:14:3.45;
+        //     // _testTimeDelay := LTIME#13:14:3.45;
 
-        //     _testTimer.Delay(_context,_testBool,_testTimeDelay);
+        //     _testTimer.OnDelay(_context,_testBool,_testTimeDelay);
         //     _inspectedBool := TRUE;
         //     _digitalInspector.Data()^.RequiredStatus := TRUE;
 
@@ -121,8 +121,8 @@ NAMESPACE AXOpen.Inspectors.AxoDigitalInspector_Tests
         //     Assert.Equal(eInspectorResult#Passed, _digitalInspector.Data()^.Result);
             
            
-        //     _context.Close();
-        // END_METHOD
+            _context.Close();
+        END_METHOD
 
       
        END_CLASS
