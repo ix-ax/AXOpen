@@ -33,6 +33,11 @@
 			"path": "abstractions/ctrl"
 		},
 		{
+
+			"name": "timers",
+			"path": "timers/ctrl"
+    },
+    {
 			"name": "inspectors",
 			"path": "inspectors/ctrl"			
 		},
