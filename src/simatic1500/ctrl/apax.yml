@@ -6,11 +6,10 @@ targets:
 files:
   - src
 dependencies:
-  "@ax/simatic-1500": ^4.0.8
   "@ix-ax/axopen.abstractions": '0.1.4-alpha.79'
+  "@ax/simatic-1500-clocks": ^4.0.1
 devDependencies:
   "@ax/sdk": ^4.0.8
-
 scripts:
   postbuild:
     - dotnet ixc

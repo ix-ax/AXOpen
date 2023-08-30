@@ -15,5 +15,3 @@ scripts:
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.1.4-alpha.79'
   "@ix-ax/axopen.utils": '0.1.4-alpha.79'
-  "@ax/system-strings": ^5.0.12
-  "@ax/system-serde": ^2.0.2

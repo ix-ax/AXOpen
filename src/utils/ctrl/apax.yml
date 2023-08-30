@@ -11,4 +11,5 @@ scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ax/system-serde": ^2.0.2
+  "@ax/system-serde": ^5.0.60
+  "@ax/system-strings": ^5.0.60
