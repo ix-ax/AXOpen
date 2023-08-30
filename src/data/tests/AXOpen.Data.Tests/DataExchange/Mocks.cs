@@ -215,5 +215,28 @@ namespace Pocos
         {
             public axosimple.SharedProductionData Set { get; set; } = new axosimple.SharedProductionData();
         }
+
+        public partial class AllTypesTestData : AXOpen.Data.AxoDataEntity, AXSharp.Connector.IPlain
+        {
+            public sbyte TestSbyte { get; set; }
+            public byte TestByte { get; set; }
+            public short TestShort { get; set; }
+            public ushort TestUshort { get; set; }
+            public int TestInt { get; set; }
+            public uint TestUint { get; set; }
+            public long TestLong { get; set; }
+            public ulong TestUlong { get; set; }
+            public char TestChar { get; set; }
+            public float TestFloat { get; set; }
+            public double TestDouble { get; set; }
+            public bool TestBool { get; set; }
+            public decimal TestDecimal { get; set; }
+            public string TestString { get; set; }
+            public DateOnly TestDateOnly { get; set; }
+            public DateTime TestDateTime { get; set; }
+            public DateTimeOffset TestDateTimeOffset { get; set; }
+            public TimeOnly TestTimeOnly { get; set; }
+            public TimeSpan TestTimeSpan { get; set; }
+        }
     }
 }
