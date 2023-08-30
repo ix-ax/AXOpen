@@ -4,27 +4,31 @@
 @inject IAlertDialogService _alertDialogService;
 @inject AuthenticationStateProvider _asp;
 
-
 <h3>Editable</h3>
 //<CommandView>
     <RenderableContentControl Context="Entry.Plc.AxoDataExamplesDocu.DataManager" Presentation="Command"></RenderableContentControl>
 //</CommandView>
+
 <h3>Readonly</h3>
 //<DisplayView>
-<RenderableContentControl Context="Entry.Plc.AxoDataExamplesDocu.DataManager" Presentation="Status"></RenderableContentControl>
+    <RenderableContentControl Context="Entry.Plc.AxoDataExamplesDocu.DataManager" Presentation="Status"></RenderableContentControl>
 //</DisplayView>
 
 //<CustomColumns>
-<DataExchangeView Vm="VM" Presentation="Command">
-    <ColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
-    <ColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
-    <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
-</DataExchangeView>
+    <DataExchangeView Vm="_vm" Presentation="Command">
+        <ColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
+        <ColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
+        <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
+    </DataExchangeView>
 //</CustomColumns>
 
 //<CustomColumnsCode>
 @code {
-    protected DataExchangeViewModel VM { get; } = new () { Model = Entry.Plc.AxoDataExamplesDocu.DataManager, AlertDialogService = _alertDialogService, Asp = _asp };
-}
+    private DataExchangeViewModel _vm;
 
+    protected override void OnInitialized()
+    {
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataExamplesDocu.DataManager, AlertDialogService = _alertDialogService, Asp = _asp };
+    }
+}
 //</CustomColumnsCode>
