@@ -1,17 +1,24 @@
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
-    // VAR PUBLIC        
-    //     cyclinder : AXOpen.Pneumatics.Cylinder;        
-    // END_VAR
+    VAR PUBLIC
 
-    // VAR PRIVATE
-    //     _homeSensor : BOOL;
-    //     _workSensor : BOOL;
-    //     _moveHomeSignal : BOOL;
-    //     _moveWorkSignal : BOOL;
-    // END_VAR    
+        _startInspection : BOOL := FALSE;
+
+        _inspectors : Inspectors;
+      
+    END_VAR
+
 
     METHOD PROTECTED OVERRIDE Main
-        //cyclinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);        
-    ;
+        _inspectors.Initialize(THIS);
+
+        IF _startInspection THEN
+            _inspectors.Run();
+        END_IF;
+      
+     
     END_METHOD
+
+
+    
 END_CLASS
+

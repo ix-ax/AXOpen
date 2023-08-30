@@ -12,7 +12,21 @@ Each inspector contains:
 
 4. `Common data` about inspection inputs and result. See below.
 
-## Example inspection
+## Simple example inspection
+
+1. Declare variables
+
+[!code-smalltalk[](../../../src/inspectors/app/src/Inspectors.st/?name=AxoInspectorDeclaration)]
+
+2. Set initial inspection pass and fail timers
+
+[!code-smalltalk[](../../../src/inspectors/app/src/Inspectors.st/?name=AxoInspectorDataSet)]
+
+3. Run inspections
+
+[!code-smalltalk[](../../../src/inspectors/app/src/Inspectors.st/?name=AxoInspectorSimpleInspection)]
+
+## Example inspection with Coordinator
 Example of inspection within a sequencer in PLC:
 ```
  _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
