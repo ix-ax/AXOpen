@@ -82,6 +82,17 @@ NAMESPACE AXOpen.Elements
                 _messengerGainNotDefined.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
             END_IF;
     
+
+            IF (_requiredValue > _config.RealHigh) THEN
+                _requiredValue := _config.RealHigh;
+                _messengerOutOfBoundaries.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+            END_IF;
+            
+            IF (_requiredValue < _config.RealLow) THEN
+                _requiredValue := _config.RealLow;
+                _messengerOutOfBoundaries.Activate(AXOpen.Messaging.eAxoMessageCategory#Error);
+            END_IF;
+
             _unscaled := (_requiredValue - _config.RealLow) / _realRange;
 
             _unscaled := _unscaled * _rawRange;
