@@ -1,6 +1,7 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.JSInterop;
 using System.Security.Principal;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -11,6 +12,16 @@ namespace AXOpen.Messaging.Static
 
         [Inject]
         protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+
+        [Inject]
+        protected IJSRuntime js { get; set; }
+        private IJSObjectReference? jsModule;
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.js");
+            await jsObject.InvokeVoidAsync("addPopovers");
+        }
 
         protected async Task<string?> GetCurrentUserName()
         {
@@ -24,16 +35,10 @@ namespace AXOpen.Messaging.Static
             return authenticationState?.User?.Identity;
         }
 
-        private bool showHelp = false;
-
         private async void AcknowledgeTask()
         {
             Component.AcknowledgeRequest.Cyclic = true;
             AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
-        }
-        private void Help()
-        {
-            showHelp = !showHelp;
         }
         protected override void OnInitialized()
         {
@@ -51,7 +56,7 @@ namespace AXOpen.Messaging.Static
             get
             {
                 string retval = "btn-default";
-                if(IsActive)
+                if (IsActive)
                 {
                     retval = AckBtnBackgroundColor;
                 }
@@ -92,7 +97,7 @@ namespace AXOpen.Messaging.Static
                     case 100:
                         return "Trace";
                         break;
-                    case 200: 
+                    case 200:
                         return "Debug";
                         break;
                     case 300:
@@ -128,7 +133,7 @@ namespace AXOpen.Messaging.Static
                     default:
                         return "None";
                         break;
-                }            
+                }
             }
         }
         private string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
