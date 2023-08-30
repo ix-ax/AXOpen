@@ -278,8 +278,6 @@ namespace AXOpen.Base.Data
                 //((dynamic)newRecord).ShadowToPlain((dynamic)prototype);
                 newRecord = newRecord.ShadowToPlain1<T>(prototype);
 
-                Task.Delay(1000).Wait();
-
                 this.Repository.Create(newRecord.DataEntityId, newRecord);
             }            
         }

@@ -28,7 +28,7 @@ namespace AXOpen.Probers
                     break;
                 }
 
-                Task.Delay(1).Wait();
+                await Task.Delay(1);
             }
 
             await this.RequredNumberOfCycles.SetAsync(numberOfCycles);
@@ -48,7 +48,7 @@ namespace AXOpen.Probers
                     throw new Exception(await this.ErrorDetails.GetAsync());
                 }
 
-                Task.Delay(10).Wait();
+                await Task.Delay(10);
             }
         }
 }

@@ -27,7 +27,7 @@ namespace AXOpen.Probers
                     break;
                 }
 
-                Task.Delay(1).Wait();
+                await Task.Delay(1);
             }
 
             this.ExecuteAsync(new GenericIdentity("Tester"));
@@ -46,7 +46,7 @@ namespace AXOpen.Probers
                     throw new Exception(failureDescription);
                 }
 
-                Task.Delay(1).Wait();
+                await Task.Delay(1);
             }
         }
 }
