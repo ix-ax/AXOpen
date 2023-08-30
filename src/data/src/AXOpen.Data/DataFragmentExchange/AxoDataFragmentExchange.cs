@@ -71,22 +71,22 @@ public partial class AxoDataFragmentExchange
         switch (operation)
         {
             case eCrudOperation.Create:
-                this.RemoteCreate(identifier);
+                await this.RemoteCreate(identifier);
                 break;
             case eCrudOperation.Read:
-                this.RemoteRead(identifier);
+                await this.RemoteRead(identifier);
                 break;
             case eCrudOperation.Update:
-                this.RemoteUpdate(identifier);
+                await this.RemoteUpdate(identifier);
                 break;
             case eCrudOperation.Delete:
-                this.RemoteDelete(identifier);
+                await this.RemoteDelete(identifier);
                 break;
             case eCrudOperation.CreateOrUpdate:
-                this.RemoteCreateOrUpdate(identifier);
+                await this.RemoteCreateOrUpdate(identifier);
                 break;
             case eCrudOperation.EntityExist:
-                var result = this.RemoteEntityExist(identifier).Result;
+                var result = await this.RemoteEntityExist(identifier);
                 await Operation._exist.SetAsync(result);
                 break;
             default:
