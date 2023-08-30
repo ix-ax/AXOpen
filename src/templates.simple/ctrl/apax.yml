@@ -12,7 +12,7 @@ dependencies:
   "@ix-ax/axopen.inspectors": '0.1.4-alpha.79'
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
 variables:
-  APAX_BUILD_ARGS: [ -d ]
+  APAX_BUILD_ARGS: [-d]
 scripts:
   ixc:
     - dotnet tool restore --no-cache
@@ -27,8 +27,7 @@ scripts:
     # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
 
     # --default-server-interface is a must if you are using WebAPI      
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   watch:
     - dotnet watch --project ..\\axosimple.app\\axosimple.hmi.csproj
   da:
@@ -69,5 +68,4 @@ scripts:
     - apax install
     - apax rr
 targets:
-  - axunit-llvm
   - plcsim

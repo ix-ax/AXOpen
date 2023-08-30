@@ -5,7 +5,7 @@ using System.Reflection;
 
 namespace AXOpen.Core
 {
-    public enum eDisplayFormat { Array_of_decimals, Array_of_hexdecimals, String };
+    public enum eDisplayFormat { Array_of_hexdecimals , Array_of_decimals, String };
     public partial class AxoByteArrayView : IDisposable
     {
 
@@ -62,6 +62,14 @@ namespace AXOpen.Core
                             {
                                 length = _data.Length;
                                 Data = new IndexedData<string>[_data.Length];
+                                if (Component.DisplayFormat != null)
+                                {
+                                    string _displayFormat = Component.DisplayFormat.ToString().ToLower();
+                                    CurrentDisplayFormat = eDisplayFormat.Array_of_hexdecimals;
+                                    if (_displayFormat.Equals("decimal")) CurrentDisplayFormat = eDisplayFormat.Array_of_decimals;
+                                    if (_displayFormat.Equals("string")) CurrentDisplayFormat = eDisplayFormat.String;
+                                }
+
                                 initialized = true;
                             }
                         }

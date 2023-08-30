@@ -4,7 +4,7 @@ PROGRAM MyProgram
         AxoCognexVisionExampleContext : AxoCognexVisionExample.AxoCognexVisionExampleContext;
 		PlcInputs : PlcInputs;
 		PlcOutputs : PlcOutputs;
-        AxoRtc : AxoRtc.AxoS71500Rtc;
+        _rtc : AXOpen.S71500.Rtc;
 	END_VAR
 
     CopyInputs();
@@ -14,7 +14,7 @@ PROGRAM MyProgram
     AxoCognexVisionExampleContext.PlcInputs := REF(PlcInputs);
     AxoCognexVisionExampleContext.PlcOutputs := REF(PlcOutputs);
     AxoCognexVisionExampleContext.Run();
-    AxoCognexVisionExampleContext.InjectRtc(AxoRtc);
+    AxoCognexVisionExampleContext.InjectRtc(_rtc);
 
     CopyOutputs();  
 END_PROGRAM

@@ -14,6 +14,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ComponentHeader()]}         
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Inspection results#>"}
+            {#ix-set:DisplayFormat = "string"}
             ResultData  :   AxoDataman_ResultData;
 
             {#ix-attr:[Container(Layout.Wrap)]}
@@ -90,6 +91,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             User        :   AxoDataman_User;
             {#ix-set:AttributeName = "<#User data#>"}
             {#ix-attr:[ReadOnly()]}
+            {#ix-set:DisplayFormat = "hexadecimal"}
             UserData        :   AxoDataman_UserData;
 
             _Messenger          :   AXOpen.Messaging.Static.AxoMessenger;
