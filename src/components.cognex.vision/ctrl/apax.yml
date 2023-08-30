@@ -6,7 +6,7 @@ targets:
 files:
   - src
 devDependencies:
-  "@ax/sdk": ^4.0.3
+  "@ax/sdk": ^4.0.8
 scripts:
   # prebuild:
   #   - dotnet ixc
@@ -15,6 +15,3 @@ scripts:
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.1.4-alpha.79'
   "@ix-ax/axopen.utils": '0.1.4-alpha.79'
-  "@ax/system-timer": ^4.0.1
-  "@ax/system-strings": ^5.0.12
-  "@ax/system-serde": ^2.0.2

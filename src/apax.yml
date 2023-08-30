@@ -2,4 +2,4 @@ name: "ix-ax"
 version: 0.1.0
 type: workspace
 devDependencies:
-  "@ax/sdk": ^4.0.1
+  "@ax/sdk": ^4.0.8

@@ -2,12 +2,12 @@ name: "axopen.components.cognex.vision.integrations"
 version: '0.1.4-alpha.79'
 type: app
 devDependencies:
-  "@ax/sdk": ^4.0.3
-  "@ax/sld": ^0.15.9
+  "@ax/sdk": ^4.0.8
+  "@ax/sld": 0.15.9
 dependencies:
   "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
 variables:
-  APAX_BUILD_ARGS: [-d]
+  APAX_BUILD_ARGS: [ -d ]
 scripts:
   ixc:
     - START=$(date +%s)
@@ -16,7 +16,8 @@ scripts:
     - echo "Builded by ixc in :" $(expr $(date +%s) - $START) "s"
   download:
     - START=$(date +%s)
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r --default-server-interface
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
@@ -53,7 +54,8 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project ..\\app_src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
+    - dotnet watch --project
+      ..\\app_src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
   rr:
     - apax build
     - apax download

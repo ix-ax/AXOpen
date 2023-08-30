@@ -31,7 +31,10 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
             CreateIdentity := _identityCounter;
         END_METHOD         
         
-        METHOD PUBLIC GetRtc : IAxoRtc ; END_METHOD
+        VAR PRIVATE
+            NULL_RTC : _NULL_RTC;
+        END_VAR    
+        METHOD PUBLIC GetRtc : IAxoRtc GetRtc := NULL_RTC; END_METHOD
 
         METHOD PUBLIC InjectRtc VAR_INPUT Rtc : IAxoRtc; END_VAR ; END_METHOD
              
