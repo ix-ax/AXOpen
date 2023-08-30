@@ -1,7 +1,6 @@
 USING AXOpen.Core;
 USING AXOpen.Inspectors;
 USING AXOpen.Core;
-USING System.Timer;
 
 
 
@@ -17,8 +16,8 @@ NAMESPACE AXOpen.Inspectors
         VAR INTERNAL
             // _passTimer : AXOpen.Timers.OnDelayContext;
             // _failTimer : AXOpen.Timers.OnDelayContext;
-            _passTimer : OnDelay;
-            _failTimer : OnDelay;
+            _passTimer : AXOpen.Timers.OnDelayTimer;
+            _failTimer : AXOpen.Timers.OnDelayTimer;
         END_VAR
 
         
@@ -67,8 +66,8 @@ NAMESPACE AXOpen.Inspectors
             
             _inspectionData^.Result := eInspectorResult#NoAction;
 
-            _passTimer(FALSE, LT#0MS);
-            _failTimer(FALSE, LT#0MS);
+            _passTimer.Restore();
+            _failTimer.Restore();
         END_METHOD
 
        
