@@ -157,7 +157,7 @@ When adding data view manually, you will need to create ViewModel:
 If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
 
 ~~~ HTML
-<DataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
+<DataExchangeView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
 ~~~
 
 With this option, buttons for export and import data will appear. After clicking on the export button, the `.zip` file will be created, which contains all existing records. If you want to import data, you must upload `.zip` file with an equal data structure as we get in the export file.
@@ -187,7 +187,7 @@ IAxoDataExchange.CleanUp();
 The Detail View of a record is shown like modal. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with `ModalDetailView` attribute. This change will show a detail view under the record table. Example with `ModalDetailView` attribute:
 
 ~~~
-<DataView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
+<DataExchangeView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
 ~~~
 
 ![Not Modal detail view](~/images/NotModalDetailView.png)
