@@ -106,7 +106,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// Sets changes to changeTracker.
     /// </summary>
     /// <param name="entity">Entity from which is set data.</param>
-    public void ChangeTrackerSetChanges(IBrowsableDataObject entity)
+    public void ChangeTrackerSetChanges()
     {
         CrudDataObject.Changes = ((AxoDataEntity)RefUIData).Changes;
     }
@@ -138,12 +138,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         DataEntity.LockedBy = by;
     }
 
-    public bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity)
+    public bool IsHashCorrect(IIdentity identity)
     {
         if (!VerifyHash)
             return true;
-        if (entity.DataEntityId == null)
-            return false;
 
         var poco = RefUIData.CreatePoco().ShadowToPlain1<TPlain>(RefUIData);
 

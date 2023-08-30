@@ -134,11 +134,11 @@ public partial class AxoDataFragmentExchange
     /// Sets changes to changeTracker.
     /// </summary>
     /// <param name="entity">Entity from which is set data.</param>
-    public void ChangeTrackerSetChanges(IBrowsableDataObject entity)
+    public void ChangeTrackerSetChanges()
     {
         foreach (var fragment in DataFragments)
         {
-            fragment.ChangeTrackerSetChanges(entity);
+            fragment.ChangeTrackerSetChanges();
         }
     }
 
@@ -182,11 +182,11 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    public bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity)
+    public bool IsHashCorrect(IIdentity identity)
     {
         foreach (var fragment in DataFragments)
         {
-            if (!fragment.IsHashCorrect(entity, identity))
+            if (!fragment.IsHashCorrect(identity))
                 return false;
         }
         return true;
