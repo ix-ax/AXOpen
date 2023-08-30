@@ -21,7 +21,7 @@
 
 //<CustomColumnsCode>
 @code {
-    protected DataExchangeViewModel VM { get; } = new () { Model = Entry.Plc.AxoDataExamplesDocu.DataManager };
+    protected DataExchangeViewModel VM { get; } = new () { Model = Entry.Plc.AxoDataExamplesDocu.DataManager, AlertDialogService = _alertDialogService, Asp = _asp };
 }
 
 //</CustomColumnsCode>
