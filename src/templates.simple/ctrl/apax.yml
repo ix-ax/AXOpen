@@ -4,7 +4,7 @@ type: app
 registries:
   '@ix-ax': https://npm.pkg.github.com/
 devDependencies:
-  "@ax/sdk": ^4.0.7
+  "@ax/sdk": ^4.0.8
   "@ax/sld": ^0.15.9
   "@ax/stc": ^5.4.89
 dependencies:
@@ -13,7 +13,7 @@ dependencies:
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
   "@ax/system-serde": ^2.0.2
 variables:
-  APAX_BUILD_ARGS: [-d]
+  APAX_BUILD_ARGS: [ -d ]
 scripts:
   ixc:
     - dotnet tool restore --no-cache
@@ -28,7 +28,8 @@ scripts:
     # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
 
     # --default-server-interface is a must if you are using WebAPI      
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r --default-server-interface
   watch:
     - dotnet watch --project ..\\axosimple.app\\axosimple.hmi.csproj
   da:

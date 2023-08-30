@@ -6,10 +6,11 @@ targets:
 files:
   - src
 devDependencies:
-  "@ax/sdk": ^4.0.7
+  "@ax/sdk": ^4.0.8
+  "@ax/stc": 5.4.89
 scripts:
   postbuild:
     - dotnet ixc
 dependencies:
   "@ix-ax/axopen.timers": '0.1.4-alpha.79'
-  "@ix-ax/axopen.abstractions": '0.1.4-alpha.79'  
+  "@ix-ax/axopen.abstractions": '0.1.4-alpha.79'

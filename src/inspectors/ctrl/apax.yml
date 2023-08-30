@@ -6,7 +6,7 @@ targets:
 files:
   - src
 devDependencies:
-  "@ax/sdk": ^4.0.7
+  "@ax/sdk": ^4.0.8
   "@ax/stc": ^5.4.89
 scripts:
   postbuild:

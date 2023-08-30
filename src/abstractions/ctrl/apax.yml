@@ -6,7 +6,7 @@ targets:
 files:
   - src
 devDependencies:
-  "@ax/sdk": ^4.0.3
+  "@ax/sdk": ^4.0.8
 dependencies:
   "@ax/system-strings": ^5.0.12
 scripts:
