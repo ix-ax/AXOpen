@@ -106,9 +106,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// Sets changes to changeTracker.
     /// </summary>
     /// <param name="entity">Entity from which is set data.</param>
-    public void ChangeTrackerSetChanges(IBrowsableDataObject entity)
+    public void ChangeTrackerSetChanges()
     {
-        CrudDataObject.Changes = Repository.Read(entity.DataEntityId).Changes;
+        CrudDataObject.Changes = ((AxoDataEntity)RefUIData).Changes;
     }
 
     /// <summary>
@@ -138,13 +138,17 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         DataEntity.LockedBy = by;
     }
 
-    public bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity)
+    public bool IsHashCorrect(IIdentity identity)
     {
         if (!VerifyHash)
             return true;
-        if (entity.DataEntityId == null)
-            return false;
-        return HashHelper.VerifyHash(Repository.Read(entity.DataEntityId), identity);
+
+        var poco = RefUIData.CreatePoco().ShadowToPlain1<TPlain>(RefUIData);
+
+        poco.Changes = ((AxoDataEntity)RefUIData).Changes;
+        poco.Hash = ((AxoDataEntity)RefUIData).Hash;
+
+        return HashHelper.VerifyHash(poco, identity);
     }
 
     /// <summary>
@@ -448,7 +452,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <inheritdoc />
     public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
     {
-        await this.RefUIData.PlainToShadow(Repository.Read(entity.DataEntityId));
+        var record = Repository.Read(entity.DataEntityId);
+        await this.RefUIData.PlainToShadow(record);
+        ((AxoDataEntity)this.RefUIData).Hash = record.Hash;
+        ((AxoDataEntity)this.RefUIData).Changes = record.Changes;
     }
 
     /// <inheritdoc />

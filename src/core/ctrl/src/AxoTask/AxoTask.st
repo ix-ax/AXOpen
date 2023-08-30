@@ -1,4 +1,6 @@
 USING AXOpen.Logging;
+USING AXOpen.Timers;
+
 NAMESPACE AXOpen.Core
 
     CLASS PUBLIC AxoTask EXTENDS AxoObject IMPLEMENTS IAxoTask, IAxoTaskState
@@ -66,7 +68,7 @@ NAMESPACE AXOpen.Core
         VAR PRIVATE
             _openCycleCountInvoke : ULINT;
             _openCycleCountExecute : ULINT;
-            _taskTimer : System.Timer.OnDelay;          
+            _taskTimer : AXOpen.Timers.OnDelayTimer;          
         END_VAR 
         
         ///<summary>
@@ -282,7 +284,8 @@ NAMESPACE AXOpen.Core
 
             THIS.UpdateState();
             Execute := Status = eAxoTaskState#Busy;
-            _taskTimer(signal := Execute, duration := LT#99999D);
+            
+            _taskTimer.OnDelay(THIS,  Status = eAxoTaskState#Busy, LT#99999D);
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;             
         END_METHOD    
 

@@ -150,7 +150,7 @@ When adding data view manually, you will need to create ViewModel:
 If you want to be able to export data, you must add `CanExport` attribute with `true` value. Like this:
 
 ~~~ HTML
-<DataView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
+<DataExchangeView Vm="@ViewModel.DataViewModel" Presentation="Command" CanExport="true" />
 ~~~
 
 With this option, buttons for export and import data will appear. After clicking on the export button, the `.zip` file will be created, which contains all existing records. If you want to import data, you must upload `.zip` file with an equal data structure as we get in the export file.

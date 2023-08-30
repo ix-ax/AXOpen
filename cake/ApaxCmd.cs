@@ -101,7 +101,7 @@ public static class ApaxCmd
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
-            context.Log.Information($"apax update started for '{lib.folder} : {lib.name}'");
+            context.Log.Information($"apax update started for '{lib.folder} : {lib.name}' in {folder}");
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
                 Arguments = "update --all",

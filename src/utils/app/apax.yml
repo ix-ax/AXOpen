@@ -8,15 +8,15 @@ variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ax/sdk": 4.0.3
+  "@ax/sdk": ^4.0.8
+  "@ax/sld": 0.15.9
 dependencies:
-  "@ix-ax/axopen.utils" : 0.1.4-alpha.79
-  "@ix-ax/axopen.core" : 0.1.4-alpha.79
+  "@ix-ax/axopen.utils": 0.1.4-alpha.79
+  "@ix-ax/axopen.core": 0.1.4-alpha.79
 scripts:
   download:
     - apax install -L
     - apax build
     - dotnet ixc
-    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET --accept-security-disclaimer --default-server-interface -r
-  
-
+    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
+      --accept-security-disclaimer --default-server-interface -r
