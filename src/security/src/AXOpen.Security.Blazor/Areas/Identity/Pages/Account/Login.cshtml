@@ -1,25 +1,28 @@
 ﻿@page
+@using AXOpen.Security.Blazor.Resources;
+@using Microsoft.Extensions.Localization;
 @model LoginModel
+@inject IStringLocalizer<BlazorResources> Localizer
 
 @{
     ViewData["Title"] = "Log in";
 }
 <div class="card">
-    <h4 class="card-header">Log in</h4>
+    <h4 class="card-header">@Localizer["Log in"]</h4>
     <div class="card-body">
         <form id="account" method="post">
             <div asp-validation-summary="All" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Input.Username">Username</label>
+                <label asp-for="Input.Username">@Localizer["Username"]</label>
                 <input asp-for="Input.Username" class="form-control" />
                 <span asp-validation-for="Input.Username" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Input.Password">Password</label>
+                <label asp-for="Input.Password">@Localizer["Password"]</label>
                 <input asp-for="Input.Password" class="form-control" />
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn btn-primary mt-2">Login</button>
+            <button type="submit" class="btn btn-primary mt-2">@Localizer["Log in"]</button>
         </form>
     </div>
 </div>

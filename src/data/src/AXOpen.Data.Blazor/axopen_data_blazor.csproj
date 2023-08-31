@@ -38,4 +38,19 @@
     <ProjectReference Include="..\AXOpen.Data\ix_ax_axopen_data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Properties\AxOpenDataResources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AxOpenDataResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\AxOpenDataResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AxOpenDataResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

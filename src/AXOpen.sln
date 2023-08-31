@@ -177,25 +177,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3CE75CCD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetlibs_tests", "template.axolibrary\tests\dotnetlibs.Tests\dotnetlibs_tests.csproj", "{ADAF1255-8D10-4C83-B6D2-73347D677D15}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6E7F6A56-000F-4FBA-975F-F0F05E46BCAF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{348CDCFD-3807-44E2-81C6-27275F97D0D3}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{257570C0-7053-42FE-AC92-07294185A05C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_components_cognex_vision_integrations", "components.cognex.vision\app\ix\axopen_components_cognex_vision_integrations.csproj", "{B67B5F3E-4D9C-4C43-9022-D2A8C63CDDA2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_components_cognex_vision_integrations_blazor", "components.cognex.vision\app\ix-blazor\axopen_components_cognex_vision_integrations_blazor.csproj", "{AEF7D1B6-097D-42C5-A745-412F108F836D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.pneumatics", "components.pneumatics", "{1B390C59-FF6C-4721-8DBA-B8176DBA531B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "exporters", "exporters", "{6430CC9D-FACE-4ADD-9365-8FFDFC818292}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4ECC0318-29C7-4BBF-93AC-45A18934FD6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Exporters.Excel", "data\src\exporters\AXOpen.Data.Exporters.Excel\AXOpen.Data.Exporters.Excel.csproj", "{4EC6C3BF-F3DF-478A-873B-C134B0017C8E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_pneumatics", "components.pneumatics\src\AXOpen.Components.Pneumatics\ix_ax_axopen_components_pneumatics.csproj", "{D58C6C28-4F51-4363-8922-B5BE99861676}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Pneumatics.blazor", "components.pneumatics\src\AXOpen.Components.Pneumatics.blazor\AXOpen.Components.Pneumatics.blazor.csproj", "{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3134A28E-12A5-4255-81F4-F84874CE9318}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Pneumatics_tests", "components.pneumatics\tests\AXOpen.Components.Pneumatics.Tests\AXOpen.Components.Pneumatics_tests.csproj", "{0F38853D-6D5D-4156-9571-E5F3426782AF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{EABE6BC4-1679-46EA-A3BB-56CF63A40FE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Exporters.ExcelTests", "data\tests\AXOpen.Data.Exporters.ExcelTests\AXOpen.Data.Exporters.ExcelTests.csproj", "{EECB14D5-03F4-438A-856E-42C4D90BE97E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -379,18 +375,14 @@ Global
 		{AEF7D1B6-097D-42C5-A745-412F108F836D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEF7D1B6-097D-42C5-A745-412F108F836D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEF7D1B6-097D-42C5-A745-412F108F836D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D58C6C28-4F51-4363-8922-B5BE99861676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D58C6C28-4F51-4363-8922-B5BE99861676}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D58C6C28-4F51-4363-8922-B5BE99861676}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D58C6C28-4F51-4363-8922-B5BE99861676}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EC6C3BF-F3DF-478A-873B-C134B0017C8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EC6C3BF-F3DF-478A-873B-C134B0017C8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EC6C3BF-F3DF-478A-873B-C134B0017C8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EC6C3BF-F3DF-478A-873B-C134B0017C8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EECB14D5-03F4-438A-856E-42C4D90BE97E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EECB14D5-03F4-438A-856E-42C4D90BE97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EECB14D5-03F4-438A-856E-42C4D90BE97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EECB14D5-03F4-438A-856E-42C4D90BE97E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -467,12 +459,9 @@ Global
 		{257570C0-7053-42FE-AC92-07294185A05C} = {31669443-69E7-4D8F-9800-E71887684792}
 		{B67B5F3E-4D9C-4C43-9022-D2A8C63CDDA2} = {257570C0-7053-42FE-AC92-07294185A05C}
 		{AEF7D1B6-097D-42C5-A745-412F108F836D} = {257570C0-7053-42FE-AC92-07294185A05C}
-		{4ECC0318-29C7-4BBF-93AC-45A18934FD6C} = {1B390C59-FF6C-4721-8DBA-B8176DBA531B}
-		{D58C6C28-4F51-4363-8922-B5BE99861676} = {4ECC0318-29C7-4BBF-93AC-45A18934FD6C}
-		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D} = {4ECC0318-29C7-4BBF-93AC-45A18934FD6C}
-		{3134A28E-12A5-4255-81F4-F84874CE9318} = {1B390C59-FF6C-4721-8DBA-B8176DBA531B}
-		{0F38853D-6D5D-4156-9571-E5F3426782AF} = {3134A28E-12A5-4255-81F4-F84874CE9318}
-		{EABE6BC4-1679-46EA-A3BB-56CF63A40FE5} = {1B390C59-FF6C-4721-8DBA-B8176DBA531B}
+		{6430CC9D-FACE-4ADD-9365-8FFDFC818292} = {209A89A6-303A-4119-A821-44AA4C706AA7}
+		{4EC6C3BF-F3DF-478A-873B-C134B0017C8E} = {6430CC9D-FACE-4ADD-9365-8FFDFC818292}
+		{EECB14D5-03F4-438A-856E-42C4D90BE97E} = {0E97F83F-9AC9-431D-9FC2-4966874E273D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

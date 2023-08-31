@@ -7,6 +7,7 @@
       "components.cognex.vision\\tests\\AXOpen.Cognex.Vision.Tests\\axopen_cognex_vision_tests.csproj",
       "components.pneumatics\\tests\\AXOpen.Components.Pneumatics.Tests\\AXOpen.Components.Pneumatics_tests.csproj",
       "core\\tests\\AXOpen.Core.Tests\\axopen_core_tests.csproj",
+      "data\\tests\\AXOpen.Data.Exporters.ExcelTests\\AXOpen.Data.Exporters.ExcelTests.csproj",
       "data\\tests\\AXOpen.Data.Tests\\axopen_data_tests.csproj",
       "data\\tests\\AXOpen.Repository.Integration.Tests_L1\\axopen_repository_integration_tests_L1.csproj",
       "security\\tests\\axopen_security_tests\\AXOpen.SecurityTests.csproj"

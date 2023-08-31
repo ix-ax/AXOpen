@@ -98,7 +98,7 @@
 </table>
 <h2 id="introduction">Introduction</h2>
 <p>Thanks for taking the time to read this document. Here we aim to outline a set of rules that will help us write consistent libraries that will serve their other consumers and us.</p>
-<p>This document modifies recommendations from <a href="https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/54043198675164555.html&amp;id=">Beckhoff TwinCAT conventions</a> for TcOpen project(s).</p>
+<p>This document follows recommendations from <a href="https://console.simatic-ax.siemens.io/docs/st-styleguide">SIMATIC-AX ST Style guide</a> for AXOpen project(s).</p>
 <p>This document defines the minimum coding standards and will be updated as the project develops in time.</p>
 <h3 id="why-do-we-need-to-agree-on-conventions">Why do we need to agree on conventions</h3>
 <ul>
@@ -107,16 +107,12 @@
 <li>They facilitate copying, changing, and maintaining the code.</li>
 <li>They demonstrate Structured Text best practices.</li>
 </ul>
-<h3 id="terminology">Terminology</h3>
-<p>For this document are terms</p>
-<ul>
-<li><code>Function block</code> and <code>class</code> <strong>interchangeable</strong>.</li>
-<li><code> Type</code> is the common name for any <code>FB</code>, <code>STRUCT</code>, <code>UNION</code>.</li>
-</ul>
 <h3 id="a-general-note-on-naming">A general note on naming</h3>
-<p>Names should be self-describing, readable considered in calling context. Use of prefixes is discouraged, except for those outlined in this document. For example to inform/warn about some property like a pointer, reference, IN_OUT reference, or to aid to CoDeSys IntelliSense to narrow the scope of search.</p>
+<p>Names should be self-describing, readable considered in calling context. Use of prefixes is discouraged, except for those outlined in this document. For example to inform/warn about some property like a reference, IN_OUT reference, or to aid to IntelliSense to narrow the scope of search.</p>
 <h3 id="general-note-on-the-use-of-plc-language">General note on the use of PLC-Language</h3>
-<p>TcOpen uses exclusively IEC 61131-3 Structured Test (ST), strongly leaning to the OOP paradigm.</p>
+<p>AXOpen uses exclusively IEC 61131-3 Structured Test (ST).</p>
+<h2 id="namespaces">Namespaces</h2>
+<p>Each type must be enclosed in an appropriate namespace. Orphaned types with no namespace are not allowed.</p>
 <h2 id="naming">Naming</h2>
 <blockquote>
 <p><strong>Type Naming</strong></p>
@@ -161,16 +157,10 @@
 <td>NoPrefix</td>
 <td><code>Data</code></td>
 </tr>
-<tr>
-<td>UNION name</td>
-<td>PascalCase</td>
-<td>NoPrefix</td>
-<td><code>Control</code></td>
-</tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>Class member naming</strong></p>
+<p><strong>CLASS member naming</strong></p>
 </blockquote>
 <table>
 <thead>
@@ -195,7 +185,7 @@
 <td><code>targetPosition  : LREAL</code></td>
 </tr>
 <tr>
-<td>PROPERTY name</td>
+<td>*PROPERTY name</td>
 <td>PascalCase</td>
 <td>NoPrefix</td>
 <td><code>IsEnabled</code></td>
@@ -203,7 +193,7 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>FB/class member naming</strong></p>
+<p><strong>CLASS member naming</strong></p>
 </blockquote>
 <table>
 <thead>
@@ -264,12 +254,6 @@
 <td><code>refDrive</code></td>
 </tr>
 <tr>
-<td>POINTER</td>
-<td>PascalCase</td>
-<td><code>p</code></td>
-<td><code>pCyclinder</code></td>
-</tr>
-<tr>
 <td>INTERFACE name</td>
 <td>PascalCase</td>
 <td>NoPrefix</td>
@@ -303,12 +287,6 @@
 <td><code>refDrive</code></td>
 </tr>
 <tr>
-<td>POINTER</td>
-<td>PascalCase</td>
-<td><code>p</code></td>
-<td><code>pCyclinder</code></td>
-</tr>
-<tr>
 <td>INTERFACE name</td>
 <td>PascalCase</td>
 <td>NoPrefix</td>
@@ -328,12 +306,8 @@
 </thead>
 <tbody>
 <tr>
-<td>ACTION</td>
-<td>METHOD</td>
-</tr>
-<tr>
-<td>TRANSITION</td>
-<td>TcoOpen Framework coordination primitives</td>
+<td>FUNCTION_BLOCK</td>
+<td>CLASS</td>
 </tr>
 </tbody>
 </table>
@@ -350,7 +324,7 @@
 <tbody>
 <tr>
 <td>FUNCTION</td>
-<td>PRG.METHOD OR FB.METHOD</td>
+<td>CLASS.METHOD</td>
 </tr>
 </tbody>
 </table>
@@ -358,13 +332,11 @@
 <p>Any identifier (variable, methods, properties) should have an identifier that clearly expresses intent. Identifiers with less than <code>4</code> characters should be avoided (unless they represent well-known acronyms or expressions). There is no formal constraint on a maximum number of characters; however, about 25 characters should suffice to name the variable appropriately.</p>
 <h2 id="scope">Scope</h2>
 <p>All variables should be declared closest to the scope where they are used. Avoid using global declarations unless it is necessary or the global scope is required for the application.</p>
-<h3 id="gvls-prgs">GVLs, PRGs</h3>
-<p>Generally, the global scope should be avoided where possible.
-GVLs, PRGs, and Parameter lists must specify <code>{attribute 'qualified_only'}</code> to ensure access is fully scoped in the code. <a href="https://infosys.beckhoff.com/english.php?content=../content/1033/tc3_plc_intro/9007201784510091.html&amp;id=8098035924341237087">Beckhoff Infosys Doc here</a>.</p>
-<p>GVLs, PRGs should not be accessible from outside the library and should use the <code>INTERNAL</code> access modifier.</p>
+<h3 id="global-scope">Global scope</h3>
+<p>Generally, the global scope should be avoided where possible.</p>
 <h2 id="member-variables">Member Variables</h2>
-<p>Class (FB) member variables should begin with underscore <code>_</code>, followed by the variable name.</p>
-<pre><code class="lang-iecst">VAR
+<p>Private CLASS member variables should begin with underscore <code>_</code>, followed by the variable name.</p>
+<pre><code class="lang-iecst">VAR PRIVATE
     _trigger : BOOL;
     _counter : INT;
     _analogStatus : AnalogStatus;
@@ -372,7 +344,7 @@ END_VAR
 </code></pre>
 <h3 id="constants">Constants</h3>
 <p>Use constants instead of magic numbers. Constants should be all caps.</p>
-<p>Where magic numbers are required for low-level domain-specific operations, these should be managed in the highest level block that makes sense without breaking an abstraction layer. I.e. Do not add <code>SiemensTempSensorModBusStatusWordRegister : WORD:= 3;</code> to a GVL of constants. Add this to the appropriate class that handles that device.</p>
+<p>Where magic numbers are required for low-level domain-specific operations, these should be managed in the highest level block that makes sense without breaking an abstraction layer.</p>
 <h2 id="arrays">Arrays</h2>
 <p>Arrays should be 0 based index due to consistency when used on HMI platforms (based on JavaScript, TypeScript, C#).</p>
 <pre><code class="lang-PASCAL">VAR
@@ -380,7 +352,7 @@ END_VAR
     myArray1    : ARRAY[1..10] OF BOOL; // AVOID
 END_VAR
 </code></pre>
-<h2 id="namespaces">Namespaces</h2>
+<h2 id="namespaces-1">Namespaces</h2>
 <p>Variables defined in referenced libraries must be declared using a fully qualified name with the namespace.</p>
 <pre><code class="lang-Pascal">VAR
     _mixer : fbMixer; // AVOID!
@@ -393,28 +365,14 @@ END_VAR
 laser.Measure();
 dmcReader.Trigger();
 </code></pre>
-<h2 id="properties">Properties</h2>
+<h2 id="properties">Properties*</h2>
 <p>Property names should clearly describe intent. Properties should not start with any prefix.</p>
-<h2 id="function-block-parameter-transfer">Function Block parameter transfer</h2>
-<p>Whenever a parameter transfer is required during the construction of a class, use the <code>FB_init</code> method, the data passed at the object construction should be immutable and must not be changed at runtime.
-For a cyclical update of parameters, use <code>VAR_INPUT/OUTPUT/IN_OUT</code>. Cyclical logic is required to be placed in the body of the function block. The FB's body must be called in an appropriate place to be preferably executed in each cycle of the PLC task.</p>
-<h2 id="static-classes">Static classes</h2>
-<p>For static-like behavior, use <code>PROGRAM</code>.</p>
-<h2 id="component">Component</h2>
+<h2 id="parameter-transfer-in-cyclic-execution">Parameter transfer in cyclic execution.</h2>
+<p>Whenever a parameter transfer is required during the initialization/cyclic-update of a class, use the <code>Run</code> method, the parameters passed using this method  must not be changed at runtime.</p>
+<h2 id="components"><a href="components.html">Components</a></h2>
 <ul>
-<li>Component must inherit from <code>TcoCore.TcoComponent</code></li>
-<li>Components methods and properties should not be marked FINAL (sealed)</li>
-<li>Component should implement appropriate <code>INTERFACE</code> for a public contract; this is the interface that the consumers of the library will use to interact with the component. It represents the public contract that must not change during the lifetime of the particular major version of the library/framework. See <a href="https://semver.org/">semantic versioning</a>.</li>
-<li>Component members must explicitly state access modifier for methods and properties (<code>PUBLIC</code>, <code>INTERNAL</code>, <code>PROTECTED</code>, or <code>PRIVATE</code>)</li>
-<li>Component should properly hide implementation details by marking methods preferably <code>PROTECTED</code>.</li>
-<li>Consider using the <code>PRIVATE</code> access modifier to prevent any access to that member if you deem it necessary. Be aware, though, that private members cannot be overridden by a derived class.</li>
-<li>If there are any testing methods in the same library with the component, these must be marked <code>INTERNAL</code>.</li>
-<li>Each action of the component should be implemented using the <code>TcoTask</code> class. There is no exception to this rule, even for the actions that require a single cycle to complete. Task's <code>Invoke</code> should be placed into a method with an appropriate name (MoveAbsolute, MoveHome, Measure).</li>
+<li>Expecting future implementation</li>
 </ul>
-<h3 id="cyclic-call">Cyclic call</h3>
-<p>Each component implements the logic required to run cyclically in the <em>body</em> of the Function Block. The body of the Function Block must be called from an appropriate place in the PLC program.</p>
-<h3 id="components-methods">Components methods</h3>
-<p>The methods that perform actions <strong>MUST</strong> return <code>TcoCore.ITcoTaskStatus</code> (typically <code>TcoCore.TcoTask</code>). This rule applies even to the logic that requires a single-cycle execution.</p>
 </article>
           </div>
 
@@ -423,7 +381,7 @@ For a cyclical update of parameters, use <code>VAR_INPUT/OUTPUT/IN_OUT</code>. C
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/guidelines/Conventions.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/176-_NEW-FEATURE_Create_library_for_basic_I/O_elements/docfx/articles/guidelines/Conventions.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
