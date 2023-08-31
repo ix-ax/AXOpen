@@ -3,8 +3,8 @@
 		<TargetFrameworks>net7.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<PackageId>AXOpen.Exporters</PackageId>
-		<RootNamespace>AXOpen.Exporters</RootNamespace>
+		<PackageId>AXOpen.Data.Exporters.Excel</PackageId>
+		<RootNamespace>AXOpen.Data.Exporters.Excel</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,21 +16,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include=".meta\" />
-		<Content Include=".meta\**" />
-	</ItemGroup>
-
-
-	<ItemGroup>
-		<ProjectReference Include="..\..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<Content Include=".meta\meta.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include=".meta\sourceinfo.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
+	  <ProjectReference Include="..\..\AXOpen.Data\ix_ax_axopen_data.csproj" />
 	</ItemGroup>
 </Project>
