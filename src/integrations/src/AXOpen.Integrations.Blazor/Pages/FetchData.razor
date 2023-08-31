@@ -1,5 +1,8 @@
 ﻿@page "/fetchdata"
+@*@using AXSharp.Presentation.Blazor.Controls.Dialogs.AlertDialog;*@
 @using axopen_integrations_blazor.Data
+@using AXOpen.Base.Dialogs
+@inject IAlertDialogService DialogService
 @inject WeatherForecastService ForecastService
 
 <PageTitle>Weather forecast</PageTitle>
@@ -37,11 +40,19 @@ else
     </table>
 }
 
+<button type="button" class="btn btn-primary" @onclick="CreateToast">Add Toast</button>
+
+
 @code {
     private WeatherForecast[]? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
         forecasts = await ForecastService.GetForecastAsync(DateOnly.FromDateTime(DateTime.Now));
+    }
+
+    public void CreateToast()
+    {
+        DialogService.AddAlertDialog(eAlertDialogType.Success, "Test", "test", 30);
     }
 }

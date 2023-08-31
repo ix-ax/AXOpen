@@ -1,0 +1,670 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AxoDialogBaseView&lt;T&gt;
+ | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AxoDialogBaseView&lt;T&gt;
+ | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+  
+  <meta property="docfx:rel" content="../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1">
+
+
+  <h1 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1" class="text-break">Class AxoDialogBaseView&lt;T&gt;
+</h1>
+  <div class="markdown level0 summary"><p>Base class for dialogues, where open/close method are implemented needed for correct synchronization between dialogues.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">object</span></div>
+    <div class="level1"><span class="xref">Microsoft.AspNetCore.Components.ComponentBase</span></div>
+    <div class="level2"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase</span></div>
+    <div class="level3"><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;T&gt;</span>&lt;T&gt;</div>
+    <div class="level4"><span class="xref">AxoDialogBaseView&lt;T&gt;</span></div>
+      <div class="level5"><a class="xref" href="AXOpen.Core.AxoDialogDialogView.html">AxoDialogDialogView</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Microsoft.AspNetCore.Components.IComponent</span></div>
+    <div><span class="xref">Microsoft.AspNetCore.Components.IHandleEvent</span></div>
+    <div><span class="xref">Microsoft.AspNetCore.Components.IHandleAfterRender</span></div>
+    <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComplexComponentBase&lt;T&gt;.Component</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.RemovePolledElements()</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChange(AXSharp.Connector.ITwinElement, int)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange(AXSharp.Connector.ITwinObject)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateShadowValuesOnChange(AXSharp.Connector.ITwinPrimitive)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.UpdateValuesOnChangeOutFocus(AXSharp.Connector.ValueTypes.OnlinerBase)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChanged(object, System.ComponentModel.PropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandleShadowPropertyChanged(object, AXSharp.Connector.ValueTypes.ValueChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HandlePropertyChangedOnOutFocus(object, System.ComponentModel.PropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PollingInterval</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.PolledElements</span>
+    </div>
+    <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.HasFocus</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnInitializedAsync()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnParametersSet()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnParametersSetAsync()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.StateHasChanged()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.ShouldRender()</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnAfterRender(bool)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Action)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.InvokeAsync(System.Func&lt;System.Threading.Tasks.Task&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">Microsoft.AspNetCore.Components.ComponentBase.SetParametersAsync(Microsoft.AspNetCore.Components.ParameterView)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Core.html">Core</a>.<a class="xref" href="AXOpen.Core.Blazor.html">Blazor</a>.<a class="xref" href="AXOpen.Core.Blazor.AxoDialogs.html">AxoDialogs</a></h6>
+  <h6><strong>Assembly</strong>: axopen_core_blazor.dll</h6>
+  <h5 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AxoDialogBaseView&lt;T&gt; : RenderableComplexComponentBase&lt;T&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IDisposable, IRenderableComplexComponentBase where T : AxoDialogBase</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>Type of dialogue</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_ModalDialog.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.ModalDialog%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L21">View Source</a>
+  </span>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_ModalDialog" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.ModalDialog">ModalDialog</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ModalDialog ModalDialog</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXOpen.Core.Blazor.AxoDialogs.ModalDialog.html">ModalDialog</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1__dialogContainer.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601._dialogContainer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L15">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1__dialogContainer_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1._dialogContainer*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1__dialogContainer" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1._dialogContainer">_dialogContainer</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Inject]
+public AxoDialogContainer _dialogContainer { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="AXOpen.Core.Blazor.AxoDialogs.AxoDialogContainer.html">AxoDialogContainer</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1__navigationManager.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601._navigationManager%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L17">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1__navigationManager_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1._navigationManager*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1__navigationManager" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1._navigationManager">_navigationManager</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Inject]
+public NavigationManager _navigationManager { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.NavigationManager</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_AddToPolling_AXSharp_Connector_ITwinElement_System_Int32_.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.AddToPolling(AXSharp.Connector.ITwinElement%2CSystem.Int32)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L25">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_AddToPolling_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.AddToPolling*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_AddToPolling_AXSharp_Connector_ITwinElement_System_Int32_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.AddToPolling(AXSharp.Connector.ITwinElement,System.Int32)">AddToPolling(ITwinElement, int)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void AddToPolling(ITwinElement element, int pollingInterval = 250)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AXSharp.Connector.ITwinElement</span></td>
+        <td><span class="parametername">element</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">int</span></td>
+        <td><span class="parametername">pollingInterval</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.AddToPolling(AXSharp.Connector.ITwinElement, int)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_Close.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.Close%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L78">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_Close_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.Close*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_Close" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.Close">Close()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task Close()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_CloseDialogsWithSignalR.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.CloseDialogsWithSignalR%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L73">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_CloseDialogsWithSignalR_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.CloseDialogsWithSignalR*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_CloseDialogsWithSignalR" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.CloseDialogsWithSignalR">CloseDialogsWithSignalR()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task CloseDialogsWithSignalR()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_Dispose.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.Dispose%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L92">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_Dispose_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.Dispose*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_Dispose" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Dispose()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">AXSharp.Presentation.Blazor.Controls.RenderableContent.RenderableComponentBase.Dispose()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnAfterRenderAsync_System_Boolean_.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.OnAfterRenderAsync(System.Boolean)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L57">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnAfterRenderAsync_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OnAfterRenderAsync*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnAfterRenderAsync_System_Boolean_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OnAfterRenderAsync(System.Boolean)">OnAfterRenderAsync(bool)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task OnAfterRenderAsync(bool firstRender)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><span class="parametername">firstRender</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnAfterRenderAsync(bool)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnCloseDialogMessage_System_Object_AXOpen_Core_Blazor_AxoDialogs_Hubs_MessageReceivedEventArgs_.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.OnCloseDialogMessage(System.Object%2CAXOpen.Core.Blazor.AxoDialogs.Hubs.MessageReceivedEventArgs)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L41">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnCloseDialogMessage_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OnCloseDialogMessage*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnCloseDialogMessage_System_Object_AXOpen_Core_Blazor_AxoDialogs_Hubs_MessageReceivedEventArgs_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OnCloseDialogMessage(System.Object,AXOpen.Core.Blazor.AxoDialogs.Hubs.MessageReceivedEventArgs)">OnCloseDialogMessage(object, MessageReceivedEventArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void OnCloseDialogMessage(object sender, MessageReceivedEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">object</span></td>
+        <td><span class="parametername">sender</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXOpen.Core.Blazor.AxoDialogs.Hubs.MessageReceivedEventArgs.html">MessageReceivedEventArgs</a></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnInitialized.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.OnInitialized%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L99">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnInitialized_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OnInitialized*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnInitialized" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OnInitialized">OnInitialized()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnInitialized()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Microsoft.AspNetCore.Components.ComponentBase.OnInitialized()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnOpenDialogMessage_System_Object_AXOpen_Core_Blazor_AxoDialogs_Hubs_MessageReceivedEventArgs_.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.OnOpenDialogMessage(System.Object%2CAXOpen.Core.Blazor.AxoDialogs.Hubs.MessageReceivedEventArgs)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L48">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnOpenDialogMessage_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OnOpenDialogMessage*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OnOpenDialogMessage_System_Object_AXOpen_Core_Blazor_AxoDialogs_Hubs_MessageReceivedEventArgs_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OnOpenDialogMessage(System.Object,AXOpen.Core.Blazor.AxoDialogs.Hubs.MessageReceivedEventArgs)">OnOpenDialogMessage(object, MessageReceivedEventArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void OnOpenDialogMessage(object sender, MessageReceivedEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">object</span></td>
+        <td><span class="parametername">sender</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="AXOpen.Core.Blazor.AxoDialogs.Hubs.MessageReceivedEventArgs.html">MessageReceivedEventArgs</a></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OpenDialog.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601.OpenDialog%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L87">View Source</a>
+  </span>
+  <a id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OpenDialog_" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OpenDialog*"></a>
+  <h4 id="AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1_OpenDialog" data-uid="AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView`1.OpenDialog">OpenDialog()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task OpenDialog()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Components.IComponent</span>
+  </div>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Components.IHandleEvent</span>
+  </div>
+  <div>
+      <span class="xref">Microsoft.AspNetCore.Components.IHandleAfterRender</span>
+  </div>
+  <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComponent</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">AXSharp.Presentation.Blazor.Interfaces.IRenderableComplexComponentBase</span>
+  </div>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_Blazor_AxoDialogs_AxoDialogBaseView_1.md&amp;value=---%0Auid%3A%20AXOpen.Core.Blazor.AxoDialogs.AxoDialogBaseView%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogBaseView.cs/#L12" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

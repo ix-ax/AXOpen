@@ -6,17 +6,19 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using AXOpen.Base.Data;
-using AXOpen.Core;
-using AXOpen.Core.blazor.Toaster;
 using AXOpen.Data.Interfaces;
 using AXOpen.Data;
-using CommunityToolkit.Mvvm.Messaging;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using System.IO;
+using AXOpen.Core;
+using AXOpen.Base.Dialogs;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
+using static AXOpen.Data.DataExchangeViewModel;
 
 namespace AXOpen.Data;
 
-public partial class DataExchangeView
+public partial class DataExchangeView : IDisposable
 {
     private readonly List<ColumnData> Columns = new();
 
@@ -30,11 +32,17 @@ public partial class DataExchangeView
 
     [Parameter] public RenderFragment ChildContent { get; set; }
 
-    private Guid ViewGuid { get; } = new();
+    [Inject]
+    private IAlertDialogService _alertDialogService { get; set; }
+
+    [Inject]
+    private ProtectedLocalStorage ProtectedLocalStore { get; set; }
+
+    private Guid ViewGuid { get; } = Guid.NewGuid();
     private string Create { get; set; } = "";
 
-    private bool isFileLoaded { get; set; } = false;
-    private bool isLoadingFile { get; set; }
+    private bool isFileImported { get; set; } = false;
+    private bool isFileImporting { get; set; } = false;
 
     private int MaxPage =>
         (int)(Vm.FilteredCount % Vm.Limit == 0 ? Vm.FilteredCount / Vm.Limit - 1 : Vm.FilteredCount / Vm.Limit);
@@ -59,6 +67,7 @@ public partial class DataExchangeView
 
     private int mod(int x, int m)
     {
+        if (m == 0) return 0; // avoid exception caused by % 0
         var r = x % m;
         return r < 0 ? r + m : r;
     }
@@ -90,24 +99,58 @@ public partial class DataExchangeView
     protected override async Task OnInitializedAsync()
     {
         await Vm.FillObservableRecordsAsync();
+        Vm.StateHasChangedDelegate = StateHasChanged;
+
     }
+
+    private string _inputFileId = Guid.NewGuid().ToString();
 
     private async Task LoadFile(InputFileChangeEventArgs e)
     {
-        isLoadingFile = true;
-        isFileLoaded = false;
+        isFileImported = false;
+        isFileImporting = true;
 
         try
         {
-            await using FileStream fs = new("importData.csv", FileMode.Create);
+            Directory.CreateDirectory("wwwroot/Temp/" + ViewGuid);
+
+            await using FileStream fs = new("wwwroot/Temp/" + ViewGuid + "/importData.zip", FileMode.Create);
             await e.File.OpenReadStream().CopyToAsync(fs);
+
+            isFileImported = true;
         }
         catch (Exception ex)
         {
-            WeakReferenceMessenger.Default.Send(new ToastMessage(new Toast("Danger", "Error!", ex.Message, 10)));
+            _alertDialogService.AddAlertDialog(eAlertDialogType.Danger, "Error!", ex.Message, 10);
         }
 
-        isLoadingFile = false;
-        isFileLoaded = true;
+        isFileImporting = false;
+    }
+
+    private void ClearFiles(string path)
+    {
+        if (Directory.Exists(path))
+            Directory.Delete(path, true);
+    }
+
+    public async Task SaveCustomExportDataAsync()
+    {
+        await ProtectedLocalStore.SetAsync(Vm.DataExchange.ToString(), Vm.ExportSet);
+    }
+
+    public async Task LoadCustomExportDataAsync()
+    {
+        var result = await ProtectedLocalStore.GetAsync<ExportSettings>(Vm.DataExchange.ToString());
+        if (result.Success)
+        {
+            Vm.ExportSet = result.Value;
+        }
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        if(Vm.IsLockedByMeOrNull())
+            Vm.DataExchange.SetLockedBy(null);
     }
 }

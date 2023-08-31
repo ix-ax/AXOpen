@@ -217,6 +217,24 @@ END_CLASS
 <h5>Note</h5>
 <p>Custom columns can only added from master fragment (first declared repository).</p>
 </div>
+<h3 id="exportimport">Export/Import</h3>
+<p>If you want to be able to export data, you must add <code>CanExport</code> attribute with <code>true</code> value. Like this:</p>
+<pre><code class="lang-HTML">&lt;DataView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; CanExport=&quot;true&quot; /&gt;
+</code></pre>
+<p>With this option, buttons for export and import data will appear. After clicking on the export button, the <code>.zip</code> file will be created, which contains all existing records. If you want to import data, you must upload <code>.zip</code> file with an equal data structure as we get in the export file.</p>
+<p><img src="../../images/Export.png" alt="Export"></p>
+<h4 id="custom-export">Custom export</h4>
+<p>You have the option to customize the exported files according to your preferences. This includes selecting specific columns and rows, choosing the desired file type, and specifying the separator. It's important to note that if you don't select all columns for export, importing the files may not be done correctly.</p>
+<p>During the importing process, it is crucial to enter the same separator that was used during the export. If the default separator was used during the export, there is no need to make any changes.</p>
+<p>You also can create own exporter. To do this, you must create a class that implements <code>IDataExporter&lt;TPlain, TOnline&gt;</code> interface. This interface requires you to implement the <code>Export</code>, <code>Import</code> and <code>GetName</code> method. Once you've done this, your custom exporter will be displayed in the custom export and import modal view. Users will be able to choose the exported file type through this view.</p>
+<p>For a better user experience, it is strongly recommended to clean the <code>Temp</code> directory when starting the application. The best way to do this is to add the following lines to the &quot;Program.cs&quot; file:</p>
+<pre><code class="lang-C#">// Clean Temp directory
+IAxoDataExchange.CleanUp();
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Export and import function will create high load on the application. Don't use with large datasets. These function can be used only on a limited number (100 or less) documents. Typical used would be for recipes and settings, but not for large collections of production or event data.</p>
+</div>
 <h3 id="modal-detail-view">Modal detail view</h3>
 <p>The Detail View is default shown like modal view. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with <code>ModalDetailView</code> attribute. This change will show a detail view under the record table. Example with <code>ModalDetailView</code> attribute:</p>
 <pre><code>&lt;DataExchangeView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; ModalDetailView=&quot;false&quot; /&gt;

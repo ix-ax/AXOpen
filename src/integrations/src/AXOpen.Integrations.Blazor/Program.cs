@@ -2,7 +2,6 @@ using AXOpen;
 using axopen_integrations_blazor.Data;
 using axopen_integrations;
 using AXSharp.Connector;
-using AXOpen.Core.blazor.Toaster;
 using AXOpen.Data.Json;
 using AXOpen.Logging;
 using AXSharp.Presentation.Blazor.Services;
@@ -10,7 +9,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Pocos.IntegrationAxoDataFramentsExchange;
 using Serilog;
-using static System.Formats.Asn1.AsnWriter;
+using AXOpen.Core;
 
 namespace axopen_integrations_blazor
 {
@@ -24,18 +23,33 @@ namespace axopen_integrations_blazor
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
             builder.Services.AddSingleton<WeatherForecastService>();
-            
+            builder.Services.AddAxoCoreServices();
             builder.Services.AddIxBlazorServices();
 
-            builder.Services.AddSingleton<ToastService>();
+            //builder.Services.AddScoped<IAlertDialogService, ToasterService>();
+
+            //builder.Services.AddTcoCoreExtensions();
 
             AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
                 .WriteTo.Console().MinimumLevel.Debug()
                 .CreateLogger()));
 
+            Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
+                                                        .WriteTo
+                                                        .Console()
+                                                        .WriteTo
+                                                        .File($"connector.log",
+                                                            outputTemplate: "{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}",
+                                                            fileSizeLimitBytes: 100000)
+                                                        .MinimumLevel.Debug()
+                                                        .CreateLogger());
+
+            Entry.Plc.Connector.ReadWriteCycleDelay = 250;
             Entry.Plc.Connector.BuildAndStart();
 
             Entry.Plc.Connector.ExceptionBehaviour = CommExceptionBehaviour.Ignore;
+
+
 
             Entry.Plc.Connector.SubscriptionMode = AXSharp.Connector.ReadSubscriptionMode.Polling;
 
@@ -108,7 +122,6 @@ namespace axopen_integrations_blazor
 
             //<AxoLoggerInitialization>
             Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(AxoApplication.Current.Logger, 250);
-            Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(AxoApplication.Current.Logger, 250);
             //</AxoLoggerInitialization>
 
 

@@ -5,6 +5,7 @@ using AXOpen.Data;
 using AXSharp.Connector;
 using AXOpen.Data.InMemory;
 
+
 namespace integration.data.blazor.tests
 {
     public class AxoDataViewModelTests
@@ -26,8 +27,9 @@ namespace integration.data.blazor.tests
             var data = dataObject.DataEntity;
 
             var exchangeViewModel = new DataExchangeViewModel
-            { 
+            {
                 Model = dataObject,
+                //AlertDialogService = new AlertDialogServiceBase()
                 };
             _vm = exchangeViewModel;
             

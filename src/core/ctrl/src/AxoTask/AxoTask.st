@@ -1,4 +1,6 @@
 USING AXOpen.Logging;
+USING AXOpen.Timers;
+
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
@@ -77,8 +79,7 @@ NAMESPACE AXOpen.Core
         VAR PRIVATE
             _openCycleCountInvoke : ULINT;
             _openCycleCountExecute : ULINT;
-            _taskTimer : System.Timer.OnDelay;  
-
+            _taskTimer : AXOpen.Timers.OnDelayTimer;          
         END_VAR 
         
         ///<summary>
@@ -196,9 +197,7 @@ NAMESPACE AXOpen.Core
             VAR
                 _isNullContext : BOOL;
             END_VAR;
-               
-            Invoke := THIS;
-           
+            
             _isNullContext := IsNullContext(THIS.GetContext());
 
 
@@ -211,7 +210,7 @@ NAMESPACE AXOpen.Core
             THIS.UpdateState();
 
 
-            _CyclicExecuteIsNotCalled.Serve(THIS); //<--- THIS is not this; 
+            _CyclicExecuteIsNotCalled.Serve(THIS); 
            
             IF Status = eAxoTaskState#Done AND THIS.IsNewInvokeCall() THEN
                 Status := eAxoTaskState#Ready; 
@@ -301,9 +300,8 @@ NAMESPACE AXOpen.Core
 
             THIS.UpdateState();
             Execute := Status = eAxoTaskState#Busy;
-            _taskTimer(signal := Execute, duration := LT#99999D);
             
-
+            _taskTimer.OnDelay(THIS,  Status = eAxoTaskState#Busy, LT#99999D);
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;             
         END_METHOD    
 

@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Client Identification | System.Dynamic.ExpandoObject </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Client Identification | System.Dynamic.ExpandoObject ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../images/favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../../index.html">
+                <p class="text-logo">AXOpen</p>
+              </a>            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="client-identification"><strong>Client Identification</strong></h1>
+
+<p>Thanks to having <a href="../security/README.html">AXOpen.Security</a> implemented, we are able to identify users using our application. The same user can be logged in on multiple clients at the same time and it is desirable to be able to have an account of which clients belong to which user. This article explains how this can be achieved and how we can send messages to specific clients in Blazor. This app is built on SignalR, an open-source library that simplifies adding real-time web functionality to apps.</p>
+<h2 id="prerequisities">Prerequisities:</h2>
+<ul>
+<li><em>Microsoft.AspNetCore.SignalR.Client</em> NuGet package</li>
+</ul>
+<h2 id="signalr-hub">SignalR hub</h2>
+<h3 id="creating-a-hub">Creating a hub</h3>
+<p>To create a new SignalR hub, we need to create a class that inherits from the <code>Hub</code> class located in the <code>Microsoft.AspNetCore.SignalR</code> namespace. It is responsible for handling messages from clients and connection management. A simple demo of a SignalR hub can be found
+in <a href="../../../src/clientchat/ClientIdentification/ConnectionHub.cs">ConnectionHub.cs</a>. The <code>ConnectionHub</code> class has a number of methods that can be overridden and methods specified by the user. E.g.:</p>
+<ul>
+<li><code>OnConnectedAsync()</code> - called when a new client connects to the hub</li>
+<li><code>OnDisconnectedAsync()</code> - called when a client disconnects from the hub</li>
+<li><code>SendMessage()</code> - <em>custom</em> method that can be called by the client</li>
+</ul>
+<h3 id="hub-set-up-in-blazor">Hub set up in Blazor</h3>
+<p>To use the hub across all components in Blazor we need to create a service that will provide the Hub connection. See <a href="../../../src/clientchat/ClientIdentification/HubConnectionProvider.cs">HubConnectionProvider.cs</a>. The service is registered in the <code>Program.cs</code> file in the service configuration:</p>
+<pre><code class="lang-csharp">builder.Services.AddSignalR();
+builder.Services.AddScoped&lt;HubConnectionProvider&gt;();
+</code></pre>
+<p>Also in <code>Program.cs</code> we need to map the hub to a specific endpoint in the middleware pipeline:</p>
+<pre><code class="lang-csharp">app.MapHub&lt;ConnectionHub&gt;(&quot;/connectionHub&quot;);
+</code></pre>
+<p>In <code>App.razor</code> we can then inject the <code>HubConnectionProvider</code> service and use it to create a connection to the hub:</p>
+<pre><code class="lang-csharp">@inject HubConnectionProvider HubConnectionProvider
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        HubConnectionProvider.HubConnection = new HubConnectionBuilder()
+            .WithUrl(NavigationManager.ToAbsoluteUri(&quot;/connectionHub&quot;))
+            .Build();
+
+        await HubConnectionProvider.HubConnection.StartAsync();
+    }
+}
+</code></pre>
+<h3 id="communication-with-the-hub">Communication with the hub</h3>
+<p>To use the hub we need to first inject the <code>HubConnectionProvider</code> service into the component we want to use the hub in. To listen for messages from the hub we need to register a handler (a method that will be called when a message is received) using the <code>On</code> method. In <a href="../../../src/clientchat/Pages/Index.razor">Index.razor.cs</a> e.g.:</p>
+<pre><code class="lang-csharp">HubConnectionProvider.HubConnection.On&lt;string, string&gt;(&quot;ReceiveMessage&quot;, (sender, message) =&gt;
+{
+    // do something
+});
+</code></pre>
+<p>This will register a handler that will be called when a message with the name <code>ReceiveMessage</code> is received. The handler will be called with two parameters - <code>sender</code> and <code>message</code>. The types of the parameters need to be specified in the <code>On</code> method. This <code>ReceiveMessage</code> is called from the <code>ConnectionHub</code> in a <code>SendMessage</code> method:</p>
+<pre><code class="lang-csharp">public async Task SendMessage(string receiver, string message)
+{
+    ...
+    // sends message to all clients regardless of the receiver
+    await Clients.All.SendAsync(&quot;ReceiveMessage&quot;, sender, message);
+}
+</code></pre>
+<p>To trigger the <code>SendMessage</code> method from the client we can use the <code>InvokeAsync</code> method in a code behind of a component:</p>
+<pre><code class="lang-csharp">await HubConnectionProvider.HubConnection.SendAsync(&quot;SendMessage&quot;, receiver, message);
+</code></pre>
+<p>Sequence diagram of the communication between the clients and the hub:</p>
+<pre><code class="lang-mermaid">sequenceDiagram
+    participant Client 1
+    participant Client 2
+    participant Client 3
+    participant Hub
+
+    loop Communication
+        Client 3-&gt;&gt;Hub: HubConnection.SendAsync(&quot;SendMessage&quot;, receiver, message)
+        Note over Hub: SendMessage(string receiver, string message)&lt;br/&gt;is called
+        Hub--&gt;&gt;Client 1: Clients.All.SendAsync(&quot;ReceiveMessage&quot;, sender, message);
+        Hub--&gt;&gt;Client 2: Clients.All.SendAsync(&quot;ReceiveMessage&quot;, sender, message);
+        Hub--&gt;&gt;Client 3: Clients.All.SendAsync(&quot;ReceiveMessage&quot;, sender, message);
+        Note over Client 2: HubConnection.On(&quot;ReceiveMessage&quot;)&lt;br/&gt;listener is triggered on all clients
+    end
+</code></pre>
+<h2 id="how-to-identify-clients">How to identify clients</h2>
+<p>To be able to access currently logged in user in <code>ConnectionHub</code> we need to obtain the <code>.AspNetCore.Identity.Application</code> cookie used for identification. This is done in the <code>Host.cshtml</code> file:</p>
+<pre><code class="lang-csharp">var cookie = HttpContext.Request.Cookies[&quot;.AspNetCore.Identity.Application&quot;];
+</code></pre>
+<p>The cookie is then passed to the <code>App.razor</code> component as a parameter. In the code behind of the <code>App.razor</code> component, a cookie object is created and added to the <code>HubConnection</code> as a cookie container under <code>options.Cookies</code>:</p>
+<pre><code class="lang-csharp">var cookieContainer = new CookieContainer();
+var cookie = new Cookie()
+{
+    Name = &quot;.AspNetCore.Identity.Application&quot;,
+    Domain = NavigationManager.ToAbsoluteUri(&quot;/&quot;).Host,
+    Value = IdentityCookie
+};
+cookieContainer.Add(cookie);
+
+HubConnectionProvider.HubConnection = new HubConnectionBuilder()
+    .WithUrl(NavigationManager.ToAbsoluteUri(&quot;/connectionHub&quot;), options =&gt;
+    {
+        options.Cookies = cookieContainer;
+    })
+    .Build();
+</code></pre>
+<p>By providing the cookie to the <code>HubConnection</code> we are now able to access the currently logged in user in the <code>ConnectionHub</code>:</p>
+<pre><code class="lang-csharp">string name = Context.User.Identity.Name; // name of the currently logged in user
+</code></pre>
+<h3 id="mapping-client-connection-ids-to-user-names">Mapping client connection ids to user names</h3>
+<p>To by able to send messages to only those clients on which the specific user we want to send the message to is logged in, we need to map the client connection ids to the client's logged in user. The <code>ConnectionHub</code> contains a static variable <code>_connections</code> of type <code>ConnectionMapping&lt;string&gt;</code> that maps the client connection ids to the user names. The <code>ConnectionMapping</code> class is a simple dictionary that allows multiple values to be mapped to a single key. The <code>ConnectionMapping</code> class is defined in <a href="../../../src/clientchat/ClientIdentification/ConnectionMapping.cs">ConnectionMapping.cs</a>.</p>
+<p>When a new client connects to the hub, the <code>OnConnectedAsync()</code> method is called. Each connection has a unique id which we can add to the <code>_connections</code> dictionary along with the user name of the currently logged in user:</p>
+<pre><code class="lang-csharp">string name = Context.User.Identity.Name;
+if (name != null)
+{
+    _connections.Add(name, Context.ConnectionId);
+}
+</code></pre>
+<p>As it is implemented currently, when a user on a client is not logged in, the connection is not added to the mapping.</p>
+<p>When a client disconnects from the hub, the <code>OnDisconnectedAsync()</code> method is called. We can then remove the connection id from the <code>_connections</code> dictionary:</p>
+<pre><code class="lang-csharp">string name = Context.User.Identity.Name;
+if (name != null)
+{
+    _connections.Remove(name, Context.ConnectionId);
+}
+</code></pre>
+<h3 id="sending-messages-to-specific-clients">Sending messages to specific clients</h3>
+<p>To send a message to those clients on which the specific user is logged in, we need to obtain the connection ids of those clients. This is done by getting the values from the <code>_connections</code> dictionary using the user name as a key:</p>
+<pre><code class="lang-csharp">var receiverConnections = _connections.GetConnections(receiver);
+if (!receiverConnections.IsNullOrEmpty())
+{
+    await Clients.Clients(receiverConnections.ToList()).SendAsync(&quot;ReceiveMessage&quot;, name, message);
+}
+</code></pre>
+<p>To send a message to all clients, we can use the <code>Clients.All.SendAsync()</code> method. if we want to send a message only to the caller (the client that called a <code>SendAsync</code> <strong>to</strong> the hub), we can use the <code>Clients.Caller.SendAsync()</code> method.</p>
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/clientIdentification/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
+      
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
+    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
+    <script>
+    mermaid.initialize({
+    startOnLoad: false
+    });
+    mermaid.init(undefined, ".lang-mermaid");
+    </script>  </body>
+</html>

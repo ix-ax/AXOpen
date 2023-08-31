@@ -55,9 +55,32 @@ NAMESPACE AXOpen.Data
             END_VAR
             Delete := Operation.Invoke(Identifier, eCrudOperation#Delete);         
         END_METHOD 
+
+        ///<summary>
+        /// Check if data entry exists in each associated remote repository with given ID.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param> 
+        METHOD PUBLIC EntityExist : IAxoEntityExistTaskState
+            VAR_INPUT
+                Identifier : STRING[254];
+            END_VAR
+            Operation.Invoke(Identifier, eCrudOperation#EntityExist);
+            EntityExist := Operation;
+        END_METHOD 
+
+        ///<summary>
+        /// Creates or Updates data entry from each associated remote repository with given ID.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param> 
+        METHOD PUBLIC CreateOrUpdate : IAxoTaskState
+            VAR_INPUT
+                Identifier : STRING[254];
+            END_VAR
+            CreateOrUpdate := Operation.Invoke(Identifier, eCrudOperation#CreateOrUpdate);         
+        END_METHOD 
     
         METHOD PUBLIC Restore  
-            Operation.Restore();      
+            Operation.Restore(); 
         END_METHOD 
         
         ///<summary>

@@ -20,6 +20,7 @@ namespace Pocos.AXOpen.Data
                 changes = value;
             }
         }
-    }
 
+        public string Hash { get; set; }
+    }
 }

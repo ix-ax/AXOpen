@@ -1,0 +1,28 @@
+﻿@page "/AxoCognexVisionInsightExample"
+@using axopen_integrations
+@using AXOpen.Core;
+@using AXOpen.Cognex.Vision.v_6_0_0_0;
+
+<h3>AxoCognexVisionInsightExample</h3>
+
+<div class="container">
+    <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+        AxoCognexVisionInsight
+    </div>
+    <div class="container text-left">
+        <div class="row">
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionInsightExampleContext.ActivateManualControl" Presentation="Control" />
+            </div>
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionInsightExampleContext.MyInsight._isManuallyControllable" Presentation="Display" />
+            </div>
+
+        </div>
+        
+        <div class="col">
+            <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionInsightExampleContext.MyInsight" Presentation="Command" />
+        </div>
+    </div>
+</div>
+

@@ -16,7 +16,7 @@ NAMESPACE examples.PneumaticManipulator
             VerticalCylinder : AXOpen.Pneumatics.Cylinder;
             GripperCylinder : AXOpen.Pneumatics.Cylinder;
         END_VAR
-
+        
         METHOD PUBLIC Update
             VAR_INPUT
                 parent : IAxoObject;
@@ -30,6 +30,8 @@ NAMESPACE examples.PneumaticManipulator
             HorizontalCylinder.Update(THIS, Inputs.B0[0], Inputs.B0[1], Outputs.B0[0], Outputs.B0[1]);
             VerticalCylinder.Update(THIS, Inputs.B0[2], Inputs.B0[3], Outputs.B0[2], Outputs.B0[3]);
             GripperCylinder.Update(THIS, Inputs.B0[4], Inputs.B0[5], Outputs.B0[4], Outputs.B0[5]);
+
+            
         END_METHOD
     END_CLASS
 
@@ -37,6 +39,9 @@ NAMESPACE examples.PneumaticManipulator
         EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             CounterDelay : ULINT;
+            _presenceInspector: AXOpen.Inspectors.AxoDigitalInspector;
+            _valueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
+            _dataInspector: AXOpen.Inspectors.AxoDataInspector;
         END_VAR
     END_CLASS
 
@@ -71,7 +76,9 @@ NAMESPACE examples.PneumaticManipulator
             /// Handles and intializes components used by this unit.
             ///</summary>
             Components : Components;
-            ProcessData : ProcessDataManger;
+
+            ProcessData : REF_TO ProcessDataManger;
+
             ///<summary>
             /// Ground sequence. Contains logic that brings the unit into initial state.
             ///</summary>
@@ -115,9 +122,9 @@ NAMESPACE examples.PneumaticManipulator
             // Component I/O immange and management handling.
             Components.Update(THIS, Inputs, Outputs);
             // Process data manager
-            ProcessData.Run(THIS);
+            ProcessData^.Run(THIS);
             // Handles ground sequence
-            GroundSequence.Run(REF(Components), REF(ProcessData), THIS);
+            GroundSequence.Run(REF(Components), ProcessData, THIS);
             // Restores other states when Ground executes
             IF (GroundSequence.IsBusy()) THEN
                 AutomatSequence.Restore();
@@ -125,7 +132,7 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
             // Handles automatic sequence (ground must be previously done)           
             AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
-            AutomatSequence.Run(REF(Components), REF(ProcessData), THIS);
+            AutomatSequence.Run(REF(Components), ProcessData, THIS);
             // Handles service/manual mode
             ServiceMode.Run(THIS, Components);
             IF ServiceMode.IsBusy() THEN
@@ -143,10 +150,25 @@ NAMESPACE examples.PneumaticManipulator
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
             Steps : ARRAY[0..150] OF AxoStep;
+            _dialog : AXOpen.Core.AxoDialog;
+            _dialog1 : AXOpen.Core.AxoDialog;
+            _dialog2 : AXOpen.Core.AxoDialog;
+            _dialog3 : AXOpen.Core.AxoDialog;
+            _alertDialog : AXOpen.Core.AxoAlertDialog;
+            _presenceInspector: AXOpen.Inspectors.AxoDigitalInspector;
+            _valueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
+            _dataInspector: AXOpen.Inspectors.AxoDataInspector;
+            _data: AXOpen.Inspectors.AxoDigitalInspectorData;
+            _comprehensiveResult: AXOpen.Inspectors.AxoComprehensiveResult;
+            _inspectionResult:BOOL;
+            _inspectionValue:LREAL;
+            _inspectionData: STRING;
+            _externalClose : BOOL;
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
             ProcessData : REF_TO ProcessDataManger;
+            
         END_VAR
 
         METHOD INTERNAL Run
@@ -190,17 +212,122 @@ NAMESPACE examples.PneumaticManipulator
             THIS.AndThen(Steps[7], components^.HorizontalCylinder.MoveToHome);
             THIS.AndThen(Steps[8], components^.GripperCylinder.MoveToHome);
             
-            IF(Steps[10].Execute(THIS, TRUE, 'Create data id')) THEN
+            IF(Steps[9].Execute(THIS, TRUE, 'Create data id')) THEN
+
                 ProcessData^.DataManger.Set.CounterDelay := THIS.GetContext().OpenCycleCount();
-                THIS.MoveNext();
+                THIS.MoveNext(); 
+
             END_IF;    
 
-            IF (Steps[9].Execute(THIS, TRUE, 'Save data.')) THEN
+            IF (Steps[10].Execute(THIS, TRUE, 'Save data.')) THEN
                 //-------------------------------------------------------            
                 IF (ProcessData^.Create(ToString(ProcessData^.DataManger.Set.CounterDelay)).IsDone()) THEN // <- waits for the task to be done.
                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
                 END_IF;
-//-------------------------------------------------------
+                THIS.MoveNext();
+                //-------------------------------------------------------
+            END_IF;
+
+
+            IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+                //-------------------------------------------------------        
+                   IF(_alertDialog.Show(THIS)
+                        .WithTitle('Plc alert')
+                        .WithType(eDialogType#Success)
+                        .WithMessage('This is alert invoked from plc!')
+                        .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+                        THIS.MoveNext(); 
+                    END_IF;	
+
+
+            //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[16].Execute(THIS, TRUE, 'Set inpsection times')) THEN
+                //--------------------------------------------
+
+                _valueInspector.Data()^.FailTime := TIME#3s;
+                _presenceInspector.Data()^.FailTime := TIME#3s;
+                _dataInspector.Data()^.FailTime := TIME#3s;
+
+                _valueInspector.Data()^.PassTime := TIME#2s;
+                _presenceInspector.Data()^.PassTime := TIME#2s;
+                _dataInspector.Data()^.PassTime := TIME#2s;
+            
+                _valueInspector.Data()^.NumberOfAllowedRetries := UINT#3;
+
+                THIS.MoveNext(); 
+                //--------------------------------------------	
+            END_IF;
+        
+
+            IF (Steps[20].Execute(THIS, TRUE, 'RETRY STEP 90')) THEN
+                
+                IF(Steps[20].Duration > T#2000ms) THEN
+                    THIS.MoveNext(); 
+                END_IF;	
+             
+                
+            END_IF;
+
+
+            IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
+                //-------------------------------------------------------
+
+                _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
+
+                //-------------------------------------------------------
+             END_IF;
+
+             IF (Steps[40].Execute(THIS, TRUE, 'Example Analog inspection')) THEN
+                //-------------------------------------------------------
+             
+
+                _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
+
+                //-------------------------------------------------------
+             END_IF;
+
+
+             IF (Steps[50].Execute(THIS, TRUE, 'Example Data inspection')) THEN
+                //-------------------------------------------------------
+              
+                _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
+
+                //-------------------------------------------------------
+            END_IF;
+
+
+
+            IF (Steps[60].Execute(THIS, TRUE, 'Show dialog 0')) THEN
+                //------------------------------------------------------- 
+            
+                    IF(_dialog.Show(THIS)
+                        .WithOk()
+                        .WithType(eDialogType#Success)
+                        .WithCaption('What`s next?')
+                        .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
+
+                        
+                        THIS.RequestStep(Steps[149]);
+                //-------------------------------------------------------
+                END_IF;	
+            END_IF;
+
+            IF (Steps[145].Execute(THIS, TRUE, 'Restore origin step')) THEN
+                //-------------------------------------------------------
+ 
+                ;
+
+            // //-------------------------------------------------------
+            END_IF;
+
+
+            IF (Steps[149].Execute(THIS, TRUE, 'Dummy end')) THEN
+                //-------------------------------------------------------
+                THIS.MoveNext();
+
+                //-------------------------------------------------------
             END_IF;
             // This will close the sequence and will return to the first step.
             THIS.Close(Steps[150]);

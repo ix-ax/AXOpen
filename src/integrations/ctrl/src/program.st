@@ -22,6 +22,11 @@ PROGRAM MyProgram
         AxoMessengersDocu : AxoStaticMessengerDocuExample.Messengers;
 
         AxoDataFragmentExchangeContext : AxoDataFramentsExchangeDocuExample.AxoDataFragmentExchangeContext;
+        AxoTextListExampleContext : AxoTextListExample.AxoTextListExampleContext;
+        AxoCognexVisionDatamanExampleContext : AxoCognexVisionDatamanExamples.AxoCognexVisionDatamanExampleContext;
+        AxoCognexVisionInsightExampleContext : AxoCognexVisionInsightExamples.AxoCognexVisionInsightExampleContext;
+        AxoByteArrayExampleContext : AxoByteArrayExample.AxoByteArrayExampleContext;
+        AxoBoolArrayExampleContext : AxoBoolArrayExample.AxoBoolArrayExampleContext;
 
         AxoLoggers : AxoLoggerExamples.Loggers;
 
@@ -30,6 +35,19 @@ PROGRAM MyProgram
         AxoRtc : AxoRtc.AxoS71500Rtc;
 
     END_VAR    
+
+    //Copy this VAR_EXTERNAL section into the declaration part of your main program file inside your project.
+	//Do not change any names, addresses or any another content.
+	VAR_EXTERNAL
+		PlcInputs : PlcInputs;
+		PlcOutputs : PlcOutputs;
+	END_VAR
+
+
+    //Copy this function call at the very beginning of your program.
+	//Do not change any names, addresses or any another content.
+    CopyInputs();
+
     I_am_alive := I_am_alive + ULINT#1;
 
     MainContext.Run();
@@ -50,11 +68,27 @@ PROGRAM MyProgram
     AxoMessengersDocu.Run();
     AxoMessengersDocu.InjectRtc(AxoRtc);
     AxoDataFragmentExchangeContext.Run();
+    
+    AxoTextListExampleContext.Run();
+    
+    AxoCognexVisionDatamanExampleContext.PlcInputs := REF(PlcInputs);
+    AxoCognexVisionDatamanExampleContext.PlcOutputs := REF(PlcOutputs);
+    AxoCognexVisionDatamanExampleContext.Run();
+
+    AxoCognexVisionInsightExampleContext.PlcInputs := REF(PlcInputs);
+    AxoCognexVisionInsightExampleContext.PlcOutputs := REF(PlcOutputs);
+    AxoCognexVisionInsightExampleContext.Run();
+    AxoByteArrayExampleContext.Run();
+    AxoBoolArrayExampleContext.Run();
+
     AxoLoggers.InjectRtc(AxoRtc);
     AxoLoggers.Run();
     // Integration tests
     Integrations.Run();      
-   
+
+ 	//Copy this function call at the very end of your program.
+	//Do not change any names, addresses or any another content.
+	CopyOutputs();  
 END_PROGRAM
 
 

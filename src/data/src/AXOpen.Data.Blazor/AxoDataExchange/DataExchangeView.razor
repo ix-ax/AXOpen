@@ -1,10 +1,10 @@
 ﻿@namespace AXOpen.Data
 @using AXOpen.Data;
+@using AXSharp.Connector;
 @using CommunityToolkit.Mvvm.ComponentModel;
 @using CommunityToolkit.Mvvm.Messaging;
 @using Microsoft.AspNetCore.Components.Forms;
 @using AXOpen.Data.Interfaces;
-@using AXOpen.Core.blazor.Toaster;
 @using AXOpen.Core;
 @using AXOpen.Data;
 
@@ -14,7 +14,7 @@
 }
 else
 {
-    <div class="p-1" style="resize: vertical; overflow: auto;">
+    <div class="p-1">
         <div class="d-flex">
             @if (Presentation.Equals("Command"))
             {
@@ -22,8 +22,8 @@ else
                 <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "LoadFromPLC"'>Load from PLC</button>
                 @if (CanExport)
                 {
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick="() => Vm.ExportData()">Export</button>
-                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid">Import</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); await LoadCustomExportDataAsync(); }'>Export</button>
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#importModal-@ViewGuid" @onclick="async () => { isFileImported = false; await LoadCustomExportDataAsync(); }">Import</button>
                 }
             }
             <div class="btn-group ms-auto" role="group">
@@ -54,9 +54,9 @@ else
                     <th scope="col">DataEntityId</th>
 
                     <CascadingValue Value="this" IsFixed>
-                        @ChildContent
-                    </CascadingValue>
-                    @foreach (ColumnData column in Columns)
+                    @ChildContent
+                </CascadingValue>
+                @foreach (ColumnData column in Columns)
                     {
                         if (column.HeaderName is null || column.HeaderName == "")
                         {
@@ -105,7 +105,7 @@ else
                             {
                                 <td data-bs-toggle="modal" href="#viewModal-@ViewGuid" style="cursor: pointer" @onclick="() => Vm.SelectedRecord = item">@item.DataEntityId</td>
 
-                                @foreach (ColumnData column in Columns)
+                                @foreach (ColumnData column in Columns.ToList())
                                 {
                                     if (column.Clickable)
                                     {
@@ -137,18 +137,18 @@ else
                             @if (Presentation.Equals("Command"))
                             {
                                 <td>
-                                    <button type="button" class="btn btn-primary px-3 py-0" title="Copy" @onclick="() => { Vm.SelectedRecord = item; Vm.Copy(); }">
+                                    <button type="button" class="btn btn-primary px-3 py-0" title="Copy" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Vm.SelectedRecord = item; Create = "Copy"; Vm.Locked(); }'>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-files" viewBox="0 0 16 16">
                                             <path d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z" />
                                         </svg>
                                     </button>
-                                    <button type="button" class="btn btn-primary px-3 py-0" data-bs-toggle="modal" title="Edit" data-bs-target="#editModal-@ViewGuid" @onclick="() => Vm.SelectedRecord = item">
+                                    <button type="button" class="btn btn-primary px-3 py-0" data-bs-toggle="modal" title="Edit" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.SelectedRecord = item; Vm.Locked(); }">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
                                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                         </svg>
                                     </button>
-                                    <button type="button" class="btn btn-danger px-3 py-0" data-bs-toggle="modal" title="Delete" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => Vm.SelectedRecord = item">
+                                    <button type="button" class="btn btn-danger px-3 py-0" data-bs-toggle="modal" title="Delete" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.SelectedRecord = item; Vm.Locked(); }">
                                         <i class="oi oi-trash"></i>
                                     </button>
                                 </td>
@@ -215,7 +215,7 @@ else
                         <li class="page-item @(Vm.Page == @MaxPage ? "active" : "")"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync(MaxPage)">@(MaxPage + 1)</a></li>
                     }
 
-                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="() => setPageAsync((Vm.Page + 1) % (MaxPage + 1))" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                    <li class="page-item"><a class="page-link" style="cursor: pointer" @onclick="async () => { if (MaxPage != -1) await setPageAsync((Vm.Page + 1) % (MaxPage + 1)); }" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -227,173 +227,396 @@ else
             @if (Presentation.Equals("Command"))
             {
                 <div class="d-flex justify-content-end mt-3">
-                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Copy"'>Copy</button>
-                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid">Edit</button>
+                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Create = "Copy"; Vm.Locked();}'>Copy</button>
+                    <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">Edit</button>
                     <button type="button" class="btn btn-primary mx-1" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
-                    <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid">Delete</button>
+                    <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onlick="() => { Vm.Locked(); }">Delete</button>
                 </div>
             }
         </div>
     }
 
-}
 
-<div class="modal fade" id="createModal-@ViewGuid" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                @if (Create.Equals("Create"))
-                {
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create new item</h1>
-                }
-                else if (Create.Equals("Copy"))
-                {
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Copy item</h1>
-                }
-                else if (Create.Equals("LoadFromPLC"))
-                {
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">Load item from PLC</h1>
-                }
 
-                @if (Create.Equals("Copy"))
-                {
-                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid" aria-label="Close"></button>
-                }
-                else
-                {
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                }
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="id" class="form-label">Id</label>
-                    <input type="text" class="form-control" id="id" @bind="Vm.CreateItemId">
+    <div class="modal fade" id="createModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    @if (Create.Equals("Create"))
+                    {
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Create new item</h1>
+                    }
+                    else if (Create.Equals("Copy"))
+                    {
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Copy item</h1>
+                    }
+                    else if (Create.Equals("LoadFromPLC"))
+                    {
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Load item from PLC</h1>
+                    }
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked(); }"></button>
                 </div>
-            </div>
-            <div class="modal-footer">
-                @if (Create.Equals("Copy"))
-                {
-                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid">Close</button>
-                }
-                else
-                {
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                }
-
-                @if (Create.Equals("Create"))
-                {
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.CreateNew()">Create</button>
-                }
-                else if (Create.Equals("Copy"))
-                {
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Copy()">Copy</button>
-                }
-                else if (Create.Equals("LoadFromPLC"))
-                {
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.LoadFromPlc()">Load from PLC</button>
-                }
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="viewModal-@ViewGuid" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
-            </div>
-            <div class="modal-footer">
-                @if (Presentation.Equals("Command"))
-                {
-                    <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid">Delete</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => Create = "Copy"'>Copy</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid">Edit</button>
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
-                }
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="editModal-@ViewGuid" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowControl"></RenderableContentControl>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.Edit()">Save</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="deleteModal-@ViewGuid" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Delete @Vm.SelectedRecord?.DataEntityId ?</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" @onclick="() => Vm.Delete()">Delete</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="exportModal-@ViewGuid" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Export data</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <a download href="/exportData.csv">Download</a>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="importModal-@ViewGuid" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Import data</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="mb-3">
-                    <label for="formFile" class="form-label">File input</label>
-                    <InputFile class="form-control col-10" id="formFile" OnChange="@LoadFile" />
-                </div>
-            </div>
-            <div class="modal-footer">
-                @if (isLoadingFile)
-                {
-                    <div class="spinner-border" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="id" class="form-label">Id</label>
+                        <input type="text" class="form-control" id="id" @bind="Vm.CreateItemId">
                     </div>
-                }
-                <button type="button" class="btn btn-primary @(isLoadingFile || !isFileLoaded ? "disabled" : "")" data-bs-dismiss="modal" @onclick="() => { Vm.ImportData(); isFileLoaded = false; }">Import</button>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-footer">
+                    @if (!Vm.IsLockedByMeOrNull())
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This repository is locked for editing by another user!
+                            </div>
+                        </div>
+                    }
+                    @if (!Vm.IsHashCorrect && Create.Equals("Copy"))
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This record has external modifications!
+                            </div>
+                        </div>
+                    }
+                    @if (Create.Equals("Create"))
+                    {
+                        <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="() => { Vm.CreateNew(); Vm.UnLocked(); }">Create</button>
+                    }
+                    else if (Create.Equals("Copy"))
+                    {
+                        <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="() => { Vm.Copy(); Vm.UnLocked(); }">Copy</button>
+                    }
+                    else if (Create.Equals("LoadFromPLC"))
+                    {
+                        <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="() => { Vm.LoadFromPlc(); Vm.UnLocked(); }">Load from PLC</button>
+                    }
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); }">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="modal fade" id="viewModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
+                </div>
+                <div class="modal-footer">
+                    @if (Presentation.Equals("Command"))
+                    {
+                        <button type="button" class="btn btn-danger me-auto" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">Delete</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Create = "Copy"; Vm.Locked(); }'>Copy</button>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">Edit</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">Send to PLC</button>
+                    }
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changesModal-@ViewGuid">Changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="changesModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="text-start">
+                                <th scope="col">DateTime</th>
+                                <th scope="col">UserName</th>
+                                <th scope="col">HumanReadable</th>
+                                <th scope="col">OldValue</th>
+                                <th scope="col">NewValue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (!Vm.Changes.Any())
+                            {
+                                <tr class="text-center">
+                                    <td colspan="3">
+                                        <h3>Collection is empty</h3>
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                @foreach (var item in Vm.Changes.ToList())
+                                {
+                                    <tr class="text-start">
+                                        <td>@item.DateTime</td>
+                                        <td>@item.UserName</td>
+                                        <td>@item.ValueTag?.HumanReadable</td>
+                                        <td>@item.OldValue</td>
+                                        <td>@item.NewValue</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewModal-@ViewGuid">Back</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="editModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">@Vm.SelectedRecord?.DataEntityId</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked(); }"></button>
+                </div>
+                <div class="modal-body">
+                    @if (Vm.IsLockedByMeOrNull())
+                    {
+                        <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowControl"></RenderableContentControl>
+                    }
+                    else
+                    {
+                        <RenderableContentControl Context="Vm.DataExchange.RefUIData" Presentation="ShadowDisplay"></RenderableContentControl>
+                    }
+                </div>
+                <div class="modal-footer">
+                    @if (!Vm.IsLockedByMeOrNull())
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This repository is locked for editing by another user!
+                            </div>
+                        </div>
+                    }
+                    @if (!Vm.IsHashCorrect)
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This record has external modifications!
+                            </div>
+                        </div>
+                    }
+                    <button type="button" class="btn btn-primary @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="async () => { await Vm.Edit(); Vm.UnLocked(); }">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); }">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Delete @Vm.SelectedRecord?.DataEntityId ?</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="() => { Vm.UnLocked(); }"></button>
+                </div>
+                <div class="modal-footer">
+                    @if (!Vm.IsLockedByMeOrNull())
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This repository is locked for editing by another user!
+                            </div>
+                        </div>
+                    }
+                    @if (!Vm.IsHashCorrect)
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This record has external modifications!
+                            </div>
+                        </div>
+                    }
+                    <button type="button" class="btn btn-danger @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="() => { Vm.Delete(); Vm.UnLocked(); }">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); }">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exportModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Export data</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick='() => ClearFiles("wwwroot/Temp/" + ViewGuid)'></button>
+                </div>
+                <div class="modal-body">
+                    @if (!Vm.IsFileExported)
+                    {
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <a download href="/Temp/@ViewGuid/exportData.zip">Download</a>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exportCustomModal-@ViewGuid">Customize</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick='() => ClearFiles("wwwroot/Temp/" + ViewGuid)'>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="importModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Import data</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="async () => await SaveCustomExportDataAsync()"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">File input</label>
+                        <InputFile @key=@(_inputFileId) class="form-control col-10" id="formFile" accept=".zip" OnChange="@LoadFile" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-12">
+                        <div class="btn-group mt-2" role="group" aria-label="File type">
+                            @foreach (var item in Vm.DataExchange.Exporters)
+                            {
+                                <button type="button" class="btn @(Vm.ExportSet.ExportFileType == item.Key ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.ExportSet.ExportFileType = item.Key">@item.Key</button>
+                            }
+                        </div>
+                        <div class="input-group mt-2 d-inline-flex w-25 align-middle">
+                            <span class="input-group-text">Separator</span>
+                            <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.ExportSet.Separator">
+                        </div>
+                    </div>
+                    @if (!isFileImported && isFileImporting)
+                    {
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    }
+                    <button type="button" class="btn btn-primary @(!isFileImported || isFileImporting ? "disabled" : "")" data-bs-dismiss="modal" @onclick='async () => { await Vm.ImportDataAsync("wwwroot/Temp/" + ViewGuid + "/importData.zip"); isFileImported = false; _inputFileId = Guid.NewGuid().ToString(); SaveCustomExportDataAsync(); }'>Import</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="async () => await SaveCustomExportDataAsync()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="exportCustomModal-@ViewGuid" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Export data</h1>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" aria-label="Close" @onclick='async () => { Vm.IsFileExported = false; await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'></button>
+                </div>
+                <div class="modal-body">
+                    <div class="accordion">
+                        @{
+                            bool firstIteration = true;
+                        }
+                        @foreach (var fragment in Vm.DataExchange.RefUIData.GetChildren().DefaultIfEmpty(Vm.DataExchange.RefUIData))
+                        {
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <div class="input-group flex-nowrap">
+                                        <div class="input-group-text bg-transparent border-0">
+                                            <input class="form-check-input mt-0" type="checkbox" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(fragment.ToString()))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString()))">
+                                        </div>
+                                        <button class="accordion-button @(firstIteration ? "" : "collapsed")" type="button" data-bs-toggle="collapse" data-bs-target="#@fragment.ToString().Replace(".", "_")-@ViewGuid" aria-expanded="@(firstIteration ? "true" : "false")" aria-controls="@fragment.ToString().Replace(".", "_")-@ViewGuid">
+                                            @fragment.ToString()
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="@fragment.ToString().Replace(".", "_")-@ViewGuid" class="accordion-collapse collapse @(firstIteration ? "show" : "")">
+                                    <div class="accordion-body @(Vm.GetCustomExportDataValue(fragment.ToString()) ? "" : "opacity-25")">
+                                        <ul class="list-group">
+                                            @foreach (var item in Vm.GetValueTags(fragment.GetType()))
+                                            {
+                                                @if (item is ITwinPrimitive)
+                                                {
+                                                    <li class="list-group-item">
+                                                        <input class="form-check-input me-1" type="checkbox" id="@fragment.ToString()-@item.Symbol-@ViewGuid" @attributes="Vm.InDictionary(Vm.GetCustomExportDataValue(fragment.ToString(), item.Symbol))" @onchange="@((ChangeEventArgs __e) => Vm.ChangeCustomExportDataValue(__e, fragment.ToString(), item.Symbol))">
+                                                        <label class="form-check-label ms-3" for="@fragment.ToString()-@item.Symbol-@ViewGuid">@item.GetSymbolTail()</label>
+                                                    </li>
+                                                }
+                                                else if (item is ITwinObject)
+                                                {
+                                                    <AXOpen.Data.Blazor.AxoDataExchange.DataExchangeAccordionComponent AccordionContent="item" Vm="Vm" Fragment="fragment" Parent="_data" ViewGuid="ViewGuid" />
+                                                }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            firstIteration = false;
+                        }
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-12">
+                        <div class="input-group mt-2">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">@Vm.ExportSet.ExportMode</button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.First ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.First">First</a></li>
+                                <li><a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.Last ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.Last">Last</a></li>
+                                <li><a class="dropdown-item @(Vm.ExportSet.ExportMode == eExportMode.Exact ? "active" : "")" @onclick="() => Vm.ExportSet.ExportMode = eExportMode.Exact">Exact</a></li>
+                            </ul>
+                            @if (Vm.ExportSet.ExportMode == eExportMode.Exact)
+                            {
+                                <div class="input-group-text">From</div>
+                                <input type="text" class="form-control" placeholder="From" @bind="Vm.ExportSet.FirstNumber">
+                                <div class="input-group-text">To</div>
+                                <input type="text" class="form-control" placeholder="To" @bind="Vm.ExportSet.SecondNumber">
+                            }
+                            else
+                            {
+                                <input type="text" class="form-control" @bind="Vm.ExportSet.FirstNumber">
+                            }
+                            <div class="input-group-text">records</div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="btn-group mt-2" role="group" aria-label="File type">
+                            @foreach (var item in Vm.DataExchange.Exporters)
+                            {
+                                <button type="button" class="btn @(Vm.ExportSet.ExportFileType == item.Key ? "btn-primary" : "btn-outline-primary")" @onclick="() => Vm.ExportSet.ExportFileType = item.Key">@item.Key</button>
+                            }
+                        </div>
+                        <div class="input-group mt-2 d-inline-flex w-25 align-middle">
+                            <span class="input-group-text">Separator</span>
+                            <input type="text" class="form-control" placeholder="Separator" aria-label="Separator" @bind="Vm.ExportSet.Separator">
+                        </div>
+                    </div>
+                    @if (!Vm.GetFragmentsExportedValue())
+                    {
+                        <div class="alert alert-danger d-flex align-items-center m-0 p-2" role="alert">
+                            <span class="oi oi-warning" aria-hidden="true" b-p1s6lcmqsx=""></span>
+                            <div>
+                                This file may not be able to be imported!
+                            </div>
+                        </div>
+                    }
+                    <button type="button" class="btn btn-primary ms-2" data-bs-toggle="modal" data-bs-target="#exportModal-@ViewGuid" @onclick='async () => { Vm.IsFileExported = false; await Vm.ExportDataAsync("wwwroot/Temp/" + ViewGuid + "/exportData.zip"); SaveCustomExportDataAsync(); }'>Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

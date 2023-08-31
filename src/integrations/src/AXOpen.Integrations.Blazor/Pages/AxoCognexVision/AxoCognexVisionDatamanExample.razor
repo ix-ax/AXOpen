@@ -1,0 +1,33 @@
+﻿@page "/AxoCognexVisionDatamanExample"
+@using axopen_integrations
+@using AXOpen.Core;
+@using AXOpen.Cognex.Vision.v_6_0_0_0;
+
+<h3>AxoCognexVisionDatamanExample</h3>
+
+<div class="container">
+    <div class="h4 pb-2 mb-4 text-primary border-bottom border-primary">
+        AxoCognexVisionDataman
+    </div>
+    <div class="container text-left">
+        <div class="row">
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.ActivateManualControl" Presentation="Control" />
+            </div>
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman1._isManuallyControllable" Presentation="Display" />
+            </div>
+            <div class="col">
+                <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman2._isManuallyControllable" Presentation="Display" />
+            </div>
+        </div>
+        
+        <div class="col">
+            <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman1" Presentation="Command" />
+        </div>
+        <div class="col">
+            <RenderableContentControl Context="@Entry.Plc.AxoCognexVisionDatamanExampleContext.MyDataman2" Presentation="Command" />
+        </div>
+    </div>
+</div>
+

@@ -2,6 +2,7 @@
 @using AXSharp.Connector
 @using AXOpen.Data;
 
+
 @*<div class="container-fluid">
     <div class="row">
         <DataExchangeView Vm="_vm">
@@ -10,14 +11,21 @@
         </DataExchangeView>
     </div>
 </div>
-
+*@
 @code
 {
-    private DataExchangeViewModel _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.ProcessData };
-}
-*@
+    //private DataExchangeViewModel _vm;
 
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData" Presentation="Command"></RenderableContentControl>
+    //protected override void OnInitialized()
+    //{
+    //    _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.PneumaticManipulator.ProcessData, AlertDialogService = _alertDialogService };
+    //}
+}
+
+
+<RenderableContentControl Context="@Entry.Plc.Context.ProcessDataPneumaticManipulator" Presentation="Command"></RenderableContentControl>
+
+@*<DataExchangeView Vm="@_vm" Presentation="Command" CanExport="true"></DataExchangeView>*@
 
 @*<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.ProcessData.Shared" Presentation="Command"></RenderableContentControl>
 

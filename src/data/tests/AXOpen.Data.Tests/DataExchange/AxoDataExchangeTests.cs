@@ -18,6 +18,10 @@ namespace AXOpen.Data.Tests
     using TOnline = AXOpen.Data.AxoDataEntity;
     using TPlain = Pocos.AXOpen.Data.AxoDataEntity;
     using Pocos.AXOpen.Data;
+    using System.IO.Compression;
+    using System.Xml.Linq;
+    using System.IO;
+    using System.Security.Claims;
 
     public class AxoDataExchangeTests
     {
@@ -117,12 +121,89 @@ namespace AXOpen.Data.Tests
             Assert.Equal(1, repo.Count);
         }
 
+        [Fact()]
+        public async void EntityExistTest_True()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new AxoDataExchange<OnlineMockData, MockData>(parent, "a", "b");
+            var repo = new InMemoryRepository<MockData>();
+            sut.SetRepository(repo);
+
+            await sut.CreateAsync("aa", new MockData() { Name = "hello", Age = 1 });
+            await sut.CreateAsync("bb", new MockData() { Name = "hello", Age = 1 });
+
+            var actual = await sut.EntityExistAsync("aa");
+
+            Assert.Equal(2, repo.Count);
+            Assert.True(actual);
+        }
+
+        [Fact()]
+        public async void EntityExistTest_False()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new AxoDataExchange<OnlineMockData, MockData>(parent, "a", "b");
+            var repo = new InMemoryRepository<MockData>();
+            sut.SetRepository(repo);
+
+            await sut.CreateAsync("aa", new MockData() { Name = "hello", Age = 1 });
+            await sut.CreateAsync("bb", new MockData() { Name = "hello", Age = 1 });
+
+            var actual = await sut.EntityExistAsync("cc");
+
+            Assert.Equal(2, repo.Count);
+            Assert.False(actual);
+        }
+
+        [Fact()]
+        public async void CreateOrUpdateTest_Create()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new AxoDataExchange<OnlineMockData, MockData>(parent, "a", "b");
+            var repo = new InMemoryRepository<MockData>();
+            sut.SetRepository(repo);
+
+            await sut.CreateOrUpdateAsync("aa", new MockData() { Name = "hello", Age = 1 });
+
+            Assert.Equal(1, repo.Count);
+            Assert.Equal("aa", repo.Queryable.First().DataEntityId);
+            Assert.Equal("hello", repo.Queryable.First().Name);
+            Assert.Equal(1, repo.Queryable.First().Age);
+        }
+
+        [Fact()]
+        public async void CreateOrUpdateTest_Update()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new AxoDataExchange<OnlineMockData, MockData>(parent, "a", "b");
+            var repo = new InMemoryRepository<MockData>();
+            sut.SetRepository(repo);
+            var toUpdate = new MockData() { Name = "hello", Age = 1 };
+            await sut.CreateAsync("aa", toUpdate);
+
+            toUpdate.Name = "world";
+            toUpdate.Age = 100;
+
+            await sut.CreateOrUpdateAsync("aa", toUpdate);
+
+            var actual = await sut.ReadAsync("aa");
+
+            Assert.Equal(1, repo.Count);
+            Assert.Equal("aa", actual.DataEntityId);
+            Assert.Equal("world", actual.Name);
+            Assert.Equal(100, actual.Age);
+        }
+
         [Fact]
         public void RemoteCreate_ShouldCreateRecordInRepository()
         {
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
-            
+
             var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
             var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
             sut.SetRepository(repo);
@@ -148,8 +229,8 @@ namespace AXOpen.Data.Tests
             sut.SetRepository(repo);
 
 
-      
-            repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68});
+
+            repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68 });
 
             sut.RemoteRead("hey remote create");
             Assert.Equal(48, await sut.Set.ComesFrom.GetAsync());
@@ -168,7 +249,7 @@ namespace AXOpen.Data.Tests
 
             repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 85, GoesTo = 98 });
 
-            sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create"});
+            sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" });
 
 
             Assert.Equal("hey remote create", sut.Set.DataEntityId.Shadow);
@@ -227,7 +308,6 @@ namespace AXOpen.Data.Tests
             var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
             sut.SetRepository(repo);
 
-
             sut.Set.ComesFrom.SetAsync(10);
             sut.Set.GoesTo.SetAsync(20);
             sut.RemoteCreate("hey remote create");
@@ -237,6 +317,85 @@ namespace AXOpen.Data.Tests
             sut.RemoteDelete("hey remote create");
 
             Assert.Equal(0, repo.Count);
+        }
+
+        [Fact]
+        public async void RemoteEntityExist_ShouldExistRecordFromRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68 });
+
+            Assert.Equal(1, repo.Count);
+
+            var result = sut.RemoteEntityExist("hey remote create");
+
+            Assert.True(result);
+        }
+
+        [Fact]
+        public async void RemoteEntityExist_ShouldNoExistRecordFromRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68 });
+
+            Assert.Equal(1, repo.Count);
+
+            var result = sut.RemoteEntityExist("aa");
+
+            Assert.False(result);
+        }
+
+        [Fact]
+        public async void RemoteCreateOrUpdate_ShouldCreateRecordFromRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+
+            sut.Set.ComesFrom.SetAsync(10);
+            sut.Set.GoesTo.SetAsync(20);
+            sut.RemoteCreateOrUpdate("hey remote create");
+
+            var record = repo.Read("hey remote create");
+            Assert.Equal(10, record.ComesFrom);
+            Assert.Equal(20, record.GoesTo);
+        }
+
+        [Fact]
+        public async void RemoteCreateOrUpdate_ShouldUpdateRecordFromRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68 });
+
+            sut.Set.ComesFrom.SetAsync(10);
+            sut.Set.GoesTo.SetAsync(20);
+            sut.RemoteCreateOrUpdate("hey remote create");
+
+            var record = repo.Read("hey remote create");
+            Assert.Equal(10, record.ComesFrom);
+            Assert.Equal(20, record.GoesTo);
         }
 
         [Fact]
@@ -251,7 +410,7 @@ namespace AXOpen.Data.Tests
 
             for (int i = 0; i < 10; i++)
             {
-                repo.Create($"{i}Record", new SharedProductionData() { ComesFrom = (short)(i+1), GoesTo = (short)(i * 7) });
+                repo.Create($"{i}Record", new SharedProductionData() { ComesFrom = (short)(i + 1), GoesTo = (short)(i * 7) });
             }
 
             var actual = sut.GetRecords("Rec", 3, 0, eSearchMode.Contains);
@@ -352,7 +511,7 @@ namespace AXOpen.Data.Tests
 
             sut.Set.ComesFrom.Shadow = 101;
             sut.Set.GoesTo.Shadow = 201;
-           
+
 
             sut.CreateCopyCurrentShadowsAsync("hey remote create - new");
 
@@ -394,15 +553,12 @@ namespace AXOpen.Data.Tests
             var repo = new InMemoryRepository<MockData>();
             sut.InitializeRemoteDataExchange(repo);
 
-            await sut.CreateTask.DataEntityIdentifier.SetAsync("foo");
-            sut.CreateTask.StartTimeStamp.Cyclic = DateAndTime.Now;
+            await sut.Operation.DataEntityIdentifier.SetAsync("foo");
+            sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
 
-            Assert.True(await sut.CreateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.ReadTask.IsInitialized.GetAsync());
-            Assert.True(await sut.UpdateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.DeleteTask.IsInitialized.GetAsync());
+            Assert.True(await sut.Operation.IsInitialized.GetAsync());
         }
 
         [Fact()]
@@ -415,15 +571,12 @@ namespace AXOpen.Data.Tests
             sut.SetRepository(repo);
             sut.InitializeRemoteDataExchange();
 
-            await sut.CreateTask.DataEntityIdentifier.SetAsync("foo");
-            sut.CreateTask.StartTimeStamp.Cyclic = DateAndTime.Now;
+            await sut.Operation.DataEntityIdentifier.SetAsync("foo");
+            sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
 
-            Assert.True(await sut.CreateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.ReadTask.IsInitialized.GetAsync());
-            Assert.True(await sut.UpdateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.DeleteTask.IsInitialized.GetAsync());
+            Assert.True(await sut.Operation.IsInitialized.GetAsync());
         }
 
         [Fact()]
@@ -435,23 +588,290 @@ namespace AXOpen.Data.Tests
             var repo = new InMemoryRepository<MockData>();
             sut.InitializeRemoteDataExchange(repo);
 
-            await sut.CreateTask.DataEntityIdentifier.SetAsync("foo");
-            sut.CreateTask.StartTimeStamp.Cyclic = DateAndTime.Now;
+            await sut.Operation.DataEntityIdentifier.SetAsync("foo");
+            sut.Operation.StartTimeStamp.Cyclic = DateAndTime.Now;
 
 
 
-            Assert.True(await sut.CreateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.ReadTask.IsInitialized.GetAsync());
-            Assert.True(await sut.UpdateTask.IsInitialized.GetAsync());
-            Assert.True(await sut.DeleteTask.IsInitialized.GetAsync());
+            Assert.True(await sut.Operation.IsInitialized.GetAsync());
 
             sut.DeInitializeRemoteDataExchange();
 
-            Assert.False(await sut.CreateTask.IsInitialized.GetAsync());
-            Assert.False(await sut.ReadTask.IsInitialized.GetAsync());
-            Assert.False(await sut.UpdateTask.IsInitialized.GetAsync());
-            Assert.False(await sut.DeleteTask.IsInitialized.GetAsync());
+            Assert.False(await sut.Operation.IsInitialized.GetAsync());
+        }
+
+
+
+        [Fact()]
+        public async void ExportTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68 });
+
+            Assert.Equal(1, repo.Count);
+
+            var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataTest", "ExportData.zip");
+
+            // export
+            sut.ExportData(zipFile);
+
+            Assert.True(File.Exists(zipFile));
+
+            using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+            {
+                foreach (ZipArchiveEntry entry in zip.Entries)
+                {
+                    TextReader tr = new StreamReader(entry.Open());
+                    string text = tr.ReadToEnd();
+                    switch (entry.Name)
+                    {
+                        case "axosimple.SharedProductionDataManager.csv":
+                            Assert.Equal("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;48;68;\r", text);
+                            break;
+                    }
+                }
+            }
+
+            // clear
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
+        public async void ExportComplexTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            repo.Create("first", new Pocos.axosimple.SharedProductionData() { ComesFrom = 10, GoesTo = 11 });
+            repo.Create("second", new Pocos.axosimple.SharedProductionData() { ComesFrom = 20, GoesTo = 21 });
+
+            Assert.Equal(2, repo.Count);
+
+            var zipFile = Path.Combine(Path.GetTempPath(), "ExportDataTest", "ExportData.zip");
+
+            var dictionary = new Dictionary<string, ExportData>
+            {
+                { "axosimple.SharedProductionData", new ExportData(true, new Dictionary<string, bool>
+                {
+                    { "_data.ComesFrom", false },
+                }) },
+            };
+
+            // export
+            sut.ExportData(zipFile, dictionary, eExportMode.Exact, 2, 2, "CSV", '*');
+
+            Assert.True(File.Exists(zipFile));
+
+            using (ZipArchive zip = ZipFile.Open(zipFile, ZipArchiveMode.Read))
+            {
+                foreach (ZipArchiveEntry entry in zip.Entries)
+                {
+                    TextReader tr = new StreamReader(entry.Open());
+                    string text = tr.ReadToEnd();
+                    switch (entry.Name)
+                    {
+                        case "axosimple.SharedProductionDataManager.csv":
+                            Assert.Equal("_data.DataEntityId*_data.GoesTo*\r_data.DataEntityId*_data.GoesTo*\rsecond*21*\r", text);
+                            break;
+                        default:
+                            Assert.Fail("More entries tahn expected!");
+                            break;
+                    }
+                }
+            }
+
+            // clear
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
+        public async void ImportTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTest", "importDataPrepare");
+            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTest", "ImportData.zip");
+
+            Directory.CreateDirectory(tempDirectory);
+
+            File.Delete(zipFile);
+
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            {
+                sw.Write(
+                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r" +
+                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r" +
+                    "hey remote create;48;68;\r"
+                    );
+            }
+
+            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+            // import
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
+
+            var shared = sut.DataRepository.Read("hey remote create");
+            Assert.Equal(48, shared.ComesFrom);
+            Assert.Equal(68, shared.GoesTo);
+
+            // clear
+            if (Directory.Exists(tempDirectory))
+                Directory.Delete(tempDirectory, true);
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
+        public async void ImportComplexTest()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTest", "importDataPrepare");
+            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTest", "ImportData.zip");
+
+            Directory.CreateDirectory(tempDirectory);
+
+            File.Delete(zipFile);
+
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            {
+                sw.Write(
+                    "_data.DataEntityId*_data.GoesTo*\r" +
+                    "_data.DataEntityId*_data.GoesTo*\r" +
+                    "first*11*\r"
+                    );
+            }
+
+            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+            // import
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), separator: '*');
+
+            var shared = sut.DataRepository.Read("first");
+            Assert.Equal(0, shared.ComesFrom);
+            Assert.Equal(11, shared.GoesTo);
+
+            // clear
+            if (Directory.Exists(tempDirectory))
+                Directory.Delete(tempDirectory, true);
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
+        public async void ImportTestWithExtraElements()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            var tempDirectory = Path.Combine(Path.GetTempPath(), "ImportDataTestWithExtraElements", "importDataPrepare");
+            var zipFile = Path.Combine(Path.GetTempPath(), "ImportDataTestWithExtraElements", "ImportData.zip");
+
+            Directory.CreateDirectory(tempDirectory);
+
+            File.Delete(zipFile);
+
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            {
+                sw.Write(
+                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
+                    "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
+                    "hey remote create;48;68;130;\r"
+                    );
+            }
+
+            ZipFile.CreateFromDirectory(tempDirectory, zipFile);
+
+            // import
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
+
+            var shared = sut.DataRepository.Read("hey remote create");
+            Assert.Equal(48, shared.ComesFrom);
+            Assert.Equal(68, shared.GoesTo);
+
+            // clear
+            if (Directory.Exists(tempDirectory))
+                Directory.Delete(tempDirectory, true);
+            if (File.Exists(zipFile))
+                File.Delete(zipFile);
+        }
+
+        [Fact()]
+        public void HashTest()
+        {
+            var a = new SharedProductionData() { DataEntityId = "a", ComesFrom = 1, GoesTo = 2, Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.True(result);
+        }
+
+        [Fact()]
+        public void HashFalseTest()
+        {
+            var a = new SharedProductionData() { DataEntityId = "a", ComesFrom = 1, GoesTo = 2, Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            a.ComesFrom = 5;
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.False(result);
+        }
+
+        [Fact()]
+        public void HashAllTypesTest()
+        {
+            var a = new AllTypesTestData() { TestSbyte = 1, TestShort = 2, TestInt = 3, TestChar = 'a', TestDouble = 1.1, TestBool = true, TestString = "a", TestDateOnly = new DateOnly(2010, 10, 10), TestTimeSpan = new TimeSpan(1000), Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.True(result);
+        }
+
+        [Fact()]
+        public void HashAllTypesFalseTest()
+        {
+            var a = new AllTypesTestData() { TestSbyte = 1, TestShort = 2, TestInt = 3, TestChar = 'a', TestDouble = 1.1, TestBool = true, TestString = "a", TestDateOnly = new DateOnly(2010, 10, 10), TestTimeSpan = new TimeSpan(1000), Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            a.TestInt = 5;
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.False(result);
         }
     }
-
 }

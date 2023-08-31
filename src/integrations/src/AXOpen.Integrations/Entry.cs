@@ -15,7 +15,7 @@ namespace axopen_integrations
             = new(ConnectorAdapterBuilder.Build()
                 .CreateWebApi(System.Environment.GetEnvironmentVariable("AXTARGET"), "Everybody", "", true));
 
-        //public static integrationsTwinController Plc { get; }
+        //public static axopen_integrationsTwinController Plc { get; }
         //    = new(ConnectorAdapterBuilder.Build()
         //        .CreateDummy());
     }

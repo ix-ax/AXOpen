@@ -1,4 +1,4 @@
-    using System.Reflection;
+using System.Reflection;
 using AXOpen;
 using AXOpen.Base.Data;
 using AXOpen.Data.InMemory;
@@ -19,18 +19,32 @@ using Microsoft.AspNetCore.Identity;
 using Serilog;
 using System.Security.Principal;
 using AXOpen.Core;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+using AXOpen.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
+builder.Services.AddLocalization();
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
+builder.Services.AddAxoCoreServices();
+//builder.Services.AddScoped<IAlertDialogService, ToasterService>();
 
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
+Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
+    .WriteTo
+    .Console()
+    .WriteTo
+    .File($"connector.log",
+        outputTemplate: "{Timestamp:yyyy-MMM-dd HH:mm:ss} [{Level}] {Message}{NewLine}{Exception}",
+        fileSizeLimitBytes: 100000)
+    .MinimumLevel.Debug()
+    .CreateLogger());
 await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
@@ -40,10 +54,9 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
 var productionDataRepository = new InMemoryRepositorySettings<Pocos.examples.PneumaticManipulator.FragmentProcessData> ().Factory();
 var headerDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
 
-Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
+//Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 
-var a = Entry.Plc.Context.PneumaticManipulator
-    .ProcessData
+var a = Entry.Plc.Context.ProcessDataPneumaticManipulator
     .CreateBuilder<examples.PneumaticManipulator.ProcessDataManger>();
 
 a.DataManger.SetRepository(productionDataRepository);
@@ -58,6 +71,9 @@ b.Set.InitializeRemoteDataExchange(headerDataRepository);
 
 b.InitializeRemoteDataExchange();
 
+// Clean Temp directory
+IAxoDataExchange.CleanUp();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -68,9 +84,12 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
+    // use response compression only in production mode
+    app.UseResponseCompression();
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
 
 app.UseHttpsRedirection();
 
@@ -78,13 +97,22 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+var supportedCultures = new[] { "en-US", "sk-SK", "es-ES"};
+var localizationOptions = new RequestLocalizationOptions()
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
+
 app.UseAuthorization();
-
-
 
 app.MapControllers();
 app.MapBlazorHub();
+app.MapHub<DialogHub>("/dialoghub");
 app.MapFallbackToPage("/_Host");
+
+
+
 
 app.Run();
 
@@ -114,6 +142,7 @@ public static class Roles
             new Role(can_run_ground_mode),
             new Role(can_run_automat_mode),
             new Role(can_run_service_mode),
+            new Role(can_skip_steps_in_sequence),
         };
 
         return roles;
@@ -124,8 +153,6 @@ public static class Roles
     public const string can_run_service_mode = nameof(can_run_service_mode);
     public const string process_settings_access = nameof(process_settings_access);
     public const string process_traceability_access = nameof(process_traceability_access);
+    public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
 }
-
-
-
 

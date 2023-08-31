@@ -8,27 +8,8 @@ NAMESPACE AXOpen.Data
     {#ix-generic:<TOnline, TPlain>}
     CLASS AxoDataExchange EXTENDS AxoDataExchangeBase IMPLEMENTS IAxoDataExchange
         VAR PUBLIC
-           {#ix-set:AttributeName =  "<#Create#>"} 
-           CreateTask  : AxoDataExchangeTask; 
-           {#ix-set:AttributeName =  "<#Read#>"} 
-           ReadTask    : AxoDataExchangeTask;
-           {#ix-set:AttributeName =  "<#Update#>"} 
-           UpdateTask  : AxoDataExchangeTask;
-           {#ix-set:AttributeName =  "<#Delete#>"} 
-           DeleteTask  : AxoDataExchangeTask;
+            Operation : AxoDataCrudTask;
         END_VAR
-        
-        METHOD PRIVATE Run
-            CreateTask.Initialize(THIS);            
-            ReadTask.Initialize(THIS);
-            UpdateTask.Initialize(THIS);
-            DeleteTask.Initialize(THIS);
-            
-            CreateTask.Execute();
-            ReadTask.Execute();
-            UpdateTask.Execute();
-            DeleteTask.Execute();
-        END_METHOD    
 
         ///<summary>
         /// Runs intialization and cyclical handling of this AxoDataExchange.        
@@ -39,7 +20,8 @@ NAMESPACE AXOpen.Data
                 parent : IAxoObject;
             END_VAR    
             THIS.Initialize(parent);
-            THIS.Run();
+            Operation.Initialize(THIS);
+            Operation.Execute();
         END_METHOD
 
         ///<summary>
@@ -51,7 +33,8 @@ NAMESPACE AXOpen.Data
                 context : IAxoContext;
             END_VAR    
             THIS.Initialize(context);
-            THIS.Run();
+            Operation.Initialize(THIS);
+            Operation.Execute();
         END_METHOD
 
         ///<summary>
@@ -62,7 +45,7 @@ NAMESPACE AXOpen.Data
             VAR_INPUT
                 identifier : STRING[254];
             END_VAR
-            Create := CreateTask.Invoke(identifier);
+            Create := Operation.Invoke(identifier, eCrudOperation#Create);
         END_METHOD       
         
         ///<summary>
@@ -73,7 +56,7 @@ NAMESPACE AXOpen.Data
             VAR_INPUT
                 identifier : STRING[254];
             END_VAR
-            Read := ReadTask.Invoke(identifier);
+            Read := Operation.Invoke(identifier, eCrudOperation#Read);
         END_METHOD 
 
         ///<summary>
@@ -84,7 +67,7 @@ NAMESPACE AXOpen.Data
             VAR_INPUT
                 identifier : STRING[254];
             END_VAR
-            Update := UpdateTask.Invoke(identifier);
+            Update := Operation.Invoke(identifier, eCrudOperation#Update);
         END_METHOD 
 
         ///<summary>
@@ -95,17 +78,37 @@ NAMESPACE AXOpen.Data
             VAR_INPUT
                 identifier : STRING[254];
             END_VAR
-            Delete := DeleteTask.Invoke(identifier);
+            Delete := Operation.Invoke(identifier, eCrudOperation#Delete);
+        END_METHOD 
+
+        ///<summary>
+        /// Check if data entry exists with given ID in remote repository.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param> 
+        METHOD PUBLIC EntityExist : IAxoEntityExistTaskState
+            VAR_INPUT
+                identifier : STRING[254];
+            END_VAR
+            Operation.Invoke(identifier, eCrudOperation#EntityExist);
+            EntityExist := Operation;
+        END_METHOD 
+
+        ///<summary>
+        /// Creates or Updates data in remote repository from data entiry of this AxoDataExchange.
+        /// </summary> 
+        /// <param name="identifier">Data identifier.</param> 
+        METHOD PUBLIC CreateOrUpdate : IAxoTaskState
+            VAR_INPUT
+                identifier : STRING[254];
+            END_VAR
+            CreateOrUpdate := Operation.Invoke(identifier, eCrudOperation#CreateOrUpdate);
         END_METHOD 
 
         ///<summary>
         /// Restores all tasks associated with this object.
         ///</summary>         
         METHOD PUBLIC Restore
-            CreateTask.Restore();            
-            ReadTask.Restore();
-            UpdateTask.Restore();
-            DeleteTask.Restore();
+            Operation.Restore();            
         END_METHOD    
     END_CLASS    
 END_NAMESPACE

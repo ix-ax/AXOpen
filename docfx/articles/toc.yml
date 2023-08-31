@@ -1,7 +1,7 @@
 - name: Introduction
   href: intro.md
 - name: AXOpen.Core
-  href: ~/articles/core/README.md  
+  href: ~/articles/core/README.md
   items:
   - name: AxoContext
     href: ~/articles/core/AXOCONTEXT.md
@@ -23,26 +23,68 @@
     href: ~/articles/core/AXOSEQUENCERCONTAINER.md  
   - name: AxoComponent
     href: ~/articles/core/AXOCOMPONENT.md  
+  - name: AxoDialog
+    href: ~/articles/core/AXODIALOG.md
+  - name: AxoAlertDialog
+    href: ~/articles/core/AXOALERTDIALOG.md  
+  - name: AxoTestList
+    href: ~/articles/core/AXOTEXTLIST.md  
 - name: AXOpen.Data
   href: ~/articles/data/README.md
   items:
-  - name: Data exchange
-    href: ~/articles/data/AxoDataExchange.md
-  - name: Data fragmets exchange
-    href: ~/articles/data/AxoDataFragmentExchange.md
+      - name: Data exchange
+        href: ~/articles/data/AxoDataExchange.md
+      - name: Data fragmets exchange
+        href: ~/articles/data/AxoDataFragmentExchange.md
+
+- name: AXOpen.Inspectors
+  href: ~/articles/inspectors/README.md
+  items:
+      - name: AxoDigitalInspector
+        href: ~/articles/inspectors/AXODIGITALINSPECTOR.md
+      - name: AxoAnalogueInspector
+        href: ~/articles/inspectors/AXOANALOGUEINSPECTOR.md
+      - name: AxoDataInspector
+        href: ~/articles/inspectors/AXODATAINSPECTOR.md
 - name: AXOpen.Messaging
   href: ~/articles/messaging/README.md
   items:
-  - name: AxoMessenger
-    href: ~/articles/messaging/AXOMESSENGER.md
+      - name: AxoMessenger
+        href: ~/articles/messaging/AXOMESSENGER.md
+- name: AXOpen.Components
+  href: ~/articles/components/README.md
+  items:
+      - name: AxoCognexVision
+        href: ~/articles/components/AXOPENCOGNEVISION/README.md
+        items:
+            - name: V_6_0_0_0
+              href: ~/articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md
 - name: AXOpen.Logging
-  href: ~/articles/logging/README.md   
+  href: ~/articles/logging/README.md
   items:
-  - name: AxoLogger
-    href: ~/articles/logging/AXOLOGGER.md 
+      - name: AxoLogger
+        href: ~/articles/logging/AXOLOGGER.md
 - name: AXOpen.Security
-  href: ~/articles/security/README.md  
+  href: ~/articles/security/README.md
   items:
-  - name: Installation
-    href: ~/articles/security/INSTALLATION.md
+      - name: Installation
+        href: ~/articles/security/INSTALLATION.md
+
+- name: AXOpen.Timers
+  href: ~/articles/timers/README.md
+  items:
+      - name: OnDelayTimer
+        href: ~/articles/timers/ONDELAYTIMER.md
+      - name: OffDelayTimer
+        href: ~/articles/timers/OFFDELAYTIMER.md
+      - name: Pulse
+        href: ~/articles/timers/PULSETIMER.md
+- name: Template themes
+  href: ~/articles/themes/README.md
+- name: Template localization
+  href: ~/articles/localization/README.md
+- name: Server configuration
+  href: ~/articles/configuration/README.md
+- name: Client Identification
+  href: ~/articles/clientIdentification/README.md
 

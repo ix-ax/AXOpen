@@ -1,0 +1,18 @@
+﻿@namespace AXOpen.Core.Blazor.AxoDialogs
+@using AXOpen.Base.Abstractions.Dialogs;
+@using AXOpen.Core.Blazor.AxoDialogs.Hubs;
+@using AXOpen.Dialogs;
+@using AXSharp.Connector;
+@using Microsoft.AspNetCore.SignalR.Client;
+@inject NavigationManager _navigationManager
+@inject AxoDialogContainer _dialogContainer
+@implements IDisposable
+
+
+
+
+@if (_axoDialogProxyService?.DialogInstance != null)
+{
+    <RenderableContentControl Context="_axoDialogProxyService.DialogInstance"
+                              Presentation="Dialog"/>
+}
