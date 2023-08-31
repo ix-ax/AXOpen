@@ -134,11 +134,11 @@ public partial class AxoDataFragmentExchange
     /// Sets changes to changeTracker.
     /// </summary>
     /// <param name="entity">Entity from which is set data.</param>
-    public void ChangeTrackerSetChanges(IBrowsableDataObject entity)
+    public void ChangeTrackerSetChanges()
     {
         foreach (var fragment in DataFragments)
         {
-            fragment.ChangeTrackerSetChanges(entity);
+            fragment.ChangeTrackerSetChanges();
         }
     }
 
@@ -182,11 +182,11 @@ public partial class AxoDataFragmentExchange
         }
     }
 
-    public bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity)
+    public bool IsHashCorrect(IIdentity identity)
     {
         foreach (var fragment in DataFragments)
         {
-            if (!fragment.IsHashCorrect(entity, identity))
+            if (!fragment.IsHashCorrect(identity))
                 return false;
         }
         return true;
@@ -198,22 +198,39 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
-                poco.DataEntityId = identifier;
-                poco.Hash = HashHelper.CreateHash(poco);
-
-                fragment?.Repository.Create(identifier, poco);
+                CreateNewPocoInFragmentRepository(identifier, fragment);
             }
 
             DataFragments.First().Repository.Read(identifier);
         });
     }
 
+    private static void CreateNewPocoInFragmentRepository(string identifier, IAxoDataExchange fragment)
+    {
+        Pocos.AXOpen.Data.IAxoDataEntity poco = (Pocos.AXOpen.Data.IAxoDataEntity)fragment.RefUIData.CreatePoco();
+        poco.DataEntityId = identifier;
+        poco.Hash = HashHelper.CreateHash(poco);
+
+        fragment?.Repository.Create(identifier, poco);
+    }
+
     public async Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)
     {
         foreach (var fragment in DataFragments)
         {
-            await fragment.RefUIData.PlainToShadow(fragment.Repository.Read(entity.DataEntityId));
+            var exist = fragment.Repository.Exists(entity.DataEntityId);
+
+            if (exist)
+            {
+                var record = fragment.Repository.Read(entity.DataEntityId);
+                await fragment.RefUIData.PlainToShadow(record);
+                ((AxoDataEntity)fragment.RefUIData).Hash = record.Hash;
+                ((AxoDataEntity)fragment.RefUIData).Changes = record.Changes;
+            }
+            else
+            {
+                CreateNewPocoInFragmentRepository(entity.DataEntityId, fragment);
+            }
         }
     }
 

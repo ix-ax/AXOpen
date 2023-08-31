@@ -43,27 +43,28 @@ namespace AXOpen.Data
 
             foreach (PropertyInfo property in @object.GetType().GetProperties())
             {
-                object propValue = property.GetValue(@object, null);
-                if (property.PropertyType.IsValueType || property.PropertyType == typeof(string))
-                {
-                    if (property.Name == "Hash" || propValue == null)
-                        continue;
+                object? propValue = property.GetValue(@object, null);
 
+                if (property.Name == "Hash" || property.Name == "RecordId" || propValue == null)
+                    continue;
+
+                if (property.PropertyType.IsValueType || property.PropertyType == typeof(string) || property.PropertyType == typeof(System.Object))
+                {
                     switch (propValue.GetType().ToString())
                     {
-                        case "DateOnly":
+                        case "System.DateOnly":
                             stringToHash += ((DateOnly)propValue).DayNumber;
                             break;
-                        case "DateTime":
+                        case "System.DateTime":
                             stringToHash += ((DateTime)propValue).Ticks;
                             break;
-                        case "DateTimeOffset":
+                        case "System.DateTimeOffset":
                             stringToHash += ((DateTimeOffset)propValue).Ticks;
                             break;
-                        case "TimeOnly":
+                        case "System.TimeOnly":
                             stringToHash += ((TimeOnly)propValue).Ticks;
                             break;
-                        case "TimeSpan":
+                        case "System.TimeSpan":
                             stringToHash += ((TimeSpan)propValue).Ticks;
                             break;
                         default:

@@ -82,12 +82,11 @@
 <p>Inspector provides evaluation of <em>discrete</em> value. The input value compares against the <em>Required</em> value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time.</p>
 <p><img src="../../images/digital-inspector.png" alt="Digital inspector"></p>
 <p>Common inspector data are extended with following digital inspector data:</p>
-<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;&lt;#Required#&gt;&quot;}
-RequiredStatus : BOOL;
+<pre><code class="lang-C#">RequiredStatus : BOOL; //required value for inspection
 
-{#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
-DetectedStatus : BOOL;
-</code></pre></article>
+DetectedStatus : BOOL; //detected value for inspection
+</code></pre>
+</article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">
@@ -95,7 +94,7 @@ DetectedStatus : BOOL;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/inspector_refactor/docfx/articles/inspectors/AXODIGITALINSPECTOR.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/176-_NEW-FEATURE_Create_library_for_basic_I/O_elements/docfx/articles/inspectors/AXODIGITALINSPECTOR.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

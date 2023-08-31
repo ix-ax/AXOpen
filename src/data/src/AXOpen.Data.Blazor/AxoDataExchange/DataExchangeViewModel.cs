@@ -64,9 +64,9 @@ namespace AXOpen.Data
                 _selectedRecord = value;
                 if (value != null)
                 {
-                    DataExchange.FromRepositoryToShadowsAsync(value);
-                    DataExchange.ChangeTrackerSetChanges(value);
-                    IsHashCorrect = DataExchange.IsHashCorrect(_selectedRecord, Asp.GetAuthenticationStateAsync().Result.User.Identity);
+                    DataExchange.FromRepositoryToShadowsAsync(value).Wait();
+                    DataExchange.ChangeTrackerSetChanges();
+                    IsHashCorrect = DataExchange.IsHashCorrect(Asp.GetAuthenticationStateAsync().Result.User.Identity);
                     Changes = DataExchange.ChangeTrackerGetChanges().OrderBy(p => p.DateTime.Ticks).ToList();
                 }
             }
