@@ -108,7 +108,7 @@ NAMESPACE examples.PneumaticManipulator
                 ///<summary>
                 /// Hardware output structure
                 ///</summary>
-                Outputs : axosimple.Outputs;
+                Outputs : axosimple.Outputs;                
             END_VAR
             THIS.Initialize(parent);
             THIS.Execute(Inputs, Outputs);
@@ -341,7 +341,8 @@ NAMESPACE examples.PneumaticManipulator
     CLASS PUBLIC GroundSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
-            Steps : ARRAY[0..20] OF AxoStep;
+            Steps : ARRAY[0..20] OF AxoStep;      
+            MoveToWork : AxoTask;
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
@@ -357,6 +358,9 @@ NAMESPACE examples.PneumaticManipulator
             Components := _components;
             ProcessData := _processData;
             SUPER.Run(_parent);
+            
+            // MoveToWork.Initialize(THIS);
+
         END_METHOD
         ///<summary>
         /// Contains logic of the steps of this sequence
@@ -373,16 +377,24 @@ NAMESPACE examples.PneumaticManipulator
             THIS.SequenceMode := eAxoSequenceMode#RunOnce;
             // This is more verbose but also more versatile way of executing step logic.
             IF (Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
-                //-------------------------------------------------------
-                IF (components^.VerticalCylinder.MoveToHome.Invoke().IsDone()) THEN // <- waits for the task to be done.
-                    THIS.MoveNext(); // <- This will move to the next step in the sequence.
-                END_IF;
-//-------------------------------------------------------
+                //-------------------------------------------------------                  
+                IF (components^.VerticalCylinder.MoveToHome.Invoke().IsDone()) THEN // <- waits for the task to be done.                
+                    THIS.MoveNext(); // <- This will move to the next step in the sequence.                    
+                END_IF;                       
+            //-------------------------------------------------------
             END_IF;
+            
+            IF (Steps[4].Execute(THIS, TRUE, 'This will break down')) THEN
+                //-------------------------------------------------------                    
+                    THIS.MoveNext();                                   
+                //-------------------------------------------------------
+            END_IF;
+
             // This is more concise way of writing steps when we execute only single task.
             THIS.AndThen(Steps[1], components^.GripperCylinder.MoveToHome);
             THIS.AndThen(Steps[2], components^.VerticalCylinder.MoveToHome);
             THIS.AndThen(Steps[3], components^.HorizontalCylinder.MoveToHome);
+           
             // This will close the sequence and will return to the first step.
             THIS.Close(Steps[20]);
         END_METHOD

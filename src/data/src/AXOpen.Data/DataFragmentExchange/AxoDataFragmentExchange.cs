@@ -438,7 +438,7 @@ public partial class AxoDataFragmentExchange
 
             foreach (var fragment in DataFragments)
             {
-                fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + fragment.ToString(), customExportData, exportMode, firstNumber, secondNumber, exportFileType, separator);
+                fragment?.ExportData(Path.GetDirectoryName(path) + "\\exportDataPrepare", customExportData, exportMode, firstNumber, secondNumber, exportFileType, separator);
             }
             ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
         }
@@ -446,7 +446,7 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.ExportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), customExportData, exportMode, firstNumber, secondNumber, exportFileType, separator);
+                fragment?.ExportData(Path.GetDirectoryName(path), customExportData, exportMode, firstNumber, secondNumber, exportFileType, separator);
             }
         }
     }
@@ -464,7 +464,7 @@ public partial class AxoDataFragmentExchange
 
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare\\" + fragment.ToString(), authenticationState, crudDataObject, exportFileType, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path) + "\\importDataPrepare", authenticationState, crudDataObject, exportFileType, separator);
             }
 
             if (Directory.Exists(Path.GetDirectoryName(path)))
@@ -474,7 +474,7 @@ public partial class AxoDataFragmentExchange
         {
             foreach (var fragment in DataFragments)
             {
-                fragment?.ImportData(Path.GetDirectoryName(path) + "\\" + fragment.ToString(), authenticationState, crudDataObject, exportFileType, separator);
+                fragment?.ImportData(Path.GetDirectoryName(path), authenticationState, crudDataObject, exportFileType, separator);
             }
         }
     }
