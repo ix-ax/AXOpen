@@ -1,4 +1,4 @@
-﻿using AXOpen.Dialogs;
+﻿using AXOpen.Base.Dialogs;
 using AXSharp.Connector;
 using System;
 using System.Collections.Generic;
