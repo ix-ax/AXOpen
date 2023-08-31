@@ -1,0 +1,47 @@
+﻿@using AXOpen.Core;
+@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+
+<div class="container">
+    <div class="row">
+        <h1>@Component.AttributeName</h1>
+    </div>
+    <!-- TOP LEVEL TASKS -->
+    <div class="row">
+        @foreach (var task in this.Component.GetChildren().OfType<AxoTask>())
+        {
+            <div class="col-auto">
+                <AuthorizeView Roles="can_run_automat_mode">
+                    <Authorized>
+                        <AxoTaskCommandView Component="@task" />
+                    </Authorized>
+                    <NotAuthorized>
+                        <AxoTaskStatusView Component="@task" />
+                    </NotAuthorized>
+                </AuthorizeView>
+            </div>
+        }
+    </div>
+
+    <!-- TASK DETAILS -->
+    <div class="row">
+        @foreach (AxoSequencer axoSequencer in Component.GetChildren().OfType<AxoSequencer>())
+        {
+        
+            if (axoSequencer.Status.Cyclic == (ushort)eAxoTaskState.Busy)
+            {
+                <AxoSequencerView Component="@axoSequencer" HasTaskControlButton="false"></AxoSequencerView>
+            }
+        }
+    </div>
+</div>
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        Component.GetChildren().OfType<AxoSequencer>().ToList().ForEach(p => UpdateValuesOnChange(p.Status));
+       
+    }
+}

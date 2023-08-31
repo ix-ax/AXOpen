@@ -1,0 +1,35 @@
+﻿@using AXSharp.Connector
+@using AXOpen.Data;
+
+<div class="card">
+    <div class="card-header">
+        <button type="button" class="btn btn-primary" @onclick="async () => {await RefreshShadow();} ">Refresh/Reload</button>
+    </div>
+
+    @if (TwinObject != null)
+    {
+        <div class="border border-success p-2 mb-2">
+            <RenderableContentControl Context="TwinObject" Presentation="ShadowDisplay-ShadowControl"></RenderableContentControl>
+        </div>
+    }
+
+</div>
+
+
+
+
+@code
+{
+    [Parameter]
+    public ITwinObject? TwinObject { get; set; }
+
+    [Parameter]
+    public string Presentation { get; set; } 
+
+    async Task RefreshShadow()
+    {
+        await TwinObject.ReadAsync();
+        await TwinObject.OnlineToShadowAsync();
+    }
+
+}

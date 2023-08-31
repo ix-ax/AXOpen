@@ -1,0 +1,43 @@
+﻿@implements IDisposable
+<div class="ms-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            @foreach (var link in uri)
+            {
+                if (link != uri.Last())
+                {
+                    <li class="breadcrumb-item h5 mb-0"><a href="@string.Join("/", uri.Take(Array.IndexOf(uri, link) + 1))">@link</a></li>
+                }
+                else
+                {
+                    <li class="breadcrumb-item active h5 mb-0" aria-current="page">@link</li>
+                }
+            }
+        </ol>
+    </nav>
+</div>
+
+@code {
+    [Inject]
+    private NavigationManager MyNavigationManager { get; set; }
+
+    public string[] uri { get; set; }
+
+    protected override void OnInitialized()
+    {
+        uri = MyNavigationManager.ToBaseRelativePath(MyNavigationManager.Uri).Split('/');
+
+        MyNavigationManager.LocationChanged += LocationChanged;
+    }
+
+    void LocationChanged(object sender, LocationChangedEventArgs e)
+    {
+        uri = MyNavigationManager.ToBaseRelativePath(e.Location).Split('/');
+        StateHasChanged();
+    }
+
+    void IDisposable.Dispose()
+    {
+        MyNavigationManager.LocationChanged -= LocationChanged;
+    }
+}

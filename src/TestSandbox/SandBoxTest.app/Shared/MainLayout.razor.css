@@ -1,0 +1,20 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+main {
+    flex: 1;
+    margin-top: 40px; /* height of collapsed navbar */
+}
+
+@media (min-width: 641px) {
+    .page {
+        flex-direction: row;
+    }
+
+    main {
+        margin-top: 0;
+    }
+}

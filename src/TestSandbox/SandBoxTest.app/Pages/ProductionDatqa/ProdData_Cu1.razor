@@ -1,0 +1,11 @@
+﻿@page "/ui/ProdData_Cu1"
+@using AXSharp.Connector
+@using AXOpen.Data;
+@using sandboxtest.hmi.Pages.InStationData
+
+<ProdDataExchangeView DataExchange="@Entry.Plc.Context.ProcessDataCu_1">
+</ProdDataExchangeView>
+@* 
+<ProdDataExchangeView DataExchange="@Entry.Plc.Context.ProcessDataCu_1.Shared">
+
+</ProdDataExchangeView> *@

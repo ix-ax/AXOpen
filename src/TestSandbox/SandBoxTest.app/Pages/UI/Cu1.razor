@@ -1,0 +1,14 @@
+﻿@page "/ui/Cu1"
+@using AXOpen.Messaging.Static;
+@using sandboxtest.hmi.Components;
+@inherits RenderableComponentBase;
+
+<UnitsSequences Component="@Entry.Plc.Context.Cu_1" PollingInterval="100"></UnitsSequences>
+<UnitsService ServiceTask="@Entry.Plc.Context.Cu_1.ServiceMode" 
+                Components="@Entry.Plc.Context.Cu_1.Components"></UnitsService>
+
+@*<UnitsData SharedData="Entry.Plc.Context.ProcessDataCu_1.Shared.Set"
+           Data="Entry.Plc.Context.ProcessDataCu_1.DataManger.Set"
+           PollingInterval="100"></UnitsData>*@
+
+

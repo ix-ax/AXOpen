@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sandboxtest", "sandboxtest.twin\sandboxtest.csproj", "{3A1D3689-B1A5-48AE-BF38-9CF0FFACFBA9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sandboxtest.hmi", "sandboxtest.app\sandboxtest.hmi.csproj", "{400BF419-6626-4C5A-84AA-FC544E8417FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{14908927-6F00-400C-9BDA-AA2440C96A06}"
+	ProjectSection(SolutionItems) = preProject
+		.config\dotnet-tools.json = .config\dotnet-tools.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A1D3689-B1A5-48AE-BF38-9CF0FFACFBA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A1D3689-B1A5-48AE-BF38-9CF0FFACFBA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A1D3689-B1A5-48AE-BF38-9CF0FFACFBA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A1D3689-B1A5-48AE-BF38-9CF0FFACFBA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400BF419-6626-4C5A-84AA-FC544E8417FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400BF419-6626-4C5A-84AA-FC544E8417FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400BF419-6626-4C5A-84AA-FC544E8417FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400BF419-6626-4C5A-84AA-FC544E8417FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD217924-BCBC-488B-80C2-F8529CFB28F3}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,32 @@
+﻿.oi {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+}
+
+.nav-item {
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+    .nav-item:first-of-type,
+    .nav-item:last-of-type {
+        padding: 0;
+    }
+
+    .nav-item ::deep a {
+        display: flex;
+        align-items: center;
+        border-radius: 0.375rem;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        margin: 0.31rem;
+        margin-right: 0px;
+        line-height: 2rem;
+        text-transform: uppercase;
+        padding: 0.5rem 0.5rem;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        overflow: hidden;
+    }

@@ -1,0 +1,31 @@
+﻿@page "/ui/InStationData"
+@using AXSharp.Connector
+@using AXOpen.Data;
+
+<div class="card-header">
+    <button type="button" class="btn btn-primary" @onclick="async () => {GC.Collect();} ">Refresh/Reload</button>
+</div>
+
+<StructureWithRefresh TwinObject="@Entry.Plc.Context.ProcessDataCu_1">
+</StructureWithRefresh>
+
+<StructureWithRefresh TwinObject="@Entry.Plc.Context.ProcessDataCu_2">
+</StructureWithRefresh>
+
+<StructureWithRefresh TwinObject="@Entry.Plc.Context.ProcessDataCu_3">
+</StructureWithRefresh>
+
+<StructureWithRefresh TwinObject="@Entry.Plc.Context.ProcessDataCu_4">
+</StructureWithRefresh>
+
+<StructureWithRefresh TwinObject="@Entry.Plc.Context.ProcessDataCu_5">
+</StructureWithRefresh>
+
+<StructureWithRefresh TwinObject="@Entry.Plc.Context.ProcessDataCu_6">
+</StructureWithRefresh>
+
+<StructureWithRefresh TwinObject="@Entry.Plc.Context.ProcessDataCu_7">
+</StructureWithRefresh>
+
+<StructureWithRefresh TwinObject="@Entry.Plc.Context.ProcessDataCu_8">
+</StructureWithRefresh>

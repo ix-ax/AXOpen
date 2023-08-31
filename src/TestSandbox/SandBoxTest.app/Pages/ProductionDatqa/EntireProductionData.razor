@@ -1,0 +1,20 @@
+﻿@page "/ui/EntireProductionData"
+@using AXOpen.Base.Dialogs;
+@using AXSharp.Connector
+@using AXOpen.Data;
+
+
+@inject AuthenticationStateProvider _asp;
+@inject IAlertDialogService _alert;
+
+@code
+{
+    private DataExchangeViewModel _vm;
+
+    protected override void OnInitialized()
+    {
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.EntireProductionData, AlertDialogService = _alert, Asp = _asp };
+    }
+}
+
+<DataExchangeView Vm="@_vm" Presentation="Command" CanExport="true"></DataExchangeView>
