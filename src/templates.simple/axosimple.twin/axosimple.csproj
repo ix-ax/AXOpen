@@ -5,9 +5,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AXSharp.Abstractions" Version="0.14.1-alpha.130" />
-    <PackageReference Include="AXSharp.Connector" Version="0.14.1-alpha.130" />
-    <PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.1-alpha.130" />
+    <PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.134" />
+    <PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.134" />
+    <PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.2-alpha.134" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include=".g\**" />
@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
     <ProjectReference Include="..\..\data\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
+    <ProjectReference Include="..\..\inspectors\src\AxOpen.Inspectors\ix_ax_axopen_inspectors.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\PlcStringResources.Designer.cs">
@@ -28,5 +29,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".g\Onliners\Examples\" />
   </ItemGroup>
 </Project>

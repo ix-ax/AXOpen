@@ -1,0 +1,39 @@
+﻿@namespace AXOpen.Inspectors
+@using AXOpen.Core.Blazor.AxoDialogs
+@using Microsoft.AspNetCore.Components.Authorization;
+@inherits AxoDialogBaseView<AxoInspectorDialog>
+@inject AuthenticationStateProvider _asp
+
+<h3>AxoInspectorDialogDialogView</h3>
+
+<ModalDialog @ref="@base.ModalDialog" >
+    <HeaderTemplate>
+        <h3>Inspection failed, you will need to decide what's next...</h3>
+    </HeaderTemplate>
+    <BodyTemplate>
+    <div >
+
+            <h5>@Description</h5>
+            @if (Inspector != null)
+            {
+                <RenderableContentControl Context="Inspector" Presentation="Status" />
+            }
+            else
+            {
+                <p>Loading inspector... if it's taking long, something is wrong</p>
+            }
+     
+        </div>
+        <div class="d-flex justify-content-center ">
+            <button type="button" class="btn btn-secondary m-2 w-50" disabled="@RetryDisabled" @onclick="Retry">Retry</button>
+
+            <button type="button" class="btn btn-secondary m-2 w-50" @onclick="Terminate">Terminate</button>
+
+            <button type="button" class="btn btn-secondary m-2 w-50" @onclick="Override">Override</button>
+        </div>
+    </BodyTemplate>
+</ModalDialog>
+
+
+
+

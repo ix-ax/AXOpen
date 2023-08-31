@@ -3,11 +3,10 @@ version: '0.1.4-alpha.79'
 type: lib
 targets:
   - axunit-llvm
-  - llvm
 files:
   - src
 devDependencies:
-  "@ax/sdk": ^4.0.3
+  "@ax/sdk": ^4.0.8
 scripts:
   postbuild:
     - dotnet ixc

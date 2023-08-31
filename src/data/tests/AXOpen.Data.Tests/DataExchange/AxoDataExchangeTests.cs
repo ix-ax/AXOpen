@@ -21,6 +21,7 @@ namespace AXOpen.Data.Tests
     using System.IO.Compression;
     using System.Xml.Linq;
     using System.IO;
+    using System.Security.Claims;
 
     public class AxoDataExchangeTests
     {
@@ -229,7 +230,7 @@ namespace AXOpen.Data.Tests
 
 
 
-            repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68});
+            repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68 });
 
             sut.RemoteRead("hey remote create");
             Assert.Equal(48, await sut.Set.ComesFrom.GetAsync());
@@ -248,7 +249,7 @@ namespace AXOpen.Data.Tests
 
             repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 85, GoesTo = 98 });
 
-            sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create"});
+            sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" });
 
 
             Assert.Equal("hey remote create", sut.Set.DataEntityId.Shadow);
@@ -409,7 +410,7 @@ namespace AXOpen.Data.Tests
 
             for (int i = 0; i < 10; i++)
             {
-                repo.Create($"{i}Record", new SharedProductionData() { ComesFrom = (short)(i+1), GoesTo = (short)(i * 7) });
+                repo.Create($"{i}Record", new SharedProductionData() { ComesFrom = (short)(i + 1), GoesTo = (short)(i * 7) });
             }
 
             var actual = sut.GetRecords("Rec", 3, 0, eSearchMode.Contains);
@@ -724,7 +725,7 @@ namespace AXOpen.Data.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile);
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
 
             var shared = sut.DataRepository.Read("hey remote create");
             Assert.Equal(48, shared.ComesFrom);
@@ -766,7 +767,7 @@ namespace AXOpen.Data.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile, separator: '*');
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), separator: '*');
 
             var shared = sut.DataRepository.Read("first");
             Assert.Equal(0, shared.ComesFrom);
@@ -808,7 +809,7 @@ namespace AXOpen.Data.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile);
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
 
             var shared = sut.DataRepository.Read("hey remote create");
             Assert.Equal(48, shared.ComesFrom);
@@ -820,6 +821,57 @@ namespace AXOpen.Data.Tests
             if (File.Exists(zipFile))
                 File.Delete(zipFile);
         }
-    }
 
+        [Fact()]
+        public void HashTest()
+        {
+            var a = new SharedProductionData() { DataEntityId = "a", ComesFrom = 1, GoesTo = 2, Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.True(result);
+        }
+
+        [Fact()]
+        public void HashFalseTest()
+        {
+            var a = new SharedProductionData() { DataEntityId = "a", ComesFrom = 1, GoesTo = 2, Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            a.ComesFrom = 5;
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.False(result);
+        }
+
+        [Fact()]
+        public void HashAllTypesTest()
+        {
+            var a = new AllTypesTestData() { TestSbyte = 1, TestShort = 2, TestInt = 3, TestChar = 'a', TestDouble = 1.1, TestBool = true, TestString = "a", TestDateOnly = new DateOnly(2010, 10, 10), TestTimeSpan = new TimeSpan(1000), Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.True(result);
+        }
+
+        [Fact()]
+        public void HashAllTypesFalseTest()
+        {
+            var a = new AllTypesTestData() { TestSbyte = 1, TestShort = 2, TestInt = 3, TestChar = 'a', TestDouble = 1.1, TestBool = true, TestString = "a", TestDateOnly = new DateOnly(2010, 10, 10), TestTimeSpan = new TimeSpan(1000), Changes = { new ValueChangeItem() { DateTime = new DateTime(12345), NewValue = 1, OldValue = 1, UserName = "admin" } } };
+
+            a.Hash = HashHelper.CreateHash(a);
+
+            a.TestInt = 5;
+
+            bool result = HashHelper.VerifyHash(a, new ClaimsIdentity());
+
+            Assert.False(result);
+        }
+    }
 }

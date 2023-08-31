@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AXOpen.Base.Data;
 using System.Linq.Expressions;
+using Microsoft.AspNetCore.Components.Authorization;
+using System.Security.Principal;
 
 namespace AXOpen.Data
 {
@@ -20,6 +22,51 @@ namespace AXOpen.Data
         /// Gets data of this AxoDataExchange object for automated UI generation.
         /// </summary>
         ITwinObject RefUIData { get; }
+
+        bool VerifyHash { get; set; }
+
+        /// <summary>
+        /// Stop observing changes of the data object with changeTracker.
+        /// </summary>
+        void ChangeTrackerStopObservingChanges();
+
+        /// <summary>
+        /// Start observing changes of the data object with changeTracker.
+        /// </summary>
+        /// <param name="authenticationState">Authentication state of current logged user.</param>
+        void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState);
+
+        /// <summary>
+        /// Saves observed changes from changeTracker to object.
+        /// </summary>
+        /// <param name="plainObject"></param>
+        void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject);
+
+        /// <summary>
+        /// Sets changes to changeTracker.
+        /// </summary>
+        /// <param name="entity">Entity from which is set data.</param>
+        void ChangeTrackerSetChanges();
+
+        /// <summary>
+        /// Get object which locked this repository.
+        /// </summary>
+        /// <returns></returns>
+        object? GetLockedBy();
+
+        /// <summary>
+        /// Set object which locked this repository.
+        /// </summary>
+        /// <param name="by"></param>
+        void SetLockedBy(object by);
+
+        bool IsHashCorrect(IIdentity identity);
+
+        /// <summary>
+        /// Gets changes from changeTracker.
+        /// </summary>
+        /// <returns>List of ValueChangeItem that contains changes.</returns>
+        List<ValueChangeItem> ChangeTrackerGetChanges();
 
         /// <summary>
         /// Gets the list of available exporters.
@@ -161,7 +208,7 @@ namespace AXOpen.Data
         /// <param name="path">Path to imported file.</param>
         /// <param name="crudDataObject">Object type of the imported records.</param>
         /// <param name="separator">Separator for individual records.</param>
-        void ImportData(string path, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';');
+        void ImportData(string path, AuthenticationState authenticationState, ITwinObject crudDataObject = null, string exportFileType = "CSV", char separator = ';');
 
         /// <summary>
         /// Clear directory of temporary files.

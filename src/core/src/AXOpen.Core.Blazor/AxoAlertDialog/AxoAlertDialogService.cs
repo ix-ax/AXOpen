@@ -1,5 +1,4 @@
-﻿using AXOpen.Base.Abstractions.Dialogs;
-using AXOpen.Base.Dialogs;
+﻿using AXOpen.Base.Dialogs;
 using AXOpen.Core.Blazor.AxoDialogs;
 using System;
 using System.Collections.Generic;

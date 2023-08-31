@@ -2,22 +2,26 @@ name: "axopen.integrations"
 version: '0.1.4-alpha.79'
 type: app
 devDependencies:
-  "@ax/sdk": ^4.0.3
+  "@ax/sdk": ^4.0.8
   "@ax/sld": ^0.15.9
 dependencies:
   "@ix-ax/axopen.data": '0.1.4-alpha.79'
   "@ix-ax/axopen.probers": '0.1.4-alpha.79'
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
   "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
-  "@ax/system-serde": ^2.0.2
 variables:
-  APAX_BUILD_ARGS: [-d]
+  APAX_BUILD_ARGS: [ -d ]
 scripts:
   ixc:
+    - START=$(date +%s)
     - dotnet tool restore
     - dotnet ixc
+    - echo "Builded by ixc in :" $(expr $(date +%s) - $START) "s"
   download:
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - START=$(date +%s)
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
@@ -53,7 +57,8 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project ..\\src\\AXOpen.Integrations.Blazor\\axopen_integrations_blazor.csproj
+    - dotnet watch --project
+      ..\\src\\AXOpen.Integrations.Blazor\\axopen_integrations_blazor.csproj
   rr:
     - apax build
     - apax download
@@ -63,8 +68,8 @@ scripts:
     - apax install
     - apax rr
   da:
+    - START=$(date +%s)
     - apax do-it-all
+    - echo "Finished in :" $(expr $(date +%s) - $START) "s"
 targets:
-  - plcsim
   - axunit-llvm
-  - llvm

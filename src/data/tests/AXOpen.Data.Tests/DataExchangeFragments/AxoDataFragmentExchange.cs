@@ -451,6 +451,33 @@ namespace AXOpen.Data.Fragments.Tests
             Assert.Equal(4859ul, manip.CounterDelay);
         }
 
+        [Fact]
+        public async void FromRepositoryToShadows_CreateMissingFragment()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+            var sharedRepo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            var manipRepo = new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>();
+            s.Set.SetRepository(sharedRepo);
+            s.Manip.SetRepository(manipRepo);
+
+            sharedRepo.Create("hey remote create", new Pocos.axosimple.SharedProductionData()
+            { ComesFrom = 185, GoesTo = 398 });
+            manipRepo.Create("hey remote create", new() { CounterDelay = 898577ul });
+            manipRepo.Delete("hey remote create");
+
+            sut.FromRepositoryToShadowsAsync(new SharedProductionData() { DataEntityId = "hey remote create" });
+
+            Assert.Equal("hey remote create", sut.Set.Set.DataEntityId.Shadow);
+            Assert.Equal(185, sut.Set.Set.ComesFrom.Shadow);
+            Assert.Equal(398, sut.Set.Set.GoesTo.Shadow);
+            Assert.Equal("", sut.Manip.Set.DataEntityId.Shadow);
+            Assert.Equal(0ul, sut.Manip.Set.CounterDelay.Shadow);
+
+        }
+
         [Fact()]
         public async void ExportTest()
         {
@@ -605,7 +632,7 @@ namespace AXOpen.Data.Fragments.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile);
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
             Assert.Equal(10, shared.ComesFrom);
@@ -650,7 +677,7 @@ namespace AXOpen.Data.Fragments.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile, exportFileType: "TXT", separator: '*');
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()), exportFileType: "TXT", separator: '*');
 
             var shared = sut.Set.DataRepository.Read("first");
             Assert.Equal(0, shared.ComesFrom);
@@ -703,7 +730,7 @@ namespace AXOpen.Data.Fragments.Tests
             ZipFile.CreateFromDirectory(tempDirectory, zipFile);
 
             // import
-            sut.ImportData(zipFile);
+            sut.ImportData(zipFile, new Microsoft.AspNetCore.Components.Authorization.AuthenticationState(new System.Security.Claims.ClaimsPrincipal()));
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
             Assert.Equal(10, shared.ComesFrom);

@@ -4,8 +4,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
     CLASS PUBLIC AxoDatamanRead EXTENDS AXOpen.Core.AxoTask
         VAR PROTECTED
             _progress : INT := 0;
-            _infoTimer :  System.Timer.OnDelay;
-            _errorTimer :  System.Timer.OnDelay;
+            _infoTimer :  AXOpen.Timers.OnDelayTimer;
+            _errorTimer :  AXOpen.Timers.OnDelayTimer;
         END_VAR
 
         VAR PRIVATE 
@@ -95,7 +95,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                     IF refResults^.Code = UINT#0 OR refResults^.Length=UINT#0 OR refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
                         THIS.ThrowWhen(TRUE);
                         IF refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
-                            refStatus^.Error.Id := UINT#712;
+                            refStatus^.Error.Id := UINT#713;
                         END_IF;
                     ELSE
                         THIS.CallTimers(FALSE);
@@ -150,8 +150,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 signal : BOOL;
             END_VAR
             
-            _infoTimer(signal , _infoTime);
-            _errorTimer(signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal , _infoTime);
+            _errorTimer.OnDelay(THIS, signal , _errorTime );
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnRestore 

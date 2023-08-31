@@ -1,0 +1,54 @@
+{
+	"folders": [
+		{
+			"name": "templates.simple",
+			"path": "templates.simple/ctrl"
+		},
+		{
+			"name": "core",
+			"path": "core/ctrl"
+		},
+		{
+			"name": "integrations",
+			"path": "integrations/ctrl"
+		},
+		{
+			"name": "simatic1500",
+			"path": "simatic1500/ctrl"
+		},
+		{
+			"name": "utils",
+			"path": "utils/ctrl"
+		},
+		{
+			"name": "data",
+			"path": "data/ctrl"
+		},
+		{
+			"name": "probers",
+			"path": "probers/ctrl"
+		},
+		{
+			"name": "abstractions",
+			"path": "abstractions/ctrl"
+		},
+		{
+
+			"name": "timers",
+			"path": "timers/ctrl"
+    },
+    {
+			"name": "inspectors",
+			"path": "inspectors/ctrl"			
+		},
+		{
+			"name": "components.abstractions",
+			"path": "components.abstractions/ctrl"
+		},
+		{
+			"name": "components.cognex.vision",
+			"path": "components.cognex.vision/ctrl"
+		}
+	],
+	"settings": {}
+}
