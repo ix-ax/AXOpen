@@ -181,7 +181,8 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
 
-        var cloned = ((ITwinObject)DataEntity).OnlineToPlain<TPlain>().Result;
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
+
         Repository.Create(identifier, cloned);
 
         return true;
@@ -208,7 +209,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
-        var cloned = ((ITwinObject)DataEntity).OnlineToPlain<TPlain>().Result;
+        
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
+
         cloned.Hash = HashHelper.CreateHash(cloned);
         Repository.Update(identifier, cloned);
         return true;
@@ -236,7 +239,9 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
-        var cloned = ((ITwinObject)DataEntity).OnlineToPlain<TPlain>().Result;
+
+        var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
+
         cloned.Hash = HashHelper.CreateHash(cloned);
 
         if (Repository.Exists(identifier))
@@ -301,10 +306,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <summary>
     ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
     /// </summary>
-    public void InitializeRemoteDataExchange()
+    public async Task InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
-        this.WriteAsync().Wait();
+        await this.WriteAsync();
         //_idExistsTask.InitializeExclusively(Exists);
         //_createOrUpdateTask.Initialize(CreateOrUpdate);
     }
@@ -313,26 +318,26 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
     /// </summary>
     /// <param name="repository">Repository to be associated with this <see cref="AxoDataExchange{TOnline,TPlain}" /></param>
-    public void InitializeRemoteDataExchange(IRepository<TPlain> repository)
+    public async Task InitializeRemoteDataExchange(IRepository<TPlain> repository)
     {
         SetRepository(repository);
-        InitializeRemoteDataExchange();
+       await InitializeRemoteDataExchange();
     }
 
     /// <summary>
     ///     Terminates data exchange between controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
     /// </summary>
-    public void DeInitializeRemoteDataExchange()
+    public async Task DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
-        this.WriteAsync().Wait();
+        await this.WriteAsync();
         //_idExistsTask.InitializeExclusively(Exists);
         //_createOrUpdateTask.Initialize(CreateOrUpdate);
     }
 
-    private async void Handle()
+    private async Task Handle()
     {
-        Operation.ReadAsync().Wait();
+        await Operation.ReadAsync();
         var operation = (eCrudOperation)Operation.CrudOperation.LastValue;
         var identifier = Operation.DataEntityIdentifier.LastValue;
 
@@ -364,32 +369,38 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
     private async Task<bool> RemoteCreate()
     {
-        return await RemoteCreate(Operation.DataEntityIdentifier.GetAsync().Result);
+        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
+        return  await RemoteCreate(Identifier);
     }
 
     private async Task<bool> RemoteRead()
     {
-        return await RemoteRead(Operation.DataEntityIdentifier.GetAsync().Result);
+        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
+        return await RemoteRead(Identifier);
     }
 
     private async Task<bool> RemoteUpdate()
     {
-        return await RemoteUpdate(Operation.DataEntityIdentifier.GetAsync().Result);
+        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
+        return await RemoteUpdate(Identifier);
     }
 
     private async Task<bool> RemoteDelete()
     {
-        return await RemoteDelete(Operation.DataEntityIdentifier.GetAsync().Result);
+        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
+        return await RemoteDelete(Identifier);
     }
 
     private async Task<bool> RemoteEntityExist()
     {
-        return await RemoteEntityExist(Operation.DataEntityIdentifier.GetAsync().Result);
+        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
+        return await RemoteEntityExist(Identifier);
     }
 
     private async Task<bool> RemoteCreateOrUpdate()
     {
-        return await RemoteCreateOrUpdate(Operation.DataEntityIdentifier.GetAsync().Result);
+        var Identifier = await Operation.DataEntityIdentifier.GetAsync();
+        return await RemoteCreateOrUpdate(Identifier);
     }
 
     public async Task CreateAsync(string identifier, TPlain plain)

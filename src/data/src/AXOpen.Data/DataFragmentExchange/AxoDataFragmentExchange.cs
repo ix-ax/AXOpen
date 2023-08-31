@@ -50,21 +50,21 @@ public partial class AxoDataFragmentExchange
     /// <summary>
     ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
     /// </summary>
-    public void InitializeRemoteDataExchange()
+    public async Task InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
-        this.WriteAsync().Wait();
+        await this.WriteAsync();
     }
 
-    public void DeInitializeRemoteDataExchange()
+    public async Task DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
-        this.WriteAsync().Wait();
+        await this.WriteAsync();
     }
 
-    private async void Handle()
+    private async Task Handle()
     {
-        Operation.ReadAsync().Wait();
+        await Operation.ReadAsync();
         var operation = (eCrudOperation)Operation.CrudOperation.LastValue;
         var identifier = Operation.DataEntityIdentifier.LastValue;
 
