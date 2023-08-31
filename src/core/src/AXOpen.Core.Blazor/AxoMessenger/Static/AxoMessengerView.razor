@@ -16,7 +16,7 @@
                 <span text-white class="oi oi-task" hidden="@AcknowledgementDoesNotRequired">@Acknowledged</span>
             </button>
 
-            <button type="button" class="btn @BackgroundColor" data-bs-toggle="popover" data-bs-content="@HelpText">?</button>
+            <button type="button" class="btn @BackgroundColor" data-bs-toggle="popover" data-bs-title="Help" data-bs-content="@HelpText">?</button>
 
             <button class="btn @AckBtnBackgroundColor" type="button" @onclick="@AcknowledgeTask" hidden="@HideAckowledgeButton">
                 <span class="oi oi-x" aria-hidden="true"/>
