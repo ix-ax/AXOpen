@@ -42,6 +42,7 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -102,3 +103,5 @@ public static class Roles
     public const string process_traceability_access = nameof(process_traceability_access);
     public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
 }
+
+

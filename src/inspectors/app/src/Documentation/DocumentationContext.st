@@ -47,13 +47,11 @@ CLASS PUBLIC AutomatSequence
     METHOD OVERRIDE Main
         
         THIS.SequenceMode := eAxoSequenceMode#Cyclic;
-        // This is more verbose but also more versatile way of executing step logic.
+
         IF (Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
-            //-------------------------------------------------------
-            
-                THIS.MoveNext(); // <- This will move to the next step in the sequence.
-        
-//-------------------------------------------------------
+
+            THIS.MoveNext(); 
+
         END_IF;
         // This is more concise way of writing steps when we execute only single task.
         
@@ -86,7 +84,7 @@ CLASS PUBLIC AutomatSequence
         IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
             //-------------------------------------------------------
 
-            _digitalInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[20]);
+            _digitalInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 
             //-------------------------------------------------------
             END_IF;
@@ -95,7 +93,7 @@ CLASS PUBLIC AutomatSequence
             //-------------------------------------------------------
             
 
-            _analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[20]);
+            _analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 
             //-------------------------------------------------------
             END_IF;
@@ -104,7 +102,7 @@ CLASS PUBLIC AutomatSequence
             IF (Steps[50].Execute(THIS, TRUE, 'Example Data inspection')) THEN
             //-------------------------------------------------------
             
-            _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[20]);
+            _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 
             //-------------------------------------------------------
         END_IF;

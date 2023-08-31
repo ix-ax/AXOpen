@@ -11,87 +11,39 @@
 <RenderableContentControl Context="@Entry.Plc.documentation._automat._dataInspector" Presentation="Command-Control" PollingInterval="100" />
 
 <div class="container">
+ <!-- TOP LEVEL TASKS -->
     <div class="row">
-        <h1>@Entry.Plc.documentation._automat</h1>
-    </div>
-    <!-- TOP LEVEL TASKS -->
-    <div class="row">
-        @foreach (var task in @Entry.Plc.documentation._automat.GetChildren().OfType<AxoTask>())
+    @foreach (var task in Entry.Plc.documentation.GetChildren().OfType<AxoTask>())
         {
             <div class="col-auto">
-                <AXOpen.Core.AxoTaskCommandView Component="@task" />
+                <AuthorizeView Roles="can_run_automat_mode">
+                    <Authorized>
+                        <AxoTaskCommandView Component="@task" />
+                    </Authorized>
+                    <NotAuthorized>
+                        <AxoTaskStatusView Component="@task" />
+                    </NotAuthorized>
+                </AuthorizeView>
             </div>
         }
-    </div> 
-
-    <div>
-        <p>/////////////////////////////</p>
     </div>
-     <!-- TASK DETAILS -->
+
     <div class="row">
-        @foreach (AxoSequencer axoSequencer in @Entry.Plc.documentation.GetChildren().OfType<AxoSequencer>())
+       @if (Entry.Plc.documentation._automat.Status.Cyclic == (ushort)eAxoTaskState.Busy)
         {
-            if (axoSequencer.Status.Cyclic == (ushort)eAxoTaskState.Busy)
-            {
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                     
-                                  <AXOpen.Core.AxoTaskCommandView Component="@Entry.Plc.documentation._automat" /> 
-                                   
-                            </div>
-                        </div>
-                       
-                        <div class="container">
-                            <div class="row">
-                                <div class="col">
-                                <RenderableContentControl Context="@Entry.Plc.documentation._automat.SequenceMode" Presentation="Control" />
-                                </div>
-                                <div class="col">
-                                <RenderableContentControl Context="@Entry.Plc.documentation._automat.SteppingMode" Presentation="Control" />
-                                </div>
-                            </div>
-                        </div>
-                       
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-
-                                <RenderableContentControl Context="@Entry.Plc.documentation._automat.StepBackwardCommand" Presentation="Command" />
-                                         
-                             
-                                    </div>
-                                    <div class="col">
-                                <RenderableContentControl Context="@Entry.Plc.documentation._automat.StepIn" Presentation="Command" />
-                                    </div>
-                                    <div class="col">
-
-                                <RenderableContentControl Context="@Entry.Plc.documentation._automat.StepForwardCommand" Presentation="Command" />
-                                           
-       
-                                    </div>
-                                </div>
-                            </div>
-                        
-                      
-                            <div style="height: 300px; overflow: auto;">
-                        <AxoStepView Component="Entry.Plc.documentation._automat.CurrentStep"></AxoStepView> 
-                            </div>
-                        
-                    </div>
-
-            }
+        <AxoSequencerView Component="Entry.Plc.documentation._automat" HasTaskControlButton="false"></AxoSequencerView>
         }
+        
     </div>
 </div>
-
 @code
 {
     protected override void OnInitialized()
     {
         base.OnInitialized();
 
-        Entry.Plc.documentation._automat.GetChildren().OfType<AxoSequencer>().ToList().ForEach(p => UpdateValuesOnChange(p.Status));
+        UpdateValuesOnChange(Entry.Plc.documentation._automat.Status);
+
 
     }
 }

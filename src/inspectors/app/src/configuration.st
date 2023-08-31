@@ -3,6 +3,7 @@ CONFIGURATION MyConfiguration
     PROGRAM P1 WITH Main: MyProgram;
 
     VAR_GLOBAL
+        S71500Rtc :  AXOpen.S71500.Rtc;  
         sandbox : SandboxContext;
         documentation : DocumentationContext;
     END_VAR            
