@@ -6,6 +6,7 @@
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
 using System.IO.Compression;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Numerics;
 using System.Reflection;
@@ -57,7 +58,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         get
         {
-            if(_verifyHash != null)
+            if (_verifyHash != null)
                 return (bool)_verifyHash;
             else
             {
@@ -515,27 +516,57 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     private Dictionary<string, Type> FindAllExporters()
     {
         var dictionary = new Dictionary<string, Type>();
-        foreach (var type in Assembly.GetEntryAssembly().GetTypes().Concat(Assembly.GetExecutingAssembly().GetTypes()))
-        {
-            if (type.GetInterfaces().Where(i => i.Name.Contains(typeof(IDataExporter<TPlain, TOnline>).Name)).Any())
-            {
-                var value = "";
-                var genericType = type.MakeGenericType(typeof(TPlain), typeof(TOnline));
-                var methodInfo = genericType.GetMethod("GetName");
-                if (methodInfo != null)
-                {
-                    value = (string)methodInfo.Invoke(null, null);
-                }
-                if (value == "" || value == null)
-                {
-                    value = genericType.Name.Substring(0, genericType.Name.IndexOf("Data"));
-                }
 
-                dictionary.Add(value, genericType);
+        List<Type> types = new List<Type>();
+
+        LoadAssemblies().ForEach(assembly => types.AddRange(assembly.GetTypes().Where(type => type.GetInterfaces().Where(i => i.Name.Contains(typeof(IDataExporter<TPlain, TOnline>).Name)).Any())));
+
+        foreach (var type in types)
+        {
+            var value = "";
+            var genericType = type.MakeGenericType(typeof(TPlain), typeof(TOnline));
+            var methodInfo = genericType.GetMethod("GetName");
+            if (methodInfo != null)
+            {
+                value = (string)methodInfo.Invoke(null, null);
             }
+            if (value == "" || value == null)
+            {
+                value = genericType.Name.Substring(0, genericType.Name.IndexOf("Data"));
+            }
+
+            dictionary.TryAdd(value, genericType);
         }
 
         return dictionary;
+    }
+
+    private List<Assembly> LoadAssemblies()
+    {
+        var loadedAssemblies = AppDomain
+            .CurrentDomain
+            .GetAssemblies()
+            .Prepend(Assembly.GetExecutingAssembly())
+            .ToList();
+        var loadedPaths = loadedAssemblies.Where(p => !p.IsDynamic).Select(a => a.Location).ToArray();
+        var referencedPaths = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, "*.dll");
+        var toLoad = referencedPaths.Where(r => !loadedPaths.Contains(r, StringComparer.InvariantCultureIgnoreCase)).ToList();
+        toLoad.ForEach(path =>
+        {
+            try
+            {
+                loadedAssemblies.Add(AppDomain.CurrentDomain.Load(AssemblyName.GetAssemblyName(path)));
+            }
+            catch (System.BadImageFormatException)
+            {
+                // Ignore
+            }
+            catch (System.IO.FileLoadException)
+            {
+                // Ignore
+            }
+        });
+        return loadedAssemblies;
     }
 
     /// <inheritdoc />
@@ -557,7 +588,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
             ExportData exportData = customExportData.GetValueOrDefault(RefUIData.ToString(), new ExportData(true, new Dictionary<string, bool>()));
             if (exportData.Exported)
-                dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare\\" + this.ToString(), p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
+                dataExporter.Export(DataRepository, Path.GetDirectoryName(path) + "\\exportDataPrepare", this.SymbolTail, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
 
             ZipFile.CreateFromDirectory(Path.GetDirectoryName(path) + "\\exportDataPrepare", path);
         }
@@ -565,7 +596,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         {
             ExportData exportData = customExportData.GetValueOrDefault(RefUIData.ToString(), new ExportData(true, new Dictionary<string, bool>()));
             if (exportData.Exported)
-                dataExporter.Export(DataRepository, path, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
+                dataExporter.Export(DataRepository, path, this.SymbolTail, p => true, exportData.Data, exportMode, firstNumber, secondNumber, separator);
         }
     }
 
@@ -583,24 +614,14 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
             ZipFile.ExtractToDirectory(path, Path.GetDirectoryName(path) + "\\importDataPrepare");
 
-            var files = Directory.GetFiles(Path.GetDirectoryName(path) + "\\importDataPrepare", this.ToString() + "*");
-
-            if (files == null || files.Length == 0)
-                return;
-
-            dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare\\" + this.ToString(), authenticationState, crudDataObject, separator);
+            dataExporter.Import(DataRepository, Path.GetDirectoryName(path) + "\\importDataPrepare", this.SymbolTail, authenticationState, crudDataObject, separator);
 
             if (Directory.Exists(Path.GetDirectoryName(path)))
                 Directory.Delete(Path.GetDirectoryName(path), true);
         }
         else
         {
-            var files = Directory.GetFiles(Path.GetDirectoryName(path), this.ToString() + "*");
-
-            if (files == null || files.Length == 0)
-                return;
-
-            dataExporter.Import(DataRepository, path, authenticationState, crudDataObject, separator);
+            dataExporter.Import(DataRepository, path, this.SymbolTail, authenticationState, crudDataObject, separator);
         }
     }
 

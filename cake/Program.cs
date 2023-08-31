@@ -186,12 +186,15 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         }
         else if (context.BuildParameters.TestLevel == 2)
         {
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.slnf"));
             RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.slnf"));
         }
         else
         {
-            context.Integrations.ToList().ForEach(context.ApaxDownload);
+            context.ApaxDownload(context.Integrations.First(p => p.name == "ix.integrations"));
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.slnf"));
             RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.slnf"));
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L3-tests.slnf"));
         }
 
         context.Log.Information("Tests done.");

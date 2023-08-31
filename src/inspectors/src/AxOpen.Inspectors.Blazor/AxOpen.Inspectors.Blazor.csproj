@@ -4,6 +4,8 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<PackageId>AXOpen.Inspectors.Blazor</PackageId>
+	<RootNamespace>AXOpen.Inspectors.Blazor</RootNamespace>
   </PropertyGroup>
 
 

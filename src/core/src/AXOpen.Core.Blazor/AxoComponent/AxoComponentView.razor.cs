@@ -117,7 +117,7 @@ namespace AXOpen.Core
                 
                 if (_messengers.Any(p => p.IsActive.Cyclic))
                 {
-                    _messengers.First().GetConnector().ReadBatchAsync(_messengers.Select(p => p.Category));
+                   // _messengers.First().GetConnector().ReadBatchAsync(_messengers.Select(p => p.Category));
                     var seriousness = (eAxoMessageCategory)_messengers.Max(p => p.Category.LastValue);
 
                     if(seriousness <= eAxoMessageCategory.Info)

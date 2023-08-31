@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Inspectors
 
         
         VAR PUBLIC
+            {#ix-attr:[CompilerOmits("POCO")]}
             _axoInspectorDialog : AxoInspectorDialog;
         END_VAR
         VAR
