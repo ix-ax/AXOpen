@@ -1,0 +1,72 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFrameworks>net7.0</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    
+	  <RootNamespace>AXOpen.Components.Elements.Blazor</RootNamespace>
+
+	  <!--NuGet Specific part-->
+	  <Description>This library is part of AXOpen framework</Description>
+	  <PackageId>AXOpen.Components.Elements.Blazor</PackageId>
+	  <Title>AXOpen - elementscomponents</Title>
+
+	  <!-- NuGet Common part-->
+	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/ix-ax/AXOpen</RepositoryUrl>
+	  <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	  <Authors>ix-ax</Authors>
+	  <Copyright>(c) Peter Kurhajec and Contributors</Copyright>
+	  <PackageTags>simatix-ax, PLC, industrial automation, SCADA, HMI, Blazor</PackageTags>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <PackageIcon>icon_128_128.png</PackageIcon>
+	  <RepositoryType>git</RepositoryType>
+	  <IncludeSymbols>True</IncludeSymbols>
+	  <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageReleaseNotes>
+		  Release notes are published here:
+		  https://github.com/ix-ax/AXOpen/releases
+	  </PackageReleaseNotes>
+	  <PackageReadmeFile>NUGET-README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\peto.kurhajec\.nuget\packages\ix.presentation.blazor.controls\0.6.0-alpha.18\contentFiles\any\net7.0\Styles\custom.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+	<PackageReference Include="AXSharp.Presentation.Blazor" Version="0.14.2-alpha.134" />
+    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.2-alpha.134" />
+    <PackageReference Include="Humanizer" Version="2.14.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.8" />
+	  
+  </ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\..\assets\icons\icon_128_128.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+		<None Include="..\..\..\NUGET-README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+    <ProjectReference Include="..\AXOpen.Components.Elements\ix_ax_axopen_components_elements.csproj" />
+  </ItemGroup>
+</Project>

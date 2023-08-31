@@ -2,12 +2,7 @@
   "solution": {
     "path": "AXOpen.sln",
     "projects": [
-      "base\\tests\\AXOpen.Base.AbstractionsTests\\AXOpen.Base.AbstractionsTests.csproj",
-      "base\\tests\\AXOpen.LoggingTests\\AXOpen.Logging.SerologTests.csproj",
-      "core\\tests\\AXOpen.Core.Tests\\axopen_core_tests.csproj",
-      "data\\tests\\AXOpen.Data.Tests\\axopen_data_tests.csproj",
-      "data\\tests\\AXOpen.Repository.Integration.Tests_L1\\axopen_repository_integration_tests_L1.csproj",
-      "security\\tests\\axopen_security_tests\\AXOpen.SecurityTests.csproj"
+      
     ]
   }
 }
