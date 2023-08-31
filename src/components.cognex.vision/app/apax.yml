@@ -2,8 +2,9 @@ name: "axopen.components.cognex.vision.integrations"
 version: '0.1.4-alpha.79'
 type: app
 devDependencies:
-  "@ax/sdk": ^4.0.3
-  "@ax/sld": ^0.15.9
+  "@ax/sdk": ^4.0.8
+  "@ax/sld": 0.15.9
+  #"@ax/plc-mode": ^1.0.0
 dependencies:
   "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
@@ -15,7 +16,7 @@ scripts:
     - START=$(date +%s)
     - dotnet tool restore
     - dotnet ixc
-    - echo "Builded by ixc in :" $(expr $(date +%s) - $START) "s"
+    - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download:
     - START=$(date +%s)
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
@@ -67,6 +68,9 @@ scripts:
   da:
     - START=$(date +%s)
     - apax do-it-all
-    - echo "Finished in :" $(expr $(date +%s) - $START) "s"
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+  r:
+    - apax plc-mode set stop -t $AXTARGET -y
+    - apax plc-mode set run -t $AXTARGET -y
 targets:
   - plcsim

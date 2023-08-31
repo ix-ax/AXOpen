@@ -8,7 +8,7 @@ CONFIGURATION MyConfiguration
         {#ix-set:AttributeName = "If counting PLC is alive"}
         I_am_alive : ULINT;
         AxoCognexVisionExampleContext : AxoCognexVisionExample.AxoCognexVisionExampleContext;
-        AxoRtc : AxoRtc.AxoS71500Rtc;
+        _rtc : AXOpen.S71500.Rtc;
    END_VAR
 
     //Copy this VAR_GLOBAL section into your configuration file inside your project.

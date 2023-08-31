@@ -14,7 +14,7 @@ NAMESPACE AxoCognexVisionExample
             {#ix-set:AttributeName = "<#Activate manual control#>"}
             ActivateManualControl : BOOL;  
             PlcInputs : REF_TO PlcInputs;
-            PlcOutputs : REF_TO PlcOutputs;
+            PlcOutputs : REF_TO PlcOutputs;          
         END_VAR
 
         METHOD PROTECTED OVERRIDE Main   

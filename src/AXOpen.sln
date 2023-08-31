@@ -197,10 +197,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Pneumatic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{EABE6BC4-1679-46EA-A3BB-56CF63A40FE5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PneumaticComponents", "components.pneumatics\app\ix\PneumaticComponents.csproj", "{3ADCEF54-D3FC-47C7-AC0D-CB98F5D65804}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PneumaticComponents.blazor", "components.pneumatics\app\ix-blazor\PneumaticComponents.blazor\PneumaticComponents.blazor.csproj", "{82B49531-E587-4700-8BF3-44D97826B8C5}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -395,14 +391,6 @@ Global
 		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3ADCEF54-D3FC-47C7-AC0D-CB98F5D65804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3ADCEF54-D3FC-47C7-AC0D-CB98F5D65804}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3ADCEF54-D3FC-47C7-AC0D-CB98F5D65804}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3ADCEF54-D3FC-47C7-AC0D-CB98F5D65804}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82B49531-E587-4700-8BF3-44D97826B8C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82B49531-E587-4700-8BF3-44D97826B8C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82B49531-E587-4700-8BF3-44D97826B8C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82B49531-E587-4700-8BF3-44D97826B8C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -485,8 +473,6 @@ Global
 		{3134A28E-12A5-4255-81F4-F84874CE9318} = {1B390C59-FF6C-4721-8DBA-B8176DBA531B}
 		{0F38853D-6D5D-4156-9571-E5F3426782AF} = {3134A28E-12A5-4255-81F4-F84874CE9318}
 		{EABE6BC4-1679-46EA-A3BB-56CF63A40FE5} = {1B390C59-FF6C-4721-8DBA-B8176DBA531B}
-		{3ADCEF54-D3FC-47C7-AC0D-CB98F5D65804} = {EABE6BC4-1679-46EA-A3BB-56CF63A40FE5}
-		{82B49531-E587-4700-8BF3-44D97826B8C5} = {EABE6BC4-1679-46EA-A3BB-56CF63A40FE5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

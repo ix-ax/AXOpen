@@ -41,8 +41,20 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                 new KeyValuePair<ulong, AxoMessengerTextItem>(712, new AxoMessengerTextItem("refResultData-lower bound index is not zero!", "Check if the `refResultData` parameter is zero-based.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(713, new AxoMessengerTextItem("refUserData has invalid size!",                "Check the size of the `refUserData`.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(714, new AxoMessengerTextItem("refUserData-lower bound index is not zero!",   "Check if the `refUsertData` parameter is zero-based.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(715, new AxoMessengerTextItem("refUserData has invalid size!",                "Check the size of the `refUserData`.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(716, new AxoMessengerTextItem("refUserData-lower bound index is not zero!",   "Check if the `refUsertData` parameter is zero-based.")),
 
-        };
+                new KeyValuePair<ulong, AxoMessengerTextItem>(717, new AxoMessengerTextItem("Clearing of the inspection results finished with error!",                      "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(718, new AxoMessengerTextItem("Reading finished with error!",                                                 "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(719, new AxoMessengerTextItem("Change job by name finished with error!",                                      "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(720, new AxoMessengerTextItem("Change job by number finished with error!",                                    "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(721, new AxoMessengerTextItem("Soft event finished with error!",                                              "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(722, new AxoMessengerTextItem("Clearing of the inspection results was aborted, while not yet completed!",     "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(723, new AxoMessengerTextItem("Reading was aborted, while not yet completed!",                                "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(724, new AxoMessengerTextItem("Change job by name was aborted, while not yet completed!",                     "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("Change job by number was aborted, while not yet completed!",                   "Check the details.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("Soft event was aborted, while not yet completed!",                             "Check the details.")),
+            };
 
             _Messenger.DotNetMessengerTextList = messengerTextList;
         }
@@ -89,7 +101,7 @@ namespace AXOpen.Cognex.Vision.v_6_0_0_0
                 //new KeyValuePair<ulong, AxoMessengerTextItem>(725, new AxoMessengerTextItem("","")),
                 //new KeyValuePair<ulong, AxoMessengerTextItem>(726, new AxoMessengerTextItem("","")),
 
-        };
+            };
 
             _TaskMessenger.DotNetMessengerTextList = messengerTextList;
         }

@@ -14,7 +14,7 @@ scripts:
     - START=$(date +%s)
     - dotnet tool restore
     - dotnet ixc
-    - echo "Builded by ixc in :" $(expr $(date +%s) - $START) "s"
+    - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download:
     - START=$(date +%s)
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
@@ -65,6 +65,6 @@ scripts:
   da:
     - START=$(date +%s)
     - apax do-it-all
-    - echo "Finished in :" $(expr $(date +%s) - $START) "s"
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
 targets:
   - plcsim

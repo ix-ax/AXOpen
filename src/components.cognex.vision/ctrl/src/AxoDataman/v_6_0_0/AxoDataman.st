@@ -14,6 +14,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ComponentHeader()]}         
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Inspection results#>"}
+            {#ix-set:DisplayFormat = "string"}
             ResultData  :   AxoDataman_ResultData;
 
             {#ix-attr:[Container(Layout.Wrap)]}
@@ -90,12 +91,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             User        :   AxoDataman_User;
             {#ix-set:AttributeName = "<#User data#>"}
             {#ix-attr:[ReadOnly()]}
+            {#ix-set:DisplayFormat = "hexadecimal"}
             UserData        :   AxoDataman_UserData;
 
-            {#ix-attr:[ReadOnly()]}
-            _Messenger    :   AXOpen.Messaging.Static.AxoMessenger;
-            {#ix-attr:[ReadOnly()]}
-            _TaskMessenger    :   AXOpen.Messaging.Static.AxoMessenger;
+            _Messenger          :   AXOpen.Messaging.Static.AxoMessenger;
+            _TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
         ///<summary>
@@ -461,6 +461,12 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ReadTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy();
             ReadTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(ResultsControl),REF(ResultsStatus),REF(Config),REF(Status),REF(Results),REF(ResultData),refResultData,REF(_TaskMessenger));
             //****************************************
+
+            _Messenger.ActivateOnCondition(ULINT#714,ClearResultDataTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#715,ReadTask.HasError(), eAxoMessageCategory#Error);
+
+            _Messenger.ActivateOnCondition(ULINT#716,ClearResultDataTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#717,ReadTask.IsAborted(), eAxoMessageCategory#Error);
 
             THIS.UpdateOutputs(refAcquisitionControl,refResultsControl,refSoftEventControl,refUserData);
         END_METHOD    

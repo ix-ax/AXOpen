@@ -128,10 +128,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ReadOnly()]}
             UserData        :   AxoInsight_UserData;
 
-            {#ix-attr:[ReadOnly()]}
-            _Messenger    :   AXOpen.Messaging.Static.AxoMessenger;
-            {#ix-attr:[ReadOnly()]}
-            _TaskMessenger    :   AXOpen.Messaging.Static.AxoMessenger;
+            _Messenger          :   AXOpen.Messaging.Static.AxoMessenger;
+            _TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
                
         ///<summary>
@@ -345,6 +343,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#714;
                 UpdateOutputs := FALSE;
             END_IF;
+
             _Messenger.ActivateOnCondition(ULINT#713,Status.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_SIZE_INVALID, eAxoMessageCategory#ProgrammingError);
             _Messenger.ActivateOnCondition(ULINT#714,LOWER_BOUND(refUserData^,1) <> 0, eAxoMessageCategory#ProgrammingError);
 
@@ -526,6 +525,18 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEventTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy();
             SoftEventTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(SoftEventControl),REF(SoftEventStatus),REF(_TaskMessenger));
             //****************************************
+
+            _Messenger.ActivateOnCondition(ULINT#717,ClearInspectionResultsTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#718,TriggerTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#719,ChangeJobByNameTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#720,ChangeJobByNumberTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#721,SoftEventTask.HasError(), eAxoMessageCategory#Error);
+
+            _Messenger.ActivateOnCondition(ULINT#722,ClearInspectionResultsTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#723,TriggerTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#724,ChangeJobByNameTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#725,ChangeJobByNumberTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#726,SoftEventTask.IsAborted(), eAxoMessageCategory#Error);
 
             THIS.UpdateOutputs(refAcquisitionControl,refInspectionControl,refCommandControl,refSoftEventControl,refUserData);
         END_METHOD    

@@ -1,4 +1,3 @@
-USING System.EdgeDetection;
 NAMESPACE AXOpen.Core
     ///<summary>
     /// AxoDialog class, which represents structure of base dialog.
@@ -16,7 +15,7 @@ NAMESPACE AXOpen.Core
             _dialogType : eDialogType;
             _externalCloseReq : BOOL;
             _closeSignal : BOOL;
-            _risingEdge : RisingEdge;
+            _risingEdge : BOOL;            
         END_VAR
         
         VAR PRIVATE
@@ -108,7 +107,11 @@ NAMESPACE AXOpen.Core
             ShowWithExternalClose := THIS;
             // watch close signals on rising edge
             
-            _risingEdge(signal := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal, detected => edgeDetected);
+            //_risingEdge(signal := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal, detected => edgeDetected);
+
+            edgeDetected := ((inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal) AND NOT _risingEdge);
+            _risingEdge := inOkAnswerSignal XOR inYesAnswerSignal XOR inNoAnswerSignal XOR inCancelAnswerSignal;
+
             IF edgeDetected THEN
                 _closeSignal := TRUE;
                 IF inOkAnswerSignal THEN

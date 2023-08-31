@@ -37,7 +37,7 @@ namespace AXOpen.Messaging.Static
 
         private async void AcknowledgeTask()
         {
-            Component.AcknowledgeRequest.Cyclic = true;
+            Component.AcknowledgeRequest.Cyclic = true; 
             AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
         }
         protected override void OnInitialized()

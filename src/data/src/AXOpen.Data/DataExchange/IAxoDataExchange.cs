@@ -46,7 +46,7 @@ namespace AXOpen.Data
         /// Sets changes to changeTracker.
         /// </summary>
         /// <param name="entity">Entity from which is set data.</param>
-        void ChangeTrackerSetChanges(IBrowsableDataObject entity);
+        void ChangeTrackerSetChanges();
 
         /// <summary>
         /// Get object which locked this repository.
@@ -60,7 +60,7 @@ namespace AXOpen.Data
         /// <param name="by"></param>
         void SetLockedBy(object by);
 
-        bool IsHashCorrect(IBrowsableDataObject entity, IIdentity identity);
+        bool IsHashCorrect(IIdentity identity);
 
         /// <summary>
         /// Gets changes from changeTracker.

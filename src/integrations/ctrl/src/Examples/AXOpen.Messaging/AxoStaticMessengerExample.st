@@ -44,10 +44,24 @@ NAMESPACE AxoStaticMessengerExample
             {#ix-set:AttributeName = "<#Messenger 5#>"}
             _messenger5 : AXOpen.Messaging.Static.AxoMessenger;
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5#>"}
-            _messenger5condition : BOOL;
-            {#ix-set:AttributeName = "<#message 5 code#>"}
-            _messenger5code : UINT;
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 1#>"}
+            _messenger5condition_1 : BOOL;
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 2#>"}
+            _messenger5condition_2 : BOOL;
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 3#>"}
+            _messenger5condition_3 : BOOL;
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 4#>"}
+            _messenger5condition_4 : BOOL;
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 5#>"}
+            _messenger5condition_5 : BOOL;
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 6#>"}
+            _messenger5condition_6 : BOOL;
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 7#>"}
+            _messenger5condition_7 : BOOL;
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 8#>"}
+            _messenger5condition_8 : BOOL;
+            {#ix-set:AttributeName = "<#Set to high to activate the messenger 5 with code 9#>"}
+            _messenger5condition_9 : BOOL;
             {#ix-set:AttributeName = "<#Set to high to call the messenger 5#>"}
             _messenger5callcondition : BOOL;
        END_VAR    
@@ -65,7 +79,15 @@ NAMESPACE AxoStaticMessengerExample
             _messenger4.ActivateOnCondition(_messenger4condition,eAxoMessageCategory#Info).RequireAcknowledgement();
             _messenger4.Serve(THIS);    
             IF _messenger5callcondition THEN
-                _messenger5.ActivateOnCondition(_messenger5code,_messenger5condition,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.ActivateOnCondition(ULINT#1,_messenger5condition_1,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.ActivateOnCondition(ULINT#2,_messenger5condition_2,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.ActivateOnCondition(ULINT#3,_messenger5condition_3,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.ActivateOnCondition(ULINT#4,_messenger5condition_4,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.ActivateOnCondition(ULINT#5,_messenger5condition_5,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.ActivateOnCondition(ULINT#6,_messenger5condition_6,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.ActivateOnCondition(ULINT#7,_messenger5condition_7,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.ActivateOnCondition(ULINT#8,_messenger5condition_8,eAxoMessageCategory#Error).RequireAcknowledgement();
+                _messenger5.ActivateOnCondition(ULINT#9,_messenger5condition_9,eAxoMessageCategory#Error).RequireAcknowledgement();
                 _messenger5.Serve(THIS);    
             ELSE
                 _messenger5.Restore();
