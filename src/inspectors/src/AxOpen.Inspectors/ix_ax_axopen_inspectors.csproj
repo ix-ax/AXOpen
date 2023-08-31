@@ -3,6 +3,8 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
+		<PackageId>AXOpen.Inspectors</PackageId>
+		<RootNamespace>AXOpen.Inspectors</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -6,8 +6,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
     CLASS PUBLIC AxoInsightChangeJobByNumber EXTENDS AXOpen.Core.AxoTask
         VAR PROTECTED
             _progress : INT := 0;
-            _infoTimer :  System.Timer.OnDelay;
-            _errorTimer :  System.Timer.OnDelay;
+            _infoTimer :  AXOpen.Timers.OnDelayTimer;
+            _errorTimer :  AXOpen.Timers.OnDelayTimer;
         END_VAR
 
         VAR PRIVATE 
@@ -167,8 +167,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 signal : BOOL;
             END_VAR
             
-            _infoTimer(signal , _infoTime);
-            _errorTimer(signal , _errorTime );
+            _infoTimer.OnDelay(THIS, signal , _infoTime);
+            _errorTimer.OnDelay(THIS, signal , _errorTime );
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnRestore 

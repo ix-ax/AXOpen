@@ -217,7 +217,48 @@ Entry.Plc.AxoDataExamplesDocu.DataManager.InitializeRemoteDataExchange(exampleRe
         END_IF;
     END_METHOD        
 END_CLASS
-</code></pre><h2 id="data-visualization">Data visualization</h2>
+</code></pre><h3 id="tracking-changes">Tracking changes</h3>
+<p>Every change to the data is meticulously tracked and saved. These changes are recorded in two distinct locations:</p>
+<ol>
+<li>Directly in the Database - Each record maintains its own history of changes:</li>
+</ol>
+<pre><code class="lang-TXT">{
+  &quot;ComesFrom&quot;: 1,
+  &quot;GoesTo&quot;: 0,
+  &quot;RecordId&quot;: null,
+  &quot;Changes&quot;: [
+    {
+      &quot;DateTime&quot;: &quot;2020-10-10T10:10:10.00&quot;,
+      &quot;UserName&quot;: &quot;admin&quot;,
+      &quot;ValueTag&quot;: {
+        &quot;HumanReadable&quot;: &quot;PneumaticManipulator.ProcessData.Shared.Set.ComesFrom&quot;,
+        &quot;Symbol&quot;: &quot;Context.PneumaticManipulator.ProcessData.Shared.Set.ComesFrom&quot;
+      },
+      &quot;OldValue&quot;: 0,
+      &quot;NewValue&quot;: 1
+    }
+  ],
+  &quot;DataEntityId&quot;: &quot;testRecord&quot;
+}
+</code></pre>
+<ol start="2">
+<li>In Logs - All operations involving records are meticulously logged:</li>
+</ol>
+<pre><code class="lang-TXT">[10:10:10 INF] Create testRecord in examples.PneumaticManipulator.ProcessDataManger by user action. { UserName = admin }
+[10:10:10 INF] Value change Context.PneumaticManipulator.ProcessData.Shared.Set.ComesFrom of testRecord from 0 to 1 changed by user action. { UserName = admin }
+</code></pre>
+<p>Every action as creation, update, deletion, or copying data is captured in the logs. Also every record has its own set of changes.<br>
+Its important to note that modifications originating from the PLC are not logged, tracked, or saved.</p>
+<h3 id="locking">Locking</h3>
+<p>When a client is in the process of editing, copying, or attempting to delete a record, the entire repository becomes locked. While the repository is locked, no one can make edits to records, until the repository is unlocked.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The repository is locked by clicking on the edit, copy, or delete buttons, and it can be unlocked by clicking the save or close button. If the modal is closed in an incorrect manner, such as clicking outside of it, the repository will remain locked.</p>
+</div>
+<h3 id="hashing">Hashing</h3>
+<p>Data are hashed each time they are created or updated.
+To enable hash verification, you can add the attribute: <code>{#ix-attr:[AXOpen.Data.AxoDataVerifyHashAttribute]}</code> above the data manager. With this attribute in place, the hash will be checked whenever you interact with the data. In case the verification process fails, a log will be generated, and the user will be warned about external modifications to the record.</p>
+<h2 id="data-visualization">Data visualization</h2>
 <h3 id="automated-rendering-using-renderablecontentcontrol">Automated rendering using <code>RenderableContentControl</code></h3>
 <p>With <code>Command</code> presentation type, options exist for adding, editing, and deleting records.</p>
 <pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;Entry.Plc.AxoDataExamplesDocu.DataManager&quot; Presentation=&quot;Command&quot;&gt;&lt;/RenderableContentControl&gt;
@@ -375,7 +416,48 @@ scatteredDataBuilder.Station_1.SetRepository(
         END_IF;
     END_METHOD        
 END_CLASS
-</code></pre><h2 id="data-visualization">Data visualization</h2>
+</code></pre><h3 id="tracking-changes">Tracking changes</h3>
+<p>Every change to the data is meticulously tracked and saved. These changes are recorded in two distinct locations:</p>
+<ol>
+<li>Directly in the Database - Each record maintains its own history of changes:</li>
+</ol>
+<pre><code class="lang-TXT">{
+  &quot;ComesFrom&quot;: 1,
+  &quot;GoesTo&quot;: 0,
+  &quot;RecordId&quot;: null,
+  &quot;Changes&quot;: [
+    {
+      &quot;DateTime&quot;: &quot;2020-10-10T10:10:10.00&quot;,
+      &quot;UserName&quot;: &quot;admin&quot;,
+      &quot;ValueTag&quot;: {
+        &quot;HumanReadable&quot;: &quot;PneumaticManipulator.ProcessData.Shared.Set.ComesFrom&quot;,
+        &quot;Symbol&quot;: &quot;Context.PneumaticManipulator.ProcessData.Shared.Set.ComesFrom&quot;
+      },
+      &quot;OldValue&quot;: 0,
+      &quot;NewValue&quot;: 1
+    }
+  ],
+  &quot;DataEntityId&quot;: &quot;testRecord&quot;
+}
+</code></pre>
+<ol start="2">
+<li>In Logs - All operations involving records are meticulously logged:</li>
+</ol>
+<pre><code class="lang-TXT">[10:10:10 INF] Create testRecord in examples.PneumaticManipulator.ProcessDataManger by user action. { UserName = admin }
+[10:10:10 INF] Value change Context.PneumaticManipulator.ProcessData.Shared.Set.ComesFrom of testRecord from 0 to 1 changed by user action. { UserName = admin }
+</code></pre>
+<p>Every action as creation, update, deletion, or copying data is captured in the logs. Also every record has its own set of changes.<br>
+Its important to note that modifications originating from the PLC are not logged, tracked, or saved.</p>
+<h3 id="locking">Locking</h3>
+<p>When a client is in the process of editing, copying, or attempting to delete a record, the entire repository becomes locked. While the repository is locked, no one can make edits to records, until the repository is unlocked.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The repository is locked by clicking on the edit, copy, or delete buttons, and it can be unlocked by clicking the save or close button. If the modal is closed in an incorrect manner, such as clicking outside of it, the repository will remain locked.</p>
+</div>
+<h3 id="hashing">Hashing</h3>
+<p>Data are hashed each time they are created or updated.
+To enable hash verification, you can add the attribute: <code>{#ix-attr:[AXOpen.Data.AxoDataVerifyHashAttribute]}</code> above the data manager. With this attribute in place, the hash will be checked whenever you interact with the data. In case the verification process fails, a log will be generated, and the user will be warned about external modifications to the record.</p>
+<h2 id="data-visualization">Data visualization</h2>
 <h3 id="automated-rendering-using-renderablecontentcontrol">Automated rendering using <code>RenderableContentControl</code></h3>
 <p>With <code>Command</code> presentation type, options exist for adding, editing, and deleting records.</p>
 <pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;Entry.Plc.AxoDataFragmentExchangeContext.ProcessData&quot; Presentation=&quot;Command&quot;&gt;&lt;/RenderableContentControl&gt;
@@ -435,7 +517,7 @@ IAxoDataExchange.CleanUp();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/data/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/176-_NEW-FEATURE_Create_library_for_basic_I/O_elements/docfx/articles/data/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

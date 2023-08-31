@@ -45,7 +45,7 @@ namespace AXOpen.Data
             {
                 object? propValue = property.GetValue(@object, null);
 
-                if (property.Name == "Hash" || propValue == null)
+                if (property.Name == "Hash" || property.Name == "RecordId" || propValue == null)
                     continue;
 
                 if (property.PropertyType.IsValueType || property.PropertyType == typeof(string) || property.PropertyType == typeof(System.Object))

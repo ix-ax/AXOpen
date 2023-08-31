@@ -1,5 +1,4 @@
-﻿using AXOpen.Base.Abstractions.Dialogs;
-using AXOpen.Base.Dialogs;
+﻿using AXOpen.Base.Dialogs;
 using AXOpen.Core.Blazor.AxoAlertDialog;
 using AXOpen.Core.Blazor.AxoDialogs;
 using Microsoft.AspNetCore.Builder;

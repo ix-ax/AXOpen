@@ -59,6 +59,17 @@
         items:
             - name: V_6_0_0_0
               href: ~/articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md
+      - name: AxoElements
+        href: ~/articles/components/AXOPENELEMENTS/README.md
+        items:
+            - name: AXODI
+              href: ~/articles/components/AXOPENELEMENTS/AXODI.md
+            - name: AXODO
+              href: ~/articles/components/AXOPENELEMENTS/AXODO.md
+            - name: AXOAI
+              href: ~/articles/components/AXOPENELEMENTS/AXOAI.md
+            - name: AXOAO
+              href: ~/articles/components/AXOPENELEMENTS/AXOAO.md
 - name: AXOpen.Logging
   href: ~/articles/logging/README.md
   items:
@@ -69,6 +80,16 @@
   items:
       - name: Installation
         href: ~/articles/security/INSTALLATION.md
+
+- name: AXOpen.Timers
+  href: ~/articles/timers/README.md
+  items:
+      - name: OnDelayTimer
+        href: ~/articles/timers/ONDELAYTIMER.md
+      - name: OffDelayTimer
+        href: ~/articles/timers/OFFDELAYTIMER.md
+      - name: Pulse
+        href: ~/articles/timers/PULSETIMER.md
 - name: Template themes
   href: ~/articles/themes/README.md
 - name: Template localization

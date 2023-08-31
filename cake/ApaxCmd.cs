@@ -8,6 +8,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Cake.Common.IO;
 using Cake.Common.Tools.ILMerge;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
@@ -54,6 +55,9 @@ public static class ApaxCmd
                 Silent = false
             }).WaitForExit();
             context.Log.Information($"apax clean finished for '{lib.folder} : {lib.name}'");
+
+            var lockFile = Path.Combine(folder, "apax-lock.json");
+            if(File.Exists(lockFile)) context.DeleteFile(lockFile);
         }
     }
 
@@ -101,7 +105,7 @@ public static class ApaxCmd
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
-            context.Log.Information($"apax update started for '{lib.folder} : {lib.name}'");
+            context.Log.Information($"apax update started for '{lib.folder} : {lib.name}' in {folder}");
             var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
                 Arguments = "update --all",
