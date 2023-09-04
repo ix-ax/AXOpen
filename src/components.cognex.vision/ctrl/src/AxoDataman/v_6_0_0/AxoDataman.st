@@ -99,7 +99,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_VAR
 
         ///<summary>
-		/// Restores this instance . 
+		/// Restores this instance to its initial state. 
         ///</summary>   
         METHOD PROTECTED OVERRIDE Restore: IAxoTask 
             VAR
@@ -361,10 +361,17 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ResultsControl.ResultsAcknowledge := ResultsStatus.ResultsAvailable;
         END_METHOD
 
+        ///<summary>
+		/// Custom component logic running before any other component logic.
+        ///</summary>   
         METHOD PROTECTED OVERRIDE Open
             SUPER.Open();
         END_METHOD  
 
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoObject; 
@@ -393,6 +400,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             THIS.Close();            
         END_METHOD
 
+
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoContext; 
@@ -471,22 +483,25 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             THIS.UpdateOutputs(refAcquisitionControl,refResultsControl,refSoftEventControl,refUserData);
         END_METHOD    
         
+        ///<summary>
+		/// Custom component logic running after any other component logic.
+        ///</summary>   
         METHOD PROTECTED OVERRIDE Close
             SUPER.Close();
         END_METHOD  
+
         ///<summary>
 		/// Clears the result data. 	
         ///</summary>       
         METHOD PUBLIC ClearResultData : IAxoTaskState
             ClearResultData :=ClearResultDataTask.Invoke();;
         END_METHOD
+
         ///<summary>
 		/// Triggers the reading sequence and waits for results. 	
         ///</summary>       
         METHOD PUBLIC Read : IAxoTaskState
             Read := ReadTask.Invoke();
         END_METHOD
-
     END_CLASS    
-
 END_NAMESPACE

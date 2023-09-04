@@ -28,3 +28,38 @@ There are three public methods to operate the `AxoDataman`:
 **Example of using Read method**
 [!code-smalltalk[](../../../../src/integrations/ctrl/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionDatamanExample.st?name=Read)]
 
+## AxoInsight
+
+`AxoInsight` provides the essential control and operation of all vision sensors of the `Insight` family.
+
+### Implementation
+The `AxoInsight` is designed to be used as a member of the `AxoContext` or `AxoObject`.
+Therefore its instance must be initialized with the proper `AxoContext` or `AxoObject` before any use. 
+Also, the hardware signals must be assigned first before calling any method of this instance. 
+To accomplish this, call the `Run` method cyclically with the proper variables (i.e. inside the `Main` method of the relevant `AxoContext`) as in the example below:
+
+**Example of the initialization and hardware signal assignement**
+[!code-smalltalk[](../../../../src/integrations/ctrl/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionInsightExample.st?name=HWIO_Assignement)]
+
+There are three public methods to operate the `AxoInsight`:
+
+`Restore` - restores the state of the `AxoInsight` to the initial state and resets all the internal variables.
+
+`ClearInspectionResults` - resets the inspection data read and confirms the data received from the device.
+**Example of using ClearInspectionResults method**
+[!code-smalltalk[](../../../../src/integrations/ctrl/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionInsightExample.st?name=ClearInspectionResults)]
+
+`Trigger` - triggers the reading sequence and waits for results.
+**Example of using Trigger method**
+[!code-smalltalk[](../../../../src/integrations/ctrl/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionInsightExample.st?name=Trigger)]
+
+`ChangeJob` - changes the sensor job. There are two overloads of the method `ChangeJob`. First one is with numerical parameter of the job number, second one with the textual parameter of the job name. 
+**Example of using ChangeJob method using job number**
+[!code-smalltalk[](../../../../src/integrations/ctrl/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionInsightExample.st?name=ChangeJobByNumber)]
+**Example of using ChangeJob method using job name**
+[!code-smalltalk[](../../../../src/integrations/ctrl/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionInsightExample.st?name=ChangeJobByName)]
+
+`SoftEvent` - triggers the soft event of the sensor.
+**Example of using SoftEvent method**
+[!code-smalltalk[](../../../../src/integrations/ctrl/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionInsightExample.st?name=SoftEvent)]
+

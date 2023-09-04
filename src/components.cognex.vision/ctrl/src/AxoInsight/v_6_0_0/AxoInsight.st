@@ -405,10 +405,17 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _Messenger.ActivateOnCondition(ULINT#710,refUserData = NULL, eAxoMessageCategory#ProgrammingError);
         END_METHOD
 
+        ///<summary>
+		/// Custom component logic running before any other component logic.
+        ///</summary>   
         METHOD PROTECTED OVERRIDE Open
             SUPER.Open();
         END_METHOD  
 
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                 :   IAxoObject; 
@@ -439,6 +446,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             THIS.Close();            
         END_METHOD
 
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                 :   IAxoContext; 
@@ -541,21 +552,27 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             THIS.UpdateOutputs(refAcquisitionControl,refInspectionControl,refCommandControl,refSoftEventControl,refUserData);
         END_METHOD    
         
+        ///<summary>
+		/// Custom component logic running after any other component logic.
+        ///</summary>   
         METHOD PROTECTED OVERRIDE Close
             SUPER.Close();
-        END_METHOD  
+        END_METHOD 
+
         ///<summary>
 		/// Clears the inspection results. 	
         ///</summary>       
         METHOD PUBLIC ClearInspectionResults : IAxoTaskState
             ClearInspectionResults := ClearInspectionResultsTask.Invoke();;
         END_METHOD
+
         ///<summary>
 		/// Triggers the reading sequence and waits for results. 	
         ///</summary>       
         METHOD PUBLIC Trigger : IAxoTaskState
             Trigger := TriggerTask.Invoke();
         END_METHOD
+
         ///<summary>
 		/// Changes the sensor job using job number. 	
         ///</summary>       
@@ -565,6 +582,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             ChangeJob := ChangeJobByNumberTask.InvokeWithParameters(Job);
         END_METHOD
+
         ///<summary>
 		/// Changes the sensor job using job name. 	
         ///</summary>       
@@ -574,6 +592,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             ChangeJob := ChangeJobByNameTask.InvokeWithParameters(Job);
         END_METHOD
+        
         ///<summary>
 		/// Triggers the soft event. 
         ///</summary>       
@@ -584,5 +603,4 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEvent := SoftEventTask.InvokeWithParameters(EventNumber);
         END_METHOD
     END_CLASS    
-
 END_NAMESPACE

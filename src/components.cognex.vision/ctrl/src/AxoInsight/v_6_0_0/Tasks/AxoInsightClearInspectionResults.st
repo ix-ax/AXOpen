@@ -17,6 +17,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             _refMessenger   :   REF_TO  AxoMessenger;	
         END_VAR
 
+        ///<summary>
+        /// Runs the logic of this tasks.
+        /// >[!IMPORTANT] This method must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run 
             VAR_INPUT
                 refAcquisitionControl   :   REF_TO  AxoInsight_AcquisitionControl;
