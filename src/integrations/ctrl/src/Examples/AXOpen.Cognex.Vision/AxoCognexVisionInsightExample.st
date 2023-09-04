@@ -45,6 +45,7 @@ NAMESPACE AxoCognexVisionInsightExamples
                     //Data inside MyInsight.InspectionResults.Data is cleared
                     ;
                 END_IF;    
+                //</ClearInspectionResults>
 
                 //<Trigger>
                 IF MyInsight.Trigger().IsDone() THEN
@@ -71,7 +72,6 @@ NAMESPACE AxoCognexVisionInsightExamples
                 END_IF;                          
                 //</SoftEvent>
                       
-                //</ClearInspectionResults>
         END_METHOD
 
     END_CLASS
