@@ -68,4 +68,3 @@ scripts:
     - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
 targets:
   - plcsim
-  - axunit-llvm

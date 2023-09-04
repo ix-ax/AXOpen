@@ -69,4 +69,3 @@ scripts:
     - apax rr
 targets:
   - plcsim
-  - axunit-llvm

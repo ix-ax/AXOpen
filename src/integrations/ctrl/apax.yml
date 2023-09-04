@@ -74,4 +74,3 @@ scripts:
     - apax plc-mode set run -t $AXTARGET -y
 targets:
   - plcsim
-  - axunit-llvm

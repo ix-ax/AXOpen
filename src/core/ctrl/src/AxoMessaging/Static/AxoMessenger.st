@@ -34,7 +34,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_VAR
  
         ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        /// Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
         ///</summary>
         METHOD PUBLIC Serve 
             VAR_INPUT
@@ -59,23 +59,10 @@ NAMESPACE AXOpen.Messaging.Static
                     THIS.Acknowledge();
                 END_IF;
             END_IF;
-            // ELSE
-            //     IF IsActive THEN
-            //         IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
-            //             THIS.Deactivate(MessageCode);
-            //         END_IF;
-            //     ELSIF AcknowledgedBeforeFallen THEN
-            //         AcknowledgedBeforeFallen := FALSE;
-            //         MessageCode := ULINT#0;
-            //     END_IF;
-            //     IF AcknowledgeRequest THEN
-            //         THIS.Acknowledge(MessageCode);
-            //     END_IF;
-            // END_IF;
         END_METHOD
         
         ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        /// Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
         ///</summary>
         METHOD PUBLIC Serve 
             VAR_INPUT
@@ -92,7 +79,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD
 
         ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        /// Activates the message of the entered category immediatelly.
         ///</summary>
         METHOD PUBLIC Activate : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
@@ -158,7 +145,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD   
 
         ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        /// Activates the message of the entered category on the rising edge of the condition.
         ///</summary>
         METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
@@ -176,7 +163,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD   
 
         ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        /// Activates the message of the entered category by using the text list on the rising edge of the condition.
         ///</summary>
         METHOD PUBLIC ActivateOnCondition : AXOpen.Messaging.Static.IAxoMessageProperties
             VAR_INPUT
@@ -285,7 +272,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD    
 
         ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        /// Restores all members of this instance to their initial states.
         ///</summary>
         METHOD PUBLIC Restore
             IF AXOpen.Core.IsNullContext(Context) THEN
@@ -338,7 +325,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD    
 
         ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        /// Forces to require the message acknowledgement, even if the message category does not require it by default.
         ///</summary>
         METHOD PUBLIC RequireAcknowledgement : AXOpen.Messaging.Static.IAxoMessageProperties
             AcknowledgementRequired := TRUE;
@@ -346,7 +333,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD
 
         ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        /// Forces to not require the message acknowledgement, even if the message category requires it by default.
         ///</summary>
         METHOD PUBLIC DoNotRequireAcknowledgement : AXOpen.Messaging.Static.IAxoMessageProperties
             AcknowledgementRequired := FALSE;
@@ -354,7 +341,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD
 
         ///<summary>
-        /// TODO-add some docu as this is PUBLIC method (unfortunately)
+        /// Returns TRUE if requires the message acknowledgement. 
         ///</summary>
         METHOD PUBLIC IsAcknowledgementRequired : BOOL
             IsAcknowledgementRequired := AcknowledgementRequired;
