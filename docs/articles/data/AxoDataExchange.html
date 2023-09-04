@@ -254,7 +254,7 @@ To enable hash verification, you can add the attribute: <code>{#ix-attr:[AXOpen.
 <p><img src="../../images/Status.png" alt="Status"></p>
 <h3 id="custom-columns">Custom columns</h3>
 <p>There is a possibility to add custom columns if it is needed. You must add <code>AXOpen.Data.ColumnData</code> view as a child in <code>DataView</code>. The <code>BindingValue</code> must be set in <code>ColumnData</code> and contains a string representing the attribute name of custom columns. If you want to add a custom header name, you can set the name in <code>HeaderName</code> attribute. Also, there is an attribute to make the column not clickable, which is clickable by default. The example using all attributes:</p>
-<pre><code class="lang-csharp">&lt;DataExchangeView Vm=&quot;VM&quot; Presentation=&quot;Command&quot;&gt;
+<pre><code class="lang-csharp">&lt;DataExchangeView Vm=&quot;_vm&quot; Presentation=&quot;Command&quot;&gt;
     &lt;ColumnData HeaderName=&quot;Some data&quot; BindingValue=&quot;SomeData&quot; Clickable=&quot;false&quot; /&gt;
     &lt;ColumnData HeaderName=&quot;A number&quot; BindingValue=&quot;SomeNumber&quot; Clickable=&quot;false&quot; /&gt;
     &lt;ColumnData HeaderName=&quot;Yes/No&quot; BindingValue=&quot;SomeBool&quot; Clickable=&quot;false&quot; /&gt;
@@ -262,14 +262,18 @@ To enable hash verification, you can add the attribute: <code>{#ix-attr:[AXOpen.
 </code></pre>
 <p>When adding data view manually, you will need to create ViewModel:</p>
 <pre><code class="lang-csharp">@code {
-    protected DataExchangeViewModel VM { get; } = new () { Model = Entry.Plc.AxoDataExamplesDocu.DataManager };
-}
+    private DataExchangeViewModel _vm;
 
+    protected override void OnInitialized()
+    {
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataExamplesDocu.DataManager, AlertDialogService = _alertDialogService, Asp = _asp };
+    }
+}
 </code></pre>
 <p><img src="../../images/CustomColumns.png" alt="Custom columns"></p>
 <h3 id="exportimport">Export/Import</h3>
 <p>If you want to be able to export data, you must add <code>CanExport</code> attribute with <code>true</code> value. Like this:</p>
-<pre><code class="lang-HTML">&lt;DataView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; CanExport=&quot;true&quot; /&gt;
+<pre><code class="lang-HTML">&lt;DataExchangeView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; CanExport=&quot;true&quot; /&gt;
 </code></pre>
 <p>With this option, buttons for export and import data will appear. After clicking on the export button, the <code>.zip</code> file will be created, which contains all existing records. If you want to import data, you must upload <code>.zip</code> file with an equal data structure as we get in the export file.</p>
 <p><img src="../../images/Export.png" alt="Export"></p>
@@ -287,7 +291,7 @@ IAxoDataExchange.CleanUp();
 </div>
 <h3 id="modal-detail-view">Modal detail view</h3>
 <p>The Detail View of a record is shown like modal. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with <code>ModalDetailView</code> attribute. This change will show a detail view under the record table. Example with <code>ModalDetailView</code> attribute:</p>
-<pre><code>&lt;DataView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; ModalDetailView=&quot;false&quot; /&gt;
+<pre><code>&lt;DataExchangeView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; ModalDetailView=&quot;false&quot; /&gt;
 </code></pre>
 <p><img src="../../images/NotModalDetailView.png" alt="Not Modal detail view"></p>
 </article>
@@ -298,7 +302,7 @@ IAxoDataExchange.CleanUp();
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/176-_NEW-FEATURE_Create_library_for_basic_I/O_elements/docfx/articles/data/AxoDataExchange.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/data/AxoDataExchange.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
