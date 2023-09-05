@@ -16,6 +16,8 @@
       "data\\src\\repositories\\Json\\AXOpen.Data.Json.csproj",
       "data\\src\\repositories\\MongoDb\\AXOpen.Data.MongoDb.csproj",
       "data\\src\\repositories\\RavenDb\\AXOpen.Data.RavenDb\\AXOpen.Data.RavenDb.csproj",
+      "inspectors\\src\\AxOpen.Inspectors.Blazor\\AxOpen.Inspectors.Blazor.csproj",
+      "inspectors\\src\\AxOpen.Inspectors\\ix_ax_axopen_inspectors.csproj",
       "probers\\src\\AXOpen.Probers\\ix_ax_axopen_probers.csproj",
       "utils\\src\\AXOpen.Utils\\ix_ax_axopen_utils.csproj"
     ]
