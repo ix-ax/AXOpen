@@ -30,7 +30,7 @@ There are three public methods to operate the `AxoDataman`:
 
 **How to visualize `AxoDataman`**
 On the UI side, use the `RenderableContentControl` and set its Context according to the placement of the instance of the `AxoDataman`.
-[!code-csharp[](../../../../src/components.cognex.vision/app/ix-blazor/Pages/AxoCognexVision/AxoCognexVisionExample.razor?name=CognexDatamanRenderedView)]
+[!code-csharp[](../../../../src/components.cognex.vision/app/ix-blazor/Pages/Documentation.razor?name=CognexDatamanRenderedView)]
 
 
 ## AxoInsight
@@ -70,4 +70,4 @@ There are three public methods to operate the `AxoInsight`:
 
 **How to visualize `AxoInsight`**
 On the UI side, use the `RenderableContentControl` and set its Context according to the placement of the instance of the `AxoInsight`.
-[!code-csharp[](../../../../src/components.cognex.vision/app/ix-blazor/Pages/AxoCognexVision/AxoCognexVisionExample.razor?name=CognexInsightRenderedView)]
+[!code-csharp[](../../../../src/components.cognex.vision/app/ix-blazor/Pages/Documentation.razor?name=CognexInsightRenderedView)]
