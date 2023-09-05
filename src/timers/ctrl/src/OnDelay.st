@@ -28,7 +28,8 @@ NAMESPACE AXOpen.Timers
                 Parent : IAxoObject;              
                 inSignal : BOOL;
                 TimeDelay : LTIME;
-            END_VAR    
+            END_VAR 
+
             OnDelay := THIS.OnDelay(Parent.GetContext(), inSignal, TimeDelay);
         END_METHOD
 

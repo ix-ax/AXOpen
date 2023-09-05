@@ -12,13 +12,31 @@ Each inspector contains:
 
 4. `Common data` about inspection inputs and result. See below.
 
-## Example inspection
+## Simple example inspection
+
+1. Declare variables
+
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/Inspectors.st?name=AxoInspectorDeclaration)]
+
+2. Set initial inspection pass and fail timers
+
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/Inspectors.st?name=AxoInspectorDataSet)]
+
+3. Run inspections
+
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/Inspectors.st?name=AxoInspectorSimpleInspection)]
+
+4. Check each inspector's data for results
+
+> [!NOTE]
+> Inspectors use AxOpen.Timers for counting time during inspections. Make sure, that `PLC cycle time` value in `configuration.st` is set accordingly to Pass and Fail timers (it should be in tens or hundreds milliseconds, the value shouldn't higher than lowest difference between pass and fail timers). If there are small differences (in ms) between pass and fail times and `PLC cycle time` is higher number (e.g. 1000 ms), unexpected behavior may occur and inspections can fail (even if they should pass).
+
+## Example inspection with Coordinator
 Example of inspection within a sequencer in PLC:
-```
- _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
-        .UpdateComprehensiveResult(_comprehensiveResult)
-        .OnFail().CarryOn();
-```
+
+
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/DocumentationContext.st?name=ExampleInspectionWithCoordinatorExample)]
+
 
 1. A _presenceInspector is created instance of `AxoDigitalInspector`
 
@@ -31,24 +49,8 @@ Example of inspection within a sequencer in PLC:
 
 Inspectors contain common data, which are used to store data about inspection. Each inspector contain following data:
 
-```C#
-Timestamp: LDATE_AND_TIME; // timestamp of inspection
 
-PassTime : TIME; // stabilization time, inspection must be success for this period of time
-
-FailTime : TIME; // timeout, after which inspection fails
-
-Result : eInspectorResult; // result of inspection
-
-IsExcluded: BOOL; // inspection will be performed, however result will be omitted in overall result
-
-IsByPassed : BOOL; // inspection will be skipped
-
-NumberOfAllowedRetries : UINT; // maximum number of retries of inspection, from which overinspection will occur
-
-RetryAttemptsCount : UINT; // actual number of retries, if RetryAttemptsCount > NumberOfAllowedRetries, overinspection occurs
-
-```
+[!code-smalltalk[](../../../src/inspectors/ctrl/src/AxoInspectorData.st?name=CommonInspectorDataDeclaration)]
 
 
 
@@ -74,9 +76,7 @@ When an inspector fails, OnFail() provides a series of methods for making decisi
 
 The following example specify, that when inspection fails, dialog is shown and is requesting user decision.
 
-```
- _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).OnFail().Dialog(Steps[20], Steps[145]);
-```
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/DocumentationContext.st?name=HandlingFailureExample)]
 
 ![Inspection failure](~/images/inspection-failure-dialog.png)   
 
@@ -90,25 +90,8 @@ When `RetryAttemptsCount` is same as `NumberOfAllowedRetries`, no more inspectio
 
 Overall result of a series of inspections can be preserved in `AxoComprehensiveResult`. Each inspector has `UpdateComprehensiveResult` method that provides the update function. Once the `UpdateComprehensiveResult` marks the overall result as Failed, successive inspection will not overwrite the result. 
 
-```
-
-IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
-
-    _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
-        .UpdateComprehensiveResult(_comprehensiveResult)
-        .OnFail().CarryOn();
-
-    END_IF;
-
-    IF (Steps[40].Execute(THIS, TRUE, 'Example Analog inspection')) THEN
-
-    _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue)
-        .UpdateComprehensiveResult(_comprehensiveResult)
-        .OnFail().CarryOn();
-
-    END_IF;
 
 
-END_IF;
-```
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/DocumentationContext.st?name=PreservingOverallResultExample)]
+
 

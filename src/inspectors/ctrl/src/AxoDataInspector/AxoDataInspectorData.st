@@ -6,7 +6,7 @@ NAMESPACE AXOpen.Inspectors
     CLASS AxoDataInspectorData EXTENDS AxoInspectorData
 
         VAR PUBLIC
-
+            //<AxoDataInspectorDataDeclaration>
             {#ix-set:AttributeName = "<#Required#>"}
             RequiredStatus: STRING;
 
@@ -16,6 +16,7 @@ NAMESPACE AXOpen.Inspectors
             {#ix-set:AttributeName = "<#Star notation#>"}
             StarNotationEnabled: BOOL;
 
+            //</AxoDataInspectorDataDeclaration>
         END_VAR 
 
     END_CLASS

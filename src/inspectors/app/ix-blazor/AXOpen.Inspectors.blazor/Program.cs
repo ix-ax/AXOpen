@@ -13,7 +13,8 @@ using AxOpen.Security;
 using Serilog;
 using AXOpen;
 using AXOpen.Logging;
-using librarytemplate;
+using axopen.inspectors;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
+
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
@@ -42,6 +44,7 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -59,6 +62,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapBlazorHub();
+app.MapHub<DialogHub>("/dialoghub");
 app.MapFallbackToPage("/_Host");
 
 app.Run();
@@ -102,3 +106,5 @@ public static class Roles
     public const string process_traceability_access = nameof(process_traceability_access);
     public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
 }
+
+
