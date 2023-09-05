@@ -14,6 +14,7 @@ using Serilog;
 using AXOpen;
 using AXOpen.Logging;
 using axopen.inspectors;
+using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
+
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
@@ -60,6 +62,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapBlazorHub();
+app.MapHub<DialogHub>("/dialoghub");
 app.MapFallbackToPage("/_Host");
 
 app.Run();

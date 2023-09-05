@@ -62,7 +62,7 @@ CLASS PUBLIC AutomatSequence
             _analogueInspector.Data()^.FailTime := TIME#3s;
             _dataInspector.Data()^.FailTime := TIME#3s;
 
-            _digitalInspector.Data()^.PassTime := TIME#2s;
+            _digitalInspector.Data()^.PassTime := TIME#2.5s;
             _analogueInspector.Data()^.PassTime := TIME#2s;
             _dataInspector.Data()^.PassTime := TIME#2s;
 
@@ -80,31 +80,34 @@ CLASS PUBLIC AutomatSequence
             
         END_IF;
 
-
+        // <PreservingOverallResultExample>
         IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
-            //-------------------------------------------------------
 
+            // <ExampleInspectionWithCoordinatorExample>
             _digitalInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
-
-            //-------------------------------------------------------
+            // </ExampleInspectionWithCoordinatorExample>
             END_IF;
 
-            IF (Steps[40].Execute(THIS, TRUE, 'Example Analog inspection')) THEN
-            //-------------------------------------------------------
-            
+        IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
 
-            _analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+        _analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 
-            //-------------------------------------------------------
-            END_IF;
+        END_IF;
+       // </PreservingOverallResultExample>
 
+        IF (Steps[40].Execute(THIS, TRUE, 'Example Data inspection')) THEN
+        
+        // <HandlingFailureExample>
+        _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
+        // </HandlingFailureExample>
+        END_IF;
 
-            IF (Steps[50].Execute(THIS, TRUE, 'Example Data inspection')) THEN
-            //-------------------------------------------------------
-            
-            _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+        IF (Steps[45].Execute(THIS, TRUE, 'Abort step')) THEN
+        
+            IF(Steps[45].Duration > T#3000ms) THEN
+                THIS.MoveNext(); 
+            END_IF;	
 
-            //-------------------------------------------------------
         END_IF;
 
 

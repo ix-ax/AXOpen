@@ -56,8 +56,8 @@ CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
      
             //set timers
             _data.Result := eInspectorResult#Running;
-            _inspectorTask._failTimer.OnDelay(THIS.GetContext(), TRUE, _data.FailTime);
-            _inspectorTask._passTimer.OnDelay(THIS.GetContext(), Status = _data.RequiredStatus, _data.PassTime);
+            _inspectorTask._failTimer.OnDelay(THIS, TRUE, _data.FailTime);
+            _inspectorTask._passTimer.OnDelay(THIS, Status = _data.RequiredStatus, _data.PassTime);
             
             _data.DetectedStatus := Status; 
             

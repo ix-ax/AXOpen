@@ -46,11 +46,11 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //+1s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _digitalInspector.Inspect(_sequencer,_inspectedBool);
-            Assert.Equal(eInspectorResult#Running, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             //+2s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
             _digitalInspector.Inspect(_sequencer,_inspectedBool);
-            Assert.Equal(eInspectorResult#Passed, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Passed, _digitalInspector.Result());
             
             _context.Close();
         END_METHOD
@@ -71,11 +71,11 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //+1s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _digitalInspector.Inspect(_sequencer,_inspectedBool);
-            Assert.Equal(eInspectorResult#Running, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             //+2s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
             _digitalInspector.Inspect(_sequencer,_inspectedBool);
-            Assert.Equal(eInspectorResult#Passed, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Passed, _digitalInspector.Result());
             
             _context.Close();
         END_METHOD
@@ -96,11 +96,11 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //+5s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:35.0);
             _digitalInspector.Inspect(_sequencer,_inspectedBool);
-            Assert.Equal(eInspectorResult#Running, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             //+11s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.0);
             _digitalInspector.Inspect(_sequencer,_inspectedBool);
-            Assert.Equal(eInspectorResult#Failed, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Failed, _digitalInspector.Result());
             
             _context.Close();
         END_METHOD
@@ -121,11 +121,11 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //+5s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:35.0);
             _digitalInspector.Inspect(_sequencer,_inspectedBool);
-            Assert.Equal(eInspectorResult#Running, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             //+11s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.0);
             _digitalInspector.Inspect(_sequencer,_inspectedBool);
-            Assert.Equal(eInspectorResult#Failed, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Failed, _digitalInspector.Result());
             
             _context.Close();
         END_METHOD
@@ -148,11 +148,11 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //+1s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,_inspectedBool).OnFail().CarryOn();
-            Assert.Equal(eInspectorResult#Running, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             //+2s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:32.0);
             _digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,_inspectedBool).OnFail().CarryOn();
-            Assert.Equal(eInspectorResult#Passed, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Passed, _digitalInspector.Result());
             
             _context.Close();
         END_METHOD
@@ -175,11 +175,11 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //+5s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:35.0);
             _digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,_inspectedBool).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
-            Assert.Equal(eInspectorResult#Running, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Running, _digitalInspector.Result());
             //+11s
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.0);
             _digitalInspector.WithCoordinator(_sequencer).Inspect(_sequencer,_inspectedBool).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
-            Assert.Equal(eInspectorResult#Failed, _digitalInspector.Data()^.Result);
+            Assert.Equal(eInspectorResult#Failed, _digitalInspector.Result());
             Assert.Equal(eOverallResult#Failed, _comprehensiveResult.Result);
             _context.Close();
         END_METHOD

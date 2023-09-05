@@ -9,7 +9,8 @@ variables:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
   "@ax/sdk": ^4.0.8
-  "@ax/sld": 0.15.9
+  "@ax/sld": 0.15.9 
+  "@ax/stc": ^5.4.89 
 dependencies:
   "@ix-ax/axopen.inspectors": 0.1.4-alpha.79
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'

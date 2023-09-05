@@ -28,13 +28,15 @@ Each inspector contains:
 
 4. Check each inspector's data for results
 
+> [!NOTE]
+> Inspectors use AxOpen.Timers for counting time during inspections. Make sure, that `PLC cycle time` value in `configuration.st` is set accordingly to Pass and Fail timers (it should be in tens or hundreds milliseconds, the value shouldn't higher than lowest difference between pass and fail timers). If there are small differences (in ms) between pass and fail times and `PLC cycle time` is higher number (e.g. 1000 ms), unexpected behavior may occur and inspections can fail (even if they should pass).
+
 ## Example inspection with Coordinator
 Example of inspection within a sequencer in PLC:
-```
- _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
-        .UpdateComprehensiveResult(_comprehensiveResult)
-        .OnFail().CarryOn();
-```
+
+
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/DocumentationContext.st?name=ExampleInspectionWithCoordinatorExample)]
+
 
 1. A _presenceInspector is created instance of `AxoDigitalInspector`
 
@@ -74,9 +76,7 @@ When an inspector fails, OnFail() provides a series of methods for making decisi
 
 The following example specify, that when inspection fails, dialog is shown and is requesting user decision.
 
-```
- _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).OnFail().Dialog(Steps[20], Steps[145]);
-```
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/DocumentationContext.st?name=HandlingFailureExample)]
 
 ![Inspection failure](~/images/inspection-failure-dialog.png)   
 
@@ -90,25 +90,8 @@ When `RetryAttemptsCount` is same as `NumberOfAllowedRetries`, no more inspectio
 
 Overall result of a series of inspections can be preserved in `AxoComprehensiveResult`. Each inspector has `UpdateComprehensiveResult` method that provides the update function. Once the `UpdateComprehensiveResult` marks the overall result as Failed, successive inspection will not overwrite the result. 
 
-```
-
-IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
-
-    _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
-        .UpdateComprehensiveResult(_comprehensiveResult)
-        .OnFail().CarryOn();
-
-    END_IF;
-
-    IF (Steps[40].Execute(THIS, TRUE, 'Example Analog inspection')) THEN
-
-    _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue)
-        .UpdateComprehensiveResult(_comprehensiveResult)
-        .OnFail().CarryOn();
-
-    END_IF;
 
 
-END_IF;
-```
+[!code-smalltalk[](../../../src/inspectors/app/src/Documentation/DocumentationContext.st?name=PreservingOverallResultExample)]
+
 

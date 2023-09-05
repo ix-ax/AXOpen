@@ -1,10 +1,13 @@
 ﻿@page "/Documentation"
+@using AXOpen.Core.Blazor.AxoDialogs
 @using axopen.inspectors;
 @using AXOpen.Core;
 @inherits RenderableComponentBase
 <PageTitle>Documentation</PageTitle>
 
 @* <RenderableContentControl Context="@Entry.Plc.documentation" Presentation="Command-Control" PollingInterval="100"/> *@
+
+<RenderableContentControl Context="@Entry.Plc.documentation._automat._comprehensiveResult" Presentation="Command-Control" PollingInterval="100" />
 
 <RenderableContentControl Context="@Entry.Plc.documentation._automat._analogueInspector" Presentation="Command-Control" PollingInterval="100"/>
 <RenderableContentControl Context="@Entry.Plc.documentation._automat._digitalInspector" Presentation="Command-Control" PollingInterval="100" />
@@ -31,11 +34,19 @@
     <div class="row">
        @if (Entry.Plc.documentation._automat.Status.Cyclic == (ushort)eAxoTaskState.Busy)
         {
-        <AxoSequencerView Component="Entry.Plc.documentation._automat" HasTaskControlButton="false"></AxoSequencerView>
+        <AxoSequencerView Component="Entry.Plc.documentation._automat" HasTaskControlButton="false" PollingInterval="20" ></AxoSequencerView>
         }
         
     </div>
+
 </div>
+<RenderableContentControl Context="@Entry.Plc.documentation._automat._inspectionResult" Presentation="Command-Control" PollingInterval="100" />
+<RenderableContentControl Context="@Entry.Plc.documentation._automat._inspectionValue" Presentation="Command-Control" PollingInterval="100" />
+<RenderableContentControl Context="@Entry.Plc.documentation._automat._inspectionData" Presentation="Command-Control" PollingInterval="100" />
+
+
+<AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.documentation._automat}" />
+
 @code
 {
     protected override void OnInitialized()
