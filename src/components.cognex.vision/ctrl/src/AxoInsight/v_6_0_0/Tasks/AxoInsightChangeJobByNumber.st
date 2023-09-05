@@ -1,6 +1,8 @@
 USING AXOpen.Core;
 USING System.Strings;
 USING System.SerDe;
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
     CLASS PUBLIC AxoInsightChangeJobByNumber EXTENDS AXOpen.Core.AxoTask
@@ -11,12 +13,17 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_VAR
 
         VAR PRIVATE 
-            _infoTime   :   LTIME := LT#2S;
-            _errorTime  :   LTIME := LT#5S;
-            _Status     :   REF_TO  AxoInsight_Status;	
-            _jobNumber  :   UINT;
+            _infoTime       :   LTIME := LT#2S;
+            _errorTime      :   LTIME := LT#5S;
+            _refStatus      :   REF_TO  AxoInsight_Status;	
+            _refMessenger   :   REF_TO  AxoMessenger;	
+            _jobNumber      :   UINT;
         END_VAR
 
+        ///<summary>
+        /// Runs the logic of this tasks.
+        /// >[!IMPORTANT] This method must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run 
             VAR_INPUT
                 refAcquisitionControl   :   REF_TO  AxoInsight_AcquisitionControl;
@@ -26,16 +33,20 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refCommandControl       :   REF_TO  AxoInsight_CommandControl;
                 refConfig               :   REF_TO  AxoInsight_Config;
                 refStatus               :   REF_TO  AxoInsight_Status;	
+                refMessenger            :   REF_TO  AxoMessenger;
             END_VAR          
 
             _infoTime := refConfig^.InfoTime;
             _errorTime := refConfig^.ErrorTime;
-            _Status := refStatus;
+            _refStatus := refStatus;
+            _refMessenger := refMessenger;
         
             IF THIS.Execute() THEN
+                refMessenger^.Serve(THIS);
                 IF _progress = 0 THEN
                     refStatus^.Action.Id := UINT#315;
                     refStatus^.Error.Id := UINT#0;
+                    refMessenger^.Restore();
                     refStatus^.CurrentJobName := '';
                     refStatus^.CurrentJobNumber := UINT#0;
                     THIS.CallTimers(FALSE);
@@ -45,6 +56,8 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
                 IF _progress = 1 THEN
                     THIS.CallTimers(FALSE);
+                    _refMessenger^.ActivateOnCondition(ULINT#719, _jobNumber > refConfig^.MaxJobNumber, eAxoMessageCategory#Error);
+
                     IF _jobNumber > refConfig^.MaxJobNumber THEN
                         refStatus^.Error.Id := UINT#719;
                         THIS.ThrowWhen(TRUE);
@@ -54,6 +67,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
 
                 IF _progress = 2 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#608, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#608;
                     END_IF;
@@ -68,6 +82,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 3 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#609, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#609;
                     END_IF;
@@ -80,6 +95,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 4 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#610, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#610;
                     END_IF;
@@ -94,6 +110,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 5 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#614, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#614;
                     END_IF;
@@ -111,6 +128,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 6 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#615, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#615;
                     END_IF;
@@ -125,6 +143,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 7 THEN	
+                    refMessenger^.ActivateOnCondition(ULINT#616, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#616;
                     END_IF;
@@ -149,6 +168,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
                 IF _progress = 20 THEN
                     refStatus^.Error.Id := UINT#720;
+                    _refMessenger^.ActivateOnCondition(ULINT#720, TRUE , eAxoMessageCategory#Error);
                     refInspectionControl^.ExecuteCommand := FALSE;
                     refAcquisitionControl^.SetOffline := FALSE;
                     refCommandControl^.Command := UINT#0;
@@ -172,34 +192,35 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnRestore 
-            _Status^.Action.Id := UINT#317;
-            _Status^.Error.Id  := UINT#0;
-            _Status^.CurrentJobNumber := UINT#0;
+            _refStatus^.Action.Id := UINT#317;
+            _refStatus^.Error.Id  := UINT#0;
+            _refMessenger^.Restore();
+            _refStatus^.CurrentJobNumber := UINT#0;
             _progress := 0;
             THIS.CallTimers(FALSE);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnAbort 
-            IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#603;
+            IF _refStatus <> NULL THEN
+                _refStatus^.Action.Id := UINT#603;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnDone 
-            IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#316;
+            IF _refStatus <> NULL THEN
+                _refStatus^.Action.Id := UINT#316;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnError 
-            IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#703;
+            IF _refStatus <> NULL THEN
+                _refStatus^.Action.Id := UINT#703;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnStart 
-            IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#314;
+            IF _refStatus <> NULL THEN
+                _refStatus^.Action.Id := UINT#314;
             END_IF;
         END_METHOD
         

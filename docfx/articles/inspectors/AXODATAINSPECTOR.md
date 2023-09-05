@@ -6,11 +6,4 @@ Provides evaluation of alphanumerical values. The input value compares against t
 
 Common inspector data are extended with following data inspector data:
 
-```C#
-RequiredStatus : STRING; //required value for inspection
-
-DetectedStatus : STRING; //detected value for inspection
-
-StarNotationEnabled: BOOL; //star notation enable/disable
-
-```
+[!code-smalltalk[](../../../src/inspectors/ctrl/src/AxoDataInspector/AxoDataInspectorData.st?name=AxoDataInspectorDataDeclaration)]

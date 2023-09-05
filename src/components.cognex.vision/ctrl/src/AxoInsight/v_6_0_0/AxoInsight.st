@@ -1,3 +1,5 @@
+USING AXOpen.Messaging.Static;
+USING AXOpen.Messaging;
 USING AXOpen.Core;
 USING AXOpen.Components.Abstractions;
 
@@ -124,13 +126,12 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-set:AttributeName = "<#User data#>"}
             {#ix-attr:[ReadOnly()]}
-            User        :   AxoInsight_UserData;
+            UserData        :   AxoInsight_UserData;
+
+            _Messenger          :   AXOpen.Messaging.Static.AxoMessenger;
+            _TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
                
-        VAR PRIVATE
-            _taskDisabled : BOOL;
-        END_VAR
-
         ///<summary>
 		/// Restores this instance . 
         ///</summary>   
@@ -141,6 +142,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             Status.Action.Id := UINT#0;
             Status.Error.Id  := UINT#0;
             Status.CurrentJobName := '';
+            _Messenger.Restore();
+            _TaskMessenger.Restore();
+
 
             ClearInspectionResultsTask.Restore();
             TriggerTask.Restore();
@@ -153,11 +157,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             Results.InspectionID                            :=  UINT#0;
             Results.ResultCode                              :=  UINT#0;
             
-            FOR _index := 0 TO 250 DO
+            FOR _index := 0 TO 249 DO
                 InspectionResults.Data[_index] := BYTE#0;
             END_FOR;
             InspectionResults.ToggleDataChangedFlag();
-
+  
             AcquisitionControl.TriggerEnable                :=  FALSE;
             AcquisitionControl.Trigger					    :=  FALSE;
             AcquisitionControl.ClearExposureComplete        :=  AcquisitionStatus.ExposureComplete;
@@ -181,11 +185,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEventControl.TriggerSoftEvent.Data[6]       :=  FALSE;
             SoftEventControl.TriggerSoftEvent.Data[7]       :=  FALSE;
 
-            FOR _index := 0 TO 254 DO
-                User.Data[_index] := BYTE#0;
+            FOR _index := 0 TO 253 DO
+                UserData.Data[_index] := BYTE#0;
             END_FOR;
-
-            User.ToggleDataChangedFlag();
+            UserData.ToggleDataChangedFlag();
 
             IF NOT AcquisitionStatus.ExposureComplete AND NOT InspectionStatus.Error THEN
                 Status.Action.Id := UINT#300;
@@ -271,6 +274,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.ResultDataSize := eAxoInsight_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             END_IF;
 
+            _Messenger.ActivateOnCondition(ULINT#711,Status.ResultDataSize = eAxoInsight_ResultDataSize#RESULT_DATA_SIZE_INVALID, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#712,LOWER_BOUND(refResultData^,1) <> 0, eAxoMessageCategory#ProgrammingError);
+            
             IF(Status.ResultDataSize <> eAxoInsight_ResultDataSize#RESULT_DATA_SIZE_INVALID) THEN
                 Results.InspectionID.%B1        :=  refResultData^[0];     
                 Results.InspectionID.%B0        :=  refResultData^[1];     
@@ -329,6 +335,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 ELSIF (UPPER_BOUND(refUserData^,1) = 253) THEN
                     Status.UserDataSize := eAxoInsight_UserDataSize#USER_DATA_254B;
                 ELSE
+                    Status.UserDataSize := eAxoInsight_UserDataSize#USER_DATA_SIZE_INVALID;
                     Status.Error.Id := UINT#713;
                     UpdateOutputs := FALSE;
                 END_IF;
@@ -336,11 +343,15 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#714;
                 UpdateOutputs := FALSE;
             END_IF;
-            IF User.DataChanged <> UserDataChanged THEN
+
+            _Messenger.ActivateOnCondition(ULINT#713,Status.UserDataSize = eAxoInsight_UserDataSize#USER_DATA_SIZE_INVALID, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#714,LOWER_BOUND(refUserData^,1) <> 0, eAxoMessageCategory#ProgrammingError);
+
+            IF(Status.UserDataSize <> eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID) AND (UserData.DataChanged <> UserDataChanged) THEN
                 FOR index := 0 TO Status.UserDataSize - 1 DO
-                    refUserData^[index] := User.Data[index];
+                    refUserData^[index] := UserData.Data[index];
                 END_FOR;
-                UserDataChanged := User.DataChanged;
+                UserDataChanged := UserData.DataChanged;
             END_IF;
         END_METHOD  
 
@@ -381,12 +392,30 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ELSE
                 IsValidReferences := TRUE;
             END_IF;
+
+            _Messenger.ActivateOnCondition(ULINT#701,refAcquisitionControl = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#702,refAcquisitionStatus = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#703,refInspectionControl = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#704,refInspectionStatus = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#705,refCommandControl = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#706,refCommandStatus = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#707,refSoftEventControl = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#708,refSoftEventStatus = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#709,refResultData = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#710,refUserData = NULL, eAxoMessageCategory#ProgrammingError);
         END_METHOD
 
+        ///<summary>
+		/// Custom component logic running before any other component logic.
+        ///</summary>   
         METHOD PROTECTED OVERRIDE Open
             SUPER.Open();
         END_METHOD  
 
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                 :   IAxoObject; 
@@ -405,6 +434,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#700;
                 RETURN;
             END_IF;
+
+            _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
             END_IF;
@@ -414,6 +446,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             THIS.Close();            
         END_METHOD
 
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                 :   IAxoContext; 
@@ -432,6 +468,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#700;
                 RETURN;
             END_IF;
+
+            _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
             END_IF;
@@ -461,65 +500,79 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ChangeJobByNameTask.Initialize(THIS);
             ChangeJobByNumberTask.Initialize(THIS);
             SoftEventTask.Initialize(THIS);
-
+            
+            _Messenger.Serve(THIS);
+ 
             THIS.UpdateInputs(refAcquisitionStatus,refInspectionStatus,refCommandStatus,refSoftEventStatus,refResultData);
 
             //*************RESTORE********************
-            _taskDisabled := FALSE;
-            RestoreTask.IsDisabled := _taskDisabled;
+            RestoreTask.IsDisabled := FALSE;
             IF RestoreTask.Execute() THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************CLEAR*DATA*****************
-            _taskDisabled := _taskDisabled OR RestoreTask.IsBusy();
-            ClearInspectionResultsTask.IsDisabled := _taskDisabled;
-            ClearInspectionResultsTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(Config),REF(Status),REF(Results),REF(InspectionResults));
+            ClearInspectionResultsTask.IsDisabled := RestoreTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy();
+            ClearInspectionResultsTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(Config),REF(Status),REF(Results),REF(InspectionResults),REF(_TaskMessenger));
             //****************************************
 
             //*************READ***********************
-            _taskDisabled := _taskDisabled OR ClearInspectionResultsTask.IsBusy();
-            TriggerTask.IsDisabled :=  _taskDisabled;
-            TriggerTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(InspectionResults),refResultData);
+            TriggerTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy();
+            TriggerTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(Results),REF(InspectionResults),refResultData,REF(_TaskMessenger));
             //****************************************
 
             //*************CHANGE JOB BY NAME*********
-            _taskDisabled := _taskDisabled OR TriggerTask.IsBusy();
-            ChangeJobByNameTask.IsDisabled :=  _taskDisabled;
-            ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(User));
+            ChangeJobByNameTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNumberTask.IsBusy() OR SoftEventTask.IsBusy();
+            ChangeJobByNameTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(UserData),REF(_TaskMessenger));
             //****************************************
 
             //*************CHANGE JOB BY NUMBER*******
-            _taskDisabled := _taskDisabled OR ChangeJobByNameTask.IsBusy();
-            ChangeJobByNumberTask.IsDisabled :=  _taskDisabled;
-            ChangeJobByNumberTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status));
+            ChangeJobByNumberTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR SoftEventTask.IsBusy();
+            ChangeJobByNumberTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(_TaskMessenger));
             //****************************************
 
             //*************Soft event*****************
-            _taskDisabled := _taskDisabled OR ChangeJobByNameTask.IsBusy();
-            SoftEventTask.IsDisabled :=  _taskDisabled;
-            SoftEventTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(SoftEventControl),REF(SoftEventStatus));
+            SoftEventTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearInspectionResultsTask.IsBusy() OR TriggerTask.IsBusy() OR ChangeJobByNameTask.IsBusy() OR ChangeJobByNumberTask.IsBusy();
+            SoftEventTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(InspectionControl),REF(InspectionStatus),REF(CommandControl),REF(Config),REF(Status),REF(SoftEventControl),REF(SoftEventStatus),REF(_TaskMessenger));
             //****************************************
+
+            _Messenger.ActivateOnCondition(ULINT#717,ClearInspectionResultsTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#718,TriggerTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#719,ChangeJobByNameTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#720,ChangeJobByNumberTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#721,SoftEventTask.HasError(), eAxoMessageCategory#Error);
+
+            _Messenger.ActivateOnCondition(ULINT#722,ClearInspectionResultsTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#723,TriggerTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#724,ChangeJobByNameTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#725,ChangeJobByNumberTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#726,SoftEventTask.IsAborted(), eAxoMessageCategory#Error);
 
             THIS.UpdateOutputs(refAcquisitionControl,refInspectionControl,refCommandControl,refSoftEventControl,refUserData);
         END_METHOD    
         
+        ///<summary>
+		/// Custom component logic running after any other component logic.
+        ///</summary>   
         METHOD PROTECTED OVERRIDE Close
             SUPER.Close();
-        END_METHOD  
+        END_METHOD 
+
         ///<summary>
 		/// Clears the inspection results. 	
         ///</summary>       
         METHOD PUBLIC ClearInspectionResults : IAxoTaskState
             ClearInspectionResults := ClearInspectionResultsTask.Invoke();;
         END_METHOD
+
         ///<summary>
 		/// Triggers the reading sequence and waits for results. 	
         ///</summary>       
         METHOD PUBLIC Trigger : IAxoTaskState
             Trigger := TriggerTask.Invoke();
         END_METHOD
+
         ///<summary>
 		/// Changes the sensor job using job number. 	
         ///</summary>       
@@ -529,6 +582,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             ChangeJob := ChangeJobByNumberTask.InvokeWithParameters(Job);
         END_METHOD
+
         ///<summary>
 		/// Changes the sensor job using job name. 	
         ///</summary>       
@@ -538,6 +592,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             ChangeJob := ChangeJobByNameTask.InvokeWithParameters(Job);
         END_METHOD
+        
         ///<summary>
 		/// Triggers the soft event. 
         ///</summary>       
@@ -548,5 +603,4 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             SoftEvent := SoftEventTask.InvokeWithParameters(EventNumber);
         END_METHOD
     END_CLASS    
-
 END_NAMESPACE

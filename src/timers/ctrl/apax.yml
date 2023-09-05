@@ -7,6 +7,6 @@ files:
   - src
 devDependencies:
   "@ax/sdk": 4.0.8
-  "@ax/stc": 5.4.89
+  "@ax/stc": ^5.4.89
 dependencies:
   "@ix-ax/axopen.abstractions": ^0.1.4-alpha.79

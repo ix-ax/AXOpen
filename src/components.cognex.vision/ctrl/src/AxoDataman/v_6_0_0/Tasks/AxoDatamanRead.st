@@ -1,4 +1,6 @@
 USING AXOpen.Core;
+USING AXOpen.Messaging;
+USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
     CLASS PUBLIC AxoDatamanRead EXTENDS AXOpen.Core.AxoTask
@@ -9,11 +11,16 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_VAR
 
         VAR PRIVATE 
-            _infoTime : LTIME := LT#2S;
-            _errorTime : LTIME := LT#5S;
-            _Status     :   REF_TO  AxoDataman_Status;	
+            _infoTime       :   LTIME := LT#2S;
+            _errorTime      :   LTIME := LT#5S;
+            _refStatus         :   REF_TO  AxoDataman_Status;	
+            _refMessenger   :   REF_TO  AxoMessenger;	
         END_VAR
 
+        ///<summary>
+        /// Runs the logic of this tasks.
+        /// >[!IMPORTANT] This method must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run 
             VAR_INPUT
                 refAcquisitionControl  :   REF_TO  AxoDataman_AcquisitionControl;
@@ -23,7 +30,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refConfig              :   REF_TO  AxoDataman_Config;
                 refStatus              :   REF_TO  AxoDataman_Status;	
                 refResults             :   REF_TO  AxoDataman_Results;
-                refResultData          :   REF_TO  ARRAY[*] OF BYTE;
+                refResultData          :   REF_TO  AxoDataman_ResultData;
+                refResultDataHW        :   REF_TO  ARRAY[*] OF BYTE;
+                refMessenger           :   REF_TO  AxoMessenger;
             END_VAR          
 
             VAR
@@ -32,12 +41,15 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 
             _infoTime := refConfig^.InfoTime;
             _errorTime := refConfig^.ErrorTime;
-            _Status := refStatus;
-        
+            _refStatus := refStatus;
+            _refMessenger := refMessenger;
+
             IF THIS.Execute() THEN
+                refMessenger^.Serve(THIS);
                 IF _progress = 0 THEN
                     refStatus^.Action.Id := UINT#305;
                     refStatus^.Error.Id := UINT#0;
+                    refMessenger^.Restore();
                     THIS.CallTimers(FALSE);
                     IF refResultsStatus^.ErrorDetected THEN
                         _progress := 20;
@@ -61,6 +73,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 2 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#601, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#601;
                     END_IF;
@@ -71,6 +84,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 3 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#602, _infoTimer.output, eAxoMessageCategory#Warning);
                     refAcquisitionControl^.Trigger := TRUE;
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#602;
@@ -82,6 +96,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 4 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#603, _infoTimer.output, eAxoMessageCategory#Warning);
                     IF _infoTimer.output THEN
                         refStatus^.Error.Id := UINT#603;
                     END_IF;
@@ -92,6 +107,7 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 5 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#713, refResults^.Length > TO_UINT(refStatus^.ResultDataSize), eAxoMessageCategory#Error);
                     IF refResults^.Code = UINT#0 OR refResults^.Length=UINT#0 OR refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
                         THIS.ThrowWhen(TRUE);
                         IF refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
@@ -104,7 +120,22 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 6 THEN
-                    System.SerDe.Deserialize(UINT#7, refResultData^, refResults^.Data);
+                    refMessenger^.ActivateOnCondition(ULINT#604, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        refStatus^.Error.Id := UINT#604;
+                    END_IF;
+
+                    FOR _index := 0 TO (TO_INT(refResults^.Length) - INT#1) DO
+                        refResultData^.Data[_index] := refResultDataHW^[_index + 8];
+                    END_FOR;
+                    FOR _index := TO_INT(refResults^.Length) TO 245 DO
+                        refResultData^.Data[_index] := BYTE#0;
+                    END_FOR;
+                    refResultData^.DataChanged := NOT refResultData^.DataChanged ;
+                    _progress := _progress + 1;
+                END_IF;
+                
+                IF _progress = 7 THEN
                     refAcquisitionControl^.Trigger := FALSE;
                     refResultsControl^.EnableResultBuffering := FALSE;
                     refResultsControl^.ResultsAcknowledge := TRUE;
@@ -113,6 +144,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
                 
                 IF _progress = 20 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#605, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        refStatus^.Error.Id := UINT#605;
+                    END_IF;
                     refAcquisitionControl^.TriggerEnable :=FALSE;
                     refAcquisitionControl^.Trigger := FALSE;
                     refResultsControl^.EnableResultBuffering := FALSE;
@@ -124,6 +159,10 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 END_IF;
 
                 IF _progress = 21 THEN
+                    refMessenger^.ActivateOnCondition(ULINT#606, _infoTimer.output, eAxoMessageCategory#Warning);
+                    IF _infoTimer.output THEN
+                        refStatus^.Error.Id := UINT#606;
+                    END_IF;
                     refAcquisitionControl^.TriggerEnable :=TRUE;
                     IF NOT refResultsStatus^.ErrorDetected THEN
                         THIS.CallTimers(FALSE);
@@ -155,33 +194,34 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnRestore 
-            _Status^.Action.Id := UINT#309;
-            _Status^.Error.Id  := UINT#0;
+            _refStatus^.Action.Id := UINT#309;
+            _refStatus^.Error.Id  := UINT#0;
+            _refMessenger^.Restore();
             _progress := 0;
             THIS.CallTimers(FALSE);
         END_METHOD
 
         METHOD PROTECTED OVERRIDE OnAbort 
-            IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#601;
+            IF _refStatus <> NULL THEN
+                _refStatus^.Action.Id := UINT#601;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnDone 
-            IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#306;
+            IF _refStatus <> NULL THEN
+                _refStatus^.Action.Id := UINT#306;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnError 
-            IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#701;
+            IF _refStatus <> NULL THEN
+                _refStatus^.Action.Id := UINT#701;
             END_IF;
         END_METHOD
         
         METHOD PROTECTED OVERRIDE OnStart 
-            IF _Status <> NULL THEN
-                _Status^.Action.Id := UINT#304;
+            IF _refStatus <> NULL THEN
+                _refStatus^.Action.Id := UINT#304;
             END_IF;
         END_METHOD
     END_CLASS    

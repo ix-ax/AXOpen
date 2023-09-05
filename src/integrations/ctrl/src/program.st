@@ -73,10 +73,12 @@ PROGRAM MyProgram
     
     AxoCognexVisionDatamanExampleContext.PlcInputs := REF(PlcInputs);
     AxoCognexVisionDatamanExampleContext.PlcOutputs := REF(PlcOutputs);
+    AxoCognexVisionDatamanExampleContext.InjectRtc(AxoRtc);
     AxoCognexVisionDatamanExampleContext.Run();
 
     AxoCognexVisionInsightExampleContext.PlcInputs := REF(PlcInputs);
     AxoCognexVisionInsightExampleContext.PlcOutputs := REF(PlcOutputs);
+    AxoCognexVisionInsightExampleContext.InjectRtc(AxoRtc);
     AxoCognexVisionInsightExampleContext.Run();
     AxoByteArrayExampleContext.Run();
     AxoBoolArrayExampleContext.Run();
