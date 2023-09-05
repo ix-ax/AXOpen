@@ -3,8 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>net7.0</TargetFrameworks>
     <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    
+    <ImplicitUsings>enable</ImplicitUsings>    
 	  <RootNamespace>AXOpen.Inspectors.Blazor</RootNamespace>
 
 	  <!--NuGet Specific part-->

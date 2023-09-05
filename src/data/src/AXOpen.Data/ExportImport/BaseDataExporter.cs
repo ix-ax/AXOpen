@@ -19,7 +19,7 @@ namespace AXOpen.Data
         {
         }
 
-        public List<string> BaseExport(IRepository<TPlain> repository, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
+        public List<string> BaseExport(IRepository<TPlain> dataRepository, Expression<Func<TPlain, bool>> expression, Dictionary<string, bool>? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = ';')
         {
             if (customExportData == null)
                 customExportData = new Dictionary<string, bool>();
@@ -30,13 +30,13 @@ namespace AXOpen.Data
             switch (exportMode)
             {
                 case eExportMode.First:
-                    exportables = repository.Queryable.Where(expression).Take(firstNumber);
+                    exportables = dataRepository.Queryable.Where(expression).Take(firstNumber);
                     break;
                 case eExportMode.Last:
-                    exportables = repository.Queryable.Where(expression).TakeLast(firstNumber);
+                    exportables = dataRepository.Queryable.Where(expression).TakeLast(firstNumber);
                     break;
                 case eExportMode.Exact:
-                    exportables = repository.Queryable.Where(expression).Skip(firstNumber - 1).Take(secondNumber - firstNumber + 1);
+                    exportables = dataRepository.Queryable.Where(expression).Skip(firstNumber - 1).Take(secondNumber - firstNumber + 1);
                     break;
             }
 
@@ -175,11 +175,11 @@ namespace AXOpen.Data
                 {
                     dictionary[a].Value = documentItems[a];
                 }
-                UpdateDocument(dataRepository, dictionary, valueTags, prototype, authenticationState);
+                UpdateDocument(dataRepository, dictionary, valueTags, prototype, authenticationState, separator);
             }
         }
 
-        private void UpdateDocument(IRepository<TPlain> dataRepository, List<ImportItems> dictionary, IEnumerable<ITwinPrimitive> valueTags, ITwinObject prototype, AuthenticationState authenticationState)
+        protected void UpdateDocument(IRepository<TPlain> dataRepository, List<ImportItems> dictionary, IEnumerable<ITwinPrimitive> valueTags, ITwinObject prototype, AuthenticationState authenticationState, char separator = ';')
         {
             string id = dictionary.FirstOrDefault(p => p.Key.Contains("DataEntityId")).Value;
             var existing = dataRepository.Queryable.Where(p => p.DataEntityId == id).FirstOrDefault();
@@ -207,7 +207,7 @@ namespace AXOpen.Data
 
                     if (type is OnlinerString || type is OnlinerWString)
                     {
-                        ((dynamic)tag).Shadow = (CastValue(type, item.Value) as string)?.Replace('►', ';');
+                        ((dynamic)tag).Shadow = (CastValue(type, item.Value) as string)?.Replace('►', separator);
                     }
                     else
                     {
@@ -250,10 +250,10 @@ namespace AXOpen.Data
             }
         }
 
-        private class ImportItems
+        protected class ImportItems
         {
-            internal string Key { get; set; }
-            internal dynamic Value { get; set; }
+            public string Key { get; set; }
+            public dynamic Value { get; set; }
         }
 
         private dynamic CastValue(OnlinerBase type, string @value)

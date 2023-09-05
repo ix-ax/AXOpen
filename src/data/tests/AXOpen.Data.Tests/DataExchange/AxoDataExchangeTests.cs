@@ -681,7 +681,7 @@ namespace AXOpen.Data.Tests
                     string text = tr.ReadToEnd();
                     switch (entry.Name)
                     {
-                        case "axosimple.SharedProductionDataManager.csv":
+                        case "b.csv":
                             Assert.Equal("_data.DataEntityId*_data.GoesTo*\r_data.DataEntityId*_data.GoesTo*\rsecond*21*\r", text);
                             break;
                         default:
@@ -713,7 +713,7 @@ namespace AXOpen.Data.Tests
 
             File.Delete(zipFile);
 
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "b.csv")))
             {
                 sw.Write(
                     "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r" +
@@ -755,7 +755,7 @@ namespace AXOpen.Data.Tests
 
             File.Delete(zipFile);
 
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "b.csv")))
             {
                 sw.Write(
                     "_data.DataEntityId*_data.GoesTo*\r" +
@@ -797,7 +797,7 @@ namespace AXOpen.Data.Tests
 
             File.Delete(zipFile);
 
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "b.csv")))
             {
                 sw.Write(
                     "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +

@@ -588,7 +588,7 @@ namespace AXOpen.Data.Fragments.Tests
                     string text = tr.ReadToEnd();
                     switch (entry.Name)
                     {
-                        case "examples.PneumaticManipulator.FragmentProcessDataManger.txt":
+                        case "Manip.txt":
                             Assert.Equal("_data.DataEntityId*\r_data.DataEntityId*\rsecond*\r", text);
                             break;
                         default:
@@ -620,11 +620,11 @@ namespace AXOpen.Data.Fragments.Tests
 
             File.Delete(zipFile);
 
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.Set.GetSymbolTail() + ".csv")))
             {
                 sw.Write("_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\r_data.DataEntityId;_data.ComesFrom;_data.GoesTo;\rhey remote create;10;20;\r");
             }
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "examples.PneumaticManipulator.FragmentProcessDataManger.csv")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.Manip.GetSymbolTail() + ".csv")))
             {
                 sw.Write("_data.DataEntityId;_data.CounterDelay;\r_data.DataEntityId;_data.CounterDelay;\rhey remote create;20;\r");
             }
@@ -665,11 +665,11 @@ namespace AXOpen.Data.Fragments.Tests
 
             File.Delete(zipFile);
 
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.txt")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, sut.Set.GetSymbolTail() + ".txt")))
             {
                 sw.Write("_data.DataEntityId*_data.GoesTo*\r_data.DataEntityId*_data.GoesTo*\rfirst*11*\r");
             }
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "examples.PneumaticManipulator.FragmentProcessDataManger.txt")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, sut.Manip.GetSymbolTail() + ".txt")))
             {
                 sw.Write("_data.DataEntityId*\r_data.DataEntityId*\rfirst*\r");
             }
@@ -710,7 +710,7 @@ namespace AXOpen.Data.Fragments.Tests
 
             File.Delete(zipFile);
 
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "axosimple.SharedProductionDataManager.csv")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.Set.GetSymbolTail() + ".csv")))
             {
                 sw.Write(
                     "_data.DataEntityId;_data.ComesFrom;_data.GoesTo;_data.ExtraElement;\r" +
@@ -718,7 +718,7 @@ namespace AXOpen.Data.Fragments.Tests
                     "hey remote create;10;20;30;\r"
                     );
             }
-            using (var sw = new StreamWriter(Path.Combine(tempDirectory, "examples.PneumaticManipulator.FragmentProcessDataManger.csv")))
+            using (var sw = new StreamWriter(Path.Combine(tempDirectory, tempDirectory, sut.Manip.GetSymbolTail() + ".csv")))
             {
                 sw.Write(
                     "_data.DataEntityId;_data.CounterDelay;_data.ExtraElement;\r" +

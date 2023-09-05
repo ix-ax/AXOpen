@@ -60,9 +60,11 @@ NAMESPACE AXOpen.Messaging.Static
             VAR_INPUT
                 _object : IAxoObject;
             END_VAR  
+        
             IF AXOpen.Core.IsNullContext(_object.GetContext()) THEN
                 RETURN;
             END_IF;
+
             THIS.Initialize(_object);
 
             THIS.Serve(_object.GetContext());                       
