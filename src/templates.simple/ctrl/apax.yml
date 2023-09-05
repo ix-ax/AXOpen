@@ -57,3 +57,6 @@ scripts:
 targets:
   - plcsim
   - axunit-lvvm 
+  - lvvm 
+  - "1500" 
+  
