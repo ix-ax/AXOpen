@@ -13,18 +13,12 @@
                 <div class="row">
                     <div class="col">
                         <div class="card ps-2">
+                            <RenderableContentControl Context="@Entry.Plc.AxoMessengersDocu" Presentation="Command-Control" Class="ps-2" />
+                        </div>
+                        <div class="card ps-2" hidden="hidden">
                             //<RenderedView>
                                 <RenderableContentControl Context="@Entry.Plc.AxoMessengersDocu._messenger1" Presentation="Command-Control" Class="ps-2"/>
                             //</RenderedView>
-                        </div>
-                        <div class="card ps-2">
-                            <RenderableContentControl Context="@Entry.Plc.AxoMessengersDocu._messenger1condition" Presentation="Command-Control" Class="ps-2" />
-                        </div>
-                        <div class="card ps-2">
-                            <RenderableContentControl Context="@Entry.Plc.AxoMessengersDocu._messenger2" Presentation="Command-Control" Class="ps-2" />
-                        </div>
-                        <div class="card ps-2">
-                            <RenderableContentControl Context="@Entry.Plc.AxoMessengersDocu._messenger2condition" Presentation="Command-Control" Class="ps-2" />
                         </div>
                     </div>
                 </div>

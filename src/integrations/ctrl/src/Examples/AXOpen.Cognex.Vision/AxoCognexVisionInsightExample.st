@@ -35,21 +35,44 @@ NAMESPACE AxoCognexVisionInsightExamples
         END_METHOD
 
 
-        // METHOD DocuExample
-        //         //<Read>
-        //         IF MyDataman1.Read().IsDone() THEN
-        //             //Process the result data
-        //             myString := MyDataman1.Results.Data;
-        //         END_IF;                          
-        //         //</Read>
+        METHOD DocuExample
+            VAR
+                myData : ARRAY[0..249] OF BYTE;
+            END_VAR
+                
+                //<ClearInspectionResults>
+                IF MyInsight.ClearInspectionResults().IsDone() THEN
+                    //Data inside MyInsight.InspectionResults.Data is cleared
+                    ;
+                END_IF;    
+                //</ClearInspectionResults>
 
-        //         //<ClearResultData>
-        //         IF MyDataman1.ClearResultData().IsDone() THEN
-        //             //Data inside MyDataman1.Results.Data is cleared
-        //             ;
-        //         END_IF;                          
-        //         //</ClearResultData>
-        // END_METHOD
+                //<Trigger>
+                IF MyInsight.Trigger().IsDone() THEN
+                    //Process the result data
+                    myData := MyInsight.InspectionResults.Data;
+                END_IF;                          
+                //</Trigger>
+
+                //<ChangeJobByNumber>
+                IF MyInsight.ChangeJob(UINT#5).IsDone() THEN
+                    ;
+                END_IF;                          
+                //</ChangeJobByNumber>
+
+                //<ChangeJobByName>
+                IF MyInsight.ChangeJob('MyJobName.job').IsDone() THEN
+                    ;
+                END_IF;                          
+                //</ChangeJobByName>
+                
+                //<SoftEvent>
+                IF MyInsight.SoftEvent(UINT#5).IsDone() THEN
+                    ;
+                END_IF;                          
+                //</SoftEvent>
+                      
+        END_METHOD
 
     END_CLASS
 END_NAMESPACE

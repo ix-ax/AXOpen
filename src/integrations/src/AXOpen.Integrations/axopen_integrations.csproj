@@ -20,6 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="AXOpen.Messaging - Copy\**" />
+    <EmbeddedResource Remove="AXOpen.Messaging - Copy\**" />
+    <None Remove="AXOpen.Messaging - Copy\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include=".g\Onliners\ix-core\" />
   </ItemGroup>
 

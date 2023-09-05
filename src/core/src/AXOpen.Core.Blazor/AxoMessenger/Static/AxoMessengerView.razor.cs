@@ -1,6 +1,7 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.JSInterop;
 using System.Security.Principal;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -11,6 +12,16 @@ namespace AXOpen.Messaging.Static
 
         [Inject]
         protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+
+        [Inject]
+        protected IJSRuntime js { get; set; }
+        private IJSObjectReference? jsModule;
+
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.js");
+            await jsObject.InvokeVoidAsync("addPopovers");
+        }
 
         protected async Task<string?> GetCurrentUserName()
         {
@@ -24,16 +35,10 @@ namespace AXOpen.Messaging.Static
             return authenticationState?.User?.Identity;
         }
 
-        private bool showHelp = false;
-
         private async void AcknowledgeTask()
         {
-            Component.AcknowledgeRequest.Cyclic = true;
+            Component.AcknowledgeRequest.Cyclic = true; 
             AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
-        }
-        private void Help()
-        {
-            showHelp = !showHelp;
         }
         protected override void OnInitialized()
         {
@@ -51,7 +56,7 @@ namespace AXOpen.Messaging.Static
             get
             {
                 string retval = "btn-default";
-                if(IsActive)
+                if (IsActive)
                 {
                     retval = AckBtnBackgroundColor;
                 }
@@ -92,7 +97,7 @@ namespace AXOpen.Messaging.Static
                     case 100:
                         return "Trace";
                         break;
-                    case 200: 
+                    case 200:
                         return "Debug";
                         break;
                     case 300:
@@ -128,13 +133,13 @@ namespace AXOpen.Messaging.Static
                     default:
                         return "None";
                         break;
-                }            
+                }
             }
         }
         private string Description => string.IsNullOrEmpty(Component.AttributeName) ? Component.GetSymbolTail() : Component.AttributeName;
         private string Symbol => !(string.IsNullOrEmpty(Component.Symbol)) ? Component.Symbol : "Unable to retrieve symbol!";
-        private string MessageText => !(string.IsNullOrEmpty(Component.MessageText)) ? Component.MessageText : "Message text not defined!";
-        private string HelpText => !(string.IsNullOrEmpty(Component.Help)) ? Component.Help : "Help not defined!";
+        private string MessageText => GetMessageText();
+        private string HelpText => GetHelpText();
         private string Risen => !(string.IsNullOrEmpty(Component.Risen.Cyclic.ToString())) ? Component.Risen.Cyclic.ToString() : "";
         private string Fallen => !(string.IsNullOrEmpty(Component.Fallen.Cyclic.ToString())) ? Component.Fallen.Cyclic.ToString() : "";
         private string Acknowledged => !(string.IsNullOrEmpty(Component.Acknowledged.Cyclic.ToString())) ? Component.Acknowledged.Cyclic.ToString() : "";
@@ -144,6 +149,84 @@ namespace AXOpen.Messaging.Static
         private bool AcknowledgementDoesNotRequired => !AcknowledgementRequired;
         private bool WaitingForAcknowledge => Component.WaitingForAcknowledge.Cyclic;
         private bool HideAckowledgeButton => !AcknowledgementRequired || AcknowledgedBeforeFallen || (!IsActive && !WaitingForAcknowledge);
+
+        private string GetMessageText()
+        {
+            ulong messageCode = Component.MessageCode.Cyclic;
+            string retVal = "";
+
+            //Just one static text defined inside the `MessageText` attribute in the PLC code is used
+            if (Component.MessageCode.Cyclic == 0)
+                retVal = string.IsNullOrEmpty(Component.MessageText) ? "Message text not defined!" : Component.MessageText;
+            else
+            {
+                try
+                {
+                    //Several static texts defined inside the `PlcTextsList` attribute in the PLC code are used
+                    if (Component.PlcMessengerTextList != null && Component.PlcMessengerTextList.Count > 0)
+                    {
+                        string _messageText = (from item in Component.PlcMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_messageText) ? "Message text not defined for the message code: " + messageCode.ToString() + " !" : _messageText;
+                    }
+                    //Message texts are written in .NET and passed into the component
+                    else if (Component.DotNetMessengerTextList != null && Component.DotNetMessengerTextList.Count > 0)
+                    {
+                        string _messageText = (from item in Component.DotNetMessengerTextList where item.Key == messageCode select item.Value.MessageText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_messageText) ? "Message text not defined for the message code: " + messageCode.ToString() + " !" : _messageText;
+                    }
+                    else
+                    {
+                        retVal = "Message text not defined for the message code: " + messageCode.ToString() + " !";
+                    }
+                }
+                catch (Exception)
+                {
+                    retVal = "Message text not defined for the message code: " + messageCode.ToString() + " !";
+                    return retVal;
+                    throw;
+                }
+            }
+            return retVal;
+        }
+
+        private string GetHelpText()
+        {
+            ulong messageCode = Component.MessageCode.Cyclic;
+            string retVal = "";
+
+            //Just one static text defined inside the `Help` attribute in the PLC code is used
+            if (Component.MessageCode.Cyclic == 0)
+                retVal = string.IsNullOrEmpty(Component.Help) ? "Help text not defined!" : Component.Help;
+            else
+            {
+                try
+                {
+                    //Several static texts defined inside the `PlcTextsList` attribute in the PLC code are used
+                    if (Component.PlcMessengerTextList != null && Component.PlcMessengerTextList.Count > 0)
+                    {
+                        string _helpText = (from item in Component.PlcMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_helpText) ? "Help text not defined for the message code: " + messageCode.ToString() + " !" : _helpText;
+                    }
+                    //Message texts are written in .NET and passed into the component
+                    else if (Component.DotNetMessengerTextList != null && Component.DotNetMessengerTextList.Count > 0)
+                    {
+                        string _helpText = (from item in Component.DotNetMessengerTextList where item.Key == messageCode select item.Value.HelpText.ToString()).FirstOrDefault();
+                        retVal = string.IsNullOrEmpty(_helpText) ? "Help text not defined for the message code: " + messageCode.ToString() + " !" : _helpText;
+                    }
+                    else
+                    {
+                        retVal = "Help text not defined for the message code: " + messageCode.ToString() + " !";
+                    }
+                }
+                catch (Exception)
+                {
+                    retVal = "Help text not defined for the message code: " + messageCode.ToString() + " !";
+                    return retVal;
+                    throw;
+                }
+            }
+            return retVal;
+        }
     }
 
     public class AxoMessengerCommandView : AxoMessengerView

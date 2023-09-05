@@ -1,5 +1,5 @@
-AxoCognexVisionExampleContext.MyInsight.ChangeJobByNameTask._progress
-AxoCognexVisionExampleContext.MyInsight.ChangeJobByNameTask._jobName
+#AxoCognexVisionExampleContext.MyInsight.ChangeJobByNameTask._progress
+#AxoCognexVisionExampleContext.MyInsight.ChangeJobByNameTask._jobName
 #AxoCognexVisionExampleContext.MyInsight.Status.Action.Id 
 #AxoCognexVisionExampleContext.MyInsight.Status.Error.Id
 #AxoCognexVisionExampleContext.MyInsight.ChangeJobByNameTask
@@ -10,3 +10,5 @@ AxoCognexVisionExampleContext.MyInsight.ChangeJobByNameTask._jobName
 #AxoCognexVisionExampleContext.MyInsight.ChangeJobByNameTask.SetUserDataAsString()._maxIndex
 #AxoCognexVisionExampleContext.MyInsight.ChangeJobByNameTask.SetUserDataAsString.inPosition
 #AxoCognexVisionExampleContext.MyInsight.ChangeJobByNameTask.SetUserDataAsString.
+AxoCognexVisionExampleContext.MyInsight._Messenger
+AxoCognexVisionExampleContext.MyInsight._TaskMessenger
