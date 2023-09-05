@@ -103,8 +103,8 @@ NAMESPACE AXOpen.Inspectors
                 _lastOutValue := Status;
             END_IF;
 
-            _inspectorTask._failTimer.OnDelay(THIS, TRUE, _data.FailTime);
-            _inspectorTask._passTimer.OnDelay(THIS, tmpResult, _data.PassTime);
+            _inspectorTask._failTimer.OnDelay(THIS.GetContext(), TRUE, _data.FailTime);
+            _inspectorTask._passTimer.OnDelay(THIS.GetContext(), tmpResult, _data.PassTime);
 
             IF(_inspectorTask._passTimer.output OR _inspectorTask._failTimer.output) THEN
                 _inspectorTask.DoneWhen(TRUE);
