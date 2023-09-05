@@ -60,5 +60,4 @@ scripts:
     - apax plc-mode set stop -t $AXTARGET -y
     - apax plc-mode set run -t $AXTARGET -y
 targets:
-  - plcsim  
-  - axunit-lvvm
+  - plcsim
