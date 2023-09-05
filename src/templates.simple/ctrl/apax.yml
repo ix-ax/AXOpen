@@ -18,8 +18,6 @@ scripts:
     - dotnet tool restore --no-cache
     - dotnet ixc
     - dotnet ixr
-  prebuild:
-    - apax update-targets
   postbuild: apax ixc
   download:
     - apax install
@@ -48,17 +46,6 @@ scripts:
     else
       echo "Environment variable AXTARGET not defined!!!"
     fi
-  update-targets: |
-    if [ $AXBUILDTARGET_1 ]; then
-      yq -i "del(.targets)" apax.yml
-      yq -i ".targets[0] = strenv(AXBUILDTARGET_1)" apax.yml
-      if [ $AXBUILDTARGET_2 ]; then
-        yq -i ".targets[1] = strenv(AXBUILDTARGET_2)" apax.yml
-      fi
-      if [ $AXBUILDTARGET_3 ]; then
-        yq -i ".targets[2] = strenv(AXBUILDTARGET_3)" apax.yml
-      fi
-    fi
   rr:
     - apax build
     - apax download
@@ -69,3 +56,4 @@ scripts:
     - apax rr
 targets:
   - plcsim
+  - axunit-lvvm 

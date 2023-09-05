@@ -40,19 +40,6 @@ scripts:
     - apax install
     - apax build
     - apax download
-  update-targets: |
-    if [ $AXBUILDTARGET_1 ]; then
-      yq -i "del(.targets)" apax.yml
-      yq -i ".targets[0] = strenv(AXBUILDTARGET_1)" apax.yml
-      if [ $AXBUILDTARGET_2 ]; then
-        yq -i ".targets[1] = strenv(AXBUILDTARGET_2)" apax.yml
-      fi
-      if [ $AXBUILDTARGET_3 ]; then
-        yq -i ".targets[2] = strenv(AXBUILDTARGET_3)" apax.yml
-      fi
-    fi
-  prebuild:
-    - apax update-targets
   postbuild:
     - apax ixc
   watch:
@@ -74,3 +61,4 @@ scripts:
     - apax plc-mode set run -t $AXTARGET -y
 targets:
   - plcsim
+  - axunit-lvvm 
