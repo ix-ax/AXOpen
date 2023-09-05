@@ -1,6 +1,8 @@
 name: "axopen.integrations"
 version: '0.1.4-alpha.79'
 type: app
+targets:
+  - axunit-llvm
 devDependencies:
   "@ax/sdk": ^4.0.8
   "@ax/sld": ^0.15.9
@@ -59,8 +61,3 @@ scripts:
   r:
     - apax plc-mode set stop -t $AXTARGET -y
     - apax plc-mode set run -t $AXTARGET -y
-targets:
-  - plcsim
-  - axunit-lvvm 
-  - lvvm 
-  - "1500" 

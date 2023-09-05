@@ -1,6 +1,8 @@
 name: "axosimple"
 version: '0.1.4-alpha.79'
 type: app
+targets:
+  - axunit-llvm
 registries:
   '@ix-ax': https://npm.pkg.github.com/
 devDependencies:
@@ -54,9 +56,4 @@ scripts:
     - ..\\scripts\\StartPlcSimAdvCli.exe
     - apax install
     - apax rr
-targets:
-  - plcsim
-  - axunit-lvvm 
-  - lvvm 
-  - "1500" 
   

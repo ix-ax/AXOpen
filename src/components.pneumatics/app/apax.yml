@@ -1,6 +1,8 @@
 name: "pneumaticcomponents"
 version: '0.1.4-alpha.79'
 type: app
+targets:
+  - axunit-llvm
 devDependencies:
   "@ax/sdk": 4.0.3
 dependencies:
@@ -53,8 +55,3 @@ scripts:
     - START=$(date +%s)
     - apax do-it-all
     - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
-targets:
-  - plcsim
-  - axunit-lvvm 
-  - lvvm 
-  - "1500" 

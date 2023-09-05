@@ -1,10 +1,14 @@
 name: "axopen.components.cognex.vision.integrations"
 version: '0.1.4-alpha.79'
 type: app
+targets:
+  #- plcsim
+  - axunit-llvm
+  #- "1500" 
 devDependencies:
   "@ax/sdk": ^4.0.8
   "@ax/sld": 0.15.9
-  #"@ax/plc-mode": ^1.0.0
+  "@ax/stc": ^5.4.89
 dependencies:
   "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
@@ -59,8 +63,3 @@ scripts:
   r:
     - apax plc-mode set stop -t $AXTARGET -y
     - apax plc-mode set run -t $AXTARGET -y
-targets:
-  - plcsim
-  - axunit-lvvm 
-  - lvvm 
-  - "1500" 
