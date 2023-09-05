@@ -4,6 +4,8 @@
     "projects": [
       "base\\tests\\AXOpen.Base.AbstractionsTests\\AXOpen.Base.AbstractionsTests.csproj",
       "base\\tests\\AXOpen.LoggingTests\\AXOpen.Logging.SerologTests.csproj",
+      "components.cognex.vision\\tests\\AXOpen.Cognex.Vision.Tests\\axopen_cognex_vision_tests.csproj",
+      "components.pneumatics\\tests\\AXOpen.Components.Pneumatics.Tests\\AXOpen.Components.Pneumatics_tests.csproj",
       "core\\tests\\AXOpen.Core.Tests\\axopen_core_tests.csproj",
       "data\\tests\\AXOpen.Data.Exporters.ExcelTests\\AXOpen.Data.Exporters.ExcelTests.csproj",
       "data\\tests\\AXOpen.Data.Tests\\axopen_data_tests.csproj",

@@ -5,9 +5,4 @@
 #AxoMessengers._messenger2.Risen
 #AxoMessengers._messenger2.Fallen
 #AxoMessengers._messenger2.Acknowledged
-AxoCognexVisionDatamanExampleContext.MyDataman._AcquisitionStatus     
-AxoCognexVisionDatamanExampleContext.MyDataman._ResultsStatus     
-AxoCognexVisionDatamanExampleContext.MyDataman._SoftEventStatus
-AxoCognexVisionDatamanExampleContext.MyDataman._AcquisitionControl
-AxoCognexVisionDatamanExampleContext.MyDataman._ResultsControl  
-AxoCognexVisionDatamanExampleContext.MyDataman._SoftEventControl
+AxoMessengers._messenger5
