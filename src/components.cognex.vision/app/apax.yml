@@ -2,7 +2,7 @@ name: "axopen.components.cognex.vision.integrations"
 version: '0.1.4-alpha.79'
 type: app
 targets:
-  #- plcsim
+  - plcsim
   - axunit-llvm
   #- "1500" 
 devDependencies:

@@ -6,7 +6,11 @@ CONFIGURATION MyConfiguration
         sandbox : SandboContext;
         documentation : DocumentationContext;
         AxoRtc : AxoRtc.AxoS71500Rtc;
-    END_VAR            
+		HwInputs AT %IB0 : HwInputs;
+		HwOutputs AT %QB0 : HwOutputs;
+		PlcInputs : PlcInputs;
+		PlcOutputs : PlcOutputs;
+	END_VAR
 END_CONFIGURATION
 
 
