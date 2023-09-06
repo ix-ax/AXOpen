@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Json", "..\data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Logging.Serilog", "..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj", "{633FB178-C1F0-4D49-9B73-063C94E27585}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "librarytemplate", "app\ix\librarytemplate.csproj", "{C28B1092-C5EE-44B2-AD9A-EDCE119AEE76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_librarytemplate", "app\ix\ix_librarytemplate.csproj", "{C28B1092-C5EE-44B2-AD9A-EDCE119AEE76}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "librarytemplate.blazor", "app\ix-blazor\librarytemplate.blazor\librarytemplate.blazor.csproj", "{CA9C6A8B-383E-45A0-82EF-8FDB0DCB0BC3}"
 EndProject

@@ -1,6 +1,6 @@
 PROGRAM MyProgram
     VAR_EXTERNAL
-        sandbox : SandboContext;
+        sandbox : SandboxContext;
         documentation : DocumentationContext;
     END_VAR
 
@@ -12,4 +12,5 @@ PROGRAM MyProgram
 
     END_VAR
     sandbox.Run();    
+    documentation.Run();
 END_PROGRAM
