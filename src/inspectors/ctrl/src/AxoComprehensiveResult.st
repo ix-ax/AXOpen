@@ -1,5 +1,10 @@
 NAMESPACE AXOpen.Inspectors
 
+    ///<summary>
+    /// Class for gathering overall result of single or multiple inspections
+    /// Only fail results are automatically written to comprehensive result
+    /// Application programmer must specify, what is a correct result
+    ///</summary>
     CLASS AxoComprehensiveResult IMPLEMENTS IAxoComprehensiveResult
         VAR PUBLIC
 
@@ -9,19 +14,32 @@ NAMESPACE AXOpen.Inspectors
 
         END_VAR
 
-    
+        ///<summary>
+        /// Get the overall result
+        ///</summary>
         METHOD PUBLIC GetResult : eOverallResult
             GetResult := Result;
         END_METHOD
 
+        ///<summary>
+        /// Get Failures
+        /// TODO: not implemented yet
+        ///</summary>
         METHOD PUBLIC GetFailures : STRING
             GetFailures := Failures;
         END_METHOD
 
+        ///<summary>
+        /// Get error codes
+        /// TODO: not implemented yet
+        ///</summary>
         METHOD PUBLIC GetErrorCodes : STRING
             GetErrorCodes := ErrorCodes;
         END_METHOD
 
+        ///<summary>
+        /// Set overall result
+        ///</summary>
         METHOD PUBLIC SetResult
             VAR_INPUT
                 inResult : eOverallResult;
@@ -29,6 +47,9 @@ NAMESPACE AXOpen.Inspectors
             Result := inResult;
         END_METHOD
 
+        ///<summary>
+        /// Set failures
+        ///</summary>
         METHOD PUBLIC SetFailures
             VAR_INPUT
                 inFailures : STRING;
@@ -36,6 +57,9 @@ NAMESPACE AXOpen.Inspectors
             Failures := inFailures;
         END_METHOD
 
+        ///<summary>
+        /// Set error codes
+        ///</summary>
         METHOD PUBLIC SetErrorCodes
             VAR_INPUT
                 inErrorCodes : STRING;

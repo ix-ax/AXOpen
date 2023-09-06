@@ -7,10 +7,5 @@ Provides evaluation of *continuous* values. The inspector checks that the input 
 
 Common inspector data are extended with following analogue inspector data:
 
-```C#
-RequiredMin : LREAL; // min required value for inspection
+[!code-smalltalk[](../../../src/inspectors/ctrl/src/AxoAnalogueInspector/AxoAnalogueInspectorData.st?name=AxoAnalogueInspectorDataDeclaration)]
 
-DetectedStatus : LREAL; // detected value
-
-RequiredMax: LREAL; // max required value for inspection
-```

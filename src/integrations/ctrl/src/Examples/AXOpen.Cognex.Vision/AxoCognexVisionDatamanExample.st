@@ -50,7 +50,8 @@ NAMESPACE AxoCognexVisionDatamanExamples
                 //<Read>
                 IF MyDataman1.Read().IsDone() THEN
                     //Process the result data
-                    myString := MyDataman1.Results.Data;
+                    // myString := MyDataman1.ResultData.Data;
+                    ;
                 END_IF;                          
                 //</Read>
 

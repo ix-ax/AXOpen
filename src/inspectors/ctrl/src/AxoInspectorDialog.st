@@ -28,7 +28,9 @@ NAMESPACE AXOpen.Inspectors
         END_VAR
 
      
-
+        ///<summary>
+        /// Method for showing inspector dialog and handling interaction
+        ///</summary>
         METHOD PUBLIC Show
             VAR_INPUT
                 _parentInspectorRef : REF_TO AxoInspector;
@@ -102,7 +104,9 @@ NAMESPACE AXOpen.Inspectors
             END_IF;	
         END_METHOD
 
-
+        ///<summary>
+        /// Restores dialogue
+        ///</summary>
         METHOD PUBLIC Restore 
 
             SUPER.Restore();
@@ -115,7 +119,7 @@ NAMESPACE AXOpen.Inspectors
 
       
 
-END_CLASS
+    END_CLASS
 
 
 

@@ -14,4 +14,5 @@ scripts:
     - dotnet ixc
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.1.4-alpha.79'
+  "@ix-ax/axopen.core": '0.1.4-alpha.79'
   "@ix-ax/axopen.utils": '0.1.4-alpha.79'

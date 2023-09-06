@@ -6,5 +6,5 @@ manufacturer and the function group.
 # General rules and conventions
 [!INCLUDE [Conventions](../guidelines/components.md)]
 [!INCLUDE [AXOPENCOGNEVISION](AXOPENCOGNEVISION/README.md)]
-<!-- [!INCLUDE [AXOPENELEMENTS](AXOPENELEMENTS/README.md)] -->
+[!INCLUDE [AXOPENPNEUMATICS](AXOPENPNEUMATICS/README.md)]
 

@@ -6,8 +6,4 @@ Inspector provides evaluation of *discrete* value. The input value compares agai
 
 Common inspector data are extended with following digital inspector data:
 
-```C#
-RequiredStatus : BOOL; //required value for inspection
-
-DetectedStatus : BOOL; //detected value for inspection
-```
+[!code-smalltalk[](../../../src/inspectors/ctrl/src/AxoDigitalInspector/AxoDigitalInspectorData.st?name=AxoDigitalInspectorDataDeclaration)]

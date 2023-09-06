@@ -17,7 +17,7 @@
         </div>
         <div class="p-1 flex-shrink-1">
             
-            @switch (AlarmLevel)
+            @switch (AlarmLevel().Result)
             {
                 case eAlarmLevel.NoAlarms:
                     break;
@@ -38,7 +38,7 @@
                     break;
                 case eAlarmLevel.ActiveErrors:
                     <button class="btn btn-danger" type="button" @onclick="ToggleAlarmsDetails">
-                        <i class="bi bi-emoji-angry-fill bg-danger" aria-hidden="true"></i>
+                        <i class="bi bi-emoji-dizzy-fill bg-danger" aria-hidden="true"></i>
                     </button>
                     break;
                 default:
@@ -88,7 +88,7 @@
         </div>
     }
     
-    @if (AlarmLevel > eAlarmLevel.NoAlarms)
+    @if (AlarmLevel().Result > eAlarmLevel.NoAlarms)
     {
         @if (!areAlarmsCollapsed)
         {
@@ -99,5 +99,9 @@
                 </div>
             }
         }
+    }
+    else
+    {
+        areAlarmsCollapsed = true;
     }
 </div>

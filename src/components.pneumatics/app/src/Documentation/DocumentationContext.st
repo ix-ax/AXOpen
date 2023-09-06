@@ -1,0 +1,62 @@
+//<DeclarationAndHWIO_Assignement>
+CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
+    VAR PUBLIC        
+        PlcInputs : REF_TO PlcInputs;
+        PlcOutputs : REF_TO PlcOutputs;          
+        myAxoCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
+    END_VAR
+
+    METHOD PROTECTED OVERRIDE Main        
+        myAxoCylinder.Run(  THIS, 
+                        PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X0, 
+                        PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X1, 
+                        PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0, 
+                        PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0); 
+    END_METHOD
+END_CLASS
+//</DeclarationAndHWIO_Assignement>
+
+CLASS AnotherDocumentationContext EXTENDS DocumentationContext
+    VAR 
+        _suspendHomeCondition : BOOL;
+        _suspendWorkCondition : BOOL;
+        _abortHomeCondition : BOOL;
+        _abortWorkCondition : BOOL;
+    END_VAR
+
+    METHOD Examples
+        //<MoveToHome>
+        IF myAxoCylinder.MoveToHome().IsDone() THEN
+            ;
+        END_IF;
+        //</MoveToHome>
+
+        //<MoveToWork>
+        IF myAxoCylinder.MoveToWork().IsDone() THEN
+            ;
+        END_IF;
+        //</MoveToWork>
+
+        //<Stop>
+        IF myAxoCylinder.Stop().IsDone() THEN
+            ;
+        END_IF;
+        //</Stop>
+
+        //<SuspendMoveToHomeWhile>
+        myAxoCylinder.SuspendMoveToHomeWhile(_suspendHomeCondition);
+        //</SuspendMoveToHomeWhile>
+
+        //<SuspendMoveToWorkWhile>
+            myAxoCylinder.SuspendMoveToWorkWhile(_suspendWorkCondition);
+        //</SuspendMoveToWorkWhile>
+
+        //<AbortMoveToHomeWhen>
+        myAxoCylinder.AbortMoveToHomeWhen(_abortHomeCondition);
+        //</AbortMoveToHomeWhen>
+
+        //<AbortMoveToWorkWhen>
+        myAxoCylinder.AbortMoveToWorkWhen(_abortWorkCondition);
+        //</AbortMoveToWorkWhen>
+    END_METHOD
+END_CLASS

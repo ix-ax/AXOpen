@@ -6,7 +6,7 @@ NAMESPACE AXOpen.Inspectors
     CLASS AxoAnalogueInspectorData EXTENDS AxoInspectorData
 
         VAR PUBLIC
-
+            // <AxoAnalogueInspectorDataDeclaration>
             {#ix-set:AttributeName = "<#Min#>"}
             RequiredMin : LREAL;
 
@@ -15,7 +15,7 @@ NAMESPACE AXOpen.Inspectors
       
             {#ix-set:AttributeName = "<#Max#>"}
             RequiredMax: LREAL;
-
+            // </AxoAnalogueInspectorDataDeclaration>
         END_VAR
 
     END_CLASS

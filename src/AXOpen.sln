@@ -193,6 +193,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Exporters.Excel
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Exporters.ExcelTests", "data\tests\AXOpen.Data.Exporters.ExcelTests\AXOpen.Data.Exporters.ExcelTests.csproj", "{EECB14D5-03F4-438A-856E-42C4D90BE97E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.pneumatics", "components.pneumatics", "{1B390C59-FF6C-4721-8DBA-B8176DBA531B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4ECC0318-29C7-4BBF-93AC-45A18934FD6C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_pneumatics", "components.pneumatics\src\AXOpen.Components.Pneumatics\ix_ax_axopen_components_pneumatics.csproj", "{D58C6C28-4F51-4363-8922-B5BE99861676}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Pneumatics.blazor", "components.pneumatics\src\AXOpen.Components.Pneumatics.blazor\AXOpen.Components.Pneumatics.blazor.csproj", "{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3134A28E-12A5-4255-81F4-F84874CE9318}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Pneumatics_tests", "components.pneumatics\tests\AXOpen.Components.Pneumatics.Tests\AXOpen.Components.Pneumatics_tests.csproj", "{0F38853D-6D5D-4156-9571-E5F3426782AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{EABE6BC4-1679-46EA-A3BB-56CF63A40FE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -383,6 +397,18 @@ Global
 		{EECB14D5-03F4-438A-856E-42C4D90BE97E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EECB14D5-03F4-438A-856E-42C4D90BE97E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EECB14D5-03F4-438A-856E-42C4D90BE97E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D58C6C28-4F51-4363-8922-B5BE99861676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D58C6C28-4F51-4363-8922-B5BE99861676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D58C6C28-4F51-4363-8922-B5BE99861676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D58C6C28-4F51-4363-8922-B5BE99861676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -462,6 +488,12 @@ Global
 		{6430CC9D-FACE-4ADD-9365-8FFDFC818292} = {209A89A6-303A-4119-A821-44AA4C706AA7}
 		{4EC6C3BF-F3DF-478A-873B-C134B0017C8E} = {6430CC9D-FACE-4ADD-9365-8FFDFC818292}
 		{EECB14D5-03F4-438A-856E-42C4D90BE97E} = {0E97F83F-9AC9-431D-9FC2-4966874E273D}
+		{4ECC0318-29C7-4BBF-93AC-45A18934FD6C} = {1B390C59-FF6C-4721-8DBA-B8176DBA531B}
+		{D58C6C28-4F51-4363-8922-B5BE99861676} = {4ECC0318-29C7-4BBF-93AC-45A18934FD6C}
+		{CCF4FC3E-CB4B-48C3-BB31-56ACA90AA72D} = {4ECC0318-29C7-4BBF-93AC-45A18934FD6C}
+		{3134A28E-12A5-4255-81F4-F84874CE9318} = {1B390C59-FF6C-4721-8DBA-B8176DBA531B}
+		{0F38853D-6D5D-4156-9571-E5F3426782AF} = {3134A28E-12A5-4255-81F4-F84874CE9318}
+		{EABE6BC4-1679-46EA-A3BB-56CF63A40FE5} = {1B390C59-FF6C-4721-8DBA-B8176DBA531B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}
