@@ -121,22 +121,22 @@ NAMESPACE sandboxtest.StandardControlUnit
             // {#ix-attr:[Group(GroupLayout.GroupBox)]}
             // hierarchy : hierarchy_2;
             
-            // {#ix-set:AttributeName = "<#Kontrola 1.#>"} 
-            // Check_1 :  AXOpen.Inspectors.AxoDigitalInspector;
-            // {#ix-set:AttributeName = "<#Kontrola 2.#>"} 
-            // Check_2 :  AXOpen.Inspectors.AxoDigitalInspector;
-            // {#ix-set:AttributeName = "<#Kontrola 3.#>"} 
-            // Check_3 :  AXOpen.Inspectors.AxoDigitalInspector;
-            // {#ix-set:AttributeName = "<#Kontrola 4.#>"} 
-            // Check_4 :  AXOpen.Inspectors.AxoDigitalInspector;
-            // {#ix-set:AttributeName = "<#Kontrola 5.#>"} 
-            // Check_5 :  AXOpen.Inspectors.AxoDigitalInspector;
-            // {#ix-set:AttributeName = "<#Kontrola 6.#>"} 
-            // Check_6 : AXOpen.Inspectors.AxoAnalogueInspector;
-            // {#ix-set:AttributeName = "<#Kontrola 7.#>"} 
-            // Check_7 : AXOpen.Inspectors.AxoAnalogueInspector;
-            // {#ix-set:AttributeName = "<#Kontrola 8.#>"} 
-            // Check_8 : AXOpen.Inspectors.AxoDataInspector;
+            {#ix-set:AttributeName = "<#Kontrola 1.#>"} 
+            Check_1 :  AXOpen.Inspectors.AxoDigitalInspector;
+            {#ix-set:AttributeName = "<#Kontrola 2.#>"} 
+            Check_2 :  AXOpen.Inspectors.AxoDigitalInspector;
+            {#ix-set:AttributeName = "<#Kontrola 3.#>"} 
+            Check_3 :  AXOpen.Inspectors.AxoDigitalInspector;
+            {#ix-set:AttributeName = "<#Kontrola 4.#>"} 
+            Check_4 :  AXOpen.Inspectors.AxoDigitalInspector;
+            {#ix-set:AttributeName = "<#Kontrola 5.#>"} 
+            Check_5 :  AXOpen.Inspectors.AxoDigitalInspector;
+            {#ix-set:AttributeName = "<#Kontrola 6.#>"} 
+            Check_6 : AXOpen.Inspectors.AxoAnalogueInspector;
+            {#ix-set:AttributeName = "<#Kontrola 7.#>"} 
+            Check_7 : AXOpen.Inspectors.AxoAnalogueInspector;
+            {#ix-set:AttributeName = "<#Kontrola 8.#>"} 
+            Check_8 : AXOpen.Inspectors.AxoDataInspector;
 
 
            
@@ -546,7 +546,7 @@ END_CLASS
                     IF (Steps[StepIndex].Execute(THIS, TRUE, 'creating')) THEN
                     //IF (Steps[StepIndex].Execute(THIS, TRUE, Concat('Step ', ToString(StepIndex),', creating ', LastGeneratedId[IdIndex] ))) THEN
                         //-------------------------------------------------------            
-                            IF (ProcessData^.Create(LastGeneratedId[IdIndex] ).IsDone()) THEN 
+                            IF (ProcessData^.CreateOrUpdate(LastGeneratedId[IdIndex] ).IsDone()) THEN 
                                 THIS.MoveNext(); 
                                 ProcessData^.Restore();
                             END_IF;

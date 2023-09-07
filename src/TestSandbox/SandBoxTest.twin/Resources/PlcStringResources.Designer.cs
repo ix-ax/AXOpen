@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace sandboxtest.Resources {
+namespace SandBoxTest.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace sandboxtest.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("sandboxtest.Resources.PlcStringResources", typeof(PlcStringResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SandBoxTest.Resources.PlcStringResources", typeof(PlcStringResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -70,6 +70,96 @@ namespace sandboxtest.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to cacova kontrola.
+        /// </summary>
+        public static string cacova_kontrola {
+            get {
+                return ResourceManager.GetString("cacova_kontrola", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CounterDelay. .
+        /// </summary>
+        public static string CounterDelay_DOT__ {
+            get {
+                return ResourceManager.GetString("CounterDelay_DOT__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder 8.
+        /// </summary>
+        public static string Cylinder__EIGHT_ {
+            get {
+                return ResourceManager.GetString("Cylinder__EIGHT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder 5.
+        /// </summary>
+        public static string Cylinder__FIVE_ {
+            get {
+                return ResourceManager.GetString("Cylinder__FIVE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder 4.
+        /// </summary>
+        public static string Cylinder__FOUR_ {
+            get {
+                return ResourceManager.GetString("Cylinder__FOUR_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder 1.
+        /// </summary>
+        public static string Cylinder__ONE_ {
+            get {
+                return ResourceManager.GetString("Cylinder__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder 7.
+        /// </summary>
+        public static string Cylinder__SEVEN_ {
+            get {
+                return ResourceManager.GetString("Cylinder__SEVEN_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder 6.
+        /// </summary>
+        public static string Cylinder__SIX_ {
+            get {
+                return ResourceManager.GetString("Cylinder__SIX_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder 3.
+        /// </summary>
+        public static string Cylinder__THREE_ {
+            get {
+                return ResourceManager.GetString("Cylinder__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cylinder 2.
+        /// </summary>
+        public static string Cylinder__TWO_ {
+            get {
+                return ResourceManager.GetString("Cylinder__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GROUND.
         /// </summary>
         public static string GROUND {
@@ -84,6 +174,78 @@ namespace sandboxtest.Resources {
         public static string Home_sensor {
             get {
                 return ResourceManager.GetString("Home_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontrola 8..
+        /// </summary>
+        public static string Kontrola__EIGHT__DOT_ {
+            get {
+                return ResourceManager.GetString("Kontrola__EIGHT__DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontrola 5..
+        /// </summary>
+        public static string Kontrola__FIVE__DOT_ {
+            get {
+                return ResourceManager.GetString("Kontrola__FIVE__DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontrola 4..
+        /// </summary>
+        public static string Kontrola__FOUR__DOT_ {
+            get {
+                return ResourceManager.GetString("Kontrola__FOUR__DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontrola 1..
+        /// </summary>
+        public static string Kontrola__ONE__DOT_ {
+            get {
+                return ResourceManager.GetString("Kontrola__ONE__DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontrola 7..
+        /// </summary>
+        public static string Kontrola__SEVEN__DOT_ {
+            get {
+                return ResourceManager.GetString("Kontrola__SEVEN__DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontrola 6..
+        /// </summary>
+        public static string Kontrola__SIX__DOT_ {
+            get {
+                return ResourceManager.GetString("Kontrola__SIX__DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontrola 3..
+        /// </summary>
+        public static string Kontrola__THREE__DOT_ {
+            get {
+                return ResourceManager.GetString("Kontrola__THREE__DOT_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kontrola 2..
+        /// </summary>
+        public static string Kontrola__TWO__DOT_ {
+            get {
+                return ResourceManager.GetString("Kontrola__TWO__DOT_", resourceCulture);
             }
         }
         
@@ -106,6 +268,42 @@ namespace sandboxtest.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to nastavenie 1.
+        /// </summary>
+        public static string nastavenie__ONE_ {
+            get {
+                return ResourceManager.GetString("nastavenie__ONE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to nastavenie 3.
+        /// </summary>
+        public static string nastavenie__THREE_ {
+            get {
+                return ResourceManager.GetString("nastavenie__THREE_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to nastavenie 2.
+        /// </summary>
+        public static string nastavenie__TWO_ {
+            get {
+                return ResourceManager.GetString("nastavenie__TWO_", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pozadovany.
+        /// </summary>
+        public static string pozadovany {
+            get {
+                return ResourceManager.GetString("pozadovany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SERVICE.
         /// </summary>
         public static string SERVICE {
@@ -115,11 +313,29 @@ namespace sandboxtest.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to vysledok.
+        /// </summary>
+        public static string vysledok {
+            get {
+                return ResourceManager.GetString("vysledok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Work sensor.
         /// </summary>
         public static string Work_sensor {
             get {
                 return ResourceManager.GetString("Work_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ziskany.
+        /// </summary>
+        public static string ziskany {
+            get {
+                return ResourceManager.GetString("ziskany", resourceCulture);
             }
         }
     }

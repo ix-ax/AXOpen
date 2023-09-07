@@ -110,6 +110,38 @@
     <value>CounterDelay. </value>
     <comment>src\Examples\StandardCu.st,115</comment>
   </data>
+  <data name="Kontrola__ONE__DOT_" xml:space="preserve">
+    <value>Kontrola 1.</value>
+    <comment>src\Examples\StandardCu.st,123</comment>
+  </data>
+  <data name="Kontrola__TWO__DOT_" xml:space="preserve">
+    <value>Kontrola 2.</value>
+    <comment>src\Examples\StandardCu.st,125</comment>
+  </data>
+  <data name="Kontrola__THREE__DOT_" xml:space="preserve">
+    <value>Kontrola 3.</value>
+    <comment>src\Examples\StandardCu.st,127</comment>
+  </data>
+  <data name="Kontrola__FOUR__DOT_" xml:space="preserve">
+    <value>Kontrola 4.</value>
+    <comment>src\Examples\StandardCu.st,129</comment>
+  </data>
+  <data name="Kontrola__FIVE__DOT_" xml:space="preserve">
+    <value>Kontrola 5.</value>
+    <comment>src\Examples\StandardCu.st,131</comment>
+  </data>
+  <data name="Kontrola__SIX__DOT_" xml:space="preserve">
+    <value>Kontrola 6.</value>
+    <comment>src\Examples\StandardCu.st,133</comment>
+  </data>
+  <data name="Kontrola__SEVEN__DOT_" xml:space="preserve">
+    <value>Kontrola 7.</value>
+    <comment>src\Examples\StandardCu.st,135</comment>
+  </data>
+  <data name="Kontrola__EIGHT__DOT_" xml:space="preserve">
+    <value>Kontrola 8.</value>
+    <comment>src\Examples\StandardCu.st,137</comment>
+  </data>
   <data name="cacova_kontrola" xml:space="preserve">
     <value>cacova kontrola</value>
     <comment>src\Examples\StandardCu.st,152</comment>
