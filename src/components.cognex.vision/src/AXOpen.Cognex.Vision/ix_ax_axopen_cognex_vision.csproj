@@ -12,9 +12,9 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.134" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.134" />
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.2-alpha.134" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.135" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.135" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.2-alpha.135" />
 	</ItemGroup>
 
   <ItemGroup>
