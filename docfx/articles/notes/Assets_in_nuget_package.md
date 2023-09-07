@@ -1,4 +1,4 @@
-# Using Assets in package
+# Using Assets in nuget package
 
 When working with static assets in a Blazor package project(bootstap icons, images, styles, ...), for proper function need to be reference like: `_content/{PACKAGE ID}/{PATH AND FILE NAME}`.
 
