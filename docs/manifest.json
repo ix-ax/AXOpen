@@ -2684,7 +2684,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html",
-          "hash": "IMDVM2oBOiN0wtPD3qFNhy+l4QdDv1SL7OTXK4M3QBo="
+          "hash": "5W+tgV3ZNip4FxfIRIJ0D+wvC5/s+JRjVdJxRKIEEtY="
         }
       },
       "version": ""
@@ -2695,7 +2695,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html",
-          "hash": "R+DffqjnK1A4kY54CGmF2JVTdHcSSapGNzwzNIJApJ0="
+          "hash": "BxXqVH2tFQlxJ2PTwZYjA3+ttFqAye/3yvdheNTRjZs="
         }
       },
       "version": ""
@@ -2706,7 +2706,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html",
-          "hash": "pmV4aVxC/Y/tO1PHKH8G8Sce2RCKroURki2mFx5duJQ="
+          "hash": "1dWPnuRYMmMXYq/g8u8BtguMUczaTtuFpfuRAVe+4zY="
         }
       },
       "version": ""
@@ -2746,11 +2746,22 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData.html",
+          "hash": "6yHBLBMVvraDsP+2XxqnHLSBS+q4HW/9ieVBAvL+xLY="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.yml",
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.html",
-          "hash": "7mhHMCP5l5TeZHEL1n8HQwFK1g02WAV9CQcPbo5aGyk="
+          "hash": "PcFZp5l3qwYf87CbpyKRUd16de97sRHPt7X4TlCqUTQ="
         }
       },
       "version": ""
@@ -2773,17 +2784,6 @@
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.html",
           "hash": "KK3amJLBls+D4m+FQw6o0uB5P3rA7jaAjnPCMueeQKQ="
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.yml",
-      "output": {
-        ".html": {
-          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html",
-          "hash": "2jgJgviha/lDSuwzbi5//QiiSYG6/NszgIKj9/Yi4EY="
         }
       },
       "version": ""
@@ -2816,7 +2816,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status.html",
-          "hash": "WOcGDu7B4bBcgDlTHrWaX4/p0otGmozXQWYo9ODu9cE="
+          "hash": "agmAgK5kjYz9WwJWudphBFl3OzwNbWWK1ukGHj//zyA="
         }
       },
       "version": ""
@@ -2827,7 +2827,18 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_User.html",
-          "hash": "AjoBQDw1Vm8D72q848ujUW1KJgC7yoMgHzcWtBsAPzQ="
+          "hash": "Iew/igOBy4RjS+kXzlDNRgFaadL3Hrpc5/i7Jw5lhU8="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData.html",
+          "hash": "uThGKc/CeS47dSCUY7wQuS/20A4RUWG9HSaID3ylljI="
         }
       },
       "version": ""
@@ -2838,7 +2849,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.html",
-          "hash": "4+RPP4/hr8UHcpt9CcmNHWZ/9XfV07RpwQWkZxwta80="
+          "hash": "iLxkoQWuB6OU0NfV3Ap8k++YX7rLejB/dHJktrDU/qk="
         }
       },
       "version": ""
@@ -2849,7 +2860,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html",
-          "hash": "lIDeg8h4d/qm0UuqA3T2oNjxGDE6+JQXAmyd2LpTvtw="
+          "hash": "hA9Z23Yh/goxDcPtm9UhyTAW7wVGzRR1x5AilNd+N14="
         }
       },
       "version": ""
@@ -2860,7 +2871,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html",
-          "hash": "kqLCKJKzJ2oDXBvEChX1p2jpKfEJ362psOMZx356K0g="
+          "hash": "/SeonaJ2L+RDxoMPgP6RgDl/+uhfuHNN7/LIdBiIPSA="
         }
       },
       "version": ""
@@ -2871,7 +2882,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html",
-          "hash": "7UeIjvCbedEr8qg5vEY2vpmAO5aYgKBRIx157jeZvDw="
+          "hash": "z8x+jK3sZTxrRQ0kM5uq6AJQsOc3+QqwgRSZuKtx49c="
         }
       },
       "version": ""
@@ -2882,7 +2893,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html",
-          "hash": "E5ZInOjxp7B/NZc0ASK3AUJMPLqvIuS1/rtQFeqoN5w="
+          "hash": "huVr6TEd52N9oPmgXTKmH+9dDiKPef/yXlWT09yr5f8="
         }
       },
       "version": ""
@@ -2893,7 +2904,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html",
-          "hash": "tEVD8v1jkSWRTzLTQvXrvwp5h52M3vzp8hMHfBKGHZ8="
+          "hash": "eOnF/zbyGg3wIHNVbYkeHbvfrCU/USf/SrHUXV+1Goc="
         }
       },
       "version": ""
@@ -2981,7 +2992,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData.html",
-          "hash": "d3gS9bcsMWHkLiWLEAjaQH4OSQRwpHrVUBP1YUS+r8Y="
+          "hash": "oY1ZY6rSb2KdJn/6gqGVJe4K/1Ud2dI5BE7Zl00/zws="
         }
       },
       "version": ""
@@ -3036,7 +3047,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData.html",
-          "hash": "cyr42ghr/KE0SZmZY8aY0oqPqCjUqKGzDTLBq1Rg5Po="
+          "hash": "nR9w3yiLPcageyRn3CLgpZj28ENVWFdMY2HrKmIIgFU="
         }
       },
       "version": ""
@@ -3091,7 +3102,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.html",
-          "hash": "NOph20qRbJyb7nGgZAqul0fck7ONcX9HP+GROJWmd1A="
+          "hash": "thGFFjk1dJ9uJSr+WurzBE2PODgiTuuu30kCDuRGj0g="
         }
       },
       "version": ""
@@ -3762,7 +3773,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoComprehensiveResult.html",
-          "hash": "QdBypU5zxkKmqEKAdSCUhsGjRFhCTb+4Ly9V+ovHteY="
+          "hash": "uj/ANRyw6GMR/wEYvS5IwIWzTo6EfelNdTkprPRM1eM="
         }
       },
       "version": ""
@@ -3817,7 +3828,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspector.html",
-          "hash": "VmYYHSfc+Pl8QaEecDM7jj0QTE9u4tHvCs/LMgV1Tr8="
+          "hash": "APZyqEP7L/nXKKC+raQhJTBKBlc2CTkScp5nxfp8750="
         }
       },
       "version": ""
@@ -3839,7 +3850,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Inspectors.AxoInspectorDialog.html",
-          "hash": "Nuyw/rargqbqDIeZ1tLQRy3YRq4mZonpm1eFdJNHzk4="
+          "hash": "op4nzMsJfGdYsrsiXjbBbmk+DvchRJzMvNR7p2sDALo="
         }
       },
       "version": ""
@@ -3949,7 +3960,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Inspectors.html",
-          "hash": "bAzwjIhpjLTFNv0znDCOKtBttTTBfwmCRECtrL5Whyk="
+          "hash": "xY4uUFoaetl2SOFMTJCQOs+ItgEeSU/Oya0X9uijL1U="
         }
       },
       "version": ""
@@ -4026,7 +4037,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html",
-          "hash": "AzPHj1q71VnnLmkRvvn7CwtFOvEv6JxpIIWRRox2Vro="
+          "hash": "klNXLRa9PVfIVhJJooMmieuYaeyhl56jgidY1ke821Y="
         }
       },
       "version": ""
@@ -4092,7 +4103,7 @@
       "output": {
         ".html": {
           "relative_path": "apictrl/toc.html",
-          "hash": "Nfs8Su9NQclAcuNI3BBlI4ul366YQSq93FfmNUZPxA0="
+          "hash": "nN1ZnNQzsSFHP/5hHBHwrS3zKJ1f8hBAn+pwOblZUGY="
         }
       },
       "version": ""
@@ -4117,7 +4128,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.html",
-          "hash": "dS992iPHA967bixHw/xI5ut0MNRiUYNBbPITi6WxDqM="
+          "hash": "WEZU+2dWmYpZLoXcMls7/sdD/MlgCZzOa01RRautK28="
         }
       },
       "version": ""
@@ -4128,7 +4139,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/components/AXOPENCOGNEVISION/README.html",
-          "hash": "2yCzzliea5Bl7IIgCgLVcYesvipLf9PC8PVTuJQkE/M="
+          "hash": "lC1E//Y2ueeOs6+7sVr54s0wqG8DNEZ5ZGVtMeagInE="
         }
       },
       "version": ""
@@ -4190,11 +4201,33 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/components/AXOPENPNEUMATICS/AXOCYLINDER.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/components/AXOPENPNEUMATICS/AXOCYLINDER.html",
+          "hash": "mnT/LkA2DtboRbThauAgd4DnzRjN9KmYArRdxteelzU="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/components/AXOPENPNEUMATICS/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/components/AXOPENPNEUMATICS/README.html",
+          "hash": "xoEXmyGBn+MsN9oq3Ssvz5zW+D0tX08yw49eiHMij8Y="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/components/README.md",
       "output": {
         ".html": {
           "relative_path": "articles/components/README.html",
-          "hash": "+crvz6fMjgRvNcMtQ/PkiYlTYkMjVVNvPuN31H4Sf1Q="
+          "hash": "WlJObVcVpV1Tarh0OebdOeURNKVPx4ZS1z8bMA4Q6wQ="
         }
       },
       "version": ""
@@ -4227,7 +4260,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOCOMPONENT.html",
-          "hash": "uduliWl5jOHft3nFXRItoNH878lRvlX91w17r+6A8I0="
+          "hash": "868P+eyvBMdt82OQZ6urko0nkPuN+J00YanoVdpPgJk="
         }
       },
       "version": ""
@@ -4336,6 +4369,7 @@
     },
     {
       "log_codes": [
+        "codesnippet-not-found",
         "InvalidFileLink"
       ],
       "type": "Conceptual",
@@ -4343,7 +4377,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/AXOTEXTLIST.html",
-          "hash": "xcAliGdGL332TK0+fuDlYNs54ngcxBJeoftobW6NOdo="
+          "hash": "i/9N4V5rCqWEG3On6IxfVMqIKeHc12Xt1HFXX5vrkls="
         }
       },
       "version": ""
@@ -4368,7 +4402,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/core/README.html",
-          "hash": "Pwlh12pgH/jVGDSs5TYiwpqUZ4nbfsW1Xw/zyW9hUEE="
+          "hash": "NkWqOwvySt9XuDy12VTwnxAPOOVBvH2ewTKji52CKxk="
         }
       },
       "version": ""
@@ -4419,6 +4453,17 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "articles/guidelines/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/guidelines/README.html",
+          "hash": "h8bjIwzcOFQc95d6zAZL0YRmXdJvkelq0ZOUuzIV304="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "articles/guidelines/components.md",
       "output": {
         ".html": {
@@ -4434,7 +4479,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/inspectors/AXOANALOGUEINSPECTOR.html",
-          "hash": "TVoCMy+MF/HW7Elmqngf8L3V6C4f+lm2YlR35oGJEDY="
+          "hash": "jowGYGc4kf2bzOmJWg+W1uyrbf1JP3vQ6m/SvFVz/Jk="
         }
       },
       "version": ""
@@ -4445,7 +4490,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/inspectors/AXODATAINSPECTOR.html",
-          "hash": "0tHyTfDL/SNITIVrWiiuvGN1807FcaSOE2o3tuYbUQM="
+          "hash": "1MrdVwbQG195AepKaBWQt8j5DjJZV4TU/TuLOUYTTEc="
         }
       },
       "version": ""
@@ -4456,7 +4501,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/inspectors/AXODIGITALINSPECTOR.html",
-          "hash": "xwA9e+uaBixcKAF/5DaOnt5VP7RVVFPksdKa58si280="
+          "hash": "nNxrmpGgGkv0+SAOBze5y6fb7Spm6g241WIDIlw1omI="
         }
       },
       "version": ""
@@ -4467,7 +4512,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/inspectors/README.html",
-          "hash": "Zc1Vg4JPr0I5Q2dBbfE74alkU/0X9G1PofZeLdzYizs="
+          "hash": "IScyOY19SOnG64o8isMmHzKdAEs/jPAteZhr/VUjtVs="
         }
       },
       "version": ""
@@ -4522,7 +4567,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/messaging/AXOMESSENGER.html",
-          "hash": "R7ODUqf2y/D3ExlUrKcplJyOhG0tHRWTtEt+3B3hWf0="
+          "hash": "U0NUsjTyn3zzdQ+H74S36kdyNFkDWBfjgOfEkOLn6Mo="
         }
       },
       "version": ""
@@ -4533,7 +4578,29 @@
       "output": {
         ".html": {
           "relative_path": "articles/messaging/README.html",
-          "hash": "xZQg1cgEoJxazwqHC2nBpj2T6HxTDkSDWNaZQbMQyvQ="
+          "hash": "nxpEi4TNbVIwzXj6T1x77feeoL/KW58ufU7YZjHJrjI="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/notes/Assets_in_nuget_package.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/notes/Assets_in_nuget_package.html",
+          "hash": "iC1pryUjZfLtWAhu7cQ0fvYpgkJVSOLhI9Kge2i8Asc="
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/notes/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/notes/README.html",
+          "hash": "vK5Blxzz1xyVrdWvMSU+Cfq2FzMGz0hxzcG4zy7D0JI="
         }
       },
       "version": ""
@@ -4621,7 +4688,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/timers/README.html",
-          "hash": "Dxwe90px1OrFByOEM3Jg/MVpTIqJ6excpfo18OyaPMI="
+          "hash": "bzpAsmWdQWzvYgLx0sZyOxWRQv8ZhdgDHfF7M/ap3+E="
         }
       },
       "version": ""
@@ -4632,7 +4699,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "TB6j7RevYjjOGpHEw1xRFyCdKAFGuCw8m57BGPp59bg="
+          "hash": "ZT+9nguEkrrw3CecQ0QpP7PRSzGEUoDr3LNJLmhhxbg="
         }
       },
       "version": ""

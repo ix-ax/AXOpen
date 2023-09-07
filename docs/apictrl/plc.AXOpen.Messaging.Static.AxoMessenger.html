@@ -417,7 +417,8 @@
 
 
   <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Serve_IAxoContext_" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoContext)">Serve</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -458,7 +459,8 @@
 
 
   <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Serve_IAxoObject_" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)">Serve</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -499,7 +501,8 @@
 
 
   <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Activate_eAxoMessageCategory_" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Activate(eAxoMessageCategory)">Activate</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Activates the message of the entered category immediatelly.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -533,6 +536,306 @@
     <tbody>
       <tr>
         <td><a class="xref" href="plc.AXOpen.Messaging.Static.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Activate_ULINT_eAxoMessageCategory_" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)">Activate</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private AXOpen.Messaging.Static.IAxoMessageProperties Activate(in plc.ULINT _messageCode,in plc.AXOpen.Messaging.eAxoMessageCategory _category)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ULINT</span></td>
+        <td><span class="parametername">_messageCode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.eAxoMessageCategory.html">eAxoMessageCategory</a></td>
+        <td><span class="parametername">_category</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Static.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_ActivateOnCondition_BOOL_eAxoMessageCategory_" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(BOOL,eAxoMessageCategory)">ActivateOnCondition</h4>
+  <div class="markdown level1 summary"><p>Activates the message of the entered category on the rising edge of the condition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Static.IAxoMessageProperties ActivateOnCondition(in plc.BOOL _condition,in plc.AXOpen.Messaging.eAxoMessageCategory _category)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">_condition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.eAxoMessageCategory.html">eAxoMessageCategory</a></td>
+        <td><span class="parametername">_category</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Static.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_ActivateOnCondition_ULINT_BOOL_eAxoMessageCategory_" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)">ActivateOnCondition</h4>
+  <div class="markdown level1 summary"><p>Activates the message of the entered category by using the text list on the rising edge of the condition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Static.IAxoMessageProperties ActivateOnCondition(in plc.ULINT _messageCode,in plc.BOOL _condition,in plc.AXOpen.Messaging.eAxoMessageCategory _category)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ULINT</span></td>
+        <td><span class="parametername">_messageCode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">BOOL</span></td>
+        <td><span class="parametername">_condition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.eAxoMessageCategory.html">eAxoMessageCategory</a></td>
+        <td><span class="parametername">_category</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="plc.AXOpen.Messaging.Static.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Deactivate_ULINT_" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT)">Deactivate</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID Deactivate(in plc.ULINT _messageCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ULINT</span></td>
+        <td><span class="parametername">_messageCode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Deactivate__" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate()">Deactivate</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID Deactivate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Acknowledge_ULINT_" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)">Acknowledge</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID Acknowledge(in plc.ULINT _messageCode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">ULINT</span></td>
+        <td><span class="parametername">_messageCode</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Acknowledge__" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge()">Acknowledge</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Private VOID Acknowledge()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Restore__" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Restore()">Restore</h4>
+  <div class="markdown level1 summary"><p>Restores all members of this instance to their initial states.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Public VOID Restore()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
         <td></td>
       </tr>
     </tbody>
@@ -580,102 +883,9 @@
   </table>
 
 
-  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_ActivateOnCondition_BOOL_eAxoMessageCategory_" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(BOOL,eAxoMessageCategory)">ActivateOnCondition</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public AXOpen.Messaging.Static.IAxoMessageProperties ActivateOnCondition(in plc.BOOL _condition,in plc.AXOpen.Messaging.eAxoMessageCategory _category)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td><span class="parametername">_condition</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="plc.AXOpen.Messaging.eAxoMessageCategory.html">eAxoMessageCategory</a></td>
-        <td><span class="parametername">_category</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="plc.AXOpen.Messaging.Static.IAxoMessageProperties.html">IAxoMessageProperties</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Acknowledge__" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge()">Acknowledge</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Public VOID Acknowledge()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_Deactivate__" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate()">Deactivate</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Private VOID Deactivate()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
   <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_RequireAcknowledgement__" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()">RequireAcknowledgement</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Forces to require the message acknowledgement, even if the message category does not require it by default.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -699,7 +909,8 @@
 
 
   <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_DoNotRequireAcknowledgement__" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()">DoNotRequireAcknowledgement</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Forces to not require the message acknowledgement, even if the message category requires it by default.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
@@ -723,7 +934,8 @@
 
 
   <h4 id="plc_AXOpen_Messaging_Static_AxoMessenger_IsAcknowledgementRequired__" data-uid="plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()">IsAcknowledgementRequired</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Returns TRUE if requires the message acknowledgement.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
