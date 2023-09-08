@@ -1,6 +1,9 @@
 name: "axosimple"
 version: '0.1.4-alpha.79'
 type: app
+targets:
+  - plcsim
+  - axunit-llvm
 registries:
   '@ix-ax': https://npm.pkg.github.com/
 devDependencies:
@@ -9,17 +12,15 @@ devDependencies:
   "@ax/stc": ^5.4.89
 dependencies:
   "@ix-ax/axopen.data": '0.1.4-alpha.79'
-  "@ix-ax/axopen.inspectors": '0.1.4-alpha.79'
+  "@ix-ax/axopen.inspectors": '0.1.4-alpha.79' 
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
 variables:
-  APAX_BUILD_ARGS: [ -d ]
+  APAX_BUILD_ARGS: [-d]
 scripts:
   ixc:
     - dotnet tool restore --no-cache
     - dotnet ixc
     - dotnet ixr
-  prebuild:
-    - apax update-targets
   postbuild: apax ixc
   download:
     - apax install
@@ -27,8 +28,7 @@ scripts:
     # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
 
     # --default-server-interface is a must if you are using WebAPI      
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   watch:
     - dotnet watch --project ..\\axosimple.app\\axosimple.hmi.csproj
   da:
@@ -49,17 +49,6 @@ scripts:
     else
       echo "Environment variable AXTARGET not defined!!!"
     fi
-  update-targets: |
-    if [ $AXBUILDTARGET_1 ]; then
-      yq -i "del(.targets)" apax.yml
-      yq -i ".targets[0] = strenv(AXBUILDTARGET_1)" apax.yml
-      if [ $AXBUILDTARGET_2 ]; then
-        yq -i ".targets[1] = strenv(AXBUILDTARGET_2)" apax.yml
-      fi
-      if [ $AXBUILDTARGET_3 ]; then
-        yq -i ".targets[2] = strenv(AXBUILDTARGET_3)" apax.yml
-      fi
-    fi
   rr:
     - apax build
     - apax download
@@ -68,6 +57,4 @@ scripts:
     - ..\\scripts\\StartPlcSimAdvCli.exe
     - apax install
     - apax rr
-targets:
-  - axunit-llvm
-  - plcsim
+  

@@ -6,13 +6,13 @@ NAMESPACE AXOpen.Inspectors
     CLASS AxoDigitalInspectorData EXTENDS AxoInspectorData
 
         VAR PUBLIC
-
+            //<AxoDigitalInspectorDataDeclaration>
             {#ix-set:AttributeName = "<#Required#>"}
             RequiredStatus : BOOL;
 
             {#ix-set:AttributeName = "<#Detected#>"}
             DetectedStatus : BOOL;
-      
+            //</AxoDigitalInspectorDataDeclaration>
 
         END_VAR
 
@@ -20,3 +20,5 @@ NAMESPACE AXOpen.Inspectors
 
 
 END_NAMESPACE
+
+

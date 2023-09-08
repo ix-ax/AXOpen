@@ -104,6 +104,14 @@ namespace AXOpen.Core
            
         }
 
+        protected override async Task OnInitializedAsync()
+        {
+            await Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.Category));
+            await Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.IsActive));
+            await Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.WaitingForAcknowledge));
+            await base.OnInitializedAsync();
+        }
+
         private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().OfType<AxoMessenger>();
 
        
@@ -111,13 +119,13 @@ namespace AXOpen.Core
         {
             get
             {
-                var _messengers = Messengers?.ToList();
 
+                var _messengers = Messengers?.ToList();
                 if (_messengers == null) { return eAlarmLevel.NoAlarms; }
                 
                 if (_messengers.Any(p => p.IsActive.Cyclic))
                 {
-                   // _messengers.First().GetConnector().ReadBatchAsync(_messengers.Select(p => p.Category));
+                                     
                     var seriousness = (eAxoMessageCategory)_messengers.Max(p => p.Category.LastValue);
 
                     if(seriousness <= eAxoMessageCategory.Info)
@@ -127,7 +135,7 @@ namespace AXOpen.Core
                     else if (seriousness <= eAxoMessageCategory.Error)
                         return eAlarmLevel.ActiveErrors;
                 }
-                else if (_messengers.Any(p => p.WaitingForAcknowledge.Cyclic))
+                else if (_messengers.Any(p => p.WaitingForAcknowledge.LastValue))
                 {
                     return eAlarmLevel.Unacknowledged;
                 }

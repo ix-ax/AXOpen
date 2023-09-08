@@ -9,5 +9,6 @@ namespace AXOpen.Core;
 
 public partial class AxoSequencerContainer
 {
-    
+    public string TabName { get; }
+
 }

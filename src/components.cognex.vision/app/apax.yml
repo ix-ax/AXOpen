@@ -1,23 +1,29 @@
 name: "axopen.components.cognex.vision.integrations"
 version: '0.1.4-alpha.79'
 type: app
+targets:
+  - plcsim
+  - axunit-llvm
+  #- "1500" 
 devDependencies:
   "@ax/sdk": ^4.0.8
   "@ax/sld": 0.15.9
+  "@ax/stc": ^5.4.89
 dependencies:
   "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
+  "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
 variables:
-  APAX_BUILD_ARGS: [ -d ]
+  APAX_BUILD_ARGS:
+    - "--debug" # Generate debug information for target "1500"
 scripts:
   ixc:
     - START=$(date +%s)
     - dotnet tool restore
     - dotnet ixc
-    - echo "Builded by ixc in :" $(expr $(date +%s) - $START) "s"
+    - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download:
     - START=$(date +%s)
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
@@ -38,24 +44,10 @@ scripts:
     - apax install
     - apax build
     - apax download
-  update-targets: |
-    if [ $AXBUILDTARGET_1 ]; then
-      yq -i "del(.targets)" apax.yml
-      yq -i ".targets[0] = strenv(AXBUILDTARGET_1)" apax.yml
-      if [ $AXBUILDTARGET_2 ]; then
-        yq -i ".targets[1] = strenv(AXBUILDTARGET_2)" apax.yml
-      fi
-      if [ $AXBUILDTARGET_3 ]; then
-        yq -i ".targets[2] = strenv(AXBUILDTARGET_3)" apax.yml
-      fi
-    fi
-  prebuild:
-    - apax update-targets
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project
-      ..\\app_src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
+    - dotnet watch --project ..\\app_src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
   rr:
     - apax build
     - apax download
@@ -67,7 +59,7 @@ scripts:
   da:
     - START=$(date +%s)
     - apax do-it-all
-    - echo "Finished in :" $(expr $(date +%s) - $START) "s"
-targets:
-  - plcsim
-  - axunit-llvm
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+  r:
+    - apax plc-mode set stop -t $AXTARGET -y
+    - apax plc-mode set run -t $AXTARGET -y
