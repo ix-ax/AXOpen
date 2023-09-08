@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.Core
 {
-    public partial class AxoSequencerView  
+    public partial class AxoSequencerView
     {
-        public IEnumerable<AxoStep?> Steps => Component.GetKids().OfType<AxoStep>();
+        public IEnumerable<AxoStep> Steps => Component.GetKids().OfType<AxoStep>();
 
         [Parameter] public bool IsControllable { get; set; } = true;
 
@@ -31,9 +31,35 @@ namespace AXOpen.Core
             });
         }
 
-        private string UpdateStepRowColors(AxoStep step)
+        protected override void OnInitialized()
         {
-            //await this.ScrollToRow();
+            base.OnInitialized();
+            this.UpdateValuesOnChange(Component);
+        }
+
+        private void RefreshComponent()
+        {
+            Component.ReadAsync();
+        }
+
+        private ElementReference activeStepReference { get; set; }
+
+        private string Description(AxoStep step)
+        {
+            var text = string.IsNullOrEmpty(step.StepDescription.Cyclic)
+                ? step.Order.Cyclic.ToString()
+                : step.StepDescription.Cyclic;
+
+            if (step.IsActive.Cyclic)
+            {
+                return $">> {text} <<";
+            }
+
+            return text;
+        }
+
+        private string StepRowColor(AxoStep step)
+        {
             switch ((eAxoTaskState)step.Status.Cyclic)
             {
                 case eAxoTaskState.Disabled:
@@ -52,33 +78,6 @@ namespace AXOpen.Core
                     return "bg-white text-dark";
             }
         }
-
-        private string UpdateStepDescription(AxoStep step)
-        {
-            var text = string.IsNullOrEmpty(step.StepDescription.Cyclic)
-                ? step.Description
-                : step.StepDescription.Cyclic;
-
-            if (step.IsActive.Cyclic)
-            {
-                return $">> {text} <<";
-            }
-
-            return text;
-        }
-
-        private string UpdateTotalDurationDisplay(AxoStep step)
-        {
-            return $"{step.Duration.Cyclic.TotalSeconds}";
-        }
-
-        protected override void OnInitialized()
-        {
-            base.OnInitialized();
-            this.UpdateValuesOnChange(Component);
-        }
-
-        private ElementReference activeStepReference { get; set; }
     }
 
     public class AxoSequencerCommandView : AxoSequencerView
