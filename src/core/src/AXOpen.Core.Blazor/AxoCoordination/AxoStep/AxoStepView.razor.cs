@@ -7,13 +7,26 @@ namespace AXOpen.Core
 {
     public partial class AxoStepView
     {
-        private string RowClass => UpdateStepRowColors();
+        private string StepRowColor => UpdateStepRowColors();
 
         private bool IsActive => Component.IsActive.Cyclic == true;
 
-        private string TotalDurationDisplay => $"{Component.Duration.Cyclic.TotalSeconds}";
+        private string Description
+        {
+            get
+            {
+                var text = string.IsNullOrEmpty(Component.StepDescription.Cyclic)
+                    ? Component.Order.Cyclic.ToString()
+                    : Component.StepDescription.Cyclic;
 
-        private string Description => string.IsNullOrEmpty(Component.StepDescription.Cyclic) ? Component.Description : Component.StepDescription.Cyclic;
+                if (IsActive)
+                {
+                    return $">> {text} <<";
+                }
+
+                return text;
+            }
+        }
 
         private string UpdateStepRowColors()
         {
