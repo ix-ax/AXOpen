@@ -3,7 +3,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Core;
 USING AXOpen.Components.Abstractions;
 
-NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
+NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
 
     CLASS PUBLIC AxoDataman EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.IAxoCodeReader     
         VAR PUBLIC

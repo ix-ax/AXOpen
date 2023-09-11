@@ -13,7 +13,12 @@ devDependencies:
 dependencies:
   "@ix-ax/axopen.data": '0.1.4-alpha.79'
   "@ix-ax/axopen.inspectors": '0.1.4-alpha.79' 
+  "@ix-ax/axopen.components.pneumatics": '0.1.4-alpha.79'
+  "@ix-ax/axopen.components.elements": '0.1.4-alpha.79'
+  "@ix-ax/axopen.components.cognex.vision": '0.1.4-alpha.79'
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
+  
+  
 variables:
   APAX_BUILD_ARGS: [-d]
 scripts:

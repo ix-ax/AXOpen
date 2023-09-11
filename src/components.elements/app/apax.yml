@@ -11,7 +11,7 @@ variables:
 devDependencies:
   "@ax/sdk": 4.0.3
 dependencies:
-  "@ix-ax/axopen_components_elements" : 0.1.4-alpha.79
+  "@ix-ax/axopen.components.elements" : 0.1.4-alpha.79
 scripts:
   download:
     - apax install -L

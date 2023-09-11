@@ -1,4 +1,4 @@
-name: "@ix-ax/axopen_components_elements"
+name: "@ix-ax/axopen.components.elements"
 version: '0.1.4-alpha.79'
 type: lib
 targets:

@@ -242,7 +242,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\AXOpen.Cognex.Vision.Blazor\axopen_cognex_vision_blazor.csproj" />
-    <ProjectReference Include="..\..\src\AXOpen.Cognex.Vision\ix_ax_axopen_cognex_vision.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

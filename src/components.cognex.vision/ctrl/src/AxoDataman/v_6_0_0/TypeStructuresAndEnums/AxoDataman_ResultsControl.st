@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
+NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
     TYPE
         AxoDataman_ResultsControl : 
         STRUCT

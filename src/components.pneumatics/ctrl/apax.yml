@@ -1,4 +1,4 @@
-name: "@ix-ax/axopen_components_pneumatics"
+name: "@ix-ax/axopen.components.pneumatics"
 version: '0.1.4-alpha.79'
 type: lib
 targets:

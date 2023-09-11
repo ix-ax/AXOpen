@@ -62,6 +62,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
-    <ProjectReference Include="..\AXOpen.Cognex.Vision\ix_ax_axopen_cognex_vision.csproj" />
+    <ProjectReference Include="..\AXOpen.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
   </ItemGroup>
 </Project>

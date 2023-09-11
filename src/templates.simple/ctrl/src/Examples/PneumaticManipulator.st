@@ -12,10 +12,13 @@ NAMESPACE examples.PneumaticManipulator
         EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             // HERE DECLARE COMPONENTS USED BY THIS CONTROLLED UNIT
-            HorizontalCylinder : AXOpen.Pneumatics.Cylinder;
-            VerticalCylinder : AXOpen.Pneumatics.Cylinder;
-            GripperCylinder : AXOpen.Pneumatics.Cylinder;
+            HorizontalCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
+            VerticalCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
+            GripperCylinder : AXOpen.Components.Pneumatics.AxoCylinder;
+            DMCReader : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;
+            PartPresenceSensor : AXOpen.Elements.AxoDi;
         END_VAR
+
         
         METHOD PUBLIC Update
             VAR_INPUT
@@ -27,11 +30,10 @@ NAMESPACE examples.PneumaticManipulator
             END_VAR
             THIS.Initialize(parent);
             // HERE INITIALIZE YOUR COMPONENTS
-            HorizontalCylinder.Update(THIS, Inputs.B0[0], Inputs.B0[1], Outputs.B0[0], Outputs.B0[1]);
-            VerticalCylinder.Update(THIS, Inputs.B0[2], Inputs.B0[3], Outputs.B0[2], Outputs.B0[3]);
-            GripperCylinder.Update(THIS, Inputs.B0[4], Inputs.B0[5], Outputs.B0[4], Outputs.B0[5]);
-
-            
+            HorizontalCylinder.Run(THIS, Inputs.B0[0], Inputs.B0[1], Outputs.B0[0], Outputs.B0[1]);
+            VerticalCylinder.Run(THIS, Inputs.B0[2], Inputs.B0[3], Outputs.B0[2], Outputs.B0[3]);
+            GripperCylinder.Run(THIS, Inputs.B0[4], Inputs.B0[5], Outputs.B0[4], Outputs.B0[5]);
+                        
         END_METHOD
     END_CLASS
 
@@ -197,20 +199,20 @@ NAMESPACE examples.PneumaticManipulator
             // This is more verbose but also more versatile way of executing step logic.
             IF (Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
                 //-------------------------------------------------------
-                IF (components^.VerticalCylinder.MoveToWork.Invoke().IsDone()) THEN // <- waits for the task to be done.
+                IF (components^.VerticalCylinder._MoveToHomeTask.Invoke().IsDone()) THEN // <- waits for the task to be done.
                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
                 END_IF;
 //-------------------------------------------------------
             END_IF;
             // This is more concise way of writing steps when we execute only single task.
-            THIS.AndThen(Steps[1], components^.GripperCylinder.MoveToWork);
-            THIS.AndThen(Steps[2], components^.VerticalCylinder.MoveToHome);
-            THIS.AndThen(Steps[3], components^.HorizontalCylinder.MoveToWork);
-            THIS.AndThen(Steps[4], components^.VerticalCylinder.MoveToWork);
-            THIS.AndThen(Steps[5], components^.GripperCylinder.MoveToHome);
-            THIS.AndThen(Steps[6], components^.VerticalCylinder.MoveToHome);
-            THIS.AndThen(Steps[7], components^.HorizontalCylinder.MoveToHome);
-            THIS.AndThen(Steps[8], components^.GripperCylinder.MoveToHome);
+            THIS.AndThen(Steps[1], components^.GripperCylinder._MoveToWorkTask);
+            THIS.AndThen(Steps[2], components^.VerticalCylinder._MoveToHomeTask);
+            THIS.AndThen(Steps[3], components^.HorizontalCylinder._MoveToWorkTask);
+            THIS.AndThen(Steps[4], components^.VerticalCylinder._MoveToWorkTask);
+            THIS.AndThen(Steps[5], components^.GripperCylinder._MoveToHomeTask);
+            THIS.AndThen(Steps[6], components^.VerticalCylinder._MoveToHomeTask);
+            THIS.AndThen(Steps[7], components^.HorizontalCylinder._MoveToHomeTask);
+            THIS.AndThen(Steps[8], components^.GripperCylinder._MoveToHomeTask);
             
             IF(Steps[9].Execute(THIS, TRUE, 'Create data id')) THEN
 
@@ -378,7 +380,7 @@ NAMESPACE examples.PneumaticManipulator
             // This is more verbose but also more versatile way of executing step logic.
             IF (Steps[0].Execute(THIS, TRUE, 'Move vertical cyclinder down.')) THEN
                 //-------------------------------------------------------                  
-                IF (components^.VerticalCylinder.MoveToHome.Invoke().IsDone()) THEN // <- waits for the task to be done.                
+                IF (components^.VerticalCylinder._MoveToHomeTask.Invoke().IsDone()) THEN // <- waits for the task to be done.                
                     THIS.MoveNext(); // <- This will move to the next step in the sequence.                    
                 END_IF;                       
             //-------------------------------------------------------
@@ -391,9 +393,9 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
 
             // This is more concise way of writing steps when we execute only single task.
-            THIS.AndThen(Steps[1], components^.GripperCylinder.MoveToHome);
-            THIS.AndThen(Steps[2], components^.VerticalCylinder.MoveToHome);
-            THIS.AndThen(Steps[3], components^.HorizontalCylinder.MoveToHome);
+            THIS.AndThen(Steps[1], components^.GripperCylinder._MoveToHomeTask);
+            THIS.AndThen(Steps[2], components^.VerticalCylinder._MoveToHomeTask);
+            THIS.AndThen(Steps[3], components^.HorizontalCylinder._MoveToHomeTask);
            
             // This will close the sequence and will return to the first step.
             THIS.Close(Steps[20]);

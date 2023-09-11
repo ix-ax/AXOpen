@@ -146,9 +146,11 @@ public class BuildContext : FrostingContext
         ("data", "axopen.data"),
         ("probers", "axopen.probers"),
         ("inspectors", "axopen.inspectors"),
+        ("components.elements", "axopen.components.elements"),
         ("components.abstractions", "axopen.components.abstractions"),
         ("components.cognex.vision", "axopen.cognex.vision"),
-        ("components.pneumatics", "axopen_components_pneumatics")
+        ("components.pneumatics", "axopen.components.pneumatics")
+        
     };
 
     public IEnumerable<(string folder, string name, string targetIp, string targetPlatform)> Integrations { get; } = new[]

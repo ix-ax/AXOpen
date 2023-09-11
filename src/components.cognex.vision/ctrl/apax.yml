@@ -1,4 +1,4 @@
-name: "@ix-ax/axopen.cognex.vision"
+name: "@ix-ax/axopen.components.cognex.vision"
 version: '0.1.4-alpha.79'
 type: lib
 targets:

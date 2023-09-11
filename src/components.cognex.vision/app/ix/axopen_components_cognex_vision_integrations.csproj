@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -16,6 +16,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\AXOpen.Cognex.Vision\ix_ax_axopen_cognex_vision.csproj" />
+	  <ProjectReference Include="..\..\src\AXOpen.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
 	</ItemGroup>
 </Project>
