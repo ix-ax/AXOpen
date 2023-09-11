@@ -28,7 +28,7 @@
 
     protected override void OnInitialized()
     {
-        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataExamplesDocu.DataManager, AlertDialogService = _alertDialogService, Asp = _asp };
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataExamplesDocu.DataManager, AlertDialogService = _alertDialogService, AuthenticationProvider = _asp };
     }
 }
 //</CustomColumnsCode>
