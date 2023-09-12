@@ -501,7 +501,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
 		/// Triggers the reading sequence and waits for results. 	
         ///</summary>       
         METHOD PUBLIC Read : IAxoTaskState
+            VAR_OUTPUT
+                result : ARRAY [0..245] OF BYTE;
+            END_VAR
+            result := ResultData.Data;
             Read := ReadTask.Invoke();
         END_METHOD
-    END_CLASS    
+END_CLASS    
 END_NAMESPACE
