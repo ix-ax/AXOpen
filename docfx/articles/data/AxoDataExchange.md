@@ -149,6 +149,8 @@ When adding data view manually, you will need to create ViewModel:
 
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoDataDocuExamples.razor?name=CustomColumnsCode)]
 
+> [!NOTE]
+> When creating ViewModel, don't forget to provide AlertDialogService and AuthenticationProvider.
 
 ![Custom columns](~/images/CustomColumns.png)
 
