@@ -1,0 +1,15 @@
+name: "@ix-ax/axopen_components_rexroth_drives"
+version: '0.1.4-alpha.79'
+type: lib
+targets:
+  - axunit-llvm
+files:
+  - src
+devDependencies:
+  "@ax/sdk": ^4.0.8
+scripts:
+  postbuild:
+    - dotnet ixc
+dependencies:
+  "@ix-ax/axopen.components.abstractions": '0.1.4-alpha.79'
+  "@ix-ax/axopen.core": 0.1.4-alpha.79
