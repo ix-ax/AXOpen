@@ -12,7 +12,9 @@ NAMESPACE AXOpen.Core
             StepIn : AxoTask;
             {#ix-set:AttributeName = "<<"}
             StepBackwardCommand : AxoTask;
+            BeforeStep : AxoStep;
             CurrentStep : AxoStep;
+            AfterStep : AxoStep;
         END_VAR   
         VAR PRIVATE
             _configurationFlowOrder : ULINT;   
@@ -21,7 +23,9 @@ NAMESPACE AXOpen.Core
             _step : IAxoStep;
             _openCycleCounter : ULINT;    
             _closeCycleCounter : ULINT;    
+            _refBeforeStep : REF_TO AxoStep;
             _refCurrentStep : REF_TO AxoStep;
+            _refAfterStep : REF_TO AxoStep;
         END_VAR     
 
         ///<summary>
@@ -139,8 +143,17 @@ NAMESPACE AXOpen.Core
             IF(THIS.CurrentOrder = step.GetStepOrder()) THEN
                 _refCurrentStep ?= step;
                 CurrentStep := _refCurrentStep^;
-            END_IF;    
+            END_IF;   
 
+            IF(THIS.CurrentOrder + ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = THIS.GetNumberOfConfiguredSteps() AND step.GetStepOrder() = UINT#1)) THEN
+                _refAfterStep ?= step;
+                AfterStep := _refAfterStep^;
+            END_IF;
+
+            IF(THIS.CurrentOrder - ULINT#1 = step.GetStepOrder() OR (THIS.CurrentOrder = UINT#1 AND step.GetStepOrder() = THIS.GetNumberOfConfiguredSteps())) THEN
+                _refBeforeStep ?= step;
+                BeforeStep := _refBeforeStep^;
+            END_IF; 
         END_METHOD
                 
         ///<summary>
