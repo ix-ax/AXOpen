@@ -2,7 +2,7 @@
 @using AXOpen.Base.Dialogs;
 @using AXOpen.Data;
 @inject IAlertDialogService _alertDialogService;
-@inject AuthenticationStateProvider _asp;
+@inject AuthenticationStateProvider _authenticationProvider;
 
 <h3>Editable</h3>
 //<CommandView>
@@ -28,7 +28,7 @@
 
     protected override void OnInitialized()
     {
-        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataExamplesDocu.DataManager, AlertDialogService = _alertDialogService, Asp = _asp };
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataExamplesDocu.DataManager, AlertDialogService = _alertDialogService, AuthenticationProvider = _authenticationProvider };
     }
 }
 //</CustomColumnsCode>
