@@ -5,11 +5,12 @@ using AXSharp.Connector.ValueTypes;
 using Microsoft.AspNetCore.Components;
 using Pocos.AXOpen.Core;
 using Serilog;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
 
-    public partial class AxoComponentView : IDisposable
+    public partial class AxoComponentView : RenderableComplexComponentBase<AxoComponent>, IDisposable
     {
         private bool areDetailsCollapsed = true;
         private bool areAlarmsCollapsed = true;

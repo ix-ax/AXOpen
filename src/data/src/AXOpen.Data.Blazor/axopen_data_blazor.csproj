@@ -9,18 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="IxComponent\**" />
-    <Content Remove="IxComponent\**" />
-    <EmbeddedResource Remove="IxComponent\**" />
-    <None Remove="IxComponent\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="C:\Users\peto.kurhajec\.nuget\packages\ix.presentation.blazor.controls\0.6.0-alpha.18\contentFiles\any\net7.0\Styles\custom.scss" />
-  </ItemGroup>
-
-
-  <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 

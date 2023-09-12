@@ -213,6 +213,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_librarytemplate", "templ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "librarytemplate.blazor", "template.axolibrary\app\ix-blazor\librarytemplate.blazor\librarytemplate.blazor.csproj", "{54BD044F-3FC1-4198-A3B3-E787540F2565}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "components.elements", "components.elements", "{4E13F7CF-2738-4B48-AD0F-3D0E26935E59}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_elements", "components.elements\src\AXOpen.Components.Elements\ix_ax_axopen_components_elements.csproj", "{5B79F951-4D27-494A-AB37-B1C027E31272}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Elements.blazor", "components.elements\src\AXOpen.Components.Elements.blazor\AXOpen.Components.Elements.blazor.csproj", "{A869C482-77AB-4228-979E-B34BE29F5B64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9726A6F5-A9B7-4F5D-A8F0-92BADAD72C87}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{A03716AC-1770-435B-92AC-A1B195A56272}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Elements_tests", "components.elements\tests\AXOpen.Components.Elements.Tests\AXOpen.Components.Elements_tests.csproj", "{ABC660E0-EF5B-4A1C-8F2D-5FC1886ED59B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -423,6 +435,18 @@ Global
 		{54BD044F-3FC1-4198-A3B3-E787540F2565}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54BD044F-3FC1-4198-A3B3-E787540F2565}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54BD044F-3FC1-4198-A3B3-E787540F2565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B79F951-4D27-494A-AB37-B1C027E31272}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B79F951-4D27-494A-AB37-B1C027E31272}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B79F951-4D27-494A-AB37-B1C027E31272}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B79F951-4D27-494A-AB37-B1C027E31272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A869C482-77AB-4228-979E-B34BE29F5B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A869C482-77AB-4228-979E-B34BE29F5B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A869C482-77AB-4228-979E-B34BE29F5B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A869C482-77AB-4228-979E-B34BE29F5B64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC660E0-EF5B-4A1C-8F2D-5FC1886ED59B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC660E0-EF5B-4A1C-8F2D-5FC1886ED59B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC660E0-EF5B-4A1C-8F2D-5FC1886ED59B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC660E0-EF5B-4A1C-8F2D-5FC1886ED59B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -511,6 +535,11 @@ Global
 		{71F9A23D-8BB2-4870-AF45-0059A3BA4F70} = {6CE1BA0C-BB5F-4105-A792-7CE352471827}
 		{51988CE3-7DBC-497E-A35F-E8F126C9C0D1} = {71F9A23D-8BB2-4870-AF45-0059A3BA4F70}
 		{54BD044F-3FC1-4198-A3B3-E787540F2565} = {71F9A23D-8BB2-4870-AF45-0059A3BA4F70}
+		{5B79F951-4D27-494A-AB37-B1C027E31272} = {9726A6F5-A9B7-4F5D-A8F0-92BADAD72C87}
+		{A869C482-77AB-4228-979E-B34BE29F5B64} = {9726A6F5-A9B7-4F5D-A8F0-92BADAD72C87}
+		{9726A6F5-A9B7-4F5D-A8F0-92BADAD72C87} = {4E13F7CF-2738-4B48-AD0F-3D0E26935E59}
+		{A03716AC-1770-435B-92AC-A1B195A56272} = {4E13F7CF-2738-4B48-AD0F-3D0E26935E59}
+		{ABC660E0-EF5B-4A1C-8F2D-5FC1886ED59B} = {A03716AC-1770-435B-92AC-A1B195A56272}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

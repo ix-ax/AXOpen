@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Components;
 using System.ComponentModel;
 using System.Reflection.Metadata.Ecma335;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoStepView
+    public partial class AxoStepView : RenderableComplexComponentBase<AxoStep>
     {
         private string StepRowColor => UpdateStepRowColors();
 

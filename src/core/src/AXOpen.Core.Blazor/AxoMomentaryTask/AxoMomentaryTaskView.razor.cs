@@ -1,9 +1,10 @@
 ﻿using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoMomentaryTaskView 
+    public partial class AxoMomentaryTaskView : RenderableComplexComponentBase<AxoMomentaryTask>
     {
         private void SwitchOnTask()
         {
