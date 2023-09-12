@@ -207,6 +207,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{EABE6BC4-167
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_cognex_vision", "components.cognex.vision\src\AXOpen.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj", "{71ED6723-A836-4E87-9D45-3066B67465B2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_extern", "_extern", "{7305E531-7678-4571-A204-2A7338F8A34B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Connector", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj", "{980CD979-5292-4CBD-94FD-C06E93F3C23D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Connector.S71500.WebAPI", "..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj", "{767B668D-43E3-4B34-820C-8F4E2EBA791B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Abstractions", "..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj", "{2C9161C2-C19E-406D-9034-2B5DCADAF7C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -409,6 +417,18 @@ Global
 		{71ED6723-A836-4E87-9D45-3066B67465B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71ED6723-A836-4E87-9D45-3066B67465B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71ED6723-A836-4E87-9D45-3066B67465B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{980CD979-5292-4CBD-94FD-C06E93F3C23D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{980CD979-5292-4CBD-94FD-C06E93F3C23D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{980CD979-5292-4CBD-94FD-C06E93F3C23D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{980CD979-5292-4CBD-94FD-C06E93F3C23D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{767B668D-43E3-4B34-820C-8F4E2EBA791B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{767B668D-43E3-4B34-820C-8F4E2EBA791B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{767B668D-43E3-4B34-820C-8F4E2EBA791B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{767B668D-43E3-4B34-820C-8F4E2EBA791B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9161C2-C19E-406D-9034-2B5DCADAF7C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9161C2-C19E-406D-9034-2B5DCADAF7C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9161C2-C19E-406D-9034-2B5DCADAF7C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9161C2-C19E-406D-9034-2B5DCADAF7C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -494,6 +514,9 @@ Global
 		{0F38853D-6D5D-4156-9571-E5F3426782AF} = {3134A28E-12A5-4255-81F4-F84874CE9318}
 		{EABE6BC4-1679-46EA-A3BB-56CF63A40FE5} = {1B390C59-FF6C-4721-8DBA-B8176DBA531B}
 		{71ED6723-A836-4E87-9D45-3066B67465B2} = {7A82F34B-A479-47D4-8FB6-F9A66FE6591A}
+		{980CD979-5292-4CBD-94FD-C06E93F3C23D} = {7305E531-7678-4571-A204-2A7338F8A34B}
+		{767B668D-43E3-4B34-820C-8F4E2EBA791B} = {7305E531-7678-4571-A204-2A7338F8A34B}
+		{2C9161C2-C19E-406D-9034-2B5DCADAF7C2} = {7305E531-7678-4571-A204-2A7338F8A34B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}

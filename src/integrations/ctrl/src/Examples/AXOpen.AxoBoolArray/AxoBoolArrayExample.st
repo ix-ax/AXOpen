@@ -1,4 +1,4 @@
-USING AXOpen.Cognex.Vision.v_6_0_0_0;
+USING AXOpen.Components.Cognex.Vision.v_6_0_0_0;
 USING AxoDataFramentsExchangeDocuExample;
 USING AXOpen.Core;
 

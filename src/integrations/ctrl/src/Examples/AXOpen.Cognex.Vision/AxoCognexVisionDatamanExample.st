@@ -1,14 +1,14 @@
 USING AXOpen.Core;
-USING AXOpen.Cognex.Vision.v_6_0_0_0;
+USING AXOpen.Components.Cognex.Vision.v_6_0_0_0;
 
 NAMESPACE AxoCognexVisionDatamanExamples
 
     CLASS AxoCognexVisionDatamanExampleContext EXTENDS AXOpen.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "10A1"}
-            MyDataman1 : AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman;  
+            MyDataman1 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;  
             {#ix-set:AttributeName = "reader_st2"}
-            MyDataman2 : AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman;  
+            MyDataman2 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;  
             {#ix-set:AttributeName = "<#Activate manual control#>"}
             ActivateManualControl : BOOL;  
             PlcInputs : REF_TO PlcInputs;

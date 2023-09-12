@@ -106,9 +106,9 @@ namespace AXOpen.Core
 
         protected override async Task OnInitializedAsync()
         {
-            await Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.Category));
-            await Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.IsActive));
-            await Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.WaitingForAcknowledge));
+            Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.Category)).RunSynchronously();
+            Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.IsActive)).RunSynchronously();
+            Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.WaitingForAcknowledge)).RunSynchronously();
             await base.OnInitializedAsync();
         }
 
