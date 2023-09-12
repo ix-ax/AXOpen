@@ -1,6 +1,7 @@
 ﻿using AXOpen.Messaging;
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
 using Microsoft.AspNetCore.Components;
 using Pocos.AXOpen.Core;
 using Serilog;
@@ -106,9 +107,10 @@ namespace AXOpen.Core
 
         protected override async Task OnInitializedAsync()
         {
-            Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.Category)).RunSynchronously();
-            Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.IsActive)).RunSynchronously();
-            Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.WaitingForAcknowledge)).RunSynchronously();
+            var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.IsActive, p.WaitingForAcknowledge });
+            var connector = Messengers?.FirstOrDefault()?.GetConnector();
+            await connector?.ReadBatchAsync(a)!;
+
             await base.OnInitializedAsync();
         }
 

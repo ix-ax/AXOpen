@@ -3,13 +3,13 @@
   "isRoot": true,
   "tools": {
     "AXSharp.ixc": {
-      "version": "0.14.2-alpha.134",
+      "version": "0.14.2-alpha.138",
       "commands": [
         "ixc"
       ]
     },
     "AXSharp.ixr": {
-      "version": "0.14.2-alpha.134",
+      "version": "0.14.2-alpha.138",
       "commands": [
         "ixr"
       ]

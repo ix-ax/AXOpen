@@ -39,7 +39,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.2-alpha.137" />
+		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.2-alpha.138" />
 	</ItemGroup>
 	<!--REF_PCKG_END-->
 	<ItemGroup>
