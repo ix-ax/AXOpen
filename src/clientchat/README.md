@@ -1,6 +1,6 @@
 # **Client Identification**
 
-Thanks to having [AXOpen.Security](~/articles/security/README.md) implemented, we are able to identify users using our application. The same user can be logged in on multiple clients at the same time and it is desirable to be able to have an account of which clients belong to which user. This article explains how this can be achieved and how we can send messages to specific clients in Blazor. This app is built on SignalR, an open-source library that simplifies adding real-time web functionality to apps.
+Thanks to having [AXOpen.Security](../../../articles/security/README.md) implemented, we are able to identify users using our application. The same user can be logged in on multiple clients at the same time and it is desirable to be able to have an account of which clients belong to which user. This article explains how this can be achieved and how we can send messages to specific clients in Blazor. This app is built on SignalR, an open-source library that simplifies adding real-time web functionality to apps.
 
 ## Prerequisities:
 
@@ -11,15 +11,25 @@ Thanks to having [AXOpen.Security](~/articles/security/README.md) implemented, w
 ### Creating a hub
 
 To create a new SignalR hub, we need to create a class that inherits from the `Hub` class located in the `Microsoft.AspNetCore.SignalR` namespace. It is responsible for handling messages from clients and connection management. A simple demo of a SignalR hub can be found
-in [ConnectionHub.cs](../../../src/clientchat/ClientIdentification/ConnectionHub.cs). The `ConnectionHub` class has a number of methods that can be overridden and methods specified by the user. E.g.:
+in `ConnectionHub.cs`. The `ConnectionHub` class has a number of methods that can be overridden and methods specified by the user. E.g.:
 
 -   `OnConnectedAsync()` - called when a new client connects to the hub
 -   `OnDisconnectedAsync()` - called when a client disconnects from the hub
 -   `SendMessage()` - _custom_ method that can be called by the client
 
+---
+**ConnectionHub.cs**
+[!code-csharp[](ClientIdentification/ConnectionHub.cs)]
+---
+
 ### Hub set up in Blazor
 
-To use the hub across all components in Blazor we need to create a service that will provide the Hub connection. See [HubConnectionProvider.cs](../../../src/clientchat/ClientIdentification/HubConnectionProvider.cs). The service is registered in the `Program.cs` file in the service configuration:
+To use the hub across all components in Blazor we need to create a service that will provide the Hub connection. See `HubConnectionProvider.cs`. The service is registered in the `Program.cs` file in the service configuration:
+
+---
+**HubConnectionProvider.cs**
+[!code-csharp[](ClientIdentification/HubConnectionProvider.cs)]
+---
 
 ```csharp
 builder.Services.AddSignalR();
@@ -51,7 +61,7 @@ In `App.razor` we can then inject the `HubConnectionProvider` service and use it
 
 ### Communication with the hub
 
-To use the hub we need to first inject the `HubConnectionProvider` service into the component we want to use the hub in. To listen for messages from the hub we need to register a handler (a method that will be called when a message is received) using the `On` method. In [Index.razor.cs](../../../src/clientchat/Pages/Index.razor) e.g.:
+To use the hub we need to first inject the `HubConnectionProvider` service into the component we want to use the hub in. To listen for messages from the hub we need to register a handler (a method that will be called when a message is received) using the `On` method. In `Index.razor.cs` e.g.:
 
 ```csharp
 HubConnectionProvider.HubConnection.On<string, string>("ReceiveMessage", (sender, message) =>
@@ -59,6 +69,11 @@ HubConnectionProvider.HubConnection.On<string, string>("ReceiveMessage", (sender
     // do something
 });
 ```
+
+---
+**Pages/Index.razor**
+[!code-csharp[](Pages/Index.razor)]
+---
 
 This will register a handler that will be called when a message with the name `ReceiveMessage` is received. The handler will be called with two parameters - `sender` and `message`. The types of the parameters need to be specified in the `On` method. This `ReceiveMessage` is called from the `ConnectionHub` in a `SendMessage` method:
 
@@ -132,7 +147,13 @@ string name = Context.User.Identity.Name; // name of the currently logged in use
 
 ### Mapping client connection ids to user names
 
-To by able to send messages to only those clients on which the specific user we want to send the message to is logged in, we need to map the client connection ids to the client's logged in user. The `ConnectionHub` contains a static variable `_connections` of type `ConnectionMapping<string>` that maps the client connection ids to the user names. The `ConnectionMapping` class is a simple dictionary that allows multiple values to be mapped to a single key. The `ConnectionMapping` class is defined in [ConnectionMapping.cs](../../../src/clientchat/ClientIdentification/ConnectionMapping.cs).
+To by able to send messages to only those clients on which the specific user we want to send the message to is logged in, we need to map the client connection ids to the client's logged in user. The `ConnectionHub` contains a static variable `_connections` of type `ConnectionMapping<string>` that maps the client connection ids to the user names. The `ConnectionMapping` class is a simple dictionary that allows multiple values to be mapped to a single key. The `ConnectionMapping` class is defined in [ConnectionMapping.cs].
+
+---
+**ConnectionMapping.cs**
+[!code-csharp[](ClientIdentification/ConnectionMapping.cs)]
+---
+
 
 When a new client connects to the hub, the `OnConnectedAsync()` method is called. Each connection has a unique id which we can add to the `_connections` dictionary along with the user name of the currently logged in user:
 

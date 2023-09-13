@@ -4,8 +4,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Data
     ///<summary>
-    /// Provides base class for any composite/fragmetes data exchange combining one or more AxoDataExchange object.
-    /// **For configuration and set up see [here](~/articles/data/AxoDataFragmentExchange.md)**  
+    /// Provides base class for any composite/fragmetes data exchange combining one or more AxoDataExchange object.    
     /// </summary>       
     CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoDataExchangeBase IMPLEMENTS IAxoDataExchange               
         VAR PUBLIC           

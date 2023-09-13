@@ -102,7 +102,7 @@ The AxoTask executes upon the `Invoke` method call. `Invoke` fires the execution
 
 Examples of using:
 Invoking the AxoTask and waiting for its completion at the same place.
-[!code-smalltalk[](../app/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskInvokeDone)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskInvokeDone)]
 Invoking the AxoTask and waiting for its completion at the different places.
 [!code-smalltalk[](../app/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskInvokeDoneSeparatelly)]
 Checking if the AxoTask is executing.

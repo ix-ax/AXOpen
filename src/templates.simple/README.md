@@ -9,7 +9,7 @@
 ### .NET
 
 
-Go to [Entry.cs](axsharpblazor/Entry.cs) and setup the following parameters
+Go to [Entry.cs](axosimple.twin/Entry.cs) and setup the following parameters
 
 ~~~C#
 private const string TargetIp = "192.168.0.1"; // <- replace by IP of your target PLC
@@ -23,7 +23,7 @@ You will need to use TIA Portal to enable WebAPI interface [see here](https://co
 
 ### AX
 
-Go to [apax.yml](ax/apax.yml) file and adjust the parameters
+Go to [apax.yml](ctrl/apax.yml) file and adjust the parameters
 
 ~~~yml
 .

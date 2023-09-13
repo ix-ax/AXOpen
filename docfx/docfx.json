@@ -8,6 +8,7 @@
             "base/src/**.csproj",
             "core/src/**.csproj",
             "data/src/**.csproj",
+            "inspectors/src/**.csproj",
             "components.cognex.vision/src/**.csproj",
             "components.pneumatics/src/**.csproj",
             "components.elements/src/**.csproj"
@@ -52,7 +53,9 @@
           "api/**.yml",
           "api/index.md",
           "apictrl/**.yml",
-          "apictrl/index.md"
+          "apictrl/index.md",
+          "apidoc/**.yml",
+          "apidoc/index.md"
         ]       
       },      
       {
@@ -90,10 +93,14 @@
       },
       {
         "files" : [
-        "**/*.md",
-        "**/toc.yml",
-        "**/docs/**",
-        "**/docs/assets/*.*"
+        "**/**.md",
+        "**/**.png",
+        "**/**.svg",
+        "**/**.gif",
+        "**/toc.yml"            
+        ],
+        "exclude": [          
+          "**/template.simple/**"                              
         ],
         "src" : "../src/"
       }      

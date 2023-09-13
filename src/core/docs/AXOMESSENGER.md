@@ -25,7 +25,7 @@ Static `AxoMessenger` is a class that provides a mechanism for delivering static
 
 `Restore()` - restores all members of this instance to their initial states.
 
-Depending on the [eAxoMessageCategory](/apictrl/abstractions/plc.AXOpen.Messaging.eAxoMessageCategory.html) the messenger should require the acknowledgement.
+Depending on the [eAxoMessageCategory](../../../docs/apictrl/abstractions/plc.AXOpen.Messaging.eAxoMessageCategory.html) the messenger should require the acknowledgement.
 
 By default the acknowledgement is not required for the levels `Trace`,`Debug`,`Info`,`TimedOut`,`Notification` and `Warning`. 
 This could be overwritten by calling the `RequireAcknowledgement()` method. 
@@ -49,7 +49,7 @@ The `Activate` method should be used called the required condition, or the `Acti
 In the case of `ActivateOnCondition` method is used without `_messageCode` parameter for the `MessageText` and `Help`, the values from the attributes `MessageText` and `Help` defined in the PLC code are used.
 In the case of `ActivateOnCondition` method is used with `_messageCode` parameter greater than zero for the `MessageText` and `Help`, the values from the text list are used. 
 In the case of `PlcTextList` attribute is defined, the parsed values from this attribute are used. In the case of `PlcTextList` attribute is not defined, the text list should be defined on the .NET side as in the example below.
-[!code-csharp[](../app/ix-blazor/axopencore.blazor/AXOpen.Messaging/AxoStaticMessengerDocuExample.cs?name=InitializationOfTheDotNetTextList)]
+[!code-csharp[](../app/ix/AXOpen.Messaging/AxoStaticMessengerDocuExample.cs?name=InitializationOfTheDotNetTextList)]
 
 Avoid mixing several activation principles with the same instance.
 [!code-smalltalk[](../app/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessengerCompleteExample)]

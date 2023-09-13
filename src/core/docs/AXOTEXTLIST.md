@@ -2,28 +2,28 @@
 
 AxoTextList provides displaying the string value from the list defined in the extended class inside the `.NET` twin based on the numerical value read out from the PLC.
 Moreover, the display form could also change the background colour with the numerical value change. To achieve this, the attributes `WarningLevel` and `ErrorLevel` need to be declared as in the following example.
-[!code-smalltalk[](../app/src/Examples/AxoTextList/AxoTextListExample.st?name=AxoTextListWithLevelsDefined)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.TextList/AxoTextListExample.st?name=AxoTextListWithLevelsDefined)]
 The final text displayed in the UI application will be `static prefix`+[`text value from text list`(Id)](for example `Description : ` + [TextList(Id)]). 
 The static prefix is optional. Use the following example to display the same text list without static prefix and with different levels.
-[!code-smalltalk[](../app/src/Examples/AxoTextList/AxoTextListExample.st?name=AxoTextListWithoutPrefix)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.TextList/AxoTextListExample.st?name=AxoTextListWithoutPrefix)]
 If the `WarningLevel` is greater than 0 and the `ErrorLevel` is greater than the `WarningLevel`, all items with the `Id` lower than the `WarningLevel` are displayed with the `Primary` background, all items with the `Id` greater or equal to the `WarningLevel` and lower then the `ErrorLevel` are displayed with the `Warning` background and all the rest are displayed with the `Danger` background. The final colours depend on the style used.
 If the attributes `WarningLevel` and `ErrorLevel` are not declared as in the following example, all items are displayed with the `Primary` background.
-[!code-smalltalk[](../app/src/Examples/AxoTextList/AxoTextListExample.st?name=AxoTextListWithoutLevelsDefined)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.TextList/AxoTextListExample.st?name=AxoTextListWithoutLevelsDefined)]
 
 For each `AxoTextList`, there must be a defined property, named exactly as in the `Attributes` inside the examples above. It must be defined in the extended class that the particular `AxoTextList` is a member of.  
 This property must return a string value from the dictionary defined in the same class based on the numerical value of the `Id` variable.
 
 Declaration of the dictionary:
-[!code-csharp[](../app/ix/AXOpen.TextList/AxoTextListExample/AxoTextListExampleContext.cs?name=DeclarationOfTheDictionary)]
+[!code-csharp[](../app/ix/AXOpen.TextList/AxoTextListExample.cs?name=DeclarationOfTheDictionary)]
 
 Filling the items of the dictionary:
-[!code-csharp[](../app/ix/AxoTextListExample/AxoTextListExampleContext.cs?name=FillingTheItemsOfTheDictionary)]
+[!code-csharp[](../app/ix/AXOpen.TextList/AxoTextListExample.cs?name=FillingTheItemsOfTheDictionary)]
 
 Returning the string item from the dictionary:
-[!code-csharp[](../app/ix/AxoTextListExample/AxoTextListExampleContext.cs?name=ReturningTheItemBasedOnId)]
+[!code-csharp[](../app/ix/AXOpen.TextList/AxoTextListExample.cs?name=ReturningTheItemBasedOnId)]
 
 Complete example for two different `AxoTextList`:
-[!code-csharp[](../app/ix/AxoTextListExample/AxoTextListExampleContext.cs?range=1-71)]
+[!code-csharp[](../app/ix/AXOpen.TextList/AxoTextListExample.cs?range=1-71)]
 
 **How to visualize `AxoTextList`**
 
@@ -32,4 +32,4 @@ On the UI side, to visualize the `AxoTextList`, use the `RenderableContentContro
 
 The displayed result should look like this:
 
-![Alt text](assets/AxoTextListExampleVisu.gif)
+![Alt text](assets/AxoMomentaryTaskExampleVisu.gif)

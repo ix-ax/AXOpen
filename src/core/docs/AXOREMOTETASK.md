@@ -41,7 +41,7 @@ The `AxoRemoteTask` executes upon the `Invoke` method call. `Invoke` fires the e
 
 ## Task initialization in .NET
 
-[!code-csharp[](../app/src/AXOpen.Integrations.Blazor/Program.cs?name=InitializeRemoteTask)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Program.cs?name=InitializeRemoteTask)]
 
 In this example, when the PLC invokes this task it will write a message into console. You can use arbitrary code in place of the labmda expression.
 

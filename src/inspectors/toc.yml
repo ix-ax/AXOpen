@@ -1,2 +1,5 @@
-- name: AXOpen.Core
+- name: AXOpen.Inspectors
   href: index.md
+  items:
+    - name: CONTROLLER API
+      href: ../apictrl/plc.AXOpen.Inspectors.html

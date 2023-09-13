@@ -14,7 +14,7 @@
 [!INCLUDE [AxoSequencer](docs/AXOSEQUENCER.md)]
 [!INCLUDE [AxoSequencerContainer](docs/AXOSEQUENCERCONTAINER.md)]
 [!INCLUDE [AxoComponent](docs/AXOCOMPONENT.md)]
-[!INCLUDE [AlertDialog](docs/ALERTDIALOG.md)]
+[!INCLUDE [AlertDialog](docs/AXOALERTDIALOG.md)]
 
 
 # **AXOpen.Messaging**
