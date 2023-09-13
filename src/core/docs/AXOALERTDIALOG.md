@@ -2,7 +2,7 @@
 
 The AlertDialog class provides a notification mechanism in application in form of toasts. 
 
-![Alert Dialog](~/images/AlertDialog.png)
+![Alert Dialog](assets/AlertDialog.png)
 
 ## In-app usage
 

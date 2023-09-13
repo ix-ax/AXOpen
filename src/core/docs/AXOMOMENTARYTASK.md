@@ -4,17 +4,17 @@ AxoMomentaryTask provides basic  momentary function. It is mainly designed for s
 
 **AxoMomentaryTask initialization within a AxoContext**
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st?range=4-16,38)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st?range=4-16,38)]
 
 To check the state of the task there are two methods:
 - `IsSwitchOn()` - returns `TRUE` if the state of the task is `TRUE`.
 - `IsSwitchOff()` - returns `TRUE` if the state of the task is `FALSE`.
 
 Example of using `IsSwitchOn()` method:
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st?name=AxoMomentaryTaskIsSwitchedOn)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st?name=AxoMomentaryTaskIsSwitchedOn)]
 
 Example of using `IsSwitchOff()` method:
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st?name=AxoMomentaryTaskIsSwitchedOff)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st?name=AxoMomentaryTaskIsSwitchedOff)]
 
 Moreover, there are five more "event-like" methods that are called when a specific event occurs (see the chart below). 
 
@@ -28,23 +28,23 @@ These methods are:
 
 Example of implementing "event-like" methods:
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st?name=AxoMomentaryTaskEventLikeMethods)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoMomentaryTask/AxoMomentaryTaskDocuExample.st?name=AxoMomentaryTaskEventLikeMethods)]
 
 **How to visualize `AxoMomentaryTask`**
 
 On the UI side there are several possibilities how to visualize the `AxoMomentaryTask`.
 You use the `AxoMomentaryTaskView` and set its Component according the placement of the instance of the `AxoMomentaryTask`.
 Based on the value of `Disable` the control element could be controllable:
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoMomentaryTaskDocu.razor?name=AxoMomentaryTaskViewControlable)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoMomentaryTaskDocu.razor?name=AxoMomentaryTaskViewControlable)]
 or display only:
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoMomentaryTaskDocu.razor?name=AxoMomentaryTaskViewDisplayOnly)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoMomentaryTaskDocu.razor?name=AxoMomentaryTaskViewDisplayOnly)]
 
 The next possibility is to use the `RenderableContentControl` and set its Context according the placement of the instance of the `AxoMomentaryTask`.
 Again as before the element could be controlable when the value of the `Presentation` is `Command`:
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoMomentaryTaskDocu.razor?name=RenderableContentControlCommand)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoMomentaryTaskDocu.razor?name=RenderableContentControlCommand)]
 or display only when the value of the `Presentation` is `Status`
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoMomentaryTaskDocu.razor?name=RenderableContentControlStatus)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoMomentaryTaskDocu.razor?name=RenderableContentControlStatus)]
 
 The displayed result should looks like:
 
-![Alt text](~/images/AxoMomentaryTaskExampleVisu.gif)
+![Alt text](assets/AxoMomentaryTaskExampleVisu.gif)

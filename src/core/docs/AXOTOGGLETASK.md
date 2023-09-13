@@ -4,7 +4,7 @@ AxoToggleTask provides basic switching on and off functions. AxoToggleTask needs
 
 **AxoToggleTask initialization within a AxoContext**
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?range=4-17,56)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?range=4-17,56)]
 
 There are three key methods for managing the AxoToggleTask:
 
@@ -15,23 +15,23 @@ There are three key methods for managing the AxoToggleTask:
 The methods `SwitchOn()` and `SwitchOff()` are designed to be used inside automatic logic, where change to exact value has to be performed, while `Toggle()` is designed to be used mostly in connection with manual control.
 
 Example of using `SwitchOn()` method with its return value.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskSwitchOn)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskSwitchOn)]
 
 Example of using `SwitchOff()` method with its return value.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskSwitchOff)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskSwitchOff)]
 
 Example of using `Toggle()` method with its return value.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskToggle)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskToggle)]
 
 To check the state of the task there are two methods:
 - `IsSwitchOn()` - returns `TRUE` if the state of the task is `TRUE`.
 - `IsSwitchOff()` - returns `TRUE` if the state of the task is `FALSE`.
 
 Example of using `IsSwitchOn()` method:
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskIsSwitchedOn)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskIsSwitchedOn)]
 
 Example of using `IsSwitchOff()` method:
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskIsSwitchedOff)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskIsSwitchedOff)]
 
 Moreover, there are five more "event-like" methods that are called when a specific event occurs (see the chart below). 
 
@@ -45,23 +45,23 @@ These methods are:
 
 Example of implementing "event-like" methods:
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskEventLikeMethods)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoToggleTask/AxoToggleTaskDocuExample.st?name=AxoToggleTaskEventLikeMethods)]
 
 **How to visualize `AxoToggleTask`**
 
 On the UI side there are several possibilities how to visualize the `AxoToggleTask`.
 You use the `AxoToggleTaskView` and set its Component according the placement of the instance of the `AxoToggleTask`.
 Based on the value of `Disable` the control element could be controllable:
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=AxoToggleTaskViewControlable)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=AxoToggleTaskViewControlable)]
 or display only:
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=AxoToggleTaskViewDisplayOnly)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=AxoToggleTaskViewDisplayOnly)]
 
 The next possibility is to use the `RenderableContentControl` and set its Context according the placement of the instance of the `AxoToggleTask`.
 Again as before the element could be controlable when the value of the `Presentation` is `Command`:
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=RenderableContentControlCommand)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=RenderableContentControlCommand)]
 or display only when the value of the `Presentation` is `Status`
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=RenderableContentControlStatus)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoToggleTaskDocu.razor?name=RenderableContentControlStatus)]
 
 The displayed result should looks like:
 
-![Alt text](~/images/AxoToggleTaskExampleVisu.gif)
+![Alt text](assets/AxoToggleTaskExampleVisu.gif)

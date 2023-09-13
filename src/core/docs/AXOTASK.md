@@ -4,7 +4,7 @@ AxoTask provides basic task execution. AxoTask needs to be initialized to set th
 
 **AxoTask initialization within a AxoContext**
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?range=4-16,60)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?range=4-16,60)]
 
 There are two key methods for managing the AxoTask:
 
@@ -87,11 +87,11 @@ flowchart TD
 
 Example of using AxoTask:
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?range=4-27,60)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?range=4-27,60)]
 
 The AxoTask executes upon the `Invoke` method call. `Invoke` fires the execution of `Execute` logic upon the first call, and it does not need cyclical calling.
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskInvoke)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskInvoke)]
 
 `Invoke()` method returns IAxoTaskState with the following members:
 
@@ -102,13 +102,13 @@ The AxoTask executes upon the `Invoke` method call. `Invoke` fires the execution
 
 Examples of using:
 Invoking the AxoTask and waiting for its completion at the same place.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskInvokeDone)]
+[!code-smalltalk[](../app/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskInvokeDone)]
 Invoking the AxoTask and waiting for its completion at the different places.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskInvokeDoneSeparatelly)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskInvokeDoneSeparatelly)]
 Checking if the AxoTask is executing.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskRunning)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskRunning)]
 Check for the AxoTask's error state. 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskError)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskError)]
 
 The AxoTask can be started only from the `Ready` state by calling the `Invoke()` method in the same Context cycle as the `Execute()` method is called, regardless the order of the methods calls. After AxoTask completion, the state of the AxoTask will remain in Done, unless:
 
@@ -130,23 +130,23 @@ These methods are:
 - `WhileError()` - executes repeatedly while the task is in `Error` state (and `Execute()` method is called).
 
 Example of implementing "event-like" methods:
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskEventLikeMethods)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoTask/AxoTaskDocuExample.st?name=AxoTaskEventLikeMethods)]
 
 **How to visualize `AxoTask`**
 
 On the UI side there are several possibilities how to visualize the `AxoTask`.
 You use the `AxoTaskView` and set its Component according the placement of the instance of the `AxoTask`.
 Based on the value of `Disable` the control element could be controllable:
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=AxoTaskViewControlable)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=AxoTaskViewControlable)]
 or display only:
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=AxoTaskViewDisplayOnly)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor//Pages/DocuExamples/AxoTaskDocu.razor?name=AxoTaskViewDisplayOnly)]
 
 The next possibility is to use the `RenderableContentControl` and set its Context according the placement of the instance of the `AxoTask`.
 Again as before the element could be controlable when the value of the `Presentation` is `Command`:
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=RenderableContentControlCommand)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor//Pages/DocuExamples/AxoTaskDocu.razor?name=RenderableContentControlCommand)]
 or display only when the value of the `Presentation` is `Status`
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoTaskDocu.razor?name=RenderableContentControlStatus)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor//Pages/DocuExamples/AxoTaskDocu.razor?name=RenderableContentControlStatus)]
 
 The displayed result should looks like:
 
-![Alt text](~/images/AxoTaskExampleVisu.gif)
+![Alt text](assets/AxoTaskExampleVisu.gif)

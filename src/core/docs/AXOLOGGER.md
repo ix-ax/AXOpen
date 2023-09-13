@@ -9,7 +9,7 @@ The `Loggers` class is an extension of `AxoContext`, part of the `AXOpen.Core` n
 #### Logger Declarations
 We declare two instances of `AxoLogger`, named `LoggerOne` and `LoggerTwo`. Additionally, we declare `InnerObject`, which is an instance of the `ContextLoggerInNestedObject` class.
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.Logging/AxoLoggerDocuExample.st?name=DeclareLoggers)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.Logging/AxoLoggerDocuExample.st?name=DeclareLoggers)]
 
 
 #### Logging Activities
@@ -25,7 +25,7 @@ Finally, we initialize `InnerObject` and invoke its `Foo` method to showcase log
 
 By adjusting the minimum log level for each logger, we can control the severity of messages that each logger will handle. This offers flexibility in categorizing and prioritizing log messages based on their importance.
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.Logging/AxoLoggerDocuExample.st?name=InjectLoggers)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.Logging/AxoLoggerDocuExample.st?name=InjectLoggers)]
 
 
 ## Logging from nested objects
@@ -33,7 +33,7 @@ This class demonstrates how to fetch and log messages using a logger from a pare
 
 The `Foo` method retrieves the context's logger using `THIS.GetContext().GetLogger()` and logs an `Error` level message. This shows how to access and use the logger of a containing context, enabling nested objects to utilize the same logging functionalities as their parent.
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.Logging/AxoLoggerDocuExample.st?name=UseLoggerFromInnerObject)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.Logging/AxoLoggerDocuExample.st?name=UseLoggerFromInnerObject)]
 
 
 ## Summary
@@ -77,14 +77,14 @@ Remember to always await the `ConstructIdentitiesAsync` method, as it is an asyn
 ## Creating the AxoApplication
 Before initializing the logger, we first create an instance of `AxoApplication` using the `CreateBuilder` method. This sets up the application builder required for the logger configuration.
 
-[!code-smalltalk[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Program.cs?name=AxoAppBuilder)]
+[!code-smalltalk[](../app/ix-blazor/axopencore.blazor/Program.cs?name=AxoAppBuilder)]
 
 ## Configuring the Logger
 
 Next, we configure our logger. We are using the Serilog library, a popular .NET logging library that allows flexible and complex logging setups. In this example, we're creating a simple setup where all logs of any level (`Verbose` level and above) will be written to the console.
 
 
-[!code-smalltalk[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Program.cs?name=AxoLoggerConfiguration)]
+[!code-smalltalk[](../app/ix-blazor/axopencore.blazor/Program.cs?name=AxoLoggerConfiguration)]
 
 This code sets up a new Serilog logger with a single sink directed to the console window. The `MinimumLevel.Verbose()` method specifies that all logs, regardless of their severity level, will be outputted to the console.
 
@@ -93,7 +93,7 @@ This code sets up a new Serilog logger with a single sink directed to the consol
 Finally, we connect our previously defined `AxoLogger` instances, `LoggerOne` and `LoggerTwo`, to our application. 
 
 
-[!code-smalltalk[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Program.cs?name=AxoLoggerInitialization)]
+[!code-smalltalk[](../app/ix-blazor/axopencore.blazor/Program.cs?name=AxoLoggerInitialization)]
 
 The `StartDequeuing` method is now called with two parameters. The first parameter `AxoApplication.Current.Logger` refers to the instance of the logger that was created and configured in the previous step. The second parameter is `250`. This starts a loop that dequeues log messages from the `AxoLogger`'s message queue every 250 milliseconds, passing them to the configured sinks—in our case, the console window.
 

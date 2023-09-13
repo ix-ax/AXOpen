@@ -92,18 +92,11 @@
         "files" : [
         "**/*.md",
         "**/toc.yml",
-        "**/docs/**"
+        "**/docs/**",
+        "**/docs/assets/*.*"
         ],
-        "src" : "../src/data/"
-      },
-      {
-        "files" : [
-        "**/*.md",
-        "**/toc.yml",
-        "**/docs/**"
-        ],
-        "src" : "../src/core/"
-      }
+        "src" : "../src/"
+      }      
     ],
     "resource": [
       {

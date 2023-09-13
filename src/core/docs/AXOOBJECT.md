@@ -12,7 +12,7 @@ AxoObject is the base class for any other classes of AXOpen.Core. It provides ac
 ```
 
 **AxoObject initialization within a AxoContext**
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoObject/AxoObjectExample.st?name=AxoContext)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoObject/AxoObjectExample.st?name=AxoContext)]
 
 **AxoObject initialization within another AxoObject**
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoObject/AxoObjectExample.st?name=AxoObject)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoObject/AxoObjectExample.st?name=AxoObject)]

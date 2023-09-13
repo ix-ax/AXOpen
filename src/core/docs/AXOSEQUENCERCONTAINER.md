@@ -6,11 +6,11 @@ In the extended class `MAIN()` method needs to be created and all sequencer logi
 
 ### Example of using AxoSequencerContainer
 #### Example of the declaration of the user-defined class that extends from AxoSequencerContainer 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st?range=4-10,42)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st?range=4-10,42)]
 #### Example of implementation MAIN method inside the user-defined class that extends from AxoSequencerContainer 
 All the custom logic of the sequencer needs to be placed here.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st?name=MAIN)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st?name=MAIN)]
 #### Example of declaration of the instance of the user-defined class that extends from AxoSequencerContainer 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st?name=InstanceDeclaration)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st?name=InstanceDeclaration)]
 #### Example of calling of the instance of the user-defined class that extends from AxoSequencerContainer 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st?name=InstanceRunning)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencerContainer/AxoSequencerContainerDocuExample.st?name=InstanceRunning)]

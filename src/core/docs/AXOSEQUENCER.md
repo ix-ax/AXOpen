@@ -27,18 +27,18 @@ AxoSequencer contains following methods:
 
 ### Example of using AxoSequencer
 #### Example of the declaration of the AxoSequencer and AxoStep 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?range=4-11,84)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?range=4-11,84)]
 #### Initialization
 Initialization of the context needs to be called first. It does not need to be called cyclically, just once.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=Initialize)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=Initialize)]
 #### Open
 The `Open()` method must be called cyclically before any logic. All the logic of the sequencers must be placed inside the `if` condition, as follows.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=Open)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=Open)]
 #### Step
 Example of the most simple use of the `Execute()` method of the `AxoStep` class, only with the AxoCoordinator defined. 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=SimpleStep)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=SimpleStep)]
 Example of use of the `Execute()` method of the `AxoStep` class with the Enable condition. 
 This step is going to be executed just in the first run of the sequence, as during the second one, the Enable parameter will have the value of FALSE.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=EnableStep)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=EnableStep)]
 Example of use of the `Execute()` method of the `AxoStep` class with all three parameters defined.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=FullStep)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoSequencer/AxoSequencerDocuExample.st?name=FullStep)]

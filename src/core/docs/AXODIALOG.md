@@ -23,7 +23,7 @@ IF(_dialog.Show(THIS)
 END_IF;	
 ```
 
-![Modal ok Dialog](~/images/ok-dialog.png)
+![Modal ok Dialog](assets/ok-dialog.png)
 
 ## Getting started 
 
@@ -58,7 +58,7 @@ AxoDialogs contains currently 3 types of predefined dialogs:
 3. YesNoCancel dialog
 
 
-![Dialog types](~/images/dialog-types.gif)
+![Dialog types](assets/dialog-types.gif)
 
 Also, the visual type of corresponding dialog can be adjusted with `eDialogType` enum, which is defined as follows:
 ```
@@ -76,7 +76,7 @@ Also, the visual type of corresponding dialog can be adjusted with `eDialogType`
 
 Answers of dialogs are synchronized across multiple clients with the SignalR technology. 
 
-![Dialog sync](~/images/dialog-sync.gif)
+![Dialog sync](assets/dialog-sync.gif)
 
 
 ## Closing a dialog with external signal
@@ -113,7 +113,7 @@ IF(_dialog3Answer = eDialogAnswer#Ok) THEN
 END_IF;	
 ```
 
-![Dialog sync](~/images/dialog-external-close.gif)
+![Dialog sync](assets/dialog-external-close.gif)
 
 ## Creation of own modal dialog
 
@@ -130,8 +130,8 @@ For example, when Dialog plc type is `MyCustomModal`, the view must by named `My
     The Blazor view must inherits from `@AxoDialogBaseView<MyCustomModal>`, where correct generic type of dialog from PLC must be passed. The opening/closing of dialog is managed in base class by virtual methods, which can be overridden if needed.
 
     It is recommended to use provided `ModalDialog` Blazor component, which can be customized by user needs and is fully compatible with closing/opening synchronization approach provided in base class. Otherwise, the open/close virtual methods from base class must be overridden and accordingly adapted.
-
-Example implementation of basic dialog can be found in [AxoDialogDialogView.razor](../../../src/core/src/AXOpen.Core.Blazor/AxoDialogs/AxoDialogDialogView/AxoDialogDialogView.razor).
+<!-- 
+Example implementation of basic dialog can be found in [AxoDialogDialogView.razor](../app/ix-blazor/axopencore.blazor/AxoDialogs/AxoDialogDialogView/AxoDialogDialogView.razor). -->
 
 
 

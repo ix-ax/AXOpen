@@ -22,12 +22,12 @@ All members are added in the order in which they are defined, taking into accoun
 **How to implement `AxoComponent`**
 
 Example of the implementation very simple `AxoComponent` with members placed only inside the Header.
-[!code-smalltalk[](../ctrl/src/Examples/AXOpen.AxoComponent/AxoComponentHeaderOnlyExample.st?name=Implementation)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoComponent/AxoComponentHeaderOnlyExample.st?name=Implementation)]
 
 **How to use `AxoComponent`**
 
 The instance of the extended `AxoComponent` must be defined inside the `AxoContext`.
-[!code-smalltalk[](../ctrl/src/Examples/AXOpen.AxoComponent/AxoComponentHeaderOnlyExample.st?name=Using)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoComponent/AxoComponentHeaderOnlyExample.st?name=Using)]
 
 Inside the `Main()` method of the related `AxoContext` following rules must be applied. The `Initialize()` method of the extended instance of the `AxoComponent` must be called first.
 The `Run()` method with the respective input and output variables must be called afterwards.
@@ -35,33 +35,33 @@ The `Run()` method with the respective input and output variables must be called
 **How to visualize `AxoComponent`**
 
 On the UI side use the `RenderableContentControl` and set its Context according the placement of the instance of the `AxoComponent`.
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/AxoCore/AxoComponentHeaderOnlyExample.razor?name=RenderedView)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/AxoCore/AxoComponentHeaderOnlyExample.razor?name=RenderedView)]
 
 The rendered result should then looks as follows:
 
-![Alt text](~/images/VerySimpleComponentExampleWithHeaderOnlyDefined.gif)
+![Alt text](assets/VerySimpleComponentExampleWithHeaderOnlyDefined.gif)
 
 In case of more complex `AxoComponent` the most important members should be placed in the fixed part (Header) and the rest of the members should be placed inside the expandable part (Details). The members inside the expandable part should be organize inside the tabs.  
 
 **More complex `AxoComponent`**
 Example of the implementation more complex `AxoComponent` with members placed also in several tabs inside the expandable part (Details).
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoComponent/AxoComponentExample.st?name=Implementation)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoComponent/AxoComponentExample.st?name=Implementation)]
 
 For the complex types of the `AxoComponent` it is also recomended to organize partial groups of the members into the classes as it is in this example.
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoComponent/AxoComponentExample.st?name=ClassDefinitions)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoComponent/AxoComponentExample.st?name=ClassDefinitions)]
 
 Instantiate and call the `AxoComponent` instance.
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoComponent/AxoComponentExample.st?name=Using)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoComponent/AxoComponentExample.st?name=Using)]
 
 UI side of the `AxoComponent`.
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/AxoCore/AxoComponentExample.razor?name=RenderedView)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/AxoCore/AxoComponentExample.razor?name=RenderedView)]
 
 and the rendered result:
 
-![Alt text](~/images/ComplexComponentExample.gif)
+![Alt text](assets/ComplexComponentExample.gif)
 
 
 # Alarm Level

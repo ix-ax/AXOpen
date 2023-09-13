@@ -6,4 +6,4 @@ Provides evaluation of alphanumerical values. The input value compares against t
 
 Common inspector data are extended with following data inspector data:
 
-[!code-smalltalk[](../../../src/inspectors/ctrl/src/AxoDataInspector/AxoDataInspectorData.st?name=AxoDataInspectorDataDeclaration)]
+[!code-smalltalk[](../ctrl/src/AxoDataInspector/AxoDataInspectorData.st?name=AxoDataInspectorDataDeclaration)]

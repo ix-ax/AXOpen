@@ -36,10 +36,10 @@ Contrariwise, the acknowledgement is required for the levels `Error`,`Programmin
 These attributes are used to set the values of the static texts of the messenger. These values are read out at the compilation time, transferred to .NET counterpart and set as constant strings. Therefore, they can't be changed at the runtime.
 
 Example of declaration of the instance and defining the attributes `MessageText` and `Help`.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessageTextHelpDeclaration)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessageTextHelpDeclaration)]
 
 Example of declaration of the instance and defining the attribute `PlcTextList`.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=PlcTextListDeclaration)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=PlcTextListDeclaration)]
 
 **How to use `AxoMessenger`**
 
@@ -49,20 +49,20 @@ The `Activate` method should be used called the required condition, or the `Acti
 In the case of `ActivateOnCondition` method is used without `_messageCode` parameter for the `MessageText` and `Help`, the values from the attributes `MessageText` and `Help` defined in the PLC code are used.
 In the case of `ActivateOnCondition` method is used with `_messageCode` parameter greater than zero for the `MessageText` and `Help`, the values from the text list are used. 
 In the case of `PlcTextList` attribute is defined, the parsed values from this attribute are used. In the case of `PlcTextList` attribute is not defined, the text list should be defined on the .NET side as in the example below.
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations/AXOpen.Messaging/AxoStaticMessengerDocuExample.cs?name=InitializationOfTheDotNetTextList)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/AXOpen.Messaging/AxoStaticMessengerDocuExample.cs?name=InitializationOfTheDotNetTextList)]
 
 Avoid mixing several activation principles with the same instance.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessengerCompleteExample)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=MessengerCompleteExample)]
 
 If necessary, the default behaviour of the acknowledgeable messenger should be changed as follows.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=DoNotRequireAcknowledgement)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=DoNotRequireAcknowledgement)]
 Contrariwise, the default behaviour of the unacknowledgeable messenger should be changed as follows.
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=RequireAcknowledgement)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.Messaging/AxoStaticMessengerDocuExample.st?name=RequireAcknowledgement)]
 
 **How to visualize `AxoMessenger`**
 
 On the UI side, use the `RenderableContentControl` and set its Context according to the placement of the instance of the `AxoMessenger`.
-[!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoMessagingStaticDocu.razor?name=RenderedView)]
+[!code-csharp[](../app/ix-blazor/axopencore.blazor/Pages/DocuExamples/AxoMessagingStaticDocu.razor?name=RenderedView)]
 
 
-See also [AxoLogger](../logging/AXOLOGGER.md#axologger-and-axomessenger)
+See also [AxoLogger](AXOLOGGER.md#axologger-and-axomessenger)

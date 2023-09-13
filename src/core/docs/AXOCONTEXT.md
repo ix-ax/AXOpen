@@ -42,11 +42,11 @@ Base class for the AxoContext is `AXOpen.Core.AxoContext`. The entry point of ca
 
  **How to extend AxoContext class**
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoContext/AxoContextExample.st?name=Declaration)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoContext/AxoContextExample.st?name=Declaration)]
 
 
 Cyclical call of the AxoContext logic (`Main` method) is ensured when AxoContext `Run` method is called. `Run` method is public therefore accessible and visible to any part of the program that whishes to call it.
 
 **How to start AxoContext's execution**
 
-[!code-smalltalk[](../../../src/integrations/ctrl/src/Examples/AXOpen.AxoContext/AxoContextExample.st?name=Implementation)]
+[!code-smalltalk[](../app/src/Examples/AXOpen.AxoContext/AxoContextExample.st?name=Implementation)]

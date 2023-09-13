@@ -2,10 +2,10 @@
   href: index.md
   items:
   - name: Core
-    href: ~/core/README.html 
+    href: ~/core/index.html 
   - name: Data
-    href: ~/data/README.html 
+    href: ~/data/index.html
   - name: Inspectors
-    href: ~/inspectors/README.html 
+    href: ~/inspectors/index.html
   - name: Timers
-    href: ~/timers/README.html 
+    href: ~/timers/index.html
