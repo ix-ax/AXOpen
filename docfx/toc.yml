@@ -1,6 +1,11 @@
 - name: ARTICLES
   href: articles/intro.md
+- name: FRAMEWORK
+  href: framework/index.md    
+- name: COMPONENTS
+  href: components/index.md
 - name: API
   href: api/
 - name: PLC API
   href: apictrl/
+

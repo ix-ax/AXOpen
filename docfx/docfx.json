@@ -5,9 +5,12 @@
         {
           "files": [
             "abstractions/src/**.csproj",
+            "base/src/**.csproj",
             "core/src/**.csproj",
             "data/src/**.csproj",
-            "messaging/src/**.csproj"
+            "components.cognex.vision/src/**.csproj",
+            "components.pneumatics/src/**.csproj",
+            "components.elements/src/**.csproj"
           ],
           "exclude": [
             "**Test*.csproj",
@@ -21,7 +24,11 @@
       ],            
       "dest": "api",
       "disableGitFeatures": false,
-      "disableDefaultFilter": false      
+      "disableDefaultFilter": false,
+      "noRestore" : true,
+      "properties": {
+        "TargetFramework": "net7.0"
+      }            
     }
   ],
   "build": {
@@ -54,10 +61,48 @@
           "articles/**.png",
           "articles/**.svg",
           "articles/**.gif",
-          "articles/**/toc.yml",
+          "articles/**/toc.yml",        
           "toc.yml",
           "*.md"
         ]
+      },
+      {
+        "files": [
+          "components/**.md",
+          "components/**.png",
+          "components/**.svg",
+          "components/**.gif",
+          "components/**/toc.yml",        
+          "toc.yml",
+          "*.md"
+        ]
+      },
+      {
+      "files": [
+        "framework/**.md",
+        "framework/**.png",
+        "framework/**.svg",
+        "framework/**.gif",
+        "framework/**/toc.yml",        
+        "toc.yml",
+        "*.md"
+      ]
+      },
+      {
+        "files" : [
+        "**/*.md",
+        "**/toc.yml",
+        "**/docs/**"
+        ],
+        "src" : "../src/data/"
+      },
+      {
+        "files" : [
+        "**/*.md",
+        "**/toc.yml",
+        "**/docs/**"
+        ],
+        "src" : "../src/core/"
       }
     ],
     "resource": [

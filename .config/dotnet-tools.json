@@ -25,6 +25,12 @@
       "commands": [
         "ixr"
       ]
+    },
+    "microsoft.visualstudio.slngen.tool": {
+      "version": "10.3.4",
+      "commands": [
+        "slngen"
+      ]
     }
   }
 }
