@@ -77,9 +77,8 @@ NAMESPACE AxoCognexVisionExample
             //</CognexDatamanClearResultData>
 
             //<CognexDatamanRead>
-            IF MyDataman1.Read().IsDone() THEN
+            IF MyDataman1.Read(myDatamanData).IsDone() THEN
                 //Process the result data
-                myDatamanData := MyDataman1.ResultData.Data;
                 ;
             END_IF;                          
             //</CognexDatamanRead>

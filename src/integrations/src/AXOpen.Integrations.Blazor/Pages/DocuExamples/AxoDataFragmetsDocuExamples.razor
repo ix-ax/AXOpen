@@ -1,6 +1,8 @@
 ﻿@page "/DocuExamples/AxoDataFragmetsDocuExamples"
+@using AXOpen.Base.Dialogs;
 @using AXOpen.Data;
-
+@inject IAlertDialogService _alertDialogService;
+@inject AuthenticationStateProvider _authenticationProvider;
 
 <h3>Editable</h3>
 //<CommandView>
@@ -12,16 +14,20 @@
 //</DisplayView>
 
 //<CustomColumns>
-<DataExchangeView Vm="VM" Presentation="Command">
-    <ColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
-    <ColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
-    <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
-</DataExchangeView>
+    <DataExchangeView Vm="_vm" Presentation="Command">
+        <ColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
+        <ColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
+        <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
+    </DataExchangeView>
 //</CustomColumns>
 
 //<CustomColumnsCode>
 @code {
-        protected DataExchangeViewModel VM { get; } = new() { Model = Entry.Plc.AxoDataFragmentExchangeContext.ProcessData };
-}
+    private DataExchangeViewModel _vm;
 
+    protected override void OnInitialized()
+    {
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataFragmentExchangeContext.ProcessData, AlertDialogService = _alertDialogService, AuthenticationProvider = _authenticationProvider };
+    }
+}
 //</CustomColumnsCode>

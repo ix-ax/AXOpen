@@ -8,9 +8,9 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="MongoDB.Bson" Version="2.19.1" />
-		<PackageReference Include="MongoDB.Driver" Version="2.19.0" />
-		<PackageReference Include="MongoDB.Driver.Core" Version="2.19.1" />
+		<PackageReference Include="MongoDB.Bson" Version="2.18.0" />
+		<PackageReference Include="MongoDB.Driver" Version="2.18.0" />
+		<PackageReference Include="MongoDB.Driver.Core" Version="2.18.0" />
 		<ProjectReference Include="..\..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
 	</ItemGroup>
 </Project>
