@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.138" />
+		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.138" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.2-alpha.138" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include=".g\**" />
+	</ItemGroup>
+</Project>

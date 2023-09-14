@@ -1,0 +1,27 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p", "p.proj", "{87BC1C24-69CE-4601-9E9F-2E18923A77D4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "simatic1500_app", "app\ix\simatic1500_app.csproj", "{46E45A23-A112-472B-AB40-F778DD90CD4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{87BC1C24-69CE-4601-9E9F-2E18923A77D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87BC1C24-69CE-4601-9E9F-2E18923A77D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87BC1C24-69CE-4601-9E9F-2E18923A77D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87BC1C24-69CE-4601-9E9F-2E18923A77D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46E45A23-A112-472B-AB40-F778DD90CD4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46E45A23-A112-472B-AB40-F778DD90CD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46E45A23-A112-472B-AB40-F778DD90CD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46E45A23-A112-472B-AB40-F778DD90CD4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8075DB4-7BAF-4164-8B6F-B4A7ADEAFB17}
+	EndGlobalSection
+EndGlobal
