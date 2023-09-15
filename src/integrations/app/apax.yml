@@ -3,6 +3,7 @@ version: 0.0.0
 type: app
 targets:
   - axunit-llvm
+  - plcsim
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"

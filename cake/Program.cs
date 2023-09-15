@@ -195,9 +195,9 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         else
         {
             context.ApaxDownload(context.Integrations.First(p => p.name == "ix.integrations"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.slnf"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.slnf"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L3-tests.slnf"));
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"));
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"));
+            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L3-tests.proj"));
         }
 
         context.Log.Information("Tests done.");

@@ -7,14 +7,10 @@
 		<RootNamespace>AXOpen.Data</RootNamespace>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.10" />
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.138" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.138" />
+	<ItemGroup>		
+		<PackageReference Include="Microsoft.AspNetCore.Components.Authorization"/>
+		<PackageReference Include="AXSharp.Abstractions"/>
+		<PackageReference Include="AXSharp.Connector"/>
 	</ItemGroup>
 
 	<ItemGroup>

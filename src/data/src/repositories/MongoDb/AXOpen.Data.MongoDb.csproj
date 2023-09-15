@@ -3,14 +3,10 @@
 		<OutputType>Library</OutputType>
 		<TargetFrameworks>net7.0</TargetFrameworks>
 	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="MongoDB.Bson" Version="2.18.0" />
-		<PackageReference Include="MongoDB.Driver" Version="2.18.0" />
-		<PackageReference Include="MongoDB.Driver.Core" Version="2.18.0" />
+	<ItemGroup>		
+		<PackageReference Include="MongoDB.Bson"/>
+		<PackageReference Include="MongoDB.Driver"/>
+		<PackageReference Include="MongoDB.Driver.Core"/>
 		<ProjectReference Include="..\..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
 	</ItemGroup>
 </Project>
