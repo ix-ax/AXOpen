@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Localization;
+﻿using AXOpen.Core.Blazor.Culture;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 
 namespace axosimple.hmi.Controllers;
 
@@ -15,6 +17,8 @@ public class CultureController : ControllerBase
                 CookieRequestCultureProvider.DefaultCookieName,
                 CookieRequestCultureProvider.MakeCookieValue(
             new RequestCulture(culture, culture)));
+
+            CultureExtensions.Culture = new CultureInfo(culture);
         }
 
         return Redirect("/");
