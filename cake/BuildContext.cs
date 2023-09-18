@@ -154,7 +154,7 @@ public class BuildContext : FrostingContext
         ("inspectors", "axopen.inspectors"),
         ("components.elements", "axopen.components.elements"),
         ("components.abstractions", "axopen.components.abstractions"),
-        ("components.cognex.vision", "axopen.cognex.vision"),
+        ("components.cognex.vision", "axopen.components.cognex.vision"),
         ("components.pneumatics", "axopen.components.pneumatics")
         
     };
