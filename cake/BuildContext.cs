@@ -166,11 +166,13 @@ public class BuildContext : FrostingContext
 
     public IEnumerable<string> GetAxFolders((string folder, string name) library)
     {
-        return new string[]
+        var paths = new string[]
         {
             Path.Combine(Path.Combine(RootDir, library.folder), "ctrl"),
             Path.Combine(Path.Combine(RootDir, library.folder), "app")
         };
+
+        return paths.Where(Path.Exists);
     }
 
     public string GetLibFolder((string folder, string name) library)
