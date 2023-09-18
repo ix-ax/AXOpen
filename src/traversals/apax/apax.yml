@@ -3,8 +3,8 @@ version: 0.0.0
 type: generic
 
 dependencies:
-  "@ix-ax/axopen.data" : '0.1.4-alpha.79'
-  "@ix-ax/axopen.probers" : '0.1.4-alpha.79'
-  "@ix-ax/axopen.simatic1500" : '0.1.4-alpha.79'
-  "@ix-ax/axopen.components.cognex.vision": '0.1.4-alpha.79'
+  "@ix-ax/axopen.data" : '0.0.0-dev.0'
+  "@ix-ax/axopen.probers" : '0.0.0-dev.0'
+  "@ix-ax/axopen.simatic1500" : '0.0.0-dev.0'
+  "@ix-ax/axopen.components.cognex.vision": '0.0.0-dev.0'
   
