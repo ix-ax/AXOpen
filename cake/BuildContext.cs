@@ -117,17 +117,17 @@ public class BuildContext : FrostingContext
             NoRestore = false,
             MSBuildSettings = new DotNetMSBuildSettings()
             {
-                Verbosity = DotNetVerbosity.Quiet
+                Verbosity = buildParameters.Verbosity
             }
         };
 
         DotNetTestSettings = new DotNetTestSettings()
         {
+            ResultsDirectory = Path.Combine(TestResults),
             Verbosity = buildParameters.Verbosity,
             Configuration = buildParameters.Configuration,
             NoRestore = true,
             NoBuild = true
-
         };
 
         DotNetRunSettings = new DotNetRunSettings()
