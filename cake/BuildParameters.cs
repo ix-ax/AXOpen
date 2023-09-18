@@ -39,4 +39,10 @@ public class BuildParameters
 
     [Option('d', "do-apax-install-re-download", Required = false, Default = false, HelpText = "Forces re-download of apax packages")]
     public bool DoApaxInstallReDownload { get; set; }
+
+    [Option('x', "parallel", Required = false, Default = false, HelpText = "Parallelism of some parts of the build process.")]
+    public bool Paralellize { get; set; }
+
+    [Option('n', "clean-up", Required = false, Default = false, HelpText = "Cleans up build.")]
+    public bool CleanUp { get; set; }
 }

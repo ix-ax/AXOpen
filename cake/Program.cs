@@ -31,6 +31,7 @@ using Cake.Powershell;
 using CliWrap;
 using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualBasic;
 using NuGet.Packaging;
 using Octokit;
 using Polly;
@@ -65,8 +66,29 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        context.Libraries.ToList().ForEach(lib => context.ApaxClean(lib));
-        context.Integrations.ToList().ForEach(integration => context.ApaxClean(integration));
+        if (context.IsGitHubActions)
+        {
+            context.BuildParameters.CleanUp = true;
+        }
+        
+        if (!context.BuildParameters.CleanUp)
+        {
+            context.Log.Information($"Skipping clean-up");
+            return;
+        }
+
+        if (context.BuildParameters.Paralellize)
+        {
+            Parallel.ForEach(context.Libraries, lib => context.ApaxClean(lib));
+            Parallel.ForEach(context.Integrations, integration => context.ApaxClean(integration));
+        }
+        else
+        {
+            context.Libraries.ToList().ForEach(lib => context.ApaxClean(lib));
+            context.Integrations.ToList().ForEach(integration => context.ApaxClean(integration));    
+        }
+
+
         context.DotNetClean(Path.Combine(context.RootDir, "AXOpen.proj"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity});
         context.CleanDirectory(context.Artifacts);
         context.CleanDirectory(context.TestResults);
@@ -89,7 +111,7 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
         {
             Arguments = $"tool restore",
             WorkingDirectory = context.RootDir
-        });
+        }).WaitForExit();
     }
 }
 
@@ -134,13 +156,22 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             });
         }
 
-        context.Libraries.ToList().ForEach(lib =>
+        if (context.BuildParameters.Paralellize)
         {
-            context.ApaxInstall(lib);
-            context.ApaxBuild(lib);
-            //context.ApaxIxc(lib);
-        });
-
+            Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(lib));
+            Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(lib));
+            context.Libraries.ToList().ForEach(lib => context.ApaxIxc(lib));
+        }
+        else
+        {
+            context.Libraries.ToList().ForEach(lib =>
+            {
+                context.ApaxInstall(lib);
+                context.ApaxBuild(lib);
+                context.ApaxIxc(lib);
+            });
+        }
+        
         if (context.BuildParameters.DoPack)
         {
             context.Integrations.ToList().ForEach(lib =>
@@ -151,12 +182,23 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             });
         }
 
-        context.Integrations.ToList().ForEach(proj =>
+        if (context.BuildParameters.Paralellize)
         {
-            context.ApaxInstall(proj);
-            context.ApaxBuild(proj);
-            //context.ApaxIxc(proj);
-        });
+            Parallel.ForEach(context.Integrations, proj => context.ApaxInstall(proj));
+            Parallel.ForEach(context.Integrations, proj => context.ApaxBuild(proj));
+            context.Integrations.ToList().ForEach(proj => context.ApaxIxc(proj));
+        }
+        else
+        {
+            context.Integrations.ToList().ForEach(proj =>
+            {
+                context.ApaxInstall(proj);
+                context.ApaxBuild(proj);
+                context.ApaxIxc(proj);
+            });
+        }
+
+        
         
        
 
@@ -195,9 +237,12 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         else
         {
             context.ApaxDownload(context.Integrations.First(p => p.name == "ix.integrations"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L3-tests.proj"));
+            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"), context.DotNetTestSettings);
+            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"), context.DotNetTestSettings);
+            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L3-tests.proj"), context.DotNetTestSettings);
+            //RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"));
+            //RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"));
+            //RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L3-tests.proj"));
         }
 
         context.Log.Information("Tests done.");

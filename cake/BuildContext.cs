@@ -10,6 +10,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using Cake.Common.Build;
+using Cake.Common;
 using Cake.Common.Tools.DotNet;
 using Cake.Common.Tools.DotNet.Build;
 using Cake.Common.Tools.DotNet.MSBuild;
@@ -25,6 +27,8 @@ using Path = System.IO.Path;
 
 public class BuildContext : FrostingContext
 {
+
+    public bool IsGitHubActions { get; set; }
 
     public string ApaxRegistry => "ix-ax";
 
@@ -134,6 +138,8 @@ public class BuildContext : FrostingContext
             NoBuild = true,
             NoRestore = true,
         };
+
+        IsGitHubActions = context.EnvironmentVariable("GITHUB_ACTIONS") == "true";
     }
 
     public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
