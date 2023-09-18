@@ -151,9 +151,7 @@ public partial class AxoDataFragmentExchange
         var changes = new List<ValueChangeItem>();
         foreach (var fragment in DataFragments)
         {
-            var fragmentChanges = fragment.ChangeTrackerGetChanges();
-            if(fragmentChanges != null)
-                changes = changes.Concat(fragmentChanges).ToList();
+            changes = changes.Concat(fragment.ChangeTrackerGetChanges()).ToList();
         }
         return changes;
     }
