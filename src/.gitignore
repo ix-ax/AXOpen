@@ -1,5 +1,6 @@
 .apax
 .env
+.builds
 bin
 
 obj
