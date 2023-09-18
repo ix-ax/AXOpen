@@ -1,5 +1,6 @@
 ﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoSequencer>
+@using AXOpen.Core.Blazor.Culture;
 @using Microsoft.AspNetCore.Components.Authorization;
 
 <div class="card-body">
@@ -97,7 +98,7 @@
                             <tr class="@StepRowColor(step)">
                                 <th scope="row">@Description(step)</th>
                                 <td>@step.Duration.Cyclic.TotalSeconds</td>
-                                <td>@Humanizer.DateHumanizeExtensions.Humanize(step.StartTimeStamp.Cyclic)</td>
+                                <td>@Humanizer.DateHumanizeExtensions.Humanize(step.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)</td>
                             </tr>
                         }
                     </tbody>
