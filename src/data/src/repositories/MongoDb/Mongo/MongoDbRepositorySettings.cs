@@ -174,7 +174,8 @@ namespace AXOpen.Data.MongoDb
                 BsonSerializer.RegisterSerializer(typeof(UInt32), new UInt32Serializer(BsonType.Int64, new RepresentationConverter(true, false)));
                 BsonSerializer.RegisterSerializer(DateTimeSerializer.LocalInstance);
                 BsonSerializer.RegisterSerializer(typeof(float), new FloatTruncationSerializer());
-                BsonSerializer.RegisterSerializer(typeof(System.DateOnly), new DateOnlySerializer());
+                var objectSerializer = new ObjectSerializer(type => ObjectSerializer.DefaultAllowedTypes(type) || type.FullName.Contains("System.DateOnly"));
+                BsonSerializer.RegisterSerializer(objectSerializer);
             }
             catch (BsonSerializationException)
             {

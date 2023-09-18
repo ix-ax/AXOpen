@@ -15,9 +15,9 @@
     <PackageVersion Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageVersion Include="RavenDB.Client" Version="5.3.101" />
     <PackageVersion Include="RavenDB.Embedded" Version="5.3.101" />
-    <PackageVersion Include="MongoDB.Bson" Version="2.18.0" />
-    <PackageVersion Include="MongoDB.Driver" Version="2.18.0" />
-    <PackageVersion Include="MongoDB.Driver.Core" Version="2.18.0" />
+    <PackageVersion Include="MongoDB.Bson" Version="2.21.0" />
+    <PackageVersion Include="MongoDB.Driver" Version="2.21.0" />
+    <PackageVersion Include="MongoDB.Driver.Core" Version="2.21.0" />
     <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="2.1.4" />
     <PackageVersion Include="AXSharp.Abstractions" Version="0.14.2-alpha.140" />
     <PackageVersion Include="AXSharp.Connector" Version="0.14.2-alpha.140" />
