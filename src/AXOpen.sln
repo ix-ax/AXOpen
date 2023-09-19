@@ -129,13 +129,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_probers", "pro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_probers_tests_L3", "probers\tests\AXOpen.Probers.Tests\axopen_probers_tests_L3.csproj", "{4CE8CC85-78BD-4FA6-86B2-9BB13069EF79}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_blazor_auth_app", "Security\integrations\axopen_blazor_auth_app\axopen_blazor_auth_app.csproj", "{F1769F72-2934-41EF-A1AB-B35F3F0EBCBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axopen_blazor_auth_app", "security\integrations\axopen_blazor_auth_app\axopen_blazor_auth_app.csproj", "{F1769F72-2934-41EF-A1AB-B35F3F0EBCBA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "Security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{7DEF0B7B-0F6C-4829-A1A9-2C0C2720BF3C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{7DEF0B7B-0F6C-4829-A1A9-2C0C2720BF3C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "Security\src\AXOpen.Security\AXOpen.Security.csproj", "{52B6EFDD-8FF9-4FA7-9624-2E7D8EEDD5C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "security\src\AXOpen.Security\AXOpen.Security.csproj", "{52B6EFDD-8FF9-4FA7-9624-2E7D8EEDD5C1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.SecurityTests_L1", "Security\tests\axopen_security_tests\AXOpen.SecurityTests_L1.csproj", "{B8053647-AD59-4EE9-B879-64D69188309C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.SecurityTests_L1", "security\tests\axopen_security_tests\AXOpen.SecurityTests_L1.csproj", "{B8053647-AD59-4EE9-B879-64D69188309C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "simatic1500_app", "simatic1500\app\ix\simatic1500_app.csproj", "{9F5D752E-1D6C-4820-9CEE-E1B6E190D855}"
 EndProject
@@ -165,7 +165,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p", "timers\p.proj", "{C26C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "axo.snippetify", "tools\src\axo.snippetify\axo.snippetify.csproj", "{D892F56E-D5BA-470F-85BE-16C777AC5559}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p", "traversals\p.proj", "{10BBCE77-C0D5-4391-9D2B-78CD7098CA6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "apax_traversal", "traversals\apax\ix\apax_traversal.csproj", "{79878B0B-7775-429E-ACFB-DF6A2C339CE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "p", "traversals\msbuild\p.proj", "{01671A43-45DB-4839-A779-96185035BF99}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "utils_app", "utils\app\ix\utils_app.csproj", "{F28F3D7D-494B-4A21-94F2-725BD5447312}"
 EndProject
@@ -395,21 +397,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "probers\tests", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "probers", "probers", "{E8D1AF35-C810-4717-BDA9-B1FF352FE353}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_blazor_auth_app", "Security\integrations\axopen_blazor_auth_app", "{65D0988F-EDC5-498B-BA5A-52994406CE57}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_blazor_auth_app", "security\integrations\axopen_blazor_auth_app", "{65D0988F-EDC5-498B-BA5A-52994406CE57}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integrations", "Security\integrations", "{DBF71015-41E3-42B3-AC46-5D37090C7435}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "integrations", "security\integrations", "{DBF71015-41E3-42B3-AC46-5D37090C7435}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "Security\src\AXOpen.Security.Blazor", "{711A9170-B35A-47EE-8875-41402D8AAD35}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "security\src\AXOpen.Security.Blazor", "{711A9170-B35A-47EE-8875-41402D8AAD35}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "Security\src\AXOpen.Security", "{C699A490-64FF-4B8B-955F-14E71F76C689}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "security\src\AXOpen.Security", "{C699A490-64FF-4B8B-955F-14E71F76C689}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "Security\src", "{A1E50795-F302-4200-9791-795A01F3D750}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "security\src", "{A1E50795-F302-4200-9791-795A01F3D750}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_security_tests", "Security\tests\axopen_security_tests", "{1FECECE6-2D77-47E6-8DDA-DA2189D9B27B}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_security_tests", "security\tests\axopen_security_tests", "{1FECECE6-2D77-47E6-8DDA-DA2189D9B27B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "Security\tests", "{B1ABE599-9962-4C08-94B6-4780F49B9E11}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "security\tests", "{B1ABE599-9962-4C08-94B6-4780F49B9E11}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{F64B0B65-3671-442D-95D3-5DA6452FF715}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "security", "{F64B0B65-3671-442D-95D3-5DA6452FF715}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "simatic1500\app\ix", "{6A5AF236-F223-4494-98F6-D625B3BFB89C}"
 EndProject
@@ -466,6 +468,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "tools\src", "{05D87899-98FC-495B-98DA-82D49A634480}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{AE9D9AAE-0A33-473E-84CB-0AC972FD9A26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "traversals\apax\ix", "{AEC56A61-1071-4169-BBD1-381BC17E9C12}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "apax", "traversals\apax", "{9FC59355-6665-4D32-90CF-DAE6CFFBAAEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "msbuild", "traversals\msbuild", "{D90AF7B4-0C20-4008-836C-7A2EA4FC3945}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "traversals", "traversals", "{9CC05887-A6C6-4F19-B011-6F6F6A26E3D4}"
 EndProject
@@ -821,10 +829,14 @@ Global
 		{D892F56E-D5BA-470F-85BE-16C777AC5559}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D892F56E-D5BA-470F-85BE-16C777AC5559}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D892F56E-D5BA-470F-85BE-16C777AC5559}.Release|Any CPU.Build.0 = Release|Any CPU
-		{10BBCE77-C0D5-4391-9D2B-78CD7098CA6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10BBCE77-C0D5-4391-9D2B-78CD7098CA6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10BBCE77-C0D5-4391-9D2B-78CD7098CA6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10BBCE77-C0D5-4391-9D2B-78CD7098CA6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79878B0B-7775-429E-ACFB-DF6A2C339CE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79878B0B-7775-429E-ACFB-DF6A2C339CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79878B0B-7775-429E-ACFB-DF6A2C339CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79878B0B-7775-429E-ACFB-DF6A2C339CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01671A43-45DB-4839-A779-96185035BF99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01671A43-45DB-4839-A779-96185035BF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01671A43-45DB-4839-A779-96185035BF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01671A43-45DB-4839-A779-96185035BF99}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F28F3D7D-494B-4A21-94F2-725BD5447312}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F28F3D7D-494B-4A21-94F2-725BD5447312}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F28F3D7D-494B-4A21-94F2-725BD5447312}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -1049,7 +1061,11 @@ Global
 		{D892F56E-D5BA-470F-85BE-16C777AC5559} = {634E6595-BB4D-403F-9FFC-077269FFECB5}
 		{634E6595-BB4D-403F-9FFC-077269FFECB5} = {05D87899-98FC-495B-98DA-82D49A634480}
 		{05D87899-98FC-495B-98DA-82D49A634480} = {AE9D9AAE-0A33-473E-84CB-0AC972FD9A26}
-		{10BBCE77-C0D5-4391-9D2B-78CD7098CA6C} = {9CC05887-A6C6-4F19-B011-6F6F6A26E3D4}
+		{79878B0B-7775-429E-ACFB-DF6A2C339CE4} = {AEC56A61-1071-4169-BBD1-381BC17E9C12}
+		{AEC56A61-1071-4169-BBD1-381BC17E9C12} = {9FC59355-6665-4D32-90CF-DAE6CFFBAAEE}
+		{9FC59355-6665-4D32-90CF-DAE6CFFBAAEE} = {9CC05887-A6C6-4F19-B011-6F6F6A26E3D4}
+		{01671A43-45DB-4839-A779-96185035BF99} = {D90AF7B4-0C20-4008-836C-7A2EA4FC3945}
+		{D90AF7B4-0C20-4008-836C-7A2EA4FC3945} = {9CC05887-A6C6-4F19-B011-6F6F6A26E3D4}
 		{F28F3D7D-494B-4A21-94F2-725BD5447312} = {CA8F1207-6D7C-404F-86BD-D58F807D1D2B}
 		{CA8F1207-6D7C-404F-86BD-D58F807D1D2B} = {4D9874AB-AD7D-49C1-A329-AEB315FC9F85}
 		{4D9874AB-AD7D-49C1-A329-AEB315FC9F85} = {11890194-C6DE-41C5-96AA-00FF86387229}

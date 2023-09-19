@@ -103,6 +103,16 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     public override void Run(BuildContext context)
     {
         ProvisionTools(context);
+
+        //foreach (var library in context.Libraries)
+        //{
+        //    context.CopyFiles(Path.Combine(context.RootDir, "traversals", "build", "**/*"), Path.Combine(context.RootDir, library.folder));
+        //}
+
+        //foreach (var integration in context.Integrations)
+        //{
+        //    context.CopyFiles(Path.Combine(context.RootDir, "traversals", "build", "**/*"), Path.Combine(context.RootDir,integration.folder));
+        //}
     }
 
     private static void ProvisionTools(BuildContext context)
@@ -219,8 +229,18 @@ public sealed class TestsTask : FrostingTask<BuildContext>
             return;
         }
 
-        context.Libraries.ToList().ForEach(context.ApaxTest);
-        context.Integrations.ToList().ForEach(context.ApaxTest);
+        if (context.BuildParameters.Paralellize)
+        {
+            Parallel.ForEach(context.Libraries, context.ApaxTest);
+            Parallel.ForEach(context.Integrations, context.ApaxTest);
+        }
+        else
+        {
+            context.Libraries.ToList().ForEach(context.ApaxTest);
+            context.Integrations.ToList().ForEach(context.ApaxTest);
+        }
+
+        
 
         if (context.BuildParameters.TestLevel == 1)
         {
