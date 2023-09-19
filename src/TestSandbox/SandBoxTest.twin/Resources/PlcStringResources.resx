@@ -112,74 +112,74 @@
   </data>
   <data name="Kontrola__ONE__DOT_" xml:space="preserve">
     <value>Kontrola 1.</value>
-    <comment>src\Examples\StandardCu.st,118</comment>
+    <comment>src\Examples\StandardCu.st,123</comment>
   </data>
   <data name="Kontrola__TWO__DOT_" xml:space="preserve">
     <value>Kontrola 2.</value>
-    <comment>src\Examples\StandardCu.st,120</comment>
+    <comment>src\Examples\StandardCu.st,125</comment>
   </data>
   <data name="Kontrola__THREE__DOT_" xml:space="preserve">
     <value>Kontrola 3.</value>
-    <comment>src\Examples\StandardCu.st,122</comment>
+    <comment>src\Examples\StandardCu.st,127</comment>
   </data>
   <data name="Kontrola__FOUR__DOT_" xml:space="preserve">
     <value>Kontrola 4.</value>
-    <comment>src\Examples\StandardCu.st,124</comment>
+    <comment>src\Examples\StandardCu.st,129</comment>
   </data>
   <data name="Kontrola__FIVE__DOT_" xml:space="preserve">
     <value>Kontrola 5.</value>
-    <comment>src\Examples\StandardCu.st,126</comment>
+    <comment>src\Examples\StandardCu.st,131</comment>
   </data>
   <data name="Kontrola__SIX__DOT_" xml:space="preserve">
     <value>Kontrola 6.</value>
-    <comment>src\Examples\StandardCu.st,128</comment>
+    <comment>src\Examples\StandardCu.st,133</comment>
   </data>
   <data name="Kontrola__SEVEN__DOT_" xml:space="preserve">
     <value>Kontrola 7.</value>
-    <comment>src\Examples\StandardCu.st,130</comment>
+    <comment>src\Examples\StandardCu.st,135</comment>
   </data>
   <data name="Kontrola__EIGHT__DOT_" xml:space="preserve">
     <value>Kontrola 8.</value>
-    <comment>src\Examples\StandardCu.st,132</comment>
+    <comment>src\Examples\StandardCu.st,137</comment>
   </data>
   <data name="cacova_kontrola" xml:space="preserve">
     <value>cacova kontrola</value>
-    <comment>src\Examples\StandardCu.st,150</comment>
+    <comment>src\Examples\StandardCu.st,152</comment>
   </data>
   <data name="pozadovany" xml:space="preserve">
     <value>pozadovany</value>
-    <comment>src\Examples\StandardCu.st,152</comment>
+    <comment>src\Examples\StandardCu.st,154</comment>
   </data>
   <data name="ziskany" xml:space="preserve">
     <value>ziskany</value>
-    <comment>src\Examples\StandardCu.st,154</comment>
+    <comment>src\Examples\StandardCu.st,156</comment>
   </data>
   <data name="vysledok" xml:space="preserve">
     <value>vysledok</value>
-    <comment>src\Examples\StandardCu.st,156</comment>
+    <comment>src\Examples\StandardCu.st,158</comment>
   </data>
   <data name="nastavenie__ONE_" xml:space="preserve">
     <value>nastavenie 1</value>
-    <comment>src\Examples\StandardCu.st,159</comment>
+    <comment>src\Examples\StandardCu.st,161</comment>
   </data>
   <data name="nastavenie__TWO_" xml:space="preserve">
     <value>nastavenie 2</value>
-    <comment>src\Examples\StandardCu.st,161</comment>
+    <comment>src\Examples\StandardCu.st,163</comment>
   </data>
   <data name="nastavenie__THREE_" xml:space="preserve">
     <value>nastavenie 3</value>
-    <comment>src\Examples\StandardCu.st,163</comment>
+    <comment>src\Examples\StandardCu.st,165</comment>
   </data>
   <data name="AUTOMAT" xml:space="preserve">
     <value>AUTOMAT</value>
-    <comment>src\Examples\StandardCu.st,437</comment>
+    <comment>src\Examples\StandardCu.st,439</comment>
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>
-    <comment>src\Examples\StandardCu.st,630</comment>
+    <comment>src\Examples\StandardCu.st,632</comment>
   </data>
   <data name="SERVICE" xml:space="preserve">
     <value>SERVICE</value>
-    <comment>src\Examples\StandardCu.st,752</comment>
+    <comment>src\Examples\StandardCu.st,754</comment>
   </data>
 </root>

@@ -207,6 +207,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Abstractions", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webserver.API", "..\..\simatic-s7-webserver-api\src\Webserver.API\Webserver.API.csproj", "{18F198E0-A6A9-4451-8100-04DBE0401FA3}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXSharp.Presentation.Blazor.Controls", "..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj", "{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -841,6 +843,18 @@ Global
 		{18F198E0-A6A9-4451-8100-04DBE0401FA3}.Release|x64.Build.0 = Release|x64
 		{18F198E0-A6A9-4451-8100-04DBE0401FA3}.Release|x86.ActiveCfg = Release|x86
 		{18F198E0-A6A9-4451-8100-04DBE0401FA3}.Release|x86.Build.0 = Release|x86
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Debug|x64.Build.0 = Debug|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Debug|x86.Build.0 = Debug|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Release|x64.ActiveCfg = Release|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Release|x64.Build.0 = Release|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Release|x86.ActiveCfg = Release|Any CPU
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -924,6 +938,7 @@ Global
 		{60A8F55C-60B6-4714-8828-A2EBBEB36F30} = {492E56BE-B08D-45A6-ACC9-43986FC8E6DB}
 		{888A43A8-160F-4F0B-864B-DFDA62C1550C} = {492E56BE-B08D-45A6-ACC9-43986FC8E6DB}
 		{18F198E0-A6A9-4451-8100-04DBE0401FA3} = {492E56BE-B08D-45A6-ACC9-43986FC8E6DB}
+		{BDE2A05A-18B6-40ED-954A-5C79EF85AF2B} = {492E56BE-B08D-45A6-ACC9-43986FC8E6DB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {292B45BE-E9CB-443B-979D-C0AFCD8D5675}
