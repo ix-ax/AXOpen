@@ -2,8 +2,10 @@
   href: index.md
   items:
   - name: Elements
-    href: ~/components.elements/index.html 
+    href: ../components.elements/
   - name: Pneumatics
-    href: ~/components.pneumatics/index.html     
+    href: ../components.pneumatics/    
   - name: Cognex Vision
-    href: ~/components.cognex.vision/index.html 
+    href: ../components.cognex.vision/
+  - name: Library template
+    href: ../template.axolibrary/docs/

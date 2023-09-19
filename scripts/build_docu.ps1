@@ -8,6 +8,6 @@ dotnet ixd `
 .\src\components.pneumatics\ctrl `
 .\src\components.elements\ctrl `
 -o .\docfx\apictrl\
-
+del .\docs\
 dotnet docfx build .\docfx\docfx.json
 dotnet docfx serve .\docs\

@@ -1,10 +1,10 @@
 - name: ARTICLES
-  href: articles/index.md
+  href: articles/toc.yml
 - name: FRAMEWORK
-  href: framework/index.md    
+  href: framework/toc.yml    
 - name: COMPONENTS
-  href: components/index.md
+  href: components/toc.yml
 - name: APIs  
-  href: apidoc/index.md
+  href: apidoc/toc.yml
 
 

@@ -9,7 +9,7 @@
       ]
     },
     "docfx": {
-      "version": "2.62.2",
+      "version": "2.70.4",
       "commands": [
         "docfx"
       ]
@@ -30,6 +30,12 @@
       "version": "10.3.4",
       "commands": [
         "slngen"
+      ]
+    },
+    "docfxtocgenerator": {
+      "version": "1.10.0",
+      "commands": [
+        "DocFxTocGenerator"
       ]
     }
   }

@@ -1,0 +1,83 @@
+# This is an automatically generated file
+items:
+- name: Docfx
+  href: index.md
+- name: Api
+  href: api/index.md
+  items:
+  - name: Api
+    href: api/index.md
+- name: Apictrl
+  href: apictrl/index.md
+  items:
+  - name: Apictrl
+    href: apictrl/index.md
+- name: Apidoc
+  href: apidoc/index.md
+  items:
+  - name: Apidoc
+    href: apidoc/index.md
+- name: Articles
+  href: articles/index.md
+  items:
+  - name: Articles
+    href: articles/index.md
+  - name: Configuration
+    href: articles/configuration/README.md
+    items:
+    - name: How to configure Blazor server for Siemens panel
+      href: articles/configuration/README.md
+  - name: Guidelines
+    href: articles/guidelines/README.md
+    items:
+    - name: README
+      href: articles/guidelines/README.md
+    - name: WORK IN PORGRESS
+      href: articles/guidelines/components.md
+    - name: WORK IN PROGRESS...
+      href: articles/guidelines/Conventions.md
+  - name: Localization
+    href: articles/localization/README.md
+    items:
+    - name: Template localization
+      href: articles/localization/README.md
+  - name: Notes
+    href: articles/notes/README.md
+    items:
+    - name: README
+      href: articles/notes/README.md
+    - name: CYCLIC UPDATE
+      href: articles/notes/CYCLIC_UPDATE.md
+    - name: CYCLIC UPDATE NOTICE
+      href: articles/notes/CYCLIC_UPDATE_NOTICE.md
+    - name: LIBRARYHEADER
+      href: articles/notes/LIBRARYHEADER.md
+    - name: Using Assets in nuget package
+      href: articles/notes/Assets_in_nuget_package.md
+  - name: Rendering
+    href: articles/rendering/intro.md
+    items:
+    - name: Automatic Rendering with AXOpen
+      href: articles/rendering/intro.md
+  - name: Security
+    href: articles/security/README.md
+    items:
+    - name: AXOpen.Security
+      href: articles/security/README.md
+    - name: Installation 
+      href: articles/security/INSTALLATION.md
+  - name: Themes
+    href: articles/themes/README.md
+    items:
+    - name: AXOpen.Themes
+      href: articles/themes/README.md
+- name: Components
+  href: components/index.md
+  items:
+  - name: Components
+    href: components/index.md
+- name: Framework
+  href: framework/index.md
+  items:
+  - name: Framework
+    href: framework/index.md

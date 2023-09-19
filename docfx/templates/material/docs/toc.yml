@@ -1,0 +1,13 @@
+- name: Material
+  href: index.md
+- name: Material classic
+  href: classic.md
+- name: Changelog
+  href: changelog.md
+- name: Sample Articles
+  href: articles/
+- name: Sample API
+  href: api/
+  topicHref: api/index.md
+- name: GitHub
+  href: https://github.com/ovasquez/docfx-material/
