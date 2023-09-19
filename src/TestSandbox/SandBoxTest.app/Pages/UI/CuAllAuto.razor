@@ -3,37 +3,15 @@
 @using sandboxtest.hmi.Components;
 @inherits RenderableComponentBase;
 
-@* <UnitsSequences Component="@Entry.Plc.Context.Cu_0" PollingInterval="80"></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_1" PollingInterval="1000"></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_2" PollingInterval="3000"></UnitsSequences>
- *@
-<UnitsSequences Component="@Entry.Plc.Context.Cu_0"></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_1"></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_2"></UnitsSequences>
 
 
+@{
+    int tInterval = 100;
 
+    @foreach (var CuInstance in Entry.Plc.Context.GetChildren().OfType<sandboxtest.StandardControlUnit.CU>().ToList())
+    {
+        <UnitsSequences Component="@CuInstance" PollingInterval="tInterval"></UnitsSequences>
+        tInterval = tInterval + 150;
+    }
 
-
-
-@* <UnitsSequences Component="@Entry.Plc.Context.Cu_2" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_3" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_4" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_5" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_6" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_7" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_8" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_9" ></UnitsSequences>
-
-<UnitsSequences Component="@Entry.Plc.Context.Cu_10" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_11" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_12" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_13" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_14" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_15" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_16" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_17" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_18" ></UnitsSequences>
-<UnitsSequences Component="@Entry.Plc.Context.Cu_19" ></UnitsSequences> *@
-
-
+}
