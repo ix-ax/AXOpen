@@ -15,24 +15,24 @@ NAMESPACE sandboxtest
             Cu_0 : StandardControlUnit.CU; 
             Cu_1 : StandardControlUnit.CU;                
             Cu_2 : StandardControlUnit.CU;            
-            Cu_3 : StandardControlUnit.CU;            
-            Cu_4 : StandardControlUnit.CU;            
-            Cu_5 : StandardControlUnit.CU;            
-            Cu_6 : StandardControlUnit.CU;            
-            Cu_7 : StandardControlUnit.CU;            
-            Cu_8 : StandardControlUnit.CU;
-            Cu_9 : StandardControlUnit.CU;
+            // Cu_3 : StandardControlUnit.CU;            
+            // Cu_4 : StandardControlUnit.CU;            
+            // Cu_5 : StandardControlUnit.CU;            
+            // Cu_6 : StandardControlUnit.CU;            
+            // Cu_7 : StandardControlUnit.CU;            
+            // Cu_8 : StandardControlUnit.CU;
+            // Cu_9 : StandardControlUnit.CU;
 
-            Cu_10 : StandardControlUnit.CU; 
-            Cu_11 : StandardControlUnit.CU;                
-            Cu_12 : StandardControlUnit.CU;            
-            Cu_13 : StandardControlUnit.CU;            
-            Cu_14 : StandardControlUnit.CU;            
-            Cu_15 : StandardControlUnit.CU;            
-            Cu_16 : StandardControlUnit.CU;            
-            Cu_17 : StandardControlUnit.CU;            
-            Cu_18 : StandardControlUnit.CU;
-            Cu_19 : StandardControlUnit.CU;
+            // Cu_10 : StandardControlUnit.CU; 
+            // Cu_11 : StandardControlUnit.CU;                
+            // Cu_12 : StandardControlUnit.CU;            
+            // Cu_13 : StandardControlUnit.CU;            
+            // Cu_14 : StandardControlUnit.CU;            
+            // Cu_15 : StandardControlUnit.CU;            
+            // Cu_16 : StandardControlUnit.CU;            
+            // Cu_17 : StandardControlUnit.CU;            
+            // Cu_18 : StandardControlUnit.CU;
+            // Cu_19 : StandardControlUnit.CU;
 
                                                                         {#ix-set:AttributeName = "PD CU 0"} 
             ProcessDataCu_0 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 1"}         
@@ -69,9 +69,9 @@ NAMESPACE sandboxtest
             GlobalGround    : ModeInvoker;
 
 
-            TaskInst_1   : ModeInvoker;
-            TaskInst_2   : ModeInvoker;
-            TaskInst_3   : ModeInvoker;
+            // TaskInst_1   : ModeInvoker;
+            // TaskInst_2   : ModeInvoker;
+            // TaskInst_3   : ModeInvoker;
 
             // TaskInst_4   : ModeInvoker;
             // TaskInst_5   : ModeInvoker;

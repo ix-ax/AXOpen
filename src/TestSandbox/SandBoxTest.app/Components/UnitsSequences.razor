@@ -41,7 +41,12 @@
     {
         base.OnInitialized();
 
-        Component.GetChildren().OfType<AxoSequencer>().ToList().ForEach(p => UpdateValuesOnChange(p.Status, this.PollingInterval));
+        if (this.PollingInterval < 1)
+        {
+            this.PollingInterval = 350; // set the same interval value as is used in StepView
+        }
+
+        Component.GetChildren().OfType<AxoSequencer>().ToList().ForEach(p => UpdateValuesOnChange(p.Status,  this.PollingInterval ));
 
     }
 }
