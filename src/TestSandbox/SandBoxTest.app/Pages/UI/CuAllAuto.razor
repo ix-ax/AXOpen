@@ -3,9 +3,19 @@
 @using sandboxtest.hmi.Components;
 @inherits RenderableComponentBase;
 
-<UnitsSequences Component="@Entry.Plc.Context.Cu_0" PollingInterval="80"></UnitsSequences>
+@* <UnitsSequences Component="@Entry.Plc.Context.Cu_0" PollingInterval="80"></UnitsSequences>
 <UnitsSequences Component="@Entry.Plc.Context.Cu_1" PollingInterval="1000"></UnitsSequences>
 <UnitsSequences Component="@Entry.Plc.Context.Cu_2" PollingInterval="3000"></UnitsSequences>
+ *@
+<UnitsSequences Component="@Entry.Plc.Context.Cu_0"></UnitsSequences>
+<UnitsSequences Component="@Entry.Plc.Context.Cu_1"></UnitsSequences>
+<UnitsSequences Component="@Entry.Plc.Context.Cu_2"></UnitsSequences>
+
+
+
+
+
+
 @* <UnitsSequences Component="@Entry.Plc.Context.Cu_2" ></UnitsSequences>
 <UnitsSequences Component="@Entry.Plc.Context.Cu_3" ></UnitsSequences>
 <UnitsSequences Component="@Entry.Plc.Context.Cu_4" ></UnitsSequences>

@@ -8,6 +8,22 @@
  *@
 
 <div class="accordion" id="accordionExample">
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="heading_0">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_0" aria-expanded="false" aria-controls="collapse_0">
+                Data CU_0
+            </button>
+        </h2>
+        <div id="collapse_0" class="accordion-collapse collapse" aria-labelledby="heading_0" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <StructureWithRefresh TwinObject="@Entry.Plc.Context.ProcessDataCu_0">
+                </StructureWithRefresh>
+            </div>
+        </div>
+    </div>
+
+
     <div class="accordion-item">
         <h2 class="accordion-header" id="heading_1">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_1" aria-expanded="false" aria-controls="collapse_1">

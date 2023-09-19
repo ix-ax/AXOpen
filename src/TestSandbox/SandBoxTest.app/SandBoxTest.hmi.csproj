@@ -19,14 +19,6 @@
     <Content Include="Shared\Menu\ExpandableMenuItem.razor.css" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Pages\ProcessData\ProcessDataCu1.razor" />
-    <None Include="Pages\ProcessData\ProcessDataCu2.razor" />
-    <None Include="Pages\ProcessData\ProcessDataCu3.razor" />
-    <None Include="Pages\ProcessData\ProcessDataCu4.razor" />
-    <None Include="Pages\ProcessData\ProcessDataCu5.razor" />
-    <None Include="Pages\ProcessData\ProcessDataCu6.razor" />
-    <None Include="Pages\ProcessData\ProcessDataCu7.razor" />
-    <None Include="Pages\ProcessData\ProcessDataCu8.razor" />
     <None Include="Pages\ProductionDatqa\ProdDataExchangeView.razor" />
     <None Include="Pages\ProductionDatqa\ProdData_Cu1.razor" />
     <None Include="Pages\ProductionDatqa\ProdData_Cu2.razor" />
