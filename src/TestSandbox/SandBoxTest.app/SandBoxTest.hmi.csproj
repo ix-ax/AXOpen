@@ -30,12 +30,7 @@
     <None Include="Pages\ProductionDatqa\ProdDataExchangeView.razor" />
     <None Include="Pages\ProductionDatqa\ProdData_Cu1.razor" />
     <None Include="Pages\ProductionDatqa\ProdData_Cu2.razor" />
-    <None Include="Pages\ProductionDatqa\ProdData_Cu3.razor" />
-    <None Include="Pages\ProductionDatqa\ProdData_Cu4.razor" />
-    <None Include="Pages\ProductionDatqa\ProdData_Cu5.razor" />
-    <None Include="Pages\ProductionDatqa\ProdData_Cu6.razor" />
-    <None Include="Pages\ProductionDatqa\ProdData_Cu7.razor" />
-    <None Include="Pages\ProductionDatqa\ProdData_Cu8.razor" />
+    <None Include="Pages\ProductionDatqa\ProdData_Cu0.razor" />
   </ItemGroup>
 
 	<!--<ItemGroup>
@@ -48,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
+    <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
+    <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
     <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj" />
     <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
     <ProjectReference Include="..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />

@@ -41,7 +41,7 @@
     {
         base.OnInitialized();
 
-        Component.GetChildren().OfType<AxoSequencer>().ToList().ForEach(p => UpdateValuesOnChange(p.Status));
-       
+        Component.GetChildren().OfType<AxoSequencer>().ToList().ForEach(p => UpdateValuesOnChange(p.Status, this.PollingInterval));
+
     }
 }
