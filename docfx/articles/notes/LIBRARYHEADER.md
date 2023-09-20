@@ -4,7 +4,7 @@
 
 * [AXOpen Core Library](../../../src/core/README.md)
 * [AX# Official Documentation](https://ix-ax.github.io/axsharp/)
-* [UI Rendering Guide](../../../docfx/articles/rendering/intro.md)
+* [UI Rendering Guide](../rendering/intro.md)
 
 > [!NOTE]
 > This document's content is synchronized with the source code of this library. Please note that the images and illustrative visuals included may not mirror the exact appearance in your application.

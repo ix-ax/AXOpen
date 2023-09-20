@@ -92,28 +92,30 @@
         "toc.yml",
         "*.md"
       ]
-      },
+      },          
       {
-        "files" : [
-        "**/**.md",
-        "**/**.png",
-        "**/**.svg",
-        "**/**.gif",
-        "**/toc.yml"            
+        "files": [            
+            "**/**.md",
+            "**/**.png",
+            "**/**.svg",
+            "**/**.gif",            
+            "**/**/toc.yml",
+            "toc.yml",                    
+            "*.md"
         ],
-        "exclude": [          
-          "**/template.simple/**"                              
-        ],
-        "src" : "../src"        
+        "src": "../src/"        
       }      
     ],
     "resource": [
       {
-        "files": [
-          "images/**"
-        ]
-      }
-    ],
+        "files": [          
+          "**/**.png",
+          "**/**.svg",
+          "**/**.gif"    
+        ],
+        "src" : "../src/"           
+      }            
+    ],    
     "overwrite": [
       {
         "files": [

@@ -120,13 +120,13 @@ With `Command` presentation type, options exist for adding, editing, and deletin
 
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoDataFragmetsDocuExamples.razor?name=CommandView)]
 
-![Command](~/images/Command.png)
+![Command](assets/Command.png)
 
 If you use `Status` presentation type, data will be only displayed and cannot be manipulated.
 
 [!code-csharp[](../../../src/integrations/src/AXOpen.Integrations.Blazor/Pages/DocuExamples/AxoDataFragmetsDocuExamples.razor?name=DisplayView)]
 
-![Status](~/images/Status.png)
+![Status](assets/Status.png)
 
 ### Custom columns
 
@@ -142,7 +142,7 @@ When adding data view manually, you will need to create ViewModel:
 > [!NOTE]
 > When creating ViewModel, don't forget to provide AlertDialogService and AuthenticationProvider.
 
-![Custom columns](~/images/CustomColumns.png)
+![Custom columns](assets/CustomColumns.png)
 
 > [!NOTE]
 > Custom columns can only added from master fragment (first declared repository).
@@ -157,7 +157,7 @@ If you want to be able to export data, you must add `CanExport` attribute with `
 
 With this option, buttons for export and import data will appear. After clicking on the export button, the `.zip` file will be created, which contains all existing records. If you want to import data, you must upload `.zip` file with an equal data structure as we get in the export file.
 
-![Export](~/images/Export.png)
+![Export](assets/Export.png)
 
 #### Custom export
 
@@ -185,4 +185,4 @@ The Detail View is default shown like modal view. That means if you click on som
 <DataExchangeView Vm="@ViewModel.DataViewModel" Presentation="Command" ModalDetailView="false" />
 ~~~
 
-![Not Modal detail view](~/images/NotModalDetailView.png)
+![Not Modal detail view](assets/NotModalDetailView.png)

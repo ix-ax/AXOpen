@@ -1,10 +1,8 @@
-- name: AXOpen.Components
-  href: index.md
-  items:
+items:
   - name: Elements
     href: ../components.elements/
   - name: Pneumatics
-    href: ../components.pneumatics/    
+    href: ../components.pneumatics/
   - name: Cognex Vision
     href: ../components.cognex.vision/
   - name: Library template

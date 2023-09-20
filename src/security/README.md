@@ -21,25 +21,25 @@ When user is logged in with administrator rights, it is possible to modify all a
 
 The SecurityManagementView component includes a tab dedicated to user management. Within this tab, users can be updated or newly created. When a user is selected, a card is displayed showing the current data for that user, there is an option to update or delete user.
 
-![user management](~/images/UserManagement.png)
+![user management](assets/UserManagement.png)
 
 ### Group Management
 
 The SecurityManagementView component includes a tab for group management. Within this tab, groups can be updated or newly created. When a group is selected, a card is displayed showing the assigned roles for that group. Users have the option assigned or unassign roles or delete group.
 
-![group management](~/images/GroupManagement.png)
+![group management](assets/GroupManagement.png)
 
 ### Account Management
 
 In account management view is possible to change the your user data, like email address or password.
 
-![account management](~/images/AccountManagement.png)
+![account management](assets/AccountManagement.png)
 
 ### User Create
 
 In user create view is possible to new user.
 
-![Create user](~/images/CreateUser.png)
+![Create user](assets/CreateUser.png)
 
 ## AuthorizeView and AuthenticationContext
 

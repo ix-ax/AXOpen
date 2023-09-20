@@ -1,11 +1,9 @@
-- name: AXOpen.Framework
-  href: index.md
-  items:
+items:
   - name: Core
-    href: ../core/index.html 
+    href: ../core/
   - name: Data
-    href: ../data/index.html
+    href: ../data/
   - name: Inspectors
-    href: ../inspectors/index.html
+    href: ../inspectors/
   - name: Timers
-    href: ../timers/index.html
+    href: ../timers/
