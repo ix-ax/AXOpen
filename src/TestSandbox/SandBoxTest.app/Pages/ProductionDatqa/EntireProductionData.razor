@@ -13,7 +13,7 @@
 
     protected override void OnInitialized()
     {
-        _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.EntireProductionData, AlertDialogService = _alert, Asp = _asp };
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.Context.EntireProductionData, AlertDialogService = _alert, AuthenticationProvider = _asp };
     }
 }
 

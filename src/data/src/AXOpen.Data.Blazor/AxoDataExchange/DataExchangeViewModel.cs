@@ -225,8 +225,8 @@ namespace AXOpen.Data
         {
             try
             {
-                DataExchange.Delete(SelectedRecord.DataEntityId);
-                AxoApplication.Current.Logger.Information($"Delete {SelectedRecord.DataEntityId} in {DataExchange} by user action.", Asp.GetAuthenticationStateAsync().Result.User.Identity);
+                await DataExchange.Delete(SelectedRecord.DataEntityId);
+                AxoApplication.Current.Logger.Information($"Delete {SelectedRecord.DataEntityId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "Item was successfully deleted!", 10);
             }
             catch (Exception e)

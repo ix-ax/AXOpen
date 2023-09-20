@@ -23,7 +23,7 @@
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        this.ViewModel = new DataExchangeViewModel { Model = DataExchange, Asp = _asp };
+        this.ViewModel = new DataExchangeViewModel { Model = DataExchange, AuthenticationProvider = _asp };
 
     }
 }
