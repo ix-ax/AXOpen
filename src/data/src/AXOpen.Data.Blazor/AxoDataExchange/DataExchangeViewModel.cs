@@ -38,15 +38,40 @@ namespace AXOpen.Data
 
         public DataExchangeViewModel()
         {
-
         }
 
-        public AuthenticationStateProvider Asp { get; set; }
+        private AuthenticationStateProvider _authenticationProvider;
+        public AuthenticationStateProvider AuthenticationProvider
+        {
+            get
+            {
+                if(_authenticationProvider == null)
+                    throw new Exception("AuthenticationProvider must be implemented in " + this.ToString());
+                return _authenticationProvider;
+            }
+            set
+            {
+                _authenticationProvider = value;
+            }
+        }
 
         public bool IsFileExported { get; set; } = false;
         public List<ValueChangeItem> Changes { get; set; } = new List<ValueChangeItem>();
 
-        public IAlertDialogService AlertDialogService { get; set; }
+        private IAlertDialogService _alertDialogService;
+        public IAlertDialogService AlertDialogService
+        {
+            get
+            {
+                if (_alertDialogService == null)
+                    throw new Exception("AlertDialogService must be implemented in " + this.ToString());
+                return _alertDialogService;
+            }
+            set
+            {
+                _alertDialogService = value;
+            }
+        }
 
         private IBrowsableDataObject _selectedRecord;
 
@@ -66,7 +91,7 @@ namespace AXOpen.Data
                 {
                     DataExchange.FromRepositoryToShadowsAsync(value).Wait();
                     DataExchange.ChangeTrackerSetChanges();
-                    IsHashCorrect = DataExchange.IsHashCorrect(Asp.GetAuthenticationStateAsync().Result.User.Identity);
+                    IsHashCorrect = DataExchange.IsHashCorrect(AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                     Changes = DataExchange.ChangeTrackerGetChanges().OrderBy(p => p.DateTime.Ticks).ToList();
                 }
             }
@@ -77,7 +102,7 @@ namespace AXOpen.Data
             if (IsLockedByMeOrNull())
             {
                 DataExchange.SetLockedBy(this);
-                DataExchange.ChangeTrackerStartObservingChanges(Asp.GetAuthenticationStateAsync().Result);
+                DataExchange.ChangeTrackerStartObservingChanges(AuthenticationProvider.GetAuthenticationStateAsync().Result);
             }
         }
 
@@ -92,7 +117,7 @@ namespace AXOpen.Data
 
         internal bool IsLockedByMeOrNull()
         {
-            if(DataExchange.GetLockedBy() == null || DataExchange.GetLockedBy() == this)
+            if (DataExchange.GetLockedBy() == null || DataExchange.GetLockedBy() == this)
                 return true;
             return false;
         }
@@ -182,7 +207,7 @@ namespace AXOpen.Data
                 }
 
                 await DataExchange.CreateNewAsync(CreateItemId);
-                AxoApplication.Current.Logger.Information($"Create {CreateItemId} in {DataExchange} by user action.", Asp.GetAuthenticationStateAsync().Result.User.Identity);
+                AxoApplication.Current.Logger.Information($"Create {CreateItemId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Created!", "Item was successfully created!", 10);
             }
             catch (Exception e)
@@ -200,7 +225,7 @@ namespace AXOpen.Data
         {
             try
             {
-                await DataExchange.Delete(SelectedRecord.DataEntityId);
+                DataExchange.Delete(SelectedRecord.DataEntityId);
                 AxoApplication.Current.Logger.Information($"Delete {SelectedRecord.DataEntityId} in {DataExchange} by user action.", Asp.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService?.AddAlertDialog(eAlertDialogType.Success, "Deleted!", "Item was successfully deleted!", 10);
             }
@@ -222,7 +247,7 @@ namespace AXOpen.Data
             try
             {
                 await DataExchange.CreateCopyCurrentShadowsAsync(CreateItemId);
-                AxoApplication.Current.Logger.Information($"Copy {CreateItemId} in {DataExchange} by user action.", Asp.GetAuthenticationStateAsync().Result.User.Identity);
+                AxoApplication.Current.Logger.Information($"Copy {CreateItemId} in {DataExchange} by user action.", AuthenticationProvider.GetAuthenticationStateAsync().Result.User.Identity);
                 AlertDialogService.AddAlertDialog(eAlertDialogType.Success, "Copied!", "Item was successfully copied!", 10);
             }
             catch (Exception e)
@@ -298,7 +323,7 @@ namespace AXOpen.Data
             {
                 try
                 {
-                    DataExchange.ImportData(path, Asp.GetAuthenticationStateAsync().Result, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
+                    DataExchange.ImportData(path, AuthenticationProvider.GetAuthenticationStateAsync().Result, exportFileType: ExportSet.ExportFileType, separator: ExportSet.Separator);
 
                     this.UpdateObservableRecords();
 

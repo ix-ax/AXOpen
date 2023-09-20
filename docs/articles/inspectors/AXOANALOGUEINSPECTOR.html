@@ -82,13 +82,15 @@
 <p>Provides evaluation of <em>continuous</em> values. The inspector checks that the input value falls within the limit of <em>Min</em> and <em>Max</em>. The inspection passes when the input value is within the required limit without interruption for the duration of stabilization time.</p>
 <p><img src="../../images/analog-inspector.png" alt="Analog inspector"></p>
 <p>Common inspector data are extended with following analogue inspector data:</p>
-<pre><code class="lang-C#">RequiredMin : LREAL; // min required value for inspection
+<pre><code class="lang-smalltalk">      {#ix-set:AttributeName = &quot;&lt;#Min#&gt;&quot;}
+      RequiredMin : LREAL;
 
-DetectedStatus : LREAL; // detected value
+      {#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
+      DetectedStatus : LREAL;
 
-RequiredMax: LREAL; // max required value for inspection
-</code></pre>
-</article>
+      {#ix-set:AttributeName = &quot;&lt;#Max#&gt;&quot;}
+      RequiredMax: LREAL;
+</code></pre></article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">
@@ -96,7 +98,7 @@ RequiredMax: LREAL; // max required value for inspection
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/176-_NEW-FEATURE_Create_library_for_basic_I/O_elements/docfx/articles/inspectors/AXOANALOGUEINSPECTOR.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/inspectors/AXOANALOGUEINSPECTOR.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

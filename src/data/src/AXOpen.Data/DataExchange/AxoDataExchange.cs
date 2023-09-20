@@ -118,7 +118,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// <returns>List of ValueChangeItem that contains changes.</returns>
     public List<ValueChangeItem> ChangeTrackerGetChanges()
     {
-        return CrudDataObject.Changes;
+        return CrudDataObject?.Changes ?? new List<ValueChangeItem>();
     }
 
     /// <summary>

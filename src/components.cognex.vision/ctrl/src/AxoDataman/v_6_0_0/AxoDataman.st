@@ -1,3 +1,5 @@
+USING AXOpen.Messaging.Static;
+USING AXOpen.Messaging;
 USING AXOpen.Core;
 USING AXOpen.Components.Abstractions;
 
@@ -8,48 +10,96 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "<#Read#>"}
-            _readTask : AxoDatamanRead;
+            ReadTask : AxoDatamanRead;
             {#ix-attr:[ComponentHeader()]}         
             {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Results#>"}
-            Results     :   AxoDataman_Results;
-
+            {#ix-set:AttributeName = "<#Inspection results#>"}
+            {#ix-set:DisplayFormat = "string"}
+            ResultData  :   AxoDataman_ResultData;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Restore#>"}
-            _restoreTask : AXOpen.Core.AxoTask;
+            RestoreTask : AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Tasks")]}
             {#ix-set:AttributeName = "<#Clear result data#>"}
-            _clearResultDataTask : AxoDatamanClearResultData;
-                
+            ClearResultDataTask : AxoDatamanClearResultData;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Config")]}
             Config      :   AxoDataman_Config;
 
-            // {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Status")]}
             {#ix-attr:[ReadOnly()]}
             Status      :   AxoDataman_Status;
 
-            {#ix-attr:[CompilerOmits()]} 
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Results#>"}
+            Results     :   AxoDataman_Results;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-set:AttributeName = "<#Acquisition control#>"}
+            {#ix-attr:[ReadOnly()]}
+            AcquisitionControl     :   AxoDataman_AcquisitionControl;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-set:AttributeName = "<#Acquisition status#>"}
+            {#ix-attr:[ReadOnly()]}
+            AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-set:AttributeName = "<#Results control#>"}
+            {#ix-attr:[ReadOnly()]}
+            ResultsControl         :   AxoDataman_ResultsControl;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-set:AttributeName = "<#Results status#>"}
+            {#ix-attr:[ReadOnly()]}
+            ResultsStatus          :   AxoDataman_ResultsStatus;
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-set:AttributeName = "<#Soft-event control#>"}
+            {#ix-attr:[ReadOnly()]}
+            SoftEventControl       :   AxoDataman_SoftEventControl;
+ 
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-set:AttributeName = "<#Soft-event status#>"}
+            {#ix-attr:[ReadOnly()]}
+            SoftEventStatus        :   AxoDataman_SoftEventStatus;
+ 
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-set:AttributeName = "<#User data#>"}
+            {#ix-attr:[ReadOnly()]}
             User        :   AxoDataman_User;
+            {#ix-set:AttributeName = "<#User data#>"}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:DisplayFormat = "hexadecimal"}
+            UserData        :   AxoDataman_UserData;
+
+            _Messenger          :   AXOpen.Messaging.Static.AxoMessenger;
+            _TaskMessenger      :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
-        VAR PRIVATE
-            _AcquisitionControl     :   AxoDataman_AcquisitionControl;
-            _AcquisitionStatus      :   AxoDataman_AcquisitionStatus;
-            _ResultsControl         :   AxoDataman_ResultsControl;
-            _ResultsStatus          :   AxoDataman_ResultsStatus;
-            _SoftEventControl       :   AxoDataman_SoftEventControl;
-            _SoftEventStatus        :   AxoDataman_SoftEventStatus;
-            _taskDisabled           :   BOOL;
-        END_VAR
-               
         ///<summary>
-		/// Restores this instance . 
+		/// Restores this instance to its initial state. 
         ///</summary>   
         METHOD PROTECTED OVERRIDE Restore: IAxoTask 
             VAR
@@ -57,40 +107,47 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             END_VAR
             Status.Action.Id := UINT#0;
             Status.Error.Id  := UINT#0;
+            _Messenger.Restore();
+            _TaskMessenger.Restore();
 
-            _clearResultDataTask.Restore();
-            _readTask.Restore();
+            ClearResultDataTask.Restore();
+            ReadTask.Restore();
              
             Results.Code        :=  UINT#0;
             Results.Extended    :=  UINT#0;
             Results.Id          :=  UINT#0;
             Results.Length      :=  UINT#0;
-            Results.Data        :=  '';
 
-            _AcquisitionControl.TriggerEnable       :=  _ResultsStatus.ErrorDetected;
-            _AcquisitionControl.Trigger             :=  FALSE;
+            FOR _index := 0 TO 245 DO
+                ResultData.Data[_index] := BYTE#0;
+            END_FOR;
+            ResultData.ToggleDataChangedFlag();
 
-            _ResultsControl.EnableResultBuffering   :=  FALSE;
-            _ResultsControl.ResultsAcknowledge      :=  FALSE;       
+            AcquisitionControl.TriggerEnable       :=  ResultsStatus.ErrorDetected;
+            AcquisitionControl.Trigger             :=  FALSE;
 
-            _SoftEventControl.TrainCode 			:=  FALSE;    			
-            _SoftEventControl.TrainMatchString 		:=  FALSE;   
-            _SoftEventControl.TrainFocus 			:=  FALSE;   			
-            _SoftEventControl.TrainBrightness 		:=  FALSE;   
-            _SoftEventControl.Untrain 				:=  FALSE;   		
-            _SoftEventControl.ExecuteDMCC 			:=  FALSE;   	
-            _SoftEventControl.Reserved06 			:=  FALSE;    	
-            _SoftEventControl.SetMatchString 		:=  FALSE;   		
+            ResultsControl.EnableResultBuffering   :=  FALSE;
+            ResultsControl.ResultsAcknowledge      :=  FALSE;       
+
+            SoftEventControl.TrainCode 			    :=  FALSE;    			
+            SoftEventControl.TrainMatchString 		:=  FALSE;   
+            SoftEventControl.TrainFocus 			:=  FALSE;   			
+            SoftEventControl.TrainBrightness 		:=  FALSE;   
+            SoftEventControl.Untrain 				:=  FALSE;   		
+            SoftEventControl.ExecuteDMCC 			:=  FALSE;   	
+            SoftEventControl.Reserved06 			:=  FALSE;    	
+            SoftEventControl.SetMatchString 		:=  FALSE;   		
 
             User.Option :=  UINT#0;
             User.Length :=  UINT#0;
-            FOR _index := 0 TO 245 DO
-                User.Data[_index] := BYTE#0;
+            FOR _index := 0 TO 249 DO
+                UserData.Data[_index] := BYTE#0;
             END_FOR;
+            UserData.ToggleDataChangedFlag();
 
-            IF NOT _ResultsStatus.ErrorDetected THEN
+            IF NOT ResultsStatus.ErrorDetected THEN
                 Status.Action.Id := UINT#300;
-                _restoreTask.DoneWhen(TRUE);
+                RestoreTask.DoneWhen(TRUE);
             END_IF;
         END_METHOD
 
@@ -108,26 +165,26 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refSoftEventStatus     :   REF_TO  BYTE;
                 refResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
-            _AcquisitionStatus.TriggerReady                  :=      refAcquisitionStatus^[0].%X0;
-            _AcquisitionStatus.TriggerAcknowledge            :=      refAcquisitionStatus^[0].%X1;
-            _AcquisitionStatus.MissedAcquisition             :=      refAcquisitionStatus^[0].%X3;
-            _AcquisitionStatus.TriggerID.%B1                 :=      refAcquisitionStatus^[1];	 
-            _AcquisitionStatus.TriggerID.%B0                 :=      refAcquisitionStatus^[2];	 
+            AcquisitionStatus.TriggerReady                  :=      refAcquisitionStatus^[0].%X0;
+            AcquisitionStatus.TriggerAcknowledge            :=      refAcquisitionStatus^[0].%X1;
+            AcquisitionStatus.MissedAcquisition             :=      refAcquisitionStatus^[0].%X3;
+            AcquisitionStatus.TriggerID.%B1                 :=      refAcquisitionStatus^[1];	 
+            AcquisitionStatus.TriggerID.%B0                 :=      refAcquisitionStatus^[2];	 
 
-            _ResultsStatus.Decoding                          :=      refResultsStatus^.%X0;
-            _ResultsStatus.DecodeComplete                    :=      refResultsStatus^.%X1;
-            _ResultsStatus.ResultsBufferOverrun              :=      refResultsStatus^.%X2;
-            _ResultsStatus.ResultsAvailable                  :=      refResultsStatus^.%X3;
-            _ResultsStatus.ErrorDetected                     :=      refResultsStatus^.%X7;
+            ResultsStatus.Decoding                          :=      refResultsStatus^.%X0;
+            ResultsStatus.DecodeComplete                    :=      refResultsStatus^.%X1;
+            ResultsStatus.ResultsBufferOverrun              :=      refResultsStatus^.%X2;
+            ResultsStatus.ResultsAvailable                  :=      refResultsStatus^.%X3;
+            ResultsStatus.ErrorDetected                     :=      refResultsStatus^.%X7;
 
-            _SoftEventStatus.TrainCodeAcknowledge            :=      refSoftEventStatus^.%X0;
-            _SoftEventStatus.TrainMatchStringAcknowledge     :=      refSoftEventStatus^.%X1;
-            _SoftEventStatus.TrainFocusAcknowledge           :=      refSoftEventStatus^.%X2;
-            _SoftEventStatus.TrainBrightnessAcknowledge      :=      refSoftEventStatus^.%X3;
-            _SoftEventStatus.UntrainAcknowledge              :=      refSoftEventStatus^.%X4;
-            _SoftEventStatus.ExecuteDmccAcknowledge          :=      refSoftEventStatus^.%X5;
-            _SoftEventStatus.Reserved06                      :=      refSoftEventStatus^.%X6;
-            _SoftEventStatus.SetMatchStringAcknowledge       :=      refSoftEventStatus^.%X7;
+            SoftEventStatus.TrainCodeAcknowledge            :=      refSoftEventStatus^.%X0;
+            SoftEventStatus.TrainMatchStringAcknowledge     :=      refSoftEventStatus^.%X1;
+            SoftEventStatus.TrainFocusAcknowledge           :=      refSoftEventStatus^.%X2;
+            SoftEventStatus.TrainBrightnessAcknowledge      :=      refSoftEventStatus^.%X3;
+            SoftEventStatus.UntrainAcknowledge              :=      refSoftEventStatus^.%X4;
+            SoftEventStatus.ExecuteDmccAcknowledge          :=      refSoftEventStatus^.%X5;
+            SoftEventStatus.Reserved06                      :=      refSoftEventStatus^.%X6;
+            SoftEventStatus.SetMatchStringAcknowledge       :=      refSoftEventStatus^.%X7;
 
 
             IF (LOWER_BOUND(refResultData^,1) = 0) THEN
@@ -152,6 +209,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.ResultDataSize := eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID;
             END_IF;
 
+            _Messenger.ActivateOnCondition(ULINT#709,Status.ResultDataSize = eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#710,LOWER_BOUND(refResultData^,1) <> 0, eAxoMessageCategory#ProgrammingError);
+
             IF(Status.ResultDataSize <> eAxoDataman_ResultDataSize#RESULT_DATA_SIZE_INVALID) THEN
                 Results.Id.%B1          :=  refResultData^[0];     
                 Results.Id.%B0          :=  refResultData^[1];     
@@ -173,21 +233,27 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refSoftEventControl    :   REF_TO  BYTE;
                 refUserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
+            VAR
+                UserDataChanged         :   BOOL;
+                index                   :   INT;
+            END_VAR
 
-            refAcquisitionControl^.%X0      :=      _AcquisitionControl.TriggerEnable;
-            refAcquisitionControl^.%X1      :=      _AcquisitionControl.Trigger;
+            UpdateOutputs := TRUE;
 
-            refResultsControl^.%X0          :=      _ResultsControl.EnableResultBuffering;
-            refResultsControl^.%X1          :=      _ResultsControl.ResultsAcknowledge;
+            refAcquisitionControl^.%X0      :=      AcquisitionControl.TriggerEnable;
+            refAcquisitionControl^.%X1      :=      AcquisitionControl.Trigger;
+
+            refResultsControl^.%X0          :=      ResultsControl.EnableResultBuffering;
+            refResultsControl^.%X1          :=      ResultsControl.ResultsAcknowledge;
             
-            refSoftEventControl^.%X0        :=      _SoftEventControl.TrainCode;
-            refSoftEventControl^.%X1        :=      _SoftEventControl.TrainMatchString;
-            refSoftEventControl^.%X2        :=      _SoftEventControl.TrainFocus;
-            refSoftEventControl^.%X3        :=      _SoftEventControl.TrainBrightness;
-            refSoftEventControl^.%X4        :=      _SoftEventControl.Untrain;
-            refSoftEventControl^.%X5        :=      _SoftEventControl.ExecuteDMCC;
-            refSoftEventControl^.%X6        :=      _SoftEventControl.Reserved06;
-            refSoftEventControl^.%X7        :=      _SoftEventControl.SetMatchString;
+            refSoftEventControl^.%X0        :=      SoftEventControl.TrainCode;
+            refSoftEventControl^.%X1        :=      SoftEventControl.TrainMatchString;
+            refSoftEventControl^.%X2        :=      SoftEventControl.TrainFocus;
+            refSoftEventControl^.%X3        :=      SoftEventControl.TrainBrightness;
+            refSoftEventControl^.%X4        :=      SoftEventControl.Untrain;
+            refSoftEventControl^.%X5        :=      SoftEventControl.ExecuteDMCC;
+            refSoftEventControl^.%X6        :=      SoftEventControl.Reserved06;
+            refSoftEventControl^.%X7        :=      SoftEventControl.SetMatchString;
 
             IF (LOWER_BOUND(refUserData^,1) = 0) THEN
                 IF (UPPER_BOUND(refUserData^,1) = 19) THEN
@@ -201,20 +267,26 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 ELSIF (UPPER_BOUND(refUserData^,1) = 253) THEN
                     Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_250B;
                 ELSE
+                    Status.UserDataSize := eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID;
                     Status.Error.Id := UINT#711;
                     UpdateOutputs := FALSE;
                 END_IF;
             ELSE
                 Status.Error.Id := UINT#712;
                 UpdateOutputs := FALSE;
-        END_IF;
+            END_IF;
+            _Messenger.ActivateOnCondition(ULINT#711,Status.UserDataSize = eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#712,LOWER_BOUND(refUserData^,1) <> 0, eAxoMessageCategory#ProgrammingError);
 
-            IF(Status.UserDataSize <> eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID) THEN
+            IF(Status.UserDataSize <> eAxoDataman_UserDataSize#USER_DATA_SIZE_INVALID) AND (UserData.DataChanged <> UserDataChanged) THEN
                 refUserData^[0]     :=  User.Option.%B1;   
                 refUserData^[1]     :=  User.Option.%B0;   
                 refUserData^[2]     :=  User.Length.%B1;   
                 refUserData^[3]     :=  User.Length.%B0;   
-                UpdateOutputs := TRUE;
+                FOR index := 0 TO (TO_INT(User.Length) - INT#1) DO
+                    refUserData^[index + 4] := UserData.Data[index];
+                END_FOR;
+                UserDataChanged := UserData.DataChanged;
             END_IF;           
         END_METHOD  
 
@@ -249,6 +321,15 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             ELSE
                 IsValidReferences := TRUE;
             END_IF;
+
+            _Messenger.ActivateOnCondition(ULINT#701,refAcquisitionControl = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#702,refAcquisitionStatus = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#703,refResultsControl = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#704,refResultsStatus = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#705,refSoftEventControl = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#706,refSoftEventStatus = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#707,refResultData = NULL, eAxoMessageCategory#ProgrammingError);
+            _Messenger.ActivateOnCondition(ULINT#708,refUserData = NULL, eAxoMessageCategory#ProgrammingError);
         END_METHOD
 
         METHOD PRIVATE ContinuousReading
@@ -257,24 +338,40 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refResults             :   REF_TO  AxoDataman_Results;
                 refResultData          :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR     
-
-            IF _ResultsStatus.ResultsAvailable AND NOT _ResultsControl.ResultsAcknowledge AND Results.Code > UINT#0 AND Results.Length > UINT#0 THEN
+            VAR 
+                _index : INT;
+            END_VAR
+            IF ResultsStatus.ResultsAvailable AND NOT ResultsControl.ResultsAcknowledge AND Results.Code > UINT#0 AND Results.Length > UINT#0 THEN
+                _Messenger.ActivateOnCondition(ULINT#713, refResults^.Length > TO_UINT(refStatus^.ResultDataSize), eAxoMessageCategory#Error);
                 IF refResults^.Length > TO_UINT(refStatus^.ResultDataSize) THEN
                     Status.Action.Id := UINT#701;
                     Status.Error.Id := UINT#713;
                 ELSE
-                    System.SerDe.Deserialize(UINT#7, refResultData^, refResults^.Data);
+                    FOR _index := 0 TO (TO_INT(refResults^.Length) - INT#1) DO
+                        ResultData.Data[_index] := refResultData^[_index + 8];
+                    END_FOR;
+                    FOR _index := TO_INT(refResults^.Length) TO 245 DO
+                        ResultData.Data[_index] := BYTE#0;
+                    END_FOR;
+                    ResultData.DataChanged := NOT ResultData.DataChanged ;
                     Status.Action.Id := UINT#307;
                 END_IF;
             END_IF;
 
-            _ResultsControl.ResultsAcknowledge := _ResultsStatus.ResultsAvailable;
+            ResultsControl.ResultsAcknowledge := ResultsStatus.ResultsAvailable;
         END_METHOD
 
+        ///<summary>
+		/// Custom component logic running before any other component logic.
+        ///</summary>   
         METHOD PROTECTED OVERRIDE Open
             SUPER.Open();
         END_METHOD  
 
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoObject; 
@@ -291,6 +388,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#700;
                 RETURN;
             END_IF;
+
+            _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
             END_IF;
@@ -300,6 +400,11 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
             THIS.Close();            
         END_METHOD
 
+
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
         METHOD PUBLIC Run
             VAR_INPUT
                 parent                  :   IAxoContext; 
@@ -316,6 +421,9 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 Status.Error.Id := UINT#700;
                 RETURN;
             END_IF;
+
+            _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
             END_IF;
@@ -337,82 +445,67 @@ NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
                 refUserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
 
-            _restoreTask.Initialize(THIS);
-            _clearResultDataTask.Initialize(THIS);
-            _readTask.Initialize(THIS);
+            RestoreTask.Initialize(THIS);
+            ClearResultDataTask.Initialize(THIS);
+            ReadTask.Initialize(THIS);
 
+            _Messenger.Serve(THIS);
+ 
             THIS.UpdateInputs(refAcquisitionStatus,refResultsStatus,refSoftEventStatus,refResultData);
-            THIS.UpdateSignalStates();
-
+ 
             IF Config.ContinuousReading THEN
 	            THIS.ContinuousReading(REF(Status), REF(Results),refResultData);
             END_IF;
 
             //*************RESTORE********************
-            _taskDisabled := FALSE;
-            _restoreTask.IsDisabled := _taskDisabled;
-            IF _restoreTask.Execute() THEN
+            RestoreTask.IsDisabled := FALSE;
+            IF RestoreTask.Execute() THEN
                 THIS.Restore();
             END_IF;
             //****************************************
 
             //*************CLEAR*DATA*****************
-            _taskDisabled := _taskDisabled OR _restoreTask.IsBusy();
-            _clearResultDataTask.IsDisabled := _taskDisabled;
-            _clearResultDataTask.Run(REF(_AcquisitionControl),REF(_AcquisitionStatus),REF(_ResultsControl),REF(_ResultsStatus),REF(Config),REF(Status),REF(Results));
+            ClearResultDataTask.IsDisabled := RestoreTask.IsBusy() OR ReadTask.IsBusy();
+            ClearResultDataTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(ResultsControl),REF(ResultsStatus),REF(Config),REF(Status),REF(Results),REF(ResultData),REF(_TaskMessenger));
             //****************************************
 
-        
             //*************READ***********************
-            _taskDisabled := _taskDisabled OR _clearResultDataTask.IsBusy();
-            _readTask.IsDisabled :=  _taskDisabled;
-            _readTask.Run(REF(_AcquisitionControl),REF(_AcquisitionStatus),REF(_ResultsControl),REF(_ResultsStatus),REF(Config),REF(Status),REF(Results),refResultData);
+            ReadTask.IsDisabled :=  RestoreTask.IsBusy() OR ClearResultDataTask.IsBusy();
+            ReadTask.Run(REF(AcquisitionControl),REF(AcquisitionStatus),REF(ResultsControl),REF(ResultsStatus),REF(Config),REF(Status),REF(Results),REF(ResultData),refResultData,REF(_TaskMessenger));
             //****************************************
+
+            _Messenger.ActivateOnCondition(ULINT#714,ClearResultDataTask.HasError(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#715,ReadTask.HasError(), eAxoMessageCategory#Error);
+
+            _Messenger.ActivateOnCondition(ULINT#716,ClearResultDataTask.IsAborted(), eAxoMessageCategory#Error);
+            _Messenger.ActivateOnCondition(ULINT#717,ReadTask.IsAborted(), eAxoMessageCategory#Error);
 
             THIS.UpdateOutputs(refAcquisitionControl,refResultsControl,refSoftEventControl,refUserData);
         END_METHOD    
         
+        ///<summary>
+		/// Custom component logic running after any other component logic.
+        ///</summary>   
         METHOD PROTECTED OVERRIDE Close
             SUPER.Close();
         END_METHOD  
+
         ///<summary>
 		/// Clears the result data. 	
         ///</summary>       
         METHOD PUBLIC ClearResultData : IAxoTaskState
-            ClearResultData :=_clearResultDataTask.Invoke();;
+            ClearResultData :=ClearResultDataTask.Invoke();;
         END_METHOD
+
         ///<summary>
 		/// Triggers the reading sequence and waits for results. 	
         ///</summary>       
         METHOD PUBLIC Read : IAxoTaskState
-            Read := _readTask.Invoke();
+            VAR_OUTPUT
+                result : ARRAY [0..245] OF BYTE;
+            END_VAR
+            result := ResultData.Data;
+            Read := ReadTask.Invoke();
         END_METHOD
-        
-        METHOD PRIVATE UpdateSignalStates
-            Status.SignalStatus.TriggerEnable 			:=	_AcquisitionControl.TriggerEnable; 
-            Status.SignalStatus.Trigger				    :=	_AcquisitionControl.Trigger; 
-
-            Status.SignalStatus.EnableResultBuffering	:=	_ResultsControl.EnableResultBuffering;
-            Status.SignalStatus.ResultsAcknowledge		:=	_ResultsControl.ResultsAcknowledge;
-
-            Status.SignalStatus.TriggerReady 			:= 	_AcquisitionStatus.TriggerReady;
-            Status.SignalStatus.TriggerAcknowledge 	    := 	_AcquisitionStatus.TriggerAcknowledge;
-            Status.SignalStatus.Acquiring 				:= 	_AcquisitionStatus.Acquiring;
-            Status.SignalStatus.MissedAcquisition 		:= 	_AcquisitionStatus.MissedAcquisition;
-            Status.SignalStatus.TriggerID 				:= 	_AcquisitionStatus.TriggerID;
-
-            Status.SignalStatus.Decoding 				:= 	_ResultsStatus.Decoding;
-            Status.SignalStatus.DecodeComplete 		    := 	_ResultsStatus.DecodeComplete;
-            Status.SignalStatus.ResultsBufferOverrun 	:= 	_ResultsStatus.ResultsBufferOverrun;
-            Status.SignalStatus.ResultsAvailable 		:= 	_ResultsStatus.ResultsAvailable;
-            Status.SignalStatus.ErrorDetected 			:= 	_ResultsStatus.ErrorDetected;
-
-            Status.SignalStatus.ResultID 				:= 	Results.ID;
-            Status.SignalStatus.ResultCode  			:= 	Results.Code;
-            Status.SignalStatus.ResultExtended  		:= 	Results.Extended;
-            Status.SignalStatus.ResultLength  			:= 	Results.Length;
-
-        END_METHOD
-    END_CLASS    
-
+END_CLASS    
 END_NAMESPACE

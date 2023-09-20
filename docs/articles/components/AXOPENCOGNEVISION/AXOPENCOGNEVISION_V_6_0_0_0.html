@@ -111,8 +111,65 @@ END_IF;
 <strong>Example of using Read method</strong></p>
 <pre><code class="lang-smalltalk">IF MyDataman1.Read().IsDone() THEN
     //Process the result data
-    myString := MyDataman1.Results.Data;
+    myDatamanData := MyDataman1.ResultData.Data;
+    ;
 END_IF;                          
+</code></pre>
+<p><strong>How to visualize <code>AxoDataman</code></strong>
+On the UI side, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoDataman</code>.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoCognexVisionExampleContext.MyDataman1&quot; Presentation=&quot;Command&quot; /&gt;
+</code></pre><h2 id="axoinsight">AxoInsight</h2>
+<p><code>AxoInsight</code> provides the essential control and operation of all vision sensors of the <code>Insight</code> family.</p>
+<h3 id="implementation-1">Implementation</h3>
+<p>The <code>AxoInsight</code> is designed to be used as a member of the <code>AxoContext</code> or <code>AxoObject</code>.
+Therefore its instance must be initialized with the proper <code>AxoContext</code> or <code>AxoObject</code> before any use.
+Also, the hardware signals must be assigned first before calling any method of this instance.
+To accomplish this, call the <code>Run</code> method cyclically with the proper variables (i.e. inside the <code>Main</code> method of the relevant <code>AxoContext</code>) as in the example below:</p>
+<p><strong>Example of the initialization and hardware signal assignement</strong></p>
+<pre><code class="lang-smalltalk">MyInsight.Run(  parent                  :=  THIS,  
+                refAcquisitionControl   :=  REF(PlcOutputs^._7600_Acquisition_Control_1),
+                refAcquisitionStatus    :=  REF(PlcInputs^._7600_Acquisition_Status_1),
+                refInspectionControl    :=  REF(PlcOutputs^._7600_Inspection_Control_1),
+                refInspectionStatus     :=  REF(PlcInputs^._7600_Inspection_Status_1),
+                refCommandControl       :=  REF(PlcOutputs^._7600_Command_Control_1),
+                refCommandStatus        :=  REF(PlcInputs^._7600_Command_Control_1),
+                refSoftEventControl     :=  REF(PlcOutputs^._7600_SoftEvent_Control_1),
+                refSoftEventStatus      :=  REF(PlcInputs^._7600_SoftEvent_Control_1),
+                refResultData           :=  REF(PlcInputs^._7600_Results_64_bytes_1),
+                refUserData             :=  REF(PlcOutputs^._7600_User_Data_64_bytes_1));
+</code></pre>
+<p>There are three public methods to operate the <code>AxoInsight</code>:</p>
+<p><code>Restore</code> - restores the state of the <code>AxoInsight</code> to the initial state and resets all the internal variables.</p>
+<p><code>ClearInspectionResults</code> - resets the inspection data read and confirms the data received from the device.
+<strong>Example of using ClearInspectionResults method</strong></p>
+<pre><code class="lang-smalltalk"></code></pre>
+<p><code>Trigger</code> - triggers the reading sequence and waits for results.
+<strong>Example of using Trigger method</strong></p>
+<pre><code class="lang-smalltalk">IF MyInsight.Trigger().IsDone() THEN
+    //Process the result data
+    myInsightData := MyInsight.InspectionResults.Data;
+END_IF;                          
+</code></pre>
+<p><code>ChangeJob</code> - changes the sensor job. There are two overloads of the method <code>ChangeJob</code>. First one is with numerical parameter of the job number, second one with the textual parameter of the job name.
+<strong>Example of using ChangeJob method using job number</strong></p>
+<pre><code class="lang-smalltalk">IF MyInsight.ChangeJob(UINT#5).IsDone() THEN
+    ;
+END_IF;                          
+</code></pre>
+<p><strong>Example of using ChangeJob method using job name</strong></p>
+<pre><code class="lang-smalltalk">IF MyInsight.ChangeJob('MyJobName.job').IsDone() THEN
+    ;
+END_IF;                          
+</code></pre>
+<p><code>SoftEvent</code> - triggers the soft event of the sensor.
+<strong>Example of using SoftEvent method</strong></p>
+<pre><code class="lang-smalltalk">IF MyInsight.SoftEvent(UINT#5).IsDone() THEN
+    ;
+END_IF;                          
+</code></pre>
+<p><strong>How to visualize <code>AxoInsight</code></strong>
+On the UI side, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoInsight</code>.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.AxoCognexVisionExampleContext.MyInsight&quot; Presentation=&quot;Command&quot; /&gt;
 </code></pre></article>
           </div>
 
@@ -121,7 +178,7 @@ END_IF;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/176-_NEW-FEATURE_Create_library_for_basic_I/O_elements/docfx/articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

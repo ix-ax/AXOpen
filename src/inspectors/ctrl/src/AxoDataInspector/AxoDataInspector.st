@@ -23,7 +23,6 @@ NAMESPACE AXOpen.Inspectors
         VAR_INPUT
             _parent : AXOpen.Core.IAxoObject;
             Status : STRING;
-            
         END_VAR
 
         VAR
@@ -77,7 +76,6 @@ NAMESPACE AXOpen.Inspectors
                     //get char from required string
                     charRequired := _data.RequiredStatus[charIndex];
                     
-
                     //get char from detected string, only if is within a range
                     IF(LengthOf(_data.DetectedStatus) >= charIndex) THEN
                         charAcquired :=  _data.DetectedStatus[charIndex];
@@ -105,8 +103,8 @@ NAMESPACE AXOpen.Inspectors
                 _lastOutValue := Status;
             END_IF;
 
-            _inspectorTask._failTimer.OnDelay(THIS,TRUE, _data.FailTime);
-            _inspectorTask._passTimer.OnDelay(THIS, tmpResult, _data.PassTime);
+            _inspectorTask._failTimer.OnDelay(THIS.GetContext(), TRUE, _data.FailTime);
+            _inspectorTask._passTimer.OnDelay(THIS.GetContext(), tmpResult, _data.PassTime);
 
             IF(_inspectorTask._passTimer.output OR _inspectorTask._failTimer.output) THEN
                 _inspectorTask.DoneWhen(TRUE);

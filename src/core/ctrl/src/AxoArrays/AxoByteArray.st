@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Core
+    {#ix-prop: public string DisplayFormat}
     CLASS PUBLIC AxoByteArray 
         VAR PUBLIC
             DataChanged : BOOL;

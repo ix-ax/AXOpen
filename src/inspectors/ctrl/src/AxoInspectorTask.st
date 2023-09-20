@@ -14,8 +14,6 @@ NAMESPACE AXOpen.Inspectors
         END_VAR
 
         VAR INTERNAL
-            // _passTimer : AXOpen.Timers.OnDelayContext;
-            // _failTimer : AXOpen.Timers.OnDelayContext;
             _passTimer : AXOpen.Timers.OnDelayTimer;
             _failTimer : AXOpen.Timers.OnDelayTimer;
         END_VAR

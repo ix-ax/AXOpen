@@ -92,11 +92,48 @@
 <li><p><code>Common data</code> about inspection inputs and result. See below.</p>
 </li>
 </ol>
-<h2 id="example-inspection">Example inspection</h2>
+<h2 id="simple-example-inspection">Simple example inspection</h2>
+<ol>
+<li>Declare variables</li>
+</ol>
+<pre><code class="lang-smalltalk">VAR PUBLIC
+    _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;
+    _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
+    _dataInspector: AXOpen.Inspectors.AxoDataInspector;
+
+    _inspectionResult: BOOL;
+    _inspectionValue: LREAL;
+    _inspectionData: STRING;
+END_VAR
+</code></pre>
+<ol start="2">
+<li>Set initial inspection pass and fail timers</li>
+</ol>
+<pre><code class="lang-smalltalk">_digitalInspector.Data()^.FailTime := TIME#3s;
+_analogueInspector.Data()^.FailTime := TIME#3s;
+_dataInspector.Data()^.FailTime := TIME#3s;
+
+_digitalInspector.Data()^.PassTime := TIME#2s;
+_analogueInspector.Data()^.PassTime := TIME#2s;
+_dataInspector.Data()^.PassTime := TIME#2s;
+</code></pre>
+<ol start="3">
+<li>Run inspections</li>
+</ol>
+<pre><code class="lang-smalltalk">_digitalInspector.Inspect(THIS, _inspectionResult);
+_analogueInspector.Inspect(THIS, _inspectionValue);
+_dataInspector.Inspect(THIS, _inspectionData);
+</code></pre>
+<ol start="4">
+<li>Check each inspector's data for results</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Inspectors use AxOpen.Timers for counting time during inspections. Make sure, that <code>PLC cycle time</code> value in <code>configuration.st</code> is set accordingly to Pass and Fail timers (it should be in tens or hundreds milliseconds, the value shouldn't higher than lowest difference between pass and fail timers). If there are small differences (in ms) between pass and fail times and <code>PLC cycle time</code> is higher number (e.g. 1000 ms), unexpected behavior may occur and inspections can fail (even if they should pass).</p>
+</div>
+<h2 id="example-inspection-with-coordinator">Example inspection with Coordinator</h2>
 <p>Example of inspection within a sequencer in PLC:</p>
-<pre><code> _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
-        .UpdateComprehensiveResult(_comprehensiveResult)
-        .OnFail().CarryOn();
+<pre><code class="lang-smalltalk">_digitalInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 </code></pre>
 <ol>
 <li><p>A _presenceInspector is created instance of <code>AxoDigitalInspector</code></p>
@@ -112,53 +149,72 @@
 </ol>
 <h2 id="common-inspector-data">Common inspector data</h2>
 <p>Inspectors contain common data, which are used to store data about inspection. Each inspector contain following data:</p>
-<pre><code class="lang-C#">Timestamp: LDATE_AND_TIME; // timestamp of inspection
+<pre><code class="lang-smalltalk">//timestamp of inspection
+{#ix-set:AttributeName = &quot;&lt;#TimeStamp#&gt;&quot;}
+Timestamp: LDATE_AND_TIME;
 
-PassTime : TIME; // stabilization time, inspection must be success for this period of time
+//stabilization time, inspection must be success for this period of time
+{#ix-set:AttributeName = &quot;&lt;#Stab.Time#&gt;&quot;}
+PassTime : TIME;
 
-FailTime : TIME; // timeout, after which inspection fails
+//timeout, after which inspection fails
+{#ix-set:AttributeName = &quot;&lt;#Timeout#&gt;&quot;}
+FailTime : TIME;
 
-Result : eInspectorResult; // result of inspection
+//result of inspection
+{#ix-set:AttributeName = &quot;&lt;#Result#&gt;&quot;}
+Result : eInspectorResult;
 
-IsExcluded: BOOL; // inspection will be performed, however result will be omitted in overall result
+//inspection will be performed, however result will be omitted in overall result
+{#ix-set:AttributeName = &quot;&lt;#Excluded#&gt;&quot;}
+IsExcluded: BOOL;
 
-IsByPassed : BOOL; // inspection will be skipped
+//inspection will be skipped
+{#ix-set:AttributeName = &quot;&lt;#Bypass#&gt;&quot;}
+IsByPassed : BOOL;
 
-NumberOfAllowedRetries : UINT; // maximum number of retries of inspection, from which overinspection will occur
+//maximum number of retries of inspection
+{#ix-set:AttributeName = &quot;&lt;#Re-tries#&gt;&quot;}
+NumberOfAllowedRetries : UINT;
 
-RetryAttemptsCount : UINT; // actual number of retries, if RetryAttemptsCount &gt; NumberOfAllowedRetries, overinspection occurs
-
-</code></pre>
-<h2 id="axodigitalinspector">AxoDigitalInspector</h2>
+//actual number of retries
+{#ix-set:AttributeName = &quot;&lt;#Attempts#&gt;&quot;}
+RetryAttemptsCount : UINT;
+</code></pre><h2 id="axodigitalinspector">AxoDigitalInspector</h2>
 <p>Inspector provides evaluation of <em>discrete</em> value. The input value compares against the <em>Required</em> value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time.</p>
 <p><img src="../../images/digital-inspector.png" alt="Digital inspector"></p>
 <p>Common inspector data are extended with following digital inspector data:</p>
-<pre><code class="lang-C#">RequiredStatus : BOOL; //required value for inspection
+<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;&lt;#Required#&gt;&quot;}
+RequiredStatus : BOOL;
 
-DetectedStatus : BOOL; //detected value for inspection
-</code></pre>
-<h2 id="axoanalogueinspector">AxoAnalogueInspector</h2>
+{#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
+DetectedStatus : BOOL;
+</code></pre><h2 id="axoanalogueinspector">AxoAnalogueInspector</h2>
 <p>Provides evaluation of <em>continuous</em> values. The inspector checks that the input value falls within the limit of <em>Min</em> and <em>Max</em>. The inspection passes when the input value is within the required limit without interruption for the duration of stabilization time.</p>
 <p><img src="../../images/analog-inspector.png" alt="Analog inspector"></p>
 <p>Common inspector data are extended with following analogue inspector data:</p>
-<pre><code class="lang-C#">RequiredMin : LREAL; // min required value for inspection
+<pre><code class="lang-smalltalk">      {#ix-set:AttributeName = &quot;&lt;#Min#&gt;&quot;}
+      RequiredMin : LREAL;
 
-DetectedStatus : LREAL; // detected value
+      {#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
+      DetectedStatus : LREAL;
 
-RequiredMax: LREAL; // max required value for inspection
-</code></pre>
-<h2 id="axodatainspector">AxoDataInspector</h2>
+      {#ix-set:AttributeName = &quot;&lt;#Max#&gt;&quot;}
+      RequiredMax: LREAL;
+</code></pre><h2 id="axodatainspector">AxoDataInspector</h2>
 <p>Provides evaluation of alphanumerical values. The input value compares against the Required value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time. In addition to exact comparison, data inspector allows for simple pattern matching where # = any number and * = any character.</p>
 <p><img src="../../images/data-inspector.png" alt="Data inspector"></p>
 <p>Common inspector data are extended with following data inspector data:</p>
-<pre><code class="lang-C#">RequiredStatus : STRING; //required value for inspection
+<pre><code class="lang-smalltalk">      {#ix-set:AttributeName = &quot;&lt;#Required#&gt;&quot;}
+      RequiredStatus: STRING;
 
-DetectedStatus : STRING; //detected value for inspection
+      {#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
+      DetectedStatus : STRING;
 
-StarNotationEnabled: BOOL; //star notation enable/disable
+      {#ix-set:AttributeName = &quot;&lt;#Star notation#&gt;&quot;}
+      StarNotationEnabled: BOOL;
 
-</code></pre>
-<h2 id="handling-failure">Handling failure</h2>
+</code></pre><h2 id="handling-failure">Handling failure</h2>
 <p>When an inspector fails, OnFail() provides a series of methods for making decisions about the process. In order for this is feature to work the inspector needs to be aware of the coordinator of <code>IAxoCoordinator</code>. The coordinator must be passed to the inspector by <code>WithCoordinator(coordinator)</code> method.</p>
 <table>
 <thead>
@@ -187,7 +243,7 @@ StarNotationEnabled: BOOL; //star notation enable/disable
 </tbody>
 </table>
 <p>The following example specify, that when inspection fails, dialog is shown and is requesting user decision.</p>
-<pre><code> _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).OnFail().Dialog(Steps[20], Steps[145]);
+<pre><code class="lang-smalltalk">_dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
 </code></pre>
 <p><img src="../../images/inspection-failure-dialog.png" alt="Inspection failure"></p>
 <h2 id="over-inspection">Over-inspection</h2>
@@ -195,27 +251,17 @@ StarNotationEnabled: BOOL; //star notation enable/disable
 <p><img src="../../images/overinspected.png" alt="Overinspected"></p>
 <h2 id="preserving-overall-result">Preserving overall result</h2>
 <p>Overall result of a series of inspections can be preserved in <code>AxoComprehensiveResult</code>. Each inspector has <code>UpdateComprehensiveResult</code> method that provides the update function. Once the <code>UpdateComprehensiveResult</code> marks the overall result as Failed, successive inspection will not overwrite the result.</p>
-<pre><code>
-IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
+<pre><code class="lang-smalltalk">IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
 
-    _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult)
-        .UpdateComprehensiveResult(_comprehensiveResult)
-        .OnFail().CarryOn();
-
+    _digitalInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
     END_IF;
 
-    IF (Steps[40].Execute(THIS, TRUE, 'Example Analog inspection')) THEN
+IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
 
-    _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue)
-        .UpdateComprehensiveResult(_comprehensiveResult)
-        .OnFail().CarryOn();
-
-    END_IF;
-
+_analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
 
 END_IF;
-</code></pre>
-</article>
+</code></pre></article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">
@@ -223,7 +269,7 @@ END_IF;
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/176-_NEW-FEATURE_Create_library_for_basic_I/O_elements/docfx/articles/inspectors/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/articles/inspectors/README.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

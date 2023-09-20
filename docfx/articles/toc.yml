@@ -53,12 +53,7 @@
         href: ~/articles/messaging/AXOMESSENGER.md
 - name: AXOpen.Components
   href: ~/articles/components/README.md
-  items:
-      - name: AxoCognexVision
-        href: ~/articles/components/AXOPENCOGNEVISION/README.md
-        items:
-            - name: V_6_0_0_0
-              href: ~/articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md
+  items:      
       - name: AxoElements
         href: ~/articles/components/AXOPENELEMENTS/README.md
         items:
@@ -70,6 +65,17 @@
               href: ~/articles/components/AXOPENELEMENTS/AXOAI.md
             - name: AXOAO
               href: ~/articles/components/AXOPENELEMENTS/AXOAO.md
+      - name: AxoCognexVision
+        href: ~/articles/components/AXOPENCOGNEVISION/README.md
+        items:
+            - name: V_6_0_0_0
+              href: ~/articles/components/AXOPENCOGNEVISION/AXOPENCOGNEVISION_V_6_0_0_0.md    
+      - name: AxoPneumatics
+        href: ~/articles/components/AXOPENPNEUMATICS/README.md
+        items:
+            - name: AxoCylinder
+              href: ~/articles/components/AXOPENPNEUMATICS/AXOCYLINDER.md
+
 - name: AXOpen.Logging
   href: ~/articles/logging/README.md
   items:
@@ -80,7 +86,6 @@
   items:
       - name: Installation
         href: ~/articles/security/INSTALLATION.md
-
 - name: AXOpen.Timers
   href: ~/articles/timers/README.md
   items:
@@ -90,12 +95,23 @@
         href: ~/articles/timers/OFFDELAYTIMER.md
       - name: Pulse
         href: ~/articles/timers/PULSETIMER.md
-- name: Template themes
-  href: ~/articles/themes/README.md
-- name: Template localization
-  href: ~/articles/localization/README.md
-- name: Server configuration
-  href: ~/articles/configuration/README.md
-- name: Client Identification
-  href: ~/articles/clientIdentification/README.md
-
+- name: Templates and app notes        
+  href: ~/articles/notes/README.md
+  items:
+  - name: Template themes
+    href: ~/articles/themes/README.md
+  - name: Template localization
+    href: ~/articles/localization/README.md
+  - name: Server configuration
+    href: ~/articles/configuration/README.md
+  - name: Client Identification
+    href: ~/articles/clientIdentification/README.md
+  - name: Embedding assets in nuget package
+    href: ~/articles/notes/Assets_in_nuget_package.md  
+- name: Dev guidelines        
+  href: ~/articles/guidelines/README.md
+  items:
+  - name: General
+    href: ~/articles/guidelines/Conventions.md
+  - name: Components
+    href: ~/articles/guidelines/components.md  
