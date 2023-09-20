@@ -12,15 +12,23 @@ NAMESPACE sandboxtest
         B8 : ARRAY[0..7] OF BOOL;
 
 
+        _Reader_0_Acquisition_Control_1 : BYTE;
+        _Reader_0_Results_Control_1 : BYTE;
+        _Reader_0_Soft_Event_Control_1 : BYTE;
+        _Reader_0_User_Data_128_bytes_1 : ARRAY[0..131] OF BYTE;
+
         _Reader_1_Acquisition_Control_1 : BYTE;
         _Reader_1_Results_Control_1 : BYTE;
         _Reader_1_Soft_Event_Control_1 : BYTE;
         _Reader_1_User_Data_128_bytes_1 : ARRAY[0..131] OF BYTE;
 
-        _Reader_2_Acquisition_Control_1 : BYTE;
-        _Reader_2_Results_Control_1 : BYTE;
-        _Reader_2_Soft_Event_Control_1 : BYTE;
-        _Reader_2_User_Data_64_bytes_1 : ARRAY[0..67] OF BYTE;
+        
+        _Camera_0_Acquisition_Control_1 : BYTE;
+        _Camera_0_Inspection_Control_1 : BYTE;
+        _Camera_0_Command_Control_1 : WORD;
+        _Camera_0_SoftEvent_Control_1 : BYTE;
+        _Camera_0_User_Data_64_bytes_1 : ARRAY[0..63] OF BYTE;
+
 
         _Camera_1_Acquisition_Control_1 : BYTE;
         _Camera_1_Inspection_Control_1 : BYTE;
