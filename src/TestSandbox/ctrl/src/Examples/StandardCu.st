@@ -2,6 +2,7 @@ NAMESPACE sandboxtest.StandardControlUnit
 
    USING AXOpen.Core;
    USING System.Strings;
+   USING AXOpen.Cognex.Vision.v_6_0_0_0;
 
    ///<summary>
    /// Groups components of this controller unit.
@@ -12,23 +13,31 @@ NAMESPACE sandboxtest.StandardControlUnit
             {#ix-attr:[Container(Layout.Tabs)]}
            // HERE DECLARE COMPONENTS USED BY THIS CONTROLLED UNIT
            {#ix-set:AttributeName = "<#Cylinder 1#>"} 
-           Cylinder_1 : AXOpen.Pneumatics.Cylinder;
+           Cylinder_1 : AXOpen.Components.Pneumatics.AxoCylinder; 
            {#ix-set:AttributeName = "<#Cylinder 2#>"} 
-           Cylinder_2 : AXOpen.Pneumatics.Cylinder;
+           Cylinder_2 : AXOpen.Components.Pneumatics.AxoCylinder;
            {#ix-set:AttributeName = "<#Cylinder 3#>"} 
-           Cylinder_3 : AXOpen.Pneumatics.Cylinder;
+           Cylinder_3 : AXOpen.Components.Pneumatics.AxoCylinder;
            {#ix-set:AttributeName = "<#Cylinder 4#>"} 
-           Cylinder_4 : AXOpen.Pneumatics.Cylinder;
+           Cylinder_4 : AXOpen.Components.Pneumatics.AxoCylinder;
            {#ix-set:AttributeName = "<#Cylinder 5#>"} 
-           Cylinder_5 : AXOpen.Pneumatics.Cylinder;
+           Cylinder_5 : AXOpen.Components.Pneumatics.AxoCylinder;
            {#ix-set:AttributeName = "<#Cylinder 6#>"} 
-           Cylinder_6 : AXOpen.Pneumatics.Cylinder;
+           Cylinder_6 : AXOpen.Components.Pneumatics.AxoCylinder;
            {#ix-set:AttributeName = "<#Cylinder 7#>"} 
-           Cylinder_7 : AXOpen.Pneumatics.Cylinder;
+           Cylinder_7 : AXOpen.Components.Pneumatics.AxoCylinder;
            {#ix-set:AttributeName = "<#Cylinder 8#>"} 
-           Cylinder_8 : AXOpen.Pneumatics.Cylinder;
+           Cylinder_8 : AXOpen.Components.Pneumatics.AxoCylinder;
 
+            {#ix-set:AttributeName = "Camera 1"}
+            Camera_1 : AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight; 
 
+            {#ix-set:AttributeName = "Reader 1"}
+            Reader_1 : AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman;  
+            
+            {#ix-set:AttributeName = "Reader 2"}
+            Reader_2 : AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman;  
+            
        END_VAR
 
        METHOD PUBLIC Update
@@ -42,7 +51,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                THIS.Initialize(parent);
 
                // HERE INITIALIZE YOUR COMPONENTS
-            Cylinder_1.Update(THIS,
+            Cylinder_1.Run(THIS,
             Inputs.  B0[1], 
             Inputs.  B1[1],
             Outputs. B0[1], 
@@ -50,7 +59,7 @@ NAMESPACE sandboxtest.StandardControlUnit
             );
 
             // HERE INITIALIZE YOUR COMPONENTS
-            Cylinder_2.Update(THIS,
+            Cylinder_2.Run(THIS,
             Inputs.  B0[2], 
             Inputs.  B1[2],
             Outputs. B0[2], 
@@ -59,7 +68,7 @@ NAMESPACE sandboxtest.StandardControlUnit
 
 
                         // HERE INITIALIZE YOUR COMPONENTS
-            Cylinder_3.Update(THIS,
+            Cylinder_3.Run(THIS,
             Inputs.  B0[3], 
             Inputs.  B1[3],
             Outputs. B0[3], 
@@ -68,7 +77,7 @@ NAMESPACE sandboxtest.StandardControlUnit
 
 
             // HERE INITIALIZE YOUR COMPONENTS
-            Cylinder_4.Update(THIS,
+            Cylinder_4.Run(THIS,
             Inputs.  B0[4], 
             Inputs.  B1[4],
             Outputs. B0[4], 
@@ -77,34 +86,47 @@ NAMESPACE sandboxtest.StandardControlUnit
 
 
                         // HERE INITIALIZE YOUR COMPONENTS
-            Cylinder_5.Update(THIS,
+            Cylinder_5.Run(THIS,
             Inputs.  B0[5], 
             Inputs.  B1[5],
             Outputs. B0[5], 
             Outputs. B1[5]
             );
 
-            Cylinder_6.Update(THIS,
+            Cylinder_6.Run(THIS,
             Inputs.  B0[6], 
             Inputs.  B1[6],
             Outputs. B0[6], 
             Outputs. B1[6]
             );
 
-            Cylinder_7.Update(THIS,
+            Cylinder_7.Run(THIS,
             Inputs.  B0[7], 
             Inputs.  B1[7],
             Outputs. B0[7], 
             Outputs. B1[7]
             );
 
-            Cylinder_8.Update(THIS,
+            Cylinder_8.Run(THIS,
             Inputs.  B0[0], 
             Inputs.  B1[0],
             Outputs. B0[0], 
             Outputs. B1[0]
             );
                
+            // Reader_1.Run( parent            :=  THIS,  
+            //     refAcquisitionStatus        :=  REF(Inputs._Reader_1_Acquisition_Status_1),
+            //     refSoftEventStatus          :=  REF(Inputs._Reader_1_Soft_Event_Control_1),
+            //     refResultsStatus            :=  REF(Inputs._Reader_1_Results_Status_1),
+            //     refResultData               :=  REF(Inputs._Reader_1_Result_Data_128_bytes_1),
+ 
+            //     refUserData                 :=  REF(Outputs._Reader_1_User_Data_128_bytes_1),
+            //     refAcquisitionControl       :=  REF(Outputs._Reader_1_Acquisition_Control_1),
+            //     refResultsControl           :=  REF(Outputs._Reader_1_Results_Control_1),
+            //     refSoftEventControl         :=  REF(Outputs._Reader_1_Soft_Event_Control_1)
+            // );
+
+
        END_METHOD
    END_CLASS
    
@@ -144,29 +166,6 @@ NAMESPACE sandboxtest.StandardControlUnit
         END_VAR    
     END_CLASS 
 
-
-    {#ix-attr:[Container(Layout.Stack)]}
-    {#ix-attr:[Group(GroupLayout.GroupBox)]}
-    CLASS tDataCheck
-        VAR PUBLIC
-
-            {#ix-set:AttributeName = "<#cacova kontrola#>"} 
-            CheckTime : DATE_AND_TIME;
-            {#ix-set:AttributeName = "<#pozadovany#>"} 
-            Required : UDINT;
-            {#ix-set:AttributeName = "<#ziskany#>"} 
-            Acquired : UDINT;
-            {#ix-set:AttributeName = "<#vysledok#>"} 
-            Result : UDINT;
-
-            {#ix-set:AttributeName = "<#nastavenie 1#>"} 
-            Settings_1 : UDINT;
-            {#ix-set:AttributeName = "<#nastavenie 2#>"} 
-            Settings_2 : UDINT;
-            {#ix-set:AttributeName = "<#nastavenie 3#>"} 
-            Settings_3 : UDINT;
-        END_VAR        
-    END_CLASS
 
     // just prepared but not used -> reason -> Exist task not exist yet
 INTERFACE PUBLIC ITestIdGenerator
@@ -289,8 +288,6 @@ END_CLASS
            /// Handles and intializes components used by this unit.
            ///</summary>
            Components : Components;
-
-
            
            ///<summary>
            /// Ground sequence. Contains logic that brings the unit into initial state.
@@ -315,7 +312,6 @@ END_CLASS
            ProcessData : REF_TO ProcessDataManger;
 
        END_VAR
-
 
 
         METHOD PUBLIC InvokeMode : Int

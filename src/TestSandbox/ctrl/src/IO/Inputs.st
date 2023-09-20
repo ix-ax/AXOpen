@@ -11,7 +11,23 @@ NAMESPACE sandboxtest
             B7 : ARRAY[0..7] OF BOOL;
             B8 : ARRAY[0..7] OF BOOL;
          
+        _Reader_1_Acquisition_Status_1 : ARRAY[0..2] OF BYTE;
+		_Reader_1_Results_Status_1 : BYTE;
+		_Reader_1_Soft_Event_Control_1 : BYTE;
+		_Reader_1_Result_Data_128_bytes_1 : ARRAY[0..135] OF BYTE;
        
+        _Reader_2_Acquisition_Status_1 : ARRAY[0..2] OF BYTE;
+		_Reader_2_Results_Status_1 : BYTE;
+		_Reader_2_Soft_Event_Control_1 : BYTE;
+		_Reader_2_Result_Data_128_bytes_1 : ARRAY[0..135] OF BYTE;
+       
+
+        _Camera_1_Acquisition_Status_1 : ARRAY[0..2] OF BYTE;
+		_Camera_1_Inspection_Status_1 : DWORD;
+		_Camera_1_Command_Control_1 : WORD;
+		_Camera_1_SoftEvent_Control_1 : BYTE;
+		_Camera_1_Results_64_bytes_1 : ARRAY[0..67] OF BYTE;
+
         END_STRUCT;
     END_TYPE 
 END_NAMESPACE

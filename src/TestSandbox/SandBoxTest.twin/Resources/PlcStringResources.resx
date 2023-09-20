@@ -58,128 +58,84 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Home_sensor" xml:space="preserve">
-    <value>Home sensor</value>
-    <comment>src\Components\Cylinder.st,19</comment>
-  </data>
-  <data name="Work_sensor" xml:space="preserve">
-    <value>Work sensor</value>
-    <comment>src\Components\Cylinder.st,23</comment>
-  </data>
-  <data name="Move_home_signal" xml:space="preserve">
-    <value>Move home signal</value>
-    <comment>src\Components\Cylinder.st,28</comment>
-  </data>
-  <data name="Move_work_signal" xml:space="preserve">
-    <value>Move work signal</value>
-    <comment>src\Components\Cylinder.st,32</comment>
-  </data>
   <data name="Cylinder__ONE_" xml:space="preserve">
     <value>Cylinder 1</value>
-    <comment>src\Examples\StandardCu.st,13</comment>
+    <comment>src\Examples\StandardCu.st,14</comment>
   </data>
   <data name="Cylinder__TWO_" xml:space="preserve">
     <value>Cylinder 2</value>
-    <comment>src\Examples\StandardCu.st,15</comment>
+    <comment>src\Examples\StandardCu.st,16</comment>
   </data>
   <data name="Cylinder__THREE_" xml:space="preserve">
     <value>Cylinder 3</value>
-    <comment>src\Examples\StandardCu.st,17</comment>
+    <comment>src\Examples\StandardCu.st,18</comment>
   </data>
   <data name="Cylinder__FOUR_" xml:space="preserve">
     <value>Cylinder 4</value>
-    <comment>src\Examples\StandardCu.st,19</comment>
+    <comment>src\Examples\StandardCu.st,20</comment>
   </data>
   <data name="Cylinder__FIVE_" xml:space="preserve">
     <value>Cylinder 5</value>
-    <comment>src\Examples\StandardCu.st,21</comment>
+    <comment>src\Examples\StandardCu.st,22</comment>
   </data>
   <data name="Cylinder__SIX_" xml:space="preserve">
     <value>Cylinder 6</value>
-    <comment>src\Examples\StandardCu.st,23</comment>
+    <comment>src\Examples\StandardCu.st,24</comment>
   </data>
   <data name="Cylinder__SEVEN_" xml:space="preserve">
     <value>Cylinder 7</value>
-    <comment>src\Examples\StandardCu.st,25</comment>
+    <comment>src\Examples\StandardCu.st,26</comment>
   </data>
   <data name="Cylinder__EIGHT_" xml:space="preserve">
     <value>Cylinder 8</value>
-    <comment>src\Examples\StandardCu.st,27</comment>
+    <comment>src\Examples\StandardCu.st,28</comment>
   </data>
   <data name="CounterDelay_DOT__" xml:space="preserve">
     <value>CounterDelay. </value>
-    <comment>src\Examples\StandardCu.st,115</comment>
+    <comment>src\Examples\StandardCu.st,137</comment>
   </data>
   <data name="Kontrola__ONE__DOT_" xml:space="preserve">
     <value>Kontrola 1.</value>
-    <comment>src\Examples\StandardCu.st,123</comment>
+    <comment>src\Examples\StandardCu.st,145</comment>
   </data>
   <data name="Kontrola__TWO__DOT_" xml:space="preserve">
     <value>Kontrola 2.</value>
-    <comment>src\Examples\StandardCu.st,125</comment>
+    <comment>src\Examples\StandardCu.st,147</comment>
   </data>
   <data name="Kontrola__THREE__DOT_" xml:space="preserve">
     <value>Kontrola 3.</value>
-    <comment>src\Examples\StandardCu.st,127</comment>
+    <comment>src\Examples\StandardCu.st,149</comment>
   </data>
   <data name="Kontrola__FOUR__DOT_" xml:space="preserve">
     <value>Kontrola 4.</value>
-    <comment>src\Examples\StandardCu.st,129</comment>
+    <comment>src\Examples\StandardCu.st,151</comment>
   </data>
   <data name="Kontrola__FIVE__DOT_" xml:space="preserve">
     <value>Kontrola 5.</value>
-    <comment>src\Examples\StandardCu.st,131</comment>
+    <comment>src\Examples\StandardCu.st,153</comment>
   </data>
   <data name="Kontrola__SIX__DOT_" xml:space="preserve">
     <value>Kontrola 6.</value>
-    <comment>src\Examples\StandardCu.st,133</comment>
+    <comment>src\Examples\StandardCu.st,155</comment>
   </data>
   <data name="Kontrola__SEVEN__DOT_" xml:space="preserve">
     <value>Kontrola 7.</value>
-    <comment>src\Examples\StandardCu.st,135</comment>
+    <comment>src\Examples\StandardCu.st,157</comment>
   </data>
   <data name="Kontrola__EIGHT__DOT_" xml:space="preserve">
     <value>Kontrola 8.</value>
-    <comment>src\Examples\StandardCu.st,137</comment>
-  </data>
-  <data name="cacova_kontrola" xml:space="preserve">
-    <value>cacova kontrola</value>
-    <comment>src\Examples\StandardCu.st,152</comment>
-  </data>
-  <data name="pozadovany" xml:space="preserve">
-    <value>pozadovany</value>
-    <comment>src\Examples\StandardCu.st,154</comment>
-  </data>
-  <data name="ziskany" xml:space="preserve">
-    <value>ziskany</value>
-    <comment>src\Examples\StandardCu.st,156</comment>
-  </data>
-  <data name="vysledok" xml:space="preserve">
-    <value>vysledok</value>
-    <comment>src\Examples\StandardCu.st,158</comment>
-  </data>
-  <data name="nastavenie__ONE_" xml:space="preserve">
-    <value>nastavenie 1</value>
-    <comment>src\Examples\StandardCu.st,161</comment>
-  </data>
-  <data name="nastavenie__TWO_" xml:space="preserve">
-    <value>nastavenie 2</value>
-    <comment>src\Examples\StandardCu.st,163</comment>
-  </data>
-  <data name="nastavenie__THREE_" xml:space="preserve">
-    <value>nastavenie 3</value>
-    <comment>src\Examples\StandardCu.st,165</comment>
+    <comment>src\Examples\StandardCu.st,159</comment>
   </data>
   <data name="AUTOMAT" xml:space="preserve">
     <value>AUTOMAT</value>
-    <comment>src\Examples\StandardCu.st,439</comment>
+    <comment>src\Examples\StandardCu.st,435</comment>
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>
-    <comment>src\Examples\StandardCu.st,632</comment>
+    <comment>src\Examples\StandardCu.st,628</comment>
   </data>
   <data name="SERVICE" xml:space="preserve">
     <value>SERVICE</value>
-    <comment>src\Examples\StandardCu.st,754</comment>
+    <comment>src\Examples\StandardCu.st,750</comment>
   </data>
 </root>

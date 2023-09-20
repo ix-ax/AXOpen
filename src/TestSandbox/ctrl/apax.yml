@@ -6,11 +6,14 @@ registries:
 devDependencies:
   "@ax/sdk": ^4.0.8
   "@ax/sld": ^0.15.9
-  "@ax/stc": 5.4.89
+  "@ax/stc": ^5.4.89
 dependencies:
   "@ix-ax/axopen.data": '0.1.4-alpha.79'
   "@ix-ax/axopen.inspectors": '0.1.4-alpha.79'
   "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
+  "@ix-ax/axopen.probers": '0.1.4-alpha.79'
+  "@ix-ax/axopen.cognex.vision": '0.1.4-alpha.79'
+  "@ix-ax/axopen_components_pneumatics": ^0.1.4-alpha.79
   "@ax/system-serde": ^2.0.2
 variables:
   APAX_BUILD_ARGS: [-d]
