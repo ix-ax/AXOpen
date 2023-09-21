@@ -30,7 +30,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                 components : Components;
             END_VAR
             ;
-            // HERE CALL LOGIC FOR MANUAL/SERICE OPERATIONS
+            //HERE CALL LOGIC FOR MANUAL/SERICE OPERATIONS
             components.Cylinder_0.ActivateManualControl();
             components.Cylinder_1.ActivateManualControl();
             components.Cylinder_2.ActivateManualControl();

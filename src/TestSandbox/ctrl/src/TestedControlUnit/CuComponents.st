@@ -10,8 +10,9 @@ NAMESPACE sandboxtest.StandardControlUnit
     CLASS Components
         EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
+            counter : INT;
             {#ix-attr:[Container(Layout.Tabs)]}
-// HERE DECLARE COMPONENTS USED BY THIS CONTROLLED UNIT
+           // HERE DECLARE COMPONENTS USED BY THIS CONTROLLED UNIT
             Cylinder_0 : AXOpen.Components.Pneumatics.AxoCylinder;
             Cylinder_1 : AXOpen.Components.Pneumatics.AxoCylinder;
             Cylinder_2 : AXOpen.Components.Pneumatics.AxoCylinder;
@@ -95,7 +96,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                             refAcquisitionControl   :=  REF(Outputs^._Camera_1_Acquisition_Control_1),
                             refSoftEventControl     :=  REF(Outputs^._Camera_1_SoftEvent_Control_1),
                             refUserData             :=  REF(Outputs^._Camera_1_User_Data_64_bytes_1));
-                            
+                          ;  
         END_METHOD
     END_CLASS
 

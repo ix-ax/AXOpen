@@ -5,7 +5,7 @@ registries:
   '@ix-ax': https://npm.pkg.github.com/
 devDependencies:
   "@ax/sdk": ^4.0.8
-  "@ax/sld": ^0.15.9
+  "@ax/sld": 0.15.9
   "@ax/stc": ^5.4.89
 dependencies:
   "@ix-ax/axopen.data": '0.1.4-alpha.79'
@@ -34,7 +34,8 @@ scripts:
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   lo:
     # - Get-ChildItem ENV:AXTARGET
-    - apax sld --accept-security-disclaimer -t 172.20.30.110 -i ./bin/plcsim/ -r --default-server-interface
+    # - apax sld --accept-security-disclaimer -t 172.20.30.110 -i ./bin/plcsim/ -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   watch:
     - dotnet watch --project ..\\sandboxtest.app\\sandboxtest.hmi.csproj
   da:
