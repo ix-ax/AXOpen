@@ -1,10 +1,27 @@
 # Logging with AXOpen.Core
 
+Effective logging is vital for monitoring the health and performance of software applications. By providing real-time insights into application behaviour and detailed diagnostic information during troubleshooting, logging plays a crucial role in development, debugging, and ongoing maintenance.
+
+In the world of PLC applications, logging can be a bit more complex due to the intricacies of the systems involved. AXOpen.Core, a library developed for industrial automation software, provides robust logging capabilities that meet these specific needs. With the AxoLogger class, it offers a potent tool for logging in both PLC controller software and .NET applications.
+
+In this guide, we explore the usage of AXOpen.Core's logging capabilities. We demonstrate how to declare, configure, and utilize the AxoLogger to log messages of various severity levels. We also cover the process of accessing a logger from within a nested object and configuring a logger in a .NET application using the Serilog library.
+
+A key aspect we will highlight is the ability to manage the verbosity of logs independently in the controller software and the .NET application, providing you with flexible control over your logging activities.
+
+Please keep in mind that excessive logging from the controller can degrade the overall system performance due to the limits imposed by the controller. There's also a limit of 100 log entries that can be stored in the logger's queue. If this limit is reached, the oldest log entries will be removed from the queue as new entries are added.
+
 ## Overview
 In this example, we illustrate how to use the logging functionalities provided by `AxoLogger`. Our objective is to create and use loggers, produce log messages of various severity levels, and showcase how to access a logger from the context within a nested object. We'll be using two classes for our demonstration: `Loggers` and `ContextLoggerInNestedObject`.
 
+
+# [CONTROLLER](#tab/controller)
+
+[!NOTE]
+AxoLogger works only in conjunction with its .NET counterpart. Ensure that you implement both.
+
 ## Loggers Class
 The `Loggers` class is an extension of `AxoContext`, part of the `AXOpen.Core` namespace. This class is the central hub for the logging actions carried out in this example.
+
 
 #### Logger Declarations
 We declare two instances of `AxoLogger`, named `LoggerOne` and `LoggerTwo`. Additionally, we declare `InnerObject`, which is an instance of the `ContextLoggerInNestedObject` class.
@@ -39,7 +56,7 @@ The `Foo` method retrieves the context's logger using `THIS.GetContext().GetLogg
 ## Summary
 Through this example, we've shown how to declare and utilize the `AxoLogger` for logging messages with different levels of severity. We've also illustrated how nested objects can retrieve and use the logger of their parent context to log messages, showcasing a flexible and potent approach to handle logging in applications with complex, nested structures.
 
-
+# [.NET TWIN](#tab/dotnettwin)
 
 # Initialization of Logger in .NET 
 
@@ -135,7 +152,7 @@ This example showcases how to initialize a logger in a .NET application using th
 > [!IMPORTANT]
 > In the context of logging level configuration, it's important to note that the minimum logging level of the .NET logger (set up in C#) and the `AxoLogger` (set up in the controller's software) are independent settings. You can configure them individually to fine-tune the verbosity of your logs both at the controller level and in your .NET application.
 
-
+---
 ## AxoLogger and AxoMessenger
 
 AxoMessenger uses Context AxoLogger to log the rising and falling of an alarm. There is no particular need for the configuration fo this behaviour. 

@@ -1,6 +1,6 @@
 items:
   - name: Core
-    href: ../core/
+    href: ../core/docs/
   - name: Data
     href: ../data/
   - name: Inspectors
