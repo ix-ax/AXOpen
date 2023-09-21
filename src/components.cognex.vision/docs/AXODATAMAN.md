@@ -2,16 +2,31 @@
 
 `AxoDataman` provides the essential control and operation of all code-reader of the `Dataman` family.
 
+# How to
+
 # [CONTROLLER](#tab/controller)
 
-### Implementation
+# How to use component in controller
+
+## Implementation
 The `AxoDataman` is designed to be used as a member of the `AxoContext` or `AxoObject`.
 Therefore its instance must be initialized with the proper `AxoContext` or `AxoObject` before any use. 
 Also, the hardware signals must be assigned first before calling any method of this instance. 
 To accomplish this, call the `Run` method cyclically with the proper variables (i.e. inside the `Main` method of the relevant `AxoContext`) as in the example below:
 
-**Example of the initialization and hardware signal assignement**
-[!code-smalltalk[](../app/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionExample.st?name=CognexDatamanHWIO_Assignement)]
+## Declare component
+
+[!code-smalltalk[](../app/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionExample.st?name=DatamanDeclaration)]
+
+## Manual Control
+
+[!code-smalltalk[](../app/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionExample.st?name=DatamanManualControl)]
+
+## Initialize & Run
+
+[!code-smalltalk[](../app/src/Examples/AXOpen.Cognex.Vision/AxoCognexVisionExample.st?name=DatamanInitialization)]
+
+[!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
 
 There are three public methods to operate the `AxoDataman`:
 
