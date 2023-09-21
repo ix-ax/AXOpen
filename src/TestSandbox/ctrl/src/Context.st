@@ -69,39 +69,6 @@ NAMESPACE sandboxtest
             GlobalGround    : ModeInvoker;
 
 
-            // TaskInst_1   : ModeInvoker;
-            // TaskInst_2   : ModeInvoker;
-            // TaskInst_3   : ModeInvoker;
-
-            // TaskInst_4   : ModeInvoker;
-            // TaskInst_5   : ModeInvoker;
-            // TaskInst_6   : ModeInvoker;
-            // TaskInst_7   : ModeInvoker;
-            // TaskInst_8   : ModeInvoker;
-            // TaskInst_9   : ModeInvoker;
-
-            // TaskInst_11   : ModeInvoker;
-            // TaskInst_12   : ModeInvoker;
-            // TaskInst_13   : ModeInvoker;
-            // TaskInst_14   : ModeInvoker;
-            // TaskInst_15   : ModeInvoker;
-            // TaskInst_16   : ModeInvoker;
-            // TaskInst_17      : ModeInvoker;
-            // TaskInst_18   : ModeInvoker;
-            // TaskInst_19   : ModeInvoker;
-
-
-
-
-
-
-
-
-
-
-
-
-
         END_VAR      
         
         METHOD PROTECTED OVERRIDE Main                                   
@@ -131,9 +98,9 @@ NAMESPACE sandboxtest
 
 
 
-                CU_0.Run(THIS,'CU_0',EntireProcessData,REF(EntireProcessData.Cu0.Set), Inputs^, Outputs^); 
-                CU_1.Run(THIS,'CU_1',EntireProcessData,REF(EntireProcessData.Cu1.Set), Inputs^, Outputs^); 
-                CU_2.Run(THIS,'CU_2',EntireProcessData,REF(EntireProcessData.Cu2.Set), Inputs^, Outputs^); 
+                CU_0.Run(THIS,'CU_0',EntireProcessData,REF(EntireProcessData.Cu0.Set), Inputs, Outputs); 
+                CU_1.Run(THIS,'CU_1',EntireProcessData,REF(EntireProcessData.Cu1.Set), Inputs, Outputs); 
+                CU_2.Run(THIS,'CU_2',EntireProcessData,REF(EntireProcessData.Cu2.Set), Inputs, Outputs); 
                 // CU_3.Run(THIS,'CU_3',EntireProcessData,REF(EntireProcessData.Cu3.Set), Inputs^, Outputs^); 
                 // CU_4.Run(THIS,'CU_4',EntireProcessData,REF(EntireProcessData.Cu4.Set), Inputs^, Outputs^); 
                 // CU_5.Run(THIS,'CU_5',EntireProcessData,REF(EntireProcessData.Cu5.Set), Inputs^, Outputs^); 

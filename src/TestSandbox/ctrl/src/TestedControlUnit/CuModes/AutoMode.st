@@ -51,6 +51,7 @@ NAMESPACE sandboxtest.StandardControlUnit
             IF (Components = NULL OR ProcessData = NULL) THEN
                 RETURN;
             END_IF;
+            
             // This sequecner executes the steps in cycles from top to bottom
             // in the same order they are written in the program
             // Each step in the sequence must can be used only once.
@@ -67,12 +68,11 @@ NAMESPACE sandboxtest.StandardControlUnit
             // IF (Steps[2].Execute(THIS, TRUE, 'continue')) THEN
             //     THIS.MoveNext(); 
             // END_IF;
+
             FOR ForIndex := 1 TO 14 DO
                 THIS.CallStepsReadCreateUpdate(5 * ForIndex, ForIndex);
-//    THIS.CallStepsReadCreateUpdate(5*1, 1);
-//    THIS.CallStepsReadCreateUpdate(5*2, 2);
-//    THIS.CallStepsReadCreateUpdate(5*3, 3);
             END_FOR;
+
             // This will close the sequence and will return to the first step.
             THIS.Close(Steps[80]);
         END_METHOD
@@ -83,6 +83,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                 IdIndex : INT;
                 operation : INT; // create 10, read 20, update 30 delete 40
             END_VAR
+
             CASE operation OF
                 10:
                     IF (Steps[StepIndex].Execute(THIS, TRUE, 'creating')) THEN
@@ -92,7 +93,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                             THIS.MoveNext();
                             ProcessData^.Restore();
                         END_IF;
-//-------------------------------------------------------
+                        //-------------------------------------------------------
                     END_IF;
                 20:
                     IF (Steps[StepIndex].Execute(THIS, TRUE, 'reading')) THEN
@@ -102,7 +103,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                             THIS.MoveNext();
                             ProcessData^.Restore();
                         END_IF;
-//-------------------------------------------------------
+                        //-------------------------------------------------------
                     END_IF;
                 30:
                     IF (Steps[StepIndex].Execute(THIS, TRUE, 'updating')) THEN
@@ -112,7 +113,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                             THIS.MoveNext();
                             ProcessData^.Restore();
                         END_IF;
-//-------------------------------------------------------
+                        //-------------------------------------------------------
                     END_IF;
                 40:
                     IF (Steps[StepIndex].Execute(THIS, TRUE, 'deleting')) THEN
@@ -122,7 +123,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                             THIS.MoveNext();
                             ProcessData^.Restore();
                         END_IF;
-//-------------------------------------------------------
+                        //-------------------------------------------------------
                     END_IF;
             END_CASE;
         END_METHOD
@@ -148,7 +149,9 @@ NAMESPACE sandboxtest.StandardControlUnit
             THIS.DataStep((FromStepIndex + 1), IdIndex, 10); // create...
             THIS.DataStep((FromStepIndex + 2), IdIndex, 20); // read...
             THIS.DataStep((FromStepIndex + 3), IdIndex, 30); // update...
-// THIS.DataStep((FromStepIndex + 4), IdIndex, 40); // delete...
+
+            // THIS.DataStep((FromStepIndex + 4), IdIndex, 40); // delete...
+
         END_METHOD
     END_CLASS
 

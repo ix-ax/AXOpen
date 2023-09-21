@@ -8,8 +8,10 @@ NAMESPACE sandboxtest
             B3 : ARRAY[0..7] OF BOOL;
             B4 : ARRAY[0..7] OF BOOL;
             B5 : ARRAY[0..7] OF BOOL;
+            B6 : ARRAY[0..7] OF BOOL;
             B7 : ARRAY[0..7] OF BOOL;
             B8 : ARRAY[0..7] OF BOOL;
+            B9 : ARRAY[0..7] OF BOOL;
        
         _Reader_0_Acquisition_Status_1 : ARRAY[0..2] OF BYTE;
 		_Reader_0_Results_Status_1 : BYTE;

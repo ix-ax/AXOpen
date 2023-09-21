@@ -2,7 +2,7 @@ NAMESPACE sandboxtest.StandardControlUnit
     USING AXOpen.Core;
     USING System.Strings;
     USING AXOpen.Cognex.Vision.v_6_0_0_0;
-    USING AXOpen.Elements;
+   
 
     CLASS FragmentProcessDataManger
         EXTENDS AXOpen.Data.AxoDataExchange
@@ -12,7 +12,7 @@ NAMESPACE sandboxtest.StandardControlUnit
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "Cux"}
-            Set : FragmentProcessData;
+            Set : FragmentProcessData;  
         END_VAR
     END_CLASS
 

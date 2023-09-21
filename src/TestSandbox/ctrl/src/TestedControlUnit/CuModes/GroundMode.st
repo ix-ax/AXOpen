@@ -46,17 +46,13 @@ NAMESPACE sandboxtest.StandardControlUnit
             IF (Components = NULL OR ProcessData = NULL) THEN
                 RETURN;
             END_IF;
+
             // This sequecner executes the steps in cycles from top to botton
             // in the same order they are written in the program
             // Each step in the sequence must can be used only once.
             // This sets the sequence to run once (top-botton) and stops with done after closing.
             THIS.SequenceMode := eAxoSequenceMode#RunOnce;
-            //    IF (Steps[0].Execute(THIS, TRUE, 'RESET COMPONENTOV')) THEN
-            //     //-------------------------------------------------------   
-            //         Ids.InitializeWithPrefix( THIS.StationName^);
-            //         THIS.MoveNext(); // <- This will move to the next step in the sequence.
-            //     //-------------------------------------------------------
-            //     END_IF; 
+           
             IF (Steps[0].Execute(THIS, TRUE, 'NACITANIE NASTAVENI-process_set')) THEN
                 //-------------------------------------------------------   
                 ;
@@ -64,25 +60,102 @@ NAMESPACE sandboxtest.StandardControlUnit
                 IF (SettingSourceManager.Read('process_set').IsDone()) THEN // <- waits for the task to be done.
                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
                 END_IF;
-//-------------------------------------------------------
+                //-------------------------------------------------------
             END_IF;
-            // IF (Steps[2].Execute(THIS, TRUE,  Concat('VYTVORENIE ZAZNAMU ',Ids.GetNext() ))) THEN
+
+            IF (Steps[1].Execute(THIS, TRUE, 'Restore Piston 0' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_0.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+              
+            IF (Steps[2].Execute(THIS, TRUE, 'Restore Piston 1' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_1.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            IF (Steps[3].Execute(THIS, TRUE, 'Restore Piston 2' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_2.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            
+            IF (Steps[4].Execute(THIS, TRUE, 'Restore Piston 1' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_3.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            
+            IF (Steps[5].Execute(THIS, TRUE, 'Restore Piston 1' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_4.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            
+            IF (Steps[6].Execute(THIS, TRUE, 'Restore Piston 5' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_5.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            
+            IF (Steps[7].Execute(THIS, TRUE, 'Restore Piston 6' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_6.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+          
+            IF (Steps[8].Execute(THIS, TRUE, 'Restore Piston 7' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_7.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            IF (Steps[9].Execute(THIS, TRUE, 'Restore Piston 8' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_8.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            IF (Steps[10].Execute(THIS, TRUE, 'Restore Piston 9' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Cylinder_9.Stop().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            IF (Steps[11].Execute(THIS, TRUE, 'Reader_0' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Reader_0.ClearResultData().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            IF (Steps[12].Execute(THIS, TRUE, 'Reader_1' )) THEN
+                //-------------------------------------------------------   
+                    IF (Components^.Reader_1.ClearResultData().IsDone()) THEN THIS.MoveNext(); END_IF;
+                //-------------------------------------------------------
+            END_IF; 
+
+            // IF (Steps[13].Execute(THIS, TRUE, 'Camera_0' )) THEN
             //     //-------------------------------------------------------   
-            //         IF (THIS.ProcessData^.Create( Ids.GetRootRecordName()).IsDone()) THEN // <- waits for the task to be done.
-            //                 THIS.MoveNext(); // <- This will move to the next step in the sequence.
-            //         END_IF;
+            //         IF (Components^.Camera_0.Restore().IsDone()) THEN THIS.MoveNext(); END_IF;
             //     //-------------------------------------------------------
             // END_IF; 
-            // IF (Steps[3].Execute(THIS, TRUE,  'KONTROLA VYTVORENIA POSLEDNEHO ZAZNAMU')) THEN
+
+            // IF (Steps[14].Execute(THIS, TRUE, 'Camera_1' )) THEN
             //     //-------------------------------------------------------   
-            //         IF  Ids.Increment() THEN 
-            //             THIS.RequestStep(RequestedStep := Steps[2]); 
-            //         ELSE
-            //             THIS.MoveNext(); 
-            //         END_IF;
+            //         IF (Components^.Camera_0.Restore().IsDone()) THEN THIS.MoveNext(); END_IF;
             //     //-------------------------------------------------------
             // END_IF; 
+
+
             THIS.Close(Steps[20]);
+
         END_METHOD
 
         METHOD INTERNAL FillProcessData

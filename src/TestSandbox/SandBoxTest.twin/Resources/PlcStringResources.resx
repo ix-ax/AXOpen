@@ -58,52 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CounterDelay_DOT__" xml:space="preserve">
-    <value>CounterDelay. </value>
-    <comment>src\TestedControlUnit\CuFragmentData.st,46</comment>
-  </data>
-  <data name="Kontrola__ONE__DOT_" xml:space="preserve">
-    <value>Kontrola 1.</value>
-    <comment>src\TestedControlUnit\CuFragmentData.st,54</comment>
-  </data>
-  <data name="Kontrola__TWO__DOT_" xml:space="preserve">
-    <value>Kontrola 2.</value>
-    <comment>src\TestedControlUnit\CuFragmentData.st,56</comment>
-  </data>
-  <data name="Kontrola__THREE__DOT_" xml:space="preserve">
-    <value>Kontrola 3.</value>
-    <comment>src\TestedControlUnit\CuFragmentData.st,58</comment>
-  </data>
-  <data name="Kontrola__FOUR__DOT_" xml:space="preserve">
-    <value>Kontrola 4.</value>
-    <comment>src\TestedControlUnit\CuFragmentData.st,60</comment>
-  </data>
-  <data name="Kontrola__FIVE__DOT_" xml:space="preserve">
-    <value>Kontrola 5.</value>
-    <comment>src\TestedControlUnit\CuFragmentData.st,62</comment>
-  </data>
-  <data name="Kontrola__SIX__DOT_" xml:space="preserve">
-    <value>Kontrola 6.</value>
-    <comment>src\TestedControlUnit\CuFragmentData.st,64</comment>
-  </data>
-  <data name="Kontrola__SEVEN__DOT_" xml:space="preserve">
-    <value>Kontrola 7.</value>
-    <comment>src\TestedControlUnit\CuFragmentData.st,66</comment>
-  </data>
-  <data name="Kontrola__EIGHT__DOT_" xml:space="preserve">
-    <value>Kontrola 8.</value>
-    <comment>src\TestedControlUnit\CuFragmentData.st,68</comment>
-  </data>
   <data name="AUTOMAT" xml:space="preserve">
     <value>AUTOMAT</value>
-    <comment>src\TestedControlUnit\CuModes\AutoMode.st,8</comment>
+    <comment>src\TestedControlUnit\CuModes\AutoMode.st,7</comment>
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>
-    <comment>src\TestedControlUnit\CuModes\GroundMode.st,8</comment>
+    <comment>src\TestedControlUnit\CuModes\GroundMode.st,7</comment>
   </data>
   <data name="SERVICE" xml:space="preserve">
     <value>SERVICE</value>
-    <comment>src\TestedControlUnit\CuModes\ServiceMode.st,8</comment>
+    <comment>src\TestedControlUnit\CuModes\ServiceMode.st,7</comment>
   </data>
 </root>

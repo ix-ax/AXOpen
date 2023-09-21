@@ -2,7 +2,7 @@ NAMESPACE sandboxtest.StandardControlUnit
     USING AXOpen.Core;
     USING System.Strings;
     USING AXOpen.Cognex.Vision.v_6_0_0_0;
-    USING AXOpen.Elements;
+
 
     // just prepared but not used -> reason -> Exist task not exist yet
     INTERFACE PUBLIC ITestIdGenerator

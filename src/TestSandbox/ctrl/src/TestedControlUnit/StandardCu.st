@@ -2,7 +2,7 @@ NAMESPACE sandboxtest.StandardControlUnit
     USING AXOpen.Core;
     USING System.Strings;
     USING AXOpen.Cognex.Vision.v_6_0_0_0;
-    USING AXOpen.Elements;
+    
 
     ///<summary>
     /// Represents controlled units and high level task coordination.
@@ -67,18 +67,14 @@ NAMESPACE sandboxtest.StandardControlUnit
                 _stationName : STRING;
                 _settingSourceManager : AXOpen.DATA.IAxoDataExchange;
                 _settingSourceData : REF_TO FragmentProcessData;
-            END_VAR
-
-            VAR_INPUT
                 Inputs : REF_TO sandboxtest.Inputs;
                 Outputs : REF_TO sandboxtest.Outputs;
             END_VAR
-
-            StationName             := _stationName;
-            SettingSourceManager    := _settingSourceManager;
-            SettingSourceData       := _settingSourceData;
+            StationName := _stationName;
+            SettingSourceManager := _settingSourceManager;
+            SettingSourceData := _settingSourceData;
             THIS.Initialize(_parent);
-            THIS.Execute(_Inputs, _Outputs);
+            THIS.Execute(Inputs, Outputs);
         END_METHOD
 
         METHOD PRIVATE Execute

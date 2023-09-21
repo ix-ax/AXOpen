@@ -34,7 +34,7 @@ scripts:
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   lo:
     # - Get-ChildItem ENV:AXTARGET
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t 172.20.30.110 -i ./bin/plcsim/ -r --default-server-interface
   watch:
     - dotnet watch --project ..\\sandboxtest.app\\sandboxtest.hmi.csproj
   da:
@@ -77,5 +77,5 @@ scripts:
 # - llvm
 
 targets:
-  - plcsim
   - "1500"
+  - plcsim

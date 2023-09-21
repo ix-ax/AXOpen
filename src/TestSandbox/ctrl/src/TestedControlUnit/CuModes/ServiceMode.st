@@ -31,6 +31,7 @@ NAMESPACE sandboxtest.StandardControlUnit
             END_VAR
             ;
             // HERE CALL LOGIC FOR MANUAL/SERICE OPERATIONS
+            components.Cylinder_0.ActivateManualControl();
             components.Cylinder_1.ActivateManualControl();
             components.Cylinder_2.ActivateManualControl();
             components.Cylinder_3.ActivateManualControl();
@@ -39,6 +40,14 @@ NAMESPACE sandboxtest.StandardControlUnit
             components.Cylinder_6.ActivateManualControl();
             components.Cylinder_7.ActivateManualControl();
             components.Cylinder_8.ActivateManualControl();
+            components.Cylinder_9.ActivateManualControl();
+
+            components.Reader_0.ActivateManualControl();
+            components.Reader_1.ActivateManualControl();
+            
+            components.Camera_0.ActivateManualControl();
+            components.Camera_1.ActivateManualControl();
+
         END_METHOD
     END_CLASS
 
