@@ -1,72 +1,100 @@
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
+    //<AxoDiDeclaration>
     VAR PUBLIC
-        _manualControl : BOOL;
-
-        //<AxoDiDeclaration>
-        //define variables  
-        _testDi : AXOpen.Elements.AxoDi;  
-        _testsignal : BOOL;  
-        //</AxoDiDeclaration>
-
-        //<AxoDoDeclaration>
-        //define variables  
-        _testDo : AXOpen.Elements.AxoDo;  
-        _testInOutSignal : BOOL;  
-        //</AxoDoDeclaration>
-
-        //<AxoAiDeclaration>
-        //define variables  
-        _testAi : AXOpen.Elements.AxoAi;  
-        _testAiInput : DINT := DINT#10;  
-        //</AxoAiDeclaration>
-
-        //<AxoAoDeclaration>
-        //define variables  
-        _testAo : AXOpen.Elements.AxoAo;  
-        _testAoOutput : DINT;
-        //</AxoAoDeclaration>
-     
+        _testDi : AXOpen.Elements.AxoDi;
     END_VAR
+    //</AxoDiDeclaration>
+
+    //<AxoDiInitializationArgumentsDeclaration>
+    VAR PUBLIC
+        _testsignal : BOOL;
+    END_VAR
+    //</AxoDiInitializationArgumentsDeclaration>
+
+
+    //<AxoDoDeclaration>
+    VAR PUBLIC
+        _testDo : AXOpen.Elements.AxoDo;
+    END_VAR
+    //</AxoDoDeclaration>
+
+    //<AxoDoInitializationArgumentsDeclaration>
+    VAR PUBLIC
+        _testInOutSignal : BOOL;
+    END_VAR
+    //</AxoDoInitializationArgumentsDeclaration>
+
+
+    //<AxoAiDeclaration>
+    VAR PUBLIC
+        _testAi : AXOpen.Elements.AxoAi;
+    END_VAR
+    //</AxoAiDeclaration>
+
+    //<AxoAiInitializationArgumentsDeclaration>
+    VAR PUBLIC
+        _testAiInput : DINT := DINT#10;
+    END_VAR
+    //</AxoAiInitializationArgumentsDeclaration>
+
+
+    //<AxoAoDeclaration>
+    VAR PUBLIC
+        _testAo : AXOpen.Elements.AxoAo;
+    END_VAR
+    //</AxoAoDeclaration>
+
+    //<AxoAoInitializationArgumentsDeclaration>
+    VAR PUBLIC
+        _testAoOutput : DINT;
+    END_VAR
+    //</AxoAoInitializationArgumentsDeclaration>
 
     METHOD PROTECTED OVERRIDE Main
         
-        //<AxoDiExample>
-        // set manual control
+        //<AxoDiManualControl>
         _testDi.ActivateManualControl();
-        _testsignal := TRUE;
-        // run logic
-        _testDi.Run(THIS, _testsignal);
+        //</AxoDiManualControl>
 
+        //<AxoDiInitialization>
+        _testDi.Run(THIS, _testsignal);
+        //</AxoDiInitialization>
+
+        //<AxoDiUsage>
         IF _testDi.IsTrue() THEN
             ;// handle signal on
         END_IF;
+        //</AxoDiUsage>
 
 
-        
-        //</AxoDiExample>
-     
-        //<AxoDoExample>
-        // set manual control
+        //<AxoDoManualControl>
         _testDo.ActivateManualControl();
-        // run logic
+        //</AxoDoManualControl>
+
+        //<AxoDoInitialization>
         _testDo.Run(THIS, _testInOutSignal);
-        //</AxoDoExample>
+        //</AxoDoInitialization>
 
-        _testDo.Reset();
+        //<AxoDoUsage>
+        _testDo.Set();
+        //</AxoDoUsage>
 
-        //<AxoAiExample>
-        // set manual control
+
+        //<AxoAiManualControl>
         _testAi.ActivateManualControl();
-        // run logic
+        //</AxoAiManualControl>
+
+        //<AxoAiInitialization>
         _testAi.Run(THIS, _testAiInput);
-        //</AxoAiExample>
+        //</AxoAiInitialization>
 
-        //<AxoAoExample>
-        // set manual control
+
+        //<AxoAoManualControl>
         _testAo.ActivateManualControl();
-        // run logic
-        _testAo.Run(THIS, _testAoOutput);
-        //</AxoAoExample>
+        //</AxoAoManualControl>
 
+        //<AxoAoInitialization>
+        _testAo.Run(THIS, _testAoOutput);
+        //</AxoAoInitialization>
     END_METHOD
 END_CLASS
