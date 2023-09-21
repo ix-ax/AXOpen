@@ -78,6 +78,8 @@ public class BuildContext : FrostingContext
 
     public string Artifacts  => Path.Combine(Environment.WorkingDirectory.FullPath, "..//artifacts//");
 
+    public string BuildsOutput => Path.Combine(RootDir, ".builds");
+
     public string ArtifactsApax => EnsureFolder(Path.Combine(Artifacts, "apax"));
 
     public string ArtifactsNugets => EnsureFolder(Path.Combine(Artifacts, "nugets"));

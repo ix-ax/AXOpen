@@ -90,6 +90,7 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
 
 
         context.DotNetClean(Path.Combine(context.RootDir, "AXOpen.proj"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity});
+        context.CleanDirectory(context.BuildsOutput);
         context.CleanDirectory(context.Artifacts);
         context.CleanDirectory(context.TestResults);
         context.CleanDirectory(context.TestResultsCtrl);
@@ -125,8 +126,23 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("ApaxUpdateTask")]
+[TaskName("PerPartesTask")]
 [IsDependentOn(typeof(ProvisionTask))]
+public sealed class PerPartesTask : FrostingTask<BuildContext>
+{
+    public override void Run(BuildContext context)
+    {
+
+    }
+
+    private void ApaxUpdateVersionNumber(BuildContext context, (string folder, string name) package)
+    {
+
+    }
+}
+
+[TaskName("ApaxUpdateTask")]
+[IsDependentOn(typeof(PerPartesTask))]
 public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
