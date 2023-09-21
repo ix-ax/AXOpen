@@ -1,5 +1,4 @@
-## How to
-
+# How to
 
 # [CONTROLLER](#tab/controller)
 
@@ -14,4 +13,3 @@
 [!INCLUDE [.NET TWIN](../src/dotnetlibs.blazor/README.md)]
 
 ---
-

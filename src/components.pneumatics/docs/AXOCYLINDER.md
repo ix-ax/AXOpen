@@ -1,7 +1,3 @@
-# AXOpenComponentsPneumatics
-
-The `AXOpenComponentsPneumatics` library controls and operates the basic pneumatic actuators. 
-
 ## AxoCylinder
 
 `AxoCylinder` provides the essential control and operation of a basic pneumatic cylinder, including two controlling output signals for both directions and two end-position sensors. The following preconditions need to be met to make `AxoCylinder` work as expected.
@@ -9,6 +5,8 @@ The `AXOpenComponentsPneumatics` library controls and operates the basic pneumat
 - when the first valve is open and the second one is closed, the cylinder moves in one direction. When the first valve is closed and the second one is open, the cylinder moves in opposite direction
 - when both valves are closed, the cylinder stops and does not move
 - TODO add pneumatic schematics 
+
+# [CONTROLLER](#tab/controller)
 
 ### Implementation
 The `AxoCylinder` is designed to be used as a member of the `AxoContext` or `AxoObject`.
@@ -47,6 +45,11 @@ To block the movement, there are four public methods present:
 **Example of using AbortMoveToWorkWhen method**
 [!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=AbortMoveToWorkWhen)]
 
+# [.NET TWIN](#tab/twin)
+
+[!INCLUDE [.NET TWIN](../src/dotnetlibs/README.md)]
+
+# [BLAZOR](#tab/blazor)
 
 **How to visualize `AxoCylinder`**
 On the UI side, use the `RenderableContentControl` and set its Context according to the placement of the instance of the `AxoCylinder`.

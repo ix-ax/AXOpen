@@ -1,0 +1,16 @@
+items:
+- name: Introduction
+  href: README.md
+- name: HowTos
+  href: HOWTO.md
+  items:
+  - name: Digital Input
+    href: AXODI.md
+  - name: Digital Output
+    href: AXODO.md
+  - name: Analog Input
+    href: AXOAI.md
+  - name: Analog Output
+    href: AXOAO.md
+- name: Troubleshooting
+  href: TROUBLES.md

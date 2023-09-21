@@ -3,5 +3,10 @@ items:
   href: README.md
 - name: HowTos
   href: HOWTO.md
+  items:
+  - name: AXODATAMAN
+    href: AXODATAMAN.md
+  - name: AXOINSIGHT
+    href: AXOINSIGHT.md
 - name: Troubleshooting
   href: TROUBLES.md
