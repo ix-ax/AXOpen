@@ -1,9 +1,11 @@
 items:
+  - name: Abstractions
+    href: ../components.abstractions/docs/
   - name: Elements
-    href: ../components.elements/
+    href: ../components.elements/docs/
   - name: Pneumatics
-    href: ../components.pneumatics/
+    href: ../components.pneumatics/docs/
   - name: Cognex Vision
-    href: ../components.cognex.vision/
+    href: ../components.cognex.vision/docs
   - name: Library template
     href: ../template.axolibrary/docs/

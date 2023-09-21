@@ -1,14 +1,11 @@
-# AXOpenComponentsPneumatics
-
-The `AXOpenComponentsPneumatics` library controls and operates the basic pneumatic actuators. 
-
 ## AxoCylinder
 
 `AxoCylinder` provides the essential control and operation of a basic pneumatic cylinder, including two controlling output signals for both directions and two end-position sensors. The following preconditions need to be met to make `AxoCylinder` work as expected.
 - two pneumatic valves must be used
 - when the first valve is open and the second one is closed, the cylinder moves in one direction. When the first valve is closed and the second one is open, the cylinder moves in opposite direction
 - when both valves are closed, the cylinder stops and does not move
-- TODO add pneumatic schematics 
+
+# [CONTROLLER](#tab/controller)
 
 ### Implementation
 The `AxoCylinder` is designed to be used as a member of the `AxoContext` or `AxoObject`.
@@ -16,10 +13,25 @@ Therefore, its instance must be initialized with the proper `AxoContext` or `Axo
 Also, the hardware signals must be assigned first before calling any method of this instance. 
 To accomplish this, call the `Run` method cyclically with the proper variables (i.e. inside the `Main` method of the relevant `AxoContext`) as in the example below:
 
-**Example of the initialization and hardware signal assignment**
+
+
+### Example of the initialization and hardware signal assignment
+
+#### Declare component and initialization variables
+
 [!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=DeclarationAndHWIO_Assignement)]
 
+#### Initialize & Run
+
+[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=Pneumatic_Run)]
+
+[!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
+
+
+#### Example use
+
 To trigger the movements, two public methods, `MoveToHome` and `MoveToWork` are present. 
+
 **Example of using MoveToHome method**
 [!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=MoveToHome)]
 **Example of using MoveToWork method**
@@ -48,6 +60,13 @@ To block the movement, there are four public methods present:
 [!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=AbortMoveToWorkWhen)]
 
 
+# [.NET TWIN](#tab/twin)
+
+
+# [BLAZOR](#tab/blazor)
+
 **How to visualize `AxoCylinder`**
 On the UI side, use the `RenderableContentControl` and set its Context according to the placement of the instance of the `AxoCylinder`.
 [!code-csharp[](../app/ix-blazor/PneumaticComponents.blazor/Pages/Documentation.razor?name=RenderedView)]
+
+

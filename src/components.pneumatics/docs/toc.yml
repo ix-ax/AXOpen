@@ -3,5 +3,8 @@ items:
   href: README.md
 - name: HowTos
   href: HOWTO.md
+  items:
+  - name: Cylinder
+    href: AXOCYLINDER.md
 - name: Troubleshooting
   href: TROUBLES.md
