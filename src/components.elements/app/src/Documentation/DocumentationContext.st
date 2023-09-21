@@ -40,6 +40,9 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
         IF _testDi.IsTrue() THEN
             ;// handle signal on
         END_IF;
+
+
+        
         //</AxoDiExample>
      
         //<AxoDoExample>
@@ -48,6 +51,8 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
         // run logic
         _testDo.Run(THIS, _testInOutSignal);
         //</AxoDoExample>
+
+        _testDo.Reset();
 
         //<AxoAiExample>
         // set manual control
