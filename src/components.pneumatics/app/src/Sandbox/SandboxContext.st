@@ -1,6 +1,5 @@
 CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-        // Logger : AXOpen.Logging.AxoLogger;
         _manualControl : BOOL;
         {#ix-attr:[Container(Layout.UniformGrid)]}
         {#ix-set:AttributeName = "<#Suspend move to work#>"}
@@ -21,7 +20,9 @@ CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
         _homeSensor : BOOL;
         {#ix-attr:[Container(Layout.Stack)]}
         {#ix-set:AttributeName = "<#Test cylinder#>"}
-        _testCyclinder : AXOpen.Components.Pneumatics.AxoCylinder;        
+        _testCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
+        PlcInputs : REF_TO PlcInputs;
+        PlcOutputs : REF_TO PlcOutputs;          
     END_VAR
 
     VAR PRIVATE
@@ -30,15 +31,13 @@ CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
     END_VAR    
 
     METHOD PROTECTED OVERRIDE Main
-        // THIS.InjectLogger(Logger);
-        // Logger.SetMinimumLevel(AXOpen.Logging.eLogLevel#Verbose);
-        _testCyclinder.SuspendMoveToWorkWhile(_suspendMoveToWork);
-        _testCyclinder.SuspendMoveToHomeWhile(_suspendMoveToHome);
-        _testCyclinder.AbortMoveToWorkWhen(_abortMoveToWork);
-        _testCyclinder.AbortMoveToHomeWhen(_abortMoveToHome);
-        _testCyclinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);
+        _testCylinder.SuspendMoveToWorkWhile(_suspendMoveToWork);
+        _testCylinder.SuspendMoveToHomeWhile(_suspendMoveToHome);
+        _testCylinder.AbortMoveToWorkWhen(_abortMoveToWork);
+        _testCylinder.AbortMoveToHomeWhen(_abortMoveToHome);
+        _testCylinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);
         IF(_manualControl) THEN
-            _testCyclinder.ActivateManualControl();
+            _testCylinder.ActivateManualControl();
         END_IF;    
     END_METHOD
 END_CLASS

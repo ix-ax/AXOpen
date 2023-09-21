@@ -1,30 +1,29 @@
 ﻿@namespace AXOpen.Core
+@using AXOpen.Core.Blazor.Culture;
 @using AXSharp.Connector.ValueTypes;
 @using AXSharp.Connector;
 @inherits RenderableComplexComponentBase<AxoStep>
 
 
-
 <div class="container text-left">
-    <div class="row @RowClass">
+    <div class="row @StepRowColor">
         <div class="col">
             @*Left here for the future, just to store the idea that each step could be displayed as an AxoTask *@
-@*            @if (IsControllable)
+            @*            @if (IsControllable)
             {
-                <AxoTaskCommandView Component="@Component" Description="@Description" />
+            <AxoTaskCommandView Component="@Component" Description="@Description" />
             }
             else
             {
-                <AxoTaskStatusView Component="@Component" Description="@Description" HideRestoreButton="true" />
+            <AxoTaskStatusView Component="@Component" Description="@Description" HideRestoreButton="true" />
             }*@
             @Description
         </div>
         <div class="col">
-            @TotalDurationDisplay
+            @Component.Duration.Cyclic.TotalSeconds
         </div>
         <div class="col">
-            @Humanizer.DateHumanizeExtensions.Humanize(Component.StartTimeStamp.Cyclic)
+            @Humanizer.DateHumanizeExtensions.Humanize(Component.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)
         </div>
     </div>
 </div>
-

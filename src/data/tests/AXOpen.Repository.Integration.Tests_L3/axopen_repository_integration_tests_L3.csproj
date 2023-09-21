@@ -22,6 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
 	  <ProjectReference Include="..\..\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />
 	  <ProjectReference Include="..\..\src\repositories\RavenDb\AXOpen.Data.RavenDb\AXOpen.Data.RavenDb.csproj" />
 	</ItemGroup>

@@ -82,11 +82,12 @@
 <p>Inspector provides evaluation of <em>discrete</em> value. The input value compares against the <em>Required</em> value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time.</p>
 <p><img src="../../images/digital-inspector.png" alt="Digital inspector"></p>
 <p>Common inspector data are extended with following digital inspector data:</p>
-<pre><code class="lang-C#">RequiredStatus : BOOL; //required value for inspection
+<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;&lt;#Required#&gt;&quot;}
+RequiredStatus : BOOL;
 
-DetectedStatus : BOOL; //detected value for inspection
-</code></pre>
-</article>
+{#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
+DetectedStatus : BOOL;
+</code></pre></article>
           </div>
 
           <div class="hidden-sm col-md-2" role="complementary">

@@ -81,6 +81,10 @@
 
 <p><strong>AXOpen.Timers</strong> provide implementations of basic timers used in PLC programming. Timers are implemented in separated classes within corresponding methods.
 Functionality of Timers is based on <em>Real Time Clock</em> implementation provided from <strong>AXContext</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Be aware, that resolution of the timer depends on cycle time of the PLC task, on which the timer is used.</p>
+</div>
 <h1 id="axopentimersondelaytimer">AxOpen.Timers.OnDelayTimer</h1>
 <p><code>OnDelayTimer</code> class contains <code>OnDelay</code> method, where logic of OnDelayTimer is implemented. <code>OnDelay</code> method has following input:</p>
 <pre><code class="lang-C#">VAR_INPUT 

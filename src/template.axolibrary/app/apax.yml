@@ -1,4 +1,4 @@
-name: "librarytemplate"
+name: "ix_librarytemplate"
 version: 0.0.0
 type: app
 targets:
@@ -12,6 +12,7 @@ devDependencies:
   "@ax/sld": 0.15.9
 dependencies:
   "@ix-ax/axolib": 0.1.4-alpha.79
+  "@ix-ax/axopen.simatic1500": 0.1.4-alpha.79
 scripts:
   download:
     - apax install -L

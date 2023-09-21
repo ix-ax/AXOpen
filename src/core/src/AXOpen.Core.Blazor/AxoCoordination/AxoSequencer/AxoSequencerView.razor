@@ -1,5 +1,6 @@
 ﻿@namespace AXOpen.Core
 @inherits RenderableComplexComponentBase<AxoSequencer>
+@using AXOpen.Core.Blazor.Culture;
 @using Microsoft.AspNetCore.Components.Authorization;
 
 <div class="card-body">
@@ -9,11 +10,11 @@
             {
                 @if (IsControllable)
                 {
-                    <AXOpen.Core.AxoTaskCommandView Component="@Component"/>
+                    <AXOpen.Core.AxoTaskCommandView Component="@Component" />
                 }
                 else
                 {
-                    <AXOpen.Core.AxoTaskStatusView Component="@Component"/>
+                    <AXOpen.Core.AxoTaskStatusView Component="@Component" />
                 }
             }
         </div>
@@ -23,10 +24,10 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <RenderableContentControl Context="@Component.SequenceMode" Presentation="@(IsControllable ? "Control" : "Display")"/>
+                    <RenderableContentControl Context="@Component.SequenceMode" Presentation="@(IsControllable ? "Control" : "Display")" />
                 </div>
                 <div class="col">
-                    <RenderableContentControl Context="@Component.SteppingMode" Presentation="@(IsControllable ? "Control" : "Display")"/>
+                    <RenderableContentControl Context="@Component.SteppingMode" Presentation="@(IsControllable ? "Control" : "Display")" />
                 </div>
             </div>
         </div>
@@ -42,12 +43,12 @@
                             <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="@(IsControllable ? "Command" : "Status")" />
                         </Authorized>
                         <NotAuthorized>
-                            <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="Status"/>
+                            <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="Status" />
                         </NotAuthorized>
                     </AuthorizeView>
                 </div>
                 <div class="col">
-                    <RenderableContentControl Context="@Component.StepIn" Presentation="@(IsControllable ? "Command" : "Status")"/>
+                    <RenderableContentControl Context="@Component.StepIn" Presentation="@(IsControllable ? "Command" : "Status")" />
                 </div>
                 <div class="col">
                     <AuthorizeView Roles="can_skip_steps_in_sequence">
@@ -64,38 +65,49 @@
     }
     @if (HasStepDetails)
     {
-        <div style="height: 300px; overflow: auto;">
-            <AxoStepView Component="Component.CurrentStep"></AxoStepView>
-            @* <table class="table">
-                <thead>
-                <tr>
-                    <th scope="col">Description</th>
-                    <th scope="col">Duration</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach (var step in this.Steps.Where(p => p != null && p.Order.Cyclic != 0).OrderBy(p => p.Order.Cyclic))
-                {
-                    if (step.IsActive.Cyclic)
-                    {
-                        <tr @ref="@activeStepReference" class="@UpdateStepRowColors(step)">
-                            <th scope="row">@UpdateStepDescription(step)</th>
-                            <td>@UpdateTotalDurationDisplay(step)</td>
-                        </tr>
-                    }
-                    else
-                    {
-                        <tr class="@UpdateStepRowColors(step)">
-                            <th scope="row">@UpdateStepDescription(step)</th>
-                            <td>@UpdateTotalDurationDisplay(step)</td>
-                        </tr>
-                    }
-                }
-                </tbody>
-            </table>*@
+        <div class="row justify-content-end">
+            <button type="button" class="btn btn-primary ms-auto my-2 mx-3 col-auto" data-bs-toggle="modal" data-bs-target="#showStepsModal" @onclick="RefreshComponent">Show all steps</button>
         </div>
+
+        <AxoStepView Component="Component.BeforeStep" />
+        <AxoStepView Component="Component.CurrentStep" />
+        <AxoStepView Component="Component.AfterStep" />
     }
 </div>
 
 
-
+<div class="modal fade" id="showStepsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Steps</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Description</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Start time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var step in this.Steps.Where(p => p != null && p.Order.Cyclic != 0).Skip(3).OrderBy(p => p.Order.Cyclic))
+                        {
+                            <tr class="@StepRowColor(step)">
+                                <th scope="row">@Description(step)</th>
+                                <td>@step.Duration.Cyclic.TotalSeconds</td>
+                                <td>@Humanizer.DateHumanizeExtensions.Humanize(step.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" @onclick="RefreshComponent">Refresh</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

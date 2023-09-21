@@ -10,14 +10,45 @@
     "type": "project"
   },  
   "sourceName": "librarytemplate",
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [ "**/.apax/**", ".vs/**", ".cr/**" ]
+        }
+      ]
+    }
+  ],
   "symbols": {
-    "axlibname": {
+
+    "projname": {
       "type": "parameter",
-      "description": "AX library project name",
+      "description": ".NET name",
       "datatype": "text",
+      "defaultValue": "dotnetlibs",
+      "replaces": "dotnetlibs",
+      "fileRename" : "dotnetlibs"
+    },     
+    "axlibname":{
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source":"projname",
+        "toLower": true
+      },
       "defaultValue": "axolib",
-      "replaces": "axolib"      
-    },
+      "replaces": "axolib"
+    },   
+    "name": {
+      "type": "derived",
+      "valueSource": "axlibname",
+      "valueTransform": "DeleteDotsInFileName",
+      "datatype": "text",
+      "defaultValue": "librarytemplate",
+      "replaces": "librarytemplate",
+      "fileRename": "librarytemplate",
+      "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
+    },    
     "renameDotNetTwinCsProjFileName": {
       "type": "derived",  
       "valueSource": "axlibname",  
@@ -32,38 +63,37 @@
       "valueTransform": "ReplaceDotsInFileName",  
       "replaces": "axolib",  
       "description": "A value derived from the 'name' param, used to rename Application1.cs"
-    },        
-    "projname": {
-      "type": "parameter",
-      "description": ".NET name",
-      "datatype": "text",
-      "defaultValue": "dotnetlibs",
-      "replaces": "dotnetlibs",
-      "fileRename" : "dotnetlibs"
-    },        
-    "nameLower":{
+    },   
+    "projnameLower":{
       "type": "generated",
       "generator": "casing",
       "parameters": {
-        "source":"axlibname",
+        "source":"projname",
         "toLower": true
-      },
-      "nameUpper":{
-        "type": "generated",
-        "generator": "casing",
-        "parameters": {
-          "source":"projname",
-          "toLower": false
+      }
+    }, 
+    
+    "nameUpper":{
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source":"projname",
+        "toLower": false
       }
     }
-  }  
-},
-"forms": {
-  "ReplaceDotsInFileName": {
-    "identifier": "replace",
-    "pattern": "\\.",        
-    "replacement": "_"  
-  }
+  },
+  "forms": {
+    "ReplaceDotsInFileName": {
+      "identifier": "replace",
+      "pattern": "\\.",        
+      "replacement": "_"  
+    },
+    "DeleteDotsInFileName": {
+      "identifier": "replace",
+      "pattern": "\\.",        
+      "replacement": ""  
+    }
+  } 
 }
-}
+
   

@@ -3,12 +3,12 @@
 @using Microsoft.AspNetCore.Components.Authorization;
 @inherits RenderableComplexComponentBase<AxoDataExchangeBase>;
 @inject IAlertDialogService _alertDialogService
-@inject AuthenticationStateProvider _asp
+@inject AuthenticationStateProvider _authenticationProvider
 <DataExchangeView Vm="_vm" Presentation="Status"></DataExchangeView>
 
 @code
 {
-    private DataExchangeViewModel _vm => new DataExchangeViewModel { Model = this.Component, AlertDialogService = _alertDialogService, Asp = _asp };
+    private DataExchangeViewModel _vm => new DataExchangeViewModel { Model = this.Component, AlertDialogService = _alertDialogService, AuthenticationProvider = _authenticationProvider };
 
     public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
     {

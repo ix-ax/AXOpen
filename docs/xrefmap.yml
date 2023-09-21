@@ -17842,6 +17842,14 @@ references:
   name: InfoTime
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Config.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Config_InfoTime
   fullName: InfoTime
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData
+  name: AxoDataman_ResultData
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData.html
+  fullName: AxoDataman_ResultData
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData.Data
+  name: Data
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultData_Data
+  fullName: Data
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
   name: AxoDataman_Results
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.html
@@ -17850,10 +17858,6 @@ references:
   name: Code
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Results_Code
   fullName: Code
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Data
-  name: Data
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Results_Data
-  fullName: Data
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Extended
   name: Extended
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Results_Extended
@@ -17902,82 +17906,6 @@ references:
   name: ResultsBufferOverrun
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsStatus_ResultsBufferOverrun
   fullName: ResultsBufferOverrun
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates
-  name: AxoDataman_SignalStates
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html
-  fullName: AxoDataman_SignalStates
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.Acquiring
-  name: Acquiring
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_Acquiring
-  fullName: Acquiring
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.DecodeComplete
-  name: DecodeComplete
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_DecodeComplete
-  fullName: DecodeComplete
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.Decoding
-  name: Decoding
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_Decoding
-  fullName: Decoding
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.EnableResultBuffering
-  name: EnableResultBuffering
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_EnableResultBuffering
-  fullName: EnableResultBuffering
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.ErrorDetected
-  name: ErrorDetected
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_ErrorDetected
-  fullName: ErrorDetected
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.MissedAcquisition
-  name: MissedAcquisition
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_MissedAcquisition
-  fullName: MissedAcquisition
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.ResultCode
-  name: ResultCode
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_ResultCode
-  fullName: ResultCode
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.ResultExtended
-  name: ResultExtended
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_ResultExtended
-  fullName: ResultExtended
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.ResultID
-  name: ResultID
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_ResultID
-  fullName: ResultID
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.ResultLength
-  name: ResultLength
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_ResultLength
-  fullName: ResultLength
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.ResultsAcknowledge
-  name: ResultsAcknowledge
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_ResultsAcknowledge
-  fullName: ResultsAcknowledge
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.ResultsAvailable
-  name: ResultsAvailable
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_ResultsAvailable
-  fullName: ResultsAvailable
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.ResultsBufferOverrun
-  name: ResultsBufferOverrun
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_ResultsBufferOverrun
-  fullName: ResultsBufferOverrun
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.Trigger
-  name: Trigger
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_Trigger
-  fullName: Trigger
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.TriggerAcknowledge
-  name: TriggerAcknowledge
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_TriggerAcknowledge
-  fullName: TriggerAcknowledge
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.TriggerEnable
-  name: TriggerEnable
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_TriggerEnable
-  fullName: TriggerEnable
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.TriggerID
-  name: TriggerID
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_TriggerID
-  fullName: TriggerID
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.TriggerReady
-  name: TriggerReady
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SignalStates.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SignalStates_TriggerReady
-  fullName: TriggerReady
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl
   name: AxoDataman_SoftEventControl
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl.html
@@ -18058,10 +17986,6 @@ references:
   name: ResultDataSize
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Status_ResultDataSize
   fullName: ResultDataSize
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status.SignalStatus
-  name: SignalStatus
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Status_SignalStatus
-  fullName: SignalStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status.UserDataSize
   name: UserDataSize
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Status_UserDataSize
@@ -18070,10 +17994,6 @@ references:
   name: AxoDataman_User
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_User.html
   fullName: AxoDataman_User
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_User.Data
-  name: Data
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_User.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_User_Data
-  fullName: Data
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_User.Length
   name: Length
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_User.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_User_Length
@@ -18082,50 +18002,38 @@ references:
   name: Option
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_User.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_User_Option
   fullName: Option
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._AcquisitionControl
-  name: _AcquisitionControl
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__AcquisitionControl
-  fullName: _AcquisitionControl
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._AcquisitionStatus
-  name: _AcquisitionStatus
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__AcquisitionStatus
-  fullName: _AcquisitionStatus
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._clearResultDataTask
-  name: _clearResultDataTask
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__clearResultDataTask
-  fullName: _clearResultDataTask
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._readTask
-  name: _readTask
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__readTask
-  fullName: _readTask
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._restoreTask
-  name: _restoreTask
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__restoreTask
-  fullName: _restoreTask
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._ResultsControl
-  name: _ResultsControl
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__ResultsControl
-  fullName: _ResultsControl
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._ResultsStatus
-  name: _ResultsStatus
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__ResultsStatus
-  fullName: _ResultsStatus
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._SoftEventControl
-  name: _SoftEventControl
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__SoftEventControl
-  fullName: _SoftEventControl
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._SoftEventStatus
-  name: _SoftEventStatus
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__SoftEventStatus
-  fullName: _SoftEventStatus
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._taskDisabled
-  name: _taskDisabled
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__taskDisabled
-  fullName: _taskDisabled
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData
+  name: AxoDataman_UserData
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData.html
+  fullName: AxoDataman_UserData
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData.Data
+  name: Data
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_UserData_Data
+  fullName: Data
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._Messenger
+  name: _Messenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__Messenger
+  fullName: _Messenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman._TaskMessenger
+  name: _TaskMessenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman__TaskMessenger
+  fullName: _TaskMessenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
+  name: AcquisitionControl
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionControl
+  fullName: AcquisitionControl
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
+  name: AcquisitionStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionStatus
+  fullName: AcquisitionStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData()
   name: ClearResultData
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ClearResultData__
   fullName: ClearResultData
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
+  name: ClearResultDataTask
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ClearResultDataTask
+  fullName: ClearResultDataTask
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.Close()
   name: Close
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Close__
@@ -18158,14 +18066,34 @@ references:
   name: Read
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Read__
   fullName: Read
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
+  name: ReadTask
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ReadTask
+  fullName: ReadTask
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore()
   name: Restore
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Restore__
   fullName: Restore
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
+  name: RestoreTask
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_RestoreTask
+  fullName: RestoreTask
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
+  name: ResultData
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultData
+  fullName: ResultData
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
   name: Results
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Results
   fullName: Results
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
+  name: ResultsControl
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsControl
+  fullName: ResultsControl
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
+  name: ResultsStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsStatus
+  fullName: ResultsStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoContext,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
   name: Run
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Run_IAxoContext_REF_TO_BYTE_REF_TO_ARRAY__0__2__OF_BYTE_REF_TO_BYTE_REF_TO_BYTE_REF_TO_BYTE_REF_TO_BYTE_REF_TO_ARRAY_____OF_BYTE_REF_TO_ARRAY_____OF_BYTE_
@@ -18174,6 +18102,14 @@ references:
   name: Run
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Run_IAxoObject_REF_TO_BYTE_REF_TO_ARRAY__0__2__OF_BYTE_REF_TO_BYTE_REF_TO_BYTE_REF_TO_BYTE_REF_TO_BYTE_REF_TO_ARRAY_____OF_BYTE_REF_TO_ARRAY_____OF_BYTE_
   fullName: Run
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
+  name: SoftEventControl
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SoftEventControl
+  fullName: SoftEventControl
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
+  name: SoftEventStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_SoftEventStatus
+  fullName: SoftEventStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
   name: Status
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Status
@@ -18186,14 +18122,14 @@ references:
   name: UpdateOutputs
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_UpdateOutputs_REF_TO_BYTE_REF_TO_BYTE_REF_TO_BYTE_REF_TO_ARRAY_____OF_BYTE_
   fullName: UpdateOutputs
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateSignalStates()
-  name: UpdateSignalStates
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_UpdateSignalStates__
-  fullName: UpdateSignalStates
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.User
   name: User
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_User
   fullName: User
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
+  name: UserData
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_UserData
+  fullName: UserData
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData
   name: AxoDatamanClearResultData
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html
@@ -18218,10 +18154,14 @@ references:
   name: _progress
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanClearResultData__progress
   fullName: _progress
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._Status
-  name: _Status
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanClearResultData__Status
-  fullName: _Status
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._refMessenger
+  name: _refMessenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanClearResultData__refMessenger
+  fullName: _refMessenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._refStatus
+  name: _refStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanClearResultData__refStatus
+  fullName: _refStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.CallTimers(BOOL)
   name: CallTimers
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanClearResultData_CallTimers_BOOL_
@@ -18246,9 +18186,9 @@ references:
   name: OnStart
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanClearResultData_OnStart__
   fullName: OnStart
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results,REF_TO ARRAY [*] OF BYTE)
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData,REF_TO AXOpen.Messaging.Static.AxoMessenger)
   name: Run
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanClearResultData_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Results_REF_TO_ARRAY_____OF_BYTE_
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanClearResultData_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Results_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultData_REF_TO_AXOpen_Messaging_Static_AxoMessenger_
   fullName: Run
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead
   name: AxoDatamanRead
@@ -18274,10 +18214,14 @@ references:
   name: _progress
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanRead__progress
   fullName: _progress
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead._Status
-  name: _Status
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanRead__Status
-  fullName: _Status
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead._refMessenger
+  name: _refMessenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanRead__refMessenger
+  fullName: _refMessenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead._refStatus
+  name: _refStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanRead__refStatus
+  fullName: _refStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.CallTimers(BOOL)
   name: CallTimers
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanRead_CallTimers_BOOL_
@@ -18302,9 +18246,9 @@ references:
   name: OnStart
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanRead_OnStart__
   fullName: OnStart
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results,REF_TO ARRAY [*] OF BYTE)
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_Results,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData,REF_TO ARRAY [*] OF BYTE,REF_TO AXOpen.Messaging.Static.AxoMessenger)
   name: Run
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanRead_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Results_REF_TO_ARRAY_____OF_BYTE_
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDatamanRead_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultsStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_Results_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoDataman_ResultData_REF_TO_ARRAY_____OF_BYTE_REF_TO_AXOpen_Messaging_Static_AxoMessenger_
   fullName: Run
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight
   name: AxoInsight
@@ -18542,10 +18486,14 @@ references:
   name: Data
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_UserData_Data
   fullName: Data
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight._taskDisabled
-  name: _taskDisabled
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight__taskDisabled
-  fullName: _taskDisabled
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight._Messenger
+  name: _Messenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight__Messenger
+  fullName: _Messenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight._TaskMessenger
+  name: _TaskMessenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight__TaskMessenger
+  fullName: _TaskMessenger
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionControl
   name: AcquisitionControl
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl
@@ -18690,10 +18638,10 @@ references:
   name: UpdateOutputs
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_UpdateOutputs_REF_TO_BYTE_REF_TO_BYTE_REF_TO_WORD_REF_TO_BYTE_REF_TO_ARRAY_____OF_BYTE_
   fullName: UpdateOutputs
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.User
-  name: User
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_User
-  fullName: User
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.UserData
+  name: UserData
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_UserData
+  fullName: UserData
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName
   name: AxoInsightChangeJobByName
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html
@@ -18722,10 +18670,14 @@ references:
   name: _progress
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByName__progress
   fullName: _progress
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName._Status
-  name: _Status
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByName__Status
-  fullName: _Status
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName._refMessenger
+  name: _refMessenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByName__refMessenger
+  fullName: _refMessenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName._refStatus
+  name: _refStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByName__refStatus
+  fullName: _refStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.AppendSuffix(STRING)
   name: AppendSuffix
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByName_AppendSuffix_STRING_
@@ -18762,9 +18714,9 @@ references:
   name: OnStart
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByName_OnStart__
   fullName: OnStart
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData)
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData,REF_TO AXOpen.Messaging.Static.AxoMessenger)
   name: Run
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByName_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_CommandControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_UserData_
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByName_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_CommandControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_UserData_REF_TO_AXOpen_Messaging_Static_AxoMessenger_
   fullName: Run
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.SetUserDataAsString(STRING,UINT,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status)
   name: SetUserDataAsString
@@ -18798,10 +18750,14 @@ references:
   name: _progress
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByNumber__progress
   fullName: _progress
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber._Status
-  name: _Status
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByNumber__Status
-  fullName: _Status
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber._refMessenger
+  name: _refMessenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByNumber__refMessenger
+  fullName: _refMessenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber._refStatus
+  name: _refStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByNumber__refStatus
+  fullName: _refStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.CallTimers(BOOL)
   name: CallTimers
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByNumber_CallTimers_BOOL_
@@ -18834,9 +18790,9 @@ references:
   name: OnStart
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByNumber_OnStart__
   fullName: OnStart
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status)
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Messaging.Static.AxoMessenger)
   name: Run
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByNumber_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_CommandControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightChangeJobByNumber_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_CommandControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_REF_TO_AXOpen_Messaging_Static_AxoMessenger_
   fullName: Run
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults
   name: AxoInsightClearInspectionResults
@@ -18862,10 +18818,14 @@ references:
   name: _progress
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightClearInspectionResults__progress
   fullName: _progress
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults._Status
-  name: _Status
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightClearInspectionResults__Status
-  fullName: _Status
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults._refMessenger
+  name: _refMessenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightClearInspectionResults__refMessenger
+  fullName: _refMessenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults._refStatus
+  name: _refStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightClearInspectionResults__refStatus
+  fullName: _refStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.CallTimers(BOOL)
   name: CallTimers
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightClearInspectionResults_CallTimers_BOOL_
@@ -18890,9 +18850,9 @@ references:
   name: OnStart
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightClearInspectionResults_OnStart__
   fullName: OnStart
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Results,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData)
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Results,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData,REF_TO AXOpen.Messaging.Static.AxoMessenger)
   name: Run
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightClearInspectionResults_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Results_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_ResultData_
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightClearInspectionResults_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Results_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_ResultData_REF_TO_AXOpen_Messaging_Static_AxoMessenger_
   fullName: Run
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
   name: AxoInsightSoftEvent
@@ -18918,14 +18878,18 @@ references:
   name: _progress
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightSoftEvent__progress
   fullName: _progress
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refMessenger
+  name: _refMessenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightSoftEvent__refMessenger
+  fullName: _refMessenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refStatus
+  name: _refStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightSoftEvent__refStatus
+  fullName: _refStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._softEventNumber
   name: _softEventNumber
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightSoftEvent__softEventNumber
   fullName: _softEventNumber
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._Status
-  name: _Status
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightSoftEvent__Status
-  fullName: _Status
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.CallTimers(BOOL)
   name: CallTimers
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightSoftEvent_CallTimers_BOOL_
@@ -18958,9 +18922,9 @@ references:
   name: OnStart
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightSoftEvent_OnStart__
   fullName: OnStart
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus)
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus,REF_TO AXOpen.Messaging.Static.AxoMessenger)
   name: Run
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightSoftEvent_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_CommandControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_SoftEventControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_SoftEventStatus_
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightSoftEvent_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_CommandControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_SoftEventControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_SoftEventStatus_REF_TO_AXOpen_Messaging_Static_AxoMessenger_
   fullName: Run
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger
   name: AxoInsightTrigger
@@ -18986,10 +18950,14 @@ references:
   name: _progress
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightTrigger__progress
   fullName: _progress
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger._Status
-  name: _Status
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightTrigger__Status
-  fullName: _Status
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger._refMessenger
+  name: _refMessenger
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightTrigger__refMessenger
+  fullName: _refMessenger
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger._refStatus
+  name: _refStatus
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightTrigger__refStatus
+  fullName: _refStatus
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.CallTimers(BOOL)
   name: CallTimers
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightTrigger_CallTimers_BOOL_
@@ -19014,9 +18982,9 @@ references:
   name: OnStart
   href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightTrigger_OnStart__
   fullName: OnStart
-- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Results,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData,REF_TO ARRAY [*] OF BYTE)
+- uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.Run(REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_Results,REF_TO AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData,REF_TO ARRAY [*] OF BYTE,REF_TO AXOpen.Messaging.Static.AxoMessenger)
   name: Run
-  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightTrigger_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_CommandControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Results_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_ResultData_REF_TO_ARRAY_____OF_BYTE_
+  href: apictrl/plc.AXOpen.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html#plc_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsightTrigger_Run_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_AcquisitionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_InspectionStatus_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_CommandControl_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Config_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Status_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_Results_REF_TO_AXOpen_Cognex_Vision_v_6_0_0_0_AxoInsight_ResultData_REF_TO_ARRAY_____OF_BYTE_REF_TO_AXOpen_Messaging_Static_AxoMessenger_
   fullName: Run
 - uid: plc.AXOpen.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
   name: eAxoDataman_ResultDataSize
@@ -21594,6 +21562,10 @@ references:
   name: Acknowledge
   href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Acknowledge__
   fullName: Acknowledge
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  name: Acknowledge
+  href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Acknowledge_ULINT_
+  fullName: Acknowledge
 - uid: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
   name: Acknowledged
   href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Acknowledged
@@ -21614,9 +21586,17 @@ references:
   name: Activate
   href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Activate_eAxoMessageCategory_
   fullName: Activate
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  name: Activate
+  href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Activate_ULINT_eAxoMessageCategory_
+  fullName: Activate
 - uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(BOOL,eAxoMessageCategory)
   name: ActivateOnCondition
   href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_ActivateOnCondition_BOOL_eAxoMessageCategory_
+  fullName: ActivateOnCondition
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  name: ActivateOnCondition
+  href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_ActivateOnCondition_ULINT_BOOL_eAxoMessageCategory_
   fullName: ActivateOnCondition
 - uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
   name: ActiveContextCount
@@ -21633,6 +21613,10 @@ references:
 - uid: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate()
   name: Deactivate
   href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Deactivate__
+  fullName: Deactivate
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT)
+  name: Deactivate
+  href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Deactivate_ULINT_
   fullName: Deactivate
 - uid: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
   name: DoNotRequireAcknowledgement
@@ -21658,6 +21642,10 @@ references:
   name: RequireAcknowledgement
   href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_RequireAcknowledgement__
   fullName: RequireAcknowledgement
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  name: Restore
+  href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Restore__
+  fullName: Restore
 - uid: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
   name: Risen
   href: apictrl/plc.AXOpen.Messaging.Static.AxoMessenger.html#plc_AXOpen_Messaging_Static_AxoMessenger_Risen

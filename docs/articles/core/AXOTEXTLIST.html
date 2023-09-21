@@ -81,123 +81,44 @@
 
 <p>AxoTextList provides displaying the string value from the list defined in the extended class inside the <code>.NET</code> twin based on the numerical value read out from the PLC.
 Moreover, the display form could also change the background colour with the numerical value change. To achieve this, the attributes <code>WarningLevel</code> and <code>ErrorLevel</code> need to be declared as in the following example.</p>
-<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;Description: |[[1]TextList]|&quot;}
-{#ix-attr:[WarningLevel(600)]}
-{#ix-attr:[ErrorLevel(700)]}
-_myTextList1 : AXOpen.Core.AxoTextList;
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>The final text displayed in the UI application will be <code>static prefix</code>+[<code>text value from text list</code>(Id)](for example <code>Description : </code> + [TextList(Id)]).
 The static prefix is optional. Use the following example to display the same text list without static prefix and with different levels.</p>
-<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;|[[1]TextList]|&quot;}
-{#ix-attr:[WarningLevel(300)]}
-{#ix-attr:[ErrorLevel(500)]}
-_myTextList2 : AXOpen.Core.AxoTextList;
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>If the <code>WarningLevel</code> is greater than 0 and the <code>ErrorLevel</code> is greater than the <code>WarningLevel</code>, all items with the <code>Id</code> lower than the <code>WarningLevel</code> are displayed with the <code>Primary</code> background, all items with the <code>Id</code> greater or equal to the <code>WarningLevel</code> and lower then the <code>ErrorLevel</code> are displayed with the <code>Warning</code> background and all the rest are displayed with the <code>Danger</code> background. The final colours depend on the style used.
 If the attributes <code>WarningLevel</code> and <code>ErrorLevel</code> are not declared as in the following example, all items are displayed with the <code>Primary</code> background.</p>
-<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;Totaly different description without error elevation: |[[1]DifferentTextList]|&quot;}
-_myTextList3 : AXOpen.Core.AxoTextList;
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>For each <code>AxoTextList</code>, there must be a defined property, named exactly as in the <code>Attributes</code> inside the examples above. It must be defined in the extended class that the particular <code>AxoTextList</code> is a member of.<br>
 This property must return a string value from the dictionary defined in the same class based on the numerical value of the <code>Id</code> variable.</p>
 <p>Declaration of the dictionary:</p>
-<pre><code class="lang-csharp">Dictionary&lt;uint, string&gt; textList = new Dictionary&lt;uint, string&gt;();
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>Filling the items of the dictionary:</p>
-<pre><code class="lang-csharp">if (textList == null) { textList = new Dictionary&lt;uint, string&gt;(); }
-if (textList.Count == 0)
-{
-    textList.Add(0, &quot;   &quot;);
-    for (int i = 1; i &lt; 1000; i++)
-    {
-        textList.Add((uint)i, &quot;Text list item : &quot; + i.ToString());
-    }
-
-}
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>Returning the string item from the dictionary:</p>
-<pre><code class="lang-csharp">string _textItem = &quot;   &quot;;
-if (textList.TryGetValue(_myTextList1.Id.LastValue, out _textItem))
-{
-    return _textItem;
-}
-else
-{
-    return &quot;   &quot;;
-}
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p>Complete example for two different <code>AxoTextList</code>:</p>
-<pre><code class="lang-csharp">
-using System.Collections.Generic;
-
-namespace AxoTextListExample
-{
-    public partial class AxoTextListExampleContext : AXOpen.Core.AxoContext
-    {
-        //&lt;DeclarationOfTheDictionary&gt;
-        Dictionary&lt;uint, string&gt; textList = new Dictionary&lt;uint, string&gt;();
-        //&lt;/DeclarationOfTheDictionary&gt;
-        public string TextList
-        {
-            get
-            {
-                //&lt;FillingTheItemsOfTheDictionary&gt;
-                if (textList == null) { textList = new Dictionary&lt;uint, string&gt;(); }
-                if (textList.Count == 0)
-                {
-                    textList.Add(0, &quot;   &quot;);
-                    for (int i = 1; i &lt; 1000; i++)
-                    {
-                        textList.Add((uint)i, &quot;Text list item : &quot; + i.ToString());
-                    }
-
-                }
-                //&lt;/FillingTheItemsOfTheDictionary&gt;
-                //&lt;ReturningTheItemBasedOnId&gt;
-                string _textItem = &quot;   &quot;;
-                if (textList.TryGetValue(_myTextList1.Id.LastValue, out _textItem))
-                {
-                    return _textItem;
-                }
-                else
-                {
-                    return &quot;   &quot;;
-                }
-                //&lt;/ReturningTheItemBasedOnId&gt;
-            }
-        }
-
-        Dictionary&lt;uint, string&gt; differentTextList = new Dictionary&lt;uint, string&gt;();
-        public string DifferentTextList
-        {
-            get
-            {
-                if (differentTextList == null) { differentTextList = new Dictionary&lt;uint, string&gt;(); }
-                if (differentTextList.Count == 0)
-                {
-                    differentTextList.Add(0, &quot;   &quot;);
-                    for (int i = 1; i &lt; 1000; i++)
-                    {
-                        differentTextList.Add((uint)i, &quot;Item from the totally different text list : &quot; + i.ToString());
-                    }
-
-                }
-                string differentTextItem = &quot;   &quot;;
-                if (differentTextList.TryGetValue(_myTextList3.Id.LastValue, out differentTextItem))
-                {
-                    return differentTextItem;
-                }
-                else
-
-                {
-                    return &quot;   &quot;;
-                }
-            }
-        }
-    }
-
-}
-</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
 <p><strong>How to visualize <code>AxoTextList</code></strong></p>
 <p>On the UI side, to visualize the <code>AxoTextList</code>, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoTextList</code>.</p>
 <pre><code class="lang-csharp">&lt;div class=&quot;col&quot;&gt;

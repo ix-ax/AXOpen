@@ -10,22 +10,18 @@ dotnet new install .\template.axolibrary\ --force
 3. Create library template using following command:
 
 ~~~PowerShell
-dotnet new axolibrary -o OutputFolder -n LibraryName -ax axlibraryname -p AXOpen.Components.Pneumatics
+dotnet new axolibrary -o OutputFolder -p ProjectName
 ~~~
 
 E.G.
 ~~~PowerShell
-dotnet new axolibrary -o components.elements -n ElementComponents -ax axopen.components.elements -p AXOpen.Components.Elements
+dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 ~~~
 
 
 > ![IMPORTANT]
-> Make sure you run all the commands from within the `src` folder of the repostory. And paramter -o OutputFolder must be in the `src` folder.
+> Make sure you run all the commands from within the `src` folder of the repository. And parameter -o OutputFolder must be in the `src` folder.
 
 > ![IMPORTANT]
-> Paramter -n `LibraryName` must contain ONLY alphanumerical characters
-
-> ![IMPORTANT]
-> Paramter -ax `axlibraryname` should be lower case (can contain characters that are permissible for npm package/library name, including '.')
-
+> Parameter -p `ProjectName` must contain ONLY alphanumerical characters and dots. Otherwise inconsistencies may occur.
 
