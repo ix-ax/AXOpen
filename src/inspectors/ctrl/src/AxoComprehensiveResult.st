@@ -8,7 +8,7 @@ NAMESPACE AXOpen.Inspectors
     CLASS AxoComprehensiveResult IMPLEMENTS IAxoComprehensiveResult
         VAR PUBLIC
 
-            Result : eOverallResult;
+            Result : AXOpen.Inspectors.eOverallResult;
             Failures : STRING;
             ErrorCodes : STRING;
 

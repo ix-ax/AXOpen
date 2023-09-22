@@ -225,6 +225,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Components.Pneumatic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "app", "app", "{EABE6BC4-1679-46EA-A3BB-56CF63A40FE5}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_components_elements", "components.elements\src\AXOpen.Components.Elements\ix_ax_axopen_components_elements.csproj", "{73C37DCD-AC15-4B94-9B6C-0314CC11653B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -919,6 +921,18 @@ Global
 		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Release|x64.Build.0 = Release|Any CPU
 		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Release|x86.ActiveCfg = Release|Any CPU
 		{0F38853D-6D5D-4156-9571-E5F3426782AF}.Release|x86.Build.0 = Release|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Debug|x64.Build.0 = Debug|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Debug|x86.Build.0 = Debug|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Release|x64.ActiveCfg = Release|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Release|x64.Build.0 = Release|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Release|x86.ActiveCfg = Release|Any CPU
+		{73C37DCD-AC15-4B94-9B6C-0314CC11653B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
