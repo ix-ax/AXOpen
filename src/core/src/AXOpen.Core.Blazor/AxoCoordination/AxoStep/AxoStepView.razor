@@ -1,4 +1,5 @@
 ﻿@namespace AXOpen.Core
+@using AXOpen.Core.Blazor.Culture;
 @using AXSharp.Connector.ValueTypes;
 @using AXSharp.Connector;
 @inherits RenderableComplexComponentBase<AxoStep>
@@ -22,7 +23,7 @@
             @Component.Duration.Cyclic.TotalSeconds
         </div>
         <div class="col">
-            @Humanizer.DateHumanizeExtensions.Humanize(Component.StartTimeStamp.Cyclic)
+            @Humanizer.DateHumanizeExtensions.Humanize(Component.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)
         </div>
     </div>
 </div>
