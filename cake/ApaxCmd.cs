@@ -19,7 +19,7 @@ using Path = System.IO.Path;
 
 public static class ApaxCmd
 {
-    public static void ApaxInstall(this BuildContext context, (string folder, string name) lib)
+    public static void ApaxInstall(this BuildContext context, (string folder, string name, bool pack) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -37,12 +37,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxInstall(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
-    {
-        context.ApaxInstall((app.folder, app.name));
-    }
-
-    public static void ApaxClean(this BuildContext context, (string folder, string name) lib)
+    public static void ApaxClean(this BuildContext context, (string folder, string name, bool pack) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -61,12 +56,8 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxClean(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
-    {
-        context.ApaxClean((app.folder, app.name));
-    }
 
-    public static void ApaxBuild(this BuildContext context, (string folder, string name) lib)
+    public static void ApaxBuild(this BuildContext context, (string folder, string name, bool pack) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -91,17 +82,11 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxBuild(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
-    {
-        context.ApaxBuild((app.folder, app.name));
-    }
+   
 
-    public static void ApaxIxc(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
-    {
-        context.ApaxIxc((app.folder, app.name));
-    }
+ 
 
-    public static void ApaxUpdate(this BuildContext context, (string folder, string name) lib)
+    public static void ApaxUpdate(this BuildContext context, (string folder, string name, bool pack) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -126,24 +111,24 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxUpdate(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
-    {
-        context.ApaxUpdate((app.folder, app.name));
-    }
+  
 
-    public static void ApaxPack(this BuildContext context, (string folder, string name) lib)
+    public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack) lib)
     {
-        context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        if (lib.pack)
         {
-            Arguments = "pack",
-            WorkingDirectory = context.GetLibFolder(lib),
-            RedirectStandardOutput = false,
-            RedirectStandardError = false,
-            Silent = false
-        }).WaitForExit();
+            context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+            {
+                Arguments = "pack",
+                WorkingDirectory = context.GetLibFolder(lib),
+                RedirectStandardOutput = false,
+                RedirectStandardError = false,
+                Silent = false
+            }).WaitForExit();
+        }
     }
 
-    public static void ApaxTest(this BuildContext context, (string folder, string name) lib)
+    public static void ApaxTest(this BuildContext context, (string folder, string name, bool pack) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -168,12 +153,7 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxTest(this BuildContext context, (string folder, string name, string targetIp, string targetPlatform) app)
-    {
-        context.ApaxTest((app.folder, app.name));
-    }
-
-    public static void ApaxIxc(this BuildContext context, (string folder, string name) lib)
+    public static void ApaxIxc(this BuildContext context, (string folder, string name, bool pack) lib)
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
@@ -188,13 +168,16 @@ public static class ApaxCmd
         }
     }
 
-    public static void ApaxCopyArtifacts(this BuildContext context,  (string folder, string name) lib)
+    public static void ApaxCopyArtifacts(this BuildContext context,  (string folder, string name, bool pack) lib)
     {
-        var libraryFolder = Path.Combine(Path.Combine(context.RootDir, lib.folder), "ctrl");
-        var packageFile = $"{context.ApaxRegistry}-{lib.name}-{GitVersionInformation.SemVer}.apax.tgz";
-        var sourceFile = Path.Combine(libraryFolder, packageFile);
-            
-        File.Copy(sourceFile, Path.Combine(context.ArtifactsApax, packageFile));
+        if (lib.pack)
+        {
+            var libraryFolder = Path.Combine(Path.Combine(context.RootDir, lib.folder), "ctrl");
+            var packageFile = $"{context.ApaxRegistry}-{lib.name}-{GitVersionInformation.SemVer}.apax.tgz";
+            var sourceFile = Path.Combine(libraryFolder, packageFile);
+
+            File.Copy(sourceFile, Path.Combine(context.ArtifactsApax, packageFile));
+        }
     }
 
     public static void ApaxPublish(this BuildContext context)

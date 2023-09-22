@@ -144,23 +144,23 @@ public class BuildContext : FrostingContext
         IsGitHubActions = context.EnvironmentVariable("GITHUB_ACTIONS") == "true";
     }
 
-    public IEnumerable<(string folder, string name)> Libraries { get; } = new[]
+    public IEnumerable<(string folder, string name, bool pack)> Libraries { get; } = new[]
     {
-        ("abstractions", "axopen.abstractions"),
-        ("timers", "axopen.timers"),
-        ("simatic1500", "axopen.simatic1500"),
-        ("utils", "axopen.utils"),
-        ("core", "axopen.core"),       
-        ("data", "axopen.data"),
-        ("probers", "axopen.probers"),
-        ("inspectors", "axopen.inspectors"),
-        ("components.elements", "axopen.components.elements"),
-        ("components.abstractions", "axopen.components.abstractions"),
-        ("components.cognex.vision", "axopen.components.cognex.vision"),
-        ("components.pneumatics", "axopen.components.pneumatics"),
-        ("integrations", "ix.integrations"),
-        ("templates.simple", "templates.simple"),
-        ("template.axolibrary", "template.axolibrary")
+        ("abstractions", "axopen.abstractions", true),
+        ("timers", "axopen.timers", true),
+        ("simatic1500", "axopen.simatic1500", true),
+        ("utils", "axopen.utils", true),
+        ("core", "axopen.core", true),       
+        ("data", "axopen.data", true),
+        ("probers", "axopen.probers", true),
+        ("inspectors", "axopen.inspectors", true),
+        ("components.elements", "axopen.components.elements", true),
+        ("components.abstractions", "axopen.components.abstractions", true),
+        ("components.cognex.vision", "axopen.components.cognex.vision", true),
+        ("components.pneumatics", "axopen.components.pneumatics", true),
+        ("integrations", "ix.integrations", false),
+        ("templates.simple", "templates.simple", false),
+        ("template.axolibrary", "template.axolibrary", false)
     };
 
     
@@ -168,7 +168,7 @@ public class BuildContext : FrostingContext
     
     public string GitHubToken { get; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");
 
-    public IEnumerable<string> GetAxFolders((string folder, string name) library)
+    public IEnumerable<string> GetAxFolders((string folder, string name, bool pack) library)
     {
         var paths = new string[]
         {
@@ -179,7 +179,7 @@ public class BuildContext : FrostingContext
         return paths.Where(Path.Exists);
     }
 
-    public string GetLibFolder((string folder, string name) library)
+    public string GetLibFolder((string folder, string name, bool pack) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl");
     }
@@ -194,17 +194,12 @@ public class BuildContext : FrostingContext
         return Path.Combine(axFolder, "testresult");
     }
 
-    public IEnumerable<string> GetAxFolders((string folder, string name, string targetIp, string targetPlatform) app)
-    {
-        return GetAxFolders((app.folder, app.name));
-    }
-
     public string GetAppFolder((string folder, string name, string targetIp, string targetPlatform) app)
     {
         return GetAppFolder((app.folder, app.name));
     }
 
-    public string GetApaxFile((string folder, string name) library)
+    public string GetApaxFile((string folder, string name, bool pack) library)
     {
         return Path.Combine(Path.Combine(RootDir, library.folder), "ctrl", "apax.yml");
     }
@@ -214,10 +209,6 @@ public class BuildContext : FrostingContext
         return Path.Combine(Path.Combine(RootDir, folder), sub, "apax.yml");
     }
 
-    public string GetApaxFile((string folder, string name, string targetIp, string targetPlatform) app)
-    {
-        return GetApaxFile((app.folder, app.name));
-    }
 
     public string EnsureFolder(string path)
     {
