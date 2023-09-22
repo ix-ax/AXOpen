@@ -157,17 +157,13 @@ public class BuildContext : FrostingContext
         ("components.elements", "axopen.components.elements"),
         ("components.abstractions", "axopen.components.abstractions"),
         ("components.cognex.vision", "axopen.components.cognex.vision"),
-        ("components.pneumatics", "axopen.components.pneumatics")
-        
+        ("components.pneumatics", "axopen.components.pneumatics"),
+        ("integrations", "ix.integrations"),
+        ("templates.simple", "templates.simple"),
+        ("template.axolibrary", "template.axolibrary")
     };
 
-    public IEnumerable<(string folder, string name, string targetIp, string targetPlatform)> Integrations { get; } = new[]
-    {
-        ("integrations", "ix.integrations", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
-        ("templates.simple", "templates.simple", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
-        ("template.axolibrary", "template.axolibrary", System.Environment.GetEnvironmentVariable("AXTARGET"), System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")),
-    };
-
+    
     public string GitHubUser { get; } = System.Environment.GetEnvironmentVariable("GH_USER");
     
     public string GitHubToken { get; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");

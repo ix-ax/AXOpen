@@ -1,0 +1,32 @@
+{
+  "profiles": {
+    "WSL": {
+      "commandName": "WSL2",
+      "distributionName": ""
+    },
+    "test-L1": {
+      "commandName": "Project",
+      "commandLineArgs": "--do-test --test-level 1"
+    },
+    "pack": {
+      "commandName": "Project",
+      "commandLineArgs": "--do-test --test-level 2 --do-pack"
+    },
+    "test-L2": {
+      "commandName": "Project",
+      "commandLineArgs": "--do-test --test-level 2"
+    },
+    "test-L3": {
+      "commandName": "Project",
+      "commandLineArgs": "--do-test --test-level 10"
+    },
+    "no-build": {
+      "commandName": "Project",
+      "commandLineArgs": "--skip-build"
+    },
+    "no-build-test-L3": {
+      "commandName": "Project",
+      "commandLineArgs": "--do-test --test-level 10 --skip-build"
+    }
+  }
+}

@@ -1,1 +1,1 @@
-dotnet slngen this.proj -o this.sln --folders true --launch false
+dotnet slngen this.proj -o axosimple.sln --folders true --launch false

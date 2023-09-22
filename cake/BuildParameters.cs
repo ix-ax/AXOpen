@@ -10,7 +10,7 @@ using CommandLine;
 
 public class BuildParameters
 {
-    [Option('t', "do-test", Required = false, Default = true, HelpText = "Runs tests")]
+    [Option('t', "do-test", Required = false, Default = false, HelpText = "Runs tests")]
     public bool DoTest { get; set; }
 
     [Option('d', "do-docs", Required = false, Default = false, HelpText = "Generates documentation")]
@@ -45,4 +45,7 @@ public class BuildParameters
 
     [Option('n', "clean-up", Required = false, Default = false, HelpText = "Cleans up build.")]
     public bool CleanUp { get; set; }
+
+    [Option('b', "skip-build", Required = false, Default = false, HelpText = "Does not run build steps")]
+    public bool NoBuild { get; set; }
 }

@@ -32,7 +32,9 @@ using CliWrap;
 using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualBasic;
+using Newtonsoft.Json;
 using NuGet.Packaging;
+using NuGet.Protocol;
 using Octokit;
 using Polly;
 using Spectre.Console;
@@ -66,6 +68,10 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
+
+        context.Log.Information("Build running with following parameters:");
+        context.Log.Information(context.BuildParameters.ToJson(Formatting.Indented));
+       
         if (context.IsGitHubActions)
         {
             context.BuildParameters.CleanUp = true;
@@ -80,12 +86,10 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
         if (context.BuildParameters.Paralellize)
         {
             Parallel.ForEach(context.Libraries, lib => context.ApaxClean(lib));
-            Parallel.ForEach(context.Integrations, integration => context.ApaxClean(integration));
         }
         else
         {
             context.Libraries.ToList().ForEach(lib => context.ApaxClean(lib));
-            context.Integrations.ToList().ForEach(integration => context.ApaxClean(integration));    
         }
 
 
@@ -108,11 +112,6 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
         foreach (var library in context.Libraries)
         {
             context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, library.folder));
-        }
-
-        foreach (var integration in context.Integrations)
-        {
-            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, integration.folder));
         }
     }
 
@@ -140,13 +139,6 @@ public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
             context.ApaxUpdate(lib);
         });
 
-        context.Integrations.ToList().ForEach(proj =>
-        {
-            context.ApaxUpdate(proj);
-        });
-
-
-
         context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
     }
 }
@@ -167,53 +159,26 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             });
         }
 
-        if (context.BuildParameters.Paralellize)
+        if (!context.BuildParameters.NoBuild)
         {
-            Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(lib));
-            Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(lib));
-            context.Libraries.ToList().ForEach(lib => context.ApaxIxc(lib));
-        }
-        else
-        {
-            context.Libraries.ToList().ForEach(lib =>
+            if (context.BuildParameters.Paralellize)
             {
-                context.ApaxInstall(lib);
-                context.ApaxBuild(lib);
-                context.ApaxIxc(lib);
-            });
-        }
-        
-        if (context.BuildParameters.DoPack)
-        {
-            context.Integrations.ToList().ForEach(lib =>
+                Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(lib));
+                Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(lib));
+                context.Libraries.ToList().ForEach(lib => context.ApaxIxc(lib));
+            }
+            else
             {
-                context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
-                context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
-                context.UpdateApaxDependencies(context.GetApaxFile(lib.folder, "app"), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
-            });
-        }
+                context.Libraries.ToList().ForEach(lib =>
+                {
+                    context.ApaxInstall(lib);
+                    context.ApaxBuild(lib);
+                    context.ApaxIxc(lib);
+                });
+            }
 
-        if (context.BuildParameters.Paralellize)
-        {
-            Parallel.ForEach(context.Integrations, proj => context.ApaxInstall(proj));
-            Parallel.ForEach(context.Integrations, proj => context.ApaxBuild(proj));
-            context.Integrations.ToList().ForEach(proj => context.ApaxIxc(proj));
+            context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
         }
-        else
-        {
-            context.Integrations.ToList().ForEach(proj =>
-            {
-                context.ApaxInstall(proj);
-                context.ApaxBuild(proj);
-                context.ApaxIxc(proj);
-            });
-        }
-
-        
-        
-       
-
-        context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
     }
 }
 
@@ -233,12 +198,10 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         if (context.BuildParameters.Paralellize)
         {
             Parallel.ForEach(context.Libraries, context.ApaxTest);
-            Parallel.ForEach(context.Integrations, context.ApaxTest);
         }
         else
         {
             context.Libraries.ToList().ForEach(context.ApaxTest);
-            context.Integrations.ToList().ForEach(context.ApaxTest);
         }
 
         
