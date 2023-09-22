@@ -105,15 +105,15 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     {
         ProvisionTools(context);
 
-        //foreach (var library in context.Libraries)
-        //{
-        //    context.CopyFiles(Path.Combine(context.RootDir, "traversals", "build", "**/*"), Path.Combine(context.RootDir, library.folder));
-        //}
+        foreach (var library in context.Libraries)
+        {
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, library.folder));
+        }
 
-        //foreach (var integration in context.Integrations)
-        //{
-        //    context.CopyFiles(Path.Combine(context.RootDir, "traversals", "build", "**/*"), Path.Combine(context.RootDir,integration.folder));
-        //}
+        foreach (var integration in context.Integrations)
+        {
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, integration.folder));
+        }
     }
 
     private static void ProvisionTools(BuildContext context)
@@ -261,24 +261,22 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         if (context.BuildParameters.TestLevel == 1)
         {
             context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"), context.DotNetTestSettings);
-            //RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.slnf"));
         }
-        else if (context.BuildParameters.TestLevel == 2)
+        if (context.BuildParameters.TestLevel == 2)
         {
-            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"), context.DotNetTestSettings);
+        
             context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"), context.DotNetTestSettings);
-            //RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.slnf"));
-            //RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.slnf"));
         }
-        else
+        if(context.BuildParameters.TestLevel >= 3)
         {
-            context.ApaxDownload(context.Integrations.First(p => p.name == "ix.integrations"));
-            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"), context.DotNetTestSettings);
-            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"), context.DotNetTestSettings);
-            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L3-tests.proj"), context.DotNetTestSettings);
-            //RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"));
-            //RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"));
-            //RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L3-tests.proj"));
+            foreach (var package in context.Libraries)
+            {
+                context.ApaxDownload((Path.Combine(package.folder, "app"), package.name, 
+                                        System.Environment.GetEnvironmentVariable("AXTARGET"), 
+                                        System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")));
+
+                context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
+            }
         }
 
         context.Log.Information("Tests done.");

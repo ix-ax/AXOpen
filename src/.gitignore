@@ -13,3 +13,5 @@ testresult
 *.g.cs
 
 sandbox/**
+
+**/tmp_*.*
