@@ -1,8 +1,7 @@
 name: "axosimple.ctrl"
 version: 0.0.0
-type: app
+type: lib
 targets:
-  - "1500"
   - axunit-llvm
 variables:
   APAX_BUILD_ARGS:

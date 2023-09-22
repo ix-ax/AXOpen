@@ -1,6 +1,6 @@
 name: "axopen.integrations-ctrl"
 version: '0.0.0-dev.0'
-type: app
+type: lib
 targets:
   - axunit-llvm
   - plcsim
