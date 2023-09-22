@@ -107,12 +107,12 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
 
         foreach (var library in context.Libraries)
         {
-            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, library.folder));
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/tmp_*.*"), Path.Combine(context.RootDir, library.folder));
         }
 
         foreach (var integration in context.Integrations)
         {
-            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, integration.folder));
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/tmp_*.*"), Path.Combine(context.RootDir, integration.folder));
         }
     }
 
@@ -275,7 +275,7 @@ public sealed class TestsTask : FrostingTask<BuildContext>
                                         System.Environment.GetEnvironmentVariable("AXTARGET"), 
                                         System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")));
 
-                context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
+                context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3.proj"), context.DotNetTestSettings);
             }
         }
 
