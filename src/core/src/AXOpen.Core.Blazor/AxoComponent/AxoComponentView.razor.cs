@@ -1,6 +1,7 @@
 ﻿using AXOpen.Messaging;
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using AXOpen.Core;
 using Microsoft.AspNetCore.Components;
 using Pocos.AXOpen.Core;
 using Serilog;
@@ -112,9 +113,9 @@ namespace AXOpen.Core
             await base.OnInitializedAsync();
         }
 
-        private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().OfType<AxoMessenger>();
+        private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
-       
+
         private eAlarmLevel AlarmLevel
         {
             get

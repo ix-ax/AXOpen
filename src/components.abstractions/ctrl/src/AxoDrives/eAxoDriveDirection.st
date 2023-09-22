@@ -1,4 +1,4 @@
-NAMESPACE AXOpen.Components.Abstractions
+NAMESPACE AXOpen.Components.Abstractions.AxoDrives
     TYPE PUBLIC
         eAxoDriveDirection :
         (		

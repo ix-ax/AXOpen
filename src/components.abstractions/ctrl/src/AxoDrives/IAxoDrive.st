@@ -1,25 +1,25 @@
 USING AXOpen.Core;
-NAMESPACE AXOpen.Components.Abstractions
+NAMESPACE AXOpen.Components.Abstractions.AxoDrives
     INTERFACE PUBLIC IAxoDrive
-        METHOD Axo_Power : IAxoTaskState 
+        METHOD MC_Power 
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
-                EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
-                EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
             VAR_OUTPUT
                 Status          :   BOOL;                       //  Effective state of the power stage
-                Valid           :   BOOL;                       //  If true, a valid set of outputs is available at the FB
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  If true, a valid set of outputs is available at the method
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification            
             END_VAR
         END_METHOD
-        METHOD Axo_Home : IAxoTaskState 
+        METHOD MC_Home
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Start the motion at rising edge
                 Position        :   LREAL;                      //  Absolute position when the reference signal is detected             
                 HommingMode     :   INT;                        //  Required homming mode           
@@ -29,51 +29,54 @@ NAMESPACE AXOpen.Components.Abstractions
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       // Reference known and set sucessfully
-                Busy            :   BOOL;                       // The FB is not finished and new output values are to be expected
-                Active          :   BOOL;                       // Indicates that the FB has control on the axis
+                Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
+                Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-                Error           :   BOOL;                       // Signals that an error has occurred within the Function Block
+                Error           :   BOOL;                       // Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       // Error identification           
              END_VAR
         END_METHOD
-        METHOD Axo_Stop : IAxoTaskState 
+        METHOD MC_Stop
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Start the action at rising edge
                 Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ [u/s2]
                 Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       // Zero velocity reached
-                Busy            :   BOOL;                       // The FB is not finished and new output values are to be expected
-                Active          :   BOOL;                       // Indicates that the FB has control on the axis
+                Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
+                Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
-                Error           :   BOOL;                       // Signals that an error has occurred within the Function Block
+                Error           :   BOOL;                       // Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       // Error identification           
              END_VAR
         END_METHOD
-        METHOD Axo_Halt : IAxoTaskState 
+        METHOD MC_Halt
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Start the action at rising edge
                 Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ [u/s2]
                 Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       // Zero velocity reached
-                Busy            :   BOOL;                       // The FB is not finished and new output values are to be expected
-                Active          :   BOOL;                       // Indicates that the FB has control on the axis
+                Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
+                Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
-                Error           :   BOOL;                       // Signals that an error has occurred within the Function Block
+                Error           :   BOOL;                       // Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       // Error identification           
              END_VAR
         END_METHOD
-        METHOD Axo_MoveAbsolute : IAxoTaskState 
+        METHOD MC_MoveAbsolute
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Start the motion at rising edge
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Position        :   LREAL;                      //  Commanded ‘Position’ for the motion (in technical unit [u]) (negative or positive)                             
@@ -85,17 +88,18 @@ NAMESPACE AXOpen.Components.Abstractions
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       // Commanded position finally reached
-                Busy            :   BOOL;                       // The FB is not finished and new output values are to be expected
-                Active          :   BOOL;                       // Indicates that the FB has control on the axis
+                Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
+                Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-                Error           :   BOOL;                       // Signals that an error has occurred within the Function Block
+                Error           :   BOOL;                       // Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       // Error identification           
              END_VAR
         END_METHOD
-        METHOD Axo_MoveRelative : IAxoTaskState 
+        METHOD MC_MoveRelative 
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Start the motion at rising edge
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Distance        :   LREAL;                      //  Relative distance for the motion (in technical unit [u]                             
@@ -107,17 +111,18 @@ NAMESPACE AXOpen.Components.Abstractions
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       // Commanded distance reached
-                Busy            :   BOOL;                       // The FB is not finished and new output values are to be expected
-                Active          :   BOOL;                       // Indicates that the FB has control on the axis
+                Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
+                Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-                Error           :   BOOL;                       // Signals that an error has occurred within the Function Block
+                Error           :   BOOL;                       // Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       // Error identification           
              END_VAR
         END_METHOD
-        METHOD Axo_MoveAdditive : IAxoTaskState 
+        METHOD MC_MoveAdditive
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Start the motion at rising edge
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Distance        :   LREAL;                      //  Relative distance for the motion (in technical unit [u]                             
@@ -129,17 +134,18 @@ NAMESPACE AXOpen.Components.Abstractions
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       // Commanded distance reached
-                Busy            :   BOOL;                       // The FB is not finished and new output values are to be expected
-                Active          :   BOOL;                       // Indicates that the FB has control on the axis
+                Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
+                Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-                Error           :   BOOL;                       // Signals that an error has occurred within the Function Block
+                Error           :   BOOL;                       // Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       // Error identification           
              END_VAR
         END_METHOD
-        METHOD Axo_MoveVelocity : IAxoTaskState 
+        METHOD MC_MoveVelocity
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Start the motion at rising edge
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Velocity        :   LREAL;                      //  Value of the maximum velocity [u/s]. Can be a signed value.
@@ -150,17 +156,18 @@ NAMESPACE AXOpen.Components.Abstractions
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       // Commanded velocity reached
-                Busy            :   BOOL;                       // The FB is not finished and new output values are to be expected
-                Active          :   BOOL;                       // Indicates that the FB has control on the axis
+                Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
+                Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-                Error           :   BOOL;                       // Signals that an error has occurred within the Function Block
+                Error           :   BOOL;                       // Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       // Error identification           
              END_VAR
         END_METHOD
-        METHOD Axo_TorqueControl : IAxoTaskState 
+        METHOD MC_TorqueControl
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Start the motion at rising edge
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
                 Torque          :   LREAL;                      //  Value of the torque (Torque or force in technical unit [u])
@@ -173,21 +180,22 @@ NAMESPACE AXOpen.Components.Abstractions
             END_VAR
             VAR_OUTPUT
                 InTorque        :   BOOL;                       //  Setpoint value of torque or force equals the commandedvalue
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Active          :   BOOL;                       //  Indicates that the FB has control on the axis
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Active          :   BOOL;                       //  Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       //  ‘Command’ is aborted by another command
-                Error           :   BOOL;                       //  Signals that an error has occurred within the FunctionBlock
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification             
             END_VAR
         END_METHOD
-        METHOD Axo_SetPosition : IAxoTaskState 
+        METHOD MC_SetPosition
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Start setting position in axis
                 Position        :   REAL;                       //  Position unit [u] (Means ‘Distance’ if ‘Relative’= TRUE)
                 Relative        :   BOOL;                       //  ‘Relative’ distance if True, ‘Absolute’ position if False (= Default)
-                ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the FB.              
+                ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       //  ‘Position’ has new value
@@ -195,7 +203,7 @@ NAMESPACE AXOpen.Components.Abstractions
                 ErrorID         :   WORD;                       //  Error identification             
             END_VAR
         END_METHOD
-        METHOD Axo_SetOverride : IAxoTaskState 
+        METHOD MC_SetOverride
             VAR_INPUT
                 refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
                 refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
@@ -206,171 +214,182 @@ NAMESPACE AXOpen.Components.Abstractions
             END_VAR
             VAR_OUTPUT
                 Enabled         :   BOOL;                       //  Signals that the override factor(s) is (are) set successfully
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the FunctionBlock
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the FumethodnctionBlock
                 ErrorID         :   WORD;                       //  Error identification             
             END_VAR
         END_METHOD
-        METHOD Axo_ReadParameter : IAxoTaskState 
+        METHOD MC_ReadParameter
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
                 ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
-        METHOD Axo_ReadBoolParameter : IAxoTaskState 
+        METHOD MC_ReadBoolParameter
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
                 ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 Value           :   BOOL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
-        METHOD Axo_WriteParameter : IAxoTaskState 
+        METHOD MC_WriteParameter
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
                 ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   REAL;                       //  New value of the specified parameter
-                ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the FB.              
+                ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       //  Parameter successfully written
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected.
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method 
                 ErrorID         :   WORD;                       //  Error identification
             END_VAR
         END_METHOD
-        METHOD Axo_WriteBoolParameter : IAxoTaskState 
+        METHOD MC_WriteBoolParameter
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
                 ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   BOOL;                       //  New value of the specified parameter
-                ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the FB.              
+                ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       //  Parameter successfully written
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected.
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
             END_VAR
         END_METHOD
-        METHOD Axo_ReadDigitalInput : IAxoTaskState 
+        METHOD MC_ReadDigitalInput
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the selected input signal continuously while enabled
                 InputNumber     :   INT;                        //  Selects the input. Can be part of MC_INPUT_REF, if only one single input is referenced.                
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected input signal
             END_VAR
         END_METHOD
-        METHOD Axo_ReadDigitalOutput : IAxoTaskState 
+        METHOD MC_ReadDigitalOutput
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the selected output signal continuously while enabled
                 OutputNumber    :   INT;                        //  Selects the output. Can be part of MC_OUTPUT_REF, if only one single output is referenced.                
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 Value           :   BOOL;                       //  The value of the selected output signal
             END_VAR
         END_METHOD
-        METHOD Axo_WriteDigitalOutput : IAxoTaskState 
+        METHOD MC_WriteDigitalOutput
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the selected output signal continuously while enabled
                 OutputNumber    :   INT;                        //  Selects the output. Can be part of MC_OUTPUT_REF, if only one single output is referenced.                
                 Value           :   BOOL;                       //  The value of the selected output signal
-                ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the FB.              
+                ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       //  Writing of the output signal value is done
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected.
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
             END_VAR
         END_METHOD
-        METHOD Axo_ReadActualPosition : IAxoTaskState 
+        METHOD MC_ReadActualPosition 
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 Position        :   REAL;                       //  New absolute position (in axis’ unit [u])
             END_VAR
         END_METHOD
-        METHOD Axo_ReadActualVelocity : IAxoTaskState 
+        METHOD MC_ReadActualVelocity
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 Velocity        :   REAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
         END_METHOD
-        METHOD Axo_ReadActualTorque : IAxoTaskState 
+        METHOD MC_ReadActualTorque
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 Torque          :   REAL;                       //  The value of the actual torque or force (in technical units)
             END_VAR
         END_METHOD
-        METHOD Axo_ReadStatus : IAxoTaskState 
+        METHOD MC_ReadStatus
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 ErrorStop       :   BOOL;                       //  See state diagram
                 Disabled        :   BOOL;                       //  See state diagram
@@ -382,17 +401,18 @@ NAMESPACE AXOpen.Components.Abstractions
                 SynchronizedMotion: BOOL;                       //  See state diagram
             END_VAR
         END_METHOD
-        METHOD Axo_ReadMotionState : IAxoTaskState 
+        METHOD MC_ReadMotionState
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
                 Source          :   eAxoSource;                 //  Defines the source of the relevant data: CommandedValue;SetValue, ActualValue.
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 ConstantVelocity:   BOOL;                       //  Velocity is constant. Velocity may be 0. For the actual value a window is applicable (window is vendor specific)
                 Accelerating    :   BOOL;                       //  Increasing the absolute value of the velocity
@@ -401,16 +421,17 @@ NAMESPACE AXOpen.Components.Abstractions
                 DirectionNegative:  BOOL;                       //  Signals that the position is decreasing
             END_VAR
         END_METHOD
-        METHOD Axo_ReadAxisInfo : IAxoTaskState 
+        METHOD MC_ReadAxisInfo
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 HomeAbsSwitch   :   BOOL;                       //  Digital home switch input is active
                 LimitSwitchPos  :   BOOL;                       //  Positive hardware end switch is active
@@ -423,18 +444,33 @@ NAMESPACE AXOpen.Components.Abstractions
                 AxisWarning     :   BOOL;                       //  Warning(s) on the axis is present
             END_VAR
         END_METHOD
-        METHOD Axo_ReadAxisError : IAxoTaskState 
+        METHOD MC_ReadAxisError
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
             VAR_INPUT
-                refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
             END_VAR
             VAR_OUTPUT
-                Valid           :   BOOL;                       //  A valid output is available at the FB
-                Busy            :   BOOL;                       //  The FB is not finished and new output values are to be expected
-                Error           :   BOOL;                       //  Signals that an error has occurred within the Function Block
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
                 AxisErrorID     :   WORD;                       //  The value of the axis error. These values are vendor specific
+            END_VAR
+        END_METHOD
+        METHOD MC_Reset
+            VAR_IN_OUT
+                AxisRef         :   AxoAxisRef;                 //  Reference to the axis
+            END_VAR
+            VAR_INPUT
+                Execute         :   BOOL;                       //  Resets all internal axis-related error
+            END_VAR
+            VAR_OUTPUT
+                Done            :   BOOL;                       //  ‘Standstill’ or ‘Disabled’ state is reached
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification
             END_VAR
         END_METHOD
     END_INTERFACE    

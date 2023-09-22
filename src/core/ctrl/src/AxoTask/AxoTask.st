@@ -347,7 +347,7 @@ NAMESPACE AXOpen.Core
             END_VAR            
             IF(HasErrorState) THEN                
                 ErrorDetails :=  ErrorDescription; 
-                THIS.LogTask(ErrorDetails, eLogLevel#Verbose, THIS);  
+                THIS.LogTask(ErrorDetails, eLogLevel#Error, THIS);  
             END_IF;    
             THIS.ThrowWhen(HasErrorState);        
         END_METHOD    
