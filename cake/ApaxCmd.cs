@@ -242,4 +242,21 @@ public static class ApaxCmd
 
         process.WaitForExit();
     }
+
+    public static void ApaxDownload(this BuildContext context,
+        string folder)
+    {
+        var targetIp = System.Environment.GetEnvironmentVariable("AXTARGET");
+        var targetPlatform = System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT");
+        var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
+        {
+            Arguments = $" sld -t {targetIp} -i {targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+            WorkingDirectory = folder,
+            RedirectStandardOutput = false,
+            RedirectStandardError = false,
+            Silent = false
+        });
+
+        process.WaitForExit();
+    }
 }

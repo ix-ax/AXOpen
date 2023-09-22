@@ -107,12 +107,12 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
 
         foreach (var library in context.Libraries)
         {
-            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/tmp_*.*"), Path.Combine(context.RootDir, library.folder));
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/tmp_*_.*"), Path.Combine(context.RootDir, library.folder));
         }
 
         foreach (var integration in context.Integrations)
         {
-            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/tmp_*.*"), Path.Combine(context.RootDir, integration.folder));
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/tmp_*_.*"), Path.Combine(context.RootDir, integration.folder));
         }
     }
 
@@ -126,23 +126,8 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("PerPartesTask")]
+[TaskName("ApaxUpdate")]
 [IsDependentOn(typeof(ProvisionTask))]
-public sealed class PerPartesTask : FrostingTask<BuildContext>
-{
-    public override void Run(BuildContext context)
-    {
-
-    }
-
-    private void ApaxUpdateVersionNumber(BuildContext context, (string folder, string name) package)
-    {
-
-    }
-}
-
-[TaskName("ApaxUpdateTask")]
-[IsDependentOn(typeof(PerPartesTask))]
 public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
@@ -232,7 +217,7 @@ public sealed class BuildTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("Test")]
+[TaskName("Tests")]
 [IsDependentOn(typeof(BuildTask))]
 public sealed class TestsTask : FrostingTask<BuildContext>
 {
@@ -271,11 +256,9 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         {
             foreach (var package in context.Libraries)
             {
-                context.ApaxDownload((Path.Combine(package.folder, "app"), package.name, 
-                                        System.Environment.GetEnvironmentVariable("AXTARGET"), 
-                                        System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT")));
+                context.ApaxDownload(Path.Combine(context.RootDir, package.folder, "app"));
 
-                context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3.proj"), context.DotNetTestSettings);
+                context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
             }
         }
 
@@ -336,50 +319,8 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("GenerateApiDocumentation")]
-[IsDependentOn(typeof(CreateArtifactsTask))]
-public sealed class GenerateApiDocumentationTask : FrostingTask<BuildContext>
-{
-    public override void Run(BuildContext context)
-    {
-        if (!context.BuildParameters.DoDocs)
-        {
-            context.Log.Warning($"Skipping documentation generation.");
-            return;
-        }
-
-        if (Helpers.CanReleaseInternal())
-        {
-           
-        }
-    }
-
-    private static void GenerateApiDocumentation(BuildContext context, string assemblyFile, string outputDocDirectory)
-    {
-        context.Log.Information($"Generating documentation for {assemblyFile}");
-        var docXmlFile = Path.Combine(context.RootDir, assemblyFile);
-        var docDirectory = Path.Combine(context.ApiDocumentationDir, outputDocDirectory);
-        context.ProcessRunner.Start(@"dotnet", new Cake.Core.IO.ProcessSettings()
-        {
-            Arguments = $"xmldocmd {docXmlFile} {docDirectory}"
-        }).WaitForExit();
-    }
-}
-
-
-[TaskName("Check license compliance")]
-[IsDependentOn(typeof(GenerateApiDocumentationTask))]
-public sealed class LicenseComplianceCheckTask : FrostingTask<BuildContext>
-{
-    public override void Run(BuildContext context)
-    {
-        
-    }
-}
-
-
 [TaskName("PushPackages task")]
-[IsDependentOn(typeof(LicenseComplianceCheckTask))]
+[IsDependentOn(typeof(CreateArtifactsTask))]
 public sealed class PushPackages : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)

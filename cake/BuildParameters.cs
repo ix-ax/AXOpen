@@ -10,7 +10,7 @@ using CommandLine;
 
 public class BuildParameters
 {
-    [Option('t', "do-test", Required = false, Default = false, HelpText = "Runs tests")]
+    [Option('t', "do-test", Required = false, Default = true, HelpText = "Runs tests")]
     public bool DoTest { get; set; }
 
     [Option('d', "do-docs", Required = false, Default = false, HelpText = "Generates documentation")]
@@ -25,10 +25,10 @@ public class BuildParameters
     [Option('c', "configuration", Required = false, Default = "Release", HelpText = "Configuration")]
     public string Configuration { get; set; }
 
-    [Option('v', "verbosity", Required = false, Default = DotNetVerbosity.Minimal, HelpText = "Verbosity (default Minimal)")]
+    [Option('v', "verbosity", Required = false, Default = DotNetVerbosity.Quiet, HelpText = "Verbosity (default Quiet)")]
     public DotNetVerbosity Verbosity { get; set; }
 
-    [Option('l', "test-level", Required = false, Default = 1, HelpText = "Test level 1 - 3")]
+    [Option('l', "test-level", Required = false, Default = 10, HelpText = "Test level 1 - 3")]
     public int TestLevel { get; set; }
 
     [Option('r', "do-publish-release", Required = false, Default = false, HelpText = "Publishes release on GH")]
