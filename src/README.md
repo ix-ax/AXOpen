@@ -42,8 +42,10 @@ docfx/
 To test the documentation, run the following script from the repository root folder:
 
 ```Powershell
-.\scripts\build_docu.ps1
+.\scripts\build_test_docu.ps1
 ```
+
+It will create docs-test folder that is git-ignored.
 
 ### **docs**
 
