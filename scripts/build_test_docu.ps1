@@ -9,9 +9,9 @@ dotnet ixd `
 .\src\components.elements\ctrl `
 -o .\docfx\apictrl\
 
-if ((Test-Path .\docu-test\)) {
-    del .\docu-test\
+if ((Test-Path .\docs-test\)) {
+    del .\docs-test\
 }
 
-dotnet docfx build .\docfx\docfx.json --output .\docu-test\
-dotnet docfx serve .\docu-test\
+dotnet docfx build .\docfx\docfx.json --output .\docs-test\
+dotnet docfx serve .\docs-test\ --open-browser

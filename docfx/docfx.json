@@ -126,8 +126,7 @@
           "_site/**"
         ]
       }
-    ],
-    "dest": "../docs",
+    ],   
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": ["default", 
