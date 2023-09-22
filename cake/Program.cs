@@ -107,12 +107,12 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
 
         foreach (var library in context.Libraries)
         {
-            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/tmp_*_.*"), Path.Combine(context.RootDir, library.folder));
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, library.folder));
         }
 
         foreach (var integration in context.Integrations)
         {
-            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/tmp_*_.*"), Path.Combine(context.RootDir, integration.folder));
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, integration.folder));
         }
     }
 

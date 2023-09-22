@@ -1,7 +1,0 @@
-﻿<Project Sdk="Microsoft.Build.Traversal/4.1.0">
-	<ItemGroup>    
-    <ProjectReference Include="src\**\*.*proj"  Exclude="src\**\.apax\**\*.*"/>    
-    <ProjectReference Include="app\**\*.*proj" Exclude="app\**\.apax\**\*.*"/>        
-    <ProjectReference Include="tests\**\*.*proj" Exclude="tests\**\.apax\**\*.*" />
-  </ItemGroup>
-</Project>
