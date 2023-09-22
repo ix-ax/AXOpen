@@ -1,6 +1,7 @@
 NAMESPACE sandboxtest.StandardControlUnit
     USING AXOpen.Core;
     USING System.Strings;
+    USING AXOpen.Inspectors;
 
     ///<summary>
     /// Provides ground mode sequence.
@@ -39,8 +40,9 @@ NAMESPACE sandboxtest.StandardControlUnit
             SettingSourceManager := _SettingSourceManager;
             StationName := _StationName;
 
-           // EntityHeader := REF(ProcessDataManager.Shared.Set);
-           // ProcessData := REF(ProcessDataManager.Datamanager.Set);
+           EntityHeader := REF(ProcessDataManager^.Shared.Set);
+           ProcessData := REF(ProcessDataManager^.DataManger.Set);
+
             SUPER.Run(_parent);
         END_METHOD
         ///<summary>
@@ -147,14 +149,8 @@ NAMESPACE sandboxtest.StandardControlUnit
 
              IF (Steps[13].Execute(THIS, TRUE, 'Copy process data' )) THEN
                 //-------------------------------------------------------  
-                    //THIS.ProcessData := SettingSourceData.Set;
+                    THIS.ProcessData^ := SettingSourceData^;
                     LastGeneratedId := Concat('process_set', '_', ToString(THIS.GetContext().OpenCycleCount()));
-
-
-
-
-
-
                     THIS.MoveNext(); 
                 //-------------------------------------------------------
             END_IF; 
@@ -178,44 +174,6 @@ NAMESPACE sandboxtest.StandardControlUnit
 
         END_METHOD
 
-        METHOD INTERNAL SetScrewDefaultValues
-            VAR_INPUT
-                FailTime : TIME;
-                PassTime : TIME;
-            END_VAR
-            VAR_IN_OUT
-                Res : AXOpen.Inspectors.AxoDigitalInspector;
-                Tor : AXOpen.Inspectors.AxoAnalogueInspector;
-                Ang : AXOpen.Inspectors.AxoAnalogueInspector;
-                XCo : AXOpen.Inspectors.AxoAnalogueInspector;
-                YCo : AXOpen.Inspectors.AxoAnalogueInspector;
-            END_VAR;
-         
-            Res.Data()^.FailTime := FailTime;
-            Tor.Data()^.FailTime := FailTime;
-            Ang.Data()^.FailTime := FailTime;
-            XCo.Data()^.FailTime := FailTime;
-            YCo.Data()^.FailTime := FailTime;
-
-            Res.Data()^.PassTime := PassTime;
-            Tor.Data()^.PassTime := PassTime;
-            Ang.Data()^.PassTime := PassTime;
-            XCo.Data()^.PassTime := PassTime;
-            YCo.Data()^.PassTime := PassTime;
-
-        END_METHOD
-
-        METHOD INTERNAL FillProcessData
-            VAR_INPUT
-                Header : REF_TO SharedProductionData;
-                tData : REF_TO FragmentProcessData;
-            END_VAR
-            Header^.GoesTo := Header^.ComesFrom;
-            Header^.ComesFrom := TO_INT(THIS.GetContext().OpenCycleCount());
-            tData^.CounterDelay := THIS.GetContext().OpenCycleCount();
-
-
-        END_METHOD
     END_CLASS
 
 END_NAMESPACE

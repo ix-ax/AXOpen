@@ -135,8 +135,6 @@ await EntireProductionData.InitializeRemoteDataExchange();
 
 EntireProductionData.Set.SetRepository(productionsharedData);
 
-EntireProductionData.Cu0.SetRepository(productionData[0]);
-
 // setting fragment repository 
 var EntireProductionDataFragmentList = EntireProductionData.GetChildren().OfType<sandboxtest.StandardControlUnit.FragmentProcessDataManger>().ToArray();
 

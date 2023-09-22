@@ -34,10 +34,12 @@ scripts:
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   lo:
     # - Get-ChildItem ENV:AXTARGET
+
     # - apax sld --accept-security-disclaimer -t 172.20.30.110 -i ./bin/plcsim/ -r --default-server-interface
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
   load:
     # - Get-ChildItem ENV:AXTARGET
+
     # - apax sld --accept-security-disclaimer -t 172.20.30.110 -i ./bin/plcsim/ -r --default-server-interface
     - apax build
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface

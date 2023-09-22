@@ -12,7 +12,7 @@ NAMESPACE sandboxtest
             // pre ceklovy nahlad ku konkretnemu kusu zo vsetkych stanic...
             EntireProductionData : EntireProcessDataManager;
            
-            Cu_0 : StandardControlUnit.CU; 
+            Cu_0 : StandardControlUnit.CU;
             Cu_1 : StandardControlUnit.CU;                
             Cu_2 : StandardControlUnit.CU;            
            // Cu_3 : StandardControlUnit.CU;            
@@ -74,9 +74,9 @@ NAMESPACE sandboxtest
         METHOD PROTECTED OVERRIDE Main                                   
             IF(Inputs <> NULL AND Outputs <> NULL) THEN 
 
-                CU_0.ProcessData := REF(ProcessDataCu_0);
-                CU_1.ProcessData := REF(ProcessDataCu_1);
-                CU_2.ProcessData := REF(ProcessDataCu_2);
+                CU_0.ProcessDataManager := REF(ProcessDataCu_0);
+                CU_1.ProcessDataManager := REF(ProcessDataCu_1);
+                CU_2.ProcessDataManager := REF(ProcessDataCu_2);
                 // CU_3.ProcessData := REF(ProcessDataCu_3);
                 // CU_4.ProcessData := REF(ProcessDataCu_4);
                 // CU_5.ProcessData := REF(ProcessDataCu_5);

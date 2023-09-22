@@ -29,7 +29,10 @@ NAMESPACE sandboxtest.StandardControlUnit
             StationName : STRING;
             SettingSourceManager : AXOpen.DATA.IAxoDataExchange;
             SettingSourceData : REF_TO FragmentProcessData;
-            ProcessData : REF_TO ProcessDataManger;
+
+
+            ProcessDataManager : REF_TO ProcessDataManger;
+
         END_VAR
 
         METHOD PUBLIC InvokeMode : INT
@@ -66,12 +69,15 @@ NAMESPACE sandboxtest.StandardControlUnit
                 _stationName : STRING;
                 _settingSourceManager : AXOpen.DATA.IAxoDataExchange;
                 _settingSourceData : REF_TO FragmentProcessData;
+                
                 Inputs : REF_TO sandboxtest.Inputs;
                 Outputs : REF_TO sandboxtest.Outputs;
             END_VAR
+
             StationName := _stationName;
             SettingSourceManager := _settingSourceManager;
             SettingSourceData := _settingSourceData;
+
             THIS.Initialize(_parent);
             THIS.Execute(Inputs, Outputs);
         END_METHOD
@@ -84,9 +90,9 @@ NAMESPACE sandboxtest.StandardControlUnit
             // Component I/O immange and management handling.
             Components.Update(THIS, Inputs, Outputs);
             // Process data manager
-            ProcessData^.Run(THIS);
+            ProcessDataManager^.Run(THIS);
             // Handles ground sequence
-            GroundSequence.Run(THIS, REF(Components), ProcessData, SettingSourceData, SettingSourceManager);
+            GroundSequence.Run(THIS, REF(Components), ProcessDataManager, SettingSourceData, SettingSourceManager);
             // Restores other states when Ground executes
             IF (GroundSequence.IsBusy()) THEN
                 AutomatSequence.Restore();
@@ -94,7 +100,7 @@ NAMESPACE sandboxtest.StandardControlUnit
             END_IF;
             // Handles automatic sequence (ground must be previously done)           
             AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
-            AutomatSequence.Run(THIS, REF(Components), ProcessData, SettingSourceData, SettingSourceManager, REF(StationName));
+            AutomatSequence.Run(THIS, REF(Components), ProcessDataManager, SettingSourceData, SettingSourceManager, REF(StationName));
             // Handles service/manual mode
             ServiceMode.Run(THIS, Components);
             IF ServiceMode.IsBusy() THEN

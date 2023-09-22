@@ -64,7 +64,7 @@
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>
-    <comment>src\TestedControlUnit\CuModes\GroundMode.st,7</comment>
+    <comment>src\TestedControlUnit\CuModes\GroundMode.st,8</comment>
   </data>
   <data name="SERVICE" xml:space="preserve">
     <value>SERVICE</value>
