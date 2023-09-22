@@ -27,7 +27,6 @@ NAMESPACE sandboxtest.StandardControlUnit
             ///</summary>
             ServiceMode : ServiceMode;
             StationName : STRING;
-            Ids : TestIdGenerator;
             SettingSourceManager : AXOpen.DATA.IAxoDataExchange;
             SettingSourceData : REF_TO FragmentProcessData;
             ProcessData : REF_TO ProcessDataManger;
@@ -87,7 +86,7 @@ NAMESPACE sandboxtest.StandardControlUnit
             // Process data manager
             ProcessData^.Run(THIS);
             // Handles ground sequence
-            GroundSequence.Run(THIS, REF(Components), ProcessData, SettingSourceData, SettingSourceManager, Ids);
+            GroundSequence.Run(THIS, REF(Components), ProcessData, SettingSourceData, SettingSourceManager);
             // Restores other states when Ground executes
             IF (GroundSequence.IsBusy()) THEN
                 AutomatSequence.Restore();
@@ -95,7 +94,7 @@ NAMESPACE sandboxtest.StandardControlUnit
             END_IF;
             // Handles automatic sequence (ground must be previously done)           
             AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
-            AutomatSequence.Run(THIS, REF(Components), ProcessData, SettingSourceData, SettingSourceManager, Ids, REF(StationName));
+            AutomatSequence.Run(THIS, REF(Components), ProcessData, SettingSourceData, SettingSourceManager, REF(StationName));
             // Handles service/manual mode
             ServiceMode.Run(THIS, Components);
             IF ServiceMode.IsBusy() THEN

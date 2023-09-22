@@ -13,29 +13,34 @@ NAMESPACE sandboxtest.StandardControlUnit
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
-            ProcessData : REF_TO ProcessDataManger;
-            Ids : StandardControlUnit.ITestIdGenerator;
+            ProcessDataManager : REF_TO ProcessDataManger;
             SettingSourceManager : AXOpen.DATA.IAxoDataExchange;
             SettingSourceData : REF_TO FragmentProcessData;
             StationName : REF_TO STRING;
+            
+            EntityHeader : REF_TO SharedProductionData;
+            ProcessData  : REF_TO FragmentProcessData;
+
+            LastGeneratedId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
                 _parent : IAxoObject;
                 _components : REF_TO Components;
-                _processData : REF_TO ProcessDataManger;
+                _processDataManager : REF_TO ProcessDataManger;
                 _SettingSourceData : REF_TO FragmentProcessData;
                 _SettingSourceManager : AXOpen.DATA.IAxoDataExchange;
-                _ids : StandardControlUnit.ITestIdGenerator;
                 _StationName : REF_TO STRING;
             END_VAR
             Components := _components;
-            ProcessData := _processData;
-            Ids := _ids;
+            ProcessDataManager := _processDataManager;
             SettingSourceData := _SettingSourceData;
             SettingSourceManager := _SettingSourceManager;
             StationName := _StationName;
+
+           // EntityHeader := REF(ProcessDataManager.Shared.Set);
+           // ProcessData := REF(ProcessDataManager.Datamanager.Set);
             SUPER.Run(_parent);
         END_METHOD
         ///<summary>
@@ -43,7 +48,7 @@ NAMESPACE sandboxtest.StandardControlUnit
         ///</summary>
 
         METHOD PROTECTED OVERRIDE Main
-            IF (Components = NULL OR ProcessData = NULL) THEN
+            IF (Components = NULL OR ProcessDataManager = NULL) THEN
                 RETURN;
             END_IF;
 
@@ -52,16 +57,15 @@ NAMESPACE sandboxtest.StandardControlUnit
             // Each step in the sequence must can be used only once.
             // This sets the sequence to run once (top-botton) and stops with done after closing.
             THIS.SequenceMode := eAxoSequenceMode#RunOnce;
-           
+          
             IF (Steps[0].Execute(THIS, TRUE, 'NACITANIE NASTAVENI-process_set')) THEN
                 //-------------------------------------------------------   
                 ;
-                //Ids.GetRootRecordName();
                 IF (SettingSourceManager.Read('process_set').IsDone()) THEN // <- waits for the task to be done.
                     THIS.MoveNext(); // <- This will move to the next step in the sequence.
                 END_IF;
                 //-------------------------------------------------------
-            END_IF;
+            END_IF; 
 
             IF (Steps[1].Execute(THIS, TRUE, 'Restore Piston 0' )) THEN
                 //-------------------------------------------------------   
@@ -141,6 +145,22 @@ NAMESPACE sandboxtest.StandardControlUnit
                 //-------------------------------------------------------
             END_IF; 
 
+             IF (Steps[13].Execute(THIS, TRUE, 'Copy process data' )) THEN
+                //-------------------------------------------------------  
+                    //THIS.ProcessData := SettingSourceData.Set;
+                    LastGeneratedId := Concat('process_set', '_', ToString(THIS.GetContext().OpenCycleCount()));
+
+
+
+
+
+
+                    THIS.MoveNext(); 
+                //-------------------------------------------------------
+            END_IF; 
+
+
+
             // IF (Steps[13].Execute(THIS, TRUE, 'Camera_0' )) THEN
             //     //-------------------------------------------------------   
             //         IF (Components^.Camera_0.Restore().IsDone()) THEN THIS.MoveNext(); END_IF;
@@ -158,6 +178,33 @@ NAMESPACE sandboxtest.StandardControlUnit
 
         END_METHOD
 
+        METHOD INTERNAL SetScrewDefaultValues
+            VAR_INPUT
+                FailTime : TIME;
+                PassTime : TIME;
+            END_VAR
+            VAR_IN_OUT
+                Res : AXOpen.Inspectors.AxoDigitalInspector;
+                Tor : AXOpen.Inspectors.AxoAnalogueInspector;
+                Ang : AXOpen.Inspectors.AxoAnalogueInspector;
+                XCo : AXOpen.Inspectors.AxoAnalogueInspector;
+                YCo : AXOpen.Inspectors.AxoAnalogueInspector;
+            END_VAR;
+         
+            Res.Data()^.FailTime := FailTime;
+            Tor.Data()^.FailTime := FailTime;
+            Ang.Data()^.FailTime := FailTime;
+            XCo.Data()^.FailTime := FailTime;
+            YCo.Data()^.FailTime := FailTime;
+
+            Res.Data()^.PassTime := PassTime;
+            Tor.Data()^.PassTime := PassTime;
+            Ang.Data()^.PassTime := PassTime;
+            XCo.Data()^.PassTime := PassTime;
+            YCo.Data()^.PassTime := PassTime;
+
+        END_METHOD
+
         METHOD INTERNAL FillProcessData
             VAR_INPUT
                 Header : REF_TO SharedProductionData;
@@ -166,10 +213,8 @@ NAMESPACE sandboxtest.StandardControlUnit
             Header^.GoesTo := Header^.ComesFrom;
             Header^.ComesFrom := TO_INT(THIS.GetContext().OpenCycleCount());
             tData^.CounterDelay := THIS.GetContext().OpenCycleCount();
-// tData^.hierarchy.item_member_property_1.item_member_property_2.myULINT :=  tData^.hierarchy.item_member_property_1.item_member_property_1.myULINT;
-// tData^.hierarchy.item_member_property_1.item_member_property_1.myULINT :=  THIS.GetContext().OpenCycleCount();
-// tData^.hierarchy.item_member_property_2.item_member_property_2.myULINT :=  tData^.hierarchy.item_member_property_1.item_member_property_1.myULINT;
-// tData^.hierarchy.item_member_property_2.item_member_property_1.myULINT :=  THIS.GetContext().OpenCycleCount();
+
+
         END_METHOD
     END_CLASS
 

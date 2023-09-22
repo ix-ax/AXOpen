@@ -40,7 +40,7 @@ NAMESPACE sandboxtest.StandardControlUnit
             components.Cylinder_6.ActivateManualControl();
             components.Cylinder_7.ActivateManualControl();
             components.Cylinder_8.ActivateManualControl();
-            components.Cylinder_9.ActivateManualControl();
+            components.Cylinder_9.ActivateManualControl();  
 
             components.Reader_0.ActivateManualControl();
             components.Reader_1.ActivateManualControl();

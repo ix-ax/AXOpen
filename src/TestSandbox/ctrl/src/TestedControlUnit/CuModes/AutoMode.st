@@ -13,34 +13,38 @@ NAMESPACE sandboxtest.StandardControlUnit
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
-            ProcessData : REF_TO ProcessDataManger;
+
+            ProcessDataManager : REF_TO ProcessDataManger;
+
             SettingSourceData : REF_TO FragmentProcessData;
+
             SettingSourceManager : AXOpen.DATA.IAxoDataExchange;
+
             StationName : REF_TO STRING;
-            Ids : ITestIdGenerator;
-            LastGeneratedId : ARRAY[0..80] OF STRING;
 
+            LastGeneratedId : STRING;
 
-            ComprehensiveResult: AXOpen.Inspectors.AxoComprehensiveResult;
-
+            EntityHeader : REF_TO SharedProductionData;
+            ProcessData  : REF_TO FragmentProcessData;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
                 _parent : IAxoObject;
                 _components : REF_TO Components;
-                _processData : REF_TO ProcessDataManger;
+                _processDataManager : REF_TO ProcessDataManger;
                 _SettingSourceData : REF_TO FragmentProcessData;
                 _SettingSourceManager : AXOpen.DATA.IAxoDataExchange;
-                _ids : ITestIdGenerator;
                 _StationName : REF_TO STRING;
             END_VAR
-            Components := _components;
-            ProcessData := _processData;
-            StationName := _StationName;
-            Ids := _ids;
-            SettingSourceData := _SettingSourceData;
+            Components          := _components;
+            ProcessDataManager  := _processDataManager;
+            StationName         := _StationName;
+            SettingSourceData   := _SettingSourceData;
             SettingSourceManager := _SettingSourceManager;
+
+            //EntityHeader := REF(ProcessDataManager.Shared.Set);
+            //ProcessData := REF(ProcessDataManager.Datamager.Set);
             SUPER.Run(_parent);
         END_METHOD
         ///<summary>
@@ -52,7 +56,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                 ForIndex : INT;
             END_VAR
             ;
-            IF (Components = NULL OR ProcessData = NULL) THEN
+            IF (Components = NULL OR ProcessDataManager = NULL) THEN
                 RETURN;
             END_IF;
             
@@ -70,17 +74,17 @@ NAMESPACE sandboxtest.StandardControlUnit
 
             IF (Steps[1].Execute(THIS, TRUE, 'Generating Id')) THEN
                 //-------------------------------------------------------            
-                LastGeneratedId[0] := Concat(StationName^, '_', ToString(THIS.GetContext().OpenCycleCount()));
+                LastGeneratedId := Concat(StationName^, '_', ToString(THIS.GetContext().OpenCycleCount()));
                 THIS.MoveNext();
-                ProcessData^.Restore();
+                ProcessDataManager^.Restore();
                 //-------------------------------------------------------            
             END_IF;
 
             IF (Steps[2].Execute(THIS, TRUE, 'ProcessData-Create')) THEN
                 //-------------------------------------------------------            
-                IF (ProcessData^.CreateOrUpdate(LastGeneratedId[0]).IsDone()) THEN
+                IF (ProcessDataManager^.CreateOrUpdate(LastGeneratedId).IsDone()) THEN
                     THIS.MoveNext();
-                    ProcessData^.Restore();
+                    ProcessDataManager^.Restore();
                 END_IF;
                 //-------------------------------------------------------
             END_IF;
@@ -88,9 +92,9 @@ NAMESPACE sandboxtest.StandardControlUnit
 
             IF (Steps[3].Execute(THIS, TRUE, 'ProcessData-Read')) THEN
                 //-------------------------------------------------------            
-                IF (ProcessData^.Read(LastGeneratedId[0]).IsDone()) THEN
+                IF (ProcessDataManager^.Read(LastGeneratedId).IsDone()) THEN
                     THIS.MoveNext();
-                    ProcessData^.Restore();
+                    ProcessDataManager^.Restore();
                 END_IF;
                 //-------------------------------------------------------
             END_IF;
@@ -315,60 +319,8 @@ NAMESPACE sandboxtest.StandardControlUnit
             THIS.Close(Steps[80]);
         END_METHOD
 
-        METHOD INTERNAL DataStep
-            VAR_INPUT
-                StepIndex : INT;
-                IdIndex : INT;
-                operation : INT; // create 10, read 20, update 30 delete 40
-            END_VAR
-
-            CASE operation OF
-                10:
-                    IF (Steps[StepIndex].Execute(THIS, TRUE, 'creating')) THEN
-                        //IF (Steps[StepIndex].Execute(THIS, TRUE, Concat('Step ', ToString(StepIndex),', creating ', LastGeneratedId[IdIndex] ))) THEN
-                        //-------------------------------------------------------            
-                        IF (ProcessData^.CreateOrUpdate(LastGeneratedId[IdIndex]).IsDone()) THEN
-                            THIS.MoveNext();
-                            ProcessData^.Restore();
-                        END_IF;
-                        //-------------------------------------------------------
-                    END_IF;
-                20:
-                    IF (Steps[StepIndex].Execute(THIS, TRUE, 'reading')) THEN
-                        // IF (Steps[StepIndex].Execute(THIS, TRUE, Concat('Step ', ToString(StepIndex),', reading ', LastGeneratedId[IdIndex] ))) THEN
-                        //-------------------------------------------------------            
-                        IF (ProcessData^.Read(LastGeneratedId[IdIndex]).IsDone()) THEN
-                            THIS.MoveNext();
-                            ProcessData^.Restore();
-                        END_IF;
-                        //-------------------------------------------------------
-                    END_IF;
-                30:
-                    IF (Steps[StepIndex].Execute(THIS, TRUE, 'updating')) THEN
-                        // IF (Steps[StepIndex].Execute(THIS, TRUE, Concat('Step ', ToString(StepIndex),', updating ', LastGeneratedId[IdIndex] ))) THEN
-                        //-------------------------------------------------------            
-                        IF (ProcessData^.Update(LastGeneratedId[IdIndex]).IsDone()) THEN
-                            THIS.MoveNext();
-                            ProcessData^.Restore();
-                        END_IF;
-                        //-------------------------------------------------------
-                    END_IF;
-                40:
-                    IF (Steps[StepIndex].Execute(THIS, TRUE, 'deleting')) THEN
-                        //IF (Steps[StepIndex].Execute(THIS, TRUE, Concat('Step ', ToString(StepIndex),', deleting ', LastGeneratedId[IdIndex] ))) THEN
-                        //-------------------------------------------------------            
-                        IF (ProcessData^.Delete(LastGeneratedId[IdIndex]).IsDone()) THEN
-                            THIS.MoveNext();
-                            ProcessData^.Restore();
-                        END_IF;
-                        //-------------------------------------------------------
-                    END_IF;
-            END_CASE;
-        END_METHOD
-
-
         METHOD INTERNAL Screwins_1Screw_Steps
-             VAR_INPUT
+            VAR_INPUT
                 StepIndex : INT;
             END_VAR
 
@@ -378,21 +330,21 @@ NAMESPACE sandboxtest.StandardControlUnit
                 Ang : AXOpen.Inspectors.AxoAnalogueInspector;
                 XCo : AXOpen.Inspectors.AxoAnalogueInspector;
                 YCo : AXOpen.Inspectors.AxoAnalogueInspector;
-            END_VAR;
+            END_VAR
 
                 IF (Steps[StepIndex + 0].Execute(THIS, TRUE, 'Cleaning checks')) THEN
                     //-------------------------------------------------------            
-                    Res.Data()^.FailTime := TIME#700ms;
-                    Tor.Data()^.FailTime := TIME#700ms;
-                    Ang.Data()^.FailTime := TIME#700ms;
-                    XCo.Data()^.FailTime := TIME#700ms;
-                    YCo.Data()^.FailTime := TIME#700ms;
+                                       
+                    THIS.SetScrewDefaultValues(
+                        FailTime := TIME#300ms,
+                        PassTime := TIME#150ms,
+                        Res := Res,
+                        Tor := Tor,
+                        Ang := Ang,
+                        XCo := XCo,
+                        YCo := YCo
+                    );
 
-                    Res.Data()^.PassTime := TIME#100ms;
-                    Tor.Data()^.PassTime := TIME#100ms;
-                    Ang.Data()^.PassTime := TIME#100ms;
-                    XCo.Data()^.PassTime := TIME#100ms;
-                    YCo.Data()^.PassTime := TIME#100ms;
 
                     THIS.MoveNext();
                     //-------------------------------------------------------
@@ -400,19 +352,20 @@ NAMESPACE sandboxtest.StandardControlUnit
 
                 IF (Steps[StepIndex + 1].Execute(THIS, TRUE, 'Screw Inspect')) THEN
                     //-------------------------------------------------------
-                    Res.WithCoordinator(THIS).Inspect(THIS,false  ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
-                    Tor.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
-                    Ang.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
-                    XCo.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
-                    YCo.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
-
+                    //Res.WithCoordinator(THIS).Inspect(THIS,false  ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
+                    //Tor.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
+                    //Ang.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
+                    //XCo.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
+                    //YCo.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult(ComprehensiveResult).OnFail().CarryOn();
+;
                     //-------------------------------------------------------
                 END_IF;
-        END_METHOD
+        END_METHOD   
 
         METHOD INTERNAL SetScrewDefaultValues
             VAR_INPUT
                 FailTime : TIME;
+                PassTime : TIME;
             END_VAR
             VAR_IN_OUT
                 Res : AXOpen.Inspectors.AxoDigitalInspector;
@@ -433,34 +386,19 @@ NAMESPACE sandboxtest.StandardControlUnit
             Ang.Data()^.PassTime := TIME#100ms;
             XCo.Data()^.PassTime := TIME#100ms;
             YCo.Data()^.PassTime := TIME#100ms;
-        END_METHOD
 
+        END_METHOD
 
         METHOD INTERNAL CreateId
             VAR_INPUT
                 StepIndex : INT;
-                IdIndex : INT;
             END_VAR
-            IF (Steps[StepIndex].Execute(THIS, TRUE, 'Generating Id : ')) THEN
-                //IF (Steps[StepIndex].Execute(THIS, TRUE, Concat('Step ', ToString(StepIndex),', Generating Id on index: ', ToString( IdIndex) ))) THEN
-                LastGeneratedId[IdIndex] := Concat(StationName^, '_', ToString(THIS.GetContext().OpenCycleCount()));
+            IF (Steps[StepIndex].Execute(THIS, TRUE, 'Generating Id ')) THEN
+                LastGeneratedId := Concat(StationName^, '_', ToString(THIS.GetContext().OpenCycleCount()));
                 THIS.MoveNext();
             END_IF;
         END_METHOD
 
-        METHOD INTERNAL CallStepsReadCreateUpdate
-            VAR_INPUT
-                FromStepIndex : INT;
-                IdIndex : INT;
-            END_VAR
-            THIS.CreateId((FromStepIndex + 0), IdIndex); // generate id
-            THIS.DataStep((FromStepIndex + 1), IdIndex, 10); // create...
-            THIS.DataStep((FromStepIndex + 2), IdIndex, 20); // read...
-            THIS.DataStep((FromStepIndex + 3), IdIndex, 30); // update...
-
-            // THIS.DataStep((FromStepIndex + 4), IdIndex, 40); // delete...
-
-        END_METHOD
     END_CLASS
 
 END_NAMESPACE

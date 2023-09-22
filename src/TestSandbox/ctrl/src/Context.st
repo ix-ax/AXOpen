@@ -15,13 +15,13 @@ NAMESPACE sandboxtest
             Cu_0 : StandardControlUnit.CU; 
             Cu_1 : StandardControlUnit.CU;                
             Cu_2 : StandardControlUnit.CU;            
-            Cu_3 : StandardControlUnit.CU;            
-            Cu_4 : StandardControlUnit.CU;            
-            Cu_5 : StandardControlUnit.CU;            
-            Cu_6 : StandardControlUnit.CU;            
-            Cu_7 : StandardControlUnit.CU;            
-            Cu_8 : StandardControlUnit.CU;
-            Cu_9 : StandardControlUnit.CU;
+           // Cu_3 : StandardControlUnit.CU;            
+           // Cu_4 : StandardControlUnit.CU;            
+           // Cu_5 : StandardControlUnit.CU;            
+           // Cu_6 : StandardControlUnit.CU;            
+           // Cu_7 : StandardControlUnit.CU;            
+           // Cu_8 : StandardControlUnit.CU;
+           // Cu_9 : StandardControlUnit.CU;
 
             // Cu_10 : StandardControlUnit.CU; 
             // Cu_11 : StandardControlUnit.CU;                
@@ -37,14 +37,14 @@ NAMESPACE sandboxtest
                                                                         {#ix-set:AttributeName = "PD CU 0"} 
             ProcessDataCu_0 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 1"}         
             ProcessDataCu_1 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 2"}         
-            ProcessDataCu_2 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 3"}         
-            ProcessDataCu_3 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 4"}         
-            ProcessDataCu_4 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 5"}         
-            ProcessDataCu_5 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 6"}         
-            ProcessDataCu_6 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 7"}         
-            ProcessDataCu_7 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 8"}         
-            ProcessDataCu_8 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 9"} 
-            ProcessDataCu_9 : StandardControlUnit.ProcessDataManger;
+            ProcessDataCu_2 : StandardControlUnit.ProcessDataManger;   // {#ix-set:AttributeName = "PD CU 3"}         
+           // ProcessDataCu_3 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 4"}         
+           // ProcessDataCu_4 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 5"}         
+           // ProcessDataCu_5 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 6"}         
+           // ProcessDataCu_6 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 7"}         
+           // ProcessDataCu_7 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 8"}         
+           // ProcessDataCu_8 : StandardControlUnit.ProcessDataManger;    {#ix-set:AttributeName = "PD CU 9"} 
+           // ProcessDataCu_9 : StandardControlUnit.ProcessDataManger;
 
 
             //                                                              {#ix-set:AttributeName = "PD CU 10"} 
@@ -77,13 +77,13 @@ NAMESPACE sandboxtest
                 CU_0.ProcessData := REF(ProcessDataCu_0);
                 CU_1.ProcessData := REF(ProcessDataCu_1);
                 CU_2.ProcessData := REF(ProcessDataCu_2);
-                CU_3.ProcessData := REF(ProcessDataCu_3);
-                CU_4.ProcessData := REF(ProcessDataCu_4);
-                CU_5.ProcessData := REF(ProcessDataCu_5);
-                CU_6.ProcessData := REF(ProcessDataCu_6);
-                CU_7.ProcessData := REF(ProcessDataCu_7);
-                CU_8.ProcessData := REF(ProcessDataCu_8);
-                CU_9.ProcessData := REF(ProcessDataCu_9);
+                // CU_3.ProcessData := REF(ProcessDataCu_3);
+                // CU_4.ProcessData := REF(ProcessDataCu_4);
+                // CU_5.ProcessData := REF(ProcessDataCu_5);
+                // CU_6.ProcessData := REF(ProcessDataCu_6);
+                // CU_7.ProcessData := REF(ProcessDataCu_7);
+                // CU_8.ProcessData := REF(ProcessDataCu_8);
+                // CU_9.ProcessData := REF(ProcessDataCu_9);
 
                 // CU_10.ProcessData := REF(ProcessDataCu_10);
                 // CU_11.ProcessData := REF(ProcessDataCu_11);
@@ -101,13 +101,13 @@ NAMESPACE sandboxtest
                 CU_0.Run(THIS,'CU_0',EntireProcessData,REF(EntireProcessData.Cu0.Set), Inputs, Outputs); 
                 CU_1.Run(THIS,'CU_1',EntireProcessData,REF(EntireProcessData.Cu1.Set), Inputs, Outputs); 
                 CU_2.Run(THIS,'CU_2',EntireProcessData,REF(EntireProcessData.Cu2.Set), Inputs, Outputs); 
-                CU_3.Run(THIS,'CU_3',EntireProcessData,REF(EntireProcessData.Cu3.Set), Inputs, Outputs); 
-                CU_4.Run(THIS,'CU_4',EntireProcessData,REF(EntireProcessData.Cu4.Set), Inputs, Outputs); 
-                CU_5.Run(THIS,'CU_5',EntireProcessData,REF(EntireProcessData.Cu5.Set), Inputs, Outputs); 
-                CU_6.Run(THIS,'CU_6',EntireProcessData,REF(EntireProcessData.Cu6.Set), Inputs, Outputs); 
-                CU_7.Run(THIS,'CU_7',EntireProcessData,REF(EntireProcessData.Cu7.Set), Inputs, Outputs); 
-                CU_8.Run(THIS,'CU_8',EntireProcessData,REF(EntireProcessData.Cu8.Set), Inputs, Outputs); 
-                CU_9.Run(THIS,'CU_9',EntireProcessData,REF(EntireProcessData.Cu9.Set), Inputs, Outputs); 
+                // CU_3.Run(THIS,'CU_3',EntireProcessData,REF(EntireProcessData.Cu3.Set), Inputs, Outputs); 
+                // CU_4.Run(THIS,'CU_4',EntireProcessData,REF(EntireProcessData.Cu4.Set), Inputs, Outputs); 
+                // CU_5.Run(THIS,'CU_5',EntireProcessData,REF(EntireProcessData.Cu5.Set), Inputs, Outputs); 
+                // CU_6.Run(THIS,'CU_6',EntireProcessData,REF(EntireProcessData.Cu6.Set), Inputs, Outputs); 
+                // CU_7.Run(THIS,'CU_7',EntireProcessData,REF(EntireProcessData.Cu7.Set), Inputs, Outputs); 
+                // CU_8.Run(THIS,'CU_8',EntireProcessData,REF(EntireProcessData.Cu8.Set), Inputs, Outputs); 
+                // CU_9.Run(THIS,'CU_9',EntireProcessData,REF(EntireProcessData.Cu9.Set), Inputs, Outputs); 
 
                 // CU_10.Run(THIS,'CU_10',EntireProcessData,REF(EntireProcessData.Cu10.Set), Inputs^, Outputs^); 
                 // CU_11.Run(THIS,'CU_11',EntireProcessData,REF(EntireProcessData.Cu11.Set), Inputs^, Outputs^); 
@@ -135,8 +135,10 @@ NAMESPACE sandboxtest
     CLASS SharedProductionData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             
-            ComesFrom : INT;
-            GoesTo : INT;
+            ComesFrom   : INT;
+            GoesTo      : INT;
+
+            EntityResult : AXOpen.Inspectors.AxoComprehensiveResult;
         END_VAR        
     END_CLASS
 
@@ -158,14 +160,14 @@ NAMESPACE sandboxtest
                                                                     {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu0"}  
             Cu0 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu1"}  
             Cu1 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu2"}  
-            Cu2 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu3"}  
-            Cu3 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu4"}  
-            Cu4 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu5"}  
-            Cu5 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu6"}  
-            Cu6 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu7"}  
-            Cu7 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu8"}  
-            Cu8 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu9"} 
-            Cu9 : StandardControlUnit.FragmentProcessDataManger;
+            Cu2 : StandardControlUnit.FragmentProcessDataManger;    //{#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu3"}  
+            // Cu3 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu4"}  
+            // Cu4 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu5"}  
+            // Cu5 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu6"}  
+            // Cu6 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu7"}  
+            // Cu7 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu8"}  
+            // Cu8 : StandardControlUnit.FragmentProcessDataManger;    {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu9"} 
+            // Cu9 : StandardControlUnit.FragmentProcessDataManger;
             
             
             //                                                         {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}  {#ix-set:AttributeName = "Cu10"}  
@@ -221,13 +223,13 @@ NAMESPACE sandboxtest
             if      (parentContext^.Cu_0.InvokeMode(iMode) = iMode)
                 AND (parentContext^.Cu_1.InvokeMode(iMode) = iMode)
                 AND (parentContext^.Cu_2.InvokeMode(iMode) = iMode)
-                AND (parentContext^.Cu_3.InvokeMode(iMode) = iMode)
-                AND (parentContext^.Cu_4.InvokeMode(iMode) = iMode)
-                AND (parentContext^.Cu_5.InvokeMode(iMode) = iMode)
-                AND (parentContext^.Cu_6.InvokeMode(iMode) = iMode)
-                AND (parentContext^.Cu_7.InvokeMode(iMode) = iMode)
-                AND (parentContext^.Cu_8.InvokeMode(iMode) = iMode)
-                AND (parentContext^.Cu_9.InvokeMode(iMode) = iMode)
+               // AND (parentContext^.Cu_3.InvokeMode(iMode) = iMode)
+               // AND (parentContext^.Cu_4.InvokeMode(iMode) = iMode)
+               // AND (parentContext^.Cu_5.InvokeMode(iMode) = iMode)
+               // AND (parentContext^.Cu_6.InvokeMode(iMode) = iMode)
+               // AND (parentContext^.Cu_7.InvokeMode(iMode) = iMode)
+               // AND (parentContext^.Cu_8.InvokeMode(iMode) = iMode)
+               // AND (parentContext^.Cu_9.InvokeMode(iMode) = iMode)
 
                 // AND (parentContext^.Cu_10.InvokeMode(iMode) = iMode)
                 // AND (parentContext^.Cu_11.InvokeMode(iMode) = iMode)
