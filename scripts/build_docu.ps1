@@ -9,15 +9,9 @@ dotnet ixd `
 .\src\components.elements\ctrl `
 -o .\docfx\apictrl\
 
-if ((Test-Path .\docs\)) {
-    del .\docs\
+if ((Test-Path .\docu-test\)) {
+    del .\docu-test\
 }
 
-if ((Test-Path .\docfx\src\)) {
-    del .\docfx\src\
-}
-
-# dotnet run --project .\src\tools\src\axo.docopy\axo.docopy.csproj -s .\src -d .\docfx\src\
-# dotnet DocFxTocGenerator --docfolder .\docfx\ --outputfolder .\docfx\gtoc\
-dotnet docfx build .\docfx\docfx.json
-dotnet docfx serve .\docs\
+dotnet docfx build .\docfx\docfx.json --output .\docu-test\
+dotnet docfx serve .\docu-test\
