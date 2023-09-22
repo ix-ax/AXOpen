@@ -43,6 +43,7 @@ scripts:
     # - apax sld --accept-security-disclaimer -t 172.20.30.110 -i ./bin/plcsim/ -r --default-server-interface
     - apax build
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - ..\\SandBoxTest.app\\bin\\Debug\\net7.0\\SandBoxTest.hmi.exe
   watch:
     - dotnet watch --project ..\\sandboxtest.app\\sandboxtest.hmi.csproj
   da:

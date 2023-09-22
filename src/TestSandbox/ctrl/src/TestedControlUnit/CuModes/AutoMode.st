@@ -77,7 +77,6 @@ NAMESPACE sandboxtest.StandardControlUnit
                 //-------------------------------------------------------            
                 THIS.CreateId();
                 
-                
                 ProcessData^ :=  SettingSourceData^;
 
                 THIS.SetScrewDefaultValues( 
@@ -136,8 +135,9 @@ NAMESPACE sandboxtest.StandardControlUnit
 
                 ProcessDataManager^.Restore();
 
-                THIS.MoveNext();
+                ProcessData^.CounterDelay := ProcessData^.CounterDelay + ULINT#100;
 
+                THIS.MoveNext();
                 //-------------------------------------------------------            
             END_IF;
 
@@ -228,7 +228,8 @@ NAMESPACE sandboxtest.StandardControlUnit
                 //-------------------------------------------------------
             END_IF; 
 
-            THIS.Screwins_1Screw_Steps(StepIndex := 8,
+
+            THIS.Screwins_1Screw_Steps(StepIndex := 10,
                     Res    := SettingSourceData^.Res_Screw_0,
                     Tor    := SettingSourceData^.Tor_Screw_0,
                     Ang    := SettingSourceData^.Ang_Screw_0,
@@ -236,7 +237,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                     YCo    := SettingSourceData^.YCo_Screw_0
             );
 
-            THIS.Screwins_1Screw_Steps(StepIndex := 10,
+            THIS.Screwins_1Screw_Steps(StepIndex := 20,
                     Res    := SettingSourceData^.Res_Screw_1,
                     Tor    := SettingSourceData^.Tor_Screw_1,
                     Ang    := SettingSourceData^.Ang_Screw_1,
@@ -245,7 +246,7 @@ NAMESPACE sandboxtest.StandardControlUnit
             );
 
 
-            THIS.Screwins_1Screw_Steps(StepIndex := 12,
+            THIS.Screwins_1Screw_Steps(StepIndex := 30,
                     Res    := SettingSourceData^.Res_Screw_2,
                     Tor    := SettingSourceData^.Tor_Screw_2,
                     Ang    := SettingSourceData^.Ang_Screw_2,
@@ -253,7 +254,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                     YCo    := SettingSourceData^.YCo_Screw_2
             );
 
-            THIS.Screwins_1Screw_Steps(StepIndex := 14,
+            THIS.Screwins_1Screw_Steps(StepIndex := 40,
                     Res    := SettingSourceData^.Res_Screw_3,
                     Tor    := SettingSourceData^.Tor_Screw_3,
                     Ang    := SettingSourceData^.Ang_Screw_3,
@@ -261,7 +262,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                     YCo    := SettingSourceData^.YCo_Screw_3
             );
 
-            IF (Steps[16].Execute(THIS, TRUE, 'ALL CYLINDER STOP, DONE' )) THEN
+            IF (Steps[50].Execute(THIS, TRUE, 'ALL CYLINDER STOP, DONE' )) THEN
                 //-------------------------------------------------------  
                     
                     IF Components^.Cylinder_0.Stop().IsDone() AND
@@ -283,7 +284,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                 //-------------------------------------------------------
             END_IF; 
 
-            IF (Steps[17].Execute(THIS, TRUE, 'ALL PISTONS TO WORKPOS' )) THEN
+            IF (Steps[52].Execute(THIS, TRUE, 'ALL PISTONS TO WORKPOS' )) THEN
                 //-------------------------------------------------------  
                     Components^.Cylinder_0.MoveToHome();
                     Components^.Cylinder_1.MoveToHome();
@@ -302,7 +303,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                 //-------------------------------------------------------
             END_IF; 
 
-            THIS.Screwins_1Screw_Steps(StepIndex := 18,
+            THIS.Screwins_1Screw_Steps(StepIndex := 60,
                     Res    := SettingSourceData^.Res_Screw_4,
                     Tor    := SettingSourceData^.Tor_Screw_4,
                     Ang    := SettingSourceData^.Ang_Screw_4,
@@ -311,19 +312,20 @@ NAMESPACE sandboxtest.StandardControlUnit
             );
 
 
-            IF (Steps[20].Execute(THIS, TRUE, 'RESET CAMERA' )) THEN
+            IF (Steps[72].Execute(THIS, TRUE, 'RESET CAMERA' )) THEN
                 //-------------------------------------------------------  
-                    Components^.Camera_0.ChangeJob('1').IsDone();
-                    Components^.Camera_1.ChangeJob('1').IsDone();
+                    // Components^.Camera_0.ChangeJob('1').IsDone();
+                    // Components^.Camera_1.ChangeJob('1').IsDone();
 
                     IF CurrentStep.Duration > TIME#1S THEN 
                         THIS.MoveNext(); 
+                        ProcessData^.CounterDelay := ProcessData^.CounterDelay + ULINT#5000;
                     END_IF;
                 //-------------------------------------------------------
             END_IF; 
 
             
-            IF (Steps[21].Execute(THIS, TRUE, 'Update data to db')) THEN
+            IF (Steps[75].Execute(THIS, TRUE, 'Update data to db')) THEN
                 //-------------------------------------------------------            
                 IF (ProcessDataManager^.Update(LastGeneratedId).IsDone()) THEN
                     THIS.MoveNext();
@@ -332,7 +334,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[22].Execute(THIS, TRUE, 'Delay' )) THEN
+            IF (Steps[76].Execute(THIS, TRUE, 'Delay' )) THEN
                 //-------------------------------------------------------  
                     IF CurrentStep.Duration > TIME#10S THEN 
                         THIS.MoveNext(); 
@@ -349,7 +351,7 @@ NAMESPACE sandboxtest.StandardControlUnit
                 StepIndex : INT;
             END_VAR
 
-            VAR_IN_OUT
+             VAR_IN_OUT
                 Res : AXOpen.Inspectors.AxoDigitalInspector;
                 Tor : AXOpen.Inspectors.AxoAnalogueInspector;
                 Ang : AXOpen.Inspectors.AxoAnalogueInspector;
@@ -361,37 +363,38 @@ NAMESPACE sandboxtest.StandardControlUnit
                     //-------------------------------------------------------            
                     IF CurrentStep.Duration > TIME#1S THEN 
                         THIS.MoveNext(); 
+                        ProcessData^.CounterDelay := ProcessData^.CounterDelay + ULINT#1;
                     END_IF;
                     //-------------------------------------------------------
                 END_IF;
 
-                IF (Steps[StepIndex + 1].Execute(THIS, TRUE, 'Screw Inspect-Res')) THEN
+                IF (Steps[StepIndex + 1].Execute(THIS, TRUE, 'Inspect-Res')) THEN
                     //-------------------------------------------------------
                     Res.WithCoordinator(THIS).Inspect(THIS,false  ).UpdateComprehensiveResult( EntityHeader^.EntityResult ).OnFail().CarryOn();
                     //-------------------------------------------------------
                 END_IF;
 
-                IF (Steps[StepIndex + 2].Execute(THIS, TRUE, 'Screw Inspect-Tor')) THEN
+                IF (Steps[StepIndex + 2].Execute(THIS, TRUE, 'Inspect-Tor')) THEN
                     //-------------------------------------------------------
-                    Tor.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult( EntityHeader^.EntityResult ).OnFail().CarryOn();
-                    //-------------------------------------------------------
-                END_IF;
-
-                IF (Steps[StepIndex + 3].Execute(THIS, TRUE, 'Screw Inspect-Ang')) THEN
-                    //-------------------------------------------------------
-                    Ang.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult( EntityHeader^.EntityResult ).OnFail().CarryOn();
+                    Tor.WithCoordinator(THIS).Inspect(THIS, 1      ).UpdateComprehensiveResult( EntityHeader^.EntityResult ).OnFail().CarryOn();
                     //-------------------------------------------------------
                 END_IF;
 
-                IF (Steps[StepIndex + 4].Execute(THIS, TRUE, 'Screw Inspect-X')) THEN
+                IF (Steps[StepIndex + 3].Execute(THIS, TRUE, 'Inspect-Ang')) THEN
                     //-------------------------------------------------------
-                    XCo.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult( EntityHeader^.EntityResult ).OnFail().CarryOn();
+                    Ang.WithCoordinator(THIS).Inspect(THIS,2      ).UpdateComprehensiveResult( EntityHeader^.EntityResult ).OnFail().CarryOn();
                     //-------------------------------------------------------
                 END_IF;
 
-                IF (Steps[StepIndex + 5].Execute(THIS, TRUE, 'Screw Inspect -Y')) THEN
+                IF (Steps[StepIndex + 4].Execute(THIS, TRUE, 'Inspect-X')) THEN
                     //-------------------------------------------------------
-                    YCo.WithCoordinator(THIS).Inspect(THIS,0      ).UpdateComprehensiveResult( EntityHeader^.EntityResult ).OnFail().CarryOn();
+                    XCo.WithCoordinator(THIS).Inspect(THIS,3     ).UpdateComprehensiveResult( EntityHeader^.EntityResult ).OnFail().CarryOn();
+                    //-------------------------------------------------------
+                END_IF;
+
+                IF (Steps[StepIndex + 5].Execute(THIS, TRUE, 'Inspect -Y')) THEN
+                    //-------------------------------------------------------
+                    YCo.WithCoordinator(THIS).Inspect(THIS,4     ).UpdateComprehensiveResult( EntityHeader^.EntityResult ).OnFail().CarryOn();
                     //-------------------------------------------------------
                 END_IF;
                 
@@ -429,6 +432,8 @@ NAMESPACE sandboxtest.StandardControlUnit
                 Res : AXOpen.Inspectors.AxoDigitalInspector;
             END_VAR;
          
+            Res.Data()^.NumberOfAllowedRetries := UINT#10;
+
             Res.Data()^.FailTime := FailTime;
             Res.Data()^.PassTime := PassTime;
             Res.Data()^.Result :=  AXOpen.Inspectors.eInspectorResult#NoAction;;
@@ -443,6 +448,10 @@ NAMESPACE sandboxtest.StandardControlUnit
                 Res : AXOpen.Inspectors.AxoAnalogueInspector;
             END_VAR;
          
+            Res.Data()^.NumberOfAllowedRetries := UINT#10;
+            Res.Data()^.RequiredMin := -100.0;
+            Res.Data()^.RequiredMax := -100.0;
+
             Res.Data()^.FailTime := FailTime;
             Res.Data()^.PassTime := PassTime;
             Res.Data()^.Result :=  AXOpen.Inspectors.eInspectorResult#NoAction;;
@@ -457,9 +466,12 @@ NAMESPACE sandboxtest.StandardControlUnit
                 Res : AXOpen.Inspectors.AxoDataInspector;
             END_VAR;
          
+            Res.Data()^.NumberOfAllowedRetries := UINT#10;
+            Res.Data()^.DetectedStatus := 'NotDetected';
+
             Res.Data()^.FailTime := FailTime;
             Res.Data()^.PassTime := PassTime;
-            Res.Data()^.Result :=  AXOpen.Inspectors.eInspectorResult#NoAction;;
+            Res.Data()^.Result :=  AXOpen.Inspectors.eInspectorResult#NoAction;
         END_METHOD
 
 
