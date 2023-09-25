@@ -78,6 +78,8 @@ NAMESPACE sandboxtest.StandardControlUnit
                 THIS.CreateId();
                 
                 ProcessData^ :=  SettingSourceData^;
+                EntityHeader^.EntityResult.Result := AXOpen.Inspectors.eOverallResult#NoAction;
+
 
                 THIS.SetScrewDefaultValues( 
                     PassTime := TIME#150ms,
@@ -228,38 +230,37 @@ NAMESPACE sandboxtest.StandardControlUnit
                 //-------------------------------------------------------
             END_IF; 
 
-
             THIS.Screwins_1Screw_Steps(StepIndex := 10,
-                    Res    := SettingSourceData^.Res_Screw_0,
-                    Tor    := SettingSourceData^.Tor_Screw_0,
-                    Ang    := SettingSourceData^.Ang_Screw_0,
-                    XCo    := SettingSourceData^.XCo_Screw_0,
-                    YCo    := SettingSourceData^.YCo_Screw_0
+                    Res    := ProcessData^.Res_Screw_0,
+                    Tor    := ProcessData^.Tor_Screw_0,
+                    Ang    := ProcessData^.Ang_Screw_0,
+                    XCo    := ProcessData^.XCo_Screw_0,
+                    YCo    := ProcessData^.YCo_Screw_0
             );
 
             THIS.Screwins_1Screw_Steps(StepIndex := 20,
-                    Res    := SettingSourceData^.Res_Screw_1,
-                    Tor    := SettingSourceData^.Tor_Screw_1,
-                    Ang    := SettingSourceData^.Ang_Screw_1,
-                    XCo    := SettingSourceData^.XCo_Screw_1,
-                    YCo    := SettingSourceData^.YCo_Screw_1
+                    Res    := ProcessData^.Res_Screw_1,
+                    Tor    := ProcessData^.Tor_Screw_1,
+                    Ang    := ProcessData^.Ang_Screw_1,
+                    XCo    := ProcessData^.XCo_Screw_1,
+                    YCo    := ProcessData^.YCo_Screw_1
             );
 
 
             THIS.Screwins_1Screw_Steps(StepIndex := 30,
-                    Res    := SettingSourceData^.Res_Screw_2,
-                    Tor    := SettingSourceData^.Tor_Screw_2,
-                    Ang    := SettingSourceData^.Ang_Screw_2,
-                    XCo    := SettingSourceData^.XCo_Screw_2,
-                    YCo    := SettingSourceData^.YCo_Screw_2
+                    Res    := ProcessData^.Res_Screw_2,
+                    Tor    := ProcessData^.Tor_Screw_2,
+                    Ang    := ProcessData^.Ang_Screw_2,
+                    XCo    := ProcessData^.XCo_Screw_2,
+                    YCo    := ProcessData^.YCo_Screw_2
             );
 
             THIS.Screwins_1Screw_Steps(StepIndex := 40,
-                    Res    := SettingSourceData^.Res_Screw_3,
-                    Tor    := SettingSourceData^.Tor_Screw_3,
-                    Ang    := SettingSourceData^.Ang_Screw_3,
-                    XCo    := SettingSourceData^.XCo_Screw_3,
-                    YCo    := SettingSourceData^.YCo_Screw_3
+                    Res    := ProcessData^.Res_Screw_3,
+                    Tor    := ProcessData^.Tor_Screw_3,
+                    Ang    := ProcessData^.Ang_Screw_3,
+                    XCo    := ProcessData^.XCo_Screw_3,
+                    YCo    := ProcessData^.YCo_Screw_3
             );
 
             IF (Steps[50].Execute(THIS, TRUE, 'ALL CYLINDER STOP, DONE' )) THEN
@@ -304,11 +305,11 @@ NAMESPACE sandboxtest.StandardControlUnit
             END_IF; 
 
             THIS.Screwins_1Screw_Steps(StepIndex := 60,
-                    Res    := SettingSourceData^.Res_Screw_4,
-                    Tor    := SettingSourceData^.Tor_Screw_4,
-                    Ang    := SettingSourceData^.Ang_Screw_4,
-                    XCo    := SettingSourceData^.XCo_Screw_4,
-                    YCo    := SettingSourceData^.YCo_Screw_4
+                    Res    := ProcessData^.Res_Screw_4,
+                    Tor    := ProcessData^.Tor_Screw_4,
+                    Ang    := ProcessData^.Ang_Screw_4,
+                    XCo    := ProcessData^.XCo_Screw_4,
+                    YCo    := ProcessData^.YCo_Screw_4
             );
 
 
@@ -336,7 +337,7 @@ NAMESPACE sandboxtest.StandardControlUnit
 
             IF (Steps[76].Execute(THIS, TRUE, 'Delay' )) THEN
                 //-------------------------------------------------------  
-                    IF CurrentStep.Duration > TIME#10S THEN 
+                    IF CurrentStep.Duration > TIME#5S THEN 
                         THIS.MoveNext(); 
                     END_IF;
                 //-------------------------------------------------------
@@ -450,7 +451,7 @@ NAMESPACE sandboxtest.StandardControlUnit
          
             Res.Data()^.NumberOfAllowedRetries := UINT#10;
             Res.Data()^.RequiredMin := -100.0;
-            Res.Data()^.RequiredMax := -100.0;
+            Res.Data()^.RequiredMax := 100.0;
 
             Res.Data()^.FailTime := FailTime;
             Res.Data()^.PassTime := PassTime;
