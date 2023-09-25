@@ -3,7 +3,7 @@
 
 **AXOpen.Inspectors** provides mechanism of inspection of different types of data. The input value is compared to required value. If input value is the same as required value for a *stabilization* time period, the inspection will succeed. If values are different, *timeout* will occur and inspection will fail.
 
-Inspectors can integrate with coordination primitives like [AxoSequencer](../core/docs/AXOSEQUENCER.md). In consequence, inspectors offer extended capabilities in decision flow for failed checks. 
+Inspectors can integrate with coordination primitives like [AxoSequencer](../../core/docs/AXOSEQUENCER.md). In consequence, inspectors offer extended capabilities in decision flow for failed checks. 
 
 Each inspector contains:
 
@@ -55,11 +55,11 @@ Inspectors contain common data, which are used to store data about inspection. E
 
 
 
-[!INCLUDE [AxoDigitalInspector](docs/AXODIGITALINSPECTOR.md)]
+[!INCLUDE [AxoDigitalInspector](AXODIGITALINSPECTOR.md)]
 
-[!INCLUDE [AxoAnalogueInspector](docs/AXOANALOGUEINSPECTOR.md)]
+[!INCLUDE [AxoAnalogueInspector](AXOANALOGUEINSPECTOR.md)]
 
-[!INCLUDE [AxoDataInspector](docs/AXODATAINSPECTOR.md)]
+[!INCLUDE [AxoDataInspector](AXODATAINSPECTOR.md)]
 
 
 

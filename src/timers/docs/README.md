@@ -6,8 +6,8 @@ Functionality of Timers is based on *Real Time Clock* implementation provided fr
 > [!NOTE]
 > Be aware, that resolution of the timer depends on cycle time of the PLC task, on which the timer is used. 
 
-[!INCLUDE [OnDelayTimer](docs/ONDELAYTIMER.md)]
+[!INCLUDE [OnDelayTimer](ONDELAYTIMER.md)]
 
-[!INCLUDE [OffDelayTimer](docs/OFFDELAYTIMER.md)]
+[!INCLUDE [OffDelayTimer](OFFDELAYTIMER.md)]
 
-[!INCLUDE [Pulse](docs/PULSETIMER.md)]
+[!INCLUDE [Pulse](PULSETIMER.md)]
