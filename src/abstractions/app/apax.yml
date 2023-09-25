@@ -11,8 +11,8 @@ devDependencies:
   "@ax/sdk": ^4.0.8
   "@ax/sld": 0.15.9
 dependencies:
-  "@ix-ax/axopen.abstractions": 0.1.4-alpha.79
-  "@ix-ax/axopen.core": 0.1.4-alpha.79
+  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
+  "@ix-ax/axopen.core": '0.0.0-dev.0'
 scripts:
   download:
     - apax install -L

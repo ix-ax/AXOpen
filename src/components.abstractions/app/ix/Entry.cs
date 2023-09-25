@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector.S71500.WebApi;
 
-namespace librarytemplate
+namespace components_abstractions_app
 {
     public static class Entry
     {
@@ -15,7 +15,7 @@ namespace librarytemplate
         private const string Pass = ""; // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
         private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
 
-        public static librarytemplateTwinController Plc { get; }
+        public static components_abstractions_appTwinController Plc { get; }
             = new(ConnectorAdapterBuilder.Build()
                 .CreateWebApi(TargetIp, UserName, Pass, IgnoreSslErrors));
     }

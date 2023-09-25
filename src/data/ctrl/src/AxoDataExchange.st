@@ -2,8 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Data
     ///<summary>
-    /// Provides base class for any data exchange with an arbitrary remote repository.  
-    /// **For configuration and set up see [here](~/articles/data/AxoDataExchange.md)**  
+    /// Provides base class for any data exchange with an arbitrary remote repository.      
     /// </summary>      
     {#ix-generic:<TOnline, TPlain>}
     CLASS AxoDataExchange EXTENDS AxoDataExchangeBase IMPLEMENTS IAxoDataExchange

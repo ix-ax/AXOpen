@@ -1,0 +1,1 @@
+CLASS Dummy END_CLASS

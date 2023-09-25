@@ -1,6 +1,10 @@
 - name: ARTICLES
-  href: articles/intro.md
-- name: API
-  href: api/
-- name: PLC API
-  href: apictrl/
+  href: articles/toc.yml
+- name: FRAMEWORK
+  href: framework/toc.yml    
+- name: COMPONENTS
+  href: components/toc.yml
+- name: APIs  
+  href: apidoc/toc.yml
+
+

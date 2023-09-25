@@ -1,0 +1,51 @@
+- name: AXOpen.Core
+  href: index.md
+  items:
+  - name : Contexs and objects
+    items:
+    - name : AxoContext
+      href : AXOCONTEXT.md
+    - name : AxoObject
+      href : AXOOBJECT.md
+  - name : Tasks
+    items:
+    - name : AxoTask
+      href : AXOTASK.md
+    - name : AxoToggleTask
+      href : AXOTOGGLETASK.md    
+    - name : AxoMomentaryTask
+      href : AXOMOMENTARYTASK.md
+    - name : AxoRemoteTask
+      href : AXOREMOTETASK.md
+  - name : Components
+    items:
+    - name : AxoComponent
+      href : AXOCOMPONENT.md
+    - name : Convetions
+      href : ../../../articles/guidelines/components.html
+  - name : Coordination
+    items:
+    - name : AxoSequencer
+      href : AXOSEQUENCER.md
+    - name : AxoStep
+      href : AXOSTEP.md   
+    - name : AxoSequencerContainer
+      href : AXOSEQUENCERCONTAINER.md     
+  - name : Messengers (Alarms)    
+    items:
+    - name : AxoMessenger
+      href : AXOMESSENGER.md  
+  - name : Logging
+    items:
+    - name : AxoLogger
+      href : AXOLOGGER.md
+  - name : Dialogs and alerts
+    items:
+    - name : AxoDialog
+      href : AXODIALOG.md 
+    - name : AxoAlertDialog
+      href : AXOALERTDIALOG.md     
+  - name : Misc
+    items:
+    - name : AxoTextList
+      href : AXOTEXTLIST.md    

@@ -1,0 +1,42 @@
+{
+  "build": {
+    "content": [
+      {
+        "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md",
+          "api/**.md",
+          "api/**/toc.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["images/**"]
+      }
+    ],
+    "markdownEngineName": "markdig",
+    "dest": "_site",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": ["default", "modern", "../material"],
+    "postProcessors": ["ExtractSearchIndex"],
+    "globalMetadata": {
+      "_appFooter": "<span>Copyright © 2023 Oscar Vasquez. Generated with <a href=\"https://dotnet.github.io/docfx\">DocFX</a></span>",
+      "_appTitle": "DocFX Material",
+      "_appLogoPath": "images/code.svg",
+      "_appFaviconPath": "images/code.svg",
+      "_enableSearch": "true",
+      "_gitContribute": {
+        "repo": "https://github.com/ovasquez/docfx-material"
+      },
+      "_gitUrlPattern": "github"
+    },
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  }
+}

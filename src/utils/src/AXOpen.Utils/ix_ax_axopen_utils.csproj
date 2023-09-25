@@ -1,19 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>net7.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>AXOpen.Utils</PackageId>
     <RootNamespace>AXOpen.Utils</RootNamespace>
   </PropertyGroup>
 
-	<ItemGroup>
-    <PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.135" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.135" />
+	<ItemGroup>    
+    <PackageReference Include="AXSharp.Abstractions"/>
+		<PackageReference Include="AXSharp.Connector"/>
 	</ItemGroup>
 
   <ItemGroup>

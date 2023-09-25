@@ -1,60 +1,10 @@
-name: "axosimple"
-version: '0.1.4-alpha.79'
-type: app
+name: "axosimple.ctrl"
+version: 0.0.0
+type: lib
 targets:
-  - plcsim
   - axunit-llvm
-registries:
-  '@ix-ax': https://npm.pkg.github.com/
-devDependencies:
-  "@ax/sdk": ^4.0.8
-  "@ax/sld": ^0.15.9
-  "@ax/stc": ^5.4.89
-dependencies:
-  "@ix-ax/axopen.data": '0.1.4-alpha.79'
-  "@ix-ax/axopen.inspectors": '0.1.4-alpha.79' 
-  "@ix-ax/axopen.simatic1500": '0.1.4-alpha.79'
 variables:
-  APAX_BUILD_ARGS: [-d]
-scripts:
-  ixc:
-    - dotnet tool restore --no-cache
-    - dotnet ixc
-    - dotnet ixr
-  postbuild: apax ixc
-  download:
-    - apax install
-    - apax build
-    # Here you will need to set the argumen -t to your plc OP and -i to platfrom you are dowloading to
-
-    # --default-server-interface is a must if you are using WebAPI      
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
-  watch:
-    - dotnet watch --project ..\\axosimple.app\\axosimple.hmi.csproj
-  da:
-    - apax download
-    - apax watch
-  check+download: |
-    if [ $AXTARGET ]; then
-      if [ $AXTARGETPLATFORMINPUT ]; then
-        if ping -n 1 $AXTARGET &> /dev/null; then
-          echo "Downloading from:" $AXTARGETPLATFORMINPUT "=>" $AXTARGET
-          apax download
-        else
-          echo "Target with IP address:" $AXTARGET "is not accessible. No download is going to be performed!!!"
-        fi
-      else
-        echo "Environment variable AXTARGETPLATFORMINPUT not defined!!!"
-      fi
-    else
-      echo "Environment variable AXTARGET not defined!!!"
-    fi
-  rr:
-    - apax build
-    - apax download
-    - apax watch
-  fr:
-    - ..\\scripts\\StartPlcSimAdvCli.exe
-    - apax install
-    - apax rr
-  
+  APAX_BUILD_ARGS:
+    - "--debug" # Generate debug information for target "1500"
+devDependencies:
+  "@ax/sdk": 4.0.9

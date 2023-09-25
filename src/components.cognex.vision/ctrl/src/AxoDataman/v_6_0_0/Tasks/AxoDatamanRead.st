@@ -2,7 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
-NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
+NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
     CLASS PUBLIC AxoDatamanRead EXTENDS AXOpen.Core.AxoTask
         VAR PROTECTED
             _progress : INT := 0;

@@ -403,3 +403,5 @@ artifacts/
 /src/integrations/integration.blazor/Data/processdata
 
 apax-lock.json
+
+docs-test/

@@ -5,8 +5,8 @@ NAMESPACE MyTest
     {TestFixture}
     CLASS MyTestFixture
         {Test}
-        METHOD PUBLIC MyTestMethod
-            Assert.Equal(actual := TRUE, expected := TRUE);
+        METHOD PUBLIC RunProgramTest
+            ;
         END_METHOD
     END_CLASS
 

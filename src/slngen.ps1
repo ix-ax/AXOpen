@@ -1,0 +1,1 @@
+dotnet slngen AXOpen.proj -o AXOpen.sln --folders true --launch false

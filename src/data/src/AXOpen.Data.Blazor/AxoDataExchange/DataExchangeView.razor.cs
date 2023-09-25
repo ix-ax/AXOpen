@@ -8,6 +8,7 @@
 using AXOpen.Base.Data;
 using AXOpen.Data.Interfaces;
 using AXOpen.Data;
+using AXOpen.Data.Interfaces;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using System.IO;
@@ -15,10 +16,18 @@ using AXOpen.Core;
 using AXOpen.Base.Dialogs;
 using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using static AXOpen.Data.DataExchangeViewModel;
+using AXOpen.Data;
+using AXSharp.Connector;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging;
+using Microsoft.AspNetCore.Components.Forms;
+using AXOpen.Data.Interfaces;
+using AXOpen.Core;
+using AXOpen.Data;
 
 namespace AXOpen.Data;
 
-public partial class DataExchangeView : IDisposable
+public partial class DataExchangeView : ComponentBase, IDisposable
 {
     private readonly List<ColumnData> Columns = new();
 

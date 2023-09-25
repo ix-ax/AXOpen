@@ -1,8 +1,9 @@
 ﻿using AXSharp.Connector;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoTextListView : IDisposable
+    public partial class AxoTextListView : RenderableComplexComponentBase<AxoTextList>, IDisposable
     {
         private uint _warningLevel => this.Component.GetAttribute<WarningLevelAttribute>() != null ? this.Component.GetAttribute<WarningLevelAttribute>().Level : 0;
         private uint _errorLevel => this.Component.GetAttribute<ErrorLevelAttribute>() != null ? this.Component.GetAttribute<ErrorLevelAttribute>().Level : 0;

@@ -6,7 +6,11 @@
 ![semver](https://img.shields.io/badge/semver-0.10.0-blue)
 [![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/ix-ax/axsharp/blob/dev/LICENSE)
 
-`AXOpen` (AXO), is an innovative application framework - under development - for industrial automation applications. This project leverages the capabilities of [SIMATIC AX](https://simatic-ax.siemens.io) and [AX#](https://github.com/ix-ax/axsharp), amalgamating their unique strengths to deliver a comprehensive solution.
+----
+WE ARE WORKING HARD HERE STAY TUNED FOR WHAT'S COMMING, STAR, FORK, WHAT THIS REPO.
+----
+
+`AXOpen` (AXO), is an innovative application framework for industrial automation applications. This project leverages the capabilities of [SIMATIC AX](https://simatic-ax.siemens.io) and [AX#](https://github.com/ix-ax/axsharp), amalgamating their unique strengths to deliver a comprehensive solution.
 
 AXOpen, engineered with an object-oriented architecture, acts as a bridge between the meticulous, real-time operations of a PLC controller and the extensive adaptability of the .NET framework. This integration ensures unparalleled performance in automation tasks and forms a significant interface with the IT domain, thereby expanding the realm of potential applications.
 
@@ -25,3 +29,7 @@ As we strive to pioneer change in the field of industrial automation with AXOpen
 ## Documentation
 
 In parallel with the project's advancement, we are incrementally building the [documentation](https://ix-ax.github.io/AXOpen/). We invite you to visit the link if you wish to learn more about AXOpen.
+
+## About the repository
+
+More about how the repository is organized and structured see [here](src/README.md).
