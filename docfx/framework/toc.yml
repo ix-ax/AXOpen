@@ -1,9 +1,9 @@
 items:
   - name: Core
-    href: ../core/docs/
+    href: ../core/docs/index.html
   - name: Data
-    href: ../data/
+    href: ../data/index.html
   - name: Inspectors
-    href: ../inspectors/
+    href: ../inspectors/index.html
   - name: Timers
-    href: ../timers/
+    href: ../timers/index.html

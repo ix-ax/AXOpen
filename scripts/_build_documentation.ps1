@@ -14,3 +14,4 @@ if ((Test-Path .\docs\)) {
 }
 
 dotnet docfx build .\docfx\docfx.json --output .\docs\
+dotnet docfx serve .\docs\ --open-browser
