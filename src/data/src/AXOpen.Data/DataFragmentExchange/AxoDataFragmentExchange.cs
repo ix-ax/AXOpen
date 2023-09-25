@@ -50,43 +50,43 @@ public partial class AxoDataFragmentExchange
     /// <summary>
     ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
     /// </summary>
-    public void InitializeRemoteDataExchange()
+    public async Task InitializeRemoteDataExchange()
     {
         Operation.InitializeExclusively(Handle);
-        this.WriteAsync().Wait();
+        await this.WriteAsync();
     }
 
-    public void DeInitializeRemoteDataExchange()
+    public async Task DeInitializeRemoteDataExchange()
     {
         Operation.DeInitialize();
-        this.WriteAsync().Wait();
+        await this.WriteAsync();
     }
 
-    private async void Handle()
+    private async Task Handle()
     {
-        Operation.ReadAsync().Wait();
+        await Operation.ReadAsync();
         var operation = (eCrudOperation)Operation.CrudOperation.LastValue;
         var identifier = Operation.DataEntityIdentifier.LastValue;
 
         switch (operation)
         {
             case eCrudOperation.Create:
-                this.RemoteCreate(identifier);
+                await this.RemoteCreate(identifier);
                 break;
             case eCrudOperation.Read:
-                this.RemoteRead(identifier);
+                await this.RemoteRead(identifier);
                 break;
             case eCrudOperation.Update:
-                this.RemoteUpdate(identifier);
+                await this.RemoteUpdate(identifier);
                 break;
             case eCrudOperation.Delete:
-                this.RemoteDelete(identifier);
+                await this.RemoteDelete(identifier);
                 break;
             case eCrudOperation.CreateOrUpdate:
-                this.RemoteCreateOrUpdate(identifier);
+                await this.RemoteCreateOrUpdate(identifier);
                 break;
             case eCrudOperation.EntityExist:
-                var result = this.RemoteEntityExist(identifier);
+                var result = await this.RemoteEntityExist(identifier);
                 await Operation._exist.SetAsync(result);
                 break;
             default:
@@ -316,62 +316,62 @@ public partial class AxoDataFragmentExchange
         DataFragments.First().Repository.Read(recordId);
     }
 
-    public bool RemoteCreate(string identifier)
+    public async Task<bool> RemoteCreate(string identifier)
     {
         foreach (var fragment in DataFragments)
         {
-            fragment?.RemoteCreate(identifier);
+            await fragment?.RemoteCreate(identifier);
         }
 
         return true;
     }
 
-    public bool RemoteRead(string identifier)
+    public async Task<bool> RemoteRead(string identifier)
     {
         foreach (var fragment in DataFragments)
         {
-            fragment?.RemoteRead(identifier);
+           await fragment?.RemoteRead(identifier);
         }
 
         return true;
     }
 
-    public bool RemoteUpdate(string identifier)
+    public async Task<bool> RemoteUpdate(string identifier)
     {
         foreach (var fragment in DataFragments)
         {
-            fragment?.RemoteUpdate(identifier);
+           await fragment?.RemoteUpdate(identifier);
         }
 
         return true;
     }
 
-    public bool RemoteDelete(string identifier)
+    public async Task<bool> RemoteDelete(string identifier)
     {
         foreach (var fragment in DataFragments)
         {
-            fragment?.RemoteDelete(identifier);
+            await fragment?.RemoteDelete(identifier);
         }
 
         return true;
     }
 
-    public bool RemoteEntityExist(string identifier)
+    public async Task<bool> RemoteEntityExist(string identifier)
     {
         foreach (var fragment in DataFragments)
         {
-            if (!fragment.RemoteEntityExist(identifier))
+            if (! await fragment.RemoteEntityExist(identifier))
                 return false;
         }
 
         return true;
     }
 
-    public bool RemoteCreateOrUpdate(string identifier)
+    public async Task<bool> RemoteCreateOrUpdate(string identifier)
     {
         foreach (var fragment in DataFragments)
         {
-            fragment?.RemoteCreateOrUpdate(identifier);
+           await fragment?.RemoteCreateOrUpdate(identifier);
         }
 
         return true;

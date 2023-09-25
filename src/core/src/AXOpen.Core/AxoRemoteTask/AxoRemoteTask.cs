@@ -1,16 +1,43 @@
-﻿using System;
-using AXSharp.Connector;
+﻿using AXSharp.Connector;
 using System.ComponentModel;
 using System.Security.Principal;
-using System.Threading.Tasks;
 
 namespace AXOpen.Core
 {
-    public partial class AxoRemoteTask 
+    public partial class AxoRemoteTask
     {
-        protected Action DeferredAction { get; set; }
+        protected object DeferredAction { get; set; }
+
+        protected RemoteActionType _ActionType = RemoteActionType.Method;
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void InitializeRemoteActionType()
+        {
+            _ActionType = RemoteActionType.Method;
+
+            if (DeferredAction is Action)
+            {
+                _ActionType = RemoteActionType.Action;
+            }
+            else if (DeferredAction is Delegate) // func<objec>
+            {
+                var type = DeferredAction.GetType();
+                var genericType = type.GetGenericTypeDefinition();
+
+                if (type.IsGenericType && genericType == typeof(Func<>))
+                {
+                    _ActionType = RemoteActionType.Func;
+
+                    var retType = type.GetGenericArguments()[0];
+
+                    if (retType == typeof(Task))
+                    {
+                        _ActionType = RemoteActionType.FuncRuturnTask;
+                    }
+                }
+            }
+        }
 
         /// <summary>
         /// Initializes this  <see cref="AxoRemoteTask"/>.
@@ -22,6 +49,8 @@ namespace AXOpen.Core
             this.IsInitialized.Cyclic = true;
             this.StartSignature.Subscribe(ExecuteAsync);
             _defferedActionCount++;
+
+            InitializeRemoteActionType();
         }
 
         /// <summary>
@@ -34,6 +63,8 @@ namespace AXOpen.Core
             this.IsInitialized.Cyclic = true;
             this.StartSignature.Subscribe(ExecuteAsync);
             _defferedActionCount++;
+
+            InitializeRemoteActionType();
         }
 
         protected int _defferedActionCount;
@@ -45,7 +76,6 @@ namespace AXOpen.Core
         /// <param name="deferredAction">Action to be executed on this <see cref="AxoRemoteTask"/> call.</param>
         public void InitializeExclusively(Action deferredAction)
         {
-
             if (_defferedActionCount > 0)
             {
                 throw new MultipleRemoteCallInitializationException("There was an attempt to initialize exclusive RPC call more than once in this application.");
@@ -55,6 +85,8 @@ namespace AXOpen.Core
             this.IsInitialized.Cyclic = true;
             this.StartSignature.Subscribe(ExecuteAsync);
             _defferedActionCount++;
+
+            InitializeRemoteActionType();
         }
 
         /// <summary>
@@ -64,7 +96,6 @@ namespace AXOpen.Core
         /// <param name="deferredAction">Action to be executed on this <see cref="AxoRemoteTask"/> call.</param>
         public void InitializeExclusively(Func<bool> deferredAction)
         {
-
             if (_defferedActionCount > 0)
             {
                 throw new MultipleRemoteCallInitializationException("There was an attempt to initialize exclusive RPC call more than once in this application.");
@@ -74,6 +105,28 @@ namespace AXOpen.Core
             this.IsInitialized.Cyclic = true;
             this.StartSignature.Subscribe(ExecuteAsync);
             _defferedActionCount++;
+
+            InitializeRemoteActionType();
+        }
+
+        /// <summary>
+        /// Initializes this  <see cref="AxoRemoteTask"/> exclusively for this <see cref="DeferredAction"/>. Any following attempt
+        /// to initialize this <see cref="AxoRemoteTask"/> will throw an exception.
+        /// </summary>
+        /// <param name="deferredAction">Action to be executed on this <see cref="AxoRemoteTask"/> call.</param>
+        public void InitializeExclusively(Func<Task> deferredAction)
+        {
+            if (_defferedActionCount > 0)
+            {
+                throw new MultipleRemoteCallInitializationException("There was an attempt to initialize exclusive RPC call more than once in this application.");
+            }
+
+            DeferredAction = deferredAction;
+            this.IsInitialized.Cyclic = true;
+            this.StartSignature.Subscribe(ExecuteAsync);
+            _defferedActionCount++;
+
+            InitializeRemoteActionType();
         }
 
         /// <summary>
@@ -100,7 +153,53 @@ namespace AXOpen.Core
                 {
                     IsRunning = true;
                     RemoteExecutionException = null;
-                    await System.Threading.Tasks.Task.Run(() => { DeferredAction.Invoke(); });
+
+                    switch (this._ActionType)
+                    {
+                        case RemoteActionType.Func:
+                            await System.Threading.Tasks.Task.Run(() => { ((Func<object>)DeferredAction)(); });
+                            break;
+
+                        case RemoteActionType.FuncRuturnTask:
+
+                            Func<Task> castedDeferredAction = (Func<Task>)DeferredAction;
+                            await System.Threading.Tasks.Task.Factory.StartNew<Task>(castedDeferredAction).Unwrap();
+                            break;
+
+                        //await System.Threading.Tasks.Task.Run(async () => { await ((Func<Task>)DeferredAction)(); });
+                        //break;
+
+                        case RemoteActionType.Action:
+
+                            await System.Threading.Tasks.Task.Factory.StartNew(
+                               (Action)DeferredAction
+                               , TaskCreationOptions.AttachedToParent
+                               );
+
+                            //await System.Threading.Tasks.Task.Run(() => { ((Action)DeferredAction).Invoke(); });
+
+                            break;
+
+                        case RemoteActionType.Method:
+                            await Task.Factory.StartNew(
+                              (Action)DeferredAction
+                              , TaskCreationOptions.AttachedToParent
+                              );
+
+                            //await System.Threading.Tasks.Task.Run(() => { ((Action)DeferredAction).Invoke(); });
+
+                            break;
+
+                        default:
+                            await Task.Factory.StartNew(
+                             (Action)DeferredAction
+                             , TaskCreationOptions.AttachedToParent
+                             );
+
+                            //await System.Threading.Tasks.Task.Run(() => { ((Action)DeferredAction).Invoke(); });
+
+                            break;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -156,9 +255,9 @@ namespace AXOpen.Core
         }
 
         /// <summary>
-        /// Resets the resets this instance of <see cref="AxoRemoteTask"/>.        
+        /// Resets the resets this instance of <see cref="AxoRemoteTask"/>.
         /// </summary>
-        /// <note>If the procedure is being called from the PLC, once the <see cref="ResetExecution"/> method is called the execution of this 
+        /// <note>If the procedure is being called from the PLC, once the <see cref="ResetExecution"/> method is called the execution of this
         /// <see cref="AxoRemoteTask"/> will start again.</note>
         public async Task ResetExecution()
         {
@@ -168,5 +267,13 @@ namespace AXOpen.Core
             await this.HasRemoteException.SetAsync(false);
             IsRunning = false;
         }
+    }
+
+    public enum RemoteActionType
+    {
+        Func,
+        FuncRuturnTask,
+        Action,
+        Method,
     }
 }
