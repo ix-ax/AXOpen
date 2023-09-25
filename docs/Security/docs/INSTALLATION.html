@@ -1,0 +1,227 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Installation | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Installation | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/Security/docs/INSTALLATION.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="installation">Installation</h1>
+
+<p>All necessary logic for security is located in AxOpen.Security library.</p>
+<h2 id="1-install-axopensecurity-nuget-package-or-add-reference-to-this-project">1. Install AxOpen.Security NuGet package or add reference to this project</h2>
+<h2 id="2-add-reference-to-axopensecurity-assembly">2. Add reference to AxOpen.Security assembly.</h2>
+<p>Go to <code>App.razor</code> and add <code>AdditionalAssemblies</code> as parameter of <code>Router</code> component. The following line must be added to <code>Router</code> component:</p>
+<pre><code class="lang-C#">AdditionalAssemblies=&quot;new[] { typeof(BlazorSecurity).Assembly}&quot;&gt;
+</code></pre>
+<p>Also, make sure, that <code>Router</code> component is wrapped inside <code>CascadingAuthenticationState</code> component. At the end, the <code>Router</code> component should look like this:</p>
+<pre><code class="lang-html">&lt;CascadingAuthenticationState&gt;
+    &lt;Router AppAssembly=&quot;@typeof(App).Assembly&quot; 
+            AdditionalAssemblies=&quot;new[] { typeof(BlazorSecurity).Assembly}&quot;&gt;
+            ...
+    &lt;/Router&gt;
+&lt;/CascadingAuthenticationState&gt;
+</code></pre>
+<h2 id="3-configure-ax-blazor-security-services-in-dependency-injection-container-of-blazor-application-located-in-programcs-file">3. Configure Ax Blazor security services in dependency injection container of Blazor application located in <code>Program.cs</code> file.</h2>
+<p>To correctly configure security services you must:</p>
+<ul>
+<li>configure repository</li>
+<li>create in-app roles</li>
+<li>configure AxBlazorSecurity in DI container</li>
+</ul>
+<h3 id="configuring-repository"><strong>Configuring repository</strong></h3>
+<p>The security requires 2 instances of repositories:</p>
+<ul>
+<li>for persistence of user data</li>
+<li>for persistence of groups of roles</li>
+</ul>
+<p>Within AXOpen 4 different types of repositories are available:</p>
+<ul>
+<li>InMemory</li>
+<li>Json</li>
+<li>MongoDB</li>
+<li>RavenDB</li>
+</ul>
+<p>For example, the Json repository can be configured as follows:</p>
+<pre><code class="lang-csharp">static (IRepository&lt;User&gt;, IRepository&lt;Group&gt;) SetUpJSon(string path = &quot;..\\..\\..\\..\\..\\JSONREPOS\\&quot;)
+{
+    var executingAssemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
+    var repositoryDirectory = Path.GetFullPath($&quot;{executingAssemblyFile.Directory}{path}&quot;);
+    if (!Directory.Exists(repositoryDirectory))
+    {
+        Directory.CreateDirectory(repositoryDirectory);
+    }
+    IRepository&lt;User&gt; userRepo = new JsonRepository&lt;User&gt;(new JsonRepositorySettings&lt;User&gt;(Path.Combine(repositoryDirectory, &quot;Users&quot;)));
+    IRepository&lt;Group&gt; groupRepo = new JsonRepository&lt;Group&gt;(new JsonRepositorySettings&lt;Group&gt;(Path.Combine(repositoryDirectory, &quot;Groups&quot;)));
+
+    return (userRepo, groupRepo);
+}
+</code></pre>
+<p>Add <code>SetUpJson</code> method in <code>Program.cs</code> file.</p>
+<h3 id="creating-in-app-roles"><strong>Creating in-app roles</strong></h3>
+<p>In your Blazor application create new static class <code>Roles</code> and specify the roles, that will be used in your application. You can add as many roles as you want. The <code>Roles</code> class can be defined like this:</p>
+<pre><code class="lang-C#">public static class Roles
+{
+    public static List&lt;Role&gt; CreateRoles()
+    {
+        var roles = new List&lt;Role&gt;
+        {
+            new Role(process_settings_access),
+            new Role(process_traceability_access),
+        };
+
+        return roles;
+    }
+
+    public const string process_settings_access = nameof(process_settings_access);
+    public const string process_traceability_access = nameof(process_traceability_access);
+}
+</code></pre>
+<h3 id="configure-axblazorsecurity-services"><strong>Configure AxBlazorSecurity services</strong></h3>
+<p>Finally, the <code>AxBlazorSecurity</code> security can be configured in DI container of Blazor application. Go to <code>Program.cs</code> file and add following line to builder:</p>
+<pre><code class="lang-csharp">builder.Services.ConfigureAxBlazorSecurity(SetUpJSon(), Roles.CreateRoles());
+</code></pre>
+<p>The first parameter is set up repository and the second parameter are created roles.</p>
+<h2 id="4-add-security-views-to-application">4. Add security views to application</h2>
+<p>Go to <code>MainLayout.razor</code> located in <code>Shared</code> folder and add <code>LoginDisplay</code> view inside top bar.</p>
+<pre><code class="lang-html">&lt;main&gt;
+    &lt;div class=&quot;top-row px-4 auth&quot;&gt;
+        &lt;AxOpen.Security.Views.LoginDisplay/&gt;
+    &lt;/div&gt;
+
+    &lt;article class=&quot;content px-4&quot;&gt;
+        @Body
+    &lt;/article&gt;
+&lt;/main&gt;
+</code></pre>
+<p>Within <code>Pages</code> of the Blazor application, create new <code>Security.razor</code> page and add there <code>SecurityManagementView</code>.</p>
+<pre><code class="lang-html">@page &quot;/Security&quot;
+
+&lt;h3&gt;Security&lt;/h3&gt;
+
+&lt;AxOpen.Security.Views.SecurityManagementView /&gt;
+
+</code></pre>
+<p>Add you security view inside the navigation menu in <code>NavMenu.razor</code>:</p>
+<pre><code class="lang-html">&lt;div class=&quot;nav-item px-3&quot;&gt;
+    &lt;NavLink class=&quot;nav-link&quot; href=&quot;security&quot;&gt;
+        &lt;span class=&quot;oi oi-list-rich&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Security
+    &lt;/NavLink&gt;
+&lt;/div&gt;
+</code></pre>
+<h2 id="default-login">Default login</h2>
+<p>If everything done correctly, now security should be available in Blazor application.
+Now it should be possible to log-in with default user.
+The default user is created on application startup with following credentials:</p>
+<ul>
+<li>Username: <strong>admin</strong></li>
+<li>Password: <strong>admin</strong></li>
+</ul>
+<p>The user has default <code>Administrator</code> role and is in default <code>AdminGroup</code>.</p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/Security/docs/INSTALLATION.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoDialogs | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoDialogs | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXODIALOG.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axodialogs">AxoDialogs</h1>
+
+<p>AxoDialogs provide capability to interact with the user by rising dialogs directly from the PLC program.</p>
+<h2 id="example">Example</h2>
+<pre><code>VAR PUBLIC
+    _dialog : AXOpen.Core.AxoDialog;
+END_VAR
+//----------------------------------------------
+
+IF(_dialog.Show(THIS)
+    .WithOk()
+    .WithType(eDialogType#Success)
+    .WithCaption('What`s next?')
+    .WithText('To continue click OK?').Answer() = eDialogAnswer#OK) THEN
+
+    //if answer is ok, move next in sequence                                 
+    THIS.MoveNext(); 
+
+END_IF;	
+</code></pre>
+<p><img src="assets/ok-dialog.png" alt="Modal ok Dialog"></p>
+<h2 id="getting-started">Getting started</h2>
+<ol>
+<li>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file. Also, map <code>dialoghub</code> which is needed for dialog synchronization using SignalR technology.</li>
+</ol>
+<pre><code class="lang-C#">builder.Services.AddAxoCoreServices();
+//...
+app.MapHub&lt;DialogHub&gt;(&quot;/dialoghub&quot;);
+</code></pre>
+<ol start="2">
+<li>Go to your page, where you wish to have dialogs and include <code>AxoDialogLocator</code> component at the end of that page.</li>
+</ol>
+<p>Provide list of <code>ObservedObjects</code>, on which you want to observe dialogs. You can also provide <code>DialogId</code>, which serves for synchronization of dialogs between multiple clients. If <code>DialogId</code> is not provided, the current <em>URI</em> is used as an id.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Make sure, that each page has only one instance of <code>AxoDialogLocator</code> and that provided <code>DialogId</code> is unique across the application! If you wish to observe multiple objects, add them into <code>ObservedObjects</code> list.</p>
+</div>
+<pre><code class="lang-HTML">&lt;AxoDialogLocator DialogId=&quot;custation001&quot; ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot;/&gt;
+</code></pre>
+<p>Now, when dialog is invoked in PLC, it will show on all clients and pages, where <code>AxoDialogLocator</code> is present with corresponding observed objects. The answers are synchronized across multiple clients.</p>
+<h2 id="axodialog-types">AxoDialog types</h2>
+<p>AxoDialogs contains currently 3 types of predefined dialogs:</p>
+<ol>
+<li>Okay dialog</li>
+<li>YesNo dialog</li>
+<li>YesNoCancel dialog</li>
+</ol>
+<p><img src="assets/dialog-types.gif" alt="Dialog types"></p>
+<p>Also, the visual type of corresponding dialog can be adjusted with <code>eDialogType</code> enum, which is defined as follows:</p>
+<pre><code> eDialogType : INT (
+    Undefined := 0,
+    Info := 10,
+    Success := 20,
+    Danger := 30,
+    Warning := 40
+);
+
+</code></pre>
+<h2 id="answer-synchronization-on-multiple-clients">Answer synchronization on multiple clients</h2>
+<p>Answers of dialogs are synchronized across multiple clients with the SignalR technology.</p>
+<p><img src="assets/dialog-sync.gif" alt="Dialog sync"></p>
+<h2 id="closing-a-dialog-with-external-signal">Closing a dialog with external signal</h2>
+<p>External signals can be provided to dialog instance within a <code>ShowWithExternalClose</code> method, which can be then used to close dialog externally (for example from other page of application, or by pressing a hardware button...).</p>
+<p>4 different signals can be monitored in <code>ShowWithExternalClose</code> method:</p>
+<ul>
+<li>inOkAnswerSignal</li>
+<li>inYesAnswerSignal</li>
+<li>inNoAnswerSignal</li>
+<li>inCancelAnswerSignal</li>
+</ul>
+<p>Below is an example of closing dialog with <code>_externalCloseOkSignal</code> bool variable, which is set in other part of application:</p>
+<pre><code>VAR PUBLIC
+    _dialog : AXOpen.Core.AxoDialog;
+    _externalCloseOkSignal : BOOL;
+    _dialogAnswer : eDialogAnswer;
+END_VAR
+
+//----------------------------------------------
+_dialogAnswer := _dialog.ShowWithExternalClose(THIS, _externalCloseOkSignal)
+.WithOK()
+.WithType(eDialogType#Info)
+.WithCaption('Hello world!')
+.WithText('You can also close me externally!').Answer();
+
+IF(_dialog3Answer = eDialogAnswer#Ok) THEN
+    // if answer is provided, move next
+    THIS.MoveNext(); 
+
+END_IF;	
+</code></pre>
+<p><img src="assets/dialog-external-close.gif" alt="Dialog sync"></p>
+<h2 id="creation-of-own-modal-dialog">Creation of own modal dialog</h2>
+<h3 id="plc-side">PLC side</h3>
+<ul>
+<li><p>Create own PLC instance of dialog, which extends <code>AxoDialogBase</code>.</p>
+</li>
+<li><p>Define dialog structure and corresponding show method, which will initialize and invoke remote task needed for dialog creation.</p>
+</li>
+</ul>
+<h3 id="blazor-side">Blazor side</h3>
+<ul>
+<li><p>Define Blazor view of modal dialog, which is then generated by <code>RenderableContentControl</code> according to presentation pipeline.
+For example, when Dialog plc type is <code>MyCustomModal</code>, the view must by named <code>MyCustomModalDialogView</code>, because implementation is using <code>Dialog</code> presentation type.</p>
+<p>The Blazor view must inherits from <code>@AxoDialogBaseView&lt;MyCustomModal&gt;</code>, where correct generic type of dialog from PLC must be passed. The opening/closing of dialog is managed in base class by virtual methods, which can be overridden if needed.</p>
+<p>It is recommended to use provided <code>ModalDialog</code> Blazor component, which can be customized by user needs and is fully compatible with closing/opening synchronization approach provided in base class. Otherwise, the open/close virtual methods from base class must be overridden and accordingly adapted.</p>
+</li>
+</ul>
+<!-- 
+Example implementation of basic dialog can be found in [AxoDialogDialogView.razor](../app/ix-blazor/axopencore.blazor/AxoDialogs/AxoDialogDialogView/AxoDialogDialogView.razor). -->
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXODIALOG.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

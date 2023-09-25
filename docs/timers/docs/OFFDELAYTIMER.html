@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxOpen.Timers.OffDelayTimer | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxOpen.Timers.OffDelayTimer | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/timers/docs/OFFDELAYTIMER.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axopentimersoffdelaytimer">AxOpen.Timers.OffDelayTimer</h1>
+
+<p><code>OffDelayTimer</code> class contains <code>OffDelay</code> method, where logic of OffDelayTimer is implemented. <code>OffDelay</code> method has following input:</p>
+<pre><code class="lang-C#">VAR_INPUT 
+    Parent : IAxoObject; // or IAxoContext, parent provides RTC implementation              
+    inSignal : BOOL; // starts timer with falling edge, resets timer with rising edge
+    TimeDelay : LTIME; // time to pass, before output is set
+END_VAR 
+</code></pre>
+<p>The OffDelay method returns <code>output</code>, which <em>is FALSE, <code>TimeDelay</code> seconds after falling edge of <code>inSignal</code> is detected</em>.</p>
+<p>The <code>OffDelayTimer</code> have also public variables which can be used to access timer results:</p>
+<pre><code class="lang-C#">VAR PUBLIC
+    output : BOOL; // is FALSE, TimeDelay seconds after falling edge of inSignal is detected
+    elapsedTime : LTIME; // elapsed time 
+END_VAR 
+</code></pre>
+<p>The LOGIC of <code>OffDelayTimer</code> is following:</p>
+<p>When <code>inSignal</code> is TRUE, <code>output</code> is TRUE and <code>elapsedTime</code> is 0. As soon as <code>inSignal</code> becomes FALSE, the time will begin to be counted in <code>elapsedTime</code> until its value is equal to that of <code>TimeDelay</code>. It will then remain constant. The <code>output</code> is FALSE when <code>inSignal</code> is FALSE and <code>elapsedTime</code> is equal to <code>TimeDelay</code>. Otherwise it is TRUE. Thus, <code>output</code> has a falling edge when the time indicated in <code>TimeDelay</code> has run out.</p>
+<p>Example usage of <code>OffDelay</code> timer:</p>
+<pre><code>USING AXOpen.Timers;
+
+
+VAR 
+    _signal : BOOL; // input signal, which is set somewhere in application
+    _testTimerOffDelay: AXOpen.Timers.OffDelayTimer; // timer instance
+    _testTimeDelay: LTIME := LTIME#5s; // time delay
+END_VAR  
+
+// call OffDelay method somewhere in application
+// THIS must type of IAxoObject
+_testTimerOffDelay.OffDelay(THIS, _signal, _testTimeDelay);
+
+// check for output
+IF(_testTimerOffDelay.output) THEN
+
+    // handle result
+
+ENDIF;
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/timers/docs/OFFDELAYTIMER.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

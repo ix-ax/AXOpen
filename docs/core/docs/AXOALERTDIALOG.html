@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AlertDialog | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AlertDialog | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXOALERTDIALOG.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="alertdialog">AlertDialog</h1>
+
+<p>The AlertDialog class provides a notification mechanism in application in form of toasts.</p>
+<p><img src="assets/AlertDialog.png" alt="Alert Dialog"></p>
+<h2 id="in-app-usage">In-app usage</h2>
+<p>Alerts dialogs can be simply called anywhere from application by injecting <code>IAlertDialogService</code> and calling <code>AddAlertDialog(type, title, message, time)</code> method.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>IAlertDialogService</code> is a scoped service, therefore alerts are unique to each client and are not synchronized.</p>
+</div>
+<ol>
+<li>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file.</li>
+</ol>
+<pre><code class="lang-C#">builder.Services.AddAxoCoreServices();
+</code></pre>
+<ol start="2">
+<li>Add <code>AxoAlertToast</code> instance to <code>MainLayout.razor</code> file.</li>
+</ol>
+<pre><code class="lang-HTML">@using AXOpen.Core.Blazor.AxoAlertDialog
+
+&lt;div class=&quot;page&quot;&gt;
+    &lt;main&gt;
+        &lt;TopRow /&gt;
+        &lt;article class=&quot;content px-4&quot;&gt;
+            @Body
+        &lt;/article&gt;
+    &lt;/main&gt;
+    &lt;NavMenu /&gt;
+
+   &lt;AxoAlertToast/&gt;
+
+&lt;/div&gt;
+</code></pre>
+<ol start="2">
+<li>Inject <code>IAlertDialogService</code> into you Blazor component</li>
+</ol>
+<pre><code class="lang-C#">@inject IAlertDialogService _alerts
+</code></pre>
+<ol start="3">
+<li>Invoke notification toast from your Blazor view</li>
+</ol>
+<pre><code class="lang-C#">_alertDialogService.AddAlertDialog(type, title, message, time);
+</code></pre>
+<p>Where:</p>
+<ul>
+<li><strong>type</strong>: <code>eAlertDialogType</code> enum representing visualization type:
+<ul>
+<li>Undefined</li>
+<li>Info</li>
+<li>Success</li>
+<li>Danger</li>
+<li>Warning</li>
+</ul>
+</li>
+<li><strong>title</strong>: Refers to the header of alert</li>
+<li><strong>message</strong>: Corresponds to the message</li>
+<li><strong>time</strong>: Specifies the duration in <em>seconds</em> for which the alert will be displayed</li>
+</ul>
+<h2 id="invoking-alerts-from-plc">Invoking alerts from PLC</h2>
+<p>Alerts can be invoked from PLC similarly like <a href="AXODIALOG.html">AxoDialog</a>, however there is no need for user interaction.</p>
+<pre><code>VAR PUBLIC
+    _alertDialog : AXOpen.Core.AxoAlertDialog;
+END_VAR
+//...
+IF(_alertDialog.Show(THIS)
+    .WithTitle('Plc alert')
+    .WithType(eDialogType#Success)
+    .WithMessage('This is alert invoked from plc!')
+    .WithTimeToBurn(UINT#5).IsShown() = true) THEN
+    //when task is done, move next
+    THIS.MoveNext(); 
+END_IF;	
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Alerts</code> invoked from PLC are synchronized across clients.</p>
+</div>
+<ol>
+<li><p>Make sure your Blazor application references <code>axopen_core_blazor</code> project and AxoCore services are added to builder in <code>Program.cs</code> file.</p>
+</li>
+<li><p>Make sure your <code>MainLayout.razor</code> file contains instance of <code>&lt;AxoAlertToast/&gt;</code> component.</p>
+</li>
+<li><p>Add <code>AxoAlertDialogLocator</code> with provided list of observed objects to your view. You can add it either to:</p>
+<ul>
+<li><code>MainLayout.razor</code> file, where in consequence alerts will be displayed and synchronized across whole application.</li>
+<li>Your own razor file, where alerts will be synchronized across multiple clients but only displayed within that specific razor page.</li>
+</ul>
+</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure, that exist only one instance of <code>AxoAlertDialogLocator</code> either in <code>MainLayout.razor</code> or in your own page.</p>
+</div>
+<pre><code class="lang-HTML">&lt;AxoAlertDialogLocator ObservedObjects=&quot;new[] {Entry.Plc.Context.PneumaticManipulator}&quot;/&gt;
+</code></pre>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXOALERTDIALOG.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

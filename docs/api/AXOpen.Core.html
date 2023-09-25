@@ -1,273 +1,333 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace AXOpen.Core
+      <title>Namespace AXOpen.Core
  | System.Dynamic.ExpandoObject </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace AXOpen.Core
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Namespace AXOpen.Core
  | System.Dynamic.ExpandoObject ">
-    <meta name="generator" content="docfx ">
-  
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/custom.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  <meta property="docfx:rel" content="../">
-  
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
 
-              <a class="navbar-brand" href="../index.html">
-                <p class="text-logo">AXOpen</p>
-              </a>            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="AXOpen.Core">
+
+        <article data-uid="AXOpen.Core">
 
   <h1 id="AXOpen_Core" data-uid="AXOpen.Core" class="text-break">Namespace AXOpen.Core
 </h1>
   <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
-</h3>
-      <h4><a class="xref" href="AXOpen.Core._NULL_CONTEXT.html">_NULL_CONTEXT</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core._NULL_LOGGER.html">_NULL_LOGGER</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core._NULL_OBJECT.html">_NULL_OBJECT</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core._NULL_RTC.html">_NULL_RTC</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoComponent.html">AxoComponent</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoComponentCommandView.html">AxoComponentCommandView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoComponentStatusView.html">AxoComponentStatusView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoComponentView.html">AxoComponentView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoContext.html">AxoContext</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoDialog.html">AxoDialog</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoDialogBase.html">AxoDialogBase</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoDialogDialogView.html">AxoDialogDialogView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoMomentaryTask.html">AxoMomentaryTask</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoMomentaryTaskCommandView.html">AxoMomentaryTaskCommandView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoMomentaryTaskStatusView.html">AxoMomentaryTaskStatusView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoMomentaryTaskView.html">AxoMomentaryTaskView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoObject.html">AxoObject</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoSequencer.html">AxoSequencer</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoSequencerCommandView.html">AxoSequencerCommandView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoSequencerContainer.html">AxoSequencerContainer</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoSequencerStatusView.html">AxoSequencerStatusView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoSequencerView.html">AxoSequencerView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoStep.html">AxoStep</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoStepCommandView.html">AxoStepCommandView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoStepStatusView.html">AxoStepStatusView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoStepView.html">AxoStepView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTask.html">AxoTask</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTaskCommandView.html">AxoTaskCommandView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTaskStatusView.html">AxoTaskStatusView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTaskView.html">AxoTaskView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTextList.html">AxoTextList</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTextListCommandView.html">AxoTextListCommandView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTextListControlView.html">AxoTextListControlView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTextListDisplayView.html">AxoTextListDisplayView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTextListStatusView.html">AxoTextListStatusView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoTextListView.html">AxoTextListView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoToggleTask.html">AxoToggleTask</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoToggleTaskCommandView.html">AxoToggleTaskCommandView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoToggleTaskStatusView.html">AxoToggleTaskStatusView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.AxoToggleTaskView.html">AxoToggleTaskView</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.ComponentDetailsAttribute.html">ComponentDetailsAttribute</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.ComponentGroupContext.html">ComponentGroupContext</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.ComponentHeaderAttribute.html">ComponentHeaderAttribute</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.DependencyInjection.html">DependencyInjection</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.ErrorLevelAttribute.html">ErrorLevelAttribute</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.MultipleRemoteCallInitializationException.html">MultipleRemoteCallInitializationException</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.WarningLevelAttribute.html">WarningLevelAttribute</a></h4>
-      <section></section>
-    <h3 id="interfaces">Interfaces
-</h3>
-      <h4><a class="xref" href="AXOpen.Core.IAxoAlertDialogFormat.html">IAxoAlertDialogFormat</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoComponent.html">IAxoComponent</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoContext.html">IAxoContext</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoDialogAnswer.html">IAxoDialogAnswer</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoDialogFormat.html">IAxoDialogFormat</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoManuallyControllable.html">IAxoManuallyControllable</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoMomentaryTask.html">IAxoMomentaryTask</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoStep.html">IAxoStep</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.IAxoToggleTask.html">IAxoToggleTask</a></h4>
-      <section></section>
-    <h3 id="enums">Enums
-</h3>
-      <h4><a class="xref" href="AXOpen.Core.AxoCoordinatorStates.html">AxoCoordinatorStates</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.eAxoSequenceMode.html">eAxoSequenceMode</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.eAxoSteppingMode.html">eAxoSteppingMode</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.eAxoTaskState.html">eAxoTaskState</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.eDialogAnswer.html">eDialogAnswer</a></h4>
-      <section></section>
-      <h4><a class="xref" href="AXOpen.Core.eDialogType.html">eDialogType</a></h4>
-      <section></section>
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+    <h3 id="classes">
+Classes
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core._NULL_CONTEXT.html">_NULL_CONTEXT</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core._NULL_LOGGER.html">_NULL_LOGGER</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core._NULL_OBJECT.html">_NULL_OBJECT</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core._NULL_RTC.html">_NULL_RTC</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoComponent.html">AxoComponent</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoComponentCommandView.html">AxoComponentCommandView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoComponentStatusView.html">AxoComponentStatusView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoComponentView.html">AxoComponentView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoContext.html">AxoContext</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoMomentaryTask.html">AxoMomentaryTask</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoMomentaryTaskCommandView.html">AxoMomentaryTaskCommandView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoMomentaryTaskStatusView.html">AxoMomentaryTaskStatusView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoMomentaryTaskView.html">AxoMomentaryTaskView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoObject.html">AxoObject</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoSequencer.html">AxoSequencer</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoSequencerCommandView.html">AxoSequencerCommandView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoSequencerContainer.html">AxoSequencerContainer</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoSequencerStatusView.html">AxoSequencerStatusView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoSequencerView.html">AxoSequencerView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoStep.html">AxoStep</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoStepCommandView.html">AxoStepCommandView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoStepStatusView.html">AxoStepStatusView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoStepView.html">AxoStepView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoTask.html">AxoTask</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoTaskCommandView.html">AxoTaskCommandView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoTaskStatusView.html">AxoTaskStatusView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoTaskView.html">AxoTaskView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoToggleTask.html">AxoToggleTask</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoToggleTaskCommandView.html">AxoToggleTaskCommandView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoToggleTaskStatusView.html">AxoToggleTaskStatusView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoToggleTaskView.html">AxoToggleTaskView</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.ComponentDetailsAttribute.html">ComponentDetailsAttribute</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.ComponentGroupContext.html">ComponentGroupContext</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.ComponentHeaderAttribute.html">ComponentHeaderAttribute</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.MultipleRemoteCallInitializationException.html">MultipleRemoteCallInitializationException</a></dt>
+      <dd></dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoComponent.html">IAxoComponent</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoContext.html">IAxoContext</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoCoordinator.html">IAxoCoordinator</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoManuallyControllable.html">IAxoManuallyControllable</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoMomentaryTask.html">IAxoMomentaryTask</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoStep.html">IAxoStep</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.IAxoToggleTask.html">IAxoToggleTask</a></dt>
+      <dd></dd>
+    </dl>
+    <h3 id="enums">
+Enums
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.AxoCoordinatorStates.html">AxoCoordinatorStates</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.eAxoSequenceMode.html">eAxoSequenceMode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.eAxoSteppingMode.html">eAxoSteppingMode</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="AXOpen.Core.eAxoTaskState.html">eAxoTaskState</a></dt>
+      <dd></dd>
+    </dl>
+
+
+</article>
+
+        <div class="contribution d-print-none">
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
-      
-          </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
         </div>
-      </footer>
-    </div>
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
-    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
-    <script>
-    mermaid.initialize({
-    startOnLoad: false
-    });
-    mermaid.init(undefined, ".lang-mermaid");
-    </script>  </body>
+      </div>
+    </footer>
+  </body>
 </html>

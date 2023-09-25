@@ -1,103 +1,138 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AxoContext
+      <title>Class AxoContext
  | System.Dynamic.ExpandoObject </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AxoContext
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoContext
  | System.Dynamic.ExpandoObject ">
-    <meta name="generator" content="docfx ">
-  
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/custom.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  <meta property="docfx:rel" content="../">
-  
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
 
-              <a class="navbar-brand" href="../index.html">
-                <p class="text-logo">AXOpen</p>
-              </a>            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="AXOpen.Core.AxoContext">
+
+        <article data-uid="AXOpen.Core.AxoContext">
 
 
-  <h1 id="AXOpen_Core_AxoContext" data-uid="AXOpen.Core.AxoContext" class="text-break">Class AxoContext
-</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">object</span></div>
-    <div class="level1"><span class="xref">AxoContext</span></div>
+
+  <h1 id="AXOpen_Core_AxoContext" data-uid="AXOpen.Core.AxoContext" class="text-break">
+    Class AxoContext
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ix_ax_axopen_core.dll</dd></dl>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">AXSharp.Connector.ITwinObject</span></div>
-    <div><span class="xref">AXSharp.Connector.ITwinElement</span></div>
-    <div><a class="xref" href="AXOpen.Core.IAxoContext.html">IAxoContext</a></div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AxoContext : ITwinObject, ITwinElement, IAxoContext</code></pre>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">AxoContext</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ITwinObject</span></div>
+      <div><span class="xref">ITwinElement</span></div>
+      <div><a class="xref" href="AXOpen.Core.IAxoContext.html">IAxoContext</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <span class="xref">object.Equals(object)</span>
     </div>
@@ -119,1111 +154,996 @@
     <div>
       <span class="xref">object.ToString()</span>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Core.html">Core</a></h6>
-  <h6><strong>Assembly</strong>: ix_ax_axopen_core.dll</h6>
-  <h5 id="AXOpen_Core_AxoContext_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoContext : ITwinObject, ITwinElement, IAxoContext</code></pre>
-  </div>
-  <h3 id="constructors">Constructors
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.%23ctor(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L16">View Source</a>
-  </span>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
   <a id="AXOpen_Core_AxoContext__ctor_" data-uid="AXOpen.Core.AxoContext.#ctor*"></a>
-  <h4 id="AXOpen_Core_AxoContext__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Core.AxoContext.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">AxoContext(ITwinObject, string, string)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Core.AxoContext.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">
+  AxoContext(ITwinObject, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AxoContext(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td><span class="parametername">parent</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">readableTail</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">symbolTail</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_AttributeName.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.AttributeName%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L145">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parent</code> <span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+    <dt><code>readableTail</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>symbolTail</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
   <a id="AXOpen_Core_AxoContext_AttributeName_" data-uid="AXOpen.Core.AxoContext.AttributeName*"></a>
-  <h4 id="AXOpen_Core_AxoContext_AttributeName" data-uid="AXOpen.Core.AxoContext.AttributeName">AttributeName</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_AttributeName" data-uid="AXOpen.Core.AxoContext.AttributeName">
+  AttributeName
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string AttributeName { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_Connector.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.Connector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L125">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_Connector_" data-uid="AXOpen.Core.AxoContext.Connector*"></a>
-  <h4 id="AXOpen_Core_AxoContext_Connector" data-uid="AXOpen.Core.AxoContext.Connector">Connector</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_Connector" data-uid="AXOpen.Core.AxoContext.Connector">
+  Connector
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Connector Connector { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.Connector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_HumanReadable.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.HumanReadable%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L147">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_HumanReadable_" data-uid="AXOpen.Core.AxoContext.HumanReadable*"></a>
-  <h4 id="AXOpen_Core_AxoContext_HumanReadable" data-uid="AXOpen.Core.AxoContext.HumanReadable">HumanReadable</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_HumanReadable" data-uid="AXOpen.Core.AxoContext.HumanReadable">
+  HumanReadable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L147"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string HumanReadable { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_Interpreter.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.Interpreter%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L153">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_Interpreter_" data-uid="AXOpen.Core.AxoContext.Interpreter*"></a>
-  <h4 id="AXOpen_Core_AxoContext_Interpreter" data-uid="AXOpen.Core.AxoContext.Interpreter">Interpreter</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_Interpreter" data-uid="AXOpen.Core.AxoContext.Interpreter">
+  Interpreter
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L153"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Translator Interpreter { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.Localizations.Translator</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_Parent.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.Parent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L151">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Translator</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_Parent_" data-uid="AXOpen.Core.AxoContext.Parent*"></a>
-  <h4 id="AXOpen_Core_AxoContext_Parent" data-uid="AXOpen.Core.AxoContext.Parent">Parent</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_Parent" data-uid="AXOpen.Core.AxoContext.Parent">
+  Parent
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L151"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected ITwinObject Parent { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_Symbol.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.Symbol%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L142">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_Symbol_" data-uid="AXOpen.Core.AxoContext.Symbol*"></a>
-  <h4 id="AXOpen_Core_AxoContext_Symbol" data-uid="AXOpen.Core.AxoContext.Symbol">Symbol</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_Symbol" data-uid="AXOpen.Core.AxoContext.Symbol">
+  Symbol
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string Symbol { get; protected set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_SymbolTail.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.SymbolTail%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L149">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_SymbolTail_" data-uid="AXOpen.Core.AxoContext.SymbolTail*"></a>
-  <h4 id="AXOpen_Core_AxoContext_SymbolTail" data-uid="AXOpen.Core.AxoContext.SymbolTail">SymbolTail</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_SymbolTail" data-uid="AXOpen.Core.AxoContext.SymbolTail">
+  SymbolTail
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected string SymbolTail { get; set; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_AddChild_AXSharp_Connector_ITwinObject_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.AddChild(AXSharp.Connector.ITwinObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L120">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="AXOpen_Core_AxoContext_AddChild_" data-uid="AXOpen.Core.AxoContext.AddChild*"></a>
-  <h4 id="AXOpen_Core_AxoContext_AddChild_AXSharp_Connector_ITwinObject_" data-uid="AXOpen.Core.AxoContext.AddChild(AXSharp.Connector.ITwinObject)">AddChild(ITwinObject)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_AddChild_AXSharp_Connector_ITwinObject_" data-uid="AXOpen.Core.AxoContext.AddChild(AXSharp.Connector.ITwinObject)">
+  AddChild(ITwinObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void AddChild(ITwinObject twinObject)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td><span class="parametername">twinObject</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_AddKid_AXSharp_Connector_ITwinElement_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.AddKid(AXSharp.Connector.ITwinElement)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L115">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>twinObject</code> <span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_AddKid_" data-uid="AXOpen.Core.AxoContext.AddKid*"></a>
-  <h4 id="AXOpen_Core_AxoContext_AddKid_AXSharp_Connector_ITwinElement_" data-uid="AXOpen.Core.AxoContext.AddKid(AXSharp.Connector.ITwinElement)">AddKid(ITwinElement)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_AddKid_AXSharp_Connector_ITwinElement_" data-uid="AXOpen.Core.AxoContext.AddKid(AXSharp.Connector.ITwinElement)">
+  AddKid(ITwinElement)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L115"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void AddKid(ITwinElement kid)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinElement</span></td>
-        <td><span class="parametername">kid</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_AddValueTag_AXSharp_Connector_ITwinPrimitive_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L110">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>kid</code> <span class="xref">ITwinElement</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_AddValueTag_" data-uid="AXOpen.Core.AxoContext.AddValueTag*"></a>
-  <h4 id="AXOpen_Core_AxoContext_AddValueTag_AXSharp_Connector_ITwinPrimitive_" data-uid="AXOpen.Core.AxoContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)">AddValueTag(ITwinPrimitive)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_AddValueTag_AXSharp_Connector_ITwinPrimitive_" data-uid="AXOpen.Core.AxoContext.AddValueTag(AXSharp.Connector.ITwinPrimitive)">
+  AddValueTag(ITwinPrimitive)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L110"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void AddValueTag(ITwinPrimitive valueTag)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinPrimitive</span></td>
-        <td><span class="parametername">valueTag</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_CreateEmptyPoco.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.CreateEmptyPoco%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L87">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>valueTag</code> <span class="xref">ITwinPrimitive</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_CreateEmptyPoco_" data-uid="AXOpen.Core.AxoContext.CreateEmptyPoco*"></a>
-  <h4 id="AXOpen_Core_AxoContext_CreateEmptyPoco" data-uid="AXOpen.Core.AxoContext.CreateEmptyPoco">CreateEmptyPoco()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_CreateEmptyPoco" data-uid="AXOpen.Core.AxoContext.CreateEmptyPoco">
+  CreateEmptyPoco()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L87"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AxoContext CreateEmptyPoco()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_GetChildren.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.GetChildren%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L93">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_GetChildren_" data-uid="AXOpen.Core.AxoContext.GetChildren*"></a>
-  <h4 id="AXOpen_Core_AxoContext_GetChildren" data-uid="AXOpen.Core.AxoContext.GetChildren">GetChildren()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_GetChildren" data-uid="AXOpen.Core.AxoContext.GetChildren">
+  GetChildren()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinObject&gt; GetChildren()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinObject</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_GetConnector.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.GetConnector%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L127">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinObject</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_GetConnector_" data-uid="AXOpen.Core.AxoContext.GetConnector*"></a>
-  <h4 id="AXOpen_Core_AxoContext_GetConnector" data-uid="AXOpen.Core.AxoContext.GetConnector">GetConnector()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_GetConnector" data-uid="AXOpen.Core.AxoContext.GetConnector">
+  GetConnector()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L127"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Connector GetConnector()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.Connector</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_GetKids.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.GetKids%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L99">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Connector</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_GetKids_" data-uid="AXOpen.Core.AxoContext.GetKids*"></a>
-  <h4 id="AXOpen_Core_AxoContext_GetKids" data-uid="AXOpen.Core.AxoContext.GetKids">GetKids()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_GetKids" data-uid="AXOpen.Core.AxoContext.GetKids">
+  GetKids()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinElement&gt; GetKids()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinElement</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_GetParent.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.GetParent%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L137">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinElement</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_GetParent_" data-uid="AXOpen.Core.AxoContext.GetParent*"></a>
-  <h4 id="AXOpen_Core_AxoContext_GetParent" data-uid="AXOpen.Core.AxoContext.GetParent">GetParent()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_GetParent" data-uid="AXOpen.Core.AxoContext.GetParent">
+  GetParent()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ITwinObject GetParent()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_GetSymbolTail.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.GetSymbolTail%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L132">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_GetSymbolTail_" data-uid="AXOpen.Core.AxoContext.GetSymbolTail*"></a>
-  <h4 id="AXOpen_Core_AxoContext_GetSymbolTail" data-uid="AXOpen.Core.AxoContext.GetSymbolTail">GetSymbolTail()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_GetSymbolTail" data-uid="AXOpen.Core.AxoContext.GetSymbolTail">
+  GetSymbolTail()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public string GetSymbolTail()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_GetValueTags.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.GetValueTags%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L105">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_GetValueTags_" data-uid="AXOpen.Core.AxoContext.GetValueTags*"></a>
-  <h4 id="AXOpen_Core_AxoContext_GetValueTags" data-uid="AXOpen.Core.AxoContext.GetValueTags">GetValueTags()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_GetValueTags" data-uid="AXOpen.Core.AxoContext.GetValueTags">
+  GetValueTags()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;ITwinPrimitive&gt; GetValueTags()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinPrimitive</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_OnlineToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.OnlineToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L29">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_OnlineToPlain_" data-uid="AXOpen.Core.AxoContext.OnlineToPlain*"></a>
-  <h4 id="AXOpen_Core_AxoContext_OnlineToPlain__1" data-uid="AXOpen.Core.AxoContext.OnlineToPlain``1">OnlineToPlain&lt;T&gt;()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_OnlineToPlain__1" data-uid="AXOpen.Core.AxoContext.OnlineToPlain``1">
+  OnlineToPlain&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual Task&lt;T&gt; OnlineToPlain&lt;T&gt;()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_OnlineToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.OnlineToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L34">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_OnlineToPlainAsync_" data-uid="AXOpen.Core.AxoContext.OnlineToPlainAsync*"></a>
-  <h4 id="AXOpen_Core_AxoContext_OnlineToPlainAsync" data-uid="AXOpen.Core.AxoContext.OnlineToPlainAsync">OnlineToPlainAsync()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_OnlineToPlainAsync" data-uid="AXOpen.Core.AxoContext.OnlineToPlainAsync">
+  OnlineToPlainAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;AxoContext&gt; OnlineToPlainAsync()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoContext_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoContext)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L41">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_OnlineToPlainAsync_" data-uid="AXOpen.Core.AxoContext.OnlineToPlainAsync*"></a>
-  <h4 id="AXOpen_Core_AxoContext_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoContext_" data-uid="AXOpen.Core.AxoContext.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoContext)">OnlineToPlainAsync(AxoContext)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoContext_" data-uid="AXOpen.Core.AxoContext.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoContext)">
+  OnlineToPlainAsync(AxoContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Task&lt;AxoContext&gt; OnlineToPlainAsync(AxoContext plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_PlainToOnline__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.PlainToOnline%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L46">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_PlainToOnline_" data-uid="AXOpen.Core.AxoContext.PlainToOnline*"></a>
-  <h4 id="AXOpen_Core_AxoContext_PlainToOnline__1___0_" data-uid="AXOpen.Core.AxoContext.PlainToOnline``1(``0)">PlainToOnline&lt;T&gt;(T)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_PlainToOnline__1___0_" data-uid="AXOpen.Core.AxoContext.PlainToOnline``1(``0)">
+  PlainToOnline&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual Task PlainToOnline&lt;T&gt;(T plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoContext_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoContext)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L51">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_PlainToOnlineAsync_" data-uid="AXOpen.Core.AxoContext.PlainToOnlineAsync*"></a>
-  <h4 id="AXOpen_Core_AxoContext_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoContext_" data-uid="AXOpen.Core.AxoContext.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoContext)">PlainToOnlineAsync(AxoContext)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoContext_" data-uid="AXOpen.Core.AxoContext.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoContext)">
+  PlainToOnlineAsync(AxoContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L51"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToOnlineAsync(AxoContext plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinPrimitive</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_PlainToShadow__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.PlainToShadow%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L72">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_PlainToShadow_" data-uid="AXOpen.Core.AxoContext.PlainToShadow*"></a>
-  <h4 id="AXOpen_Core_AxoContext_PlainToShadow__1___0_" data-uid="AXOpen.Core.AxoContext.PlainToShadow``1(``0)">PlainToShadow&lt;T&gt;(T)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_PlainToShadow__1___0_" data-uid="AXOpen.Core.AxoContext.PlainToShadow``1(``0)">
+  PlainToShadow&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual Task PlainToShadow&lt;T&gt;(T plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_PlainToShadowAsync_Pocos_AXOpen_Core_AxoContext_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.PlainToShadowAsync(Pocos.AXOpen.Core.AxoContext)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L77">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_PlainToShadowAsync_" data-uid="AXOpen.Core.AxoContext.PlainToShadowAsync*"></a>
-  <h4 id="AXOpen_Core_AxoContext_PlainToShadowAsync_Pocos_AXOpen_Core_AxoContext_" data-uid="AXOpen.Core.AxoContext.PlainToShadowAsync(Pocos.AXOpen.Core.AxoContext)">PlainToShadowAsync(AxoContext)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_PlainToShadowAsync_Pocos_AXOpen_Core_AxoContext_" data-uid="AXOpen.Core.AxoContext.PlainToShadowAsync(Pocos.AXOpen.Core.AxoContext)">
+  PlainToShadowAsync(AxoContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToShadowAsync(AxoContext plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinPrimitive</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_Poll.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.Poll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L82">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_Poll_" data-uid="AXOpen.Core.AxoContext.Poll*"></a>
-  <h4 id="AXOpen_Core_AxoContext_Poll" data-uid="AXOpen.Core.AxoContext.Poll">Poll()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_Poll" data-uid="AXOpen.Core.AxoContext.Poll">
+  Poll()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Poll()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_ShadowToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.ShadowToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L56">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_ShadowToPlain_" data-uid="AXOpen.Core.AxoContext.ShadowToPlain*"></a>
-  <h4 id="AXOpen_Core_AxoContext_ShadowToPlain__1" data-uid="AXOpen.Core.AxoContext.ShadowToPlain``1">ShadowToPlain&lt;T&gt;()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_ShadowToPlain__1" data-uid="AXOpen.Core.AxoContext.ShadowToPlain``1">
+  ShadowToPlain&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L56"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public virtual Task&lt;T&gt; ShadowToPlain&lt;T&gt;()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_ShadowToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.ShadowToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L61">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_ShadowToPlainAsync_" data-uid="AXOpen.Core.AxoContext.ShadowToPlainAsync*"></a>
-  <h4 id="AXOpen_Core_AxoContext_ShadowToPlainAsync" data-uid="AXOpen.Core.AxoContext.ShadowToPlainAsync">ShadowToPlainAsync()</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_ShadowToPlainAsync" data-uid="AXOpen.Core.AxoContext.ShadowToPlainAsync">
+  ShadowToPlainAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;AxoContext&gt; ShadowToPlainAsync()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoContext_.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoContext)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L67">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoContext_ShadowToPlainAsync_" data-uid="AXOpen.Core.AxoContext.ShadowToPlainAsync*"></a>
-  <h4 id="AXOpen_Core_AxoContext_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoContext_" data-uid="AXOpen.Core.AxoContext.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoContext)">ShadowToPlainAsync(AxoContext)</h4>
+
+  <h3 id="AXOpen_Core_AxoContext_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoContext_" data-uid="AXOpen.Core.AxoContext.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoContext)">
+  ShadowToPlainAsync(AxoContext)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Task&lt;AxoContext&gt; ShadowToPlainAsync(AxoContext plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">AXSharp.Connector.ITwinObject</span>
-  </div>
-  <div>
-      <span class="xref">AXSharp.Connector.ITwinElement</span>
-  </div>
-  <div>
-      <a class="xref" href="AXOpen.Core.IAxoContext.html">IAxoContext</a>
-  </div>
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoContext.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoContext%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L12" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoContext.html">AxoContext</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoContext/AxoContext.g.cs/#L12" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
-      
-          </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
         </div>
-      </footer>
-    </div>
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
-    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
-    <script>
-    mermaid.initialize({
-    startOnLoad: false
-    });
-    mermaid.init(undefined, ".lang-mermaid");
-    </script>  </body>
+      </div>
+    </footer>
+  </body>
 </html>

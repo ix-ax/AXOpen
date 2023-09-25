@@ -5,7 +5,7 @@
       <form class="toc-filter">
         <span class="glyphicon glyphicon-filter filter-icon"></span>
         <span class="glyphicon glyphicon-remove clear-icon" id="toc_filter_clear"></span>
-        <input type="text" id="toc_filter_input" placeholder="Enter here to filter..." onkeypress="if(event.keyCode==13) {return false;}">
+        <input type="text" id="toc_filter_input" placeholder="Filter by title" onkeypress="if(event.keyCode==13) {return false;}">
       </form>
     </div>
     <div class="sidetoc">
@@ -13,13 +13,110 @@
 
           <ul class="nav level1">
                 <li>
-                    <a href="articles/intro.html" name="" title="ARTICLES">ARTICLES</a>
+                    <span class="expand-stub"></span>
+                    <a>ARTICLES</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <a href="articles/index.html" name="" title="Introduction">Introduction</a>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="articles/notes/README.html" name="" title="Templates and app notes">Templates and app notes</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="articles/themes/README.html" name="" title="Template themes">Template themes</a>
+                                    </li>
+                                    <li>
+                                        <a href="articles/localization/README.html" name="" title="Template localization">Template localization</a>
+                                    </li>
+                                    <li>
+                                        <a href="articles/configuration/README.html" name="" title="Server configuration">Server configuration</a>
+                                    </li>
+                                    <li>
+                                        <a href="clientchat/index.html" name="" title="Client Identification">Client Identification</a>
+                                    </li>
+                                    <li>
+                                        <a href="articles/notes/Assets_in_nuget_package.html" name="" title="Embedding assets in nuget package">Embedding assets in nuget package</a>
+                                    </li>
+                              </ul>
+                          </li>
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="articles/guidelines/README.html" name="" title="Dev guidelines">Dev guidelines</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="articles/guidelines/Conventions.html" name="" title="General">General</a>
+                                    </li>
+                                    <li>
+                                        <a href="articles/guidelines/components.html" name="" title="Components">Components</a>
+                                    </li>
+                              </ul>
+                          </li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="api/AXOpen.Core.html" name="api/toc.html" title="API">API</a>
+                    <span class="expand-stub"></span>
+                    <a>FRAMEWORK</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <a>Core</a>
+                          </li>
+                          <li>
+                              <a>Data</a>
+                          </li>
+                          <li>
+                              <a>Inspectors</a>
+                          </li>
+                          <li>
+                              <a>Timers</a>
+                          </li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="apictrl/plc.AXOpen.Core.html" name="apictrl/toc.html" title="PLC API">PLC API</a>
+                    <span class="expand-stub"></span>
+                    <a>COMPONENTS</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <a>Abstractions</a>
+                          </li>
+                          <li>
+                              <a>Elements</a>
+                          </li>
+                          <li>
+                              <a>Pneumatics</a>
+                          </li>
+                          <li>
+                              <a href="components.cognex.vision/docs" name="" title="Cognex Vision">Cognex Vision</a>
+                          </li>
+                          <li>
+                              <a>Library template</a>
+                          </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="expand-stub"></span>
+                    <a>APIs</a>
+
+                    <ul class="nav level2">
+                          <li>
+                              <span class="expand-stub"></span>
+                              <a href="apidoc/index.html" name="" title="APIs">APIs</a>
+
+                              <ul class="nav level3">
+                                    <li>
+                                        <a href="api/AXOpen.Core.html" name="api/toc.html" title=".NET">.NET</a>
+                                    </li>
+                                    <li>
+                                        <a href="apictrl/plc.AXOpen.Core.html" name="apictrl/toc.html" title="CONTROLLER">CONTROLLER</a>
+                                    </li>
+                              </ul>
+                          </li>
+                    </ul>
                 </li>
           </ul>
       </div>

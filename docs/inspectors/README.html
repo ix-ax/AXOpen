@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AXOpen.Inspectors | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AXOpen.Inspectors | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/inspectors/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axopeninspectors"><strong>AXOpen.Inspectors</strong></h1>
+
+<p><strong>AXOpen.Inspectors</strong> provides mechanism of inspection of different types of data. The input value is compared to required value. If input value is the same as required value for a <em>stabilization</em> time period, the inspection will succeed. If values are different, <em>timeout</em> will occur and inspection will fail.</p>
+<p>Inspectors can integrate with coordination primitives like <a href="../core/docs/AXOSEQUENCER.html">AxoSequencer</a>. In consequence, inspectors offer extended capabilities in decision flow for failed checks.</p>
+<p>Each inspector contains:</p>
+<ol>
+<li><p><code>Inspect</code> method, which input is current parent and inspection variable</p>
+</li>
+<li><p><code>OnFail</code> method, which provides methods for making a decision after a failed inspection (see Handling failure section)</p>
+</li>
+<li><p><code>UpdateComprehensiveResult</code> method, which input is object of type <code>AxoComprehesiveResult</code>, which can be used to gather results of all inspections.</p>
+</li>
+<li><p><code>Common data</code> about inspection inputs and result. See below.</p>
+</li>
+</ol>
+<h2 id="simple-example-inspection">Simple example inspection</h2>
+<ol>
+<li>Declare variables</li>
+</ol>
+<pre><code class="lang-smalltalk">VAR PUBLIC
+    _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;
+    _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
+    _dataInspector: AXOpen.Inspectors.AxoDataInspector;
+
+    _inspectionResult: BOOL;
+    _inspectionValue: LREAL;
+    _inspectionData: STRING;
+END_VAR
+</code></pre>
+<ol start="2">
+<li>Set initial inspection pass and fail timers</li>
+</ol>
+<pre><code class="lang-smalltalk">_digitalInspector.Data()^.FailTime := TIME#3s;
+_analogueInspector.Data()^.FailTime := TIME#3s;
+_dataInspector.Data()^.FailTime := TIME#3s;
+
+_digitalInspector.Data()^.PassTime := TIME#2s;
+_analogueInspector.Data()^.PassTime := TIME#2s;
+_dataInspector.Data()^.PassTime := TIME#2s;
+</code></pre>
+<ol start="3">
+<li>Run inspections</li>
+</ol>
+<pre><code class="lang-smalltalk">_digitalInspector.Inspect(THIS, _inspectionResult);
+_analogueInspector.Inspect(THIS, _inspectionValue);
+_dataInspector.Inspect(THIS, _inspectionData);
+</code></pre>
+<ol start="4">
+<li>Check each inspector's data for results</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Inspectors use AxOpen.Timers for counting time during inspections. Make sure, that <code>PLC cycle time</code> value in <code>configuration.st</code> is set accordingly to Pass and Fail timers (it should be in tens or hundreds milliseconds, the value shouldn't higher than lowest difference between pass and fail timers). If there are small differences (in ms) between pass and fail times and <code>PLC cycle time</code> is higher number (e.g. 1000 ms), unexpected behavior may occur and inspections can fail (even if they should pass).</p>
+</div>
+<h2 id="example-inspection-with-coordinator">Example inspection with Coordinator</h2>
+<p>Example of inspection within a sequencer in PLC:</p>
+<pre><code class="lang-smalltalk">_digitalInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+</code></pre>
+<ol>
+<li><p>A _presenceInspector is created instance of <code>AxoDigitalInspector</code></p>
+</li>
+<li><p>A coordinator is passed to this inspector with <code>WithCoordinator(THIS)</code> method, in this case it is a sequencer, a parent object.</p>
+</li>
+<li><p><code>Inspect</code> methods takes parent and inspection variable, on which inspection is performing.</p>
+</li>
+<li><p>If inspection fails, the result is updated to <code>_comprehensiveResult</code> object with <code>UpdateComprehensiveResult</code> method.</p>
+</li>
+<li><p>If inspection fails, <code>OnFail</code> method provides <code>CarryOn</code> method, which tells the coordinator to continue in execution.</p>
+</li>
+</ol>
+<h2 id="common-inspector-data">Common inspector data</h2>
+<p>Inspectors contain common data, which are used to store data about inspection. Each inspector contain following data:</p>
+<pre><code class="lang-smalltalk">//timestamp of inspection
+{#ix-set:AttributeName = &quot;&lt;#TimeStamp#&gt;&quot;}
+Timestamp: LDATE_AND_TIME;
+
+//stabilization time, inspection must be success for this period of time
+{#ix-set:AttributeName = &quot;&lt;#Stab.Time#&gt;&quot;}
+PassTime : TIME;
+
+//timeout, after which inspection fails
+{#ix-set:AttributeName = &quot;&lt;#Timeout#&gt;&quot;}
+FailTime : TIME;
+
+//result of inspection
+{#ix-set:AttributeName = &quot;&lt;#Result#&gt;&quot;}
+Result : eInspectorResult;
+
+//inspection will be performed, however result will be omitted in overall result
+{#ix-set:AttributeName = &quot;&lt;#Excluded#&gt;&quot;}
+IsExcluded: BOOL;
+
+//inspection will be skipped
+{#ix-set:AttributeName = &quot;&lt;#Bypass#&gt;&quot;}
+IsByPassed : BOOL;
+
+//maximum number of retries of inspection
+{#ix-set:AttributeName = &quot;&lt;#Re-tries#&gt;&quot;}
+NumberOfAllowedRetries : UINT;
+
+//actual number of retries
+{#ix-set:AttributeName = &quot;&lt;#Attempts#&gt;&quot;}
+RetryAttemptsCount : UINT;
+</code></pre><h2 id="axodigitalinspector">AxoDigitalInspector</h2>
+<p>Inspector provides evaluation of <em>discrete</em> value. The input value compares against the <em>Required</em> value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time.</p>
+<p><img src="docs/assets/digital-inspector.png" alt="Digital inspector"></p>
+<p>Common inspector data are extended with following digital inspector data:</p>
+<pre><code class="lang-smalltalk">{#ix-set:AttributeName = &quot;&lt;#Required#&gt;&quot;}
+RequiredStatus : BOOL;
+
+{#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
+DetectedStatus : BOOL;
+</code></pre><h2 id="axoanalogueinspector">AxoAnalogueInspector</h2>
+<p>Provides evaluation of <em>continuous</em> values. The inspector checks that the input value falls within the limit of <em>Min</em> and <em>Max</em>. The inspection passes when the input value is within the required limit without interruption for the duration of stabilization time.</p>
+<p><img src="docs/assets/analog-inspector.png" alt="Analog inspector"></p>
+<p>Common inspector data are extended with following analogue inspector data:</p>
+<pre><code class="lang-smalltalk">      {#ix-set:AttributeName = &quot;&lt;#Min#&gt;&quot;}
+      RequiredMin : LREAL;
+
+      {#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
+      DetectedStatus : LREAL;
+
+      {#ix-set:AttributeName = &quot;&lt;#Max#&gt;&quot;}
+      RequiredMax: LREAL;
+</code></pre><h2 id="axodatainspector">AxoDataInspector</h2>
+<p>Provides evaluation of alphanumerical values. The input value compares against the Required value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time. In addition to exact comparison, data inspector allows for simple pattern matching where # = any number and * = any character.</p>
+<p><img src="docs/assets/data-inspector.png" alt="Data inspector"></p>
+<p>Common inspector data are extended with following data inspector data:</p>
+<pre><code class="lang-smalltalk">      {#ix-set:AttributeName = &quot;&lt;#Required#&gt;&quot;}
+      RequiredStatus: STRING;
+
+      {#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
+      DetectedStatus : STRING;
+
+      {#ix-set:AttributeName = &quot;&lt;#Star notation#&gt;&quot;}
+      StarNotationEnabled: BOOL;
+
+</code></pre><h2 id="handling-failure">Handling failure</h2>
+<p>When an inspector fails, OnFail() provides a series of methods for making decisions about the process. In order for this is feature to work the inspector needs to be aware of the coordinator of <code>IAxoCoordinator</code>. The coordinator must be passed to the inspector by <code>WithCoordinator(coordinator)</code> method.</p>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dialog(inRetryStep, inTerminateStep)</td>
+<td>Opens dialog for the user to take a decision. Parameter <code>inRetryStep</code> represent state from which the inspection should start again. Parameter <code>inTerminateStep</code> represent terminate state of coordinator.</td>
+</tr>
+<tr>
+<td>Retry(inRetryStep)</td>
+<td>Retries the inspector. Retry state parameter tells from which state the inspection should start again.</td>
+</tr>
+<tr>
+<td>Override()</td>
+<td>Marks the inspection as failed but continues with the following states of the coordinator.</td>
+</tr>
+<tr>
+<td>Terminate(inTerminateStep)</td>
+<td>Marks the inspection as failed and aborts the execution of the coordinator.</td>
+</tr>
+</tbody>
+</table>
+<p>The following example specify, that when inspection fails, dialog is shown and is requesting user decision.</p>
+<pre><code class="lang-smalltalk">_dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
+</code></pre>
+<p><img src="docs/assets/inspection-failure-dialog.png" alt="Inspection failure"></p>
+<h2 id="over-inspection">Over-inspection</h2>
+<p>When <code>RetryAttemptsCount</code> is same as <code>NumberOfAllowedRetries</code>, no more inspection are allowed, as data are overinspected.</p>
+<p><img src="docs/assets/overinspected.png" alt="Overinspected"></p>
+<h2 id="preserving-overall-result">Preserving overall result</h2>
+<p>Overall result of a series of inspections can be preserved in <code>AxoComprehensiveResult</code>. Each inspector has <code>UpdateComprehensiveResult</code> method that provides the update function. Once the <code>UpdateComprehensiveResult</code> marks the overall result as Failed, successive inspection will not overwrite the result.</p>
+<pre><code class="lang-smalltalk">IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
+
+    _digitalInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+    END_IF;
+
+IF (Steps[35].Execute(THIS, TRUE, 'Example Analog inspection')) THEN         
+
+_analogueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().CarryOn();
+
+END_IF;
+</code></pre></article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/inspectors/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
