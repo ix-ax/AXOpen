@@ -10,12 +10,11 @@ variables:
 devDependencies:
   "@ax/sdk": ^4.0.8
 dependencies:
-  "@ix-ax/axopen.core": 0.1.4-alpha.79
-  "@ix-ax/axopen.timers": 0.1.4-alpha.79
+  "@ix-ax/axopen.core": '0.0.0-dev.0'
+  "@ix-ax/axopen.timers": '0.0.0-dev.0'
 scripts:
   download:
     - apax install -L
     - apax build
-    - dotnet ixc
     - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
       --accept-security-disclaimer --default-server-interface -r

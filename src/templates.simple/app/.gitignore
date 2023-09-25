@@ -1,6 +1,9 @@
 .apax
 .env
+.vscode
 bin
 
 obj
 testresult
+
+

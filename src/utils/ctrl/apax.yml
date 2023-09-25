@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.utils"
-version: '0.1.4-alpha.79'
+version: '0.0.0-dev.0'
 type: lib
 targets:
   - axunit-llvm

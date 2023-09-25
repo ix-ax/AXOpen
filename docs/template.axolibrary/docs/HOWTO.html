@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>How to | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="How to | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/template.axolibrary/docs/HOWTO.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="how-to">How to</h1>
+
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_controller" role="tab" aria-controls="tabpanel_1_controller" data-tab="controller" tabindex="0" aria-selected="true">CONTROLLER</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_twin" role="tab" aria-controls="tabpanel_1_twin" data-tab="twin" tabindex="-1">.NET TWIN</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_blazor" role="tab" aria-controls="tabpanel_1_blazor" data-tab="blazor" tabindex="-1">BLAZOR</a>
+</li>
+</ul>
+<section id="tabpanel_1_controller" role="tabpanel" data-tab="controller">
+<h1 id="how-to-use-component-in-controller">How to use component in controller</h1>
+<h2 id="declare-component">Declare component</h2>
+<pre><code class="lang-pascal">VAR PUBLIC                
+    Cyclinder : AXOpen.Pneumatics.Cylinder;                
+END_VAR
+</code></pre><h2 id="declare-initialization-variables">Declare initialization variables</h2>
+<p><em>Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.</em></p>
+<pre><code class="lang-pascal">VAR PUBLIC                
+    _homeSensor : BOOL;
+    _workSensor : BOOL;
+    _moveHomeSignal : BOOL;
+    _moveWorkSignal : BOOL;        
+END_VAR
+</code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
+<pre><code class="lang-pascal">Cyclinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);        
+</code></pre><div class="IMPORTANT">
+<h5>Important</h5>
+<p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
+</div>
+<h2 id="use">Use</h2>
+<pre><code class="lang-pascal">VAR PUBLIC                       
+    Sequencer : AxoSequencer;       
+    Steps : ARRAY[0..3] OF AXOpen.Core.AxoStep;
+END_VAR
+
+METHOD PRIVATE UseInSequencer   
+
+    Sequencer.Initialize(THIS);
+    Sequencer.Open();
+
+    IF(Steps[0].Execute(Sequencer, 'Move to home position')) THEN
+        IF(Cyclinder.MoveToHome.Invoke().IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;
+
+    IF(Steps[1].Execute(Sequencer, 'Move to work position')) THEN
+        IF(Cyclinder.MoveToWork.Invoke().IsDone()) THEN                
+            Sequencer.MoveNext();                
+        END_IF;    
+    END_IF;       
+END_METHOD
+
+</code></pre></section>
+<section id="tabpanel_1_twin" role="tabpanel" data-tab="twin" aria-hidden="true" hidden="hidden">
+<h1 id="twin">Twin</h1>
+<p>There are no known extensions to this component in the respective .NET twin rapresentative.</p>
+<p><a href="/api/dotnetlibs.html">API</a></p>
+<!-- TODO: Additional information about partial extensions -->
+</section>
+<section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
+<h1 id="blazor">Blazor</h1>
+<p><a href="/api/dotnetlibs.blazor.html">API</a></p>
+<!-- TODO: Additional information about partial extensions -->
+</section>
+</div>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/template.axolibrary/docs/HOWTO.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

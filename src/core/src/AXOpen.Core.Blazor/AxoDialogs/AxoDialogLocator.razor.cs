@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AXOpen.Core.Blazor.AxoDialogs
 {
-    public partial class AxoDialogLocator
+    public partial class AxoDialogLocator : ComponentBase, IDisposable
     {
         /// <summary>
         /// List of objects, which are observed for dialogs.

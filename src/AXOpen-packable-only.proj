@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.Build.Traversal/4.1.0">
+	<ItemGroup>    
+	  <ProjectReference Include="base\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="components.abstractions\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="components.elements\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="components.pneumatics\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="core\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="data\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="inspectors\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="probers\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="security\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/> 
+	  <ProjectReference Include="simatic1500\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>
+	  <ProjectReference Include="timers\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>
+	  <ProjectReference Include="utils\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>
+	</ItemGroup>
+</Project>

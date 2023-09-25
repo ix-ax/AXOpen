@@ -1,15 +1,42 @@
-# Automatic rendering in IXF
+# Automatic Rendering with AXOpen
 
-IFX uses [IX rendering](https://ix-ax.github.io/ix/articles/blazor/RENDERABLECONTENT.html) for many advanced features.
+AXOpen leverages [AX# rendering](https://ix-ax.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html) to enable a variety of advanced features.
 
-This document describes basic information about presentation used in IXF.
+This document provides foundational information regarding the presentation methods used within AXOpen.
 
-# Renderable content control
+## Renderable Content Control
 
+While [presentation modes in AX#](https://ix-ax.github.io/axsharp/articles/blazor/RENDERABLECONTENT.html#presentation-types) offer several options, AXOpen introduces additional presentation types:
 
-| Presentation type |                                    Description                                     |
-| ----------------- | ---------------------------------------------------------------------------------- |
-| Command           | Provides access to UI control with ability to control/modfiy the component.        |
-| Status            | Provides access to UI control with no ability to modify and control the component. |
+| Presentation Type | Description                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------- |
+| Command           | Allows interaction with a UI control, permitting modifications and controls of the component. |
+| Status            | Grants visibility of a UI control without the capability to modify or control the component.  |
 
+### Examples:
 
+**To enable manipulation of the `DriveX` component:**
+
+```XML
+<RenderableContentControl Context="@Entry.Plc.Station001.Components.DriveX" Presentation="Command"/>
+```
+
+**To view the status of the `DriveX` component without interaction:**
+
+```XML
+<RenderableContentControl Context="@Entry.Plc.Station001.Components.DriveX" Presentation="Status"/>
+```
+
+**To engage with visual components within the 'Components' structure for manual control:**
+
+```XML
+<RenderableContentControl Context="@Entry.Plc.Station001.Components" Presentation="Command"/>
+```
+
+**To observe the state of visual components within the 'Components' structure without manual interaction:**
+
+```XML
+<RenderableContentControl Context="@Entry.Plc.Station001.Components" Presentation="Status"/>
+```
+
+---

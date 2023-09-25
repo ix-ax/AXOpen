@@ -2,10 +2,11 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using System.Security.Principal;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoToggleTaskView 
+    public partial class AxoToggleTaskView : RenderableComplexComponentBase<AxoToggleTask>
     {
 
         [Inject]

@@ -1,0 +1,45 @@
+﻿@page "/AxoToggleTaskDocu"
+@using axopencore
+@using AXOpen.Core;
+<h3>AxoToggleTaskDocu</h3>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header d-flex">
+            <div class="h4 p-0 w-100 mb-4 text-primary border-bottom border-primary">ToggleTask example.</div>
+        </div>
+        <div class="card card-body">
+            <div class="container text-left">
+                <div class="row">
+                    <div class="col">
+                        <div class="card ps-2">
+                            <label>Displayed using AxoToggleTaskView. Controlable as the value of Disable is FALSE"</label>
+                            //<AxoToggleTaskViewControlable>
+                                <AxoToggleTaskView Component="@Entry.Plc.AxoToggleTaskDocu._myToggleTask" Disable="false" />
+                            //</AxoToggleTaskViewControlable>
+                        </div>
+                        <div class="card ps-2">
+                            <label>Displayed using AxoToggleTaskView. Viewable only as the value of Disable is TRUE"</label>
+                            //<AxoToggleTaskViewDisplayOnly>
+                                <AxoToggleTaskView Component="@Entry.Plc.AxoToggleTaskDocu._myToggleTask" Disable="true" />
+                            //</AxoToggleTaskViewDisplayOnly>
+                        </div>
+                        <div class="card ps-2">
+                            <label>Rendered by using RenderableContentControl. Controllable as the Presentation is Command</label>
+                            //<RenderableContentControlCommand>
+                                <RenderableContentControl Context="@Entry.Plc.AxoToggleTaskDocu._myToggleTask" Presentation="Command" />
+                            //</RenderableContentControlCommand>
+                        </div>
+                        <div class="card ps-2">
+                            <label>Rendered by using RenderableContentControl. Viewable only as the Presentation is Status</label>
+                            //<RenderableContentControlStatus>
+                                <RenderableContentControl Context="@Entry.Plc.AxoToggleTaskDocu._myToggleTask" Presentation="Status" />
+                            //</RenderableContentControlStatus>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+

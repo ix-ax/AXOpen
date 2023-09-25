@@ -1,0 +1,9 @@
+# How to
+
+[!INCLUDE [AXODI](AXODI.md)]
+
+[!INCLUDE [AXODO](AXODO.md)]
+
+[!INCLUDE [AXOAI](AXOAI.md)]
+
+[!INCLUDE [AXOAO](AXOAO.md)]

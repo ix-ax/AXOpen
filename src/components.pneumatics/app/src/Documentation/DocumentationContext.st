@@ -1,11 +1,13 @@
-//<DeclarationAndHWIO_Assignement>
+
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
+//<DeclarationAndHWIO_Assignement>
     VAR PUBLIC        
         PlcInputs : REF_TO PlcInputs;
         PlcOutputs : REF_TO PlcOutputs;          
         myAxoCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
     END_VAR
-
+//</DeclarationAndHWIO_Assignement>
+//<Pneumatic_Run>
     METHOD PROTECTED OVERRIDE Main        
         myAxoCylinder.Run(  THIS, 
                         PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X0, 
@@ -13,8 +15,9 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
                         PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0, 
                         PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0); 
     END_METHOD
+//</Pneumatic_Run>
 END_CLASS
-//</DeclarationAndHWIO_Assignement>
+
 
 CLASS AnotherDocumentationContext EXTENDS DocumentationContext
     VAR 
@@ -48,7 +51,7 @@ CLASS AnotherDocumentationContext EXTENDS DocumentationContext
         //</SuspendMoveToHomeWhile>
 
         //<SuspendMoveToWorkWhile>
-            myAxoCylinder.SuspendMoveToWorkWhile(_suspendWorkCondition);
+        myAxoCylinder.SuspendMoveToWorkWhile(_suspendWorkCondition);
         //</SuspendMoveToWorkWhile>
 
         //<AbortMoveToHomeWhen>

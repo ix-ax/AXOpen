@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AXOpen.Core.Resources {
+namespace AXOpen.Components.Abstractions.Resources {
     using System;
     
     

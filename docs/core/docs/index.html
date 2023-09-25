@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AXOpen.Core | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AXOpen.Core | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/index.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axopencore"><strong>AXOpen.Core</strong></h1>
+
+<p><strong>This library is an integral component of AXOpen. AXOpen is an application framework built on the foundations of SIMATIC-AX and AX# technologies. Utilizing the components described in this document might necessitate a foundational understanding of the AXOpen framework's concepts and methodologies. Additionally, leveraging some advanced features could require a basic familiarity with AX# technology.</strong></p>
+<p><strong>Additional Resources:</strong></p>
+<ul>
+<li><a href="../README.md">AXOpen Core Library</a></li>
+<li><a href="https://ix-ax.github.io/axsharp/">AX# Official Documentation</a></li>
+<li><a href="../../../docfx/articles/rendering/intro.md">UI Rendering Guide</a></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This document's content is synchronized with the source code of this library. Please note that the images and illustrative visuals included may not mirror the exact appearance in your application.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Should you identify errors, misleading content, or gaps in this documentation, kindly report the <strong><a href="https://github.com/ix-ax/AXOpen/issues/new?assignees=&amp;labels=documentation&amp;projects=&amp;template=documentation.md&amp;title=">issue here</a></strong>. Alternatively, you're welcome to suggest edits directly by initiating a pull request in <strong><a href="https://github.com/ix-ax/AXOpen">this repository</a></strong>.</p>
+</div>
+<hr>
+
+<p><strong>AXOpen.Core</strong> offers the foundational blocks for constructing AXOpen applications.</p>
+<ul>
+<li><p><strong>Contexts and Objects</strong>: These are at the core of the AXOpen application logic. <code>AxoContext</code> acts as the container for an AXOpen application, supplying information to each <code>AxoObject</code>. <code>AxoObject</code> serves as the base class for any segment of an AXOpen application.</p>
+</li>
+<li><p><strong>Tasks</strong>: These facilitate basic coordination mechanisms to align partial tasks in a consistent manner.</p>
+</li>
+<li><p><strong>Components</strong>: They offer rudimentary implementations for any component associated with AXOpen. A component can be a physical device such as a pneumatic cylinder, servo drive robot, or even a virtual device. Components in AXOpen are designed to furnish ready-to-use driver pieces, allowing rapid application composition.</p>
+</li>
+<li><p><strong>Dialogs and alerts</strong>: provide neat way of informing and interactic with human operator.</p>
+</li>
+<li><p><strong>Coordination</strong>: This provides a suite of classes for advanced task coordination and visualization, ensuring high visibility into device operations.</p>
+</li>
+<li><p><strong>Messengers</strong>: They make it straightforward to report alarms and convey messages to operating personnel.</p>
+</li>
+<li><p><strong>Logging</strong>: This feature enables users to monitor and accumulate data regarding internal events within the controller.</p>
+</li>
+</ul>
+<hr>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/index.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

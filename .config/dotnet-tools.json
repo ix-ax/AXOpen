@@ -3,27 +3,39 @@
   "isRoot": true,
   "tools": {
     "AXSharp.ixc": {
-      "version": "0.14.2-alpha.134",
+      "version": "0.14.3-alpha.147",
       "commands": [
         "ixc"
       ]
     },
     "docfx": {
-      "version": "2.62.2",
+      "version": "2.70.4",
       "commands": [
         "docfx"
       ]
     },
     "AXSharp.ixd": {
-      "version": "0.14.2-alpha.134",
+      "version": "0.14.3-alpha.147",
       "commands": [
         "ixd"
       ]
     },
     "AXSharp.ixr": {
-      "version": "0.14.2-alpha.134",
+      "version": "0.14.3-alpha.147",
       "commands": [
         "ixr"
+      ]
+    },
+    "microsoft.visualstudio.slngen.tool": {
+      "version": "10.3.4",
+      "commands": [
+        "slngen"
+      ]
+    },
+    "docfxtocgenerator": {
+      "version": "1.10.0",
+      "commands": [
+        "DocFxTocGenerator"
       ]
     }
   }

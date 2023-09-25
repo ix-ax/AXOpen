@@ -2,10 +2,11 @@
 using AXSharp.Connector.ValueTypes;
 using System.Text;
 using System.Reflection;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoBoolArrayView : IDisposable
+    public partial class AxoBoolArrayView : RenderableComplexComponentBase<AxoBoolArray>, IDisposable
     {
         private bool initialized;
         private int length;

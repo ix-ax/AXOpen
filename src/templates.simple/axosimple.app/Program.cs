@@ -36,7 +36,7 @@ builder.Services.AddAxoCoreServices();
 
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
-Entry.Plc.Connector.ConcurrentRequestMaxCount = 4;
+Entry.Plc.Connector.ConcurrentRequestMaxCount = 3;
 Entry.Plc.Connector.ConcurrentRequestDelay = 25;
 Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
     .WriteTo

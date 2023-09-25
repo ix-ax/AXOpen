@@ -31,7 +31,10 @@ using Cake.Powershell;
 using CliWrap;
 using CommandLine;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.VisualBasic;
+using Newtonsoft.Json;
 using NuGet.Packaging;
+using NuGet.Protocol;
 using Octokit;
 using Polly;
 using Spectre.Console;
@@ -65,9 +68,33 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-        context.Libraries.ToList().ForEach(lib => context.ApaxClean(lib));
-        context.Integrations.ToList().ForEach(integration => context.ApaxClean(integration));
-        context.DotNetClean(Path.Combine(context.RootDir, "AXOpen.sln"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity});
+
+        context.Log.Information("Build running with following parameters:");
+        context.Log.Information(context.BuildParameters.ToJson(Formatting.Indented));
+       
+        if (context.IsGitHubActions)
+        {
+            context.BuildParameters.CleanUp = true;
+        }
+        
+        if (!context.BuildParameters.CleanUp)
+        {
+            context.Log.Information($"Skipping clean-up");
+            return;
+        }
+
+        if (context.BuildParameters.Paralellize)
+        {
+            Parallel.ForEach(context.Libraries, lib => context.ApaxClean(lib));
+        }
+        else
+        {
+            context.Libraries.ToList().ForEach(lib => context.ApaxClean(lib));
+        }
+
+
+        context.DotNetClean(Path.Combine(context.RootDir, "AXOpen.proj"), new DotNetCleanSettings() { Verbosity = context.BuildParameters.Verbosity});
+        context.CleanDirectory(context.BuildsOutput);
         context.CleanDirectory(context.Artifacts);
         context.CleanDirectory(context.TestResults);
         context.CleanDirectory(context.TestResultsCtrl);
@@ -81,6 +108,11 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
     public override void Run(BuildContext context)
     {
         ProvisionTools(context);
+
+        foreach (var library in context.Libraries)
+        {
+            context.CopyFiles(Path.Combine(context.RootDir, "traversals", "traversalBuilds", "**/*.*"), Path.Combine(context.RootDir, library.folder));
+        }
     }
 
     private static void ProvisionTools(BuildContext context)
@@ -89,11 +121,11 @@ public sealed class ProvisionTask : FrostingTask<BuildContext>
         {
             Arguments = $"tool restore",
             WorkingDirectory = context.RootDir
-        });
+        }).WaitForExit();
     }
 }
 
-[TaskName("ApaxUpdateTask")]
+[TaskName("ApaxUpdate")]
 [IsDependentOn(typeof(ProvisionTask))]
 public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
 {
@@ -107,14 +139,7 @@ public sealed class ApaxUpdateTask : FrostingTask<BuildContext>
             context.ApaxUpdate(lib);
         });
 
-        context.Integrations.ToList().ForEach(proj =>
-        {
-            context.ApaxUpdate(proj);
-        });
-
-
-
-        context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.sln"), context.DotNetBuildSettings);
+        context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
     }
 }
 
@@ -134,37 +159,30 @@ public sealed class BuildTask : FrostingTask<BuildContext>
             });
         }
 
-        context.Libraries.ToList().ForEach(lib =>
+        if (!context.BuildParameters.NoBuild)
         {
-            context.ApaxInstall(lib);
-            context.ApaxBuild(lib);
-            //context.ApaxIxc(lib);
-        });
-
-        if (context.BuildParameters.DoPack)
-        {
-            context.Integrations.ToList().ForEach(lib =>
+            if (context.BuildParameters.Paralellize)
             {
-                context.UpdateApaxVersion(context.GetApaxFile(lib), GitVersionInformation.SemVer);
-                context.UpdateApaxDependencies(context.GetApaxFile(lib), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
-                context.UpdateApaxDependencies(context.GetApaxFile(lib.folder, "app"), context.Libraries.Select(p => context.GetApaxFile(p)), GitVersionInformation.SemVer);
-            });
+                Parallel.ForEach(context.Libraries, lib => context.ApaxInstall(lib));
+                Parallel.ForEach(context.Libraries, lib => context.ApaxBuild(lib));
+                context.Libraries.ToList().ForEach(lib => context.ApaxIxc(lib));
+            }
+            else
+            {
+                context.Libraries.ToList().ForEach(lib =>
+                {
+                    context.ApaxInstall(lib);
+                    context.ApaxBuild(lib);
+                    context.ApaxIxc(lib);
+                });
+            }
+
+            context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.proj"), context.DotNetBuildSettings);
         }
-
-        context.Integrations.ToList().ForEach(proj =>
-        {
-            context.ApaxInstall(proj);
-            context.ApaxBuild(proj);
-            //context.ApaxIxc(proj);
-        });
-        
-       
-
-        context.DotNetBuild(Path.Combine(context.RootDir, "AXOpen.sln"), context.DotNetBuildSettings);
     }
 }
 
-[TaskName("Test")]
+[TaskName("Tests")]
 [IsDependentOn(typeof(BuildTask))]
 public sealed class TestsTask : FrostingTask<BuildContext>
 {
@@ -177,24 +195,34 @@ public sealed class TestsTask : FrostingTask<BuildContext>
             return;
         }
 
-        context.Libraries.ToList().ForEach(context.ApaxTest);
-        context.Integrations.ToList().ForEach(context.ApaxTest);
-
-        if (context.BuildParameters.TestLevel == 1)
+        if (context.BuildParameters.Paralellize)
         {
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.slnf"));
-        }
-        else if (context.BuildParameters.TestLevel == 2)
-        {
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.slnf"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.slnf"));
+            Parallel.ForEach(context.Libraries, context.ApaxTest);
         }
         else
         {
-            context.ApaxDownload(context.Integrations.First(p => p.name == "ix.integrations"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L1-tests.slnf"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L2-tests.slnf"));
-            RunTestsFromFilteredSolution(context, Path.Combine(context.RootDir, "AXOpen-L3-tests.slnf"));
+            context.Libraries.ToList().ForEach(context.ApaxTest);
+        }
+
+        
+
+        if (context.BuildParameters.TestLevel == 1)
+        {
+            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L1-tests.proj"), context.DotNetTestSettings);
+        }
+        if (context.BuildParameters.TestLevel == 2)
+        {
+        
+            context.DotNetTest(Path.Combine(context.RootDir, "AXOpen-L2-tests.proj"), context.DotNetTestSettings);
+        }
+        if(context.BuildParameters.TestLevel >= 3)
+        {
+            foreach (var package in context.Libraries)
+            {
+                context.ApaxDownload(Path.Combine(context.RootDir, package.folder, "app"));
+
+                context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
+            }
         }
 
         context.Log.Information("Tests done.");
@@ -220,8 +248,6 @@ public sealed class TestsTask : FrostingTask<BuildContext>
 [IsDependentOn(typeof(TestsTask))]
 public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
 {
-   
-
     public override void Run(BuildContext context)
     {
         if (!context.BuildParameters.DoPack)
@@ -256,50 +282,8 @@ public sealed class CreateArtifactsTask : FrostingTask<BuildContext>
     }
 }
 
-[TaskName("GenerateApiDocumentation")]
-[IsDependentOn(typeof(CreateArtifactsTask))]
-public sealed class GenerateApiDocumentationTask : FrostingTask<BuildContext>
-{
-    public override void Run(BuildContext context)
-    {
-        if (!context.BuildParameters.DoDocs)
-        {
-            context.Log.Warning($"Skipping documentation generation.");
-            return;
-        }
-
-        if (Helpers.CanReleaseInternal())
-        {
-           
-        }
-    }
-
-    private static void GenerateApiDocumentation(BuildContext context, string assemblyFile, string outputDocDirectory)
-    {
-        context.Log.Information($"Generating documentation for {assemblyFile}");
-        var docXmlFile = Path.Combine(context.RootDir, assemblyFile);
-        var docDirectory = Path.Combine(context.ApiDocumentationDir, outputDocDirectory);
-        context.ProcessRunner.Start(@"dotnet", new Cake.Core.IO.ProcessSettings()
-        {
-            Arguments = $"xmldocmd {docXmlFile} {docDirectory}"
-        }).WaitForExit();
-    }
-}
-
-
-[TaskName("Check license compliance")]
-[IsDependentOn(typeof(GenerateApiDocumentationTask))]
-public sealed class LicenseComplianceCheckTask : FrostingTask<BuildContext>
-{
-    public override void Run(BuildContext context)
-    {
-        
-    }
-}
-
-
 [TaskName("PushPackages task")]
-[IsDependentOn(typeof(LicenseComplianceCheckTask))]
+[IsDependentOn(typeof(CreateArtifactsTask))]
 public sealed class PushPackages : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)

@@ -2,10 +2,11 @@
 using System.Runtime.CompilerServices;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoSequencerView
+    public partial class AxoSequencerView : RenderableComplexComponentBase<AxoSequencer>, IDisposable
     {
         public IEnumerable<AxoStep> Steps => Component.GetKids().OfType<AxoStep>();
 

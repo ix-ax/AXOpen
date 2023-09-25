@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>How to | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="How to | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/components.pneumatics/docs/HOWTO.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="how-to">How to</h1>
+
+<h2 id="axocylinder">AxoCylinder</h2>
+<p><code>AxoCylinder</code> provides the essential control and operation of a basic pneumatic cylinder, including two controlling output signals for both directions and two end-position sensors. The following preconditions need to be met to make <code>AxoCylinder</code> work as expected.</p>
+<ul>
+<li>two pneumatic valves must be used</li>
+<li>when the first valve is open and the second one is closed, the cylinder moves in one direction. When the first valve is closed and the second one is open, the cylinder moves in opposite direction</li>
+<li>when both valves are closed, the cylinder stops and does not move</li>
+</ul>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_controller" role="tab" aria-controls="tabpanel_1_controller" data-tab="controller" tabindex="0" aria-selected="true">CONTROLLER</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_twin" role="tab" aria-controls="tabpanel_1_twin" data-tab="twin" tabindex="-1">.NET TWIN</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_blazor" role="tab" aria-controls="tabpanel_1_blazor" data-tab="blazor" tabindex="-1">BLAZOR</a>
+</li>
+</ul>
+<section id="tabpanel_1_controller" role="tabpanel" data-tab="controller">
+<h3 id="implementation">Implementation</h3>
+<p>The <code>AxoCylinder</code> is designed to be used as a member of the <code>AxoContext</code> or <code>AxoObject</code>.
+Therefore, its instance must be initialized with the proper <code>AxoContext</code> or <code>AxoObject</code> before any use.
+Also, the hardware signals must be assigned first before calling any method of this instance.
+To accomplish this, call the <code>Run</code> method cyclically with the proper variables (i.e. inside the <code>Main</code> method of the relevant <code>AxoContext</code>) as in the example below:</p>
+<h3 id="example-of-the-initialization-and-hardware-signal-assignment">Example of the initialization and hardware signal assignment</h3>
+<h4 id="declare-component-and-initialization-variables">Declare component and initialization variables</h4>
+<pre><code class="lang-smalltalk">VAR PUBLIC        
+    PlcInputs : REF_TO PlcInputs;
+    PlcOutputs : REF_TO PlcOutputs;          
+    myAxoCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
+END_VAR
+</code></pre><h4 id="initialize--run">Initialize &amp; Run</h4>
+<pre><code class="lang-smalltalk">METHOD PROTECTED OVERRIDE Main        
+    myAxoCylinder.Run(  THIS, 
+                    PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X0, 
+                    PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X1, 
+                    PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0, 
+                    PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0); 
+END_METHOD
+</code></pre><div class="IMPORTANT">
+<h5>Important</h5>
+<p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
+</div>
+<h4 id="example-use">Example use</h4>
+<p>To trigger the movements, two public methods, <code>MoveToHome</code> and <code>MoveToWork</code> are present.</p>
+<p><strong>Example of using MoveToHome method</strong></p>
+<pre><code class="lang-smalltalk">IF myAxoCylinder.MoveToHome().IsDone() THEN
+    ;
+END_IF;
+</code></pre>
+<p><strong>Example of using MoveToWork method</strong></p>
+<pre><code class="lang-smalltalk">IF myAxoCylinder.MoveToWork().IsDone() THEN
+    ;
+END_IF;
+</code></pre>
+<p>To stop the movement, when the cylinder is moving, the public <code>Stop</code> method is present.
+<strong>Example of using Stop method</strong></p>
+<pre><code class="lang-smalltalk">IF myAxoCylinder.Stop().IsDone() THEN
+    ;
+END_IF;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If the <code>Stop</code> method does not work as expected, check if your pneumatic circuit meets the precondition.</p>
+</div>
+<p><strong>Blocking the movement</strong>
+To block the movement, there are four public methods present:
+<code>SuspendMoveToHomeWhile(Condition)</code> - Suspends the movement to the home position while the <code>Condition</code> is <code>TRUE</code>. If the task was already invoked, it remains still executing and, with the falling edge of the <code>Condition</code> cylinder, continues its movement to the home position. If the task is invoked when <code>Condition</code> is already <code>TRUE</code>, the task starts to be executed, but the movement starts also with the falling edge of the <code>Condition</code>.
+<code>SuspendMoveToWorkWhile(Condition)</code> - Works exactly the same as <code>SuspendMoveToHomeWhile(Condition)</code> but in the opposite direction.
+<strong>Example of using SuspendMoveToHomeWhile method</strong></p>
+<pre><code class="lang-smalltalk">myAxoCylinder.SuspendMoveToHomeWhile(_suspendHomeCondition);
+</code></pre>
+<p><strong>Example of using SuspendMoveToWorkWhile method</strong></p>
+<pre><code class="lang-smalltalk">myAxoCylinder.SuspendMoveToWorkWhile(_suspendWorkCondition);
+</code></pre>
+<p><code>AbortMoveToHomeWhen(Condition)</code> - Aborts the movement to the home position when the <code>Condition</code> is <code>TRUE</code>. If the task was already invoked, it is restored and disabled. After the falling edge of the <code>Condition</code> cylinder does not continue its movement to the home position. The task needs to be invoked again to start the movement.
+<code>AbortMoveToWorkWhen(Condition)</code> - Works exactly the same as <code>AbortMoveToHomeWhen(Condition)</code> but in the opposite direction.
+<strong>Example of using AbortMoveToHomeWhen method</strong></p>
+<pre><code class="lang-smalltalk">myAxoCylinder.AbortMoveToHomeWhen(_abortHomeCondition);
+</code></pre>
+<p><strong>Example of using AbortMoveToWorkWhen method</strong></p>
+<pre><code class="lang-smalltalk">myAxoCylinder.AbortMoveToWorkWhen(_abortWorkCondition);
+</code></pre></section>
+<section id="tabpanel_1_twin" role="tabpanel" data-tab="twin" aria-hidden="true" hidden="hidden">
+</section>
+<section id="tabpanel_1_blazor" role="tabpanel" data-tab="blazor" aria-hidden="true" hidden="hidden">
+
+<p><strong>How to visualize <code>AxoCylinder</code></strong>
+On the UI side, use the <code>RenderableContentControl</code> and set its Context according to the placement of the instance of the <code>AxoCylinder</code>.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;@Entry.Plc.documentation.myAxoCylinder&quot; Presentation=&quot;Command&quot; /&gt;
+</code></pre></section>
+</div>
+<hr>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/components.pneumatics/docs/HOWTO.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

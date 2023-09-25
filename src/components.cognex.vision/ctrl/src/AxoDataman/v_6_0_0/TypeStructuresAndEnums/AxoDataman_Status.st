@@ -1,5 +1,5 @@
-USING AXOpen.Core;
-NAMESPACE AXOpen.Cognex.Vision.v_6_0_0_0
+USING AXOpen.Components.Core;
+NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
     {#ix-attr:[Container(Layout.Stack)]}
     CLASS AxoDataman_Status EXTENDS AXOpen.Components.Abstractions.AxoComponent_Status
         VAR PUBLIC
