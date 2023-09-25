@@ -1,4 +1,4 @@
-name: dev
+name: nightly
 
 on:
   schedule:
