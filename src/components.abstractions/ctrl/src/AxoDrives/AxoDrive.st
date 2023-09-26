@@ -15,11 +15,11 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
         END_VAR
 
         VAR PUBLIC
-            AxoPower_Task       :   AXOpen.Components.Abstractions.AxoDrives.AxoPower;
-            AxoPower_Status     :   BOOL;
-            AxoPower_Valid      :   BOOL;
-            AxoPower_Error      :   BOOL;
-            AxoPower_ErrorID    :   WORD;
+            AxoPower_Task           :   AXOpen.Components.Abstractions.AxoDrives.Axo_Power;
+            AxoPower_Status         :   BOOL;
+            AxoPower_Valid          :   BOOL;
+            AxoPower_Error          :   BOOL;
+            AxoPower_ErrorID        :   WORD;
 
             AxoHome_Task            :   AXOpen.Core.AxoTask;
             AxoHome_Status          :   BOOL;
@@ -30,16 +30,119 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
             AxoHome_Busy            :   BOOL;
             AxoHome_Active          :   BOOL;
             AxoHome_CommandAborted  :   BOOL;
+
+            AxoStop_Task            :   AXOpen.Core.AxoToggleTask;
+            AxoStop_Done            :   BOOL;                   
+            AxoStop_Busy            :   BOOL;                   
+            AxoStop_Active          :   BOOL;                   
+            AxoStop_CommandAborted  :   BOOL;                                 
+            AxoStop_Error           :   BOOL;                   
+            AxoStop_ErrorID         :   WORD;                   
+
+            AxoHalt_Task            :   AXOpen.Core.AxoToggleTask;
+            AxoHalt_Done            :   BOOL;                   
+            AxoHalt_Busy            :   BOOL;                   
+            AxoHalt_Active          :   BOOL;                   
+            AxoHalt_CommandAborted  :   BOOL;                                 
+            AxoHalt_Error           :   BOOL;                   
+            AxoHalt_ErrorID         :   WORD;                   
+
+            AxoMoveAbsolute_Task            :   AXOpen.Core.AxoTask;
+            AxoMoveAbsolute_Done            :   BOOL;                   
+            AxoMoveAbsolute_Busy            :   BOOL;                   
+            AxoMoveAbsolute_Active          :   BOOL;                   
+            AxoMoveAbsolute_CommandAborted  :   BOOL;                                 
+            AxoMoveAbsolute_Error           :   BOOL;                   
+            AxoMoveAbsolute_ErrorID         :   WORD;                   
+
+            AxoMoveRelative_Task            :   AXOpen.Core.AxoTask;
+            AxoMoveRelative_Done            :   BOOL;                   
+            AxoMoveRelative_Busy            :   BOOL;                   
+            AxoMoveRelative_Active          :   BOOL;                   
+            AxoMoveRelative_CommandAborted  :   BOOL;                                 
+            AxoMoveRelative_Error           :   BOOL;                   
+            AxoMoveRelative_ErrorID         :   WORD;                   
+
+            AxoMoveAdditive_Task            :   AXOpen.Core.AxoTask;
+            AxoMoveAdditive_Done            :   BOOL;                   
+            AxoMoveAdditive_Busy            :   BOOL;                   
+            AxoMoveAdditive_Active          :   BOOL;                   
+            AxoMoveAdditive_CommandAborted  :   BOOL;                                 
+            AxoMoveAdditive_Error           :   BOOL;                   
+            AxoMoveAdditive_ErrorID         :   WORD;                   
+
+            AxoMoveVelocity_Task            :   AXOpen.Core.AxoTask;
+            AxoMoveVelocity_InVelocity      :   BOOL;                   
+            AxoMoveVelocity_Busy            :   BOOL;                   
+            AxoMoveVelocity_Active          :   BOOL;                   
+            AxoMoveVelocity_CommandAborted  :   BOOL;                                 
+            AxoMoveVelocity_Error           :   BOOL;                   
+            AxoMoveVelocity_ErrorID         :   WORD;                   
+
+            AxoTorqueControl_Task           :   AXOpen.Core.AxoTask;
+            AxoTorqueControl_InTorque       :   BOOL;                   
+            AxoTorqueControl_Busy           :   BOOL;                   
+            AxoTorqueControl_Active         :   BOOL;                   
+            AxoTorqueControl_CommandAborted :   BOOL;                                 
+            AxoTorqueControl_Error          :   BOOL;                   
+            AxoTorqueControl_ErrorID        :   WORD;                   
         END_VAR
 
         VAR PRIVATE
             _AxisRef                :   AxoAxisRef;
+            _movementDisabled       :   BOOL;
+
             _AxoHome_Position       :   LREAL;
             _AxoHome_HommingMode    :   INT;
             _AxoHome_Velocity       :   LREAL;
             _AxoHome_Acceleration   :   LREAL;
             _AxoHome_Deceleration   :   LREAL;
-        END_VAR
+
+            _AxoStop_Deceleration   :   LREAL;                     
+            _AxoStop_Jerk           :   LREAL;                      
+
+            _AxoHalt_Deceleration   :   LREAL;                     
+            _AxoHalt_Jerk           :   LREAL;     
+            
+            _AxoMoveAbsolute_ContinuousUpdate:   BOOL;
+            _AxoMoveAbsolute_Position        :   LREAL;
+            _AxoMoveAbsolute_Velocity        :   LREAL;
+            _AxoMoveAbsolute_Acceleration    :   LREAL;
+            _AxoMoveAbsolute_Deceleration    :   LREAL;
+            _AxoMoveAbsolute_Jerk            :   LREAL;
+            _AxoMoveAbsolute_Direction       :   eAxoDriveDirection;
+            
+            _AxoMoveRelative_ContinuousUpdate:   BOOL;
+            _AxoMoveRelative_Distance        :   LREAL;
+            _AxoMoveRelative_Velocity        :   LREAL;
+            _AxoMoveRelative_Acceleration    :   LREAL;
+            _AxoMoveRelative_Deceleration    :   LREAL;
+            _AxoMoveRelative_Jerk            :   LREAL;
+            _AxoMoveRelative_Direction       :   eAxoDriveDirection;
+            
+            _AxoMoveAdditive_ContinuousUpdate:   BOOL;
+            _AxoMoveAdditive_Distance        :   LREAL;
+            _AxoMoveAdditive_Velocity        :   LREAL;
+            _AxoMoveAdditive_Acceleration    :   LREAL;
+            _AxoMoveAdditive_Deceleration    :   LREAL;
+            _AxoMoveAdditive_Jerk            :   LREAL;
+            _AxoMoveAdditive_Direction       :   eAxoDriveDirection;
+            
+            _AxoMoveVelocity_ContinuousUpdate:   BOOL;
+            _AxoMoveVelocity_Velocity        :   LREAL;
+            _AxoMoveVelocity_Acceleration    :   LREAL;
+            _AxoMoveVelocity_Deceleration    :   LREAL;
+            _AxoMoveVelocity_Jerk            :   LREAL;
+            _AxoMoveVelocity_Direction       :   eAxoDriveDirection;
+
+            _AxoTorqueControl_ContinuousUpdate:   BOOL;
+            _AxoTorqueControl_Torque        :   LREAL;
+            _AxoTorqueControl_Acceleration    :   LREAL;
+            _AxoTorqueControl_Deceleration    :   LREAL;
+            _AxoTorqueControl_Jerk            :   LREAL;
+            _AxoTorqueControl_Direction       :   eAxoDriveDirection;
+
+    END_VAR
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -123,48 +226,186 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_POWER********************
             AxoPower_Task.Run(Enable,EnablePositive,EnableNegative);
-            THIS.MC_Power(AxisRef,AxoPower_Task.IsSwitchedOn(),AxoPower_Status,AxoPower_Valid,AxoPower_Error,AxoPower_ErrorID);
+            THIS.MC_Power(AxisRef,
+                          AxoPower_Task.IsSwitchedOn(),
+                          AxoPower_Status,
+                          AxoPower_Valid,
+                          AxoPower_Error,
+                          AxoPower_ErrorID);
+            THIS._Messenger.ActivateOnCondition(TO_ULINT(AxoPower_ErrorID),AxoPower_Error,eAxoMessageCategory#Error);
             //******************************************
-
+            _movementDisabled := NOT AxoPower_Status;
+            //*************AXO_STOP*********************
+            AxoStop_Task.SetIsDisabled(FALSE);
+            THIS.MC_Stop(AxisRef, 
+                        AxoStop_Task.IsSwitchedOn(),
+                        _AxoStop_Deceleration,
+                        _AxoStop_Jerk,
+                        AxoStop_Done,
+                        AxoStop_Busy,
+                        AxoStop_Active,
+                        AxoStop_CommandAborted,          
+                        AxoStop_Error,
+                        AxoStop_ErrorID);
+            THIS._Messenger.ActivateOnCondition(TO_ULINT(AxoStop_ErrorID),AxoStop_Error,eAxoMessageCategory#Error);
+            //******************************************
+            _movementDisabled := _movementDisabled OR AxoStop_Active;
+            //*************AXO_HALT*********************
+            AxoHalt_Task.SetIsDisabled(FALSE);
+            THIS.MC_Halt(AxisRef, 
+                        AxoHalt_Task.IsSwitchedOn(),
+                        _AxoHalt_Deceleration,
+                        _AxoHalt_Jerk,
+                        AxoHalt_Done,
+                        AxoHalt_Busy,
+                        AxoHalt_Active,
+                        AxoHalt_CommandAborted,          
+                        AxoHalt_Error,
+                        AxoHalt_ErrorID);            
+            THIS._Messenger.ActivateOnCondition(TO_ULINT(AxoHalt_ErrorID),AxoHalt_Error,eAxoMessageCategory#Error);
+            //******************************************
+            _movementDisabled := _movementDisabled OR AxoHalt_Active;
             //*************AXO_HOME*********************
+            AxoHome_Task.SetIsDisabled(_movementDisabled);
+            THIS.MC_Home(AxisRef, 
+                        AxoHome_Task.Execute(),
+                        _AxoHome_Position,
+                        _AxoHome_HommingMode,
+                        _AxoHome_Velocity, 
+                        _AxoHome_Acceleration,
+                        _AxoHome_Deceleration,
+                        AxoHome_Done,
+                        AxoHome_Busy,
+                        AxoHome_Active,
+                        AxoHome_CommandAborted,
+                        AxoHome_Error,
+                        AxoHome_ErrorID);
+
             IF AxoHome_Task.Execute() THEN
-                THIS.MC_Home(  AxisRef, 
-                                TRUE,
-                                _AxoHome_Position,
-                                _AxoHome_HommingMode,
-                                _AxoHome_Velocity, 
-                                _AxoHome_Acceleration,
-                                _AxoHome_Deceleration,
-                                AxoHome_Done,
-                                AxoHome_Busy,
-                                AxoHome_Active,
-                                AxoHome_CommandAborted,
-                                AxoHome_Error,
-                                AxoHome_ErrorID);
                 AxoHome_Task.DoneWhen(AxoHome_Done);
-                AxoHome_Task.ThrowWhen(AxoHome_Error,CONCAT('Homming has thrown an error: ', ToString(AxoHome_ErrorID)));
+                AxoHome_Task.ThrowWhen(AxoHome_Error,CONCAT('MC_Home has thrown an error: ', ToString(AxoHome_ErrorID)));
                 IF AxoHome_CommandAborted THEN
                     AxoHome_Task.Abort();
                 END_IF;
-            ELSE
-                THIS.MC_Home(AxisRef, FALSE);
             END_IF;
+            THIS._Messenger.ActivateOnCondition(TO_ULINT(AxoHome_ErrorID),AxoHome_Error,eAxoMessageCategory#Error);
             //******************************************
-            
-            // IF AxoPowerTask.IsSwitchedOn() THEN
-            //     AxoPowerOn(AxisRef);
-            // ELSE
-            //     AxoPowerOff(AxisRef);
-            // END_IF;
-            // IF AxoPowerTask.DisabledPositive() THEN
-            //     AxoDisabledPositive();
-            // END_IF;                
-            // IF AxoPowerTask.DisabledNegative() THEN
-            //     AxoDisabledNegative();
-            // END_IF;                
-            //******************************************
-        END_METHOD    
 
+            //*************AXO_MOVE_ABSOLUTE************
+            AxoMoveAbsolute_Task.SetIsDisabled(_movementDisabled); //TODO Enable negative positive 
+            THIS.MC_MoveAbsolute(AxisRef, 
+                        AxoMoveAbsolute_Task.Execute(),
+                        _AxoMoveAbsolute_ContinuousUpdate,
+                        _AxoMoveAbsolute_Position,
+                        _AxoMoveAbsolute_Velocity, 
+                        _AxoMoveAbsolute_Acceleration,
+                        _AxoMoveAbsolute_Deceleration,
+                        _AxoMoveAbsolute_Jerk,
+                        _AxoMoveAbsolute_Direction,
+                        AxoMoveAbsolute_Done,
+                        AxoMoveAbsolute_Busy,
+                        AxoMoveAbsolute_Active,
+                        AxoMoveAbsolute_CommandAborted,
+                        AxoMoveAbsolute_Error,
+                        AxoMoveAbsolute_ErrorID);
+
+            IF AxoMoveAbsolute_Task.Execute() THEN
+                AxoMoveAbsolute_Task.DoneWhen(AxoMoveAbsolute_Done);
+                AxoMoveAbsolute_Task.ThrowWhen(AxoMoveAbsolute_Error,CONCAT('MC_MoveAbsolute has thrown an error: ', ToString(AxoMoveAbsolute_ErrorID)));
+                IF AxoMoveAbsolute_CommandAborted THEN
+                    AxoMoveAbsolute_Task.Abort();
+                END_IF;
+            END_IF;
+            THIS._Messenger.ActivateOnCondition(TO_ULINT(AxoMoveAbsolute_ErrorID),AxoMoveAbsolute_Error,eAxoMessageCategory#Error);
+            //******************************************
+
+            //*************AXO_MOVE_RELATIVE************
+            AxoMoveRelative_Task.SetIsDisabled(_movementDisabled); //TODO Enable negative positive 
+            THIS.MC_MoveRelative(AxisRef, 
+                        AxoMoveRelative_Task.Execute(),
+                        _AxoMoveRelative_ContinuousUpdate,
+                        _AxoMoveRelative_Distance,
+                        _AxoMoveRelative_Velocity, 
+                        _AxoMoveRelative_Acceleration,
+                        _AxoMoveRelative_Deceleration,
+                        _AxoMoveRelative_Jerk,
+                        _AxoMoveRelative_Direction,
+                        AxoMoveRelative_Done,
+                        AxoMoveRelative_Busy,
+                        AxoMoveRelative_Active,
+                        AxoMoveRelative_CommandAborted,
+                        AxoMoveRelative_Error,
+                        AxoMoveRelative_ErrorID);
+
+            IF AxoMoveRelative_Task.Execute() THEN
+                AxoMoveRelative_Task.DoneWhen(AxoMoveRelative_Done);
+                AxoMoveRelative_Task.ThrowWhen(AxoMoveRelative_Error,CONCAT('MC_MoveRelative has thrown an error: ', ToString(AxoMoveRelative_ErrorID)));
+                IF AxoMoveRelative_CommandAborted THEN
+                    AxoMoveRelative_Task.Abort();
+                END_IF;
+            END_IF;
+            THIS._Messenger.ActivateOnCondition(TO_ULINT(AxoMoveRelative_ErrorID),AxoMoveRelative_Error,eAxoMessageCategory#Error);
+            //******************************************
+
+            //*************AXO_MOVE_ADITIVE*************
+            AxoMoveAdditive_Task.SetIsDisabled(_movementDisabled); //TODO Enable negative positive 
+            THIS.MC_MoveAdditive(AxisRef, 
+                        AxoMoveAdditive_Task.Execute(),
+                        _AxoMoveAdditive_ContinuousUpdate,
+                        _AxoMoveAdditive_Distance,
+                        _AxoMoveAdditive_Velocity, 
+                        _AxoMoveAdditive_Acceleration,
+                        _AxoMoveAdditive_Deceleration,
+                        _AxoMoveAdditive_Jerk,
+                        _AxoMoveAdditive_Direction,
+                        AxoMoveAdditive_Done,
+                        AxoMoveAdditive_Busy,
+                        AxoMoveAdditive_Active,
+                        AxoMoveAdditive_CommandAborted,
+                        AxoMoveAdditive_Error,
+                        AxoMoveAdditive_ErrorID);
+
+            IF AxoMoveAdditive_Task.Execute() THEN
+                AxoMoveAdditive_Task.DoneWhen(AxoMoveAdditive_Done);
+                AxoMoveAdditive_Task.ThrowWhen(AxoMoveAdditive_Error,CONCAT('MC_MoveAdditive has thrown an error: ', ToString(AxoMoveAdditive_ErrorID)));
+                IF AxoMoveAdditive_CommandAborted THEN
+                    AxoMoveAdditive_Task.Abort();
+                END_IF;
+            END_IF;
+            THIS._Messenger.ActivateOnCondition(TO_ULINT(AxoMoveAdditive_ErrorID),AxoMoveAdditive_Error,eAxoMessageCategory#Error);
+            //******************************************
+
+            //*************AXO_MOVE_VELOCITY************
+            AxoMoveVelocity_Task.SetIsDisabled(_movementDisabled); //TODO Enable negative positive 
+            THIS.MC_MoveVelocity(AxisRef, 
+                        AxoMoveVelocity_Task.Execute(),
+                        _AxoMoveVelocity_ContinuousUpdate,
+                        _AxoMoveVelocity_Velocity, 
+                        _AxoMoveVelocity_Acceleration,
+                        _AxoMoveVelocity_Deceleration,
+                        _AxoMoveVelocity_Jerk,
+                        _AxoMoveVelocity_Direction,
+                        AxoMoveVelocity_InVelocity,
+                        AxoMoveVelocity_Busy,
+                        AxoMoveVelocity_Active,
+                        AxoMoveVelocity_CommandAborted,
+                        AxoMoveVelocity_Error,
+                        AxoMoveVelocity_ErrorID);
+
+            IF AxoMoveVelocity_Task.Execute() THEN
+                AxoMoveVelocity_Task.DoneWhen(AxoMoveVelocity_InVelocity);
+                AxoMoveVelocity_Task.ThrowWhen(AxoMoveVelocity_Error,CONCAT('MC_MoveVelocity has thrown an error: ', ToString(AxoMoveVelocity_ErrorID)));
+                IF AxoMoveVelocity_CommandAborted THEN
+                    AxoMoveVelocity_Task.Abort();
+                END_IF;
+            END_IF;
+            THIS._Messenger.ActivateOnCondition(TO_ULINT(AxoMoveVelocity_ErrorID),AxoMoveVelocity_Error,eAxoMessageCategory#Error);
+            //******************************************
+
+
+
+
+        END_METHOD
 
         METHOD PRIVATE IsValidReferences: BOOL
             VAR_INPUT
@@ -404,7 +645,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
                 Direction       :   eAxoDriveDirection;         //  Enum type (1-of-3 values: PositiveDirection, NegativeDirection, and CurrentDirection. Note: shortest way not applicable)
             END_VAR
             VAR_OUTPUT
-                Done            :   BOOL;                       // Commanded velocity reached
+                InVelocity      :   BOOL;                       // Commanded velocity reached
                 Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command

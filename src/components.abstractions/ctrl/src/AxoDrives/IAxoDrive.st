@@ -155,7 +155,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
                 Direction       :   eAxoDriveDirection;         //  Enum type (1-of-3 values: PositiveDirection, NegativeDirection, and CurrentDirection. Note: shortest way not applicable)
             END_VAR
             VAR_OUTPUT
-                Done            :   BOOL;                       // Commanded velocity reached
+                InVelocity      :   BOOL;                       // Commanded velocity reached
                 Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
                 Active          :   BOOL;                       // Indicates that the method has control on the axis
                 CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command

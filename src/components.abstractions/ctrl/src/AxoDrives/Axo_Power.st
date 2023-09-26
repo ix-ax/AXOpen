@@ -3,7 +3,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Components.Abstractions.AxoDrives
-    CLASS PUBLIC AxoPower EXTENDS AXOpen.Core.AxoToggleTask
+    CLASS PUBLIC Axo_Power EXTENDS AXOpen.Core.AxoToggleTask
         VAR PRIVATE 
             _motionTaskId    :  AXOpen.Components.Abstractions.AxoDrives.eAxoMotionTaskId := AXOpen.Components.Abstractions.AxoDrives.eAxoMotionTaskId#Axo_Power;      
             _EnablePositive  :  AXOpen.Core.AxoToggleTask;
@@ -16,9 +16,6 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
         /// >[!IMPORTANT] This method must be called cyclically.
         ///</summary>
         METHOD PUBLIC Run 
-            // VAR_IN_OUT
-            //     AxisRef :   AxoAxisRef;
-            // END_VAR
             VAR_INPUT
                 Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
                 EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
