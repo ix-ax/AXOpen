@@ -157,10 +157,10 @@ NAMESPACE examples.PneumaticManipulator
             _dialog2 : AXOpen.Core.AxoDialog;
             _dialog3 : AXOpen.Core.AxoDialog;
             _alertDialog : AXOpen.Core.AxoAlertDialog;
-            _presenceInspector: AXOpen.Inspectors.AxoDigitalInspector;
-            _valueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
-            _dataInspector: AXOpen.Inspectors.AxoDataInspector;
-            _data: AXOpen.Inspectors.AxoDigitalInspectorData;
+            // _presenceInspector: AXOpen.Inspectors.AxoDigitalInspector;
+            // _valueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
+            // _dataInspector: AXOpen.Inspectors.AxoDataInspector;
+            // _data: AXOpen.Inspectors.AxoDigitalInspectorData;
             _comprehensiveResult: AXOpen.Inspectors.AxoComprehensiveResult;
             _inspectionResult:BOOL;
             _inspectionValue:LREAL;
@@ -246,19 +246,8 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
 
             IF (Steps[16].Execute(THIS, TRUE, 'Set inpsection times')) THEN
-                //--------------------------------------------
-
-                _valueInspector.Data()^.FailTime := TIME#3s;
-                _presenceInspector.Data()^.FailTime := TIME#3s;
-                _dataInspector.Data()^.FailTime := TIME#3s;
-
-                _valueInspector.Data()^.PassTime := TIME#2s;
-                _presenceInspector.Data()^.PassTime := TIME#2s;
-                _dataInspector.Data()^.PassTime := TIME#2s;
-            
-                _valueInspector.Data()^.NumberOfAllowedRetries := UINT#3;
-
-                THIS.MoveNext(); 
+                //--------------------------------------------                                               
+                    THIS.MoveNext(); 
                 //--------------------------------------------	
             END_IF;
         
@@ -276,7 +265,11 @@ NAMESPACE examples.PneumaticManipulator
             IF (Steps[30].Execute(THIS, TRUE, 'Example Digital inspection')) THEN
                 //-------------------------------------------------------
 
-                _presenceInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionResult).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
+                THIS.ProcessData^.DataManger.Set._presenceInspector.WithCoordinator(THIS)
+                                  .Inspect(THIS,_inspectionResult)
+                                  .UpdateComprehensiveResult(_comprehensiveResult)
+                                  .OnFail()
+                                  .Dialog(Steps[20], Steps[145]);
 
                 //-------------------------------------------------------
              END_IF;
@@ -285,7 +278,7 @@ NAMESPACE examples.PneumaticManipulator
                 //-------------------------------------------------------
              
 
-                _valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
+                THIS.ProcessData^.DataManger.Set._valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
 
                 //-------------------------------------------------------
              END_IF;
@@ -294,7 +287,7 @@ NAMESPACE examples.PneumaticManipulator
              IF (Steps[50].Execute(THIS, TRUE, 'Example Data inspection')) THEN
                 //-------------------------------------------------------
               
-                _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
+                THIS.ProcessData^.DataManger.Set._dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
 
                 //-------------------------------------------------------
             END_IF;

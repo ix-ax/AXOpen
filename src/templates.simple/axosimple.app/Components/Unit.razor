@@ -1,0 +1,76 @@
+﻿@using AXOpen.Base.Dialogs;
+@using AXOpen.Core.Blazor.AxoDialogs;
+@using AXOpen.Core.Blazor.Dialogs
+@using axosimple.hmi.Components;
+@using AXOpen.Data;
+@using AXOpen.Messaging.Static
+@using AXSharp.Connector;
+@using AXOpen.Core;
+
+@inject IAlertDialogService _alerts
+@inherits RenderableComplexComponentBase<ITwinObject>
+
+<body>
+    <div class="content-wrapper">
+        <UnitsSequences Component="@this.Component"></UnitsSequences>
+        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="((dynamic)this.Component).Components"></UnitsService>
+
+        @foreach (var message in Messengers)
+        {
+            if (message.IsActive.LastValue)
+            { 
+                <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
+            }
+        }
+    </div>
+</body>
+
+<div class="modal fade" id="dataviewmodal" tabindex="-1" aria-labelledby="dataviewmodalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container">
+                    <div class="row">
+                        <h1 class="modal-title fs-5" id="dataviewmodalTitle">@Component?.HumanReadable</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row p-2">
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary" @onclick="async () => await Data.OnlineToShadowAsync()">Refresh</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <RenderableContentControl Context="Entry.Plc.Context.ProcessDataPneumaticManipulator.DataManger.Set" Presentation="ShadowDisplay" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="footer bg-white text-white p-2 fixed-bottom" z-index="0">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataviewmodal">
+        Data
+    </button>
+</header>
+
+<AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {this.Component}"></AxoDialogLocator>
+<AxoAlertDialogLocator ObservedObjects="new[] {this.Component}" />
+
+@code
+{
+    private IEnumerable<AxoMessenger> Messengers => this.Component.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
+
+    private void Reset()
+    {
+        StateHasChanged();
+    }
+
+    [Parameter]
+    public ITwinObject? Data { get; set; }
+}
+

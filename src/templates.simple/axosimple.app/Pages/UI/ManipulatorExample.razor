@@ -1,65 +1,8 @@
 ﻿@page "/ui/ManipulatorExample"
 @using AXOpen.Base.Dialogs;
-@using AXOpen.Core.Blazor.AxoDialogs;
-@using AXOpen.Core.Blazor.Dialogs
 @using axosimple.hmi.Components;
-@using AXOpen.Data;
-@using AXOpen.Messaging.Static
-@using AXSharp.Connector;
 
 @inject IAlertDialogService _alerts
+@inherits RenderableComplexComponentBase<examples.PneumaticManipulator.CU>
 
-
-
-
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._inspectionResult" Presentation="Control"></RenderableContentControl>
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._inspectionValue" Presentation="Control"></RenderableContentControl>
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._inspectionData" Presentation="Control"></RenderableContentControl>
-
-<UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator" PollingInterval="250"></UnitsSequences>
-<UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator.Components" PollingInterval="250"></UnitsService>
-
-@foreach (var message in Messengers)
-{
-    if (message.IsActive.LastValue)
-    { 
-        <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
-    }
-     
-}
-
-
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._presenceInspector" Presentation="Command"></RenderableContentControl>
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._valueInspector" Presentation="Command"></RenderableContentControl>
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._dataInspector" Presentation="Command"></RenderableContentControl>
-
-
-<AxoDialogLocator DialogId="custation001" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"></AxoDialogLocator>
-
-<AxoAlertDialogLocator ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator}"/>
-
-<h1>Comprehensive result</h1>
-
-<RenderableContentControl Context="@Entry.Plc.Context.PneumaticManipulator.AutomatSequence._comprehensiveResult"></RenderableContentControl>
-
-
-<button class="btn btn-primary" @onclick="@Reset">Reset comprehensive result</button>
-
-
-@code
-{
-  
-    private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
-    private void Reset()
-    {
-        Entry.Plc.Context.PneumaticManipulator.AutomatSequence._comprehensiveResult.Result.Cyclic = 0;
-        _alerts.AddAlertDialog(eAlertDialogType.Info, "Comprehenesive result", "Reseted", 3);
-        StateHasChanged();
-    }
-
-
-
-
-
-}
-
+<Unit Component="Entry.Plc.Context.PneumaticManipulator" Data="Entry.Plc.Context.ProcessDataPneumaticManipulator"></Unit>
