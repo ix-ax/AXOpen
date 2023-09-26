@@ -11,7 +11,7 @@ using AXOpen.Core.Blazor.AxoAlertDialog;
 
 namespace AXOpen.Core.Blazor.Dialogs
 {
-    public partial class AxoAlertDialogLocator
+    public partial class AxoAlertDialogLocator : ComponentBase, IDisposable
     {
         [Parameter]
         public IEnumerable<ITwinObject> ObservedObjects { get; set; }

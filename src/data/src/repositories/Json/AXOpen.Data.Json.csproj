@@ -3,11 +3,7 @@
 		<OutputType>Library</OutputType>
 		<TargetFrameworks>net7.0</TargetFrameworks>
 	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
-			<PrivateAssets>all</PrivateAssets>
-			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
+	<ItemGroup>		
 		<ProjectReference Include="..\..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
 	</ItemGroup>
 </Project>

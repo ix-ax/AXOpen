@@ -2,14 +2,16 @@
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
 using AXOpen.Core;
+using AXSharp.Connector.ValueTypes;
 using Microsoft.AspNetCore.Components;
 using Pocos.AXOpen.Core;
 using Serilog;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
 
-    public partial class AxoComponentView : IDisposable
+    public partial class AxoComponentView : RenderableComplexComponentBase<AxoComponent>, IDisposable
     {
         private bool areDetailsCollapsed = true;
         private bool areAlarmsCollapsed = true;
@@ -107,9 +109,10 @@ namespace AXOpen.Core
 
         protected override async Task OnInitializedAsync()
         {
-            await Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.Category));
-            await Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.IsActive));
-            await Messengers?.FirstOrDefault()?.GetConnector().ReadBatchAsync(Messengers?.Select(p => p.WaitingForAcknowledge));
+            var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.IsActive, p.WaitingForAcknowledge });
+            var connector = Messengers?.FirstOrDefault()?.GetConnector();
+            await connector?.ReadBatchAsync(a)!;
+
             await base.OnInitializedAsync();
         }
 

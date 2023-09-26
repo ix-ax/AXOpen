@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoContext | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoContext | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXOCONTEXT.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axocontext">AxoContext</h1>
+
+<p>AxoContext encapsulates entire application or application units. Any solution may contain one or more contexts, however the each should be considered to be an isolated island and any <strong>direct inter-context access to members must be avoided</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Each AxoContext must belong to a single PLC task.Multiple AxoContexts can be however running on the same task.</p>
+</div>
+<pre><code class="lang-mermaid">  classDiagram
+    class Context{
+        +Main()*
+        +Run()        
+    }     
+</code></pre>
+<p>In its basic implementation AxoContext has relatively simple interface. <code>Main</code> is the method where we place all calls of our sub-routines. <strong>In other words the <code>Run</code> is the root of the call tree of our program.</strong></p>
+<p><code>Run</code> method runs the AxoContext. It must be called cyclically within a program unit that is attached to a cyclic <code>task</code>.</p>
+<h2 id="why-do-we-need-axocontext">Why do we need AxoContext</h2>
+<p><code>AxoContext</code> provides counters, object identification and other information about the execution of the program. These information is then used by the objects contained at different levels of the AxoContext.</p>
+<h2 id="how-axocontext-works">How AxoContext works</h2>
+<p>When you call <code>Run</code> method on an instance of a AxoContext, it will ensure opening AxoContext, running <code>Main</code> method (root of all your program calls) and AxoContext closing.</p>
+<pre><code class="lang-mermaid">  flowchart LR
+    classDef run fill:#80FF00,stroke:#0080FF,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                      
+    classDef main fill:#ff8000,stroke:#0080ff,stroke-width:4px,color:#7F00FF,font-size:15px,font-weight:bold                                                                                                           
+    id1(Open):::run--&gt;id2(#Main*):::main--&gt;id3(Close):::run--&gt;id1
+</code></pre>
+<h2 id="how-to-use-axocontext">How to use AxoContext</h2>
+<p>Base class for the AxoContext is <code>AXOpen.Core.AxoContext</code>. The entry point of call execution of the AxoContext is <code>Main</code> method. Notice that the <code>AxoContext</code> class is abstract and cannot be instantiated if not extended. <code>Main</code> method must be overridden in derived class notice the use of override keyword and also that the method is <code>protected</code> which means the it is visible only from within the <code>AxoContext</code> and derived classes.</p>
+<p><strong>How to extend AxoContext class</strong></p>
+<pre><code class="lang-smalltalk">CLASS PUBLIC AxoContextExample EXTENDS  AXOpen.Core.AxoContext
+    METHOD PROTECTED OVERRIDE Main 
+        // Here goes all your logic for given AxoContext.
+        ;
+    END_METHOD
+END_CLASS
+</code></pre>
+<p>Cyclical call of the AxoContext logic (<code>Main</code> method) is ensured when AxoContext <code>Run</code> method is called. <code>Run</code> method is public therefore accessible and visible to any part of the program that whishes to call it.</p>
+<p><strong>How to start AxoContext's execution</strong></p>
+<pre><code class="lang-smalltalk">PROGRAM ProgramExample
+    VAR
+        MyContext : AxoContextExample;
+    END_VAR    
+
+    MyContext.Run();
+
+END_PROGRAM
+</code></pre></article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/docs/AXOCONTEXT.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,107 +1,142 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AxoDataFragmentExchange
+      <title>Class AxoDataFragmentExchange
  | System.Dynamic.ExpandoObject </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AxoDataFragmentExchange
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoDataFragmentExchange
  | System.Dynamic.ExpandoObject ">
-    <meta name="generator" content="docfx ">
-  
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/custom.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  <meta property="docfx:rel" content="../">
-  
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
 
-              <a class="navbar-brand" href="../index.html">
-                <p class="text-logo">AXOpen</p>
-              </a>            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="AXOpen.Data.AxoDataFragmentExchange">
+
+        <article data-uid="AXOpen.Data.AxoDataFragmentExchange">
 
 
-  <h1 id="AXOpen_Data_AxoDataFragmentExchange" data-uid="AXOpen.Data.AxoDataFragmentExchange" class="text-break">Class AxoDataFragmentExchange
-</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">object</span></div>
-    <div class="level1"><a class="xref" href="AXOpen.Core.AxoObject.html">AxoObject</a></div>
-    <div class="level2"><a class="xref" href="AXOpen.Data.AxoDataExchangeBase.html">AxoDataExchangeBase</a></div>
-    <div class="level3"><span class="xref">AxoDataFragmentExchange</span></div>
+
+  <h1 id="AXOpen_Data_AxoDataFragmentExchange" data-uid="AXOpen.Data.AxoDataFragmentExchange" class="text-break">
+    Class AxoDataFragmentExchange
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ix_ax_axopen_data.dll</dd></dl>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span></div>
-    <div><span class="xref">AXSharp.Connector.ITwinObject</span></div>
-    <div><span class="xref">AXSharp.Connector.ITwinElement</span></div>
-    <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
-    <div><a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a></div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AxoDataFragmentExchange : AxoDataExchangeBase, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoDataExchange</code></pre>
   </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><a class="xref" href="AXOpen.Data.AxoDataExchangeBase.html">AxoDataExchangeBase</a></div>
+      <div><span class="xref">AxoDataFragmentExchange</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ITwinIdentity</span></div>
+      <div><span class="xref">ITwinObject</span></div>
+      <div><span class="xref">ITwinElement</span></div>
+      <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
+      <div><a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="AXOpen.Data.AxoDataExchangeBase.html#AXOpen_Data_AxoDataExchangeBase_OnlineToPlainAsync_Pocos_AXOpen_Data_AxoDataExchangeBase_">AxoDataExchangeBase.OnlineToPlainAsync(AxoDataExchangeBase)</a>
     </div>
@@ -198,1801 +233,1487 @@
     <div>
       <span class="xref">object.ToString()</span>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Data.html">Data</a></h6>
-  <h6><strong>Assembly</strong>: ix_ax_axopen_data.dll</h6>
-  <h5 id="AXOpen_Data_AxoDataFragmentExchange_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoDataFragmentExchange : AxoDataExchangeBase, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoDataExchange</code></pre>
-  </div>
-  <h3 id="constructors">Constructors
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.%23ctor(AXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L18">View Source</a>
-  </span>
+  </dd></dl>
+
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange__ctor_" data-uid="AXOpen.Data.AxoDataFragmentExchange.#ctor*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">AxoDataFragmentExchange(ITwinObject, string, string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">
+  AxoDataFragmentExchange(ITwinObject, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AxoDataFragmentExchange(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td><span class="parametername">parent</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">readableTail</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">symbolTail</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="properties">Properties
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_DataFragments.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.DataFragments%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L20">View Source</a>
-  </span>
-  <a id="AXOpen_Data_AxoDataFragmentExchange_DataFragments_" data-uid="AXOpen.Data.AxoDataFragmentExchange.DataFragments*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_DataFragments" data-uid="AXOpen.Data.AxoDataFragmentExchange.DataFragments">DataFragments</h4>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parent</code> <span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+    <dt><code>readableTail</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>symbolTail</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdateTask_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask*"></a>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdateTask" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdateTask">
+  CreateOrUpdateTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoDataExchangeTask CreateOrUpdateTask { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Data.AxoDataExchangeTask.html">AxoDataExchangeTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Data_AxoDataFragmentExchange_DataFragments_" data-uid="AXOpen.Data.AxoDataFragmentExchange.DataFragments*"></a>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_DataFragments" data-uid="AXOpen.Data.AxoDataFragmentExchange.DataFragments">
+  DataFragments
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected IAxoDataExchange[] DataFragments { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a>[]</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_Exporters.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.Exporters%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L281">View Source</a>
-  </span>
-  <a id="AXOpen_Data_AxoDataFragmentExchange_Exporters_" data-uid="AXOpen.Data.AxoDataFragmentExchange.Exporters*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_Exporters" data-uid="AXOpen.Data.AxoDataFragmentExchange.Exporters">Exporters</h4>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a>[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Data_AxoDataFragmentExchange_EntityExistTask_" data-uid="AXOpen.Data.AxoDataFragmentExchange.EntityExistTask*"></a>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_EntityExistTask" data-uid="AXOpen.Data.AxoDataFragmentExchange.EntityExistTask">
+  EntityExistTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, Type&gt; Exporters { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public AxoDataEntityExistTask EntityExistTask { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.Dictionary&lt;TKey, TValue&gt;</span>&lt;<span class="xref">string</span>, <span class="xref">System.Type</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_Operation.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.Operation%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L14">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Data.AxoDataEntityExistTask.html">AxoDataEntityExistTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_Operation_" data-uid="AXOpen.Data.AxoDataFragmentExchange.Operation*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_Operation" data-uid="AXOpen.Data.AxoDataFragmentExchange.Operation">Operation</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_Operation" data-uid="AXOpen.Data.AxoDataFragmentExchange.Operation">
+  Operation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AxoDataCrudTask Operation { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="AXOpen.Data.AxoDataCrudTask.html">AxoDataCrudTask</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_RefUIData.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.RefUIData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L84">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Data.AxoDataCrudTask.html">AxoDataCrudTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_RefUIData_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RefUIData*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_RefUIData" data-uid="AXOpen.Data.AxoDataFragmentExchange.RefUIData">RefUIData</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_RefUIData" data-uid="AXOpen.Data.AxoDataFragmentExchange.RefUIData">
+  RefUIData
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L99"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public ITwinObject RefUIData { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_Repository.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.Repository%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L82">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_Repository_" data-uid="AXOpen.Data.AxoDataFragmentExchange.Repository*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_Repository" data-uid="AXOpen.Data.AxoDataFragmentExchange.Repository">Repository</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_Repository" data-uid="AXOpen.Data.AxoDataFragmentExchange.Repository">
+  Repository
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IRepository? Repository { get; }</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXOpen.Base.Data.IRepository</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_CreateBuilder.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.CreateBuilder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L27">View Source</a>
-  </span>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IRepository</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_CreateBuilder_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateBuilder*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_CreateBuilder" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateBuilder">CreateBuilder()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_CreateBuilder" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateBuilder">
+  CreateBuilder()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public object CreateBuilder()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">object</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_CreateBuilder__1.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.CreateBuilder%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L22">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_CreateBuilder_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateBuilder*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_CreateBuilder__1" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateBuilder``1">CreateBuilder&lt;T&gt;()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_CreateBuilder__1" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateBuilder``1">
+  CreateBuilder&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public T? CreateBuilder&lt;T&gt;() where T : AxoDataFragmentExchange</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_CreateCopyCurrentShadowsAsync_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.CreateCopyCurrentShadowsAsync(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L142">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_CreateCopyCurrentShadowsAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateCopyCurrentShadowsAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_CreateCopyCurrentShadowsAsync_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateCopyCurrentShadowsAsync(System.String)">CreateCopyCurrentShadowsAsync(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_CreateCopyCurrentShadowsAsync_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateCopyCurrentShadowsAsync(System.String)">
+  CreateCopyCurrentShadowsAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task CreateCopyCurrentShadowsAsync(string recordId)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">recordId</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_CreateDataFromControllerAsync_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.CreateDataFromControllerAsync(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L125">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>recordId</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_CreateDataFromControllerAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateDataFromControllerAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_CreateDataFromControllerAsync_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateDataFromControllerAsync(System.String)">CreateDataFromControllerAsync(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_CreateDataFromControllerAsync_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateDataFromControllerAsync(System.String)">
+  CreateDataFromControllerAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task CreateDataFromControllerAsync(string recordId)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">recordId</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_CreateEmptyPoco.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.CreateEmptyPoco%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L96">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>recordId</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_CreateEmptyPoco_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateEmptyPoco*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_CreateEmptyPoco" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateEmptyPoco">CreateEmptyPoco()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_CreateEmptyPoco" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateEmptyPoco">
+  CreateEmptyPoco()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public AxoDataFragmentExchange CreateEmptyPoco()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_CreateNewAsync_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.CreateNewAsync(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L86">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_CreateNewAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateNewAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_CreateNewAsync_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateNewAsync(System.String)">CreateNewAsync(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_CreateNewAsync_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateNewAsync(System.String)">
+  CreateNewAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task CreateNewAsync(string identifier)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdate_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L162">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdate_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdate_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(System.String)">CreateOrUpdate(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_CreateOrUpdate_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(System.String)">
+  CreateOrUpdate(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task CreateOrUpdate(string recordId)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">recordId</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_DeInitializeRemoteDataExchange.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L44">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>recordId</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_DeInitializeRemoteDataExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_DeInitializeRemoteDataExchange" data-uid="AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange">DeInitializeRemoteDataExchange()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_DeInitializeRemoteDataExchange" data-uid="AXOpen.Data.AxoDataFragmentExchange.DeInitializeRemoteDataExchange">
+  DeInitializeRemoteDataExchange()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void DeInitializeRemoteDataExchange()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_Delete_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.Delete(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L137">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_Delete_" data-uid="AXOpen.Data.AxoDataFragmentExchange.Delete*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_Delete_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.Delete(System.String)">Delete(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_Delete_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.Delete(System.String)">
+  Delete(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L152"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task Delete(string identifier)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_ExistsAsync_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.ExistsAsync(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L152">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_ExistsAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ExistsAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_ExistsAsync_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ExistsAsync(System.String)">ExistsAsync(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_ExistsAsync_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ExistsAsync(System.String)">
+  ExistsAsync(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L167"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; ExistsAsync(string recordId)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">recordId</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">bool</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_ExportData_System_String_System_Collections_Generic_Dictionary_System_String_AXOpen_Data_ExportData__AXOpen_Data_eExportMode_System_Int32_System_Int32_System_String_System_Char_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.ExportData(System.String%2CSystem.Collections.Generic.Dictionary%7BSystem.String%2CAXOpen.Data.ExportData%7D%2CAXOpen.Data.eExportMode%2CSystem.Int32%2CSystem.Int32%2CSystem.String%2CSystem.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L289">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>recordId</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_ExportData_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ExportData*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_ExportData_System_String_System_Collections_Generic_Dictionary_System_String_AXOpen_Data_ExportData__AXOpen_Data_eExportMode_System_Int32_System_Int32_System_String_System_Char_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ExportData(System.String,System.Collections.Generic.Dictionary{System.String,AXOpen.Data.ExportData},AXOpen.Data.eExportMode,System.Int32,System.Int32,System.String,System.Char)">ExportData(string, Dictionary&lt;string, ExportData&gt;, eExportMode, int, int, string, char)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_ExportData_System_String_System_Char_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ExportData(System.String,System.Char)">
+  ExportData(string, char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L295"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ExportData(string path, Dictionary&lt;string, ExportData&gt; customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, string exportFileType = &quot;CSV&quot;, char separator = &#39;;&#39;)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ExportData(string path, char separator = &#39;;&#39;)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">path</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.Dictionary&lt;TKey, TValue&gt;</span>&lt;<span class="xref">string</span>, <a class="xref" href="AXOpen.Data.ExportData.html">ExportData</a>&gt;</td>
-        <td><span class="parametername">customExportData</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="AXOpen.Data.eExportMode.html">eExportMode</a></td>
-        <td><span class="parametername">exportMode</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">int</span></td>
-        <td><span class="parametername">firstNumber</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">int</span></td>
-        <td><span class="parametername">secondNumber</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">exportFileType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">char</span></td>
-        <td><span class="parametername">separator</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_FromRepositoryToControllerAsync_AXOpen_Base_Data_IBrowsableDataObject_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.FromRepositoryToControllerAsync(AXOpen.Base.Data.IBrowsableDataObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L117">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>separator</code> <span class="xref">char</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_FromRepositoryToControllerAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.FromRepositoryToControllerAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_FromRepositoryToControllerAsync_AXOpen_Base_Data_IBrowsableDataObject_" data-uid="AXOpen.Data.AxoDataFragmentExchange.FromRepositoryToControllerAsync(AXOpen.Base.Data.IBrowsableDataObject)">FromRepositoryToControllerAsync(IBrowsableDataObject)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_FromRepositoryToControllerAsync_AXOpen_Base_Data_IBrowsableDataObject_" data-uid="AXOpen.Data.AxoDataFragmentExchange.FromRepositoryToControllerAsync(AXOpen.Base.Data.IBrowsableDataObject)">
+  FromRepositoryToControllerAsync(IBrowsableDataObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L132"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task FromRepositoryToControllerAsync(IBrowsableDataObject selected)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXOpen.Base.Data.IBrowsableDataObject</span></td>
-        <td><span class="parametername">selected</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_FromRepositoryToShadowsAsync_AXOpen_Base_Data_IBrowsableDataObject_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.FromRepositoryToShadowsAsync(AXOpen.Base.Data.IBrowsableDataObject)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L99">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>selected</code> <span class="xref">IBrowsableDataObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_FromRepositoryToShadowsAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.FromRepositoryToShadowsAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_FromRepositoryToShadowsAsync_AXOpen_Base_Data_IBrowsableDataObject_" data-uid="AXOpen.Data.AxoDataFragmentExchange.FromRepositoryToShadowsAsync(AXOpen.Base.Data.IBrowsableDataObject)">FromRepositoryToShadowsAsync(IBrowsableDataObject)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_FromRepositoryToShadowsAsync_AXOpen_Base_Data_IBrowsableDataObject_" data-uid="AXOpen.Data.AxoDataFragmentExchange.FromRepositoryToShadowsAsync(AXOpen.Base.Data.IBrowsableDataObject)">
+  FromRepositoryToShadowsAsync(IBrowsableDataObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task FromRepositoryToShadowsAsync(IBrowsableDataObject entity)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">AXOpen.Base.Data.IBrowsableDataObject</span></td>
-        <td><span class="parametername">entity</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_GetRecords_System_String_System_Int32_System_Int32_AXOpen_Base_Data_eSearchMode_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.GetRecords(System.String%2CSystem.Int32%2CSystem.Int32%2CAXOpen.Base.Data.eSearchMode)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L242">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>entity</code> <span class="xref">IBrowsableDataObject</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_GetRecords_" data-uid="AXOpen.Data.AxoDataFragmentExchange.GetRecords*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_GetRecords_System_String_System_Int32_System_Int32_AXOpen_Base_Data_eSearchMode_" data-uid="AXOpen.Data.AxoDataFragmentExchange.GetRecords(System.String,System.Int32,System.Int32,AXOpen.Base.Data.eSearchMode)">GetRecords(string, int, int, eSearchMode)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_GetRecords_System_String_System_Int32_System_Int32_AXOpen_Base_Data_eSearchMode_" data-uid="AXOpen.Data.AxoDataFragmentExchange.GetRecords(System.String,System.Int32,System.Int32,AXOpen.Base.Data.eSearchMode)">
+  GetRecords(string, int, int, eSearchMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L257"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;IBrowsableDataObject&gt; GetRecords(string identifier, int limit, int skip, eSearchMode searchMode)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">int</span></td>
-        <td><span class="parametername">limit</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">int</span></td>
-        <td><span class="parametername">skip</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">AXOpen.Base.Data.eSearchMode</span></td>
-        <td><span class="parametername">searchMode</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXOpen.Base.Data.IBrowsableDataObject</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_GetRecords_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.GetRecords(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L247">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>limit</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>skip</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>searchMode</code> <span class="xref">eSearchMode</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;<span class="xref">IBrowsableDataObject</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_GetRecords_" data-uid="AXOpen.Data.AxoDataFragmentExchange.GetRecords*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_GetRecords_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.GetRecords(System.String)">GetRecords(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_GetRecords_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.GetRecords(System.String)">
+  GetRecords(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L262"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public IEnumerable&lt;IBrowsableDataObject&gt; GetRecords(string identifier)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXOpen.Base.Data.IBrowsableDataObject</span>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_ImportData_System_String_AXSharp_Connector_ITwinObject_System_String_System_Char_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.ImportData(System.String%2CAXSharp.Connector.ITwinObject%2CSystem.String%2CSystem.Char)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L316">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;<span class="xref">IBrowsableDataObject</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_ImportData_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ImportData*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_ImportData_System_String_AXSharp_Connector_ITwinObject_System_String_System_Char_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ImportData(System.String,AXSharp.Connector.ITwinObject,System.String,System.Char)">ImportData(string, ITwinObject, string, char)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_ImportData_System_String_AXSharp_Connector_ITwinObject_System_Char_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ImportData(System.String,AXSharp.Connector.ITwinObject,System.Char)">
+  ImportData(string, ITwinObject, char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L322"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ImportData(string path, ITwinObject crudDataObject = null, string exportFileType = &quot;CSV&quot;, char separator = &#39;;&#39;)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ImportData(string path, ITwinObject crudDataObject = null, char separator = &#39;;&#39;)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">path</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">AXSharp.Connector.ITwinObject</span></td>
-        <td><span class="parametername">crudDataObject</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">exportFileType</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">char</span></td>
-        <td><span class="parametername">separator</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_InitializeRemoteDataExchange.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L38">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>path</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>crudDataObject</code> <span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+    <dt><code>separator</code> <span class="xref">char</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_InitializeRemoteDataExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_InitializeRemoteDataExchange" data-uid="AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange">InitializeRemoteDataExchange()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_InitializeRemoteDataExchange" data-uid="AXOpen.Data.AxoDataFragmentExchange.InitializeRemoteDataExchange">
+  InitializeRemoteDataExchange()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Initializes data exchange between remote controller and this <a class="xref" href="AXOpen.Data.AxoDataExchange-2.html">AxoDataExchange&lt;TOnline, TPlain&gt;</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void InitializeRemoteDataExchange()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_OnlineToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.OnlineToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L26">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_OnlineToPlain_" data-uid="AXOpen.Data.AxoDataFragmentExchange.OnlineToPlain*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_OnlineToPlain__1" data-uid="AXOpen.Data.AxoDataFragmentExchange.OnlineToPlain``1">OnlineToPlain&lt;T&gt;()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_OnlineToPlain__1" data-uid="AXOpen.Data.AxoDataFragmentExchange.OnlineToPlain``1">
+  OnlineToPlain&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L32"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Task&lt;T&gt; OnlineToPlain&lt;T&gt;()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="AXOpen.Data.AxoDataExchangeBase.html#AXOpen_Data_AxoDataExchangeBase_OnlineToPlain__1">AxoDataExchangeBase.OnlineToPlain&lt;T&gt;()</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_OnlineToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.OnlineToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L31">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_OnlineToPlainAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.OnlineToPlainAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_OnlineToPlainAsync" data-uid="AXOpen.Data.AxoDataFragmentExchange.OnlineToPlainAsync">OnlineToPlainAsync()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_OnlineToPlainAsync" data-uid="AXOpen.Data.AxoDataFragmentExchange.OnlineToPlainAsync">
+  OnlineToPlainAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;AxoDataFragmentExchange&gt; OnlineToPlainAsync()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_OnlineToPlainAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.OnlineToPlainAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L40">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_OnlineToPlainAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.OnlineToPlainAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_OnlineToPlainAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.OnlineToPlainAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)">OnlineToPlainAsync(AxoDataFragmentExchange)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_OnlineToPlainAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.OnlineToPlainAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)">
+  OnlineToPlainAsync(AxoDataFragmentExchange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Task&lt;AxoDataFragmentExchange&gt; OnlineToPlainAsync(AxoDataFragmentExchange plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_PlainToOnline__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.PlainToOnline%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L47">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_PlainToOnline_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToOnline*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_PlainToOnline__1___0_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToOnline``1(``0)">PlainToOnline&lt;T&gt;(T)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_PlainToOnline__1___0_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToOnline``1(``0)">
+  PlainToOnline&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L57"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Task PlainToOnline&lt;T&gt;(T plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">AXOpen.Data.AxoDataExchangeBase.PlainToOnline&lt;T&gt;(T)</span></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_PlainToOnlineAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.PlainToOnlineAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L52">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_PlainToOnlineAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToOnlineAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_PlainToOnlineAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToOnlineAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)">PlainToOnlineAsync(AxoDataFragmentExchange)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_PlainToOnlineAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToOnlineAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)">
+  PlainToOnlineAsync(AxoDataFragmentExchange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToOnlineAsync(AxoDataFragmentExchange plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinPrimitive</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_PlainToShadow__1___0_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.PlainToShadow%60%601(%60%600)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L79">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_PlainToShadow_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToShadow*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_PlainToShadow__1___0_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToShadow``1(``0)">PlainToShadow&lt;T&gt;(T)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_PlainToShadow__1___0_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToShadow``1(``0)">
+  PlainToShadow&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Task PlainToShadow&lt;T&gt;(T plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">T</span></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">AXOpen.Data.AxoDataExchangeBase.PlainToShadow&lt;T&gt;(T)</span></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_PlainToShadowAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.PlainToShadowAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L84">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_PlainToShadowAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToShadowAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_PlainToShadowAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToShadowAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)">PlainToShadowAsync(AxoDataFragmentExchange)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_PlainToShadowAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.PlainToShadowAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)">
+  PlainToShadowAsync(AxoDataFragmentExchange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L100"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToShadowAsync(AxoDataFragmentExchange plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span>&lt;<span class="xref">AXSharp.Connector.ITwinPrimitive</span>&gt;&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_Poll.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.Poll%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L91">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_Poll_" data-uid="AXOpen.Data.AxoDataFragmentExchange.Poll*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_Poll" data-uid="AXOpen.Data.AxoDataFragmentExchange.Poll">Poll()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_Poll" data-uid="AXOpen.Data.AxoDataFragmentExchange.Poll">
+  Poll()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L109"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void Poll()</code></pre>
   </div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_RemoteCreate_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.RemoteCreate(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L181">View Source</a>
-  </span>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_RemoteCreate_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteCreate*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_RemoteCreate_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteCreate(System.String)">RemoteCreate(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_RemoteCreate_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteCreate(System.String)">
+  RemoteCreate(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L196"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool RemoteCreate(string identifier)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">bool</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_RemoteCreateOrUpdate_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L232">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_RemoteCreateOrUpdate_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_RemoteCreateOrUpdate_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate(System.String)">RemoteCreateOrUpdate(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_RemoteCreateOrUpdate_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteCreateOrUpdate(System.String)">
+  RemoteCreateOrUpdate(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L247"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool RemoteCreateOrUpdate(string identifier)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">bool</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_RemoteDelete_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.RemoteDelete(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L211">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_RemoteDelete_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteDelete*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_RemoteDelete_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteDelete(System.String)">RemoteDelete(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_RemoteDelete_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteDelete(System.String)">
+  RemoteDelete(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L226"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool RemoteDelete(string identifier)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">bool</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_RemoteEntityExist_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L221">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_RemoteEntityExist_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_RemoteEntityExist_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist(System.String)">RemoteEntityExist(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_RemoteEntityExist_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteEntityExist(System.String)">
+  RemoteEntityExist(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L236"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool RemoteEntityExist(string identifier)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">bool</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_RemoteRead_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.RemoteRead(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L191">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_RemoteRead_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteRead*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_RemoteRead_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteRead(System.String)">RemoteRead(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_RemoteRead_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteRead(System.String)">
+  RemoteRead(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L206"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool RemoteRead(string identifier)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">bool</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_RemoteUpdate_System_String_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.RemoteUpdate(System.String)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L201">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_RemoteUpdate_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteUpdate*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_RemoteUpdate_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteUpdate(System.String)">RemoteUpdate(string)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_RemoteUpdate_System_String_" data-uid="AXOpen.Data.AxoDataFragmentExchange.RemoteUpdate(System.String)">
+  RemoteUpdate(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L216"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public bool RemoteUpdate(string identifier)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">string</span></td>
-        <td><span class="parametername">identifier</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">bool</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_ShadowToPlain__1.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.ShadowToPlain%60%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L59">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_ShadowToPlain_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ShadowToPlain*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_ShadowToPlain__1" data-uid="AXOpen.Data.AxoDataFragmentExchange.ShadowToPlain``1">ShadowToPlain&lt;T&gt;()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_ShadowToPlain__1" data-uid="AXOpen.Data.AxoDataFragmentExchange.ShadowToPlain``1">
+  ShadowToPlain&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L71"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public override Task&lt;T&gt; ShadowToPlain&lt;T&gt;()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;T&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="typeParameters">Type Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="parametername">T</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="AXOpen.Data.AxoDataExchangeBase.html#AXOpen_Data_AxoDataExchangeBase_ShadowToPlain__1">AxoDataExchangeBase.ShadowToPlain&lt;T&gt;()</a></div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_ShadowToPlainAsync.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.ShadowToPlainAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L64">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_ShadowToPlainAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ShadowToPlainAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_ShadowToPlainAsync" data-uid="AXOpen.Data.AxoDataFragmentExchange.ShadowToPlainAsync">ShadowToPlainAsync()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_ShadowToPlainAsync" data-uid="AXOpen.Data.AxoDataFragmentExchange.ShadowToPlainAsync">
+  ShadowToPlainAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task&lt;AxoDataFragmentExchange&gt; ShadowToPlainAsync()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_ShadowToPlainAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.ShadowToPlainAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L72">View Source</a>
-  </span>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_ShadowToPlainAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ShadowToPlainAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_ShadowToPlainAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ShadowToPlainAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)">ShadowToPlainAsync(AxoDataFragmentExchange)</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_ShadowToPlainAsync_Pocos_AXOpen_Data_AxoDataFragmentExchange_" data-uid="AXOpen.Data.AxoDataFragmentExchange.ShadowToPlainAsync(Pocos.AXOpen.Data.AxoDataFragmentExchange)">
+  ShadowToPlainAsync(AxoDataFragmentExchange)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L86"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">protected Task&lt;AxoDataFragmentExchange&gt; ShadowToPlainAsync(AxoDataFragmentExchange plain)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></td>
-        <td><span class="parametername">plain</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task&lt;TResult&gt;</span>&lt;<a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange_UpdateFromShadowsAsync.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange.UpdateFromShadowsAsync%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L107">View Source</a>
-  </span>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Data.AxoDataFragmentExchange.html">AxoDataFragmentExchange</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_AxoDataFragmentExchange_UpdateFromShadowsAsync_" data-uid="AXOpen.Data.AxoDataFragmentExchange.UpdateFromShadowsAsync*"></a>
-  <h4 id="AXOpen_Data_AxoDataFragmentExchange_UpdateFromShadowsAsync" data-uid="AXOpen.Data.AxoDataFragmentExchange.UpdateFromShadowsAsync">UpdateFromShadowsAsync()</h4>
+
+  <h3 id="AXOpen_Data_AxoDataFragmentExchange_UpdateFromShadowsAsync" data-uid="AXOpen.Data.AxoDataFragmentExchange.UpdateFromShadowsAsync">
+  UpdateFromShadowsAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataFragmentExchange/AxoDataFragmentExchange.cs/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public Task UpdateFromShadowsAsync()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <span class="xref">AXSharp.Connector.Identity.ITwinIdentity</span>
-  </div>
-  <div>
-      <span class="xref">AXSharp.Connector.ITwinObject</span>
-  </div>
-  <div>
-      <span class="xref">AXSharp.Connector.ITwinElement</span>
-  </div>
-  <div>
-      <a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a>
-  </div>
-  <div>
-      <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a>
-  </div>
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_AxoDataFragmentExchange.md&amp;value=---%0Auid%3A%20AXOpen.Data.AxoDataFragmentExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
-                  </li>
-                  <li>
-                    <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L12" class="contribution-link">View Source</a>
-                  </li>
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/AxoDataFragmentExchange.g.cs/#L12" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
-      
-          </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
         </div>
-      </footer>
-    </div>
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
-    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
-    <script>
-    mermaid.initialize({
-    startOnLoad: false
-    });
-    mermaid.init(undefined, ".lang-mermaid");
-    </script>  </body>
+      </div>
+    </footer>
+  </body>
 </html>

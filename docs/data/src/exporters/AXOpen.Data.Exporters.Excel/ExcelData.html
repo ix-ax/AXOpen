@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Exporting data to Excel | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Exporting data to Excel | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../../../images/favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/exporters/AXOpen.Data.Exporters.Excel/ExcelData.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../../../public/main.js'
+    import { init } from './../../../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="exporting-data-to-excel"><strong>Exporting data to Excel</strong></h1>
+
+<h2 id="overview"><strong>Overview</strong></h2>
+<ul>
+<li>Data is transported to <strong>.xlsx</strong> format.</li>
+<li>There is one file (workbook) generated with the name defined by the <code>fileName</code> variable in <code>ExcelDataExporter.cs</code> class.</li>
+<li>Each fragment is represented by a worksheet in the file.</li>
+<li><code>Export</code> function does not call the <code>BaseExport</code> method of <code>BaseDataExporter</code> class but works in pretty much the same way with the exception of exporting data to Excel workbook.</li>
+<li><code>Import</code> analogically does not call the <code>BaseImport</code> method of <code>BaseDataExporter</code>. IHowever, its functionality is almost identical to <code>BaseImport</code>. It calls <code>UpdateDocument</code> method of <code>BaseDataExporter</code> which has had its accessibility changed to <code>protected</code>. Additionally, the accessibility of the <code>ImportItems</code> method has been changed to <code>protected</code>, and its members have been changed to <code>public</code> so that they can be accessed from the <code>Import</code> method of the <code>ExcelDataExporter</code> class.</li>
+</ul>
+<h2 id="prerequisites"><strong>Prerequisites</strong></h2>
+<p><em>ClosedXML</em> NuGet package - MIT license</p>
+<h2 id="working-with-closedxml"><strong>Working with ClosedXML</strong></h2>
+<ul>
+<li>Before export and import a workbook of type <code>XLWorkbook</code> needs to be initialized. It can be done be creating a completely new workbook or by loading an existing one.</li>
+<li>A workbook must have at least one worksheet</li>
+</ul>
+<h2 id="limitations-of-xlsx"><strong>Limitations of <em>.xlsx</em></strong></h2>
+<ul>
+<li>A name of a worksheet cannot be longer than <strong>31 characters</strong>.</li>
+<li>A name of a worksheet must be <strong>unique</strong> within a workbook.</li>
+</ul>
+<p>See <a href="https://support.microsoft.com/en-gb/office/excel-specifications-and-limits-1672b34d-7043-467e-8e27-269d656771c3">Excel specifications and limits</a> for more information.</p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/exporters/AXOpen.Data.Exporters.Excel/ExcelData.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

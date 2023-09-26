@@ -199,7 +199,7 @@ namespace AXOpen.Data.Tests
         }
 
         [Fact]
-        public void RemoteCreate_ShouldCreateRecordInRepository()
+        public async void RemoteCreate_ShouldCreateRecordInRepository()
         {
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
@@ -209,9 +209,9 @@ namespace AXOpen.Data.Tests
             sut.SetRepository(repo);
 
 
-            sut.Set.ComesFrom.SetAsync(10);
-            sut.Set.GoesTo.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.Set.ComesFrom.SetAsync(10);
+            await sut.Set.GoesTo.SetAsync(20);
+            await sut.RemoteCreate("hey remote create");
 
             var record = repo.Read("hey remote create");
             Assert.Equal(10, record.ComesFrom);
@@ -232,7 +232,7 @@ namespace AXOpen.Data.Tests
 
             repo.Create("hey remote create", new Pocos.axosimple.SharedProductionData() { ComesFrom = 48, GoesTo = 68 });
 
-            sut.RemoteRead("hey remote create");
+            await sut.RemoteRead("hey remote create");
             Assert.Equal(48, await sut.Set.ComesFrom.GetAsync());
             Assert.Equal(68, await sut.Set.GoesTo.GetAsync());
         }
@@ -291,7 +291,7 @@ namespace AXOpen.Data.Tests
 
             sut.Set.ComesFrom.SetAsync(40);
             sut.Set.GoesTo.SetAsync(60);
-            sut.RemoteUpdate("hey remote create");
+            await sut.RemoteUpdate("hey remote create");
 
             var record = repo.Read("hey remote create");
             Assert.Equal(40, record.ComesFrom);
@@ -310,11 +310,11 @@ namespace AXOpen.Data.Tests
 
             sut.Set.ComesFrom.SetAsync(10);
             sut.Set.GoesTo.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
             Assert.Equal(1, repo.Count);
 
-            sut.RemoteDelete("hey remote create");
+            await sut.RemoteDelete("hey remote create");
 
             Assert.Equal(0, repo.Count);
         }
@@ -333,7 +333,7 @@ namespace AXOpen.Data.Tests
 
             Assert.Equal(1, repo.Count);
 
-            var result = sut.RemoteEntityExist("hey remote create");
+            var result = await sut.RemoteEntityExist("hey remote create");
 
             Assert.True(result);
         }
@@ -352,7 +352,7 @@ namespace AXOpen.Data.Tests
 
             Assert.Equal(1, repo.Count);
 
-            var result = sut.RemoteEntityExist("aa");
+            var result = await sut.RemoteEntityExist("aa");
 
             Assert.False(result);
         }
@@ -370,7 +370,7 @@ namespace AXOpen.Data.Tests
 
             sut.Set.ComesFrom.SetAsync(10);
             sut.Set.GoesTo.SetAsync(20);
-            sut.RemoteCreateOrUpdate("hey remote create");
+            await sut.RemoteCreateOrUpdate("hey remote create");
 
             var record = repo.Read("hey remote create");
             Assert.Equal(10, record.ComesFrom);
@@ -391,7 +391,7 @@ namespace AXOpen.Data.Tests
 
             sut.Set.ComesFrom.SetAsync(10);
             sut.Set.GoesTo.SetAsync(20);
-            sut.RemoteCreateOrUpdate("hey remote create");
+            await sut.RemoteCreateOrUpdate("hey remote create");
 
             var record = repo.Read("hey remote create");
             Assert.Equal(10, record.ComesFrom);

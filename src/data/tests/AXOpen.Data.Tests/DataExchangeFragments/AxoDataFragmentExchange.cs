@@ -56,7 +56,7 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
             Assert.Equal(10, shared.ComesFrom);
@@ -83,7 +83,7 @@ namespace AXOpen.Data.Fragments.Tests
             sharedRepo.Create(id, new SharedProductionData() { ComesFrom = 55, GoesTo = 44 });
             manipRepo.Create(id, new FragmentProcessData() { CounterDelay = 8989ul });
 
-            sut.RemoteRead(id);
+            await sut.RemoteRead(id);
 
             Assert.Equal(55, await sut.Set.Set.ComesFrom.GetAsync());
             Assert.Equal(44, await sut.Set.Set.GoesTo.GetAsync());
@@ -104,12 +104,12 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
             await sut.Set.Set.ComesFrom.SetAsync(88);
             await sut.Set.Set.GoesTo.SetAsync(64);
             await sut.Manip.Set.CounterDelay.SetAsync(789);
-            sut.RemoteUpdate("hey remote create");
+            await sut.RemoteUpdate("hey remote create");
 
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
@@ -134,13 +134,13 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
 
             Assert.Equal(1, sut.Set.DataRepository.Count);
             Assert.Equal(1, sut.Manip.DataRepository.Count);
 
-            sut.RemoteDelete("hey remote create");
+            await sut.RemoteDelete("hey remote create");
 
 
             Assert.Equal(0, sut.Set.DataRepository.Count);
@@ -164,7 +164,7 @@ namespace AXOpen.Data.Fragments.Tests
             sharedRepo.Create(id, new SharedProductionData() { ComesFrom = 55, GoesTo = 44 });
             manipRepo.Create(id, new FragmentProcessData() { CounterDelay = 8989ul });
 
-            var result = sut.RemoteEntityExist(id);
+            var result = await sut.RemoteEntityExist(id);
 
             Assert.True(result);
         }
@@ -186,7 +186,7 @@ namespace AXOpen.Data.Fragments.Tests
             //sharedRepo.Create(id, new SharedProductionData() { ComesFrom = 55, GoesTo = 44 });
             //manipRepo.Create(id, new FragmentProcessData() { CounterDelay = 8989ul });
 
-            var result = sut.RemoteEntityExist(id);
+            var result = await sut.RemoteEntityExist(id);
 
             Assert.False(result);
         }
@@ -204,7 +204,7 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreateOrUpdate("hey remote create");
+            await sut.RemoteCreateOrUpdate("hey remote create");
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
             Assert.Equal(10, shared.ComesFrom);
@@ -227,12 +227,12 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
             await sut.Set.Set.ComesFrom.SetAsync(88);
             await sut.Set.Set.GoesTo.SetAsync(64);
             await sut.Manip.Set.CounterDelay.SetAsync(789);
-            sut.RemoteCreateOrUpdate("hey remote create");
+            await sut.RemoteCreateOrUpdate("hey remote create");
 
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
@@ -348,7 +348,7 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
 
             Assert.Equal(1, sut.Set.DataRepository.Count);
@@ -374,7 +374,7 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
             sut.Set.Set.DataEntityId.Shadow = "hey remote create";
             sut.Set.Set.ComesFrom.Shadow = 188;
@@ -491,7 +491,7 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
             Assert.Equal(10, shared.ComesFrom);
@@ -543,12 +543,12 @@ namespace AXOpen.Data.Fragments.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(11);
             await sut.Manip.Set.CounterDelay.SetAsync(12);
-            sut.RemoteCreate("first");
+            await sut.RemoteCreate("first");
 
             await sut.Set.Set.ComesFrom.SetAsync(20);
             await sut.Set.Set.GoesTo.SetAsync(21);
             await sut.Manip.Set.CounterDelay.SetAsync(22);
-            sut.RemoteCreate("second");
+            await sut.RemoteCreate("second");
 
             var shared = sut.Set.DataRepository.Read("first");
             Assert.Equal(10, shared.ComesFrom);

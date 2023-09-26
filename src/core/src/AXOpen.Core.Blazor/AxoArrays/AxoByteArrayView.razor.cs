@@ -2,11 +2,12 @@
 using AXSharp.Connector.ValueTypes;
 using System.Text;
 using System.Reflection;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
     public enum eDisplayFormat { Array_of_hexdecimals , Array_of_decimals, String };
-    public partial class AxoByteArrayView : IDisposable
+    public partial class AxoByteArrayView : RenderableComplexComponentBase<AxoByteArray>, IDisposable
     {
 
         private eDisplayFormat _currentDisplayFormat;

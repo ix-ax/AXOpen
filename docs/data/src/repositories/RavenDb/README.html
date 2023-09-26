@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>RavenDB Repository | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="RavenDB Repository | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../../../images/favicon.ico">
+      <link rel="stylesheet" href="../../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../../toc.html">
+      <meta name="docfx:tocrel" content="../../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/repositories/RavenDb/README.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../../../public/main.js'
+    import { init } from './../../../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../../index.html">
+            <img id="logo" class="svg" src="../../../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="ravendb-repository">RavenDB Repository</h1>
+
+<p>This is an implementation of data persistence via RavenDB.</p>
+<h2 id="what-is-ravendb">What is RavenDB?</h2>
+<p><a href="https://github.com/ravendb/ravendb">RavenDB</a> is an Open Source ACID NoSQL database.</p>
+<p>It started in 2009 as a document database, but over time included many ways to model data, so you will be able to accomodate various business and industry scenarios.</p>
+<p>You will be able to use it a fast CRUD engine to <a href="https://ravendb.net/docs/article-page/latest/csharp/client-api/session/loading-entities">read</a> and <a href="https://ravendb.net/docs/article-page/latest/csharp/client-api/session/storing-entities">write</a> JSON as a native format, but also to manipulate and index JSON via <a href="https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes">Map</a> and <a href="https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes">Map/Reduce</a> indexes which are powering fast Queries even with <a href="https://ravendb.net/whitepapers/couchbase-vs-ravendb-performance-at-rakuten-kobo">multi-terabyte datasets</a>.</p>
+<h2 id="how-to-install-it">How to install it?</h2>
+<h3 id="on-premise">On-premise</h3>
+<p>You can <a href="https://ravendb.net/docs/article-page/latest/csharp/start/installation/setup-wizard">install</a> and maintain yourself a single node or multinode cluster. Follow <a href="https://ravendb.net/docs/article-page/latest/csharp/start/installation/setup-wizard">instructions</a> to easily set up secured instance of RavenDB.</p>
+<p><a href="https://ravendb.net/download">Various options</a> are at your disposal</p>
+<ul>
+<li>Native installation on Linux and Windows</li>
+<li>Raspberry Pi</li>
+<li>Docker</li>
+<li>Kubernetes</li>
+<li>ARM processors</li>
+</ul>
+<p>but <a href="https://ravendb.net/docs/article-page/latest/csharp/start/installation/running-in-docker-container">Dockerized</a> one is probably most straightforward one</p>
+<pre><code>docker run -d -p 8080:8080 -p 38888:38888 -e RAVEN_ARGS=&quot;--Setup.Mode=None --License.Eula.Accepted=true&quot; ravendb/ravendb
+</code></pre>
+<p>and RavenDB instance will be available in a few moments at</p>
+<pre><code>http://127.0.0.1:8080/
+</code></pre>
+<h3 id="in-the-cloud">In the cloud</h3>
+<p>RavenDB offers its own Database-as-a-Service (DBaaS) <a href="https://cloud.ravendb.net/">RavenDB Cloud</a> where you can create cluster residing on AWS, Azure or GCP infrastructure. With this option, you can concentrate on developing your application while <a href="https://ravendb.net/docs/article-page/latest/csharp/cloud/cloud-overview">complete DevOps</a> including automated offsite backups will be handled by RavenDB DevOps team.</p>
+<p>If your project is a low-demand one, there is a <a href="https://ravendb.net/docs/article-page/latest/csharp/cloud/cloud-instances#a-free-cloud-node">Free 1-node cluster</a> available.</p>
+<h2 id="what-about-the-license">What about the license?</h2>
+<h3 id="open-source-projects">Open Source projects</h3>
+<p>RavenDB is licensed under AGPLv3 license, so you are free to use it with your open source project.</p>
+<h3 id="commercial-projects">Commercial projects</h3>
+<p>During development, <a href="https://ravendb.net/buy#developer">free Developer license</a> is available (just register with your email address).</p>
+<p>Once you go into production, <a href="https://ravendb.net/license/request/community">free Community license</a> is suitable for commercial usage.</p>
+<p>However, if you decide to go with <a href="https://cloud.ravendb.net/">RavenDB Cloud</a> your Enterprise license will be provided out of the box with every instance or cluster you create.</p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/repositories/RavenDb/README.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -34,12 +34,8 @@
 	REF_PRJS_END-->
 
 	<!--REF_PCKG_START-->
-	<ItemGroup>
-		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
-		  <PrivateAssets>all</PrivateAssets>
-		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-		</PackageReference>
-		<PackageReference Include="AXSharp.Presentation.Blazor.Controls" Version="0.14.2-alpha.135" />
+	<ItemGroup>		
+		<PackageReference Include="AXSharp.Presentation.Blazor.Controls"/>
 	</ItemGroup>
 	<!--REF_PCKG_END-->
 	<ItemGroup>

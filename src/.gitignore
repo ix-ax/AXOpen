@@ -1,5 +1,6 @@
 .apax
 .env
+.builds
 bin
 
 obj
@@ -12,3 +13,5 @@ testresult
 *.g.cs
 
 sandbox/**
+
+**/tmp_*_.*

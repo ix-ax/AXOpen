@@ -4,7 +4,7 @@ using AXSharp.Connector;
 using System;
 using System.Collections.Generic;
 
-namespace AXOpen.Cognex.Vision.v_6_0_0_0
+namespace AXOpen.Components.Cognex.Vision.v_6_0_0_0
 {
     public partial class AxoInsight
     {

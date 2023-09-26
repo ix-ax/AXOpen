@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AxoDataExchange | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AxoDataExchange | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../../images/favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataExchange.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../../public/main.js'
+    import { init } from './../../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="axodataexchange">AxoDataExchange</h1>
+
+<h2 id="getting-started">Getting started</h2>
+<h3 id="data-exchange-manager">Data exchange manager</h3>
+<p>Data exchange object must be extended by <code>AxoDataExchange</code>.</p>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div><h3 id="data-exchange-object">Data exchange object</h3>
+<p>The data entity variable must be created. It contains data that we want to exchange between PLC and repository. This variable must be annotated with following attributes:</p>
+<ul>
+<li><code>AxoDataEntityAttribute</code> -- unique attribute for finding a correct instance of data exchange.</li>
+<li><code>#ix-generic:TOnline</code> -- type information attribute.</li>
+<li><code>#ix-generic:TPlain as POCO</code> -- type information attribute.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <code>AxoDataExchange</code> object must be unique. Annotations <code>AxoDataEntityAttribute</code>, <code>#ix-generic:TOnline</code> and <code>#ix-generic:TPlain as POCO</code> must be attributed to only one member <code>AxoDataExchange</code> object, which is used to locate data object that contains data to be exchanged between PLC and the target repository.
+An exception is thrown when <code>AxoDataEntityAttribute</code> is missing or multiple members have the annotation.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The 'Data' variable must be of a type that extends <code>AxoDataEntity</code>.</p>
+</div>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div><h3 id="data-exchange-initialization-in-plc">Data exchange initialization in PLC</h3>
+<p>As mentioned earlier, we use remote calls to execute the CRUD operations. These calls are a variant of <code>AxoTask</code>, which allows for invoking a C# code. We will now need to create an instance of <code>AxoProcessDataManager</code> in a context object (<code>AxoContext</code>) (or as a member of another class that derives from <code>AxoObject</code>). We will also need to call <code>DataManager</code> in the Main method of appropriate context.</p>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div>
+<p>Instantiate context in a configuration</p>
+<pre><code>CONFIGURATION MyConfiguration
+    VAR_GLOBAL
+        _myContext : Context;       
+    END_VAR
+END_CONFIGURATION
+</code></pre>
+<p>Execute the context in a program</p>
+<pre><code>PROGRAM MAIN
+VAR_EXTERNAL
+    _myContext : Context;
+END_VAR
+
+_myContext.Run();
+
+</code></pre>
+<h3 id="data-exchange-initialization-in-net">Data exchange initialization in .NET</h3>
+<p>At this point, we have everything ready in the PLC.</p>
+<p>We must now tell the <code>DataManager</code> what repository to use. As a example, data repository is set as JSON files.</p>
+<p>Let's create a configuration for the repository and initialize remote data exchange:</p>
+<pre><code class="lang-csharp">var exampleRepositorySettings =
+    new AXOpen.Data.Json.JsonRepositorySettings&lt;Pocos.AxoDataExamplesDocu.AxoProductionData&gt;(
+        Path.Combine(Environment.CurrentDirectory, &quot;exampledata&quot;));
+
+var exampleRepository = 
+    Ix.Repository.Json.Repository.Factory(exampleRepositorySettings);
+
+Entry.Plc.AxoDataExamplesDocu.DataManager.InitializeRemoteDataExchange(exampleRepository);
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>MyData</code> should be of type from <code>Pocos</code>.</p>
+</div>
+<h3 id="usage">Usage</h3>
+<p>Now we can freely shuffle the data between PLC and the local folder.</p>
+<div class="WARNING">
+Warning
+<p>It looks like the sample you are looking for does not exist.</p>
+</div><h3 id="tracking-changes">Tracking changes</h3>
+<p>Every change to the data is meticulously tracked and saved. These changes are recorded in two distinct locations:</p>
+<ol>
+<li>Directly in the Database - Each record maintains its own history of changes:</li>
+</ol>
+<pre><code class="lang-TXT">{
+  &quot;ComesFrom&quot;: 1,
+  &quot;GoesTo&quot;: 0,
+  &quot;RecordId&quot;: null,
+  &quot;Changes&quot;: [
+    {
+      &quot;DateTime&quot;: &quot;2020-10-10T10:10:10.00&quot;,
+      &quot;UserName&quot;: &quot;admin&quot;,
+      &quot;ValueTag&quot;: {
+        &quot;HumanReadable&quot;: &quot;PneumaticManipulator.ProcessData.Shared.Set.ComesFrom&quot;,
+        &quot;Symbol&quot;: &quot;Context.PneumaticManipulator.ProcessData.Shared.Set.ComesFrom&quot;
+      },
+      &quot;OldValue&quot;: 0,
+      &quot;NewValue&quot;: 1
+    }
+  ],
+  &quot;DataEntityId&quot;: &quot;testRecord&quot;
+}
+</code></pre>
+<ol start="2">
+<li>In Logs - All operations involving records are meticulously logged:</li>
+</ol>
+<pre><code class="lang-TXT">[10:10:10 INF] Create testRecord in examples.PneumaticManipulator.ProcessDataManger by user action. { UserName = admin }
+[10:10:10 INF] Value change Context.PneumaticManipulator.ProcessData.Shared.Set.ComesFrom of testRecord from 0 to 1 changed by user action. { UserName = admin }
+</code></pre>
+<p>Every action as creation, update, deletion, or copying data is captured in the logs. Also every record has its own set of changes.<br>
+Its important to note that modifications originating from the PLC are not logged, tracked, or saved.</p>
+<h3 id="locking">Locking</h3>
+<p>When a client is in the process of editing, copying, or attempting to delete a record, the entire repository becomes locked. While the repository is locked, no one can make edits to records, until the repository is unlocked.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The repository is locked by clicking on the edit, copy, or delete buttons, and it can be unlocked by clicking the save or close button. If the modal is closed in an incorrect manner, such as clicking outside of it, the repository will remain locked.</p>
+</div>
+<h3 id="hashing">Hashing</h3>
+<p>Data are hashed each time they are created or updated.
+To enable hash verification, you can add the attribute: <code>{#ix-attr:[AXOpen.Data.AxoDataVerifyHashAttribute]}</code> above the data manager. With this attribute in place, the hash will be checked whenever you interact with the data. In case the verification process fails, a log will be generated, and the user will be warned about external modifications to the record.</p>
+<h2 id="data-visualization">Data visualization</h2>
+<h3 id="automated-rendering-using-renderablecontentcontrol">Automated rendering using <code>RenderableContentControl</code></h3>
+<p>With <code>Command</code> presentation type, options exist for adding, editing, and deleting records.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;Entry.Plc.AxoDataExamplesDocu.DataManager&quot; Presentation=&quot;Command&quot;&gt;&lt;/RenderableContentControl&gt;
+</code></pre>
+<p><img src="assets/Command.png" alt="Command"></p>
+<p>If you use <code>Status</code> presentation type, data will be only displayed and cannot be manipulated.</p>
+<pre><code class="lang-csharp">&lt;RenderableContentControl Context=&quot;Entry.Plc.AxoDataExamplesDocu.DataManager&quot; Presentation=&quot;Status&quot;&gt;&lt;/RenderableContentControl&gt;
+</code></pre>
+<p><img src="assets/Status.png" alt="Status"></p>
+<h3 id="custom-columns">Custom columns</h3>
+<p>There is a possibility to add custom columns if it is needed. You must add <code>AXOpen.Data.ColumnData</code> view as a child in <code>DataView</code>. The <code>BindingValue</code> must be set in <code>ColumnData</code> and contains a string representing the attribute name of custom columns. If you want to add a custom header name, you can set the name in <code>HeaderName</code> attribute. Also, there is an attribute to make the column not clickable, which is clickable by default. The example using all attributes:</p>
+<pre><code class="lang-csharp">&lt;DataExchangeView Vm=&quot;_vm&quot; Presentation=&quot;Command&quot;&gt;
+    &lt;ColumnData HeaderName=&quot;Some data&quot; BindingValue=&quot;SomeData&quot; Clickable=&quot;false&quot; /&gt;
+    &lt;ColumnData HeaderName=&quot;A number&quot; BindingValue=&quot;SomeNumber&quot; Clickable=&quot;false&quot; /&gt;
+    &lt;ColumnData HeaderName=&quot;Yes/No&quot; BindingValue=&quot;SomeBool&quot; Clickable=&quot;false&quot; /&gt;
+&lt;/DataExchangeView&gt;
+</code></pre>
+<p>When adding data view manually, you will need to create ViewModel:</p>
+<pre><code class="lang-csharp">@code {
+    private DataExchangeViewModel _vm;
+
+    protected override void OnInitialized()
+    {
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataExamplesDocu.DataManager, AlertDialogService = _alertDialogService, AuthenticationProvider = _authenticationProvider };
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When creating ViewModel, don't forget to provide AlertDialogService and AuthenticationProvider.</p>
+</div>
+<p><img src="assets/CustomColumns.png" alt="Custom columns"></p>
+<h3 id="exportimport">Export/Import</h3>
+<p>If you want to be able to export data, you must add <code>CanExport</code> attribute with <code>true</code> value. Like this:</p>
+<pre><code class="lang-HTML">&lt;DataExchangeView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; CanExport=&quot;true&quot; /&gt;
+</code></pre>
+<p>With this option, buttons for export and import data will appear. After clicking on the export button, the <code>.zip</code> file will be created, which contains all existing records. If you want to import data, you must upload <code>.zip</code> file with an equal data structure as we get in the export file.</p>
+<p><img src="assets/Export.png" alt="Export"></p>
+<h4 id="custom-export">Custom export</h4>
+<p>You have the option to customize the exported files according to your preferences. This includes selecting specific columns and rows, choosing the desired file type, and specifying the separator. It's important to note that if you don't select all columns for export, importing the files may not be done correctly.</p>
+<p>During the importing process, it is crucial to enter the same separator that was used during the export. If the default separator was used during the export, there is no need to make any changes.</p>
+<p>You also can create own exporter. To do this, you must create a class that implements <code>IDataExporter&lt;TPlain, TOnline&gt;</code> interface. This interface requires you to implement the <code>Export</code>, <code>Import</code> and <code>GetName</code> method. Once you've done this, your custom exporter will be displayed in the custom export and import modal view. Users will be able to choose the exported file type through this view.</p>
+<p>For a better user experience, it is strongly recommended to clean the <code>Temp</code> directory when starting the application. The best way to do this is to add the following lines to the &quot;Program.cs&quot; file:</p>
+<pre><code class="lang-C#">// Clean Temp directory
+IAxoDataExchange.CleanUp();
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Export and import functions creates high load on the application. Don't use them with large datasets. These function can be used only on a limited number (100 or less) documents. Typical usage would be for recipes and settings, but not for large collections of production or event data.</p>
+</div>
+<h3 id="modal-detail-view">Modal detail view</h3>
+<p>The Detail View of a record is shown like modal. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with <code>ModalDetailView</code> attribute. This change will show a detail view under the record table. Example with <code>ModalDetailView</code> attribute:</p>
+<pre><code>&lt;DataExchangeView Vm=&quot;@ViewModel.DataViewModel&quot; Presentation=&quot;Command&quot; ModalDetailView=&quot;false&quot; /&gt;
+</code></pre>
+<p><img src="assets/NotModalDetailView.png" alt="Not Modal detail view"></p>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/AxoDataExchange.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

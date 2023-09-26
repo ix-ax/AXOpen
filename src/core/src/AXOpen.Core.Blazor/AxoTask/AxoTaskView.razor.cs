@@ -5,10 +5,11 @@ using System.Security.Principal;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Core
 {
-    public partial class AxoTaskView
+    public partial class AxoTaskView : RenderableComplexComponentBase<AxoTask>, IDisposable
     {
 
         [Inject]

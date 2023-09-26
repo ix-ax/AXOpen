@@ -11,8 +11,8 @@ devDependencies:
   "@ax/sdk": ^4.0.8
   "@ax/sld": 0.15.9
 dependencies:
-  "@ix-ax/axolib": 0.1.4-alpha.79
-  "@ix-ax/axopen.simatic1500": 0.1.4-alpha.79
+  "@ix-ax/axolib": '0.0.0-dev.0'
+  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
 scripts:
   download:
     - apax install -L

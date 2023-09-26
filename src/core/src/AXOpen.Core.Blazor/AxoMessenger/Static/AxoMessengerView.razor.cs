@@ -4,10 +4,11 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.JSInterop;
 using System.Security.Principal;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 
 namespace AXOpen.Messaging.Static
 {
-    public partial class AxoMessengerView : IDisposable
+    public partial class AxoMessengerView : RenderableComplexComponentBase<AxoMessenger>, IDisposable
     {
 
         [Inject]

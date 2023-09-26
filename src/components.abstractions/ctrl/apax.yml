@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.components.abstractions"
-version: '0.1.4-alpha.79'
+version: '0.0.0-dev.0'
 type: lib
 targets:
   - axunit-llvm
@@ -11,4 +11,4 @@ scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ix-ax/axopen.core": '0.1.4-alpha.79'
+  "@ix-ax/axopen.core": '0.0.0-dev.0'

@@ -1,0 +1,29 @@
+﻿@page "/AxoMessagingStaticDocu"
+@using axopencore
+@using AXOpen.Core;
+<h3>AxoMessagingStaticDocu</h3>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header d-flex">
+            <div class="h4 p-0 w-100 mb-4 text-primary border-bottom border-primary">Simple static messages examples.</div>
+        </div>
+        <div class="card card-body">
+            <div class="container text-left">
+                <div class="row">
+                    <div class="col">
+                        <div class="card ps-2">
+                            <RenderableContentControl Context="@Entry.Plc.AxoMessengersDocu" Presentation="Command-Control" Class="ps-2" />
+                        </div>
+                        <div class="card ps-2" hidden="hidden">
+                            //<RenderedView>
+                                <RenderableContentControl Context="@Entry.Plc.AxoMessengersDocu._messenger1" Presentation="Command-Control" Class="ps-2"/>
+                            //</RenderedView>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+

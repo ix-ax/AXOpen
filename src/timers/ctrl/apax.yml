@@ -1,5 +1,5 @@
 name: "@ix-ax/axopen.timers"
-version: '0.1.4-alpha.79'
+version: '0.0.0-dev.0'
 type: lib
 targets:
   - axunit-llvm
@@ -9,4 +9,4 @@ devDependencies:
   "@ax/sdk": 4.0.8
   "@ax/stc": ^5.4.89
 dependencies:
-  "@ix-ax/axopen.abstractions": ^0.1.4-alpha.79
+  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'

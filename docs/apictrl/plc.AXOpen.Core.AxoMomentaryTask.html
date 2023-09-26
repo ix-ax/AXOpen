@@ -1,102 +1,137 @@
 ﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
 <html>
-
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AxoMomentaryTask
+      <title>Class AxoMomentaryTask
  | System.Dynamic.ExpandoObject </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AxoMomentaryTask
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoMomentaryTask
  | System.Dynamic.ExpandoObject ">
-    <meta name="generator" content="docfx ">
-  
-    <link rel="shortcut icon" href="../images/favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/custom.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">  
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-  
-  <meta property="docfx:rel" content="../">
-  
-  </head>  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=plc_AXOpen_Core_AxoMomentaryTask.md&amp;value=---%0Auid%3A%20plc.AXOpen.Core.AxoMomentaryTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
 
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
 
-              <a class="navbar-brand" href="../index.html">
-                <p class="text-logo">AXOpen</p>
-              </a>            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
+      </nav>
+    </header>
 
-        <div id="search-results">
-          <div class="search-list">Search Results for <span></span></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
 
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="plc.AXOpen.Core.AxoMomentaryTask">
+
+        <article data-uid="plc.AXOpen.Core.AxoMomentaryTask">
 
 
-  <h1 id="plc_AXOpen_Core_AxoMomentaryTask" data-uid="plc.AXOpen.Core.AxoMomentaryTask" class="text-break">Class AxoMomentaryTask
-</h1>
-  <div class="markdown level0 summary"><p>Provides basic momentary on function.To get the actual state of the toggle task, '''IsSwitchedOn()''',  '''IsSwitchedOff()''' AND '''GetState()''' methods are available.</p>
+
+  <h1 id="plc_AXOpen_Core_AxoMomentaryTask" data-uid="plc.AXOpen.Core.AxoMomentaryTask" class="text-break">
+    Class AxoMomentaryTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L7"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="plc.AXOpen.Core.html">plc.AXOpen.Core</a></dd></dl>
+  
+  </div>
+
+  <div class="markdown summary"><p>Provides basic momentary on function.To get the actual state of the toggle task, '''IsSwitchedOn()''',  '''IsSwitchedOff()''' AND '''GetState()''' methods are available.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
-    <div class="level1"><span class="xref">AxoMomentaryTask</span></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">CLASS AxoMomentaryTask</code></pre>
   </div>
-  <div class="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="plc.AXOpen.Core.IAxoMomentaryTask.html">IAxoMomentaryTask</a></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><span class="xref">AxoMomentaryTask</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="plc.AXOpen.Core.IAxoMomentaryTask.html">IAxoMomentaryTask</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Identity">Identity</a>
     </div>
@@ -115,548 +150,632 @@
     <div>
       <a class="xref" href="plc.AXOpen.Core.AxoObject.html#plc_AXOpen_Core_AxoObject_Initialize_IAxoContext_">Initialize(IAxoContext)</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="plc.AXOpen.Core.html">plc.AXOpen.Core</a></h6>
-  <h6><strong>Assembly</strong>: .dll</h6>
-  <h5 id="plc_AXOpen_Core_AxoMomentaryTask_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">CLASS AxoMomentaryTask</code></pre>
-  </div>
-  <h3 id="properties">Properties
-</h3>
+  </dd></dl>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_State" data-uid="plc.AXOpen.Core.AxoMomentaryTask.State">State</h4>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_State" data-uid="plc.AXOpen.Core.AxoMomentaryTask.State">
+  State
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">State : BOOL</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_RemoteSwitchOn" data-uid="plc.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn">RemoteSwitchOn</h4>
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_RemoteSwitchOn" data-uid="plc.AXOpen.Core.AxoMomentaryTask.RemoteSwitchOn">
+  RemoteSwitchOn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Remote request to set the state of this task to '''TRUE'''.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">RemoteSwitchOn : BOOL</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_IsDisabled" data-uid="plc.AXOpen.Core.AxoMomentaryTask.IsDisabled">IsDisabled</h4>
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_IsDisabled" data-uid="plc.AXOpen.Core.AxoMomentaryTask.IsDisabled">
+  IsDisabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets or sets whether this task is disabled for any manipulations.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">IsDisabled : BOOL</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask__openCycleCount" data-uid="plc.AXOpen.Core.AxoMomentaryTask._openCycleCount">_openCycleCount</h4>
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask__openCycleCount" data-uid="plc.AXOpen.Core.AxoMomentaryTask._openCycleCount">
+  _openCycleCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">_openCycleCount : ULINT</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-</h3>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_GetState__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.GetState()">GetState</h4>
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_GetState__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.GetState()">
+  GetState
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Gets the actual state of this task.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public BOOL GetState()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_IsRunCalledInThisPlcCycle__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.IsRunCalledInThisPlcCycle()">IsRunCalledInThisPlcCycle</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_IsRunCalledInThisPlcCycle__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.IsRunCalledInThisPlcCycle()">
+  IsRunCalledInThisPlcCycle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Private BOOL IsRunCalledInThisPlcCycle()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_WasRunCalledInPreviousPlcCycle__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.WasRunCalledInPreviousPlcCycle()">WasRunCalledInPreviousPlcCycle</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_WasRunCalledInPreviousPlcCycle__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.WasRunCalledInPreviousPlcCycle()">
+  WasRunCalledInPreviousPlcCycle
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L54"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Private BOOL WasRunCalledInPreviousPlcCycle()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_Run__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.Run()">Run</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_Run__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.Run()">
+  Run
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L67"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>This method needs to be called cyclically.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public BOOL Run()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_SetIsDisabled_BOOL_" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SetIsDisabled(BOOL)">SetIsDisabled</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_SetIsDisabled_BOOL_" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SetIsDisabled(BOOL)">
+  SetIsDisabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L92"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Sets the value of the <code>IsDisabled</code> variable</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public VOID SetIsDisabled(in plc.BOOL Disabled)</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td><span class="parametername">Disabled</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>Disabled</code> <span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_GetIsDisabled__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.GetIsDisabled()">GetIsDisabled</h4>
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_GetIsDisabled__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.GetIsDisabled()">
+  GetIsDisabled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns the value of the <code>IsDisabled</code> variable</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public BOOL GetIsDisabled()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_IsSwitchedOn__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOn()">IsSwitchedOn</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_IsSwitchedOn__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOn()">
+  IsSwitchedOn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L114"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if task is switched on</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public BOOL IsSwitchedOn()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_IsSwitchedOff__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOff()">IsSwitchedOff</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_IsSwitchedOff__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.IsSwitchedOff()">
+  IsSwitchedOff
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L120"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Returns <code>TRUE</code> if task is switched off</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Public BOOL IsSwitchedOff()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">BOOL</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_SwitchOff__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SwitchOff()">SwitchOff</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">BOOL</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_SwitchOff__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SwitchOff()">
+  SwitchOff
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L122"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Private VOID SwitchOff()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_SwitchOn__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SwitchOn()">SwitchOn</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_SwitchOn__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SwitchOn()">
+  SwitchOn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L137"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Private VOID SwitchOn()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_OnSwitchedOn__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOn()">OnSwitchedOn</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_OnSwitchedOn__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOn()">
+  OnSwitchedOn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Executes ones when momentary task changes its state from '''FALSE''' to '''TRUE'''.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID OnSwitchedOn()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_OnSwitchedOff__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOff()">OnSwitchedOff</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_OnSwitchedOff__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.OnSwitchedOff()">
+  OnSwitchedOff
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L166"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Executes ones when momentary task changes its state from '''TRUE''' to '''FALSE'''.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID OnSwitchedOff()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_OnStateChanged__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.OnStateChanged()">OnStateChanged</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_OnStateChanged__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.OnStateChanged()">
+  OnStateChanged
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L173"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Executes ones when momentary task changes its state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID OnStateChanged()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_SwitchedOn__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SwitchedOn()">SwitchedOn</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_SwitchedOn__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SwitchedOn()">
+  SwitchedOn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Executes while the task is in <code>On</code> state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID SwitchedOn()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
-  <h4 id="plc_AXOpen_Core_AxoMomentaryTask_SwitchedOff__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SwitchedOff()">SwitchedOff</h4>
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h3 id="plc_AXOpen_Core_AxoMomentaryTask_SwitchedOff__" data-uid="plc.AXOpen.Core.AxoMomentaryTask.SwitchedOff()">
+  SwitchedOff
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L175"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
   <div class="markdown level1 summary"><p>Executes while the task is in <code>Off</code> state.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">Protected VOID SwitchedOff()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="plc.AXOpen.Core.IAxoMomentaryTask.html">IAxoMomentaryTask</a>
-  </div>
-</article>
-          </div>
 
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
-                <div></div>
-              </nav>
-            </div>
-          </div>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/.\src\core\ctrl\src\AxoMomentaryTask\AxoMomentaryTask.st/#L7" class="edit-link">Edit this page</a>
         </div>
+
+        
       </div>
 
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-       Generated by DocFx. © Peter Kurhajec, MTS spol. s r.o., and awesome contributors
-      
-          </div>
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
         </div>
-      </footer>
-    </div>
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js"></script>
-    <script src="https://unpkg.com/highlightjs-dotnetconfig@0.9.3/dist/dotnetconfig.min.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/mermaid@8.10.2/dist/mermaid.min.js" integrity="sha384-nzpOk138h0/O14Ig1PAUlf1XSo5T+XvpBUVkpLaU40QBvMgrNkSKusdNAomDLEd2" crossorigin="anonymous"></script>
-    <script>
-    mermaid.initialize({
-    startOnLoad: false
-    });
-    mermaid.init(undefined, ".lang-mermaid");
-    </script>  </body>
+      </div>
+    </footer>
+  </body>
 </html>

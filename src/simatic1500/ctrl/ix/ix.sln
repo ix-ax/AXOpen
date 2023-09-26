@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_simatic1500", "ix_ax_axopen_simatic1500.csproj", "{F5F79110-AF23-4D7C-9F50-6F1B4F2EF5C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_ix-ax_axopen.simatic1500", "_ix-ax_axopen.simatic1500.csproj", "{156B383C-D230-423C-B3BF-FEF9A3B0404F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5F79110-AF23-4D7C-9F50-6F1B4F2EF5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5F79110-AF23-4D7C-9F50-6F1B4F2EF5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5F79110-AF23-4D7C-9F50-6F1B4F2EF5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5F79110-AF23-4D7C-9F50-6F1B4F2EF5C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{156B383C-D230-423C-B3BF-FEF9A3B0404F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156B383C-D230-423C-B3BF-FEF9A3B0404F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156B383C-D230-423C-B3BF-FEF9A3B0404F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156B383C-D230-423C-B3BF-FEF9A3B0404F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3CC694F-A6C9-47B6-8690-2E77AC076B71}
+	EndGlobalSection
+EndGlobal
