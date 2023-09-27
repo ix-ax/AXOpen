@@ -120,6 +120,7 @@ namespace integrations.data.fragments
             Assert.Null(manipRecord);
         }
     }
+#if DEBUG
 
     public class DataExchangeTestInMemory : DataExchangeTestBase
     {
@@ -132,32 +133,6 @@ namespace integrations.data.fragments
             this.ManipRepository = new InMemoryRepository<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>();
 
             testContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
-
-            testContext.PD.Set.SetRepository(this.SetRepository);
-            testContext.PD.Manip.SetRepository(this.ManipRepository);
-
-            testContext.PD.DeInitializeRemoteDataExchange();
-            testContext.PD.InitializeRemoteDataExchange();
-        }
-    }
-
-    public class DataExchangeTestJson : DataExchangeTestBase
-    {
-        public DataExchangeTestJson() : base()
-        {
-            Remoting.KickOff();
-            var assemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
-            var outputFolder = Path.Combine(assemblyFile.Directory.FullName, "storage");
-
-            if (Directory.Exists(outputFolder))
-            {
-                Directory.Delete(outputFolder, true);
-            }
-
-            testContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
-
-            this.SetRepository = new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(new(Path.Combine(assemblyFile.Directory.FullName, "storage", "set")));
-            this.ManipRepository = new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>(new(Path.Combine(assemblyFile.Directory.FullName, "storage", "manip")));
 
             testContext.PD.Set.SetRepository(this.SetRepository);
             testContext.PD.Manip.SetRepository(this.ManipRepository);
@@ -190,6 +165,33 @@ namespace integrations.data.fragments
             }
 
             testContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
+
+            testContext.PD.Set.SetRepository(this.SetRepository);
+            testContext.PD.Manip.SetRepository(this.ManipRepository);
+
+            testContext.PD.DeInitializeRemoteDataExchange();
+            testContext.PD.InitializeRemoteDataExchange();
+        }
+    }
+#endif
+
+    public class DataExchangeTestJson : DataExchangeTestBase
+    {
+        public DataExchangeTestJson() : base()
+        {
+            Remoting.KickOff();
+            var assemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
+            var outputFolder = Path.Combine(assemblyFile.Directory.FullName, "storage");
+
+            if (Directory.Exists(outputFolder))
+            {
+                Directory.Delete(outputFolder, true);
+            }
+
+            testContext.PD.CreateBuilder<IntegrationAxoDataFramentsExchange.ProcessData>();
+
+            this.SetRepository = new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(new(Path.Combine(assemblyFile.Directory.FullName, "storage", "set")));
+            this.ManipRepository = new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>(new(Path.Combine(assemblyFile.Directory.FullName, "storage", "manip")));
 
             testContext.PD.Set.SetRepository(this.SetRepository);
             testContext.PD.Manip.SetRepository(this.ManipRepository);
