@@ -1,0 +1,55 @@
+﻿@using AXOpen.Messaging.Static
+@using AXSharp.Connector
+@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+
+<button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#alarmsviewmodal">
+    Alarms
+    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        @MessagesCount
+        <span class="visually-hidden">unread messages</span>
+    </span>
+</button>
+
+@code {
+
+    [Parameter]
+    public int MessagesCount { get; set; }
+
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        Messengers?.Select(p => p.IsActive).ToList().ForEach(messenger =>
+        {
+            messenger.StartPolling(1500, this);
+            PolledElements.Add(messenger);
+        });
+
+        Messengers?.Select(p => p.WaitingForAcknowledge).ToList().ForEach(messenger =>
+        {
+            messenger.StartPolling(1500, this);
+            PolledElements.Add(messenger);
+        });
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await UpdateMessages();
+        await base.OnAfterRenderAsync(firstRender);
+    }
+
+    private async Task UpdateMessages()
+    {
+        var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.IsActive, p.WaitingForAcknowledge });
+        var connector = Messengers?.FirstOrDefault()?.GetConnector();
+        await connector?.ReadBatchAsync(a)!;
+        if (Messengers != null) MessagesCount = Messengers.Count(p => p.IsActive.Cyclic);
+    }
+
+    private IEnumerable<AxoMessenger> Messengers => this.Component.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await UpdateMessages();
+        await base.OnInitializedAsync();
+    }
+
+}
