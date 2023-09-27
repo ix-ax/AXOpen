@@ -37,7 +37,7 @@ namespace axosimple
         {
             Pocos.axosimple.ProcessData plain = new Pocos.axosimple.ProcessData();
             await this.ReadAsync();
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.Set = await Set.OnlineToPlainAsync();
             plain.Manip = await Manip.OnlineToPlainAsync();
             return plain;
@@ -45,7 +45,7 @@ namespace axosimple
 
         protected async Task<Pocos.axosimple.ProcessData> OnlineToPlainAsync(Pocos.axosimple.ProcessData plain)
         {
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.Set = await Set.OnlineToPlainAsync();
             plain.Manip = await Manip.OnlineToPlainAsync();
             return plain;
@@ -145,14 +145,14 @@ namespace examples.PneumaticManipulator
         {
             Pocos.examples.PneumaticManipulator.FragmentProcessData plain = new Pocos.examples.PneumaticManipulator.FragmentProcessData();
             await this.ReadAsync();
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.CounterDelay = CounterDelay.LastValue;
             return plain;
         }
 
         protected async Task<Pocos.examples.PneumaticManipulator.FragmentProcessData> OnlineToPlainAsync(Pocos.examples.PneumaticManipulator.FragmentProcessData plain)
         {
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.CounterDelay = CounterDelay.LastValue;
             return plain;
         }
@@ -237,14 +237,14 @@ namespace examples.PneumaticManipulator
         {
             Pocos.examples.PneumaticManipulator.FragmentProcessDataManger plain = new Pocos.examples.PneumaticManipulator.FragmentProcessDataManger();
             await this.ReadAsync();
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.Set = await Set.OnlineToPlainAsync();
             return plain;
         }
 
         protected async Task<Pocos.examples.PneumaticManipulator.FragmentProcessDataManger> OnlineToPlainAsync(Pocos.examples.PneumaticManipulator.FragmentProcessDataManger plain)
         {
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.Set = await Set.OnlineToPlainAsync();
             return plain;
         }
