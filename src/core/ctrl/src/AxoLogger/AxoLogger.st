@@ -73,6 +73,7 @@ NAMESPACE AXOpen.Logging
                 LogEntries[Carret].Message := _message;
                 LogEntries[Carret].Level := _level;
                 LogEntries[Carret].ToDequeue := TRUE;
+                LogEntries[Carret].Sender := ULINT#0;                
                 Carret := Carret + 1;
             END_IF;
         END_METHOD

@@ -55,7 +55,7 @@ namespace axopen_core_tests
 
                 // Assert
                 var logger = AxoApplication.Current.Logger as DummyLogger;
-                Assert.Equal($"!!! : [no identity provided '0']", logger.LastMessage);
+                Assert.Equal($"this is {level} message : [no identity provided '0']", logger.LastMessage);
                 Assert.Equal(level.ToString(), logger.LastCategory);
                 Assert.False(await _testClass.LogEntries[0].ToDequeue.GetAsync());
             }
