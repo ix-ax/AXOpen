@@ -109,6 +109,22 @@ You can then open the solution file in Visual Studio as needed.
 
 ## Creating a New Library from Template
 
+### Use script
+
+Run the following script from the repository root folder:
+
+```PowerShell
+.\scripts\create_template_library.ps1 -o OutputFolder -p ProjectName
+```
+
+For example:
+
+```PowerShell
+.\scripts\create_template_library.ps1 -o components.elements -p AXOpen.Components.Elements
+```
+
+### Manual create
+
 1. Navigate to the `src/` folder of this repository.
 2. Run the following command to update the library template:
 
@@ -127,6 +143,9 @@ For example:
 ```PowerShell
 dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 ```
+
+> [!NOTE]
+> Make sure you run `apax install -L` and `apax build` after new library is created.
 
 > [!IMPORTANT]
 > Ensure you run all commands from the `src` folder of the repository. The `-o OutputFolder` parameter must be within the `src` folder.
