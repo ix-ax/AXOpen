@@ -143,6 +143,7 @@ namespace integrations.data.single
         }
     }
 
+#if DEBUG
     public class DataExchangeTestInMemory : DataExchangeTestBase
     {
         public DataExchangeTestInMemory() : base()
@@ -158,28 +159,7 @@ namespace integrations.data.single
         }
     }
 
-    public class DataExchangeTestJson : DataExchangeTestBase
-    {
-        public DataExchangeTestJson() : base()
-        {
-            Remoting.KickOff();
-            var assemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
-            var outputFolder = Path.Combine(assemblyFile.Directory.FullName, "storage");
-
-            if (Directory.Exists(outputFolder))
-            {
-                Directory.Delete(outputFolder, true);
-            }
-
-            this.Repository = new JsonRepository<DataSet>(new(Path.Combine(assemblyFile.Directory.FullName, "storage")));
-
-            Entry.Plc.Integrations.DM.DeInitializeRemoteDataExchange();
-            Entry.Plc.Integrations.DM
-                .InitializeRemoteDataExchange
-                    (Repository);
-
-        }
-    }
+  
 
     public class DataExchangeTestRaven : DataExchangeTestBase
     {
@@ -195,6 +175,30 @@ namespace integrations.data.single
                 this.Repository.Delete(records[i].DataEntityId);
             }
                 
+
+            Entry.Plc.Integrations.DM.DeInitializeRemoteDataExchange();
+            Entry.Plc.Integrations.DM
+                .InitializeRemoteDataExchange
+                    (Repository);
+
+        }
+    }
+#endif
+
+    public class DataExchangeTestJson : DataExchangeTestBase
+    {
+        public DataExchangeTestJson() : base()
+        {
+            Remoting.KickOff();
+            var assemblyFile = new FileInfo(Assembly.GetExecutingAssembly().Location);
+            var outputFolder = Path.Combine(assemblyFile.Directory.FullName, "storage");
+
+            if (Directory.Exists(outputFolder))
+            {
+                Directory.Delete(outputFolder, true);
+            }
+
+            this.Repository = new JsonRepository<DataSet>(new(Path.Combine(assemblyFile.Directory.FullName, "storage")));
 
             Entry.Plc.Integrations.DM.DeInitializeRemoteDataExchange();
             Entry.Plc.Integrations.DM

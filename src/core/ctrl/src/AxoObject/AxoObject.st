@@ -6,7 +6,8 @@ NAMESPACE AXOpen.Core
     ///</summary>
     CLASS PUBLIC AxoObject IMPLEMENTS IAxoObject
         VAR PUBLIC
-            {#ix-attr:[CompilerOmits("POCO")]}      
+            {#ix-attr:[CompilerOmits("POCO")]}     
+            {#ix-attr:[IgnoreOnPocoOperation()]}  
             {#ix-attr:[RenderIgnore()]}
             Identity   : ULINT := ULINT#0;                                            
         END_VAR    
