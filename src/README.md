@@ -160,23 +160,33 @@ dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 > [!IMPORTANT]
 > The `-p ProjectName` parameter must contain ONLY alphanumeric characters and dots. Otherwise, inconsistencies may occur.
 
---- 
+
+---
 ## Creating an AXOpen Application Using a Template
+
+### Scaffolding the application in AXOpen repository
+
+### Introduction
+
+When developing new applications using the AXOpen framework, there are multiple avenues developers can consider. The `CreateSimpleApplication.ps1` script is one such method, and it's a preferred choice for AXOpen contributors. This technique grants developers the privilege of working directly with the AXOpen framework's source code. Leveraging this script ensures a streamlined process of scaffolding new applications, integrating them with the AXOpen Source Repository, and maintaining them in a dedicated directory.
+
+It's important to recognize, however, that directly interacting with the source repository can lead to slower compile and build times due to the overhead associated with managing the complete framework's source code.
 
 ### Leveraging the AXOpen Source Repository
 
-One method to integrate AXOpen into your application involves setting up your application within the `src/.application` directory of this repository. The `.application` folder is excluded from the source control of this repository. Hence, you have the flexibility to establish your own repository within this directory, which will directly reference the AXOpen library's source code.
+It's noteworthy that the `.application` directory is deliberately excluded from the source control of the primary repository. This design choice allows developers the flexibility to initiate their own repositories within this space, ensuring direct access and reference to the AXOpen library's source code.
 
-To scaffold your application, execute the `script/create_application.ps1` command. 
+#### Scaffolding Your Application
 
->[!NOTE]
-> This script will facilitate the setup of your application within the `src/.application` folder. However, note that it will not initialize source control for this directory. You'll need to handle this step manually.
-
+To begin scaffolding your application, you should run the `scripts/create_application.ps1` command.
 
 >[!NOTE]
-> Make sure the `src/.application` is empty prior to running the script.
+> While this script assists in setting up your application in the `src/.application` folder, it doesn't handle the initialization of source control for this directory. This step must be managed independently.
 
+>[!NOTE]
+> Ensure that the `src/.application` directory is vacant before executing the script to prevent potential issues.
 
-~~~
-.\scripts\create_application.ps1 -ProjectName pp
-~~~
+```powershell
+.\scripts\create_application.ps1 -ProjectName MyNewProject
+```
+
