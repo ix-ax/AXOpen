@@ -1,2 +1,20 @@
-- name: AXOpen.Core
+- name: AXOpen.Data
   href: index.md
+  items:
+  - name: Data exchange
+    href: AXODATAEXCHANGE.md
+  - name: Data fragment exchange
+    href: AXODATAFRAGMENTEXCHANGE.md
+  - name: Usage
+    href: USAGE.md
+  - name: Security
+    href: SECURITY.md
+  - name: Data visualization
+    href: VISUALIZATION.md
+    items:
+    - name: Custom columns
+      href: COLUMNS.md
+    - name: Export/Import
+      href: EXPORT.md
+    - name: Modal detail view
+      href: MODALVIEW.md

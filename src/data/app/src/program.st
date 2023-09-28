@@ -1,15 +1,7 @@
 PROGRAM MyProgram
     VAR_EXTERNAL
-        sandbox : SandboContext;
-        documentation : DocumentationContext;
+        AxoDataExchangeManager : AxoDataExchangeExample.AxoProcessDataManager;
+        AxoDataFramentsExchangeManager : AxoDataFramentsExchangeExample.AxoProcessDataManager;
     END_VAR
-
-    VAR
-
-    END_VAR
-
-    VAR_TEMP
-
-    END_VAR
-    sandbox.Run();    
+    ;   
 END_PROGRAM

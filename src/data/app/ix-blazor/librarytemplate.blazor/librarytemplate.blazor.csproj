@@ -4,14 +4,17 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-	  <Packable>false</Packable>
+	  <RootNamespace>librarytemplate.blazor.hmi</RootNamespace>
+	  <UseRazorSourceGenerator>true</UseRazorSourceGenerator>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
     <ProjectReference Include="..\..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
+	<ProjectReference Include="..\..\..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
     <ProjectReference Include="..\..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
+    <ProjectReference Include="..\..\..\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
     <ProjectReference Include="..\..\ix\axopen_data_app.csproj" />   
   </ItemGroup>
 
