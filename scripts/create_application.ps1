@@ -23,8 +23,15 @@ $lf = Get-Location
 # Change directory to the script's location
 Set-Location $PSScriptRoot
 
+# Ensure the ..\src\.application folder exists
+$applicationFolder = "..\src\.application"
+if (-not (Test-Path -Path $applicationFolder -PathType Container)) {
+    New-Item -Path $applicationFolder -ItemType Directory
+    Write-Output "Created folder $applicationFolder"
+}
+
 # Delete any .apax folders
-Get-ChildItem -Path "..\src\.application\templates.simple\" -Recurse -Directory -Filter ".apax" | ForEach-Object {
+Get-ChildItem -Path "..\src\templates.simple\" -Recurse -Directory -Filter ".apax" | ForEach-Object {
     Remove-Item $_.FullName -Recurse -Force
     Write-Output "Deleted $($_.FullName)"
 }

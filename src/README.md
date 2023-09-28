@@ -121,13 +121,13 @@ You can then open the solution file in Visual Studio as needed.
 Run the following script from the repository root folder:
 
 ```PowerShell
-.\scripts\create_template_library.ps1 -o OutputFolder -p ProjectName
+.\scripts\create_template_library.ps1 -OutputDirectory OutputFolder -ProjectNamespace Project.Namespace
 ```
 
 For example:
 
 ```PowerShell
-.\scripts\create_template_library.ps1 -o components.elements -p AXOpen.Components.Elements
+.\scripts\create_template_library.ps1 -OutputDirectory components.elements -p AXOpen.Components.Elements
 ```
 
 ### Manual create
@@ -161,3 +161,22 @@ dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 > The `-p ProjectName` parameter must contain ONLY alphanumeric characters and dots. Otherwise, inconsistencies may occur.
 
 --- 
+## Creating an AXOpen Application Using a Template
+
+### Leveraging the AXOpen Source Repository
+
+One method to integrate AXOpen into your application involves setting up your application within the `src/.application` directory of this repository. The `.application` folder is excluded from the source control of this repository. Hence, you have the flexibility to establish your own repository within this directory, which will directly reference the AXOpen library's source code.
+
+To scaffold your application, execute the `script/create_application.ps1` command. 
+
+>[!NOTE]
+> This script will facilitate the setup of your application within the `src/.application` folder. However, note that it will not initialize source control for this directory. You'll need to handle this step manually.
+
+
+>[!NOTE]
+> Make sure the `src/.application` is empty prior to running the script.
+
+
+~~~
+.\scripts\create_application.ps1 -ProjectName pp
+~~~
