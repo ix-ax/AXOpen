@@ -25,6 +25,7 @@ namespace axopen_integrations_blazor
             builder.Services.AddSingleton<WeatherForecastService>();
             builder.Services.AddAxoCoreServices();
             builder.Services.AddIxBlazorServices();
+            builder.Services.AddLocalization();
 
             //builder.Services.AddScoped<IAlertDialogService, ToasterService>();
 
@@ -65,7 +66,7 @@ namespace axopen_integrations_blazor
             Entry.Plc.MainContext.process_data_manager.InitializeRemoteDataExchange(repository);
             Entry.Plc.MainContext.test_data_manager.InitializeRemoteDataExchange(repository2);
 
-            
+
             Entry.Plc.Integrations.DM
                 .InitializeRemoteDataExchange(
                     Ix.Repository.Json.
@@ -78,7 +79,7 @@ namespace axopen_integrations_blazor
             pdfBuilder.Set.SetRepository(new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(
                 new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationAxoDataFramentsExchange.SharedProductionData>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents", "set"))));
             pdfBuilder.Manip.SetRepository(
-                new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>( new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents", "fm"))));
+                new JsonRepository<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationAxoDataFramentsExchange.FragmentProcessData>(Path.Combine(Environment.CurrentDirectory, "bin", "data-framents", "fm"))));
 
 
             //<AxoDataExampleDocuIntialization>
@@ -86,9 +87,9 @@ namespace axopen_integrations_blazor
                 new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamplesDocu.AxoProductionData>(
                     Path.Combine(Environment.CurrentDirectory, "exampledata"));
 
-            var exampleRepository = 
+            var exampleRepository =
                 Ix.Repository.Json.Repository.Factory(exampleRepositorySettings);
-            
+
             Entry.Plc.AxoDataExamplesDocu.DataManager.InitializeRemoteDataExchange(exampleRepository);
             //</AxoDataExampleDocuIntialization>
 
@@ -114,7 +115,7 @@ namespace axopen_integrations_blazor
             //<AxoLoggerConfiguration>
 
             // Creates serilog logger with single sink to Console window.
-            
+
             axoAppBuilder.ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
                 .WriteTo.Console().MinimumLevel.Verbose()
                 .CreateLogger()));
@@ -122,6 +123,7 @@ namespace axopen_integrations_blazor
 
             //<AxoLoggerInitialization>
             Entry.Plc.AxoLoggers.LoggerOne.StartDequeuing(AxoApplication.Current.Logger, 250);
+            Entry.Plc.AxoLoggers.LoggerTwo.StartDequeuing(AxoApplication.Current.Logger, 250); 
             //</AxoLoggerInitialization>
 
 
