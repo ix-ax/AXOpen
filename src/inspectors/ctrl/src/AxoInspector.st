@@ -11,6 +11,8 @@ NAMESPACE AXOpen.Inspectors
         
         VAR PUBLIC
             {#ix-attr:[CompilerOmits("POCO")]}
+            {#ix-attr:[IgnoreOnPocoOperation()]} 
+            {#ix-attr:[RenderIgnore()]}
             _axoInspectorDialog : AxoInspectorDialog;
         END_VAR
         VAR

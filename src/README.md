@@ -84,6 +84,13 @@ library/
 └── slngen.ps     # Generates solution file from `this.proj`
 ```
 
+## APAX Package Versions
+
+> [!IMPORTANT]
+> All apax packages on the default branch (dev) have a fixed version '0.0.0-dev.0'. This version must not be changed by any commit. 
+> The version is assigned at build time in the CI/CD pipeline.
+
+
 ## Central Package Management System
 
 This project's NuGet packages versions are organized centrally. You shouldn't assign a package version in your project file. In exceptional cases, you can use a version override. Actual versions are defined in [src/Directory.Packages.props](Directory.Packages.props).
