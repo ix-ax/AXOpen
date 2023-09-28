@@ -15,3 +15,5 @@ testresult
 sandbox/**
 
 **/tmp_*_.*
+
+.application/**
