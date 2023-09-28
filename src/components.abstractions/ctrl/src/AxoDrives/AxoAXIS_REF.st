@@ -6,7 +6,6 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
             Out         :   AxoAxisRefOut;
             Config      :   AxoDrive_Config;
             Status      :   AxoDrive_Status;
-            
         END_VAR
     END_CLASS
 

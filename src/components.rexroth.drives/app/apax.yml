@@ -9,10 +9,12 @@ variables:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
   "@ax/sdk": ^4.0.8
+  "@ax/stc": 5.4.89
   "@ax/sld": 0.15.9
 dependencies:
-  "@ix-ax/axopen_components_rexroth_drives": 0.1.4-alpha.79
-  "@ix-ax/axopen.simatic1500": 0.1.4-alpha.79
+  "@ix-ax/axolib": '0.0.0-dev.0'
+  "@ix-ax/axopen_components_rexroth_drives": '0.0.0-dev.0'
+  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
 scripts:
   download:
     - apax install -L
@@ -20,3 +22,50 @@ scripts:
     - dotnet ixc
     - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
       --accept-security-disclaimer --default-server-interface -r
+  ixc:
+    - START=$(date +%s)
+    - dotnet tool restore
+    - dotnet ixc
+    - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
+  download_only:
+    - START=$(date +%s)
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
+  check+download: |
+    if [ $AXTARGET ]; then
+      if [ $AXTARGETPLATFORMINPUT ]; then
+        if ping -n 1 $AXTARGET &> /dev/null; then
+          echo "Downloading from:" $AXTARGETPLATFORMINPUT "=>" $AXTARGET
+          apax download_only
+        else
+          echo "Target with IP address:" $AXTARGET "is not accessible. No download is going to be performed!!!"
+        fi
+      else
+        echo "Environment variable AXTARGETPLATFORMINPUT not defined!!!"
+      fi
+    else
+      echo "Environment variable AXTARGET not defined!!!"
+    fi
+  postbuild:
+    - apax ixc
+  watch:
+    - dotnet watch --project ..\\app\\ix-blazor\\axopencomponentsrexrothdrives.blazor\\axopencomponentsrexrothdrives.blazor.csproj
+  fr:
+    - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
+    - apax rr
+  frw:
+    - apax fr
+    - apax watch
+  rr:
+    - START=$(date +%s)
+    - apax install -L
+    - apax build
+    - apax ixc
+    - apax download_only
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+  rrw:
+    - apax rr
+    - apax watch
+  r:
+    - apax plc-mode set stop -t $AXTARGET -y
+    - apax plc-mode set run -t $AXTARGET -y

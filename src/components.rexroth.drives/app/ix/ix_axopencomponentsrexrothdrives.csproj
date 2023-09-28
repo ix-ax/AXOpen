@@ -1,16 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Packable>false</Packable>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.135" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.135" />
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.14.2-alpha.135" />
-	</ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+    <PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
+  </ItemGroup>
 
 	<ItemGroup>
 		<Compile Include=".g\**" />

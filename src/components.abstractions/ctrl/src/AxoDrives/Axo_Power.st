@@ -3,7 +3,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Components.Abstractions.AxoDrives
-    CLASS PUBLIC Axo_Power EXTENDS AXOpen.Core.AxoToggleTask
+    CLASS PUBLIC Axo_Power EXTENDS AXOpen.Core.AxoToggleTask IMPLEMENTS IAxo_Power
         VAR PRIVATE 
             _motionTaskId    :  AXOpen.Components.Abstractions.AxoDrives.eAxoMotionTaskId := AXOpen.Components.Abstractions.AxoDrives.eAxoMotionTaskId#Axo_Power;      
             _EnablePositive  :  AXOpen.Core.AxoToggleTask;

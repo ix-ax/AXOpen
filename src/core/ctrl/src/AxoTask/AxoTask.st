@@ -134,6 +134,14 @@ NAMESPACE AXOpen.Core
             HasError := Status = eAxoTaskState#Error; 
         END_METHOD   
 
+        ///<summary>
+        /// Returns true when the `Invoke() method of the task is called in this PLC cycle
+        /// or was called in the previous-one.
+        ///</summary>
+        METHOD PUBLIC IsInvokeCalled : BOOL
+            IsInvokeCalled := THIS.IsInvokeCalledInThisPlcCycle() OR THIS.WasInvokeCalledInPreviousPlcCycle();
+        END_METHOD 
+
         METHOD PRIVATE IsNewInvokeCall : BOOL
             IF NOT IsNullContext(THIS.GetContext()) THEN
                 IsNewInvokeCall := _openCycleCountInvoke < THIS.GetContext().OpenCycleCount() - ULINT#1;

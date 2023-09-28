@@ -4,7 +4,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
     CLASS AxoDrive_Status EXTENDS AXOpen.Components.Abstractions.AxoComponent_Status
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
-            _CurrentMotionTaskId    :   INT;
+            CurrentMotionTaskId    :   INT;
         END_VAR
     END_CLASS
 END_NAMESPACE

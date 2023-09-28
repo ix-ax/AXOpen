@@ -1,9 +1,9 @@
-USING AXOpen.Pneumatics;
+USING AXOpen.Components.Rexroth.Drives;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
-NAMESPACE Cylinder.Tests
+NAMESPACE AxoRexrothDrive.Tests
     CLASS TestContext IMPLEMENTS AXOpen.Core.IAxoContext
         VAR
             _openCounter : ULINT;
@@ -54,20 +54,19 @@ NAMESPACE Cylinder.Tests
     CLASS CylinderTests 
         VAR 
             context : TestContext;
-            cylinder : Cylinder;
-            _homeSensor : BOOL;
-            _workSensor : BOOL;
-            _moveHomeSignal : BOOL;
-            _moveWorkSignal : BOOL;
+            drive : AxoIndraDrive;
+            _refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
+            _refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
+
             _done : BOOL;
         END_VAR           
         {Test}
-        METHOD PUBLIC MoveHome
+        METHOD PUBLIC AxoReset
             WHILE _done DO
                 context.Open();
-                _done := Cylinder.MoveToHome.Invoke().IsDone();
-                cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);
-                AxUnit.Assert.Equal(_moveHomeSignal, _moveHomeSignal);   
+                drive.AxoReset();
+                drive.Run(context, _refAxisIn, _refAxisOut, FALSE, FALSE, FALSE);
+                AxUnit.Assert.Equal(FALSE, FALSE);   
                 context.Close();            
             END_WHILE;
             
