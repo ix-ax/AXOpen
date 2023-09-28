@@ -84,6 +84,13 @@ library/
 └── slngen.ps     # Generates solution file from `this.proj`
 ```
 
+## APAX Package Versions
+
+> [!IMPORTANT]
+> All apax packages on the default branch (dev) have a fixed version '0.0.0-dev.0'. This version must not be changed by any commit. 
+> The version is assigned at build time in the CI/CD pipeline.
+
+
 ## Central Package Management System
 
 This project's NuGet packages versions are organized centrally. You shouldn't assign a package version in your project file. In exceptional cases, you can use a version override. Actual versions are defined in [src/Directory.Packages.props](Directory.Packages.props).
@@ -109,6 +116,22 @@ You can then open the solution file in Visual Studio as needed.
 
 ## Creating a New Library from Template
 
+### Use script
+
+Run the following script from the repository root folder:
+
+```PowerShell
+.\scripts\create_template_library.ps1 -o OutputFolder -p ProjectName
+```
+
+For example:
+
+```PowerShell
+.\scripts\create_template_library.ps1 -o components.elements -p AXOpen.Components.Elements
+```
+
+### Manual create
+
 1. Navigate to the `src/` folder of this repository.
 2. Run the following command to update the library template:
 
@@ -127,6 +150,9 @@ For example:
 ```PowerShell
 dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 ```
+
+> [!NOTE]
+> Make sure you run `apax install -L` and `apax build` after new library is created.
 
 > [!IMPORTANT]
 > Ensure you run all commands from the `src` folder of the repository. The `-o OutputFolder` parameter must be within the `src` folder.

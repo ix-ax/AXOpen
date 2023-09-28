@@ -17,15 +17,15 @@ Each inspector contains:
 
 1. Declare variables
 
-[!code-smalltalk[](app/src/Documentation/Inspectors.st?name=AxoInspectorDeclaration)]
+[!code-smalltalk[](../app/src/Documentation/Inspectors.st?name=AxoInspectorDeclaration)]
 
 2. Set initial inspection pass and fail timers
 
-[!code-smalltalk[](app/src/Documentation/Inspectors.st?name=AxoInspectorDataSet)]
+[!code-smalltalk[](../app/src/Documentation/Inspectors.st?name=AxoInspectorDataSet)]
 
 3. Run inspections
 
-[!code-smalltalk[](app/src/Documentation/Inspectors.st?name=AxoInspectorSimpleInspection)]
+[!code-smalltalk[](../app/src/Documentation/Inspectors.st?name=AxoInspectorSimpleInspection)]
 
 4. Check each inspector's data for results
 
@@ -35,12 +35,9 @@ Each inspector contains:
 ## Example inspection with Coordinator
 Example of inspection within a sequencer in PLC:
 
-
-[!code-smalltalk[](app/src/Documentation/DocumentationContext.st?name=ExampleInspectionWithCoordinatorExample)]
-
+[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=ExampleInspectionWithCoordinatorExample)]
 
 1. A _presenceInspector is created instance of `AxoDigitalInspector`
-
 2. A coordinator is passed to this inspector with `WithCoordinator(THIS)` method, in this case it is a sequencer, a parent object.
 3. `Inspect` methods takes parent and inspection variable, on which inspection is performing.
 4. If inspection fails, the result is updated to `_comprehensiveResult` object with `UpdateComprehensiveResult` method.
@@ -50,10 +47,7 @@ Example of inspection within a sequencer in PLC:
 
 Inspectors contain common data, which are used to store data about inspection. Each inspector contain following data:
 
-
-[!code-smalltalk[](ctrl/src/AxoInspectorData.st?name=CommonInspectorDataDeclaration)]
-
-
+[!code-smalltalk[](../ctrl/src/AxoInspectorData.st?name=CommonInspectorDataDeclaration)]
 
 [!INCLUDE [AxoDigitalInspector](AXODIGITALINSPECTOR.md)]
 
@@ -61,12 +55,9 @@ Inspectors contain common data, which are used to store data about inspection. E
 
 [!INCLUDE [AxoDataInspector](AXODATAINSPECTOR.md)]
 
-
-
 ## Handling failure
 
 When an inspector fails, OnFail() provides a series of methods for making decisions about the process. In order for this is feature to work the inspector needs to be aware of the coordinator of `IAxoCoordinator`. The coordinator must be passed to the inspector by `WithCoordinator(coordinator)` method.
-
 
 | Syntax                                | Description |
 | -----------                           | ----------- |
@@ -77,21 +68,17 @@ When an inspector fails, OnFail() provides a series of methods for making decisi
 
 The following example specify, that when inspection fails, dialog is shown and is requesting user decision.
 
-[!code-smalltalk[](app/src/Documentation/DocumentationContext.st?name=HandlingFailureExample)]
+[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=HandlingFailureExample)]
 
-![Inspection failure](docs/assets/inspection-failure-dialog.png)   
+![Inspection failure](assets/inspection-failure-dialog.png)
 
 ## Over-inspection
 When `RetryAttemptsCount` is same as `NumberOfAllowedRetries`, no more inspection are allowed, as data are overinspected.
 
-![Overinspected](docs/assets//overinspected.png)
-
+![Overinspected](assets//overinspected.png)
 
 ## Preserving overall result
 
-Overall result of a series of inspections can be preserved in `AxoComprehensiveResult`. Each inspector has `UpdateComprehensiveResult` method that provides the update function. Once the `UpdateComprehensiveResult` marks the overall result as Failed, successive inspection will not overwrite the result. 
+Overall result of a series of inspections can be preserved in `AxoComprehensiveResult`. Each inspector has `UpdateComprehensiveResult` method that provides the update function. Once the `UpdateComprehensiveResult` marks the overall result as Failed, successive inspection will not overwrite the result.
 
-
-
-[!code-smalltalk[](app/src/Documentation/DocumentationContext.st?name=PreservingOverallResultExample)]
-
+[!code-smalltalk[](../app/src/Documentation/DocumentationContext.st?name=PreservingOverallResultExample)]

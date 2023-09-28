@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -6,9 +6,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI"/>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -17,5 +17,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\src\AXOpen.Data\ix_ax_axopen_data.csproj" />
 	</ItemGroup>
 </Project>

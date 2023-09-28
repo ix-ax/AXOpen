@@ -9,7 +9,7 @@
 | 0.2      | August 2023 | Documentation requirements and others |
 
 
-This document describes the format and practices for writing components in TcOpen. These are universal rules to observe. Each rule knows exception when there is a reasonable argument behind it.
+This document describes the format and practices for writing components in AXOpen. These are universal rules to observe. Each rule knows exception when there is a reasonable argument behind it.
 
 
 ## General rules

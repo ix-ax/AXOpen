@@ -24,5 +24,5 @@ At this point, AXOpen supports these repositories directly:
 - RavenDB
 
 
-[!INCLUDE [AxoDataExchange](AxoDataExchange.md)]
-[!INCLUDE [AxoDataFragmentExchange](AxoDataFragmentExchange.md)]
+[!INCLUDE [AxoDataExchange](docs/AxoDataExchange.md)]
+[!INCLUDE [AxoDataFragmentExchange](docs/AxoDataFragmentExchange.md)]
