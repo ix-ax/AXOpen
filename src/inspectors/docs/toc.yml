@@ -1,5 +1,9 @@
 - name: AXOpen.Inspectors
   href: index.md
   items:
-    - name: CONTROLLER API
-      href: ../apictrl/plc.AXOpen.Inspectors.html
+  - name: AxoDigitalInspector
+    href: AXODIGITALINSPECTOR.md
+  - name: AxoAnalogueInspector
+    href: AXOANALOGUEINSPECTOR.md
+  - name: AxoDataInspector
+    href: AXODATAINSPECTOR.md
