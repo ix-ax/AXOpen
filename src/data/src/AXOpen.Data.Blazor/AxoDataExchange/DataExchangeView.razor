@@ -446,7 +446,7 @@ else
                             </div>
                         </div>
                     }
-                    <button type="button" class="btn btn-danger @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="() => { Vm.Delete(); Vm.UnLocked(); }">@Localizer["Delete"]</button>
+                    <button type="button" class="btn btn-danger @(!Vm.IsLockedByMeOrNull() ? "disabled" : null)" data-bs-dismiss="modal" @onclick="() => { Vm.Delete(); Vm.UnLocked(); StateHasChanged(); }">@Localizer["Delete"]</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" @onclick="() => { Vm.UnLocked(); }">@Localizer["Close"]</button>
                 </div>
             </div>

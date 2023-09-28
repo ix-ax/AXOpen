@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Inspectors
             {#ix-set:AttributeName = "<#Required#>"}
             RequiredStatus : BOOL;
 
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Detected#>"}
             DetectedStatus : BOOL;
             //</AxoDigitalInspectorDataDeclaration>
