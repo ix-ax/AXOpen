@@ -1,5 +1,11 @@
-param ($o, $p)
-write-host "Creating new library template in folder src\$o with name $p" 
+param 
+(
+     [Parameter(Mandatory=$true)]
+    $OutputDirectory, 
+     [Parameter(Mandatory=$true)]
+    $ProjectNamespace
+)
+write-host "Creating new library template in folder src\$OutputDirectory with name $ProjectNamespace" 
 write-host "-----------------------------------------------------------" 
 if (Test-Path ".\src") {
     Set-Location .\src
@@ -16,6 +22,6 @@ Remove-Item $FolderNameApp -r -force -ErrorAction Ignore
 Remove-Item $FolderNameCtrl -r -force -ErrorAction Ignore
 
 
-dotnet new axolibrary -o $o -p $p
+dotnet new axolibrary -o $OutputDirectory -p $ProjectNamespace
 write-host "-----------------------------------------------------------" 
 write-host "Done" 
