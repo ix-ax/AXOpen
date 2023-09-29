@@ -127,7 +127,7 @@ Run the following script from the repository root folder:
 For example:
 
 ```PowerShell
-.\scripts\create_template_library.ps1 -OutputDirectory components.elements -p AXOpen.Components.Elements
+.\scripts\create_template_library.ps1 -OutputDirectory components.elements -ProjectNamespace AXOpen.Components.Elements
 ```
 
 ### Manual create
