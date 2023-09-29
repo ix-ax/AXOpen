@@ -162,7 +162,7 @@ dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 
 
 ---
-## Creating an AXOpen Application Using a Template
+## Creating an AXOpen Application
 
 ### Scaffolding the application in AXOpen repository
 
@@ -203,6 +203,6 @@ Answer `Yes` or revise the script and run it manually later from the target fold
 >[!WARNING]
 > Please ensure you understand the implications of running scripts on your system.
 
-
+Follow the instruction in the README.md file.
 
 
