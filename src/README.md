@@ -168,7 +168,7 @@ dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 
 ### Introduction
 
-When developing new applications using the AXOpen framework, there are multiple avenues developers can consider. The `CreateSimpleApplication.ps1` script is one such method, and it's a preferred choice for AXOpen contributors. This technique grants developers the privilege of working directly with the AXOpen framework's source code. Leveraging this script ensures a streamlined process of scaffolding new applications, integrating them with the AXOpen Source Repository, and maintaining them in a dedicated directory.
+When developing new applications using the AXOpen framework, there are multiple avenues developers can consider. The script described here provides path to one of the methods, and it's a preferred choice for AXOpen contributors. This technique grants developers the privilege of working directly with the AXOpen framework's source code. Leveraging this script ensures a streamlined process of scaffolding new applications, integrating them with the AXOpen Source Repository, and maintaining them in a dedicated directory.
 
 It's important to recognize, however, that directly interacting with the source repository can lead to slower compile and build times due to the overhead associated with managing the complete framework's source code.
 
