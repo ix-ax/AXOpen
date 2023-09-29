@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>AxoDataInspector | System.Dynamic.ExpandoObject </title>
+      <title>Modal detail view | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="AxoDataInspector | System.Dynamic.ExpandoObject ">
+      <meta name="title" content="Modal detail view | System.Dynamic.ExpandoObject ">
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/inspectors/docs/AXODATAINSPECTOR.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/MODALVIEW.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,25 +87,16 @@
         </div>
 
         <article data-uid="">
-<h2 id="axodatainspector">AxoDataInspector</h2>
+<h1 id="modal-detail-view">Modal detail view</h1>
 
-<p>Provides evaluation of alphanumerical values. The input value compares against the Required value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time. In addition to exact comparison, data inspector allows for simple pattern matching where # = any number and * = any character.</p>
-<p><img src="assets/data-inspector.png" alt="Data inspector"></p>
-<p>Common inspector data are extended with following data inspector data:</p>
-<pre><code class="lang-smalltalk">      {#ix-set:AttributeName = &quot;&lt;#Required#&gt;&quot;}
-      RequiredStatus: STRING;
-
-      {#ix-attr:[ReadOnly()]}
-      {#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
-      DetectedStatus : STRING;
-
-      {#ix-set:AttributeName = &quot;&lt;#Star notation#&gt;&quot;}
-      StarNotationEnabled: BOOL;
-
-</code></pre></article>
+<p>The Detail View is default shown like modal view. That means if you click on some record, the modal window with a detail view will be shown. If necessary, this option can be changed with <code>ModalDetailView</code> attribute. This change will show a detail view under the record table. Example with <code>ModalDetailView</code> attribute:</p>
+<pre><code class="lang-smalltalk">&lt;DataExchangeView Vm=&quot;@_vm&quot; Presentation=&quot;Command&quot; ModalDetailView=&quot;false&quot; /&gt;
+</code></pre>
+<p><img src="assets/NotModalDetailView.png" alt="Not Modal detail view"></p>
+</article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/inspectors/docs/AXODATAINSPECTOR.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/MODALVIEW.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>AxoDataInspector | System.Dynamic.ExpandoObject </title>
+      <title>AXOpen.Data | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="AxoDataInspector | System.Dynamic.ExpandoObject ">
+      <meta name="title" content="AXOpen.Data | System.Dynamic.ExpandoObject ">
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
@@ -15,7 +15,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/inspectors/docs/AXODATAINSPECTOR.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/index.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,25 +87,27 @@
         </div>
 
         <article data-uid="">
-<h2 id="axodatainspector">AxoDataInspector</h2>
+<h1 id="axopendata"><strong>AXOpen.Data</strong></h1>
 
-<p>Provides evaluation of alphanumerical values. The input value compares against the Required value. The inspection passes when the input value matches the required value without interruption for the duration of stabilization time. In addition to exact comparison, data inspector allows for simple pattern matching where # = any number and * = any character.</p>
-<p><img src="assets/data-inspector.png" alt="Data inspector"></p>
-<p>Common inspector data are extended with following data inspector data:</p>
-<pre><code class="lang-smalltalk">      {#ix-set:AttributeName = &quot;&lt;#Required#&gt;&quot;}
-      RequiredStatus: STRING;
-
-      {#ix-attr:[ReadOnly()]}
-      {#ix-set:AttributeName = &quot;&lt;#Detected#&gt;&quot;}
-      DetectedStatus : STRING;
-
-      {#ix-set:AttributeName = &quot;&lt;#Star notation#&gt;&quot;}
-      StarNotationEnabled: BOOL;
-
-</code></pre></article>
+<p><strong>AXOpen.Data</strong> provides data exchange between the controller and an arbitrary repository.</p>
+<p><code>AXOpen.Data</code> library provides a simple yet powerful data exchange between PLC and an arbitrary data repository. It includes the implementation of a series of repository operations known as CRUD (Create Read Update Delete), accessible directly from the PLC.</p>
+<h2 id="benefits">Benefits</h2>
+<p>The main benefit of this solution is data scalability; once the repository is set up, any modification of the data structure(s) will result in an automatic update of mapped objects. And therefore, there is no need for additional coding and configuration.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The basic PLC block is <code>AxoDataExchange</code>, which has its .NET counterpart (or .NET twin) that handles complex repository operations using a modified <code>AxoRemoteTask</code>, which is a form of RPC (Remote Procedure Call), that allows you to execute the code from the PLC in a remote .NET application.</p>
+<h2 id="implemented-repositories">Implemented repositories</h2>
+<p>The <code>AxoDataExchange</code> uses a predefined interface, <code>IRepository</code>, that allows for the virtually unlimited implementation of different target repositories.</p>
+<p>At this point, AXOpen supports these repositories directly:</p>
+<ul>
+<li>InMemory</li>
+<li>Json</li>
+<li>MongoDB</li>
+<li>RavenDB</li>
+</ul>
+[!include[AxoDataExchange](docs/AxoDataExchange.md)][!include[AxoDataFragmentExchange](docs/AxoDataFragmentExchange.md)]</article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/inspectors/docs/AXODATAINSPECTOR.md/#L1" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/docs/index.md/#L1" class="edit-link">Edit this page</a>
         </div>
 
         <div class="next-article d-print-none border-top" id="nextArticle"></div>

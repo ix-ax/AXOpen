@@ -1021,16 +1021,6 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "../src/core/docs/assets/Command.png",
-      "output": {
-        "resource": {
-          "relative_path": "core/docs/assets/Command.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
       "source_relative_path": "../src/core/docs/assets/ComplexComponentExample.gif",
       "output": {
         "resource": {
@@ -1055,16 +1045,6 @@
       "output": {
         "resource": {
           "relative_path": "core/docs/assets/NotModalDetailView.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "../src/core/docs/assets/Status.png",
-      "output": {
-        "resource": {
-          "relative_path": "core/docs/assets/Status.png"
         }
       },
       "version": ""
@@ -1167,16 +1147,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/data/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "data/README.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "../src/data/app/ix-blazor/librarytemplate.blazor/wwwroot/css/open-iconic/README.md",
       "output": {
         ".html": {
@@ -1216,10 +1186,6 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink",
-        "codesnippet-not-found"
-      ],
       "type": "Conceptual",
       "source_relative_path": "../src/data/docs/AxoDataExchange.md",
       "output": {
@@ -1230,15 +1196,94 @@
       "version": ""
     },
     {
-      "log_codes": [
-        "InvalidFileLink",
-        "codesnippet-not-found"
-      ],
       "type": "Conceptual",
       "source_relative_path": "../src/data/docs/AxoDataFragmentExchange.md",
       "output": {
         ".html": {
           "relative_path": "data/docs/AxoDataFragmentExchange.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/COLUMNS.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/COLUMNS.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/EXPORT.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/EXPORT.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/MODALVIEW.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/MODALVIEW.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "include-not-found"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/SECURITY.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/SECURITY.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/USAGE.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/USAGE.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/data/docs/VISUALIZATION.md",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/VISUALIZATION.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "../src/data/docs/assets/Command.png",
+      "output": {
+        "resource": {
+          "relative_path": "data/docs/assets/Command.png"
         }
       },
       "version": ""
@@ -1275,20 +1320,33 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "../src/data/docs/assets/favicon.png",
+      "source_relative_path": "../src/data/docs/assets/Status.png",
       "output": {
         "resource": {
-          "relative_path": "data/docs/assets/favicon.png"
+          "relative_path": "data/docs/assets/Status.png"
         }
       },
       "version": ""
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/data/index.md",
+      "source_relative_path": "../src/data/docs/index.md",
       "output": {
         ".html": {
-          "relative_path": "data/index.html"
+          "relative_path": "data/docs/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "../src/data/docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "data/docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "data/docs/toc.json"
         }
       },
       "version": ""
@@ -1319,29 +1377,6 @@
       "output": {
         ".html": {
           "relative_path": "data/src/repositories/RavenDb/README.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Toc",
-      "source_relative_path": "../src/data/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "data/toc.html"
-        },
-        ".json": {
-          "relative_path": "data/toc.json"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
-      "source_relative_path": "../src/inspectors/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "inspectors/README.html"
         }
       },
       "version": ""
@@ -1407,6 +1442,16 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "../src/inspectors/docs/README.md",
+      "output": {
+        ".html": {
+          "relative_path": "inspectors/docs/README.html"
+        }
+      },
+      "version": ""
+    },
+    {
       "type": "Resource",
       "source_relative_path": "../src/inspectors/docs/assets/analog-inspector.png",
       "output": {
@@ -1458,10 +1503,23 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/inspectors/index.md",
+      "source_relative_path": "../src/inspectors/docs/index.md",
       "output": {
         ".html": {
-          "relative_path": "inspectors/index.html"
+          "relative_path": "inspectors/docs/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "../src/inspectors/docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "inspectors/docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "inspectors/docs/toc.json"
         }
       },
       "version": ""
@@ -1472,22 +1530,6 @@
       "output": {
         "resource": {
           "relative_path": "inspectors/src/AxOpen.Inspectors.Blazor/wwwroot/background.png"
-        }
-      },
-      "version": ""
-    },
-    {
-      "log_codes": [
-        "InvalidFileLink"
-      ],
-      "type": "Toc",
-      "source_relative_path": "../src/inspectors/toc.yml",
-      "output": {
-        ".html": {
-          "relative_path": "inspectors/toc.html"
-        },
-        ".json": {
-          "relative_path": "inspectors/toc.json"
         }
       },
       "version": ""
@@ -1790,16 +1832,6 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/timers/README.md",
-      "output": {
-        ".html": {
-          "relative_path": "timers/README.html"
-        }
-      },
-      "version": ""
-    },
-    {
-      "type": "Conceptual",
       "source_relative_path": "../src/timers/docs/OFFDELAYTIMER.md",
       "output": {
         ".html": {
@@ -1830,23 +1862,33 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "../src/timers/index.md",
+      "source_relative_path": "../src/timers/docs/README.md",
       "output": {
         ".html": {
-          "relative_path": "timers/index.html"
+          "relative_path": "timers/docs/README.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "../src/timers/docs/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "timers/docs/index.html"
         }
       },
       "version": ""
     },
     {
       "type": "Toc",
-      "source_relative_path": "../src/timers/toc.yml",
+      "source_relative_path": "../src/timers/docs/toc.yml",
       "output": {
         ".html": {
-          "relative_path": "timers/toc.html"
+          "relative_path": "timers/docs/toc.html"
         },
         ".json": {
-          "relative_path": "timers/toc.json"
+          "relative_path": "timers/docs/toc.json"
         }
       },
       "version": ""
@@ -5239,6 +5281,16 @@
       "output": {
         ".html": {
           "relative_path": "articles/guidelines/Conventions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/guidelines/PERFORMANCE.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/guidelines/PERFORMANCE.html"
         }
       },
       "version": ""
