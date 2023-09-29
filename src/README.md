@@ -190,3 +190,19 @@ To begin scaffolding your application, you should run the `scripts/create_applic
 .\scripts\create_application.ps1 -ProjectName MyNewProject
 ```
 
+When prompted
+
+```
+Template is configured to run the following action:
+Actual command: install.cmd
+Do you want to run this action [Y(yes)|N(no)]?
+```
+
+Answer `Yes` or revise the script and run it manually later from the target folder.
+
+>[!WARNING]
+> Please ensure you understand the implications of running scripts on your system.
+
+
+
+

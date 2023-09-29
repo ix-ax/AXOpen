@@ -6,7 +6,7 @@ AXOpen boasts a variety of features. However, it's noteworthy that certain featu
 
 The table below provides an overview of the specifications of various hardware controllers:
 
-| Controller     | Max. Controlled Units | Traceability | Controller Logging | Data Load | Main Cyclic Loop |
+| Controller     | Max. Controlled Units | Traceability | Controller Logging | Data Load | Main Cyclic Loop* |
 |----------------|-----------------------|--------------|--------------------|-----------|------------------|
 | S7-1515 FW 3.0 | 1                     | No           | No                 | Low       | 500ms            |
 | S7-1516 FW 3.0 | 1                     | No           | No                 | Low       | 500ms            |
@@ -17,10 +17,11 @@ The table below provides an overview of the specifications of various hardware c
 
 Software controllers also offer a range of capabilities, as detailed in the table below:
 
-| Controller | Max. Controlled Units | Traceability | Controller Logging | Data Load | Main Cyclic Loop |
+| Controller | Max. Controlled Units | Traceability | Controller Logging | Data Load | Main Cyclic Loop* |
 |------------|-----------------------|--------------|--------------------|-----------|------------------|
 | S7-1507S   | 10                    | Yes          | Yes                | Low       | 50ms             |
 | S7-1508S   | 10                    | Yes          | Yes                | Low       | 50ms             |
 
+* Main cyclic loop is the base time interval of the AXOpen application to handle all cyclic requests.
 
 Always ensure to align the selection of a controller with the specific needs of your AXOpen application to achieve optimal performance.

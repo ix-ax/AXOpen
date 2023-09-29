@@ -1,6 +1,19 @@
-# AXSharp Blazor template 
+# AXOpen simple Blazor application template 
 
 **IMPORTANT!!! When you create the project from Visual Studio, you will need to run `install.ps1` manually to finish creating the project.**
+
+
+## Preparing your target PLC 
+
+### Using TIA portal
+
+If you use TIA portal for you hardware configuration you must enable WebAPI communication with your target PLC.
+
+[How to set-up WebAPI in TIA portal](https://youtu.be/d9EX2FixY1A?t=151)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/d9EX2FixY1A?start=151" frameborder="0" allowfullscreen></iframe>
+
+
 
 ## Setting up the connection
 
@@ -30,7 +43,7 @@ Go to [apax.yml](app/apax.yml) file and adjust the parameters
 scripts:
   download :   
      # Here you will need to set the argumen -t to your plc IP and -i to platfrom you are dowloading to
-    # --default-server-interface is a must if you are using WebAPI      
+     # --default-server-interface is a must if you are using WebAPI      
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
 .
 .
@@ -38,18 +51,21 @@ scripts:
 .
 ~~~
 
+
+
+
 ## Download the project to the PLC
 
 Navigate to your ax folder and run the script command:
 
 ~~~
-PS [your_root_folder]\ax>apax download
+PS [your_root_folder]\>apax download
 ~~~
 
 ## To quickly run the hmi
 
 ~~~
-dotnet run --project .\[your_project_name].app\[your_project_name].hmi.csproj
+PS [your_root_folder]\>dotnet run --project ..\axosimple.app\axosimple.hmi.csproj
 ~~~
 
 ~~~
@@ -64,6 +80,8 @@ info: Microsoft.Hosting.Lifetime[0]
 .      
 ~~~
 
+**To terminate the application press `ctrl+c`**
+
 Navigate to the address indicated in "Now listening on:".
 
 > NOTE!
@@ -72,10 +90,26 @@ Navigate to the address indicated in "Now listening on:".
 
 ## Modifying your HMI project
 
-In Visual Studio (VS2022), open the solution file from the project folder `[your_project_name].sln`. You can then run the solution directly from Visual Studio.
+In Visual Studio (VS2022), open the solution file from the project folder `axosimple.sln`. You can then run the solution directly from Visual Studio.
 
 > **NOTE: Security is set to a minimal level for a speedy start. Make sure you set the security appropriately**.
 
+## Other usefull scripts
+
+Build both AX and AX# part of the project and DOWNLOADS the program to the target controller
+```
+apax push
+```
+
+Downloads current build into the controller.
+```
+apax download
+```
+
+Build the both AX and AX# part of the project.
+```
+apax build
+```
 
 ## Resources
 

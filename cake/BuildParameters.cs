@@ -1,4 +1,4 @@
-1// Build
+// Build
 // Copyright (c) 2023 Peter Kurhajec (PTKu), MTS,  and Contributors. All Rights Reserved.
 // Contributors: https://github.com/ix-ax/ix/graphs/contributors
 // See the LICENSE file in the repository root for more information.
