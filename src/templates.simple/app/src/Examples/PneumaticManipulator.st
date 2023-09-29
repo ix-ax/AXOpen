@@ -166,6 +166,10 @@ NAMESPACE examples.PneumaticManipulator
             _inspectionValue:LREAL;
             _inspectionData: STRING;
             _externalClose : BOOL;
+
+            _digitalInspectorDialog     : AXOpen.Inspectors.AxoInspectorDialog;
+            _analogueInspectorDialog    : AXOpen.Inspectors.AxoInspectorDialog;
+            _dataInspectorDialog        : AXOpen.Inspectors.AxoInspectorDialog;
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
@@ -269,7 +273,7 @@ NAMESPACE examples.PneumaticManipulator
                                   .Inspect(THIS,_inspectionResult)
                                   .UpdateComprehensiveResult(_comprehensiveResult)
                                   .OnFail()
-                                  .Dialog(Steps[20], Steps[145]);
+                                  .Dialog(Steps[20], Steps[145], _digitalInspectorDialog);
 
                 //-------------------------------------------------------
              END_IF;
@@ -278,7 +282,7 @@ NAMESPACE examples.PneumaticManipulator
                 //-------------------------------------------------------
              
 
-                THIS.ProcessData^.DataManger.Set._valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
+                THIS.ProcessData^.DataManger.Set._valueInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionValue).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145], _analogueInspectorDialog);
 
                 //-------------------------------------------------------
              END_IF;
@@ -287,7 +291,7 @@ NAMESPACE examples.PneumaticManipulator
              IF (Steps[50].Execute(THIS, TRUE, 'Example Data inspection')) THEN
                 //-------------------------------------------------------
               
-                THIS.ProcessData^.DataManger.Set._dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145]);
+                THIS.ProcessData^.DataManger.Set._dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145], _dataInspectorDialog);
 
                 //-------------------------------------------------------
             END_IF;
