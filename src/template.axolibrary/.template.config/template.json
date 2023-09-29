@@ -14,7 +14,7 @@
     {
       "modifiers": [
         {
-          "exclude": [ "**/.apax/**", ".vs/**", ".cr/**" ]
+          "exclude": [".vs/**", ".cr/**", "app/.apax/**", "ctrl/.apax/**", ".apax/**", "**/bin/**", "**/obj/**" ]
         }
       ]
     }

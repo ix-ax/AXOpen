@@ -7,8 +7,16 @@
     {
         <div class="col-md me-2">
 
-        <RenderableContentControl Context="@Data.Result" Presentation="Display" />
-        <RenderableContentControl Context="@Data.Timestamp" Presentation="Display" />
+        @if(Presentation == "ShadowDisplay")
+        {
+            <RenderableContentControl Context="@Data.Result" Presentation="ShadowDisplay" />
+            <RenderableContentControl Context="@Data.Timestamp" Presentation="ShadowDisplay" />
+        }
+        else
+        {
+            <RenderableContentControl Context="@Data.Result" Presentation="Display" />
+            <RenderableContentControl Context="@Data.Timestamp" Presentation="Display" />
+        }
 
     </div>
     }
@@ -21,7 +29,14 @@
         <RenderableContentControl Context="@Data.NumberOfAllowedRetries" Presentation="@Presentation" />
         @if (Presentation != "ShadowControl")
         {
-            <RenderableContentControl Context="@Data.RetryAttemptsCount" Presentation="Display" />
+            @if (Presentation == "ShadowDisplay")
+            {
+                <RenderableContentControl Context="@Data.RetryAttemptsCount" Presentation="ShadowDisplay" />
+            }
+            else
+            {
+                <RenderableContentControl Context="@Data.RetryAttemptsCount" Presentation="Display" />
+            }
         }
     </div>
 </div>

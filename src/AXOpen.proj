@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.Build.Traversal/4.1.0">
 	<ItemGroup>    
-	  <ProjectReference Include="**\*.csproj" Exclude="**\.apax\**\*.*;**\sandbox\**\*.*"/>
+	  <ProjectReference Include="**\*.csproj" Exclude="**\.apax\**\*.*;*sandbox\**\*.*;.*\**\*.*"/>
 	</ItemGroup>
 </Project>
