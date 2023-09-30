@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector.S71500.WebApi;
 
-namespace librarytemplate
+namespace dotnetlibs
 {
     public static class Entry
     {

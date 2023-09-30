@@ -1,6 +1,6 @@
-# librarytemplate
+# dotnetlibs
 
-This documentation contains information about `librarytemplate` library.
+This documentation contains information about `dotnetlibs` library.
 
 [!INCLUDE [General](../../../docfx/articles/notes/LIBRARYHEADER.md)]
 

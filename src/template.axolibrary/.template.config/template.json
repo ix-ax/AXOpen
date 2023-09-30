@@ -41,29 +41,14 @@
     },   
     "name": {
       "type": "derived",
-      "valueSource": "axlibname",
+      "valueSource": "dotnetlibs",
       "valueTransform": "DeleteDotsInFileName",
       "datatype": "text",
       "defaultValue": "librarytemplate",
       "replaces": "librarytemplate",
       "fileRename": "librarytemplate",
       "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
-    },    
-    "renameDotNetTwinCsProjFileName": {
-      "type": "derived",  
-      "valueSource": "axlibname",  
-      "valueTransform": "ReplaceDotsInFileName",  
-      "fileRename": "axolib",  
-      "description": "A value derived from the 'name' param, used to rename Application1.cs"
-    },
-    "renameDotNetTwinCsProjReferences": {
-      "include" : "*.csproj",  
-      "type": "derived",  
-      "valueSource": "axlibname",  
-      "valueTransform": "ReplaceDotsInFileName",  
-      "replaces": "axolib",  
-      "description": "A value derived from the 'name' param, used to rename Application1.cs"
-    },   
+    },           
     "projnameLower":{
       "type": "generated",
       "generator": "casing",
@@ -71,8 +56,7 @@
         "source":"projname",
         "toLower": true
       }
-    }, 
-    
+    },     
     "nameUpper":{
       "type": "generated",
       "generator": "casing",

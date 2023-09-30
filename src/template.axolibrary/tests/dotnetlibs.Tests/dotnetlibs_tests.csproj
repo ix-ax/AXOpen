@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\dotnetlibs\ix_ax_axolib.csproj" />
+    <ProjectReference Include="..\..\src\dotnetlibs\dotnetlibs.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

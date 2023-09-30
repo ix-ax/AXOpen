@@ -22,6 +22,19 @@ Remove-Item $FolderNameApp -r -force -ErrorAction Ignore
 Remove-Item $FolderNameCtrl -r -force -ErrorAction Ignore
 
 
-dotnet new axolibrary -o $OutputDirectory -p $ProjectNamespace
+dotnet new axolibrary -o $OutputDirectory --projname $ProjectNamespace
+
+# Delete files starting with 'tmp_*_' in the root output folder
+Get-ChildItem -Path "$OutputDirectory\" -File -Filter "tmp_*_.*" | ForEach-Object {
+    Remove-Item $_.FullName -Force
+    Write-Output "Deleted $($_.FullName)"
+}
+
+if (Test-Path $OutputDirectory) {
+    Set-Location $OutputDirectory
+}
+
+dotnet slngen this.proj -o this.sln --folders true --launch false
+
 write-host "-----------------------------------------------------------" 
 write-host "Done" 

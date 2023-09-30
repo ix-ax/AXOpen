@@ -10,7 +10,7 @@
 	  <!--NuGet Specific part-->
 	  <Description>This library is part of AXOpen framework</Description>
 	  <PackageId>dotnetlibs.Blazor</PackageId>
-	  <Title>AXOpen - librarytemplate</Title>
+	  <Title>AXOpen - dotnetlibs</Title>
 
 	  <!-- NuGet Common part-->
 	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
@@ -63,6 +63,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
-    <ProjectReference Include="..\dotnetlibs\ix_ax_axolib.csproj" />
+    <ProjectReference Include="..\dotnetlibs\dotnetlibs.csproj" />
   </ItemGroup>
 </Project>
