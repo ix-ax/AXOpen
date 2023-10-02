@@ -13,7 +13,7 @@
     <ProjectReference Include="..\..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
     <ProjectReference Include="..\..\..\src\dotnetlibs.blazor\dotnetlibs.blazor.csproj" />
-    <ProjectReference Include="..\..\ix\App.dotnetlibs.csproj" />
+    <ProjectReference Include="..\..\ix\app_axolib.csproj" />
   </ItemGroup>
 
 </Project>

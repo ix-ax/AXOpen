@@ -34,7 +34,16 @@ if (Test-Path $OutputDirectory) {
     Set-Location $OutputDirectory
 }
 
+cd app
+apax build
+
+cd ..
+
+axcode .
+
 dotnet slngen this.proj -o this.sln --folders true --launch false
+& 'C:\Program Files\Microsoft Visual Studio\2022\Professional\Common7\IDE\devenv.exe' this.sln
+
 
 write-host "-----------------------------------------------------------" 
 write-host "Done" 

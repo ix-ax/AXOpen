@@ -38,23 +38,13 @@
       },
       "defaultValue": "axolib",
       "replaces": "axolib"
-    },   
-    "name": {
-      "type": "derived",
-      "valueSource": "dotnetlibs",
-      "valueTransform": "DeleteDotsInFileName",
-      "datatype": "text",
-      "defaultValue": "librarytemplate",
-      "replaces": "librarytemplate",
-      "fileRename": "librarytemplate",
-      "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
-    },           
+    }, 
     "projnameLower":{
       "type": "generated",
       "generator": "casing",
       "parameters": {
         "source":"projname",
-        "toLower": true
+        "toLower": true        
       }
     },     
     "nameUpper":{
@@ -64,7 +54,18 @@
         "source":"projname",
         "toLower": false
       }
-    }
+    },   
+    "name": {
+      "type": "derived",
+      "valueSource": "projnameLower",
+      "valueTransform": "ReplaceDotsInFileName",
+      "datatype": "text",
+      "defaultValue": "twinConnectorName",
+      "replaces": "twinConnectorName",
+      "fileRename": "twinConnectorName",
+      "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
+    }    
+   
   },
   "forms": {
     "ReplaceDotsInFileName": {
