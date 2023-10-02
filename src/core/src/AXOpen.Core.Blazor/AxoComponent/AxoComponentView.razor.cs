@@ -112,7 +112,10 @@ namespace AXOpen.Core
         {
             var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.IsActive, p.WaitingForAcknowledge });
             var connector = Messengers?.FirstOrDefault()?.GetConnector();
-            await connector?.ReadBatchAsync(a)!;
+            if (connector != null)
+            {
+                await connector?.ReadBatchAsync(a);
+            }
 
             await base.OnInitializedAsync();
         }

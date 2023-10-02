@@ -3,15 +3,21 @@
   "isRoot": true,
   "tools": {
     "AXSharp.ixc": {
-      "version": "0.14.2-alpha.140",
+      "version": "0.15.0-alpha.151",
       "commands": [
         "ixc"
       ]
     },
     "AXSharp.ixr": {
-      "version": "0.14.2-alpha.140",
+      "version": "0.15.0-alpha.151",
       "commands": [
         "ixr"
+      ]
+    },
+    "microsoft.visualstudio.slngen.tool": {
+      "version": "10.3.4",
+      "commands": [
+        "slngen"
       ]
     }
   }

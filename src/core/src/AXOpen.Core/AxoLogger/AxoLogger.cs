@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using AXOpen.Core;
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using AXSharp.Connector.ValueTypes;
+using Serilog;
 
 namespace AXOpen.Logging
 {
@@ -36,6 +38,7 @@ namespace AXOpen.Logging
             {
                 await this.ReadAsync();
 
+                var dequeued = new List<OnlinerBool>();
                 var index = 0;
                 foreach (var entry in this.LogEntries.Where(p => p.ToDequeue.LastValue))
                 {
@@ -52,7 +55,7 @@ namespace AXOpen.Logging
                             message = $"{entry.Message.LastValue} : {step.StepDescription.LastValue ?? step.Description}";
                             break;
                         case null:
-                            message = $"!!!{message} : [no identity provided '{entry.Sender.LastValue}']";
+                            message = $"{entry.Message.LastValue} : [no identity provided '{entry.Sender.LastValue}']";
                             break;
                         default:
                             message = entry.Message.LastValue;
@@ -60,9 +63,11 @@ namespace AXOpen.Logging
                     }
 
                     CreateLogEntry(level, $"{message}", sender);
-
-                    await entry.ToDequeue.SetAsync(false);
+                    dequeued.Add(entry.ToDequeue);                    
+                    entry.ToDequeue.Cyclic = false;
                 }
+
+                this.LogEntries.FirstOrDefault()?.GetConnector().WriteBatchAsync(dequeued);
             });
         }
 

@@ -158,6 +158,12 @@
 │
 └── slngen.ps     # Generates solution file from `this.proj`
 </code></pre>
+<h2 id="apax-package-versions">APAX Package Versions</h2>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>All apax packages on the default branch (dev) have a fixed version '0.0.0-dev.0'. This version must not be changed by any commit.
+The version is assigned at build time in the CI/CD pipeline.</p>
+</div>
 <h2 id="central-package-management-system">Central Package Management System</h2>
 <p>This project's NuGet packages versions are organized centrally. You shouldn't assign a package version in your project file. In exceptional cases, you can use a version override. Actual versions are defined in <a href="Directory.Packages.props">src/Directory.Packages.props</a>.</p>
 <p>For more information on central package management, visit <a href="https://learn.microsoft.com/en-us/nuget/consume-packages/Central-Package-Management">here</a>.</p>
@@ -173,6 +179,14 @@
 </div>
 <p>You can then open the solution file in Visual Studio as needed.</p>
 <h2 id="creating-a-new-library-from-template">Creating a New Library from Template</h2>
+<h3 id="use-script">Use script</h3>
+<p>Run the following script from the repository root folder:</p>
+<pre><code class="lang-PowerShell">.\scripts\create_template_library.ps1 -OutputDirectory OutputFolder -ProjectNamespace Project.Namespace
+</code></pre>
+<p>For example:</p>
+<pre><code class="lang-PowerShell">.\scripts\create_template_library.ps1 -OutputDirectory components.elements -p AXOpen.Components.Elements
+</code></pre>
+<h3 id="manual-create">Manual create</h3>
 <ol>
 <li>Navigate to the <code>src/</code> folder of this repository.</li>
 <li>Run the following command to update the library template:</li>
@@ -187,6 +201,10 @@
 <p>For example:</p>
 <pre><code class="lang-PowerShell">dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 </code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Make sure you run <code>apax install -L</code> and <code>apax build</code> after new library is created.</p>
+</div>
 <div class="IMPORTANT">
 <h5>Important</h5>
 <p>Ensure you run all commands from the <code>src</code> folder of the repository. The <code>-o OutputFolder</code> parameter must be within the <code>src</code> folder.</p>
@@ -196,6 +214,36 @@
 <p>The <code>-p ProjectName</code> parameter must contain ONLY alphanumeric characters and dots. Otherwise, inconsistencies may occur.</p>
 </div>
 <hr>
+<h2 id="creating-an-axopen-application">Creating an AXOpen Application</h2>
+<h3 id="scaffolding-the-application-in-axopen-repository">Scaffolding the application in AXOpen repository</h3>
+<h3 id="introduction">Introduction</h3>
+<p>When developing new applications using the AXOpen framework, there are multiple avenues developers can consider. The script described here provides path to one of the methods, and it's a preferred choice for AXOpen contributors. This technique grants developers the privilege of working directly with the AXOpen framework's source code. Leveraging this script ensures a streamlined process of scaffolding new applications, integrating them with the AXOpen Source Repository, and maintaining them in a dedicated directory.</p>
+<p>It's important to recognize, however, that directly interacting with the source repository can lead to slower compile and build times due to the overhead associated with managing the complete framework's source code.</p>
+<h3 id="leveraging-the-axopen-source-repository">Leveraging the AXOpen Source Repository</h3>
+<p>It's noteworthy that the <code>.application</code> directory is deliberately excluded from the source control of the primary repository. This design choice allows developers the flexibility to initiate their own repositories within this space, ensuring direct access and reference to the AXOpen library's source code.</p>
+<h4 id="scaffolding-your-application">Scaffolding Your Application</h4>
+<p>To begin scaffolding your application, you should run the <code>scripts/create_application.ps1</code> command.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>While this script assists in setting up your application in the <code>src/.application</code> folder, it doesn't handle the initialization of source control for this directory. This step must be managed independently.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Ensure that the <code>src/.application</code> directory is vacant before executing the script to prevent potential issues.</p>
+</div>
+<pre><code class="lang-powershell">.\scripts\create_application.ps1 -ProjectName MyNewProject
+</code></pre>
+<p>When prompted</p>
+<pre><code>Template is configured to run the following action:
+Actual command: install.cmd
+Do you want to run this action [Y(yes)|N(no)]?
+</code></pre>
+<p>Answer <code>Yes</code> or revise the script and run it manually later from the target folder.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Please ensure you understand the implications of running scripts on your system.</p>
+</div>
+<p>Follow the instruction in the README.md file.</p>
 </article>
 
         <div class="contribution d-print-none">

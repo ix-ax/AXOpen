@@ -1,2 +1,9 @@
-- name: AXOpen.Core
+- name: AXOpen.Timers
   href: index.md
+  items:
+  - name: OnDelayTimer
+    href: ONDELAYTIMER.md
+  - name: OffDelayTimer
+    href: OFFDELAYTIMER.md
+  - name: PulseTimer
+    href: PULSETIMER.md
