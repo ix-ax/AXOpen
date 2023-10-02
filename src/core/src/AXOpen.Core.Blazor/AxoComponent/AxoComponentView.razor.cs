@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components;
 using Pocos.AXOpen.Core;
 using Serilog;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using System.Collections.Generic;
 
 namespace AXOpen.Core
 {
@@ -132,12 +133,28 @@ namespace AXOpen.Core
                                      
                     var seriousness = (eAxoMessageCategory)_messengers.Max(p => p.Category.LastValue);
 
-                    if(seriousness <= eAxoMessageCategory.Info)
-                        return eAlarmLevel.ActiveInfo;
-                    else if (seriousness <= eAxoMessageCategory.Warning)
-                        return eAlarmLevel.ActiveWarnings;
-                    else if (seriousness <= eAxoMessageCategory.Error)
-                        return eAlarmLevel.ActiveErrors;
+                    switch (seriousness)
+                    {
+                        case eAxoMessageCategory.All:                            
+                        case eAxoMessageCategory.Trace:                            
+                        case eAxoMessageCategory.Debug:                            
+                        case eAxoMessageCategory.Info:
+                            return eAlarmLevel.ActiveInfo;
+                        case eAxoMessageCategory.TimedOut:                        
+                        case eAxoMessageCategory.Notification:                            
+                        case eAxoMessageCategory.Warning:
+                            return eAlarmLevel.ActiveWarnings;
+                        case eAxoMessageCategory.Error:                           
+                        case eAxoMessageCategory.ProgrammingError:                            
+                        case eAxoMessageCategory.Critical:                            
+                        case eAxoMessageCategory.Fatal:                            
+                        case eAxoMessageCategory.Catastrophic:
+                            return eAlarmLevel.ActiveErrors;
+                        case eAxoMessageCategory.None:
+                            break;
+                        default:
+                            break;
+                    }                   
                 }
                 else if (_messengers.Any(p => p.WaitingForAcknowledge.LastValue))
                 {
@@ -182,6 +199,6 @@ namespace AXOpen.Core
         {
             IsControllable = false;
         }
-    }   
+    }
 }
 

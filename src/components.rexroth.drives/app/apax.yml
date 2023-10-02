@@ -12,7 +12,6 @@ devDependencies:
   "@ax/stc": 5.4.89
   "@ax/sld": 0.15.9
 dependencies:
-  "@ix-ax/axolib": '0.0.0-dev.0'
   "@ix-ax/axopen_components_rexroth_drives": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
 scripts:

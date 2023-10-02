@@ -2,7 +2,7 @@ USING AXOpen.Core;
 CLASS Component EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                
-        Cyclinder : AXOpen.Pneumatics.Cylinder;                
+        Drive :  AXOpen.Components.Rexroth.Drives.AxoIndraDrive;                
     END_VAR
     //</ComponentDeclaration>                          
 
@@ -23,7 +23,7 @@ CLASS Component EXTENDS AXOpen.Core.AxoObject
         THIS.Initialize(parent);
 
         //<Initialization>        
-        Cyclinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);        
+       // Drive.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);        
         //</Initialization>
 
        THIS.UseInSequencer();
@@ -41,13 +41,13 @@ CLASS Component EXTENDS AXOpen.Core.AxoObject
         Sequencer.Open();
 
         IF(Steps[0].Execute(Sequencer, 'Move to home position')) THEN
-            IF(Cyclinder.MoveToHome.Invoke().IsDone()) THEN                
+            IF(Drive.AxoReset_Task.Invoke().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;
 
         IF(Steps[1].Execute(Sequencer, 'Move to work position')) THEN
-            IF(Cyclinder.MoveToWork.Invoke().IsDone()) THEN                
+            IF(Drive.AxoReset_Task.Invoke().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;       

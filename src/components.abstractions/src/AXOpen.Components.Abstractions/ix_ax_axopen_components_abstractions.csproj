@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>   
-    <PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>
+    <PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
 	</ItemGroup>
 	 
   <ItemGroup>

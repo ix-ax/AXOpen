@@ -11,43 +11,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         END_VAR
 
         ///<summary>
-		/// Restores this instance . 
-        ///</summary>   
-        METHOD PROTECTED OVERRIDE Restore: IAxoTask 
-            VAR
-                _index : INT;
-            END_VAR
-            // Status.Action.Id := UINT#0;
-            // Status.Error.Id  := UINT#0;
-            // Status.CurrentJobName := '';
-            // _Messenger.Restore();
-            // _TaskMessenger.Restore();
-
-
-            // ClearInspectionResultsTask.Restore();
-            // TriggerTask.Restore();
-            // ChangeJobByNameTask.Restore();
-            // ChangeJobByNumberTask.Restore();
-
-
-            // IF NOT AcquisitionStatus.ExposureComplete AND NOT InspectionStatus.Error THEN
-            //     Status.Action.Id := UINT#300;
-            //     RestoreTask.DoneWhen(TRUE);
-            // END_IF;
-            ;
-        END_METHOD
-
-        ///<summary>
-		/// Custom logic for the manual control.
-        ///</summary>   
-        METHOD PROTECTED OVERRIDE ManualControl
-            // ChangeJobByNameTask.Manual(RequiredJobName);
-            // ChangeJobByNumberTask.Manual(RequiredJobNumber);
-            // SoftEventTask.Manual(RequiredSoftEventNumber);
-            ;
-        END_METHOD
-
-        ///<summary>
         /// Ensures swapping the hardware input data structure into the AxisRef data structure  
         ///</summary>
         METHOD PROTECTED OVERRIDE UpdateInputs : BOOL
@@ -701,5 +664,4 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             ;
         END_METHOD
     END_CLASS
-    
 END_NAMESPACE

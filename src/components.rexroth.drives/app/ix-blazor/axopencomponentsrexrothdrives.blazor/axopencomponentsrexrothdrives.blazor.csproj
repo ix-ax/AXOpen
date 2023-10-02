@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
+    <ProjectReference Include="..\..\..\..\components.pneumatics\src\AXOpen.Components.Pneumatics\ix_ax_axopen_components_pneumatics.csproj" />
     <ProjectReference Include="..\..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />

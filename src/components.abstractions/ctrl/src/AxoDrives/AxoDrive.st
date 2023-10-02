@@ -6,872 +6,887 @@ USING System.Strings;
 NAMESPACE AXOpen.Components.Abstractions.AxoDrives
     {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC ABSTRACT AxoDrive EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.AxoDrives.IAxoDrive
-        VAR PUBLIC
+        VAR PUBLIC  //HEADER
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Drive state#>"}
             DriveState          :   AXOpen.Components.Abstractions.AxoDrives.eAxoDriveState;
-
-            DriveStatus         :   AxoDrive_Status;
-            Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
-            TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Debug counter: use to discover if the particular part of the code is called. TODO: remove after#>"}
+            _debugCounter          :   INT;
         END_VAR
 
-        VAR PUBLIC
+        VAR PUBLIC //TASKS
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Restore#>"}
             RestoreTask : AXOpen.Core.AxoTask;
             //***********Power********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power task#>"}
             AxoPower_Task                           :   AXOpen.Components.Abstractions.AxoDrives.Axo_Power;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power status#>"}
             AxoPower_Status                         :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power valid#>"}
             AxoPower_Valid                          :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power error#>"}
             AxoPower_Error                          :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power error ID#>"}
             AxoPower_ErrorID                        :   WORD;
             //***********Stop*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop task#>"}
             AxoStop_Task                            :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop decceleration#>"}
             AxoStop_Deceleration                    :   LREAL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop jerk#>"}
             AxoStop_Jerk                            :   LREAL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop done#>"}
             AxoStop_Done                            :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop busy#>"}
             AxoStop_Busy                            :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop active#>"}
             AxoStop_Active                          :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop aborted#>"}
             AxoStop_CommandAborted                  :   BOOL;                                 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop error#>"}
             AxoStop_Error                           :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop error ID#>"}
             AxoStop_ErrorID                         :   WORD;                   
             //***********Halt*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt task#>"}
             AxoHalt_Task                            :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt decceleration#>"}
             AxoHalt_Deceleration                    :   LREAL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt decceleration#>"}
             AxoHalt_Jerk                            :   LREAL;     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt done#>"}
             AxoHalt_Done                            :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt busy#>"}
             AxoHalt_Busy                            :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt active#>"}
             AxoHalt_Active                          :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt aborted#>"}
             AxoHalt_CommandAborted                  :   BOOL;                                 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt error#>"}
             AxoHalt_Error                           :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt error ID#>"}
             AxoHalt_ErrorID                         :   WORD;                   
             //***********Home*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming task#>"}
             AxoHome_Task                            :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming position#>"}
             AxoHome_Position                        :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming mode#>"}
             AxoHome_HommingMode                     :   INT;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming velocity#>"}
             AxoHome_Velocity                        :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming acceleration#>"}
             AxoHome_Acceleration                    :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming decceleration#>"}
             AxoHome_Deceleration                    :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home status#>"}
             AxoHome_Status                          :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home valid#>"}
             AxoHome_Valid                           :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home error#>"}
             AxoHome_Error                           :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home error ID#>"}
             AxoHome_ErrorID                         :   WORD;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home done#>"}
             AxoHome_Done                            :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home busy#>"}
             AxoHome_Busy                            :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home active#>"}
             AxoHome_Active                          :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home aborted#>"}
             AxoHome_CommandAborted                  :   BOOL;
             //***********MoveAbsolute*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute task#>"}
             AxoMoveAbsolute_Task                    :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute continous update#>"}
             AxoMoveAbsolute_ContinuousUpdate        :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute position#>"}
             AxoMoveAbsolute_Position                :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute velocity#>"}
             AxoMoveAbsolute_Velocity                :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute acceleration#>"}
             AxoMoveAbsolute_Acceleration            :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute decceleration#>"}
             AxoMoveAbsolute_Deceleration            :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute jerk#>"}
             AxoMoveAbsolute_Jerk                    :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute direction#>"}
             AxoMoveAbsolute_Direction               :   AXOpen.Components.Abstractions.AxoDrives.eAxoDriveDirection;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute done#>"}
             AxoMoveAbsolute_Done                    :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute busy#>"}
             AxoMoveAbsolute_Busy                    :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute active#>"}
             AxoMoveAbsolute_Active                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute aborted#>"}
             AxoMoveAbsolute_CommandAborted          :   BOOL;                                 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute error#>"}
             AxoMoveAbsolute_Error                   :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute error ID#>"}
             AxoMoveAbsolute_ErrorID                 :   WORD;                   
             //***********MoveRelative*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative task#>"}
             AxoMoveRelative_Task                    :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative continuous update#>"}
             AxoMoveRelative_ContinuousUpdate        :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative distance#>"}
             AxoMoveRelative_Distance                :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative velocity#>"}
             AxoMoveRelative_Velocity                :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative acceleration#>"}
             AxoMoveRelative_Acceleration            :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative deceleration#>"}
             AxoMoveRelative_Deceleration            :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative jerk#>"}
             AxoMoveRelative_Jerk                    :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative direction#>"}
             AxoMoveRelative_Direction               :   AXOpen.Components.Abstractions.AxoDrives.eAxoDriveDirection;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative done#>"}
             AxoMoveRelative_Done                    :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative busy#>"}
             AxoMoveRelative_Busy                    :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative active#>"}
             AxoMoveRelative_Active                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative aborted#>"}
             AxoMoveRelative_CommandAborted          :   BOOL;                                 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative error#>"}
             AxoMoveRelative_Error                   :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative error ID#>"}
             AxoMoveRelative_ErrorID                 :   WORD;                   
             //***********MoveAdditive*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive task#>"}
             AxoMoveAdditive_Task                    :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive continuous update#>"}
             AxoMoveAdditive_ContinuousUpdate        :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive distance#>"}
             AxoMoveAdditive_Distance                :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive velocity#>"}
             AxoMoveAdditive_Velocity                :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive acceleration#>"}
             AxoMoveAdditive_Acceleration            :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive deceleration#>"}
             AxoMoveAdditive_Deceleration            :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive jerk#>"}
             AxoMoveAdditive_Jerk                    :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive direction#>"}
             AxoMoveAdditive_Direction               :   AXOpen.Components.Abstractions.AxoDrives.eAxoDriveDirection;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive done#>"}
             AxoMoveAdditive_Done                    :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive busy#>"}
             AxoMoveAdditive_Busy                    :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive active#>"}
             AxoMoveAdditive_Active                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive aborted#>"}
             AxoMoveAdditive_CommandAborted          :   BOOL;                                 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive error#>"}
             AxoMoveAdditive_Error                   :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive error ID#>"}
             AxoMoveAdditive_ErrorID                 :   WORD;                   
             //***********MoveVelocity*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity task#>"}
             AxoMoveVelocity_Task                    :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity continuous update#>"}
             AxoMoveVelocity_ContinuousUpdate        :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity velocity#>"}
             AxoMoveVelocity_Velocity                :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity acceleration#>"}
             AxoMoveVelocity_Acceleration            :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity deceleration#>"}
             AxoMoveVelocity_Deceleration            :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity jerk#>"}
             AxoMoveVelocity_Jerk                    :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity #>"}
             AxoMoveVelocity_Direction               :   AXOpen.Components.Abstractions.AxoDrives.eAxoDriveDirection;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity in velocity#>"}
             AxoMoveVelocity_InVelocity              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity busy#>"}
             AxoMoveVelocity_Busy                    :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity active#>"}
             AxoMoveVelocity_Active                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity aborted#>"}
             AxoMoveVelocity_CommandAborted          :   BOOL;                                 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity error#>"}
             AxoMoveVelocity_Error                   :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity error ID#>"}
             AxoMoveVelocity_ErrorID                 :   WORD;                   
-
             //***********TorqueControl************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque task#>"}
             AxoTorqueControl_Task                   :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque continuous update#>"}
             AxoTorqueControl_ContinuousUpdate       :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque torque#>"}
             AxoTorqueControl_Torque                 :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque torque ramp#>"}
             AxoTorqueControl_TorqueRamp             :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque velocity#>"}
             AxoTorqueControl_Velocity               :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque acceleration#>"}
             AxoTorqueControl_Acceleration           :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque deceleration#>"}
             AxoTorqueControl_Deceleration           :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque jerk#>"}
             AxoTorqueControl_Jerk                   :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque direction#>"}
             AxoTorqueControl_Direction              :   AXOpen.Components.Abstractions.AxoDrives.eAxoDriveDirection;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque in torque#>"}
             AxoTorqueControl_InTorque               :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque busy#>"}
             AxoTorqueControl_Busy                   :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque active#>"}
             AxoTorqueControl_Active                 :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque aborted#>"}
             AxoTorqueControl_CommandAborted         :   BOOL;                                 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque error#>"}
             AxoTorqueControl_Error                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque error ID#>"}
             AxoTorqueControl_ErrorID                :   WORD;                   
             //***********SetPosition**************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position task#>"}
             AxoSetPosition_Task                     :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position position#>"}
             AxoSetPosition_Position                 :   REAL;                    
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position relative#>"}
             AxoSetPosition_Relative                 :   BOOL;                    
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position execution mode#>"}
             AxoSetPosition_ExecutionMode            :   AXOpen.Components.Abstractions.AxoDrives.eAxoExecutionMode;       
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position done#>"}
             AxoSetPosition_Done                     :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position error#>"}
             AxoSetPosition_Error                    :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position error ID#>"}
             AxoSetPosition_ErrorID                  :   WORD;                   
             //***********SetOverride**************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override task#>"}
             AxoSetOverride_Task                     :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override velocity factor#>"}
             AxoSetOverride_VelFactor                :   LREAL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override acceleration factor#>"}
             AxoSetOverride_AccFactor                :   LREAL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override jerk factor#>"}
             AxoSetOverride_JerkFactor               :   LREAL;        
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override enabled#>"}
             AxoSetOverride_Enabled                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override busy#>"}
             AxoSetOverride_Busy                     :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override error#>"}
             AxoSetOverride_Error                    :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override error ID#>"}
             AxoSetOverride_ErrorID                  :   WORD;          
             //***********ReadParameter************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter task#>"}
             AxoReadParameter_Task                   :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter number#>"}
             AxoReadParameter_ParameterNumber        :   INT;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter valid#>"}
             AxoReadParameter_Valid                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter busy#>"}
             AxoReadParameter_Busy                   :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter error#>"}
             AxoReadParameter_Error                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter error ID#>"}
             AxoReadParameter_ErrorID                :   WORD;          
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter value#>"}
             AxoReadParameter_Value                  :   REAL;          
             //***********ReadBoolParameter********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter task#>"}
             AxoReadBoolParameter_Task               :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter number#>"}
             AxoReadBoolParameter_ParameterNumber    :   INT;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter valid#>"}
             AxoReadBoolParameter_Valid              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter busy#>"}
             AxoReadBoolParameter_Busy               :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter error#>"}
             AxoReadBoolParameter_Error              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter error ID#>"}
             AxoReadBoolParameter_ErrorID            :   WORD;          
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter value#>"}
             AxoReadBoolParameter_Value              :   BOOL;          
             //***********WriteParameter***********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter task#>"}
             AxoWriteParameter_Task                  :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter number#>"}
             AxoWriteParameter_ParameterNumber       :   INT;                    
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter value#>"}
             AxoWriteParameter_Value                 :   REAL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter execution mode#>"}
             AxoWriteParameter_ExecutionMode         :   AXOpen.Components.Abstractions.AxoDrives.eAxoExecutionMode;                  
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter done#>"}
             AxoWriteParameter_Done                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter busy#>"}
             AxoWriteParameter_Busy                  :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter error#>"}
             AxoWriteParameter_Error                 :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter error ID#>"}
             AxoWriteParameter_ErrorID               :   WORD;          
             //***********WriteBoolParameter*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter task#>"}
             AxoWriteBoolParameter_Task              :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter number#>"}
             AxoWriteBoolParameter_ParameterNumber   :   INT;                    
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter value#>"}
             AxoWriteBoolParameter_Value             :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter execution mode#>"}
             AxoWriteBoolParameter_ExecutionMode     :   AXOpen.Components.Abstractions.AxoDrives.eAxoExecutionMode;                  
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter done#>"}
             AxoWriteBoolParameter_Done              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter busy#>"}
             AxoWriteBoolParameter_Busy              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter error#>"}
             AxoWriteBoolParameter_Error             :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter error ID#>"}
             AxoWriteBoolParameter_ErrorID           :   WORD;          
             //***********ReadDigitalInput*********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input task#>"}
             AxoReadDigitalInput_Task                :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input number#>"}
             AxoReadDigitalInput_InputNumber         :   INT;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input valid#>"}
             AxoReadDigitalInput_Valid               :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input busy#>"}
             AxoReadDigitalInput_Busy                :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input error#>"}
             AxoReadDigitalInput_Error               :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input error ID#>"}
             AxoReadDigitalInput_ErrorID             :   WORD;          
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input value#>"}
             AxoReadDigitalInput_Value               :   BOOL;          
             //***********ReadDigitalOutput********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output task#>"}
             AxoReadDigitalOutput_Task               :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output number#>"}
             AxoReadDigitalOutput_OutputNumber       :   INT;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output valid#>"}
             AxoReadDigitalOutput_Valid              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output busy#>"}
             AxoReadDigitalOutput_Busy               :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output error#>"}
             AxoReadDigitalOutput_Error              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output error ID#>"}
             AxoReadDigitalOutput_ErrorID            :   WORD;          
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output value#>"}
             AxoReadDigitalOutput_Value              :   BOOL;          
             //***********WriteDigitalOutput*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output task#>"}
             AxoWriteDigitalOutput_Task              :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output number#>"}
             AxoWriteDigitalOutput_OutputNumber      :   INT;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output value#>"}
             AxoWriteDigitalOutput_Value             :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output execution mode#>"}
             AxoWriteDigitalOutput_ExecutionMode     :   AXOpen.Components.Abstractions.AxoDrives.eAxoExecutionMode;                  
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output done#>"}
             AxoWriteDigitalOutput_Done              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output busy#>"}
             AxoWriteDigitalOutput_Busy              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output error#>"}
             AxoWriteDigitalOutput_Error             :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output error ID#>"}
             AxoWriteDigitalOutput_ErrorID           :   WORD;          
             //***********ReadActualPosition*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position task#>"}
             AxoReadActualPosition_Task              :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position valid#>"}
             AxoReadActualPosition_Valid             :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position busy#>"}
             AxoReadActualPosition_Busy              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position error#>"}
             AxoReadActualPosition_Error             :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position error ID#>"}
             AxoReadActualPosition_ErrorID           :   WORD;          
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position value#>"}
             AxoReadActualPosition_Value             :   REAL;          
             //***********ReadActualVelocity*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity task#>"}
             AxoReadActualVelocity_Task              :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity valid#>"}
             AxoReadActualVelocity_Valid             :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity busy#>"}
             AxoReadActualVelocity_Busy              :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity error#>"}
             AxoReadActualVelocity_Error             :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity error ID#>"}
             AxoReadActualVelocity_ErrorID           :   WORD;          
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity value#>"}
             AxoReadActualVelocity_Value             :   REAL;          
             //***********ReadActualTorque*********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque task#>"}
             AxoReadActualTorque_Task                :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque valid#>"}
             AxoReadActualTorque_Valid               :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque busy#>"}
             AxoReadActualTorque_Busy                :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque error#>"}
             AxoReadActualTorque_Error               :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque error ID#>"}
             AxoReadActualTorque_ErrorID             :   WORD;          
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque value#>"}
             AxoReadActualTorque_Value               :   REAL;          
             //***********ReadStatus***************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status task#>"}
             AxoReadStatus_Task                      :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status valid#>"}
             AxoReadStatus_Valid                     :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status busy#>"}
             AxoReadStatus_Busy                      :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status error#>"}
             AxoReadStatus_Error                     :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status error ID#>"}
             AxoReadStatus_ErrorID                   :   WORD;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status error stop#>"}
             AxoReadStatus_ErrorStop                 :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status disabled#>"}
             AxoReadStatus_Disabled                  :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status stopping#>"}
             AxoReadStatus_Stopping                  :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status homming#>"}
             AxoReadStatus_Homing                    :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status standstill#>"}
             AxoReadStatus_Standstill                :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status discrete motion#>"}
             AxoReadStatus_DiscreteMotion            :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status continuous motion#>"}
             AxoReadStatus_ContinuousMotion          :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status synchronized motion#>"}
             AxoReadStatus_SynchronizedMotion        :   BOOL;                       
             //***********ReadMotionState**********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state task#>"}
             AxoReadMotionState_Task                 :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state source#>"}
             AxoReadMotionState_Source               :   AXOpen.Components.Abstractions.AxoDrives.eAxoSource;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state valid#>"}
             AxoReadMotionState_Valid                :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state busy#>"}
             AxoReadMotionState_Busy                 :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state error#>"}
             AxoReadMotionState_Error                :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state error ID#>"}
             AxoReadMotionState_ErrorID              :   WORD;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state constant velocity#>"}
             AxoReadMotionState_ConstantVelocity     :   BOOL;                     
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state accelerating#>"}
             AxoReadMotionState_Accelerating         :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state decelerating#>"}
             AxoReadMotionState_Decelerating         :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state direction positive#>"}
             AxoReadMotionState_DirectionPositive    :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state direction negative#>"}
             AxoReadMotionState_DirectionNegative    :   BOOL;                      
             //***********ReadAxisInfo*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info task#>"}
             AxoReadAxisInfo_Task                    :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info valid#>"}
             AxoReadAxisInfo_Valid                   :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info busy#>"}
             AxoReadAxisInfo_Busy                    :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info error#>"}
             AxoReadAxisInfo_Error                   :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info error ID#>"}
             AxoReadAxisInfo_ErrorID                 :   WORD;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info home absolute switch#>"}
             AxoReadAxisInfo_HomeAbsSwitch           :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info limit switch positive#>"}
             AxoReadAxisInfo_LimitSwitchPos          :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info limit switch negative#>"}
             AxoReadAxisInfo_LimitSwitchNeg          :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info simulation#>"}
             AxoReadAxisInfo_Simulation              :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info communication ready#>"}
             AxoReadAxisInfo_CommunicationReady      :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info ready for power on#>"}
             AxoReadAxisInfo_ReadyForPowerOn         :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info power on#>"}
             AxoReadAxisInfo_PowerOn                 :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info is homed#>"}
             AxoReadAxisInfo_IsHomed                 :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info warning#>"}
             AxoReadAxisInfo_AxisWarning             :   BOOL;                      
             //***********ReadAxisError************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error task#>"}
             AxoReadAxisError_Task                   :   AXOpen.Core.AxoToggleTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error valid#>"}
             AxoReadAxisError_Valid                  :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error busy#>"}
             AxoReadAxisError_Busy                   :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error error#>"}
             AxoReadAxisError_Error                  :   BOOL;                      
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error error ID#>"}
             AxoReadAxisError_ErrorID                :   WORD;         
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error axis error ID#>"}
             AxoReadAxisError_AxisErrorID            :   WORD;
             //***********Reset********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset task#>"}
             AxoReset_Task                           :   AXOpen.Core.AxoTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset done#>"}
             AxoReset_Done                           :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset busy#>"}
             AxoReset_Busy                           :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset error#>"}
             AxoReset_Error                          :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset error ID#>"}
             AxoReset_ErrorID                        :   WORD;    
             //***********Jog**********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog positive#>"}
             AxoJogPositive                          :   AXOpen.Components.Abstractions.AxoDrives.AxoMotionJogTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog negative#>"}
             AxoJogNegative                          :   AXOpen.Components.Abstractions.AxoDrives.AxoMotionJogTask;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog velocity#>"}
             AxoJog_Velocity                         :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog acceleration#>"}
             AxoJog_Acceleration                     :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog deceleration#>"}
             AxoJog_Deceleration                     :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog jerk#>"}
             AxoJog_Jerk                             :   LREAL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog direction#>"}
             AxoJog_Direction                        :   AXOpen.Components.Abstractions.AxoDrives.eAxoDriveDirection;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog velocity#>"}
             AxoJogInVelocity                        :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog active#>"}
             AxoJog_Active                           :   BOOL;
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog done#>"}
             AxoJog_Done                             :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog busy#>"}
             AxoJog_Busy                             :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog error#>"}
             AxoJog_Error                            :   BOOL;                   
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog error ID#>"}
             AxoJog_ErrorID                          :   WORD;    
-            {#ix-attr:[ComponentDetails("Tasks")]}
+            {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog aborted#>"}
             AxoJog_CommandAborted                   :   BOOL;                                 
         END_VAR
 
+        VAR PUBLIC //CONFIG
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ReadOnly()]}
+            DriveConfig         :   AxoDrive_Config;
+        END_VAR
+
+        VAR PUBLIC //STATUS
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-attr:[ComponentDetails("Status")]}
+            {#ix-attr:[ReadOnly()]}
+            DriveStatus         :   AxoDrive_Status;
+            Messenger           :   AXOpen.Messaging.Static.AxoMessenger;
+            TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
+        END_VAR
+        
         VAR PRIVATE
             _AxisRef                                :   AXOpen.Components.Abstractions.AxoDrives.AxoAxisRef;
             _movementDisabled                       :   BOOL;
@@ -980,10 +995,13 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
                 EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
+
             IF parent = NULL THEN
                 DriveStatus.Error.Id := UINT#700; //_CurrentMotionTaskId
                 RETURN;
             END_IF;
+
+            THIS.Initialize(parent);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
 
@@ -991,7 +1009,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
                 RETURN;
             END_IF;
 
-            THIS.Initialize(parent);
+            
             THIS.Open();
             THIS.UpdateInputs(refAxisIn,_AxisRef);
             THIS.Execute(_AxisRef,Enable,EnablePositive,EnableNegative);
@@ -1012,18 +1030,20 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
                 EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
                 EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
             END_VAR
+
             IF parent = NULL THEN
                 DriveStatus.Error.Id := UINT#700;
                 RETURN;
             END_IF;
+
+            THIS.Initialize(parent);
 
             Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF NOT THIS.IsValidReferences(refAxisIn,refAxisOut) THEN
                 RETURN;
             END_IF;
-
-            THIS.Initialize(parent);
+            
             THIS.Open();
             THIS.UpdateInputs(refAxisIn,_AxisRef);
             THIS.Execute(_AxisRef,Enable,EnablePositive,EnableNegative);
@@ -1042,7 +1062,9 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
             END_VAR
 
             Messenger.Serve(THIS);
+            // TaskMessenger.Serve(THIS);
 
+            RestoreTask.Initialize(THIS);
             AxoPower_Task.Initialize(THIS);
             AxoStop_Task.Initialize(THIS);
             AxoHalt_Task.Initialize(THIS);
@@ -1072,6 +1094,12 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
             AxoJogPositive.Initialize(THIS);
             AxoJogNegative.Initialize(THIS);
 
+            //*************RESTORE**********************
+            RestoreTask.IsDisabled := FALSE;
+            IF RestoreTask.Execute() THEN
+                THIS.Restore();
+            END_IF;
+            //******************************************
 
             //*************AXO_POWER********************
             AxoPower_Task.Run(Enable,EnablePositive,EnableNegative);
@@ -1309,6 +1337,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_SET_OVERRIDE*************
             AxoSetOverride_Task.SetIsDisabled(FALSE);
+            AxoSetOverride_Task.Run();
             THIS.MC_SetOverride(AxisRef, 
                         AxoSetOverride_Task.IsSwitchedOn(),
                         _AxoSetOverride_VelFactor,
@@ -1323,6 +1352,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_PARAMETER***********
             AxoReadParameter_Task.SetIsDisabled(FALSE);
+            AxoReadParameter_Task.Run();
             THIS.MC_ReadParameter(AxisRef, 
                         AxoReadParameter_Task.IsSwitchedOn(),
                         _AxoReadParameter_ParameterNumber,
@@ -1336,6 +1366,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_BOOL_PARAMETER******
             AxoReadBoolParameter_Task.SetIsDisabled(FALSE);
+            AxoReadBoolParameter_Task.Run();
             THIS.MC_ReadBoolParameter(AxisRef, 
                         AxoReadBoolParameter_Task.IsSwitchedOn(),
                         _AxoReadBoolParameter_ParameterNumber,
@@ -1377,6 +1408,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_DIGITAL_INPUT*******
             AxoReadDigitalInput_Task.SetIsDisabled(FALSE);
+            AxoReadDigitalInput_Task.Run();
             THIS.MC_ReadDigitalInput(AxisRef, 
                         AxoReadDigitalInput_Task.IsSwitchedOn(),
                         _AxoReadDigitalInput_InputNumber,
@@ -1390,6 +1422,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_DIGITAL_OUTPUT******
             AxoReadDigitalOutput_Task.SetIsDisabled(FALSE);
+            AxoReadDigitalOutput_Task.Run();
             THIS.MC_ReadDigitalInput(AxisRef, 
                         AxoReadDigitalOutput_Task.IsSwitchedOn(),
                         _AxoReadDigitalOutput_OutputNumber,
@@ -1417,6 +1450,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_ACTUAL_POSITION*****
             AxoReadActualPosition_Task.SetIsDisabled(FALSE);
+            AxoReadActualPosition_Task.Run();
             THIS.MC_ReadActualPosition(AxisRef, 
                         AxoReadActualPosition_Task.IsSwitchedOn(),
                         AxoReadActualPosition_Valid,
@@ -1429,6 +1463,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_ACTUAL_VELOCITY*****
             AxoReadActualVelocity_Task.SetIsDisabled(FALSE);
+            AxoReadActualVelocity_Task.Run();
             THIS.MC_ReadActualVelocity(AxisRef, 
                         AxoReadActualVelocity_Task.IsSwitchedOn(),
                         AxoReadActualVelocity_Valid,
@@ -1441,6 +1476,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_ACTUAL_TORQUE*******
             AxoReadActualTorque_Task.SetIsDisabled(FALSE);
+            AxoReadActualTorque_Task.Run();
             THIS.MC_ReadActualTorque(AxisRef, 
                         AxoReadActualTorque_Task.IsSwitchedOn(),
                         AxoReadActualTorque_Valid,
@@ -1453,6 +1489,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_STATUS**************
             AxoReadStatus_Task.SetIsDisabled(FALSE);
+            AxoReadStatus_Task.Run();
             THIS.MC_ReadStatus(AxisRef, 
                         AxoReadStatus_Task.IsSwitchedOn(),
                         AxoReadStatus_Valid,
@@ -1472,6 +1509,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_MOTION_STATE********
             AxoReadMotionState_Task.SetIsDisabled(FALSE);
+            AxoReadMotionState_Task.Run();
             THIS.MC_ReadMotionState(AxisRef, 
                         AxoReadMotionState_Task.IsSwitchedOn(),
                         _AxoReadMotionState_Source,
@@ -1489,6 +1527,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_AXIS_INFO***********
             AxoReadAxisInfo_Task.SetIsDisabled(FALSE);
+            AxoReadAxisInfo_Task.Run();
             THIS.MC_ReadAxisInfo(AxisRef, 
                         AxoReadAxisInfo_Task.IsSwitchedOn(),
                         AxoReadAxisInfo_Valid,
@@ -1509,6 +1548,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
 
             //*************AXO_READ_AXIS_ERROR**********
             AxoReadAxisError_Task.SetIsDisabled(FALSE);
+            AxoReadAxisError_Task.Run();
             THIS.MC_ReadAxisError(AxisRef, 
                         AxoReadAxisError_Task.IsSwitchedOn(),
                         AxoReadAxisError_Valid,
@@ -1565,8 +1605,8 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
             VAR
                 _index : INT;
             END_VAR
-            // Status.Action.Id := UINT#0;
-            // Status.Error.Id  := UINT#0;
+            DriveStatus.Action.Id := UINT#0;
+            DriveStatus.Error.Id  := UINT#0;
             Messenger.Restore();
             TaskMessenger.Restore();
 
@@ -1598,7 +1638,7 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
             AxoReset_Task.Restore();
             // AxoJogPositive.Restore();
             // AxoJogNegative.Restore();
-
+            
             RestoreTask.DoneWhen(TRUE);
         END_METHOD
 
@@ -1696,6 +1736,8 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
             _AxoJog_Direction                       := AxoJog_Direction;
             _AxoJogInVelocity                       := AxoJogInVelocity;
             _AxoJog_Active                          := AxoJog_Active;
+            //************************************************
+            AxoPower_Task.Manual();
         END_METHOD
 
         ///<summary>
@@ -3228,4 +3270,3 @@ NAMESPACE AXOpen.Components.Abstractions.AxoDrives
         END_METHOD
     END_CLASS
 END_NAMESPACE
-

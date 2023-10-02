@@ -3,4 +3,11 @@
 
 <PageTitle>Testing</PageTitle>
 
-<RenderableContentControl Context="@Entry.Plc.sandbox" Presentation="Command-Control" PollingInterval="100"/>
+
+
+<div class="col">
+    <RenderableContentControl Context="@Entry.Plc.sandbox._testDrive._isManuallyControllable" Presentation="Display" />
+</div>
+
+<RenderableContentControl Context="@Entry.Plc.sandbox" Presentation="Command-Control" PollingInterval="100" />
+

@@ -11,11 +11,11 @@
     <PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Include=".g\**" />
+  </ItemGroup>
+  
 	<ItemGroup>
-		<Compile Include=".g\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\..\src\AXOpen.Components.Rexroth.Drives\ix_ax_axopen_components_rexroth_drives.csproj" />
-	</ItemGroup>
+    <ProjectReference Include="..\..\src\AXOpen.Components.Rexroth.Drives\ix_ax_axopen_components_rexroth_drives.csproj" />
+  </ItemGroup>
 </Project>
