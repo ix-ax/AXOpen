@@ -6,10 +6,10 @@
 
 # [.NET TWIN](#tab/twin)
 
-[!INCLUDE [.NET TWIN](../src/dotnetlibs/README.md)]
+[!INCLUDE [.NET TWIN](../src/projname/README.md)]
 
 # [BLAZOR](#tab/blazor)
 
-[!INCLUDE [.NET TWIN](../src/dotnetlibs.blazor/README.md)]
+[!INCLUDE [.NET TWIN](../src/projname.blazor/README.md)]
 
 ---

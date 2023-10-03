@@ -1,3 +1,3 @@
-[!INCLUDE [dotnetlibs](dotnetlibs/README.md)]
+[!INCLUDE [projname](projname/README.md)]
 
-[!INCLUDE [dotnetlibs.blazor](dotnetlibs.blazor/README.md)]
+[!INCLUDE [projname.blazor](projname.blazor/README.md)]

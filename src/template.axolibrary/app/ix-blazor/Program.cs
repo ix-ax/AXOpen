@@ -13,7 +13,7 @@ using AxOpen.Security;
 using Serilog;
 using AXOpen;
 using AXOpen.Logging;
-using librarytemplate;
+using projname;
 using Castle.Components.DictionaryAdapter.Xml;
 
 var builder = WebApplication.CreateBuilder(args);

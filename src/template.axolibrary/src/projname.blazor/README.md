@@ -1,5 +1,5 @@
 # Blazor
 
-[API](/api/dotnetlibs.blazor.html)
+[API](/api/projname.blazor.html)
 
 <!-- TODO: Additional information about partial extensions -->

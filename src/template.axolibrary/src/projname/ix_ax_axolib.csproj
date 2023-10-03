@@ -4,12 +4,12 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
     
-		<RootNamespace>dotnetlibs</RootNamespace>
+		<RootNamespace>projname</RootNamespace>
 
 		<!--NuGet Specific part-->
 		<Description>This library is part of AXOpen framework</Description>
-		<PackageId>dotnetlibs</PackageId>
-		<Title>AXOpen - librarytemplate</Title>
+		<PackageId>projname</PackageId>
+		<Title>AXOpen - projname</Title>
 
 		<!-- NuGet Common part-->
 		<PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>

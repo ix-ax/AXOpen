@@ -5,12 +5,12 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     
-	  <RootNamespace>dotnetlibs.Blazor</RootNamespace>
+	  <RootNamespace>projname.Blazor</RootNamespace>
 
 	  <!--NuGet Specific part-->
 	  <Description>This library is part of AXOpen framework</Description>
-	  <PackageId>dotnetlibs.Blazor</PackageId>
-	  <Title>AXOpen - librarytemplate</Title>
+	  <PackageId>projname.Blazor</PackageId>
+	  <Title>AXOpen - projname</Title>
 
 	  <!-- NuGet Common part-->
 	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
@@ -63,6 +63,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
-    <ProjectReference Include="..\dotnetlibs\ix_ax_axolib.csproj" />
+    <ProjectReference Include="..\projname\ix_ax_axolib.csproj" />
   </ItemGroup>
 </Project>
