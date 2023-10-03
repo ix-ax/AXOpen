@@ -1,1 +1,1 @@
-[!INCLUDE [General](README.md)]
+[!INCLUDE [General](../../../docfx/articles/notes/LIBRARYHEADER.md)]

@@ -1,9 +1,11 @@
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-        cylinder : Component;
+        compnentOne : Component_1;
+        compnentTwo : Component_2;
     END_VAR
    
     METHOD PROTECTED OVERRIDE Main
-        cylinder.Run(THIS);
+        compnentOne.Run(THIS);
+        compnentTwo.Run(THIS);
     END_METHOD
 END_CLASS

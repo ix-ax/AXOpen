@@ -1,7 +1,20 @@
-# Twin
+# projname
 
-There are no known extensions to this component in the respective .NET twin rapresentative.
+[!INCLUDE [General](../../docs/README.md)]
 
-[API](/api/projname.html)
+[!INCLUDE [General](../../../../docfx/articles/notes/NUGET_PACAKGE_GENERAL.md)]
+
+
+## .NET CLI
+
+~~~bash
+dotnet add package projname --version {axopen-version}
+~~~
+
+## Package reference
+
+~~~xml
+<PackageReference Include="projname" Version="{axopen-version}" />
+~~~
 
 <!-- TODO: Additional information about partial extensions -->

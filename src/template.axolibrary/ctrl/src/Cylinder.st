@@ -3,8 +3,8 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
 
-NAMESPACE AXOpen.Pneumatics
-    CLASS Cylinder EXTENDS AXOpen.Core.AxoComponent
+NAMESPACE AXOpen.Components.Example
+    CLASS ExampleCylinder EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}

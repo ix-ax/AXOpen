@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -40,8 +40,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" />
-		<PackageReference Include="AXSharp.Connector" />
+		<PackageReference Include="AXSharp.Abstractions"/>
+		<PackageReference Include="AXSharp.Connector"/>
 		<PackageReference Include="GitVersion.MsBuild">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
