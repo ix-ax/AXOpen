@@ -2,7 +2,6 @@
 
 # [CONTROLLER](#tab/controller)
 
-# How to use component in controller
 
 ## Declare component
 [!code-pascal[](../app/src/Documentation/Component_2.st?name=ComponentDeclaration)]
