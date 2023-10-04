@@ -1,4 +1,4 @@
-name: "ix_librarytemplate"
+name: "app_apaxappname"
 version: 0.0.0
 type: app
 targets:
@@ -11,7 +11,7 @@ devDependencies:
   "@ax/sdk": ^4.0.8
   "@ax/sld": 0.15.9
 dependencies:
-  "@ix-ax/axolib": '0.0.0-dev.0'
+  "@ix-ax/apaxlibname": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
 scripts:
   download:

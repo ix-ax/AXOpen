@@ -2,7 +2,6 @@
 
 **Additional Resources:**
 
-* [AXOpen Core Library](../../../src/core/README.md)
 * [AX# Official Documentation](https://ix-ax.github.io/axsharp/)
 * [UI Rendering Guide](../rendering/intro.md)
 

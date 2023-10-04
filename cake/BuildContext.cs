@@ -144,6 +144,7 @@ public class BuildContext : FrostingContext
         IsGitHubActions = context.EnvironmentVariable("GITHUB_ACTIONS") == "true";
     }
 
+    #region Libraries
     public IEnumerable<(string folder, string name, bool pack)> Libraries { get; } = new[]
     {
         ("abstractions", "axopen.abstractions", true),
@@ -162,7 +163,7 @@ public class BuildContext : FrostingContext
         ("templates.simple", "templates.simple", false),
         ("template.axolibrary", "template.axolibrary", false)
     };
-
+    #endregion
     
     public string GitHubUser { get; } = System.Environment.GetEnvironmentVariable("GH_USER");
     

@@ -7,7 +7,7 @@
 [![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/ix-ax/axsharp/blob/dev/LICENSE)
 
 ----
-WE ARE WORKING HARD HERE STAY TUNED FOR WHAT'S COMMING, STAR, FORK, WHAT THIS REPO.
+WE ARE WORKING HARD HERE STAY TUNED FOR WHAT'S COMMING...
 ----
 
 `AXOpen` (AXO), is an innovative application framework for industrial automation applications. This project leverages the capabilities of [SIMATIC AX](https://simatic-ax.siemens.io) and [AX#](https://github.com/ix-ax/axsharp), amalgamating their unique strengths to deliver a comprehensive solution.

@@ -7,6 +7,7 @@ dotnet ixd `
 .\src\components.cognex.vision\ctrl `
 .\src\components.pneumatics\ctrl `
 .\src\components.elements\ctrl `
+.\src\template.axolibrary\ctrl `
 -o .\docfx\apictrl\
 
 if ((Test-Path .\docs-test\)) {

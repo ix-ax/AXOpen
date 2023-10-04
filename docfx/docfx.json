@@ -11,7 +11,8 @@
             "inspectors/src/**.csproj",
             "components.cognex.vision/src/**.csproj",
             "components.pneumatics/src/**.csproj",
-            "components.elements/src/**.csproj"
+            "components.elements/src/**.csproj",
+            "template.axolibrary/src/**.csproj"
           ],
           "exclude": [
             "**Test*.csproj",

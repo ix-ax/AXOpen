@@ -1,20 +1,18 @@
+# @ix-ax/axlibname
 
-# How to use component in controller
+[!INCLUDE [General](../docs/README.md)]
 
-## Declare component
-[!code-pascal[](../app/src/Documentation/Component.st?name=ComponentDeclaration)]
+[!INCLUDE [General](../../../docfx/articles/notes/APAX_PACAKGE_GENERAL.md)]
 
-## Declare initialization variables
 
-*Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.*
+## Adding package to your project
+~~~bash
+apax add "@ix-ax/axlibname"
+~~~
 
-[!code-pascal[](../app/src/Documentation/Component.st?name=InitializationArgumentsDeclaration)]
+## Modifying your `apax.yml`
 
-## Initialize & Run
-
-[!code-pascal[](../app/src/Documentation/Component.st?name=Initialization)]
-
-[!INCLUDE [IntializeAndRun](../../../docfx/articles/notes/CYCLIC_UPDATE_NOTICE.md)]
-
-## Use
-[!code-pascal[](../app/src/Documentation/Component.st?name=Usage)]
+~~~yml
+dependencies:
+  "@ix-ax/axlibname": '{axopen-version}'  
+~~~
