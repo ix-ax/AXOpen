@@ -5,11 +5,17 @@
 		<Nullable>enable</Nullable>
 		<Packable>false</Packable>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0|AnyCPU'">
+	  <DefineConstants>$(DefineConstants);appconnectorname</DefineConstants>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0|AnyCPU'">
+	  <DefineConstants>$(DefineConstants);appconnectorname</DefineConstants>
+	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI"/>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
 	</ItemGroup>
 
 	<ItemGroup>
