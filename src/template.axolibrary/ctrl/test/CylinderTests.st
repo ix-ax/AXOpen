@@ -1,4 +1,4 @@
-USING AXOpen.Pneumatics;
+USING AXOpen.Components.Example;
 USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
@@ -54,7 +54,7 @@ NAMESPACE Cylinder.Tests
     CLASS CylinderTests 
         VAR 
             context : TestContext;
-            cylinder : Cylinder;
+            cylinder : ExampleCylinder;
             _homeSensor : BOOL;
             _workSensor : BOOL;
             _moveHomeSignal : BOOL;

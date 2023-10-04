@@ -25,9 +25,9 @@
       "type": "parameter",
       "description": ".NET name",
       "datatype": "text",
-      "defaultValue": "dotnetlibs",
-      "replaces": "dotnetlibs",
-      "fileRename" : "dotnetlibs"
+      "defaultValue": "projname",
+      "replaces": "projname",
+      "fileRename" : "projname"
     },     
     "axlibname":{
       "type": "generated",
@@ -48,8 +48,40 @@
       "replaces": "librarytemplate",
       "fileRename": "librarytemplate",
       "description": "A value derived from the 'axlibname' prop, used to rename librarytemplate"
-    },    
+    }, 
+    "apaxlibname": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source":"projname",
+        "toLower": true
+      },
+      "defaultValue": "apaxlibname",
+      "replaces": "apaxlibname"
+    },   
+    "apaxappname": {
+      "type": "generated",
+      "generator": "casing",
+      "parameters": {
+        "source":"projname",
+        "toLower": true
+      },
+      "defaultValue": "apaxappname",
+      "replaces": "apaxappname"
+    },  
+    "appconnectorname": {
+      "type": "derived",
+      "valueSource": "axlibname",
+      "valueTransform": "ReplaceDotsInFileName",
+      "datatype": "text",
+      "defaultValue": "appconnectorname",
+      "replaces": "appconnectorname",
+      "fileRename": "appconnectorname",
+      "description": "AX# connector name for testing application."
+    },
     "renameDotNetTwinCsProjFileName": {
+      "include" : "*.csproj",
+      "exclude" : "apax.yml",
       "type": "derived",  
       "valueSource": "axlibname",  
       "valueTransform": "ReplaceDotsInFileName",  
@@ -57,7 +89,8 @@
       "description": "A value derived from the 'name' param, used to rename Application1.cs"
     },
     "renameDotNetTwinCsProjReferences": {
-      "include" : "*.csproj",  
+      "include" : "*.csproj",
+      "exclude" : "apax.yml", 
       "type": "derived",  
       "valueSource": "axlibname",  
       "valueTransform": "ReplaceDotsInFileName",  
