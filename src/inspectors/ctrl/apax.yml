@@ -5,6 +5,7 @@ targets:
   - axunit-llvm
 files:
   - src
+  - axsharp.companion.json
 devDependencies:
   "@ax/sdk": ^4.0.8
   "@ax/stc": ^5.4.89  

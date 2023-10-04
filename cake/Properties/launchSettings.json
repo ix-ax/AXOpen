@@ -27,6 +27,10 @@
     "no-build-test-L3": {
       "commandName": "Project",
       "commandLineArgs": "--do-test --test-level 10 --skip-build"
+    },
+    "build": {
+      "commandName": "Project",
+      "commandLineArgs": ""
     }
   }
 }
