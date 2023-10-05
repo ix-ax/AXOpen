@@ -8,8 +8,8 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>		
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />		
 	</ItemGroup>
 
 	<ItemGroup>
@@ -25,6 +25,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
 	  <ProjectReference Include="..\..\..\base\src\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />	  
 	</ItemGroup>
 
 	<ItemGroup>

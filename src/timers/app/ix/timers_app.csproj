@@ -6,11 +6,16 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Compile Include=".g\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
 	</ItemGroup>
 </Project>

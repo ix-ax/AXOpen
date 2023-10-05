@@ -12,7 +12,7 @@
 	  <ProjectReference Include="probers\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
 	  <ProjectReference Include="security\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/> 
 	  <ProjectReference Include="simatic1500\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>
-	  <ProjectReference Include="timers\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>
+	  <ProjectReference Include="timers\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>	
 	  <ProjectReference Include="utils\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>
 	</ItemGroup>
 </Project>

@@ -3,13 +3,13 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<Packable>false</Packable>
+		<PackageId>AXOpen.Timers</PackageId>
+		<RootNamespace>AXOpen.Timers</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="AXSharp.Abstractions" />
 		<PackageReference Include="AXSharp.Connector" />
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -17,7 +17,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
-	  <ProjectReference Include="..\..\src\AXOpen.Probers\ix_ax_axopen_probers.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
 	</ItemGroup>
 </Project>

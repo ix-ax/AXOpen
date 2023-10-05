@@ -39,8 +39,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
 		<PackageReference Include="GitVersion.MsBuild">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -79,5 +79,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
 	</ItemGroup>
 </Project>
