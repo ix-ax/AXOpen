@@ -1,0 +1,456 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Example.ExampleCylinder
+  id: plc.AXOpen.Components.Example.ExampleCylinder
+  parent: plc.AXOpen.Components.Example
+  children:
+  - plc.AXOpen.Components.Example.ExampleCylinder.MoveToWork
+  - plc.AXOpen.Components.Example.ExampleCylinder.MoveToHome
+  - plc.AXOpen.Components.Example.ExampleCylinder.Stop
+  - plc.AXOpen.Components.Example.ExampleCylinder._HomeSensor
+  - plc.AXOpen.Components.Example.ExampleCylinder._WorkSensor
+  - plc.AXOpen.Components.Example.ExampleCylinder._MoveHomeSignal
+  - plc.AXOpen.Components.Example.ExampleCylinder._MoveWorkSignal
+  - plc.AXOpen.Components.Example.ExampleCylinder._MoveToWorkNotReached
+  - plc.AXOpen.Components.Example.ExampleCylinder._MoveToHomeNotReached
+  - plc.AXOpen.Components.Example.ExampleCylinder.Run(IAxoObject,BOOL,BOOL)
+  - plc.AXOpen.Components.Example.ExampleCylinder.Run(IAxoContext,BOOL,BOOL)
+  - plc.AXOpen.Components.Example.ExampleCylinder.ManualControl()
+  - plc.AXOpen.Components.Example.ExampleCylinder.Restore()
+  name: ExampleCylinder
+  fullName: ExampleCylinder
+  type: Class
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: CLASS ExampleCylinder
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.Open()
+  - plc.AXOpen.Core.AxoComponent.Run()
+  - plc.AXOpen.Core.AxoComponent.Close()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Example.ExampleCylinder.MoveToWork
+  id: plc.AXOpen.Components.Example.ExampleCylinder.MoveToWork
+  parent: AXOpen.Components.Example
+  children: []
+  name: MoveToWork
+  fullName: MoveToWork
+  type: Property
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder.MoveToWork
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: 'MoveToWork : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Example.ExampleCylinder.MoveToHome
+  id: plc.AXOpen.Components.Example.ExampleCylinder.MoveToHome
+  parent: AXOpen.Components.Example
+  children: []
+  name: MoveToHome
+  fullName: MoveToHome
+  type: Property
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder.MoveToHome
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: 'MoveToHome : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Example.ExampleCylinder.Stop
+  id: plc.AXOpen.Components.Example.ExampleCylinder.Stop
+  parent: AXOpen.Components.Example
+  children: []
+  name: Stop
+  fullName: Stop
+  type: Property
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder.Stop
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: 'Stop : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Example.ExampleCylinder._HomeSensor
+  id: plc.AXOpen.Components.Example.ExampleCylinder._HomeSensor
+  parent: AXOpen.Components.Example
+  children: []
+  name: _HomeSensor
+  fullName: _HomeSensor
+  type: Property
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder._HomeSensor
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: '_HomeSensor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Example.ExampleCylinder._WorkSensor
+  id: plc.AXOpen.Components.Example.ExampleCylinder._WorkSensor
+  parent: AXOpen.Components.Example
+  children: []
+  name: _WorkSensor
+  fullName: _WorkSensor
+  type: Property
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder._WorkSensor
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 23
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: '_WorkSensor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Example.ExampleCylinder._MoveHomeSignal
+  id: plc.AXOpen.Components.Example.ExampleCylinder._MoveHomeSignal
+  parent: AXOpen.Components.Example
+  children: []
+  name: _MoveHomeSignal
+  fullName: _MoveHomeSignal
+  type: Property
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder._MoveHomeSignal
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: '_MoveHomeSignal : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Example.ExampleCylinder._MoveWorkSignal
+  id: plc.AXOpen.Components.Example.ExampleCylinder._MoveWorkSignal
+  parent: AXOpen.Components.Example
+  children: []
+  name: _MoveWorkSignal
+  fullName: _MoveWorkSignal
+  type: Property
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder._MoveWorkSignal
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: '_MoveWorkSignal : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Example.ExampleCylinder._MoveToWorkNotReached
+  id: plc.AXOpen.Components.Example.ExampleCylinder._MoveToWorkNotReached
+  parent: AXOpen.Components.Example
+  children: []
+  name: _MoveToWorkNotReached
+  fullName: _MoveToWorkNotReached
+  type: Property
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder._MoveToWorkNotReached
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: '_MoveToWorkNotReached : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Example.ExampleCylinder._MoveToHomeNotReached
+  id: plc.AXOpen.Components.Example.ExampleCylinder._MoveToHomeNotReached
+  parent: AXOpen.Components.Example
+  children: []
+  name: _MoveToHomeNotReached
+  fullName: _MoveToHomeNotReached
+  type: Property
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder._MoveToHomeNotReached
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: '_MoveToHomeNotReached : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Example.ExampleCylinder.Run(IAxoObject,BOOL,BOOL)
+  id: plc.AXOpen.Components.Example.ExampleCylinder.Run(IAxoObject,BOOL,BOOL)
+  parent: AXOpen.Components.Example.ExampleCylinder
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder.Run
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Example
+  summary: Runs tasks and logic of this component.>[!IMPORTANT] This method must or one of its overloads be called cyclically.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject parent,in plc.BOOL homeSensor,in plc.BOOL workSensor)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: homeSensor
+      type: plc.BOOL
+    - id: workSensor
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Example.ExampleCylinder.Run(IAxoContext,BOOL,BOOL)
+  id: plc.AXOpen.Components.Example.ExampleCylinder.Run(IAxoContext,BOOL,BOOL)
+  parent: AXOpen.Components.Example.ExampleCylinder
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder.Run
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 72
+  namespace: plc.AXOpen.Components.Example
+  summary: Runs tasks and logic of this component.>[!IMPORTANT] This method must or one of its overloads be called cyclically.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoContext context,in plc.BOOL homeSensor,in plc.BOOL workSensor)
+    parameters:
+    - id: context
+      type: plc.AXOpen.Core.IAxoContext
+    - id: homeSensor
+      type: plc.BOOL
+    - id: workSensor
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Example.ExampleCylinder.ManualControl()
+  id: plc.AXOpen.Components.Example.ExampleCylinder.ManualControl()
+  parent: AXOpen.Components.Example.ExampleCylinder
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder.ManualControl
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 131
+  namespace: plc.AXOpen.Components.Example
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Example.ExampleCylinder.Restore()
+  id: plc.AXOpen.Components.Example.ExampleCylinder.Restore()
+  parent: AXOpen.Components.Example.ExampleCylinder
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Example.ExampleCylinder.Restore
+    path: .\src\template.axolibrary\ctrl\src\ExampleCylinder.st
+    startLine: 138
+  namespace: plc.AXOpen.Components.Example
+  summary: Restores this component into intial state.
+  syntax:
+    content: Protected AXOpen.Core.IAxoTask Restore()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTask
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  name: CheckIfManualControlIsActivated()
+  nameWithType: CheckIfManualControlIsActivated()
+  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+- uid: plc.AXOpen.Core.AxoComponent.Open()
+  commentId: plc.AXOpen.Core.AxoComponent.Open()
+  name: Open()
+  nameWithType: Open()
+  fullName: plc.AXOpen.Core.AxoComponent.Open()
+  parent: plc.AXOpen.Core.AxoComponent.Open()
+- uid: plc.AXOpen.Core.AxoComponent.Run()
+  commentId: plc.AXOpen.Core.AxoComponent.Run()
+  name: Run()
+  nameWithType: Run()
+  fullName: plc.AXOpen.Core.AxoComponent.Run()
+  parent: plc.AXOpen.Core.AxoComponent.Run()
+- uid: plc.AXOpen.Core.AxoComponent.Close()
+  commentId: plc.AXOpen.Core.AxoComponent.Close()
+  name: Close()
+  nameWithType: Close()
+  fullName: plc.AXOpen.Core.AxoComponent.Close()
+  parent: plc.AXOpen.Core.AxoComponent.Close()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.IAxoTask
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: AXOpen.Core.IAxoTask
+
+

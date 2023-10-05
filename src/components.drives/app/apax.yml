@@ -1,0 +1,22 @@
+name: "app_axopen.components.drives"
+version: 0.0.0
+type: app
+targets:
+  - plcsim
+  - axunit-llvm
+variables:
+  APAX_BUILD_ARGS:
+    - "--debug" # Generate debug information for target "1500"
+devDependencies:
+  "@ax/sdk": ^4.0.8
+  "@ax/sld": 0.15.9
+dependencies:
+  "@ix-ax/axopen.components.drives": '0.0.0-dev.0'
+  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
+scripts:
+  download:
+    - apax install -L
+    - apax build
+    - dotnet ixc
+    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
+      --accept-security-disclaimer --default-server-interface -r

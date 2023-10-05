@@ -1,0 +1,50 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Rtc.IAxoRtc
+  id: plc.AXOpen.Rtc.IAxoRtc
+  parent: plc.AXOpen.Rtc
+  children:
+  - plc.AXOpen.Rtc.IAxoRtc.NowUTC()
+  name: IAxoRtc
+  fullName: IAxoRtc
+  type: Interface
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Rtc.IAxoRtc
+    path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
+    startLine: 1
+  namespace: plc.AXOpen.Rtc
+  syntax:
+    content: INTERFACE IAxoRtc
+  implements: []
+- uid: plc.AXOpen.Rtc.IAxoRtc.NowUTC()
+  id: plc.AXOpen.Rtc.IAxoRtc.NowUTC
+  parent: IAxoRtc
+  children: []
+  name: NowUTC
+  fullName: NowUTC
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Rtc.IAxoRtc.NowUTC
+    path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
+    startLine: 2
+  namespace: plc.AXOpen.Rtc
+  syntax:
+    content: Public LDATE_AND_TIME NowUTC()
+    parameters: []
+    return:
+      type: plc.LDATE_AND_TIME
+references:
+- uid: plc.LDATE_AND_TIME
+  name: LDATE_AND_TIME
+  nameWithType: LDATE_AND_TIME
+  fullName: LDATE_AND_TIME
+
+

@@ -1,0 +1,249 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.AxoComprehensiveResult.Result
+  - plc.AXOpen.Inspectors.AxoComprehensiveResult.Failures
+  - plc.AXOpen.Inspectors.AxoComprehensiveResult.ErrorCodes
+  - plc.AXOpen.Inspectors.AxoComprehensiveResult.GetResult()
+  - plc.AXOpen.Inspectors.AxoComprehensiveResult.GetFailures()
+  - plc.AXOpen.Inspectors.AxoComprehensiveResult.GetErrorCodes()
+  - plc.AXOpen.Inspectors.AxoComprehensiveResult.SetResult(eOverallResult)
+  - plc.AXOpen.Inspectors.AxoComprehensiveResult.SetFailures(STRING)
+  - plc.AXOpen.Inspectors.AxoComprehensiveResult.SetErrorCodes(STRING)
+  name: AxoComprehensiveResult
+  fullName: AxoComprehensiveResult
+  type: Class
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 7
+  namespace: plc.AXOpen.Inspectors
+  summary: Class for gathering overall result of single or multiple inspectionsOnly fail results are automatically written to comprehensive resultApplication programmer must specify, what is a correct result
+  syntax:
+    content: CLASS AxoComprehensiveResult
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Inspectors.IAxoComprehensiveResult
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult.Result
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult.Result
+  parent: AXOpen.Inspectors
+  children: []
+  name: Result
+  fullName: Result
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult.Result
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 10
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'Result : AXOpen.Inspectors.eOverallResult'
+    return:
+      type: AXOpen.Inspectors.eOverallResult
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult.Failures
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult.Failures
+  parent: AXOpen.Inspectors
+  children: []
+  name: Failures
+  fullName: Failures
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult.Failures
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 12
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'Failures : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult.ErrorCodes
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult.ErrorCodes
+  parent: AXOpen.Inspectors
+  children: []
+  name: ErrorCodes
+  fullName: ErrorCodes
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult.ErrorCodes
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 14
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'ErrorCodes : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult.GetResult()
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult.GetResult()
+  parent: AXOpen.Inspectors.AxoComprehensiveResult
+  children: []
+  name: GetResult
+  fullName: GetResult
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult.GetResult
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 19
+  namespace: plc.AXOpen.Inspectors
+  summary: Get the overall result
+  syntax:
+    content: Public AXOpen.Inspectors.eOverallResult GetResult()
+    parameters: &o1 []
+    return:
+      type: plc.AXOpen.Inspectors.eOverallResult
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult.GetFailures()
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult.GetFailures()
+  parent: AXOpen.Inspectors.AxoComprehensiveResult
+  children: []
+  name: GetFailures
+  fullName: GetFailures
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult.GetFailures
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 28
+  namespace: plc.AXOpen.Inspectors
+  summary: 'Get FailuresTODO: not implemented yet'
+  syntax:
+    content: Public STRING GetFailures()
+    parameters: *o1
+    return:
+      type: plc.STRING
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult.GetErrorCodes()
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult.GetErrorCodes()
+  parent: AXOpen.Inspectors.AxoComprehensiveResult
+  children: []
+  name: GetErrorCodes
+  fullName: GetErrorCodes
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult.GetErrorCodes
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 36
+  namespace: plc.AXOpen.Inspectors
+  summary: 'Get error codesTODO: not implemented yet'
+  syntax:
+    content: Public STRING GetErrorCodes()
+    parameters: *o1
+    return:
+      type: plc.STRING
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult.SetResult(eOverallResult)
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult.SetResult(eOverallResult)
+  parent: AXOpen.Inspectors.AxoComprehensiveResult
+  children: []
+  name: SetResult
+  fullName: SetResult
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult.SetResult
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 44
+  namespace: plc.AXOpen.Inspectors
+  summary: Set overall result
+  syntax:
+    content: Public VOID SetResult(in plc.AXOpen.Inspectors.eOverallResult inResult)
+    parameters:
+    - id: inResult
+      type: plc.AXOpen.Inspectors.eOverallResult
+    return:
+      type: VOID
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult.SetFailures(STRING)
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult.SetFailures(STRING)
+  parent: AXOpen.Inspectors.AxoComprehensiveResult
+  children: []
+  name: SetFailures
+  fullName: SetFailures
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult.SetFailures
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 56
+  namespace: plc.AXOpen.Inspectors
+  summary: Set failures
+  syntax:
+    content: Public VOID SetFailures(in plc.STRING inFailures)
+    parameters:
+    - id: inFailures
+      type: plc.STRING
+    return:
+      type: VOID
+- uid: plc.AXOpen.Inspectors.AxoComprehensiveResult.SetErrorCodes(STRING)
+  id: plc.AXOpen.Inspectors.AxoComprehensiveResult.SetErrorCodes(STRING)
+  parent: AXOpen.Inspectors.AxoComprehensiveResult
+  children: []
+  name: SetErrorCodes
+  fullName: SetErrorCodes
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoComprehensiveResult.SetErrorCodes
+    path: .\src\inspectors\ctrl\src\AxoComprehensiveResult.st
+    startLine: 67
+  namespace: plc.AXOpen.Inspectors
+  summary: Set error codes
+  syntax:
+    content: Public VOID SetErrorCodes(in plc.STRING inErrorCodes)
+    parameters:
+    - id: inErrorCodes
+      type: plc.STRING
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+  commentId: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+  name: IAxoComprehensiveResult
+  nameWithType: IAxoComprehensiveResult
+  fullName: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+  parent: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+- uid: plc.AXOpen.Inspectors.eOverallResult
+  name: eOverallResult
+  nameWithType: eOverallResult
+  fullName: AXOpen.Inspectors.eOverallResult
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+
+

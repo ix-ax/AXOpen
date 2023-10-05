@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AXSharp.Connector.S71500.WebApi;
 
-namespace axopencomponentsrexrothdrives
+namespace AXOpen.Components.Rexroth.Drives
 {
     public static class Entry
     {
@@ -15,7 +15,7 @@ namespace axopencomponentsrexrothdrives
         private const string Pass = ""; // <- Pass in the password that you have set up for the user. NOT AS PLAIN TEXT! Use user secrets instead.
         private const bool IgnoreSslErrors = true; // <- When you have your certificates in order set this to false.
 
-        public static ix_axopencomponentsrexrothdrivesTwinController Plc { get; }
+        public static app_axopen_components_rexroth_drivesTwinController Plc { get; }
             = new(ConnectorAdapterBuilder.Build()
                 .CreateWebApi(TargetIp, UserName, Pass, IgnoreSslErrors));
     }

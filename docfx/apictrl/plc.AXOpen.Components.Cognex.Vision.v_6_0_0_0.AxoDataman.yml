@@ -1,0 +1,992 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._Messenger
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._TaskMessenger
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateInputs(REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateOutputs(REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.IsValidReferences(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading(REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Open()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoObject,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoContext,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Execute(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Close()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read()
+  name: AxoDataman
+  fullName: AxoDataman
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: CLASS AxoDataman
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.Open()
+  - plc.AXOpen.Core.AxoComponent.Run()
+  - plc.AXOpen.Core.AxoComponent.Close()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ReadTask
+  fullName: ReadTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ReadTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ReadTask : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanRead'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanRead
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultData
+  fullName: ResultData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultData
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultData : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.RestoreTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ClearResultDataTask
+  fullName: ClearResultDataTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultDataTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ClearResultDataTask : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Config
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Config : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Status
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Status : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Results
+  fullName: Results
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Results
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 37
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Results : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: AcquisitionControl
+  fullName: AcquisitionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'AcquisitionControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: AcquisitionStatus
+  fullName: AcquisitionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.AcquisitionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 52
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'AcquisitionStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultsControl
+  fullName: ResultsControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 59
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultsControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultsStatus
+  fullName: ResultsStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ResultsStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 66
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultsStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: SoftEventControl
+  fullName: SoftEventControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 74
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'SoftEventControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: SoftEventStatus
+  fullName: SoftEventStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.SoftEventStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 81
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'SoftEventStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: User
+  fullName: User
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.User
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 88
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'User : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: UserData
+  fullName: UserData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UserData
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 96
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'UserData : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._Messenger
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._Messenger
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _Messenger
+  fullName: _Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._Messenger
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 101
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._TaskMessenger
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._TaskMessenger
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _TaskMessenger
+  fullName: _TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman._TaskMessenger
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 103
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Restore
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 109
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Restores this instance to its initial state.
+  syntax:
+    content: Protected AXOpen.Core.IAxoTask Restore()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ManualControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 164
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Custom logic for the manual control.
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateInputs(REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateInputs(REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: UpdateInputs
+  fullName: UpdateInputs
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateInputs
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 166
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private BOOL UpdateInputs(in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refResultsStatus,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData)
+    parameters:
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refResultsStatus
+      type: plc.REF_TO BYTE
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateOutputs(REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateOutputs(REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: UpdateOutputs
+  fullName: UpdateOutputs
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.UpdateOutputs
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 240
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private BOOL UpdateOutputs(in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO BYTE refResultsControl,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refResultsControl
+      type: plc.REF_TO BYTE
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.IsValidReferences(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.IsValidReferences(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: IsValidReferences
+  fullName: IsValidReferences
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.IsValidReferences
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 303
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private BOOL IsValidReferences(in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refResultsControl,in plc.REF_TO BYTE refResultsStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refResultsControl
+      type: plc.REF_TO BYTE
+    - id: refResultsStatus
+      type: plc.REF_TO BYTE
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading(REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading(REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: ContinuousReading
+  fullName: ContinuousReading
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ContinuousReading
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 345
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private VOID ContinuousReading(in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status refStatus,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results refResults,in plc.REF_TO ARRAY [*] OF BYTE refResultData)
+    parameters:
+    - id: refStatus
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+    - id: refResults
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Open()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Open()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Open
+  fullName: Open
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Open
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 383
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Custom component logic running before any other component logic.
+  syntax:
+    content: Protected VOID Open()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoObject,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoObject,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 391
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Runs tasks and logic of this component.>[!IMPORTANT] This method or one of its overloads must be called cyclically.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject parent,in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refResultsControl,in plc.REF_TO BYTE refResultsStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refResultsControl
+      type: plc.REF_TO BYTE
+    - id: refResultsStatus
+      type: plc.REF_TO BYTE
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoContext,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run(IAxoContext,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Run
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 424
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Runs tasks and logic of this component.>[!IMPORTANT] This method or one of its overloads must be called cyclically.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoContext parent,in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refResultsControl,in plc.REF_TO BYTE refResultsStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoContext
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refResultsControl
+      type: plc.REF_TO BYTE
+    - id: refResultsStatus
+      type: plc.REF_TO BYTE
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Execute(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Execute(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Execute
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 456
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private VOID Execute(in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refResultsControl,in plc.REF_TO BYTE refResultsStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refResultsControl
+      type: plc.REF_TO BYTE
+    - id: refResultsStatus
+      type: plc.REF_TO BYTE
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Close()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Close()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Close
+  fullName: Close
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Close
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 511
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Custom component logic running after any other component logic.
+  syntax:
+    content: Protected VOID Close()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: ClearResultData
+  fullName: ClearResultData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.ClearResultData
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 511
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Clears the result data.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearResultData()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman.Read
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\AxoDataman.st
+    startLine: 511
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Triggers the reading sequence and waits for results.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  name: CheckIfManualControlIsActivated()
+  nameWithType: CheckIfManualControlIsActivated()
+  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+- uid: plc.AXOpen.Core.AxoComponent.Open()
+  commentId: plc.AXOpen.Core.AxoComponent.Open()
+  name: Open()
+  nameWithType: Open()
+  fullName: plc.AXOpen.Core.AxoComponent.Open()
+  parent: plc.AXOpen.Core.AxoComponent.Open()
+- uid: plc.AXOpen.Core.AxoComponent.Run()
+  commentId: plc.AXOpen.Core.AxoComponent.Run()
+  name: Run()
+  nameWithType: Run()
+  fullName: plc.AXOpen.Core.AxoComponent.Run()
+  parent: plc.AXOpen.Core.AxoComponent.Run()
+- uid: plc.AXOpen.Core.AxoComponent.Close()
+  commentId: plc.AXOpen.Core.AxoComponent.Close()
+  name: Close()
+  nameWithType: Close()
+  fullName: plc.AXOpen.Core.AxoComponent.Close()
+  parent: plc.AXOpen.Core.AxoComponent.Close()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  commentId: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  name: IAxoCodeReader
+  nameWithType: IAxoCodeReader
+  fullName: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  parent: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanRead
+  name: AxoDatamanRead
+  nameWithType: AxoDatamanRead
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanRead
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData
+  name: AxoDataman_ResultData
+  nameWithType: AxoDataman_ResultData
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData
+  name: AxoDatamanClearResultData
+  nameWithType: AxoDatamanClearResultData
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+  name: AxoDataman_Config
+  nameWithType: AxoDataman_Config
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+  name: AxoDataman_Status
+  nameWithType: AxoDataman_Status
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+  name: AxoDataman_Results
+  nameWithType: AxoDataman_Results
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl
+  name: AxoDataman_AcquisitionControl
+  nameWithType: AxoDataman_AcquisitionControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+  name: AxoDataman_AcquisitionStatus
+  nameWithType: AxoDataman_AcquisitionStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl
+  name: AxoDataman_ResultsControl
+  nameWithType: AxoDataman_ResultsControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+  name: AxoDataman_ResultsStatus
+  nameWithType: AxoDataman_ResultsStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl
+  name: AxoDataman_SoftEventControl
+  nameWithType: AxoDataman_SoftEventControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+  name: AxoDataman_SoftEventStatus
+  nameWithType: AxoDataman_SoftEventStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User
+  name: AxoDataman_User
+  nameWithType: AxoDataman_User
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData
+  name: AxoDataman_UserData
+  nameWithType: AxoDataman_UserData
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.IAxoTask
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: AXOpen.Core.IAxoTask
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.REF_TO ARRAY [0..2] OF BYTE
+  name: REF_TO ARRAY [0..2] OF BYTE
+  nameWithType: REF_TO ARRAY [0..2] OF BYTE
+  fullName: REF_TO ARRAY [0..2] OF BYTE
+- uid: plc.REF_TO BYTE
+  name: REF_TO BYTE
+  nameWithType: REF_TO BYTE
+  fullName: REF_TO BYTE
+- uid: plc.REF_TO ARRAY [*] OF BYTE
+  name: REF_TO ARRAY [*] OF BYTE
+  nameWithType: REF_TO ARRAY [*] OF BYTE
+  fullName: REF_TO ARRAY [*] OF BYTE
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

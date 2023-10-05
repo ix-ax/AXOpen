@@ -2,7 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
-NAMESPACE AXOpen.Components.Abstractions.AxoDrives
+NAMESPACE AXOpen.Components.Abstractions.Drives
     INTERFACE IAxo_Power EXTENDS AXOpen.Core.IAxoToggleTask
         ///<summary>
         /// Returns `TRUE` if movement to positive direction is enabled

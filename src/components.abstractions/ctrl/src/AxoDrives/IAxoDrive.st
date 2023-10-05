@@ -1,5 +1,5 @@
 USING AXOpen.Core;
-NAMESPACE AXOpen.Components.Abstractions.AxoDrives
+NAMESPACE AXOpen.Components.Abstractions.Drives
     INTERFACE PUBLIC IAxoDrive
         // METHOD MC_Power 
         //     VAR_IN_OUT

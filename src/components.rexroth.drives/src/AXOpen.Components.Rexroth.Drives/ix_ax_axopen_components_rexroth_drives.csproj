@@ -9,7 +9,7 @@
 		<!--NuGet Specific part-->
 		<Description>This library is part of AXOpen framework</Description>
 		<PackageId>AXOpen.Components.Rexroth.Drives</PackageId>
-		<Title>AXOpen - axopencomponentsrexrothdrives</Title>
+		<Title>AXOpen - AXOpen.Components.Rexroth.Drives</Title>
 
 		<!-- NuGet Common part-->
 		<PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
@@ -39,27 +39,16 @@
 	  <Content Include=".meta\**" />
 	</ItemGroup>
 
-	<!--<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions" Version="0.14.2-alpha.135" />
-		<PackageReference Include="AXSharp.Connector" Version="0.14.2-alpha.135" />
-		<PackageReference Include="GitVersion.MsBuild" Version="5.10.3">
+	<ItemGroup>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+		<PackageReference Include="GitVersion.MsBuild">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-	</ItemGroup>-->
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="AXSharp.Abstractions" />
-    <PackageReference Include="AXSharp.Connector" />
-    <PackageReference Include="GitVersion.MsBuild">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-  </ItemGroup>
-
-
-
-  <ItemGroup>
+	<ItemGroup>
 	  <Compile Update="Resources\PlcStringResources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
@@ -90,7 +79,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\components.drives\src\AXOpen.Components.Drives\ix_ax_axopen_components_drives.csproj" />
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
-  </ItemGroup>
+	</ItemGroup>
 </Project>

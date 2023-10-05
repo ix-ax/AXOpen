@@ -10,7 +10,7 @@
 	  <!--NuGet Specific part-->
 	  <Description>This library is part of AXOpen framework</Description>
 	  <PackageId>AXOpen.Components.Rexroth.Drives.Blazor</PackageId>
-	  <Title>AXOpen - axopencomponentsrexrothdrives</Title>
+	  <Title>AXOpen - AXOpen.Components.Rexroth.Drives</Title>
 
 	  <!-- NuGet Common part-->
 	  <PackageProjectUrl>https://github.com/ix-ax/</PackageProjectUrl>
@@ -41,21 +41,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="GitVersion.MsBuild">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="AXSharp.Presentation.Blazor"/>
-    <PackageReference Include="AXSharp.Presentation.Blazor.Controls"/>
-    <PackageReference Include="Humanizer"/>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web"/>
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client"/>
-
+	<FrameworkReference Include="Microsoft.AspNetCore.App" />  
+	<PackageReference Include="AXSharp.Presentation.Blazor" />
+    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
+    <PackageReference Include="Humanizer" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
+	  
   </ItemGroup>
 
-
-  <ItemGroup>
+	<ItemGroup>
 		<None Include="..\..\..\..\assets\icons\icon_128_128.png">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
@@ -67,6 +62,7 @@
 	</ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\components.drives\src\AXOpen.Components.Drives.blazor\AXOpen.Components.Drives.blazor.csproj" />
     <ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\AXOpen.Components.Rexroth.Drives\ix_ax_axopen_components_rexroth_drives.csproj" />
   </ItemGroup>

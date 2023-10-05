@@ -1,0 +1,232 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core._NULL_CONTEXT
+  id: plc.AXOpen.Core._NULL_CONTEXT
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core._NULL_CONTEXT.NULL_RTC
+  - plc.AXOpen.Core._NULL_CONTEXT.NULL_LOGGER
+  - plc.AXOpen.Core._NULL_CONTEXT.CreateIdentity()
+  - plc.AXOpen.Core._NULL_CONTEXT.OpenCycleCount()
+  - plc.AXOpen.Core._NULL_CONTEXT.GetRtc()
+  - plc.AXOpen.Core._NULL_CONTEXT.InjectRtc(IAxoRtc)
+  - plc.AXOpen.Core._NULL_CONTEXT.GetLogger()
+  - plc.AXOpen.Core._NULL_CONTEXT.InjectLogger(IAxoLogger)
+  name: _NULL_CONTEXT
+  fullName: _NULL_CONTEXT
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_CONTEXT
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  summary: Provides an empty context for uninitialized objects.
+  syntax:
+    content: CLASS _NULL_CONTEXT
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core._NULL_CONTEXT.NULL_RTC
+  id: plc.AXOpen.Core._NULL_CONTEXT.NULL_RTC
+  parent: AXOpen.Core
+  children: []
+  name: NULL_RTC
+  fullName: NULL_RTC
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_CONTEXT.NULL_RTC
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 9
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'NULL_RTC : AXOpen.Core._NULL_RTC'
+    return:
+      type: AXOpen.Core._NULL_RTC
+- uid: plc.AXOpen.Core._NULL_CONTEXT.NULL_LOGGER
+  id: plc.AXOpen.Core._NULL_CONTEXT.NULL_LOGGER
+  parent: AXOpen.Core
+  children: []
+  name: NULL_LOGGER
+  fullName: NULL_LOGGER
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_CONTEXT.NULL_LOGGER
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 10
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'NULL_LOGGER : AXOpen.Core._NULL_LOGGER'
+    return:
+      type: AXOpen.Core._NULL_LOGGER
+- uid: plc.AXOpen.Core._NULL_CONTEXT.CreateIdentity()
+  id: plc.AXOpen.Core._NULL_CONTEXT.CreateIdentity()
+  parent: AXOpen.Core._NULL_CONTEXT
+  children: []
+  name: CreateIdentity
+  fullName: CreateIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_CONTEXT.CreateIdentity
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 13
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT CreateIdentity()
+    parameters: &o1 []
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core._NULL_CONTEXT.OpenCycleCount()
+  id: plc.AXOpen.Core._NULL_CONTEXT.OpenCycleCount()
+  parent: AXOpen.Core._NULL_CONTEXT
+  children: []
+  name: OpenCycleCount
+  fullName: OpenCycleCount
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_CONTEXT.OpenCycleCount
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 14
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT OpenCycleCount()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core._NULL_CONTEXT.GetRtc()
+  id: plc.AXOpen.Core._NULL_CONTEXT.GetRtc()
+  parent: AXOpen.Core._NULL_CONTEXT
+  children: []
+  name: GetRtc
+  fullName: GetRtc
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_CONTEXT.GetRtc
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 15
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Rtc.IAxoRtc GetRtc()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core._NULL_CONTEXT.InjectRtc(IAxoRtc)
+  id: plc.AXOpen.Core._NULL_CONTEXT.InjectRtc(IAxoRtc)
+  parent: AXOpen.Core._NULL_CONTEXT
+  children: []
+  name: InjectRtc
+  fullName: InjectRtc
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_CONTEXT.InjectRtc
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 16
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID InjectRtc(in plc.AXOpen.Rtc.IAxoRtc Rtc)
+    parameters:
+    - id: Rtc
+      type: plc.AXOpen.Rtc.IAxoRtc
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core._NULL_CONTEXT.GetLogger()
+  id: plc.AXOpen.Core._NULL_CONTEXT.GetLogger()
+  parent: AXOpen.Core._NULL_CONTEXT
+  children: []
+  name: GetLogger
+  fullName: GetLogger
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_CONTEXT.GetLogger
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 17
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Logging.IAxoLogger GetLogger()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Logging.IAxoLogger
+- uid: plc.AXOpen.Core._NULL_CONTEXT.InjectLogger(IAxoLogger)
+  id: plc.AXOpen.Core._NULL_CONTEXT.InjectLogger(IAxoLogger)
+  parent: AXOpen.Core._NULL_CONTEXT
+  children: []
+  name: InjectLogger
+  fullName: InjectLogger
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_CONTEXT.InjectLogger
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 18
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID InjectLogger(in plc.AXOpen.Logging.IAxoLogger _logger)
+    parameters:
+    - id: _logger
+      type: plc.AXOpen.Logging.IAxoLogger
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.IAxoContext
+  commentId: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: plc.AXOpen.Core.IAxoContext
+  parent: plc.AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core._NULL_RTC
+  name: _NULL_RTC
+  nameWithType: _NULL_RTC
+  fullName: AXOpen.Core._NULL_RTC
+- uid: plc.AXOpen.Core._NULL_LOGGER
+  name: _NULL_LOGGER
+  nameWithType: _NULL_LOGGER
+  fullName: AXOpen.Core._NULL_LOGGER
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Rtc.IAxoRtc
+  name: IAxoRtc
+  nameWithType: IAxoRtc
+  fullName: AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Logging.IAxoLogger
+  name: IAxoLogger
+  nameWithType: IAxoLogger
+  fullName: AXOpen.Logging.IAxoLogger
+
+

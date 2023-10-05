@@ -1,0 +1,50 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Data.IAxoEntityExistTaskState
+  id: plc.AXOpen.Data.IAxoEntityExistTaskState
+  parent: plc.AXOpen.Data
+  children:
+  - plc.AXOpen.Data.IAxoEntityExistTaskState.Exist()
+  name: IAxoEntityExistTaskState
+  fullName: IAxoEntityExistTaskState
+  type: Interface
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataExchangeTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.IAxoEntityExistTaskState
+    path: .\src\data\ctrl\src\AxoDataExchangeTask.st
+    startLine: 30
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: INTERFACE IAxoEntityExistTaskState
+  implements: []
+- uid: plc.AXOpen.Data.IAxoEntityExistTaskState.Exist()
+  id: plc.AXOpen.Data.IAxoEntityExistTaskState.Exist
+  parent: IAxoEntityExistTaskState
+  children: []
+  name: Exist
+  fullName: Exist
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataExchangeTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.IAxoEntityExistTaskState.Exist
+    path: .\src\data\ctrl\src\AxoDataExchangeTask.st
+    startLine: 36
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: Public BOOL Exist()
+    parameters: []
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

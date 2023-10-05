@@ -13,6 +13,6 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         IF(_manualControl) THEN            
             _testDrive.ActivateManualControl();
         END_IF;   
-        _testDrive.Run(THIS,REF(PlcInputs^._7600_Results_64_bytes_1),REF(PlcOutputs^._7600_User_Data_64_bytes_1),TRUE,TRUE,TRUE);
+        _testDrive.Run(THIS,REF(PlcInputs^.ST3_indradrive_Input_9_Words_1),REF(PlcOutputs^.ST3_indradrive_Output_13_Words_1),REF(PlcInputs^.ST3_indradrive_ParamCh_IDN_1),REF(PlcOutputs^.ST3_indradrive_ParamCh_IDN_1),TRUE,TRUE,TRUE);
     END_METHOD
 END_CLASS

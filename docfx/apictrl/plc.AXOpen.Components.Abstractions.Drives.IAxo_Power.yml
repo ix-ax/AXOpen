@@ -1,0 +1,120 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
+  parent: plc.AXOpen.Components.Abstractions.Drives
+  children:
+  - plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledPositive()
+  - plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledPositive()
+  - plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledNegative()
+  - plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledNegative()
+  name: IAxo_Power
+  fullName: IAxo_Power
+  type: Interface
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: INTERFACE IAxo_Power
+  implements: []
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledPositive()
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledPositive
+  parent: IAxo_Power
+  children: []
+  name: EnabledPositive
+  fullName: EnabledPositive
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledPositive
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  summary: Returns `TRUE` if movement to positive direction is enabled
+  syntax:
+    content: Public BOOL EnabledPositive()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledPositive()
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledPositive
+  parent: IAxo_Power
+  children: []
+  name: DisabledPositive
+  fullName: DisabledPositive
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledPositive
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  summary: Returns `TRUE` if movement to positive direction is disabled
+  syntax:
+    content: Public BOOL DisabledPositive()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledNegative()
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledNegative
+  parent: IAxo_Power
+  children: []
+  name: EnabledNegative
+  fullName: EnabledNegative
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.EnabledNegative
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  summary: Returns `TRUE` if movement to negative direction is enabled
+  syntax:
+    content: Public BOOL EnabledNegative()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledNegative()
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledNegative
+  parent: IAxo_Power
+  children: []
+  name: DisabledNegative
+  fullName: DisabledNegative
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power.DisabledNegative
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxo_Power.st
+    startLine: 22
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  summary: Returns `TRUE` if movement to negative direction is disabled
+  syntax:
+    content: Public BOOL DisabledNegative()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

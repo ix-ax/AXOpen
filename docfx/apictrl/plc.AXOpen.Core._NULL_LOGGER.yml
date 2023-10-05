@@ -1,0 +1,128 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core._NULL_LOGGER
+  id: plc.AXOpen.Core._NULL_LOGGER
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core._NULL_LOGGER.Log(STRING[80],eLogLevel,IAxoObject)
+  - plc.AXOpen.Core._NULL_LOGGER.Log(STRING[80],eLogLevel)
+  - plc.AXOpen.Core._NULL_LOGGER.SetMinimumLevel(eLogLevel)
+  name: _NULL_LOGGER
+  fullName: _NULL_LOGGER
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_LOGGER
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 53
+  namespace: plc.AXOpen.Core
+  summary: Provides an empty logger object for uninitialized context logger.
+  syntax:
+    content: CLASS _NULL_LOGGER
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Logging.IAxoLogger
+- uid: plc.AXOpen.Core._NULL_LOGGER.Log(STRING[80],eLogLevel,IAxoObject)
+  id: plc.AXOpen.Core._NULL_LOGGER.Log(STRING[80],eLogLevel,IAxoObject)
+  parent: AXOpen.Core._NULL_LOGGER
+  children: []
+  name: Log
+  fullName: Log
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_LOGGER.Log
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 55
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID Log(in plc.STRING[80] _message,in plc.AXOpen.Logging.eLogLevel _level,in plc.AXOpen.Core.IAxoObject _sender)
+    parameters:
+    - id: _message
+      type: plc.STRING[80]
+    - id: _level
+      type: plc.AXOpen.Logging.eLogLevel
+    - id: _sender
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core._NULL_LOGGER.Log(STRING[80],eLogLevel)
+  id: plc.AXOpen.Core._NULL_LOGGER.Log(STRING[80],eLogLevel)
+  parent: AXOpen.Core._NULL_LOGGER
+  children: []
+  name: Log
+  fullName: Log
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_LOGGER.Log
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 64
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID Log(in plc.STRING[80] _message,in plc.AXOpen.Logging.eLogLevel _level)
+    parameters:
+    - id: _message
+      type: plc.STRING[80]
+    - id: _level
+      type: plc.AXOpen.Logging.eLogLevel
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core._NULL_LOGGER.SetMinimumLevel(eLogLevel)
+  id: plc.AXOpen.Core._NULL_LOGGER.SetMinimumLevel(eLogLevel)
+  parent: AXOpen.Core._NULL_LOGGER
+  children: []
+  name: SetMinimumLevel
+  fullName: SetMinimumLevel
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_LOGGER.SetMinimumLevel
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 73
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Logging.IAxoLoggerConfig SetMinimumLevel(in plc.AXOpen.Logging.eLogLevel _level)
+    parameters:
+    - id: _level
+      type: plc.AXOpen.Logging.eLogLevel
+    return:
+      type: plc.AXOpen.Logging.IAxoLoggerConfig
+references:
+- uid: plc.AXOpen.Logging.IAxoLogger
+  commentId: plc.AXOpen.Logging.IAxoLogger
+  name: IAxoLogger
+  nameWithType: IAxoLogger
+  fullName: plc.AXOpen.Logging.IAxoLogger
+  parent: plc.AXOpen.Logging.IAxoLogger
+- uid: plc.STRING[80]
+  name: STRING[80]
+  nameWithType: STRING[80]
+  fullName: STRING[80]
+- uid: plc.AXOpen.Logging.eLogLevel
+  name: eLogLevel
+  nameWithType: eLogLevel
+  fullName: AXOpen.Logging.eLogLevel
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Logging.IAxoLoggerConfig
+  name: IAxoLoggerConfig
+  nameWithType: IAxoLoggerConfig
+  fullName: AXOpen.Logging.IAxoLoggerConfig
+
+
