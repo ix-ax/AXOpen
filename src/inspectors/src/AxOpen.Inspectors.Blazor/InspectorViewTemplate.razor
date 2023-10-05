@@ -9,57 +9,57 @@
         </div>
 
         <div class="accordion-body d-flex flex-wrap">
-                @if (IsAnalogInspectorData())
-                {
+            @if (IsAnalogInspectorData())
+            {
 
-                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" Class="p-2 " />
+                <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" Class="p-2 " />
 
-                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="p-2" />
- 
-                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMax" Presentation="@Presentation" Class="p-2 me-auto" />
-                }
-                else if(IsDigitalInspectorData())
-                {
+                <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="p-2" />
 
-                    <RenderableContentControl Context="((AxoDigitalInspectorData)Data).RequiredStatus" Presentation="@Presentation" Class="p-2" />
+                <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMax" Presentation="@Presentation" Class="p-2 me-auto" />
+            }
+            else if (IsDigitalInspectorData())
+            {
 
-                    <RenderableContentControl Context="((AxoDigitalInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="p-2 me-auto" />
+                <RenderableContentControl Context="((AxoDigitalInspectorData)Data).RequiredStatus" Presentation="@Presentation" Class="p-2" />
 
-                }
-                else if (IsDataInspectorData())
-                {
-                  
-                    <RenderableContentControl Context="((AxoDataInspectorData)Data).RequiredStatus" Presentation="@Presentation" Class="p-2" />
-                   
-                    <RenderableContentControl Context="((AxoDataInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class= "p-2 me-auto" />
-                  
-                    <RenderableContentControl Context="((AxoDataInspectorData)Data).StarNotationEnabled" Presentation="@Presentation" Class="p-2 " />
-          
-                }
-                else
-                {
-                    <p>Cannot render, unspecified inspector type</p>
-                }
-                <div class="p-2">
-                    <RenderableContentControl Context="@Data.IsByPassed" Presentation="@Presentation" />
-                </div>
-                <div class="p-2">
-                    <RenderableContentControl Context="@Data.IsExcluded" Presentation="@Presentation" />
-                </div>
-                <div class="p-2">
-                    <GenericIconView Result="result" />
-                </div>
+                <RenderableContentControl Context="((AxoDigitalInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="p-2 me-auto" />
 
-            </div>
+            }
+            else if (IsDataInspectorData())
+            {
 
+                <RenderableContentControl Context="((AxoDataInspectorData)Data).RequiredStatus" Presentation="@Presentation" Class="p-2" />
+
+                <RenderableContentControl Context="((AxoDataInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="p-2 me-auto" />
+
+                <RenderableContentControl Context="((AxoDataInspectorData)Data).StarNotationEnabled" Presentation="@Presentation" Class="p-2 " />
+
+            }
+            else
+            {
+                <p>Cannot render, unspecified inspector type</p>
+            }
             <div class="p-2">
-
-                @if (IsOverInspected)
-                {
-                    <p class="text-danger">Over-inspection detected</p>
-                }
+                <RenderableContentControl Context="@Data.IsByPassed" Presentation="@Presentation" />
             </div>
-     
+            <div class="p-2">
+                <RenderableContentControl Context="@Data.IsExcluded" Presentation="@Presentation" />
+            </div>
+            <div class="p-2">
+                <GenericIconView Result="result" />
+            </div>
+
+        </div>
+
+        <div class="p-2">
+
+            @if (IsOverInspected())
+            {
+                <p class="text-danger">Over-inspection detected</p>
+            }
+        </div>
+
 
         <div id="@ID" class="accordion-collapse collapse">
             <div class="accordion-body">
@@ -82,9 +82,6 @@
     public string Presentation { get; set; }
 
     [Parameter]
-    public bool IsOverInspected { get; set; }
-
-    [Parameter]
     public string Name { get; set; }
 
     private short result;
@@ -93,6 +90,17 @@
     private bool IsAnalogInspectorData() => Data is AxoAnalogueInspectorData ? true : false;
     private bool IsDigitalInspectorData() => Data is AxoDigitalInspectorData ? true : false;
     private bool IsDataInspectorData() => Data is AxoDataInspectorData ? true : false;
+
+    private bool IsOverInspected()
+    {
+        if (Presentation.Contains("Shadow"))
+        {
+            return (Data.NumberOfAllowedRetries.Shadow > 0) && (Data.NumberOfAllowedRetries.Shadow < Data.RetryAttemptsCount.Shadow);
+        }
+        // other case is online
+        return (Data.NumberOfAllowedRetries.Cyclic > 0) && (Data.NumberOfAllowedRetries.Cyclic < Data.RetryAttemptsCount.Cyclic); ;
+    }
+
 
     protected override void OnParametersSet()
     {

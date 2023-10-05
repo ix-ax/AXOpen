@@ -1,17 +1,12 @@
 ﻿@namespace AXOpen.Inspectors
 @inherits RenderableComplexComponentBase<AxoDigitalInspector>
 
+<InspectorViewTemplate Data="Component._data"
+                       Name="@getNameOrSymbol()"
+                       Presentation="Control" />
 
 
-
-<InspectorViewTemplate Data="Component._data" 
-                        Name="@getNameOrSymbol()" 
-                        Presentation="Control" 
-                        IsOverInspected="Component._axoInspectorDialog._isOverInspected.Cyclic"/>
-
-
-
-@code{
+@code {
     private string ID = "M" + Guid.NewGuid().ToString();
 
     public string getNameOrSymbol()

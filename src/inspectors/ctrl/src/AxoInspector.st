@@ -7,14 +7,6 @@ NAMESPACE AXOpen.Inspectors
     /// Evaluation methods need IAxoCoordinator instance
     ///</summary>
     CLASS AxoInspector EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IInspector, IOnFail
-
-        
-        VAR PUBLIC
-            {#ix-attr:[CompilerOmits("POCO")]}
-            {#ix-attr:[IgnoreOnPocoOperation()]} 
-            {#ix-attr:[RenderIgnore()]}
-            _axoInspectorDialog : AxoInspectorDialog;
-        END_VAR
         VAR
             _inspectorTask: AxoInspectorTask;
             _coordinator: IAxoCoordinator;
@@ -88,8 +80,13 @@ NAMESPACE AXOpen.Inspectors
                 inRetryStep: IAxoStep;
                 inTerminateStep: IAxoStep;
             END_VAR
+            
+            VAR_IN_OUT
+                inoDialog : AxoInspectorDialog;
+            END_VAR
+
             // here if is coordinator missing, it should provide message to call it with WithCoordinator method
-            _axoInspectorDialog.Show(REF(THIS), inRetryStep, inTerminateStep);
+            inoDialog.Show(REF(THIS), inRetryStep, inTerminateStep);
 
         END_METHOD
 
