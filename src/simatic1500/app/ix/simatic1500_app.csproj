@@ -11,7 +11,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include=".g\**" />
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
 	</ItemGroup>
 
 	<ItemGroup>

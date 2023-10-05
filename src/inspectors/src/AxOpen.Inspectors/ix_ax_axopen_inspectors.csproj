@@ -31,11 +31,12 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include=".g\**" />
-	</ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include=".meta\**" />
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
 	</ItemGroup>
 
 	<ItemGroup>

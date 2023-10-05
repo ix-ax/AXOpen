@@ -11,9 +11,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include=".g\**" />
-	</ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
 
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
 	</ItemGroup>
