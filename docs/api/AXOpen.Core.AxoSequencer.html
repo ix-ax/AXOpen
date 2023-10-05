@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoSequencer.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Core_AxoSequencer.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,11 +94,11 @@
 
   <h1 id="AXOpen_Core_AxoSequencer" data-uid="AXOpen.Core.AxoSequencer" class="text-break">
     Class AxoSequencer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
   <dl><dt>Assembly</dt><dd>ix_ax_axopen_core.dll</dd></dl>
   </div>
 
@@ -185,6 +185,9 @@
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ErrorDetails">AxoTask.ErrorDetails</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask__CyclicExecuteIsNotCalled">AxoTask._CyclicExecuteIsNotCalled</a>
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoTask_">AxoTask.OnlineToPlainAsync(AxoTask)</a>
@@ -284,6 +287,13 @@
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -297,7 +307,7 @@
 
   <h3 id="AXOpen_Core_AxoSequencer__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Core.AxoSequencer.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">
   AxoSequencer(ITwinObject, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -332,11 +342,73 @@
 </h2>
 
 
+  <a id="AXOpen_Core_AxoSequencer_AfterStep_" data-uid="AXOpen.Core.AxoSequencer.AfterStep*"></a>
+
+  <h3 id="AXOpen_Core_AxoSequencer_AfterStep" data-uid="AXOpen.Core.AxoSequencer.AfterStep">
+  AfterStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoStep AfterStep { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Core.AxoStep.html">AxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoSequencer_BeforeStep_" data-uid="AXOpen.Core.AxoSequencer.BeforeStep*"></a>
+
+  <h3 id="AXOpen_Core_AxoSequencer_BeforeStep" data-uid="AXOpen.Core.AxoSequencer.BeforeStep">
+  BeforeStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoStep BeforeStep { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Core.AxoStep.html">AxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoSequencer_CurrentOrder_" data-uid="AXOpen.Core.AxoSequencer.CurrentOrder*"></a>
 
   <h3 id="AXOpen_Core_AxoSequencer_CurrentOrder" data-uid="AXOpen.Core.AxoSequencer.CurrentOrder">
   CurrentOrder
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -363,11 +435,42 @@
 
 
 
+  <a id="AXOpen_Core_AxoSequencer_CurrentStep_" data-uid="AXOpen.Core.AxoSequencer.CurrentStep*"></a>
+
+  <h3 id="AXOpen_Core_AxoSequencer_CurrentStep" data-uid="AXOpen.Core.AxoSequencer.CurrentStep">
+  CurrentStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoStep CurrentStep { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Core.AxoStep.html">AxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoSequencer_SequenceMode_" data-uid="AXOpen.Core.AxoSequencer.SequenceMode*"></a>
 
   <h3 id="AXOpen_Core_AxoSequencer_SequenceMode" data-uid="AXOpen.Core.AxoSequencer.SequenceMode">
   SequenceMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -399,7 +502,7 @@ public OnlinerInt SequenceMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_StepBackwardCommand" data-uid="AXOpen.Core.AxoSequencer.StepBackwardCommand">
   StepBackwardCommand
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -430,7 +533,7 @@ public OnlinerInt SequenceMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_StepForwardCommand" data-uid="AXOpen.Core.AxoSequencer.StepForwardCommand">
   StepForwardCommand
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -461,7 +564,7 @@ public OnlinerInt SequenceMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_StepIn" data-uid="AXOpen.Core.AxoSequencer.StepIn">
   StepIn
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -492,7 +595,7 @@ public OnlinerInt SequenceMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_SteppingMode" data-uid="AXOpen.Core.AxoSequencer.SteppingMode">
   SteppingMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -528,7 +631,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_CreateEmptyPoco" data-uid="AXOpen.Core.AxoSequencer.CreateEmptyPoco">
   CreateEmptyPoco()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L145"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L172"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -559,7 +662,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_OnlineToPlain__1" data-uid="AXOpen.Core.AxoSequencer.OnlineToPlain``1">
   OnlineToPlain&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L45"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L54"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -595,7 +698,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_OnlineToPlainAsync" data-uid="AXOpen.Core.AxoSequencer.OnlineToPlainAsync">
   OnlineToPlainAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L59"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -626,7 +729,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoSequencer_" data-uid="AXOpen.Core.AxoSequencer.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoSequencer)">
   OnlineToPlainAsync(AxoSequencer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L76"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -662,7 +765,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_PlainToOnline__1___0_" data-uid="AXOpen.Core.AxoSequencer.PlainToOnline``1(``0)">
   PlainToOnline&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L91"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -703,7 +806,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoSequencer_" data-uid="AXOpen.Core.AxoSequencer.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoSequencer)">
   PlainToOnlineAsync(AxoSequencer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L81"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L96"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -739,7 +842,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_PlainToShadow__1___0_" data-uid="AXOpen.Core.AxoSequencer.PlainToShadow``1(``0)">
   PlainToShadow&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L123"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L147"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -780,7 +883,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_PlainToShadowAsync_Pocos_AXOpen_Core_AxoSequencer_" data-uid="AXOpen.Core.AxoSequencer.PlainToShadowAsync(Pocos.AXOpen.Core.AxoSequencer)">
   PlainToShadowAsync(AxoSequencer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -816,7 +919,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_Poll" data-uid="AXOpen.Core.AxoSequencer.Poll">
   Poll()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L140"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L167"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -842,7 +945,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_ShadowToPlain__1" data-uid="AXOpen.Core.AxoSequencer.ShadowToPlain``1">
   ShadowToPlain&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L111"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -878,7 +981,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_ShadowToPlainAsync" data-uid="AXOpen.Core.AxoSequencer.ShadowToPlainAsync">
   ShadowToPlainAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L116"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -909,7 +1012,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencer_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoSequencer_" data-uid="AXOpen.Core.AxoSequencer.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoSequencer)">
   ShadowToPlainAsync(AxoSequencer)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L132"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -945,7 +1048,7 @@ public OnlinerInt SteppingMode { get; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
         

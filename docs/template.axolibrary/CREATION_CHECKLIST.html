@@ -1,0 +1,171 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Code | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Code | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/blob/dev/src/template.axolibrary/CREATION_CHECKLIST.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h2 id="code">Code</h2>
+
+<ul>
+<li>[ ] Does code follow recomendations from <a href="../../docfx/articles/guidelines/Conventions.md">conventions</a> and <a href="../../docfx/articles/guidelines/components.md.md">component convetions</a>?</li>
+</ul>
+<h2 id="testing">Testing</h2>
+<ul>
+<li>[ ] Are all publicly exposed members unit-tested using axunit?</li>
+<li>[ ] Is the axunit-test coverage at min level of 60%?</li>
+<li>[ ] Are all extended twins tested and is the coverage at min level of 60% ?</li>
+<li>[ ] Are all extended twins tested and is the coverage at min level of 60% ?</li>
+</ul>
+<h2 id="build">Build</h2>
+<ul>
+<li>[ ] Did you add this library to <a href="../../cake/BuildContext.cs#Libraries">build list</a>?</li>
+<li>[ ] Did you add place the library in the <a href="../../cake/BuildContext.cs#Libraries">list</a> past its dependencies?</li>
+<li>[ ] Did you add this library <code>src</code> folder to  <a href="../../src/AXOpen-packable-only.proj">build list</a>?</li>
+<li>[ ] Did you remove all project from the <code>src</code> folder that should not be packed?</li>
+<li>[ ] Does the build with test level L2 passes locally?</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<ul>
+<li>The documentation should be CONCISE delivering nessary information about the usage of the library.</li>
+<li>The documentation should not explain details about internals of the library limit yourself on explaing how to use, not how it is made. Should it be necessary to explain some aspects in detail write an article instead.</li>
+<li>Do not explain HOW the parts of the library operate but WHAT they do.</li>
+<li>Focus on creating usable examples</li>
+<li>Examples should not be hard-written into to documents, but referenced from the <a href="app">documentation project</a>, the <a href="docs/ComponentTemplate.html">ComponentTemplate</a> scaffolds the document with example references to documenation project</li>
+</ul>
+<h2 id="general">General</h2>
+<ul>
+<li>[ ] Does <a href="docs/README.html">README.md</a> contain general description of the library?</li>
+<li>[ ] Is the link to this documentation added to the <a href="../../docfx/components/toc.yml">toc.yaml</a>?</li>
+</ul>
+<h3 id="ctrl-readmemd">CTRL README.md</h3>
+<ul>
+<li>[ ] Does <a href="ctrl/README.html">README.md</a> for controller contain information about apax package installation instructions?</li>
+<li>[ ] Does <a href="ctrl/README.html">README.md</a> for controller contain link to API documentation?</li>
+<li>[ ] Are there any additional requirement regarding usage of this package listed in this <a href="ctrl/README.html">README.md</a>?</li>
+</ul>
+<h3 id="net-twin-readmemd">.NET TWIN README.md</h3>
+<ul>
+<li>[ ] Does <a href="src/projname/README.html">README.md</a> for .NET TWIN contain information with installation instructions?</li>
+<li>[ ] Does <a href="src/projname/README.html">README.md</a> for .NET TWIN contain link to API documentation?</li>
+<li>[ ] Are there any additional requirement regarding usage of this nuget package listed in this <a href="src/projname/README.html">README.md</a>?</li>
+</ul>
+<h3 id="blazor-readmemd">BLAZOR README.md</h3>
+<ul>
+<li>[ ] Does <a href="src/projname.blazor/README.html">README.md</a> contain information with installation instructions?</li>
+<li>[ ] Does <a href="src/projname.blazor/README.html">README.md</a> contain link to API documentation?</li>
+<li>[ ] Are there any additional requirement regarding usage of this nuget package listed in this <a href="src/projname/README.html">README.md</a>?</li>
+</ul>
+<h3 id="components">Components</h3>
+<ul>
+<li>[ ] Does <a href="docs/toc.html">toc.yml</a> contain references to documenation to all components in this library?</li>
+<li>[ ] Does each component in this library has single md file with examples references from the code and structured according to <a href="docs/ComponentTemplate.html">ComponentTemplate.md</a>?</li>
+</ul>
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/template.axolibrary/CREATION_CHECKLIST.md/#L1" class="edit-link">Edit this page</a>
+        </div>
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

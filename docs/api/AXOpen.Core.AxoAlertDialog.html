@@ -1,0 +1,1093 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AxoAlertDialog
+ | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoAlertDialog
+ | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Core_AxoAlertDialog.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoAlertDialog%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="AXOpen.Core.AxoAlertDialog">
+
+
+
+  <h1 id="AXOpen_Core_AxoAlertDialog" data-uid="AXOpen.Core.AxoAlertDialog" class="text-break">
+    Class AxoAlertDialog
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ix_ax_axopen_core.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AxoAlertDialog : AxoRemoteTask, ITwinIdentity, IAxoObject, IAxoTask, IAxoTaskState, IsAlertDialogType, IsDialogType, ITwinObject, ITwinElement, IAxoAlertDialogFormat</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><a class="xref" href="AXOpen.Core.AxoTask.html">AxoTask</a></div>
+      <div><a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a></div>
+      <div><span class="xref">AxoAlertDialog</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ITwinIdentity</span></div>
+      <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
+      <div><a class="xref" href="AXOpen.Core.IAxoTask.html">IAxoTask</a></div>
+      <div><a class="xref" href="AXOpen.Core.IAxoTaskState.html">IAxoTaskState</a></div>
+      <div><a class="xref" href="AXOpen.Base.Dialogs.IsAlertDialogType.html">IsAlertDialogType</a></div>
+      <div><a class="xref" href="AXOpen.Base.Dialogs.IsDialogType.html">IsDialogType</a></div>
+      <div><span class="xref">ITwinObject</span></div>
+      <div><span class="xref">ITwinElement</span></div>
+      <div><a class="xref" href="AXOpen.Core.IAxoAlertDialogFormat.html">IAxoAlertDialogFormat</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_DeferredAction">AxoRemoteTask.DeferredAction</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_PropertyChanged">AxoRemoteTask.PropertyChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_Initialize_System_Func_System_Boolean__">AxoRemoteTask.Initialize(Func&lt;bool&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask__defferedActionCount">AxoRemoteTask._defferedActionCount</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_InitializeExclusively_System_Action_">AxoRemoteTask.InitializeExclusively(Action)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_InitializeExclusively_System_Func_System_Boolean__">AxoRemoteTask.InitializeExclusively(Func&lt;bool&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_ExecuteAsync_AXSharp_Connector_ITwinPrimitive_AXSharp_Connector_ValueTypes_ValueChangedEventArgs_">AxoRemoteTask.ExecuteAsync(ITwinPrimitive, ValueChangedEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_RemoteExecutionException">AxoRemoteTask.RemoteExecutionException</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_RemoteExceptionDetails">AxoRemoteTask.RemoteExceptionDetails</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_ResetExecution">AxoRemoteTask.ResetExecution()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_DoneSignature">AxoRemoteTask.DoneSignature</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_IsInitialized">AxoRemoteTask.IsInitialized</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_HasRemoteException">AxoRemoteTask.HasRemoteException</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_IsBeingCalledCounter">AxoRemoteTask.IsBeingCalledCounter</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_TaskNotInitialized">AxoRemoteTask.TaskNotInitialized</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_TaskHasRemoteException">AxoRemoteTask.TaskHasRemoteException</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoRemoteTask_">AxoRemoteTask.OnlineToPlainAsync(AxoRemoteTask)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoRemoteTask_">AxoRemoteTask.PlainToOnlineAsync(AxoRemoteTask)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoRemoteTask_">AxoRemoteTask.ShadowToPlainAsync(AxoRemoteTask)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoRemoteTask_">AxoRemoteTask.PlainToShadowAsync(AxoRemoteTask)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Restore">AxoTask.Restore()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Abort">AxoTask.Abort()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ResumeTask">AxoTask.ResumeTask()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ExecuteAsync_System_Object_">AxoTask.ExecuteAsync(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Status">AxoTask.Status</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_IsDisabled">AxoTask.IsDisabled</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_RemoteInvoke">AxoTask.RemoteInvoke</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_RemoteRestore">AxoTask.RemoteRestore</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_RemoteAbort">AxoTask.RemoteAbort</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_RemoteResume">AxoTask.RemoteResume</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_StartSignature">AxoTask.StartSignature</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_Duration">AxoTask.Duration</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_StartTimeStamp">AxoTask.StartTimeStamp</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ErrorDetails">AxoTask.ErrorDetails</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask__CyclicExecuteIsNotCalled">AxoTask._CyclicExecuteIsNotCalled</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoTask_">AxoTask.OnlineToPlainAsync(AxoTask)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoTask_">AxoTask.PlainToOnlineAsync(AxoTask)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoTask_">AxoTask.ShadowToPlainAsync(AxoTask)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoTask_">AxoTask.PlainToShadowAsync(AxoTask)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Identity">AxoObject.Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.OnlineToPlainAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.PlainToOnlineAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.ShadowToPlainAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_PlainToShadowAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.PlainToShadowAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetChildren">AxoObject.GetChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetKids">AxoObject.GetKids()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetValueTags">AxoObject.GetValueTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AddValueTag_AXSharp_Connector_ITwinPrimitive_">AxoObject.AddValueTag(ITwinPrimitive)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AddKid_AXSharp_Connector_ITwinElement_">AxoObject.AddKid(ITwinElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AddChild_AXSharp_Connector_ITwinObject_">AxoObject.AddChild(ITwinObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Connector">AxoObject.Connector</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetConnector">AxoObject.GetConnector()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetSymbolTail">AxoObject.GetSymbolTail()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetParent">AxoObject.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Symbol">AxoObject.Symbol</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AttributeName">AxoObject.AttributeName</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_HumanReadable">AxoObject.HumanReadable</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_SymbolTail">AxoObject.SymbolTail</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Parent">AxoObject.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Interpreter">AxoObject.Interpreter</a>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="AXOpen_Core_AxoAlertDialog__ctor_" data-uid="AXOpen.Core.AxoAlertDialog.#ctor*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Core.AxoAlertDialog.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">
+  AxoAlertDialog(ITwinObject, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoAlertDialog(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parent</code> <span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+    <dt><code>readableTail</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>symbolTail</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="AXOpen_Core_AxoAlertDialog__dialogType_" data-uid="AXOpen.Core.AxoAlertDialog._dialogType*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog__dialogType" data-uid="AXOpen.Core.AxoAlertDialog._dialogType">
+  _dialogType
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[EnumeratorDiscriminator(typeof(eDialogType))]
+public OnlinerInt _dialogType { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OnlinerInt</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog__message_" data-uid="AXOpen.Core.AxoAlertDialog._message*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog__message" data-uid="AXOpen.Core.AxoAlertDialog._message">
+  _message
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerString _message { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OnlinerString</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog__timeToBurn_" data-uid="AXOpen.Core.AxoAlertDialog._timeToBurn*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog__timeToBurn" data-uid="AXOpen.Core.AxoAlertDialog._timeToBurn">
+  _timeToBurn
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerUInt _timeToBurn { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OnlinerUInt</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog__title_" data-uid="AXOpen.Core.AxoAlertDialog._title*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog__title" data-uid="AXOpen.Core.AxoAlertDialog._title">
+  _title
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnlinerString _title { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OnlinerString</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_DialogId_" data-uid="AXOpen.Core.AxoAlertDialog.DialogId*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_DialogId" data-uid="AXOpen.Core.AxoAlertDialog.DialogId">
+  DialogId
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoAlertDialog/AxoAlertDialog.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets dialog locator id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string DialogId { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_CreateEmptyPoco_" data-uid="AXOpen.Core.AxoAlertDialog.CreateEmptyPoco*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_CreateEmptyPoco" data-uid="AXOpen.Core.AxoAlertDialog.CreateEmptyPoco">
+  CreateEmptyPoco()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L121"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoAlertDialog CreateEmptyPoco()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Pocos.AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_DeInitialize_" data-uid="AXOpen.Core.AxoAlertDialog.DeInitialize*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_DeInitialize" data-uid="AXOpen.Core.AxoAlertDialog.DeInitialize">
+  DeInitialize()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoAlertDialog/AxoAlertDialog.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Removes handling of this dialogue, unsubscribing from polling and removed all event handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DeInitialize()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_Dispose_" data-uid="AXOpen.Core.AxoAlertDialog.Dispose*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_Dispose" data-uid="AXOpen.Core.AxoAlertDialog.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoAlertDialog/AxoAlertDialog.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Releases additional resources allocated byt his dialog.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_Initialize_" data-uid="AXOpen.Core.AxoAlertDialog.Initialize*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_Initialize_System_Action_" data-uid="AXOpen.Core.AxoAlertDialog.Initialize(System.Action)">
+  Initialize(Action)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoAlertDialog/AxoAlertDialog.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Initialized remote task for this dialog, with polling instead of cyclic subscription.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Initialize(Action dialogAction)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dialogAction</code> <span class="xref">Action</span></dt>
+    <dd><p>Action that will be performed on remove call.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_OnlineToPlain_" data-uid="AXOpen.Core.AxoAlertDialog.OnlineToPlain*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_OnlineToPlain__1" data-uid="AXOpen.Core.AxoAlertDialog.OnlineToPlain``1">
+  OnlineToPlain&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;T&gt; OnlineToPlain&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_OnlineToPlainAsync_" data-uid="AXOpen.Core.AxoAlertDialog.OnlineToPlainAsync*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_OnlineToPlainAsync" data-uid="AXOpen.Core.AxoAlertDialog.OnlineToPlainAsync">
+  OnlineToPlainAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;AxoAlertDialog&gt; OnlineToPlainAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_OnlineToPlainAsync_" data-uid="AXOpen.Core.AxoAlertDialog.OnlineToPlainAsync*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoAlertDialog_" data-uid="AXOpen.Core.AxoAlertDialog.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoAlertDialog)">
+  OnlineToPlainAsync(AxoAlertDialog)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L50"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;AxoAlertDialog&gt; OnlineToPlainAsync(AxoAlertDialog plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_PlainToOnline_" data-uid="AXOpen.Core.AxoAlertDialog.PlainToOnline*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_PlainToOnline__1___0_" data-uid="AXOpen.Core.AxoAlertDialog.PlainToOnline``1(``0)">
+  PlainToOnline&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L60"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task PlainToOnline&lt;T&gt;(T plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_PlainToOnlineAsync_" data-uid="AXOpen.Core.AxoAlertDialog.PlainToOnlineAsync*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoAlertDialog_" data-uid="AXOpen.Core.AxoAlertDialog.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoAlertDialog)">
+  PlainToOnlineAsync(AxoAlertDialog)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToOnlineAsync(AxoAlertDialog plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_PlainToShadow_" data-uid="AXOpen.Core.AxoAlertDialog.PlainToShadow*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_PlainToShadow__1___0_" data-uid="AXOpen.Core.AxoAlertDialog.PlainToShadow``1(``0)">
+  PlainToShadow&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L101"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task PlainToShadow&lt;T&gt;(T plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_PlainToShadowAsync_" data-uid="AXOpen.Core.AxoAlertDialog.PlainToShadowAsync*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_PlainToShadowAsync_Pocos_AXOpen_Core_AxoAlertDialog_" data-uid="AXOpen.Core.AxoAlertDialog.PlainToShadowAsync(Pocos.AXOpen.Core.AxoAlertDialog)">
+  PlainToShadowAsync(AxoAlertDialog)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L106"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToShadowAsync(AxoAlertDialog plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_Poll_" data-uid="AXOpen.Core.AxoAlertDialog.Poll*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_Poll" data-uid="AXOpen.Core.AxoAlertDialog.Poll">
+  Poll()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L116"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Poll()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_ShadowToPlain_" data-uid="AXOpen.Core.AxoAlertDialog.ShadowToPlain*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_ShadowToPlain__1" data-uid="AXOpen.Core.AxoAlertDialog.ShadowToPlain``1">
+  ShadowToPlain&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;T&gt; ShadowToPlain&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_ShadowToPlainAsync_" data-uid="AXOpen.Core.AxoAlertDialog.ShadowToPlainAsync*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_ShadowToPlainAsync" data-uid="AXOpen.Core.AxoAlertDialog.ShadowToPlainAsync">
+  ShadowToPlainAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L80"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;AxoAlertDialog&gt; ShadowToPlainAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoAlertDialog_ShadowToPlainAsync_" data-uid="AXOpen.Core.AxoAlertDialog.ShadowToPlainAsync*"></a>
+
+  <h3 id="AXOpen_Core_AxoAlertDialog_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoAlertDialog_" data-uid="AXOpen.Core.AxoAlertDialog.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoAlertDialog)">
+  ShadowToPlainAsync(AxoAlertDialog)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;AxoAlertDialog&gt; ShadowToPlainAsync(AxoAlertDialog plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoAlertDialog/AxoAlertDialog.g.cs/#L9" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

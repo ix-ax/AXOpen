@@ -1,0 +1,404 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AxoBoolArrayView
+ | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoBoolArrayView
+ | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Core_AxoBoolArrayView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoBoolArrayView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="AXOpen.Core.AxoBoolArrayView">
+
+
+
+  <h1 id="AXOpen_Core_AxoBoolArrayView" data-uid="AXOpen.Core.AxoBoolArrayView" class="text-break">
+    Class AxoBoolArrayView
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoArrays/AxoBoolArrayView.razor.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>axopen_core_blazor.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AxoBoolArrayView : RenderableComplexComponentBase&lt;AxoBoolArray&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase, IDisposable</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">ComponentBase</span></div>
+      <div><span class="xref">RenderableComponentBase</span></div>
+      <div><span class="xref">RenderableComplexComponentBase</span>&lt;<a class="xref" href="AXOpen.Core.AxoBoolArray.html">AxoBoolArray</a>&gt;</div>
+      <div><span class="xref">AxoBoolArrayView</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">IComponent</span></div>
+      <div><span class="xref">IHandleEvent</span></div>
+      <div><span class="xref">IHandleAfterRender</span></div>
+      <div><span class="xref">IRenderableComponent</span></div>
+      <div><span class="xref">IRenderableComplexComponentBase</span></div>
+      <div><span class="xref">IDisposable</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="AXOpen.Core.AxoBoolArrayCommandView.html">AxoBoolArrayCommandView</a></div>
+      <div><a class="xref" href="AXOpen.Core.AxoBoolArrayControlView.html">AxoBoolArrayControlView</a></div>
+      <div><a class="xref" href="AXOpen.Core.AxoBoolArrayDisplayView.html">AxoBoolArrayDisplayView</a></div>
+      <div><a class="xref" href="AXOpen.Core.AxoBoolArrayStatusView.html">AxoBoolArrayStatusView</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">RenderableComplexComponentBase&lt;AxoBoolArray&gt;.Component</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.RemovePolledElements()</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.UpdateValuesOnChange(ITwinElement, int)</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.UpdateShadowValuesOnChange(ITwinObject)</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.UpdateShadowValuesOnChange(ITwinPrimitive)</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.UpdateValuesOnChangeOutFocus(OnlinerBase)</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.HandlePropertyChanged(object, PropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.HandleShadowPropertyChanged(object, ValueChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.HandlePropertyChangedOnOutFocus(object, PropertyChangedEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.PollingInterval</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.PolledElements</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.HasFocus</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.BuildRenderTree(RenderTreeBuilder)</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.OnInitializedAsync()</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.OnParametersSet()</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.OnParametersSetAsync()</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.StateHasChanged()</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.ShouldRender()</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.OnAfterRender(bool)</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.OnAfterRenderAsync(bool)</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.InvokeAsync(Action)</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.InvokeAsync(Func&lt;Task&gt;)</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.SetParametersAsync(ParameterView)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="AXOpen_Core_AxoBoolArrayView_Data_" data-uid="AXOpen.Core.AxoBoolArrayView.Data*"></a>
+
+  <h3 id="AXOpen_Core_AxoBoolArrayView_Data" data-uid="AXOpen.Core.AxoBoolArrayView.Data">
+  Data
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoArrays/AxoBoolArrayView.razor.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IndexedData&lt;bool&gt;[] Data { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Core.IndexedData-1.html">IndexedData</a>&lt;<span class="xref">bool</span>&gt;[]</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="AXOpen_Core_AxoBoolArrayView_AddToPolling_" data-uid="AXOpen.Core.AxoBoolArrayView.AddToPolling*"></a>
+
+  <h3 id="AXOpen_Core_AxoBoolArrayView_AddToPolling_AXSharp_Connector_ITwinElement_System_Int32_" data-uid="AXOpen.Core.AxoBoolArrayView.AddToPolling(AXSharp.Connector.ITwinElement,System.Int32)">
+  AddToPolling(ITwinElement, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoArrays/AxoBoolArrayView.razor.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void AddToPolling(ITwinElement element, int pollingInterval = 250)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>element</code> <span class="xref">ITwinElement</span></dt>
+    <dd></dd>
+    <dt><code>pollingInterval</code> <span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoBoolArrayView_Dispose_" data-uid="AXOpen.Core.AxoBoolArrayView.Dispose*"></a>
+
+  <h3 id="AXOpen_Core_AxoBoolArrayView_Dispose" data-uid="AXOpen.Core.AxoBoolArrayView.Dispose">
+  Dispose()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoArrays/AxoBoolArrayView.razor.cs/#L70"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Dispose()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Core_AxoBoolArrayView_OnInitialized_" data-uid="AXOpen.Core.AxoBoolArrayView.OnInitialized*"></a>
+
+  <h3 id="AXOpen_Core_AxoBoolArrayView_OnInitialized" data-uid="AXOpen.Core.AxoBoolArrayView.OnInitialized">
+  OnInitialized()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoArrays/AxoBoolArrayView.razor.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnInitialized()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoArrays/AxoBoolArrayView.razor.cs/#L9" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

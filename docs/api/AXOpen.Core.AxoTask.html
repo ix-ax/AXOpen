@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoTask.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Core_AxoTask.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,11 +94,11 @@
 
   <h1 id="AXOpen_Core_AxoTask" data-uid="AXOpen.Core.AxoTask" class="text-break">
     Class AxoTask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
   <dl><dt>Assembly</dt><dd>ix_ax_axopen_core.dll</dd></dl>
   </div>
 
@@ -136,6 +136,13 @@
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
+      <div><a class="xref" href="AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html">AxoDatamanClearResultData</a></div>
+      <div><a class="xref" href="AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html">AxoDatamanRead</a></div>
+      <div><a class="xref" href="AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html">AxoInsightChangeJobByName</a></div>
+      <div><a class="xref" href="AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html">AxoInsightChangeJobByNumber</a></div>
+      <div><a class="xref" href="AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html">AxoInsightClearInspectionResults</a></div>
+      <div><a class="xref" href="AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html">AxoInsightSoftEvent</a></div>
+      <div><a class="xref" href="AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html">AxoInsightTrigger</a></div>
       <div><a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a></div>
       <div><a class="xref" href="AXOpen.Core.AxoSequencer.html">AxoSequencer</a></div>
       <div><a class="xref" href="AXOpen.Core.AxoStep.html">AxoStep</a></div>
@@ -231,6 +238,13 @@
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -244,7 +258,7 @@
 
   <h3 id="AXOpen_Core_AxoTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Core.AxoTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">
   AxoTask(ITwinObject, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -279,11 +293,42 @@
 </h2>
 
 
+  <a id="AXOpen_Core_AxoTask__CyclicExecuteIsNotCalled_" data-uid="AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled*"></a>
+
+  <h3 id="AXOpen_Core_AxoTask__CyclicExecuteIsNotCalled" data-uid="AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled">
+  _CyclicExecuteIsNotCalled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoMessenger _CyclicExecuteIsNotCalled { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Messaging.Static.AxoMessenger.html">AxoMessenger</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoTask_Duration_" data-uid="AXOpen.Core.AxoTask.Duration*"></a>
 
   <h3 id="AXOpen_Core_AxoTask_Duration" data-uid="AXOpen.Core.AxoTask.Duration">
   Duration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L30"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -315,7 +360,7 @@ public OnlinerLTime Duration { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_ErrorDetails" data-uid="AXOpen.Core.AxoTask.ErrorDetails">
   ErrorDetails
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L36"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -346,7 +391,7 @@ public OnlinerLTime Duration { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_IsDisabled" data-uid="AXOpen.Core.AxoTask.IsDisabled">
   IsDisabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L18"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -377,7 +422,7 @@ public OnlinerLTime Duration { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_RemoteAbort" data-uid="AXOpen.Core.AxoTask.RemoteAbort">
   RemoteAbort
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -408,7 +453,7 @@ public OnlinerLTime Duration { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_RemoteInvoke" data-uid="AXOpen.Core.AxoTask.RemoteInvoke">
   RemoteInvoke
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L20"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -439,7 +484,7 @@ public OnlinerLTime Duration { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_RemoteRestore" data-uid="AXOpen.Core.AxoTask.RemoteRestore">
   RemoteRestore
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L22"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -470,7 +515,7 @@ public OnlinerLTime Duration { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_RemoteResume" data-uid="AXOpen.Core.AxoTask.RemoteResume">
   RemoteResume
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -501,7 +546,7 @@ public OnlinerLTime Duration { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_StartSignature" data-uid="AXOpen.Core.AxoTask.StartSignature">
   StartSignature
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -532,7 +577,7 @@ public OnlinerLTime Duration { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_StartTimeStamp" data-uid="AXOpen.Core.AxoTask.StartTimeStamp">
   StartTimeStamp
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -564,7 +609,7 @@ public OnlinerLDateTime StartTimeStamp { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_Status" data-uid="AXOpen.Core.AxoTask.Status">
   Status
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -601,7 +646,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_Abort" data-uid="AXOpen.Core.AxoTask.Abort">
   Abort()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -627,7 +672,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_CreateEmptyPoco" data-uid="AXOpen.Core.AxoTask.CreateEmptyPoco">
   CreateEmptyPoco()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L183"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L196"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -658,7 +703,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_ExecuteAsync_System_Object_" data-uid="AXOpen.Core.AxoTask.ExecuteAsync(System.Object)">
   ExecuteAsync(object?)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L35"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Executes this task.</p>
@@ -695,7 +740,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_OnlineToPlain__1" data-uid="AXOpen.Core.AxoTask.OnlineToPlain``1">
   OnlineToPlain&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L59"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L66"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -731,7 +776,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_OnlineToPlainAsync" data-uid="AXOpen.Core.AxoTask.OnlineToPlainAsync">
   OnlineToPlainAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L64"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L71"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -762,7 +807,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoTask_" data-uid="AXOpen.Core.AxoTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoTask)">
   OnlineToPlainAsync(AxoTask)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -798,7 +843,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_PlainToOnline__1___0_" data-uid="AXOpen.Core.AxoTask.PlainToOnline``1(``0)">
   PlainToOnline&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L98"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L107"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -839,7 +884,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoTask_" data-uid="AXOpen.Core.AxoTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoTask)">
   PlainToOnlineAsync(AxoTask)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L103"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L112"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -875,7 +920,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_PlainToShadow__1___0_" data-uid="AXOpen.Core.AxoTask.PlainToShadow``1(``0)">
   PlainToShadow&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L157"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L169"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -916,7 +961,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoTask_" data-uid="AXOpen.Core.AxoTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoTask)">
   PlainToShadowAsync(AxoTask)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L162"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L174"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -952,7 +997,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_Poll" data-uid="AXOpen.Core.AxoTask.Poll">
   Poll()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L178"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L191"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -978,7 +1023,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_Restore" data-uid="AXOpen.Core.AxoTask.Restore">
   Restore()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Restore this task to ready state.</p>
@@ -1005,7 +1050,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_ResumeTask" data-uid="AXOpen.Core.AxoTask.ResumeTask">
   ResumeTask()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoTask/AxoTask.cs/#L26"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1031,7 +1076,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_ShadowToPlain__1" data-uid="AXOpen.Core.AxoTask.ShadowToPlain``1">
   ShadowToPlain&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1067,7 +1112,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_ShadowToPlainAsync" data-uid="AXOpen.Core.AxoTask.ShadowToPlainAsync">
   ShadowToPlainAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L124"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L134"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1098,7 +1143,7 @@ public OnlinerInt Status { get; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoTask_" data-uid="AXOpen.Core.AxoTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoTask)">
   ShadowToPlainAsync(AxoTask)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L141"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L152"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1134,7 +1179,7 @@ public OnlinerInt Status { get; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoTask/AxoTask.g.cs/#L12" class="edit-link">Edit this page</a>
         </div>
 
         

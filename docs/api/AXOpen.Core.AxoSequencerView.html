@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoSequencerView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Core_AxoSequencerView.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoSequencerView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,11 +94,11 @@
 
   <h1 id="AXOpen_Core_AxoSequencerView" data-uid="AXOpen.Core.AxoSequencerView" class="text-break">
     Class AxoSequencerView
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoCoordination_AxoSequencer_AxoSequencerView_razor.g.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
   <dl><dt>Assembly</dt><dd>axopen_core_blazor.dll</dd></dl>
   </div>
 
@@ -106,7 +106,7 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AxoSequencerView : RenderableComplexComponentBase&lt;AxoSequencer&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IDisposable, IRenderableComplexComponentBase</code></pre>
+    <pre><code class="lang-csharp hljs">public class AxoSequencerView : RenderableComplexComponentBase&lt;AxoSequencer&gt;, IComponent, IHandleEvent, IHandleAfterRender, IRenderableComponent, IRenderableComplexComponentBase, IDisposable</code></pre>
   </div>
 
 
@@ -130,8 +130,8 @@
       <div><span class="xref">IHandleEvent</span></div>
       <div><span class="xref">IHandleAfterRender</span></div>
       <div><span class="xref">IRenderableComponent</span></div>
-      <div><span class="xref">IDisposable</span></div>
       <div><span class="xref">IRenderableComplexComponentBase</span></div>
+      <div><span class="xref">IDisposable</span></div>
     </dd>
   </dl>
 
@@ -153,10 +153,10 @@
       <span class="xref">RenderableComponentBase.Dispose()</span>
     </div>
     <div>
-      <span class="xref">RenderableComponentBase.UpdateValuesOnChange(ITwinObject, int)</span>
+      <span class="xref">RenderableComponentBase.RemovePolledElements()</span>
     </div>
     <div>
-      <span class="xref">RenderableComponentBase.UpdateValuesOnChange(OnlinerBase, int)</span>
+      <span class="xref">RenderableComponentBase.UpdateValuesOnChange(ITwinElement, int)</span>
     </div>
     <div>
       <span class="xref">RenderableComponentBase.UpdateShadowValuesOnChange(ITwinObject)</span>
@@ -180,10 +180,13 @@
       <span class="xref">RenderableComponentBase.PollingInterval</span>
     </div>
     <div>
-      <span class="xref">RenderableComponentBase.AlertDialogService</span>
+      <span class="xref">RenderableComponentBase.PolledElements</span>
     </div>
     <div>
       <span class="xref">RenderableComponentBase.HasFocus</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.BuildRenderTree(RenderTreeBuilder)</span>
     </div>
     <div>
       <span class="xref">ComponentBase.OnInitializedAsync()</span>
@@ -238,6 +241,13 @@
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -251,7 +261,7 @@
 
   <h3 id="AXOpen_Core_AxoSequencerView_HasSettings" data-uid="AXOpen.Core.AxoSequencerView.HasSettings">
   HasSettings
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -283,7 +293,7 @@ public bool HasSettings { get; set; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencerView_HasStepControls" data-uid="AXOpen.Core.AxoSequencerView.HasStepControls">
   HasStepControls
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -315,7 +325,7 @@ public bool HasStepControls { get; set; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencerView_HasStepDetails" data-uid="AXOpen.Core.AxoSequencerView.HasStepDetails">
   HasStepDetails
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -347,7 +357,7 @@ public bool HasStepDetails { get; set; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencerView_HasTaskControlButton" data-uid="AXOpen.Core.AxoSequencerView.HasTaskControlButton">
   HasTaskControlButton
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -379,7 +389,7 @@ public bool HasTaskControlButton { get; set; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencerView_IsControllable" data-uid="AXOpen.Core.AxoSequencerView.IsControllable">
   IsControllable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -411,14 +421,14 @@ public bool IsControllable { get; set; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencerView_Steps" data-uid="AXOpen.Core.AxoSequencerView.Steps">
   Steps
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public IEnumerable&lt;AxoStep?&gt; Steps { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;AxoStep&gt; Steps { get; }</code></pre>
   </div>
 
 
@@ -442,23 +452,25 @@ public bool IsControllable { get; set; }</code></pre>
 </h2>
 
 
-  <a id="AXOpen_Core_AxoSequencerView_BuildRenderTree_" data-uid="AXOpen.Core.AxoSequencerView.BuildRenderTree*"></a>
+  <a id="AXOpen_Core_AxoSequencerView_AddToPolling_" data-uid="AXOpen.Core.AxoSequencerView.AddToPolling*"></a>
 
-  <h3 id="AXOpen_Core_AxoSequencerView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_" data-uid="AXOpen.Core.AxoSequencerView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)">
-  BuildRenderTree(RenderTreeBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoCoordination_AxoSequencer_AxoSequencerView_razor.g.cs/#L36"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AXOpen_Core_AxoSequencerView_AddToPolling_AXSharp_Connector_ITwinElement_System_Int32_" data-uid="AXOpen.Core.AxoSequencerView.AddToPolling(AXSharp.Connector.ITwinElement,System.Int32)">
+  AddToPolling(ITwinElement, int)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void BuildRenderTree(RenderTreeBuilder __builder)</code></pre>
+    <pre><code class="lang-csharp hljs">public override void AddToPolling(ITwinElement element, int pollingInterval = 250)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>__builder</code> <span class="xref">RenderTreeBuilder</span></dt>
+    <dt><code>element</code> <span class="xref">ITwinElement</span></dt>
+    <dd></dd>
+    <dt><code>pollingInterval</code> <span class="xref">int</span></dt>
     <dd></dd>
   </dl>
 
@@ -477,7 +489,7 @@ public bool IsControllable { get; set; }</code></pre>
 
   <h3 id="AXOpen_Core_AxoSequencerView_OnInitialized" data-uid="AXOpen.Core.AxoSequencerView.OnInitialized">
   OnInitialized()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L35"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -503,7 +515,7 @@ public bool IsControllable { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoCoordination_AxoSequencer_AxoSequencerView_razor.g.cs/#L33" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoCoordination/AxoSequencer/AxoSequencerView.razor.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
         
