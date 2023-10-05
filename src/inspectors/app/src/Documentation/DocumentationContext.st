@@ -34,6 +34,12 @@ CLASS PUBLIC AutomatSequence
         _analogueInspector: AXOpen.Inspectors.AxoAnalogueInspector;
         _dataInspector: AXOpen.Inspectors.AxoDataInspector;
 
+
+        _digitalInspectorDialog       : AXOpen.Inspectors.AxoInspectorDialog;
+        _analogueInspectorDialog      : AXOpen.Inspectors.AxoInspectorDialog;
+        _dataInspectorDialog          : AXOpen.Inspectors.AxoInspectorDialog;
+
+
         _inspectionResult: BOOL;
         _inspectionValue: LREAL;
         _inspectionData: STRING;
@@ -98,7 +104,7 @@ CLASS PUBLIC AutomatSequence
         IF (Steps[40].Execute(THIS, TRUE, 'Example Data inspection')) THEN
         
         // <HandlingFailureExample>
-        _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
+        _dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45],_dataInspectorDialog);
         // </HandlingFailureExample>
         END_IF;
 

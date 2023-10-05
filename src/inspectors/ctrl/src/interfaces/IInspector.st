@@ -27,6 +27,9 @@ NAMESPACE AXOpen.Inspectors
                 inTerminateStep: IAxoStep;
             END_VAR
 
+            VAR_IN_OUT
+                inoDialog : AxoInspectorDialog;
+            END_VAR
             
         END_METHOD
 
