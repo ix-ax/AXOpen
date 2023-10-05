@@ -6,9 +6,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI"/>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -17,5 +17,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\AXOpen.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
+	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
 	</ItemGroup>
 </Project>

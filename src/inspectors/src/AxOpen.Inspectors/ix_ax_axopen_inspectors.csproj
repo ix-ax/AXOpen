@@ -79,6 +79,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
-	  <ProjectReference Include="..\..\..\timers\ctrl\ix\ix_ax_axopen_timers.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
 	</ItemGroup>
 </Project>
