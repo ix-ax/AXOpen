@@ -19,11 +19,11 @@
     <PackageVersion Include="MongoDB.Driver" Version="2.21.0" />
     <PackageVersion Include="MongoDB.Driver.Core" Version="2.21.0" />
     <PackageVersion Include="Siemens.Simatic.S7.Webserver.API" Version="2.1.4" />
-    <PackageVersion Include="AXSharp.Abstractions" Version="0.15.0-alpha.153" />
-    <PackageVersion Include="AXSharp.Connector" Version="0.15.0-alpha.153" />
-    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.15.0-alpha.153" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.15.0-alpha.153" />
-    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.15.0-alpha.153" />
+    <PackageVersion Include="AXSharp.Abstractions" Version="0.15.0-alpha.154" />
+    <PackageVersion Include="AXSharp.Connector" Version="0.15.0-alpha.154" />
+    <PackageVersion Include="AXSharp.Connector.S71500.WebAPI" Version="0.15.0-alpha.154" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor" Version="0.15.0-alpha.154" />
+    <PackageVersion Include="AXSharp.Presentation.Blazor.Controls" Version="0.15.0-alpha.154" />
     <PackageVersion Include="Microsoft.AspNetCore.Components" Version="7.0.10" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.10" />
     <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="7.0.3" />
