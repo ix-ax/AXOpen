@@ -5,7 +5,6 @@ targets:
   - axunit-llvm
 files:
   - src
-  - axsharp.companion.json
 dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ax/simatic-1500-clocks": ^4.0.1
