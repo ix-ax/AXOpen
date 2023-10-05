@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessengerView.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessengerView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Messaging_Static_AxoMessengerView.md&amp;value=---%0Auid%3A%20AXOpen.Messaging.Static.AxoMessengerView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,11 +94,11 @@
 
   <h1 id="AXOpen_Messaging_Static_AxoMessengerView" data-uid="AXOpen.Messaging.Static.AxoMessengerView" class="text-break">
     Class AxoMessengerView
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoMessenger_Static_AxoMessengerView_razor.g.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Messaging.html">Messaging</a>.<a class="xref" href="AXOpen.Messaging.Static.html">Static</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Messaging.html">Messaging</a>.<a class="xref" href="AXOpen.Messaging.Static.html">Static</a></dd></dl>
   <dl><dt>Assembly</dt><dd>axopen_core_blazor.dll</dd></dl>
   </div>
 
@@ -150,10 +150,13 @@
       <span class="xref">RenderableComplexComponentBase&lt;AxoMessenger&gt;.Component</span>
     </div>
     <div>
-      <span class="xref">RenderableComponentBase.UpdateValuesOnChange(ITwinObject, int)</span>
+      <span class="xref">RenderableComponentBase.AddToPolling(ITwinElement, int)</span>
     </div>
     <div>
-      <span class="xref">RenderableComponentBase.UpdateValuesOnChange(OnlinerBase, int)</span>
+      <span class="xref">RenderableComponentBase.RemovePolledElements()</span>
+    </div>
+    <div>
+      <span class="xref">RenderableComponentBase.UpdateValuesOnChange(ITwinElement, int)</span>
     </div>
     <div>
       <span class="xref">RenderableComponentBase.UpdateShadowValuesOnChange(ITwinObject)</span>
@@ -177,10 +180,13 @@
       <span class="xref">RenderableComponentBase.PollingInterval</span>
     </div>
     <div>
-      <span class="xref">RenderableComponentBase.AlertDialogService</span>
+      <span class="xref">RenderableComponentBase.PolledElements</span>
     </div>
     <div>
       <span class="xref">RenderableComponentBase.HasFocus</span>
+    </div>
+    <div>
+      <span class="xref">ComponentBase.BuildRenderTree(RenderTreeBuilder)</span>
     </div>
     <div>
       <span class="xref">ComponentBase.OnInitializedAsync()</span>
@@ -199,9 +205,6 @@
     </div>
     <div>
       <span class="xref">ComponentBase.OnAfterRender(bool)</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.OnAfterRenderAsync(bool)</span>
     </div>
     <div>
       <span class="xref">ComponentBase.InvokeAsync(Action)</span>
@@ -235,6 +238,13 @@
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -248,7 +258,7 @@
 
   <h3 id="AXOpen_Messaging_Static_AxoMessengerView_AuthenticationStateProvider" data-uid="AXOpen.Messaging.Static.AxoMessengerView.AuthenticationStateProvider">
   AuthenticationStateProvider
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L14"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -276,27 +286,28 @@ protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
 
 
 
-  <h2 class="section" id="methods">Methods
-</h2>
+  <a id="AXOpen_Messaging_Static_AxoMessengerView_js_" data-uid="AXOpen.Messaging.Static.AxoMessengerView.js*"></a>
 
-
-  <a id="AXOpen_Messaging_Static_AxoMessengerView_BuildRenderTree_" data-uid="AXOpen.Messaging.Static.AxoMessengerView.BuildRenderTree*"></a>
-
-  <h3 id="AXOpen_Messaging_Static_AxoMessengerView_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_" data-uid="AXOpen.Messaging.Static.AxoMessengerView.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)">
-  BuildRenderTree(RenderTreeBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoMessenger_Static_AxoMessengerView_razor.g.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AXOpen_Messaging_Static_AxoMessengerView_js" data-uid="AXOpen.Messaging.Static.AxoMessengerView.js">
+  js
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void BuildRenderTree(RenderTreeBuilder __builder)</code></pre>
+    <pre><code class="lang-csharp hljs">[Inject]
+protected IJSRuntime js { get; set; }</code></pre>
   </div>
 
-  <h4 class="section">Parameters</h4>
+
+
+
+
+  <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><code>__builder</code> <span class="xref">RenderTreeBuilder</span></dt>
+    <dt><span class="xref">IJSRuntime</span></dt>
     <dd></dd>
   </dl>
 
@@ -307,15 +318,15 @@ protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
 
 
 
-
-
+  <h2 class="section" id="methods">Methods
+</h2>
 
 
   <a id="AXOpen_Messaging_Static_AxoMessengerView_Dispose_" data-uid="AXOpen.Messaging.Static.AxoMessengerView.Dispose*"></a>
 
   <h3 id="AXOpen_Messaging_Static_AxoMessengerView_Dispose" data-uid="AXOpen.Messaging.Static.AxoMessengerView.Dispose">
   Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L50"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -341,7 +352,7 @@ protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
 
   <h3 id="AXOpen_Messaging_Static_AxoMessengerView_GetCurrentUserIdentity" data-uid="AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserIdentity">
   GetCurrentUserIdentity()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L33"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -372,7 +383,7 @@ protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
 
   <h3 id="AXOpen_Messaging_Static_AxoMessengerView_GetCurrentUserName" data-uid="AXOpen.Messaging.Static.AxoMessengerView.GetCurrentUserName">
   GetCurrentUserName()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -399,11 +410,47 @@ protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
 
 
 
+  <a id="AXOpen_Messaging_Static_AxoMessengerView_OnAfterRenderAsync_" data-uid="AXOpen.Messaging.Static.AxoMessengerView.OnAfterRenderAsync*"></a>
+
+  <h3 id="AXOpen_Messaging_Static_AxoMessengerView_OnAfterRenderAsync_System_Boolean_" data-uid="AXOpen.Messaging.Static.AxoMessengerView.OnAfterRenderAsync(System.Boolean)">
+  OnAfterRenderAsync(bool)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task OnAfterRenderAsync(bool firstRender)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>firstRender</code> <span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Messaging_Static_AxoMessengerView_OnInitialized_" data-uid="AXOpen.Messaging.Static.AxoMessengerView.OnInitialized*"></a>
 
   <h3 id="AXOpen_Messaging_Static_AxoMessengerView_OnInitialized" data-uid="AXOpen.Messaging.Static.AxoMessengerView.OnInitialized">
   OnInitialized()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L44"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -429,7 +476,7 @@ protected AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoMessenger_Static_AxoMessengerView_razor.g.cs/#L40" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
         

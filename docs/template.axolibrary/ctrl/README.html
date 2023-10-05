@@ -2,15 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>How to use component in controller | System.Dynamic.ExpandoObject </title>
+      <title> | System.Dynamic.ExpandoObject </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="How to use component in controller | System.Dynamic.ExpandoObject ">
+      <meta name="title" content=" | System.Dynamic.ExpandoObject ">
       
       <link rel="icon" href="../../images/favicon.ico">
       <link rel="stylesheet" href="../../public/docfx.min.css">
       <link rel="stylesheet" href="../../public/main.css">
       <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../docs/toc.html">
       
       <meta name="docfx:rel" content="../../">
       
@@ -87,51 +87,34 @@
         </div>
 
         <article data-uid="">
-<h1 id="how-to-use-component-in-controller">How to use component in controller</h1>
+<h1 id="section">@ix-ax/axlibname</h1>
 
-<h2 id="declare-component">Declare component</h2>
-<pre><code class="lang-pascal">VAR PUBLIC                
-    Cyclinder : AXOpen.Pneumatics.Cylinder;                
-END_VAR
-</code></pre><h2 id="declare-initialization-variables">Declare initialization variables</h2>
-<p><em>Most of the initialization variable will come from the I/O system. This example is only for demostrational puproses.</em></p>
-<pre><code class="lang-pascal">VAR PUBLIC                
-    _homeSensor : BOOL;
-    _workSensor : BOOL;
-    _moveHomeSignal : BOOL;
-    _moveWorkSignal : BOOL;        
-END_VAR
-</code></pre><h2 id="initialize--run">Initialize &amp; Run</h2>
-<pre><code class="lang-pascal">Cyclinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);        
-</code></pre><div class="IMPORTANT">
+<h2 id="description">Description</h2>
+<!-- TODO: briefly decsribe the library -->
+<p><strong>APAX package registry</strong></p>
+<div class="IMPORTANT">
 <h5>Important</h5>
-<p>This component requires cyclic data updates, which are typically sourced from the I/O system. Before using the component, make sure you invoke the <code>Run</code> method. Additionally, it's crucial to ensure that the <code>Run</code> method is positioned within a call tree that operates cyclically. Failing to initiate the <code>Run</code> method or not guaranteeing its cyclic execution can lead to malfunctions and unpredictable component behavior. In extreme circumstances, this could cause erratic controller behavior, potentially leading to equipment damage.</p>
+<p><strong>APAX pacakges are now published experimentally</strong></p>
 </div>
-<h2 id="use">Use</h2>
-<pre><code class="lang-pascal">VAR PUBLIC                       
-    Sequencer : AxoSequencer;       
-    Steps : ARRAY[0..3] OF AXOpen.Core.AxoStep;
-END_VAR
-
-METHOD PRIVATE UseInSequencer   
-
-    Sequencer.Initialize(THIS);
-    Sequencer.Open();
-
-    IF(Steps[0].Execute(Sequencer, 'Move to home position')) THEN
-        IF(Cyclinder.MoveToHome.Invoke().IsDone()) THEN                
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;
-
-    IF(Steps[1].Execute(Sequencer, 'Move to work position')) THEN
-        IF(Cyclinder.MoveToWork.Invoke().IsDone()) THEN                
-            Sequencer.MoveNext();                
-        END_IF;    
-    END_IF;       
-END_METHOD
-
-</code></pre></article>
+<p>This apax package's registry is hosted on github on how to authenticate to the registry see the documentation <a href="https://console.simatic-ax.siemens.io/docs/faq/login-to-external-registries">here</a> and <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">here</a>.</p>
+<pre><code class="lang-bash">apax login --registry https://npm.pkg.github.com --username GH_USER_NAME --password PAT
+</code></pre>
+<p>Add registry to your <code>apax.yml</code> file.</p>
+<pre><code class="lang-yml">registries: 
+  &quot;@ix-ax&quot;: https://npm.pkg.github.com/
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Please notice that all AXOpen packages are being released from a single repository and version numbers are aligned. You can use different versions that have major version number alligned should it be necessary, however we strongly recommend to use pacakge with the same version number, such packages are being built and tested together to enshure best experience.</p>
+</div>
+<h2 id="adding-package-to-your-project">Adding package to your project</h2>
+<pre><code class="lang-bash">apax add &quot;@ix-ax/axlibname&quot;
+</code></pre>
+<h2 id="modifying-your-apaxyml">Modifying your <code>apax.yml</code></h2>
+<pre><code class="lang-yml">dependencies:
+  &quot;@ix-ax/axlibname&quot;: '{axopen-version}'  
+</code></pre>
+</article>
 
         <div class="contribution d-print-none">
           <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/template.axolibrary/ctrl/README.md/#L1" class="edit-link">Edit this page</a>

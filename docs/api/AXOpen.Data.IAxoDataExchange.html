@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_IAxoDataExchange.md&amp;value=---%0Auid%3A%20AXOpen.Data.IAxoDataExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Data_IAxoDataExchange.md&amp;value=---%0Auid%3A%20AXOpen.Data.IAxoDataExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,11 +94,11 @@
 
   <h1 id="AXOpen_Data_IAxoDataExchange" data-uid="AXOpen.Data.IAxoDataExchange" class="text-break">
     Interface IAxoDataExchange
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/IAxoDataExchange.g.cs/#L10"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/.g/Onliners/IAxoDataExchange.g.cs/#L10"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Data.html">Data</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Data.html">Data</a></dd></dl>
   <dl><dt>Assembly</dt><dd>ix_ax_axopen_data.dll</dd></dl>
   </div>
 
@@ -116,6 +116,13 @@
 
 
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -125,11 +132,42 @@
 </h2>
 
 
+  <a id="AXOpen_Data_IAxoDataExchange_Exporters_" data-uid="AXOpen.Data.IAxoDataExchange.Exporters*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_Exporters" data-uid="AXOpen.Data.IAxoDataExchange.Exporters">
+  Exporters
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L75"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Dictionary&lt;string, Type&gt; Exporters { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Dictionary</span>&lt;<span class="xref">string</span>, <span class="xref">Type</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_IAxoDataExchange_RefUIData_" data-uid="AXOpen.Data.IAxoDataExchange.RefUIData*"></a>
 
   <h3 id="AXOpen_Data_IAxoDataExchange_RefUIData" data-uid="AXOpen.Data.IAxoDataExchange.RefUIData">
   RefUIData
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L24"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets data of this AxoDataExchange object for automated UI generation.</p>
@@ -161,7 +199,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_Repository" data-uid="AXOpen.Data.IAxoDataExchange.Repository">
   Repository
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets repository associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a> object.</p>
@@ -178,7 +216,38 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><span class="xref">IRepository</span></dt>
+    <dt><a class="xref" href="AXOpen.Base.Data.IRepository.html">IRepository</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Data_IAxoDataExchange_VerifyHash_" data-uid="AXOpen.Data.IAxoDataExchange.VerifyHash*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_VerifyHash" data-uid="AXOpen.Data.IAxoDataExchange.VerifyHash">
+  VerifyHash
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool VerifyHash { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
     <dd></dd>
   </dl>
 
@@ -193,11 +262,163 @@
 </h2>
 
 
+  <a id="AXOpen_Data_IAxoDataExchange_ChangeTrackerGetChanges_" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerGetChanges*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_ChangeTrackerGetChanges" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerGetChanges">
+  ChangeTrackerGetChanges()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets changes from changeTracker.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">List&lt;ValueChangeItem&gt; ChangeTrackerGetChanges()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">List</span>&lt;<a class="xref" href="AXOpen.Data.ValueChangeItem.html">ValueChangeItem</a>&gt;</dt>
+    <dd><p>List of ValueChangeItem that contains changes.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Data_IAxoDataExchange_ChangeTrackerSaveObservedChanges_" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerSaveObservedChanges*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_ChangeTrackerSaveObservedChanges_AXOpen_Base_Data_IBrowsableDataObject_" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerSaveObservedChanges(AXOpen.Base.Data.IBrowsableDataObject)">
+  ChangeTrackerSaveObservedChanges(IBrowsableDataObject)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L43"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Saves observed changes from changeTracker to object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ChangeTrackerSaveObservedChanges(IBrowsableDataObject plainObject)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plainObject</code> <a class="xref" href="AXOpen.Base.Data.IBrowsableDataObject.html">IBrowsableDataObject</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Data_IAxoDataExchange_ChangeTrackerSetChanges_" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerSetChanges*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_ChangeTrackerSetChanges" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerSetChanges">
+  ChangeTrackerSetChanges()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L49"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Sets changes to changeTracker.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ChangeTrackerSetChanges()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Data_IAxoDataExchange_ChangeTrackerStartObservingChanges_" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerStartObservingChanges*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_ChangeTrackerStartObservingChanges_Microsoft_AspNetCore_Components_Authorization_AuthenticationState_" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerStartObservingChanges(Microsoft.AspNetCore.Components.Authorization.AuthenticationState)">
+  ChangeTrackerStartObservingChanges(AuthenticationState)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L37"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Start observing changes of the data object with changeTracker.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ChangeTrackerStartObservingChanges(AuthenticationState authenticationState)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>authenticationState</code> <span class="xref">AuthenticationState</span></dt>
+    <dd><p>Authentication state of current logged user.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Data_IAxoDataExchange_ChangeTrackerStopObservingChanges_" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerStopObservingChanges*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_ChangeTrackerStopObservingChanges" data-uid="AXOpen.Data.IAxoDataExchange.ChangeTrackerStopObservingChanges">
+  ChangeTrackerStopObservingChanges()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Stop observing changes of the data object with changeTracker.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ChangeTrackerStopObservingChanges()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_IAxoDataExchange_CleanUp_" data-uid="AXOpen.Data.IAxoDataExchange.CleanUp*"></a>
 
   <h3 id="AXOpen_Data_IAxoDataExchange_CleanUp_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.CleanUp(System.String)">
   CleanUp(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L164"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L217"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Clear directory of temporary files.</p>
@@ -230,7 +451,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_CreateCopyCurrentShadowsAsync_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.CreateCopyCurrentShadowsAsync(System.String)">
   CreateCopyCurrentShadowsAsync(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L83"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L136"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create new record of the current data present in the shadows of this object in the repository.</p>
@@ -268,7 +489,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_CreateDataFromControllerAsync_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.CreateDataFromControllerAsync(System.String)">
   CreateDataFromControllerAsync(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L48"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L101"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Load data from controller and creates new record in the repository.</p>
@@ -305,7 +526,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_CreateNewAsync_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.CreateNewAsync(System.String)">
   CreateNewAsync(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L62"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L115"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Creates new record in the repository.</p>
@@ -344,7 +565,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_CreateOrUpdate_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.CreateOrUpdate(System.String)">
   CreateOrUpdate(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L76"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L129"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Create or update record in the repository.</p>
@@ -383,7 +604,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_Delete_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.Delete(System.String)">
   Delete(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Deletes record from the repository.</p>
@@ -422,7 +643,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_ExistsAsync_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.ExistsAsync(System.String)">
   ExistsAsync(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L69"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L122"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Check if record exists in the repository.</p>
@@ -459,9 +680,9 @@
 
   <a id="AXOpen_Data_IAxoDataExchange_ExportData_" data-uid="AXOpen.Data.IAxoDataExchange.ExportData*"></a>
 
-  <h3 id="AXOpen_Data_IAxoDataExchange_ExportData_System_String_System_Char_" data-uid="AXOpen.Data.IAxoDataExchange.ExportData(System.String,System.Char)">
-  ExportData(string, char)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L150"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AXOpen_Data_IAxoDataExchange_ExportData_System_String_System_Collections_Generic_Dictionary_System_String_AXOpen_Data_ExportData__AXOpen_Data_eExportMode_System_Int32_System_Int32_System_String_System_Char_" data-uid="AXOpen.Data.IAxoDataExchange.ExportData(System.String,System.Collections.Generic.Dictionary{System.String,AXOpen.Data.ExportData},AXOpen.Data.eExportMode,System.Int32,System.Int32,System.String,System.Char)">
+  ExportData(string, Dictionary&lt;string, ExportData&gt;, eExportMode, int, int, string, char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L203"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Export data from the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a>.</p>
@@ -469,7 +690,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ExportData(string path, char separator = &#39;;&#39;)</code></pre>
+    <pre><code class="lang-csharp hljs">void ExportData(string path, Dictionary&lt;string, ExportData&gt; customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, string exportFileType = &quot;CSV&quot;, char separator = &#39;;&#39;)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -477,6 +698,16 @@
     <dt><code>path</code> <span class="xref">string</span></dt>
     <dd><p>Path to exported file.</p>
 </dd>
+    <dt><code>customExportData</code> <span class="xref">Dictionary</span>&lt;<span class="xref">string</span>, <a class="xref" href="AXOpen.Data.ExportData.html">ExportData</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>exportMode</code> <a class="xref" href="AXOpen.Data.eExportMode.html">eExportMode</a></dt>
+    <dd></dd>
+    <dt><code>firstNumber</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>secondNumber</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>exportFileType</code> <span class="xref">string</span></dt>
+    <dd></dd>
     <dt><code>separator</code> <span class="xref">char</span></dt>
     <dd><p>Separator for individual records.</p>
 </dd>
@@ -497,7 +728,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_FromRepositoryToControllerAsync_AXOpen_Base_Data_IBrowsableDataObject_" data-uid="AXOpen.Data.IAxoDataExchange.FromRepositoryToControllerAsync(AXOpen.Base.Data.IBrowsableDataObject)">
   FromRepositoryToControllerAsync(IBrowsableDataObject)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L41"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L94"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Loads data from respective record of the repository into the controller.</p>
@@ -510,7 +741,7 @@
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>entity</code> <span class="xref">IBrowsableDataObject</span></dt>
+    <dt><code>entity</code> <a class="xref" href="AXOpen.Base.Data.IBrowsableDataObject.html">IBrowsableDataObject</a></dt>
     <dd><p>Entity to be loaded into the controller.</p>
 </dd>
   </dl>
@@ -535,7 +766,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_FromRepositoryToShadowsAsync_AXOpen_Base_Data_IBrowsableDataObject_" data-uid="AXOpen.Data.IAxoDataExchange.FromRepositoryToShadowsAsync(AXOpen.Base.Data.IBrowsableDataObject)">
   FromRepositoryToShadowsAsync(IBrowsableDataObject)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L28"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L81"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Copies the data from the repository(ies) to shadows of this twin object.</p>
@@ -548,7 +779,7 @@
 
   <h4 class="section">Parameters</h4>
   <dl class="parameters">
-    <dt><code>entity</code> <span class="xref">IBrowsableDataObject</span></dt>
+    <dt><code>entity</code> <a class="xref" href="AXOpen.Base.Data.IBrowsableDataObject.html">IBrowsableDataObject</a></dt>
     <dd><p>Data entity object.</p>
 </dd>
   </dl>
@@ -569,11 +800,43 @@
 
 
 
+  <a id="AXOpen_Data_IAxoDataExchange_GetLockedBy_" data-uid="AXOpen.Data.IAxoDataExchange.GetLockedBy*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_GetLockedBy" data-uid="AXOpen.Data.IAxoDataExchange.GetLockedBy">
+  GetLockedBy()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L55"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Get object which locked this repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object? GetLockedBy()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_IAxoDataExchange_GetRecords_" data-uid="AXOpen.Data.IAxoDataExchange.GetRecords*"></a>
 
   <h3 id="AXOpen_Data_IAxoDataExchange_GetRecords_System_String_System_Int32_System_Int32_AXOpen_Base_Data_eSearchMode_" data-uid="AXOpen.Data.IAxoDataExchange.GetRecords(System.String,System.Int32,System.Int32,AXOpen.Base.Data.eSearchMode)">
   GetRecords(string, int, int, eSearchMode)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L188"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets records meeting criteria from the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a></p>
@@ -595,14 +858,14 @@
     <dt><code>skip</code> <span class="xref">int</span></dt>
     <dd><p>Skips number of entries.</p>
 </dd>
-    <dt><code>searchMode</code> <span class="xref">eSearchMode</span></dt>
-    <dd><p>Set the search mode fot his query. <span class="xref">AXOpen.Base.Data.eSearchMode</span></p>
+    <dt><code>searchMode</code> <a class="xref" href="AXOpen.Base.Data.eSearchMode.html">eSearchMode</a></dt>
+    <dd><p>Set the search mode fot his query. <a class="xref" href="AXOpen.Base.Data.eSearchMode.html">eSearchMode</a></p>
 </dd>
   </dl>
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">IEnumerable</span>&lt;<span class="xref">IBrowsableDataObject</span>&gt;</dt>
+    <dt><span class="xref">IEnumerable</span>&lt;<a class="xref" href="AXOpen.Base.Data.IBrowsableDataObject.html">IBrowsableDataObject</a>&gt;</dt>
     <dd><p>Records from the associated repository meeting criteria.</p>
 </dd>
   </dl>
@@ -621,7 +884,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_GetRecords_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.GetRecords(System.String)">
   GetRecords(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L196"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets record meeting criteria from the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a> where the data entity id matches exactly the argument.</p>
@@ -641,7 +904,7 @@
 
   <h4 class="section">Returns</h4>
   <dl class="parameters">
-    <dt><span class="xref">IEnumerable</span>&lt;<span class="xref">IBrowsableDataObject</span>&gt;</dt>
+    <dt><span class="xref">IEnumerable</span>&lt;<a class="xref" href="AXOpen.Base.Data.IBrowsableDataObject.html">IBrowsableDataObject</a>&gt;</dt>
     <dd><p>Record from the associated repository meeting criteria.</p>
 </dd>
   </dl>
@@ -658,9 +921,9 @@
 
   <a id="AXOpen_Data_IAxoDataExchange_ImportData_" data-uid="AXOpen.Data.IAxoDataExchange.ImportData*"></a>
 
-  <h3 id="AXOpen_Data_IAxoDataExchange_ImportData_System_String_AXSharp_Connector_ITwinObject_System_Char_" data-uid="AXOpen.Data.IAxoDataExchange.ImportData(System.String,AXSharp.Connector.ITwinObject,System.Char)">
-  ImportData(string, ITwinObject, char)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L158"><i class="bi bi-code-slash"></i></a>
+  <h3 id="AXOpen_Data_IAxoDataExchange_ImportData_System_String_Microsoft_AspNetCore_Components_Authorization_AuthenticationState_AXSharp_Connector_ITwinObject_System_String_System_Char_" data-uid="AXOpen.Data.IAxoDataExchange.ImportData(System.String,Microsoft.AspNetCore.Components.Authorization.AuthenticationState,AXSharp.Connector.ITwinObject,System.String,System.Char)">
+  ImportData(string, AuthenticationState, ITwinObject, string, char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L211"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Import data from file to the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a>.</p>
@@ -668,7 +931,7 @@
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void ImportData(string path, ITwinObject crudDataObject = null, char separator = &#39;;&#39;)</code></pre>
+    <pre><code class="lang-csharp hljs">void ImportData(string path, AuthenticationState authenticationState, ITwinObject crudDataObject = null, string exportFileType = &quot;CSV&quot;, char separator = &#39;;&#39;)</code></pre>
   </div>
 
   <h4 class="section">Parameters</h4>
@@ -676,9 +939,13 @@
     <dt><code>path</code> <span class="xref">string</span></dt>
     <dd><p>Path to imported file.</p>
 </dd>
+    <dt><code>authenticationState</code> <span class="xref">AuthenticationState</span></dt>
+    <dd></dd>
     <dt><code>crudDataObject</code> <span class="xref">ITwinObject</span></dt>
     <dd><p>Object type of the imported records.</p>
 </dd>
+    <dt><code>exportFileType</code> <span class="xref">string</span></dt>
+    <dd></dd>
     <dt><code>separator</code> <span class="xref">char</span></dt>
     <dd><p>Separator for individual records.</p>
 </dd>
@@ -695,11 +962,47 @@
 
 
 
+  <a id="AXOpen_Data_IAxoDataExchange_IsHashCorrect_" data-uid="AXOpen.Data.IAxoDataExchange.IsHashCorrect*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_IsHashCorrect_System_Security_Principal_IIdentity_" data-uid="AXOpen.Data.IAxoDataExchange.IsHashCorrect(System.Security.Principal.IIdentity)">
+  IsHashCorrect(IIdentity)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L63"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsHashCorrect(IIdentity identity)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identity</code> <span class="xref">IIdentity</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_IAxoDataExchange_RemoteCreate_" data-uid="AXOpen.Data.IAxoDataExchange.RemoteCreate*"></a>
 
   <h3 id="AXOpen_Data_IAxoDataExchange_RemoteCreate_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.RemoteCreate(System.String)">
   RemoteCreate(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L143"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Provides handler for remote (controller's) request to create new data entry in the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a></p>
@@ -738,7 +1041,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_RemoteCreateOrUpdate_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.RemoteCreateOrUpdate(System.String)">
   RemoteCreateOrUpdate(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L178"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Provides handler for remote (controller's) request to create or update data in the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a></p>
@@ -777,7 +1080,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_RemoteDelete_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.RemoteDelete(System.String)">
   RemoteDelete(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L111"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L164"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Provides handler for remote (controller's) request to delete data from the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a></p>
@@ -816,7 +1119,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_RemoteEntityExist_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.RemoteEntityExist(System.String)">
   RemoteEntityExist(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L118"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L171"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Provides handler for remote (controller's) request to check if data exists in the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a></p>
@@ -855,7 +1158,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_RemoteRead_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.RemoteRead(System.String)">
   RemoteRead(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L97"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L150"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Provides handler for remote (controller's) request to read data from the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a></p>
@@ -894,7 +1197,7 @@
 
   <h3 id="AXOpen_Data_IAxoDataExchange_RemoteUpdate_System_String_" data-uid="AXOpen.Data.IAxoDataExchange.RemoteUpdate(System.String)">
   RemoteUpdate(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L104"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L157"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Provides handler for remote (controller's) request to update data in the <a class="xref" href="AXOpen.Data.IAxoDataExchange.html#AXOpen_Data_IAxoDataExchange_Repository">Repository</a> associated with this <a class="xref" href="AXOpen.Data.IAxoDataExchange.html">IAxoDataExchange</a></p>
@@ -929,11 +1232,43 @@
 
 
 
+  <a id="AXOpen_Data_IAxoDataExchange_SetLockedBy_" data-uid="AXOpen.Data.IAxoDataExchange.SetLockedBy*"></a>
+
+  <h3 id="AXOpen_Data_IAxoDataExchange_SetLockedBy_System_Object_" data-uid="AXOpen.Data.IAxoDataExchange.SetLockedBy(System.Object)">
+  SetLockedBy(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Set object which locked this repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void SetLockedBy(object by)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>by</code> <span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Data_IAxoDataExchange_UpdateFromShadowsAsync_" data-uid="AXOpen.Data.IAxoDataExchange.UpdateFromShadowsAsync*"></a>
 
   <h3 id="AXOpen_Data_IAxoDataExchange_UpdateFromShadowsAsync" data-uid="AXOpen.Data.IAxoDataExchange.UpdateFromShadowsAsync">
   UpdateFromShadowsAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L34"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/DataExchange/IAxoDataExchange.cs/#L87"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Updates data form shadows of this object to respective record in the repository.</p>
@@ -966,7 +1301,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/Onliners/IAxoDataExchange.g.cs/#L10" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/.g/Onliners/IAxoDataExchange.g.cs/#L10" class="edit-link">Edit this page</a>
         </div>
 
         

@@ -6,6 +6,7 @@ targets:
   - llvm
 files:
   - src
+  - axsharp.companion.json
 devDependencies:
   "@ax/sdk": ^4.0.3
 scripts:

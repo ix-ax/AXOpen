@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class BaseDataExporter&lt;TPlain, TOnline&gt;
+ | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class BaseDataExporter&lt;TPlain, TOnline&gt;
+ | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Data_BaseDataExporter_2.md&amp;value=---%0Auid%3A%20AXOpen.Data.BaseDataExporter%602%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="AXOpen.Data.BaseDataExporter`2">
+
+
+
+  <h1 id="AXOpen_Data_BaseDataExporter_2" data-uid="AXOpen.Data.BaseDataExporter`2" class="text-break">
+    Class BaseDataExporter&lt;TPlain, TOnline&gt;
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/ExportImport/BaseDataExporter.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ix_ax_axopen_data.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BaseDataExporter&lt;TPlain, TOnline&gt; where TPlain : IAxoDataEntity, new() where TOnline : IAxoDataEntity</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>TPlain</code></dt>
+    <dd></dd>
+    <dt><code>TOnline</code></dt>
+    <dd></dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">BaseDataExporter&lt;TPlain, TOnline&gt;</span></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="AXOpen.Data.CSVDataExporter-2.html">CSVDataExporter&lt;TPlain, TOnline&gt;</a></div>
+      <div><a class="xref" href="AXOpen.Data.TXTDataExporter-2.html">TXTDataExporter&lt;TPlain, TOnline&gt;</a></div>
+      <div><a class="xref" href="ix_ax_axopen_exporters.ExcelDataExporter-2.html">ExcelDataExporter&lt;TPlain, TOnline&gt;</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="AXOpen_Data_BaseDataExporter_2__ctor_" data-uid="AXOpen.Data.BaseDataExporter`2.#ctor*"></a>
+
+  <h3 id="AXOpen_Data_BaseDataExporter_2__ctor" data-uid="AXOpen.Data.BaseDataExporter`2.#ctor">
+  BaseDataExporter()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/ExportImport/BaseDataExporter.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BaseDataExporter()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="AXOpen_Data_BaseDataExporter_2_BaseExport_" data-uid="AXOpen.Data.BaseDataExporter`2.BaseExport*"></a>
+
+  <h3 id="AXOpen_Data_BaseDataExporter_2_BaseExport_AXOpen_Base_Data_IRepository__0__System_Linq_Expressions_Expression_System_Func__0_System_Boolean___System_Collections_Generic_Dictionary_System_String_System_Boolean__AXOpen_Data_eExportMode_System_Int32_System_Int32_System_Char_" data-uid="AXOpen.Data.BaseDataExporter`2.BaseExport(AXOpen.Base.Data.IRepository{`0},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Collections.Generic.Dictionary{System.String,System.Boolean},AXOpen.Data.eExportMode,System.Int32,System.Int32,System.Char)">
+  BaseExport(IRepository&lt;TPlain&gt;, Expression&lt;Func&lt;TPlain, bool&gt;&gt;, Dictionary&lt;string, bool&gt;?, eExportMode, int, int, char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/ExportImport/BaseDataExporter.cs/#L22"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; BaseExport(IRepository&lt;TPlain&gt; dataRepository, Expression&lt;Func&lt;TPlain, bool&gt;&gt; expression, Dictionary&lt;string, bool&gt;? customExportData = null, eExportMode exportMode = eExportMode.First, int firstNumber = 50, int secondNumber = 100, char separator = &#39;;&#39;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataRepository</code> <a class="xref" href="AXOpen.Base.Data.IRepository-1.html">IRepository</a>&lt;TPlain&gt;</dt>
+    <dd></dd>
+    <dt><code>expression</code> <span class="xref">Expression</span>&lt;<span class="xref">Func</span>&lt;TPlain, <span class="xref">bool</span>&gt;&gt;</dt>
+    <dd></dd>
+    <dt><code>customExportData</code> <span class="xref">Dictionary</span>&lt;<span class="xref">string</span>, <span class="xref">bool</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>exportMode</code> <a class="xref" href="AXOpen.Data.eExportMode.html">eExportMode</a></dt>
+    <dd></dd>
+    <dt><code>firstNumber</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>secondNumber</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>separator</code> <span class="xref">char</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">List</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Data_BaseDataExporter_2_BaseImport_" data-uid="AXOpen.Data.BaseDataExporter`2.BaseImport*"></a>
+
+  <h3 id="AXOpen_Data_BaseDataExporter_2_BaseImport_AXOpen_Base_Data_IRepository__0__System_Collections_Generic_List_System_String__Microsoft_AspNetCore_Components_Authorization_AuthenticationState_AXSharp_Connector_ITwinObject_System_Char_" data-uid="AXOpen.Data.BaseDataExporter`2.BaseImport(AXOpen.Base.Data.IRepository{`0},System.Collections.Generic.List{System.String},Microsoft.AspNetCore.Components.Authorization.AuthenticationState,AXSharp.Connector.ITwinObject,System.Char)">
+  BaseImport(IRepository&lt;TPlain&gt;, List&lt;string&gt;, AuthenticationState, ITwinObject, char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/ExportImport/BaseDataExporter.cs/#L143"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BaseImport(IRepository&lt;TPlain&gt; dataRepository, List&lt;string&gt; imports, AuthenticationState authenticationState, ITwinObject crudDataObject = null, char separator = &#39;;&#39;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataRepository</code> <a class="xref" href="AXOpen.Base.Data.IRepository-1.html">IRepository</a>&lt;TPlain&gt;</dt>
+    <dd></dd>
+    <dt><code>imports</code> <span class="xref">List</span>&lt;<span class="xref">string</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>authenticationState</code> <span class="xref">AuthenticationState</span></dt>
+    <dd></dd>
+    <dt><code>crudDataObject</code> <span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+    <dt><code>separator</code> <span class="xref">char</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Data_BaseDataExporter_2_UpdateDocument_" data-uid="AXOpen.Data.BaseDataExporter`2.UpdateDocument*"></a>
+
+  <h3 id="AXOpen_Data_BaseDataExporter_2_UpdateDocument_AXOpen_Base_Data_IRepository__0__System_Collections_Generic_List_AXOpen_Data_BaseDataExporter__0__1__ImportItems__System_Collections_Generic_IEnumerable_AXSharp_Connector_ITwinPrimitive__AXSharp_Connector_ITwinObject_Microsoft_AspNetCore_Components_Authorization_AuthenticationState_System_Char_" data-uid="AXOpen.Data.BaseDataExporter`2.UpdateDocument(AXOpen.Base.Data.IRepository{`0},System.Collections.Generic.List{AXOpen.Data.BaseDataExporter{`0,`1}.ImportItems},System.Collections.Generic.IEnumerable{AXSharp.Connector.ITwinPrimitive},AXSharp.Connector.ITwinObject,Microsoft.AspNetCore.Components.Authorization.AuthenticationState,System.Char)">
+  UpdateDocument(IRepository&lt;TPlain&gt;, List&lt;ImportItems&gt;, IEnumerable&lt;ITwinPrimitive&gt;, ITwinObject, AuthenticationState, char)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/ExportImport/BaseDataExporter.cs/#L182"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void UpdateDocument(IRepository&lt;TPlain&gt; dataRepository, List&lt;BaseDataExporter&lt;TPlain, TOnline&gt;.ImportItems&gt; dictionary, IEnumerable&lt;ITwinPrimitive&gt; valueTags, ITwinObject prototype, AuthenticationState authenticationState, char separator = &#39;;&#39;)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>dataRepository</code> <a class="xref" href="AXOpen.Base.Data.IRepository-1.html">IRepository</a>&lt;TPlain&gt;</dt>
+    <dd></dd>
+    <dt><code>dictionary</code> <span class="xref">List</span>&lt;<a class="xref" href="AXOpen.Data.BaseDataExporter-2.html">BaseDataExporter</a>&lt;TPlain, TOnline&gt;.<a class="xref" href="AXOpen.Data.BaseDataExporter-2.ImportItems.html">ImportItems</a>&gt;</dt>
+    <dd></dd>
+    <dt><code>valueTags</code> <span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;</dt>
+    <dd></dd>
+    <dt><code>prototype</code> <span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+    <dt><code>authenticationState</code> <span class="xref">AuthenticationState</span></dt>
+    <dd></dd>
+    <dt><code>separator</code> <span class="xref">char</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/ExportImport/BaseDataExporter.cs/#L15" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

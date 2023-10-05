@@ -16,3 +16,6 @@ sandbox/**
 .application/**
 
 **/tmp_*_.*
+
+.application/**
+.sandbox/**

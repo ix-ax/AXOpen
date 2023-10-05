@@ -16,6 +16,8 @@
 - name: Dev guidelines        
   href: ~/articles/guidelines/README.md
   items:
+  - name: Selection of target control system
+    href: ~/articles/guidelines/PERFORMANCE.md
   - name: General
     href: ~/articles/guidelines/Conventions.md
   - name: Components

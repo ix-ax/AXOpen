@@ -13,12 +13,11 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Folder Include=".g\" />
-    <Compile Include=".g\**" />
-  </ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
 
-  <ItemGroup>
-    <Folder Include=".meta\" />
-    <Content Include=".meta\**" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
 </Project>

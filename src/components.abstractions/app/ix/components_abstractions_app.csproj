@@ -6,16 +6,22 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>
-		<PackageReference Include="AXSharp.Connector.S71500.WebAPI"/>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include=".g\**" />
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
 	</ItemGroup>
 </Project>
