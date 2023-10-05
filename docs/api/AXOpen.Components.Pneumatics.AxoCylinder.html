@@ -1,0 +1,1004 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class AxoCylinder
+ | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class AxoCylinder
+ | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Components_Pneumatics_AxoCylinder.md&amp;value=---%0Auid%3A%20AXOpen.Components.Pneumatics.AxoCylinder%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="AXOpen.Components.Pneumatics.AxoCylinder">
+
+
+
+  <h1 id="AXOpen_Components_Pneumatics_AxoCylinder" data-uid="AXOpen.Components.Pneumatics.AxoCylinder" class="text-break">
+    Class AxoCylinder
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L12"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<span class="xref">Components</span>.<a class="xref" href="AXOpen.Components.Pneumatics.html">Pneumatics</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>ix_ax_axopen_components_pneumatics.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class AxoCylinder : AxoComponent, ITwinIdentity, ITwinObject, ITwinElement, IAxoObject, IAxoComponent</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><a class="xref" href="AXOpen.Core.AxoObject.html">AxoObject</a></div>
+      <div><a class="xref" href="AXOpen.Core.AxoComponent.html">AxoComponent</a></div>
+      <div><span class="xref">AxoCylinder</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><span class="xref">ITwinIdentity</span></div>
+      <div><span class="xref">ITwinObject</span></div>
+      <div><span class="xref">ITwinElement</span></div>
+      <div><a class="xref" href="AXOpen.Core.IAxoObject.html">IAxoObject</a></div>
+      <div><a class="xref" href="AXOpen.Core.IAxoComponent.html">IAxoComponent</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoComponent.html#AXOpen_Core_AxoComponent__isManuallyControllable">AxoComponent._isManuallyControllable</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoComponent.html#AXOpen_Core_AxoComponent_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoComponent_">AxoComponent.OnlineToPlainAsync(AxoComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoComponent.html#AXOpen_Core_AxoComponent_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoComponent_">AxoComponent.PlainToOnlineAsync(AxoComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoComponent.html#AXOpen_Core_AxoComponent_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoComponent_">AxoComponent.ShadowToPlainAsync(AxoComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoComponent.html#AXOpen_Core_AxoComponent_PlainToShadowAsync_Pocos_AXOpen_Core_AxoComponent_">AxoComponent.PlainToShadowAsync(AxoComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Identity">AxoObject.Identity</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.OnlineToPlainAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.PlainToOnlineAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.ShadowToPlainAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_PlainToShadowAsync_Pocos_AXOpen_Core_AxoObject_">AxoObject.PlainToShadowAsync(AxoObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetChildren">AxoObject.GetChildren()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetKids">AxoObject.GetKids()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetValueTags">AxoObject.GetValueTags()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AddValueTag_AXSharp_Connector_ITwinPrimitive_">AxoObject.AddValueTag(ITwinPrimitive)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AddKid_AXSharp_Connector_ITwinElement_">AxoObject.AddKid(ITwinElement)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AddChild_AXSharp_Connector_ITwinObject_">AxoObject.AddChild(ITwinObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Connector">AxoObject.Connector</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetConnector">AxoObject.GetConnector()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetSymbolTail">AxoObject.GetSymbolTail()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_GetParent">AxoObject.GetParent()</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Symbol">AxoObject.Symbol</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_AttributeName">AxoObject.AttributeName</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_HumanReadable">AxoObject.HumanReadable</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_SymbolTail">AxoObject.SymbolTail</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Parent">AxoObject.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoObject.html#AXOpen_Core_AxoObject_Interpreter">AxoObject.Interpreter</a>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder__ctor_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.#ctor*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">
+  AxoCylinder(ITwinObject, string, string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoCylinder(ITwinObject parent, string readableTail, string symbolTail)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>parent</code> <span class="xref">ITwinObject</span></dt>
+    <dd></dd>
+    <dt><code>readableTail</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>symbolTail</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder__HomeSensor_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._HomeSensor*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder__HomeSensor" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._HomeSensor">
+  _HomeSensor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L24"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Container(Layout.Stack)]
+[ComponentDetails(&quot;Signals&quot;)]
+[ReadOnly]
+public OnlinerBool _HomeSensor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OnlinerBool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder__Messenger_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._Messenger*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder__Messenger" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._Messenger">
+  _Messenger
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoMessenger _Messenger { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Messaging.Static.AxoMessenger.html">AxoMessenger</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder__MoveHomeSignal_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._MoveHomeSignal*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder__MoveHomeSignal" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._MoveHomeSignal">
+  _MoveHomeSignal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Container(Layout.Stack)]
+[ComponentDetails(&quot;Signals&quot;)]
+[ReadOnly]
+public OnlinerBool _MoveHomeSignal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OnlinerBool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder__MoveToHomeTask_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeTask*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder__MoveToHomeTask" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeTask">
+  _MoveToHomeTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ComponentHeader]
+public AxoTask _MoveToHomeTask { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Core.AxoTask.html">AxoTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder__MoveToWorkTask_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkTask*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder__MoveToWorkTask" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkTask">
+  _MoveToWorkTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L14"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Container(Layout.Wrap)]
+[ComponentHeader]
+public AxoTask _MoveToWorkTask { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Core.AxoTask.html">AxoTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder__MoveWorkSignal_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._MoveWorkSignal*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder__MoveWorkSignal" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._MoveWorkSignal">
+  _MoveWorkSignal
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L38"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ComponentDetails(&quot;Signals&quot;)]
+[ReadOnly]
+public OnlinerBool _MoveWorkSignal { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OnlinerBool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder__StopTask_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._StopTask*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder__StopTask" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._StopTask">
+  _StopTask
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ComponentDetails(&quot;Tasks&quot;)]
+public AxoTask _StopTask { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Core.AxoTask.html">AxoTask</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder__WorkSensor_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._WorkSensor*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder__WorkSensor" data-uid="AXOpen.Components.Pneumatics.AxoCylinder._WorkSensor">
+  _WorkSensor
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ComponentDetails(&quot;Signals&quot;)]
+[ReadOnly]
+public OnlinerBool _WorkSensor { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">OnlinerBool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_CreateEmptyPoco_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.CreateEmptyPoco*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_CreateEmptyPoco" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.CreateEmptyPoco">
+  CreateEmptyPoco()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L184"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoCylinder CreateEmptyPoco()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Pocos.AXOpen.Components.Pneumatics.AxoCylinder.html">AxoCylinder</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_OnlineToPlain_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.OnlineToPlain*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_OnlineToPlain__1" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.OnlineToPlain``1">
+  OnlineToPlain&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L72"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;T&gt; OnlineToPlain&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_OnlineToPlainAsync_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.OnlineToPlainAsync*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_OnlineToPlainAsync" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.OnlineToPlainAsync">
+  OnlineToPlainAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;AxoCylinder&gt; OnlineToPlainAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Components.Pneumatics.AxoCylinder.html">AxoCylinder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_OnlineToPlainAsync_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.OnlineToPlainAsync*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_OnlineToPlainAsync_Pocos_AXOpen_Components_Pneumatics_AxoCylinder_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.OnlineToPlainAsync(Pocos.AXOpen.Components.Pneumatics.AxoCylinder)">
+  OnlineToPlainAsync(AxoCylinder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L93"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;AxoCylinder&gt; OnlineToPlainAsync(AxoCylinder plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Components.Pneumatics.AxoCylinder.html">AxoCylinder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Components.Pneumatics.AxoCylinder.html">AxoCylinder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_PlainToOnline_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.PlainToOnline*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_PlainToOnline__1___0_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.PlainToOnline``1(``0)">
+  PlainToOnline&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L107"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task PlainToOnline&lt;T&gt;(T plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_PlainToOnlineAsync_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.PlainToOnlineAsync*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_PlainToOnlineAsync_Pocos_AXOpen_Components_Pneumatics_AxoCylinder_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.PlainToOnlineAsync(Pocos.AXOpen.Components.Pneumatics.AxoCylinder)">
+  PlainToOnlineAsync(AxoCylinder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L112"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToOnlineAsync(AxoCylinder plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Components.Pneumatics.AxoCylinder.html">AxoCylinder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_PlainToShadow_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.PlainToShadow*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_PlainToShadow__1___0_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.PlainToShadow``1(``0)">
+  PlainToShadow&lt;T&gt;(T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L160"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task PlainToShadow&lt;T&gt;(T plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <span class="xref">T</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_PlainToShadowAsync_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.PlainToShadowAsync*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_PlainToShadowAsync_Pocos_AXOpen_Components_Pneumatics_AxoCylinder_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.PlainToShadowAsync(Pocos.AXOpen.Components.Pneumatics.AxoCylinder)">
+  PlainToShadowAsync(AxoCylinder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L165"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IEnumerable&lt;ITwinPrimitive&gt;&gt; PlainToShadowAsync(AxoCylinder plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Components.Pneumatics.AxoCylinder.html">AxoCylinder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<span class="xref">IEnumerable</span>&lt;<span class="xref">ITwinPrimitive</span>&gt;&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_Poll_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.Poll*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_Poll" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.Poll">
+  Poll()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L179"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Poll()</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_ShadowToPlain_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.ShadowToPlain*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_ShadowToPlain__1" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.ShadowToPlain``1">
+  ShadowToPlain&lt;T&gt;()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L126"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;T&gt; ShadowToPlain&lt;T&gt;()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_ShadowToPlainAsync_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.ShadowToPlainAsync*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_ShadowToPlainAsync" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.ShadowToPlainAsync">
+  ShadowToPlainAsync()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L131"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;AxoCylinder&gt; ShadowToPlainAsync()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Components.Pneumatics.AxoCylinder.html">AxoCylinder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Components_Pneumatics_AxoCylinder_ShadowToPlainAsync_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.ShadowToPlainAsync*"></a>
+
+  <h3 id="AXOpen_Components_Pneumatics_AxoCylinder_ShadowToPlainAsync_Pocos_AXOpen_Components_Pneumatics_AxoCylinder_" data-uid="AXOpen.Components.Pneumatics.AxoCylinder.ShadowToPlainAsync(Pocos.AXOpen.Components.Pneumatics.AxoCylinder)">
+  ShadowToPlainAsync(AxoCylinder)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L146"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;AxoCylinder&gt; ShadowToPlainAsync(AxoCylinder plain)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>plain</code> <a class="xref" href="Pocos.AXOpen.Components.Pneumatics.AxoCylinder.html">AxoCylinder</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Task</span>&lt;<a class="xref" href="Pocos.AXOpen.Components.Pneumatics.AxoCylinder.html">AxoCylinder</a>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/components.pneumatics/src/AXOpen.Components.Pneumatics/.g/Onliners/AxoCylinder.g.cs/#L12" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

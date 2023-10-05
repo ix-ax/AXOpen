@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=Pocos_AXOpen_Core_AxoSequencer.md&amp;value=---%0Auid%3A%20Pocos.AXOpen.Core.AxoSequencer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=Pocos_AXOpen_Core_AxoSequencer.md&amp;value=---%0Auid%3A%20Pocos.AXOpen.Core.AxoSequencer%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,7 +94,7 @@
 
   <h1 id="Pocos_AXOpen_Core_AxoSequencer" data-uid="Pocos.AXOpen.Core.AxoSequencer" class="text-break">
     Class AxoSequencer
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L7"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -173,6 +173,9 @@
       <a class="xref" href="Pocos.AXOpen.Core.AxoTask.html#Pocos_AXOpen_Core_AxoTask_ErrorDetails">AxoTask.ErrorDetails</a>
     </div>
     <div>
+      <a class="xref" href="Pocos.AXOpen.Core.AxoTask.html#Pocos_AXOpen_Core_AxoTask__CyclicExecuteIsNotCalled">AxoTask._CyclicExecuteIsNotCalled</a>
+    </div>
+    <div>
       <span class="xref">object.Equals(object)</span>
     </div>
     <div>
@@ -195,6 +198,13 @@
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -204,11 +214,73 @@
 </h2>
 
 
+  <a id="Pocos_AXOpen_Core_AxoSequencer_AfterStep_" data-uid="Pocos.AXOpen.Core.AxoSequencer.AfterStep*"></a>
+
+  <h3 id="Pocos_AXOpen_Core_AxoSequencer_AfterStep" data-uid="Pocos.AXOpen.Core.AxoSequencer.AfterStep">
+  AfterStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L20"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoStep AfterStep { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Pocos.AXOpen.Core.AxoStep.html">AxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="Pocos_AXOpen_Core_AxoSequencer_BeforeStep_" data-uid="Pocos.AXOpen.Core.AxoSequencer.BeforeStep*"></a>
+
+  <h3 id="Pocos_AXOpen_Core_AxoSequencer_BeforeStep" data-uid="Pocos.AXOpen.Core.AxoSequencer.BeforeStep">
+  BeforeStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L18"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoStep BeforeStep { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Pocos.AXOpen.Core.AxoStep.html">AxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Pocos_AXOpen_Core_AxoSequencer_CurrentOrder_" data-uid="Pocos.AXOpen.Core.AxoSequencer.CurrentOrder*"></a>
 
   <h3 id="Pocos_AXOpen_Core_AxoSequencer_CurrentOrder" data-uid="Pocos.AXOpen.Core.AxoSequencer.CurrentOrder">
   CurrentOrder
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -235,11 +307,42 @@
 
 
 
+  <a id="Pocos_AXOpen_Core_AxoSequencer_CurrentStep_" data-uid="Pocos.AXOpen.Core.AxoSequencer.CurrentStep*"></a>
+
+  <h3 id="Pocos_AXOpen_Core_AxoSequencer_CurrentStep" data-uid="Pocos.AXOpen.Core.AxoSequencer.CurrentStep">
+  CurrentStep
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoStep CurrentStep { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Pocos.AXOpen.Core.AxoStep.html">AxoStep</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Pocos_AXOpen_Core_AxoSequencer_SequenceMode_" data-uid="Pocos.AXOpen.Core.AxoSequencer.SequenceMode*"></a>
 
   <h3 id="Pocos_AXOpen_Core_AxoSequencer_SequenceMode" data-uid="Pocos.AXOpen.Core.AxoSequencer.SequenceMode">
   SequenceMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -270,7 +373,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoSequencer_StepBackwardCommand" data-uid="Pocos.AXOpen.Core.AxoSequencer.StepBackwardCommand">
   StepBackwardCommand
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -301,7 +404,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoSequencer_StepForwardCommand" data-uid="Pocos.AXOpen.Core.AxoSequencer.StepForwardCommand">
   StepForwardCommand
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -332,7 +435,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoSequencer_StepIn" data-uid="Pocos.AXOpen.Core.AxoSequencer.StepIn">
   StepIn
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -363,7 +466,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoSequencer_SteppingMode" data-uid="Pocos.AXOpen.Core.AxoSequencer.SteppingMode">
   SteppingMode
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -394,7 +497,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L7" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoCoordination/AxoSequencer/AxoSequencer.g.cs/#L7" class="edit-link">Edit this page</a>
         </div>
 
         

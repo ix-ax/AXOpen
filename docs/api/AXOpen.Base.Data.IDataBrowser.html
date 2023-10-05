@@ -1,0 +1,537 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IDataBrowser
+ | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IDataBrowser
+ | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Base_Data_IDataBrowser.md&amp;value=---%0Auid%3A%20AXOpen.Base.Data.IDataBrowser%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="AXOpen.Base.Data.IDataBrowser">
+
+
+
+  <h1 id="AXOpen_Base_Data_IDataBrowser" data-uid="AXOpen.Base.Data.IDataBrowser" class="text-break">
+    Interface IDataBrowser
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L376"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<span class="xref">Base</span>.<a class="xref" href="AXOpen.Base.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>AXOpen.Base.Abstractions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDataBrowser</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_Count_" data-uid="AXOpen.Base.Data.IDataBrowser.Count*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_Count" data-uid="AXOpen.Base.Data.IDataBrowser.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L387"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">long Count { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_Records_" data-uid="AXOpen.Base.Data.IDataBrowser.Records*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_Records" data-uid="AXOpen.Base.Data.IDataBrowser.Records">
+  Records
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L378"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList&lt;object&gt; Records { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IList</span>&lt;<span class="xref">object</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_AddRecord_" data-uid="AXOpen.Base.Data.IDataBrowser.AddRecord*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_AddRecord_System_Object_" data-uid="AXOpen.Base.Data.IDataBrowser.AddRecord(System.Object)">
+  AddRecord(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L383"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void AddRecord(object data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_CreateEmpty_" data-uid="AXOpen.Base.Data.IDataBrowser.CreateEmpty*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_CreateEmpty" data-uid="AXOpen.Base.Data.IDataBrowser.CreateEmpty">
+  CreateEmpty()
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L386"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object CreateEmpty()</code></pre>
+  </div>
+
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_Delete_" data-uid="AXOpen.Base.Data.IDataBrowser.Delete*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_Delete_System_Object_" data-uid="AXOpen.Base.Data.IDataBrowser.Delete(System.Object)">
+  Delete(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L385"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Delete(object data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_Filter_" data-uid="AXOpen.Base.Data.IDataBrowser.Filter*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_Filter_System_String_System_Int32_System_Int32_AXOpen_Base_Data_eSearchMode_" data-uid="AXOpen.Base.Data.IDataBrowser.Filter(System.String,System.Int32,System.Int32,AXOpen.Base.Data.eSearchMode)">
+  Filter(string, int, int, eSearchMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L379"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void Filter(string identifier, int limit, int skip, eSearchMode searchMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>limit</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>skip</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>searchMode</code> <a class="xref" href="AXOpen.Base.Data.eSearchMode.html">eSearchMode</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_FilteredCount_" data-uid="AXOpen.Base.Data.IDataBrowser.FilteredCount*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_FilteredCount_System_String_AXOpen_Base_Data_eSearchMode_" data-uid="AXOpen.Base.Data.IDataBrowser.FilteredCount(System.String,AXOpen.Base.Data.eSearchMode)">
+  FilteredCount(string, eSearchMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">long FilteredCount(string id, eSearchMode searchMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>searchMode</code> <a class="xref" href="AXOpen.Base.Data.eSearchMode.html">eSearchMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_FindByCreatedRange_" data-uid="AXOpen.Base.Data.IDataBrowser.FindByCreatedRange*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_FindByCreatedRange_System_DateTime_System_DateTime_" data-uid="AXOpen.Base.Data.IDataBrowser.FindByCreatedRange(System.DateTime,System.DateTime)">
+  FindByCreatedRange(DateTime, DateTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L381"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;object&gt; FindByCreatedRange(DateTime start, DateTime end)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <span class="xref">DateTime</span></dt>
+    <dd></dd>
+    <dt><code>end</code> <span class="xref">DateTime</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;<span class="xref">object</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_FindById_" data-uid="AXOpen.Base.Data.IDataBrowser.FindById*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_FindById_System_String_" data-uid="AXOpen.Base.Data.IDataBrowser.FindById(System.String)">
+  FindById(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L380"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">object FindById(string id)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>id</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_FindByModifiedRange_" data-uid="AXOpen.Base.Data.IDataBrowser.FindByModifiedRange*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_FindByModifiedRange_System_DateTime_System_DateTime_" data-uid="AXOpen.Base.Data.IDataBrowser.FindByModifiedRange(System.DateTime,System.DateTime)">
+  FindByModifiedRange(DateTime, DateTime)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L382"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;object&gt; FindByModifiedRange(DateTime start, DateTime end)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>start</code> <span class="xref">DateTime</span></dt>
+    <dd></dd>
+    <dt><code>end</code> <span class="xref">DateTime</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;<span class="xref">object</span>&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_IDataBrowser_UpdateRecord_" data-uid="AXOpen.Base.Data.IDataBrowser.UpdateRecord*"></a>
+
+  <h3 id="AXOpen_Base_Data_IDataBrowser_UpdateRecord_System_Object_" data-uid="AXOpen.Base.Data.IDataBrowser.UpdateRecord(System.Object)">
+  UpdateRecord(object)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L384"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void UpdateRecord(object data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>data</code> <span class="xref">object</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/DataBrowsers/DataBrowser.cs/#L376" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

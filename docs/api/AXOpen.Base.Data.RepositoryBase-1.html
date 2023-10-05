@@ -1,0 +1,1261 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class RepositoryBase&lt;T&gt;
+ | System.Dynamic.ExpandoObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class RepositoryBase&lt;T&gt;
+ | System.Dynamic.ExpandoObject ">
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Base_Data_RepositoryBase_1.md&amp;value=---%0Auid%3A%20AXOpen.Base.Data.RepositoryBase%601%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+  </head>
+
+  <script type="module">
+    import options from './../public/main.js'
+    import { init } from './../public/docfx.min.js'
+    init(options)
+  </script>
+
+  <script>
+    const theme = localStorage.getItem('theme') || 'auto'
+    document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+  </script>
+
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../images/logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled="" placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" style="margin-top: -.65em; margin-left: -.8em" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="AXOpen.Base.Data.RepositoryBase`1">
+
+
+
+  <h1 id="AXOpen_Base_Data_RepositoryBase_1" data-uid="AXOpen.Base.Data.RepositoryBase`1" class="text-break">
+    Class RepositoryBase&lt;T&gt;
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<span class="xref">Base</span>.<a class="xref" href="AXOpen.Base.Data.html">Data</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>AXOpen.Base.Abstractions.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Base class for data repositories.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class RepositoryBase&lt;T&gt; : IRepository&lt;T&gt;, IRepository where T : IBrowsableDataObject</code></pre>
+  </div>
+
+
+
+  <h4 class="section">Type Parameters</h4>
+  <dl class="parameters">
+    <dt><code>T</code></dt>
+    <dd><p>Type of data object.</p>
+</dd>
+  </dl>
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><span class="xref">object</span></div>
+      <div><span class="xref">RepositoryBase&lt;T&gt;</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="AXOpen.Base.Data.IRepository-1.html">IRepository</a>&lt;T&gt;</div>
+      <div><a class="xref" href="AXOpen.Base.Data.IRepository.html">IRepository</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Derived</dt>
+    <dd>
+      <div><a class="xref" href="AXOpen.Data.InMemory.InMemoryRepository-1.html">InMemoryRepository&lt;T&gt;</a></div>
+      <div><a class="xref" href="AXOpen.Data.Json.JsonRepository-1.html">JsonRepository&lt;T&gt;</a></div>
+      <div><a class="xref" href="AXOpen.Data.MongoDb.MongoDbRepository-1.html">MongoDbRepository&lt;T&gt;</a></div>
+      <div><a class="xref" href="AXOpen.Data.RavenDb.RavenDbRepository-1.html">RavenDbRepository&lt;T&gt;</a></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist derived">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <span class="xref">object.Equals(object)</span>
+    </div>
+    <div>
+      <span class="xref">object.Equals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">object.ReferenceEquals(object, object)</span>
+    </div>
+    <div>
+      <span class="xref">object.ToString()</span>
+    </div>
+  </dd></dl>
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_Count_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Count*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_Count" data-uid="AXOpen.Base.Data.RepositoryBase`1.Count">
+  Count
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L273"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the number of records/documents in the repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long Count { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_CountNvi_" data-uid="AXOpen.Base.Data.RepositoryBase`1.CountNvi*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_CountNvi" data-uid="AXOpen.Base.Data.RepositoryBase`1.CountNvi">
+  CountNvi
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L246"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Counts the records/documents in the repository. (Concrete implementation of given repository type)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract long CountNvi { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnCreate_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnCreate*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnCreate" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnCreate">
+  OnCreate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes prior to new entry into repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnCreateDelegate&lt;T&gt; OnCreate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnCreateDelegate-1.html">OnCreateDelegate</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnCreateDone_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnCreateDone*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnCreateDone" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnCreateDone">
+  OnCreateDone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L77"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes after a new entry has been added sucesfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnCreateDoneDelegate&lt;T&gt; OnCreateDone { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnCreateDoneDelegate-1.html">OnCreateDoneDelegate</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnCreateFailed_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnCreateFailed*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnCreateFailed" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnCreateFailed">
+  OnCreateFailed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L135"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes after a new entry has NOT been added sucesfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnCreateFailedDelegate&lt;T&gt; OnCreateFailed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnCreateFailedDelegate-1.html">OnCreateFailedDelegate</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnDelete_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnDelete*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnDelete" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnDelete">
+  OnDelete
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes prior to deleting existing record.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnDeleteDelegate OnDelete { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnDeleteDelegate.html">OnDeleteDelegate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnDeleteDone_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnDeleteDone*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnDeleteDone" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnDeleteDone">
+  OnDeleteDone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L119"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes  after an entry has been deleted sucesfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnDeleteDoneDelegate OnDeleteDone { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnDeleteDoneDelegate.html">OnDeleteDoneDelegate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnDeleteFailed_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnDeleteFailed*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnDeleteFailed" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnDeleteFailed">
+  OnDeleteFailed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L177"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes  after an entry has NOT been deleted sucesfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnDeleteFailedDelegate OnDeleteFailed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnDeleteFailedDelegate.html">OnDeleteFailedDelegate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnRead_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnRead*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnRead" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnRead">
+  OnRead
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L33"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes prior to new reading data from repository</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnReadDelegate OnRead { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnReadDelegate.html">OnReadDelegate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnReadDone_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnReadDone*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnReadDone" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnReadDone">
+  OnReadDone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes  after an entry has been read sucesfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnReadDoneDelegate&lt;T&gt; OnReadDone { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnReadDoneDelegate-1.html">OnReadDoneDelegate</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnReadFailed_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnReadFailed*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnReadFailed" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnReadFailed">
+  OnReadFailed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L149"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes  after an entry has NOT been read sucesfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnReadFailedDelegate OnReadFailed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnReadFailedDelegate.html">OnReadFailedDelegate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnRecordUpdateValidation_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnRecordUpdateValidation*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnRecordUpdateValidation" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnRecordUpdateValidation">
+  OnRecordUpdateValidation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L209"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ValidateDataDelegate&lt;T&gt; OnRecordUpdateValidation { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.ValidateDataDelegate-1.html">ValidateDataDelegate</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnUpdate_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnUpdate*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnUpdate" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnUpdate">
+  OnUpdate
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes prior to updating existing record.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnUpdateDelegate&lt;T&gt; OnUpdate { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnUpdateDelegate-1.html">OnUpdateDelegate</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnUpdateDone_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnUpdateDone*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnUpdateDone" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnUpdateDone">
+  OnUpdateDone
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L105"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes  after an entry has been updated sucesfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnUpdateDoneDelegate&lt;T&gt; OnUpdateDone { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnUpdateDoneDelegate-1.html">OnUpdateDoneDelegate</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_OnUpdateFailed_" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnUpdateFailed*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_OnUpdateFailed" data-uid="AXOpen.Base.Data.RepositoryBase`1.OnUpdateFailed">
+  OnUpdateFailed
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets or sets delegate that executes  after an entry has NOT been updated sucesfully.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OnUpdateFailedDelegate&lt;T&gt; OnUpdateFailed { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="AXOpen.Base.Data.OnUpdateFailedDelegate-1.html">OnUpdateFailedDelegate</a>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_Queryable_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Queryable*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_Queryable" data-uid="AXOpen.Base.Data.RepositoryBase`1.Queryable">
+  Queryable
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L434"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets <span class="xref">System.Linq.IQueryable</span> of given repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IQueryable&lt;T&gt; Queryable { get; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IQueryable</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_Create_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Create*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_Create_System_String__0_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Create(System.String,`0)">
+  Create(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L298"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new record/document in the repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Create(string identifier, T data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd><p>Unique identifier of the record/repository</p>
+</dd>
+    <dt><code>data</code> <span class="xref">T</span></dt>
+    <dd><p>Data object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_CreateNvi_" data-uid="AXOpen.Base.Data.RepositoryBase`1.CreateNvi*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_CreateNvi_System_String__0_" data-uid="AXOpen.Base.Data.RepositoryBase`1.CreateNvi(System.String,`0)">
+  CreateNvi(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L221"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Creates a new record/document in the repository. (Concrete implementation of given repository type)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void CreateNvi(string identifier, T data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd><p>Unique identifier of the record/repository</p>
+</dd>
+    <dt><code>data</code> <span class="xref">T</span></dt>
+    <dd><p>Data object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_Delete_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Delete*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_Delete_System_String_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Delete(System.String)">
+  Delete(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L388"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes an existing record/document. (Concrete implementation of given repository type)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Delete(string identifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd><p>Unique identifier of the record/document to delete.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_DeleteNvi_" data-uid="AXOpen.Base.Data.RepositoryBase`1.DeleteNvi*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_DeleteNvi_System_String_" data-uid="AXOpen.Base.Data.RepositoryBase`1.DeleteNvi(System.String)">
+  DeleteNvi(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L241"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Deletes an existing record/document. (Concrete implementation of given repository type)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void DeleteNvi(string identifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd><p>Unique identifier of the record/document to delete.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_Exists_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Exists*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_Exists_System_String_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Exists(System.String)">
+  Exists(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L285"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Exists(string identifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_ExistsNvi_" data-uid="AXOpen.Base.Data.RepositoryBase`1.ExistsNvi*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_ExistsNvi_System_String_" data-uid="AXOpen.Base.Data.RepositoryBase`1.ExistsNvi(System.String)">
+  ExistsNvi(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L252"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Checks that the record with given identifier exists in the repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract bool ExistsNvi(string identifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd><p>Entity id to check for existence.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">bool</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_FilteredCount_" data-uid="AXOpen.Base.Data.RepositoryBase`1.FilteredCount*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_FilteredCount_System_String_AXOpen_Base_Data_eSearchMode_" data-uid="AXOpen.Base.Data.RepositoryBase`1.FilteredCount(System.String,AXOpen.Base.Data.eSearchMode)">
+  FilteredCount(string, eSearchMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L280"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets the count of the records/documents that contain given string in the identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long FilteredCount(string identifierContent, eSearchMode searchMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifierContent</code> <span class="xref">string</span></dt>
+    <dd><p>String required to be contained in the identifier of the records/documents.</p>
+</dd>
+    <dt><code>searchMode</code> <a class="xref" href="AXOpen.Base.Data.eSearchMode.html">eSearchMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_FilteredCountNvi_" data-uid="AXOpen.Base.Data.RepositoryBase`1.FilteredCountNvi*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_FilteredCountNvi_System_String_AXOpen_Base_Data_eSearchMode_" data-uid="AXOpen.Base.Data.RepositoryBase`1.FilteredCountNvi(System.String,AXOpen.Base.Data.eSearchMode)">
+  FilteredCountNvi(string, eSearchMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L268"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Counts records that contain given string in the id. (Concrete implementation of given repository type)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract long FilteredCountNvi(string identifierContent, eSearchMode searchMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifierContent</code> <span class="xref">string</span></dt>
+    <dd><p>String required to be contained in the identifier of the records/documents.</p>
+</dd>
+    <dt><code>searchMode</code> <a class="xref" href="AXOpen.Base.Data.eSearchMode.html">eSearchMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">long</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_GetRecords_" data-uid="AXOpen.Base.Data.RepositoryBase`1.GetRecords*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_GetRecords_System_String_System_Int32_System_Int32_AXOpen_Base_Data_eSearchMode_" data-uid="AXOpen.Base.Data.RepositoryBase`1.GetRecords(System.String,System.Int32,System.Int32,AXOpen.Base.Data.eSearchMode)">
+  GetRecords(string, int, int, eSearchMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L419"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Gets <span class="xref">System.Collections.Generic.IEnumerable&lt;T&gt;</span> of repository entries that match the identifier.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;T&gt; GetRecords(string identifier, int limit = 10, int skip = 0, eSearchMode searchMode = eSearchMode.Exact)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd></dd>
+    <dt><code>limit</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>skip</code> <span class="xref">int</span></dt>
+    <dd></dd>
+    <dt><code>searchMode</code> <a class="xref" href="AXOpen.Base.Data.eSearchMode.html">eSearchMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_GetRecordsNvi_" data-uid="AXOpen.Base.Data.RepositoryBase`1.GetRecordsNvi*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_GetRecordsNvi_System_String_System_Int32_System_Int32_AXOpen_Base_Data_eSearchMode_" data-uid="AXOpen.Base.Data.RepositoryBase`1.GetRecordsNvi(System.String,System.Int32,System.Int32,AXOpen.Base.Data.eSearchMode)">
+  GetRecordsNvi(string, int, int, eSearchMode)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L261"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Retrieves records/documents that contain given string in the identifier. (Concrete implementation of given repository type)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract IEnumerable&lt;T&gt; GetRecordsNvi(string identifierContent, int limit, int skip, eSearchMode searchMode)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifierContent</code> <span class="xref">string</span></dt>
+    <dd><p>String required to be contained in the identifier of records/documents.</p>
+</dd>
+    <dt><code>limit</code> <span class="xref">int</span></dt>
+    <dd><p>Limit of documents to retrieve.</p>
+</dd>
+    <dt><code>skip</code> <span class="xref">int</span></dt>
+    <dd><p>Number of documents to be skipped.</p>
+</dd>
+    <dt><code>searchMode</code> <a class="xref" href="AXOpen.Base.Data.eSearchMode.html">eSearchMode</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">IEnumerable</span>&lt;T&gt;</dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_Read_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Read*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_Read_System_String_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Read(System.String)">
+  Read(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L331"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads en existing record/document from the repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Read(string identifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd><p>Unique identifier of the record/document to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>Retrieved data object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_ReadNvi_" data-uid="AXOpen.Base.Data.RepositoryBase`1.ReadNvi*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_ReadNvi_System_String_" data-uid="AXOpen.Base.Data.RepositoryBase`1.ReadNvi(System.String)">
+  ReadNvi(string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L228"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Reads en existing record/document from the repository. (Concrete implementation of given repository type)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract T ReadNvi(string identifier)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd><p>Unique identifier of the record/document to read.</p>
+</dd>
+  </dl>
+
+  <h4 class="section">Returns</h4>
+  <dl class="parameters">
+    <dt><span class="xref">T</span></dt>
+    <dd><p>Retrieved data object.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_Update_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Update*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_Update_System_String__0_" data-uid="AXOpen.Base.Data.RepositoryBase`1.Update(System.String,`0)">
+  Update(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L355"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates an existing record/document.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Update(string identifier, T data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd><p>Unique identifier of the record/document to update.</p>
+</dd>
+    <dt><code>data</code> <span class="xref">T</span></dt>
+    <dd><p>Data object with updated content.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+  <a id="AXOpen_Base_Data_RepositoryBase_1_UpdateNvi_" data-uid="AXOpen.Base.Data.RepositoryBase`1.UpdateNvi*"></a>
+
+  <h3 id="AXOpen_Base_Data_RepositoryBase_1_UpdateNvi_System_String__0_" data-uid="AXOpen.Base.Data.RepositoryBase`1.UpdateNvi(System.String,`0)">
+  UpdateNvi(string, T)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L235"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"><p>Updates an existing record/document. (Concrete implementation of given repository type)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void UpdateNvi(string identifier, T data)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>identifier</code> <span class="xref">string</span></dt>
+    <dd><p>Unique identifier of the record/document to update.</p>
+</dd>
+    <dt><code>data</code> <span class="xref">T</span></dt>
+    <dd><p>Data object with updated content.</p>
+</dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+        <div class="contribution d-print-none">
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/base/src/AXOpen.Base.Abstractions/Data/RepositoryBase.cs/#L13" class="edit-link">Edit this page</a>
+        </div>
+
+        
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top">
+      <div class="container-xxl">
+        <div class="flex-fill">
+           Generated by DocFx. © PTKu, MTS spol. s r.o., and awesome contributors
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

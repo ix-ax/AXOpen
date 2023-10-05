@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=Pocos_AXOpen_Core_AxoTask.md&amp;value=---%0Auid%3A%20Pocos.AXOpen.Core.AxoTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=Pocos_AXOpen_Core_AxoTask.md&amp;value=---%0Auid%3A%20Pocos.AXOpen.Core.AxoTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,7 +94,7 @@
 
   <h1 id="Pocos_AXOpen_Core_AxoTask" data-uid="Pocos.AXOpen.Core.AxoTask" class="text-break">
     Class AxoTask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -134,6 +134,13 @@
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
+      <div><a class="xref" href="Pocos.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.html">AxoDatamanClearResultData</a></div>
+      <div><a class="xref" href="Pocos.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanRead.html">AxoDatamanRead</a></div>
+      <div><a class="xref" href="Pocos.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName.html">AxoInsightChangeJobByName</a></div>
+      <div><a class="xref" href="Pocos.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber.html">AxoInsightChangeJobByNumber</a></div>
+      <div><a class="xref" href="Pocos.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults.html">AxoInsightClearInspectionResults</a></div>
+      <div><a class="xref" href="Pocos.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.html">AxoInsightSoftEvent</a></div>
+      <div><a class="xref" href="Pocos.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger.html">AxoInsightTrigger</a></div>
       <div><a class="xref" href="Pocos.AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a></div>
       <div><a class="xref" href="Pocos.AXOpen.Core.AxoSequencer.html">AxoSequencer</a></div>
       <div><a class="xref" href="Pocos.AXOpen.Core.AxoStep.html">AxoStep</a></div>
@@ -166,6 +173,13 @@
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -175,11 +189,42 @@
 </h2>
 
 
+  <a id="Pocos_AXOpen_Core_AxoTask__CyclicExecuteIsNotCalled_" data-uid="Pocos.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled*"></a>
+
+  <h3 id="Pocos_AXOpen_Core_AxoTask__CyclicExecuteIsNotCalled" data-uid="Pocos.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled">
+  _CyclicExecuteIsNotCalled
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L30"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AxoMessenger _CyclicExecuteIsNotCalled { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><a class="xref" href="Pocos.AXOpen.Messaging.Static.AxoMessenger.html">AxoMessenger</a></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
   <a id="Pocos_AXOpen_Core_AxoTask_Duration_" data-uid="Pocos.AXOpen.Core.AxoTask.Duration*"></a>
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_Duration" data-uid="Pocos.AXOpen.Core.AxoTask.Duration">
   Duration
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L27"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -210,7 +255,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_ErrorDetails" data-uid="Pocos.AXOpen.Core.AxoTask.ErrorDetails">
   ErrorDetails
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L27"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L29"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -241,7 +286,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_IsDisabled" data-uid="Pocos.AXOpen.Core.AxoTask.IsDisabled">
   IsDisabled
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -272,7 +317,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_RemoteAbort" data-uid="Pocos.AXOpen.Core.AxoTask.RemoteAbort">
   RemoteAbort
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -303,7 +348,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_RemoteInvoke" data-uid="Pocos.AXOpen.Core.AxoTask.RemoteInvoke">
   RemoteInvoke
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -334,7 +379,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_RemoteRestore" data-uid="Pocos.AXOpen.Core.AxoTask.RemoteRestore">
   RemoteRestore
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -365,7 +410,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_RemoteResume" data-uid="Pocos.AXOpen.Core.AxoTask.RemoteResume">
   RemoteResume
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L23"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -396,7 +441,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_StartSignature" data-uid="Pocos.AXOpen.Core.AxoTask.StartSignature">
   StartSignature
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L23"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -427,7 +472,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_StartTimeStamp" data-uid="Pocos.AXOpen.Core.AxoTask.StartTimeStamp">
   StartTimeStamp
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L26"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L28"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -458,7 +503,7 @@
 
   <h3 id="Pocos_AXOpen_Core_AxoTask_Status" data-uid="Pocos.AXOpen.Core.AxoTask.Status">
   Status
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -489,7 +534,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/POCO/AxoTask/AxoTask.g.cs/#L11" class="edit-link">Edit this page</a>
         </div>
 
         

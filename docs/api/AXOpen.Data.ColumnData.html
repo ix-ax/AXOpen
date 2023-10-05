@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Data_ColumnData.md&amp;value=---%0Auid%3A%20AXOpen.Data.ColumnData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Data_ColumnData.md&amp;value=---%0Auid%3A%20AXOpen.Data.ColumnData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,11 +94,11 @@
 
   <h1 id="AXOpen_Data_ColumnData" data-uid="AXOpen.Data.ColumnData" class="text-break">
     Class ColumnData
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoDataExchange_ColumnData_razor.g.cs/#L40"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data.Blazor/AxoDataExchange/ColumnData.razor.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Data.html">Data</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Data.html">Data</a></dd></dl>
   <dl><dt>Assembly</dt><dd>axopen_data_blazor.dll</dd></dl>
   </div>
 
@@ -106,7 +106,7 @@
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ColumnData : ComponentBase, IComponent, IHandleEvent, IHandleAfterRender</code></pre>
+    <pre><code class="lang-csharp hljs">public class ColumnData</code></pre>
   </div>
 
 
@@ -116,54 +116,15 @@
     <dt>Inheritance</dt>
     <dd>
       <div><span class="xref">object</span></div>
-      <div><span class="xref">ComponentBase</span></div>
       <div><span class="xref">ColumnData</span></div>
     </dd>
   </dl>
 
-  <dl class="typelist implements">
-    <dt>Implements</dt>
-    <dd>
-      <div><span class="xref">IComponent</span></div>
-      <div><span class="xref">IHandleEvent</span></div>
-      <div><span class="xref">IHandleAfterRender</span></div>
-    </dd>
-  </dl>
 
 
   <dl class="typelist derived">
     <dt>Inherited Members</dt>
     <dd>
-    <div>
-      <span class="xref">ComponentBase.OnInitializedAsync()</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.OnParametersSet()</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.OnParametersSetAsync()</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.StateHasChanged()</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.ShouldRender()</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.OnAfterRender(bool)</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.OnAfterRenderAsync(bool)</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.InvokeAsync(Action)</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.InvokeAsync(Func&lt;Task&gt;)</span>
-    </div>
-    <div>
-      <span class="xref">ComponentBase.SetParametersAsync(ParameterView)</span>
-    </div>
     <div>
       <span class="xref">object.Equals(object)</span>
     </div>
@@ -187,225 +148,13 @@
     </div>
   </dd></dl>
 
-
-
-
-
-
-  <h2 class="section" id="properties">Properties
-</h2>
-
-
-  <a id="AXOpen_Data_ColumnData_BindingValue_" data-uid="AXOpen.Data.ColumnData.BindingValue*"></a>
-
-  <h3 id="AXOpen_Data_ColumnData_BindingValue" data-uid="AXOpen.Data.ColumnData.BindingValue">
-  BindingValue
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoDataExchange_ColumnData_razor.g.cs/#L53"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Parameter]
-public string BindingValue { get; set; }</code></pre>
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
   </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><span class="xref">string</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AXOpen_Data_ColumnData_Clickable_" data-uid="AXOpen.Data.ColumnData.Clickable*"></a>
-
-  <h3 id="AXOpen_Data_ColumnData_Clickable" data-uid="AXOpen.Data.ColumnData.Clickable">
-  Clickable
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoDataExchange_ColumnData_razor.g.cs/#L56"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Parameter]
-public bool Clickable { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><span class="xref">bool</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AXOpen_Data_ColumnData_DataView_" data-uid="AXOpen.Data.ColumnData.DataView*"></a>
-
-  <h3 id="AXOpen_Data_ColumnData_DataView" data-uid="AXOpen.Data.ColumnData.DataView">
-  DataView
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoDataExchange_ColumnData_razor.g.cs/#L59"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[CascadingParameter]
-public DataExchangeView DataView { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="AXOpen.Data.DataExchangeView.html">DataExchangeView</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="AXOpen_Data_ColumnData_HeaderName_" data-uid="AXOpen.Data.ColumnData.HeaderName*"></a>
-
-  <h3 id="AXOpen_Data_ColumnData_HeaderName" data-uid="AXOpen.Data.ColumnData.HeaderName">
-  HeaderName
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoDataExchange_ColumnData_razor.g.cs/#L50"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Parameter]
-public string HeaderName { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><span class="xref">string</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <h2 class="section" id="methods">Methods
-</h2>
-
-
-  <a id="AXOpen_Data_ColumnData_BuildRenderTree_" data-uid="AXOpen.Data.ColumnData.BuildRenderTree*"></a>
-
-  <h3 id="AXOpen_Data_ColumnData_BuildRenderTree_Microsoft_AspNetCore_Components_Rendering_RenderTreeBuilder_" data-uid="AXOpen.Data.ColumnData.BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder)">
-  BuildRenderTree(RenderTreeBuilder)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoDataExchange_ColumnData_razor.g.cs/#L43"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void BuildRenderTree(RenderTreeBuilder __builder)</code></pre>
-  </div>
-
-  <h4 class="section">Parameters</h4>
-  <dl class="parameters">
-    <dt><code>__builder</code> <span class="xref">RenderTreeBuilder</span></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AXOpen_Data_ColumnData_Dispose_" data-uid="AXOpen.Data.ColumnData.Dispose*"></a>
-
-  <h3 id="AXOpen_Data_ColumnData_Dispose" data-uid="AXOpen.Data.ColumnData.Dispose">
-  Dispose()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoDataExchange_ColumnData_razor.g.cs/#L67"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Dispose()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <a id="AXOpen_Data_ColumnData_OnInitialized_" data-uid="AXOpen.Data.ColumnData.OnInitialized*"></a>
-
-  <h3 id="AXOpen_Data_ColumnData_OnInitialized" data-uid="AXOpen.Data.ColumnData.OnInitialized">
-  OnInitialized()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoDataExchange_ColumnData_razor.g.cs/#L62"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected override void OnInitialized()</code></pre>
-  </div>
-
-
-
-
-
-
-
-
+  </dd></dl>
 
 
 
@@ -415,7 +164,7 @@ public string HeaderName { get; set; }</code></pre>
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/docfx/Microsoft.NET.Sdk.Razor.SourceGenerators/Microsoft.NET.Sdk.Razor.SourceGenerators.RazorSourceGenerator/AxoDataExchange_ColumnData_razor.g.cs/#L40" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data.Blazor/AxoDataExchange/ColumnData.razor.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
         
