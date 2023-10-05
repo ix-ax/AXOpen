@@ -34,7 +34,7 @@ namespace axosimple
         {
             Pocos.axosimple.SharedProductionData plain = new Pocos.axosimple.SharedProductionData();
             await this.ReadAsync();
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.ComesFrom = ComesFrom.LastValue;
             plain.GoesTo = GoesTo.LastValue;
             return plain;
@@ -42,7 +42,7 @@ namespace axosimple
 
         protected async Task<Pocos.axosimple.SharedProductionData> OnlineToPlainAsync(Pocos.axosimple.SharedProductionData plain)
         {
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.ComesFrom = ComesFrom.LastValue;
             plain.GoesTo = GoesTo.LastValue;
             return plain;
@@ -132,14 +132,14 @@ namespace axosimple
         {
             Pocos.axosimple.SharedProductionDataManager plain = new Pocos.axosimple.SharedProductionDataManager();
             await this.ReadAsync();
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.Set = await Set.OnlineToPlainAsync();
             return plain;
         }
 
         protected async Task<Pocos.axosimple.SharedProductionDataManager> OnlineToPlainAsync(Pocos.axosimple.SharedProductionDataManager plain)
         {
-            await base.OnlineToPlainAsync(plain);
+            await base._OnlineToPlainNoacAsync(plain);
             plain.Set = await Set.OnlineToPlainAsync();
             return plain;
         }

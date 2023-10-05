@@ -7,69 +7,62 @@
                 @Name
             </button>
         </div>
-        <div class="accordion-body">
 
-            <div class="d-flex">
+        <div class="accordion-body d-flex flex-wrap">
                 @if (IsAnalogInspectorData())
                 {
-                    <div class="p-2">
-                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" />
-                    </div>
-                    <div class="p-2">
-                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
-                    </div>
-                    <div class="p-2 me-auto">
-                        <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMax" Presentation="@Presentation" />
-                    </div>
+
+                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMin" Presentation="@Presentation" Class="p-2 " />
+
+                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="p-2" />
+ 
+                    <RenderableContentControl Context="((AxoAnalogueInspectorData)Data).RequiredMax" Presentation="@Presentation" Class="p-2 me-auto" />
                 }
                 else if(IsDigitalInspectorData())
                 {
-                    <div class="p-2">
-                        <RenderableContentControl Context="((AxoDigitalInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
-                    </div>
-                    <div class="p-2 me-auto">
-                        <RenderableContentControl Context="((AxoDigitalInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
-                    </div>
+
+                    <RenderableContentControl Context="((AxoDigitalInspectorData)Data).RequiredStatus" Presentation="@Presentation" Class="p-2" />
+
+                    <RenderableContentControl Context="((AxoDigitalInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class="p-2 me-auto" />
+
                 }
                 else if (IsDataInspectorData())
                 {
-                    <div class="p-2">
-                        <RenderableContentControl Context="((AxoDataInspectorData)Data).RequiredStatus" Presentation="@Presentation" />
-                    </div>
-                    <div class="p-2 me-auto">
-                        <RenderableContentControl Context="((AxoDataInspectorData)Data).DetectedStatus" Presentation="@Presentation" />
-                    </div>
-                    <div class="p-2">
-                        <RenderableContentControl Context="((AxoDataInspectorData)Data).StarNotationEnabled" Presentation="@Presentation" />
-                    </div>
+                  
+                    <RenderableContentControl Context="((AxoDataInspectorData)Data).RequiredStatus" Presentation="@Presentation" Class="p-2" />
+                   
+                    <RenderableContentControl Context="((AxoDataInspectorData)Data).DetectedStatus" Presentation="@Presentation" Class= "p-2 me-auto" />
+                  
+                    <RenderableContentControl Context="((AxoDataInspectorData)Data).StarNotationEnabled" Presentation="@Presentation" Class="p-2 " />
+          
                 }
                 else
                 {
                     <p>Cannot render, unspecified inspector type</p>
                 }
-                <div class="col-auto p-2">
+                <div class="p-2">
                     <RenderableContentControl Context="@Data.IsByPassed" Presentation="@Presentation" />
                 </div>
-                <div class="col-auto p-2">
+                <div class="p-2">
                     <RenderableContentControl Context="@Data.IsExcluded" Presentation="@Presentation" />
                 </div>
-                <div class="col-auto p-2">
-                    <GenericIconView Result="@Data.Result.Cyclic" />
+                <div class="p-2">
+                    <GenericIconView Result="result" />
                 </div>
 
             </div>
 
-            <div>
+            <div class="p-2">
 
                 @if (IsOverInspected)
                 {
                     <p class="text-danger">Over-inspection detected</p>
                 }
             </div>
-        </div>
+     
 
         <div id="@ID" class="accordion-collapse collapse">
-            <div class="accordion-body py-1">
+            <div class="accordion-body">
                 <GenericInspectorDataView Data="@Data" Presentation="@Presentation" />
             </div>
         </div>
@@ -94,15 +87,18 @@
     [Parameter]
     public string Name { get; set; }
 
-
+    private short result;
     private string ID = "M" + Guid.NewGuid().ToString();
 
     private bool IsAnalogInspectorData() => Data is AxoAnalogueInspectorData ? true : false;
     private bool IsDigitalInspectorData() => Data is AxoDigitalInspectorData ? true : false;
     private bool IsDataInspectorData() => Data is AxoDataInspectorData ? true : false;
-    
 
-    
+    protected override void OnParametersSet()
+    {
+        result = ((Presentation == "Control") || (Presentation == "Display")) ? Data.Result.Cyclic : Data.Result.Shadow;
+    }
+
 }
 
 

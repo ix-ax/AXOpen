@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Inspectors
             {#ix-set:AttributeName = "<#Required#>"}
             RequiredStatus: STRING;
 
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Detected#>"}
             DetectedStatus : STRING;
       

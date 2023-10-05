@@ -14,6 +14,7 @@ using Serilog;
 using AXOpen;
 using AXOpen.Logging;
 using librarytemplate;
+using AXOpen.Data.InMemory;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +42,28 @@ await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));
+
+//<SetUpAxoDataFragmentExchange>
+var SharedDataHeaderDataRepository = new InMemoryRepositorySettings<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData>().Factory();
+var Station_1_DataRepository = new InMemoryRepositorySettings<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>().Factory();
+
+var AxoProcessDataManager = Entry.Plc.AxoDataFramentsExchangeManager.CreateBuilder<AxoDataFramentsExchangeExample.AxoProcessDataManager>();
+
+AxoProcessDataManager.SharedHeader.SetRepository(SharedDataHeaderDataRepository);
+AxoProcessDataManager.Station_1.SetRepository(Station_1_DataRepository);
+AxoProcessDataManager.InitializeRemoteDataExchange();
+//</SetUpAxoDataFragmentExchange>
+
+//<SetUpAxoDataExchange>
+var AxoProcessDataRepository = new InMemoryRepositorySettings<Pocos.AxoDataExchangeExample.AxoProcessData>().Factory();
+
+Entry.Plc.AxoDataExchangeManager.InitializeRemoteDataExchange(AxoProcessDataRepository);
+//</SetUpAxoDataExchange>
+
+//<CleanUp>
+// Clean Temp directory
+AXOpen.Data.IAxoDataExchange.CleanUp();
+//</CleanUp>
 
 var app = builder.Build();
 

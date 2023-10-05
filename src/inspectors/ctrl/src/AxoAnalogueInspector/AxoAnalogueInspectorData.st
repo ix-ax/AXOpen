@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Inspectors
             {#ix-set:AttributeName = "<#Min#>"}
             RequiredMin : LREAL;
 
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Detected#>"}
             DetectedStatus : LREAL;
       
