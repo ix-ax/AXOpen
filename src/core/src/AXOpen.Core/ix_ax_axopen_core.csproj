@@ -13,11 +13,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include=".g\**" />
-	</ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include=".g\Onliners\AxoToggleTask\" />
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
 	</ItemGroup>

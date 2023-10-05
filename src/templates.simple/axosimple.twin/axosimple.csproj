@@ -9,9 +9,16 @@
     <PackageReference Include="AXSharp.Connector" />
     <PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include=".g\**" />
-  </ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
+	</ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\components.cognex.vision\src\AXOpen.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
     <ProjectReference Include="..\..\components.pneumatics\src\AXOpen.Components.Pneumatics\ix_ax_axopen_components_pneumatics.csproj" />
@@ -33,8 +40,5 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>PlcStringResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include=".g\Onliners\Examples\" />
   </ItemGroup>
 </Project>
