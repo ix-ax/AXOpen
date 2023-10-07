@@ -8,11 +8,7 @@
     left: 0;
 }
 
-.navbar-toggler {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-@media (min-width: 641px) {
+@media (min-width: 770px) {
     .nav-menu {
         width: 250px;
         height: 100vh;
@@ -26,12 +22,26 @@
 
     .nav-menu .collapse:not(.show) {
         /* Never collapse the sidebar for wide screens */
-        display: block;
+        /*display: block;*/
     }
     
     .nav-scrollable {
         /* Allow sidebar to scroll for tall menus */
         height: calc(100vh - 3.5rem);
         overflow-y: auto;
+    }
+}
+
+@media (max-width: 769px) {
+    .nav-menu{
+        margin-top: 40px;
+    }
+
+    .navbar-toggler-side {
+        display: none;
+    }
+
+    .navbar-image{
+        display: none;
     }
 }

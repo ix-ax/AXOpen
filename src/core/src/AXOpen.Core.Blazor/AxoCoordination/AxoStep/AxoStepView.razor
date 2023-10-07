@@ -6,7 +6,7 @@
 
 
 <div class="container text-left">
-    <div class="row @StepRowColor">
+    <div class="row @AxoStepHelper.StepRowColor(Component)">
         <div class="col">
             @*Left here for the future, just to store the idea that each step could be displayed as an AxoTask *@
             @*            @if (IsControllable)
@@ -17,7 +17,7 @@
             {
             <AxoTaskStatusView Component="@Component" Description="@Description" HideRestoreButton="true" />
             }*@
-            @Description
+            @AxoStepHelper.Description(Component)
         </div>
         <div class="col">
             @Component.Duration.Cyclic.TotalSeconds

@@ -1,9 +1,9 @@
-﻿<div class="nav-menu d-flex flex-column bg-light">
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="oi oi-menu p-2" style="font-size: 1.5rem" aria-hidden="true"></span>
-    </button>
+﻿<button class="navbar-toggler btn p-0 m-0 position-fixed top-0 start-0 w-100 bg-light" style="height: 40px;" @onclick="ToggleNavMenu">
+    <span class="bi-list" style="font-size: 2rem" />
+</button>
 
-    <div class="@NavMenuCssClass collapse nav-scrollable">
+<div class="nav-menu d-flex flex-column bg-light" style="width: @(!collapseNavMenu ? 0 : null)">
+    <div class="nav-scrollable">
         <nav class="flex-column">
             <MenuItem Name="Home" Link="/" Icon="oi oi-home" />
             <ExpandableMenuItem Name="UI" Icon="oi oi-align-center">
@@ -12,18 +12,28 @@
                 <MenuItem Name="I/O" Link="/ui/Io" Icon="oi oi-cog" />
                 <MenuItem Name="Process data settings" Link="ui/ProcessData" Icon="oi oi-cog"></MenuItem>
                 <MenuItem Name="User administration" Link="/Security/UserAdministration" Icon="oi oi-person"></MenuItem>
+                <MenuItem Name="Settings" Link="/ui/Settings" Icon="oi oi-cog"></MenuItem>
             </ExpandableMenuItem>
         </nav>
+
+        <div class="navbar-image position-absolute bottom-0 mb-5 start-50 translate-middle-x">
+            <a href="">
+                <img src="logo-axopen-no-background.svg" width="100%" class="mb-2" />
+            </a>
+        </div>
     </div>
 </div>
+
+<button class="navbar-toggler-side btn p-0 m-0 position-fixed bottom-0 end-0 border-0" style="width: 250px;" @onclick="ToggleNavMenu">
+    <span class="bi-list" style="font-size: 2rem" />
+</button>
+
 
 @code {
     [Inject]
     private NavigationManager? MyNavigationManager { get; set; }
 
     private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? null : "show";
 
     public void ToggleNavMenu() => collapseNavMenu = !collapseNavMenu;
 
