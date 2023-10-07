@@ -13,3 +13,5 @@ devDependencies:
 scripts:
   postbuild:
     - dotnet ixc
+publicKeys:
+  "@ix-ax" :  30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17    

@@ -169,6 +169,8 @@ public class BuildContext : FrostingContext
     
     public string GitHubToken { get; } = System.Environment.GetEnvironmentVariable("GH_TOKEN");
 
+    public string ApaxSignKey { get; } = System.Environment.GetEnvironmentVariable("APAX_KEY");
+
     public IEnumerable<string> GetAxFolders((string folder, string name, bool pack) library)
     {
         var paths = new string[]
