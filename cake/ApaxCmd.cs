@@ -119,7 +119,7 @@ public static class ApaxCmd
         {
             context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
-                Arguments = "pack",
+                Arguments = $"pack -key={context.Environment.GetEnvironmentVariable("APAX_KEY")}",
                 WorkingDirectory = context.GetLibFolder(lib),
                 RedirectStandardOutput = false,
                 RedirectStandardError = false,
