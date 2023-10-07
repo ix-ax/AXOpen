@@ -115,11 +115,13 @@ public static class ApaxCmd
 
     public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack) lib)
     {
+
+        System.Console.WriteLine(context.ApaxSignKey);
         if (lib.pack)
         {
             context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
-                Arguments = $"pack -key={context.Environment.GetEnvironmentVariable("APAX_KEY")}",
+                Arguments = $"pack --key={context.ApaxSignKey}",
                 WorkingDirectory = context.GetLibFolder(lib),
                 RedirectStandardOutput = false,
                 RedirectStandardError = false,
