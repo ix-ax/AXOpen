@@ -1,11 +1,38 @@
-﻿@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+﻿@using AXSharp.Connector
+@using AXOpen.Core
+@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
 
 
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">@Component.AttributeName</h5>
-        <p class="card-text"></p>
+        <p class="card-text">
+            <AlarmsButton Component="@Component"></AlarmsButton>
+        </p>
         <a href="@Link" class="btn btn-primary">Open</a>
+    </div>
+</div>
+
+<!-- Modal data alarms -->
+<div class="modal fade" id="alarmsviewmodal" tabindex="-1" aria-labelledby="alarmsviewTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container">
+                    <div class="row">
+                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Alarms</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <Alarms Component="this.Component"></Alarms>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -13,5 +40,10 @@
 
     [Parameter]
     public string Link { get; set; }
+
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        
+    }
 
 }
