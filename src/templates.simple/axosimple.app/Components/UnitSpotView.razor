@@ -1,0 +1,17 @@
+﻿@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@Component.AttributeName</h5>
+        <p class="card-text"></p>
+        <a href="@Link" class="btn btn-primary">Open</a>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Link { get; set; }
+
+}

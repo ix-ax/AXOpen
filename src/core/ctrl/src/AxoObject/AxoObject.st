@@ -17,8 +17,10 @@ NAMESPACE AXOpen.Core
             _context    : IAxoContext;
         END_VAR  
         
-        VAR PRIVATE            
+        VAR PRIVATE  
+            {#ix-attr:[CompilerOmits()]}           
             NULL_CONTEXT : _NULL_CONTEXT;
+            {#ix-attr:[CompilerOmits()]}  
             NULL_OBJECT : _NULL_OBJECT;
         END_VAR
 

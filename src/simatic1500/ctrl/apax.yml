@@ -9,7 +9,7 @@ dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ax/simatic-1500-clocks": ^4.0.1
 devDependencies:
-  "@ax/sdk": ^4.0.8
+  "@ax/sdk": 4.0.12
 scripts:
   postbuild:
     - dotnet ixc
