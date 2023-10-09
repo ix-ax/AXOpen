@@ -18,6 +18,7 @@ namespace AXOpen.Messaging.Static
         protected IJSRuntime js { get; set; }
         private IJSObjectReference? jsModule;
 
+
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.js");
