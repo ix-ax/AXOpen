@@ -1,5 +1,44 @@
 # About this Repository
 
+## Pre-requisites
+
+- APAX 2.0.0
+- AXCODE 
+- DOTNET 6.0, 7.0
+- VSCODE or VS2022
+
+### Add package source
+
+To get access to the packages from `AX#` and `AXOpen` you will need to authenticate to a dedicated package feed hosted on GitHub. Authentication is free. If you do not have a GitHub account please consider creating one by signing up at https://github.com.
+
+~~~
+dotnet nuget add source --username GITHUBUSERNAME --password PAT  --store-password-in-clear-text --name gh-packages-ix-ax "https://nuget.pkg.github.com/ix-ax/index.json"
+~~~
+
+Replace GITHUBUSERNAME with your github name
+Replace PAT with your Personal Access Token ([how to create your PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token))
+
+
+### Checking pre-requisites using script
+
+To check pre-requisites in your enviroment run [check_requisites.ps1](../scripts/check_requisites.ps1) script.
+
+
+
+~~~Powershell
+# cd into your `axopen` folder
+.\scripts\check_requisites.ps1
+~~~
+
+## Build this repository
+
+In order to build this repostory run [build.ps1](../build.ps1) script.
+
+~~~Powershell
+# cd into your `axopen` folder
+.\build.ps1 
+~~~
+
 ## Directory Structure
 
 ### **docfx**

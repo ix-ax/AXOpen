@@ -6,21 +6,26 @@
 
 @if (Component.WaitingForAcknowledge.Cyclic || Component.IsActive.Cyclic)
 {
-    <div class="d-flex align-end me-2 mt-2 mb-2">
-        <div class="btn-group">
-            <button class="btn @BackgroundColor" type="button">
-                <span text-white class="@(AcknowledgedBeforeFallen ? "line-through" : "")">@Category:</span>
-                <span text-white class="@(AcknowledgedBeforeFallen ? "line-through" : "")">@MessageText</span>
-                <span text-white class="oi oi-arrow-thick-top">@Risen</span>
-                <span text-white class="oi oi-arrow-thick-bottom">@Fallen</span>
-                <span text-white class="oi oi-task" hidden="@AcknowledgementDoesNotRequired">@Acknowledged</span>
-            </button>
+    <div class="container text-center">
+        <div class="row">
+            <div class="d-flex align-end me-2 mt-2 mb-2">
+                <div class="btn-group">
+                    <button class="btn @BackgroundColor" type="button">
+                        <span> @Component.GetParent()?.AttributeName</span>
+                        <span text-white class="@(AcknowledgedBeforeFallen ? "line-through" : "")">@Category:</span>
+                        <span text-white class="@(AcknowledgedBeforeFallen ? "line-through" : "")">@MessageText</span>
+                        <span text-white class="oi oi-arrow-thick-top">@Risen</span>
+                        <span text-white class="oi oi-arrow-thick-bottom">@Fallen</span>
+                        <span text-white class="oi oi-task" hidden="@AcknowledgementDoesNotRequired">@Acknowledged</span>
+                    </button>
 
-            <button type="button" class="btn @BackgroundColor" data-bs-toggle="popover" data-bs-title="Help" data-bs-content="@HelpText">?</button>
+                    <button type="button" class="btn @BackgroundColor" data-bs-toggle="popover" data-bs-title="Help" data-bs-content="@HelpText">?</button>
 
-            <button class="btn @AckBtnBackgroundColor" type="button" @onclick="@AcknowledgeTask" hidden="@HideAckowledgeButton">
-                <span class="oi oi-x" aria-hidden="true"/>
-            </button>
+                    <button class="btn @AckBtnBackgroundColor" type="button" @onclick="@AcknowledgeTask" hidden="@HideAckowledgeButton">
+                        <span class="oi oi-x" aria-hidden="true" />
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 }

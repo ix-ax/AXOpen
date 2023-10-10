@@ -47,6 +47,7 @@ Entry.Plc.Connector.SetLoggerConfiguration(new LoggerConfiguration()
         fileSizeLimitBytes: 100000)
     .MinimumLevel.Information()
     .CreateLogger());
+
 await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
 AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfiguration()
@@ -56,7 +57,7 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
 var productionDataRepository = new InMemoryRepositorySettings<Pocos.examples.PneumaticManipulator.FragmentProcessData> ().Factory();
 var headerDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
 
-//Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
+Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 
 var a = Entry.Plc.Context.ProcessDataPneumaticManipulator
     .CreateBuilder<examples.PneumaticManipulator.ProcessDataManger>();

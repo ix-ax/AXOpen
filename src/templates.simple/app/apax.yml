@@ -7,7 +7,7 @@ targets:
 registries:
   '@ix-ax': https://npm.pkg.github.com/
 devDependencies:
-  "@ax/sdk": ^4.0.8
+  "@ax/sdk": 4.0.12
   "@ax/sld": ^0.15.9
   "@ax/stc": ^5.4.89
 dependencies:

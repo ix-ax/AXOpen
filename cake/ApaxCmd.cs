@@ -23,7 +23,7 @@ public static class ApaxCmd
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
-            var apaxArguments = context.BuildParameters.DoApaxInstallReDownload ? "install -L -r" : "install -L";
+            var apaxArguments = context.BuildParameters.DoApaxInstallReDownload ? "install -r" : "install";
 
             context.Log.Information($"apax install started for '{lib.folder} : {lib.name}'");
             context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()

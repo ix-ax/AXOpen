@@ -7,7 +7,7 @@ files:
   - src
   - axsharp.companion.json
 devDependencies:
-  "@ax/sdk": ^4.0.8
+  "@ax/sdk": 4.0.12
 dependencies:
   "@ax/system-strings": ^5.0.12
 scripts:

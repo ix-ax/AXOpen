@@ -2,7 +2,7 @@ name: apax.traversal
 version: 0.0.0
 type: generic
 
-dependencies:
+dependencies:  
   "@ix-ax/axopen.data" : '0.0.0-dev.0'
   "@ix-ax/axopen.probers" : '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500" : '0.0.0-dev.0'
