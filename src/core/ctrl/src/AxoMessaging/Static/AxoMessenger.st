@@ -2,12 +2,18 @@ USING AXOpen.Logging;
 USING AXOpen.Core;
 
 NAMESPACE AXOpen.Messaging.Static    
+
+    TYPE
+        eAxoMessengerState : (Idle, ActiveNoAck, ActiveAckn, NotActiveWatingAckn);
+    END_TYPE
+
     {#ix-prop: public string MessageText }
     {#ix-prop: public string Help }
     {#ix-prop: public string PlcTextList }
     CLASS AxoMessenger EXTENDS AxoObject IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties        
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[CompilerOmits()]} 
             IsActive : BOOL;
             {#ix-attr:[ReadOnly()]}
             Category : eAxoMessageCategory;           
@@ -18,14 +24,18 @@ NAMESPACE AXOpen.Messaging.Static
             {#ix-attr:[ReadOnly()]}
             Fallen : LDATE_AND_TIME;
             {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[CompilerOmits()]} 
             WaitingForAcknowledge : BOOL;
             {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[CompilerOmits()]} 
             AcknowledgementRequired : BOOL;
             AcknowledgeRequest : BOOL;
             {#ix-attr:[ReadOnly()]}
             AcknowledgedBeforeFallen : BOOL;
             {#ix-attr:[ReadOnly()]}
-            Acknowledged : LDATE_AND_TIME;            
+            Acknowledged : LDATE_AND_TIME; 
+            {#ix-attr:[ReadOnly()]}
+            MessengerState : eAxoMessengerState; 
         END_VAR
 
         VAR PRIVATE
@@ -47,6 +57,12 @@ NAMESPACE AXOpen.Messaging.Static
 
             Context := _context;
 
+            THIS.MessengerState := eAxoMessengerState#Idle;
+            
+            IF THIS.IsActive THEN
+                THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
+            END_IF;
+
             IF MessageCode = ULINT#0 THEN
                 IF IsActive THEN
                     IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
@@ -54,11 +70,17 @@ NAMESPACE AXOpen.Messaging.Static
                     END_IF;
                 ELSIF AcknowledgedBeforeFallen THEN
                     AcknowledgedBeforeFallen := FALSE;
-                END_IF;
+                    THIS.MessengerState := eAxoMessengerState#ActiveAckn;       
+                END_IF;                
                 IF AcknowledgeRequest THEN
-                    THIS.Acknowledge();
+                    THIS.Acknowledge();                    
                 END_IF;
             END_IF;
+
+            IF(THIS.WaitingForAcknowledge) THEN
+                THIS.MessengerState := eAxoMessengerState#NotActiveWatingAckn;  
+            END_IF;   
+            
         END_METHOD
         
         ///<summary>

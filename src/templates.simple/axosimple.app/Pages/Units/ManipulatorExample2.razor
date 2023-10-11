@@ -11,7 +11,7 @@
 
 @foreach (var message in Messengers)
 {
-    if (message.IsActive.LastValue)
+    if (message.State > eAxoMessengerState.Idle)
     {
         <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
     }

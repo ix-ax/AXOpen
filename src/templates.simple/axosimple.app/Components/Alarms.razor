@@ -4,7 +4,7 @@
 
 @foreach (var message in Messengers)
 {
-    if (message.IsActive.LastValue || message.WaitingForAcknowledge.LastValue)
+    if (message.State > eAxoMessengerState.Idle)
     {
         <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
     }
@@ -16,7 +16,7 @@
 
     public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
     {
-        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.MessengerState }))
         {
             axoMessenger.StartPolling(2500, this);
             PolledElements.Add(axoMessenger);
@@ -32,7 +32,7 @@
 
     private async Task UpdateMessages()
     {
-        if (Messengers != null) MessagesCount = Messengers.Count(p => p.IsActive.LastValue);
+        if (Messengers != null) MessagesCount = Messengers.Count(p => p.State > eAxoMessengerState.Idle);
     }
 
     private AxoMessenger[] Messengers => this.Component.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>().ToArray();
@@ -41,7 +41,7 @@
     {
         await base.OnInitializedAsync();
 
-        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.MessengerState }))
         {
             this.UpdateValuesOnChange(axoMessenger);
         }

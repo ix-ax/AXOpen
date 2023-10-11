@@ -101,7 +101,7 @@
         PolledElements.Add(Unit.Automat.Status);
         PolledElements.Add(Unit.Service.Status);
 
-        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.MessengerState }))
         {
             axoMessenger.StartPolling(2500, this);
             PolledElements.Add(axoMessenger);
@@ -130,7 +130,7 @@
 
     private async Task UpdateMessages()
     {
-        if (Messengers != null) MessagesCount = Messengers.Count(p => p.IsActive.LastValue);
+        if (Messengers != null) MessagesCount = Messengers.Count(p => p.State > eAxoMessengerState.Idle);
     }
 
     public int MessagesCount { get; set; }
@@ -148,7 +148,7 @@
         this.UpdateValuesOnChange(Unit.Service.Status);
         
 
-        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.MessengerState }))
         {
             this.UpdateValuesOnChange(axoMessenger);
         }

@@ -99,4 +99,6 @@ public partial class AxoMessenger
         get{return dotNetMessengerTextList != null ? dotNetMessengerTextList : new List<KeyValuePair<ulong, AxoMessengerTextItem>>();}
         set{dotNetMessengerTextList = value != null ? value : new List<KeyValuePair<ulong, AxoMessengerTextItem>>(); }
     }
+
+    public eAxoMessengerState State => (eAxoMessengerState)this.MessengerState.LastValue;
 }

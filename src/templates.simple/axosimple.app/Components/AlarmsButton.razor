@@ -28,7 +28,7 @@ else
 
     public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
     {
-        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.MessengerState }))
         {
             axoMessenger.StartPolling(2500, this);
             PolledElements.Add(axoMessenger);
@@ -44,7 +44,7 @@ else
 
     private async Task UpdateMessages()
     {
-        if (Messengers != null) MessagesCount = Messengers.Count(p => p.IsActive.Cyclic);
+        if (Messengers != null) MessagesCount = Messengers.Count(p => p.State > eAxoMessengerState.Idle);
     }
 
     private AxoMessenger[] Messengers => this.Component.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>().ToArray();
@@ -53,7 +53,7 @@ else
     {
         await base.OnInitializedAsync();
 
-        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.MessengerState }))
         {
             this.UpdateValuesOnChange(axoMessenger, 2500);
         }
