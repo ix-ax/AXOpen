@@ -1,0 +1,5 @@
+NAMESPACE axosimple
+    INTERFACE IUnit 
+        
+    END_INTERFACE
+END_NAMESPACE

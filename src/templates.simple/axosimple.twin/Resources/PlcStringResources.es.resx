@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -117,55 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Greeting" xml:space="preserve">
-    <value>Ahoj</value>
-  </data>
-  <data name="Login" xml:space="preserve">
-    <value>Prihlásenie</value>
-  </data>
-  <data name="Inputs" xml:space="preserve">
-    <value>Vstupy</value>
-  </data>
-  <data name="Outputs" xml:space="preserve">
-    <value>Výstupy</value>
-  </data>
-  <data name="Language" xml:space="preserve">
-    <value>Jazyk</value>
-  </data>
-  <data name="Choose a theme" xml:space="preserve">
-    <value>Téma</value>
-  </data>
-  <data name="Theme" xml:space="preserve">
-    <value>Téma</value>
-  </data>
-  <data name="Home" xml:space="preserve">
-    <value>Domov</value>
-  </data>
-  <data name="Controlled unit example" xml:space="preserve">
-    <value>Kontrolná jednotka</value>
-  </data>
-  <data name="Process data settings" xml:space="preserve">
-    <value>Procesné dáta</value>
-  </data>
-  <data name="User administration" xml:space="preserve">
-    <value>Administrácia</value>
-  </data>
-  <data name="READY TO START" xml:space="preserve">
-    <value>PRIPRAVENÝ</value>
-  </data>
-  <data name="RUNNING" xml:space="preserve">
-    <value>BEŽÍ</value>
-  </data>
-  <data name="IDLE" xml:space="preserve">
-    <value>NEČINNÝ</value>
-  </data>
-  <data name="IN SERVICE" xml:space="preserve">
-    <value>V SERV. MÓDE</value>
-  </data>
-  <data name="Alarms" xml:space="preserve">
-    <value>Alarmy</value>
-  </data>
-  <data name="OPEN" xml:space="preserve">
-    <value>OTVORIŤ</value>
-  </data>
 </root>

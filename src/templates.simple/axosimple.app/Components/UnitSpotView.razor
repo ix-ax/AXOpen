@@ -1,38 +1,25 @@
 ﻿@using AXSharp.Connector
 @using AXOpen.Core
+@using AXOpen.Messaging.Static
 @inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
 
 
 <div class="card" style="width: 18rem;">
+    <img src="@ImageLink" class="card-img-top p-3" alt="...">
     <div class="card-body">
         <h5 class="card-title">@Component.AttributeName</h5>
         <p class="card-text">
-            <AlarmsButton Component="@Component"></AlarmsButton>
+            <span class="badge rounded-pill @Mode">@ModeDescription</span>
         </p>
-        <a href="@Link" class="btn btn-primary">Open</a>
-    </div>
-</div>
-
-<!-- Modal data alarms -->
-<div class="modal fade" id="alarmsviewmodal" tabindex="-1" aria-labelledby="alarmsviewTitle" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="container">
-                    <div class="row">
-                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Alarms</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="container-fluid">
-                    <div class="row">
-                        <Alarms Component="this.Component"></Alarms>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <a href="@Link" class="btn btn-primary position-relative">
+            @Localizer["OPEN"]
+            @if (MessagesCount > 0)
+            {
+                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                    <span class="visually-hidden">New alerts</span>
+                </span>
+            }
+        </a>
     </div>
 </div>
 
@@ -41,9 +28,131 @@
     [Parameter]
     public string Link { get; set; }
 
-    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    [Parameter]
+    public string ImageLink { get; set; }
+
+    public string Mode
     {
-        
+        get
+        {
+            if (Unit.GroundStatus == eAxoTaskState.Done 
+                && Unit.AutomatStatus != eAxoTaskState.Busy 
+                && Unit.ServiceStatus != eAxoTaskState.Busy)
+            {
+                return "text-bg-secondary";
+            }
+
+            if (Unit.GroundStatus == eAxoTaskState.Busy)
+            {
+                return "text-bg-warning";
+            }
+
+            if (Unit.AutomatStatus == eAxoTaskState.Busy)
+            {
+                return "text-bg-primary";
+            }
+
+            if (Unit.ServiceStatus == eAxoTaskState.Busy)
+            {
+                return "text-bg-warning";
+            }
+
+            return "text-bg-dark";
+        }
     }
 
+    public string ModeDescription
+    {
+        get
+        {
+            if (Unit.GroundStatus == eAxoTaskState.Done 
+                && Unit.AutomatStatus != eAxoTaskState.Busy 
+                && Unit.ServiceStatus != eAxoTaskState.Busy)
+            {
+                return Localizer["READY TO START"];
+            }
+
+            if (Unit.GroundStatus == eAxoTaskState.Busy)
+            {
+                return Localizer["GROUNDING"];
+            }
+
+            if (Unit.AutomatStatus == eAxoTaskState.Busy)
+            {
+                return Localizer["RUNNING"];
+            }
+
+            if (Unit.ServiceStatus == eAxoTaskState.Busy)
+            {
+                return Localizer["IN SERVICE"];
+            }
+
+            return Localizer["IDLE"];
+        }
+    }
+
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        Unit.Ground.Status.StartPolling(2500, this);
+        Unit.Automat.Status.StartPolling(2500, this);
+        Unit.Service.Status.StartPolling(2500, this);
+
+        PolledElements.Add(Unit.Ground.Status);
+        PolledElements.Add(Unit.Automat.Status);
+        PolledElements.Add(Unit.Service.Status);
+
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
+        {
+            axoMessenger.StartPolling(2500, this);
+            PolledElements.Add(axoMessenger);
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await UpdateMessages();
+        await base.OnAfterRenderAsync(firstRender);
+        this.StateHasChanged();
+    }
+
+    private StandardUnit Unit
+    {
+        get
+        {
+            if (this._unit == null && this.Component != null)
+            {
+                this._unit = new StandardUnit(this.Component);
+            }
+
+            return this._unit;
+        }
+    }
+
+    private async Task UpdateMessages()
+    {
+        if (Messengers != null) MessagesCount = Messengers.Count(p => p.IsActive.LastValue);
+    }
+
+    public int MessagesCount { get; set; }
+
+    private AxoMessenger[] Messengers
+    {
+        get { return this.Component.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>().ToArray(); }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+        this.UpdateValuesOnChange(Unit.Ground.Status);
+        this.UpdateValuesOnChange(Unit.Automat.Status);
+        this.UpdateValuesOnChange(Unit.Service.Status);
+        
+
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
+        {
+            this.UpdateValuesOnChange(axoMessenger);
+        }
+    }
+
+    private StandardUnit _unit;
 }

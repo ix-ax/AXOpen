@@ -5,7 +5,7 @@
 @if(MessagesCount > 0)
 {
     <button type="button" class="btn btn-danger position-relative" data-bs-toggle="modal" data-bs-target="#alarmsviewmodal">
-        Alarms
+        @Localizer["Alarms"]
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                 @MessagesCount
                 <span class="visually-hidden">unread messages</span>
@@ -15,7 +15,7 @@
 else
 {
     <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#alarmsviewmodal" disabled>
-        Alarms
+        @Localizer["Alarms"]
     </button>
 }
         

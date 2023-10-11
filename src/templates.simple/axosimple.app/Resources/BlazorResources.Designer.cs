@@ -61,6 +61,15 @@ namespace axosimple.hmi.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alarms.
+        /// </summary>
+        public static string Alarms {
+            get {
+                return ResourceManager.GetString("Alarms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose a theme.
         /// </summary>
         public static string Choose_a_theme {
@@ -88,11 +97,38 @@ namespace axosimple.hmi.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GROUNDING.
+        /// </summary>
+        public static string GROUNDING {
+            get {
+                return ResourceManager.GetString("GROUNDING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
             get {
                 return ResourceManager.GetString("Home", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IDLE.
+        /// </summary>
+        public static string IDLE {
+            get {
+                return ResourceManager.GetString("IDLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IN SERVICE.
+        /// </summary>
+        public static string IN_SERVICE {
+            get {
+                return ResourceManager.GetString("IN SERVICE", resourceCulture);
             }
         }
         
@@ -124,6 +160,15 @@ namespace axosimple.hmi.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OPEN.
+        /// </summary>
+        public static string OPEN {
+            get {
+                return ResourceManager.GetString("OPEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Outputs.
         /// </summary>
         public static string Outputs {
@@ -138,6 +183,24 @@ namespace axosimple.hmi.Resources {
         public static string Process_data_settings {
             get {
                 return ResourceManager.GetString("Process data settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to READY TO START.
+        /// </summary>
+        public static string READY_TO_START {
+            get {
+                return ResourceManager.GetString("READY TO START", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RUNNING.
+        /// </summary>
+        public static string RUNNING {
+            get {
+                return ResourceManager.GetString("RUNNING", resourceCulture);
             }
         }
         

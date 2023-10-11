@@ -121,7 +121,7 @@
     <value>AUTOMAT</value>
   </data>
   <data name="GROUND" xml:space="preserve">
-    <value>ZEM</value>
+    <value>ZAKL.POLOHA</value>
   </data>
   <data name="Home_sensor" xml:space="preserve">
     <value>Domovský senzor</value>

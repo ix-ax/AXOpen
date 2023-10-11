@@ -34,7 +34,9 @@ You will need to use TIA Portal to enable WebAPI interface [see here](https://co
 
 ### AX
 
-Go to [apax.yml](app/apax.yml) file and adjust the parameters
+#### Connection parameters
+
+Go to [apax.yml](app/apax.yml) file and adjust the connection parameters
 
 ~~~yml
 .
@@ -51,8 +53,23 @@ scripts:
 .
 ~~~
 
+#### Target platform
 
+Add or comment/uncomment your target system.
 
+~~~yml
+.
+.
+.
+targets:
+  - plcsim
+  # - "1500"
+  # - swcpu
+  - axunit-llvm
+.
+.
+.
+~~~
 
 ## Download the project to the PLC
 

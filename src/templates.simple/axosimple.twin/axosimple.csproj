@@ -3,14 +3,28 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<UseProjectReference>true</UseProjectReference>
   </PropertyGroup>
-  <ItemGroup>
+
+  <ItemGroup Condition="'$(UseProjectReference)' == 'true'">
     <PackageReference Include="AXSharp.Abstractions" />
     <PackageReference Include="AXSharp.Connector" />
     <PackageReference Include="AXSharp.Connector.S71500.WebAPI" />
   </ItemGroup>
 
-  <ItemGroup>
+	<ItemGroup Condition="'$(UseProjectReference)' == 'false'">
+		<PackageReference Include="AXOpen.Cognex.Vision" Version="0.4.1-alpha.211" />
+		<PackageReference Include="AXOpen.Components.Elements" Version="0.4.1-alpha.211" />
+		<PackageReference Include="AXOpen.Components.Pneumatics" Version="0.4.1-alpha.211" />
+		<PackageReference Include="AXOpen.Data" Version="0.4.1-alpha.211" />
+		<PackageReference Include="AXOpen.Inspectors" Version="0.4.1-alpha.211" />
+		<PackageReference Include="AXOpen.Logging.Serilog" Version="0.4.1-alpha.211" />
+		<PackageReference Include="AXSharp.Abstractions" Version="0.15.0-alpha.155" />
+		<PackageReference Include="AXSharp.Connector" Version="0.15.0-alpha.155" />
+		<PackageReference Include="AXSharp.Connector.S71500.WebAPI" Version="0.15.0-alpha.155" />
+	</ItemGroup>
+
+	<ItemGroup>
     	<Compile Include=".g\**" />
   	</ItemGroup>
 
@@ -19,7 +33,7 @@
 		<Content Include=".meta\**" />
 	</ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(UseProjectReference)' == 'true'">
     <ProjectReference Include="..\..\components.cognex.vision\src\AXOpen.Cognex.Vision\ix_ax_axopen_components_cognex_vision.csproj" />
     <ProjectReference Include="..\..\components.pneumatics\src\AXOpen.Components.Pneumatics\ix_ax_axopen_components_pneumatics.csproj" />
     <ProjectReference Include="..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />

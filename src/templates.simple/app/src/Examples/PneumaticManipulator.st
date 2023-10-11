@@ -72,7 +72,7 @@ NAMESPACE examples.PneumaticManipulator
     /// Represents controlled units and high level task coordination.
     ///</summary>
     CLASS CU
-        EXTENDS AXOpen.Core.AxoObject
+        EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IUnit
         VAR PUBLIC
             ///<summary>
             /// Handles and intializes components used by this unit.
@@ -235,17 +235,14 @@ NAMESPACE examples.PneumaticManipulator
             END_IF;
 
 
-            IF (Steps[15].Execute(THIS, TRUE, 'Show alert from plc.')) THEN
+            IF (Steps[15].Execute(THIS, FALSE, 'Show alert from plc.')) THEN
                 //-------------------------------------------------------        
-                   IF(_alertDialog.Show(THIS)
+                   _alertDialog.Show(THIS)
                         .WithTitle('Plc alert')
                         .WithType(eDialogType#Success)
                         .WithMessage('This is alert invoked from plc!')
-                        .WithTimeToBurn(UINT#5).IsShown() = true) THEN
-                        THIS.MoveNext(); 
-                    END_IF;	
-
-
+                        .WithTimeToBurn(UINT#5).IsShown();
+                        THIS.MoveNext();                    	
             //-------------------------------------------------------
             END_IF;
 
@@ -291,14 +288,17 @@ NAMESPACE examples.PneumaticManipulator
              IF (Steps[50].Execute(THIS, TRUE, 'Example Data inspection')) THEN
                 //-------------------------------------------------------
               
-                THIS.ProcessData^.DataManger.Set._dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[145], _dataInspectorDialog);
+                THIS.ProcessData^.DataManger.Set._dataInspector.WithCoordinator(THIS)
+                .Inspect(THIS,_inspectionData)
+                .UpdateComprehensiveResult(_comprehensiveResult)
+                .OnFail().CarryOn();
 
                 //-------------------------------------------------------
             END_IF;
 
 
 
-            IF (Steps[60].Execute(THIS, TRUE, 'Show dialog 0')) THEN
+            IF (Steps[60].Execute(THIS, FALSE, 'Show dialog 0')) THEN
                 //------------------------------------------------------- 
             
                     IF(_dialog.Show(THIS)
