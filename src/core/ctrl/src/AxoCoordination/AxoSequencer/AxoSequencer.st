@@ -284,7 +284,7 @@ NAMESPACE AXOpen.Core
             END_VAR
             IF THIS.GetContext() = NULL THEN 
                 InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
-            ELSIF IsNullContext(step.GetContext()) THEN
+            ELSIF step.GetContext() = NULL THEN
                 InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
             ELSE
                 InvalidContext := FALSE;

@@ -51,7 +51,7 @@ NAMESPACE AXOpen.Messaging.Static
                 _context : IAxoContext;
             END_VAR     
 
-            IF AXOpen.Core.IsNullContext(_context) THEN
+            IF _context = NULL THEN
                 RETURN;
             END_IF;
 
@@ -91,7 +91,7 @@ NAMESPACE AXOpen.Messaging.Static
                 _object : IAxoObject;
             END_VAR  
         
-            IF AXOpen.Core.IsNullContext(_object.GetContext()) THEN
+            IF _object.GetContext() = NULL THEN
                 RETURN;
             END_IF;
 
@@ -110,7 +110,7 @@ NAMESPACE AXOpen.Messaging.Static
 
             Activate := THIS;
             
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
             
@@ -143,7 +143,7 @@ NAMESPACE AXOpen.Messaging.Static
 
             Activate := THIS;
             
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
             
@@ -217,7 +217,7 @@ NAMESPACE AXOpen.Messaging.Static
                 _messageCode : ULINT;
             END_VAR
 
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 
@@ -235,7 +235,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD   
 
         METHOD PRIVATE Deactivate
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 
@@ -254,7 +254,7 @@ NAMESPACE AXOpen.Messaging.Static
             VAR_INPUT
                 _messageCode : ULINT;
             END_VAR
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 
@@ -275,7 +275,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD    
 
         METHOD PRIVATE Acknowledge
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 
@@ -297,7 +297,7 @@ NAMESPACE AXOpen.Messaging.Static
         /// Restores all members of this instance to their initial states.
         ///</summary>
         METHOD PUBLIC Restore
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 

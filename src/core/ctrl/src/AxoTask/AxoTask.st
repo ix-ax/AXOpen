@@ -136,7 +136,7 @@ NAMESPACE AXOpen.Core
         END_METHOD   
 
         METHOD PRIVATE IsNewInvokeCall : BOOL
-            IF NOT IsNullContext(THIS.GetContext()) THEN
+            IF THIS.GetContext() <> NULL THEN
                 IsNewInvokeCall := _openCycleCountInvoke < THIS.GetContext().OpenCycleCount() - ULINT#1;
             ELSE
                 IsNewInvokeCall := FALSE;
@@ -144,7 +144,7 @@ NAMESPACE AXOpen.Core
         END_METHOD 
 
         METHOD PRIVATE IsInvokeCalledInThisPlcCycle : BOOL
-            IF NOT IsNullContext(THIS.GetContext()) THEN
+            IF THIS.GetContext() <> NULL THEN
                 IsInvokeCalledInThisPlcCycle := _openCycleCountInvoke = THIS.GetContext().OpenCycleCount();
             ELSE
                 IsInvokeCalledInThisPlcCycle := FALSE;
@@ -152,7 +152,7 @@ NAMESPACE AXOpen.Core
         END_METHOD 
         
         METHOD PRIVATE WasInvokeCalledInPreviousPlcCycle : BOOL
-            IF NOT IsNullContext(THIS.GetContext()) THEN
+            IF THIS.GetContext() <> NULL THEN
                 WasInvokeCalledInPreviousPlcCycle := _openCycleCountInvoke +ULINT#1 = THIS.GetContext().OpenCycleCount();
             ELSE
                 WasInvokeCalledInPreviousPlcCycle := FALSE;
@@ -160,7 +160,7 @@ NAMESPACE AXOpen.Core
         END_METHOD 
         
         METHOD PRIVATE IsNewExecuteCall : BOOL
-            IF NOT IsNullContext(THIS.GetContext()) THEN
+            IF THIS.GetContext() <> NULL THEN
                 IsNewExecuteCall := _openCycleCountExecute < THIS.GetContext().OpenCycleCount() - ULINT#1;
             ELSE
                 IsNewExecuteCall := FALSE;
@@ -168,7 +168,7 @@ NAMESPACE AXOpen.Core
         END_METHOD 
 
         METHOD PRIVATE IsExecuteCalledInThisPlcCycle : BOOL
-            IF NOT IsNullContext(THIS.GetContext()) THEN
+            IF THIS.GetContext() <> NULL THEN
                 IsExecuteCalledInThisPlcCycle := _openCycleCountExecute = THIS.GetContext().OpenCycleCount();
             ELSE
                 IsExecuteCalledInThisPlcCycle := FALSE;
@@ -176,7 +176,7 @@ NAMESPACE AXOpen.Core
         END_METHOD 
         
         METHOD PRIVATE WasExecuteCalledInPreviousPlcCycle : BOOL
-            IF NOT IsNullContext(THIS.GetContext()) THEN
+            IF THIS.GetContext() <> NULL THEN
                 WasExecuteCalledInPreviousPlcCycle := _openCycleCountExecute + ULINT#1 = THIS.GetContext().OpenCycleCount();
             ELSE
                 WasExecuteCalledInPreviousPlcCycle := FALSE;
@@ -199,7 +199,7 @@ NAMESPACE AXOpen.Core
                 _isNullContext : BOOL;
             END_VAR;
             
-            _isNullContext := IsNullContext(THIS.GetContext());
+            _isNullContext := THIS.GetContext() = NULL;
 
 
             IF _isNullContext THEN

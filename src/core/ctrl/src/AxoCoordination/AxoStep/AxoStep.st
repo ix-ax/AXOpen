@@ -96,7 +96,7 @@ NAMESPACE AXOpen.Core
                 _currentlyOpenCycleCount : ULINT;
             END_VAR
 
-            IF NOT IsNullContext(THIS.GetContext()) THEN
+            IF THIS.GetContext() <> NULL THEN
                 _currentlyOpenCycleCount := THIS.GetContext().OpenCycleCount();
                 _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
                 _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            

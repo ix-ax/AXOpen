@@ -5,7 +5,7 @@ NAMESPACE AXOpen.Core
 		/// Executes the logic for manual-maintenance control.   
         ///</summary>   
         METHOD PUBLIC FINAL ActivateManualControl 
-            IF NOT IsNullContext(THIS.GetContext()) THEN
+            IF THIS.GetContext() <> NULL THEN
                  _manualControlContextCycle := THIS.GetContext().OpenCycleCount();
                 THIS.ManualControl();
             ELSE
@@ -49,7 +49,7 @@ NAMESPACE AXOpen.Core
             VAR
                 _myContextCycleCount : ULINT;
             END_VAR
-            IF NOT IsNullContext(THIS.GetContext()) THEN
+            IF THIS.GetContext() <> NULL THEN
                 _myContextCycleCount := THIS.GetContext().OpenCycleCount();
                 //When component.Service() is called "before" invoking its task _serviceContextCycle is equal to GetContext().OpenCycleCount()
                 _isManuallyControllable := _manualControlContextCycle = _myContextCycleCount OR 
