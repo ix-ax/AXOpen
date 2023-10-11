@@ -2,7 +2,7 @@ dotnet tool restore
 dotnet clean this.proj
 dotnet build this.proj
 dotnet slngen this.proj -o axosimple.sln --folders true --launch false
-cd app
+Set-Location app
 apax install
 apax build
 axcode .
