@@ -136,48 +136,48 @@ NAMESPACE AXOpen.Core
         END_METHOD   
 
         METHOD PRIVATE IsNewInvokeCall : BOOL
-            IF THIS.GetContext() <> NULL THEN
-                IsNewInvokeCall := _openCycleCountInvoke < THIS.GetContext().OpenCycleCount() - ULINT#1;
+            IF _context_ <> NULL THEN
+                IsNewInvokeCall := _openCycleCountInvoke < _context_.OpenCycleCount() - ULINT#1;
             ELSE
                 IsNewInvokeCall := FALSE;
             END_IF;     
         END_METHOD 
 
         METHOD PRIVATE IsInvokeCalledInThisPlcCycle : BOOL
-            IF THIS.GetContext() <> NULL THEN
-                IsInvokeCalledInThisPlcCycle := _openCycleCountInvoke = THIS.GetContext().OpenCycleCount();
+            IF _context_ <> NULL THEN
+                IsInvokeCalledInThisPlcCycle := _openCycleCountInvoke = _context_.OpenCycleCount();
             ELSE
                 IsInvokeCalledInThisPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
         
         METHOD PRIVATE WasInvokeCalledInPreviousPlcCycle : BOOL
-            IF THIS.GetContext() <> NULL THEN
-                WasInvokeCalledInPreviousPlcCycle := _openCycleCountInvoke +ULINT#1 = THIS.GetContext().OpenCycleCount();
+            IF _context_ <> NULL THEN
+                WasInvokeCalledInPreviousPlcCycle := _openCycleCountInvoke +ULINT#1 = _context_.OpenCycleCount();
             ELSE
                 WasInvokeCalledInPreviousPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
         
         METHOD PRIVATE IsNewExecuteCall : BOOL
-            IF THIS.GetContext() <> NULL THEN
-                IsNewExecuteCall := _openCycleCountExecute < THIS.GetContext().OpenCycleCount() - ULINT#1;
+            IF _context_ <> NULL THEN
+                IsNewExecuteCall := _openCycleCountExecute < _context_.OpenCycleCount() - ULINT#1;
             ELSE
                 IsNewExecuteCall := FALSE;
             END_IF;     
         END_METHOD 
 
         METHOD PRIVATE IsExecuteCalledInThisPlcCycle : BOOL
-            IF THIS.GetContext() <> NULL THEN
-                IsExecuteCalledInThisPlcCycle := _openCycleCountExecute = THIS.GetContext().OpenCycleCount();
+            IF _context_ <> NULL THEN
+                IsExecuteCalledInThisPlcCycle := _openCycleCountExecute = _context_.OpenCycleCount();
             ELSE
                 IsExecuteCalledInThisPlcCycle := FALSE;
             END_IF;     
         END_METHOD 
         
         METHOD PRIVATE WasExecuteCalledInPreviousPlcCycle : BOOL
-            IF THIS.GetContext() <> NULL THEN
-                WasExecuteCalledInPreviousPlcCycle := _openCycleCountExecute + ULINT#1 = THIS.GetContext().OpenCycleCount();
+            IF _context_ <> NULL THEN
+                WasExecuteCalledInPreviousPlcCycle := _openCycleCountExecute + ULINT#1 = _context_.OpenCycleCount();
             ELSE
                 WasExecuteCalledInPreviousPlcCycle := FALSE;
             END_IF;     
@@ -199,7 +199,7 @@ NAMESPACE AXOpen.Core
                 _isNullContext : BOOL;
             END_VAR;
             
-            _isNullContext := THIS.GetContext() = NULL;
+            _isNullContext := _context_ = NULL;
 
 
             IF _isNullContext THEN
@@ -217,7 +217,7 @@ NAMESPACE AXOpen.Core
                 Status := eAxoTaskState#Ready; 
             END_IF;
 
-            _openCycleCountInvoke := THIS.GetContext().OpenCycleCount();
+            _openCycleCountInvoke := _context_.OpenCycleCount();
 
             // task should not be Invoked, if the execute method was not called in this or previous PLC cycle
             IF Status = eAxoTaskState#Ready THEN
@@ -272,7 +272,7 @@ NAMESPACE AXOpen.Core
             IF( RemoteAbort) THEN THIS.Abort(); RemoteAbort := FALSE; END_IF;
             IF( RemoteResume) THEN THIS.Resume(); RemoteResume := FALSE; END_IF;
 
-            _openCycleCountExecute := THIS.GetContext().OpenCycleCount();
+            _openCycleCountExecute := _context_.OpenCycleCount();
                 
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,
@@ -285,12 +285,12 @@ NAMESPACE AXOpen.Core
                 Status := eAxoTaskState#Busy; 
 
                 // This null check is due to implementation of RTC in unit tests
-                IF(THIS.GetContext().GetRtc() <> NULL) THEN
-                    StartTimeStamp := THIS.GetContext().GetRtc().NowUTC();
+                IF(_context_.GetRtc() <> NULL) THEN
+                    StartTimeStamp := _context_.GetRtc().NowUTC();
                 END_IF;  
                   
                 // Don't touch this, it is used for remote execs.
-                StartSignature := THIS.GetContext().OpenCycleCount();    
+                StartSignature := _context_.OpenCycleCount();    
                 THIS.LogTask('Task started.', eLogLevel#Verbose, THIS);                       
                 THIS.OnStart();
             END_IF;    
@@ -317,7 +317,7 @@ NAMESPACE AXOpen.Core
             END_VAR               
             _castIIAxoStep ?= _sender;
             IF(_castIIAxoStep <> NULL) THEN RETURN; END_IF;            
-            THIS.GetContext().GetLogger().Log(_message, _level, THIS);       
+            _context_.GetLogger().Log(_message, _level, THIS);       
         END_METHOD
 
         ///<summary>
