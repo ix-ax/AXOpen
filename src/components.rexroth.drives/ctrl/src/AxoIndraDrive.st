@@ -143,56 +143,60 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _AxisReference ?= AxisRef;
 
             IF(_AxisReference <> NULL) THEN
-                _AxisReference^.FieldBusIn.PhaseAcknowledgeBit0             := refAxisIn^[0].%X0;  
-                _AxisReference^.FieldBusIn.PhaseAcknowledgeBit1 	        := refAxisIn^[0].%X1;  
-                _AxisReference^.FieldBusIn.InReference 				        := refAxisIn^[0].%X2;  
-                _AxisReference^.FieldBusIn.InStandstill 			        := refAxisIn^[0].%X3;  
-                _AxisReference^.FieldBusIn.Done_ 					        := refAxisIn^[0].%X4;  
-                _AxisReference^.FieldBusIn.CommandChangeBit 		        := refAxisIn^[0].%X5;  
-                _AxisReference^.FieldBusIn.OperatingModeError 		        := refAxisIn^[0].%X6;  
-                _AxisReference^.FieldBusIn.StatusSetpointProcess 	        := refAxisIn^[0].%X7;  
-                _AxisReference^.FieldBusIn.ActualOperatingModeBit0 	        := refAxisIn^[1].%X0;  
-                _AxisReference^.FieldBusIn.ActualOperatingModeBit1 	        := refAxisIn^[1].%X1;  
-                _AxisReference^.FieldBusIn.SetpointAcknowledge 		        := refAxisIn^[1].%X2;  
-                _AxisReference^.FieldBusIn.MessageZKL3 				        := refAxisIn^[1].%X3;  
-                _AxisReference^.FieldBusIn.WarningZKL2 				        := refAxisIn^[1].%X4;  
-                _AxisReference^.FieldBusIn.DriveErrorZKL1 			        := refAxisIn^[1].%X5;  
-                _AxisReference^.FieldBusIn.ReadyToOperateBit0 		        := refAxisIn^[1].%X6;  
-                _AxisReference^.FieldBusIn.ReadyToOperateBit1 		        := refAxisIn^[1].%X7;  
-                _AxisReference^.FieldBusIn.S_0_0051_ActualPosition.%B0      := refAxisIn^[2];  
-                _AxisReference^.FieldBusIn.S_0_0051_ActualPosition.%B1      := refAxisIn^[3];  
-                _AxisReference^.FieldBusIn.S_0_0051_ActualPosition.%B2      := refAxisIn^[4];  
-                _AxisReference^.FieldBusIn.S_0_0051_ActualPosition.%B3      := refAxisIn^[5];  
-                _AxisReference^.FieldBusIn.S_0_0040_ActualVelocity.%B0      := refAxisIn^[6]; 
-                _AxisReference^.FieldBusIn.S_0_0040_ActualVelocity.%B1      := refAxisIn^[7]; 
-                _AxisReference^.FieldBusIn.S_0_0040_ActualVelocity.%B2      := refAxisIn^[8]; 
-                _AxisReference^.FieldBusIn.S_0_0040_ActualVelocity.%B3      := refAxisIn^[9]; 
-                _AxisReference^.FieldBusIn.S_0_0390_Diagnosis.%B0           := refAxisIn^[10]; 
-                _AxisReference^.FieldBusIn.S_0_0390_Diagnosis.%B1           := refAxisIn^[11]; 
-                _AxisReference^.FieldBusIn.S_0_0390_Diagnosis.%B2           := refAxisIn^[12]; 
-                _AxisReference^.FieldBusIn.S_0_0390_Diagnosis.%B3           := refAxisIn^[13]; 
-                _AxisReference^.FieldBusIn.S_0_0144_SignalStatusWord.%B0    := refAxisIn^[14]; 
-                _AxisReference^.FieldBusIn.S_0_0144_SignalStatusWord.%B1    := refAxisIn^[15]; 
-                _AxisReference^.FieldBusIn.S_0_0084_ActualTorque.%B0        := refAxisIn^[16]; 
-                _AxisReference^.FieldBusIn.S_0_0084_ActualTorque.%B1        := refAxisIn^[17]; 
+                _AxisReference^.Parameter_In.Datalength                     := refParamIn^[0];
+                _AxisReference^.Parameter_In.FL_0    		                := refParamIn^[1].%X0;
+                _AxisReference^.Parameter_In.FL_1	    	                := refParamIn^[1].%X1;
+                _AxisReference^.Parameter_In.FL_2	    	                := refParamIn^[1].%X2;
+                _AxisReference^.Parameter_In.FL_3	    	                := refParamIn^[1].%X3;
+                _AxisReference^.Parameter_In.ToggleBit   	                := refParamIn^[1].%X4;
+                _AxisReference^.Parameter_In.LastBit	                    := refParamIn^[1].%X5;
+                _AxisReference^.Parameter_In.Failure	                    := refParamIn^[1].%X6;
+                _AxisReference^.Parameter_In.Reserve                        := refParamIn^[1].%X7;
+                _AxisReference^.Parameter_In.DataWord_0.%B0                 := refParamIn^[2];
+                _AxisReference^.Parameter_In.DataWord_0.%B1                 := refParamIn^[3];
+                _AxisReference^.Parameter_In.DataWord_1.%B0                 := refParamIn^[4];
+                _AxisReference^.Parameter_In.DataWord_1.%B1                 := refParamIn^[5];
+                _AxisReference^.Parameter_In.DataWord_2.%B0                 := refParamIn^[6];
+                _AxisReference^.Parameter_In.DataWord_2.%B1                 := refParamIn^[7];
+                _AxisReference^.Parameter_In.DataWord_3.%B0                 := refParamIn^[8];
+                _AxisReference^.Parameter_In.DataWord_3.%B1                 := refParamIn^[9];
 
-                _AxisReference^.ParameterIn.Datalength                      := refParamIn^[0];
-                _AxisReference^.ParameterIn.FL_0    		                := refParamIn^[1].%X0;
-                _AxisReference^.ParameterIn.FL_1	    	                := refParamIn^[1].%X1;
-                _AxisReference^.ParameterIn.FL_2	    	                := refParamIn^[1].%X2;
-                _AxisReference^.ParameterIn.FL_3	    	                := refParamIn^[1].%X3;
-                _AxisReference^.ParameterIn.ToggleBit   	                := refParamIn^[1].%X4;
-                _AxisReference^.ParameterIn.LastBit	                        := refParamIn^[1].%X5;
-                _AxisReference^.ParameterIn.Failure	                        := refParamIn^[1].%X6;
-                _AxisReference^.ParameterIn.Reserve	                        := refParamIn^[1].%X7;
-                _AxisReference^.ParameterIn.DataWord_0.%B0                  := refParamIn^[2];
-                _AxisReference^.ParameterIn.DataWord_0.%B1                  := refParamIn^[3];
-                _AxisReference^.ParameterIn.DataWord_1.%B0                  := refParamIn^[4];
-                _AxisReference^.ParameterIn.DataWord_1.%B1                  := refParamIn^[5];
-                _AxisReference^.ParameterIn.DataWord_2.%B0                  := refParamIn^[6];
-                _AxisReference^.ParameterIn.DataWord_2.%B1                  := refParamIn^[7];
-                _AxisReference^.ParameterIn.DataWord_3.%B0                  := refParamIn^[8];
-                _AxisReference^.ParameterIn.DataWord_3.%B1                  := refParamIn^[9];
+                _AxisReference^.FieldBus_In.PhaseAcknowledgeBit0            := refAxisIn^[0].%X0;  
+                _AxisReference^.FieldBus_In.PhaseAcknowledgeBit1 	        := refAxisIn^[0].%X1;  
+                _AxisReference^.FieldBus_In.InReference 				    := refAxisIn^[0].%X2;  
+                _AxisReference^.FieldBus_In.InStandstill 			        := refAxisIn^[0].%X3;  
+                _AxisReference^.FieldBus_In.SetpointReached 				:= refAxisIn^[0].%X4;  
+                _AxisReference^.FieldBus_In.CommandChangeBit 		        := refAxisIn^[0].%X5;  
+                _AxisReference^.FieldBus_In.OperatingModeError 		        := refAxisIn^[0].%X6;  
+                _AxisReference^.FieldBus_In.StatusSetpointProcess 	        := refAxisIn^[0].%X7;  
+                _AxisReference^.FieldBus_In.ActualOperatingModeBit0 	    := refAxisIn^[1].%X0;  
+                _AxisReference^.FieldBus_In.ActualOperatingModeBit1 	    := refAxisIn^[1].%X1;  
+                _AxisReference^.FieldBus_In.SetpointAcknowledge 		    := refAxisIn^[1].%X2;  
+                _AxisReference^.FieldBus_In.MessageZKL3 				    := refAxisIn^[1].%X3;  
+                _AxisReference^.FieldBus_In.WarningZKL2 				    := refAxisIn^[1].%X4;  
+                _AxisReference^.FieldBus_In.DriveErrorZKL1 			        := refAxisIn^[1].%X5;  
+                _AxisReference^.FieldBus_In.ReadyToOperateBit0 		        := refAxisIn^[1].%X6;  
+                _AxisReference^.FieldBus_In.ReadyToOperateBit1 		        := refAxisIn^[1].%X7;  
+                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B0     := refAxisIn^[2];  
+                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B1     := refAxisIn^[3];  
+                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B2     := refAxisIn^[4];  
+                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B3     := refAxisIn^[5];  
+                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B0     := refAxisIn^[6]; 
+                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B1     := refAxisIn^[7]; 
+                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B2     := refAxisIn^[8]; 
+                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B3     := refAxisIn^[9]; 
+                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B0          := refAxisIn^[10]; 
+                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B1          := refAxisIn^[11]; 
+                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B2          := refAxisIn^[12]; 
+                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B3          := refAxisIn^[13]; 
+                _AxisReference^.FieldBus_In.S_0_0144_SignalStatusWord.%B0   := refAxisIn^[14]; 
+                _AxisReference^.FieldBus_In.S_0_0144_SignalStatusWord.%B1   := refAxisIn^[15]; 
+                _AxisReference^.FieldBus_In.S_0_0084_ActualTorque.%B0       := refAxisIn^[16]; 
+                _AxisReference^.FieldBus_In.S_0_0084_ActualTorque.%B1       := refAxisIn^[17]; 
+
+
+                _AxisRef.Parameter_In                                       := _AxisReference^.Parameter_In;
+                _AxisRef.FieldBus_In                                        := _AxisReference^.Parameter_In;
             END_IF;
         END_METHOD   
 
@@ -202,54 +206,75 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         METHOD PROTECTED UpdateOutputs : BOOL
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
                 refParamOut     :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
+                refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
             END_VAR
             _AxisReference ?= AxisRef;
             IF(_AxisReference <> NULL) THEN
-                refAxisOut^[0].%X0      := _AxisReference^.FieldBusOut.SetpointAcceptance;
-                refAxisOut^[0].%X1      := _AxisReference^.FieldBusOut.OperatingModeSet;
-                refAxisOut^[0].%X2      := _AxisReference^.FieldBusOut.DriveToZeroPoint;
-                refAxisOut^[0].%X3      := _AxisReference^.FieldBusOut.AbsoluteRelative;
-                refAxisOut^[0].%X4      := _AxisReference^.FieldBusOut.ImmediateBlockChange;
-                refAxisOut^[0].%X5      := _AxisReference^.FieldBusOut.ErrorDelete;
-                refAxisOut^[0].%X6      := _AxisReference^.FieldBusOut.JogForward;
-                refAxisOut^[0].%X7      := _AxisReference^.FieldBusOut.JogBackward;
-                refAxisOut^[1].%X0      := _AxisReference^.FieldBusOut.SetOperatingModeBit0;
-                refAxisOut^[1].%X1      := _AxisReference^.FieldBusOut.SetOperatingModeBit1;
+                _AxisReference^.Parameter_Out   := _AxisRef.Parameter_Out;
+                _AxisReference^.FieldBus_Out    := _AxisRef.FieldBus_Out;
+
+                refParamOut^[0]         := _AxisReference^.Parameter_Out.Datalength;
+                refParamOut^[1].%X0     := _AxisReference^.Parameter_Out.FL_0;
+                refParamOut^[1].%X1     := _AxisReference^.Parameter_Out.FL_1;
+                refParamOut^[1].%X2     := _AxisReference^.Parameter_Out.FL_2;
+                refParamOut^[1].%X3     := _AxisReference^.Parameter_Out.FL_3;
+                refParamOut^[1].%X4     := _AxisReference^.Parameter_Out.ToggleBit;
+                refParamOut^[1].%X5     := _AxisReference^.Parameter_Out.LastBit;
+                refParamOut^[1].%X6     := _AxisReference^.Parameter_Out.Initalisation;
+                refParamOut^[1].%X7     := _AxisReference^.Parameter_Out.Reserve;
+                refParamOut^[2]         := _AxisReference^.Parameter_Out.Index.%B0;
+                refParamOut^[3]         := _AxisReference^.Parameter_Out.Index.%B1;
+                refParamOut^[4]         := _AxisReference^.Parameter_Out.Subindex;
+                refParamOut^[5]         := _AxisReference^.Parameter_Out.Axis;
+                refParamOut^[6]         := _AxisReference^.Parameter_Out.DataWord_0.%B0;
+                refParamOut^[7]         := _AxisReference^.Parameter_Out.DataWord_0.%B1;
+                refParamOut^[8]         := _AxisReference^.Parameter_Out.DataWord_1.%B0;
+                refParamOut^[9]         := _AxisReference^.Parameter_Out.DataWord_1.%B1;
+
+                refAxisOut^[0].%X0      := _AxisReference^.FieldBus_Out.SetpointAcceptance;
+                refAxisOut^[0].%X1      := _AxisReference^.FieldBus_Out.OperatingModeSet;
+                refAxisOut^[0].%X2      := _AxisReference^.FieldBus_Out.DriveToZeroPoint;
+                refAxisOut^[0].%X3      := _AxisReference^.FieldBus_Out.AbsoluteRelative;
+                refAxisOut^[0].%X4      := _AxisReference^.FieldBus_Out.ImmediateBlockChange;
+                refAxisOut^[0].%X5      := _AxisReference^.FieldBus_Out.ErrorDelete;
+                refAxisOut^[0].%X6      := _AxisReference^.FieldBus_Out.JogForward;
+                refAxisOut^[0].%X7      := _AxisReference^.FieldBus_Out.JogBackward;
+                refAxisOut^[1].%X0      := _AxisReference^.FieldBus_Out.SetOperatingModeBit0;
+                refAxisOut^[1].%X1      := _AxisReference^.FieldBus_Out.SetOperatingModeBit1;
                 refAxisOut^[1].%X2      :=  FALSE;
                 refAxisOut^[1].%X3      :=  FALSE;
-                refAxisOut^[1].%X4      := _AxisReference^.FieldBusOut.Iposync;
-                refAxisOut^[1].%X5      := _AxisReference^.FieldBusOut.DriveHalt;
-                refAxisOut^[1].%X6      := _AxisReference^.FieldBusOut.DriveEnable;
-                refAxisOut^[1].%X7      := _AxisReference^.FieldBusOut.DriveOn;
-                refAxisOut^[2]          := _AxisReference^.FieldBusOut.S_0_0282_CommandPosition.%B0;
-                refAxisOut^[3]          := _AxisReference^.FieldBusOut.S_0_0282_CommandPosition.%B1;
-                refAxisOut^[4]          := _AxisReference^.FieldBusOut.S_0_0282_CommandPosition.%B2;
-                refAxisOut^[5]          := _AxisReference^.FieldBusOut.S_0_0282_CommandPosition.%B3;
-                refAxisOut^[6]          := _AxisReference^.FieldBusOut.S_0_0259_CommandVelocity.%B0;
-                refAxisOut^[7]          := _AxisReference^.FieldBusOut.S_0_0259_CommandVelocity.%B1;
-                refAxisOut^[8]          := _AxisReference^.FieldBusOut.S_0_0259_CommandVelocity.%B2;
-                refAxisOut^[9]          := _AxisReference^.FieldBusOut.S_0_0259_CommandVelocity.%B3;
-                refAxisOut^[10]         := _AxisReference^.FieldBusOut.S_0_0260_CommandAcceleration.%B0;
-                refAxisOut^[11]         := _AxisReference^.FieldBusOut.S_0_0260_CommandAcceleration.%B1;
-                refAxisOut^[12]         := _AxisReference^.FieldBusOut.S_0_0260_CommandAcceleration.%B2;
-                refAxisOut^[13]         := _AxisReference^.FieldBusOut.S_0_0260_CommandAcceleration.%B3;
-                refAxisOut^[14]         := _AxisReference^.FieldBusOut.S_0_0359_CommandDecceleration.%B0;
-                refAxisOut^[15]         := _AxisReference^.FieldBusOut.S_0_0359_CommandDecceleration.%B1;
-                refAxisOut^[16]         := _AxisReference^.FieldBusOut.S_0_0359_CommandDecceleration.%B2;
-                refAxisOut^[17]         := _AxisReference^.FieldBusOut.S_0_0359_CommandDecceleration.%B3;
-                refAxisOut^[18]         := _AxisReference^.FieldBusOut.S_0_0145_SignalControlWord.%B0;
-                refAxisOut^[19]         := _AxisReference^.FieldBusOut.S_0_0145_SignalControlWord.%B1;
-                refAxisOut^[20]         := _AxisReference^.FieldBusOut.S_0_0092_BipolarTorqueLimit.%B0;
-                refAxisOut^[21]         := _AxisReference^.FieldBusOut.S_0_0092_BipolarTorqueLimit.%B1;
-                refAxisOut^[22]         := _AxisReference^.FieldBusOut.S_0_0193_CommandJerk.%B0;
-                refAxisOut^[23]         := _AxisReference^.FieldBusOut.S_0_0193_CommandJerk.%B1;
-                refAxisOut^[24]         := _AxisReference^.FieldBusOut.S_0_0193_CommandJerk.%B2;
-                refAxisOut^[25]         := _AxisReference^.FieldBusOut.S_0_0193_CommandJerk.%B3;
+                refAxisOut^[1].%X4      := _AxisReference^.FieldBus_Out.Iposync;
+                refAxisOut^[1].%X5      := _AxisReference^.FieldBus_Out.DriveHalt;
+                refAxisOut^[1].%X6      := _AxisReference^.FieldBus_Out.DriveEnable;
+                refAxisOut^[1].%X7      := _AxisReference^.FieldBus_Out.DriveOn;
+                refAxisOut^[2]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B0;
+                refAxisOut^[3]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B1;
+                refAxisOut^[4]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B2;
+                refAxisOut^[5]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B3;
+                refAxisOut^[6]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B0;
+                refAxisOut^[7]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B1;
+                refAxisOut^[8]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B2;
+                refAxisOut^[9]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B3;
+                refAxisOut^[10]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B0;
+                refAxisOut^[11]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B1;
+                refAxisOut^[12]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B2;
+                refAxisOut^[13]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B3;
+                refAxisOut^[14]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B0;
+                refAxisOut^[15]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B1;
+                refAxisOut^[16]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B2;
+                refAxisOut^[17]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B3;
+                refAxisOut^[18]         := _AxisReference^.FieldBus_Out.S_0_0145_SignalControlWord.%B0;
+                refAxisOut^[19]         := _AxisReference^.FieldBus_Out.S_0_0145_SignalControlWord.%B1;
+                refAxisOut^[20]         := _AxisReference^.FieldBus_Out.S_0_0092_BipolarTorqueLimit.%B0;
+                refAxisOut^[21]         := _AxisReference^.FieldBus_Out.S_0_0092_BipolarTorqueLimit.%B1;
+                refAxisOut^[22]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B0;
+                refAxisOut^[23]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B1;
+                refAxisOut^[24]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B2;
+                refAxisOut^[25]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B3;
     
             END_IF;
         END_METHOD   

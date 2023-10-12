@@ -8,10 +8,10 @@ USING AXOpen.Components.Drives;
 NAMESPACE AXOpen.Components.Rexroth.Drives
     CLASS AxoIndraDriveAxisReference IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoAxisReference
         VAR PUBLIC
-            FieldBusIn  :   AxoIndraDriveFieldBusIn;
-            FieldBusOut :   AxoIndraDriveFieldBusOut;
-            ParameterIn :   AxoIndraDriveParameterIn;
-            ParameterOut:   AxoIndraDriveParameterOut;
+            FieldBus_In  :   AxoIndraDriveFieldBusIn;
+            FieldBus_Out :   AxoIndraDriveFieldBusOut;
+            Parameter_In :   AxoIndraDriveParameterIn;
+            Parameter_Out:   AxoIndraDriveParameterOut;
             Data        :   BYTE;
             Config      :   AxoDrive_Config;
             Status      :   AxoDrive_Status;
@@ -51,7 +51,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             PhaseAcknowledgeBit1 		: BOOL;		//'(Phase 2,3,4)Operating mode-acknowledge_bit1'
             InReference 				: BOOL;		//'In-reference'
             InStandstill 				: BOOL;		//'In-standstill'
-            Done_ 						: BOOL;		//'Setpoint reached'
+            SetpointReached				: BOOL;		//'Setpoint reached'
             CommandChangeBit 			: BOOL;		//'1: command change bit'
             OperatingModeError 		    : BOOL;		//'1: operating mode-error'
             StatusSetpointProcess 		: BOOL;		//'1: status setpoint processing'
