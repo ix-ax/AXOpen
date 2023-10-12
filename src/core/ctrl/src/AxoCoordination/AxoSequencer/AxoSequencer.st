@@ -37,20 +37,20 @@ NAMESPACE AXOpen.Core
             Open := FALSE;
             IF SUPER.Execute() THEN
                 IF THIS. InvalidContext() THEN RETURN; END_IF;         
-                _openCycleCounter := THIS._context_.OpenCycleCount();
+                _openCycleCounter := _context_.OpenCycleCount();
                 CASE _coordinatorState OF
                     AxoCoordinatorStates#Idle :
                         _configurationFlowOrder := ULINT#0;
                         _numberOfConfiguredSteps := ULINT#0;
                         _coordinatorState := AxoCoordinatorStates#Configuring;
-                        StepForwardCommand.Initialize(THIS._context_);
-                        StepIn.Initialize(THIS._context_);
-                        StepBackwardCommand.Initialize(THIS._context_);
+                        StepForwardCommand.Initialize(_context_);
+                        StepIn.Initialize(_context_);
+                        StepBackwardCommand.Initialize(_context_);
                     AxoCoordinatorStates#Configuring :
                         THIS.OnBeforeSequenceStart();
                         CurrentOrder := ULINT#1;
                         _coordinatorState := AxoCoordinatorStates#Running;
-                        THIS._context_.GetLogger().Log('Sequence in config state :', AXOpen.Logging.eLogLevel#Verbose, THIS);
+                        _context_.GetLogger().Log('Sequence in config state :', AXOpen.Logging.eLogLevel#Verbose, THIS);
                 END_CASE;    
                 Open := TRUE;
             END_IF;            
@@ -125,7 +125,7 @@ NAMESPACE AXOpen.Core
                 IF step.GetIsActive() AND (step.IsReady() OR step.IsDone() OR SteppingMode = eAxoSteppingMode#StepByStep) THEN
                     IF (SteppingMode = eAxoSteppingMode#Continous) THEN
                         step.Invoke();
-                        THIS._context_.GetLogger().Log('Starts step :', AXOpen.Logging.eLogLevel#Verbose, step);
+                        _context_.GetLogger().Log('Starts step :', AXOpen.Logging.eLogLevel#Verbose, step);
                     // Invoke the step in a case of step mode when StepIn Command is invoked
                     ELSIF (SteppingMode = eAxoSteppingMode#StepByStep) THEN
                         IF StepIn.Execute() THEN
@@ -163,7 +163,7 @@ NAMESPACE AXOpen.Core
             IF SUPER.Execute() THEN
                 IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
                 IF _coordinatorState = AxoCoordinatorStates#Running THEN
-                    THIS._context_.GetLogger().Log('Step done :', AXOpen.Logging.eLogLevel#Verbose, _step);
+                    _context_.GetLogger().Log('Step done :', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
                     CurrentOrder := CurrentOrder + ULINT#1;
@@ -186,7 +186,7 @@ NAMESPACE AXOpen.Core
                 IF THIS.InvalidContext(RequestedStep) THEN RETURN; END_IF;         
                 IF RequestedStep.GetStepOrder() <> ULINT#0 AND                    
                     _coordinatorState = AxoCoordinatorStates#Running THEN
-                    THIS._context_.GetLogger().Log('Step request to step :', AXOpen.Logging.eLogLevel#Verbose, RequestedStep);
+                    _context_.GetLogger().Log('Step request to step :', AXOpen.Logging.eLogLevel#Verbose, RequestedStep);
                     _step.DoneWhen(_step.IsBusy());
                     _step.SetIsActive(FALSE);
                     CurrentOrder := RequestedStep.GetStepOrder();
@@ -212,7 +212,7 @@ NAMESPACE AXOpen.Core
                     // Finalize the StepIn Command in a case of step mode
                     StepIn.DoneWhen(SteppingMode = eAxoSteppingMode#StepByStep);
                     THIS.OnCompleteSequence();
-                    THIS._context_.GetLogger().Log('Sequence completed :', AXOpen.Logging.eLogLevel#Verbose, THIS);
+                    _context_.GetLogger().Log('Sequence completed :', AXOpen.Logging.eLogLevel#Verbose, THIS);
                 END_IF;
             END_IF;
         END_METHOD    
@@ -271,7 +271,7 @@ NAMESPACE AXOpen.Core
         END_METHOD  
         
         METHOD PROTECTED InvalidContext : BOOL
-            IF THIS._context_ = NULL THEN 
+            IF _context_ = NULL THEN 
                 InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
             ELSE
                 InvalidContext := FALSE;
@@ -282,7 +282,7 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 step : IAxoStep;                
             END_VAR
-            IF THIS._context_ = NULL THEN 
+            IF _context_ = NULL THEN 
                 InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
             ELSIF step.GetContext() = NULL THEN
                 InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            

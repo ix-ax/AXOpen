@@ -96,8 +96,8 @@ NAMESPACE AXOpen.Core
                 _currentlyOpenCycleCount : ULINT;
             END_VAR
 
-            IF THIS._context_ <> NULL THEN
-                _currentlyOpenCycleCount := THIS._context_.OpenCycleCount();
+            IF _context_ <> NULL THEN
+                _currentlyOpenCycleCount := _context_.OpenCycleCount();
                 _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
                 _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
                 _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
@@ -138,7 +138,7 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 Active : BOOL;
             END_VAR
-            IF(NOT THIS.IsActive AND Active) THEN THIS._context_.GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); END_IF;
+            IF(NOT THIS.IsActive AND Active) THEN _context_.GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); END_IF;
             IsActive := Active;
         END_METHOD
 
