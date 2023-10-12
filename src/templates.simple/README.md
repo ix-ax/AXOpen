@@ -128,6 +128,12 @@ Build the both AX and AX# part of the project.
 apax build
 ```
 
+Running ixc
+```
+dotnet ixc
+```
+
+
 ## Resources
 
 Documentation sources: 

@@ -1,32 +1,12 @@
 ﻿@page "/Units/ManipulatorExample2"
-@using AXOpen.Core.Blazor.AxoDialogs;
-@using AXOpen.Core.Blazor.Dialogs
+@using AXOpen.Base.Dialogs;
 @using axosimple.hmi.Components;
-@using AXOpen.Data;
-@using AXOpen.Messaging.Static
-@using AXSharp.Connector;
 
-<UnitsSequences Component="@Entry.Plc.Context.PneumaticManipulator2" PollingInterval="250"></UnitsSequences>
-<UnitsService ServiceTask="@Entry.Plc.Context.PneumaticManipulator2.ServiceMode" Components="@Entry.Plc.Context.PneumaticManipulator2.Components" PollingInterval="250"></UnitsService>
+@inject IAlertDialogService _alerts
+@inherits RenderableComplexComponentBase<examples.PneumaticManipulator.CU>
 
-@foreach (var message in Messengers)
-{
-    if (message.State > eAxoMessengerState.Idle)
-    {
-        <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
-    }
-
-}
-
-
-
-@*<AxoAlertDialogLocator ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator2}" IsScoped="false"></AxoAlertDialogLocator>*@
-
-<AxoDialogLocator DialogId="custation02" ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator2}"></AxoDialogLocator>
-<AxoAlertDialogLocator ObservedObjects="new[] {Entry.Plc.Context.PneumaticManipulator2}" />
-
-@code
-{
-     private IEnumerable<AxoMessenger> Messengers => Entry.Plc.Context.PneumaticManipulator2.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
-}
-
+<Unit Component="Entry.Plc.Context.PneumaticManipulator2" Data="Entry.Plc.Context.ProcessDataPneumaticManipulator">
+    <ChildContent>
+        <img src="logo-header.svg" />
+    </ChildContent>
+</Unit>
