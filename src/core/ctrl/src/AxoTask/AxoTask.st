@@ -143,21 +143,21 @@ NAMESPACE AXOpen.Core
             END_IF;     
         END_METHOD 
 
-        METHOD PRIVATE IsInvokeCalledInThisPlcCycle : BOOL
-            IF _context_ <> NULL THEN
-                IsInvokeCalledInThisPlcCycle := _openCycleCountInvoke = _context_.OpenCycleCount();
-            ELSE
-                IsInvokeCalledInThisPlcCycle := FALSE;
-            END_IF;     
-        END_METHOD 
+        // METHOD PRIVATE IsInvokeCalledInThisPlcCycle1 : BOOL
+        //     IF _context_ <> NULL THEN
+        //         IsInvokeCalledInThisPlcCycle := _openCycleCountInvoke = _context_.OpenCycleCount();
+        //     ELSE
+        //         IsInvokeCalledInThisPlcCycle := FALSE;
+        //     END_IF;     
+        // END_METHOD 
         
-        METHOD PRIVATE WasInvokeCalledInPreviousPlcCycle : BOOL
-            IF _context_ <> NULL THEN
-                WasInvokeCalledInPreviousPlcCycle := _openCycleCountInvoke +ULINT#1 = _context_.OpenCycleCount();
-            ELSE
-                WasInvokeCalledInPreviousPlcCycle := FALSE;
-            END_IF;     
-        END_METHOD 
+        // METHOD PRIVATE WasInvokeCalledInPreviousPlcCycle1 : BOOL
+        //     IF _context_ <> NULL THEN
+        //         WasInvokeCalledInPreviousPlcCycle := _openCycleCountInvoke +ULINT#1 = _context_.OpenCycleCount();
+        //     ELSE
+        //         WasInvokeCalledInPreviousPlcCycle := FALSE;
+        //     END_IF;     
+        // END_METHOD 
         
         METHOD PRIVATE IsNewExecuteCall : BOOL
             IF _context_ <> NULL THEN
@@ -267,6 +267,7 @@ NAMESPACE AXOpen.Core
         ///	This method needs to be called cyclically.
         ///</summary>    
         METHOD PUBLIC Execute : BOOL            
+            IF(_context_ = NULL) THEN RETURN; END_IF;
             IF( RemoteInvoke) THEN THIS.Invoke(); RemoteInvoke := FALSE; END_IF;
             IF( RemoteRestore) THEN THIS.Restore(); RemoteRestore := FALSE; END_IF;
             IF( RemoteAbort) THEN THIS.Abort(); RemoteAbort := FALSE; END_IF;
@@ -274,10 +275,12 @@ NAMESPACE AXOpen.Core
 
             _openCycleCountExecute := _context_.OpenCycleCount();
                 
+
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,
             // CommandTask is set back to ready and does not start the execution.
-            IF Status = eAxoTaskState#Kicking AND NOT THIS.IsInvokeCalledInThisPlcCycle() AND NOT THIS.WasInvokeCalledInPreviousPlcCycle() THEN
+            //IF Status = eAxoTaskState#Kicking AND NOT THIS.IsInvokeCalledInThisPlcCycle() AND NOT THIS.WasInvokeCalledInPreviousPlcCycle() THEN
+            IF Status = eAxoTaskState#Kicking AND NOT (_openCycleCountInvoke = _openCycleCountExecute) AND NOT ((_openCycleCountInvoke + ULINT#1) = _openCycleCountExecute) THEN            
                 Status := eAxoTaskState#Ready;              
             END_IF;
 
@@ -290,7 +293,7 @@ NAMESPACE AXOpen.Core
                 END_IF;  
                   
                 // Don't touch this, it is used for remote execs.
-                StartSignature := _context_.OpenCycleCount();    
+                StartSignature := _openCycleCountExecute;//_context_.OpenCycleCount();    
                 THIS.LogTask('Task started.', eLogLevel#Verbose, THIS);                       
                 THIS.OnStart();
             END_IF;    

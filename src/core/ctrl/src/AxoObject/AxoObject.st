@@ -12,7 +12,7 @@ NAMESPACE AXOpen.Core
             Identity   : ULINT := ULINT#0;                                            
         END_VAR    
 
-        VAR protected           
+        VAR PROTECTED           
             _parent     : IAxoObject;
             _context_    : IAxoContext;
         END_VAR  

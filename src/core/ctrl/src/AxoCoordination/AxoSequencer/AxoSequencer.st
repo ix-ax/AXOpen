@@ -36,16 +36,18 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC Open : BOOL
             Open := FALSE;
             IF SUPER.Execute() THEN
-                IF THIS. InvalidContext() THEN RETURN; END_IF;         
+                IF _context_ = NULL THEN RETURN; END_IF;         
                 _openCycleCounter := _context_.OpenCycleCount();
                 CASE _coordinatorState OF
                     AxoCoordinatorStates#Idle :
                         _configurationFlowOrder := ULINT#0;
                         _numberOfConfiguredSteps := ULINT#0;
                         _coordinatorState := AxoCoordinatorStates#Configuring;
-                        StepForwardCommand.Initialize(_context_);
-                        StepIn.Initialize(_context_);
-                        StepBackwardCommand.Initialize(_context_);
+                        IF(StepForwardCommand.GetContext() = NULL) THEN
+                            StepForwardCommand.Initialize(_context_);
+                            StepIn.Initialize(_context_);
+                            StepBackwardCommand.Initialize(_context_);
+                        END_IF;    
                     AxoCoordinatorStates#Configuring :
                         THIS.OnBeforeSequenceStart();
                         CurrentOrder := ULINT#1;
@@ -62,8 +64,8 @@ NAMESPACE AXOpen.Core
                 Enable : BOOL;
             END_VAR
 
-            IF SUPER.Execute() THEN
-                IF THIS.InvalidContext(step) THEN Execute := FALSE; RETURN; END_IF;     
+            IF SUPER.Execute() THEN               
+                IF step.GetContext() = NULL THEN Execute := FALSE; RETURN; END_IF;     
                 
                 _step := step;
 
@@ -104,7 +106,7 @@ NAMESPACE AXOpen.Core
                     THIS.DisableAllSteppingComands();
                 END_IF;
                
-                IF _coordinatorState = AxoCoordinatorStates#Running AND (CurrentOrder = step.GetStepOrder()) AND step.IsCalledJustOnceInThisPlcCycle() THEN
+                IF _coordinatorState = AxoCoordinatorStates#Running && (CurrentOrder = step.GetStepOrder()) && step.IsCalledJustOnceInThisPlcCycle() THEN
                     IF Enable THEN
                         step.SetIsActive(TRUE);
                     ELSE
@@ -161,7 +163,7 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC MoveNext 
             IF SUPER.Execute() THEN
-                IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
+                IF _step.GetContext() = NULL THEN RETURN; END_IF;       
                 IF _coordinatorState = AxoCoordinatorStates#Running THEN
                     _context_.GetLogger().Log('Step done :', AXOpen.Logging.eLogLevel#Verbose, _step);
                     _step.DoneWhen(_step.IsBusy());
@@ -183,7 +185,7 @@ NAMESPACE AXOpen.Core
                 RequestedStep : IAxoStep;
             END_VAR
             IF SUPER.Execute() THEN
-                IF THIS.InvalidContext(RequestedStep) THEN RETURN; END_IF;         
+                IF RequestedStep.GetContext() = NULL THEN RETURN; END_IF;               
                 IF RequestedStep.GetStepOrder() <> ULINT#0 AND                    
                     _coordinatorState = AxoCoordinatorStates#Running THEN
                     _context_.GetLogger().Log('Step request to step :', AXOpen.Logging.eLogLevel#Verbose, RequestedStep);
@@ -202,7 +204,7 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC CompleteSequence   
             IF SUPER.Execute() THEN
-                IF THIS.InvalidContext(_step) THEN RETURN; END_IF;         
+                IF _step.GetContext() = NULL THEN RETURN; END_IF;         
                 IF _coordinatorState = AxoCoordinatorStates#Running THEN
                     _step.DoneWhen(TRUE);
                     _step.SetIsActive(FALSE);
@@ -270,26 +272,26 @@ NAMESPACE AXOpen.Core
             END_IF;
         END_METHOD  
         
-        METHOD PROTECTED InvalidContext : BOOL
-            IF _context_ = NULL THEN 
-                InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
-            ELSE
-                InvalidContext := FALSE;
-            END_IF;
-        END_METHOD
+        // METHOD PROTECTED InvalidContext1 : BOOL
+        //     IF _context_ = NULL THEN 
+        //         InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
+        //     ELSE
+        //         InvalidContext := FALSE;
+        //     END_IF;
+        // END_METHOD
         
-        METHOD PROTECTED InvalidContext : BOOL
-            VAR_INPUT
-                step : IAxoStep;                
-            END_VAR
-            IF _context_ = NULL THEN 
-                InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
-            ELSIF step.GetContext() = NULL THEN
-                InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
-            ELSE
-                InvalidContext := FALSE;
-            END_IF;
-        END_METHOD
+        // METHOD PROTECTED InvalidContext1 : BOOL
+        //     VAR_INPUT
+        //         step : IAxoStep;                
+        //     END_VAR
+        //     IF _context_ = NULL THEN 
+        //         InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
+        //     ELSIF step.GetContext() = NULL THEN
+        //         InvalidContext := TRUE;  // TODO: We will need to message this, when messaging ready.            
+        //     ELSE
+        //         InvalidContext := FALSE;
+        //     END_IF;
+        // END_METHOD
        
         METHOD PROTECTED DisableAllSteppingComands 
             StepForwardCommand.IsDisabled := TRUE;
