@@ -50,9 +50,9 @@ NAMESPACE AXOpen.Core
                         _coordinatorState := AxoCoordinatorStates#Configuring;
 
 
-                        tContext := StepForwardCommand.GetContext();
+                        tContext := StepForwardCommand.GetContextUnsafe();
                         
-                        if  tContext.OpenCycleCount() = ULINT#0 then
+                        if  tContext = NULL then
                             StepForwardCommand.Initialize(_context_);
                             StepIn.Initialize(_context_);
                             StepBackwardCommand.Initialize(_context_);

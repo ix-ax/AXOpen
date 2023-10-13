@@ -43,6 +43,13 @@ NAMESPACE AXOpen.Core
         END_METHOD
 
         ///<summary>
+        /// Gets context in which this object was initialized.
+        ///</summary>
+        METHOD PUBLIC GetContextUnsafe : IAxoContext
+            GetContextUnsafe := _context_;
+        END_METHOD
+
+        ///<summary>
         /// Gets parent in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetParent : IAxoObject
