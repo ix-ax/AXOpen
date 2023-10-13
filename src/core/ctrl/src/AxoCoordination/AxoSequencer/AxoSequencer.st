@@ -34,6 +34,11 @@ NAMESPACE AXOpen.Core
         /// sequencer.
         ///</summary>
         METHOD PUBLIC Open : BOOL
+        VAR
+            tContext : IAxoContext;
+        end_var
+
+
             Open := FALSE;
             IF SUPER.Execute() THEN
                 IF _context_ = NULL THEN RETURN; END_IF;         
@@ -43,11 +48,22 @@ NAMESPACE AXOpen.Core
                         _configurationFlowOrder := ULINT#0;
                         _numberOfConfiguredSteps := ULINT#0;
                         _coordinatorState := AxoCoordinatorStates#Configuring;
-                        IF(StepForwardCommand.GetContext() = NULL) THEN
+
+
+                        tContext := StepForwardCommand.GetContext();
+                        
+                        if  tContext.OpenCycleCount() = ULINT#0 then
                             StepForwardCommand.Initialize(_context_);
                             StepIn.Initialize(_context_);
                             StepBackwardCommand.Initialize(_context_);
-                        END_IF;    
+                        end_if;
+
+                        // IF(StepForwardCommand.GetContext() = NULL) THEN // asi to robi problem
+                        //     StepForwardCommand.Initialize(_context_);
+                        //     StepIn.Initialize(_context_);
+                        //     StepBackwardCommand.Initialize(_context_);
+                        // END_IF;    
+
                     AxoCoordinatorStates#Configuring :
                         THIS.OnBeforeSequenceStart();
                         CurrentOrder := ULINT#1;
