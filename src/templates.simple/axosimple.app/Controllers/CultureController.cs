@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
+using AXSharp.Connector;
 
 namespace axosimple.hmi.Controllers;
 
@@ -19,6 +20,8 @@ public class CultureController : ControllerBase
             new RequestCulture(culture, culture)));
 
             CultureExtensions.Culture = new CultureInfo(culture);
+            Connector.SetCulture(CultureExtensions.Culture);
+            
         }
 
         return Redirect("/");

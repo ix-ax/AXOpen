@@ -28,6 +28,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 using Microsoft.JSInterop;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -40,6 +41,9 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
 builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
+
+
 
 #region AxoApplication
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
