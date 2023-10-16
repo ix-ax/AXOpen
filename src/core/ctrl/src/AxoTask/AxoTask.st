@@ -87,7 +87,14 @@ NAMESPACE AXOpen.Core
         /// Gets the actual state of this task.
         ///</summary>    
         METHOD PUBLIC GetState : eAxoTaskState          
-            THIS.UpdateState();
+           // THIS.UpdateState();
+
+            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
+                Status := eAxoTaskState#Disabled; 
+            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
+                Status := eAxoTaskState#Ready; 
+            END_IF;
+
             GetState := Status;
         END_METHOD
 
@@ -99,7 +106,14 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is ready.
         ///</summary>
         METHOD PUBLIC IsReady : BOOL 
-            THIS.UpdateState();
+            //THIS.UpdateState();
+
+            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
+                Status := eAxoTaskState#Disabled; 
+            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
+                Status := eAxoTaskState#Ready; 
+            END_IF;
+
             IsReady := Status = eAxoTaskState#Ready; 
         END_METHOD   
 
@@ -107,7 +121,14 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is done.
         ///</summary>
         METHOD PUBLIC IsDone : BOOL 
-            THIS.UpdateState();
+            //THIS.UpdateState();
+
+            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
+                Status := eAxoTaskState#Disabled; 
+            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
+                Status := eAxoTaskState#Ready; 
+            END_IF;
+
             IsDone := Status = eAxoTaskState#Done ; 
         END_METHOD
                     
@@ -115,7 +136,14 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is busy/executing.
         ///</summary>
         METHOD PUBLIC IsBusy : BOOL 
-            THIS.UpdateState();
+            //THIS.UpdateState();
+
+            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
+                Status := eAxoTaskState#Disabled; 
+            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
+                Status := eAxoTaskState#Ready; 
+            END_IF;
+
             IsBusy := Status = eAxoTaskState#Busy; 
         END_METHOD
             
@@ -123,7 +151,14 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is aborted.
         ///</summary>
         METHOD PUBLIC IsAborted : BOOL 
-            THIS.UpdateState();
+            //THIS.UpdateState();
+            
+            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
+                Status := eAxoTaskState#Disabled; 
+            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
+                Status := eAxoTaskState#Ready; 
+            END_IF;
+            
             IsAborted := Status = eAxoTaskState#Aborted; 
         END_METHOD
             
@@ -131,7 +166,15 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task has error.
         ///</summary>
         METHOD PUBLIC HasError : BOOL 
-            THIS.UpdateState();
+
+            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
+                Status := eAxoTaskState#Disabled; 
+            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
+                Status := eAxoTaskState#Ready; 
+            END_IF;
+
+            //THIS.UpdateState();
+
             HasError := Status = eAxoTaskState#Error; 
         END_METHOD   
 
@@ -189,6 +232,17 @@ NAMESPACE AXOpen.Core
             ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
                 Status := eAxoTaskState#Ready; 
             END_IF;
+
+            IF  IsDisabled THEN
+                IF Status <> eAxoTaskState#Error then 
+                    Status := eAxoTaskState#Disabled; 
+                end_if;
+            else
+                if  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                end_if;
+            END_IF;
+
         END_METHOD        
 
         ///<summary>
@@ -209,7 +263,6 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             THIS.UpdateState();
-
 
             _CyclicExecuteIsNotCalled.Serve(THIS); 
            
@@ -315,7 +368,15 @@ NAMESPACE AXOpen.Core
                 THIS.WhileError();
             END_IF;   
 
-            THIS.UpdateState();
+            //THIS.UpdateState();
+
+            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
+                Status := eAxoTaskState#Disabled; 
+            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
+                Status := eAxoTaskState#Ready; 
+            END_IF;
+
+
             Execute := Status = eAxoTaskState#Busy;
             
             _taskTimer.OnDelay(THIS,  Execute, LT#99999D);
