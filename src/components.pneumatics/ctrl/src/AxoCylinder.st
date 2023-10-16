@@ -42,6 +42,9 @@ NAMESPACE AXOpen.Components.Pneumatics
         VAR PRIVATE
             _MoveToWorkIsSuspended : BOOL;
             _MoveToHomeIsSuspended : BOOL;
+
+            _MoveToWorkIsBusy : BOOL;
+            _MoveToHomeIsBusy : BOOL;
         END_VAR
 
         METHOD PUBLIC Run
@@ -87,7 +90,7 @@ NAMESPACE AXOpen.Components.Pneumatics
 
             _Messenger.Serve(THIS);
 
-            _Messenger.ActivateOnCondition(UINT#3, workSensor AND homeSensor, eAxoMessageCategory#Error);
+           _Messenger.ActivateOnCondition(UINT#3, workSensor AND homeSensor, eAxoMessageCategory#Error);
 
             IF(_StopTask.Execute()) THEN
                 moveHomeSignal := FALSE;
@@ -104,8 +107,10 @@ NAMESPACE AXOpen.Components.Pneumatics
                 _MoveToHomeTask.Restore();                
             END_IF;        
 
-            _Messenger.ActivateOnCondition(UINT#1, (_MoveToWorkTask.IsBusy() AND NOT _MoveToWorkIsSuspended AND _MoveToWorkTask.Duration >= T#10S), eAxoMessageCategory#Error);   
-            _Messenger.ActivateOnCondition(UINT#9, (_MoveToWorkTask.IsDone() AND NOT workSensor), eAxoMessageCategory#Warning); 
+            _MoveToWorkIsBusy := _MoveToWorkTask.IsBusy();
+
+           _Messenger.ActivateOnCondition(UINT#1, (_MoveToWorkIsBusy AND NOT _MoveToWorkIsSuspended AND _MoveToWorkTask.Duration >= T#10S), eAxoMessageCategory#Error);   
+           _Messenger.ActivateOnCondition(UINT#9, (_MoveToWorkTask.IsDone() AND NOT workSensor), eAxoMessageCategory#Warning); 
             
 
             IF(_MoveToHomeTask.Execute()) THEN                
@@ -115,21 +120,23 @@ NAMESPACE AXOpen.Components.Pneumatics
                 _MoveToWorkTask.Restore();                
             END_IF; 
 
-            _Messenger.ActivateOnCondition(UINT#2, (_MoveToHomeTask.IsBusy() AND NOT _MoveToHomeIsSuspended AND _MoveToHomeTask.Duration >= T#10S), eAxoMessageCategory#Error);
+            _MoveToHomeIsBusy := _MoveToHomeTask.IsBusy();
+
+            _Messenger.ActivateOnCondition(UINT#2, (_MoveToHomeIsBusy AND NOT _MoveToHomeIsSuspended AND _MoveToHomeTask.Duration >= T#10S), eAxoMessageCategory#Error);
             _Messenger.ActivateOnCondition(UINT#8, (_MoveToHomeTask.IsDone() AND NOT homeSensor), eAxoMessageCategory#Warning);
 
             IF _MoveToWorkIsSuspended THEN
                 moveWorkSignal := FALSE;
             END_IF;
 
-            _Messenger.ActivateOnCondition(UINT#4, _MoveToWorkIsSuspended AND _MoveToWorkTask.IsBusy(), eAxoMessageCategory#Info);
+            _Messenger.ActivateOnCondition(UINT#4, _MoveToWorkIsSuspended AND _MoveToWorkIsBusy, eAxoMessageCategory#Info);
 
             
             IF _MoveToHomeIsSuspended THEN
                 moveHomeSignal := FALSE;
             END_IF;
 
-            _Messenger.ActivateOnCondition(UINT#5, _MoveToHomeIsSuspended AND _MoveToHomeTask.IsBusy(), eAxoMessageCategory#Info);
+           _Messenger.ActivateOnCondition(UINT#5, _MoveToHomeIsSuspended AND _MoveToHomeIsBusy, eAxoMessageCategory#Info);
 
             _HomeSensor := homeSensor;
             _WorkSensor := workSensor; 
