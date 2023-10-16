@@ -6,8 +6,12 @@
 		<UserSecretsId>aspnet-ixsharpblazor-hmi-ee3150da-5237-49bc-b265-f512331ded6c</UserSecretsId>
 		<RootNamespace>axosimple.hmi</RootNamespace>
 		<UseRazorSourceGenerator>true</UseRazorSourceGenerator>
+		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
 		<UseProjectReference>true</UseProjectReference>
 	</PropertyGroup>
+	<ItemGroup>
+		<None Update="wwwroot\**" CopyToPublishDirectory="PreserveNewest" />
+	</ItemGroup>
 	<ItemGroup>
 		<None Remove="Pages\Index.razor.css" />
 		<None Remove="Shared\Menu\ExpandableMenuItem.razor.css" />
@@ -60,12 +64,26 @@
 		</Compile>
 	</ItemGroup>
 	<ItemGroup>
+		<EmbeddedResource Update="Resources\BlazorResources.es.resx">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\BlazorResources.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
 			<LastGenOutput>BlazorResources.Designer.cs</LastGenOutput>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Resources\BlazorResources.sk.resx">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
 		<Folder Include="wwwroot\js\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.abstractions\src\AXSharp.Abstractions\AXSharp.Abstractions.csproj" />
+	  <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor.Controls\AXSharp.Presentation.Blazor.Controls.csproj" />
+	  <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.blazor\src\AXSharp.Presentation.Blazor\AXSharp.Presentation.Blazor.csproj" />
+	  <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector.S71500.WebAPI\AXSharp.Connector.S71500.WebAPI.csproj" />
+	  <ProjectReference Include="..\..\..\..\axsharp\src\AXSharp.connectors\src\AXSharp.Connector\AXSharp.Connector.csproj" />
 	</ItemGroup>
 </Project>

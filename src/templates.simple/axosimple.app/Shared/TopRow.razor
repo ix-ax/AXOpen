@@ -36,7 +36,7 @@
         set
         {
             // Prevent unnecessary navigation
-            if (CultureInfo.CurrentCulture != value)
+            if (!Equals(CultureInfo.CurrentCulture, value) && !Equals(CultureInfo.CurrentUICulture, value))
             {
                 var cultureEscaped = Uri.EscapeDataString(value.Name);
                 NavigationManager.NavigateTo($"/culture?culture={cultureEscaped}", true);

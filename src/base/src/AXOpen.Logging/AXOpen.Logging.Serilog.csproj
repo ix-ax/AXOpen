@@ -5,8 +5,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-	  <PackageReference Include="NSubstitute"/>
-	  <PackageReference Include="Serilog"/>
+	  <PackageReference Include="Serilog" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AXOpen.Base.Abstractions\AXOpen.Base.Abstractions.csproj" />

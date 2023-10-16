@@ -117,4 +117,88 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Create" xml:space="preserve">
+    <value>Crear</value>
+  </data>
+  <data name="Load from PLC" xml:space="preserve">
+    <value>Cargar desde</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Importación!</value>
+  </data>
+  <data name="Exact" xml:space="preserve">
+    <value>¡Exacta!</value>
+  </data>
+  <data name="Contains" xml:space="preserve">
+    <value>Contiene</value>
+  </data>
+  <data name="StartsWith" xml:space="preserve">
+    <value>Empieza con</value>
+  </data>
+  <data name="Actions" xml:space="preserve">
+    <value>Acciones</value>
+  </data>
+  <data name="Collection is empty" xml:space="preserve">
+    <value>Esta colección está vacía.</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copiar</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="Send to PLC" xml:space="preserve">
+    <value>¡Enviar a PLC!</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Borrar!</value>
+  </data>
+  <data name="Create new item" xml:space="preserve">
+    <value>Crear Artículo</value>
+  </data>
+  <data name="Copy item" xml:space="preserve">
+    <value>Copiar elemento</value>
+  </data>
+  <data name="Load item from PLC" xml:space="preserve">
+    <value>¡Cargue el artículo desde el PLC!</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>¡Cerca!</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Guardar!</value>
+  </data>
+  <data name="Export data" xml:space="preserve">
+    <value>Exportar datos</value>
+  </data>
+  <data name="Download" xml:space="preserve">
+    <value>¡Descargar!</value>
+  </data>
+  <data name="Customize" xml:space="preserve">
+    <value>Personalizar!</value>
+  </data>
+  <data name="Import data" xml:space="preserve">
+    <value>Importar datos</value>
+  </data>
+  <data name="File input" xml:space="preserve">
+    <value>Campo de archivo</value>
+  </data>
+  <data name="Separator" xml:space="preserve">
+    <value>Separador</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>¡Primero!</value>
+  </data>
+  <data name="Last" xml:space="preserve">
+    <value>Apellido(s)</value>
+  </data>
+  <data name="This file may not be able to be imported!" xml:space="preserve">
+    <value>¡¡Es posible que este archivo no se pueda importar!!</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>¡Atrás!&amp;#10;</value>
+  </data>
 </root>
