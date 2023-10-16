@@ -87,12 +87,14 @@ NAMESPACE AXOpen.Core
         /// Gets the actual state of this task.
         ///</summary>    
         METHOD PUBLIC GetState : eAxoTaskState          
-           // THIS.UpdateState();
-
-            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
-                Status := eAxoTaskState#Disabled; 
-            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
-                Status := eAxoTaskState#Ready; 
+           IF IsDisabled THEN 
+                IF Status <> eAxoTaskState#Error THEN
+                    Status := eAxoTaskState#Disabled; 
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                END_IF;
             END_IF;
 
             GetState := Status;
@@ -106,12 +108,14 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is ready.
         ///</summary>
         METHOD PUBLIC IsReady : BOOL 
-            //THIS.UpdateState();
-
-            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
-                Status := eAxoTaskState#Disabled; 
-            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
-                Status := eAxoTaskState#Ready; 
+            IF IsDisabled THEN 
+                IF Status <> eAxoTaskState#Error THEN
+                    Status := eAxoTaskState#Disabled; 
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                END_IF;
             END_IF;
 
             IsReady := Status = eAxoTaskState#Ready; 
@@ -121,12 +125,14 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is done.
         ///</summary>
         METHOD PUBLIC IsDone : BOOL 
-            //THIS.UpdateState();
-
-            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
-                Status := eAxoTaskState#Disabled; 
-            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
-                Status := eAxoTaskState#Ready; 
+            IF IsDisabled THEN 
+                IF Status <> eAxoTaskState#Error THEN
+                    Status := eAxoTaskState#Disabled; 
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                END_IF;
             END_IF;
 
             IsDone := Status = eAxoTaskState#Done ; 
@@ -136,12 +142,14 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is busy/executing.
         ///</summary>
         METHOD PUBLIC IsBusy : BOOL 
-            //THIS.UpdateState();
-
-            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
-                Status := eAxoTaskState#Disabled; 
-            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
-                Status := eAxoTaskState#Ready; 
+            IF IsDisabled THEN
+                IF Status <> eAxoTaskState#Error THEN
+                    Status := eAxoTaskState#Disabled; 
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                END_IF;
             END_IF;
 
             IsBusy := Status = eAxoTaskState#Busy; 
@@ -151,12 +159,14 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task is aborted.
         ///</summary>
         METHOD PUBLIC IsAborted : BOOL 
-            //THIS.UpdateState();
-            
-            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
-                Status := eAxoTaskState#Disabled; 
-            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
-                Status := eAxoTaskState#Ready; 
+            IF IsDisabled THEN 
+                IF Status <> eAxoTaskState#Error THEN
+                    Status := eAxoTaskState#Disabled; 
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                END_IF;
             END_IF;
             
             IsAborted := Status = eAxoTaskState#Aborted; 
@@ -166,14 +176,15 @@ NAMESPACE AXOpen.Core
         /// Gets true when the task has error.
         ///</summary>
         METHOD PUBLIC HasError : BOOL 
-
-            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
-                Status := eAxoTaskState#Disabled; 
-            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
-                Status := eAxoTaskState#Ready; 
+            IF IsDisabled THEN 
+                IF Status <> eAxoTaskState#Error THEN
+                    Status := eAxoTaskState#Disabled; 
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                END_IF;
             END_IF;
-
-            //THIS.UpdateState();
 
             HasError := Status = eAxoTaskState#Error; 
         END_METHOD   
@@ -227,22 +238,21 @@ NAMESPACE AXOpen.Core
         END_METHOD 
         
         METHOD PRIVATE UpdateState 
-            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
-                Status := eAxoTaskState#Disabled; 
-            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
-                Status := eAxoTaskState#Ready; 
-            END_IF;
+            // IF Status <> eAxoTaskState#Error AND IsDisabled THEN
+            //     Status := eAxoTaskState#Disabled; 
+            // ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
+            //     Status := eAxoTaskState#Ready; 
+            // END_IF;
 
-            IF  IsDisabled THEN
-                IF Status <> eAxoTaskState#Error then 
+            IF IsDisabled THEN // on 1515 1ms for 5000 cals
+                IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
-                end_if;
-            else
-                if  Status = eAxoTaskState#Disabled THEN
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
-                end_if;
+                END_IF;
             END_IF;
-
         END_METHOD        
 
         ///<summary>
@@ -262,7 +272,15 @@ NAMESPACE AXOpen.Core
                 RETURN;               
             END_IF;
 
-            THIS.UpdateState();
+            IF IsDisabled THEN 
+                IF Status <> eAxoTaskState#Error THEN
+                    Status := eAxoTaskState#Disabled; 
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                END_IF;
+            END_IF;
 
             _CyclicExecuteIsNotCalled.Serve(THIS); 
            
@@ -294,7 +312,17 @@ NAMESPACE AXOpen.Core
             END_IF;    
             Status := eAxoTaskState#Ready; 
             ErrorDetails := '';   
-            THIS.UpdateState();
+
+            IF IsDisabled THEN 
+                IF Status <> eAxoTaskState#Error THEN
+                    Status := eAxoTaskState#Disabled; 
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                END_IF;
+            END_IF;
+
             Restore := THIS;
             THIS.OnRestore();
         END_METHOD    
@@ -333,7 +361,6 @@ NAMESPACE AXOpen.Core
 
             _openCycleCountExecute := _context_.OpenCycleCount();
                 
-
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,
             // CommandTask is set back to ready and does not start the execution.
@@ -342,8 +369,8 @@ NAMESPACE AXOpen.Core
             _stateKicking :=  Status = eAxoTaskState#Kicking;
             
             IF _stateKicking then 
-                if NOT (_openCycleCountInvoke = _openCycleCountExecute) then
-                    if  NOT ((_openCycleCountInvoke + ULINT#1) = _openCycleCountExecute) THEN            
+                IF  (_openCycleCountInvoke <> _openCycleCountExecute) then
+                    IF  ((_openCycleCountInvoke + ULINT#1) <> _openCycleCountExecute) THEN            
                         Status := eAxoTaskState#Ready;  
                         _stateKicking := false;    
                     END_IF; 
@@ -368,14 +395,15 @@ NAMESPACE AXOpen.Core
                 THIS.WhileError();
             END_IF;   
 
-            //THIS.UpdateState();
-
-            IF Status <> eAxoTaskState#Error AND IsDisabled THEN
-                Status := eAxoTaskState#Disabled; 
-            ELSIF Status = eAxoTaskState#Disabled AND NOT IsDisabled THEN
-                Status := eAxoTaskState#Ready; 
+            IF IsDisabled THEN 
+                IF Status <> eAxoTaskState#Error THEN
+                    Status := eAxoTaskState#Disabled; 
+                END_IF;
+            ELSE
+                IF  Status = eAxoTaskState#Disabled THEN
+                    Status := eAxoTaskState#Ready; 
+                END_IF;
             END_IF;
-
 
             Execute := Status = eAxoTaskState#Busy;
             
