@@ -74,10 +74,12 @@ NAMESPACE AXOpen.Components.Pneumatics
                 moveWorkSignal : BOOL;
             END_VAR
 
-            THIS.Initialize(context);
-            _MoveToWorkTask.Initialize(THIS);
-            _MoveToHomeTask.Initialize(THIS);
-            _StopTask.Initialize(THIS);
+            IF THIS._context_ = NULL THEN
+                THIS.Initialize(context);
+                _MoveToWorkTask.Initialize(THIS);
+                _MoveToHomeTask.Initialize(THIS);
+                _StopTask.Initialize(THIS);
+            end_if;
 
             THIS.Open();
 
