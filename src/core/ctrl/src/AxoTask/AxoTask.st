@@ -267,6 +267,11 @@ NAMESPACE AXOpen.Core
         ///	This method needs to be called cyclically.
         ///</summary>    
         METHOD PUBLIC Execute : BOOL            
+            
+            VAR 
+                _stateKicking : BOOL;
+            END_VAR
+            
             IF(_context_ = NULL) THEN RETURN; END_IF;
             IF( RemoteInvoke) THEN THIS.Invoke(); RemoteInvoke := FALSE; END_IF;
             IF( RemoteRestore) THEN THIS.Restore(); RemoteRestore := FALSE; END_IF;
@@ -280,11 +285,19 @@ NAMESPACE AXOpen.Core
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,
             // CommandTask is set back to ready and does not start the execution.
             //IF Status = eAxoTaskState#Kicking AND NOT THIS.IsInvokeCalledInThisPlcCycle() AND NOT THIS.WasInvokeCalledInPreviousPlcCycle() THEN
-            IF Status = eAxoTaskState#Kicking AND NOT (_openCycleCountInvoke = _openCycleCountExecute) AND NOT ((_openCycleCountInvoke + ULINT#1) = _openCycleCountExecute) THEN            
-                Status := eAxoTaskState#Ready;              
+            
+            _stateKicking :=  Status = eAxoTaskState#Kicking;
+            
+            IF _stateKicking then 
+                if NOT (_openCycleCountInvoke = _openCycleCountExecute) then
+                    if  NOT ((_openCycleCountInvoke + ULINT#1) = _openCycleCountExecute) THEN            
+                        Status := eAxoTaskState#Ready;  
+                        _stateKicking := false;    
+                    END_IF; 
+                END_IF;
             END_IF;
 
-            IF(Status = eAxoTaskState#Kicking) THEN
+            IF _stateKicking THEN
                 Status := eAxoTaskState#Busy; 
 
                 // This null check is due to implementation of RTC in unit tests
@@ -305,7 +318,8 @@ NAMESPACE AXOpen.Core
             THIS.UpdateState();
             Execute := Status = eAxoTaskState#Busy;
             
-            _taskTimer.OnDelay(THIS,  Status = eAxoTaskState#Busy, LT#99999D);
+            _taskTimer.OnDelay(THIS,  Execute, LT#99999D);
+
             IF(Execute) THEN Duration := _taskTimer.ElapsedTime;  END_IF;             
         END_METHOD    
 
