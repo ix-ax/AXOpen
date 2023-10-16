@@ -21,6 +21,15 @@ using System.Security.Principal;
 using AXOpen.Core;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Data;
+using System.Globalization;
+using AXOpen.Core.Blazor.Culture;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Primitives;
+using Microsoft.JSInterop;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,9 +40,12 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddIxBlazorServices();
 builder.Services.AddAxoCoreServices();
-//builder.Services.AddScoped<IAlertDialogService, ToasterService>();
+builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
 
 
+
+#region AxoApplication
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 Entry.Plc.Connector.ConcurrentRequestMaxCount = 3;
@@ -76,6 +88,7 @@ b.InitializeRemoteDataExchange();
 
 // Clean Temp directory
 IAxoDataExchange.CleanUp();
+#endregion
 
 var app = builder.Build();
 
@@ -114,9 +127,6 @@ app.MapBlazorHub();
 app.MapHub<DialogHub>("/dialoghub");
 app.MapFallbackToPage("/_Host");
 
-
-
-
 app.Run();
 
 static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\..\\..\\..\\JSONREPOS\\")
@@ -133,6 +143,7 @@ static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\
 
     return (userRepo, groupRepo);
 }
+
 
 public static class Roles
 {

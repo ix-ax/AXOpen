@@ -5,6 +5,7 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
+using System.Globalization;
 using AXSharp.Connector;
 using AXSharp.Connector.Localizations;
 
@@ -28,6 +29,16 @@ public class AxoFragmentedDataCompound : ITwinObject
     public Translator Interpreter => this._parent.Interpreter;
 
     private readonly ITwinObject _parent;
+
+    public string GetAttributeName(CultureInfo culture)
+    {
+        return AttributeName;
+    }
+
+    public string GetHumanReadable(CultureInfo culture)
+    {
+        return HumanReadable;
+    }
 
     public ITwinObject GetParent()
     {

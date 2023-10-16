@@ -1,5 +1,6 @@
 ﻿@using AXSharp.Connector
 @using AXOpen.Core
+@using AXOpen.Core.Blazor.Culture
 @using AXOpen.Messaging.Static
 @inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
 
@@ -7,7 +8,7 @@
 <div class="card" style="width: 18rem;">
     <img src="@ImageLink" class="card-img-top p-3" alt="...">
     <div class="card-body">
-        <h5 class="card-title">@Component.AttributeName</h5>
+        <h5 class="card-title">@Component.GetAttributeName(CultureInfo.CurrentUICulture)</h5>
         <p class="card-text">
             <span class="badge rounded-pill @Mode">@ModeDescription</span>
         </p>
@@ -21,7 +22,7 @@
             }
         </a>
     </div>
-</div>
+</div> 
 
 @code {
 
@@ -140,9 +141,14 @@
         get { return this.Component.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>().ToArray(); }
     }
 
-    protected override async Task OnInitializedAsync()
+
+    
+
+
+    protected override void OnInitialized()
     {
-        await base.OnInitializedAsync();
+        //base.OnInitialized();
+        
         this.UpdateValuesOnChange(Unit.Ground.Status);
         this.UpdateValuesOnChange(Unit.Automat.Status);
         this.UpdateValuesOnChange(Unit.Service.Status);

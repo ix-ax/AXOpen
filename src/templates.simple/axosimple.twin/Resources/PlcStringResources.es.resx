@@ -117,4 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Home_sensor" xml:space="preserve">
+    <value>Sensor de inicio</value>
+  </data>
+  <data name="Work_sensor" xml:space="preserve">
+    <value>¡Sensor de trabajo!</value>
+  </data>
+  <data name="Move_home_signal" xml:space="preserve">
+    <value>¡Mueva la señal de inicio!</value>
+  </data>
+  <data name="Move_work_signal" xml:space="preserve">
+    <value>¡Mueva la señal de trabajo!</value>
+  </data>
+  <data name="AUTOMAT" xml:space="preserve">
+    <value>Restaurante automático</value>
+  </data>
+  <data name="GROUND" xml:space="preserve">
+    <value>SUELO</value>
+  </data>
+  <data name="SERVICE" xml:space="preserve">
+    <value>SERVICIO</value>
+  </data>
 </root>

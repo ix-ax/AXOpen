@@ -150,4 +150,25 @@
   <data name="User administration" xml:space="preserve">
     <value>Administración de usuarios</value>
   </data>
+  <data name="READY TO START" xml:space="preserve">
+    <value>¡Listo para empezar!</value>
+  </data>
+  <data name="RUNNING" xml:space="preserve">
+    <value>«RUNNING»</value>
+  </data>
+  <data name="IN SERVICE" xml:space="preserve">
+    <value>DURANTE EL SERVICIO</value>
+  </data>
+  <data name="IDLE" xml:space="preserve">
+    <value>OCIOSO</value>
+  </data>
+  <data name="OPEN" xml:space="preserve">
+    <value>¡ÁBRETE!</value>
+  </data>
+  <data name="Alarms" xml:space="preserve">
+    <value>Alarmas</value>
+  </data>
+  <data name="GROUNDING" xml:space="preserve">
+    <value>PUNTO DE</value>
+  </data>
 </root>
