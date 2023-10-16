@@ -55,8 +55,10 @@ NAMESPACE AXOpen.Components.Pneumatics
                 moveWorkSignal : BOOL;
             END_VAR
             IF (parent = NULL) THEN RETURN; END_IF;
-            THIS.Initialize(parent);    
-            THIS.Run(parent.GetContext(), homeSensor, workSensor, moveHomeSignal, moveWorkSignal);           
+
+            //THIS.Initialize(parent);    
+            THIS.Run(parent.GetContext(), homeSensor, workSensor, moveHomeSignal, moveWorkSignal);      
+            
         END_METHOD
 
         ///<summary>
