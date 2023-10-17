@@ -103,22 +103,16 @@ NAMESPACE AXOpen.Core
                 // Selector : REF_TO Selector;
             END_VAR    
 
-
-            coordAsAxoObject ?= coord;
-
-            IF(coordAsAxoObject = NULL) THEN
-                ;
-                if _context_ <> null then 
-                    _currentlyOpenCycleCount := _context_.OpenCycleCount();
-                    _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
-                    _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
-                    _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
-                    _openCycleCount := _currentlyOpenCycleCount;
-                end_if;
-            else
-                THIS.Initialize(coordAsAxoObject);
-
-                if _context_ <> null then 
+            if _context_ <> null then 
+                _currentlyOpenCycleCount := _context_.OpenCycleCount();
+                _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
+                _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
+                _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
+                _openCycleCount := _currentlyOpenCycleCount;
+            else 
+                coordAsAxoObject ?= coord;
+               IF(coordAsAxoObject <> NULL) THEN
+                    THIS.Initialize(coordAsAxoObject); 
                     _currentlyOpenCycleCount := _context_.OpenCycleCount();
                     _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
                     _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
