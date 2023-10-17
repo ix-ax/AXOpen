@@ -116,7 +116,7 @@ NAMESPACE AXOpen.Core
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
-                    IsReady := false; RETURN;
+                    IsReady := TRUE; RETURN;
                 END_IF;
             END_IF;
 
@@ -194,6 +194,7 @@ NAMESPACE AXOpen.Core
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
+                    HasError := FALSE; RETURN; 
                 END_IF;
             END_IF;
 
