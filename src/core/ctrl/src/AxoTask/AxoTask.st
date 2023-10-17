@@ -112,9 +112,11 @@ NAMESPACE AXOpen.Core
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
                 END_IF;
+                IsReady := false; RETURN;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
+                    IsReady := false; RETURN;
                 END_IF;
             END_IF;
 
@@ -129,9 +131,11 @@ NAMESPACE AXOpen.Core
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
                 END_IF;
+                IsDone := false; RETURN;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
+                    IsDone := false; RETURN;
                 END_IF;
             END_IF;
 
@@ -146,9 +150,11 @@ NAMESPACE AXOpen.Core
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
                 END_IF;
+                IsBusy := false; RETURN;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
+                    IsBusy := false; RETURN;
                 END_IF;
             END_IF;
 
@@ -163,9 +169,11 @@ NAMESPACE AXOpen.Core
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
                 END_IF;
+                IsAborted := false; RETURN;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
                     Status := eAxoTaskState#Ready; 
+                    IsAborted := false; RETURN; 
                 END_IF;
             END_IF;
             
@@ -179,6 +187,9 @@ NAMESPACE AXOpen.Core
             IF IsDisabled THEN 
                 IF Status <> eAxoTaskState#Error THEN
                     Status := eAxoTaskState#Disabled; 
+                    HasError := FALSE; RETURN; 
+                ELSE
+                    HasError := TRUE; RETURN; 
                 END_IF;
             ELSE
                 IF  Status = eAxoTaskState#Disabled THEN
