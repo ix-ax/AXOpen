@@ -123,7 +123,7 @@ NAMESPACE AXOpen.Core
             THIS.CountCallsOfTheExecuteMethod();
 
             Sequencer ?= coord;
-            IF(coord <> NULL) THEN ExecuteInternal := Sequencer^.Execute(THIS, Enable); END_IF;
+            IF(Sequencer <> NULL) THEN ExecuteInternal := Sequencer^.Execute(THIS, Enable); END_IF;
 
                 
             // Selector ?= coord;
