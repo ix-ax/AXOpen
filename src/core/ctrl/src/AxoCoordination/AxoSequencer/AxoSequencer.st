@@ -84,8 +84,10 @@ NAMESPACE AXOpen.Core
                 IF step.GetContext() = NULL THEN Execute := FALSE; RETURN; END_IF;     
                 
                 _step := step;
-
-                THIS.DetermineOrder(step);   
+                            
+                IF(_coordinatorState = AxoCoordinatorStates#Configuring) THEN
+                    THIS.DetermineOrder(step);  
+                END_IF;                                                            
                     
                 // Stepping inside the sequence
                 IF _coordinatorState = AxoCoordinatorStates#Running THEN
@@ -255,12 +257,12 @@ NAMESPACE AXOpen.Core
             GetCoordinatorState := _coordinatorState;
         END_METHOD    
 
-        METHOD PROTECTED DetermineOrder : ULINT
+        METHOD PRIVATE DetermineOrder : ULINT
             VAR_INPUT
                 step : IAxoStep;
             END_VAR   
 
-            IF(_coordinatorState = AxoCoordinatorStates#Configuring) THEN
+            //IF(_coordinatorState = AxoCoordinatorStates#Configuring) THEN
                 step.Restore();
                 _step := step;
                 _configurationFlowOrder := _configurationFlowOrder + ULINT#1;
@@ -271,7 +273,7 @@ NAMESPACE AXOpen.Core
                     _coordinatorState := AxoCoordinatorStates#Idle;
                     step.SetStepOrder(THIS,ULINT#0);
                END_IF;
-            END_IF;
+            //END_IF;
                         
             DetermineOrder := step.GetStepOrder();            
         END_METHOD      
