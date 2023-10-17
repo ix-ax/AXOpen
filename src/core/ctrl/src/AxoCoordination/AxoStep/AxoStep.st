@@ -113,6 +113,7 @@ NAMESPACE AXOpen.Core
             VAR                
                 Sequencer : REF_TO AxoSequencer;
                 coordAsAxoObject : IAxoObject;
+                _currentlyOpenCycleCount : ULINT;
                 // Selector : REF_TO Selector;
             END_VAR    
 
