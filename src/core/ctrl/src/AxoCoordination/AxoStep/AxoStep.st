@@ -91,20 +91,6 @@ NAMESPACE AXOpen.Core
             Execute := THIS.ExecuteInternal(coord,TRUE);
         END_METHOD
 
-        METHOD PROTECTED CountCallsOfTheExecuteMethod
-            VAR    
-                _currentlyOpenCycleCount : ULINT;
-            END_VAR
-
-            IF _context_ <> NULL THEN
-                _currentlyOpenCycleCount := _context_.OpenCycleCount();
-                _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
-                _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
-                _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
-                _openCycleCount := _currentlyOpenCycleCount;
-            END_IF;
-        END_METHOD
-
         METHOD PROTECTED ExecuteInternal : BOOL
             VAR_INPUT
                 coord : IAxoCoordinator;                
@@ -117,11 +103,29 @@ NAMESPACE AXOpen.Core
                 // Selector : REF_TO Selector;
             END_VAR    
 
-            // Initializes with the coordinator if not previously intialized.
+
             coordAsAxoObject ?= coord;
-            IF(coordAsAxoObject <> NULL) THEN THIS.Initialize(coordAsAxoObject); END_IF;
-            
-            THIS.CountCallsOfTheExecuteMethod();
+
+            IF(coordAsAxoObject = NULL) THEN
+                ;
+                if _context_ <> null then 
+                    _currentlyOpenCycleCount := _context_.OpenCycleCount();
+                    _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
+                    _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
+                    _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
+                    _openCycleCount := _currentlyOpenCycleCount;
+                end_if;
+            else
+                THIS.Initialize(coordAsAxoObject);
+
+                if _context_ <> null then 
+                    _currentlyOpenCycleCount := _context_.OpenCycleCount();
+                    _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
+                    _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
+                    _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
+                    _openCycleCount := _currentlyOpenCycleCount;
+                end_if;
+            END_IF;    
 
             Sequencer ?= coord;
             IF(Sequencer <> NULL) THEN ExecuteInternal := Sequencer^.Execute(THIS, Enable); END_IF;
