@@ -9,7 +9,8 @@ NAMESPACE AXOpen.Components.Pneumatics
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "<#Move to work#>"}
-            _MoveToWorkTask : AxoTask;            
+            _MoveToWorkTask : AxoTask; 
+
             {#ix-attr:[ComponentHeader()]}            
             {#ix-set:AttributeName = "<#Move to home#>"}
             _MoveToHomeTask : AxoTask;
@@ -23,28 +24,39 @@ NAMESPACE AXOpen.Components.Pneumatics
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Home sensor#>"}
             _HomeSensor : BOOL;
+
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Work sensor#>"}
             _WorkSensor : BOOL;
+
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move home signal#>"}
             _MoveHomeSignal : BOOL;
+
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move work signal#>"}
             _MoveWorkSignal : BOOL;
+
             _Messenger : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
         VAR PRIVATE
             _MoveToWorkIsSuspended : BOOL;
             _MoveToHomeIsSuspended : BOOL;
+
+            _MoveToWorkIsBusy : BOOL;
+            _MoveToHomeIsBusy : BOOL;
         END_VAR
 
-        METHOD PUBLIC Run
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
+        METHOD PUBLIC Run 
             VAR_INPUT
                 parent : IAxoObject;
                 homeSensor : BOOL;
@@ -54,40 +66,21 @@ NAMESPACE AXOpen.Components.Pneumatics
                 moveHomeSignal : BOOL;
                 moveWorkSignal : BOOL;
             END_VAR
+
             IF (parent = NULL) THEN RETURN; END_IF;
 
-            //THIS.Initialize(parent);    
-            THIS.Run(parent.GetContext(), homeSensor, workSensor, moveHomeSignal, moveWorkSignal);      
-            
-        END_METHOD
-
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                context : IAxoContext;
-                homeSensor : BOOL;
-                workSensor : BOOL;    
-            END_VAR
-            VAR_OUTPUT
-                moveHomeSignal : BOOL;
-                moveWorkSignal : BOOL;
-            END_VAR
-
             IF THIS._context_ = NULL THEN
-                THIS.Initialize(context);
+                THIS.Initialize(parent);
                 _MoveToWorkTask.Initialize(THIS);
                 _MoveToHomeTask.Initialize(THIS);
                 _StopTask.Initialize(THIS);
             end_if;
 
-            THIS.Open();
+            THIS.Open(); // inline representation save 1% of cpu by 40 pistons on 1516 Fw2.9
 
             _Messenger.Serve(THIS);
 
-            _Messenger.ActivateOnCondition(UINT#3, workSensor AND homeSensor, eAxoMessageCategory#Error);
+           _Messenger.ActivateOnCondition(UINT#3, workSensor AND homeSensor, eAxoMessageCategory#Error);
 
             IF(_StopTask.Execute()) THEN
                 moveHomeSignal := FALSE;
@@ -104,8 +97,10 @@ NAMESPACE AXOpen.Components.Pneumatics
                 _MoveToHomeTask.Restore();                
             END_IF;        
 
-            _Messenger.ActivateOnCondition(UINT#1, (_MoveToWorkTask.IsBusy() AND NOT _MoveToWorkIsSuspended AND _MoveToWorkTask.Duration >= T#10S), eAxoMessageCategory#Error);   
-            _Messenger.ActivateOnCondition(UINT#9, (_MoveToWorkTask.IsDone() AND NOT workSensor), eAxoMessageCategory#Warning); 
+            _MoveToWorkIsBusy := _MoveToWorkTask.IsBusy();
+
+           _Messenger.ActivateOnCondition(UINT#1, (_MoveToWorkIsBusy AND NOT _MoveToWorkIsSuspended AND _MoveToWorkTask.Duration >= T#10S), eAxoMessageCategory#Error);   
+           _Messenger.ActivateOnCondition(UINT#9, (_MoveToWorkTask.IsDone() AND NOT workSensor), eAxoMessageCategory#Warning); 
             
 
             IF(_MoveToHomeTask.Execute()) THEN                
@@ -115,21 +110,23 @@ NAMESPACE AXOpen.Components.Pneumatics
                 _MoveToWorkTask.Restore();                
             END_IF; 
 
-            _Messenger.ActivateOnCondition(UINT#2, (_MoveToHomeTask.IsBusy() AND NOT _MoveToHomeIsSuspended AND _MoveToHomeTask.Duration >= T#10S), eAxoMessageCategory#Error);
+            _MoveToHomeIsBusy := _MoveToHomeTask.IsBusy();
+
+            _Messenger.ActivateOnCondition(UINT#2, (_MoveToHomeIsBusy AND NOT _MoveToHomeIsSuspended AND _MoveToHomeTask.Duration >= T#10S), eAxoMessageCategory#Error);
             _Messenger.ActivateOnCondition(UINT#8, (_MoveToHomeTask.IsDone() AND NOT homeSensor), eAxoMessageCategory#Warning);
 
             IF _MoveToWorkIsSuspended THEN
                 moveWorkSignal := FALSE;
             END_IF;
 
-            _Messenger.ActivateOnCondition(UINT#4, _MoveToWorkIsSuspended AND _MoveToWorkTask.IsBusy(), eAxoMessageCategory#Info);
+            _Messenger.ActivateOnCondition(UINT#4, _MoveToWorkIsSuspended AND _MoveToWorkIsBusy, eAxoMessageCategory#Info);
 
             
             IF _MoveToHomeIsSuspended THEN
                 moveHomeSignal := FALSE;
             END_IF;
 
-            _Messenger.ActivateOnCondition(UINT#5, _MoveToHomeIsSuspended AND _MoveToHomeTask.IsBusy(), eAxoMessageCategory#Info);
+           _Messenger.ActivateOnCondition(UINT#5, _MoveToHomeIsSuspended AND _MoveToHomeIsBusy, eAxoMessageCategory#Info);
 
             _HomeSensor := homeSensor;
             _WorkSensor := workSensor; 

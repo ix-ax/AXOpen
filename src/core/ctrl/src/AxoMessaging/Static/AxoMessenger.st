@@ -221,15 +221,17 @@ NAMESPACE AXOpen.Messaging.Static
                 RETURN;
             END_IF;
 
-            IF IsActive AND MessageCode = _messageCode THEN
-                IsActive := FALSE;
-                ActiveContextCount := ULINT#0;
-                Fallen := Context.GetRtc().NowUTC();                
-                Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
-                IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
-                    WaitingForAcknowledge := TRUE;
-                ELSE
-                    MessageCode := ULINT#0;
+            IF IsActive THEN 
+                IF  MessageCode = _messageCode THEN
+                    IsActive := FALSE;
+                    ActiveContextCount := ULINT#0;
+                    Fallen := Context.GetRtc().NowUTC();                
+                    Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
+                    IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
+                        WaitingForAcknowledge := TRUE;
+                    ELSE
+                        MessageCode := ULINT#0;
+                    END_IF;
                 END_IF;
             END_IF;
         END_METHOD   
@@ -239,13 +241,15 @@ NAMESPACE AXOpen.Messaging.Static
                 RETURN;
             END_IF;
 
-            IF IsActive AND MessageCode = ULINT#0 THEN
-                IsActive := FALSE;
-                ActiveContextCount := ULINT#0;
-                Fallen := Context.GetRtc().NowUTC();                
-                Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
-                IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
-                    WaitingForAcknowledge := TRUE;
+            IF IsActive THEN 
+                IF MessageCode = ULINT#0 THEN
+                    IsActive := FALSE;
+                    ActiveContextCount := ULINT#0;
+                    Fallen := Context.GetRtc().NowUTC();                
+                    Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
+                    IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
+                        WaitingForAcknowledge := TRUE;
+                    END_IF;
                 END_IF;
             END_IF;
         END_METHOD   
