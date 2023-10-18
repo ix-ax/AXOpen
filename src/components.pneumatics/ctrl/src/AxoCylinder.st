@@ -9,7 +9,8 @@ NAMESPACE AXOpen.Components.Pneumatics
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentHeader()]}
             {#ix-set:AttributeName = "<#Move to work#>"}
-            _MoveToWorkTask : AxoTask;            
+            _MoveToWorkTask : AxoTask; 
+
             {#ix-attr:[ComponentHeader()]}            
             {#ix-set:AttributeName = "<#Move to home#>"}
             _MoveToHomeTask : AxoTask;
@@ -23,19 +24,23 @@ NAMESPACE AXOpen.Components.Pneumatics
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Home sensor#>"}
             _HomeSensor : BOOL;
+
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Work sensor#>"}
             _WorkSensor : BOOL;
+
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move home signal#>"}
             _MoveHomeSignal : BOOL;
+
             {#ix-attr:[ComponentDetails("Signals")]}
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Move work signal#>"}
             _MoveWorkSignal : BOOL;
+
             _Messenger : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
 
@@ -47,7 +52,11 @@ NAMESPACE AXOpen.Components.Pneumatics
             _MoveToHomeIsBusy : BOOL;
         END_VAR
 
-        METHOD PUBLIC Run
+        ///<summary>
+        /// Runs tasks and logic of this component.
+        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
+        ///</summary>
+        METHOD PUBLIC Run 
             VAR_INPUT
                 parent : IAxoObject;
                 homeSensor : BOOL;
@@ -57,30 +66,11 @@ NAMESPACE AXOpen.Components.Pneumatics
                 moveHomeSignal : BOOL;
                 moveWorkSignal : BOOL;
             END_VAR
+
             IF (parent = NULL) THEN RETURN; END_IF;
 
-            //THIS.Initialize(parent);    
-            THIS.Run(parent.GetContext(), homeSensor, workSensor, moveHomeSignal, moveWorkSignal);      
-            
-        END_METHOD
-
-        ///<summary>
-        /// Runs tasks and logic of this component.
-        /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
-        ///</summary>
-        METHOD PUBLIC Run 
-            VAR_INPUT
-                context : IAxoContext;
-                homeSensor : BOOL;
-                workSensor : BOOL;    
-            END_VAR
-            VAR_OUTPUT
-                moveHomeSignal : BOOL;
-                moveWorkSignal : BOOL;
-            END_VAR
-
             IF THIS._context_ = NULL THEN
-                THIS.Initialize(context);
+                THIS.Initialize(parent);
                 _MoveToWorkTask.Initialize(THIS);
                 _MoveToHomeTask.Initialize(THIS);
                 _StopTask.Initialize(THIS);
