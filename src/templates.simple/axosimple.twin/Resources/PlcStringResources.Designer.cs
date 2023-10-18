@@ -70,6 +70,33 @@ namespace axosimple.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DO SOMETHING.
+        /// </summary>
+        public static string DO_SOMETHING {
+            get {
+                return ResourceManager.GetString("DO_SOMETHING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GET DATA.
+        /// </summary>
+        public static string GET_DATA {
+            get {
+                return ResourceManager.GetString("GET_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GET ID.
+        /// </summary>
+        public static string GET_ID {
+            get {
+                return ResourceManager.GetString("GET_ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GROUND.
         /// </summary>
         public static string GROUND {
@@ -84,6 +111,15 @@ namespace axosimple.Resources {
         public static string Home_sensor {
             get {
                 return ResourceManager.GetString("Home_sensor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOAD PROCESS SETTINGS.
+        /// </summary>
+        public static string LOAD_PROCESS_SETTINGS {
+            get {
+                return ResourceManager.GetString("LOAD_PROCESS_SETTINGS", resourceCulture);
             }
         }
         
@@ -106,11 +142,29 @@ namespace axosimple.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SAVE DATA.
+        /// </summary>
+        public static string SAVE_DATA {
+            get {
+                return ResourceManager.GetString("SAVE_DATA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SERVICE.
         /// </summary>
         public static string SERVICE {
             get {
                 return ResourceManager.GetString("SERVICE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UPDATE DATA.
+        /// </summary>
+        public static string UPDATE_DATA {
+            get {
+                return ResourceManager.GetString("UPDATE_DATA", resourceCulture);
             }
         }
         

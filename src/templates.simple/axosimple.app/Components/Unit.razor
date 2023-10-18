@@ -7,7 +7,7 @@
 @using AXSharp.Connector;
 @using AXOpen.Core;
 @inject IAlertDialogService _alerts
-@inherits RenderableComplexComponentBase<examples.PneumaticManipulator.CU>
+@inherits RenderableComplexComponentBase<axosimple.IUnit>
 
 <body>
     <div class="content-wrapper">
@@ -33,7 +33,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                      <Alarms Component="this.Component"></Alarms>
+                        <Alarms Component="this.Component" ObservedObject="new ITwinObject[] {Data}"></Alarms>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <RenderableContentControl Context="Entry.Plc.Context.ProcessDataPneumaticManipulator.DataManger.Set" Presentation="ShadowDisplay" />
+                        <RenderableContentControl Context="Entry.Plc.Context.UnitTemplateProcessData.DataManger.Payload" Presentation="ShadowDisplay" />
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <RenderableContentControl Context="this.Component?.Components" Presentation="Command-Control" />
+                        <RenderableContentControl Context="((dynamic)this.Component)?.Components" Presentation="Command-Control" />
                     </div>
                 </div>
             </div>

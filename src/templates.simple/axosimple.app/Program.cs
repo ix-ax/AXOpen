@@ -66,13 +66,13 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));
 
-var productionDataRepository = new InMemoryRepositorySettings<Pocos.examples.PneumaticManipulator.FragmentProcessData> ().Factory();
+var productionDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.UnitTemplate.ProcessData> ().Factory();
 var headerDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
 
 Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 
-var a = Entry.Plc.Context.ProcessDataPneumaticManipulator
-    .CreateBuilder<examples.PneumaticManipulator.ProcessDataManger>();
+var a = Entry.Plc.Context.UnitTemplateProcessData
+    .CreateBuilder<axosimple.UnitTemplate.ProcessDataManger>();
 
 a.DataManger.SetRepository(productionDataRepository);
 a.Shared.SetRepository(headerDataRepository);
@@ -81,8 +81,8 @@ a.InitializeRemoteDataExchange();
 var b = Entry.Plc.Context.ProcessData
     .CreateBuilder<ProcessData>();
 
-b.Manip.InitializeRemoteDataExchange(productionDataRepository);
-b.Set.InitializeRemoteDataExchange(headerDataRepository);
+//b.Unit.InitializeRemoteDataExchange(productionDataRepository);
+b.Header.InitializeRemoteDataExchange(headerDataRepository);
 
 b.InitializeRemoteDataExchange();
 

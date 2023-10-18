@@ -3,9 +3,9 @@
 @using axosimple.hmi.Components;
 
 @inject IAlertDialogService _alerts
-@inherits RenderableComplexComponentBase<examples.PneumaticManipulator.CU>
+@inherits RenderableComplexComponentBase<axosimple.UnitTemplate.Unit>
 
-<Unit Component="Entry.Plc.Context.PneumaticManipulator" Data="Entry.Plc.Context.ProcessDataPneumaticManipulator">
+<Unit Component="Entry.Plc.Context.UnitTemplate" Data="Entry.Plc.Context.UnitTemplateProcessData">
     <ChildContent>
         <img src="logo-header.svg"/>
     </ChildContent>

@@ -74,16 +74,40 @@
     <value>Move work signal</value>
     <comment>src\Components\Cylinder.st,32</comment>
   </data>
+  <data name="LOAD_PROCESS_SETTINGS" xml:space="preserve">
+    <value>LOAD PROCESS SETTINGS</value>
+    <comment>src\templates\starterunit\AutomatSequence.st,47</comment>
+  </data>
   <data name="AUTOMAT" xml:space="preserve">
     <value>AUTOMAT</value>
-    <comment>src\Examples\PneumaticManipulator.st,149</comment>
+    <comment>src\templates\starterunit\AutomatSequence.st,10</comment>
+  </data>
+  <data name="GET_ID" xml:space="preserve">
+    <value>GET ID</value>
+    <comment>src\templates\starterunit\GroundSequence.st,47</comment>
+  </data>
+  <data name="GET_DATA" xml:space="preserve">
+    <value>GET DATA</value>
+    <comment>src\templates\starterunit\GroundSequence.st,54</comment>
+  </data>
+  <data name="DO_SOMETHING" xml:space="preserve">
+    <value>DO SOMETHING</value>
+    <comment>src\templates\starterunit\GroundSequence.st,62</comment>
+  </data>
+  <data name="SAVE_DATA" xml:space="preserve">
+    <value>SAVE DATA</value>
+    <comment>src\templates\starterunit\GroundSequence.st,68</comment>
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>
-    <comment>src\Examples\PneumaticManipulator.st,338</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,9</comment>
   </data>
   <data name="SERVICE" xml:space="preserve">
     <value>SERVICE</value>
-    <comment>src\Examples\PneumaticManipulator.st,404</comment>
+    <comment>src\templates\starterunit\ServiceMode.st,10</comment>
+  </data>
+  <data name="UPDATE_DATA" xml:space="preserve">
+    <value>UPDATE DATA</value>
+    <comment>src\templates\unit\AutomatSequence.st,67</comment>
   </data>
 </root>

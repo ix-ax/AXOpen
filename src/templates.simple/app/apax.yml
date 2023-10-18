@@ -11,7 +11,7 @@ registries:
 devDependencies:
   "@ax/sdk": 4.0.12
   "@ax/sld": ^0.15.9
-  "@ax/stc": ^5.4.89
+  "@ax/stc": 5.4.89
 dependencies:
   "@ix-ax/axopen.data": '0.0.0-dev.0'
   "@ix-ax/axopen.inspectors": '0.0.0-dev.0' 
@@ -32,9 +32,22 @@ scripts:
     - apax download
   build:
     - apax install
-    - apax build        
+    - apax build     
+  addunit : |
+    while [ -z "$unitname" ]; do
+      echo "Enter the unit name to replace (mandatory):"
+      read unitname
+    done
+
+    while [ -z "$outputfolder" ]; do
+      echo "Enter the output folder (mandatory):"
+      read outputfolder
+    done
+    dotnet new install ./src/templates/unit/ --force
+    # Execute the dotnet new command with the provided class name
+    dotnet new axosimple_unit --unitname=$unitname  -o ./src/$outputfolder      
   download:
     # Here you will need to set the argumen -t to your plc IP and -i to platfrom you are dowloading to
     # --default-server-interface is a must if you are using WebAPI          
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface --log Trace
   

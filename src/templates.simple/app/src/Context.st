@@ -1,25 +1,26 @@
-USING examples;
 USING AXOpen.Core;
 USING AXOpen.Data;
 
 NAMESPACE axosimple
     CLASS PUBLIC Context EXTENDS AxoContext                   
         VAR PUBLIC
-            ProcessData : ProcessData;
-            PneumaticManipulator : examples.PneumaticManipulator.CU;            
-            PneumaticManipulator2 : examples.PneumaticManipulator.CU;                      
+            ProcessData : ProcessData;            
+            StarterUnitTemplate : axosimple.StarterUnitTemplate.Unit;                
+            UnitTemplate : axosimple.UnitTemplate.Unit;
             Inputs : REF_TO axosimple.Inputs;
             Outputs : REF_TO axosimple.Outputs; 
 
-            ProcessDataPneumaticManipulator : examples.PneumaticManipulator.ProcessDataManger;
+            StarterUnitTemplateProcessData : axosimple.StarterUnitTemplate.ProcessDataManger;
+            UnitTemplateProcessData : axosimple.UnitTemplate.ProcessDataManger;
         END_VAR      
         
-        METHOD PROTECTED OVERRIDE Main                                   
-           IF(Inputs <> NULL AND Outputs <> NULL) THEN                
-               PneumaticManipulator.ProcessData := REF(ProcessDataPneumaticManipulator);
-               PneumaticManipulator.Run(THIS, Inputs^, Outputs^);   
-               PneumaticManipulator2.ProcessData := REF(ProcessDataPneumaticManipulator);
-               PneumaticManipulator2.Run(THIS, Inputs^, Outputs^);               
+        METHOD PROTECTED OVERRIDE Main                                               
+           IF(Inputs <> NULL AND Outputs <> NULL) THEN    
+               StarterUnitTemplate.ProcessData := REF(StarterUnitTemplateProcessData);
+               StarterUnitTemplate.Run(THIS, Inputs^, Outputs^);   
+            ;
+               UnitTemplate.ProcessData := REF(UnitTemplateProcessData);                                             
+               UnitTemplate.Run(THIS, Inputs^, Outputs^);               
            END_IF;                           
         END_METHOD        
     END_CLASS   
@@ -38,16 +39,18 @@ NAMESPACE axosimple
             {#ix-generic:TPlain as POCO}
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
             {#ix-attr:[Container(Layout.Stack)]}    
-            Set : SharedProductionData;
+            Header : SharedProductionData;
         END_VAR        
     END_CLASS
     
     CLASS ProcessData EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Set : SharedProductionDataManager;            
+            Header : SharedProductionDataManager;            
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Manip : examples.PneumaticManipulator.FragmentProcessDataManger;
+            Starter : axosimple.StarterUnitTemplate.ProcessDataManger;
+            {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
+            Unit : axosimple.UnitTemplate.ProcessDataManger;
         END_VAR        
     END_CLASS
 END_NAMESPACE

@@ -2,6 +2,7 @@
 @using AXSharp.Connector
 @using AXOpen.Data;
 @inherits RenderableComponentBase
+@inject NavigationManager NavigationManager
 
 <div class="container-fluid">
     <div class="row">
@@ -14,13 +15,25 @@
             <RenderableContentControl Context="Entry.Plc.Outputs" Presentation="Control"/>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <button class="btn btn-primary m-2" @onclick=SetInputs>Set inputs</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary m-2" @onclick="OpenControllerDiagnostics">@Localizer["CONTROLLER DIAGNOSTICS"]</button>
+        </div>
+    </div>
 </div>
 
 
 
 
-   <button class="btn btn-primary m-2" @onclick=SetInputs>Set inputs</button>
 
+
+
+
+
+<iframe src="http://192.168.0.4/" width="100%" height="600" frameborder="0"></iframe>
 
 
 @code {
@@ -37,15 +50,8 @@
         }
     }
 
-    private void Clicked()
+    private void OpenControllerDiagnostics()
     {
-        Entry.Plc.Context.PneumaticManipulator.AutomatSequence._externalClose.Edit = true;
-        Entry.Plc.Context.PneumaticManipulator2.AutomatSequence._externalClose.Edit = true;
-    }
-
-    private void Clicked2()
-    {
-        Entry.Plc.Context.PneumaticManipulator.AutomatSequence._externalClose.Edit = false;
-        Entry.Plc.Context.PneumaticManipulator2.AutomatSequence._externalClose.Edit = false;
+        NavigationManager.NavigateTo($"https://{Entry.TargetIp}/");
     }
 }

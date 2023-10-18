@@ -177,5 +177,17 @@
   <data name="GROUNDING" xml:space="preserve">
 	  <value>GROUNDING</value>
 	  <comment>GROUNDING</comment>
-  </data>  
+  </data>
+  <data name="AUTOMAT" xml:space="preserve">
+	  <value>AUTOMAT</value>
+	  <comment>AUTOMAT</comment>
+  </data>
+  <data name="GROUND" xml:space="preserve">
+	  <value>GROUND</value>
+	  <comment>GROUND</comment>
+  </data>
+  <data name="SERVICE" xml:space="preserve">
+	  <value>SERVICE</value>
+	  <comment>SERVICE</comment>
+  </data>
 </root>

@@ -70,6 +70,15 @@ namespace axosimple.hmi.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AUTOMAT.
+        /// </summary>
+        public static string AUTOMAT {
+            get {
+                return ResourceManager.GetString("AUTOMAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Choose a theme.
         /// </summary>
         public static string Choose_a_theme {
@@ -93,6 +102,15 @@ namespace axosimple.hmi.Resources {
         public static string Greeting {
             get {
                 return ResourceManager.GetString("Greeting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GROUND.
+        /// </summary>
+        public static string GROUND {
+            get {
+                return ResourceManager.GetString("GROUND", resourceCulture);
             }
         }
         
@@ -201,6 +219,15 @@ namespace axosimple.hmi.Resources {
         public static string RUNNING {
             get {
                 return ResourceManager.GetString("RUNNING", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SERVICE.
+        /// </summary>
+        public static string SERVICE {
+            get {
+                return ResourceManager.GetString("SERVICE", resourceCulture);
             }
         }
         
