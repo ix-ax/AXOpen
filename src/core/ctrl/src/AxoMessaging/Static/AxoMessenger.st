@@ -51,35 +51,39 @@ NAMESPACE AXOpen.Messaging.Static
                 _context : IAxoContext;
             END_VAR     
 
-            IF _context = NULL THEN
-                RETURN;
-            END_IF;
-
-            Context := _context;
-
-            THIS.MessengerState := eAxoMessengerState#Idle;
-            
-            IF THIS.IsActive THEN
-                THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
-            END_IF;
-
-            IF MessageCode = ULINT#0 THEN
-                IF IsActive THEN
-                    IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
-                        THIS.Deactivate();
-                    END_IF;
-                ELSIF AcknowledgedBeforeFallen THEN
-                    AcknowledgedBeforeFallen := FALSE;
-                    THIS.MessengerState := eAxoMessengerState#ActiveAckn;       
-                END_IF;                
-                IF AcknowledgeRequest THEN
-                    THIS.Acknowledge();                    
+            IF  _context_ = null THEN  
+                IF _context = NULL THEN
+                    RETURN;
                 END_IF;
-            END_IF;
 
-            IF(THIS.WaitingForAcknowledge) THEN
-                THIS.MessengerState := eAxoMessengerState#NotActiveWatingAckn;  
-            END_IF;   
+                THIS.Initialize(_context);
+                Context := _context; // Duplicity!!!
+            ELSE
+
+                THIS.MessengerState := eAxoMessengerState#Idle;
+                
+                IF THIS.IsActive THEN
+                    THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
+                END_IF;
+
+                IF MessageCode = ULINT#0 THEN
+                    IF IsActive THEN
+                        IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
+                            THIS.Deactivate();
+                        END_IF;
+                    ELSIF AcknowledgedBeforeFallen THEN
+                        AcknowledgedBeforeFallen := FALSE;
+                        THIS.MessengerState := eAxoMessengerState#ActiveAckn;       
+                    END_IF;                
+                    IF AcknowledgeRequest THEN
+                        THIS.Acknowledge();                    
+                    END_IF;
+                END_IF;
+
+                IF(THIS.WaitingForAcknowledge) THEN
+                    THIS.MessengerState := eAxoMessengerState#NotActiveWatingAckn;  
+                END_IF;                     
+            END_IF; 
             
         END_METHOD
         
@@ -91,13 +95,39 @@ NAMESPACE AXOpen.Messaging.Static
                 _object : IAxoObject;
             END_VAR  
         
-            IF _object.GetContext() = NULL THEN
-                RETURN;
+            IF  _context_ = null THEN  
+                IF _object.GetContext() = NULL THEN
+                    RETURN;
+                END_IF;
+
+                THIS.Initialize(_object);
+                Context := _context_; // Duplicity!!!
+            ELSE
+
+                THIS.MessengerState := eAxoMessengerState#Idle;
+                
+                IF THIS.IsActive THEN
+                    THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
+                END_IF;
+
+                IF MessageCode = ULINT#0 THEN
+                    IF IsActive THEN
+                        IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
+                            THIS.Deactivate();
+                        END_IF;
+                    ELSIF AcknowledgedBeforeFallen THEN
+                        AcknowledgedBeforeFallen := FALSE;
+                        THIS.MessengerState := eAxoMessengerState#ActiveAckn;       
+                    END_IF;                
+                    IF AcknowledgeRequest THEN
+                        THIS.Acknowledge();                    
+                    END_IF;
+                END_IF;
+
+                IF(THIS.WaitingForAcknowledge) THEN
+                    THIS.MessengerState := eAxoMessengerState#NotActiveWatingAckn;  
+                END_IF;                     
             END_IF;
-
-            THIS.Initialize(_object);
-
-            THIS.Serve(_object.GetContext());                       
         END_METHOD
 
         ///<summary>
