@@ -76,7 +76,7 @@ NAMESPACE AXOpen.Components.Pneumatics
                 _StopTask.Initialize(THIS);
             end_if;
 
-            THIS.Open();
+            THIS.Open(); // inline representation save 1% of cpu by 40 pistons on 1516 Fw2.9
 
             _Messenger.Serve(THIS);
 
