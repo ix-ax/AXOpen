@@ -430,17 +430,27 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 refResultData          :   REF_TO  ARRAY[*] OF BYTE;
                 refUserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
-            IF parent = NULL THEN
-                Status.Error.Id := UINT#700;
-                RETURN;
-            END_IF;
 
-            _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+
+            IF _context_ = null THEN 
+                _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+                IF parent = NULL THEN
+                    Status.Error.Id := UINT#700;
+                    RETURN;
+                END_IF;
+
+                THIS.Initialize(parent);
+                RestoreTask.Initialize(THIS);
+                ClearInspectionResultsTask.Initialize(THIS);
+                TriggerTask.Initialize(THIS);
+                ChangeJobByNameTask.Initialize(THIS);
+                ChangeJobByNumberTask.Initialize(THIS);
+                SoftEventTask.Initialize(THIS);
+            END_IF;
 
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
             END_IF;
-            THIS.Initialize(parent);
             THIS.Open();
             THIS.Execute(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
             THIS.Close();            
@@ -464,17 +474,27 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 refResultData          :   REF_TO  ARRAY[*] OF BYTE;
                 refUserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
-            IF parent = NULL THEN
-                Status.Error.Id := UINT#700;
-                RETURN;
-            END_IF;
+           
+            IF _context_ = null THEN 
+                _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+                IF parent = NULL THEN
+                    Status.Error.Id := UINT#700;
+                    RETURN;
+                END_IF;
 
-            _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+                THIS.Initialize(parent);
+                RestoreTask.Initialize(THIS);
+                ClearInspectionResultsTask.Initialize(THIS);
+                TriggerTask.Initialize(THIS);
+                ChangeJobByNameTask.Initialize(THIS);
+                ChangeJobByNumberTask.Initialize(THIS);
+                SoftEventTask.Initialize(THIS);
+            END_IF;
 
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
             END_IF;
-            THIS.Initialize(parent);
+            
             THIS.Open();
             THIS.Execute(refAcquisitionControl,refAcquisitionStatus,refInspectionControl,refInspectionStatus,refCommandControl,refCommandStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
             THIS.Close();            
@@ -494,13 +514,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 refUserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
 
-            RestoreTask.Initialize(THIS);
-            ClearInspectionResultsTask.Initialize(THIS);
-            TriggerTask.Initialize(THIS);
-            ChangeJobByNameTask.Initialize(THIS);
-            ChangeJobByNumberTask.Initialize(THIS);
-            SoftEventTask.Initialize(THIS);
-            
             _Messenger.Serve(THIS);
  
             THIS.UpdateInputs(refAcquisitionStatus,refInspectionStatus,refCommandStatus,refSoftEventStatus,refResultData);
