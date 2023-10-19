@@ -9,7 +9,7 @@ foreach ($sdk in $dotnetSDKs) {
     if ($sdk -like "6.*") {
         $dotnet6Installed = $true
     }
-    if ($sdk -like "7.*") {
+    if ($sdk -like "7.0.402*") {
         $dotnet7Installed = $true
     }
 }
@@ -21,9 +21,9 @@ if (-not $dotnet6Installed) {
 }
 
 if (-not $dotnet7Installed) {
-    Write-Error ".NET 7.0 SDK is not installed."
+    Write-Host ".NET 7.0.402 SDK is not installed." -ForegroundColor Red
 } else {
-    Write-Host ".NET 7.0 SDK detected." -ForegroundColor Green
+    Write-Host ".NET 7.0.402 SDK detected." -ForegroundColor Green
 }
 
 # Check for Visual Studio 2022

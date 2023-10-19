@@ -18,8 +18,21 @@ NAMESPACE AXOpen.Core
         /// To make the AxoComponent manually controllable, it is necessary to call the `ActivateManualMode()` method cyclically.   
         ///</summary>   
         METHOD PUBLIC FINAL IsManuallyControllable: BOOL 
-            THIS.CheckIfManualControlIsActivated();
-            IsManuallyControllable := _isManuallyControllable;
+           //[INLINE]THIS.CheckIfManualControlIsActivated();            
+            VAR
+                _myContextCycleCount : ULINT;
+            END_VAR
+            IF THIS._context_ <> NULL THEN
+                _myContextCycleCount := _context_.OpenCycleCount();
+                //When component.Service() is called "before" invoking its task _serviceContextCycle is equal to GetContext().OpenCycleCount()
+                _isManuallyControllable := _manualControlContextCycle = _myContextCycleCount OR 
+                //When component.Service() is called "after" invoking its task (_serviceContextCycle + 1) is equal to GetContext().OpenCycleCount()
+                                (_manualControlContextCycle + ULINT#1) = _myContextCycleCount;        
+            ELSE
+                _isManuallyControllable := FALSE;              // TODO: some message should inform about this issue
+                _myContextCycleCount := ULINT#0;
+            END_IF;  
+                IsManuallyControllable := _isManuallyControllable;
         END_METHOD
         
         ///<summary>
@@ -45,7 +58,7 @@ NAMESPACE AXOpen.Core
             _isManuallyControllable : BOOL;	
         END_VAR
 
-        METHOD PRIVATE CheckIfManualControlIsActivated 
+        METHOD PRIVATE CheckIfManualControlIsActivatedInlined 
             VAR
                 _myContextCycleCount : ULINT;
             END_VAR
@@ -62,7 +75,20 @@ NAMESPACE AXOpen.Core
         END_METHOD     
 
         METHOD PROTECTED Open
-            THIS.CheckIfManualControlIsActivated();            
+            //[INLINE]THIS.CheckIfManualControlIsActivated();            
+            VAR
+                _myContextCycleCount : ULINT;
+            END_VAR
+            IF THIS._context_ <> NULL THEN
+                _myContextCycleCount := _context_.OpenCycleCount();
+                //When component.Service() is called "before" invoking its task _serviceContextCycle is equal to GetContext().OpenCycleCount()
+                _isManuallyControllable := _manualControlContextCycle = _myContextCycleCount OR 
+                //When component.Service() is called "after" invoking its task (_serviceContextCycle + 1) is equal to GetContext().OpenCycleCount()
+                                (_manualControlContextCycle + ULINT#1) = _myContextCycleCount;        
+            ELSE
+                _isManuallyControllable := FALSE;              // TODO: some message should inform about this issue
+                _myContextCycleCount := ULINT#0;
+            END_IF;  
         END_METHOD  
         
         METHOD PUBLIC Run
