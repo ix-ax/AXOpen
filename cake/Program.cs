@@ -218,7 +218,15 @@ public sealed class TestsTask : FrostingTask<BuildContext>
         {
             foreach (var package in context.Libraries)
             {
-                context.ApaxDownload(Path.Combine(context.RootDir, package.folder, "app"));
+                var app = Path.Combine(context.RootDir, package.folder, "app");
+                var ax = Path.Combine(context.RootDir, package.folder, "ax");
+
+                if(Directory.Exists(app))
+                    context.ApaxDownload(app);
+                else if(Directory.Exists(ax))
+                    context.ApaxDownload(ax);
+                else
+                    throw new Exception($"No app or ax folder found for {package.folder}");    
 
                 context.DotNetTest(Path.Combine(context.RootDir, package.folder, "tmp_L3_.proj"), context.DotNetTestSettings);
             }

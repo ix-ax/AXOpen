@@ -176,7 +176,19 @@ public class BuildContext : FrostingContext
         var paths = new string[]
         {
             Path.Combine(Path.Combine(RootDir, library.folder), "ctrl"),
-            Path.Combine(Path.Combine(RootDir, library.folder), "app")
+            Path.Combine(Path.Combine(RootDir, library.folder), "app"),
+            Path.Combine(Path.Combine(RootDir, library.folder), "ax")            
+        };
+
+        return paths.Where(Path.Exists);
+    }
+
+public IEnumerable<string> GetApplicationAxFolders((string folder, string name, bool pack) library)
+    {
+        var paths = new string[]
+        {            
+            Path.Combine(Path.Combine(RootDir, library.folder), "app"),
+            Path.Combine(Path.Combine(RootDir, library.folder), "ax")            
         };
 
         return paths.Where(Path.Exists);
