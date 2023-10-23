@@ -9,6 +9,8 @@ using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
 using System.Security.Principal;
+using AXOpen.Core;
+using AXSharp.Connector;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace AXOpen.Messaging.Static;
@@ -107,5 +109,32 @@ public partial class AxoMessenger
     {
         this.AcknowledgeRequest.Cyclic = true;
         AxoApplication.Current.Logger.Information("Message acknowledge", this, identity);
+    }
+
+    private ITwinObject _component;
+    public ITwinObject Component
+    {
+        get
+        {
+            if (_component == null)
+            {
+                _component = FindParentOfType<AxoComponent>(this);
+                if (_component == null)
+                {
+                    _component = this.GetParent();
+                }
+            }
+
+            return _component;
+        }
+    }
+
+    static T? FindParentOfType<T>(ITwinElement node) where T : ITwinObject
+    {
+        if (node == null || node is AXSharp.Connector.Connector) return default(T);
+
+        if (node is T) return (T)node;
+
+        return FindParentOfType<T>(node.GetParent());
     }
 }

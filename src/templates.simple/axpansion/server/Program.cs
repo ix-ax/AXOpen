@@ -22,6 +22,7 @@ using AXOpen.Core;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Data;
 using System.Globalization;
+using AXOpen.Core.Blazor;
 using AXOpen.Core.Blazor.Culture;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Hosting;
@@ -94,6 +95,7 @@ b.InitializeRemoteDataExchange();
 // Clean Temp directory
 IAxoDataExchange.CleanUp();
 #endregion
+
 
 var app = builder.Build();
 

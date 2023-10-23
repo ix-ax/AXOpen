@@ -56,9 +56,9 @@ NAMESPACE axosimple.UnitTemplate
                 IF (Steps[1].Execute(THIS, TRUE, '<#GET ID#>')) THEN
                 //------------------------------------------------------- 
                         _currentId := '1'; 
-                        IF(ProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN
+                        //IF(ProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN
                             THIS.MoveNext(); 
-                        END_IF;    
+                        //END_IF;    
                 //-------------------------------------------------------
                 END_IF;
                 

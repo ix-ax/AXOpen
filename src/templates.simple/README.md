@@ -51,7 +51,11 @@ When creating the template from within AXOpen repository the solution structure 
 
 ```
 Solution 'axiosimple' (25 of 25 projects)
-│
+├── **.application**
+│   │
+│   ├── **axpansion**
+│   │   ├── **server**
+│   │   └── **twin**
 ├── abstractions
 ├── base
 ├── components.abstractions
@@ -63,18 +67,9 @@ Solution 'axiosimple' (25 of 25 projects)
 ├── inspectors
 ├── security
 ├── simatic1500
-│
-├── **.application**
-│   │
-│   ├── **axpansion**
-│   │   ├── **server**
-│   │   └── **twin**
-│
 ├── timers
 ├── toolbox
 └── utils
-    │
-    └── this
 
 ```
 

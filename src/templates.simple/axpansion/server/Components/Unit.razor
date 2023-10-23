@@ -6,6 +6,8 @@
 @using AXOpen.Messaging.Static
 @using AXSharp.Connector;
 @using AXOpen.Core;
+
+
 @inject IAlertDialogService _alerts
 @inherits RenderableComplexComponentBase<axosimple.IUnit>
 
@@ -20,8 +22,7 @@
 
 <!-- Modal data alarms -->
 <div class="modal fade" id="alarmsviewmodal" tabindex="-1" aria-labelledby="alarmsviewTitle" aria-hidden="true">
-    <Alarms Component="this.Component" MessageProvider="AxoMessageProvider"></Alarms>
-    
+    <AlarmsView Component="this.Component" MessageProvider="AxoMessageProvider"></AlarmsView>
 </div>
 
 

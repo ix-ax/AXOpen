@@ -39,7 +39,7 @@ dotnet clean this.proj
 dotnet build this.proj
 dotnet slngen this.proj -o axosimple.sln --folders true --launch false
 OpenSolutionWithVS2022 -solutionPath axosimple.sln
-Set-Location app
+Set-Location ax
 apax install
 apax build
 axcode .

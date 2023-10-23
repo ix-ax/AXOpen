@@ -1,6 +1,8 @@
-﻿@using AXOpen.Messaging.Static
+﻿@namespace AXOpen.Core
+@using AXOpen.Messaging.Static
 @using AXSharp.Connector
 @inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+
 
 @if(MessageProvider?.MessagesCount > 0)
 {
@@ -36,11 +38,13 @@ else
                 PolledElements.Add(axoMessenger);
             }
     }
+    
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
         this.StateHasChanged();
     }
+    
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
