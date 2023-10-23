@@ -24,6 +24,8 @@
                     <button class="btn @AckBtnBackgroundColor" type="button" @onclick="@AcknowledgeTask" hidden="@HideAckowledgeButton">
                         <span class="oi oi-x" aria-hidden="true" />
                     </button>
+                    
+                    <RenderableContentControl Context="@Component.GetParent()" Presentation="Command"></RenderableContentControl>
                 </div>
             </div>
         </div>

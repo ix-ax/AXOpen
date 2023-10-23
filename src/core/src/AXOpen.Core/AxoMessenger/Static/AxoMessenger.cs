@@ -8,6 +8,7 @@
 using AXOpen.Base.Data;
 using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace AXOpen.Messaging.Static;
@@ -101,4 +102,10 @@ public partial class AxoMessenger
     }
 
     public eAxoMessengerState State => (eAxoMessengerState)this.MessengerState.LastValue;
+
+    public void Acknowledge(IIdentity identity)
+    {
+        this.AcknowledgeRequest.Cyclic = true;
+        AxoApplication.Current.Logger.Information("Message acknowledge", this, identity);
+    }
 }
