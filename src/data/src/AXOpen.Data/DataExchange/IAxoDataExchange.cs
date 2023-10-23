@@ -221,3 +221,8 @@ namespace AXOpen.Data
         }
     }
 }
+
+
+namespace AXOpen.Data
+{
+}

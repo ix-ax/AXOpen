@@ -7,13 +7,14 @@ NAMESPACE AXOpen.Data
     /// > [!NOTE]
     /// > This is an extension of <see cref="AxoTask"/>task see the documentatio for details about implementation in .NET.
     /// </summary>
-    CLASS AxoDataCrudTask
-        EXTENDS AxoDataExchangeTask
+    CLASS AxoDataCrudTask EXTENDS AxoRemoteTask IMPLEMENTS IAxoEntityExistTaskState      
         VAR PUBLIC
             ///<summary>
             /// Gets or sets the type of CRUD operation to be perfomed.            
             /// </summary>
             CrudOperation : eCrudOperation;
+            DataEntityIdentifier : STRING[254];
+            _exist : BOOL;            
         END_VAR
 
         ///<summary>
@@ -27,12 +28,22 @@ NAMESPACE AXOpen.Data
                 operation : eCrudOperation;
             END_VAR
             CrudOperation := operation;
-            Invoke := SUPER.Invoke(identifier);
+            DataEntityIdentifier := identifier;
+            Invoke := SUPER.Invoke();
         END_METHOD
+      
+        METHOD PUBLIC Exist : BOOL
+            Exist := _exist;
+        END_METHOD
+
     END_CLASS
 
     TYPE
         eCrudOperation : (Create, Read, Update, Delete, CreateOrUpdate, EntityExist);
     END_TYPE
+
+    INTERFACE PUBLIC IAxoEntityExistTaskState EXTENDS IAxoTaskState
+        METHOD Exist : BOOL END_METHOD
+    END_INTERFACE
 
 END_NAMESPACE

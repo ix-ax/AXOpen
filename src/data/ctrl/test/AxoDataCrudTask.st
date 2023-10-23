@@ -59,6 +59,7 @@ NAMESPACE AXOpen.Data
                 _dataExchange.Create(expected);
                 _context.Close();
                 AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.CrudOperation = eCrudOperation#Create);
             END_METHOD
 
             
@@ -73,6 +74,7 @@ NAMESPACE AXOpen.Data
                 _dataExchange.Read(expected);
                 _context.Close();
                 AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.CrudOperation = eCrudOperation#Read);
             END_METHOD
 
             {Test}
@@ -86,6 +88,7 @@ NAMESPACE AXOpen.Data
                 _dataExchange.Update(expected);
                 _context.Close();
                 AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.CrudOperation = eCrudOperation#Update);
             END_METHOD
 
             {Test}
@@ -99,6 +102,7 @@ NAMESPACE AXOpen.Data
                 _dataExchange.Delete(expected);
                 _context.Close();
                 AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.CrudOperation = eCrudOperation#Delete);
             END_METHOD
 
             {Test}
@@ -112,6 +116,7 @@ NAMESPACE AXOpen.Data
                 _dataExchange.EntityExist(expected);
                 _context.Close();
                 AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.CrudOperation = eCrudOperation#EntityExist);
             END_METHOD
 
             {Test}
@@ -125,6 +130,7 @@ NAMESPACE AXOpen.Data
                 _dataExchange.CreateOrUpdate(expected);
                 _context.Close();
                 AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.CrudOperation = eCrudOperation#CreateOrUpdate);
             END_METHOD
         END_CLASS
     END_NAMESPACE    

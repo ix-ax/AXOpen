@@ -27,6 +27,7 @@ public partial class AxoDataFragmentExchange
         return CreateBuilder() as T;
     }
 
+    
     public bool VerifyHash { get; set; } = false;
 
     public object CreateBuilder()
