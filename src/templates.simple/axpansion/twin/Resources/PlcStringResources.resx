@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Home_sensor" xml:space="preserve">
+    <value>Home sensor</value>
+    <comment>src\Components\Cylinder.st,19</comment>
+  </data>
+  <data name="Work_sensor" xml:space="preserve">
+    <value>Work sensor</value>
+    <comment>src\Components\Cylinder.st,23</comment>
+  </data>
+  <data name="Move_home_signal" xml:space="preserve">
+    <value>Move home signal</value>
+    <comment>src\Components\Cylinder.st,28</comment>
+  </data>
+  <data name="Move_work_signal" xml:space="preserve">
+    <value>Move work signal</value>
+    <comment>src\Components\Cylinder.st,32</comment>
+  </data>
+  <data name="LOAD_PROCESS_SETTINGS" xml:space="preserve">
+    <value>LOAD PROCESS SETTINGS</value>
+    <comment>src\templates\starterunit\AutomatSequence.st,47</comment>
+  </data>
+  <data name="AUTOMAT" xml:space="preserve">
+    <value>AUTOMAT</value>
+    <comment>src\templates\starterunit\AutomatSequence.st,10</comment>
+  </data>
+  <data name="GET_ID" xml:space="preserve">
+    <value>GET ID</value>
+    <comment>src\templates\starterunit\GroundSequence.st,47</comment>
+  </data>
+  <data name="GET_DATA" xml:space="preserve">
+    <value>GET DATA</value>
+    <comment>src\templates\starterunit\GroundSequence.st,54</comment>
+  </data>
+  <data name="DO_SOMETHING" xml:space="preserve">
+    <value>DO SOMETHING</value>
+    <comment>src\templates\starterunit\GroundSequence.st,62</comment>
+  </data>
+  <data name="SAVE_DATA" xml:space="preserve">
+    <value>SAVE DATA</value>
+    <comment>src\templates\starterunit\GroundSequence.st,68</comment>
+  </data>
+  <data name="GROUND" xml:space="preserve">
+    <value>GROUND</value>
+    <comment>src\templates\starterunit\GroundSequence.st,9</comment>
+  </data>
+  <data name="SERVICE" xml:space="preserve">
+    <value>SERVICE</value>
+    <comment>src\templates\starterunit\ServiceMode.st,10</comment>
+  </data>
+  <data name="UPDATE_DATA" xml:space="preserve">
+    <value>UPDATE DATA</value>
+    <comment>src\templates\unit\AutomatSequence.st,68</comment>
+  </data>
+  <data name="RESTORE" xml:space="preserve">
+    <value>RESTORE</value>
+    <comment>src\templates\unit\GroundSequence.st,49</comment>
+  </data>
+</root>

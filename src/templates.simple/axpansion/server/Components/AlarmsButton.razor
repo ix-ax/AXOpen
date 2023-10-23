@@ -1,0 +1,54 @@
+﻿@using AXOpen.Messaging.Static
+@using AXSharp.Connector
+@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+
+@if(MessageProvider?.MessagesCount > 0)
+{
+    <button type="button" class="btn btn-danger position-relative" data-bs-toggle="modal" data-bs-target="#alarmsviewmodal">
+        @Localizer["Alarms"]
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            @MessageProvider?.MessagesCount
+                <span class="visually-hidden">unread messages</span>
+        </span>
+    </button>
+}
+else
+{
+    <button type="button" class="btn btn-primary position-relative" data-bs-toggle="modal" data-bs-target="#alarmsviewmodal">
+        @Localizer["Alarms"]
+    </button>
+}
+        
+
+@code {
+
+    [Parameter]
+    public AxoMessageProvider? MessageProvider { get; set; }
+
+    private string Disabled => MessageProvider?.MessagesCount> 0 ? "false" : "true";
+
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        if (MessageProvider?.Observables != null)
+            foreach (var axoMessenger in MessageProvider.Observables)
+            {
+                axoMessenger.StartPolling(2500, this);
+                PolledElements.Add(axoMessenger);
+            }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        this.StateHasChanged();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        if (MessageProvider?.Observables != null)
+            foreach (var axoMessenger in MessageProvider.Observables)
+            {
+                this.UpdateValuesOnChange(axoMessenger);
+            }
+    }
+}
