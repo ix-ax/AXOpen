@@ -46,7 +46,8 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <RenderableContentControl Context="Entry.Plc.Context.UnitTemplateProcessData.DataManger.Payload" Presentation="ShadowDisplay" />
+                        <RenderableContentControl Context="@DataHeader" Presentation="Display" />
+                        <RenderableContentControl Context="@Data" Presentation="Display" />
                     </div>
                 </div>
             </div>
@@ -97,7 +98,10 @@
     private AxoMessageProvider AxoMessageProvider => AxoMessageProvider.Create(new ITwinObject[] { this.Component, this.Data });
     
     [Parameter]
-    public ITwinObject? Data { get; set; }
+    public AXOpen.Data.AxoDataEntity? Data { get; set; }
+
+    [Parameter]
+    public AXOpen.Data.AxoDataEntity? DataHeader { get; set; }
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }

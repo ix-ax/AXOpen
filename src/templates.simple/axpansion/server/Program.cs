@@ -84,13 +84,14 @@ unitTemplateBuilder.Shared.SetRepository(sharedDataRepository);
 
 unitTemplateBuilder.InitializeRemoteDataExchange();
 
-var b = Entry.Plc.Context.ProcessData
+var processDataBuilder = Entry.Plc.Context.ProcessData
     .CreateBuilder<ProcessData>();
 
 //b.Unit.InitializeRemoteDataExchange(productionDataRepository);
-b.Header.InitializeRemoteDataExchange(sharedDataRepository);
-
-b.InitializeRemoteDataExchange();
+processDataBuilder.Header.InitializeRemoteDataExchange(sharedDataRepository);
+processDataBuilder.Starter.InitializeRemoteDataExchange(starterUnitTemplateRepository);
+processDataBuilder.Unit.InitializeRemoteDataExchange(unitTemplateRepository);
+processDataBuilder.InitializeRemoteDataExchange();
 
 // Clean Temp directory
 IAxoDataExchange.CleanUp();

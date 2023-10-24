@@ -48,9 +48,9 @@ NAMESPACE axosimple
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
             Header : SharedProductionDataManager;            
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Starter : axosimple.StarterUnitTemplate.ProcessDataManger;
+            Starter : axosimple.StarterUnitTemplate.FragmentProcessDataManger;
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Unit : axosimple.UnitTemplate.ProcessDataManger;
+            Unit : axosimple.UnitTemplate.FragmentProcessDataManger;
         END_VAR        
     END_CLASS
 END_NAMESPACE

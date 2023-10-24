@@ -4,7 +4,7 @@ type: app
 targets:
   - plcsim
   # - swcpu 
-  #- "1500"
+  - "1500"
   - axunit-llvm
 registries:
   '@ix-ax': https://npm.pkg.github.com/
