@@ -6,9 +6,9 @@
 
 @if (Component.State > eAxoMessengerState.Idle)
 {
-    <div class="container text-center">
-        @if (!OnlyAlarmView)
-        {
+    <div class="container text-center border border-2 m-3 rounded-3 border-danger">
+        
+        
             <div class="row">
                 <div class="d-flex align-end me-2 mt-2 mb-2">
                     <div class="btn-group">
@@ -31,15 +31,14 @@
                         </button>
                     </div>
                 </div>
-            </div>
-        }
-        else
+            </div>        
+        @if (!OnlyAlarmView)
         {
             <div class="row">
                 <RenderableContentControl Context="Component.Component" Presentation="Command"></RenderableContentControl>
-                <button class="btn @BackgroundColor" type="button" @onclick="ToggleComponentView">
+               @*  <button class="btn @BackgroundColor" type="button" @onclick="ToggleComponentView">
                     <span class="oi oi-x" aria-hidden="true" />
-                </button>
+                </button> *@
             </div>
             
         }

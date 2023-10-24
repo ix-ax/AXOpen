@@ -237,7 +237,7 @@ namespace AXOpen.Messaging.Static
             return retVal;
         }
 
-        private bool OnlyAlarmView { get; set; }
+        private bool OnlyAlarmView { get; set; } = true;
 
         private void ToggleComponentView()
         {
@@ -246,7 +246,7 @@ namespace AXOpen.Messaging.Static
 
         private void ToggleAlarmView()
         {
-            this.OnlyAlarmView = true;
+            this.OnlyAlarmView = !this.OnlyAlarmView;
         }
     }
 
