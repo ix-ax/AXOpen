@@ -254,6 +254,22 @@ NAMESPACE AxoDriveTests.Tests
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
                 ErrorID         :   WORD;                       
+                Value           :   DINT;                       
+            END_VAR
+            ;
+        END_METHOD
+
+        METHOD PUBLIC OVERRIDE MC_ReadRealParameter
+            VAR_INPUT
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+                Enable          :   BOOL;                       
+                ParameterNumber :   INT;                        
+            END_VAR
+            VAR_OUTPUT
+                Valid           :   BOOL;                       
+                Busy            :   BOOL;                       
+                Error           :   BOOL;                       
+                ErrorID         :   WORD;                       
                 Value           :   REAL;                       
             END_VAR
             ;
@@ -276,6 +292,23 @@ NAMESPACE AxoDriveTests.Tests
         END_METHOD
 
         METHOD PUBLIC OVERRIDE MC_WriteParameter
+            VAR_INPUT
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+                Execute         :   BOOL;                      
+                ParameterNumber :   INT;                       
+                Value           :   DINT;                      
+                ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                       
+            END_VAR
+            VAR_OUTPUT
+                Done            :   BOOL;                       
+                Busy            :   BOOL;                       
+                Error           :   BOOL;                       
+                ErrorID         :   WORD;                       
+            END_VAR
+            ;
+        END_METHOD
+
+        METHOD PUBLIC OVERRIDE MC_WriteRealParameter
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                      

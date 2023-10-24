@@ -449,7 +449,31 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadParameter_ErrorID                :   WORD;          
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter value#>"}
-            AxoReadParameter_Value                  :   REAL;          
+            AxoReadParameter_Value                  :   DINT;          
+            //***********ReadRealParameter************************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Read real parameter task#>"}
+            AxoReadRealParameter_Task               :   AXOpen.Core.AxoToggleTask;
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Read real parameter number#>"}
+            AxoReadRealParameter_ParameterNumber    :   INT;
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Read real parameter valid#>"}
+            AxoReadRealParameter_Valid              :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Read real parameter busy#>"}
+            AxoReadRealParameter_Busy               :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Read real parameter error#>"}
+            AxoReadRealParameter_Error              :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Read real parameter error ID#>"}
+            AxoReadRealParameter_ErrorID            :   WORD;          
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Read real parameter value#>"}
+            AxoReadRealParameter_Value              :   REAL;          
             //***********ReadBoolParameter********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -485,7 +509,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteParameter_ParameterNumber       :   INT;                    
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter value#>"}
-            AxoWriteParameter_Value                 :   REAL;                     
+            AxoWriteParameter_Value                 :   DINT;                     
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter execution mode#>"}
             AxoWriteParameter_ExecutionMode         :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
@@ -501,6 +525,33 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter error ID#>"}
             AxoWriteParameter_ErrorID               :   WORD;          
+            //***********WriteRealParameter*******************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Write real parameter task#>"}
+            AxoWriteRealParameter_Task              :   AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Write real parameter number#>"}
+            AxoWriteRealParameter_ParameterNumber   :   INT;                    
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Write real parameter value#>"}
+            AxoWriteRealParameter_Value             :   REAL;                     
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Write real parameter execution mode#>"}
+            AxoWriteRealParameter_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Write real parameter done#>"}
+            AxoWriteRealParameter_Done              :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Write real parameter busy#>"}
+            AxoWriteRealParameter_Busy              :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Write real parameter error#>"}
+            AxoWriteRealParameter_Error             :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Parametrization")]}
+            {#ix-set:AttributeName = "<#Write real parameter error ID#>"}
+            AxoWriteRealParameter_ErrorID           :   WORD;          
             //***********WriteBoolParameter*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -957,12 +1008,18 @@ NAMESPACE AXOpen.Components.Drives
             _AxoSetOverride_JerkFactor              :   LREAL;        
             //***********ReadParameter************************
             _AxoReadParameter_ParameterNumber       :   INT;
+            //***********ReadReadParameter************************
+            _AxoReadRealParameter_ParameterNumber   :   INT;
             //***********ReadBoolParameter********************
             _AxoReadBoolParameter_ParameterNumber   :   INT;
             //***********WriteParameter***********************
             _AxoWriteParameter_ParameterNumber      :   INT;                    
-            _AxoWriteParameter_Value                :   REAL;                     
+            _AxoWriteParameter_Value                :   DINT;                     
             _AxoWriteParameter_ExecutionMode        :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
+            //***********WriteRealParameter***********************
+            _AxoWriteRealParameter_ParameterNumber  :   INT;                    
+            _AxoWriteRealParameter_Value            :   REAL;                     
+            _AxoWriteRealParameter_ExecutionMode    :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             //***********WriteBoolParameter*******************
             _AxoWriteBoolParameter_ParameterNumber  :   INT;                    
             _AxoWriteBoolParameter_Value            :   BOOL;                     
@@ -1080,8 +1137,10 @@ NAMESPACE AXOpen.Components.Drives
             AxoSetPosition_Task.Initialize(THIS);
             AxoSetOverride_Task.Initialize(THIS);
             AxoReadParameter_Task.Initialize(THIS);
+            AxoReadRealParameter_Task.Initialize(THIS);
             AxoReadBoolParameter_Task.Initialize(THIS);
             AxoWriteParameter_Task.Initialize(THIS);
+            AxoWriteRealParameter_Task.Initialize(THIS);
             AxoWriteBoolParameter_Task.Initialize(THIS);
             AxoReadDigitalInput_Task.Initialize(THIS);
             AxoReadDigitalOutput_Task.Initialize(THIS);
@@ -1368,6 +1427,20 @@ NAMESPACE AXOpen.Components.Drives
             Messenger.ActivateOnCondition(TO_ULINT(AxoReadParameter_ErrorID),AxoReadParameter_Error,eAxoMessageCategory#Error);
             //******************************************
 
+            //*************AXO_READ_REAL_PARAMETER******
+            AxoReadRealParameter_Task.SetIsDisabled(FALSE);
+            AxoReadRealParameter_Task.Run();
+            THIS.MC_ReadRealParameter(AxisRef, 
+                        AxoReadRealParameter_Task.IsSwitchedOn(),
+                        _AxoReadRealParameter_ParameterNumber,
+                        AxoReadRealParameter_Valid,
+                        AxoReadRealParameter_Busy,
+                        AxoReadRealParameter_Error,
+                        AxoReadRealParameter_ErrorID,
+                        AxoReadRealParameter_Value);
+            Messenger.ActivateOnCondition(TO_ULINT(AxoReadRealParameter_ErrorID),AxoReadRealParameter_Error,eAxoMessageCategory#Error);
+            //******************************************
+
             //*************AXO_READ_BOOL_PARAMETER******
             AxoReadBoolParameter_Task.SetIsDisabled(FALSE);
             AxoReadBoolParameter_Task.Run();
@@ -1394,6 +1467,20 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteParameter_Error,
                         AxoWriteParameter_ErrorID);
             Messenger.ActivateOnCondition(TO_ULINT(AxoWriteParameter_ErrorID),AxoWriteParameter_Error,eAxoMessageCategory#Error);
+            //******************************************
+
+            //*************AXO_WRITE_REAL_PARAMETER*****
+            AxoWriteRealParameter_Task.SetIsDisabled(FALSE);
+            THIS.MC_WriteRealParameter(AxisRef, 
+                        AxoWriteRealParameter_Task.Execute(),
+                        _AxoWriteRealParameter_ParameterNumber,
+                        _AxoWriteRealParameter_Value,
+                        _AxoWriteRealParameter_ExecutionMode,
+                        AxoWriteRealParameter_Done,
+                        AxoWriteRealParameter_Busy,
+                        AxoWriteRealParameter_Error,
+                        AxoWriteRealParameter_ErrorID);
+            Messenger.ActivateOnCondition(TO_ULINT(AxoWriteRealParameter_ErrorID),AxoWriteRealParameter_Error,eAxoMessageCategory#Error);
             //******************************************
 
             //*************AXO_WRITE_BOOL_PARAMETER*****
@@ -1626,8 +1713,10 @@ NAMESPACE AXOpen.Components.Drives
             AxoSetPosition_Task.Restore();
             AxoSetOverride_Task.SwitchOff();
             AxoReadParameter_Task.SwitchOff();
+            AxoReadRealParameter_Task.SwitchOff();
             AxoReadBoolParameter_Task.SwitchOff();
             AxoWriteParameter_Task.Restore();
+            AxoWriteRealParameter_Task.Restore();
             AxoWriteBoolParameter_Task.Restore();
             AxoReadDigitalInput_Task.SwitchOff();
             AxoReadDigitalOutput_Task.SwitchOff();
@@ -1712,12 +1801,18 @@ NAMESPACE AXOpen.Components.Drives
             _AxoSetOverride_JerkFactor              := AxoSetOverride_JerkFactor;
             //***********ReadParameter************************
             _AxoReadParameter_ParameterNumber       := AxoReadParameter_ParameterNumber;
+            //***********ReadRealParameter************************
+            _AxoReadRealParameter_ParameterNumber       := AxoReadRealParameter_ParameterNumber;
             //***********ReadBoolParameter********************
             _AxoReadBoolParameter_ParameterNumber   := AxoReadBoolParameter_ParameterNumber;
             //***********WriteParameter***********************
             _AxoWriteParameter_ParameterNumber      := AxoWriteParameter_ParameterNumber;
             _AxoWriteParameter_Value                := AxoWriteParameter_Value;
             _AxoWriteParameter_ExecutionMode        := AxoWriteParameter_ExecutionMode;
+            //***********WriteRealParameter*******************
+            _AxoWriteRealParameter_ParameterNumber  := AxoWriteRealParameter_ParameterNumber;
+            _AxoWriteRealParameter_Value            := AxoWriteRealParameter_Value;
+            _AxoWriteRealParameter_ExecutionMode    := AxoWriteRealParameter_ExecutionMode;
             //***********WriteBoolParameter*******************
             _AxoWriteBoolParameter_ParameterNumber  := AxoWriteBoolParameter_ParameterNumber;
             _AxoWriteBoolParameter_Value            := AxoWriteBoolParameter_Value;
@@ -2120,7 +2215,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
 
             IF Enable THEN
@@ -2138,6 +2233,39 @@ NAMESPACE AXOpen.Components.Drives
             Value   := AxoReadParameter_Value;
 
             AxoReadParameter  := AxoReadParameter_Task;
+        END_METHOD
+
+        ///<summary>
+        /// This method returns the value of a vendor specific parameter with datatype REAL
+        ///<summary>
+        METHOD PUBLIC AxoReadRealParameter : IAxoToggleTask
+            VAR_INPUT
+                Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
+                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+            END_VAR
+            VAR_OUTPUT
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification
+                Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+            END_VAR
+
+            IF Enable THEN
+                _AxoReadRealParameter_ParameterNumber   :=  ParameterNumber;
+
+                AxoReadRealParameter_Task.SwitchOn();
+            ELSE
+                AxoReadRealParameter_Task.SwitchOff();
+            END_IF;
+
+            Valid   := AxoReadRealParameter_Valid;
+            Busy    := AxoReadRealParameter_Busy;
+            Error   := AxoReadRealParameter_Error;
+            ErrorID := AxoReadRealParameter_ErrorID;
+            Value   := AxoReadRealParameter_Value;
+
+            AxoReadRealParameter  := AxoReadRealParameter_Task;
         END_METHOD
 
         ///<summary>
@@ -2179,7 +2307,7 @@ NAMESPACE AXOpen.Components.Drives
         METHOD PUBLIC AxoWriteParameter : IAxoTaskState
             VAR_INPUT
                 ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-                Value           :   REAL;                       //  New value of the specified parameter
+                Value           :   DINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
@@ -2200,6 +2328,34 @@ NAMESPACE AXOpen.Components.Drives
 
             AxoWriteParameter   :=  AxoWriteParameter_Task.Invoke();
     END_METHOD
+
+        ///<summary>
+        /// This method modifies the value of a vendor specific parameter of type REAL.
+        ///<summary>
+        METHOD PUBLIC AxoWriteRealParameter    : IAxoTaskState
+            VAR_INPUT
+                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                Value           :   REAL;                       //  New value of the specified parameter
+                ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
+            END_VAR
+            VAR_OUTPUT
+                Done            :   BOOL;                       //  Parameter successfully written
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification
+            END_VAR
+
+            _AxoWriteRealParameter_ParameterNumber  :=  ParameterNumber;
+            _AxoWriteRealParameter_Value            :=  Value;
+            _AxoWriteRealParameter_ExecutionMode    :=  ExecutionMode;
+
+            Done                    :=  AxoWriteRealParameter_Done;
+            Busy                    :=  AxoWriteRealParameter_Busy;
+            Error                   :=  AxoWriteRealParameter_Error;
+            ErrorID                 :=  AxoWriteRealParameter_ErrorID;
+
+            AxoWriteRealParameter   :=  AxoWriteRealParameter_Task.Invoke();
+        END_METHOD
 
         ///<summary>
         /// This method modifies the value of a vendor specific parameter of type BOOL.
@@ -2925,6 +3081,25 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
+                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+            END_VAR
+        END_METHOD
+
+        ///<summary>
+        /// This method returns the value of a vendor specific parameter with datatype REAL.
+        /// This vendor specific method must be overridden in the derived class.
+        ///<summary>
+        METHOD PUBLIC ABSTRACT MC_ReadRealParameter
+            VAR_INPUT
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+                Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
+                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+            END_VAR
+            VAR_OUTPUT
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification
                 Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
         END_METHOD
@@ -2953,6 +3128,26 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_WriteParameter
+            VAR_INPUT
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+                Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
+                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                Value           :   DINT;                       //  New value of the specified parameter
+                ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
+            END_VAR
+            VAR_OUTPUT
+                Done            :   BOOL;                       //  Parameter successfully written
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification
+            END_VAR
+        END_METHOD
+
+        ///<summary>
+        /// This method modifies the value of a vendor specific parameter of type REAL.
+        /// This vendor specific method must be overridden in the derived class.
+        ///<summary>
+        METHOD PUBLIC ABSTRACT MC_WriteRealParameter
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge

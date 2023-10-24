@@ -1223,7 +1223,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_HomeActive_						:	BOOL;				
             MC_HomeCommandAborted_				:	BOOL;				
             MC_HomeError_						:	BOOL;				
-            MC_HomeErrorID_						:	eAxoIndraDriveErrorCode; 		
+            MC_HomeErrorID_						:	AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode; 		
             MC_HomeState_						:	UINT;				
         END_VAR
         ///<summary>
@@ -1251,6 +1251,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
              END_VAR
              VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
+                _Error  : BOOL;
+                _ErrorID : WORD;
+                _HommingMode: DINT;
                 Dummy : BOOL;
             END_VAR
             
@@ -1261,7 +1264,179 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            ;
+            IF Execute AND NOT MC_HomeExecute_PV  THEN
+                IF MC_HomeState_ = UINT#0 THEN
+                    //S-0-0052, Reference distance of encoder 1
+                    IF THIS.AxoWriteParameter(ParameterNumber := 52, Value := TO_DINT(Position * EXP(LN(10)* PositionExponent)),ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,Error => _Error, ErrorID =>_ErrorID).IsDone() THEN
+                        MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                    END_IF;
+                    IF _Error THEN
+                        MC_HomeError_ := TRUE;
+                        MC_HomeErrorID_ := _ErrorID;
+                    END_IF;
+                END_IF;
+                IF MC_HomeState_ = UINT#10 THEN
+                    AxoWriteParameter_Task.Restore();
+                    MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                END_IF;
+                IF MC_HomeState_ = UINT#20 THEN
+                    IF HommingMode = 0 THEN
+                        _HommingMode := 551;
+                    ELSE
+                        _HommingMode := HommingMode;
+                    END_IF;
+                    //S-0-0147, Homing parameter
+                    IF THIS.AxoWriteParameter(ParameterNumber := 147, Value := _HommingMode ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,Error => _Error, ErrorID =>_ErrorID).IsDone() THEN
+                        MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                    END_IF;
+                    IF _Error THEN
+                        MC_HomeError_ := TRUE;
+                        MC_HomeErrorID_ := _ErrorID;
+                    END_IF;
+                END_IF;
+                IF MC_HomeState_ = UINT#30 THEN
+                    AxoWriteParameter_Task.Restore();
+                    MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                END_IF;
+                IF MC_HomeState_ = UINT#40 THEN
+                    //S-0-0041, Homing velocity
+                    IF THIS.AxoWriteParameter(ParameterNumber := 41, Value := TO_DINT(Velocity * EXP(LN(10)*VelocityExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,Error => _Error, ErrorID =>_ErrorID).IsDone() THEN
+                        MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                    END_IF;
+                    IF _Error THEN
+                        MC_HomeError_ := TRUE;
+                        MC_HomeErrorID_ := _ErrorID;
+                    END_IF;
+                END_IF;
+                IF MC_HomeState_ = UINT#50 THEN
+                    AxoWriteParameter_Task.Restore();
+                    MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                END_IF;
+                IF MC_HomeState_ = UINT#60 THEN
+                    //S-0-0042, Homing acceleration
+                    IF THIS.AxoWriteParameter(ParameterNumber := 42, Value := TO_DINT(Acceleration * EXP(LN(10)*AccelerationExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,Error => _Error, ErrorID =>_ErrorID).IsDone() THEN
+                        MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                    END_IF;
+                    IF _Error THEN
+                        MC_HomeError_ := TRUE;
+                        MC_HomeErrorID_ := _ErrorID;
+                    END_IF;
+                END_IF;
+                IF MC_HomeState_ = UINT#70 THEN
+                    AxoWriteParameter_Task.Restore();
+                    MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                END_IF;
+            END_IF;
+            
+            IF Execute AND MC_HomeState_ < UINT#80 THEN
+                RETURN;
+            END_IF;
+            
+            (************ start of homing *****************************)
+            IF Execute OR MC_HomeExecute_PV  THEN
+                MC_HomeFirstCall := TRUE;
+                IF _AxisReference^.Data.CheckAccessOK	THEN
+                    IF NOT _AxisReference^.Data.PowerOK OR  _AxisReference^.Data.DriveStopReq AND MC_HomeActive_ THEN
+                        MC_HomeDone_ := FALSE;
+                        MC_HomeActive_ := FALSE;
+                        MC_HomeCommandAborted_ := TRUE;
+                        _AxisReference^.Data.HomingReq:= FALSE;
+                    END_IF;
+                    IF Execute AND NOT MC_HomeExecute_PV  THEN
+                        IF _AxisReference^.Data.PowerOK AND NOT _AxisReference^.Data.DriveStopReq THEN
+                            _AxisReference^.Data.CallNumberCyclic := _AxisReference^.Data.CallNumberCyclic + INT#2;
+                            MC_HomeCallNumber := _AxisReference^.Data.CallNumberCyclic;
+                            _AxisReference^.Data.WriteCommand:= TRUE;
+                            _AxisReference^.Data.HomingReq:= TRUE;
+                            _AxisReference^.Data.DriveStopReq:= FALSE;
+                            _AxisReference^.Data.DriveHaltReq:= FALSE;
+                            _AxisReference^.Data.MoveVelocityReq:= FALSE;
+                            _AxisReference^.Data.TorqueControlReq:= FALSE;
+                            _AxisReference^.Data.Relative:= FALSE;
+                            _AxisReference^.Data.Additive:= FALSE;
+                            _AxisReference^.Data.Position := Position;
+                            _AxisReference^.Data.Velocity := Velocity;
+                            _AxisReference^.Data.Acceleration := Acceleration;
+                            _AxisReference^.Data.Deceleration := Deceleration;
+                        ELSE
+                            MC_HomeError_ := TRUE;
+                            MC_HomeErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#STATE_MACHINE_Error; 	(*State machine MC_HomeError_*)
+                        END_IF;
+                    END_IF;
+                ELSE
+                    MC_HomeCallNumber := MC_HomeCallNumber - INT#1;
+                    MC_HomeError_ := TRUE;
+                    MC_HomeErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#RESOURCE_Error;
+                END_IF;
+                IF NOT Execute AND MC_HomeExecute_PV THEN
+                    _AxisReference^.Data.HomingReq:= FALSE;
+                    MC_HomeCommandAborted_ := FALSE;
+                    MC_HomeError_ := FALSE;
+                    MC_HomeErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_Error;
+                END_IF;
+            ELSE
+                MC_HomeDone_					:= FALSE; 					
+                MC_HomeActive_					:= FALSE;					
+                MC_HomeCommandAborted_ 			:= FALSE;					
+                MC_HomeError_					:= FALSE;					
+                MC_HomeErrorID_ 				:= AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_Error;
+                MC_HomeState_ 					:= UINT#0;
+            END_IF;
+            (*************** detection of command finished *******************)
+            IF MC_HomeFirstCall THEN
+                IF MC_HomeCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
+                    _AxisReference^.Data.CallAxis := TRUE;
+                    _AxisReference^.Data.ReadOnlyData := FALSE;
+                    THIS.FieldBusCommunication(	AxisRef := _AxisReference,CommandWriteActive=> Dummy);
+                    IF NOT _AxisReference^.Data.CommandWriteActive THEN
+                         IF _AxisReference^.Data.SetpointReached THEN
+                            MC_HomeDone_ := TRUE;
+                            MC_HomeActive_ := FALSE;
+                            _AxisReference^.Data.HomingReq:= FALSE;
+                        ELSE
+                            MC_HomeActive_ := TRUE;
+                        END_IF;
+                        IF _AxisReference^.Data.Error THEN
+                            MC_HomeDone_ 	:= FALSE;
+                            MC_HomeActive_ 	:= FALSE;
+                            MC_HomeError_ 	:= TRUE;
+                            MC_HomeErrorID_ := _AxisReference^.Data.ErrorID;
+                        ELSIF _AxisReference^.Data.CallAxis THEN
+                            MC_HomeError_ := TRUE;
+                            MC_HomeErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#RESOURCE_ERROR;
+                        END_IF;
+                    END_IF;
+                END_IF;
+                (************** reset of outputs *************************************)
+                IF Execute = FALSE THEN
+                    _AxisReference^.Data.HomingReq:= FALSE;
+                    (****** reset outputs ***********)
+                    MC_HomeDone_ := FALSE;
+                    MC_HomeActive_ := FALSE;
+                    MC_HomeCommandAborted_ := FALSE;
+                    MC_HomeError_ := FALSE;
+                    MC_HomeErrorID_ :=	AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                    MC_HomeState_ := UINT#0;
+                    IF MC_HomeCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
+                        _AxisReference^.Data.CallAxis := TRUE;
+                        _AxisReference^.Data.ReadOnlyData := FALSE;
+                        THIS.FieldBusCommunication(	AxisRef := _AxisReference,CommandWriteActive=> Dummy);
+                        IF _AxisReference^.Data.SetpointReached THEN
+                            MC_HomeDone_ := TRUE;
+                            MC_HomeCallNumber := MC_HomeCallNumber - INT#1; (*Reset MC_HomeCallNumber because reset MC_HomeDone_ *)
+                        END_IF;
+                    END_IF;
+                END_IF;
+            END_IF;
+            
+            MC_HomeExecute_PV 	:=	Execute;
+            Done				:=	MC_HomeDone_;		
+            Busy				:=	Execute AND NOT Done AND NOT Error;	
+            Active 				:=	MC_HomeActive_;		
+            CommandAborted 		:=	MC_HomeCommandAborted_;
+            Error 				:=	MC_HomeError_;				
+            ErrorID 			:=	MC_HomeErrorID_;
+            
         END_METHOD
 
         VAR INTERNAL
@@ -1700,7 +1875,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+                Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
             END_VAR
             VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
@@ -1791,10 +1966,29 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             Error			:= 	MC_ReadParameterError_;				          
             ErrorID			:= 	MC_ReadParameterErrorID_;				    
             IF Valid THEN
-                Value			:= 	TO_REAL(MC_ReadParameterValue_);
+                Value			:= 	MC_ReadParameterValue_;
             ELSE
                 Value			:= 	0;
             END_IF;					          
+        END_METHOD
+
+        ///<summary>
+        /// This method returns the value of a vendor specific parameter with datatype REAL.
+        ///<summary>
+        METHOD PUBLIC OVERRIDE MC_ReadRealParameter
+            VAR_INPUT
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+                Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
+                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+            END_VAR
+            VAR_OUTPUT
+                Valid           :   BOOL;                       //  A valid output is available at the method
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification
+                Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
+            END_VAR
+            ;
         END_METHOD
 
         ///<summary>
@@ -1834,7 +2028,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
                 ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-                Value           :   REAL;                       //  New value of the specified parameter
+                Value           :   DINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
@@ -1927,6 +2121,26 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             Busy 		:= MC_WriteParameterActive_;		
             Error 		:= MC_WriteParameterError_;				
             ErrorID 	:= MC_WriteParameterErrorID_;
+        END_METHOD
+
+        ///<summary>
+        /// This method modifies the value of a vendor specific parameter of type Real.
+        ///<summary>
+        METHOD PUBLIC OVERRIDE MC_WriteRealParameter
+            VAR_INPUT
+                AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
+                Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
+                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                Value           :   REAL;                       //  New value of the specified parameter
+                ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
+            END_VAR
+            VAR_OUTPUT
+                Done            :   BOOL;                       //  Parameter successfully written
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
+                Error           :   BOOL;                       //  Signals that an error has occurred within the method
+                ErrorID         :   WORD;                       //  Error identification
+            END_VAR
+            ;
         END_METHOD
 
         ///<summary>
