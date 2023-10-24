@@ -39,10 +39,13 @@ namespace AXOpen.Logging
                 var dequeued = new List<OnlinerBool>();
                 var index = 0;
                 var caretValue = await this.Carret.GetAsync();
-                var toDequeue = this.LogEntries.Take(caretValue);
+                var toDequeue = this.LogEntries.Take(caretValue).ToArray();
 
-                this.GetConnector()?.ReadBatchAsync(toDequeue.SelectMany(p => p.GetValueTags()));
-                
+                if (toDequeue.Length <= 0)
+                    return;
+
+                await this.GetConnector()?.ReadBatchAsync(toDequeue.SelectMany(p => p.GetValueTags()))!;
+
                 foreach (var entry in toDequeue.Where(p => p.ToDequeue.LastValue))
                 {
                     var sender = entry.GetConnector().IdentityProvider.GetTwinByIdentity(entry.Sender.LastValue) as ITwinObject;
