@@ -1854,7 +1854,79 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //TODO some message
                 RETURN;
             END_IF;
-
+            IF Execute THEN
+                MC_WriteParameterFirstCall := TRUE;
+                IF _AxisReference^.Data.CheckAccessOK THEN
+                    IF Execute AND NOT MC_WriteParameterExecute_PV THEN(*	raising edge of Execute *)
+                        IF NOT _AxisReference^.Data.ActiveAcyclicCommunication THEN
+                            _AxisReference^.Data.CallNumberAcyclic := _AxisReference^.Data.CallNumberAcyclic + INT#2;
+                            MC_WriteParameterCallNumber := _AxisReference^.Data.CallNumberAcyclic;
+                            _AxisReference^.Data.WriteParameter := TRUE;
+                            _AxisReference^.Data.SelectDataType := UINT#1;
+                            _AxisReference^.Data.ParameterNumber := ParameterNumber;
+                            _AxisReference^.Data.WriteValueDword := TO_DWORD(Value);
+                            MC_WriteParameterError_ := FALSE;
+                            MC_WriteParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                        ELSE
+                            MC_WriteParameterError_ := TRUE;
+                            MC_WriteParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#ACCESS_ERROR;
+                        END_IF;
+                    END_IF;
+                ELSE
+                    MC_WriteParameterCallNumber := MC_WriteParameterCallNumber - INT#1;
+                    MC_WriteParameterError_ := TRUE;
+                    MC_WriteParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#RESOURCE_ERROR;
+                END_IF;
+            END_IF;
+            IF MC_WriteParameterFirstCall THEN
+                IF MC_WriteParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic AND Execute THEN
+                    _AxisReference^.Data.CallAxisParameterMethod := TRUE;
+                    _AxisReference^.Data.EnableAcyclicCommunication := TRUE;
+                    THIS.AcyclicCommunicationCall(AxisRef := _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
+                    MC_WriteParameterActive_ := _AxisReference^.Data.ActiveAcyclicCommunication;
+                    IF _AxisReference^.Data.DoneAcyclicCommunication THEN
+                        MC_WriteParameterCallNumber := MC_WriteParameterCallNumber - INT#1;
+                        MC_WriteParameterDone_ := TRUE;
+                        MC_WriteParameterActive_ := FALSE;
+                    END_IF;
+                    IF _AxisReference^.Data.Error_AcyclicCommunication THEN
+                        MC_WriteParameterCallNumber := MC_WriteParameterCallNumber - INT#1;
+                        MC_WriteParameterDone_ := FALSE;
+                        MC_WriteParameterActive_ := FALSE;
+                        MC_WriteParameterError_ := _AxisReference^.Data.Error_AcyclicCommunication;
+                        MC_WriteParameterErrorID_ := _AxisReference^.Data.ErrorID_AcyclicCommunication;
+                        _AxisReference^.Data.CallAxisParameterMethod := TRUE;
+                        _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
+                        THIS.AcyclicCommunicationCall(AxisRef := _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
+                    ELSIF _AxisReference^.Data.CallAxisParameterMethod THEN
+                        MC_WriteParameterCallNumber := MC_WriteParameterCallNumber - INT#1;
+                        MC_WriteParameterDone_ := FALSE;
+                        MC_WriteParameterActive_ := FALSE;
+                        MC_WriteParameterError_ := TRUE;
+                        MC_WriteParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#RESOURCE_ERROR;
+                        _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
+                    END_IF;
+                ELSIF NOT Execute AND NOT MC_WriteParameterExecute_PV AND MC_WriteParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic THEN
+                    _AxisReference^.Data.CallAxisParameterMethod := TRUE;
+                    _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
+                    THIS.AcyclicCommunicationCall(AxisRef := _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
+                    MC_WriteParameterDone_ := FALSE;
+                    MC_WriteParameterActive_ := FALSE;
+                    MC_WriteParameterError_ := FALSE;
+                    MC_WriteParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                ELSIF NOT Execute AND MC_WriteParameterExecute_PV THEN
+                    MC_WriteParameterDone_ := FALSE;
+                    MC_WriteParameterActive_ := FALSE;
+                    MC_WriteParameterError_ := FALSE;
+                    MC_WriteParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                END_IF;
+            END_IF;
+            MC_WriteParameterExecute_PV := Execute;
+            
+            Done		:= MC_WriteParameterDone_;			
+            Busy 		:= MC_WriteParameterActive_;		
+            Error 		:= MC_WriteParameterError_;				
+            ErrorID 	:= MC_WriteParameterErrorID_;
         END_METHOD
 
         ///<summary>
