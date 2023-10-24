@@ -1370,6 +1370,17 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             ;
         END_METHOD
 
+        VAR INTERNAL
+            MC_HaltExecute_PV					: 	BOOL;				//Execute - previous value
+            MC_HaltCallNumber					:	INT;				//Call number of the method MC_Halt  
+            MC_HaltFirstCall					: 	BOOL;				//First call of the method MC_Halt
+            MC_HaltDone_						:	BOOL;
+            MC_HaltActive_						:	BOOL; 
+            MC_HaltCommandAborted_				:	BOOL; 
+            MC_HaltError_						:	BOOL;
+            MC_HaltErrorID_						:	eAxoIndraDriveErrorCode;						
+        END_VAR
+        
         ///<summary>
         /// This method commands a controlled motion stop. The axis is moved to the state ‘DiscreteMotion’, until the
         /// velocity is zero. With the ‘Done’ output set, the state is transferred to ‘Standstill’.
@@ -1389,7 +1400,96 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Error           :   BOOL;                       // Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       // Error identification           
              END_VAR
-             ;
+            VAR 
+                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
+                Dummy : BOOL;
+            END_VAR
+            
+            _AxisReference ?= AxisRef;
+
+            IF(_AxisReference = NULL) THEN
+                //TODO some message
+                RETURN;
+            END_IF;
+            IF Execute OR MC_HaltExecute_PV THEN 								(* Execute = Halt to Drive *)
+                MC_HaltFirstCall := TRUE;
+                IF _AxisReference^.Data.CheckAccessOK THEN
+                    IF NOT MC_HaltDone_ THEN
+                        IF Execute AND NOT MC_HaltExecute_PV THEN
+                            MC_HaltDone_ := FALSE;
+                            _AxisReference^.Data.CallNumberCyclic := _AxisReference^.Data.CallNumberCyclic + INT#2;
+                            MC_HaltCallNumber := _AxisReference^.Data.CallNumberCyclic;
+                            _AxisReference^.Data.DriveHaltReq := TRUE;
+                            _AxisReference^.Data.HomingReq:= FALSE;
+                            _AxisReference^.Data.MoveVelocityReq:= FALSE;
+                            _AxisReference^.Data.TorqueControlReq:= FALSE;
+                            _AxisReference^.Data.Relative:= FALSE;
+                            _AxisReference^.Data.Additive:= FALSE;
+                            _AxisReference^.Data.Deceleration := Deceleration;
+                            _AxisReference^.Data.Jerk := Jerk;
+                        END_IF;
+                        MC_HaltActive_ := TRUE;
+                        _AxisReference^.Data.CallAxis := TRUE;
+                        _AxisReference^.Data.ReadOnlyData := FALSE;
+                        _AxisReference^.Data.HomingReq:= FALSE;
+                        THIS.FieldBusCommunication(AxisRef:= _AxisReference,
+                                                CommandWriteActive=> Dummy);
+                        IF 	_AxisReference^.Data.StopError AND MC_HaltCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
+                            MC_HaltError_		:= TRUE; 						(*	Set the ERROR-Output *)
+                            MC_HaltErrorID_ :=	_AxisReference^.Data.ErrorID;
+                        ELSIF _AxisReference^.Data.CallAxis THEN
+                            MC_HaltActive_ := FALSE;
+                            MC_HaltError_ := TRUE;
+                            MC_HaltErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#RESOURCE_ERROR;
+                        END_IF;
+                    END_IF;
+                ELSE
+                    MC_HaltCallNumber := MC_HaltCallNumber - INT#1;
+                    MC_HaltError_ := TRUE;
+                    MC_HaltErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#RESOURCE_ERROR;
+                END_IF;
+                IF _AxisReference^.Fieldbus_In.InStandstill THEN
+                    MC_HaltDone_ := TRUE;
+                    MC_HaltActive_ := FALSE;
+                    _AxisReference^.Data.DriveHaltReq := FALSE;
+                END_IF;
+                IF NOT Execute AND MC_HaltExecute_PV THEN
+                    _AxisReference^.Data.DriveHaltReq := FALSE;
+                END_IF;
+            ELSE
+                MC_HaltDone_ := FALSE;
+                MC_HaltActive_ := FALSE;
+                MC_HaltError_		:= FALSE;
+                MC_HaltErrorID_ :=	AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+            END_IF;
+            IF NOT Execute AND MC_HaltFirstCall AND MC_HaltActive_ THEN
+                IF MC_HaltCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
+                    _AxisReference^.Data.CallAxis := TRUE;
+                    _AxisReference^.Data.ReadOnlyData := FALSE;
+                                    THIS.FieldBusCommunication(AxisRef:= _AxisReference,
+                                                CommandWriteActive=> Dummy);
+                    IF _AxisReference^.Data.Stopped THEN
+                        MC_HaltDone_ := TRUE;
+                        MC_HaltActive_ := FALSE;
+                        MC_HaltCallNumber := MC_HaltCallNumber - INT#1;
+                    END_IF;
+                ELSE
+                    MC_HaltDone_ := FALSE;
+                    MC_HaltActive_ := FALSE;
+                    MC_HaltCommandAborted_ := TRUE;
+                END_IF;
+            ELSE
+                MC_HaltCommandAborted_ := FALSE;
+            END_IF;
+            MC_HaltExecute_PV := Execute;
+            
+            Done			:=  MC_HaltDone_;			
+            Busy := Execute AND NOT Done AND NOT Error;        
+            Active			:=  MC_HaltActive_;			      
+            CommandAborted	:=  MC_HaltCommandAborted_;	
+            Error			:=  MC_HaltError_;			       
+            ErrorID			:=  MC_HaltErrorID_;			     
+            
         END_METHOD
 
         ///<summary>
@@ -1613,9 +1713,88 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 //TODO some message
                 RETURN;
             END_IF;
-
-            ;
-
+            IF Enable THEN
+                MC_ReadParameterFirstCall := TRUE;
+                IF _AxisReference^.Data.CheckAccessOK THEN
+                    IF Enable AND NOT MC_ReadParameterEnable_PV THEN(*	raising edge of Enable *)
+                        IF NOT _AxisReference^.Data.ActiveAcyclicCommunication THEN
+                            _AxisReference^.Data.CallNumberAcyclic := _AxisReference^.Data.CallNumberAcyclic + INT#2;
+                            MC_ReadParameterCallNumber := _AxisReference^.Data.CallNumberAcyclic;
+                            MC_ReadParameterNumber_PV := ParameterNumber;
+                            _AxisReference^.Data.WriteParameter := FALSE;
+                            _AxisReference^.Data.SelectDataType := UINT#1;
+                            _AxisReference^.Data.ParameterNumber := MC_ReadParameterNumber_PV;
+                            MC_ReadParameterError_ := FALSE;
+                            MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                        ELSE
+                            MC_ReadParameterError_ := TRUE;
+                            MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#ACCESS_ERROR;
+                        END_IF;
+                    END_IF;
+                ELSE
+                    MC_ReadParameterCallNumber := MC_ReadParameterCallNumber - INT#1;
+                    MC_ReadParameterError_ := TRUE;
+                    MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#RESOURCE_ERROR;
+                END_IF;
+            END_IF;
+            IF MC_ReadParameterFirstCall THEN
+                IF MC_ReadParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic AND Enable	THEN
+                    _AxisReference^.Data.CallAxisParameterMethod := TRUE;
+                    _AxisReference^.Data.EnableAcyclicCommunication := TRUE;
+                    THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);		
+                    Busy := _AxisReference^.Data.ActiveAcyclicCommunication;
+                    IF _AxisReference^.Data.DoneAcyclicCommunication THEN
+                        MC_ReadParameterDone_ := TRUE;
+                        MC_ReadParameterActive_ := FALSE;
+                        MC_ReadParameterValue_ := TO_DINT(_AxisReference^.Data.ReadValueDword);
+                    END_IF;
+                    IF _AxisReference^.Data.Error_AcyclicCommunication THEN
+                        MC_ReadParameterCallNumber := MC_ReadParameterCallNumber - INT#1;
+                        MC_ReadParameterDone_ := FALSE;
+                        MC_ReadParameterActive_ := FALSE;
+                        MC_ReadParameterError_ := _AxisReference^.Data.Error_AcyclicCommunication;
+                        MC_ReadParameterErrorID_ := _AxisReference^.Data.ErrorID_AcyclicCommunication;
+                        _AxisReference^.Data.CallAxisParameterMethod := TRUE;
+                        _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
+                        THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
+                    ELSIF  _AxisReference^.Data.CallAxisParameterMethod THEN
+                        MC_ReadParameterCallNumber := MC_ReadParameterCallNumber - INT#1;
+                        MC_ReadParameterDone_ := FALSE;
+                        MC_ReadParameterActive_ := FALSE;
+                        MC_ReadParameterError_ := TRUE;
+                        MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#RESOURCE_ERROR;
+                        _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
+                    END_IF;
+                ELSIF Enable AND MC_ReadParameterEnable_PV AND MC_ReadParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic THEN
+                    _AxisReference^.Data.CallAxisParameterMethod := TRUE;
+                    _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
+                    THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
+                    MC_ReadParameterDone_ := FALSE;
+                    MC_ReadParameterActive_ := FALSE;
+                    MC_ReadParameterValue_ := DINT#0;
+                    MC_ReadParameterError_ := FALSE;
+                    MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                ELSIF NOT Enable AND MC_ReadParameterEnable_PV THEN
+                    MC_ReadParameterDone_ := FALSE;
+                    MC_ReadParameterActive_ := FALSE;
+                    MC_ReadParameterValue_ := DINT#0;
+                    MC_ReadParameterError_ := FALSE;
+                    MC_ReadParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                    _AxisReference^.Data.ActiveAcyclicCommunication := FALSE;
+                    _AxisReference^.Data.DoneAcyclicCommunication := FALSE;
+                END_IF;
+            END_IF;
+            MC_ReadParameterEnable_PV := Enable;
+            
+            Valid			:= 	MC_ReadParameterDone_;				           
+            Busy			:= 	MC_ReadParameterActive_;				  
+            Error			:= 	MC_ReadParameterError_;				          
+            ErrorID			:= 	MC_ReadParameterErrorID_;				    
+            IF Valid THEN
+                Value			:= 	TO_REAL(MC_ReadParameterValue_);
+            ELSE
+                Value			:= 	0;
+            END_IF;					          
         END_METHOD
 
         ///<summary>
@@ -1637,6 +1816,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             ;
         END_METHOD
 
+        VAR INTERNAL
+            MC_WriteParameterExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                         
+            MC_WriteParameterDone_PV			:	BOOL := FALSE;		//Done - previous value                           
+            MC_WriteParameterCallNumber			: 	INT; 				//Call number of the method MC_WriteParameter  
+            MC_WriteParameterFirstCall			: 	BOOL;				//First call of the method MC_WriteParameter 
+            MC_WriteParameterDone_				:	BOOL;				
+            MC_WriteParameterActive_			:	BOOL := FALSE;		
+            MC_WriteParameterError_				:	BOOL;				
+            MC_WriteParameterErrorID_			:	eAxoIndraDriveErrorCode;			
+        END_VAR
         ///<summary>
         /// This method modifies the value of a vendor specific parameter.
         ///<summary>
@@ -1654,7 +1843,18 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
             END_VAR
-            ;
+            VAR 
+                _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
+                Dummy : BOOL;
+            END_VAR
+            
+            _AxisReference ?= AxisRef;
+
+            IF(_AxisReference = NULL) THEN
+                //TODO some message
+                RETURN;
+            END_IF;
+
         END_METHOD
 
         ///<summary>
