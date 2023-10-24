@@ -631,7 +631,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
         END_METHOD
         METHOD AxoSetPosition   :   AXOpen.Core.IAxoTaskState
             VAR_INPUT
-                Position        :   REAL;                       //  Position unit [u] (Means ‘Distance’ if ‘Relative’= TRUE)
+                Position        :   LREAL;                       //  Position unit [u] (Means ‘Distance’ if ‘Relative’= TRUE)
                 Relative        :   BOOL;                       //  ‘Relative’ distance if True, ‘Absolute’ position if False (= Default)
                 ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -755,7 +755,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Position        :   REAL;                       //  New absolute position (in axis’ unit [u])
+                Position        :   LREAL;                       //  New absolute position (in axis’ unit [u])
             END_VAR
         END_METHOD
         METHOD AxoReadActualVelocity : AXOpen.Core.IAxoToggleTask
@@ -767,7 +767,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Velocity        :   REAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
+                Velocity        :   LREAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
         END_METHOD
         METHOD AxoReadActualTorque : AXOpen.Core.IAxoToggleTask
@@ -779,7 +779,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Torque          :   REAL;                       //  The value of the actual torque or force (in technical units)
+                Torque          :   LREAL;                       //  The value of the actual torque or force (in technical units)
             END_VAR
         END_METHOD
         METHOD AxoReadStatus : AXOpen.Core.IAxoToggleTask

@@ -213,12 +213,13 @@ NAMESPACE AxoDriveTests.Tests
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                      
-                Position        :   REAL;                      
+                Position        :   LREAL;                      
                 Relative        :   BOOL;                      
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                      
+                Busy            :   BOOL;                      
                 Error           :   BOOL;                      
                 ErrorID         :   WORD;                      
             END_VAR
@@ -229,8 +230,8 @@ NAMESPACE AxoDriveTests.Tests
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       
-                VelFactor       :   LREAL;                      
-                AccFactor       :   LREAL;                      
+                VelocityFactor  :   LREAL;                      
+                AccelerationFactor:   LREAL;                      
                 JerkFactor      :   LREAL;                      
             END_VAR
             VAR_OUTPUT
@@ -367,7 +368,7 @@ NAMESPACE AxoDriveTests.Tests
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
                 ErrorID         :   WORD;                      
-                Position        :   REAL;                      
+                Position        :   LREAL;                      
             END_VAR
             ;
         END_METHOD
@@ -382,7 +383,7 @@ NAMESPACE AxoDriveTests.Tests
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
                 ErrorID         :   WORD;                       
-                Velocity        :   REAL;                       
+                Velocity        :   LREAL;                       
             END_VAR
             ;
         END_METHOD
@@ -397,7 +398,7 @@ NAMESPACE AxoDriveTests.Tests
                 Busy            :   BOOL;                       
                 Error           :   BOOL;                       
                 ErrorID         :   WORD;                       
-                Torque          :   REAL;                       
+                Torque          :   LREAL;                       
             END_VAR
             ;
         END_METHOD

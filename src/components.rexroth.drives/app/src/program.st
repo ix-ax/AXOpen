@@ -20,7 +20,7 @@ PROGRAM MyProgram
     sandbox.PlcOutputs := REF(PlcOutputs);
     sandbox.Run();    
     sandbox.InjectRtc(_rtc);
- 
+    
     documentation.Run();
     documentation.InjectRtc(_rtc);
  

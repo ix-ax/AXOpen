@@ -391,6 +391,9 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-set:AttributeName = "<#Set position done#>"}
             AxoSetPosition_Done                     :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Set position busy#>"}
+            AxoSetPosition_Busy                     :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position error#>"}
             AxoSetPosition_Error                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
@@ -620,7 +623,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadActualPosition_ErrorID           :   WORD;          
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position value#>"}
-            AxoReadActualPosition_Value             :   REAL;          
+            AxoReadActualPosition_Value             :   LREAL;          
             //***********ReadActualVelocity*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -641,7 +644,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadActualVelocity_ErrorID           :   WORD;          
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity value#>"}
-            AxoReadActualVelocity_Value             :   REAL;          
+            AxoReadActualVelocity_Value             :   LREAL;          
             //***********ReadActualTorque*********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -662,7 +665,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadActualTorque_ErrorID             :   WORD;          
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque value#>"}
-            AxoReadActualTorque_Value               :   REAL;          
+            AxoReadActualTorque_Value               :   LREAL;          
             //***********ReadStatus***************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -945,7 +948,7 @@ NAMESPACE AXOpen.Components.Drives
             _AxoTorqueControl_Jerk                  :   LREAL;
             _AxoTorqueControl_Direction             :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
             //***********SetPosition**************************
-            _AxoSetPosition_Position                :   REAL;                    
+            _AxoSetPosition_Position                :   LREAL;                    
             _AxoSetPosition_Relative                :   BOOL;                    
             _AxoSetPosition_ExecutionMode           :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;       
             //***********SetOverride**************************
@@ -1325,6 +1328,7 @@ NAMESPACE AXOpen.Components.Drives
                         _AxoSetPosition_Relative,
                         _AxoSetPosition_ExecutionMode,
                         AxoSetPosition_Done,
+                        AxoSetPosition_Busy,
                         AxoSetPosition_Error,
                         AxoSetPosition_ErrorID);
 
@@ -2050,7 +2054,7 @@ NAMESPACE AXOpen.Components.Drives
         ///<summary>
         METHOD PUBLIC AxoSetPosition   : IAxoTaskState
             VAR_INPUT
-                Position        :   REAL;                       //  Position unit [u] (Means ‘Distance’ if ‘Relative’= TRUE)
+                Position        :   LREAL;                      //  Position unit [u] (Means ‘Distance’ if ‘Relative’= TRUE)
                 Relative        :   BOOL;                       //  ‘Relative’ distance if True, ‘Absolute’ position if False (= Default)
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -2333,7 +2337,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Position        :   REAL;                       //  New absolute position (in axis’ unit [u])
+                Position        :   LREAL;                      //  New absolute position (in axis’ unit [u])
             END_VAR
 
             IF Enable THEN
@@ -2365,7 +2369,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Velocity        :   REAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
+                Velocity        :   LREAL;                      //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
 
             IF Enable THEN
@@ -2397,7 +2401,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Torque          :   REAL;                       //  The value of the actual torque or force (in technical units)
+                Torque          :   LREAL;                      //  The value of the actual torque or force (in technical units)
             END_VAR
 
             IF Enable THEN
@@ -2624,9 +2628,6 @@ NAMESPACE AXOpen.Components.Drives
                 refAxisIn       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             END_VAR
-            // VAR_IN_OUT
-            //     AxisRef    :   AxoAxisRef;
-            // END_VAR
         END_METHOD   
 
         ///<summary>
@@ -2634,9 +2635,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in derived class.
         ///</summary>
         METHOD PROTECTED ABSTRACT UpdateOutputs : BOOL
-            // VAR_IN_OUT
-            //     AxisRef    :   AxoAxisRef;
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 refAxisOut      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
@@ -2648,9 +2646,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in derived class.
         ///</summary>
         METHOD PUBLIC ABSTRACT MC_Power 
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
@@ -2670,9 +2665,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///</summary>
         METHOD PUBLIC ABSTRACT MC_Home
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the motion at rising edge
@@ -2699,9 +2691,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///</summary>
         METHOD PUBLIC ABSTRACT MC_Stop 
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the action at rising edge
@@ -2724,9 +2713,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///</summary>
         METHOD PUBLIC ABSTRACT MC_Halt 
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the action at rising edge
@@ -2748,9 +2734,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_MoveAbsolute
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the motion at rising edge
@@ -2777,9 +2760,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_MoveRelative 
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the motion at rising edge
@@ -2809,9 +2789,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_MoveAdditive
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the motion at rising edge
@@ -2838,9 +2815,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_MoveVelocity
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the motion at rising edge
@@ -2869,9 +2843,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_TorqueControl
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the motion at rising edge
@@ -2902,18 +2873,16 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_SetPosition
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start setting position in axis
-                Position        :   REAL;                       //  Position unit [u] (Means ‘Distance’ if ‘Relative’= TRUE)
+                Position        :   LREAL;                      //  Position unit [u] (Means ‘Distance’ if ‘Relative’= TRUE)
                 Relative        :   BOOL;                       //  ‘Relative’ distance if True, ‘Absolute’ position if False (= Default)
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       //  ‘Position’ has new value
+                Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification             
             END_VAR
@@ -2925,14 +2894,11 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_SetOverride
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  If SET, it writes the value of the override factor continuously. If RESET it should keep the last value.
-                VelFactor       :   LREAL;                      //  New override factor for the velocity
-                AccFactor       :   LREAL;                      //  New override factor for the acceleration/deceleration
+                VelocityFactor  :   LREAL;                      //  New override factor for the velocity
+                AccelerationFactor:   LREAL;                      //  New override factor for the acceleration/deceleration
                 JerkFactor      :   LREAL;                      //  New override factor for the jer            
             END_VAR
             VAR_OUTPUT
@@ -2949,9 +2915,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadParameter
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
@@ -2971,9 +2934,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadBoolParameter
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
@@ -2993,9 +2953,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_WriteParameter
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
@@ -3016,9 +2973,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_WriteBoolParameter
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
@@ -3040,9 +2994,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadDigitalInput
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the selected input signal continuously while enabled
@@ -3063,9 +3014,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadDigitalOutput
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the selected output signal continuously while enabled
@@ -3085,9 +3033,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_WriteDigitalOutput
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the selected output signal continuously while enabled
@@ -3108,9 +3053,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadActualPosition 
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
@@ -3120,7 +3062,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Position        :   REAL;                       //  New absolute position (in axis’ unit [u])
+                Position        :   LREAL;                       //  New absolute position (in axis’ unit [u])
             END_VAR
         END_METHOD
 
@@ -3131,9 +3073,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadActualVelocity
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
@@ -3143,7 +3082,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Velocity        :   REAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
+                Velocity        :   LREAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
             END_VAR
         END_METHOD
 
@@ -3154,9 +3093,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadActualTorque
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
@@ -3166,7 +3102,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                Torque          :   REAL;                       //  The value of the actual torque or force (in technical units)
+                Torque          :   LREAL;                       //  The value of the actual torque or force (in technical units)
             END_VAR
         END_METHOD
 
@@ -3175,9 +3111,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadStatus
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
@@ -3203,9 +3136,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadMotionState
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
@@ -3230,9 +3160,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadAxisInfo
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
@@ -3260,9 +3187,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_ReadAxisError
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
@@ -3282,9 +3206,6 @@ NAMESPACE AXOpen.Components.Drives
         /// This vendor specific method must be overridden in the derived class.
         ///<summary>
         METHOD PUBLIC ABSTRACT MC_Reset
-            // VAR_IN_OUT
-            //     AxisRef         :   AxoAxisRef;                 //  Reference to the axis
-            // END_VAR
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Resets all internal axis-related error
