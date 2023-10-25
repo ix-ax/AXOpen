@@ -7,6 +7,7 @@ USING AXOpen.Components.Drives;
 USING System.Math;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
+    
     {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC AxoIndraDrive EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
         VAR PUBLIC
@@ -157,23 +158,23 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             _AxisReference ?= AxisRef;
 
             IF(_AxisReference <> NULL) THEN
-                _AxisReference^.Parameter_In.Datalength                     := refParameter_In^[0];
-                _AxisReference^.Parameter_In.FL_0    		                := refParameter_In^[1].%X0;
-                _AxisReference^.Parameter_In.FL_1	    	                := refParameter_In^[1].%X1;
-                _AxisReference^.Parameter_In.FL_2	    	                := refParameter_In^[1].%X2;
-                _AxisReference^.Parameter_In.FL_3	    	                := refParameter_In^[1].%X3;
-                _AxisReference^.Parameter_In.ToggleBit   	                := refParameter_In^[1].%X4;
-                _AxisReference^.Parameter_In.LastBit	                    := refParameter_In^[1].%X5;
-                _AxisReference^.Parameter_In.Failure	                    := refParameter_In^[1].%X6;
-                _AxisReference^.Parameter_In.Reserve                        := refParameter_In^[1].%X7;
-                _AxisReference^.Parameter_In.DataWord_0.%B0                 := refParameter_In^[2];
-                _AxisReference^.Parameter_In.DataWord_0.%B1                 := refParameter_In^[3];
-                _AxisReference^.Parameter_In.DataWord_1.%B0                 := refParameter_In^[4];
-                _AxisReference^.Parameter_In.DataWord_1.%B1                 := refParameter_In^[5];
-                _AxisReference^.Parameter_In.DataWord_2.%B0                 := refParameter_In^[6];
-                _AxisReference^.Parameter_In.DataWord_2.%B1                 := refParameter_In^[7];
-                _AxisReference^.Parameter_In.DataWord_3.%B0                 := refParameter_In^[8];
-                _AxisReference^.Parameter_In.DataWord_3.%B1                 := refParameter_In^[9];
+                _AxisReference^.Parameter_In.Datalength                     := refParameter_In^[1];
+                _AxisReference^.Parameter_In.FL_0    		                := refParameter_In^[0].%X0;
+                _AxisReference^.Parameter_In.FL_1	    	                := refParameter_In^[0].%X1;
+                _AxisReference^.Parameter_In.FL_2	    	                := refParameter_In^[0].%X2;
+                _AxisReference^.Parameter_In.FL_3	    	                := refParameter_In^[0].%X3;
+                _AxisReference^.Parameter_In.ToggleBit   	                := refParameter_In^[0].%X4;
+                _AxisReference^.Parameter_In.LastBit	                    := refParameter_In^[0].%X5;
+                _AxisReference^.Parameter_In.Failure	                    := refParameter_In^[0].%X6;
+                _AxisReference^.Parameter_In.Reserve                        := refParameter_In^[0].%X7;
+                _AxisReference^.Parameter_In.DataWord_0.%B0                 := refParameter_In^[3];
+                _AxisReference^.Parameter_In.DataWord_0.%B1                 := refParameter_In^[2];
+                _AxisReference^.Parameter_In.DataWord_1.%B0                 := refParameter_In^[5];
+                _AxisReference^.Parameter_In.DataWord_1.%B1                 := refParameter_In^[4];
+                _AxisReference^.Parameter_In.DataWord_2.%B0                 := refParameter_In^[7];
+                _AxisReference^.Parameter_In.DataWord_2.%B1                 := refParameter_In^[6];
+                _AxisReference^.Parameter_In.DataWord_3.%B0                 := refParameter_In^[9];
+                _AxisReference^.Parameter_In.DataWord_3.%B1                 := refParameter_In^[8];
 
                 _AxisReference^.FieldBus_In.PhaseAcknowledgeBit0            := refFieldbus_In^[1].%X0;  
                 _AxisReference^.FieldBus_In.PhaseAcknowledgeBit1 	        := refFieldbus_In^[1].%X1;  
@@ -191,26 +192,22 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference^.FieldBus_In.DriveErrorZKL1 			        := refFieldbus_In^[0].%X5;  
                 _AxisReference^.FieldBus_In.ReadyToOperateBit0 		        := refFieldbus_In^[0].%X6;  
                 _AxisReference^.FieldBus_In.ReadyToOperateBit1 		        := refFieldbus_In^[0].%X7;  
-                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B0     := refFieldbus_In^[3];  
-                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B1     := refFieldbus_In^[2];  
-                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B2     := refFieldbus_In^[5];  
-                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B3     := refFieldbus_In^[4];  
-                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B0     := refFieldbus_In^[7]; 
-                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B1     := refFieldbus_In^[6]; 
-                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B2     := refFieldbus_In^[9]; 
-                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B3     := refFieldbus_In^[8]; 
-                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B0          := refFieldbus_In^[11]; 
-                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B1          := refFieldbus_In^[10]; 
-                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B2          := refFieldbus_In^[13]; 
-                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B3          := refFieldbus_In^[12]; 
-                _AxisReference^.FieldBus_In.S_0_0144_SignalStatusWord.%B0   := refFieldbus_In^[15]; 
+                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B3     := refFieldbus_In^[2];  
+                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B2     := refFieldbus_In^[3];  
+                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B1     := refFieldbus_In^[4];  
+                _AxisReference^.FieldBus_In.S_0_0051_ActualPosition.%B0     := refFieldbus_In^[5];  
+                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B3     := refFieldbus_In^[6]; 
+                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B2     := refFieldbus_In^[7]; 
+                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B1     := refFieldbus_In^[8]; 
+                _AxisReference^.FieldBus_In.S_0_0040_ActualVelocity.%B0     := refFieldbus_In^[9]; 
+                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B3          := refFieldbus_In^[10]; 
+                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B2          := refFieldbus_In^[11]; 
+                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B1          := refFieldbus_In^[12]; 
+                _AxisReference^.FieldBus_In.S_0_0390_Diagnosis.%B0          := refFieldbus_In^[13]; 
                 _AxisReference^.FieldBus_In.S_0_0144_SignalStatusWord.%B1   := refFieldbus_In^[14]; 
-                _AxisReference^.FieldBus_In.S_0_0084_ActualTorque.%B0       := refFieldbus_In^[17]; 
+                _AxisReference^.FieldBus_In.S_0_0144_SignalStatusWord.%B0   := refFieldbus_In^[15]; 
                 _AxisReference^.FieldBus_In.S_0_0084_ActualTorque.%B1       := refFieldbus_In^[16]; 
-
-
-                // _AxisRefExt.Parameter_In                                       := _AxisReference^.Parameter_In;
-                // _AxisRefExt.FieldBus_In                                        := _AxisReference^.FieldBus_In;
+                _AxisReference^.FieldBus_In.S_0_0084_ActualTorque.%B0       := refFieldbus_In^[17]; 
             END_IF;
         END_METHOD   
 
@@ -228,27 +225,23 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_VAR
             _AxisReference ?= AxisRef;
             IF(_AxisReference <> NULL) THEN
-                // ;
-                // _AxisReference^.Parameter_Out   := _AxisRefExt.Parameter_Out;
-                // _AxisReference^.FieldBus_Out    := _AxisRefExt.FieldBus_Out;
-
-                refParameter_Out^[0]         := _AxisReference^.Parameter_Out.Datalength;
-                refParameter_Out^[1].%X0     := _AxisReference^.Parameter_Out.FL_0;
-                refParameter_Out^[1].%X1     := _AxisReference^.Parameter_Out.FL_1;
-                refParameter_Out^[1].%X2     := _AxisReference^.Parameter_Out.FL_2;
-                refParameter_Out^[1].%X3     := _AxisReference^.Parameter_Out.FL_3;
-                refParameter_Out^[1].%X4     := _AxisReference^.Parameter_Out.ToggleBit;
-                refParameter_Out^[1].%X5     := _AxisReference^.Parameter_Out.LastBit;
-                refParameter_Out^[1].%X6     := _AxisReference^.Parameter_Out.Initalisation;
-                refParameter_Out^[1].%X7     := _AxisReference^.Parameter_Out.Reserve;
-                refParameter_Out^[2]         := _AxisReference^.Parameter_Out.Index.%B0;
-                refParameter_Out^[3]         := _AxisReference^.Parameter_Out.Index.%B1;
-                refParameter_Out^[4]         := _AxisReference^.Parameter_Out.Subindex;
-                refParameter_Out^[5]         := _AxisReference^.Parameter_Out.Axis;
-                refParameter_Out^[6]         := _AxisReference^.Parameter_Out.DataWord_0.%B0;
-                refParameter_Out^[7]         := _AxisReference^.Parameter_Out.DataWord_0.%B1;
-                refParameter_Out^[8]         := _AxisReference^.Parameter_Out.DataWord_1.%B0;
-                refParameter_Out^[9]         := _AxisReference^.Parameter_Out.DataWord_1.%B1;
+                refParameter_Out^[1]         := _AxisReference^.Parameter_Out.Datalength;
+                refParameter_Out^[0].%X0     := _AxisReference^.Parameter_Out.FL_0;
+                refParameter_Out^[0].%X1     := _AxisReference^.Parameter_Out.FL_1;
+                refParameter_Out^[0].%X2     := _AxisReference^.Parameter_Out.FL_2;
+                refParameter_Out^[0].%X3     := _AxisReference^.Parameter_Out.FL_3;
+                refParameter_Out^[0].%X4     := _AxisReference^.Parameter_Out.ToggleBit;
+                refParameter_Out^[0].%X5     := _AxisReference^.Parameter_Out.LastBit;
+                refParameter_Out^[0].%X6     := _AxisReference^.Parameter_Out.Initalisation;
+                refParameter_Out^[0].%X7     := _AxisReference^.Parameter_Out.Reserve;
+                refParameter_Out^[3]         := _AxisReference^.Parameter_Out.Index.%B0;
+                refParameter_Out^[2]         := _AxisReference^.Parameter_Out.Index.%B1;
+                refParameter_Out^[5]         := _AxisReference^.Parameter_Out.Subindex;
+                refParameter_Out^[4]         := _AxisReference^.Parameter_Out.Axis;
+                refParameter_Out^[7]         := _AxisReference^.Parameter_Out.DataWord_0.%B0;
+                refParameter_Out^[6]         := _AxisReference^.Parameter_Out.DataWord_0.%B1;
+                refParameter_Out^[9]         := _AxisReference^.Parameter_Out.DataWord_1.%B0;
+                refParameter_Out^[8]         := _AxisReference^.Parameter_Out.DataWord_1.%B1;
 
                 refFieldbus_Out^[1].%X0      := _AxisReference^.FieldBus_Out.SetpointAcceptance;
                 refFieldbus_Out^[1].%X1      := _AxisReference^.FieldBus_Out.OperatingModeSet;
@@ -266,30 +259,30 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 refFieldbus_Out^[0].%X5      := _AxisReference^.FieldBus_Out.DriveHalt;
                 refFieldbus_Out^[0].%X6      := _AxisReference^.FieldBus_Out.DriveEnable;
                 refFieldbus_Out^[0].%X7      := _AxisReference^.FieldBus_Out.DriveOn;
-                refFieldbus_Out^[3]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B0;
-                refFieldbus_Out^[2]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B1;
-                refFieldbus_Out^[5]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B2;
-                refFieldbus_Out^[4]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B3;
-                refFieldbus_Out^[7]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B0;
-                refFieldbus_Out^[6]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B1;
-                refFieldbus_Out^[9]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B2;
-                refFieldbus_Out^[8]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B3;
-                refFieldbus_Out^[11]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B0;
-                refFieldbus_Out^[10]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B1;
-                refFieldbus_Out^[13]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B2;
-                refFieldbus_Out^[12]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B3;
-                refFieldbus_Out^[15]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B0;
-                refFieldbus_Out^[14]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B1;
-                refFieldbus_Out^[14]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B2;
-                refFieldbus_Out^[16]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B3;
-                refFieldbus_Out^[19]         := _AxisReference^.FieldBus_Out.S_0_0145_SignalControlWord.%B0;
+                refFieldbus_Out^[2]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B3;
+                refFieldbus_Out^[3]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B2;
+                refFieldbus_Out^[4]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B1;
+                refFieldbus_Out^[5]          := _AxisReference^.FieldBus_Out.S_0_0282_CommandPosition.%B0;
+                refFieldbus_Out^[6]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B3;
+                refFieldbus_Out^[7]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B2;
+                refFieldbus_Out^[8]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B1;
+                refFieldbus_Out^[9]          := _AxisReference^.FieldBus_Out.S_0_0259_CommandVelocity.%B0;
+                refFieldbus_Out^[10]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B3;
+                refFieldbus_Out^[11]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B2;
+                refFieldbus_Out^[12]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B1;
+                refFieldbus_Out^[13]         := _AxisReference^.FieldBus_Out.S_0_0260_CommandAcceleration.%B0;
+                refFieldbus_Out^[14]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B3;
+                refFieldbus_Out^[15]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B2;
+                refFieldbus_Out^[16]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B1;
+                refFieldbus_Out^[17]         := _AxisReference^.FieldBus_Out.S_0_0359_CommandDecceleration.%B0;
                 refFieldbus_Out^[18]         := _AxisReference^.FieldBus_Out.S_0_0145_SignalControlWord.%B1;
-                refFieldbus_Out^[21]         := _AxisReference^.FieldBus_Out.S_0_0080_TorqueForceCommand.%B0;
+                refFieldbus_Out^[19]         := _AxisReference^.FieldBus_Out.S_0_0145_SignalControlWord.%B0;
                 refFieldbus_Out^[20]         := _AxisReference^.FieldBus_Out.S_0_0080_TorqueForceCommand.%B1;
-                refFieldbus_Out^[23]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B0;
-                refFieldbus_Out^[22]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B1;
-                refFieldbus_Out^[25]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B2;
-                refFieldbus_Out^[24]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B3;
+                refFieldbus_Out^[21]         := _AxisReference^.FieldBus_Out.S_0_0080_TorqueForceCommand.%B0;
+                refFieldbus_Out^[22]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B3;
+                refFieldbus_Out^[22]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B2;
+                refFieldbus_Out^[24]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B1;
+                refFieldbus_Out^[25]         := _AxisReference^.FieldBus_Out.S_0_0193_CommandJerk.%B0;
     
             END_IF;
         END_METHOD   
@@ -1251,10 +1244,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
              END_VAR
              VAR 
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
-                _Error  : BOOL;
+
                 _ErrorID : WORD;
                 _HommingMode: DINT;
                 Dummy : BOOL;
+                _result : IAxoTaskState;
             END_VAR
             
             _AxisReference ?= AxisRef;
@@ -1267,17 +1261,21 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             IF Execute AND NOT MC_HomeExecute_PV  THEN
                 IF MC_HomeState_ = UINT#0 THEN
                     //S-0-0052, Reference distance of encoder 1
-                    IF THIS.AxoWriteParameter(ParameterNumber := 52, Value := TO_DINT(Position * EXP(LN(10)* PositionExponent)),ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,Error => _Error, ErrorID =>_ErrorID).IsDone() THEN
+                    _result := THIS.AxoWriteParameter(ParameterNumber := 52, Value := TO_DINT(Position * EXP(LN(10)* PositionExponent)),ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
+                    IF _result.IsDone() THEN
                         MC_HomeState_ := MC_HomeState_ + UINT#10;	
                     END_IF;
-                    IF _Error THEN
+                    IF _result.HasError() THEN
                         MC_HomeError_ := TRUE;
                         MC_HomeErrorID_ := _ErrorID;
                     END_IF;
                 END_IF;
                 IF MC_HomeState_ = UINT#10 THEN
                     AxoWriteParameter_Task.Restore();
-                    MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                    IF(AxoWriteParameter_Task.IsReady()) THEN
+                        MC_HomeState_ := MC_HomeState_ + UINT#10;
+                        RETURN;
+                    END_IF;	
                 END_IF;
                 IF MC_HomeState_ = UINT#20 THEN
                     IF HommingMode = 0 THEN
@@ -1286,45 +1284,57 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _HommingMode := HommingMode;
                     END_IF;
                     //S-0-0147, Homing parameter
-                    IF THIS.AxoWriteParameter(ParameterNumber := 147, Value := _HommingMode ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,Error => _Error, ErrorID =>_ErrorID).IsDone() THEN
+                    _result := THIS.AxoWriteParameter(ParameterNumber := 147, Value := _HommingMode ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,ErrorID =>_ErrorID);
+                    IF _result.IsDone() THEN
                         MC_HomeState_ := MC_HomeState_ + UINT#10;	
                     END_IF;
-                    IF _Error THEN
+                    IF _result.HasError() THEN
                         MC_HomeError_ := TRUE;
                         MC_HomeErrorID_ := _ErrorID;
                     END_IF;
                 END_IF;
                 IF MC_HomeState_ = UINT#30 THEN
                     AxoWriteParameter_Task.Restore();
-                    MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                    IF(AxoWriteParameter_Task.IsReady()) THEN
+                        MC_HomeState_ := MC_HomeState_ + UINT#10;
+                        RETURN;
+                    END_IF;	
                 END_IF;
                 IF MC_HomeState_ = UINT#40 THEN
                     //S-0-0041, Homing velocity
-                    IF THIS.AxoWriteParameter(ParameterNumber := 41, Value := TO_DINT(Velocity * EXP(LN(10)*VelocityExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,Error => _Error, ErrorID =>_ErrorID).IsDone() THEN
+                    _result := THIS.AxoWriteParameter(ParameterNumber := 41, Value := TO_DINT(Velocity * EXP(LN(10)*VelocityExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
+                    IF _result.IsDone() THEN
                         MC_HomeState_ := MC_HomeState_ + UINT#10;	
                     END_IF;
-                    IF _Error THEN
+                    IF _result.HasError() THEN
                         MC_HomeError_ := TRUE;
                         MC_HomeErrorID_ := _ErrorID;
                     END_IF;
                 END_IF;
                 IF MC_HomeState_ = UINT#50 THEN
                     AxoWriteParameter_Task.Restore();
-                    MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                    IF(AxoWriteParameter_Task.IsReady()) THEN
+                        MC_HomeState_ := MC_HomeState_ + UINT#10;
+                        RETURN;
+                    END_IF;	
                 END_IF;
                 IF MC_HomeState_ = UINT#60 THEN
                     //S-0-0042, Homing acceleration
-                    IF THIS.AxoWriteParameter(ParameterNumber := 42, Value := TO_DINT(Acceleration * EXP(LN(10)*AccelerationExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,Error => _Error, ErrorID =>_ErrorID).IsDone() THEN
+                    _result := THIS.AxoWriteParameter(ParameterNumber := 42, Value := TO_DINT(Acceleration * EXP(LN(10)*AccelerationExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
+                    IF _result.IsDone() THEN
                         MC_HomeState_ := MC_HomeState_ + UINT#10;	
                     END_IF;
-                    IF _Error THEN
+                    IF _result.HasError() THEN
                         MC_HomeError_ := TRUE;
                         MC_HomeErrorID_ := _ErrorID;
                     END_IF;
                 END_IF;
                 IF MC_HomeState_ = UINT#70 THEN
                     AxoWriteParameter_Task.Restore();
-                    MC_HomeState_ := MC_HomeState_ + UINT#10;	
+                    IF(AxoWriteParameter_Task.IsReady()) THEN
+                        MC_HomeState_ := MC_HomeState_ + UINT#10;
+                        RETURN;
+                    END_IF;	
                 END_IF;
             END_IF;
             

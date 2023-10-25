@@ -32,15 +32,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoPower_Task                           :   AXOpen.Components.Drives.Axo_Power;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power status#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoPower_Status                         :   BOOL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoPower_Valid                          :   BOOL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoPower_Error                          :   BOOL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Power error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoPower_ErrorID                        :   WORD;
             //***********Stop*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -56,21 +60,27 @@ NAMESPACE AXOpen.Components.Drives
             AxoStop_Jerk                            :   LREAL;                      
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoStop_Done                            :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoStop_Busy                            :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop active#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoStop_Active                          :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop aborted#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoStop_CommandAborted                  :   BOOL;                                 
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoStop_Error                           :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoStop_ErrorID                         :   WORD;                   
             //***********Halt*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -86,21 +96,27 @@ NAMESPACE AXOpen.Components.Drives
             AxoHalt_Jerk                            :   LREAL;     
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHalt_Done                            :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHalt_Busy                            :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt active#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHalt_Active                          :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt aborted#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHalt_CommandAborted                  :   BOOL;                                 
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHalt_Error                           :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHalt_ErrorID                         :   WORD;                   
             //***********Home*********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -125,27 +141,35 @@ NAMESPACE AXOpen.Components.Drives
             AxoHome_Deceleration                    :   LREAL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home status#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHome_Status                          :   BOOL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHome_Valid                           :   BOOL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHome_Error                           :   BOOL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHome_ErrorID                         :   WORD;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHome_Done                            :   BOOL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHome_Busy                            :   BOOL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home active#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHome_Active                          :   BOOL;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home aborted#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoHome_CommandAborted                  :   BOOL;
             //***********MoveAbsolute*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -176,21 +200,27 @@ NAMESPACE AXOpen.Components.Drives
             AxoMoveAbsolute_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAbsolute_Done                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAbsolute_Busy                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute active#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAbsolute_Active                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute aborted#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAbsolute_CommandAborted          :   BOOL;                                 
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAbsolute_Error                   :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAbsolute_ErrorID                 :   WORD;                   
             //***********MoveRelative*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -221,21 +251,27 @@ NAMESPACE AXOpen.Components.Drives
             AxoMoveRelative_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveRelative_Done                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveRelative_Busy                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative active#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveRelative_Active                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative aborted#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveRelative_CommandAborted          :   BOOL;                                 
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveRelative_Error                   :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveRelative_ErrorID                 :   WORD;                   
             //***********MoveAdditive*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -266,21 +302,27 @@ NAMESPACE AXOpen.Components.Drives
             AxoMoveAdditive_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAdditive_Done                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAdditive_Busy                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive active#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAdditive_Active                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive aborted#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAdditive_CommandAborted          :   BOOL;                                 
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAdditive_Error                   :   BOOL;                   
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveAdditive_ErrorID                 :   WORD;                   
             //***********MoveVelocity*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -308,21 +350,27 @@ NAMESPACE AXOpen.Components.Drives
             AxoMoveVelocity_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity in velocity#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveVelocity_InVelocity              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveVelocity_Busy                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity active#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveVelocity_Active                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity aborted#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveVelocity_CommandAborted          :   BOOL;                                 
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveVelocity_Error                   :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoMoveVelocity_ErrorID                 :   WORD;                   
             //***********TorqueControl************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -356,21 +404,27 @@ NAMESPACE AXOpen.Components.Drives
             AxoTorqueControl_Direction              :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque in torque#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_InTorque               :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_Busy                   :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque active#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_Active                 :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque aborted#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_CommandAborted         :   BOOL;                                 
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_Error                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoTorqueControl_ErrorID                :   WORD;                   
             //***********SetPosition**************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -389,15 +443,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoSetPosition_ExecutionMode            :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;       
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoSetPosition_Done                     :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoSetPosition_Busy                     :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoSetPosition_Error                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoSetPosition_ErrorID                  :   WORD;                   
             //***********SetOverride**************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -416,15 +474,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoSetOverride_JerkFactor               :   LREAL;        
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override enabled#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoSetOverride_Enabled                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoSetOverride_Busy                     :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoSetOverride_Error                    :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoSetOverride_ErrorID                  :   WORD;          
             //***********ReadParameter************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -437,18 +499,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadParameter_ParameterNumber        :   INT;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadParameter_Valid                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadParameter_Busy                   :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadParameter_Error                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadParameter_ErrorID                :   WORD;          
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter value#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadParameter_Value                  :   DINT;          
             //***********ReadRealParameter************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -461,18 +528,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadRealParameter_ParameterNumber    :   INT;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read real parameter valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadRealParameter_Valid              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read real parameter busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadRealParameter_Busy               :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read real parameter error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadRealParameter_Error              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read real parameter error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadRealParameter_ErrorID            :   WORD;          
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read real parameter value#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadRealParameter_Value              :   REAL;          
             //***********ReadBoolParameter********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -485,18 +557,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadBoolParameter_ParameterNumber    :   INT;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadBoolParameter_Valid              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadBoolParameter_Busy               :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadBoolParameter_Error              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadBoolParameter_ErrorID            :   WORD;          
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter value#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadBoolParameter_Value              :   BOOL;          
             //***********WriteParameter***********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -515,15 +592,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteParameter_ExecutionMode         :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteParameter_Done                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteParameter_Busy                  :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteParameter_Error                 :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteParameter_ErrorID               :   WORD;          
             //***********WriteRealParameter*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -542,15 +623,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteRealParameter_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write real parameter done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteRealParameter_Done              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write real parameter busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteRealParameter_Busy              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write real parameter error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteRealParameter_Error             :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write real parameter error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteRealParameter_ErrorID           :   WORD;          
             //***********WriteBoolParameter*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -569,15 +654,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteBoolParameter_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteBoolParameter_Done              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteBoolParameter_Busy              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteBoolParameter_Error             :   BOOL;                   
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteBoolParameter_ErrorID           :   WORD;          
             //***********ReadDigitalInput*********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -590,18 +679,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadDigitalInput_InputNumber         :   INT;
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalInput_Valid               :   BOOL;                   
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalInput_Busy                :   BOOL;                   
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalInput_Error               :   BOOL;                   
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalInput_ErrorID             :   WORD;          
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital input value#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalInput_Value               :   BOOL;          
             //***********ReadDigitalOutput********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -614,18 +708,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadDigitalOutput_OutputNumber       :   INT;
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalOutput_Valid              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalOutput_Busy               :   BOOL;                   
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalOutput_Error              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalOutput_ErrorID            :   WORD;          
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Read digital output value#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadDigitalOutput_Value              :   BOOL;          
             //***********WriteDigitalOutput*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -644,15 +743,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteDigitalOutput_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteDigitalOutput_Done              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteDigitalOutput_Busy              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteDigitalOutput_Error             :   BOOL;                   
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoWriteDigitalOutput_ErrorID           :   WORD;          
             //***********ReadActualPosition*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -662,18 +765,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadActualPosition_Task              :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualPosition_Valid             :   BOOL;                   
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualPosition_Busy              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualPosition_Error             :   BOOL;                   
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualPosition_ErrorID           :   WORD;          
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual position value#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualPosition_Value             :   LREAL;          
             //***********ReadActualVelocity*******************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -683,18 +791,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadActualVelocity_Task              :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualVelocity_Valid             :   BOOL;                   
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualVelocity_Busy              :   BOOL;                   
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualVelocity_Error             :   BOOL;                   
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualVelocity_ErrorID           :   WORD;          
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual velocity value#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualVelocity_Value             :   LREAL;          
             //***********ReadActualTorque*********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -704,18 +817,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadActualTorque_Task                :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualTorque_Valid               :   BOOL;                   
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualTorque_Busy                :   BOOL;                   
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualTorque_Error               :   BOOL;                   
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualTorque_ErrorID             :   WORD;          
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read actual torque value#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadActualTorque_Value               :   LREAL;          
             //***********ReadStatus***************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -725,39 +843,51 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadStatus_Task                      :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_Valid                     :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_Busy                      :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_Error                     :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_ErrorID                   :   WORD;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status error stop#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_ErrorStop                 :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status disabled#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_Disabled                  :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status stopping#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_Stopping                  :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status homming#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_Homing                    :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status standstill#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_Standstill                :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status discrete motion#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_DiscreteMotion            :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status continuous motion#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_ContinuousMotion          :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read status synchronized motion#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadStatus_SynchronizedMotion        :   BOOL;                       
             //***********ReadMotionState**********************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -770,30 +900,39 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadMotionState_Source               :   AXOpen.Components.Abstractions.Drives.eAxoSource;
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_Valid                :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_Busy                 :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_Error                :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_ErrorID              :   WORD;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state constant velocity#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_ConstantVelocity     :   BOOL;                     
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state accelerating#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_Accelerating         :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state decelerating#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_Decelerating         :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state direction positive#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_DirectionPositive    :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read motion state direction negative#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadMotionState_DirectionNegative    :   BOOL;                      
             //***********ReadAxisInfo*************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -803,41 +942,54 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadAxisInfo_Task                    :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisInfo_Valid                   :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisInfo_Busy                    :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisInfo_Error                   :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisInfo_ErrorID                 :   WORD;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info home absolute switch#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisInfo_HomeAbsSwitch           :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis info limit switch positive#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisInfo_LimitSwitchPos          :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Read axis info limit switch negative#>"}
             AxoReadAxisInfo_LimitSwitchNeg          :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Read axis info simulation#>"}
             AxoReadAxisInfo_Simulation              :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Read axis info communication ready#>"}
             AxoReadAxisInfo_CommunicationReady      :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Read axis info ready for power on#>"}
             AxoReadAxisInfo_ReadyForPowerOn         :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Read axis info power on#>"}
             AxoReadAxisInfo_PowerOn                 :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Read axis info is homed#>"}
             AxoReadAxisInfo_IsHomed                 :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Read axis info warning#>"}
             AxoReadAxisInfo_AxisWarning             :   BOOL;                      
             //***********ReadAxisError************************
@@ -848,18 +1000,23 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadAxisError_Task                   :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error valid#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisError_Valid                  :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisError_Busy                   :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisError_Error                  :   BOOL;                      
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisError_ErrorID                :   WORD;         
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error axis error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReadAxisError_AxisErrorID            :   WORD;
             //***********Reset********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -869,15 +1026,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoReset_Task                           :   AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReset_Done                           :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReset_Busy                           :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReset_Error                          :   BOOL;                   
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Reset error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoReset_ErrorID                        :   WORD;    
             //***********Jog**********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
@@ -905,24 +1066,31 @@ NAMESPACE AXOpen.Components.Drives
             AxoJog_Direction                        :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog velocity#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoJogInVelocity                        :   BOOL;
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog active#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoJog_Active                           :   BOOL;
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog done#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoJog_Done                             :   BOOL;                   
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog busy#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoJog_Busy                             :   BOOL;                   
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog error#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoJog_Error                            :   BOOL;                   
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog error ID#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoJog_ErrorID                          :   WORD;    
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog aborted#>"}
+            {#ix-attr:[ReadOnly()]}
             AxoJog_CommandAborted                   :   BOOL;                                 
         END_VAR
 
@@ -943,7 +1111,6 @@ NAMESPACE AXOpen.Components.Drives
         END_VAR
         
         VAR PRIVATE
-            // _AxisRef                                :   AXOpen.Components.Drives.AxoAxisRef;
             _AxisRef                                :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
             _movementDisabled                       :   BOOL;
             //***********Stop*********************************
@@ -1466,6 +1633,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteParameter_Busy,
                         AxoWriteParameter_Error,
                         AxoWriteParameter_ErrorID);
+            IF AxoWriteParameter_Task.Execute() THEN
+                AxoWriteParameter_Task.DoneWhen(AxoWriteParameter_Done);
+                AxoWriteParameter_Task.ThrowWhen(AxoWriteParameter_Error,CONCAT('MC_WriteParameter has thrown an error: ', ToString(AxoWriteParameter_ErrorID)));
+            END_IF;
             Messenger.ActivateOnCondition(TO_ULINT(AxoWriteParameter_ErrorID),AxoWriteParameter_Error,eAxoMessageCategory#Error);
             //******************************************
 
@@ -1480,6 +1651,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteRealParameter_Busy,
                         AxoWriteRealParameter_Error,
                         AxoWriteRealParameter_ErrorID);
+            IF AxoWriteRealParameter_Task.Execute() THEN
+                AxoWriteRealParameter_Task.DoneWhen(AxoWriteRealParameter_Done);
+                AxoWriteRealParameter_Task.ThrowWhen(AxoWriteRealParameter_Error,CONCAT('MC_WriteRealParameter has thrown an error: ', ToString(AxoWriteRealParameter_ErrorID)));
+            END_IF;
             Messenger.ActivateOnCondition(TO_ULINT(AxoWriteRealParameter_ErrorID),AxoWriteRealParameter_Error,eAxoMessageCategory#Error);
             //******************************************
 
@@ -1494,6 +1669,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteBoolParameter_Busy,
                         AxoWriteBoolParameter_Error,
                         AxoWriteBoolParameter_ErrorID);
+            IF AxoWriteBoolParameter_Task.Execute() THEN
+                AxoWriteBoolParameter_Task.DoneWhen(AxoWriteBoolParameter_Done);
+                AxoWriteBoolParameter_Task.ThrowWhen(AxoWriteBoolParameter_Error,CONCAT('MC_WriteBoolParameter has thrown an error: ', ToString(AxoWriteBoolParameter_ErrorID)));
+            END_IF;
             Messenger.ActivateOnCondition(TO_ULINT(AxoWriteBoolParameter_ErrorID),AxoWriteBoolParameter_Error,eAxoMessageCategory#Error);
             //******************************************
 
@@ -1536,6 +1715,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteDigitalOutput_Busy,
                         AxoWriteDigitalOutput_Error,
                         AxoWriteDigitalOutput_ErrorID);
+            IF AxoWriteDigitalOutput_Task.Execute() THEN
+                AxoWriteDigitalOutput_Task.DoneWhen(AxoWriteDigitalOutput_Done);
+                AxoWriteDigitalOutput_Task.ThrowWhen(AxoWriteDigitalOutput_Error,CONCAT('MC_WriteDigitalOutput has thrown an error: ', ToString(AxoWriteDigitalOutput_ErrorID)));
+            END_IF;
             Messenger.ActivateOnCondition(TO_ULINT(AxoWriteBoolParameter_ErrorID),AxoWriteBoolParameter_Error,eAxoMessageCategory#Error);
             //******************************************
 
@@ -1658,6 +1841,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReset_Busy,
                         AxoReset_Error,
                         AxoReset_ErrorID);
+            IF AxoReset_Task.Execute() THEN
+                AxoReset_Task.DoneWhen(AxoReset_Done);
+                AxoReset_Task.ThrowWhen(AxoReset_Error,CONCAT('MC_Reset has thrown an error: ', ToString(AxoReset_ErrorID)));
+            END_IF;
             Messenger.ActivateOnCondition(TO_ULINT(AxoReset_ErrorID),AxoReset_Error,eAxoMessageCategory#Error);
             //******************************************
 
