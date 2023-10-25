@@ -1,0 +1,52 @@
+﻿<div style="position: relative; width: 100%; height: 100%;">
+    <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+    <CascadingValue Value="@this" Name="Parent" IsFixed="true">
+        <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
+            @ChildContent
+        </CascadingValue>
+    </CascadingValue>
+
+    <AuthorizeView Roles="Administrator">
+        <Authorized>
+            <button type="button" class="btn btn-primary" @onclick="Save">Save</button>
+            <button type="button" class="btn btn-primary" @onclick="Load">Load</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showAllModal">Show all</button>
+        </Authorized>
+    </AuthorizeView>
+</div>
+
+<div class="modal fade" id="showAllModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="alarmsviewTitle">All components</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body justify-content-center">
+                @foreach (var child in _children)
+                {
+                    <div class="row align-items-center">
+                        <label class="form-check-label col-7 text-end" for="@(child.Id)">@child.Id</label>
+                        <input class="form-check-input col-1 ms-1" type="checkbox" id="@(child.Id)" checked="@(child.Show ? "checked" : null)" @onclick="() => Check(child)">
+                        <div class="col-2 ms-1 d-inline-block">
+                            <select class="form-select" value="@child.Presentation.ToString()" @onchange="@((args) => @child.Presentation = PresentationType.FromString((string)args.Value))">
+                                @foreach (var presentation in PresentationType.AllTypes)
+                                {
+                                    <option data value="@presentation.ToString()">@presentation.ToString()</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-2 ms-1 d-inline-block">
+                            <select class="form-select" value="@child.Transform.ToString()" @onchange="@((args) => @child.Transform = TransformType.FromString((string)args.Value))">
+                                @foreach (var transform in TransformType.AllTypes)
+                                {
+                                    <option data value="@transform.ToString()">@transform.ToString()</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

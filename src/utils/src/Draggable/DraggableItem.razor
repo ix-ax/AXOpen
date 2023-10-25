@@ -1,0 +1,26 @@
+﻿<AuthorizeView Roles="Administrator">
+    <Authorized>
+        <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="cursor: @cursor !important; position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; display: @(Show ? "block" : "none"); translate: @(Transform.X)% @(Transform.Y)%;">
+            @if(ChildContent == null)
+            {
+                <RenderableContentControl Context="@AxoObject" Presentation="@Presentation.ToString()" />
+            }
+            else
+            {
+                @ChildContent
+            }
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div style="cursor: @cursor !important; position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; display: @(Show ? "block" : "none"); translate: @(Transform.X)% @(Transform.Y)%;">
+            @if (ChildContent == null)
+            {
+                <RenderableContentControl Context="@AxoObject" Presentation="@Presentation.ToString()" />
+            }
+            else
+            {
+                @ChildContent
+            }
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
