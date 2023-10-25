@@ -34,17 +34,24 @@ scripts:
     - apax build     
   addunit : |
     while [ -z "$unitname" ]; do
-      echo "Enter the unit name to replace (mandatory):"
+      echo "Enter the unit name (mandatory):"
+      echo "ATTENTION: The name must start with upper-case letter, no space and no special characters. The name must comply with legal type name for AX"
       read unitname
     done
-
-    while [ -z "$outputfolder" ]; do
-      echo "Enter the output folder (mandatory):"
-      read outputfolder
-    done
+   
     dotnet new install ./src/templates/unit/ --force
     # Execute the dotnet new command with the provided class name
-    dotnet new axosimple_unit --unitname=$unitname  -o ./src/$outputfolder      
+    dotnet new axosimple_unit --unitname=$unitname  -o ./src/$unitname 
+    
+    # Move twin files to twin project 
+    mkdir -p ../axpansion/twin/Context/Units/
+    mv  ./src/$unitname/twin/*.cs ../axpansion/twin/Context/Units/
+    rm -rf ./src/$unitname/twin/
+
+    # Move server files to server project 
+    mkdir -p ../axpansion/server/Pages/Context/Units/
+    mv  ./src/$unitname/server/*.* ../axpansion/server/Pages/Context/Units/
+    rm -rf ./src/$unitname/server/
   download:
     # Here you will need to set the argumen -t to your plc IP and -i to platfrom you are dowloading to
     # --default-server-interface is a must if you are using WebAPI          

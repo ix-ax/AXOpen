@@ -1,0 +1,36 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "AddUnit",
+  "steps": [
+    {
+      "file": "src/Context.st",
+      "description": "## Call following command to scaffold the unit\r\n>> apax addunit\r\n",
+      "line": 1
+    },
+    {
+      "file": "src/Context.st",
+      "line": 12,
+      "description": "## Add unit declaration\r\nPress `ctrl+space` and select `unitDeclaration` snippet.\r\nReplace name with your unit name and press `tab`",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 3,
+          "character": 49
+        }
+      }
+    },
+    {
+      "file": "src/Context.st",
+      "description": "## Add unit root calls\r\nPress `ctrl+space` and select `unitRootCall` snippet.\r\nReplace name with your unit name and press `tab`",
+      "line": 19
+    },
+    {
+      "file": "src/Context.st",
+      "description": "## Add unit root calls\r\nPress `ctrl+space` and select `unitAddProcessData` snippet.\r\nReplace name with your unit name and press `tab`",
+      "line": 49
+    }
+  ]
+}

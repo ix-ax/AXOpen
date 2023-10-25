@@ -3,7 +3,7 @@
   "author": "PTKu",
   "classifications": [ "SIMATIC-AX", "Unit" ],
   "identity": "axosimple.StarterUnitTemplate",
-  "name": "Custimizable starter unit template",
+  "name": "Customizable starter unit template",
   "shortName": "axosimple_starter_unit",
   "tags": {
       "language": "ST",

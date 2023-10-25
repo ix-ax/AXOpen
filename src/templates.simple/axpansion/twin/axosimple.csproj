@@ -32,6 +32,7 @@
 	<ItemGroup>
 		<Folder Include=".meta\" />
 		<Content Include=".meta\**" />
+		<Folder Include="Context\Units\" />
 	</ItemGroup>
 
   <ItemGroup Condition="'$(UseProjectReference)' == 'true'">
@@ -42,6 +43,10 @@
     <ProjectReference Include="..\..\..\components.elements\src\AXOpen.Components.Elements\ix_ax_axopen_components_elements.csproj" />
     <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
     <ProjectReference Include="..\..\..\inspectors\src\AXOpen.Inspectors\ix_ax_axopen_inspectors.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\PlcStringResources.Designer.cs">

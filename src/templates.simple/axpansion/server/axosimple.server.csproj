@@ -77,6 +77,7 @@
 		</EmbeddedResource>
 	</ItemGroup>
 	<ItemGroup>
+		<Folder Include="Pages\Context\Units\" />
 		<Folder Include="wwwroot\js\" />
 	</ItemGroup>
 </Project>

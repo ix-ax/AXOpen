@@ -4,23 +4,21 @@ USING AXOpen.Data;
 NAMESPACE axosimple
     CLASS PUBLIC Context EXTENDS AxoContext                   
         VAR PUBLIC
-            ProcessData : ProcessData;            
-            StarterUnitTemplate : axosimple.StarterUnitTemplate.Unit;                
-            UnitTemplate : axosimple.UnitTemplate.Unit;
+            ProcessSettings : ProcessData;
+            ProcessData : ProcessData;                        
             Inputs : REF_TO axosimple.Inputs;
             Outputs : REF_TO axosimple.Outputs; 
-
-            StarterUnitTemplateProcessData : axosimple.StarterUnitTemplate.ProcessDataManger;
-            UnitTemplateProcessData : axosimple.UnitTemplate.ProcessDataManger;
+            // Units 
+            
+                        
         END_VAR      
         
         METHOD PROTECTED OVERRIDE Main                                               
-           IF(Inputs <> NULL AND Outputs <> NULL) THEN    
-               StarterUnitTemplate.ProcessData := REF(StarterUnitTemplateProcessData);
-               StarterUnitTemplate.Run(THIS, Inputs^, Outputs^);   
-            ;
-               UnitTemplate.ProcessData := REF(UnitTemplateProcessData);                                             
-               UnitTemplate.Run(THIS, Inputs^, Outputs^);               
+           IF(Inputs <> NULL AND Outputs <> NULL) THEN   
+               ;//Units entry calls
+               
+            
+                                             
            END_IF;                           
         END_METHOD        
     END_CLASS   
@@ -39,18 +37,16 @@ NAMESPACE axosimple
             {#ix-generic:TPlain as POCO}
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}
             {#ix-attr:[Container(Layout.Stack)]}    
-            Header : SharedProductionData;
+            Shared : SharedProductionData;
         END_VAR        
     END_CLASS
     
     CLASS ProcessData EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Header : SharedProductionDataManager;            
-            {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Starter : axosimple.StarterUnitTemplate.FragmentProcessDataManger;
-            {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Unit : axosimple.UnitTemplate.FragmentProcessDataManger;
+            Shared : SharedProductionDataManager;   
+            // Units
+                                                    
         END_VAR        
     END_CLASS
 END_NAMESPACE

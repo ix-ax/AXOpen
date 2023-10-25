@@ -1,5 +1,41 @@
 
 {
+    "unitDeclaration":
+    {
+        "prefix": ["unitDeclaration"],
+        "scope": "st",
+        "body":[
+        "${1:name} : axosimple.${1:name}.Unit;",
+        "${1:name}ProcessData : axosimple.${1:name}.ProcessDataManager;",
+        "$0"
+        ],
+    "description": "Adds declaration of controlled unit"
+    },
+
+    "unitEntryCall":
+    {
+        "prefix": ["unitRootCall"],
+        "scope": "st",
+        "body":[
+        "${1:name}.ProcessData := REF(${1:name}ProcessData);",
+        "${1:name}.Run(THIS, Inputs^, Outputs^);",
+        "$0"
+        ],
+    "description": "Adds root call of controlled unit"
+    },
+
+    "unitAddProcessData":
+    {
+        "prefix": ["unitAddProcessData"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}",    
+        "${1:name} : axosimple.${1:name}.FragmentProcessDataManger;",        
+        "$0"
+        ],
+    "description": "Adds process data declaration"
+    },
+
     "attritubePropertyName":
     {
         "prefix": ["attName"],

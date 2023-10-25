@@ -16,14 +16,14 @@ NAMESPACE axosimple.StarterUnitTemplate
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
-            ProcessData : REF_TO ProcessDataManger;
+            ProcessData : REF_TO ProcessDataManager;
             _currentId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
                 _components : REF_TO Components;
-                _processData : REF_TO ProcessDataManger;
+                _processData : REF_TO ProcessDataManager;
                 _parent : IAxoObject;
             END_VAR            
             Components := _components;
@@ -54,7 +54,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             
             IF (Steps[1].Execute(THIS, TRUE, '<#GET DATA#>')) THEN
             //-------------------------------------------------------                    
-                IF(ProcessData^.Read(_currentId).IsDone()) THEN
+                IF(ProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN
                     THIS.MoveNext();                                   
                 END_IF;    
             //-------------------------------------------------------

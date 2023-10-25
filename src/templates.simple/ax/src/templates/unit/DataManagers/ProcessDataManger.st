@@ -4,7 +4,7 @@ NAMESPACE axosimple.UnitTemplate
     USING AXOpen.Core;
     USING System.Strings;
     
-    CLASS ProcessDataManger
+    CLASS ProcessDataManager
         EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}

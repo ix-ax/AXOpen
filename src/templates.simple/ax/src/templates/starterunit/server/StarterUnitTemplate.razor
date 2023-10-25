@@ -1,0 +1,15 @@
+﻿@page "/Context/Units/StarterUnitTemplate"
+@using AXOpen.Base.Dialogs;
+@using axosimple.server.Components;
+
+@inject IAlertDialogService _alerts
+@inherits RenderableComplexComponentBase<axosimple.StarterUnitTemplate.Unit>
+
+<Unit Component="Entry.Plc.Context.StarterUnitTemplate"
+      DataManger="Entry.Plc.Context.StarterUnitTemplateProcessData"
+      Data="Entry.Plc.Context.StarterUnitTemplateProcessData.DataManger.Payload"
+      DataHeader="Entry.Plc.Context.StarterUnitTemplateProcessData.Shared.Shared">
+    <ChildContent>
+        <img src="logo-header.svg"/>
+    </ChildContent>
+</Unit>

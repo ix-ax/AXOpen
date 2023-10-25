@@ -24,6 +24,7 @@ using AXOpen.Data;
 using System.Globalization;
 using AXOpen.Core.Blazor;
 using AXOpen.Core.Blazor.Culture;
+using axosimple.server.Units;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
@@ -70,28 +71,18 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
 Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 
 var sharedDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
-var unitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.UnitTemplate.ProcessData> ().Factory();
+var unitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.UnitTemplate.ProcessData>().Factory();
 var starterUnitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.StarterUnitTemplate.ProcessData>().Factory();
 
-var unitTemplateBuilder = Entry.Plc.Context.UnitTemplateProcessData
-    .CreateBuilder<axosimple.UnitTemplate.ProcessDataManger>();
-    
+var axoappContext = ContextService.Create();
+axoappContext.SetContextData(sharedDataRepository);
 
+//var unitTemplateService = UnitTemplateServices.Create(axoappContext);
+//unitTemplateService.SetUnitsData(unitTemplateRepository);
 
+//var starterUnitTemplateService = StarterUnitTemplateServices.Create(axoappContext);
+//starterUnitTemplateService.SetUnitsData(starterUnitTemplateRepository);
 
-unitTemplateBuilder.DataManger.SetRepository(unitTemplateRepository);
-unitTemplateBuilder.Shared.SetRepository(sharedDataRepository);
-
-unitTemplateBuilder.InitializeRemoteDataExchange();
-
-var processDataBuilder = Entry.Plc.Context.ProcessData
-    .CreateBuilder<ProcessData>();
-
-//b.Unit.InitializeRemoteDataExchange(productionDataRepository);
-processDataBuilder.Header.InitializeRemoteDataExchange(sharedDataRepository);
-processDataBuilder.Starter.InitializeRemoteDataExchange(starterUnitTemplateRepository);
-processDataBuilder.Unit.InitializeRemoteDataExchange(unitTemplateRepository);
-processDataBuilder.InitializeRemoteDataExchange();
 
 // Clean Temp directory
 IAxoDataExchange.CleanUp();
