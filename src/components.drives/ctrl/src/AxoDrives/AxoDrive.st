@@ -15,6 +15,18 @@ NAMESPACE AXOpen.Components.Drives
             DriveState          :   AXOpen.Components.Drives.eAxoDriveState;
             {#ix-attr:[ComponentHeader()]}
             {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Position#>"}
+            ActualPosition          :   LREAL;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Velocity#>"}
+            ActualVelocity          :   LREAL;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Torque#>"}
+            ActualTorque          :   LREAL;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Debug counter: use to discover if the particular part of the code is called. TODO: remove after#>"}
             _debugCounter          :   INT;
         END_VAR
