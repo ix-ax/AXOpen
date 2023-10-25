@@ -24,14 +24,11 @@ using AXOpen.Data;
 using System.Globalization;
 using AXOpen.Core.Blazor;
 using AXOpen.Core.Blazor.Culture;
-using axosimple.server.Units;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Primitives;
 using Microsoft.JSInterop;
-using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
-
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -83,14 +80,6 @@ axoappContext.SetContextData(sharedDataRepository);
 
 //var starterUnitTemplateService = StarterUnitTemplateServices.Create(axoappContext);
 //starterUnitTemplateService.SetUnitsData(starterUnitTemplateRepository);
-
-
-var starterUnitTemplateBuilder = Entry.Plc.Context.StarterUnitTemplateProcessData
-    .CreateBuilder<axosimple.StarterUnitTemplate.ProcessDataManger>();
-
-starterUnitTemplateBuilder.Shared.SetRepository(sharedDataRepository);
-starterUnitTemplateBuilder.DataManger.SetRepository(starterUnitTemplateRepository);
-starterUnitTemplateBuilder.InitializeRemoteDataExchange();
 
 // Clean Temp directory
 IAxoDataExchange.CleanUp();

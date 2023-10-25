@@ -10,7 +10,8 @@ NAMESPACE axosimple.UnitTemplate
             {#ix-generic:TOnline}
             {#ix-generic:TPlain as POCO}
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}        
-            {#ix-attr:[Container(Layout.Stack)]}        
+            {#ix-attr:[Container(Layout.Stack)]}
+            {#ix-set:AttributeName = "<#UnitTemplate#>"}         
             Payload : ProcessData;
         END_VAR
     END_CLASS
