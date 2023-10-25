@@ -95,13 +95,19 @@
 
 @code
 {
-    private AxoMessageProvider AxoMessageProvider => AxoMessageProvider.Create(new ITwinObject[] { this.Component, this.Data });
+    private AxoMessageProvider AxoMessageProvider => 
+        AxoMessageProvider.Create(new ITwinObject[] { this.Component, this.DataManger });
     
     [Parameter]
     public AXOpen.Data.AxoDataEntity? Data { get; set; }
 
     [Parameter]
     public AXOpen.Data.AxoDataEntity? DataHeader { get; set; }
+
+
+    [Parameter]
+    public AXOpen.Data.AxoDataExchangeBase? DataManger { get; set; }
+
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }

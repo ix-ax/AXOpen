@@ -247,6 +247,7 @@ namespace AXOpen.Messaging.Static
         private void ToggleAlarmView()
         {
             this.OnlyAlarmView = !this.OnlyAlarmView;
+            this.StateHasChanged();
         }
     }
 

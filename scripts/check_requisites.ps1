@@ -29,9 +29,10 @@ if (-not $dotnet7Installed) {
 # Check for Visual Studio 2022
 $vsWhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 if (Test-Path $vsWhere) {
-    $vsVersion = & $vsWhere -version "[17.0,18.0)" -products * -property catalog_productDisplayVersion
+    $requiredVersionRange = "[17.7.5,18.0)";
+    $vsVersion = & $vsWhere -version $requiredVersionRange -products * -property catalog_productDisplayVersion
     if (-not $vsVersion) {
-        Write-Host "Visual Studio 2022 is not detected." -ForegroundColor Yellow
+        Write-Host "Visual Studio 2022 is not detected in required version or update. Required version range is $requiredVersionRange" -ForegroundColor Yellow
         Write-Host "VS2022 is optional you can use any editor of your choice like VSCode, Rider, or you can even use AXCode to edit .NET files." -ForegroundColor Yellow
     } else {
         Write-Host "Visual Studio 2022 detected: $vsVersion" -ForegroundColor Green

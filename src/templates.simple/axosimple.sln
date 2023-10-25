@@ -29,13 +29,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.InMemory", "..\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Data.Json", "..\data\src\repositories\Json\AXOpen.Data.Json.csproj", "{DE25FC63-4230-443D-A4F0-C806E037FB82}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors.Blazor", "..\inspectors\src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj", "{286B0C9D-2B65-4C10-B7D2-19052C559ACC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AxOpen.Inspectors.Blazor", "..\inspectors\src\AXOpen.Inspectors.blazor\AxOpen.Inspectors.Blazor.csproj", "{286B0C9D-2B65-4C10-B7D2-19052C559ACC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "..\inspectors\src\AxOpen.Inspectors\ix_ax_axopen_inspectors.csproj", "{21BC94A1-E2EE-46A8-B062-45581DF36A3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "..\inspectors\src\AXOpen.Inspectors\ix_ax_axopen_inspectors.csproj", "{21BC94A1-E2EE-46A8-B062-45581DF36A3E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{9E31DA60-74BA-484D-875F-A0429EB31EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{9E31DA60-74BA-484D-875F-A0429EB31EDF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "..\security\src\AXOpen.Security\AXOpen.Security.csproj", "{85FDDFCA-D24E-4F3A-BA06-9F0369B44609}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "..\Security\src\AXOpen.Security\AXOpen.Security.csproj", "{85FDDFCA-D24E-4F3A-BA06-9F0369B44609}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_simatic1500", "..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj", "{81B6C9F9-9762-4D72-863D-9FEC9DCC2A99}"
 EndProject
@@ -113,21 +113,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\data\src", "{2AFD
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "..\data", "{B51888C7-31C2-48C8-B4D6-9F96F4F97316}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AxOpen.Inspectors.Blazor", "..\inspectors\src\AxOpen.Inspectors.Blazor", "{2095AFF3-A86E-4A1D-8EEB-8C862B31BD69}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Inspectors.blazor", "..\inspectors\src\AXOpen.Inspectors.blazor", "{2095AFF3-A86E-4A1D-8EEB-8C862B31BD69}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AxOpen.Inspectors", "..\inspectors\src\AxOpen.Inspectors", "{6648D6BD-B625-46B2-97B6-1BDE2353ECC3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Inspectors", "..\inspectors\src\AXOpen.Inspectors", "{6648D6BD-B625-46B2-97B6-1BDE2353ECC3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\inspectors\src", "{D0D75F6B-A541-47F6-BCCB-7EBBB2299726}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "inspectors", "..\inspectors", "{7D9B79BB-EBF1-4E2F-BAAD-47BCD6B4A4EB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "..\security\src\AXOpen.Security.Blazor", "{622A346D-D336-42A6-8612-EB74982C53EA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor", "{622A346D-D336-42A6-8612-EB74982C53EA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "..\security\src\AXOpen.Security", "{E09677F3-9508-4C4A-A49C-1B7A22516D46}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "..\Security\src\AXOpen.Security", "{E09677F3-9508-4C4A-A49C-1B7A22516D46}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\security\src", "{572D1D15-AD9F-4EFA-897F-5D43B0FD3DA8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\Security\src", "{572D1D15-AD9F-4EFA-897F-5D43B0FD3DA8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "..\security", "{187B0AB3-B1D7-4388-B15C-387C95F89AE2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "..\Security", "{187B0AB3-B1D7-4388-B15C-387C95F89AE2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "..\simatic1500\ctrl\ix", "{F8DAEB16-DB5E-4DFF-B8BF-3D790F4C6F0F}"
 EndProject

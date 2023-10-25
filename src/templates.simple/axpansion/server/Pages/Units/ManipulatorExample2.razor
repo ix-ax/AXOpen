@@ -5,7 +5,10 @@
 @inject IAlertDialogService _alerts
 @inherits RenderableComplexComponentBase<axosimple.UnitTemplate.Unit>
 
-<Unit Component="Entry.Plc.Context.StarterUnitTemplate" Data="Entry.Plc.Context.StarterUnitTemplateProcessData.DataManger.Payload" DataHeader="Entry.Plc.Context.StarterUnitTemplateProcessData.Shared.Header">
+<Unit Component="Entry.Plc.Context.StarterUnitTemplate" 
+      DataManger="Entry.Plc.Context.StarterUnitTemplateProcessData"
+      Data="Entry.Plc.Context.StarterUnitTemplateProcessData.DataManger.Payload" 
+      DataHeader="Entry.Plc.Context.StarterUnitTemplateProcessData.Shared.Header">
     <ChildContent>
         <img src="logo-header.svg" />
     </ChildContent>
