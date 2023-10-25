@@ -33,6 +33,7 @@ using Microsoft.JSInterop;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -83,6 +84,13 @@ axoappContext.SetContextData(sharedDataRepository);
 //var starterUnitTemplateService = StarterUnitTemplateServices.Create(axoappContext);
 //starterUnitTemplateService.SetUnitsData(starterUnitTemplateRepository);
 
+
+var starterUnitTemplateBuilder = Entry.Plc.Context.StarterUnitTemplateProcessData
+    .CreateBuilder<axosimple.StarterUnitTemplate.ProcessDataManger>();
+
+starterUnitTemplateBuilder.Shared.SetRepository(sharedDataRepository);
+starterUnitTemplateBuilder.DataManger.SetRepository(starterUnitTemplateRepository);
+starterUnitTemplateBuilder.InitializeRemoteDataExchange();
 
 // Clean Temp directory
 IAxoDataExchange.CleanUp();
