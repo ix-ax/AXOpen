@@ -32,6 +32,7 @@ using Microsoft.JSInterop;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -92,6 +93,13 @@ processDataBuilder.Header.InitializeRemoteDataExchange(sharedDataRepository);
 processDataBuilder.Starter.InitializeRemoteDataExchange(starterUnitTemplateRepository);
 processDataBuilder.Unit.InitializeRemoteDataExchange(unitTemplateRepository);
 processDataBuilder.InitializeRemoteDataExchange();
+
+var starterUnitTemplateBuilder = Entry.Plc.Context.StarterUnitTemplateProcessData
+    .CreateBuilder<axosimple.StarterUnitTemplate.ProcessDataManger>();
+
+starterUnitTemplateBuilder.Shared.SetRepository(sharedDataRepository);
+starterUnitTemplateBuilder.DataManger.SetRepository(starterUnitTemplateRepository);
+starterUnitTemplateBuilder.InitializeRemoteDataExchange();
 
 // Clean Temp directory
 IAxoDataExchange.CleanUp();
