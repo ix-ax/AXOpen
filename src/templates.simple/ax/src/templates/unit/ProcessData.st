@@ -7,7 +7,13 @@ NAMESPACE axosimple.UnitTemplate
     CLASS ProcessData
         EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
-            CounterDelay : ULINT;          
+
+            Header : axosimple.UnitHeader;
+
+            JigDataMatrixCode   : AXOpen.Inspectors.AxoDataInspector;
+            PartPresence        : AXOpen.Inspectors.AxoDigitalInspector;
+            RivetingPreasure    : AXOpen.Inspectors.AxoAnalogueInspector;
+            
         END_VAR
     END_CLASS
 END_NAMESPACE    

@@ -8,7 +8,7 @@ NAMESPACE axosimple.UnitTemplate
         EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
-            Shared : SharedProductionDataManager;
+            Shared : EntityHeaderDataManager;
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
             DataManger : FragmentProcessDataManger;
         END_VAR        
