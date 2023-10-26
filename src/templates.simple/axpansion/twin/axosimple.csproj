@@ -46,7 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\data\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
+    <ProjectReference Include="..\..\..\data\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\PlcStringResources.Designer.cs">

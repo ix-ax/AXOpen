@@ -68,12 +68,36 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
 
 Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 
-var sharedDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
-var unitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.UnitTemplate.ProcessData>().Factory();
-var starterUnitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.StarterUnitTemplate.ProcessData>().Factory();
+//var sharedDataRepository = new InMemoryRepositorySettings<Pocos.axosimple.SharedProductionData>().Factory();
+//var unitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.UnitTemplate.ProcessData>().Factory();
+//var starterUnitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.StarterUnitTemplate.ProcessData>().Factory();
+
+#region MongoDB repository
+//https://ix-ax.github.io/AXOpen/api/AXOpen.Data.MongoDb.MongoDbRepository-1.html
+
+var MongoConnectionString = "mongodb://localhost:27017";
+var MongoDatabaseName       = "axosimple";
+
+var mongoCredentials = new AXOpen.Data.MongoDb.MongoDbCredentials("admin", "user", "userpwd");
+
+var ProcessSettings_ShararedHeader = Repository.Factory<Pocos.axosimple.SharedProductionData>(
+                                        new(connectionString    : MongoConnectionString,
+                                            databaseName        : MongoDatabaseName,
+                                            collectionName      : "ProcessSettings_SharedHeaders",
+                                            credentials         : mongoCredentials));
+
+var ProcessData_ShararedHeader = Repository.Factory<Pocos.axosimple.SharedProductionData>(
+                                        new(connectionString    : MongoConnectionString,
+                                            databaseName        : MongoDatabaseName,
+                                            collectionName      : "ProcessData_SharedHeaders",
+                                            credentials         : mongoCredentials));
+
+#endregion
+
+
 
 var axoappContext = ContextService.Create();
-axoappContext.SetContextData(sharedDataRepository);
+axoappContext.SetContextData(ProcessData_ShararedHeader);
 
 //var unitTemplateService = UnitTemplateServices.Create(axoappContext);
 //unitTemplateService.SetUnitsData(unitTemplateRepository);
