@@ -20,6 +20,9 @@ dependencies:
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'    
 variables:
   APAX_BUILD_ARGS: [-d]
+  # Uncomment if you want overrite system variables
+  # AXTARGET: 10.10.10.116
+  # AXTARGETPLATFORMINPUT: './bin/plcsim/'
 scripts:
   ixc:
     - dotnet tool restore --no-cache
