@@ -24,7 +24,7 @@ namespace axosimple.server.Units
 
         public void SetUnitsData(IRepository<Pocos.axosimple.UnitTemplate.ProcessData> repository)
         {
-            UnitData.Shared.InitializeRemoteDataExchange(_contextService.SharedProcessDataRepository);
+            UnitData.Shared.InitializeRemoteDataExchange(_contextService.EntityDataRepository);
             _contextService.ProcessData.UnitTemplate.InitializeRemoteDataExchange(repository);
             
             UnitData.DataManger.InitializeRemoteDataExchange(repository);
