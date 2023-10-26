@@ -42,14 +42,14 @@ namespace Draggable
         public bool Show { get; set; } = false;
         public TransformType Transform { get; set; } = TransformType.TopCenter;
         public PresentationType Presentation { get; set; } = PresentationType.StatusDisplay;
-        private string cursor = "default";
+
+        public double Width = -1, Height = -1;
+        public int ZIndex = 0;
 
         private void OnDragStart(DragEventArgs args)
         {
             startX = args.ClientX;
             startY = args.ClientY;
-
-            cursor = "move";
         }
 
         private async void OnDragEnd(DragEventArgs args)
@@ -63,8 +63,6 @@ namespace Draggable
 
             ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100);
             ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);
-
-            cursor = "default";
 
             StateHasChanged();
         }

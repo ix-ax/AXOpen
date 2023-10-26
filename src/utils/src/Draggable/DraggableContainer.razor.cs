@@ -1,5 +1,6 @@
 ﻿using Draggable.Serializing;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 using System.Net;
 
 namespace Draggable
@@ -12,11 +13,21 @@ namespace Draggable
         [Parameter]
         public string? ImgSrc { get; set; }
 
+        private string? _id;
+
+        [Parameter]
+        public string? Id
+        {
+            get => _id;
+            set
+            {
+                _id = value?.Replace('.', '_');
+            }
+        }
+
         private Guid _imgId = Guid.NewGuid();
 
         private List<DraggableItem> _children = new List<DraggableItem>();
-
-        private string filePath = "draggableSerialized.json";
 
         protected override void OnAfterRender(bool firstRender)
         {
@@ -38,15 +49,15 @@ namespace Draggable
                 if(child.ratioImgX == 10 && child.ratioImgY == 10 && !child.Show && child.Transform.Value == Types.TransformType.TopCenter.Value && child.Presentation.Value == Types.PresentationType.StatusDisplay.Value)
                     continue;
 
-                serializableChildren.Add(new SerializableDraggableItem(child.Id, child.ratioImgX, child.ratioImgY, child.Show, child.Transform.ToString(), child.Presentation.ToString()));
+                serializableChildren.Add(new SerializableDraggableItem(child.Id, child.ratioImgX, child.ratioImgY, child.Show, child.Transform.ToString(), child.Presentation.ToString(), child.Width, child.Height, child.ZIndex));
             }
 
-            Serializing.Serializing.Serialize(filePath, serializableChildren);
+            Serializing.Serializing.Serialize(Id + ".json", serializableChildren);
         }
 
         public void Load()
         {
-            List<SerializableDraggableItem>? deserialize = Serializing.Serializing.Deserialize(filePath);
+            List<SerializableDraggableItem>? deserialize = Serializing.Serializing.Deserialize(Id + ".json");
 
             if(deserialize != null)
             {
@@ -60,6 +71,9 @@ namespace Draggable
                         child.Show = item.Show;
                         child.Transform = Types.TransformType.FromString(item.Transform);
                         child.Presentation = Types.PresentationType.FromString(item.Presentation);
+                        child.Width = item.Width;
+                        child.Height = item.Height;
+                        child.ZIndex = item.ZIndex;
                     }
                 }
             }

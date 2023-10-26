@@ -8,7 +8,7 @@
 
 <Unit Component="Entry.Plc.Context.PneumaticManipulator" Data="Entry.Plc.Context.ProcessDataPneumaticManipulator">
     <ChildContent>
-        <DraggableContainer ImgSrc="logo-header.svg">
+        <DraggableContainer ImgSrc="logo-header.svg" Id="@Entry.Plc.Context.PneumaticManipulator.HumanReadable">
             @foreach (var axoObject in Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AXOpen.Core.AxoObject>())
             {
                 <DraggableItem AxoObject="axoObject" />

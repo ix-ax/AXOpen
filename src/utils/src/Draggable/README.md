@@ -5,11 +5,11 @@ Draggable library is for creating draggable elements in AXOpen applications.
 ## Usage
 
 ~~~ HTML
-<DraggableContainer ImgSrc="logo-header.svg">
+<DraggableContainer ImgSrc="logo-header.svg" Id="@Entry.Plc.Context.PneumaticManipulator.HumanReadable">
     @foreach (var axoObject in Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AXOpen.Core.AxoObject>())
-        {
-            <DraggableItem AxoObject="axoObject" />
-        }
+    {
+        <DraggableItem AxoObject="axoObject" />
+    }
 </DraggableContainer>
 ~~~
 
@@ -20,6 +20,7 @@ The `DraggableContainer` component is a container for draggable items. It is use
 ### Attributes
 
 ImgSrc - The path to the image that will be used as the background of the container.
+Id - The id of the container. It is used to identify the container for saving current state into json.
 
 ## DraggableItem
 
@@ -42,3 +43,15 @@ or with a child component, where you must define presentation:
 ### Attributes
 
 AxoObject - The axo object that will be used as the draggable item. It will be show in `RenderableContentControl`.
+
+## Customizable option
+
+If you have role Administrator you can every `DraggableItem` customizing with these options:
+
+- position - can be moved on site
+- show - show or hide
+- Transform (combination of left, center, right, top, center, bottom)
+- Presentation (Status-Display or Command-Control)
+- Width - double value in rem, or -1 for auto
+- Height - double value in rem, or -1 for auto
+- ZIndex - int value, default is 0

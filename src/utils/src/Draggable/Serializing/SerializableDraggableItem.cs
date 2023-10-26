@@ -9,7 +9,7 @@ namespace Draggable.Serializing
 {
     internal class SerializableDraggableItem
     {
-        public SerializableDraggableItem(string id, double ratioImgX, double ratioImgY, bool show, string transform, string presentation)
+        public SerializableDraggableItem(string id, double ratioImgX, double ratioImgY, bool show, string transform, string presentation, double width, double height, int zIndex)
         {
             Id = id;
             RatioImgX = ratioImgX;
@@ -17,6 +17,9 @@ namespace Draggable.Serializing
             Show = show;
             Transform = transform;
             Presentation = presentation;
+            Width = width;
+            Height = height;
+            ZIndex = zIndex;
         }
 
         public string Id { get; set; }
@@ -25,5 +28,8 @@ namespace Draggable.Serializing
         public bool Show { get; set; } = false;
         public string Transform { get; set; } = "TopCenter";
         public string Presentation { get; set; } = "Status-Display";
+        public double Width { get; set; } = -1;
+        public double Height { get; set; } = -1;
+        public int ZIndex { get; set; } = 0;
     }
 }

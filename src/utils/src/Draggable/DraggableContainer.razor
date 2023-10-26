@@ -1,4 +1,4 @@
-﻿<div style="position: relative; width: 100%; height: 100%;">
+﻿<div style="position: relative; width: 100%; height: 100%;" ondragover="event.preventDefault();">
     <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
     <CascadingValue Value="@this" Name="Parent" IsFixed="true">
         <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
@@ -9,13 +9,12 @@
     <AuthorizeView Roles="Administrator">
         <Authorized>
             <button type="button" class="btn btn-primary" @onclick="Save">Save</button>
-            <button type="button" class="btn btn-primary" @onclick="Load">Load</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showAllModal">Show all</button>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id">Show all</button>
         </Authorized>
     </AuthorizeView>
 </div>
 
-<div class="modal fade" id="showAllModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="showAllModal-@Id" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
