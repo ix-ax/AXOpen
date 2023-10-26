@@ -80,16 +80,17 @@ var MongoDatabaseName       = "axosimple";
 
 var mongoCredentials = new AXOpen.Data.MongoDb.MongoDbCredentials("admin", "user", "userpwd");
 
-var ProcessSettings_ShararedHeader = Repository.Factory<Pocos.axosimple.SharedProductionData>(
+// repository - settings connected with specific recepie
+var EntitySettingsRepository = Repository.Factory<Pocos.axosimple.EntityData>(
                                         new(connectionString    : MongoConnectionString,
                                             databaseName        : MongoDatabaseName,
-                                            collectionName      : "ProcessSettings_SharedHeaders",
+                                            collectionName      : "EntitySettings",
                                             credentials         : mongoCredentials));
-
-var ProcessData_ShararedHeader = Repository.Factory<Pocos.axosimple.SharedProductionData>(
+//  repository - data connected with specific part or piece in production/technology
+var EntityDataRepository = Repository.Factory<Pocos.axosimple.EntityData>(
                                         new(connectionString    : MongoConnectionString,
                                             databaseName        : MongoDatabaseName,
-                                            collectionName      : "ProcessData_SharedHeaders",
+                                            collectionName      : "EntityData",
                                             credentials         : mongoCredentials));
 
 #endregion
@@ -97,7 +98,7 @@ var ProcessData_ShararedHeader = Repository.Factory<Pocos.axosimple.SharedProduc
 
 
 var axoappContext = ContextService.Create();
-axoappContext.SetContextData(ProcessData_ShararedHeader);
+axoappContext.SetContextData(EntitySettingsRepository, EntityDataRepository);
 
 //var unitTemplateService = UnitTemplateServices.Create(axoappContext);
 //unitTemplateService.SetUnitsData(unitTemplateRepository);
