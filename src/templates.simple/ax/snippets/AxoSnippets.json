@@ -115,6 +115,27 @@
     "description": "Add group Border attribute"
     },
 
+    "attritubeRenderIgnoreDisplay":
+    {
+        "prefix": ["attIgnoreDisplay","ignoreDisplay"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[RenderIgnore(\"Display\",\"ShadowDisplay\")]}",
+        "$0"
+        ],
+    "description": "RenderIgnore attribute when rendering Display"
+    },
+
+    "attritubeRenderIgnoreControl":
+    {
+        "prefix": ["attIgnoreControl","ignoreControl"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[RenderIgnore(\"Control\",\"ShadowControl\")]}",
+        "$0"
+        ],
+    "description": "RenderIgnore attribute when rendering Control"
+    },
 
     "attritubeRenderIgnore":
     {
@@ -125,5 +146,38 @@
         "$0"
         ],
     "description": "RenderIgnore attribute when rendering"
+    },
+
+    "attritubeCompilerOmit":
+    {
+        "prefix": ["attCompilerOmits","compilerOmit"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[CompilerOmits(\"POCO\", \"Onliner\")]} //-\"No params\" Will skip the emission for all output types",
+        "$0"
+        ],
+    "description": "CompilerOmits attribute instructs the compiler to skip the compilation of a member for specific output"
+    }, 
+
+    "attritubeReadOnce":
+    {
+        "prefix": ["attReadOnce","readOnce"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[ReadOnce()]}",
+        "$0"
+        ],
+    "description": "ReadOnce attribute instructs the communication layer to read a member (variable) only once during the application's lifetime."
+    },
+    
+    "attritubeReadOnly":
+    {
+        "prefix": ["attReadOnly","readOnly"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[ReadOnly()]}",
+        "$0"
+        ],
+    "description": "structure or member will be read only"
     }
 }
