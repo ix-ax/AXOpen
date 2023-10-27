@@ -9,15 +9,15 @@ variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ax/sdk": ^4.0.8
-  "@ax/stc": ^5.4.89
+  "@ax/sdk": ^4.0.12
+  "@ax/stc": ^5.4.98
   "@ax/sld": 0.15.9
 dependencies:
   "@ix-ax/axopen.components.rexroth.drives": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
 scripts:
   download:
-    - apax install -L
+    - apax install
     - apax build
     - dotnet ixc
     - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
@@ -29,7 +29,8 @@ scripts:
     - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download_only:
     - START=$(date +%s)
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface -l Debug
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r --default-server-interface -l Debug
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then
@@ -49,7 +50,8 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project ..\\app\\ix-blazor\\AXOpen.Components.Rexroth.Drives.blazorapp.csproj
+    - dotnet watch --project
+      ..\\app\\ix-blazor\\AXOpen.Components.Rexroth.Drives.blazorapp.csproj
   fr:
     - ..\\..\\integrations\\scripts\\StartPlcSimAdvCli.exe
     - apax rr
@@ -58,11 +60,12 @@ scripts:
     - apax watch
   rr:
     - START=$(date +%s)
-    - apax install -L
+    - apax install
     - apax build
     - apax ixc
     - apax download_only
-    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in :" $(expr $(date +%s) - $START) "s"
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
   rrw:
     - apax rr
     - apax watch
