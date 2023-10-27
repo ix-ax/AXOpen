@@ -8,14 +8,14 @@ NAMESPACE axosimple
             ProcessData : ProcessData;                        
             Inputs : REF_TO axosimple.Inputs;
             Outputs : REF_TO axosimple.Outputs; 
-            // Units 
+            // Units - You can use snippet unitDeclaration 
             
                         
         END_VAR      
         
         METHOD PROTECTED OVERRIDE Main                                               
            IF(Inputs <> NULL AND Outputs <> NULL) THEN   
-               ;//Units entry calls
+               ;//Units entry calls - You can use snippet unitRootCall
                
             
                                              
@@ -27,8 +27,8 @@ NAMESPACE axosimple
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
             Entity : EntityHeaderDataManager;   
-            // Units
-                                                    
+            // Units data - You can use snippet unitAddProcessData
+                                                   
         END_VAR        
     END_CLASS
 END_NAMESPACE

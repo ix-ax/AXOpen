@@ -5,22 +5,13 @@
     {
       "file": "src/Context.st",
       "description": "## Call following command to scaffold the unit\r\n>> apax addunit\r\n",
-      "line": 1
+      "pattern": "CLASS PUBLIC Context"
     },
     {
       "file": "src/Context.st",
-      "line": 15,
-      "description": "## Add unit declaration\r\nPress `ctrl+space` and select `unitDeclaration` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:  \r\n`` Cu1 : axosimple.Cu1.Unit;\r\n`` Cu1ProcessData : axosimple.Cu1.ProcessDataManager;",
-      "selection": {
-        "start": {
-          "line": 6,
-          "character": 1
-        },
-        "end": {
-          "line": 9,
-          "character": 10
-        }
-      }
+      "pattern": "// Units - You can use snippet unitDeclaration",
+      "description": "## Add unit declaration\r\nPress `ctrl+space` and select `unitDeclaration` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example: \r\n```cs\r\nCu1 : axosimple.Cu1.Unit;\r\nCu1ProcessData : axosimple.Cu1.ProcessDataManager;\r\n```",
+      "line": 12
     },
     {
       "file": "src/Context.st",
@@ -29,8 +20,26 @@
     },
     {
       "file": "src/Context.st",
-      "description": "## Add unit root calls\r\nPress `ctrl+space` and select `unitAddProcessData` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:         \r\n`{#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}\r\n`Cu1 : axosimple.Cu1.FragmentProcessDataManger;\r\n             ",
-      "line": 49
+      "description": "## Add unit process data\r\nPress `ctrl+space` and select `unitAddProcessData` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:         \r\n`{#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}\r\n`Cu1 : axosimple.Cu1.FragmentProcessDataManger;\r\n             ",
+      "line": 31
+    },
+    {
+      "title": "Initialize Unit repository - Server project",
+      "file": "../axpansion/server/Program.cs",
+      "line": 73,
+      "description": "### Create repositories :\r\n\r\n```cs\r\nvar Cu1_SettingsRepository   = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>(\"Cu1_Settings\");\r\nvar Cu1_DataRepository       = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>(\"Cu1_Data\");\r\n```"
+    },
+    {
+      "title": "Connect PLC data with Server - Server project",
+      "file": "../axpansion/server/Program.cs",
+      "line": 93,
+      "description": "### Initialize Remote Data Exchange - Create connection between PLC and Repository\r\n\r\n```cs\r\nvar axoappContext_Cu1 = axosimple.server.Units.Cu1Services.Create(axoappContext);\r\naxoappContext_Cu1.SetUnitsData( settingsRepository : Cu1_SettingsRepository, dataRepository : Cu1_DataRepository);\r\n```"
+    },
+    {
+      "title": "Add Unit to Units View - Server project",
+      "file": "../axpansion/server/Pages/Context/UnitsOverview.razor",
+      "line": 110,
+      "description": "### Add Unit View to \\\"Units Page\\\"\r\n\r\n```cs\r\n(new StandardUnit(Entry.Plc.Context.Cu1),\"Context/Units/Cu1\", \"logo-header.svg\"),\r\n```"
     }
   ]
 }
