@@ -9,27 +9,27 @@
     },
     {
       "file": "src/Context.st",
-      "line": 12,
-      "description": "## Add unit declaration\r\nPress `ctrl+space` and select `unitDeclaration` snippet.\r\nReplace name with your unit name and press `tab`",
+      "line": 15,
+      "description": "## Add unit declaration\r\nPress `ctrl+space` and select `unitDeclaration` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:  \r\n`` Cu1 : axosimple.Cu1.Unit;\r\n`` Cu1ProcessData : axosimple.Cu1.ProcessDataManager;",
       "selection": {
         "start": {
-          "line": 1,
+          "line": 6,
           "character": 1
         },
         "end": {
-          "line": 3,
-          "character": 49
+          "line": 9,
+          "character": 10
         }
       }
     },
     {
       "file": "src/Context.st",
-      "description": "## Add unit root calls\r\nPress `ctrl+space` and select `unitRootCall` snippet.\r\nReplace name with your unit name and press `tab`",
+      "description": "## Add unit root calls\r\nPress `ctrl+space` and select `unitRootCall` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:\r\n`Cu1.ProcessData := REF(Cu1ProcessData);\r\n`Cu1.Run(THIS, Inputs^, Outputs^);",
       "line": 19
     },
     {
       "file": "src/Context.st",
-      "description": "## Add unit root calls\r\nPress `ctrl+space` and select `unitAddProcessData` snippet.\r\nReplace name with your unit name and press `tab`",
+      "description": "## Add unit root calls\r\nPress `ctrl+space` and select `unitAddProcessData` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:         \r\n`{#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}\r\n`Cu1 : axosimple.Cu1.FragmentProcessDataManger;\r\n             ",
       "line": 49
     }
   ]
