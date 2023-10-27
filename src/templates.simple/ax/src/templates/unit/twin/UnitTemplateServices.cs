@@ -12,24 +12,18 @@ namespace axosimple.server.Units
 
         private UnitTemplate.Unit Unit { get; } = Entry.Plc.Context.UnitTemplate;
 
-        // Data manager of unit
-        private UnitTemplate.ProcessDataManager UnitData { get; } = 
+        // Technology Data manager of unit
+        private UnitTemplate.TechnologyDataManager UnitTechnologyDataManager { get; } = 
+        Entry.Plc.Context.UnitTechnologyData.CreateBuilder<UnitTemplate.TechnologyDataManager>();
+
+        // Process Data manager of unit
+        private UnitTemplate.ProcessDataManager UnitProcessDataManager { get; } = 
         Entry.Plc.Context.UnitTemplateProcessData.CreateBuilder<UnitTemplate.ProcessDataManager>();
         
-        // Settings data manager for whole technology 
-        private UnitTemplate.FragmentProcessDataManger UnitProcessSettings { get; } = 
-        Entry.Plc.Context.ProcessSettings.UnitTemplate;
-        
-        // Production data manager for whole technology 
-        private UnitTemplate.FragmentProcessDataManger UnitProcessData { get; } = 
-        Entry.Plc.Context.ProcessData.UnitTemplate;
-        
-
-
         private ContextService _contextService { get; }
 
           /// <summary>
-        /// repository - settings connected with technology
+        /// repository - settings connected with technology not with procuction process
         /// </summary>
         public IRepository<Pocos.axosimple.UnitTemplate.TechnologyData> TechnologySettingsRepository { get; private set; }
 
@@ -60,14 +54,20 @@ namespace axosimple.server.Units
             ProcessSettingsRepository       = processSettingsRepository;
             ProcessDataRepository           = processDataRepository;
 
-            UnitProcessSettings.InitializeRemoteDataExchange(ProcessSettingsRepository); // initialize unit data as a parial part of entire Settings data
-            UnitProcessData.InitializeRemoteDataExchange(ProcessDataRepository); // initialize unit data as a parial part of entire production data
-            
-            UnitData.Shared.InitializeRemoteDataExchange(_contextService.EntityDataRepository);
+            // initialize partial repositories in global context
+            _contextService.TechnologySettings.UnitTemplate.InitializeRemoteDataExchange(TechnologySettingsRepository);
+            _contextService.ProcessSettings.UnitTemplate.InitializeRemoteDataExchange(ProcessSettingsRepository);
             _contextService.ProcessData.UnitTemplate.InitializeRemoteDataExchange(ProcessDataRepository);
             
-            UnitData.DataManger.InitializeRemoteDataExchange(ProcessDataRepository);
-            UnitData.InitializeRemoteDataExchange();
+            // initialize unit process data manager
+            UnitProcessDataManager.Shared.InitializeRemoteDataExchange(_contextService.EntityDataRepository);
+            UnitProcessDataManager.DataManger.InitializeRemoteDataExchange(ProcessDataRepository);
+            UnitProcessDataManager.InitializeRemoteDataExchange();
+            
+            // initialize unit technology data manager
+            UnitTechnologyDataManager.Common.InitializeRemoteDataExchange(_contextService.TechnologyCommonRepository);
+            UnitTechnologyDataManager.DataManger.InitializeRemoteDataExchange(TechnologySettingsRepository);
+            UnitTechnologyDataManager.InitializeRemoteDataExchange();
             
         }
     }
