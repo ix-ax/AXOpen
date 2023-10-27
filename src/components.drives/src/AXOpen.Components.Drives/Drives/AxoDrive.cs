@@ -86,6 +86,8 @@ namespace AXOpen.Components.Drives
                 if (errorDescriptionDict.Count == 0)
                 {
                     errorDescriptionDict.Add(0, "   ");
+
+                    //WARNINGs
                     errorDescriptionDict.Add(600, "");
                     errorDescriptionDict.Add(601, "");
                     errorDescriptionDict.Add(602, "");
@@ -93,6 +95,10 @@ namespace AXOpen.Components.Drives
                     errorDescriptionDict.Add(604, "");
                     errorDescriptionDict.Add(605, "");
                     errorDescriptionDict.Add(606, "");
+                    errorDescriptionDict.Add(607, "");
+                    errorDescriptionDict.Add(608, "");
+                    errorDescriptionDict.Add(609, "");
+                    errorDescriptionDict.Add(610, "");
 
 
                     errorDescriptionDict.Add(700, "Error: Parent has NULL reference!");
@@ -106,9 +112,6 @@ namespace AXOpen.Components.Drives
                     errorDescriptionDict.Add(708, "Error: ");
                     errorDescriptionDict.Add(709, "Error: ");
                     errorDescriptionDict.Add(710, "Error: ");
-                    errorDescriptionDict.Add(711, "Error: ");
-                    errorDescriptionDict.Add(712, "Error: ");
-                    errorDescriptionDict.Add(713, "Error: ");
 
                 }
                 string errorDescription = "   ";
@@ -132,23 +135,44 @@ namespace AXOpen.Components.Drives
                 if (actionDescriptionDict.Count == 0)
                 {
                     actionDescriptionDict.Add(0, "   ");
-                    actionDescriptionDict.Add(300, "Restore executed.");
-                    actionDescriptionDict.Add(301, "Clearing of the result data started.");
-                    actionDescriptionDict.Add(302, "Clearing of the result data running.");
-                    actionDescriptionDict.Add(303, "Clearing of the result data was completed successfully.");
-                    actionDescriptionDict.Add(304, "Reading started.");
-                    actionDescriptionDict.Add(305, "Reading running.");
-                    actionDescriptionDict.Add(306, "Reading was completed successfully.");
-                    actionDescriptionDict.Add(307, "Continous reading active: New data read.");
-                    actionDescriptionDict.Add(308, "Clearing of the result data restored.");
-                    actionDescriptionDict.Add(309, "Reading restored.");
+                    //INFOs
+                    actionDescriptionDict.Add(300, "");
+                    actionDescriptionDict.Add(301, "");
+                    actionDescriptionDict.Add(302, "");
+                    actionDescriptionDict.Add(303, "");
+                    actionDescriptionDict.Add(304, "");
+                    actionDescriptionDict.Add(305, "");
+                    actionDescriptionDict.Add(306, "");
+                    actionDescriptionDict.Add(307, "");
+                    actionDescriptionDict.Add(308, "");
+                    actionDescriptionDict.Add(309, "");
+                    actionDescriptionDict.Add(310, "");
 
+                    //WARNINGs
+                    actionDescriptionDict.Add(600, "");
+                    actionDescriptionDict.Add(601, "");
+                    actionDescriptionDict.Add(602, "");
+                    actionDescriptionDict.Add(603, "");
+                    actionDescriptionDict.Add(604, "");
+                    actionDescriptionDict.Add(605, "");
+                    actionDescriptionDict.Add(606, "");
+                    actionDescriptionDict.Add(607, "");
+                    actionDescriptionDict.Add(608, "");
+                    actionDescriptionDict.Add(609, "");
+                    actionDescriptionDict.Add(610, "");
 
-                    actionDescriptionDict.Add(600, "Clearing of the result data was aborted, while not yet completed!");
-                    actionDescriptionDict.Add(601, "Reading was aborted, while not yet completed!");
-
-                    actionDescriptionDict.Add(700, "Clearing of the result data finished with error!");
-                    actionDescriptionDict.Add(701, "Reading finished with error!");
+                    //ERRORs
+                    actionDescriptionDict.Add(700, "");
+                    actionDescriptionDict.Add(701, "");
+                    actionDescriptionDict.Add(702, "");
+                    actionDescriptionDict.Add(703, "");
+                    actionDescriptionDict.Add(704, "");
+                    actionDescriptionDict.Add(705, "");
+                    actionDescriptionDict.Add(706, "");
+                    actionDescriptionDict.Add(707, "");
+                    actionDescriptionDict.Add(708, "");
+                    actionDescriptionDict.Add(709, "");
+                    actionDescriptionDict.Add(710, "");
 
                 }
                 string actionDescription = "   ";

@@ -247,7 +247,7 @@ NAMESPACE AxoDriveTests.Tests
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       
-                ParameterNumber :   INT;                        
+                ParameterNumber :   DINT;                        
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       
@@ -263,7 +263,7 @@ NAMESPACE AxoDriveTests.Tests
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       
-                ParameterNumber :   INT;                        
+                ParameterNumber :   DINT;                        
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       
@@ -279,7 +279,7 @@ NAMESPACE AxoDriveTests.Tests
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       
-                ParameterNumber :   INT;                        
+                ParameterNumber :   DINT;                        
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       
@@ -295,7 +295,7 @@ NAMESPACE AxoDriveTests.Tests
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                      
-                ParameterNumber :   INT;                       
+                ParameterNumber :   DINT;                       
                 Value           :   DINT;                      
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                       
             END_VAR
@@ -312,7 +312,7 @@ NAMESPACE AxoDriveTests.Tests
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                      
-                ParameterNumber :   INT;                       
+                ParameterNumber :   DINT;                       
                 Value           :   REAL;                      
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                       
             END_VAR
@@ -329,7 +329,7 @@ NAMESPACE AxoDriveTests.Tests
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       
-                ParameterNumber :   INT;                        
+                ParameterNumber :   DINT;                        
                 Value           :   BOOL;                       
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                   
             END_VAR
@@ -377,7 +377,7 @@ NAMESPACE AxoDriveTests.Tests
         METHOD PUBLIC OVERRIDE MC_WriteDigitalOutput
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                Enable          :   BOOL;                       
+                Execute          :   BOOL;                       
                 OutputNumber    :   INT;                                  
                 Value           :   BOOL;                       
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;        
@@ -511,7 +511,7 @@ NAMESPACE AxoDriveTests.Tests
                 Busy            :   BOOL;                      
                 Error           :   BOOL;                      
                 ErrorID         :   WORD;                      
-                AxisErrorID     :   WORD;                      
+                AxisErrorID     :   DWORD;                      
             END_VAR
             ;
         END_METHOD

@@ -170,7 +170,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
         METHOD AxoReadParameter : AXOpen.Core.IAxoToggleTask
             VAR_INPUT
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       //  A valid output is available at the method
@@ -183,7 +183,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
         METHOD AxoReadRealParameter : AXOpen.Core.IAxoToggleTask
             VAR_INPUT
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       //  A valid output is available at the method
@@ -196,7 +196,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
         METHOD AxoReadBoolParameter : AXOpen.Core.IAxoToggleTask
             VAR_INPUT
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       //  A valid output is available at the method
@@ -208,7 +208,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
         END_METHOD
         METHOD AxoWriteParameter :   AXOpen.Core.IAxoTaskState
             VAR_INPUT
-                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   DINT;                       //  New value of the specified parameter
                 ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -221,7 +221,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
         END_METHOD
         METHOD AxoWriteRealParameter :   AXOpen.Core.IAxoTaskState
             VAR_INPUT
-                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   REAL;                       //  New value of the specified parameter
                 ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -234,7 +234,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
         END_METHOD
         METHOD AxoWriteBoolParameter :   AXOpen.Core.IAxoTaskState
             VAR_INPUT
-                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   BOOL;                       //  New value of the specified parameter
                 ExecutionMode   :   eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -385,7 +385,7 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                AxisErrorID     :   WORD;                       //  The value of the axis error. These values are vendor specific
+                AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
             END_VAR
         END_METHOD
         METHOD AxoReset :   AXOpen.Core.IAxoTaskState

@@ -2,7 +2,6 @@ USING AXOpen.Core;
 USING AXOpen.Messaging.Static;
 USING AXOpen.Messaging;
 USING System.Strings;
-//USING AXOpen.Components.Abstractions.Drives;
 
 NAMESPACE AXOpen.Components.Drives
     {#ix-attr:[Container(Layout.Wrap)]}
@@ -66,10 +65,10 @@ NAMESPACE AXOpen.Components.Drives
             AxoStop_Task                            :   AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop decceleration#>"}
-            AxoStop_Deceleration                    :   LREAL;                     
+            AxoStop_Deceleration                    :   LREAL   :=  1.0;                     
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop jerk#>"}
-            AxoStop_Jerk                            :   LREAL;                      
+            AxoStop_Jerk                            :   LREAL   :=  1.0;                      
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Stop done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -102,10 +101,10 @@ NAMESPACE AXOpen.Components.Drives
             AxoHalt_Task                            :   AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt decceleration#>"}
-            AxoHalt_Deceleration                    :   LREAL;                     
+            AxoHalt_Deceleration                    :   LREAL   :=  1.0;                     
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt decceleration#>"}
-            AxoHalt_Jerk                            :   LREAL;     
+            AxoHalt_Jerk                            :   LREAL   :=  1.0;     
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Halt done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -138,19 +137,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoHome_Task                            :   AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming position#>"}
-            AxoHome_Position                        :   LREAL;
+            AxoHome_Position                        :   LREAL   :=  0.0;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming mode#>"}
-            AxoHome_HommingMode                     :   INT;
+            AxoHome_HommingMode                     :   INT     :=  0;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming velocity#>"}
-            AxoHome_Velocity                        :   LREAL;
+            AxoHome_Velocity                        :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming acceleration#>"}
-            AxoHome_Acceleration                    :   LREAL;
+            AxoHome_Acceleration                    :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Homming decceleration#>"}
-            AxoHome_Deceleration                    :   LREAL;
+            AxoHome_Deceleration                    :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Home status#>"}
             {#ix-attr:[ReadOnly()]}
@@ -194,22 +193,22 @@ NAMESPACE AXOpen.Components.Drives
             AxoMoveAbsolute_ContinuousUpdate        :   BOOL;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute position#>"}
-            AxoMoveAbsolute_Position                :   LREAL;
+            AxoMoveAbsolute_Position                :   LREAL   :=  0.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute velocity#>"}
-            AxoMoveAbsolute_Velocity                :   LREAL;
+            AxoMoveAbsolute_Velocity                :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute acceleration#>"}
-            AxoMoveAbsolute_Acceleration            :   LREAL;
+            AxoMoveAbsolute_Acceleration            :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute decceleration#>"}
-            AxoMoveAbsolute_Deceleration            :   LREAL;
+            AxoMoveAbsolute_Deceleration            :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute jerk#>"}
-            AxoMoveAbsolute_Jerk                    :   LREAL;
+            AxoMoveAbsolute_Jerk                    :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute direction#>"}
-            AxoMoveAbsolute_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
+            AxoMoveAbsolute_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection    := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move absolute done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -245,22 +244,22 @@ NAMESPACE AXOpen.Components.Drives
             AxoMoveRelative_ContinuousUpdate        :   BOOL;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative distance#>"}
-            AxoMoveRelative_Distance                :   LREAL;
+            AxoMoveRelative_Distance                :   LREAL   :=  0.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative velocity#>"}
-            AxoMoveRelative_Velocity                :   LREAL;
+            AxoMoveRelative_Velocity                :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative acceleration#>"}
-            AxoMoveRelative_Acceleration            :   LREAL;
+            AxoMoveRelative_Acceleration            :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative deceleration#>"}
-            AxoMoveRelative_Deceleration            :   LREAL;
+            AxoMoveRelative_Deceleration            :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative jerk#>"}
-            AxoMoveRelative_Jerk                    :   LREAL;
+            AxoMoveRelative_Jerk                    :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative direction#>"}
-            AxoMoveRelative_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
+            AxoMoveRelative_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection    := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move relative done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -296,22 +295,22 @@ NAMESPACE AXOpen.Components.Drives
             AxoMoveAdditive_ContinuousUpdate        :   BOOL;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive distance#>"}
-            AxoMoveAdditive_Distance                :   LREAL;
+            AxoMoveAdditive_Distance                :   LREAL   :=  0.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive velocity#>"}
-            AxoMoveAdditive_Velocity                :   LREAL;
+            AxoMoveAdditive_Velocity                :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive acceleration#>"}
-            AxoMoveAdditive_Acceleration            :   LREAL;
+            AxoMoveAdditive_Acceleration            :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive deceleration#>"}
-            AxoMoveAdditive_Deceleration            :   LREAL;
+            AxoMoveAdditive_Deceleration            :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive jerk#>"}
-            AxoMoveAdditive_Jerk                    :   LREAL;
+            AxoMoveAdditive_Jerk                    :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive direction#>"}
-            AxoMoveAdditive_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
+            AxoMoveAdditive_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection    := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
             {#ix-attr:[ComponentDetails("Discrete motion")]}
             {#ix-set:AttributeName = "<#Move additive done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -347,19 +346,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoMoveVelocity_ContinuousUpdate        :   BOOL;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity velocity#>"}
-            AxoMoveVelocity_Velocity                :   LREAL;
+            AxoMoveVelocity_Velocity                :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity acceleration#>"}
-            AxoMoveVelocity_Acceleration            :   LREAL;
+            AxoMoveVelocity_Acceleration            :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity deceleration#>"}
-            AxoMoveVelocity_Deceleration            :   LREAL;
+            AxoMoveVelocity_Deceleration            :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity jerk#>"}
-            AxoMoveVelocity_Jerk                    :   LREAL;
+            AxoMoveVelocity_Jerk                    :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity #>"}
-            AxoMoveVelocity_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
+            AxoMoveVelocity_Direction               :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection    := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move velocity in velocity#>"}
             {#ix-attr:[ReadOnly()]}
@@ -395,25 +394,25 @@ NAMESPACE AXOpen.Components.Drives
             AxoTorqueControl_ContinuousUpdate       :   BOOL;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque torque#>"}
-            AxoTorqueControl_Torque                 :   LREAL;
+            AxoTorqueControl_Torque                 :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque torque ramp#>"}
-            AxoTorqueControl_TorqueRamp             :   LREAL;
+            AxoTorqueControl_TorqueRamp             :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque velocity#>"}
-            AxoTorqueControl_Velocity               :   LREAL;
+            AxoTorqueControl_Velocity               :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque acceleration#>"}
-            AxoTorqueControl_Acceleration           :   LREAL;
+            AxoTorqueControl_Acceleration           :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque deceleration#>"}
-            AxoTorqueControl_Deceleration           :   LREAL;
+            AxoTorqueControl_Deceleration           :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque jerk#>"}
-            AxoTorqueControl_Jerk                   :   LREAL;
+            AxoTorqueControl_Jerk                   :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque direction#>"}
-            AxoTorqueControl_Direction              :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
+            AxoTorqueControl_Direction              :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection    := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
             {#ix-attr:[ComponentDetails("Continuous motion")]}
             {#ix-set:AttributeName = "<#Move torque in torque#>"}
             {#ix-attr:[ReadOnly()]}
@@ -446,13 +445,13 @@ NAMESPACE AXOpen.Components.Drives
             AxoSetPosition_Task                     :   AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position position#>"}
-            AxoSetPosition_Position                 :   REAL;                    
+            AxoSetPosition_Position                 :   LREAL   :=  1.0;                    
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position relative#>"}
             AxoSetPosition_Relative                 :   BOOL;                    
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position execution mode#>"}
-            AxoSetPosition_ExecutionMode            :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;       
+            AxoSetPosition_ExecutionMode            :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode :=  AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                  
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set position done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -477,13 +476,13 @@ NAMESPACE AXOpen.Components.Drives
             AxoSetOverride_Task                     :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override velocity factor#>"}
-            AxoSetOverride_VelFactor                :   LREAL;                     
+            AxoSetOverride_VelFactor                :   LREAL   :=  1.0;                     
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override acceleration factor#>"}
-            AxoSetOverride_AccFactor                :   LREAL;                     
+            AxoSetOverride_AccFactor                :   LREAL   :=  1.0;                     
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override jerk factor#>"}
-            AxoSetOverride_JerkFactor               :   LREAL;        
+            AxoSetOverride_JerkFactor               :   LREAL   :=  1.0;        
             {#ix-attr:[ComponentDetails("Administrative")]}
             {#ix-set:AttributeName = "<#Set override enabled#>"}
             {#ix-attr:[ReadOnly()]}
@@ -601,7 +600,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteParameter_Value                 :   DINT;                     
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter execution mode#>"}
-            AxoWriteParameter_ExecutionMode         :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
+            AxoWriteParameter_ExecutionMode         :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode :=  AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                  
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -632,7 +631,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteRealParameter_Value             :   REAL;                     
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write real parameter execution mode#>"}
-            AxoWriteRealParameter_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
+            AxoWriteRealParameter_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode :=  AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                  
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write real parameter done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -663,7 +662,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteBoolParameter_Value             :   BOOL;                     
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter execution mode#>"}
-            AxoWriteBoolParameter_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
+            AxoWriteBoolParameter_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode :=  AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                  
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -752,7 +751,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteDigitalOutput_Value             :   BOOL;                     
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output execution mode#>"}
-            AxoWriteDigitalOutput_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
+            AxoWriteDigitalOutput_ExecutionMode     :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode :=  AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately;                  
             {#ix-attr:[ComponentDetails("Drive IO")]}
             {#ix-set:AttributeName = "<#Write digital output done#>"}
             {#ix-attr:[ReadOnly()]}
@@ -1029,7 +1028,7 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ComponentDetails("Read values")]}
             {#ix-set:AttributeName = "<#Read axis error axis error ID#>"}
             {#ix-attr:[ReadOnly()]}
-            AxoReadAxisError_AxisErrorID            :   WORD;
+            AxoReadAxisError_AxisErrorID            :   DWORD;
             //***********Reset********************************
             {#ix-attr:[Container(Layout.UniformGrid)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]} 
@@ -1063,19 +1062,19 @@ NAMESPACE AXOpen.Components.Drives
             AxoJogNegative                          :   AXOpen.Components.Drives.AxoMotionJogTask;
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog velocity#>"}
-            AxoJog_Velocity                         :   LREAL;
+            AxoJog_Velocity                         :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog acceleration#>"}
-            AxoJog_Acceleration                     :   LREAL;
+            AxoJog_Acceleration                     :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog deceleration#>"}
-            AxoJog_Deceleration                     :   LREAL;
+            AxoJog_Deceleration                     :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog jerk#>"}
-            AxoJog_Jerk                             :   LREAL;
+            AxoJog_Jerk                             :   LREAL   :=  1.0;
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog direction#>"}
-            AxoJog_Direction                        :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
+            AxoJog_Direction                        :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection    := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
             {#ix-attr:[ComponentDetails("Jog")]}
             {#ix-set:AttributeName = "<#Jog velocity#>"}
             {#ix-attr:[ReadOnly()]}
@@ -1186,21 +1185,21 @@ NAMESPACE AXOpen.Components.Drives
             _AxoSetOverride_AccFactor               :   LREAL;                     
             _AxoSetOverride_JerkFactor              :   LREAL;        
             //***********ReadParameter************************
-            _AxoReadParameter_ParameterNumber       :   INT;
+            _AxoReadParameter_ParameterNumber       :   DINT;
             //***********ReadReadParameter************************
-            _AxoReadRealParameter_ParameterNumber   :   INT;
+            _AxoReadRealParameter_ParameterNumber   :   DINT;
             //***********ReadBoolParameter********************
-            _AxoReadBoolParameter_ParameterNumber   :   INT;
+            _AxoReadBoolParameter_ParameterNumber   :   DINT;
             //***********WriteParameter***********************
-            _AxoWriteParameter_ParameterNumber      :   INT;                    
+            _AxoWriteParameter_ParameterNumber      :   DINT;                    
             _AxoWriteParameter_Value                :   DINT;                     
             _AxoWriteParameter_ExecutionMode        :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             //***********WriteRealParameter***********************
-            _AxoWriteRealParameter_ParameterNumber  :   INT;                    
+            _AxoWriteRealParameter_ParameterNumber  :   DINT;                    
             _AxoWriteRealParameter_Value            :   REAL;                     
             _AxoWriteRealParameter_ExecutionMode    :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             //***********WriteBoolParameter*******************
-            _AxoWriteBoolParameter_ParameterNumber  :   INT;                    
+            _AxoWriteBoolParameter_ParameterNumber  :   DINT;                    
             _AxoWriteBoolParameter_Value            :   BOOL;                     
             _AxoWriteBoolParameter_ExecutionMode    :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;                  
             //***********ReadDigitalInput*********************
@@ -1301,7 +1300,7 @@ NAMESPACE AXOpen.Components.Drives
             END_VAR
 
             Messenger.Serve(THIS);
-            // TaskMessenger.Serve(THIS);
+            TaskMessenger.Serve(THIS);
 
             RestoreTask.Initialize(THIS);
             AxoPower_Task.Initialize(THIS);
@@ -1520,7 +1519,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoMoveVelocity_ErrorID);
 
             IF AxoMoveVelocity_Task.Execute() THEN
-                AxoMoveVelocity_Task.DoneWhen(AxoMoveVelocity_InVelocity);
+                AxoMoveVelocity_Task.DoneWhen(AxoMoveVelocity_InVelocity AND NOT _AxoMoveVelocity_ContinuousUpdate);
                 AxoMoveVelocity_Task.ThrowWhen(AxoMoveVelocity_Error,CONCAT('MC_MoveVelocity has thrown an error: ', ToString(AxoMoveVelocity_ErrorID)));
                 IF AxoMoveVelocity_CommandAborted THEN
                     AxoMoveVelocity_Task.Abort();
@@ -1863,15 +1862,24 @@ NAMESPACE AXOpen.Components.Drives
             //*************AXO_JOG**********************
             AxoJogPositive.SetIsDisabled(_movementDisabled OR NOT EnablePositive OR AxoJogNegative.IsSwitchedOn());
             AxoJogNegative.SetIsDisabled(_movementDisabled OR NOT EnableNegative OR AxoJogPositive.IsSwitchedOn());
+            AxoJogPositive.Run();
+            AxoJogNegative.Run();
+            AxoJogInVelocity                        :=  FALSE;
+            AxoJog_Active                           :=  FALSE;
+            AxoJog_Done                             :=  FALSE;                   
+            AxoJog_Busy                             :=  FALSE;                   
+            AxoJog_CommandAborted                   :=  FALSE;
+            AxoJog_Error                            :=  FALSE;                   
+            AxoJog_ErrorID                          :=  FALSE;    
             IF AxoJogPositive.IsSwitchedOn() THEN
-                _AxoJog_Direction := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
+                AxoJog_Direction := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
             ELSIF AxoJogNegative.IsSwitchedOn() THEN
-                _AxoJog_Direction := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
+                AxoJog_Direction := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
             END_IF;
             IF AxoJogPositive.IsSwitchedOn() OR AxoJogNegative.IsSwitchedOn() THEN
                 IF AxoJogPositive.StartMotion OR AxoJogNegative.StartMotion THEN
-                    AxoJogPositive.StartMotion := FALSE;
-                    AxoJogNegative.StartMotion := FALSE;
+                    AxoJogPositive.StartMotion          :=  FALSE;
+                    AxoJogNegative.StartMotion          :=  FALSE;
                 END_IF;
                 THIS.AxoMoveVelocity(FALSE,
                                     _AxoJog_Velocity, 
@@ -1879,9 +1887,22 @@ NAMESPACE AXOpen.Components.Drives
                                     _AxoJog_Deceleration,
                                     _AxoJog_Jerk,
                                     _AxoJog_Direction);
+                AxoJogInVelocity                        :=  AxoMoveVelocity_InVelocity;
+                AxoJog_Active                           :=  TRUE;
+                AxoJog_Done                             :=  FALSE;                   
+                AxoJog_Busy                             :=  AxoMoveVelocity_Busy;                   
+                AxoJog_CommandAborted                   :=  AxoMoveVelocity_CommandAborted;
+                AxoJog_Error                            :=  AxoMoveVelocity_Error;                   
+                AxoJog_ErrorID                          :=  AxoMoveVelocity_ErrorID;    
             ELSIF AxoJogPositive.StopMotion OR AxoJogNegative.StopMotion THEN
-                THIS.AxoMoveVelocity(FALSE);
                 THIS.AxoHalt(_AxoJog_Deceleration,_AxoJog_Jerk);
+                AxoJogInVelocity                        :=  FALSE;
+                AxoJog_Active                           :=  TRUE;
+                AxoJog_Done                             :=  TRUE;                   
+                AxoJog_Busy                             :=  AxoHalt_Busy;                   
+                AxoJog_CommandAborted                   :=  AxoHalt_CommandAborted;
+                AxoJog_Error                            :=  AxoHalt_Error;                   
+                AxoJog_ErrorID                          :=  AxoHalt_ErrorID;    
                 AxoJogPositive.StopMotion := FALSE;
                 AxoJogNegative.StopMotion := FALSE;
             END_IF;
@@ -1900,7 +1921,7 @@ NAMESPACE AXOpen.Components.Drives
             Messenger.Restore();
             TaskMessenger.Restore();
 
-            // AxoPower_Task.Restore();
+            //AxoPower_Task.Restore();
             AxoStop_Task.Restore();
             AxoHalt_Task.Restore();
             AxoHome_Task.Restore();
@@ -1928,9 +1949,13 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadAxisInfo_Task.SwitchOff();
             AxoReadAxisError_Task.SwitchOff();
             AxoReset_Task.Restore();
-            // AxoJogPositive.Restore();
-            // AxoJogNegative.Restore();
-            
+            AxoJogPositive.RemoteSwitchOn := FALSE;
+            AxoJogPositive.StartMotion := FALSE;
+            AxoJogPositive.StopMotion := FALSE;
+            AxoJogNegative.RemoteSwitchOn := FALSE;
+            AxoJogNegative.StartMotion := FALSE;
+            AxoJogNegative.StopMotion := FALSE;
+             
             RestoreTask.DoneWhen(TRUE);
         END_METHOD
 
@@ -2034,6 +2059,18 @@ NAMESPACE AXOpen.Components.Drives
             _AxoJog_Direction                       := AxoJog_Direction;
             _AxoJogInVelocity                       := AxoJogInVelocity;
             _AxoJog_Active                          := AxoJog_Active;
+
+            IF AxoJog_Active THEN
+                _AxoMoveVelocity_ContinuousUpdate       := FALSE;
+                _AxoMoveVelocity_Velocity               := AxoJog_Velocity;
+                _AxoMoveVelocity_Acceleration           := AxoJog_Acceleration;
+                _AxoMoveVelocity_Deceleration           := AxoJog_Deceleration;
+                _AxoMoveVelocity_Jerk                   := AxoJog_Jerk;
+                _AxoMoveVelocity_Direction              := AxoJog_Direction;
+
+                _AxoHalt_Deceleration                   := AxoJog_Deceleration;
+                _AxoHalt_Jerk                           := AxoJog_Jerk;
+            END_IF;
             //************************************************
             AxoPower_Task.Manual();
         END_METHOD
@@ -2407,7 +2444,7 @@ NAMESPACE AXOpen.Components.Drives
         METHOD PUBLIC AxoReadParameter : IAxoToggleTask
             VAR_INPUT
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       //  A valid output is available at the method
@@ -2440,7 +2477,7 @@ NAMESPACE AXOpen.Components.Drives
         METHOD PUBLIC AxoReadRealParameter : IAxoToggleTask
             VAR_INPUT
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       //  A valid output is available at the method
@@ -2473,7 +2510,7 @@ NAMESPACE AXOpen.Components.Drives
         METHOD PUBLIC AxoReadBoolParameter : IAxoToggleTask
             VAR_INPUT
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       //  A valid output is available at the method
@@ -2505,7 +2542,7 @@ NAMESPACE AXOpen.Components.Drives
         ///<summary>
         METHOD PUBLIC AxoWriteParameter : IAxoTaskState
             VAR_INPUT
-                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   DINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -2533,7 +2570,7 @@ NAMESPACE AXOpen.Components.Drives
         ///<summary>
         METHOD PUBLIC AxoWriteRealParameter    : IAxoTaskState
             VAR_INPUT
-                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   REAL;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -2561,7 +2598,7 @@ NAMESPACE AXOpen.Components.Drives
         ///<summary>
         METHOD PUBLIC AxoWriteBoolParameter    : IAxoTaskState
             VAR_INPUT
-                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   BOOL;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -2917,7 +2954,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                AxisErrorID     :   WORD;                       //  The value of the axis error. These values are vendor specific
+                AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
             END_VAR
             
             IF Enable THEN
@@ -3273,7 +3310,7 @@ NAMESPACE AXOpen.Components.Drives
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       //  A valid output is available at the method
@@ -3292,7 +3329,7 @@ NAMESPACE AXOpen.Components.Drives
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       //  A valid output is available at the method
@@ -3311,7 +3348,7 @@ NAMESPACE AXOpen.Components.Drives
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-                ParameterNumber :   INT;                        //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
+                ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
             END_VAR
             VAR_OUTPUT
                 Valid           :   BOOL;                       //  A valid output is available at the method
@@ -3330,7 +3367,7 @@ NAMESPACE AXOpen.Components.Drives
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
-                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   DINT;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -3350,7 +3387,7 @@ NAMESPACE AXOpen.Components.Drives
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
-                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   REAL;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -3370,7 +3407,7 @@ NAMESPACE AXOpen.Components.Drives
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
-                ParameterNumber :   INT;                        //  Number of the parameter (correspondence between number andparameter is specified in the table above)
+                ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
                 Value           :   BOOL;                       //  New value of the specified parameter
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
             END_VAR
@@ -3429,7 +3466,7 @@ NAMESPACE AXOpen.Components.Drives
         METHOD PUBLIC ABSTRACT MC_WriteDigitalOutput
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-                Enable          :   BOOL;                       //  Get the value of the selected output signal continuously while enabled
+                Execute         :   BOOL;                       //  Write the value of the selected output
                 OutputNumber    :   INT;                        //  Selects the output. Can be part of MC_OUTPUT_REF, if only one single output is referenced.                
                 Value           :   BOOL;                       //  The value of the selected output signal
                 ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
@@ -3590,7 +3627,7 @@ NAMESPACE AXOpen.Components.Drives
                 Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
                 Error           :   BOOL;                       //  Signals that an error has occurred within the method
                 ErrorID         :   WORD;                       //  Error identification
-                AxisErrorID     :   WORD;                       //  The value of the axis error. These values are vendor specific
+                AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
             END_VAR
         END_METHOD
 
