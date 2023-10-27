@@ -32,16 +32,16 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include=".g\**" />
-	</ItemGroup>
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include=".meta\**" />
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
 	</ItemGroup>
-
 	<ItemGroup>
-		<PackageReference Include="AXSharp.Abstractions"/>
-		<PackageReference Include="AXSharp.Connector"/>
+		<PackageReference Include="AXSharp.Abstractions" />
+		<PackageReference Include="AXSharp.Connector" />
 		<PackageReference Include="GitVersion.MsBuild">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -80,5 +80,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\..\components.abstractions\src\AXOpen.Components.Abstractions\ix_ax_axopen_components_abstractions.csproj" />
 	</ItemGroup>
 </Project>

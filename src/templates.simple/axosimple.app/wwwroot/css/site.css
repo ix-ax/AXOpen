@@ -30,3 +30,15 @@ html, body {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.collapsible {
+    transform: rotate(0deg);
+    transition: transform .2s linear;
+    transform-origin: 50% 45%;
+}
+
+    .collapsible.open {
+        transform: rotate(180deg);
+        transition: transform .2s linear;
+        transform-origin: 50% 45%;
+    }

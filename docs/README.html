@@ -89,6 +89,29 @@
         <article data-uid="">
 <h1 id="about-this-repository">About this Repository</h1>
 
+<h2 id="pre-requisites">Pre-requisites</h2>
+<ul>
+<li>APAX 2.0.0</li>
+<li>AXCODE</li>
+<li>DOTNET 6.0, 7.0</li>
+<li>VSCODE or VS2022</li>
+</ul>
+<h3 id="add-package-source">Add package source</h3>
+<p>To get access to the packages from <code>AX#</code> and <code>AXOpen</code> you will need to authenticate to a dedicated package feed hosted on GitHub. Authentication is free. If you do not have a GitHub account please consider creating one by signing up at <a href="https://github.com">https://github.com</a>.</p>
+<pre><code>dotnet nuget add source --username GITHUBUSERNAME --password PAT  --store-password-in-clear-text --name gh-packages-ix-ax &quot;https://nuget.pkg.github.com/ix-ax/index.json&quot;
+</code></pre>
+<p>Replace GITHUBUSERNAME with your github name
+Replace PAT with your Personal Access Token (<a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">how to create your PAT</a>)</p>
+<h3 id="checking-pre-requisites-using-script">Checking pre-requisites using script</h3>
+<p>To check pre-requisites in your enviroment run <a href="../scripts/check_requisites.ps1">check_requisites.ps1</a> script.</p>
+<pre><code class="lang-Powershell"># cd into your `axopen` folder
+.\scripts\check_requisites.ps1
+</code></pre>
+<h2 id="build-this-repository">Build this repository</h2>
+<p>In order to build this repostory run <a href="../build.ps1">build.ps1</a> script.</p>
+<pre><code class="lang-Powershell"># cd into your `axopen` folder
+.\build.ps1 
+</code></pre>
 <h2 id="directory-structure">Directory Structure</h2>
 <h3 id="docfx"><strong>docfx</strong></h3>
 <p>Contains documentation for this repository.</p>
@@ -184,7 +207,7 @@ The version is assigned at build time in the CI/CD pipeline.</p>
 <pre><code class="lang-PowerShell">.\scripts\create_template_library.ps1 -OutputDirectory OutputFolder -ProjectNamespace Project.Namespace
 </code></pre>
 <p>For example:</p>
-<pre><code class="lang-PowerShell">.\scripts\create_template_library.ps1 -OutputDirectory components.elements -p AXOpen.Components.Elements
+<pre><code class="lang-PowerShell">.\scripts\create_template_library.ps1 -OutputDirectory components.elements -ProjectNamespace AXOpen.Components.Elements
 </code></pre>
 <h3 id="manual-create">Manual create</h3>
 <ol>

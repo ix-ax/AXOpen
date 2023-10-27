@@ -18,6 +18,7 @@ namespace AXOpen.Messaging.Static
         protected IJSRuntime js { get; set; }
         private IJSObjectReference? jsModule;
 
+
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
             var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.Core.Blazor/AxoMessenger/Static/AxoMessengerView.razor.js");
@@ -41,10 +42,16 @@ namespace AXOpen.Messaging.Static
             Component.AcknowledgeRequest.Cyclic = true; 
             AxoApplication.Current.Logger.Information($"Message '{this.MessageText}' acknowledged.", this.Component, await GetCurrentUserIdentity());
         }
+
+        public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+        {
+            base.AddToPolling(element);
+        }
+
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            UpdateValuesOnChange(Component);
+            UpdateValuesOnChange(Component.IsActive);
         }
 
         public void Dispose()

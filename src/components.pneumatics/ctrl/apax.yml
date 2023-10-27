@@ -5,13 +5,14 @@ targets:
   - axunit-llvm
 files:
   - src
+  - axsharp.companion.json
 variables:
   APAX_BUILD_ARGS:
     - "--debug"
   AXUNIT_TARGET_IP: "172.20.30.110"
   SIM_ENABLED: "true"
 devDependencies:
-  "@ax/sdk": ^4.0.3
+  "@ax/sdk": 4.0.12
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.core": '0.0.0-dev.0'
@@ -20,3 +21,5 @@ scripts:
     - START=$(date +%s)
     - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
+publicKeys:
+  "@ix-ax" :  30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17    

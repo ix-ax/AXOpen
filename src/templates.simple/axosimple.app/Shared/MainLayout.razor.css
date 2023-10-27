@@ -9,7 +9,7 @@ main {
     margin-top: 40px; /* height of collapsed navbar */
 }
 
-@media (min-width: 641px) {
+@media (min-width: 770px) {
     .page {
         flex-direction: row;
     }

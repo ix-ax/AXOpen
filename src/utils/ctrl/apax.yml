@@ -5,11 +5,14 @@ targets:
   - axunit-llvm
 files:
   - src
+  - axsharp.companion.json
 devDependencies:
-  "@ax/sdk": ^4.0.8
+  "@ax/sdk": 4.0.12
 scripts:
   postbuild:
     - dotnet ixc
 dependencies:
   "@ax/system-serde": ^5.0.60
   "@ax/system-strings": ^5.0.60
+publicKeys:
+  "@ix-ax" :  30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17  

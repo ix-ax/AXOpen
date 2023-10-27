@@ -251,7 +251,7 @@ DetectedStatus : BOOL;
 </tbody>
 </table>
 <p>The following example specify, that when inspection fails, dialog is shown and is requesting user decision.</p>
-<pre><code class="lang-smalltalk">_dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45]);
+<pre><code class="lang-smalltalk">_dataInspector.WithCoordinator(THIS).Inspect(THIS,_inspectionData).UpdateComprehensiveResult(_comprehensiveResult).OnFail().Dialog(Steps[20], Steps[45],_dataInspectorDialog);
 </code></pre>
 <p><img src="assets/inspection-failure-dialog.png" alt="Inspection failure"></p>
 <h2 id="over-inspection">Over-inspection</h2>

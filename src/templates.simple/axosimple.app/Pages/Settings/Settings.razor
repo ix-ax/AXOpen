@@ -1,0 +1,52 @@
+﻿@page "/Settings/settings"
+@inject NavigationManager NavigationManager
+
+
+<label>@Localizer["Choose a theme"]</label>
+<select class="form-control" @bind="Theme" @bind:event="oninput">
+    @foreach (var theme in supportedThemes)
+    {
+        <option value="@theme">@theme</option>
+    }
+</select>
+
+@code {
+    [Inject]
+    IHttpContextAccessor HttpContextAccessor { get; set; }
+
+    private string defaultTheme = "Bootstrap";
+    private string[] supportedThemes = new[]
+    {
+        "Bootstrap",
+        "MTS",
+        "Tropical",
+        "Jupiter"
+    };
+
+    private string theme;
+    public string Theme
+    {
+        get => theme;
+        set
+        {
+            // Prevent initial navigation (causes error)
+            if (theme == null)
+            {
+                theme = value;
+                return;
+            }
+
+            // Prevent unnecessary navigation
+            if (theme != value)
+            {
+                theme = value;
+                NavigationManager.NavigateTo($"/theme?theme={theme}", true);
+            }
+        }
+    }
+
+    protected override void OnInitialized()
+    {
+        Theme = HttpContextAccessor.HttpContext.Request.Cookies["theme"] ?? defaultTheme;
+    }
+}

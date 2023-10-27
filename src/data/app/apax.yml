@@ -8,7 +8,7 @@ variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ax/sdk": ^4.0.8
+  "@ax/sdk": 4.0.12
   "@ax/sld": 0.15.9
 dependencies:
   "@ix-ax/axopen.data": '0.0.0-dev.0'

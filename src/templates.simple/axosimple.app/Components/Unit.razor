@@ -13,6 +13,7 @@
     <div class="content-wrapper">
         <UnitsSequences Component="@this.Component"></UnitsSequences>
         <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="((dynamic)this.Component).Components"></UnitsService>
+        @ChildContent
     </div>
 </body>
 
@@ -70,7 +71,7 @@
 </div>
 
 
-<!-- Modal data alarms -->
+<!-- Modal data components -->
 <div class="modal fade" id="componentsviewmodal" tabindex="-1" aria-labelledby="componentsviewTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -93,7 +94,7 @@
     </div>
 </div>
 
-<footer class="footer bg-white text-white p-2 fixed-bottom">
+<div class="text-white p-2 fixed-bottom" style="z-index: 0;">
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataviewmodal">
         Data
     </button>
@@ -102,7 +103,7 @@
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#componentsviewmodal">
         Components
     </button>
-</footer>
+</div>
 
 <AxoDialogLocator DialogId="@this.Component?.Symbol" ObservedObjects="new[] {this.Component}"></AxoDialogLocator>
 <AxoAlertDialogLocator ObservedObjects="new[] {this.Component}" />
@@ -114,5 +115,7 @@
     [Parameter]
     public ITwinObject? Data { get; set; }
 
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
 }
 

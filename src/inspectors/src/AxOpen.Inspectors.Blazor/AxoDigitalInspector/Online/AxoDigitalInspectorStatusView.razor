@@ -1,48 +1,12 @@
 ﻿@namespace AXOpen.Inspectors
 @inherits RenderableComplexComponentBase<AxoDigitalInspector>
 
+<InspectorViewTemplate Data="Component._data"
+                       Name="@getNameOrSymbol()"
+                       Presentation="Display" />
 
-<div class="accordion my-3">
-    <div class="accordion-item">
-        <div class="accordion-header" style="border-bottom: 1px solid #dee2e6">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#@ID" aria-expanded="false" aria-controls="@ID">
-                @getNameOrSymbol()
-            </button>
-        </div>
-        <div class="accordion-body row align-items-center py-1">
-            <div class="col-auto">
-                <RenderableContentControl Context="@Component._data.RequiredStatus" Presentation="Display" />
-            </div>
-            <div class="col-auto">
-                <RenderableContentControl Context="@Component._data.DetectedStatus" Presentation="Display" />
-            </div>
-            <div class="col-auto ms-auto">
-                <RenderableContentControl Context="@Component._data.IsByPassed" Presentation="Display" />
-            </div>
-            <div class="col-auto">
-                <RenderableContentControl Context="@Component._data.IsExcluded" Presentation="Display" />
-            </div>
-            <div class="col-auto">
-                <GenericIconView Result="@Component._data.Result.Cyclic" />
-            </div>
 
-            <div>
-
-                @if (Component._axoInspectorDialog._isOverInspected.Cyclic)
-                {
-                    <p class="text-danger">Overinspection detected</p>
-                }
-            </div>
-        </div>
-        <div id="@ID" class="accordion-collapse collapse">
-            <div class="accordion-body py-1">
-                <GenericInspectorDataView Data="@Component._data" Presentation="Display" />
-            </div>
-        </div>
-    </div>
-</div>
-
-@code{
+@code {
     private string ID = "M" + Guid.NewGuid().ToString();
 
     public string getNameOrSymbol()

@@ -4,7 +4,7 @@
 
 @foreach (var message in Messengers)
 {
-    if (message.IsActive.LastValue)
+    if (message.IsActive.LastValue || message.WaitingForAcknowledge.LastValue)
     {
         <RenderableContentControl Context="message" Presentation="Base"></RenderableContentControl>
     }
@@ -16,39 +16,35 @@
 
     public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
     {
-        Messengers?.Select(p => p.IsActive).ToList().ForEach(messenger =>
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
         {
-            messenger.StartPolling(1500, this);
-            PolledElements.Add(messenger);
-        });
-
-        Messengers?.Select(p => p.WaitingForAcknowledge).ToList().ForEach(messenger =>
-        {
-            messenger.StartPolling(1500, this);
-            PolledElements.Add(messenger);
-        });
+            axoMessenger.StartPolling(2500, this);
+            PolledElements.Add(axoMessenger);
+        }
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await UpdateMessages();
         await base.OnAfterRenderAsync(firstRender);
+        this.StateHasChanged();
     }
 
     private async Task UpdateMessages()
     {
-        var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.IsActive, p.WaitingForAcknowledge });
-        var connector = Messengers?.FirstOrDefault()?.GetConnector();
-        await connector?.ReadBatchAsync(a)!;
-        if (Messengers != null) MessagesCount = Messengers.Count(p => p.IsActive.Cyclic);
+        if (Messengers != null) MessagesCount = Messengers.Count(p => p.IsActive.LastValue);
     }
 
-    private IEnumerable<AxoMessenger> Messengers => this.Component.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
+    private AxoMessenger[] Messengers => this.Component.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>().ToArray();
 
     protected override async Task OnInitializedAsync()
     {
-        await UpdateMessages();
         await base.OnInitializedAsync();
+
+        foreach (var axoMessenger in this.Messengers.SelectMany(p => new ITwinElement[] { p.IsActive }))
+        {
+            this.UpdateValuesOnChange(axoMessenger);
+        }
     }
 
 }

@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=AXOpen_Core_AxoRemoteTask.md&amp;value=---%0Auid%3A%20AXOpen.Core.AxoRemoteTask%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,11 +94,11 @@
 
   <h1 id="AXOpen_Core_AxoRemoteTask" data-uid="AXOpen.Core.AxoRemoteTask" class="text-break">
     Class AxoRemoteTask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
-    <dl><dt>Namespace</dt><dd><span class="xref">AXOpen</span>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
+    <dl><dt>Namespace</dt><dd><a class="xref" href="AXOpen.html">AXOpen</a>.<a class="xref" href="AXOpen.Core.html">Core</a></dd></dl>
   <dl><dt>Assembly</dt><dd>ix_ax_axopen_core.dll</dd></dl>
   </div>
 
@@ -137,6 +137,8 @@
   <dl class="typelist derived">
     <dt>Derived</dt>
     <dd>
+      <div><a class="xref" href="AXOpen.Core.AxoAlertDialog.html">AxoAlertDialog</a></div>
+      <div><a class="xref" href="AXOpen.Core.AxoDialogBase.html">AxoDialogBase</a></div>
       <div><a class="xref" href="AXOpen.Data.AxoDataExchangeTask.html">AxoDataExchangeTask</a></div>
     </dd>
   </dl>
@@ -185,6 +187,9 @@
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_ErrorDetails">AxoTask.ErrorDetails</a>
+    </div>
+    <div>
+      <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask__CyclicExecuteIsNotCalled">AxoTask._CyclicExecuteIsNotCalled</a>
     </div>
     <div>
       <a class="xref" href="AXOpen.Core.AxoTask.html#AXOpen_Core_AxoTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoTask_">AxoTask.OnlineToPlainAsync(AxoTask)</a>
@@ -284,6 +289,13 @@
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -297,7 +309,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask__ctor_AXSharp_Connector_ITwinObject_System_String_System_String_" data-uid="AXOpen.Core.AxoRemoteTask.#ctor(AXSharp.Connector.ITwinObject,System.String,System.String)">
   AxoRemoteTask(ITwinObject, string, string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L25"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -328,15 +340,80 @@
 
 
 
+  <h2 class="section" id="fields">Fields
+</h2>
+
+
+
+  <h3 id="AXOpen_Core_AxoRemoteTask__defferedActionCount" data-uid="AXOpen.Core.AxoRemoteTask._defferedActionCount">
+  _defferedActionCount
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L39"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected int _defferedActionCount</code></pre>
+  </div>
+
+
+
+
+  <h4 class="section">Field Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">int</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
   <h2 class="section" id="properties">Properties
 </h2>
+
+
+  <a id="AXOpen_Core_AxoRemoteTask_DeferredAction_" data-uid="AXOpen.Core.AxoRemoteTask.DeferredAction*"></a>
+
+  <h3 id="AXOpen_Core_AxoRemoteTask_DeferredAction" data-uid="AXOpen.Core.AxoRemoteTask.DeferredAction">
+  DeferredAction
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Action DeferredAction { get; set; }</code></pre>
+  </div>
+
+
+
+
+
+  <h4 class="section">Property Value</h4>
+  <dl class="parameters">
+    <dt><span class="xref">Action</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
 
 
   <a id="AXOpen_Core_AxoRemoteTask_DoneSignature_" data-uid="AXOpen.Core.AxoRemoteTask.DoneSignature*"></a>
 
   <h3 id="AXOpen_Core_AxoRemoteTask_DoneSignature" data-uid="AXOpen.Core.AxoRemoteTask.DoneSignature">
   DoneSignature
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -367,7 +444,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_HasRemoteException" data-uid="AXOpen.Core.AxoRemoteTask.HasRemoteException">
   HasRemoteException
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L15"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -398,7 +475,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_IsBeingCalledCounter" data-uid="AXOpen.Core.AxoRemoteTask.IsBeingCalledCounter">
   IsBeingCalledCounter
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L17"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -429,7 +506,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_IsInitialized" data-uid="AXOpen.Core.AxoRemoteTask.IsInitialized">
   IsInitialized
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -460,7 +537,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_RemoteExceptionDetails" data-uid="AXOpen.Core.AxoRemoteTask.RemoteExceptionDetails">
   RemoteExceptionDetails
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L148"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L148"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets string representation of the current exception on this remote task.</p>
@@ -492,7 +569,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_RemoteExecutionException" data-uid="AXOpen.Core.AxoRemoteTask.RemoteExecutionException">
   RemoteExecutionException
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L128"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L128"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Gets the exception that occurred during the last execution.</p>
@@ -524,7 +601,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_TaskHasRemoteException" data-uid="AXOpen.Core.AxoRemoteTask.TaskHasRemoteException">
   TaskHasRemoteException
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L21"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -555,7 +632,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_TaskNotInitialized" data-uid="AXOpen.Core.AxoRemoteTask.TaskNotInitialized">
   TaskNotInitialized
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -590,7 +667,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_CreateEmptyPoco" data-uid="AXOpen.Core.AxoRemoteTask.CreateEmptyPoco">
   CreateEmptyPoco()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L142"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L142"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -621,10 +698,10 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_DeInitialize" data-uid="AXOpen.Core.AxoRemoteTask.DeInitialize">
   DeInitialize()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L82"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L82"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Removes currently bound <span class="xref">AXOpen.Core.AxoRemoteTask.DeferredAction</span> from the execution of this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a></p>
+  <div class="markdown level1 summary"><p>Removes currently bound <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_DeferredAction">DeferredAction</a> from the execution of this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -644,11 +721,44 @@
 
 
 
+  <a id="AXOpen_Core_AxoRemoteTask_ExecuteAsync_" data-uid="AXOpen.Core.AxoRemoteTask.ExecuteAsync*"></a>
+
+  <h3 id="AXOpen_Core_AxoRemoteTask_ExecuteAsync_AXSharp_Connector_ITwinPrimitive_AXSharp_Connector_ValueTypes_ValueChangedEventArgs_" data-uid="AXOpen.Core.AxoRemoteTask.ExecuteAsync(AXSharp.Connector.ITwinPrimitive,AXSharp.Connector.ValueTypes.ValueChangedEventArgs)">
+  ExecuteAsync(ITwinPrimitive, ValueChangedEventArgs)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L91"><i class="bi bi-code-slash"></i></a>
+  </h3>
+
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ExecuteAsync(ITwinPrimitive sender, ValueChangedEventArgs args)</code></pre>
+  </div>
+
+  <h4 class="section">Parameters</h4>
+  <dl class="parameters">
+    <dt><code>sender</code> <span class="xref">ITwinPrimitive</span></dt>
+    <dd></dd>
+    <dt><code>args</code> <span class="xref">ValueChangedEventArgs</span></dt>
+    <dd></dd>
+  </dl>
+
+
+
+
+
+
+
+
+
+
+
+
   <a id="AXOpen_Core_AxoRemoteTask_Initialize_" data-uid="AXOpen.Core.AxoRemoteTask.Initialize*"></a>
 
   <h3 id="AXOpen_Core_AxoRemoteTask_Initialize_System_Action_" data-uid="AXOpen.Core.AxoRemoteTask.Initialize(System.Action)">
   Initialize(Action)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L19"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L19"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes this  <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a>.</p>
@@ -681,7 +791,7 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_Initialize_System_Func_System_Boolean__" data-uid="AXOpen.Core.AxoRemoteTask.Initialize(System.Func{System.Boolean})">
   Initialize(Func&lt;bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L31"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L31"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Initializes this  <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a>.</p>
@@ -714,10 +824,10 @@
 
   <h3 id="AXOpen_Core_AxoRemoteTask_InitializeExclusively_System_Action_" data-uid="AXOpen.Core.AxoRemoteTask.InitializeExclusively(System.Action)">
   InitializeExclusively(Action)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L46"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L46"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes this  <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a> exclusively for this <span class="xref">AXOpen.Core.AxoRemoteTask.DeferredAction</span>. Any following attempt
+  <div class="markdown level1 summary"><p>Initializes this  <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a> exclusively for this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_DeferredAction">DeferredAction</a>. Any following attempt
 to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a> will throw an exception.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -748,10 +858,10 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_InitializeExclusively_System_Func_System_Boolean__" data-uid="AXOpen.Core.AxoRemoteTask.InitializeExclusively(System.Func{System.Boolean})">
   InitializeExclusively(Func&lt;bool&gt;)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L65"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L65"><i class="bi bi-code-slash"></i></a>
   </h3>
 
-  <div class="markdown level1 summary"><p>Initializes this  <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a> exclusively for this <span class="xref">AXOpen.Core.AxoRemoteTask.DeferredAction</span>. Any following attempt
+  <div class="markdown level1 summary"><p>Initializes this  <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a> exclusively for this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html#AXOpen_Core_AxoRemoteTask_DeferredAction">DeferredAction</a>. Any following attempt
 to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a> will throw an exception.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -782,7 +892,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_OnlineToPlain__1" data-uid="AXOpen.Core.AxoRemoteTask.OnlineToPlain``1">
   OnlineToPlain&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L42"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L42"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -818,7 +928,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_OnlineToPlainAsync" data-uid="AXOpen.Core.AxoRemoteTask.OnlineToPlainAsync">
   OnlineToPlainAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L47"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -849,7 +959,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_OnlineToPlainAsync_Pocos_AXOpen_Core_AxoRemoteTask_" data-uid="AXOpen.Core.AxoRemoteTask.OnlineToPlainAsync(Pocos.AXOpen.Core.AxoRemoteTask)">
   OnlineToPlainAsync(AxoRemoteTask)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L61"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -885,7 +995,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_PlainToOnline__1___0_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToOnline``1(``0)">
   PlainToOnline&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L73"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L73"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -926,7 +1036,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_PlainToOnlineAsync_Pocos_AXOpen_Core_AxoRemoteTask_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToOnlineAsync(Pocos.AXOpen.Core.AxoRemoteTask)">
   PlainToOnlineAsync(AxoRemoteTask)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L78"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L78"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -962,7 +1072,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_PlainToShadow__1___0_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToShadow``1(``0)">
   PlainToShadow&lt;T&gt;(T)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L120"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L120"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1003,7 +1113,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_PlainToShadowAsync_Pocos_AXOpen_Core_AxoRemoteTask_" data-uid="AXOpen.Core.AxoRemoteTask.PlainToShadowAsync(Pocos.AXOpen.Core.AxoRemoteTask)">
   PlainToShadowAsync(AxoRemoteTask)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L125"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L125"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1039,7 +1149,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_Poll" data-uid="AXOpen.Core.AxoRemoteTask.Poll">
   Poll()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L137"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L137"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1065,7 +1175,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_ResetExecution" data-uid="AXOpen.Core.AxoRemoteTask.ResetExecution">
   ResetExecution()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L163"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L163"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"><p>Resets the resets this instance of <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemoteTask</a>.</p>
@@ -1097,7 +1207,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_ShadowToPlain__1" data-uid="AXOpen.Core.AxoRemoteTask.ShadowToPlain``1">
   ShadowToPlain&lt;T&gt;()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L90"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L90"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1133,7 +1243,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_ShadowToPlainAsync" data-uid="AXOpen.Core.AxoRemoteTask.ShadowToPlainAsync">
   ShadowToPlainAsync()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L95"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L95"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1164,7 +1274,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_ShadowToPlainAsync_Pocos_AXOpen_Core_AxoRemoteTask_" data-uid="AXOpen.Core.AxoRemoteTask.ShadowToPlainAsync(Pocos.AXOpen.Core.AxoRemoteTask)">
   ShadowToPlainAsync(AxoRemoteTask)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L108"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L108"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1203,7 +1313,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 
   <h3 id="AXOpen_Core_AxoRemoteTask_PropertyChanged" data-uid="AXOpen.Core.AxoRemoteTask.PropertyChanged">
   PropertyChanged
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L13"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/AxoRemoteTask/AxoRemoteTask.cs/#L13"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
@@ -1234,7 +1344,7 @@ to initialize this <a class="xref" href="AXOpen.Core.AxoRemoteTask.html">AxoRemo
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/core/src/AXOpen.Core/.g/Onliners/AxoRemoteTask/AxoRemoteTask.g.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
         

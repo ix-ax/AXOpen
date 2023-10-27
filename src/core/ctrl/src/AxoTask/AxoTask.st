@@ -67,19 +67,20 @@ NAMESPACE AXOpen.Core
             ///</summary>                       
             ErrorDetails : STRING[254];
 
-            ///<summary>
-            /// Enable error message when task is not calling cyclically .            
-            ///</summary> 
-            {#ix-set:MessageText = "<#Cyclic Execute is not called.#>"}
-            {#ix-set:Help = "<#Check task calling in the code, task is not calling cyclically #>"}
-            _CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger;            
+                     
              
         END_VAR    
         
         VAR PRIVATE
             _openCycleCountInvoke : ULINT;
-            _openCycleCountExecute : ULINT;
+            _openCycleCountExecute : ULINT;            
             _taskTimer : AXOpen.Timers.OnDelayTimer;          
+            ///<summary>
+            /// Enable error message when task is not calling cyclically .            
+            ///</summary> 
+            {#ix-set:MessageText = "<#Cyclic Execute is not called.#>"}
+            {#ix-set:Help = "<#Check task calling in the code, task is not calling cyclically #>"}
+            _CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger;  
         END_VAR 
         
         ///<summary>

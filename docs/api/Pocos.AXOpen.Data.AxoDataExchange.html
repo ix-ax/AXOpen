@@ -17,7 +17,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/dev/apiSpec/new?filename=Pocos_AXOpen_Data_AxoDataExchange.md&amp;value=---%0Auid%3A%20Pocos.AXOpen.Data.AxoDataExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/ix-ax/AXOpen/new/refactoring/apiSpec/new?filename=Pocos_AXOpen_Data_AxoDataExchange.md&amp;value=---%0Auid%3A%20Pocos.AXOpen.Data.AxoDataExchange%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -94,7 +94,7 @@
 
   <h1 id="Pocos_AXOpen_Data_AxoDataExchange" data-uid="Pocos.AXOpen.Data.AxoDataExchange" class="text-break">
     Class AxoDataExchange
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L9"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -158,6 +158,13 @@
     </div>
   </dd></dl>
 
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="AXOpen.Base.Data.IPlainExtensions.html#AXOpen_Base_Data_IPlainExtensions_ShadowToPlain1__1_System_Object_AXSharp_Connector_ITwinObject_">IPlainExtensions.ShadowToPlain1&lt;T&gt;(object, ITwinObject)</a>
+  </div>
+  </dd></dl>
 
 
 
@@ -167,18 +174,18 @@
 </h2>
 
 
-  <a id="Pocos_AXOpen_Data_AxoDataExchange_CreateOrUpdateTask_" data-uid="Pocos.AXOpen.Data.AxoDataExchange.CreateOrUpdateTask*"></a>
+  <a id="Pocos_AXOpen_Data_AxoDataExchange_Operation_" data-uid="Pocos.AXOpen.Data.AxoDataExchange.Operation*"></a>
 
-  <h3 id="Pocos_AXOpen_Data_AxoDataExchange_CreateOrUpdateTask" data-uid="Pocos.AXOpen.Data.AxoDataExchange.CreateOrUpdateTask">
-  CreateOrUpdateTask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L16"><i class="bi bi-code-slash"></i></a>
+  <h3 id="Pocos_AXOpen_Data_AxoDataExchange_Operation" data-uid="Pocos.AXOpen.Data.AxoDataExchange.Operation">
+  Operation
+  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h3>
 
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AxoDataExchangeTask CreateOrUpdateTask { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public AxoDataCrudTask Operation { get; set; }</code></pre>
   </div>
 
 
@@ -187,162 +194,7 @@
 
   <h4 class="section">Property Value</h4>
   <dl class="parameters">
-    <dt><a class="xref" href="Pocos.AXOpen.Data.AxoDataExchangeTask.html">AxoDataExchangeTask</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Pocos_AXOpen_Data_AxoDataExchange_CreateTask_" data-uid="Pocos.AXOpen.Data.AxoDataExchange.CreateTask*"></a>
-
-  <h3 id="Pocos_AXOpen_Data_AxoDataExchange_CreateTask" data-uid="Pocos.AXOpen.Data.AxoDataExchange.CreateTask">
-  CreateTask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L11"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AxoDataExchangeTask CreateTask { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Pocos.AXOpen.Data.AxoDataExchangeTask.html">AxoDataExchangeTask</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Pocos_AXOpen_Data_AxoDataExchange_DeleteTask_" data-uid="Pocos.AXOpen.Data.AxoDataExchange.DeleteTask*"></a>
-
-  <h3 id="Pocos_AXOpen_Data_AxoDataExchange_DeleteTask" data-uid="Pocos.AXOpen.Data.AxoDataExchange.DeleteTask">
-  DeleteTask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L14"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AxoDataExchangeTask DeleteTask { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Pocos.AXOpen.Data.AxoDataExchangeTask.html">AxoDataExchangeTask</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Pocos_AXOpen_Data_AxoDataExchange_EntityExistTask_" data-uid="Pocos.AXOpen.Data.AxoDataExchange.EntityExistTask*"></a>
-
-  <h3 id="Pocos_AXOpen_Data_AxoDataExchange_EntityExistTask" data-uid="Pocos.AXOpen.Data.AxoDataExchange.EntityExistTask">
-  EntityExistTask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L15"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AxoDataEntityExistTask EntityExistTask { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Pocos.AXOpen.Data.AxoDataEntityExistTask.html">AxoDataEntityExistTask</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Pocos_AXOpen_Data_AxoDataExchange_ReadTask_" data-uid="Pocos.AXOpen.Data.AxoDataExchange.ReadTask*"></a>
-
-  <h3 id="Pocos_AXOpen_Data_AxoDataExchange_ReadTask" data-uid="Pocos.AXOpen.Data.AxoDataExchange.ReadTask">
-  ReadTask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L12"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AxoDataExchangeTask ReadTask { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Pocos.AXOpen.Data.AxoDataExchangeTask.html">AxoDataExchangeTask</a></dt>
-    <dd></dd>
-  </dl>
-
-
-
-
-
-
-
-
-  <a id="Pocos_AXOpen_Data_AxoDataExchange_UpdateTask_" data-uid="Pocos.AXOpen.Data.AxoDataExchange.UpdateTask*"></a>
-
-  <h3 id="Pocos_AXOpen_Data_AxoDataExchange_UpdateTask" data-uid="Pocos.AXOpen.Data.AxoDataExchange.UpdateTask">
-  UpdateTask
-  <a class="header-action link-secondary" title="View source" href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L13"><i class="bi bi-code-slash"></i></a>
-  </h3>
-
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AxoDataExchangeTask UpdateTask { get; set; }</code></pre>
-  </div>
-
-
-
-
-
-  <h4 class="section">Property Value</h4>
-  <dl class="parameters">
-    <dt><a class="xref" href="Pocos.AXOpen.Data.AxoDataExchangeTask.html">AxoDataExchangeTask</a></dt>
+    <dt><a class="xref" href="Pocos.AXOpen.Data.AxoDataCrudTask.html">AxoDataCrudTask</a></dt>
     <dd></dd>
   </dl>
 
@@ -357,7 +209,7 @@
 </article>
 
         <div class="contribution d-print-none">
-          <a href="https://github.com/ix-ax/AXOpen/blob/dev/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L9" class="edit-link">Edit this page</a>
+          <a href="https://github.com/ix-ax/AXOpen/blob/refactoring/src/data/src/AXOpen.Data/.g/POCO/AxoDataExchange.g.cs/#L9" class="edit-link">Edit this page</a>
         </div>
 
         

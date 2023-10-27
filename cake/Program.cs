@@ -68,7 +68,6 @@ public sealed class CleanUpTask : FrostingTask<BuildContext>
 {
     public override void Run(BuildContext context)
     {
-
         context.Log.Information("Build running with following parameters:");
         context.Log.Information(context.BuildParameters.ToJson(Formatting.Indented));
        

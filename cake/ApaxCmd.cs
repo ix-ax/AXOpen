@@ -23,7 +23,7 @@ public static class ApaxCmd
     {
         foreach (var folder in context.GetAxFolders(lib))
         {
-            var apaxArguments = context.BuildParameters.DoApaxInstallReDownload ? "install -L -r" : "install -L";
+            var apaxArguments = context.BuildParameters.DoApaxInstallReDownload ? "install -r" : "install";
 
             context.Log.Information($"apax install started for '{lib.folder} : {lib.name}'");
             context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
@@ -115,11 +115,13 @@ public static class ApaxCmd
 
     public static void ApaxPack(this BuildContext context, (string folder, string name, bool pack) lib)
     {
+
+        System.Console.WriteLine(context.ApaxSignKey);
         if (lib.pack)
         {
             context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
             {
-                Arguments = "pack",
+                Arguments = $"pack --key={context.ApaxSignKey}",
                 WorkingDirectory = context.GetLibFolder(lib),
                 RedirectStandardOutput = false,
                 RedirectStandardError = false,

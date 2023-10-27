@@ -5,10 +5,11 @@ targets:
   - axunit-llvm
 files:
   - src
+  - axsharp.companion.json
 dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'
 devDependencies:
-  "@ax/sdk": ^4.0.8
+  "@ax/sdk": 4.0.12
 variables:
   APAX_BUILD_ARGS: [ -d ]
 
@@ -40,3 +41,5 @@ scripts:
     - apax download
   postbuild:
     - apax ixc
+publicKeys:
+  "@ix-ax" :  30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17    

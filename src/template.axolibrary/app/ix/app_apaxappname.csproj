@@ -19,10 +19,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Compile Include=".g\**" />
+    	<Compile Include=".g\**" />
+  	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include=".meta\" />
+		<Content Include=".meta\**" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\projname\ix_ax_axolib.csproj" />
+	  <ProjectReference Include="..\..\src\projname\ix_ax_apaxlibname.csproj" />
+	  <ProjectReference Include="..\..\..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj" />
 	</ItemGroup>
 </Project>

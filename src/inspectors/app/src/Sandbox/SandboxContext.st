@@ -37,16 +37,16 @@ CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
     METHOD PUBLIC Run
         THIS.Initialize(THIS);
 
-
-        _digitalInspector.Data()^.FailTime := TIME#3s;
-        _analogueInspector.Data()^.FailTime := TIME#3s;
-        _dataInspector.Data()^.FailTime := TIME#3s;
-
-        _digitalInspector.Data()^.PassTime := TIME#2s;
-        _analogueInspector.Data()^.PassTime := TIME#2s;
-        _dataInspector.Data()^.PassTime := TIME#2s;
-    
-
+        IF _digitalInspector.Data()^.FailTime = TIME#0s THEN  _digitalInspector.Data()^.FailTime := TIME#1100MS; END_IF;
+        IF _digitalInspector.Data()^.PassTime = TIME#0s THEN  _digitalInspector.Data()^.PassTime := TIME#1000MS; END_IF;
+            
+        IF _dataInspector.Data()^.FailTime = TIME#0s THEN  _dataInspector.Data()^.FailTime := TIME#1100MS; END_IF;
+        IF _dataInspector.Data()^.PassTime = TIME#0s THEN  _dataInspector.Data()^.PassTime := TIME#1000MS; END_IF;
+           
+        IF _analogueInspector.Data()^.FailTime = TIME#0s THEN  _analogueInspector.Data()^.FailTime := TIME#1100MS; END_IF;
+        IF _analogueInspector.Data()^.PassTime = TIME#0s THEN  _analogueInspector.Data()^.PassTime := TIME#1000MS; END_IF;
+                       
+       
         _digitalInspector.Inspect(THIS, _inspectionResult);
         _analogueInspector.Inspect(THIS, _inspectionValue);
         _dataInspector.Inspect(THIS, _inspectionData);

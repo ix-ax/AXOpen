@@ -36,8 +36,8 @@
     @if (HasStepControls)
     {
         <div class="container">
-            <div class="row">
-                <div class="col">
+            <div class="d-flex justify-content-evenly">
+                <div>
                     <AuthorizeView Roles="can_skip_steps_in_sequence">
                         <Authorized>
                             <RenderableContentControl Context="@Component.StepBackwardCommand" Presentation="@(IsControllable ? "Command" : "Status")" />
@@ -47,10 +47,10 @@
                         </NotAuthorized>
                     </AuthorizeView>
                 </div>
-                <div class="col">
+                <div>
                     <RenderableContentControl Context="@Component.StepIn" Presentation="@(IsControllable ? "Command" : "Status")" />
                 </div>
-                <div class="col">
+                <div>
                     <AuthorizeView Roles="can_skip_steps_in_sequence">
                         <Authorized>
                             <RenderableContentControl Context="@Component.StepForwardCommand" Presentation="@(IsControllable ? "Command" : "Status")" />
@@ -69,9 +69,11 @@
             <button type="button" class="btn btn-primary ms-auto my-2 mx-3 col-auto" data-bs-toggle="modal" data-bs-target="#showStepsModal" @onclick="RefreshComponent">Show all steps</button>
         </div>
 
-        <AxoStepView Component="Component.BeforeStep" />
-        <AxoStepView Component="Component.CurrentStep" />
-        <AxoStepView Component="Component.AfterStep" />
+        <div class="rounded-3 overflow-hidden">
+            <AxoStepView Component="Component.BeforeStep" />
+            <AxoStepView Component="Component.CurrentStep" />
+            <AxoStepView Component="Component.AfterStep" />
+        </div>
     }
 </div>
 
@@ -83,9 +85,9 @@
                 <h1 class="modal-title fs-5" id="exampleModalLabel">Steps</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                <table class="table">
-                    <thead>
+            <div class="modal-body" style="max-height: calc(95vh - 200px); overflow-x: auto;">
+                <table class="table rounded-3 overflow-hidden">
+                    <thead class="bg-light">
                         <tr>
                             <th scope="col">Description</th>
                             <th scope="col">Duration</th>
@@ -95,8 +97,8 @@
                     <tbody>
                         @foreach (var step in this.Steps.Where(p => p != null && p.Order.Cyclic != 0).Skip(3).OrderBy(p => p.Order.Cyclic))
                         {
-                            <tr class="@StepRowColor(step)">
-                                <th scope="row">@Description(step)</th>
+                            <tr class="@AxoStepHelper.StepRowColor(step)">
+                                <th scope="row">@AxoStepHelper.Description(step)</th>
                                 <td>@step.Duration.Cyclic.TotalSeconds</td>
                                 <td>@Humanizer.DateHumanizeExtensions.Humanize(step.StartTimeStamp.Cyclic, culture: CultureExtensions.Culture)</td>
                             </tr>
