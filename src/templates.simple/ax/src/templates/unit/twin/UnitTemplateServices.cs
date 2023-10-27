@@ -1,5 +1,6 @@
 ﻿using AXOpen.Base.Data;
 using axosimple;
+
 namespace axosimple.server.Units
 {
     public class UnitTemplateServices    
@@ -10,9 +11,21 @@ namespace axosimple.server.Units
         }
 
         private UnitTemplate.Unit Unit { get; } = Entry.Plc.Context.UnitTemplate;
+
+        // Data manager of unit
         private UnitTemplate.ProcessDataManager UnitData { get; } = 
         Entry.Plc.Context.UnitTemplateProcessData.CreateBuilder<UnitTemplate.ProcessDataManager>();
         
+        // Settings data manager for whole technology 
+        private UnitTemplate.FragmentProcessDataManger UnitDataSettings { get; } = 
+        Entry.Plc.Context.ProcessSettings.UnitTemplate;
+        
+        // Production data manager for whole technology 
+        private UnitTemplate.FragmentProcessDataManger UnitProcessData { get; } = 
+        Entry.Plc.Context.ProcessData.UnitTemplate;
+        
+
+
         private ContextService _contextService { get; }
         
         /// <summary>
@@ -32,14 +45,23 @@ namespace axosimple.server.Units
             return retVal;
         }
 
-        public void SetUnitsData(IRepository<Pocos.axosimple.UnitTemplate.ProcessData> repository)
+        public void SetUnitsData(
+            IRepository<Pocos.axosimple.UnitTemplate.ProcessData> settingsRepository,
+            IRepository<Pocos.axosimple.UnitTemplate.ProcessData> dataRepository
+            )
         {
-            UnitData.Shared.InitializeRemoteDataExchange(_contextService.EntityDataRepository);
-            _contextService.ProcessData.UnitTemplate.InitializeRemoteDataExchange(repository);
-            
-            UnitData.DataManger.InitializeRemoteDataExchange(repository);
+            SettingsRepository = settingsRepository;
+            DataRepository = dataRepository;
 
+            UnitDataSettings.InitializeRemoteDataExchange(SettingsRepository); // initialize unit data as a parial part of entire Settings data
+            UnitProcessData.InitializeRemoteDataExchange(DataRepository); // initialize unit data as a parial part of entire production data
+            
+            UnitData.Shared.InitializeRemoteDataExchange(_contextService.EntityDataRepository);
+            _contextService.ProcessData.UnitTemplate.InitializeRemoteDataExchange(DataRepository);
+            
+            UnitData.DataManger.InitializeRemoteDataExchange(dataRepository);
             UnitData.InitializeRemoteDataExchange();
+            
         }
     }
 }

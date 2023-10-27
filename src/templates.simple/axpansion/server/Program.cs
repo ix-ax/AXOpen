@@ -1,35 +1,19 @@
-using System.Reflection;
-using AXOpen;
-using AXOpen.Base.Data;
-using AXOpen.Data.MongoDb;
-using AXOpen.Data.Json;
-using AXOpen.Logging;
 using AxOpen.Security;
 using AxOpen.Security.Entities;
 using AxOpen.Security.Services;
-using AXSharp.Connector;
-using AXSharp.Presentation.Blazor.Services;
-using axosimple;
-using axosimple.server;
-using AXSharp.Connector.Identity;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Identity;
-using Serilog;
-using System.Security.Principal;
+using AXOpen;
+using AXOpen.Base.Data;
 using AXOpen.Core;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Data;
-using System.Globalization;
-using AXOpen.Core.Blazor;
-using AXOpen.Core.Blazor.Culture;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
-using Microsoft.Extensions.Primitives;
-using Microsoft.JSInterop;
-
+using AXOpen.Data.Json;
+using AXOpen.Logging;
+using axosimple;
+using axosimple.MongoDb;
+using AXSharp.Connector;
+using AXSharp.Presentation.Blazor.Services;
+using Serilog;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,9 +27,8 @@ builder.Services.AddAxoCoreServices();
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
 
-
-
 #region AxoApplication
+
 Entry.Plc.Connector.SubscriptionMode = ReadSubscriptionMode.Polling;
 Entry.Plc.Connector.BuildAndStart().ReadWriteCycleDelay = 250;
 Entry.Plc.Connector.ConcurrentRequestMaxCount = 3;
@@ -73,28 +56,33 @@ Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 //var starterUnitTemplateRepository = new InMemoryRepositorySettings<Pocos.axosimple.StarterUnitTemplate.ProcessData>().Factory();
 
 #region MongoDB repository
+
 //https://ix-ax.github.io/AXOpen/api/AXOpen.Data.MongoDb.MongoDbRepository-1.html
 
 var MongoConnectionString = "mongodb://localhost:27017";
-var MongoDatabaseName       = "axosimple";
+var MongoDatabaseName = "axosimple";
 
-// initialize factory - store names and credentials..
-axosimple.MongoDb.Repository.InitialzeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
-
-axosimple.MongoDb.Repository.Factory<Pocos.axosimple.EntityData>("EntitySettings");
+// initialize factory - store connection and credentials ...
+Repository.InitialzeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
 
 // repository - settings connected with specific recepie
-var EntitySettingsRepository = axosimple.MongoDb.Repository.Factory<Pocos.axosimple.EntityData>("EntitySettings");
+var EntitySettingsRepository = Repository.Factory<Pocos.axosimple.EntityData>("Entity_Settings");
 
 //  repository - data connected with specific part or piece in production/technology
-var EntityDataRepository = axosimple.MongoDb.Repository.Factory<Pocos.axosimple.EntityData>("EntityData");
+var EntityDataRepository = Repository.Factory<Pocos.axosimple.EntityData>("Entity_Data");
 
-#endregion
+//var Cu1_SettingsRepository   = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_Settings");
+//var Cu1_DataRepository       = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_Data");
 
+//var Cu2_SettingsRepository  = Repository.Factory<Pocos.axosimple.Cu2.ProcessData>("Cu2_Settings");
+//var Cu2_DataRepository      = Repository.Factory<Pocos.axosimple.Cu2.ProcessData>("Cu2_Data");
 
+#endregion MongoDB repository
 
 var axoappContext = ContextService.Create();
-axoappContext.SetContextData(EntitySettingsRepository, EntityDataRepository);
+axoappContext.SetContextData(
+    EntitySettingsRepository: EntitySettingsRepository,
+    EntityDataRepository: EntityDataRepository);
 
 //var unitTemplateService = UnitTemplateServices.Create(axoappContext);
 //unitTemplateService.SetUnitsData(unitTemplateRepository);
@@ -102,10 +90,21 @@ axoappContext.SetContextData(EntitySettingsRepository, EntityDataRepository);
 //var starterUnitTemplateService = StarterUnitTemplateServices.Create(axoappContext);
 //starterUnitTemplateService.SetUnitsData(starterUnitTemplateRepository);
 
+//var axoappContext_Cu1 = axosimple.server.Units.Cu1Services.Create(axoappContext);
+//axoappContext_Cu1.SetUnitsData(
+//    settingsRepository : Cu1_SettingsRepository,
+//    dataRepository     : Cu1_DataRepository);
+
+//var axoappContext_Cu2 = axosimple.server.Units.Cu2Services.Create(axoappContext);
+//axoappContext_Cu2.SetUnitsData(
+//    settingsRepository : Cu2_SettingsRepository,
+//    dataRepository     : Cu2_DataRepository);
+
+
 // Clean Temp directory
 IAxoDataExchange.CleanUp();
-#endregion
 
+#endregion AxoApplication
 
 var app = builder.Build();
 
@@ -123,14 +122,13 @@ else
     app.UseHsts();
 }
 
-
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
 app.UseRouting();
 
-var supportedCultures = new[] { "en-US", "sk-SK", "es-ES"};
+var supportedCultures = new[] { "en-US", "sk-SK", "es-ES" };
 var localizationOptions = new RequestLocalizationOptions()
     .AddSupportedCultures(supportedCultures)
     .AddSupportedUICultures(supportedCultures);
@@ -161,7 +159,6 @@ static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\
     return (userRepo, groupRepo);
 }
 
-
 public static class Roles
 {
     public static List<Role> CreateRoles()
@@ -186,4 +183,3 @@ public static class Roles
     public const string process_traceability_access = nameof(process_traceability_access);
     public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
 }
-
