@@ -24,6 +24,11 @@
       "line": 31
     },
     {
+      "file": "src/Context.st",
+      "description": "## Add unit technology data\r\nPress `ctrl+space` and select `unitAddTechnologyData` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:         \r\n`{#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}\r\n`Cu1 : axosimple.Cu1.FragmentTechnologyDataManger;\r\n             ",
+      "line": 42
+    },
+    {
       "title": "Initialize Unit repository - Server project",
       "file": "../axpansion/server/Program.cs",
       "line": 73,
