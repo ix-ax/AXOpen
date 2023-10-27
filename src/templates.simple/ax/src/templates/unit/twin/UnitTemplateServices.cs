@@ -11,10 +11,20 @@ namespace axosimple.server.Units
 
         private UnitTemplate.Unit Unit { get; } = Entry.Plc.Context.UnitTemplate;
         private UnitTemplate.ProcessDataManager UnitData { get; } = 
-            Entry.Plc.Context.UnitTemplateProcessData.CreateBuilder<UnitTemplate.ProcessDataManager>();
+        Entry.Plc.Context.UnitTemplateProcessData.CreateBuilder<UnitTemplate.ProcessDataManager>();
         
         private ContextService _contextService { get; }
         
+        /// <summary>
+        /// repository - settings connected with specific recepie
+        /// </summary>
+        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> SettingsRepository { get; private set; }
+
+        /// <summary>
+        /// repository - data connected with specific part or piece in production/technology
+        /// </summary>
+        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> DataRepository { get; private set; }
+
 
         public static UnitTemplateServices Create(ContextService contextService)
         {

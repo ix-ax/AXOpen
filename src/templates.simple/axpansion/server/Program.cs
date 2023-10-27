@@ -78,20 +78,16 @@ Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 var MongoConnectionString = "mongodb://localhost:27017";
 var MongoDatabaseName       = "axosimple";
 
-var mongoCredentials = new AXOpen.Data.MongoDb.MongoDbCredentials("admin", "user", "userpwd");
+// initialize factory - store names and credentials..
+axosimple.MongoDb.Repository.InitialzeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
+
+axosimple.MongoDb.Repository.Factory<Pocos.axosimple.EntityData>("EntitySettings");
 
 // repository - settings connected with specific recepie
-var EntitySettingsRepository = Repository.Factory<Pocos.axosimple.EntityData>(
-                                        new(connectionString    : MongoConnectionString,
-                                            databaseName        : MongoDatabaseName,
-                                            collectionName      : "EntitySettings",
-                                            credentials         : mongoCredentials));
+var EntitySettingsRepository = axosimple.MongoDb.Repository.Factory<Pocos.axosimple.EntityData>("EntitySettings");
+
 //  repository - data connected with specific part or piece in production/technology
-var EntityDataRepository = Repository.Factory<Pocos.axosimple.EntityData>(
-                                        new(connectionString    : MongoConnectionString,
-                                            databaseName        : MongoDatabaseName,
-                                            collectionName      : "EntityData",
-                                            credentials         : mongoCredentials));
+var EntityDataRepository = axosimple.MongoDb.Repository.Factory<Pocos.axosimple.EntityData>("EntityData");
 
 #endregion
 
