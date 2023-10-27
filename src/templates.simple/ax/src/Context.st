@@ -30,6 +30,9 @@ NAMESPACE axosimple
             Entity : EntityHeaderDataManager;   
             // Units data - You can use snippet unitAddProcessData
                                                    
+            
+        END_VAR        
+    END_CLASS
 
     CLASS TechnologyData EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    

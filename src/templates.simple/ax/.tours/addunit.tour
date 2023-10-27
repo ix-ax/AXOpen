@@ -32,13 +32,13 @@
       "title": "Initialize Unit repository - Server project",
       "file": "../axpansion/server/Program.cs",
       "line": 73,
-      "description": "### Create repositories :\r\n\r\n```cs\r\nvar Cu1_SettingsRepository   = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>(\"Cu1_Settings\");\r\nvar Cu1_DataRepository       = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>(\"Cu1_Data\");\r\n```"
+      "description": "### Create repositories :\r\n\r\n```cs\r\nvar Cu1_TechSettings    = Repository.Factory<Pocos.axosimple.Cu1.TechnologyData>(\"Cu1_TechnologySettings\");\r\nvar Cu1_ProcessSettings = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>(\"Cu1_ProcessSettings\");\r\nvar Cu1_ProcessData     = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>(\"Cu1_ProcessData\");\r\n```",
     },
     {
       "title": "Connect PLC data with Server - Server project",
       "file": "../axpansion/server/Program.cs",
       "line": 93,
-      "description": "### Initialize Remote Data Exchange - Create connection between PLC and Repository\r\n\r\n```cs\r\nvar axoappContext_Cu1 = axosimple.server.Units.Cu1Services.Create(axoappContext);\r\naxoappContext_Cu1.SetUnitsData( settingsRepository : Cu1_SettingsRepository, dataRepository : Cu1_DataRepository);\r\n```"
+      "description": "### Initialize Remote Data Exchange - Create connection between PLC and Repository\r\n\r\n```cs\r\nvar axoappContext_Cu1 = axosimple.server.Units.Cu1Services.Create(axoappContext);\r\naxoappContext_Cu1.SetUnitsData(\r\n   TechnologySettingsRepository  : Cu1_TechSettings,\r\n   ProcessSettingsRepository     : Cu1_ProcessSettings,\r\n   ProcessDataRepository         : Cu1_ProcessData);\r\n```",
     },
     {
       "title": "Add Unit to Units View - Server project",

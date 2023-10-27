@@ -65,40 +65,37 @@ var MongoDatabaseName = "axosimple";
 // initialize factory - store connection and credentials ...
 Repository.InitialzeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
 
+//  repository - data connected with technology (not with production process)
+var TechnologyCommonRepository = Repository.Factory<Pocos.axosimple.TechnologyCommonData>("TechnologyCommon_Settings");
+
 // repository - settings connected with specific recepie
 var EntitySettingsRepository = Repository.Factory<Pocos.axosimple.EntityData>("Entity_Settings");
 
 //  repository - data connected with specific part or piece in production/technology
 var EntityDataRepository = Repository.Factory<Pocos.axosimple.EntityData>("Entity_Data");
 
-//var Cu1_SettingsRepository   = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_Settings");
-//var Cu1_DataRepository       = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_Data");
+//var Cu1_TechSettings    = Repository.Factory<Pocos.axosimple.Cu1.TechnologyData>("Cu1_TechnologySettings");
+//var Cu1_ProcessSettings = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_ProcessSettings");
+//var Cu1_ProcessData     = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_ProcessData");
 
-//var Cu2_SettingsRepository  = Repository.Factory<Pocos.axosimple.Cu2.ProcessData>("Cu2_Settings");
-//var Cu2_DataRepository      = Repository.Factory<Pocos.axosimple.Cu2.ProcessData>("Cu2_Data");
 
 #endregion MongoDB repository
 
 var axoappContext = ContextService.Create();
 axoappContext.SetContextData(
-    EntitySettingsRepository: EntitySettingsRepository,
-    EntityDataRepository: EntityDataRepository);
-
-//var unitTemplateService = UnitTemplateServices.Create(axoappContext);
-//unitTemplateService.SetUnitsData(unitTemplateRepository);
+    technologyCommonRepository : TechnologyCommonRepository,
+    entitySettingsRepository: EntitySettingsRepository,
+    entityDataRepository: EntityDataRepository
+    );
 
 //var starterUnitTemplateService = StarterUnitTemplateServices.Create(axoappContext);
 //starterUnitTemplateService.SetUnitsData(starterUnitTemplateRepository);
 
 //var axoappContext_Cu1 = axosimple.server.Units.Cu1Services.Create(axoappContext);
 //axoappContext_Cu1.SetUnitsData(
-//    settingsRepository : Cu1_SettingsRepository,
-//    dataRepository     : Cu1_DataRepository);
-
-//var axoappContext_Cu2 = axosimple.server.Units.Cu2Services.Create(axoappContext);
-//axoappContext_Cu2.SetUnitsData(
-//    settingsRepository : Cu2_SettingsRepository,
-//    dataRepository     : Cu2_DataRepository);
+//    technologySettingsRepository  : Cu1_TechSettings,
+//    processSettingsRepository     : Cu1_ProcessSettings,
+//    processDataRepository         : Cu1_ProcessData);
 
 
 // Clean Temp directory

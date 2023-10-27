@@ -17,7 +17,7 @@ namespace axosimple.server.Units
         Entry.Plc.Context.UnitTemplateProcessData.CreateBuilder<UnitTemplate.ProcessDataManager>();
         
         // Settings data manager for whole technology 
-        private UnitTemplate.FragmentProcessDataManger UnitDataSettings { get; } = 
+        private UnitTemplate.FragmentProcessDataManger UnitProcessSettings { get; } = 
         Entry.Plc.Context.ProcessSettings.UnitTemplate;
         
         // Production data manager for whole technology 
@@ -27,16 +27,21 @@ namespace axosimple.server.Units
 
 
         private ContextService _contextService { get; }
-        
+
+          /// <summary>
+        /// repository - settings connected with technology
+        /// </summary>
+        public IRepository<Pocos.axosimple.UnitTemplate.TechnologyData> TechnologySettingsRepository { get; private set; }
+
         /// <summary>
         /// repository - settings connected with specific recepie
         /// </summary>
-        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> SettingsRepository { get; private set; }
+        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> ProcessSettingsRepository { get; private set; }
 
         /// <summary>
         /// repository - data connected with specific part or piece in production/technology
         /// </summary>
-        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> DataRepository { get; private set; }
+        public IRepository<Pocos.axosimple.UnitTemplate.ProcessData> ProcessDataRepository { get; private set; }
 
 
         public static UnitTemplateServices Create(ContextService contextService)
@@ -46,20 +51,22 @@ namespace axosimple.server.Units
         }
 
         public void SetUnitsData(
-            IRepository<Pocos.axosimple.UnitTemplate.ProcessData> settingsRepository,
-            IRepository<Pocos.axosimple.UnitTemplate.ProcessData> dataRepository
+            IRepository<Pocos.axosimple.UnitTemplate.TechnologyData> technologySettingsRepository,
+            IRepository<Pocos.axosimple.UnitTemplate.ProcessData> processSettingsRepository,
+            IRepository<Pocos.axosimple.UnitTemplate.ProcessData> processDataRepository
             )
         {
-            SettingsRepository = settingsRepository;
-            DataRepository = dataRepository;
+            TechnologySettingsRepository    = technologySettingsRepository;
+            ProcessSettingsRepository       = processSettingsRepository;
+            ProcessDataRepository           = processDataRepository;
 
-            UnitDataSettings.InitializeRemoteDataExchange(SettingsRepository); // initialize unit data as a parial part of entire Settings data
-            UnitProcessData.InitializeRemoteDataExchange(DataRepository); // initialize unit data as a parial part of entire production data
+            UnitProcessSettings.InitializeRemoteDataExchange(ProcessSettingsRepository); // initialize unit data as a parial part of entire Settings data
+            UnitProcessData.InitializeRemoteDataExchange(ProcessDataRepository); // initialize unit data as a parial part of entire production data
             
             UnitData.Shared.InitializeRemoteDataExchange(_contextService.EntityDataRepository);
-            _contextService.ProcessData.UnitTemplate.InitializeRemoteDataExchange(DataRepository);
+            _contextService.ProcessData.UnitTemplate.InitializeRemoteDataExchange(ProcessDataRepository);
             
-            UnitData.DataManger.InitializeRemoteDataExchange(dataRepository);
+            UnitData.DataManger.InitializeRemoteDataExchange(ProcessDataRepository);
             UnitData.InitializeRemoteDataExchange();
             
         }
