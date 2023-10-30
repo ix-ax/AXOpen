@@ -17,6 +17,7 @@ NAMESPACE axosimple.StarterUnitTemplate
         VAR PRIVATE
             Components : REF_TO Components;
             ProcessData : REF_TO ProcessDataManager;
+            TechnologySettings : REF_TO TechnologyDataManager;
             _currentId : STRING;
         END_VAR
 
@@ -24,10 +25,12 @@ NAMESPACE axosimple.StarterUnitTemplate
             VAR_INPUT
                 _components : REF_TO Components;
                 _processData : REF_TO ProcessDataManager;
+                _technologySettings : REF_TO TechnologyDataManager;
                 _parent : IAxoObject;
             END_VAR            
             Components := _components;
             ProcessData := _processData;
+            TechnologySettings := _technologySettings;
             SUPER.Run(_parent);                        
         END_METHOD
 
@@ -45,30 +48,34 @@ NAMESPACE axosimple.StarterUnitTemplate
             THIS.SequenceMode := eAxoSequenceMode#RunOnce;
 
             // This is more verbose but also more versatile way of executing step logic.
-            IF (Steps[0].Execute(THIS, TRUE, '<#GET ID#>')) THEN
-            //------------------------------------------------------- 
-                    _currentId := '1'; 
+            IF (Steps[0].Execute(THIS, TRUE, '<#RESTORE#>')) THEN
+                //------------------------------------------------------- 
+                    ProcessData^.Restore();
                     THIS.MoveNext(); 
-            //-------------------------------------------------------
-            END_IF;
-            
-            IF (Steps[1].Execute(THIS, TRUE, '<#GET DATA#>')) THEN
-            //-------------------------------------------------------                    
-                IF(ProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN
-                    THIS.MoveNext();                                   
-                END_IF;    
-            //-------------------------------------------------------
+
+                    ProcessData^.Shared.Entity.WasReset := true;
+                    _currentId := 'lastPartId'; // just for simulation
+                //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[2].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
-                //-------------------------------------------------------                         
-                    THIS.MoveNext();
+            IF (Steps[1].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
+                //------------------------------------------------------- 
+                IF(TechnologySettings^.Read('default').IsDone()) THEN
+                    THIS.MoveNext(); 
+                END_IF;    
                 //-------------------------------------------------------
             END_IF;
-           
+                
+            IF (Steps[3].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
+                //-------------------------------------------------------
+                IF CurrentStep.Duration > TIME#2s THEN                         
+                    THIS.MoveNext();
+                END_IF;
+                //-------------------------------------------------------
+            END_IF;
+
             IF (Steps[19].Execute(THIS, TRUE, '<#SAVE DATA#>')) THEN
                 //-------------------------------------------------------
-                                        
                     IF(ProcessData^.Update(_currentId).IsDone()) THEN
                         THIS.MoveNext();                                   
                     END_IF;    

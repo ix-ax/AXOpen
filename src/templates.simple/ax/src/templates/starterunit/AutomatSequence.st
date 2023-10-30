@@ -16,18 +16,21 @@ NAMESPACE axosimple.StarterUnitTemplate
         END_VAR
         VAR PRIVATE
             Components : REF_TO Components;
-            ProcessData : REF_TO ProcessDataManager; 
+            ProcessData : REF_TO ProcessDataManager;
+            TechnologySettings : REF_TO TechnologyDataManager;
             _currentId : STRING;           
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _components : REF_TO Components;               
+                _components : REF_TO Components;
                 _processData : REF_TO ProcessDataManager;
+                _technologySettings : REF_TO TechnologyDataManager;
                 _parent : IAxoObject;
             END_VAR
             Components := _components;
             ProcessData := _processData;
+            TechnologySettings := _technologySettings;
             SUPER.Run(_parent);
         END_METHOD
         ///<summary>
@@ -45,20 +48,35 @@ NAMESPACE axosimple.StarterUnitTemplate
             THIS.SequenceMode := eAxoSequenceMode#Cyclic;
 
             
-            IF (Steps[0].Execute(THIS, TRUE, '<#LOAD PROCESS SETTINGS#>')) THEN
-            //-------------------------------------------------------
-                IF(ProcessData^.CreateOrUpdate('1').IsDone()) THEN
-                    THIS.MoveNext();
-                END_IF;    
-            //-------------------------------------------------------
+            IF (Steps[0].Execute(THIS, TRUE, '<#GET ID#>')) THEN
+                //-------------------------------------------------------
+                _currentId := 'newProducedPart';
+                THIS.MoveNext(); 
+                //-------------------------------------------------------
             END_IF;
-                       
-            IF(Steps[1].Execute(THIS, TRUE, 'RETRIEVE DATA')) THEN
-            //-------------------------------------------------------
-                IF(ProcessData^.Create(_currentId).IsDone()) THEN
+
+            IF (Steps[1].Execute(THIS, TRUE, '<#GET DATA#>')) THEN
+                //-------------------------------------------------------
+                IF (ProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN 
+                    THIS.MoveNext(); 
+                END_IF;
+                //-------------------------------------------------------
+            END_IF;
+            
+            IF (Steps[2].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
+                //-------------------------------------------------------                
+                IF CurrentStep.Duration > TIME#2s THEN                         
                     THIS.MoveNext();
-                END_IF;     
-            //-------------------------------------------------------
+                END_IF;                
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[20].Execute(THIS, TRUE, '<#UPDATE DATA#>')) THEN
+                //-------------------------------------------------------
+                IF (ProcessData^.Update(_currentId).IsDone()) THEN 
+                    THIS.MoveNext(); 
+                END_IF;
+                //-------------------------------------------------------
             END_IF;    
                       
             // This will close the sequence and will return to the first step.

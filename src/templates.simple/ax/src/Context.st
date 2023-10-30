@@ -14,7 +14,11 @@ NAMESPACE axosimple
                         
         END_VAR      
         
-        METHOD PROTECTED OVERRIDE Main                                               
+        METHOD PROTECTED OVERRIDE Main     
+            TechnologySettings.Run(THIS);
+            ProcessSettings.Run(THIS);
+            ProcessData.Run(THIS);
+            
            IF(Inputs <> NULL AND Outputs <> NULL) THEN   
                ;//Units entry calls - You can use snippet unitRootCall
                
