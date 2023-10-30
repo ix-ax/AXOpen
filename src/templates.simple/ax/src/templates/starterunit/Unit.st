@@ -19,6 +19,11 @@ NAMESPACE axosimple.StarterUnitTemplate
             /// Provides access to process data manager of this unit
             ///</summary>
             ProcessData : REF_TO ProcessDataManager;
+            
+            ///<summary>
+            /// Provides access to process data manager of this unit
+            ///</summary>
+            TechnologyData : REF_TO TechnologyDataManager;
 
             ///<summary>
             /// Ground sequence. Contains logic that brings the unit into initial state.
