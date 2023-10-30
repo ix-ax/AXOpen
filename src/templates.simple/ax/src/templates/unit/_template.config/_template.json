@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "PTKu",
+  "classifications": [ "SIMATIC-AX", "Unit" ],
+  "identity": "axosimple.UnitTemplate",
+  "name": "Customizable unit template",
+  "shortName": "axosimple_unit",
+  "tags": {
+      "language": "ST",
+      "type": "item"
+  },
+  "sourceName": "UnitTemplate",
+  "symbols": {
+      "unitname": {
+          "type": "parameter",
+          "dataType": "string",
+          "replaces": "UnitTemplate",
+          "defaultValue": "UnitTemplate",
+          "description": "Name of the class to be created."
+      }
+  }
+}

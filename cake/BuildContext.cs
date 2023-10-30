@@ -176,7 +176,19 @@ public class BuildContext : FrostingContext
         var paths = new string[]
         {
             Path.Combine(Path.Combine(RootDir, library.folder), "ctrl"),
-            Path.Combine(Path.Combine(RootDir, library.folder), "app")
+            Path.Combine(Path.Combine(RootDir, library.folder), "app"),
+            Path.Combine(Path.Combine(RootDir, library.folder), "ax")            
+        };
+
+        return paths.Where(Path.Exists);
+    }
+
+    public IEnumerable<string> GetApplicationAxFolders((string folder, string name, bool pack) library)
+    {
+        var paths = new string[]
+        {            
+            Path.Combine(Path.Combine(RootDir, library.folder), "app"),
+            Path.Combine(Path.Combine(RootDir, library.folder), "ax")            
         };
 
         return paths.Where(Path.Exists);
@@ -200,6 +212,19 @@ public class BuildContext : FrostingContext
     public string GetAppFolder((string folder, string name, string targetIp, string targetPlatform) app)
     {
         return GetAppFolder((app.folder, app.name));
+    }
+
+    
+    public IEnumerable<string> GetApaxFiles((string folder, string name, bool pack) library)
+    {
+        var paths = new string[]
+        {
+            Path.Combine(Path.Combine(RootDir, library.folder), "ctrl", "apax.yml"),
+            Path.Combine(Path.Combine(RootDir, library.folder), "app", "apax.yml"),
+            Path.Combine(Path.Combine(RootDir, library.folder), "ax", "apax.yml")
+        };
+
+        return paths.Where(Path.Exists);
     }
 
     public string GetApaxFile((string folder, string name, bool pack) library)

@@ -15,7 +15,7 @@ dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'
 scripts:
   download:
-    - apax install -L
+    - apax install
     - apax build
     - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
       --accept-security-disclaimer --default-server-interface -r

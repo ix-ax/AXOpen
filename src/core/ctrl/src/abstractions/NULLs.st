@@ -32,6 +32,9 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC GetContext : IAxoContext 
             GetContext := NULL_CONTEXT; 
         END_METHOD
+        METHOD PUBLIC GetContextUnsafe : IAxoContext            
+            GetContextUnsafe := NULL_CONTEXT;            
+    END_METHOD
     END_CLASS    
 
     ///<summary>

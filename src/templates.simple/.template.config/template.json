@@ -10,7 +10,15 @@
     "type": "project"
   },
   "sourceName": "axosimple",
-
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [".vs/**", ".cr/**", "app/.apax/**", "ctrl/.apax/**", ".apax/**", "**/bin/**", "**/obj/**" ]
+        }
+      ]
+    }
+  ],
   "primaryOutputs": [
     { "path": "axosimple.csproj" },
     {

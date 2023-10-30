@@ -70,6 +70,15 @@ namespace AXOpen.Core.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Is manually controllable.
+        /// </summary>
+        public static string Is_manually_controllable {
+            get {
+                return ResourceManager.GetString("Is_manually_controllable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Run step.
         /// </summary>
         public static string Run_step {

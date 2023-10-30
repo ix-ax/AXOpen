@@ -1,0 +1,21 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen-L2-tests", "AXOpen-L2-tests.proj", "{9A85BB89-8946-42C7-AEEC-C777BBE31FCA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A85BB89-8946-42C7-AEEC-C777BBE31FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A85BB89-8946-42C7-AEEC-C777BBE31FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A85BB89-8946-42C7-AEEC-C777BBE31FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A85BB89-8946-42C7-AEEC-C777BBE31FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6A9117A-C650-4DBC-BF60-069C5851A541}
+	EndGlobalSection
+EndGlobal

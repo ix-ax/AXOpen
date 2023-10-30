@@ -36,6 +36,16 @@ Get-ChildItem -Path "..\src\templates.simple\" -Recurse -Directory -Filter ".apa
     Write-Output "Deleted $($_.FullName)"
 }
 
+Get-ChildItem -Path "..\src\templates.simple\" -Recurse -Directory -Filter "bin" | ForEach-Object {
+    Remove-Item $_.FullName -Recurse -Force
+    Write-Output "Deleted $($_.FullName)"
+}
+
+Get-ChildItem -Path "..\src\templates.simple\" -Recurse -Directory -Filter "obj" | ForEach-Object {
+    Remove-Item $_.FullName -Recurse -Force
+    Write-Output "Deleted $($_.FullName)"
+}
+
 # Installing the .NET template
 dotnet new install ..\src\templates.simple\ --force
 

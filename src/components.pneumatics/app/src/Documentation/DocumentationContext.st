@@ -4,12 +4,14 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC        
         PlcInputs : REF_TO PlcInputs;
         PlcOutputs : REF_TO PlcOutputs;          
+        CylinderParent : AXOpen.Core.AxoObject;
         myAxoCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
     END_VAR
 //</DeclarationAndHWIO_Assignement>
 //<Pneumatic_Run>
     METHOD PROTECTED OVERRIDE Main        
-        myAxoCylinder.Run(  THIS, 
+        CylinderParent.Initialize(THIS);
+        myAxoCylinder.Run(  CylinderParent, 
                         PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X0, 
                         PlcInputs^.ET200SP_DI_8x24VDC_ST_V1_1_1.%X1, 
                         PlcOutputs^.ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1.%X0, 
