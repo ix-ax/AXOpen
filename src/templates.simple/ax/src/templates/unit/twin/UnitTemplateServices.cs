@@ -14,7 +14,7 @@ namespace axosimple.server.Units
 
         // Technology Data manager of unit
         private UnitTemplate.TechnologyDataManager UnitTechnologyDataManager { get; } = 
-        Entry.Plc.Context.UnitTechnologyData.CreateBuilder<UnitTemplate.TechnologyDataManager>();
+        Entry.Plc.Context.UnitTemplateTechnologyData.CreateBuilder<UnitTemplate.TechnologyDataManager>();
 
         // Process Data manager of unit
         private UnitTemplate.ProcessDataManager UnitProcessDataManager { get; } = 
@@ -65,7 +65,7 @@ namespace axosimple.server.Units
             UnitProcessDataManager.InitializeRemoteDataExchange();
             
             // initialize unit technology data manager
-            UnitTechnologyDataManager.Common.InitializeRemoteDataExchange(_contextService.TechnologyCommonRepository);
+            UnitTechnologyDataManager.Shared.InitializeRemoteDataExchange(_contextService.TechnologyCommonRepository);
             UnitTechnologyDataManager.DataManger.InitializeRemoteDataExchange(TechnologySettingsRepository);
             UnitTechnologyDataManager.InitializeRemoteDataExchange();
             
