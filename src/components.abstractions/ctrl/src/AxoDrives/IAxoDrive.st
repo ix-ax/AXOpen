@@ -73,7 +73,6 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Acceleration    :   LREAL;                      //  Value of the ‘Acceleration’ (always positive) (increasing energy of the motor) [u/s2]
                 Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ (always positive) (decreasing energy of the motor) [u/s2]                
                 Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
-                Direction       :   eAxoDriveDirection;         //  Enum type (1-of-4 values: PositiveDirection, ShortestWay, NegativeDirection, CurrentDirection)
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       // Commanded distance reached
@@ -92,7 +91,6 @@ NAMESPACE AXOpen.Components.Abstractions.Drives
                 Acceleration    :   LREAL;                      //  Value of the ‘Acceleration’ (always positive) (increasing energy of the motor) [u/s2]
                 Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ (always positive) (decreasing energy of the motor) [u/s2]                
                 Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
-                Direction       :   eAxoDriveDirection;         //  Enum type (1-of-4 values: PositiveDirection, ShortestWay, NegativeDirection, CurrentDirection)
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       // Commanded distance reached

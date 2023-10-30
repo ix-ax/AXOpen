@@ -127,7 +127,6 @@ NAMESPACE AxoDriveTests.Tests
                 Acceleration    :   LREAL;                      
                 Deceleration    :   LREAL;                           
                 Jerk            :   LREAL;                      
-                Direction       :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;       
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       
@@ -150,7 +149,6 @@ NAMESPACE AxoDriveTests.Tests
                 Acceleration    :   LREAL;                      
                 Deceleration    :   LREAL;                                
                 Jerk            :   LREAL;                      
-                Direction       :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;       
             END_VAR
             VAR_OUTPUT
                 Done            :   BOOL;                       
