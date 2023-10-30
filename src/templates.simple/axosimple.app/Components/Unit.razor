@@ -109,7 +109,7 @@
 <AxoAlertDialogLocator ObservedObjects="new[] {this.Component}" />
 
 @code
-{
+{    
     private IEnumerable<AxoMessenger> Messengers => this.Component.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
     [Parameter]

@@ -1,20 +1,29 @@
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
-        _manualControl : BOOL;
-        _testCyclinder : AXOpen.Components.Example.ExampleCylinder;
+        _manualControl : BOOL;          
+        PlcInputs : ARRAY [0..10] OF BYTE;
+        PlcOutputs : ARRAY [0..10] OF BYTE;          
+        _testDrive  : AXOpen.Components.Drives.AxoDriveExample;  
     END_VAR
+    
 
-    VAR PRIVATE
-        _homeSensor : BOOL;
-        _workSensor : BOOL;
-        _moveHomeSignal : BOOL;
-        _moveWorkSignal : BOOL;
-    END_VAR    
-
-    METHOD PROTECTED OVERRIDE Main
-        _testCyclinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);
-        IF(_manualControl) THEN
-            _testCyclinder.ActivateManualControl();
-        END_IF;    
+    METHOD PROTECTED OVERRIDE Main  
+        IF(_manualControl) THEN            
+            _testDrive.ActivateManualControl();
+        END_IF;   
+        _testDrive.Run(parent:=THIS,
+                        refAxisIn           :=  REF(PlcInputs),
+                        refAxisOut          :=  REF(PlcOutputs),
+                        Enable              :=  TRUE,
+                        EnablePositive      :=  TRUE,
+                        EnableNegative      :=  TRUE);
     END_METHOD
 END_CLASS
+          
+
+  
+
+ 
+          
+  
+  
