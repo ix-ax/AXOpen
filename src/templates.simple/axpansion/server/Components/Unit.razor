@@ -26,6 +26,40 @@
 </div>
 
 
+<!-- Modal technology window -->
+<div class="modal fade" id="technologydataviewmodal" tabindex="-1" aria-labelledby="technologydataviewmodalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container">
+                    <div class="row">
+                        <h1 class="modal-title fs-5" id="technologydataviewmodalTitle">@Component?.HumanReadable</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row p-2">
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary"
+                        @onclick="async () => {await TechnologyData.OnlineToShadowAsync();
+                                               await SharedTechnologyData.OnlineToShadowAsync();
+                                    }">
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <RenderableContentControl Context="@SharedTechnologyData" Presentation="Display" />
+                        <RenderableContentControl Context="@TechnologyData" Presentation="Display" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Modal data window -->
 <div class="modal fade" id="dataviewmodal" tabindex="-1" aria-labelledby="dataviewmodalTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -39,7 +73,12 @@
                     <div class="row p-2">
                     </div>
                     <div class="row">
-                        <button type="button" class="btn btn-primary" @onclick="async () => await Data.OnlineToShadowAsync()">Refresh</button>
+                        <button type="button" class="btn btn-primary"
+                        @onclick="async () => {await DataHeader.OnlineToShadowAsync();
+                                               await Data.OnlineToShadowAsync();
+                                    }">
+                            Refresh
+                        </button>
                     </div>
                 </div>
             </div>
@@ -80,8 +119,13 @@
 </div>
 
 <div class="text-white p-2 fixed-bottom" style="z-index: 0;">
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#technologydataviewmodal">
+        Technology Data
+    </button>
+
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataviewmodal">
-        Data
+        Process Data
     </button>
     
     <AlarmsButton Component="this.Component" MessageProvider="AxoMessageProvider"></AlarmsButton>
@@ -111,5 +155,11 @@
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public AXOpen.Data.AxoDataEntity? TechnologyData { get; set; }
+
+    [Parameter]
+    public AXOpen.Data.AxoDataEntity? SharedTechnologyData { get; set; }
 }
 
