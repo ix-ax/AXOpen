@@ -92,6 +92,45 @@ namespace AXOpen.Data.Fragments.Tests
         }
 
         [Fact]
+        public async void RemoteReadLastLoaded_ShouldReadLastLoadedRecordsFromEachRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+
+            var sharedRepo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            var manipRepo = new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>();
+            s.Set.SetRepository(sharedRepo);
+            s.Manip.SetRepository(manipRepo);
+
+            sut.Settings.Data.EnableSavingIdentifiers = true;
+
+            var id = "LastLoadedTest";
+
+            sharedRepo.Create(id, new SharedProductionData() { ComesFrom = 22, GoesTo = 33 });
+            manipRepo.Create(id, new FragmentProcessData() { CounterDelay = 2323ul });
+
+            await sut.RemoteRead(id);
+
+            sut.Set.Set.ComesFrom.Cyclic = (short)0;
+            sut.Set.Set.GoesTo.Cyclic = (short)0;
+            sut.Manip.Set.CounterDelay.Cyclic = (ulong)0;
+
+            await sut.Set.Set.WriteAsync();
+            await sut.Manip.Set.WriteAsync();
+
+            sut.Settings.Load(); // load last saved id
+
+            sut.RemoteLoadLastIdentifier();
+
+            Assert.Equal(22, await sut.Set.Set.ComesFrom.GetAsync());
+            Assert.Equal(33, await sut.Set.Set.GoesTo.GetAsync());
+            Assert.Equal(2323ul, await sut.Manip.Set.CounterDelay.GetAsync());
+
+        }
+
+        [Fact]
         public async void RemoteUpdate_ShouldUpdateRecordsInEachRepository()
         {
             var parent = NSubstitute.Substitute.For<ITwinObject>();

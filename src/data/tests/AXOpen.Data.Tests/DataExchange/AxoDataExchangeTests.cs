@@ -238,6 +238,37 @@ namespace AXOpen.Data.Tests
         }
 
         [Fact]
+        public async void RemoteReadLastLoaded_ShouldReadLastLoadedRecordsFromEachRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            sut.Settings.Data.EnableSavingIdentifiers = true;
+
+            var id = "LastLoadedTest";
+            repo.Create(id, new SharedProductionData() { ComesFrom = 22, GoesTo = 33 });
+
+            await sut.RemoteRead(id);
+
+            sut.Set.ComesFrom.Cyclic = (short)0;
+            sut.Set.GoesTo.Cyclic = (short)0;
+
+            await sut.Set.WriteAsync();
+
+            sut.Settings.Load(); // load last saved id
+
+            sut.RemoteLoadLastIdentifier();
+
+            Assert.Equal(22, await sut.Set.ComesFrom.GetAsync());
+            Assert.Equal(33, await sut.Set.GoesTo.GetAsync());
+        }
+
+
+        [Fact]
         public async void FromRepositoryToShadows_ShouldSetDataInShadowsFromPlainPocoObject()
         {
             var parent = NSubstitute.Substitute.For<ITwinObject>();

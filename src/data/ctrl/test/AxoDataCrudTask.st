@@ -78,6 +78,20 @@ NAMESPACE AXOpen.Data
             END_METHOD
 
             {Test}
+            METHOD PUBLIC ReadLastLoaded_sets_identifier
+                VAR
+                    expected : STRING[254];
+                END_VAR    
+                _dataExchange.Initialize(_context);
+                _context.Open();
+                expected := '';
+                _dataExchange.ReadLastLoaded();
+                _context.Close();
+                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
+                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.CrudOperation = eCrudOperation#ReadLastLoaded);
+            END_METHOD
+
+            {Test}
             METHOD PUBLIC Update_sets_identifier
                 VAR
                     expected : STRING[254];

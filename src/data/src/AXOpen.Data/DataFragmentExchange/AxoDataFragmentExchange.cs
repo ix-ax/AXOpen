@@ -357,7 +357,7 @@ public partial class AxoDataFragmentExchange
         return true;
     }
 
-    private async Task<bool> RemoteLoadLastIdentifier()
+    public async Task<bool> RemoteLoadLastIdentifier()
     {
         if (!this.Settings.Data.EnableSavingIdentifiers)
         {

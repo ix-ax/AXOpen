@@ -414,7 +414,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         var Identifier = await Operation.DataEntityIdentifier.GetAsync();
         return await RemoteRead(Identifier);
     }
-    private async Task<bool> RemoteLoadLastIdentifier()
+    public async Task<bool> RemoteLoadLastIdentifier()
     {
         if (!this.Settings.Data.EnableSavingIdentifiers)
         {
