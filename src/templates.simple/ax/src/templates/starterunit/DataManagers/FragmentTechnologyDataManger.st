@@ -11,7 +11,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             {#ix-generic:TPlain as POCO}
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}        
             {#ix-attr:[Container(Layout.Stack)]}
-            {#ix-set:AttributeName = "<#UnitTemplate#>"}         
+            {#ix-set:AttributeName = "<#StarterUnitTemplate#>"}   
             Payload : TechnologyData;
         END_VAR
     END_CLASS
