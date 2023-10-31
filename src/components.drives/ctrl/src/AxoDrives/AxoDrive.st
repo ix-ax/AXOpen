@@ -1385,10 +1385,6 @@ NAMESPACE AXOpen.Components.Drives
                           AxoPower_Valid,
                           AxoPower_Error,
                           AxoPower_ErrorID);
-            // Messenger.ActivateOnCondition(_messageCode,AxoPower_Error AND _messageCode = TO_ULINT(AxoPower_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoPower_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoPower_ErrorID);
-            // END_IF;                          
             //******************************************
             _movementDisabled := NOT AxoPower_Status;
             //*************AXO_STOP*********************
@@ -1403,10 +1399,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoStop_CommandAborted,          
                         AxoStop_Error,
                         AxoStop_ErrorID);
-            // Messenger.ActivateOnCondition(_messageCode,AxoStop_Error AND _messageCode = TO_ULINT(AxoStop_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoStop_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoStop_ErrorID);
-            // END_IF;                          
             //******************************************
             _movementDisabled := _movementDisabled OR AxoStop_Active OR AxoStop_Task.IsDone() AND AxoStop_Task.IsBusy();
             //*************AXO_HALT*********************
@@ -1429,10 +1421,6 @@ NAMESPACE AXOpen.Components.Drives
                                 AxoHalt_Task.Abort();
                             END_IF;
                         END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoHalt_Error AND _messageCode = TO_ULINT(AxoHalt_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoHalt_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoHalt_ErrorID);
-            // END_IF;                          
             //******************************************
             _movementDisabled := _movementDisabled OR AxoHalt_Active;
 
@@ -1459,10 +1447,6 @@ NAMESPACE AXOpen.Components.Drives
                     AxoHome_Task.Abort();
                 END_IF;
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoHome_Error AND _messageCode = TO_ULINT(AxoHome_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoHome_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoHome_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_MOVE_ABSOLUTE************
@@ -1490,10 +1474,6 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveAbsolute_Task.Abort();
                 END_IF;
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoMoveAbsolute_Error AND _messageCode = TO_ULINT(AxoMoveAbsolute_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoMoveAbsolute_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoMoveAbsolute_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_MOVE_RELATIVE************
@@ -1520,10 +1500,6 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveRelative_Task.Abort();
                 END_IF;
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoMoveRelative_Error AND _messageCode = TO_ULINT(AxoMoveRelative_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoMoveRelative_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoMoveRelative_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_MOVE_ADDITIVE************
@@ -1550,10 +1526,6 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveAdditive_Task.Abort();
                 END_IF;
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoMoveAdditive_Error AND _messageCode = TO_ULINT(AxoMoveAdditive_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoMoveAdditive_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoMoveAdditive_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_MOVE_VELOCITY************
@@ -1580,10 +1552,6 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveVelocity_Task.Abort();
                 END_IF;
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoMoveVelocity_Error AND _messageCode = TO_ULINT(AxoMoveVelocity_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoMoveVelocity_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoMoveVelocity_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_TORQUE_CONTROL***********
@@ -1612,10 +1580,6 @@ NAMESPACE AXOpen.Components.Drives
                     AxoTorqueControl_Task.Abort();
                 END_IF;
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoTorqueControl_Error AND _messageCode = TO_ULINT(AxoTorqueControl_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoTorqueControl_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoTorqueControl_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_SET_POSITION*************
@@ -1634,10 +1598,6 @@ NAMESPACE AXOpen.Components.Drives
                 AxoSetPosition_Task.DoneWhen(AxoSetPosition_Done);
                 AxoSetPosition_Task.ThrowWhen(AxoSetPosition_Error,CONCAT('MC_SetPosition has thrown an error: ', ToString(AxoSetPosition_ErrorID)));
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoSetPosition_Error AND _messageCode = TO_ULINT(AxoSetPosition_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoSetPosition_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoSetPosition_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_SET_OVERRIDE*************
@@ -1652,10 +1612,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoSetOverride_Busy,
                         AxoSetOverride_Error,
                         AxoSetOverride_ErrorID);
-            // Messenger.ActivateOnCondition(_messageCode,AxoSetOverride_Error AND _messageCode = TO_ULINT(AxoSetOverride_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoSetOverride_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoSetOverride_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_PARAMETER***********
@@ -1669,10 +1625,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadParameter_Error,
                         AxoReadParameter_ErrorID,
                         AxoReadParameter_Value);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadParameter_Error AND _messageCode = TO_ULINT(AxoReadParameter_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadParameter_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadParameter_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_REAL_PARAMETER******
@@ -1686,10 +1638,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadRealParameter_Error,
                         AxoReadRealParameter_ErrorID,
                         AxoReadRealParameter_Value);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadRealParameter_Error AND _messageCode = TO_ULINT(AxoReadRealParameter_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadRealParameter_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadRealParameter_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_BOOL_PARAMETER******
@@ -1703,10 +1651,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadBoolParameter_Error,
                         AxoReadBoolParameter_ErrorID,
                         AxoReadBoolParameter_Value);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadBoolParameter_Error AND _messageCode = TO_ULINT(AxoReadBoolParameter_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadBoolParameter_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadBoolParameter_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_WRITE_PARAMETER**********
@@ -1724,10 +1668,6 @@ NAMESPACE AXOpen.Components.Drives
                 AxoWriteParameter_Task.DoneWhen(AxoWriteParameter_Done);
                 AxoWriteParameter_Task.ThrowWhen(AxoWriteParameter_Error,CONCAT('MC_WriteParameter has thrown an error: ', ToString(AxoWriteParameter_ErrorID)));
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoWriteParameter_Error AND _messageCode = TO_ULINT(AxoWriteParameter_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoWriteParameter_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoWriteParameter_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_WRITE_REAL_PARAMETER*****
@@ -1745,10 +1685,6 @@ NAMESPACE AXOpen.Components.Drives
                 AxoWriteRealParameter_Task.DoneWhen(AxoWriteRealParameter_Done);
                 AxoWriteRealParameter_Task.ThrowWhen(AxoWriteRealParameter_Error,CONCAT('MC_WriteRealParameter has thrown an error: ', ToString(AxoWriteRealParameter_ErrorID)));
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoWriteRealParameter_Error AND _messageCode = TO_ULINT(AxoWriteRealParameter_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoWriteRealParameter_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoWriteRealParameter_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_WRITE_BOOL_PARAMETER*****
@@ -1766,10 +1702,6 @@ NAMESPACE AXOpen.Components.Drives
                 AxoWriteBoolParameter_Task.DoneWhen(AxoWriteBoolParameter_Done);
                 AxoWriteBoolParameter_Task.ThrowWhen(AxoWriteBoolParameter_Error,CONCAT('MC_WriteBoolParameter has thrown an error: ', ToString(AxoWriteBoolParameter_ErrorID)));
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoWriteBoolParameter_Error AND _messageCode = TO_ULINT(AxoWriteBoolParameter_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoWriteBoolParameter_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoWriteBoolParameter_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_DIGITAL_INPUT*******
@@ -1783,10 +1715,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadDigitalInput_Error,
                         AxoReadDigitalInput_ErrorID,
                         AxoReadDigitalInput_Value);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadDigitalInput_Error AND _messageCode = TO_ULINT(AxoReadDigitalInput_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadDigitalInput_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadDigitalInput_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_DIGITAL_OUTPUT******
@@ -1800,10 +1728,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadDigitalOutput_Error,
                         AxoReadDigitalOutput_ErrorID,
                         AxoReadDigitalOutput_Value);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadDigitalOutput_Error AND _messageCode = TO_ULINT(AxoReadDigitalOutput_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadDigitalOutput_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadDigitalOutput_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_WRITE_DIGITAL_OUTPUT*****
@@ -1821,10 +1745,6 @@ NAMESPACE AXOpen.Components.Drives
                 AxoWriteDigitalOutput_Task.DoneWhen(AxoWriteDigitalOutput_Done);
                 AxoWriteDigitalOutput_Task.ThrowWhen(AxoWriteDigitalOutput_Error,CONCAT('MC_WriteDigitalOutput has thrown an error: ', ToString(AxoWriteDigitalOutput_ErrorID)));
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoWriteDigitalOutput_Error AND _messageCode = TO_ULINT(AxoWriteDigitalOutput_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoWriteDigitalOutput_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoWriteDigitalOutput_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_ACTUAL_POSITION*****
@@ -1837,10 +1757,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadActualPosition_Error,
                         AxoReadActualPosition_ErrorID,
                         AxoReadActualPosition_Value);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadActualPosition_Error AND _messageCode = TO_ULINT(AxoReadActualPosition_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadActualPosition_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadActualPosition_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_ACTUAL_VELOCITY*****
@@ -1853,10 +1769,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadActualVelocity_Error,
                         AxoReadActualVelocity_ErrorID,
                         AxoReadActualVelocity_Value);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadActualVelocity_Error AND _messageCode = TO_ULINT(AxoReadActualVelocity_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadActualVelocity_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadActualVelocity_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_ACTUAL_TORQUE*******
@@ -1869,10 +1781,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadActualTorque_Error,
                         AxoReadActualTorque_ErrorID,
                         AxoReadActualTorque_Value);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadActualTorque_Error AND _messageCode = TO_ULINT(AxoReadActualTorque_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadActualTorque_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadActualTorque_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_STATUS**************
@@ -1892,10 +1800,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadStatus_DiscreteMotion,      
                         AxoReadStatus_ContinuousMotion,    
                         AxoReadStatus_SynchronizedMotion);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadStatus_Error AND _messageCode = TO_ULINT(AxoReadStatus_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadStatus_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadStatus_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_MOTION_STATE********
@@ -1913,10 +1817,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadMotionState_Decelerating,                           
                         AxoReadMotionState_DirectionPositive,                      
                         AxoReadMotionState_DirectionNegative);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadMotionState_Error AND _messageCode = TO_ULINT(AxoReadMotionState_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadMotionState_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadMotionState_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_AXIS_INFO***********
@@ -1937,10 +1837,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadAxisInfo_PowerOn,
                         AxoReadAxisInfo_IsHomed,
                         AxoReadAxisInfo_AxisWarning);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadAxisInfo_Error AND _messageCode = TO_ULINT(AxoReadAxisInfo_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadAxisInfo_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadAxisInfo_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_READ_AXIS_ERROR**********
@@ -1953,10 +1849,6 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReadAxisError_Error,
                         AxoReadAxisError_ErrorID,
                         AxoReadAxisError_AxisErrorID);
-            // Messenger.ActivateOnCondition(_messageCode,AxoReadAxisError_Error AND _messageCode = TO_ULINT(AxoReadAxisError_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReadAxisError_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReadAxisError_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_RESET********************
@@ -1971,10 +1863,6 @@ NAMESPACE AXOpen.Components.Drives
                 AxoReset_Task.DoneWhen(AxoReset_Done);
                 AxoReset_Task.ThrowWhen(AxoReset_Error,CONCAT('MC_Reset has thrown an error: ', ToString(AxoReset_ErrorID)));
             END_IF;
-            // Messenger.ActivateOnCondition(_messageCode,AxoReset_Error AND _messageCode = TO_ULINT(AxoReset_ErrorID),eAxoMessageCategory#Error);
-            // IF AxoReset_Error AND NOT Messenger.IsActive THEN
-            //     _messageCode := TO_ULINT(AxoReset_ErrorID);
-            // END_IF;                          
             //******************************************
 
             //*************AXO_JOG**********************
