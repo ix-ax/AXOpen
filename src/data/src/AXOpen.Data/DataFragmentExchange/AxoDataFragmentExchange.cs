@@ -361,7 +361,7 @@ public partial class AxoDataFragmentExchange
     {
         if (!this.Settings.Data.EnableSavingIdentifiers)
         {
-            //await Operation.DataEntityIdentifier.SetAsync("DoesNotTracked!");
+            await Operation.SetFailureDetails($"Datamanager has not enabled Identifier tracking!");
             await Operation._exist.SetAsync(false); // write not exist
             return false;
         }
@@ -370,6 +370,7 @@ public partial class AxoDataFragmentExchange
 
         if (!await ExistsAsync(Identifier))
         {
+            await Operation.SetFailureDetails($"Identifier Not exist in repository!");
             await Operation._exist.SetAsync(false); // write not exist
             return false;
         }

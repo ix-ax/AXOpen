@@ -418,7 +418,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         if (!this.Settings.Data.EnableSavingIdentifiers)
         {
-            await DataEntity.DataEntityId.SetAsync("DoesNotTracked!");
+            await Operation.SetFailureDetails($"Datamanager has not enabled Identifier tracking!");
             await Operation._exist.SetAsync(false); // write not exist
             return false;
         }
@@ -427,7 +427,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
         if (!Repository.Exists(Identifier))
         {
-            await DataEntity.DataEntityId.SetAsync(Identifier);
+            await Operation.SetFailureDetails($"Identifier Not exist in repository!");
             await Operation._exist.SetAsync(false); // write not exist
             return false;
         }

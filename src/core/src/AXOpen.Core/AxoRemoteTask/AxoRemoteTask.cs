@@ -203,11 +203,8 @@ namespace AXOpen.Core
                 }
                 catch (Exception ex)
                 {
-                    await this.HasRemoteException.SetAsync(true);
-                    await this.ErrorDetails.SetAsync(ex.Message);
                     RemoteExecutionException = ex;
-                    RemoteExceptionDetails = ex.Message;
-                    AxoApplication.Current.Logger.Error(ex.ToString(), this, new GenericIdentity("Controller"));
+                    await SetFailureDetails(ex.Message);
                     return;
                 }
                 finally
@@ -267,6 +264,21 @@ namespace AXOpen.Core
             await this.HasRemoteException.SetAsync(false);
             IsRunning = false;
         }
+
+        /// <summary>
+        /// Set failure information to task <see cref="AxoRemoteTask"/>.
+        /// </summary>
+        public async Task SetFailureDetails(
+            string defails
+            )
+        {
+            AxoApplication.Current.Logger.Error(defails, this, new GenericIdentity("Controller"));
+            RemoteExceptionDetails = defails;
+            await this.ErrorDetails.SetAsync(defails);
+            await this.HasRemoteException.SetAsync(true);
+        }
+
+
     }
 
     public enum RemoteActionType
