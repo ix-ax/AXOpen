@@ -32,7 +32,14 @@ NAMESPACE AXOpen.Data
             END_VAR  
             Read := Operation.Invoke(Identifier, eCrudOperation#Read);             
         END_METHOD 
-    
+
+        ///<summary>
+        /// Reads data from each associated remote repository and copies it into respective data entities. Will be used last loaded identifier to controller.
+        /// </summary> 
+        METHOD PUBLIC ReadLastLoaded : IAxoTaskState
+            ReadLastLoaded := Operation.Invoke('', eCrudOperation#ReadLastLoaded);             
+        END_METHOD 
+
         ///<summary>
         /// Updates data in each associated remote repository from respective data entities.
         /// </summary> 

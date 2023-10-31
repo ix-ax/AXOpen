@@ -103,6 +103,9 @@ public partial class AxoDataFragmentExchange
                 var result = await this.RemoteEntityExist(identifier);
                 await Operation._exist.SetAsync(result);
                 break;
+            case eCrudOperation.ReadLastLoaded:
+                await this.RemoteLoadLastIdentifier();
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -353,6 +356,32 @@ public partial class AxoDataFragmentExchange
 
         return true;
     }
+
+    private async Task<bool> RemoteLoadLastIdentifier()
+    {
+        if (!this.Settings.Data.EnableSavingIdentifiers)
+        {
+            //await Operation.DataEntityIdentifier.SetAsync("DoesNotTracked!");
+            await Operation._exist.SetAsync(false); // write not exist
+            return false;
+        }
+
+        var Identifier = this.Settings.Data.LastLoadedIdentifierToPlcController;
+
+        if (!await ExistsAsync(Identifier))
+        {
+            await Operation._exist.SetAsync(false); // write not exist
+            return false;
+        }
+
+        foreach (var fragment in DataFragments)
+        {
+            await fragment?.RemoteRead(Identifier);
+        }
+
+        return true;
+    }
+
 
     public async Task<bool> RemoteUpdate(string identifier)
     {

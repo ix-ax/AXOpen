@@ -8,9 +8,19 @@
 using AXOpen.Base.Data;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
+using System;
+using System.Collections.Generic;
 using System.IO.Compression;
 using System.Reflection;
 using System.Security.Principal;
+using System.IO.Compression;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Numerics;
+using System.Reflection;
+using System.Security.Claims;
+using System.Security.Principal;
+using System.Threading.Tasks;
 
 namespace AXOpen.Data;
 
@@ -383,11 +393,16 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
                 await Operation._exist.SetAsync(result);
                 break;
 
+            case eCrudOperation.ReadLastLoaded:
+                await this.RemoteLoadLastIdentifier();
+                break;
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
+   
     private async Task<bool> RemoteCreate()
     {
         var Identifier = await Operation.DataEntityIdentifier.GetAsync();
@@ -398,6 +413,28 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         var Identifier = await Operation.DataEntityIdentifier.GetAsync();
         return await RemoteRead(Identifier);
+    }
+    private async Task<bool> RemoteLoadLastIdentifier()
+    {
+        if (!this.Settings.Data.EnableSavingIdentifiers)
+        {
+            await DataEntity.DataEntityId.SetAsync("DoesNotTracked!");
+            await Operation._exist.SetAsync(false); // write not exist
+            return false;
+        }
+
+        var Identifier = this.Settings.Data.LastLoadedIdentifierToPlcController;
+
+        if (!Repository.Exists(Identifier))
+        {
+            await DataEntity.DataEntityId.SetAsync(Identifier);
+            await Operation._exist.SetAsync(false); // write not exist
+            return false;
+        }
+
+        var record = Repository.Read(Identifier);
+        await ((ITwinObject)DataEntity).PlainToOnline(record);
+        return true;
     }
 
     private async Task<bool> RemoteUpdate()

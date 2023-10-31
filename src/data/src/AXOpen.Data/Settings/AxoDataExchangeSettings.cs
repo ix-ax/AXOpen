@@ -11,8 +11,11 @@
         {
             if (Data.EnableSavingIdentifiers)
             {
-                Data.LastLoadedIdentifierToPlcController = identifier;
-                this.Save();
+                if (Data.LastLoadedIdentifierToPlcController != identifier)
+                { 
+                    Data.LastLoadedIdentifierToPlcController = identifier;
+                    this.Save();
+                }
             }
         }
 
@@ -20,8 +23,11 @@
         {
             if (Data.EnableSavingIdentifiers)
             {
-                Data.LastUpdatedIdentifierFromPlcController = identifier;
-                this.Save();
+                if (Data.LastUpdatedIdentifierFromPlcController != identifier)
+                {
+                    Data.LastUpdatedIdentifierFromPlcController = identifier;
+                    this.Save();
+                }
             }
         }
     }

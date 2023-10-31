@@ -16,6 +16,9 @@ NAMESPACE AXOpen.Data
                 Identifier : STRING[254];
             END_VAR        
         END_METHOD 
+        
+        METHOD ReadLastLoaded : IAxoTaskState
+        END_METHOD 
 
         METHOD Update : IAxoTaskState
             VAR_INPUT

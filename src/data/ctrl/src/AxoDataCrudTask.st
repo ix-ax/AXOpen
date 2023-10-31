@@ -40,7 +40,7 @@ NAMESPACE AXOpen.Data
     END_CLASS
 
     TYPE
-        eCrudOperation : (Create, Read, Update, Delete, CreateOrUpdate, EntityExist);
+        eCrudOperation : (Create, Read, Update, Delete, CreateOrUpdate, EntityExist, ReadLastLoaded);
     END_TYPE
 
     INTERFACE PUBLIC IAxoEntityExistTaskState EXTENDS IAxoTaskState
