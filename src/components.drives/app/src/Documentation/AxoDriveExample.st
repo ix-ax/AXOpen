@@ -147,7 +147,7 @@ NAMESPACE AXOpen.Components.Drives
         ///<summary>
         /// This method  commands a controlled motion of a specified distance relative to the set position at the time of the execution.
         ///<summary>
-        METHOD PUBLIC OVERRIDE MC_MoveRelative 
+        METHOD PUBLIC MC_MoveRelative 
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the motion at rising edge
@@ -176,7 +176,7 @@ NAMESPACE AXOpen.Components.Drives
         /// previous MC_MoveAdditive motion which was aborted. If the method is activated in the axis state ‘ContinuousMotion’, the
         /// specified relative distance is added to the set position at the time of the execution.
         ///<summary>
-        METHOD PUBLIC OVERRIDE MC_MoveAdditive
+        METHOD PUBLIC MC_MoveAdditive
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the motion at rising edge
@@ -648,5 +648,51 @@ NAMESPACE AXOpen.Components.Drives
             END_VAR
             ;
         END_METHOD
-    END_CLASS
+    
+    METHOD PUBLIC OVERRIDE MC_MoveRelative
+        VAR_INPUT
+            AxisRef : IAxoAxisReference;
+            Execute : BOOL;
+            ContinuousUpdate : BOOL;
+            Distance : LREAL;
+            Velocity : LREAL;
+            Acceleration : LREAL;
+            Deceleration : LREAL;
+            Jerk : LREAL;
+        END_VAR
+        VAR_OUTPUT
+            Done : BOOL;
+            Busy : BOOL;
+            Active : BOOL;
+            CommandAborted : BOOL;
+            Error : BOOL;
+            ErrorID : WORD;
+        END_VAR
+
+        ;
+    END_METHOD
+
+    METHOD PUBLIC OVERRIDE MC_MoveAdditive
+        VAR_INPUT
+            AxisRef : IAxoAxisReference;
+            Execute : BOOL;
+            ContinuousUpdate : BOOL;
+            Distance : LREAL;
+            Velocity : LREAL;
+            Acceleration : LREAL;
+            Deceleration : LREAL;
+            Jerk : LREAL;
+        END_VAR
+        VAR_OUTPUT
+            Done : BOOL;
+            Busy : BOOL;
+            Active : BOOL;
+            CommandAborted : BOOL;
+            Error : BOOL;
+            ErrorID : WORD;
+        END_VAR
+
+        ;
+    END_METHOD
+END_CLASS
 END_NAMESPACE

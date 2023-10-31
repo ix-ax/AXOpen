@@ -159,6 +159,8 @@ public class BuildContext : FrostingContext
         ("components.abstractions", "axopen.components.abstractions", true),
         ("components.cognex.vision", "axopen.components.cognex.vision", true),
         ("components.pneumatics", "axopen.components.pneumatics", true),
+        ("components.drives", "axopen.components.drives", true),
+        ("components.rexroth.drives", "axopen.components.rexroth.drives", true),
         ("integrations", "ix.integrations", false),
         ("templates.simple", "templates.simple", false),
         ("template.axolibrary", "template.axolibrary", false)
