@@ -5,19 +5,12 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
-using System.IO.Compression;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Numerics;
-using System.Reflection;
-using System.Security.Claims;
-using System.Security.Principal;
-using System.Threading.Tasks;
 using AXOpen.Base.Data;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components.Authorization;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
+using System.IO.Compression;
+using System.Reflection;
+using System.Security.Principal;
 
 namespace AXOpen.Data;
 
@@ -74,6 +67,20 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         set
         {
             _verifyHash = value;
+        }
+    }
+
+    private AxoDataExchangeSettings _Settings;
+
+    public AxoDataExchangeSettings Settings
+    {
+        get
+        {
+            if (_Settings == null)
+            {
+                _Settings = new AxoDataExchangeSettings(this.Symbol);
+            }
+            return _Settings;
         }
     }
 
@@ -163,7 +170,6 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     /// </summary>
     public ITwinObject RefUIData => DataEntity as ITwinObject;
 
-
     /// <inheritdoc />
     public IRepository? Repository => DataRepository as IRepository;
 
@@ -189,6 +195,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
 
         Repository.Create(identifier, cloned);
+        this.Settings.SaveUpdatedIdentifierFromPlc(identifier);
 
         return true;
     }
@@ -201,6 +208,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             await Operation.ReadAsync();
             var record = Repository.Read(identifier);
             await ((ITwinObject)DataEntity).PlainToOnline(record);
+            this.Settings.SaveLoadedIdentifierToPlc(identifier);
             return true;
         }
         catch (Exception exception)
@@ -214,11 +222,13 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     {
         await Operation.ReadAsync();
         await DataEntity.DataEntityId.SetAsync(identifier);
-        
+
         var cloned = await ((ITwinObject)DataEntity).OnlineToPlain<TPlain>();
 
         cloned.Hash = HashHelper.CreateHash(cloned);
         Repository.Update(identifier, cloned);
+        this.Settings.SaveUpdatedIdentifierFromPlc(identifier);
+
         return true;
     }
 
@@ -257,10 +267,10 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         {
             Repository.Create(identifier, cloned);
         }
+        this.Settings.SaveUpdatedIdentifierFromPlc(identifier);
+
         return true;
     }
-
-
 
     private PropertyInfo? GetDataSetPropertyInfo<TA>() where TA : Attribute
     {
@@ -326,7 +336,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task InitializeRemoteDataExchange(IRepository<TPlain> repository)
     {
         SetRepository(repository);
-       await InitializeRemoteDataExchange();
+        await InitializeRemoteDataExchange();
     }
 
     /// <summary>
@@ -351,22 +361,28 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
             case eCrudOperation.Create:
                 await this.RemoteCreate(identifier);
                 break;
+
             case eCrudOperation.Read:
                 await this.RemoteRead(identifier);
                 break;
+
             case eCrudOperation.Update:
                 await this.RemoteUpdate(identifier);
                 break;
+
             case eCrudOperation.Delete:
                 await this.RemoteDelete(identifier);
                 break;
+
             case eCrudOperation.CreateOrUpdate:
                 await this.RemoteCreateOrUpdate(identifier);
                 break;
+
             case eCrudOperation.EntityExist:
                 var result = await this.RemoteEntityExist(identifier);
                 await Operation._exist.SetAsync(result);
                 break;
+
             default:
                 throw new ArgumentOutOfRangeException();
         }
@@ -375,7 +391,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     private async Task<bool> RemoteCreate()
     {
         var Identifier = await Operation.DataEntityIdentifier.GetAsync();
-        return  await RemoteCreate(Identifier);
+        return await RemoteCreate(Identifier);
     }
 
     private async Task<bool> RemoteRead()
@@ -483,6 +499,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
     public async Task FromRepositoryToControllerAsync(IBrowsableDataObject selected)
     {
         await RefUIData.PlainToOnline(Repository.Read(selected.DataEntityId));
+        this.Settings.SaveLoadedIdentifierToPlc(selected.DataEntityId);
     }
 
     /// <inheritdoc />
@@ -494,6 +511,7 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
         Repository.Create(plainer.DataEntityId, plainer);
         var plain = Repository.Read(plainer.DataEntityId);
         RefUIData.PlainToShadow(plain);
+        this.Settings.SaveUpdatedIdentifierFromPlc(recordId);
     }
 
     /// <inheritdoc />

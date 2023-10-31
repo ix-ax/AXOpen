@@ -30,6 +30,19 @@ public partial class AxoDataFragmentExchange
     
     public bool VerifyHash { get; set; } = false;
 
+    private AxoDataExchangeSettings _Settings;
+
+    public AxoDataExchangeSettings Settings
+    {
+        get
+        {
+            if (_Settings == null)
+            {
+                _Settings = new AxoDataExchangeSettings(this.Symbol);
+            }
+            return _Settings;
+        }
+    }
     public object CreateBuilder()
     {
         DataFragments = GetDataSetProperty<AxoDataFragmentAttribute, IAxoDataExchange>().ToArray();
@@ -252,6 +265,7 @@ public partial class AxoDataFragmentExchange
         {
             await fragment.RefUIData.PlainToOnline(fragment.Repository.Read(selected.DataEntityId));
         }
+        this.Settings.SaveLoadedIdentifierToPlc(selected.DataEntityId);
     }
 
     public async Task CreateDataFromControllerAsync(string recordId)
@@ -265,6 +279,7 @@ public partial class AxoDataFragmentExchange
             var plain = fragment.Repository.Read(plainer.DataEntityId);
             fragment.RefUIData.PlainToShadow(plain);
         }
+        this.Settings.SaveUpdatedIdentifierFromPlc(recordId);
     }
 
     public async Task Delete(string identifier)
@@ -323,6 +338,7 @@ public partial class AxoDataFragmentExchange
         {
             await fragment?.RemoteCreate(identifier);
         }
+        this.Settings.SaveUpdatedIdentifierFromPlc(identifier);
 
         return true;
     }
@@ -333,6 +349,7 @@ public partial class AxoDataFragmentExchange
         {
            await fragment?.RemoteRead(identifier);
         }
+        this.Settings.SaveLoadedIdentifierToPlc(identifier);
 
         return true;
     }
@@ -343,6 +360,7 @@ public partial class AxoDataFragmentExchange
         {
            await fragment?.RemoteUpdate(identifier);
         }
+        this.Settings.SaveUpdatedIdentifierFromPlc(identifier);
 
         return true;
     }
@@ -374,6 +392,7 @@ public partial class AxoDataFragmentExchange
         {
            await fragment?.RemoteCreateOrUpdate(identifier);
         }
+        this.Settings.SaveUpdatedIdentifierFromPlc(identifier);
 
         return true;
     }

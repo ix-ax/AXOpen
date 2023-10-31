@@ -6,8 +6,6 @@ namespace AXOpen.Data
     {
         private const string jsonPostfirx = ".json";
 
-        //private string SerializationPath;
-
         private object _SyncFile = new object();
 
         public JsonFileSettingService(string DocumentName, string SettingsFolderName = "Settings")

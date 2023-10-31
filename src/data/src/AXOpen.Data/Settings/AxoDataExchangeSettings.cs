@@ -15,6 +15,7 @@
                 this.Save();
             }
         }
+
         public void SaveUpdatedIdentifierFromPlc(string identifier)
         {
             if (Data.EnableSavingIdentifiers)
