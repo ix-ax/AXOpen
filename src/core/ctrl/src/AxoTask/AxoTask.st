@@ -205,9 +205,9 @@ NAMESPACE AXOpen.Core
         /// Returns true when the `Invoke() method of the task is called in this PLC cycle
         /// or was called in the previous-one.
         ///</summary>
-        METHOD PUBLIC IsInvokeCalled : BOOL
-            IsInvokeCalled := THIS.IsInvokeCalledInThisPlcCycle() OR THIS.WasInvokeCalledInPreviousPlcCycle();
-        END_METHOD 
+        // METHOD PUBLIC IsInvokeCalled : BOOL
+        //     IsInvokeCalled := THIS.IsInvokeCalledInThisPlcCycle() OR THIS.WasInvokeCalledInPreviousPlcCycle();
+        // END_METHOD 
 
         METHOD PRIVATE IsNewInvokeCall : BOOL
             IF _context_ <> NULL THEN
