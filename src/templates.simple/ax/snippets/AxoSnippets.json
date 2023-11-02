@@ -26,6 +26,21 @@
     "description": "Adds root call of controlled unit"
     },
 
+    "unitEntryCallStarterUnit":
+    {
+        "prefix": ["unitRootCallStarterUnit"],
+        "scope": "st",
+        "body":[
+        "${1:name}.EntireProcessSettings    := REF(ProcessSettings);",
+        "${1:name}.EntireProcessData        := REF(ProcessData);",
+        "${1:name}.ProcessData              := REF(${1:name}ProcessData);",
+        "${1:name}.TechnologyData           := REF(${1:name}TechnologyData);",
+        "${1:name}.Run(THIS, Inputs^, Outputs^);",
+        "$0"
+        ],
+    "description": "Adds root call of starter controlled unit"
+    },
+
     "unitAddProcessData":
     {
         "prefix": ["unitAddProcessData"],

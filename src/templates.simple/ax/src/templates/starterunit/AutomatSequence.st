@@ -14,25 +14,34 @@ NAMESPACE axosimple.StarterUnitTemplate
         VAR PUBLIC
             Steps : ARRAY[0..25] OF AxoStep;           
         END_VAR
+
         VAR PRIVATE
             Components : REF_TO Components;
             ProcessData : REF_TO ProcessDataManager;
             TechnologySettings : REF_TO TechnologyDataManager;
-            _currentId : STRING;           
+            EntireProcessSettings    :REF_TO axosimple.ProcessData;
+            EntireProcessData    :REF_TO axosimple.ProcessData;
+            _currentId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _components : REF_TO Components;
-                _processData : REF_TO ProcessDataManager;
+                _components         : REF_TO Components;
+                _processData        : REF_TO ProcessDataManager;
                 _technologySettings : REF_TO TechnologyDataManager;
-                _parent : IAxoObject;
-            END_VAR
-            Components := _components;
-            ProcessData := _processData;
-            TechnologySettings := _technologySettings;
-            SUPER.Run(_parent);
+                _entireProcessSettings    :REF_TO axosimple.ProcessData;
+                _entireProcessData    :REF_TO axosimple.ProcessData;
+                _parent             : IAxoObject;
+            END_VAR  
+
+            Components      := _components;
+            ProcessData     := _processData;
+            TechnologySettings  := _technologySettings;
+            EntireProcessSettings     := _entireProcessSettings;
+            EntireProcessData     := _entireProcessData;
+            SUPER.Run(_parent);                        
         END_METHOD
+
         ///<summary>
         /// Contains logic of the steps of this sequence
         ///</summary>
@@ -48,16 +57,20 @@ NAMESPACE axosimple.StarterUnitTemplate
             THIS.SequenceMode := eAxoSequenceMode#Cyclic;
 
             
-            IF (Steps[0].Execute(THIS, TRUE, '<#GET ID#>')) THEN
+            IF (Steps[0].Execute(THIS, TRUE, '<#COPY ENTIRE PROCESS SETTINGS#>')) THEN
                 //-------------------------------------------------------
                 _currentId := 'newProducedPart';
                 THIS.MoveNext(); 
+
+                EntireProcessData^ := EntireProcessSettings^; // copy entire data for new part
+                ProcessData^.Shared.Entity := EntireProcessData^.Entity.Entity; // copy shared entity header data to local manager
+                //ProcessData^.DataManger.Payload := EntireProcessData^.StarterUnitTemplate.PayLoad;     // copy station data to lacal data manager
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[1].Execute(THIS, TRUE, '<#GET DATA#>')) THEN
+            IF (Steps[1].Execute(THIS, TRUE, '<#CREATE ENTIRE DATA#>')) THEN
                 //-------------------------------------------------------
-                IF (ProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN 
+                IF (EntireProcessData^.CreateOrUpdate(_currentId).IsDone()) THEN 
                     THIS.MoveNext(); 
                 END_IF;
                 //-------------------------------------------------------
@@ -71,9 +84,10 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
+
             IF (Steps[20].Execute(THIS, TRUE, '<#UPDATE DATA#>')) THEN
                 //-------------------------------------------------------
-                IF (ProcessData^.Update(_currentId).IsDone()) THEN 
+                IF (ProcessData^.Update(_currentId).IsDone()) THEN // UPDATE LOCAL DATA 
                     THIS.MoveNext(); 
                 END_IF;
                 //-------------------------------------------------------

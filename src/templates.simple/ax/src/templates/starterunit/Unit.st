@@ -16,6 +16,16 @@ NAMESPACE axosimple.StarterUnitTemplate
             Components : Components;
 
             ///<summary>
+            /// Provides access to entire process setting manager of technology
+            ///</summary>
+            EntireProcessSettings : REF_TO axosimple.ProcessData;
+            
+            ///<summary>
+            /// Provides access to entire process data manager of technology
+            ///</summary>
+            EntireProcessData : REF_TO axosimple.ProcessData;
+            
+            ///<summary>
             /// Provides access to process data manager of this unit
             ///</summary>
             ProcessData : REF_TO ProcessDataManager;
@@ -74,7 +84,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             // Technology data manager
             TechnologyData^.Run(THIS);
             // Handles ground sequence
-            GroundSequence.Run(REF(Components), ProcessData, TechnologyData, THIS);
+            GroundSequence.Run(REF(Components), ProcessData, TechnologyData, EntireProcessSettings, EntireProcessData, THIS);
             // Restores other states when Ground executes
             IF (GroundSequence.IsBusy()) THEN
                 AutomatSequence.Restore();
@@ -82,7 +92,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             END_IF;
             // Handles automatic sequence (ground must be previously done)           
             AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
-            AutomatSequence.Run(REF(Components), ProcessData, TechnologyData, THIS);
+            AutomatSequence.Run(REF(Components), ProcessData, TechnologyData,  EntireProcessSettings, EntireProcessData, THIS);
             // Handles service/manual mode
             ServiceMode.Run(THIS, Components);
             IF ServiceMode.IsBusy() THEN

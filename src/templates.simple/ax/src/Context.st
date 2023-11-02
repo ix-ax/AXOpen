@@ -9,7 +9,7 @@ NAMESPACE axosimple
             ProcessData : ProcessData;                        
             Inputs : REF_TO axosimple.Inputs;
             Outputs : REF_TO axosimple.Outputs; 
-            // Units - You can use snippet unitDeclaration 
+            // Units - You can use snippet unitDeclaration
             
                         
         END_VAR      
@@ -20,7 +20,7 @@ NAMESPACE axosimple
             ProcessData.Run(THIS);
             
            IF(Inputs <> NULL AND Outputs <> NULL) THEN   
-               ;//Units entry calls - You can use snippet unitRootCall
+               ;//Units entry calls - You can use snippet unitRootCall or unitRootCallStarterUnit
                
             
                                              

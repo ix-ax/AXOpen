@@ -62,7 +62,7 @@ NAMESPACE axosimple.UnitTemplate
 
             IF (Steps[1].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
                 //------------------------------------------------------- 
-                IF(TechnologySettings^.Read('default').IsDone()) THEN
+                IF(TechnologySettings^.ReadLastLoaded().IsDone()) THEN
                     THIS.MoveNext(); 
                 END_IF;    
                 //-------------------------------------------------------

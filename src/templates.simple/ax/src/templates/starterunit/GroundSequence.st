@@ -14,23 +14,30 @@ NAMESPACE axosimple.StarterUnitTemplate
             Steps : ARRAY[0..20] OF AxoStep;      
             MoveToWork : AxoTask;
         END_VAR
+
         VAR PRIVATE
             Components : REF_TO Components;
             ProcessData : REF_TO ProcessDataManager;
             TechnologySettings : REF_TO TechnologyDataManager;
+            EntireProcessSettings    :REF_TO axosimple.ProcessData;
+            EntireProcessData    :REF_TO axosimple.ProcessData;
             _currentId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _components : REF_TO Components;
-                _processData : REF_TO ProcessDataManager;
+                _components         : REF_TO Components;
+                _processData        : REF_TO ProcessDataManager;
                 _technologySettings : REF_TO TechnologyDataManager;
-                _parent : IAxoObject;
+                _entireProcessSettings    :REF_TO axosimple.ProcessData;
+                _entireProcessData    :REF_TO axosimple.ProcessData;
+                _parent             : IAxoObject;
             END_VAR            
-            Components := _components;
-            ProcessData := _processData;
-            TechnologySettings := _technologySettings;
+            Components      := _components;
+            ProcessData     := _processData;
+            TechnologySettings  := _technologySettings;
+            EntireProcessSettings     := _entireProcessSettings;
+            EntireProcessData     := _entireProcessData;
             SUPER.Run(_parent);                        
         END_METHOD
 
@@ -58,14 +65,23 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[1].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
+            IF (Steps[1].Execute(THIS, TRUE, '<#READ ENTIRE TECHNOLOGY SETTINGS#>')) THEN
                 //------------------------------------------------------- 
-                IF(TechnologySettings^.Read('default').IsDone()) THEN
+                IF(TechnologySettings^.ReadLastLoaded().IsDone()) THEN
                     THIS.MoveNext(); 
                 END_IF;    
                 //-------------------------------------------------------
             END_IF;
                 
+            IF (Steps[2].Execute(THIS, TRUE, '<#READ ENTIRE PROCESS SETTINGS#>')) THEN
+                //------------------------------------------------------- 
+                IF(EntireProcessSettings^.ReadLastLoaded().IsDone()) THEN
+                    THIS.MoveNext(); 
+                END_IF;    
+                //-------------------------------------------------------
+            END_IF;
+
+
             IF (Steps[3].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
                 //-------------------------------------------------------
                 IF CurrentStep.Duration > TIME#2s THEN                         
