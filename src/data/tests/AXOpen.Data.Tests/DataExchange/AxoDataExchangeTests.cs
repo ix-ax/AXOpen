@@ -238,7 +238,7 @@ namespace AXOpen.Data.Tests
         }
 
         [Fact]
-        public async void RemoteReadLastLoaded_ShouldReadLastLoadedRecordsFromEachRepository()
+        public async void RemoteReadLastLoaded_ShouldReadLastLoadedRecordFromRepository()
         {
             var parent = NSubstitute.Substitute.For<ITwinObject>();
             parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
@@ -265,6 +265,31 @@ namespace AXOpen.Data.Tests
 
             Assert.Equal(22, await sut.Set.ComesFrom.GetAsync());
             Assert.Equal(33, await sut.Set.GoesTo.GetAsync());
+        }
+
+        [Fact]
+        public async void RemoteReadLastLoaded_ShouldNotReadRecordFromRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+
+            var sut = new axosimple.SharedProductionDataManager(parent, "a", "b");
+            var repo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            sut.SetRepository(repo);
+
+            sut.Settings.Data.EnableSavingIdentifiers = true;
+
+            var id = "LastLoadedTest";
+            repo.Create(id, new SharedProductionData() { ComesFrom = 22, GoesTo = 33 });
+
+            await sut.RemoteRead(id);
+            sut.Settings.SaveLoadedIdentifierToPlc("NotExist");
+
+            sut.Settings.Load();
+
+            sut.RemoteLoadLastIdentifier();
+
+            Assert.Equal(true, await sut.Operation.HasRemoteException.GetAsync());
         }
 
 

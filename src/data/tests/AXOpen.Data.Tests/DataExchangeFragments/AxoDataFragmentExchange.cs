@@ -130,6 +130,39 @@ namespace AXOpen.Data.Fragments.Tests
 
         }
 
+
+        [Fact]
+        public async void RemoteReadLastLoaded_ShouldNotReadLastLoadedRecordsFromEachRepository()
+        {
+            var parent = NSubstitute.Substitute.For<ITwinObject>();
+            parent.GetConnector().Returns(AXSharp.Connector.ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
+            var sut = new ProcessData(parent, "a", "b");
+            var s = sut.CreateBuilder<ProcessData>();
+
+            var sharedRepo = new InMemoryRepository<Pocos.axosimple.SharedProductionData>();
+            var manipRepo = new InMemoryRepository<Pocos.examples.PneumaticManipulator.FragmentProcessData>();
+            s.Set.SetRepository(sharedRepo);
+            s.Manip.SetRepository(manipRepo);
+
+            sut.Settings.Data.EnableSavingIdentifiers = true;
+
+            var id = "LastLoadedTest";
+
+            sharedRepo.Create(id, new SharedProductionData() { ComesFrom = 22, GoesTo = 33 });
+            manipRepo.Create(id, new FragmentProcessData() { CounterDelay = 2323ul });
+
+            await sut.RemoteRead(id);
+            
+            sut.Settings.SaveLoadedIdentifierToPlc("NotExist");
+
+            sut.Settings.Load(); // load last saved id
+
+            sut.RemoteLoadLastIdentifier();
+
+            Assert.Equal(true, await sut.Operation.HasRemoteException.GetAsync());
+
+        }
+
         [Fact]
         public async void RemoteUpdate_ShouldUpdateRecordsInEachRepository()
         {
