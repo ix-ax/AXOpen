@@ -1,0 +1,35 @@
+[
+  {
+    "Id": "Context.UnitTemplate.Components.HorizontalCylinder",
+    "RatioImgX": 38.82277868441134,
+    "RatioImgY": 2.77862132166326,
+    "Show": true,
+    "Transform": "TopCenter",
+    "Presentation": "Status-Display",
+    "Width": 25,
+    "Height": 25,
+    "ZIndex": 0
+  },
+  {
+    "Id": "Context.UnitTemplate.Components.VerticalCylinder",
+    "RatioImgX": 74.32394782288463,
+    "RatioImgY": 3.3148374162888232,
+    "Show": true,
+    "Transform": "TopCenter",
+    "Presentation": "Status-Display",
+    "Width": 25,
+    "Height": 50,
+    "ZIndex": 0
+  },
+  {
+    "Id": "Context.UnitTemplate.Components.GripperCylinder",
+    "RatioImgX": 12.953452725147757,
+    "RatioImgY": 4.4498198748272415,
+    "Show": true,
+    "Transform": "TopCenter",
+    "Presentation": "Command-Control",
+    "Width": 25,
+    "Height": 25,
+    "ZIndex": 0
+  }
+]
