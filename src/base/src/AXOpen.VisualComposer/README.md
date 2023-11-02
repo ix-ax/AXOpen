@@ -1,43 +1,43 @@
-# Draggable
+# AXOpen.VisualComposer
 
-Draggable library is for creating draggable elements in AXOpen applications.
+VisualComposer library is for creating draggable elements in AXOpen applications.
 
 ## Usage
 
 ~~~ HTML
-<DraggableContainer ImgSrc="logo-header.svg" Id="@Entry.Plc.Context.PneumaticManipulator.HumanReadable">
+<VisualComposerContainer ImgSrc="logo-header.svg" Id="@Entry.Plc.Context.PneumaticManipulator.HumanReadable">
     @foreach (var axoObject in Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AXOpen.Core.AxoObject>())
     {
-        <DraggableItem AxoObject="axoObject" />
+        <VisualComposerItem AxoObject="axoObject" />
     }
-</DraggableContainer>
+</VisualComposerContainer>
 ~~~
 
-## DraggableContainer
+## VisualComposerContainer
 
-The `DraggableContainer` component is a container for draggable items. It is used to define the area where the items can be dragged.
+The `VisualComposerContainer` component is a container for `VisualComposerItem`. It is used to define the area where the items can be dragged.
 
 ### Attributes
 
 ImgSrc - The path to the image that will be used as the background of the container.
 Id - The id of the container. It is used to identify the container for saving current state into json.
 
-## DraggableItem
+## VisualComposerItem
 
-The `DraggableItem` component is a draggable item. It is used to define the draggable items.
+The `VisualComposerItem` component is a draggable item. It is used to define the draggable items.
 
 It can be used with or without a child component. If it is used without a child component, the default presentation will be used:
 
 ~~~ HTML
-<DraggableItem AxoObject="axoObject" />
+<VisualComposerItem AxoObject="axoObject" />
 ~~~
 
 or with a child component, where you must define presentation:
 
 ~~~ HTML
-<DraggableItem AxoObject="axoObject">
+<VisualComposerItem AxoObject="axoObject">
     <RenderableContentControl Context="AxoObject" Presentation="Command" />
-</DraggableItem>
+</VisualComposerItem>
 ~~~
 
 ### Attributes
@@ -46,7 +46,7 @@ AxoObject - The axo object that will be used as the draggable item. It will be s
 
 ## Customizable option
 
-If you have role Administrator you can every `DraggableItem` customizing with these options:
+If you have role Administrator you can every `VisualComposerItem` customizing with these options:
 
 - position - can be moved on site
 - show - show or hide

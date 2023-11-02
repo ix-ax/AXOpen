@@ -29,6 +29,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
+    <ProjectReference Include="..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
     <ProjectReference Include="..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
     <ProjectReference Include="..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
     <ProjectReference Include="..\..\data\src\exporters\AXOpen.Data.Exporters.Excel\AXOpen.Data.Exporters.Excel.csproj" />
@@ -36,7 +37,6 @@
     <ProjectReference Include="..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\inspectors\src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj" />
     <ProjectReference Include="..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
-    <ProjectReference Include="..\..\utils\src\Draggable\Draggable.csproj" />
     <ProjectReference Include="..\axosimple.twin\axosimple.csproj" />
   </ItemGroup>
   <ItemGroup>

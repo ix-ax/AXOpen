@@ -1,11 +1,9 @@
-﻿using Draggable.Serializing;
+﻿using AXOpen.VisualComposer.Serializing;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
-using System.Net;
 
-namespace Draggable
+namespace AXOpen.VisualComposer
 {
-    public partial class DraggableContainer
+    public partial class VisualComposerContainer
     {
         [Parameter]
         public RenderFragment? ChildContent { get; set; }
@@ -27,7 +25,7 @@ namespace Draggable
 
         private Guid _imgId = Guid.NewGuid();
 
-        private List<DraggableItem> _children = new List<DraggableItem>();
+        private List<VisualComposerItem> _children = new();
 
         protected override void OnAfterRender(bool firstRender)
         {
@@ -35,7 +33,7 @@ namespace Draggable
                 Load();
         }
 
-        public void AddChild(DraggableItem child)
+        public void AddChild(VisualComposerItem child)
         {
             if (!_children.Contains(child))
                 _children.Add(child);
@@ -43,13 +41,13 @@ namespace Draggable
 
         public void Save()
         {
-            List<SerializableDraggableItem> serializableChildren = new List<SerializableDraggableItem>();
+            List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                if(child.ratioImgX == 10 && child.ratioImgY == 10 && !child.Show && child.Transform.Value == Types.TransformType.TopCenter.Value && child.Presentation.Value == Types.PresentationType.StatusDisplay.Value)
+                if(child.ratioImgX == 10 && child.ratioImgY == 10 && !child.Show && child.Transform.Value == Types.TransformType.TopCenter.Value && child.Presentation == Types.PresentationType.StatusDisplay.Value)
                     continue;
 
-                serializableChildren.Add(new SerializableDraggableItem(child.Id, child.ratioImgX, child.ratioImgY, child.Show, child.Transform.ToString(), child.Presentation.ToString(), child.Width, child.Height, child.ZIndex));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Show, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex));
             }
 
             Serializing.Serializing.Serialize(Id + ".json", serializableChildren);
@@ -57,7 +55,7 @@ namespace Draggable
 
         public void Load()
         {
-            List<SerializableDraggableItem>? deserialize = Serializing.Serializing.Deserialize(Id + ".json");
+            List<SerializableVisualComposerItem>? deserialize = Serializing.Serializing.Deserialize(Id + ".json");
 
             if(deserialize != null)
             {
@@ -70,7 +68,7 @@ namespace Draggable
                         child.ratioImgY = item.RatioImgY;
                         child.Show = item.Show;
                         child.Transform = Types.TransformType.FromString(item.Transform);
-                        child.Presentation = Types.PresentationType.FromString(item.Presentation);
+                        child.Presentation = item.Presentation;
                         child.Width = item.Width;
                         child.Height = item.Height;
                         child.ZIndex = item.ZIndex;
@@ -80,9 +78,9 @@ namespace Draggable
             StateHasChanged();
         }
 
-        private void Check(DraggableItem draggableItem)
+        private void Check(VisualComposerItem visualComposerItem)
         {
-            draggableItem.Show = !draggableItem.Show;
+            visualComposerItem.Show = !visualComposerItem.Show;
         }
     }
 }

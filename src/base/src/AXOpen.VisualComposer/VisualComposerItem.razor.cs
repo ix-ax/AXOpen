@@ -1,19 +1,19 @@
-﻿using Draggable.Types;
+﻿using AXOpen.VisualComposer.Types;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-namespace Draggable
+namespace AXOpen.VisualComposer
 {
-    public partial class DraggableItem
+    public partial class VisualComposerItem
     {
         [Parameter]
         public RenderFragment? ChildContent { get; set; }
 
-        private DraggableContainer? _parent;
+        private VisualComposerContainer? _parent;
 
         [CascadingParameter(Name = "Parent")]
-        protected DraggableContainer? Parent
+        protected VisualComposerContainer? Parent
         {
             get => _parent;
             set
@@ -41,7 +41,17 @@ namespace Draggable
         public double ratioImgX = 10, ratioImgY = 10;
         public bool Show { get; set; } = false;
         public TransformType Transform { get; set; } = TransformType.TopCenter;
-        public PresentationType Presentation { get; set; } = PresentationType.StatusDisplay;
+        private string _presentation = PresentationType.StatusDisplay.Value;
+        public string Presentation
+        {
+            get => _presentation;
+            set
+            {
+                _presentation = value;
+                CustomPresentation = !PresentationType.IsEnumValue(value);
+            }
+        }
+        public bool CustomPresentation { get; set; } = false;
 
         public double Width = -1, Height = -1;
         public int ZIndex = 0;
@@ -54,7 +64,7 @@ namespace Draggable
 
         private async void OnDragEnd(DragEventArgs args)
         {
-            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/Draggable/DraggableItem.razor.js");
+            var jsObject = await js.InvokeAsync<IJSObjectReference>("import", "./_content/AXOpen.VisualComposer/VisualComposerItem.razor.js");
             //var windowSize = await jsObject.InvokeAsync<WindowSize>("getWindowSize");
             var imageSize = await jsObject.InvokeAsync<WindowSize>("getImageSize", _imgId);
 

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
-namespace Draggable.Serializing
+namespace AXOpen.VisualComposer.Serializing
 {
     internal static class Serializing
     {
-        internal static void Serialize(string filePath, List<SerializableDraggableItem> serialize)
+        internal static void Serialize(string filePath, List<SerializableVisualComposerItem> serialize)
         {
             try
             {
@@ -24,17 +19,17 @@ namespace Draggable.Serializing
             }
         }
 
-        internal static List<SerializableDraggableItem>? Deserialize(string filePath)
+        internal static List<SerializableVisualComposerItem>? Deserialize(string filePath)
         {
             if (!File.Exists(filePath))
                 return null;
 
-            List<SerializableDraggableItem>? deserialize = null;
+            List<SerializableVisualComposerItem>? deserialize = null;
             try
             {
                 using (FileStream fs = File.OpenRead(filePath))
                 {
-                    deserialize = JsonSerializer.Deserialize<List<SerializableDraggableItem>>(fs);
+                    deserialize = JsonSerializer.Deserialize<List<SerializableVisualComposerItem>>(fs);
                 }
             }
             catch (Exception ex)

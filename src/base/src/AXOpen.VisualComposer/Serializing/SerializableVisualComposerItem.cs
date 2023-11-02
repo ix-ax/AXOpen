@@ -1,15 +1,8 @@
-﻿using Draggable.Types;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Draggable.Serializing
+﻿namespace AXOpen.VisualComposer.Serializing
 {
-    internal class SerializableDraggableItem
+    internal class SerializableVisualComposerItem
     {
-        public SerializableDraggableItem(string id, double ratioImgX, double ratioImgY, bool show, string transform, string presentation, double width, double height, int zIndex)
+        public SerializableVisualComposerItem(string id, double ratioImgX, double ratioImgY, bool show, string transform, string presentation, double width, double height, int zIndex)
         {
             Id = id;
             RatioImgX = ratioImgX;

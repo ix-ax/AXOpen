@@ -2,7 +2,7 @@
 {
     <AuthorizeView Roles="Administrator">
         <Authorized>
-            <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; display: @(Show ? "block" : "none"); translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
+            <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
                 @if (ChildContent == null)
                 {
                     <RenderableContentControl Context="@AxoObject" Presentation="@Presentation.ToString()" />
@@ -25,20 +25,24 @@
                         </div>
                         <div class="modal-body justify-content-center">
                             <div class="mb-1 row">
-                                <label class="col-sm-2 col-form-label">Show</label>
-                                <div class="col-sm-10">
-                                    <input class="form-check-input" type="checkbox" checked="@(Show ? "checked" : null)" @onclick="() => {Show = !Show;}">
-                                </div>
-                            </div>
-                            <div class="mb-1 row">
                                 <label class="col-sm-2 col-form-label">Presentation</label>
-                                <div class="col-sm-10">
-                                    <select class="form-select" value="@Presentation.ToString()" @onchange="@((args) => @Presentation = PresentationType.FromString((string)args.Value))">
-                                        @foreach (var presentation in PresentationType.AllTypes)
-                                        {
-                                            <option data value="@presentation.ToString()">@presentation.ToString()</option>
-                                        }
-                                    </select>
+                                <div class="col-sm-6">
+                                    @if (CustomPresentation)
+                                    {
+                                        <input type="text" class="form-control" placeholder="Presentation" @bind="Presentation">
+                                    }
+                                    else
+                                    {
+                                        <select class="form-select" value="@Presentation" @onchange="@((args) => @Presentation = (string)args.Value)">
+                                            @foreach (var presentation in PresentationType.AllTypes)
+                                            {
+                                                <option data value="@presentation.ToString()">@presentation.ToString()</option>
+                                            }
+                                        </select>
+                                    }
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="form-check-input" type="checkbox" checked="@(CustomPresentation ? "checked" : null)" @onclick="() => CustomPresentation = !CustomPresentation">
                                 </div>
                             </div>
                             <div class="mb-1 row">
@@ -76,7 +80,7 @@
             </div>
         </Authorized>
         <NotAuthorized>
-            <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; display: @(Show ? "block" : "none"); translate: @(Transform.X)% @(Transform.Y)%;">
+            <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
                 @if (ChildContent == null)
                 {
                     <RenderableContentControl Context="@AxoObject" Presentation="@Presentation.ToString()" />

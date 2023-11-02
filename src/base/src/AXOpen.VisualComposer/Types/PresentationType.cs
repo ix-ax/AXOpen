@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Draggable.Types
+﻿namespace AXOpen.VisualComposer.Types
 {
     public class PresentationType
     {
@@ -30,6 +24,11 @@ namespace Draggable.Types
         public static PresentationType? FromString(string value)
         {
             return AllTypes.Where(x => x.Value == value).FirstOrDefault();
+        }
+
+        public static bool IsEnumValue(string presentation)
+        {
+            return AllTypes.Any(x => x.Value == presentation);
         }
     }
 }

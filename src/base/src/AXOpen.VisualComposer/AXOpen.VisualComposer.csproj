@@ -3,8 +3,8 @@
 		<TargetFramework>net7.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<PackageId>Draggable</PackageId>
-		<RootNamespace>Draggable</RootNamespace>
+		<PackageId>AXOpen.VisualComposer</PackageId>
+		<RootNamespace>AXOpen.VisualComposer</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
