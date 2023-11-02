@@ -347,7 +347,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         VAR INTERNAL
             AcyclicCommEnable_PV				: 	BOOL;				//Acyclic communication enable - previous value
             AcyclicCommParamNum_PV				: 	DINT;				//Acyclic communication parameter number - previous value
-            AcyclicCommWriteValue				: 	DWORD;				//Acyclic communication value to be written to drive
+            AcyclicCommWriteValue				: 	DINT;				//Acyclic communication value to be written to drive
+            AcyclicCommWriteValueDW				: 	DWORD;				//Acyclic communication value to be written to drive
             AcyclicCommStateCommand				: 	INT;				//Acyclic communication state command
             AcyclicCommCallNumber_PV			:	INT;				//Acyclic communication method call - previous value
             AcyclicCommDone_ 					:	BOOL; 				//Reading/writing of the individual parameter completed, output variables valid
@@ -355,7 +356,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             AcyclicCommDecimalPlaces_ 			:	UINT;				//Decimal places of the selected parameters                                        
             AcyclicCommDataTypeRead_			:	UINT; 				//Read data type of the selected parameters                                        
             AcyclicCommDataLengthRead_			:	UINT;				//Length of the read parameters                                               
-            AcyclicCommReadValueDword_			:	DWORD;				//DWORD Operating value of the individual parameter without weighting           
+            AcyclicCommReadValueDint_			:	DINT;				//DINT Operating value of the individual parameter without weighting           
             AcyclicCommReadValueReal_			:	REAL;				//REAL weighted operating value                                                 
             AcyclicCommError_					:	BOOL := FALSE;		//Error                                 
             AcyclicCommErrorID_					:   eAxoIndraDriveErrorCode;				//Error identification, ErrorCode       
@@ -376,7 +377,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 DPV1ParameterNumber		:	BOOL;			//Parameter numbers according to DPV1
                 ParameterNumber			:	DINT;			//Parameter number
                 WriteValueReal			:	REAL;			//REAL value of the individual parameter with weighting
-                WriteValueDword			:	DWORD;			//DWORD value of the individual parameter without weighting
+                WriteValueDint			:	DINT;			//DINT value of the individual parameter without weighting
             END_VAR
             VAR_OUTPUT
                 Done 					:	BOOL; 			//Reading/writing of the individual parameter completed, output variables valid
@@ -384,7 +385,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 DecimalPlaces 			:	UINT;			//Decimal places of the selected parameters                                        
                 DataTypeRead			:	UINT; 			//Read data type of the selected parameters                                        
                 DataLengthRead			:	UINT;			//Length of the read parameters                                               
-                ReadValueDword			:	DWORD;			//DWORD Operating value of the individual parameter without weighting           
+                ReadValueDint			:	DINT;			//DINT Operating value of the individual parameter without weighting           
                 ReadValueReal			:	REAL;			//REAL weighted operating value                                                 
                 Error					:	BOOL := FALSE;	//Error                                 
                 ErrorID					:   eAxoIndraDriveErrorCode;			//Error identification, ErrorCode       
@@ -423,7 +424,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
             END_IF;
             IF NOT Enable AND AcyclicCommEnable_PV THEN
-                // WriteValueDword := DWORD#0;
+                // WriteValueDint := DWORD#0;
                 // WriteValueReal := 0.0;
                 // SelectDataType := UINT#0;
                 AcyclicCommError_ := FALSE;
@@ -516,10 +517,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF AcyclicCommStateCommand= State_CommandWriteValue THEN
                         (*Build write value and in case of Real-Input shift decimalpoint in order of attribute*)
                         IF SelectDataType = UINT#2 THEN
-                            AcyclicCommWriteValue:= TO_DWORD(WriteValueReal * EXP(LN(10) * AcyclicCommDecimalPlaces_)) (*signed decimal*);
+                            AcyclicCommWriteValue:= TO_DINT(WriteValueReal * EXP(LN(10) * AcyclicCommDecimalPlaces_)) (*signed decimal*);
                         ELSE
-                            AcyclicCommWriteValue:= WriteValueDword;
+                            AcyclicCommWriteValue:= WriteValueDint;
                         END_IF;
+                        AcyclicCommWriteValueDW := TO_DWORD(AcyclicCommWriteValue);
                         IF AcyclicCommDataLengthRead_ = UINT#2 (*4-byte value*)THEN
                             AxisRef^.Parameter_Out.ToggleBit:= NOT AxisRef^.Parameter_In.ToggleBit;
                             AxisRef^.Parameter_Out.FL_3:= TRUE; (*Data-lenght - Control-Word-LowByte*)
@@ -527,9 +529,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             AxisRef^.Parameter_Out.FL_1 := FALSE; (*Data-length - Control-Word-LowByte*)
                             AxisRef^.Parameter_Out.FL_0 := FALSE; (*Data-length - Control-Word-LowByte*)
                             AxisRef^.Parameter_Out.Datalength := BYTE#8;
-                            AxisRef^.Parameter_Out.DataWord_1:= TO_WORD(AcyclicCommWriteValue);
+                            AxisRef^.Parameter_Out.DataWord_1:= AcyclicCommWriteValueDW.%W0;
                             // AxisRef^.Parameter_Out.DataWord_0:= TO_WORD(SHR (AcyclicCommWriteValue,16));
-                            AxisRef^.Parameter_Out.DataWord_0:= TO_WORD(TO_DINT(AcyclicCommWriteValue)/DINT#65536);
+                            AxisRef^.Parameter_Out.DataWord_0:= AcyclicCommWriteValueDW.%W1;
                             AcyclicCommStateCommand:= State_WaitValueWriteDone;
                             RETURN;
                         ELSIF AcyclicCommDataLengthRead_ = UINT#1 (*2-byte value*) THEN
@@ -560,7 +562,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         DecimalPlaces 	:= AcyclicCommDecimalPlaces_;
                         DataTypeRead	:= AcyclicCommDataTypeRead_;
                         DataLengthRead	:= AcyclicCommDataLengthRead_;
-                        ReadValueDword	:= AcyclicCommReadValueDword_;
+                        ReadValueDint	:= AcyclicCommReadValueDint_;
                         ReadValueReal	:= AcyclicCommReadValueReal_;
                         Error			:= AcyclicCommError_;      
                         ErrorID			:= AcyclicCommErrorID_;    
@@ -615,16 +617,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                     IF AcyclicCommStateCommand= State_WaitReceivingValue THEN
                         IF AxisRef^.Parameter_In.Datalength = BYTE#16#04 THEN
-                            AcyclicCommReadValueDword_:= AxisRef^.Parameter_In.DataWord_0;
+                            AcyclicCommReadValueDint_:= TO_DINT(AxisRef^.Parameter_In.DataWord_0);
                             // AcyclicCommReadValueDword_:=	SHL(AcyclicCommReadValueDword_,16);
-                            AcyclicCommReadValueDword_:= TO_DWORD(TO_DINT(AcyclicCommReadValueDword_) * DINT#65536);
-                            AcyclicCommReadValueDword_:= ReadValueDword OR AxisRef^.Parameter_In.DataWord_1;
+                            AcyclicCommReadValueDint_:= AcyclicCommReadValueDint_ * DINT#65536;
+                            AcyclicCommReadValueDint_:= TO_DINT(TO_DWORD(AcyclicCommReadValueDint_) OR AxisRef^.Parameter_In.DataWord_1);
                             Divisor := EXP(LN(10)*AcyclicCommDecimalPlaces_);
-                            AcyclicCommReadValueReal_ := TO_REAL(AcyclicCommReadValueDword_)/ Divisor;
+                            AcyclicCommReadValueReal_ := TO_REAL(AcyclicCommReadValueDint_)/ Divisor;
                         ELSIF BYTE#16#02 = AxisRef^.Parameter_In.Datalength THEN
-                            AcyclicCommReadValueDword_ := AxisRef^.Parameter_In.DataWord_0;
+                            AcyclicCommReadValueDint_ := TO_DINT(AxisRef^.Parameter_In.DataWord_0);
                             Divisor := EXP(LN(10)*AcyclicCommDecimalPlaces_);
-                            AcyclicCommReadValueReal_ := TO_REAL(AcyclicCommReadValueDword_) / Divisor;
+                            AcyclicCommReadValueReal_ := TO_REAL(AcyclicCommReadValueDint_) / Divisor;
                         END_IF;
                         AxisRef^.Parameter_Out.ToggleBit:= NOT AxisRef^.Parameter_In.ToggleBit; (*Cyclic reading value from drive*)
                         AcyclicCommDone_ := TRUE;
@@ -640,7 +642,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 AcyclicCommErrorIdent_.Additional2 := DWORD#0;
                 AxisRef^.Parameter_Out.Initalisation := FALSE;
                 AxisRef^.Parameter_Out.ToggleBit := FALSE;
-                AcyclicCommReadValueDword_ := DWORD#0;
+                AcyclicCommReadValueDint_ := DINT#0;
                 AcyclicCommReadValueReal_ := 0;
                 AcyclicCommStateCommand := State_FailureOrReset;
             ELSE
@@ -658,7 +660,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             DecimalPlaces 	:= AcyclicCommDecimalPlaces_;
             DataTypeRead	:= AcyclicCommDataTypeRead_;
             DataLengthRead	:= AcyclicCommDataLengthRead_;
-            ReadValueDword	:= AcyclicCommReadValueDword_;
+            ReadValueDint	:= AcyclicCommReadValueDint_;
             ReadValueReal	:= AcyclicCommReadValueReal_;
             Error			:= AcyclicCommError_;      
             ErrorID			:= AcyclicCommErrorID_;    
@@ -682,13 +684,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     DPV1ParameterNumber := DPV1ParameterNumber,
                     ParameterNumber:= AxisRef^.Data.ParameterNumber,
                     WriteValueReal:= AxisRef^.Data.WriteValueReal ,
-                    WriteValueDword:= AxisRef^.Data.WriteValueDword,
+                    WriteValueDint:= AxisRef^.Data.WriteValueDint,
                     Done=>AxisRef^.Data.DoneAcyclicCommunication,
                     Active=> AxisRef^.Data.ActiveAcyclicCommunication,
                     DataLengthRead=> AxisRef^.Data.DataLengthRead,
                     DecimalPlaces=> AxisRef^.Data.DecimalPlaces,
                     DataTypeRead=> AxisRef^.Data.DataTypeRead,
-                    ReadValueDword=> AxisRef^.Data.ReadValueDword,
+                    ReadValueDint=> AxisRef^.Data.ReadValueDint,
                     ReadValueReal=> AxisRef^.Data.ReadValueReal,
                     Error=> AxisRef^.Data.Error_AcyclicCommunication ,
                     ErrorID=> AxisRef^.Data.ErrorID_AcyclicCommunication,
@@ -1877,7 +1879,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_MoveRelativeError_				:   BOOL;
             MC_MoveRelativeErrorID_				:   eAxoIndraDriveErrorCode;
             MC_MoveRelativeContinuousUpdate_PV  :   BOOL;
-    END_VAR
+        END_VAR
         METHOD PUBLIC OVERRIDE MC_MoveRelative 
             VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
@@ -2723,7 +2725,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
             END_VAR
-            
+
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#720,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
@@ -2765,7 +2767,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF _AxisReference^.Data.DoneAcyclicCommunication THEN
                         MC_ReadParameterDone_ := TRUE;
                         MC_ReadParameterActive_ := FALSE;
-                        MC_ReadParameterValue_ := TO_DINT(_AxisReference^.Data.ReadValueDword);
+                        MC_ReadParameterValue_ := _AxisReference^.Data.ReadValueDint;
                     END_IF;
                     IF _AxisReference^.Data.Error_AcyclicCommunication THEN
                         MC_ReadParameterCallNumber := MC_ReadParameterCallNumber - INT#1;
@@ -2848,7 +2850,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
             END_VAR
-            
+
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#721,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
@@ -2860,14 +2862,14 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             IF Enable THEN
                 MC_ReadRealParameterFirstCall := TRUE;
                 IF _AxisReference^.Data.CheckAccessOK THEN
-                    IF Enable AND NOT MC_ReadRealParameterEnable_PV THEN (*	raising edge of Enable *)
+                    IF Enable AND NOT MC_ReadRealParameterEnable_PV THEN(*	raising edge of Enable *)
                         IF NOT _AxisReference^.Data.ActiveAcyclicCommunication THEN
                             _AxisReference^.Data.CallNumberAcyclic := _AxisReference^.Data.CallNumberAcyclic + INT#2;
                             MC_ReadRealParameterCallNumber := _AxisReference^.Data.CallNumberAcyclic;
                             MC_ReadRealParameterNumber_PV := ParameterNumber;
                             _AxisReference^.Data.WriteParameter := FALSE;
                             _AxisReference^.Data.SelectDataType := UINT#2;
-                            _AxisReference^.Data.ParameterNumber:= MC_ReadRealParameterNumber_PV;
+                            _AxisReference^.Data.ParameterNumber := MC_ReadRealParameterNumber_PV;
                             MC_ReadRealParameterError_ := FALSE;
                             MC_ReadRealParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                         ELSE
@@ -2885,12 +2887,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 IF MC_ReadRealParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic AND Enable	THEN
                     _AxisReference^.Data.CallAxisParameterMethod := TRUE;
                     _AxisReference^.Data.EnableAcyclicCommunication := TRUE;
-                    THIS.AcyclicCommunicationCall(AxisRef := _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
-                    MC_ReadRealParameterActive_ := _AxisReference^.Data.ActiveAcyclicCommunication;
+                    THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);		
+                    Busy := _AxisReference^.Data.ActiveAcyclicCommunication;
                     IF _AxisReference^.Data.DoneAcyclicCommunication THEN
                         MC_ReadRealParameterDone_ := TRUE;
                         MC_ReadRealParameterActive_ := FALSE;
-                        MC_ReadRealParameterValue_:= _AxisReference^.Data.ReadValueReal;
+                        MC_ReadRealParameterValue_ := _AxisReference^.Data.ReadValueReal;
                     END_IF;
                     IF _AxisReference^.Data.Error_AcyclicCommunication THEN
                         MC_ReadRealParameterCallNumber := MC_ReadRealParameterCallNumber - INT#1;
@@ -2900,8 +2902,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_ReadRealParameterErrorID_ := _AxisReference^.Data.ErrorID_AcyclicCommunication;
                         _AxisReference^.Data.CallAxisParameterMethod := TRUE;
                         _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-                        THIS.AcyclicCommunicationCall(AxisRef := _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
-                    ELSIF _AxisReference^.Data.CallAxisParameterMethod THEN
+                        THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
+                    ELSIF  _AxisReference^.Data.CallAxisParameterMethod THEN
                         MC_ReadRealParameterCallNumber := MC_ReadRealParameterCallNumber - INT#1;
                         MC_ReadRealParameterDone_ := FALSE;
                         MC_ReadRealParameterActive_ := FALSE;
@@ -2909,10 +2911,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_ReadRealParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#RESOURCE_ERROR;
                         _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
                     END_IF;
-                ELSIF NOT ENABLE AND MC_ReadRealParameterEnable_PV AND MC_ReadRealParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic THEN
+                ELSIF Enable AND MC_ReadRealParameterEnable_PV AND MC_ReadRealParameterCallNumber = _AxisReference^.Data.CallNumberAcyclic THEN
                     _AxisReference^.Data.CallAxisParameterMethod := TRUE;
                     _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-                    THIS.AcyclicCommunicationCall(AxisRef := _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
+                    THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
                     MC_ReadRealParameterDone_ := FALSE;
                     MC_ReadRealParameterActive_ := FALSE;
                     MC_ReadRealParameterValue_ := 0;
@@ -2929,7 +2931,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 END_IF;
             END_IF;
             MC_ReadRealParameterEnable_PV := Enable;
-
+            
             Valid			:= 	MC_ReadRealParameterDone_;				           
             Busy			:= 	MC_ReadRealParameterActive_;				  
             Error			:= 	MC_ReadRealParameterError_;				          
@@ -2961,7 +2963,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
             END_VAR
-            
+            RETURN;
+
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#722,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
@@ -2978,7 +2981,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         VAR INTERNAL
             MC_WriteParameterExecute_PV			: 	BOOL := FALSE;		//Execute - previous value                         
             MC_WriteParameterDone_PV			:	BOOL := FALSE;		//Done - previous value                           
-            MC_WriteParameterCallNumber			: 	INT; 				//Call number of the method MC_WriteParameter  
+            MC_WriteParameterCallNumber			: 	DINT; 				//Call number of the method MC_WriteParameter  
             MC_WriteParameterFirstCall			: 	BOOL;				//First call of the method MC_WriteParameter 
             MC_WriteParameterDone_				:	BOOL;				
             MC_WriteParameterActive_			:	BOOL := FALSE;		
@@ -3003,7 +3006,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
             END_VAR
-            
+
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#723,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
@@ -3022,7 +3025,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             _AxisReference^.Data.WriteParameter := TRUE;
                             _AxisReference^.Data.SelectDataType := UINT#1;
                             _AxisReference^.Data.ParameterNumber := ParameterNumber;
-                            _AxisReference^.Data.WriteValueDword := TO_DWORD(Value);
+                            _AxisReference^.Data.WriteValueDint := Value;
                             MC_WriteParameterError_ := FALSE;
                             MC_WriteParameterErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                         ELSE
@@ -3118,7 +3121,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
             END_VAR
-            
+
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#724,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
@@ -3223,7 +3226,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
             END_VAR
-            
+
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#725,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
@@ -3283,7 +3286,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         IF NOT _AxisReference^.Data.ActiveAcyclicCommunication THEN
                             _AxisReference^.Data.CallNumberAcyclic := _AxisReference^.Data.CallNumberAcyclic + INT#2;
                             MC_ReadDigitalInputCallNumber := _AxisReference^.Data.CallNumberAcyclic;
-                            MC_ReadDigitalInputNumber_PV := DINT#33071; (*P-0-0303, Digital inputs, input image device*)
+                            MC_ReadDigitalInputNumber_PV := DINT#33071;
                             _AxisReference^.Data.WriteParameter := FALSE;
                             _AxisReference^.Data.SelectDataType := UINT#1;
                             _AxisReference^.Data.ParameterNumber := MC_ReadDigitalInputNumber_PV;
@@ -3309,7 +3312,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF _AxisReference^.Data.DoneAcyclicCommunication THEN
                         MC_ReadDigitalInputDone_ := TRUE;
                         MC_ReadDigitalInputActive_ := FALSE;
-                        MC_ReadDigitalInputValue_ := TO_DINT(_AxisReference^.Data.ReadValueDword);
+                        MC_ReadDigitalInputValue_ := _AxisReference^.Data.ReadValueDint;
                     END_IF;
                     IF _AxisReference^.Data.Error_AcyclicCommunication THEN
                         MC_ReadDigitalInputCallNumber := MC_ReadDigitalInputCallNumber - INT#1;
@@ -3319,7 +3322,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_ReadDigitalInputErrorID_ := _AxisReference^.Data.ErrorID_AcyclicCommunication;
                         _AxisReference^.Data.CallAxisParameterMethod := TRUE;
                         _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-                        THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);		
+                        THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
                     ELSIF  _AxisReference^.Data.CallAxisParameterMethod THEN
                         MC_ReadDigitalInputCallNumber := MC_ReadDigitalInputCallNumber - INT#1;
                         MC_ReadDigitalInputDone_ := FALSE;
@@ -3331,16 +3334,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 ELSIF Enable AND MC_ReadDigitalInputEnable_PV AND MC_ReadDigitalInputCallNumber = _AxisReference^.Data.CallNumberAcyclic THEN
                     _AxisReference^.Data.CallAxisParameterMethod := TRUE;
                     _AxisReference^.Data.EnableAcyclicCommunication := FALSE;
-                    THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);		
+                    THIS.AcyclicCommunicationCall(AxisRef :=  _AxisReference , DPV1ParameterNumber := TRUE, Active => Dummy);
                     MC_ReadDigitalInputDone_ := FALSE;
                     MC_ReadDigitalInputActive_ := FALSE;
-                    MC_ReadDigitalInputValue_ := 0;
+                    MC_ReadDigitalInputValue_ := DINT#0;
                     MC_ReadDigitalInputError_ := FALSE;
                     MC_ReadDigitalInputErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                 ELSIF NOT Enable AND MC_ReadDigitalInputEnable_PV THEN
                     MC_ReadDigitalInputDone_ := FALSE;
                     MC_ReadDigitalInputActive_ := FALSE;
-                    MC_ReadDigitalInputValue_ := 0;
+                    MC_ReadDigitalInputValue_ := DINT#0;
                     MC_ReadDigitalInputError_ := FALSE;
                     MC_ReadDigitalInputErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                     _AxisReference^.Data.ActiveAcyclicCommunication := FALSE;
@@ -3352,14 +3355,15 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             Valid			:= 	MC_ReadDigitalInputDone_;				           
             Busy			:= 	MC_ReadDigitalInputActive_;				  
             Error			:= 	MC_ReadDigitalInputError_;				          
-            ErrorID			:= 	MC_ReadDigitalInputErrorID_;				    
+            ErrorID			:= 	MC_ReadDigitalInputErrorID_;	
+            			    
             IF Valid THEN
                 IF InputNumber >=0 AND InputNumber <=15 THEN
                     Value			:= 	System.BitAccess.GetBit(TO_DWORD(MC_ReadDigitalInputValue_),TO_USINT(InputNumber));
                 END_IF;
             ELSE
                 Value			:= 	FALSE;
-            END_IF;				          
+            END_IF;			          
         END_METHOD
 
         ///<summary>
@@ -3395,7 +3399,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
             END_VAR
-            
+
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#727,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
@@ -3437,7 +3441,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     IF _AxisReference^.Data.DoneAcyclicCommunication THEN
                         MC_ReadDigitalOutputDone_ := TRUE;
                         MC_ReadDigitalOutputActive_ := FALSE;
-                        MC_ReadDigitalOutputValue_ := TO_DINT(_AxisReference^.Data.ReadValueDword);
+                        MC_ReadDigitalOutputValue_ := _AxisReference^.Data.ReadValueDint;
                     END_IF;
                     IF _AxisReference^.Data.Error_AcyclicCommunication THEN
                         MC_ReadDigitalOutputCallNumber := MC_ReadDigitalOutputCallNumber - INT#1;
@@ -3504,7 +3508,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_WriteDigitalOutputErrorID_			:	eAxoIndraDriveErrorCode;			
             MC_WriteDigitalOutputState_				:	UINT;		
             MC_WriteDigitalOutputValueRead_ 		:	DINT;		
-            MC_WriteDigitalOutputValueToWrite_		:	DWORD;		
+            MC_WriteDigitalOutputValueToWrite_		:	DINT;		
         END_VAR
         METHOD PUBLIC OVERRIDE MC_WriteDigitalOutput
             VAR_INPUT
@@ -3527,7 +3531,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 Error_          :   BOOL;
                 ErrorID_        :   WORD; 
             END_VAR
-            
+
             _AxisReference ?= AxisRef;
 
             Messenger.ActivateOnCondition(ULINT#728,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
@@ -3538,6 +3542,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
 
             IF Execute THEN
                 IF MC_WriteDigitalOutputState_ = UINT#0 THEN
+                    AxoReadParameter_ParameterNumber := DINT#33072;
                     THIS.AxoReadParameter(Enable := TRUE, ParameterNumber := DINT#33072, Valid => Valid_, Error => Error_, ErrorID => ErrorID_,Value =>MC_WriteDigitalOutputValueRead_ );
                     IF Error_ THEN
                         Error := TRUE;
@@ -3545,8 +3550,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                     IF Valid_ THEN
                         IF OutputNumber >= 0 AND OutputNumber <= 15 THEN
-                            MC_WriteDigitalOutputValueToWrite_ := TO_DWORD(MC_WriteDigitalOutputValueRead_);
-                            MC_WriteDigitalOutputValueToWrite_	:= System.BitAccess.SetBit(MC_WriteDigitalOutputValueToWrite_,TO_USINT(OutputNumber),Value);
+                            MC_WriteDigitalOutputValueToWrite_ := MC_WriteDigitalOutputValueRead_;
+                            MC_WriteDigitalOutputValueToWrite_	:= TO_DINT(System.BitAccess.SetBit(TO_DWORD(MC_WriteDigitalOutputValueToWrite_),TO_USINT(OutputNumber),Value));
                             MC_WriteDigitalOutputState_ := MC_WriteDigitalOutputState_ + UINT#10;	
                         ELSE
                             MC_WriteDigitalOutputError_ := TRUE;
@@ -3558,6 +3563,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     THIS.AxoReadParameter(Enable := FALSE, ParameterNumber := DINT#33072, Valid => Valid_, Error => Error_, ErrorID => ErrorID_,Value =>MC_WriteDigitalOutputValueRead_ );
                     IF NOT Valid_ THEN
                         MC_WriteDigitalOutputState_ := MC_WriteDigitalOutputState_ + UINT#10;	
+                        RETURN;
                     END_IF;
                 END_IF;
                 IF MC_WriteDigitalOutputState_ >= UINT#20 THEN
@@ -3570,7 +3576,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                                 _AxisReference^.Data.WriteParameter := TRUE;
                                 _AxisReference^.Data.SelectDataType := UINT#1;
                                 _AxisReference^.Data.ParameterNumber := DINT#33072; (*P-0-0304, Digital outputs, output image device*)
-                                _AxisReference^.Data.WriteValueDword := MC_WriteDigitalOutputValueToWrite_;
+                                _AxisReference^.Data.WriteValueDint := MC_WriteDigitalOutputValueToWrite_;
                                 MC_WriteDigitalOutputError_ := FALSE;
                                 MC_WriteDigitalOutputErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                             ELSE
@@ -3585,7 +3591,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     END_IF;
                 END_IF;
             ELSE
-                MC_WriteDigitalOutputState_ := UINT#0;
+                MC_WriteDigitalOutputState_     :=  UINT#0;
+                MC_WriteDigitalOutputDone_      :=  FALSE;		
+                MC_WriteDigitalOutputActive_    :=  FALSE;	
+                MC_WriteDigitalOutputError_     :=  FALSE;		
+                MC_WriteDigitalOutputErrorID_   :=  WORD#0;
+                MC_WriteDigitalOutputExecute_PV :=  FALSE;
             END_IF;
             IF MC_WriteDigitalOutputFirstCall THEN
                 IF MC_WriteDigitalOutputState_ >= UINT#20 THEN

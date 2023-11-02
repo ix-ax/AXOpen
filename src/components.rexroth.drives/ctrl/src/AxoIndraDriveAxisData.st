@@ -31,7 +31,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             WriteParameter				:	BOOL;			//FALSE = read, TRUE  = write Value of selected Parameter
             SelectDataType				:	UINT;			//0= Bool, 1 = Any, 2 = REAL
             ParameterNumber				:	DINT;			//Parameter number
-            WriteValueDword				:	DWORD;			//DWORD value to be written
+            WriteValueDint				:	DINT;			//DINT value to be written
             WriteValueReal				:	REAL;			//REAL value to be written
             OverrideVelocityFactor		:	LREAL := 1.0;	//LREAL value to be written
             OverrideAccelerationFactor	:	LREAL := 1.0;	//LREAL value to be written
@@ -69,7 +69,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             DecimalPlaces 				:	UINT;			//Decimal places of the selected parameters                                        
             DataTypeRead				:	UINT; 			//Read data type of the selected parameters                                        
             DataLengthRead				:	UINT;			//Length of the read parameters                                               
-            ReadValueDword				:	DWORD;			//DWORD Operating value of the individual parameter without weighting           
+            ReadValueDint				:	DINT;			//DINT Operating value of the individual parameter without weighting           
             ReadValueReal				:	REAL;			//REAL weighted operating value                                                 
             Error_AcyclicCommunication	:	BOOL := FALSE;  //Error                          
             ErrorID_AcyclicCommunication:   AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode;		//Error identification, ErrorCode

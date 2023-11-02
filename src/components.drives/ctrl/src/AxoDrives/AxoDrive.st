@@ -501,7 +501,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadParameter_Task                   :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter number#>"}
-            AxoReadParameter_ParameterNumber        :   INT;
+            AxoReadParameter_ParameterNumber        :   DINT;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read parameter valid#>"}
             {#ix-attr:[ReadOnly()]}
@@ -530,7 +530,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadRealParameter_Task               :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read real parameter number#>"}
-            AxoReadRealParameter_ParameterNumber    :   INT;
+            AxoReadRealParameter_ParameterNumber    :   DINT;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read real parameter valid#>"}
             {#ix-attr:[ReadOnly()]}
@@ -559,7 +559,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoReadBoolParameter_Task               :   AXOpen.Core.AxoToggleTask;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter number#>"}
-            AxoReadBoolParameter_ParameterNumber    :   INT;
+            AxoReadBoolParameter_ParameterNumber    :   DINT;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Read bool parameter valid#>"}
             {#ix-attr:[ReadOnly()]}
@@ -588,7 +588,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteParameter_Task                  :   AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter number#>"}
-            AxoWriteParameter_ParameterNumber       :   INT;                    
+            AxoWriteParameter_ParameterNumber       :   DINT;                    
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write parameter value#>"}
             AxoWriteParameter_Value                 :   DINT;                     
@@ -619,7 +619,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteRealParameter_Task              :   AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write real parameter number#>"}
-            AxoWriteRealParameter_ParameterNumber   :   INT;                    
+            AxoWriteRealParameter_ParameterNumber   :   DINT;                    
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write real parameter value#>"}
             AxoWriteRealParameter_Value             :   REAL;                     
@@ -650,7 +650,7 @@ NAMESPACE AXOpen.Components.Drives
             AxoWriteBoolParameter_Task              :   AXOpen.Core.AxoTask;
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter number#>"}
-            AxoWriteBoolParameter_ParameterNumber   :   INT;                    
+            AxoWriteBoolParameter_ParameterNumber   :   DINT;                    
             {#ix-attr:[ComponentDetails("Parametrization")]}
             {#ix-set:AttributeName = "<#Write bool parameter value#>"}
             AxoWriteBoolParameter_Value             :   BOOL;                     
@@ -1720,7 +1720,7 @@ NAMESPACE AXOpen.Components.Drives
             //*************AXO_READ_DIGITAL_OUTPUT******
             AxoReadDigitalOutput_Task.SetIsDisabled(FALSE);
             AxoReadDigitalOutput_Task.Run();
-            THIS.MC_ReadDigitalInput(AxisRef, 
+            THIS.MC_ReadDigitalOutput(AxisRef, 
                         AxoReadDigitalOutput_Task.IsSwitchedOn(),
                         _AxoReadDigitalOutput_OutputNumber,
                         AxoReadDigitalOutput_Valid,
