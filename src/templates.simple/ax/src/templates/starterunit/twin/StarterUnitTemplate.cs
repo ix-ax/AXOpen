@@ -13,8 +13,8 @@ namespace axosimple.server.Units
         private StarterUnitTemplate.Unit Unit { get; } = Entry.Plc.Context.StarterUnitTemplate;
 
         // Technology Data manager of unit
-        private StarterUnitTemplate.TechnologyDataManager StarterUnitTechnologyDataManager. { get; } = 
-        Entry.Plc.Context.StarterUnitTemplateTechnologyData.CreateBuilder<StarterUnitTemplate.TechnologyDataManager>();
+        private StarterUnitTemplate.TechnologyDataManager StarterUnitTechnologyDataManager { get; } = 
+        Entry.Plc.Context.StarterUnitTemplateTechnologySettings.CreateBuilder<StarterUnitTemplate.TechnologyDataManager>();
 
         // Process Data manager of unit
         private StarterUnitTemplate.ProcessDataManager StarterUnitProcessDataManager { get; } = 

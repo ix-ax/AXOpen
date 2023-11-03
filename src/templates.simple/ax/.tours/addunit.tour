@@ -8,6 +8,11 @@
       "pattern": "CLASS PUBLIC Context"
     },
     {
+      "file": "src/CommonData/eStations.st",
+      "description": "## Add station/unit number.\r\n\r\nExample:\r\n```\r\nCu1 := 01,\r\n```",
+      "line": 10
+    },
+    {
       "file": "src/Context.st",
       "pattern": "// Units - You can use snippet unitDeclaration",
       "description": "## Add unit declaration\r\nPress `ctrl+space` and select `unitDeclaration` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example: \r\n```cs\r\nCu1 : axosimple.Cu1.Unit;\r\nCu1ProcessData : axosimple.Cu1.ProcessDataManager;\r\n```"

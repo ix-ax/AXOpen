@@ -14,7 +14,7 @@ namespace axosimple.server.Units
 
         // Technology Data manager of unit
         private UnitTemplate.TechnologyDataManager UnitTechnologyDataManager { get; } = 
-        Entry.Plc.Context.UnitTemplateTechnologyData.CreateBuilder<UnitTemplate.TechnologyDataManager>();
+        Entry.Plc.Context.UnitTemplateTechnologySettings.CreateBuilder<UnitTemplate.TechnologyDataManager>();
 
         // Process Data manager of unit
         private UnitTemplate.ProcessDataManager UnitProcessDataManager { get; } = 

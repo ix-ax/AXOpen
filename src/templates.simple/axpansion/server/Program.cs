@@ -10,6 +10,7 @@ using AXOpen.Data.Json;
 using AXOpen.Logging;
 using axosimple;
 using axosimple.MongoDb;
+using axosimple.server.Units;
 using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
 using Serilog;
@@ -74,22 +75,38 @@ var EntitySettingsRepository = Repository.Factory<Pocos.axosimple.EntityData>("E
 //  repository - data connected with specific part or piece in production/technology
 var EntityDataRepository = Repository.Factory<Pocos.axosimple.EntityData>("Entity_Data");
 
+var StarterUnitTemplate_TechSettings = Repository.Factory<Pocos.axosimple.StarterUnitTemplate.TechnologyData>("StarterUnitTemplate_TechnologySettings");
+var StarterUnitTemplate_ProcessSettings = Repository.Factory<Pocos.axosimple.StarterUnitTemplate.ProcessData>("StarterUnitTemplate_ProcessSettings");
+var StarterUnitTemplate_ProcessData = Repository.Factory<Pocos.axosimple.StarterUnitTemplate.ProcessData>("StarterUnitTemplate_ProcessData");
+
+var UnitTemplate_TechSettings = Repository.Factory<Pocos.axosimple.UnitTemplate.TechnologyData>("UnitTemplate_TechnologySettings");
+var UnitTemplate_ProcessSettings = Repository.Factory<Pocos.axosimple.UnitTemplate.ProcessData>("UnitTemplate_ProcessSettings");
+var UnitTemplate_ProcessData = Repository.Factory<Pocos.axosimple.UnitTemplate.ProcessData>("UnitTemplate_ProcessData");
+
 //var Cu1_TechSettings    = Repository.Factory<Pocos.axosimple.Cu1.TechnologyData>("Cu1_TechnologySettings");
 //var Cu1_ProcessSettings = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_ProcessSettings");
 //var Cu1_ProcessData     = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>("Cu1_ProcessData");
-
 
 #endregion MongoDB repository
 
 var axoappContext = ContextService.Create();
 axoappContext.SetContextData(
-    technologyCommonRepository : TechnologyCommonRepository,
+    technologyCommonRepository: TechnologyCommonRepository,
     entitySettingsRepository: EntitySettingsRepository,
     entityDataRepository: EntityDataRepository
     );
 
-//var starterUnitTemplateService = StarterUnitTemplateServices.Create(axoappContext);
-//starterUnitTemplateService.SetUnitsData(starterUnitTemplateRepository);
+var axoappContext_starterUnitTemplate = StarterUnitTemplateServices.Create(axoappContext);
+axoappContext_starterUnitTemplate.SetUnitsData(
+    technologySettingsRepository: StarterUnitTemplate_TechSettings,
+    processSettingsRepository: StarterUnitTemplate_ProcessSettings,
+    processDataRepository: StarterUnitTemplate_ProcessData);
+
+var axoappContext_unitTemplate = UnitTemplateServices.Create(axoappContext);
+axoappContext_unitTemplate.SetUnitsData(
+    technologySettingsRepository: UnitTemplate_TechSettings,
+    processSettingsRepository: UnitTemplate_ProcessSettings,
+    processDataRepository: UnitTemplate_ProcessData);
 
 //var axoappContext_Cu1 = axosimple.server.Units.Cu1Services.Create(axoappContext);
 //axoappContext_Cu1.SetUnitsData(
