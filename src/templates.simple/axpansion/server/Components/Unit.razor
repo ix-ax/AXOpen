@@ -15,7 +15,7 @@
 <body>
     <div class="content-wrapper">
         <UnitsSequences Component="@this.Component"></UnitsSequences>
-        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="((dynamic)this.Component).Components"></UnitsService>
+        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="((dynamic)this.Component).UnitObjects.Components"></UnitsService>
     </div>
 </body>
 
@@ -110,7 +110,7 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <RenderableContentControl Context="((dynamic)this.Component)?.Components" Presentation="Command-Control" />
+                        <RenderableContentControl Context="((dynamic)this.Component)?.UnitObjects.Components" Presentation="Command-Control" />
                     </div>
                 </div>
             </div>
