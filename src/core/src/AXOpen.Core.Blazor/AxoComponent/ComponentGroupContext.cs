@@ -1,4 +1,5 @@
-﻿using AXSharp.Connector;
+﻿using System.Globalization;
+using AXSharp.Connector;
 using AXSharp.Connector.Localizations;
 
 namespace AXOpen.Core
@@ -28,6 +29,16 @@ namespace AXOpen.Core
         public Translator Interpreter => this._parent.Interpreter;
 
         private readonly ITwinObject _parent;
+
+        public string GetAttributeName(CultureInfo culture)
+        {
+            return this.Translate(AttributeName, culture);
+        }
+
+        public string GetHumanReadable(CultureInfo culture)
+        {
+            return this.Translate(HumanReadable, culture);
+        }
 
         public ITwinObject GetParent()
         {
