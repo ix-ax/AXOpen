@@ -82,6 +82,7 @@ namespace AXOpen.Components.Rexroth.Drives
                 new KeyValuePair<ulong, AxoMessengerTextItem>(736, new AxoMessengerTextItem("Input variable `AxisRef` has NULL reference in `MC_Reset` method!",                             "Check the call of the `MC_Reset` method, if the `AxisRef` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(737, new AxoMessengerTextItem("Input variable `Direction` has invalid value in `MC_MoveVelocity` method!",                     "Check the value of the `Direction` at the input of the `MC_MoveVelocity` method.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(738, new AxoMessengerTextItem("Input variable `AxisRef` has NULL reference in `UpdateStatus` method!",                         "Check the call of the `UpdateStatus` method, if the `AxisRef` parameter is assigned.")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(739, new AxoMessengerTextItem("Input variable `Direction` has invalid value in `MC_TorqueControl` method!",                    "Check the value of the `Direction` at the input of the `MC_TorqueControl` method.")),
 
 
 

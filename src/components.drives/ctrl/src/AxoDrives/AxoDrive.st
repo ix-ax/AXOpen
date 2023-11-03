@@ -1570,7 +1570,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoTorqueControl_ErrorID);
 
             IF AxoTorqueControl_Task.Execute() THEN
-                AxoTorqueControl_Task.DoneWhen(AxoTorqueControl_InTorque);
+                AxoTorqueControl_Task.DoneWhen(AxoTorqueControl_InTorque AND NOT _AxoTorqueControl_ContinuousUpdate);
                 AxoTorqueControl_Task.ThrowWhen(AxoTorqueControl_Error,CONCAT('MC_TorqueControl has thrown an error: ', ToString(AxoTorqueControl_ErrorID)));
                 IF AxoTorqueControl_CommandAborted THEN
                     AxoTorqueControl_Task.Abort();
