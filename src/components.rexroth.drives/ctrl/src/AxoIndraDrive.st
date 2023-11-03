@@ -12,6 +12,21 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
     {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC AxoIndraDrive EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
         VAR PUBLIC
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Debug counter 1#>"}
+            _debugCounter1          :   INT;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Debug counter 2#>"}
+            _debugCounter2          :   INT;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Debug counter 3#>"}
+            _debugCounter3          :   INT;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Debug counter 4#>"}
+            _debugCounter4          :   INT;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-set:AttributeName = "<#Debug counter 5#>"}
+            _debugCounter5          :   INT;
         END_VAR
 
         
@@ -1737,9 +1752,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_MoveAbsoluteCommandAborted_		:	BOOL;
             MC_MoveAbsoluteError_				:   BOOL;
             MC_MoveAbsoluteErrorID_				:   eAxoIndraDriveErrorCode;				
+            MC_MoveAbsoluteContinuousUpdate_PV  :   BOOL;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_MoveAbsolute
-             VAR_INPUT
+            VAR_INPUT
                 AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
                 Execute         :   BOOL;                       //  Start the motion at rising edge
                 ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
@@ -1775,6 +1791,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_MoveAbsoluteFirstCall := TRUE;
                 IF _AxisReference^.Data.CheckAccessOK	THEN
                     IF Execute AND NOT MC_MoveAbsoluteExecute_PV THEN (*	raising edge of EXECUTE *)
+                        MC_MoveAbsoluteContinuousUpdate_PV := ContinuousUpdate;
                         _AxisReference^.Data.CallNumberCyclic := _AxisReference^.Data.CallNumberCyclic + INT#2;
                         MC_MoveAbsoluteCallNumber := _AxisReference^.Data.CallNumberCyclic;
                         _AxisReference^.Data.WriteCommand:= TRUE;
@@ -1791,7 +1808,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _AxisReference^.Data.Jerk:= Jerk;
                         MC_MoveAbsoluteCommandAborted_ := FALSE;
                         MC_MoveAbsoluteDone_ := FALSE;
-                        MC_MoveAbsoluteActive_ := FALSE;
+                        MC_MoveAbsoluteActive_ := TRUE;
                         MC_MoveAbsoluteError_ := FALSE;
                         MC_MoveAbsoluteErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                     END_IF;
@@ -1807,6 +1824,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_MoveAbsoluteDone_ := FALSE;
                 MC_MoveAbsoluteError_ := FALSE;
                 MC_MoveAbsoluteErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                MC_MoveAbsoluteContinuousUpdate_PV := FALSE;
             END_IF;
             (*************** detection of command finished *******************)
             IF MC_MoveAbsoluteFirstCall THEN
@@ -1817,7 +1835,27 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
                     IF NOT _AxisReference^.Data.CommandWriteActive THEN
                         MC_MoveAbsoluteActive_ := TRUE;
-                        IF _AxisReference^.Data.SetpointReached AND NOT ContinuousUpdate THEN
+                        IF MC_MoveAbsoluteContinuousUpdate_PV AND 
+                            (_AxisReference^.Data.Position <> Position OR
+                            _AxisReference^.Data.Velocity <> Velocity OR
+                            _AxisReference^.Data.Acceleration <> Acceleration OR
+                            _AxisReference^.Data.Deceleration <> Deceleration OR
+                            _AxisReference^.Data.Jerk <> Jerk ) THEN
+                            _AxisReference^.Data.Position := Position;
+                            _AxisReference^.Data.Velocity := Velocity;
+                            _AxisReference^.Data.Acceleration := Acceleration;
+                            _AxisReference^.Data.Deceleration := Deceleration;
+                            _AxisReference^.Data.Jerk:= Jerk;	
+                            _AxisReference^.Data.Relative:= FALSE;
+                            _AxisReference^.Data.Additive:= FALSE;
+                            _AxisReference^.Data.WriteCommand := TRUE;
+                            _AxisReference^.Data.CallAxis := TRUE;
+                            _AxisReference^.Data.ReadOnlyData := FALSE;
+                            THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
+                            RETURN;
+                        END_IF;
+    
+                        IF _AxisReference^.Data.SetpointReached THEN
                             MC_MoveAbsoluteDone_ := TRUE;
                             MC_MoveAbsoluteActive_ := FALSE;
                             MC_MoveAbsoluteCallNumber := MC_MoveAbsoluteCallNumber - INT#1; (*Reset MC_MoveAbsoluteCallNumber because reset Done *)
@@ -1842,6 +1880,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     MC_MoveAbsoluteActive_ := FALSE;
                 END_IF;
             END_IF;
+            
+            IF NOT ContinuousUpdate THEN
+                MC_MoveAbsoluteContinuousUpdate_PV := FALSE;
+            END_IF;
+
             MC_MoveAbsoluteExecute_PV := Execute;
             
             IF Execute AND ContinuousUpdate AND NOT _AxisReference^.Data.WriteCommand THEN
@@ -1879,6 +1922,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             MC_MoveRelativeError_				:   BOOL;
             MC_MoveRelativeErrorID_				:   eAxoIndraDriveErrorCode;
             MC_MoveRelativeContinuousUpdate_PV  :   BOOL;
+            MC_MoveRelativeDistance_PV          :   LREAL;
         END_VAR
         METHOD PUBLIC OVERRIDE MC_MoveRelative 
             VAR_INPUT
@@ -1916,6 +1960,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_MoveRelativeFirstCall := TRUE;
                 IF _AxisReference^.Data.CheckAccessOK	THEN
                     IF Execute AND NOT MC_MoveRelativeExecute_PV THEN (*	raising edge of EXECUTE *)
+                        MC_MoveRelativeDistance_PV := Distance;
                         MC_MoveRelativeContinuousUpdate_PV := ContinuousUpdate;
                         _AxisReference^.Data.CallNumberCyclic := _AxisReference^.Data.CallNumberCyclic + INT#2;
                         MC_MoveRelativeCallNumber := _AxisReference^.Data.CallNumberCyclic;
@@ -1933,7 +1978,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _AxisReference^.Data.Deceleration := Deceleration;
                         _AxisReference^.Data.Jerk:= Jerk;
                         MC_MoveRelativeDone_ := FALSE;
-                        MC_MoveRelativeActive_ := FALSE;
+                        MC_MoveRelativeActive_ := TRUE;
                         MC_MoveRelativeError_ := FALSE;
                         MC_MoveRelativeErrorID_ :=	AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                     END_IF;
@@ -1949,23 +1994,24 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_MoveRelativeDone_ := FALSE;
                 MC_MoveRelativeError_ := FALSE;
                 MC_MoveRelativeErrorID_ :=	AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                MC_MoveRelativeDistance_PV := 0;
             END_IF;
             (*************** detection of command finished *******************)
             IF MC_MoveRelativeFirstCall THEN
                 IF MC_MoveRelativeCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
-                    MC_MoveRelativeActive_ := FALSE;
+                    MC_MoveRelativeActive_ := TRUE;
                     _AxisReference^.Data.CallAxis := TRUE;
                     _AxisReference^.Data.ReadOnlyData := FALSE;
                     THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
                     IF NOT _AxisReference^.Data.CommandWriteActive THEN
                         MC_MoveRelativeActive_ := TRUE;
                         IF MC_MoveRelativeContinuousUpdate_PV AND 
-                            (_AxisReference^.Data.Position <> Distance OR
+                            (MC_MoveRelativeDistance_PV<> Distance OR
                             _AxisReference^.Data.Velocity <> Velocity OR
                             _AxisReference^.Data.Acceleration <> Acceleration OR
                             _AxisReference^.Data.Deceleration <> Deceleration OR
                             _AxisReference^.Data.Jerk <> Jerk ) THEN
-                            _AxisReference^.Data.Position := Distance;
+                            _AxisReference^.Data.Position := Distance-MC_MoveRelativeDistance_PV;
                             _AxisReference^.Data.Velocity := Velocity;
                             _AxisReference^.Data.Acceleration := Acceleration;
                             _AxisReference^.Data.Deceleration := Deceleration;
@@ -1973,10 +2019,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             _AxisReference^.Data.WriteCommand := TRUE;
                             _AxisReference^.Data.CallAxis := TRUE;
                             _AxisReference^.Data.ReadOnlyData := FALSE;
+                            MC_MoveRelativeDistance_PV := Distance;
                             THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
+                            RETURN;
                         END_IF;
     
-                        IF _AxisReference^.Data.SetpointReached (*AND NOT ContinuousUpdate*) THEN
+                        IF _AxisReference^.Data.SetpointReached THEN
                             MC_MoveRelativeDone_ := TRUE;
                             MC_MoveRelativeActive_ := FALSE;
                             MC_MoveRelativeCallNumber := MC_MoveRelativeCallNumber - INT#1; (*Reset MC_MoveRelativeCallNumber because reset Done *)

@@ -24,10 +24,6 @@ NAMESPACE AXOpen.Components.Drives
             {#ix-attr:[ReadOnly()]}
             {#ix-set:AttributeName = "<#Torque#>"}
             ActualTorque          :   LREAL;
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-attr:[ReadOnly()]}
-            {#ix-set:AttributeName = "<#Debug counter: use to discover if the particular part of the code is called. TODO: remove after#>"}
-            _debugCounter          :   INT;
         END_VAR
 
         VAR PUBLIC //TASKS
