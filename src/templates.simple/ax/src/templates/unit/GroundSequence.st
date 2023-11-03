@@ -15,26 +15,30 @@ NAMESPACE axosimple.UnitTemplate
             MoveToWork : AxoTask;
         END_VAR
         VAR PRIVATE
+            Objs : REF_TO UnitObjects;
             Components : REF_TO Components;
             ProcessData : REF_TO ProcessDataManager;
+            ProcessSettings : REF_TO FragmentProcessDataManger;
             TechnologySettings : REF_TO TechnologyDataManager;
             _currentId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _components : REF_TO Components;
-                _processData : REF_TO ProcessDataManager;
-                _technologySettings : REF_TO TechnologyDataManager;
                 _parent : IAxoObject;
-            END_VAR            
-            Components := _components;
-            ProcessData := _processData;
-            TechnologySettings := _technologySettings;
-            SUPER.Run(_parent);
-            
-            // MoveToWork.Initialize(THIS);
+                _unitObjects : REF_TO UnitObjects;
+            END_VAR     
 
+            IF Objs = NULL THEN 
+                Objs := _unitObjects;
+                
+                Components := Ref(Objs^.Components);
+                ProcessData := Objs^.ProcessData;
+                ProcessSettings := Objs^.ProcessSettings;
+                TechnologySettings := Objs^.TechnologySettings;
+            END_IF;
+
+            SUPER.Run(_parent);
         END_METHOD
         ///<summary>
         /// Contains logic of the steps of this sequence

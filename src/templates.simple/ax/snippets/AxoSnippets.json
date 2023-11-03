@@ -18,8 +18,10 @@
         "prefix": ["unitRootCall"],
         "scope": "st",
         "body":[
-        "${1:name}.ProcessData := REF(${1:name}ProcessData);",
-        "${1:name}.TechnologyData := REF(${1:name}TechnologyData);",
+        "${1:name}.UnitObjects.StationNumber := eStations#${1:name};",
+        "${1:name}.UnitObjects.TechnologySettings := REF(${1:name}TechnologySettings);",
+        "${1:name}.UnitObjects.ProcessSettings := REF(ProcessSettings.${1:name});",
+        "${1:name}.UnitObjects.ProcessData := REF(${1:name}ProcessData);",
         "${1:name}.Run(THIS, Inputs^, Outputs^);",
         "$0"
         ],

@@ -8,23 +8,13 @@ NAMESPACE axosimple.UnitTemplate
     /// Represents controlled units and high level task coordination.
     ///</summary>
     CLASS Unit
-        EXTENDS AXOpen.Core.AxoObject IMPLEMENTS axosimple.IUnit
+        EXTENDS axosimple.BaseUnit.Unit
         VAR PUBLIC
             ///<summary>
-            /// Handles and intializes components used by this unit.
+            /// Provide access to unit objets, that are used into sequnces.
             ///</summary>
-            Components : Components;
-
-            ///<summary>
-            /// Provides access to process data manager of this unit
-            ///</summary>
-            ProcessData : REF_TO ProcessDataManager;
-
-            ///<summary>
-            /// Provides access to process data manager of this unit
-            ///</summary>
-            TechnologyData : REF_TO TechnologyDataManager;
-
+            UnitObjects  : UnitObjects;
+            
             ///<summary>
             /// Ground sequence. Contains logic that brings the unit into initial state.
             ///</summary>
@@ -68,13 +58,13 @@ NAMESPACE axosimple.UnitTemplate
                 Outputs : axosimple.Outputs;
             END_VAR
             // Component I/O immange and management handling.
-            Components.Update(THIS, Inputs, Outputs);
+            UnitObjects.Components.Update(THIS, Inputs, Outputs);
             // Process data manager
-            ProcessData^.Run(THIS);
+            UnitObjects.ProcessData^.Run(THIS);
             // Technology data manager
-            TechnologyData^.Run(THIS);
+            UnitObjects.TechnologySettings^.Run(THIS);
             // Handles ground sequence
-            GroundSequence.Run(REF(Components),  ProcessData, TechnologyData, THIS);
+            GroundSequence.Run(THIS, REF(UnitObjects));
             // Restores other states when Ground executes
             IF (GroundSequence.IsBusy()) THEN
                 AutomatSequence.Restore();
@@ -82,13 +72,15 @@ NAMESPACE axosimple.UnitTemplate
             END_IF;
             // Handles automatic sequence (ground must be previously done)           
             AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
-            AutomatSequence.Run(REF(Components), ProcessData, TechnologyData, THIS);
+            AutomatSequence.Run(THIS, REF(UnitObjects));
             // Handles service/manual mode
-            ServiceMode.Run(THIS, Components);
+            ServiceMode.Run(THIS, UnitObjects.Components);
+
             IF ServiceMode.IsBusy() THEN
                 GroundSequence.Restore();
                 AutomatSequence.Restore();
             END_IF;
+
         END_METHOD
     END_CLASS
      

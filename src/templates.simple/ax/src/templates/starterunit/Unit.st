@@ -10,21 +10,11 @@ NAMESPACE axosimple.StarterUnitTemplate
     CLASS Unit
         EXTENDS AXOpen.Core.AxoObject IMPLEMENTS axosimple.IUnit
         VAR PUBLIC
-            ///<summary>
-            /// Handles and intializes components used by this unit.
+                        ///<summary>
+            /// Provide access to unit objets, that are used into sequnces.
             ///</summary>
-            Components : Components;
-
-            ///<summary>
-            /// Provides access to process data manager of this unit
-            ///</summary>
-            ProcessData : REF_TO ProcessDataManager;
+            UnitObjects  : UnitObjects;
             
-            ///<summary>
-            /// Provides access to process data manager of this unit
-            ///</summary>
-            TechnologyData : REF_TO TechnologyDataManager;
-
             ///<summary>
             /// Ground sequence. Contains logic that brings the unit into initial state.
             ///</summary>
@@ -67,28 +57,29 @@ NAMESPACE axosimple.StarterUnitTemplate
                 Inputs : axosimple.Inputs;
                 Outputs : axosimple.Outputs;
             END_VAR
-            // Component I/O immange and management handling.
-            Components.Update(THIS, Inputs, Outputs);
-            // Process data manager
-            ProcessData^.Run(THIS);  
-            // Technology data manager
-            TechnologyData^.Run(THIS);
-            // Handles ground sequence
-            GroundSequence.Run(REF(Components), ProcessData, TechnologyData, THIS);
-            // Restores other states when Ground executes
-            IF (GroundSequence.IsBusy()) THEN
-                AutomatSequence.Restore();
-                ServiceMode.Restore();
-            END_IF;
-            // Handles automatic sequence (ground must be previously done)           
-            AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
-            AutomatSequence.Run(REF(Components), ProcessData, TechnologyData, THIS);
-            // Handles service/manual mode
-            ServiceMode.Run(THIS, Components);
-            IF ServiceMode.IsBusy() THEN
-                GroundSequence.Restore();
-                AutomatSequence.Restore();
-            END_IF;
+             // Component I/O immange and management handling.
+             UnitObjects.Components.Update(THIS, Inputs, Outputs);
+             // Process data manager
+             UnitObjects.ProcessData^.Run(THIS);
+             // Technology data manager
+             UnitObjects.TechnologySettings^.Run(THIS);
+             // Handles ground sequence
+             GroundSequence.Run(THIS, REF(UnitObjects));
+             // Restores other states when Ground executes
+             IF (GroundSequence.IsBusy()) THEN
+                 AutomatSequence.Restore();
+                 ServiceMode.Restore();
+             END_IF;
+             // Handles automatic sequence (ground must be previously done)           
+             AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
+             AutomatSequence.Run(THIS, REF(UnitObjects));
+             // Handles service/manual mode
+             ServiceMode.Run(THIS, UnitObjects.Components);
+ 
+             IF ServiceMode.IsBusy() THEN
+                 GroundSequence.Restore();
+                 AutomatSequence.Restore();
+             END_IF;
         END_METHOD
     END_CLASS
      
