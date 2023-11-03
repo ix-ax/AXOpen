@@ -1,6 +1,8 @@
 ﻿@page "/Context/Units/UnitTemplate"
 @using AXOpen.Base.Dialogs;
 @using axosimple.server.Components;
+@using AXOpen.VisualComposer;
+@using AXSharp.Connector
 
 @inject IAlertDialogService _alerts
 @inherits RenderableComplexComponentBase<axosimple.UnitTemplate.Unit>
@@ -11,7 +13,11 @@
       DataManger="Entry.Plc.Context.UnitTemplateProcessData"
       Data="Entry.Plc.Context.UnitTemplateProcessData.DataManger.Payload"
       DataHeader="Entry.Plc.Context.UnitTemplateProcessData.Shared.Entity">
-    <ChildContent>
-        <img src="logo-header.svg" />
-    </ChildContent>
 </Unit>
+
+<VisualComposerContainer ImgSrc="logo-header.svg" Id="@Entry.Plc.Context.UnitTemplate.HumanReadable">
+    @foreach (var axoObject in Entry.Plc.Context.UnitTemplate.GetChildren().Flatten(p => p.GetChildren()).OfType<AXOpen.Core.AxoObject>())
+    {
+        <VisualComposerItem AxoObject="axoObject" />
+    }
+</VisualComposerContainer>

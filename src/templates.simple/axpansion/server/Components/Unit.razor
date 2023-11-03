@@ -10,12 +10,12 @@
 
 @inject IAlertDialogService _alerts
 @inherits RenderableComplexComponentBase<axosimple.IUnit>
+@using AXOpen.VisualComposer;
 
 <body>
     <div class="content-wrapper">
         <UnitsSequences Component="@this.Component"></UnitsSequences>
         <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="((dynamic)this.Component).Components"></UnitsService>
-        @ChildContent
     </div>
 </body>
 
