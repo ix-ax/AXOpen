@@ -1745,7 +1745,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
         VAR INTERNAL
             MC_MoveAbsoluteExecute_PV			: 	BOOL := FALSE;		//Execute - previous value           
             MC_MoveAbsoluteDone_PV				:	BOOL := FALSE;		//Done - previous value              
-            MC_MoveAbsoluteCallNumber			: 	INT; 				//Call number of the method MC_MoveAbsolute  
+            MC_MoveAbsoluteCallNumber			: 	INT :; 				//Call number of the method MC_MoveAbsolute  
             MC_MoveAbsoluteFirstCall			: 	BOOL;				//First call of the method MC_MoveAbsolute   
             MC_MoveAbsoluteDone_				:	BOOL;
             MC_MoveAbsoluteActive_				:	BOOL;
@@ -1778,16 +1778,16 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 _AxisReference :  REF_TO AXOpen.Components.Rexroth.Drives.AxoIndraDriveAxisReference;
                 Dummy : BOOL;
             END_VAR
-            
+                        
             _AxisReference ?= AxisRef;
 
-            Messenger.ActivateOnCondition(ULINT#713,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
+            Messenger.ActivateOnCondition(ULINT#714,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
 
             IF(_AxisReference = NULL) THEN
                 RETURN;
             END_IF;
 
-            IF Execute OR (NOT Execute AND MC_MoveAbsoluteExecute_PV) THEN(*detection of falling edge execute*)
+            IF Execute OR (NOT Execute AND MC_MoveAbsoluteExecute_PV) THEN (*detection of falling edge execute*)
                 MC_MoveAbsoluteFirstCall := TRUE;
                 IF _AxisReference^.Data.CheckAccessOK	THEN
                     IF Execute AND NOT MC_MoveAbsoluteExecute_PV THEN (*	raising edge of EXECUTE *)
@@ -1796,8 +1796,9 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         MC_MoveAbsoluteCallNumber := _AxisReference^.Data.CallNumberCyclic;
                         _AxisReference^.Data.WriteCommand:= TRUE;
                         _AxisReference^.Data.HomingReq:= FALSE;
+            (*			Axis.Data.DriveStopReq:= FALSE;*)
                         _AxisReference^.Data.DriveHaltReq := FALSE;		
-                        _AxisReference^.Data.MoveVelocityReq:= FALSE;
+                        _AxisReference^.Data.MoveVelocityReq:= FALSE;				
                         _AxisReference^.Data.TorqueControlReq:= FALSE;
                         _AxisReference^.Data.Relative:= FALSE;
                         _AxisReference^.Data.Additive:= FALSE;
@@ -1806,11 +1807,10 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _AxisReference^.Data.Acceleration := Acceleration;
                         _AxisReference^.Data.Deceleration := Deceleration;
                         _AxisReference^.Data.Jerk:= Jerk;
-                        MC_MoveAbsoluteCommandAborted_ := FALSE;
                         MC_MoveAbsoluteDone_ := FALSE;
                         MC_MoveAbsoluteActive_ := TRUE;
                         MC_MoveAbsoluteError_ := FALSE;
-                        MC_MoveAbsoluteErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
+                        MC_MoveAbsoluteErrorID_ :=	AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                     END_IF;
                 ELSE
                     MC_MoveAbsoluteCallNumber := MC_MoveAbsoluteCallNumber - INT#1;
@@ -1823,13 +1823,12 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 MC_MoveAbsoluteCommandAborted_ := FALSE;
                 MC_MoveAbsoluteDone_ := FALSE;
                 MC_MoveAbsoluteError_ := FALSE;
-                MC_MoveAbsoluteErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
-                MC_MoveAbsoluteContinuousUpdate_PV := FALSE;
+                MC_MoveAbsoluteErrorID_ :=	AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
             END_IF;
             (*************** detection of command finished *******************)
             IF MC_MoveAbsoluteFirstCall THEN
                 IF MC_MoveAbsoluteCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
-                    MC_MoveAbsoluteActive_ := FALSE;
+                    MC_MoveAbsoluteActive_ := TRUE;
                     _AxisReference^.Data.CallAxis := TRUE;
                     _AxisReference^.Data.ReadOnlyData := FALSE;
                     THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
@@ -1846,8 +1845,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             _AxisReference^.Data.Acceleration := Acceleration;
                             _AxisReference^.Data.Deceleration := Deceleration;
                             _AxisReference^.Data.Jerk:= Jerk;	
-                            _AxisReference^.Data.Relative:= FALSE;
-                            _AxisReference^.Data.Additive:= FALSE;
                             _AxisReference^.Data.WriteCommand := TRUE;
                             _AxisReference^.Data.CallAxis := TRUE;
                             _AxisReference^.Data.ReadOnlyData := FALSE;
@@ -1884,28 +1881,15 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             IF NOT ContinuousUpdate THEN
                 MC_MoveAbsoluteContinuousUpdate_PV := FALSE;
             END_IF;
-
             MC_MoveAbsoluteExecute_PV := Execute;
             
-            IF Execute AND ContinuousUpdate AND NOT _AxisReference^.Data.WriteCommand THEN
-                _AxisReference^.Data.Position := Position;
-                _AxisReference^.Data.Velocity := Velocity;
-                _AxisReference^.Data.Acceleration := Acceleration;
-                _AxisReference^.Data.Deceleration := Deceleration;
-                _AxisReference^.Data.Jerk:= Jerk;	
-                _AxisReference^.Data.CallAxis := TRUE;
-                _AxisReference^.Data.ReadOnlyData := FALSE;
-                _AxisReference^.Data.WriteCommand := TRUE;
-                THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
-            END_IF;
-            
-            Done			:= MC_MoveAbsoluteDone_;		
-            Busy := Execute AND NOT Done AND NOT Error;		        
-            Active			:= MC_MoveAbsoluteActive_;				      
-            CommandAborted	:= MC_MoveAbsoluteCommandAborted_;		
-            Error			:= MC_MoveAbsoluteError_;				       
-            ErrorID			:= MC_MoveAbsoluteErrorID_;				     
-            
+            Done			:=	MC_MoveAbsoluteDone_;	
+            Busy			:=	Execute AND NOT Done AND NOT Error;			        
+            Active			:=	MC_MoveAbsoluteActive_;				      
+            CommandAborted	:=	MC_MoveAbsoluteCommandAborted_;		
+            Error			:=	MC_MoveAbsoluteError_;				       
+            ErrorID			:=	MC_MoveAbsoluteErrorID_;				     
+
         END_METHOD
 
         ///<summary>
