@@ -27,21 +27,21 @@
 
 
 <!-- Modal technology window -->
-<div class="modal fade" id="technologydataviewmodal" tabindex="-1" aria-labelledby="technologydataviewmodalTitle" aria-hidden="true">
+<div class="modal fade" id="technologysettingsviewmodal" tabindex="-1" aria-labelledby="technologysettingsviewmodalTitle" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="container">
                     <div class="row">
-                        <h1 class="modal-title fs-5" id="technologydataviewmodalTitle">@Component?.HumanReadable</h1>
+                        <h1 class="modal-title fs-5" id="technologysettingsviewmodalTitle">@Component?.HumanReadable</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="row p-2">
                     </div>
                     <div class="row">
                         <button type="button" class="btn btn-primary"
-                        @onclick="async () => {await TechnologyData.OnlineToShadowAsync();
-                                               await SharedTechnologyData.OnlineToShadowAsync();
+                        @onclick="async () => {await TechnologySettings.OnlineToShadowAsync();
+                                               await SharedTechnologySettings.OnlineToShadowAsync();
                                     }">
                             Refresh
                         </button>
@@ -51,8 +51,8 @@
             <div class="modal-body">
                 <div class="container-fluid">
                     <div class="row">
-                        <RenderableContentControl Context="@SharedTechnologyData" Presentation="Display" />
-                        <RenderableContentControl Context="@TechnologyData" Presentation="Display" />
+                        <RenderableContentControl Context="@SharedTechnologySettings" Presentation="Display" />
+                        <RenderableContentControl Context="@TechnologySettings" Presentation="Display" />
                     </div>
                 </div>
             </div>
@@ -120,8 +120,8 @@
 
 <div class="text-white p-2 fixed-bottom" style="z-index: 0;">
 
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#technologydataviewmodal">
-        Technology Data
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#technologysettingsviewmodal">
+        Technology Settings
     </button>
 
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataviewmodal">
@@ -157,9 +157,9 @@
     public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
-    public AXOpen.Data.AxoDataEntity? TechnologyData { get; set; }
+    public AXOpen.Data.AxoDataEntity? TechnologySettings { get; set; }
 
     [Parameter]
-    public AXOpen.Data.AxoDataEntity? SharedTechnologyData { get; set; }
+    public AXOpen.Data.AxoDataEntity? SharedTechnologySettings { get; set; }
 }
 

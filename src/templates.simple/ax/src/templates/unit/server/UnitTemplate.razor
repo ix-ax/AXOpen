@@ -2,14 +2,14 @@
 @using AXOpen.Base.Dialogs;
 @using axosimple.server.Components;
 @using AXOpen.VisualComposer;
-@using AXSharp.Connector
+@using AXSharp.Connector;
 
 @inject IAlertDialogService _alerts
 @inherits RenderableComplexComponentBase<axosimple.UnitTemplate.Unit>
 
 <Unit Component="Entry.Plc.Context.UnitTemplate"
-      SharedTechnologyData="Entry.Plc.Context.UnitTemplateTechnologyData.DataManger.Payload"
-      TechnologyData="Entry.Plc.Context.UnitTemplateTechnologyData.Shared.Entity"
+      SharedTechnologySettings="Entry.Plc.Context.UnitTemplateTechnologySettings.DataManger.Payload"
+      TechnologySettings="Entry.Plc.Context.UnitTemplateTechnologySettings.Shared.Entity"
       DataManger="Entry.Plc.Context.UnitTemplateProcessData"
       Data="Entry.Plc.Context.UnitTemplateProcessData.DataManger.Payload"
       DataHeader="Entry.Plc.Context.UnitTemplateProcessData.Shared.Entity">
