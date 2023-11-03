@@ -5,7 +5,7 @@ NAMESPACE axosimple.UnitTemplate
     USING AXOpen.Core;
     USING System.Strings;
 
-    CLASS INTERNAL UnitObjects EXTENDS axosimple.BaseUnit.UnitObjects
+    CLASS PUBLIC UnitObjects EXTENDS axosimple.BaseUnit.UnitObjects
         VAR PUBLIC
             ///<summary>
             /// Handles and intializes components used by this unit.
