@@ -32,12 +32,12 @@ public class AxoFragmentedDataCompound : ITwinObject
 
     public string GetAttributeName(CultureInfo culture)
     {
-        return AttributeName;
+        return this.Translate(AttributeName, culture);
     }
 
     public string GetHumanReadable(CultureInfo culture)
     {
-        return HumanReadable;
+        return this.Translate(HumanReadable, culture);
     }
 
     public ITwinObject GetParent()
