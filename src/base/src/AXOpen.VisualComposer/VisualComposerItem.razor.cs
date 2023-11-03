@@ -39,7 +39,8 @@ namespace AXOpen.VisualComposer
 
         private double startX, startY, offsetX, offsetY;
         public double ratioImgX = 10, ratioImgY = 10;
-        public bool Show { get; set; } = false;
+        private bool _show = false;
+        public bool Show { get => _show; set { _show = value; StateHasChanged(); } }
         public TransformType Transform { get; set; } = TransformType.TopCenter;
         private string _presentation = PresentationType.StatusDisplay.Value;
         public string Presentation

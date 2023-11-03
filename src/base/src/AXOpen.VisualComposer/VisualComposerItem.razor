@@ -41,8 +41,9 @@
                                         </select>
                                     }
                                 </div>
-                                <div class="col-sm-4">
-                                    <input class="form-check-input" type="checkbox" checked="@(CustomPresentation ? "checked" : null)" @onclick="() => CustomPresentation = !CustomPresentation">
+                                <div class="col-sm-4 d-flex align-items-center">
+                                    <label class="col-form-label ms-auto">Custom</label>
+                                    <input class="form-check-input ms-2 mt-0" type="checkbox" checked="@(CustomPresentation ? "checked" : null)" @onclick="() => CustomPresentation = !CustomPresentation">
                                 </div>
                             </div>
                             <div class="mb-1 row">

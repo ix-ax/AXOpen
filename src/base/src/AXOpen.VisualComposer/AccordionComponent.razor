@@ -1,0 +1,39 @@
+﻿<div class="accordion-item">
+    <div class="accordion-header">
+        <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#@BasePath" aria-expanded="false" aria-controls="@BasePath">
+            @BasePath
+        </button>
+    </div>
+    <div id="@BasePath" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            <ul class="list-group">
+                @foreach (var item in VisualComposerContainer.BuildHierarchy(AccordionContent, Level + 1))
+                {
+                    @if (item.Count == 1)
+                    {
+                        <li class="list-group-item d-flex">
+                            <label class="form-check-label" for="@(item.First().Id)">@item.First().Id</label>
+                            <input class="form-check-input ms-auto" type="checkbox" id="@(item.First().Id)" checked="@(item.First().Show ? "checked" : null)" @onclick="() => item.First().Show = !item.First().Show">
+                        </li>
+                    }
+                    else
+                    {
+                        <AccordionComponent AccordionContent="item" Level="Level + 1" BasePath="@(BasePath + '_' + item.First().Id.Split('.')[Level + 1])" />
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public List<VisualComposerItem> AccordionContent { get; set; }
+
+    [Parameter]
+    public int Level { get; set; }
+
+    [Parameter]
+    public string BasePath { get; set; }
+}

@@ -20,34 +20,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body justify-content-center">
-                        <div class="row align-items-center">
-                            <p class="col-8 text-end">Name</p>
-                            <p class="col-4">Show</p>
+                        <div class="accordion" id="accordionExample">
+                            @foreach (var item in BuildHierarchy(_children, 0))
+                            {
+                                <AccordionComponent AccordionContent="@item" Level="0" BasePath="@(item.First().Id.Split('.')[0])" />
+                            }
                         </div>
-                        @foreach (var child in _children)
-                        {
-                            <div class="row align-items-center">
-                                <label class="form-check-label col-8 text-end" for="@(child.Id)">@child.Id</label>
-                                <input class="form-check-input col-4 ms-1" type="checkbox" id="@(child.Id)" checked="@(child.Show ? "checked" : null)" @onclick="() => Check(child)">
-                                @*<div class="col-2 ms-1 d-inline-block">
-                                    <input type="text" class="form-control" placeholder="Presentation" @bind="child.Presentation">
-                                    <select class="form-select" value="@child.Presentation.ToString()" @onchange="@((args) => @child.Presentation = PresentationType.FromString((string)args.Value))">
-                                        @foreach (var presentation in PresentationType.AllTypes)
-                                        {
-                                            <option data value="@presentation.ToString()">@presentation.ToString()</option>
-                                        }
-                                    </select>
-                                </div>
-                                <div class="col-2 ms-1 d-inline-block">
-                                    <select class="form-select" value="@child.Transform.ToString()" @onchange="@((args) => @child.Transform = TransformType.FromString((string)args.Value))">
-                                        @foreach (var transform in TransformType.AllTypes)
-                                        {
-                                            <option data value="@transform.ToString()">@transform.ToString()</option>
-                                        }
-                                    </select>
-                                </div>*@
-                            </div>
-                        }
                     </div>
                 </div>
             </div>

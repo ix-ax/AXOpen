@@ -78,9 +78,33 @@ namespace AXOpen.VisualComposer
             StateHasChanged();
         }
 
-        private void Check(VisualComposerItem visualComposerItem)
+        public static List<List<VisualComposerItem>> BuildHierarchy(List<VisualComposerItem> items, int level)
         {
-            visualComposerItem.Show = !visualComposerItem.Show;
+            var result = new List<List<VisualComposerItem>>();
+
+            foreach (var item in items)
+            {
+                string[] parts = item.Id.Split('.');
+                if (level >= parts.Length)
+                {
+                    result.Add(new List<VisualComposerItem> { item });
+                    continue;
+                }
+
+                string key = parts[level];
+                int index = result.FindIndex(p => p.First().Id.Split('.')[level] == key);
+
+                if (index == -1)
+                {
+                    result.Add(new List<VisualComposerItem> { item });
+                }
+                else
+                {
+                    result[index].Add(item);
+                }
+            }
+
+            return result;
         }
     }
 }
