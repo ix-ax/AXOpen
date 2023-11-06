@@ -1882,6 +1882,7 @@ NAMESPACE AXOpen.Components.Drives
                 IF AxoJogPositive.StartMotion OR AxoJogNegative.StartMotion THEN
                     AxoJogPositive.StartMotion          :=  FALSE;
                     AxoJogNegative.StartMotion          :=  FALSE;
+                    AxoHalt_Task.Restore();
                 END_IF;
                 THIS.AxoMoveVelocity(FALSE,
                                     _AxoJog_Velocity, 
@@ -1890,16 +1891,17 @@ NAMESPACE AXOpen.Components.Drives
                                     _AxoJog_Jerk,
                                     _AxoJog_Direction);
                 AxoJogInVelocity                        :=  AxoMoveVelocity_InVelocity;
-                AxoJog_Active                           :=  TRUE;
+                AxoJog_Active                           :=  AxoMoveVelocity_Active;
                 AxoJog_Done                             :=  FALSE;                   
                 AxoJog_Busy                             :=  AxoMoveVelocity_Busy;                   
                 AxoJog_CommandAborted                   :=  AxoMoveVelocity_CommandAborted;
                 AxoJog_Error                            :=  AxoMoveVelocity_Error;                   
                 AxoJog_ErrorID                          :=  AxoMoveVelocity_ErrorID;    
             ELSIF AxoJogPositive.StopMotion OR AxoJogNegative.StopMotion THEN
+                AxoMoveVelocity_Task.Restore();
                 THIS.AxoHalt(_AxoJog_Deceleration,_AxoJog_Jerk);
-                AxoJogInVelocity                        :=  FALSE;
-                AxoJog_Active                           :=  TRUE;
+                AxoJogInVelocity                        :=  AxoMoveVelocity_InVelocity;
+                AxoJog_Active                           :=  AxoHalt_Active;
                 AxoJog_Done                             :=  TRUE;                   
                 AxoJog_Busy                             :=  AxoHalt_Busy;                   
                 AxoJog_CommandAborted                   :=  AxoHalt_CommandAborted;
@@ -2404,7 +2406,7 @@ NAMESPACE AXOpen.Components.Drives
             ErrorID         :=  AxoMoveRelative_ErrorID;
 
             AxoMoveRelative :=  AxoMoveRelative_Task.Invoke();
-    END_METHOD
+        END_METHOD
 
         ///<summary>
         /// This method commands a controlled motion of a specified relative distance additional to the most recent 
