@@ -128,19 +128,19 @@
   </data>
   <data name="GET_ID" xml:space="preserve">
     <value>GET ID</value>
-    <comment>src\templates\starterunit\AutomatSequence.st,50</comment>
+    <comment>src\templates\starterunit\AutomatSequence.st,57</comment>
   </data>
   <data name="GET_DATA" xml:space="preserve">
     <value>GET DATA</value>
-    <comment>src\templates\starterunit\AutomatSequence.st,57</comment>
+    <comment>src\templates\starterunit\AutomatSequence.st,64</comment>
   </data>
   <data name="DO_SOMETHING" xml:space="preserve">
     <value>DO SOMETHING</value>
-    <comment>src\templates\starterunit\AutomatSequence.st,65</comment>
+    <comment>src\templates\starterunit\AutomatSequence.st,72</comment>
   </data>
   <data name="UPDATE_DATA" xml:space="preserve">
     <value>UPDATE DATA</value>
-    <comment>src\templates\starterunit\AutomatSequence.st,73</comment>
+    <comment>src\templates\starterunit\AutomatSequence.st,80</comment>
   </data>
   <data name="AUTOMAT" xml:space="preserve">
     <value>AUTOMAT</value>
@@ -148,15 +148,15 @@
   </data>
   <data name="RESTORE" xml:space="preserve">
     <value>RESTORE</value>
-    <comment>src\templates\starterunit\GroundSequence.st,50</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,57</comment>
   </data>
   <data name="READ_TECHNOLOGY_SETTINS" xml:space="preserve">
     <value>READ TECHNOLOGY SETTINS</value>
-    <comment>src\templates\starterunit\GroundSequence.st,60</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,67</comment>
   </data>
   <data name="SAVE_DATA" xml:space="preserve">
     <value>SAVE DATA</value>
-    <comment>src\templates\starterunit\GroundSequence.st,76</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,83</comment>
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>
