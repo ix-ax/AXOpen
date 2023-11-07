@@ -181,7 +181,7 @@ Downloads current build into the controller.
 apax download
 ```
 
-Build the both AX and AX# part of the project.
+Build the both SIMATIC-AX and AXOpen projects.
 ```
 apax build
 ```
@@ -195,5 +195,6 @@ dotnet ixc
 ## Resources
 
 Documentation sources: 
+- `docs` in this folder
 - [AXOpen]https://ix-ax.github.io/AXOpen/
 - [AX#]https://ix-ax.github.io/axsharp/
