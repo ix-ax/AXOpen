@@ -274,6 +274,12 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         IF(Steps[_i].Execute(Sequencer, 'Jog')) THEN
             manualControl := TRUE;
             AxoIndraDrive_.AxoJogPositive.RemoteSwitchOn := TRUE;
+            AxoIndraDrive_.AxoJog_Velocity      :=  LREAL#1.0;
+            AxoIndraDrive_.AxoJog_Acceleration  :=  LREAL#5.0;
+            AxoIndraDrive_.AxoJog_Deceleration  :=  LREAL#5.0;
+            AxoIndraDrive_.AxoJog_Jerk          :=  LREAL#10.0;
+            AxoIndraDrive_.AxoJog_Direction     :=  AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection;
+
             IF(AxoIndraDrive_.ActualPosition > 0) THEN                
                 Sequencer.MoveNext();                
                 AxoIndraDrive_.AxoJogPositive.RemoteSwitchOn := FALSE;

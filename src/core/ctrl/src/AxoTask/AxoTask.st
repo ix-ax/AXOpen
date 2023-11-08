@@ -66,9 +66,6 @@ NAMESPACE AXOpen.Core
             /// Contains details about the error.            
             ///</summary>                       
             ErrorDetails : STRING[254];
-
-                     
-             
         END_VAR    
         
         VAR PRIVATE
@@ -82,6 +79,12 @@ NAMESPACE AXOpen.Core
             {#ix-set:MessageText = "<#Cyclic Execute is not called.#>"}
             {#ix-set:Help = "<#Check task calling in the code, task is not calling cyclically #>"}
             _CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger;  
+            ///<summary>
+            /// Enable error message when the `Execute()` method is called more then once inside one PLC cycle.            
+            ///</summary> 
+            {#ix-set:MessageText = "<#Execute method is called more then once inside one PLC cycle.#>"}
+            {#ix-set:Help = "<#Check task calling in the code, task is called more then once.#>"}
+            _MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger;  
         END_VAR 
         
         ///<summary>
@@ -376,9 +379,9 @@ NAMESPACE AXOpen.Core
         ///	This method needs to be called cyclically.
         ///</summary>    
         METHOD PUBLIC Execute : BOOL            
-            
             VAR 
                 _stateKicking : BOOL;
+                _openCycleCount : ULINT;
             END_VAR
             
             IF(_context_ = NULL) THEN RETURN; END_IF;
@@ -386,8 +389,15 @@ NAMESPACE AXOpen.Core
             IF( RemoteRestore) THEN THIS.Restore(); RemoteRestore := FALSE; END_IF;
             IF( RemoteAbort) THEN THIS.Abort(); RemoteAbort := FALSE; END_IF;
             IF( RemoteResume) THEN THIS.Resume(); RemoteResume := FALSE; END_IF;
+            
+            _MultipleExecuteIsCalled.Serve(THIS);
 
-            _openCycleCountExecute := _context_.OpenCycleCount();
+            _openCycleCount :=  _context_.OpenCycleCount();
+            IF _openCycleCountExecute = _openCycleCount THEN
+                _MultipleExecuteIsCalled.Activate(eAxoMessageCategory#ProgrammingError);
+                Status := eAxoTaskState#Error;
+            END_IF;
+            _openCycleCountExecute := _openCycleCount;
                 
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,

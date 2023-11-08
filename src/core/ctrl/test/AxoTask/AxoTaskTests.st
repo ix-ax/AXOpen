@@ -842,7 +842,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         END_METHOD
 
         {Test}
-        METHOD PUBLIC isfirstexecutioncycle_should_return_false_after_first_execution_cycle
+        METHOD PUBLIC isfirstexecutioncycle_should_return_false_after_second_execution_cycle
             // Arrange
             THIS.Initialize();
             _context.Open();
@@ -854,6 +854,21 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Open();
             myTask.Execute();
             Assert.Equal(FALSE, myTask.IsFirstExecutionCycle());
+        END_METHOD        
+
+        {Test}
+        METHOD PUBLIC task_state_should_be__error_after_multiple_execute_method_call_in_one_plc_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.IsBusy());
+            Assert.Equal(FALSE, myTask.HasError());
+            myTask.Execute();
+            Assert.Equal(FALSE, myTask.IsBusy());
+            Assert.Equal(TRUE, myTask.HasError());
         END_METHOD        
     END_CLASS
 END_NAMESPACE
