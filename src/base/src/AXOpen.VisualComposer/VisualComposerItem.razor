@@ -1,18 +1,19 @@
 ﻿<AuthorizeView Roles="Administrator">
     <Authorized>
         <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
-            <RenderableContentControl Context="@AxoObject" Presentation="@Presentation.ToString()" />
-            <a class="position-absolute text-decoration-none text-black" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#settings-@Id.Replace('.', '_')">
+            <RenderableContentControl Context="@TwinElement" Presentation="@Presentation.ToString()" />
+            <a class="position-absolute text-decoration-none text-black" style="left: 97%; top: 0%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#settings-@Id.Replace('.', '_')-@UniqueGuid">
                 <span class="bi bi-gear-fill fs-4" aria-hidden="true" />
             </a>
         </div>
 
-        <div class="modal fade" id="settings-@Id.Replace('.', '_')" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="settings-@Id.Replace('.', '_')-@UniqueGuid" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="alarmsviewTitle">@Id</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <a class="text-decoration-none text-black ms-auto" style="cursor: pointer;" data-bs-dismiss="modal" @onclick="Remove"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
+                        <button type="button" class="btn-close ms-3" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body justify-content-center">
                         <div class="mb-1 row">
@@ -73,7 +74,7 @@
     </Authorized>
     <NotAuthorized>
         <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
-            <RenderableContentControl Context="@AxoObject" Presentation="@Presentation.ToString()" />
+            <RenderableContentControl Context="@TwinElement" Presentation="@Presentation.ToString()" />
         </div>
     </NotAuthorized>
 </AuthorizeView>

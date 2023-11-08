@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
+using AXSharp.Connector;
+using Newtonsoft.Json.Linq;
 
 namespace AXOpen.VisualComposer
 {
@@ -17,16 +19,35 @@ namespace AXOpen.VisualComposer
             {
                 _parent = value;
 
-                Id = AxoObject.HumanReadable;
+                if (value != null)
+                    value.AddChildren(this);
             }
         }
 
         [CascadingParameter(Name = "ImgId")]
         private Guid _imgId { get; set; }
 
-        [Parameter]
-        public AXOpen.Core.AxoObject? AxoObject { get; set; }
+        public ITwinElement? TwinElement { get; set; }
         public string Id { get; set; }
+        public Guid UniqueGuid { get; set; } = Guid.NewGuid();
+
+        [Parameter]
+        public VisualComposerItem? Origin
+        {
+            set
+            {
+                TwinElement = value.TwinElement;
+                ratioImgX = value.ratioImgX;
+                ratioImgY = value.ratioImgY;
+                Transform = value.Transform;
+                Presentation = value.Presentation;
+                Width = value.Width;
+                Height = value.Height;
+                ZIndex = value.ZIndex;
+
+                Id = value.TwinElement.HumanReadable;
+            }
+        }
 
         [Inject]
         protected IJSRuntime js { get; set; }
@@ -69,6 +90,11 @@ namespace AXOpen.VisualComposer
             ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);
 
             StateHasChanged();
+        }
+
+        public void Remove()
+        {
+            Parent.RemoveChildren(this);
         }
     }
 }

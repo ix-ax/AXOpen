@@ -1,5 +1,6 @@
 ﻿using AXOpen.Core;
 using AXOpen.VisualComposer.Serializing;
+using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.VisualComposer
@@ -7,7 +8,7 @@ namespace AXOpen.VisualComposer
     public partial class VisualComposerContainer
     {
         [Parameter]
-        public IEnumerable<AxoObject> AxoObjects { get; set; }
+        public AxoObject AxoObject { get; set; }
 
         [Parameter]
         public string? ImgSrc { get; set; }
@@ -26,17 +27,48 @@ namespace AXOpen.VisualComposer
 
         private Guid _imgId = Guid.NewGuid();
 
+        private List<VisualComposerItem> _childrenToRender = new();
         private List<VisualComposerItem> _children = new();
+
+        private IEnumerable<ITwinElement> _childrenOfAxoObject { get; set; }
 
         protected override void OnAfterRender(bool firstRender)
         {
             if (firstRender)
+            {
+                _childrenOfAxoObject = AxoObject.GetChildren().Flatten(p => p.GetChildren()).ToList();
+                //_childrenOfAxoObject.Concat(AxoObject.RetrievePrimitives());
                 Load();
+            }
         }
 
-        public void AddChild(VisualComposerItem child)
+        public void AddChildrenToRender(ITwinElement item)
         {
-            _children.Add(child);
+            _childrenToRender.Clear();
+            _childrenToRender.AddRange(_children);
+
+            _childrenToRender.Add(new VisualComposerItem()
+            {
+                TwinElement = item
+            });
+
+            StateHasChanged();
+        }
+
+        public void AddChildren(VisualComposerItem item)
+        {
+            if(!_children.Contains(item))
+                _children.Add(item);
+        }
+
+        public void RemoveChildren(VisualComposerItem item)
+        {
+            _children.Remove(item);
+
+            _childrenToRender.Clear();
+            _childrenToRender.AddRange(_children);
+
+            StateHasChanged();
         }
 
         public void Save()
@@ -48,6 +80,9 @@ namespace AXOpen.VisualComposer
             }
 
             Serializing.Serializing.Serialize(Id + ".json", serializableChildren);
+
+            _childrenToRender.Clear();
+            _childrenToRender.AddRange(_children);
         }
 
         public void Load()
@@ -58,9 +93,10 @@ namespace AXOpen.VisualComposer
             {
                 foreach (var item in deserialize)
                 {
-                    _children.Add(new VisualComposerItem()
+                    var a = _childrenOfAxoObject.FirstOrDefault(p => p.HumanReadable == item.Id);
+                    _childrenToRender.Add(new VisualComposerItem()
                     {
-                        AxoObject = AxoObjects.FirstOrDefault(p => p.HumanReadable == item.Id),
+                        TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.HumanReadable == item.Id),
                         ratioImgX = item.RatioImgX,
                         ratioImgY = item.RatioImgY,
                         Transform = Types.TransformType.FromString(item.Transform),
@@ -72,35 +108,6 @@ namespace AXOpen.VisualComposer
                 }
             }
             StateHasChanged();
-        }
-
-        public static List<List<VisualComposerItem>> BuildHierarchy(List<VisualComposerItem> items, int level)
-        {
-            var result = new List<List<VisualComposerItem>>();
-
-            foreach (var item in items)
-            {
-                string[] parts = item.Id.Split('.');
-                if (level >= parts.Length)
-                {
-                    result.Add(new List<VisualComposerItem> { item });
-                    continue;
-                }
-
-                string key = parts[level];
-                int index = result.FindIndex(p => p.First().Id.Split('.')[level] == key);
-
-                if (index == -1)
-                {
-                    result.Add(new List<VisualComposerItem> { item });
-                }
-                else
-                {
-                    result[index].Add(item);
-                }
-            }
-
-            return result;
         }
     }
 }

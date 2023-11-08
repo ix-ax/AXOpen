@@ -4,9 +4,9 @@
             <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
             <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                 <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
-                    @foreach(var child in _children)
+                    @foreach(VisualComposerItem child in _childrenToRender)
                     {
-                        @child
+                        <VisualComposerItem Origin="@child" />
                     }
                 </CascadingValue>
             </CascadingValue>
@@ -24,9 +24,9 @@
                     </div>
                     <div class="modal-body justify-content-center">
                         <div class="accordion" id="accordionExample">
-                            @foreach (var item in BuildHierarchy(_children, 0))
+                            @foreach (var item in AxoObject.GetChildren())
                             {
-                                <AccordionComponent AccordionContent="@item" Level="0" BasePath="@(item.First().Id.Split('.')[0])" Parent="@this" />
+                                <AccordionComponent AccordionContent="@item" Parent="@this" />
                             }
                         </div>
                     </div>
@@ -39,9 +39,9 @@
             <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
             <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                 <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
-                    @foreach (var child in _children)
+                    @foreach(VisualComposerItem child in _childrenToRender)
                     {
-                        @child
+                        <VisualComposerItem Origin="@child" />
                     }
                 </CascadingValue>
             </CascadingValue>
