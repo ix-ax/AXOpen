@@ -8,8 +8,15 @@
                 </CascadingValue>
             </CascadingValue>
 
-            <button type="button" class="btn btn-primary" @onclick="Save">Save</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id">Show all</button>
+            <div class="dropdown">
+                <a class="position-absolute dropdown-toggle text-decoration-none text-black" style="left: 97%; top: 100%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" @onclick="Save">Save</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id">Show all</a></li>
+                </ul>
+            </div>
         </div>
 
         <div class="modal fade" id="showAllModal-@Id" tabindex="-1" aria-hidden="true">
