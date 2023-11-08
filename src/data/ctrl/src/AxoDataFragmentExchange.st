@@ -1,7 +1,4 @@
 USING AXOpen.Core;
-USING AXOpen.Core;
-USING AXOpen.Core;
-
 NAMESPACE AXOpen.Data
     ///<summary>
     /// Provides base class for any composite/fragmetes data exchange combining one or more AxoDataExchange object.    
