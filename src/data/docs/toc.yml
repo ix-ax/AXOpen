@@ -5,6 +5,8 @@
     href: AXODATAEXCHANGE.md
   - name: Data fragment exchange
     href: AXODATAFRAGMENTEXCHANGE.md
+  - name: Data Persistent exchange
+    href: AxoDataPersistentExchange.md
   - name: Usage
     href: USAGE.md
   - name: Security

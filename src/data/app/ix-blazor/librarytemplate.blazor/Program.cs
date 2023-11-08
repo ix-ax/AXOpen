@@ -43,6 +43,12 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
     .WriteTo.Console().MinimumLevel.Verbose()
     .CreateLogger()));
 
+//<SetUpAxoDataPersistentExchange>
+var persistentRepository = new InMemoryRepositorySettings<AXOpen.Data.PersistentRecord>().Factory();
+Entry.Plc.AxoDataPersistentExchangeManager.InitializeRemoteDataExchange( Entry.Plc.Connector, persistentRepository);
+//</SetUpAxoDataPersistentExchange>
+
+
 //<SetUpAxoDataFragmentExchange>
 var SharedDataHeaderDataRepository = new InMemoryRepositorySettings<Pocos.AxoDataFramentsExchangeExample.SharedDataHeaderData>().Factory();
 var Station_1_DataRepository = new InMemoryRepositorySettings<Pocos.AxoDataFramentsExchangeExample.Station_1_Data>().Factory();
