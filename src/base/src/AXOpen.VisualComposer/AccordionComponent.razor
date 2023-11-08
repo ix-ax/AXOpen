@@ -12,13 +12,13 @@
                     @if (item.Count == 1)
                     {
                         <li class="list-group-item d-flex">
-                            <label class="form-check-label" for="@(item.First().Id)">@item.First().Id</label>
-                            <input class="form-check-input ms-auto" type="checkbox" id="@(item.First().Id)" checked="@(item.First().Show ? "checked" : null)" @onclick="() => item.First().Show = !item.First().Show">
+                            <p>@item.First().Id</p>
+                            <button type="button" class="btn btn-primary ms-auto" @onclick="() => Parent.AddChild(item.First())"><span class="bi bi-plus-lg" /></button>
                         </li>
                     }
                     else
                     {
-                        <AccordionComponent AccordionContent="item" Level="Level + 1" BasePath="@(BasePath + '_' + item.First().Id.Split('.')[Level + 1])" />
+                        <AccordionComponent AccordionContent="item" Level="Level + 1" BasePath="@(BasePath + '_' + item.First().Id.Split('.')[Level + 1])" Parent="@Parent" />
                     }
                 }
             </ul>
@@ -36,4 +36,7 @@
 
     [Parameter]
     public string BasePath { get; set; }
+
+    [Parameter]
+    public VisualComposerContainer Parent { get; set; }
 }

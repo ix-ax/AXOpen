@@ -7,9 +7,6 @@ namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerItem
     {
-        [Parameter]
-        public RenderFragment? ChildContent { get; set; }
-
         private VisualComposerContainer? _parent;
 
         [CascadingParameter(Name = "Parent")]
@@ -21,8 +18,6 @@ namespace AXOpen.VisualComposer
                 _parent = value;
 
                 Id = AxoObject.HumanReadable;
-
-                _parent?.AddChild(this);
             }
         }
 
@@ -39,8 +34,6 @@ namespace AXOpen.VisualComposer
 
         private double startX, startY, offsetX, offsetY;
         public double ratioImgX = 10, ratioImgY = 10;
-        private bool _show = false;
-        public bool Show { get => _show; set { _show = value; StateHasChanged(); } }
         public TransformType Transform { get; set; } = TransformType.TopCenter;
         private string _presentation = PresentationType.StatusDisplay.Value;
         public string Presentation

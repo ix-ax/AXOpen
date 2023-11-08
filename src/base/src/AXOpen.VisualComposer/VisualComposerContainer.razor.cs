@@ -1,4 +1,5 @@
-﻿using AXOpen.VisualComposer.Serializing;
+﻿using AXOpen.Core;
+using AXOpen.VisualComposer.Serializing;
 using Microsoft.AspNetCore.Components;
 
 namespace AXOpen.VisualComposer
@@ -6,7 +7,7 @@ namespace AXOpen.VisualComposer
     public partial class VisualComposerContainer
     {
         [Parameter]
-        public RenderFragment? ChildContent { get; set; }
+        public IEnumerable<AxoObject> AxoObjects { get; set; }
 
         [Parameter]
         public string? ImgSrc { get; set; }
@@ -35,8 +36,7 @@ namespace AXOpen.VisualComposer
 
         public void AddChild(VisualComposerItem child)
         {
-            if (!_children.Contains(child))
-                _children.Add(child);
+            _children.Add(child);
         }
 
         public void Save()
@@ -44,10 +44,7 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                if(child.ratioImgX == 10 && child.ratioImgY == 10 && !child.Show && child.Transform.Value == Types.TransformType.TopCenter.Value && child.Presentation == Types.PresentationType.StatusDisplay.Value)
-                    continue;
-
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Show, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex));
             }
 
             Serializing.Serializing.Serialize(Id + ".json", serializableChildren);
@@ -57,22 +54,21 @@ namespace AXOpen.VisualComposer
         {
             List<SerializableVisualComposerItem>? deserialize = Serializing.Serializing.Deserialize(Id + ".json");
 
-            if(deserialize != null)
+            if (deserialize != null)
             {
                 foreach (var item in deserialize)
                 {
-                    var child = _children.Find(x => x.Id == item.Id);
-                    if (child != null)
+                    _children.Add(new VisualComposerItem()
                     {
-                        child.ratioImgX = item.RatioImgX;
-                        child.ratioImgY = item.RatioImgY;
-                        child.Show = item.Show;
-                        child.Transform = Types.TransformType.FromString(item.Transform);
-                        child.Presentation = item.Presentation;
-                        child.Width = item.Width;
-                        child.Height = item.Height;
-                        child.ZIndex = item.ZIndex;
-                    }
+                        AxoObject = AxoObjects.FirstOrDefault(p => p.HumanReadable == item.Id),
+                        ratioImgX = item.RatioImgX,
+                        ratioImgY = item.RatioImgY,
+                        Transform = Types.TransformType.FromString(item.Transform),
+                        Presentation = item.Presentation,
+                        Width = item.Width,
+                        Height = item.Height,
+                        ZIndex = item.ZIndex
+                    });
                 }
             }
             StateHasChanged();
