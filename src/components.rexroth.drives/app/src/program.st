@@ -7,20 +7,15 @@ PROGRAM MyProgram
 		PlcOutputs : PlcOutputs;
     END_VAR
 
-    VAR
-
-    END_VAR
-
-    VAR_TEMP
-
-    END_VAR
     CopyInputs();
 
-    sandbox.PlcInputs := REF(PlcInputs); 
-    sandbox.PlcOutputs := REF(PlcOutputs);
-    sandbox.Run();    
-    sandbox.InjectRtc(_rtc);
+    // sandbox.PlcInputs := REF(PlcInputs); 
+    // sandbox.PlcOutputs := REF(PlcOutputs);
+    // sandbox.Run();    
+    // sandbox.InjectRtc(_rtc);
     
+    documentation.componentOne.PlcInputs := REF(PlcInputs); 
+    documentation.componentOne.PlcOutputs := REF(PlcOutputs);
     documentation.Run();
     documentation.InjectRtc(_rtc);
  

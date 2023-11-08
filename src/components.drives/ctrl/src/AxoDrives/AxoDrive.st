@@ -1116,7 +1116,12 @@ NAMESPACE AXOpen.Components.Drives
             _movementDisabled                       :   BOOL;
             _messageCode                            :   ULINT;
             _lastMessageCode                        :   ULINT;
+            _disabledDuringMovement                 :   BOOL;
             _error                                  :   BOOL;
+            _warning                                :   BOOL;
+            _category                               :   AXOpen.Messaging.eAxoMessageCategory;
+            _movementInPositiveDirection            :   BOOL;
+            _movementInNegativeDirection            :   BOOL;
             //***********Stop*********************************
             _AxoStop_Deceleration                   :   LREAL;                     
             _AxoStop_Jerk                           :   LREAL;                      
@@ -1211,6 +1216,7 @@ NAMESPACE AXOpen.Components.Drives
             _AxoJog_Direction                       :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;
             _AxoJogInVelocity                       :   BOOL;
             _AxoJog_Active                          :   BOOL;
+            //************************************************
         END_VAR
 
         ///<summary>
@@ -1373,6 +1379,15 @@ NAMESPACE AXOpen.Components.Drives
             END_IF;
             //******************************************
 
+            //******************************************
+            IF _disabledDuringMovement THEN
+                AxoHalt_Task.Invoke();
+                IF AxoHalt_Task.IsDone() THEN
+                    _disabledDuringMovement := FALSE;
+                END_IF;
+            END_IF;
+            //******************************************
+
             //*************AXO_POWER********************
             AxoPower_Task.Run(Enable,EnablePositive,EnableNegative);
             THIS.MC_Power(AxisRef,
@@ -1410,13 +1425,33 @@ NAMESPACE AXOpen.Components.Drives
                         AxoHalt_Error,
                         AxoHalt_ErrorID);            
 
-                        IF AxoHalt_Task.Execute() THEN
-                            AxoHalt_Task.DoneWhen(AxoHalt_Done);
-                            AxoHalt_Task.ThrowWhen(AxoHalt_Error,CONCAT('MC_Halt has thrown an error: ', ToString(AxoHalt_ErrorID)));
-                            IF AxoHalt_CommandAborted THEN
-                                AxoHalt_Task.Abort();
-                            END_IF;
-                        END_IF;
+            IF AxoHalt_Task.Execute() THEN
+                AxoHalt_Task.DoneWhen(AxoHalt_Done);
+                AxoHalt_Task.ThrowWhen(AxoHalt_Error,CONCAT('MC_Halt has thrown an error: ', ToString(AxoHalt_ErrorID)));
+                //TODO execute this part just once on first run of the Halt Task method, when the method IsFirstRun has been added into AxoTask class
+                IF AxoHome_Task.IsBusy() THEN
+                    AxoHome_Task.Restore();
+                END_IF;
+                IF AxoMoveAbsolute_Task.IsBusy() THEN
+                    AxoMoveAbsolute_Task.Restore();
+                END_IF;
+                IF AxoMoveRelative_Task.IsBusy() THEN
+                    AxoMoveRelative_Task.Restore();
+                END_IF;
+                IF AxoMoveAdditive_Task.IsBusy() THEN
+                    AxoMoveAdditive_Task.Restore();
+                END_IF;
+                IF AxoMoveVelocity_Task.IsBusy() THEN
+                    AxoMoveVelocity_Task.Restore();
+                END_IF;
+                IF AxoTorqueControl_Task.IsBusy() THEN
+                    AxoTorqueControl_Task.Restore();
+                END_IF;
+                //TODO
+                IF AxoHalt_CommandAborted THEN
+                    AxoHalt_Task.Abort();
+                END_IF;
+            END_IF;
             //******************************************
             _movementDisabled := _movementDisabled OR AxoHalt_Active;
 
@@ -1443,10 +1478,18 @@ NAMESPACE AXOpen.Components.Drives
                     AxoHome_Task.Abort();
                 END_IF;
             END_IF;
+            IF AxoHome_Busy THEN
+                IF (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
+                    _disabledDuringMovement := TRUE;
+                    AxoHome_Task.Restore();
+                END_IF;
+            END_IF;
             //******************************************
 
             //*************AXO_MOVE_ABSOLUTE************
-            AxoMoveAbsolute_Task.SetIsDisabled(_movementDisabled); //TODO Enable negative positive 
+            _movementInPositiveDirection := _AxoMoveAbsolute_Position > ActualPosition;
+            _movementInNegativeDirection := _AxoMoveAbsolute_Position < ActualPosition;
+            AxoMoveAbsolute_Task.SetIsDisabled(_movementDisabled OR (_movementInPositiveDirection AND NOT EnablePositive)  OR (_movementInNegativeDirection AND NOT EnableNegative) );
             THIS.MC_MoveAbsolute(AxisRef, 
                         AxoMoveAbsolute_Task.Execute(),
                         _AxoMoveAbsolute_ContinuousUpdate,
@@ -1470,10 +1513,18 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveAbsolute_Task.Abort();
                 END_IF;
             END_IF;
+            IF AxoMoveAbsolute_Busy THEN
+                IF (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
+                    _disabledDuringMovement := TRUE;
+                    AxoMoveAbsolute_Task.Restore();
+                END_IF;
+            END_IF;
             //******************************************
 
             //*************AXO_MOVE_RELATIVE************
-            AxoMoveRelative_Task.SetIsDisabled(_movementDisabled); //TODO Enable negative positive 
+            _movementInPositiveDirection := _AxoMoveRelative_Distance > 0;
+            _movementInNegativeDirection := _AxoMoveRelative_Distance < 0;
+            AxoMoveRelative_Task.SetIsDisabled(_movementDisabled OR (_movementInPositiveDirection AND NOT EnablePositive)  OR (_movementInNegativeDirection AND NOT EnableNegative) );
             THIS.MC_MoveRelative(AxisRef, 
                         AxoMoveRelative_Task.Execute(),
                         _AxoMoveRelative_ContinuousUpdate,
@@ -1496,10 +1547,18 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveRelative_Task.Abort();
                 END_IF;
             END_IF;
+            IF AxoMoveRelative_Busy THEN
+                IF (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
+                    _disabledDuringMovement := TRUE;
+                    AxoMoveRelative_Task.Restore();
+                END_IF;
+            END_IF;
             //******************************************
 
             //*************AXO_MOVE_ADDITIVE************
-            AxoMoveAdditive_Task.SetIsDisabled(_movementDisabled); //TODO Enable negative positive 
+            _movementInPositiveDirection := _AxoMoveAdditive_Distance > 0;
+            _movementInNegativeDirection := _AxoMoveAdditive_Distance < 0;
+            AxoMoveAdditive_Task.SetIsDisabled(_movementDisabled OR (_movementInPositiveDirection AND NOT EnablePositive)  OR (_movementInNegativeDirection AND NOT EnableNegative) );
             THIS.MC_MoveAdditive(AxisRef, 
                         AxoMoveAdditive_Task.Execute(),
                         _AxoMoveAdditive_ContinuousUpdate,
@@ -1522,10 +1581,20 @@ NAMESPACE AXOpen.Components.Drives
                     AxoMoveAdditive_Task.Abort();
                 END_IF;
             END_IF;
+            IF AxoMoveAdditive_Busy THEN
+                IF (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
+                    _disabledDuringMovement := TRUE;
+                    AxoMoveAdditive_Task.Restore();
+                END_IF;
+            END_IF;
             //******************************************
 
             //*************AXO_MOVE_VELOCITY************
-            AxoMoveVelocity_Task.SetIsDisabled(_movementDisabled); //TODO Enable negative positive 
+            _movementInPositiveDirection := _AxoMoveVelocity_Velocity > 0 AND _AxoMoveVelocity_Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection OR 
+                                            _AxoMoveVelocity_Velocity < 0 AND _AxoMoveVelocity_Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
+            _movementInNegativeDirection := _AxoMoveVelocity_Velocity < 0 AND _AxoMoveVelocity_Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection OR 
+                                            _AxoMoveVelocity_Velocity > 0 AND _AxoMoveVelocity_Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
+                                            AxoMoveVelocity_Task.SetIsDisabled(_movementDisabled OR (_movementInPositiveDirection AND NOT EnablePositive)  OR (_movementInNegativeDirection AND NOT EnableNegative) );
             THIS.MC_MoveVelocity(AxisRef, 
                         AxoMoveVelocity_Task.Execute(),
                         _AxoMoveVelocity_ContinuousUpdate,
@@ -1551,7 +1620,11 @@ NAMESPACE AXOpen.Components.Drives
             //******************************************
 
             //*************AXO_TORQUE_CONTROL***********
-            AxoTorqueControl_Task.SetIsDisabled(_movementDisabled); //TODO Enable negative positive 
+            _movementInPositiveDirection := _AxoTorqueControl_Torque > 0 AND _AxoTorqueControl_Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection OR 
+                                            _AxoTorqueControl_Torque < 0 AND _AxoTorqueControl_Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
+            _movementInNegativeDirection := _AxoTorqueControl_Torque < 0 AND _AxoTorqueControl_Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#PositiveDirection OR 
+                                            _AxoTorqueControl_Torque > 0 AND _AxoTorqueControl_Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
+            AxoTorqueControl_Task.SetIsDisabled(_movementDisabled OR (_movementInPositiveDirection AND NOT EnablePositive)  OR (_movementInNegativeDirection AND NOT EnableNegative) );
             THIS.MC_TorqueControl(AxisRef, 
                         AxoTorqueControl_Task.Execute(),
                         _AxoTorqueControl_ContinuousUpdate,
@@ -1577,7 +1650,15 @@ NAMESPACE AXOpen.Components.Drives
                 END_IF;
             END_IF;
             //******************************************
-
+            IF DriveState = eAxoDriveState#ContinousMotion AND (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
+                _disabledDuringMovement := TRUE;
+                IF AxoMoveVelocity_Task.IsBusy() THEN
+                    AxoMoveVelocity_Task.Restore();
+                END_IF;
+                IF AxoTorqueControl_Task.IsBusy() THEN
+                    AxoTorqueControl_Task.Restore();
+                END_IF;
+            END_IF;
             //*************AXO_SET_POSITION*************
             AxoSetPosition_Task.SetIsDisabled(FALSE); 
             THIS.MC_SetPosition(AxisRef, 
@@ -1878,18 +1959,21 @@ NAMESPACE AXOpen.Components.Drives
             ELSIF AxoJogNegative.IsSwitchedOn() THEN
                 AxoJog_Direction := AXOpen.Components.Abstractions.Drives.eAxoDriveDirection#NegativeDirection;
             END_IF;
-            IF AxoJogPositive.IsSwitchedOn() OR AxoJogNegative.IsSwitchedOn() THEN
+
+            IF AxoJogPositive.IsSwitchedOn() AND EnablePositive OR AxoJogNegative.IsSwitchedOn() AND EnableNegative THEN
                 IF AxoJogPositive.StartMotion OR AxoJogNegative.StartMotion THEN
                     AxoJogPositive.StartMotion          :=  FALSE;
                     AxoJogNegative.StartMotion          :=  FALSE;
                     AxoHalt_Task.Restore();
                 END_IF;
-                THIS.AxoMoveVelocity(FALSE,
-                                    _AxoJog_Velocity, 
-                                    _AxoJog_Acceleration,
-                                    _AxoJog_Deceleration,
-                                    _AxoJog_Jerk,
-                                    _AxoJog_Direction);
+                AxoMoveVelocity_ContinuousUpdate       := FALSE;
+                AxoMoveVelocity_Velocity               := AxoJog_Velocity;
+                AxoMoveVelocity_Acceleration           := AxoJog_Acceleration;
+                AxoMoveVelocity_Deceleration           := AxoJog_Deceleration;
+                AxoMoveVelocity_Jerk                   := AxoJog_Jerk;
+                AxoMoveVelocity_Direction              := AxoJog_Direction;
+
+                THIS.AxoMoveVelocity();
                 AxoJogInVelocity                        :=  AxoMoveVelocity_InVelocity;
                 AxoJog_Active                           :=  AxoMoveVelocity_Active;
                 AxoJog_Done                             :=  FALSE;                   
@@ -1899,7 +1983,9 @@ NAMESPACE AXOpen.Components.Drives
                 AxoJog_ErrorID                          :=  AxoMoveVelocity_ErrorID;    
             ELSIF AxoJogPositive.StopMotion OR AxoJogNegative.StopMotion THEN
                 AxoMoveVelocity_Task.Restore();
-                THIS.AxoHalt(_AxoJog_Deceleration,_AxoJog_Jerk);
+                AxoHalt_Deceleration                   := AxoJog_Deceleration;
+                AxoHalt_Jerk                           := AxoJog_Jerk;
+                THIS.AxoHalt();
                 AxoJogInVelocity                        :=  AxoMoveVelocity_InVelocity;
                 AxoJog_Active                           :=  AxoHalt_Active;
                 AxoJog_Done                             :=  TRUE;                   
@@ -1912,6 +1998,7 @@ NAMESPACE AXOpen.Components.Drives
             END_IF;
             //******************************************
             _error := FALSE;
+            _warning := FALSE;
             IF AxoPower_Error THEN
                 _error := TRUE;
                 IF _messageCode = ULINT#0 THEN
@@ -2057,11 +2144,25 @@ NAMESPACE AXOpen.Components.Drives
                 IF _messageCode = ULINT#0 THEN
                     _messageCode := TO_ULINT(AxoJog_ErrorID);
                 END_IF;
+            ELSIF NOT EnablePositive THEN
+                _warning := TRUE;
+                IF _messageCode = ULINT#0 THEN
+                    _messageCode := ULINT#300;
+                END_IF;
+            ELSIF NOT EnableNegative THEN
+                _warning := TRUE;
+                IF _messageCode = ULINT#0 THEN
+                    _messageCode := ULINT#301;
+                END_IF;
             END_IF;
-        
-            Messenger.ActivateOnCondition(_messageCode, _error AND _messageCode = _lastMessageCode ,eAxoMessageCategory#Error);
+
+            _category   :=  eAxoMessageCategory#Error;
+            IF _warning AND NOT _error THEN
+                _category   :=  eAxoMessageCategory#Warning;
+            END_IF;
+            Messenger.ActivateOnCondition(_messageCode, (_error OR _warning) AND _messageCode = _lastMessageCode ,_category);
             IF NOT Messenger.IsActive THEN
-                IF _error THEN
+                IF _error OR _warning THEN
                     _lastMessageCode := _messageCode;
                 ELSE
                     _messageCode := ULINT#0;
@@ -2260,6 +2361,7 @@ NAMESPACE AXOpen.Components.Drives
             _AxoHome_Velocity    :=  Velocity;
             _AxoHome_Acceleration:=  Acceleration;
             _AxoHome_Deceleration:=  Deceleration;
+
 
             Done            :=  AxoHome_Done;
             Busy            :=  AxoHome_Busy;

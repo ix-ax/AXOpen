@@ -115,7 +115,7 @@ namespace AXOpen.Components.Drives
 
                 }
                 string errorDescription = "   ";
-                if (errorDescriptionDict.TryGetValue(Error.Id.LastValue, out errorDescription))
+                if (Error != null && Error.Id != null && errorDescriptionDict.TryGetValue(Error.Id.LastValue, out errorDescription))
                 {
                     return errorDescription;
                 }
@@ -176,7 +176,7 @@ namespace AXOpen.Components.Drives
 
                 }
                 string actionDescription = "   ";
-                if (actionDescriptionDict.TryGetValue(Action.Id.LastValue, out actionDescription))
+                if (Action != null && Action.Id != null && actionDescriptionDict.TryGetValue(Action.Id.LastValue, out actionDescription))
                 {
                     return actionDescription;
                 }

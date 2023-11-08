@@ -42,6 +42,8 @@ namespace AXOpen.Components.Rexroth.Drives
                 new KeyValuePair<ulong, AxoMessengerTextItem>(8,   new AxoMessengerTextItem("Device error",                                                                                  "Check the troubleshooting manual `Rexroth PLCopen Function Blocks For Field Bus Drives`, Reference Book R911315058")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(254, new AxoMessengerTextItem("General error",                                                                                 "Check the troubleshooting manual `Rexroth PLCopen Function Blocks For Field Bus Drives`, Reference Book R911315058")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(255, new AxoMessengerTextItem("System error",                                                                                  "Check the troubleshooting manual `Rexroth PLCopen Function Blocks For Field Bus Drives`, Reference Book R911315058")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(300, new AxoMessengerTextItem("Movement in positive direction is disabled",                                                    "Check the safety condition")),
+                new KeyValuePair<ulong, AxoMessengerTextItem>(301, new AxoMessengerTextItem("Movement in negative direction is disabled",                                                    "Check the safety condition")),
 
                 new KeyValuePair<ulong, AxoMessengerTextItem>(700, new AxoMessengerTextItem("Input variable `parent` has NULL reference in `Run` method!",                                   "Check the call of the `Run` method, if the `parent` parameter is assigned.")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(701, new AxoMessengerTextItem("Input variable `refAxisIn` has NULL reference in `Run` method!",                                "Check the call of the `Run` method, if the `refAxisIn` parameter is assigned.")),
@@ -86,9 +88,6 @@ namespace AXOpen.Components.Rexroth.Drives
 
 
 
-                new KeyValuePair<ulong, AxoMessengerTextItem>(737, new AxoMessengerTextItem("   ", "   ")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(738, new AxoMessengerTextItem("   ", "   ")),
-                new KeyValuePair<ulong, AxoMessengerTextItem>(739, new AxoMessengerTextItem("   ", "   ")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(740, new AxoMessengerTextItem("   ", "   ")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(741, new AxoMessengerTextItem("   ", "   ")),
                 new KeyValuePair<ulong, AxoMessengerTextItem>(742, new AxoMessengerTextItem("   ", "   ")),

@@ -11,24 +11,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
     
     {#ix-attr:[Container(Layout.Wrap)]}
     CLASS PUBLIC AxoIndraDrive EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
-        VAR PUBLIC
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-set:AttributeName = "<#Debug counter 1#>"}
-            _debugCounter1          :   INT;
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-set:AttributeName = "<#Debug counter 2#>"}
-            _debugCounter2          :   INT;
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-set:AttributeName = "<#Debug counter 3#>"}
-            _debugCounter3          :   INT;
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-set:AttributeName = "<#Debug counter 4#>"}
-            _debugCounter4          :   INT;
-            {#ix-attr:[ComponentHeader()]}
-            {#ix-set:AttributeName = "<#Debug counter 5#>"}
-            _debugCounter5          :   INT;
-        END_VAR
-
         
         VAR CONSTANT
             PositionExponent		:	INT := 4;
@@ -336,22 +318,22 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 THIS.ActualVelocity := _AxisReference^.Data.ActualVelocity;
                 THIS.ActualTorque := _AxisReference^.Data.ActualTorque;
 
-                IF _AxisReference^.Data.StoppedDueError THEN
-                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Errorstop;
-                ELSIF _AxisReference^.Data.DriveStopReq THEN
-                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Stopping;
-                ELSIF _AxisReference^.Data.Standstill THEN
-                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
+                IF NOT _AxisReference^.Data.PowerOK THEN
+                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Disabled;
+                ELSIF _AxisReference^.Data.HomingRunning THEN
+                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Homing;
                 ELSIF _AxisReference^.Data.DiscreteMotion THEN
                     DriveState := AXOpen.Components.Drives.eAxoDriveState#DiscreteMotion;
                 ELSIF _AxisReference^.Data.ContinuousMotion THEN
                     DriveState := AXOpen.Components.Drives.eAxoDriveState#ContinousMotion;
                 ELSIF _AxisReference^.Data.SynchronizedMotion THEN
                     DriveState := AXOpen.Components.Drives.eAxoDriveState#SynchronizedMotion;
-                ELSIF _AxisReference^.Data.HomingRunning THEN
-                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Homing;
-                ELSIF NOT _AxisReference^.Data.PowerOK THEN
-                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Disabled;
+                ELSIF _AxisReference^.Data.DriveStopReq THEN
+                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Stopping;
+                ELSIF _AxisReference^.Data.StoppedDueError THEN
+                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Errorstop;
+                ELSIF _AxisReference^.Data.Standstill THEN
+                    DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
                 END_IF;
             ELSE
                 DriveStatus.Error.Id := UINT#707;
@@ -845,7 +827,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             AxisRef^.Data.MoveVelocityReq := FALSE;
                             AxisRef^.Data.TorqueControlReq := FALSE;
                             CyclicCommCommandTorque := 0;
-                            IF 	CyclicCommDeceleration =0 THEN
+                            IF CyclicCommDeceleration = 0 THEN
                                 AxisRef^.Fieldbus_Out.DriveHalt := FALSE;
                                 AxisRef^.Data.StopError:=TRUE;
                                 AxisRef^.Data.Error:=TRUE;
@@ -882,7 +864,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             CyclicCommDeceleration := TO_DINT (AxisRef^.Data.Deceleration * (EXP(LN(10)*DecelerationExponent)));
                             CyclicCommCommandDecceleration := CyclicCommDeceleration;
                             CyclicCommCommandTorque := 0;
-                            IF 	CyclicCommDeceleration =0 THEN
+                            IF CyclicCommDeceleration = 0 THEN
                                 AxisRef^.Fieldbus_Out.DriveHalt := FALSE;
                                 AxisRef^.Data.StopError:=TRUE;
                                 AxisRef^.Data.Error:=TRUE;
@@ -2281,7 +2263,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _AxisReference^.Data.Acceleration := Acceleration;
                         _AxisReference^.Data.Deceleration := Deceleration;
                         _AxisReference^.Data.Jerk:= Jerk;
-                        MC_MoveVelocityActive_ := FALSE;
+                        MC_MoveVelocityActive_ := TRUE;
                         MC_MoveVelocityError_ := FALSE;
                         MC_MoveVelocityErrorID_ :=	 AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                     END_IF;
@@ -2300,7 +2282,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             (*************** detection of command finished *******************)
             IF MC_MoveVelocityFirstCall THEN
                 IF MC_MoveVelocityCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
-                    MC_MoveVelocityActive_ := FALSE;
+                    MC_MoveVelocityActive_ := TRUE;
                     _AxisReference^.Data.CallAxis := TRUE;
                     _AxisReference^.Data.ReadOnlyData := FALSE;
                     THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
@@ -2321,10 +2303,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
                         END_IF;
 
-                        IF _AxisReference^.Data.SetpointReached AND NOT MC_MoveVelocityContinuousUpdate_PV THEN
-                            MC_MoveVelocityActive_ := FALSE;
-                            MC_MoveVelocityCallNumber := MC_MoveVelocityCallNumber - INT#1; (*Reset MC_MoveVelocityCallNumber because reset Done *)
-                        END_IF;
                     END_IF;
                     IF _AxisReference^.Data.Error THEN
                         MC_MoveVelocityCallNumber := MC_MoveVelocityCallNumber - INT#1;
@@ -2347,8 +2325,8 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
             MC_MoveVelocityExecute_PV := Execute;
             
-            Active			:=   Execute AND MC_MoveVelocityCallNumber = _AxisReference^.Data.CallNumberCyclic ;		
-            InVelocity		:=   Active AND _AxisReference^.Data.SetpointReached;			        
+            Active			:=   MC_MoveVelocityActive_ ;		
+            InVelocity		:=   Active AND _AxisReference^.Data.SetpointReached;		
             Busy 			:= 	 Active AND NOT InVelocity;	      
             CommandAborted	:=   MC_MoveVelocityCommandAborted_;	
             Error			:=   MC_MoveVelocityError_;			       
@@ -2438,7 +2416,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                         _AxisReference^.Data.Deceleration := Deceleration;
                         _AxisReference^.Data.Jerk:= Jerk;
                         _AxisReference^.Data.Torque:= Torque_;
-                        MC_TorqueControlActive_ := FALSE;
+                        MC_TorqueControlActive_ := TRUE;
                         MC_TorqueControlError_ := FALSE;
                         MC_TorqueControlErrorID_ :=	 AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_ERROR;
                     END_IF;
@@ -2457,7 +2435,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             (*************** detection of command finished *******************)
             IF MC_TorqueControlFirstCall THEN
                 IF MC_TorqueControlCallNumber = _AxisReference^.Data.CallNumberCyclic THEN
-                    MC_TorqueControlActive_ := FALSE;
+                    MC_TorqueControlActive_ := TRUE;
                     _AxisReference^.Data.CallAxis := TRUE;
                     _AxisReference^.Data.ReadOnlyData := FALSE;
                     THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
@@ -2481,10 +2459,6 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                             THIS.FieldBusCommunication(AxisRef := _AxisReference,CommandWriteActive=> Dummy);
                         END_IF;
 
-                        IF _AxisReference^.Data.SetpointReached AND NOT MC_TorqueControlContinuousUpdate_PV THEN
-                            MC_TorqueControlActive_ := FALSE;
-                            MC_TorqueControlCallNumber := MC_TorqueControlCallNumber - INT#1; (*Reset MC_TorqueControlCallNumber because reset Done *)
-                        END_IF;
                     END_IF;
                     IF _AxisReference^.Data.Error THEN
                         MC_TorqueControlCallNumber := MC_TorqueControlCallNumber - INT#1;
@@ -2507,7 +2481,7 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             END_IF;
             MC_TorqueControlExecute_PV := Execute;
             
-            Active			:=   Execute AND MC_TorqueControlCallNumber = _AxisReference^.Data.CallNumberCyclic ;		
+            Active			:=   MC_TorqueControlActive_;		
             InTorque		:=   Active AND _AxisReference^.Data.SetpointReached;			        
             Busy 			:= 	 Active AND NOT InTorque;	      
             CommandAborted	:=   MC_TorqueControlCommandAborted_;	
