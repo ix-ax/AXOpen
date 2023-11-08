@@ -1302,87 +1302,88 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                 RETURN;
             END_IF;
 
-            IF Execute AND NOT MC_HomeExecute_PV  THEN
-                IF MC_HomeState_ = UINT#0 THEN
-                    //S-0-0052, Reference distance of encoder 1
-                    _result := THIS.AxoWriteParameter(ParameterNumber := 52, Value := TO_DINT(Position * EXP(LN(10)* PositionExponent)),ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
-                    IF _result.IsDone() THEN
-                        MC_HomeState_ := MC_HomeState_ + UINT#10;	
-                    END_IF;
-                    IF _result.HasError() THEN
-                        MC_HomeError_ := TRUE;
-                        MC_HomeErrorID_ := _ErrorID;
-                    END_IF;
+            IF Execute AND NOT MC_HomeExecute_PV AND MC_HomeState_ = UINT#0 THEN
+                MC_HomeState_ := UINT#10;	
+            END_IF;
+            IF MC_HomeState_ = UINT#10 THEN
+                //S-0-0052, Reference distance of encoder 1
+                _result := THIS.AxoWriteParameter(ParameterNumber := 52, Value := TO_DINT(Position * EXP(LN(10)* PositionExponent)),ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
+                IF _result.IsDone() THEN
+                    MC_HomeState_ := UINT#20;	
                 END_IF;
-                IF MC_HomeState_ = UINT#10 THEN
-                    AxoWriteParameter_Task.Restore();
-                    IF(AxoWriteParameter_Task.IsReady()) THEN
-                        MC_HomeState_ := MC_HomeState_ + UINT#10;
-                        RETURN;
-                    END_IF;	
-                END_IF;
-                IF MC_HomeState_ = UINT#20 THEN
-                    IF HommingMode = 0 THEN
-                        _HommingMode := 551;
-                    ELSE
-                        _HommingMode := HommingMode;
-                    END_IF;
-                    //S-0-0147, Homing parameter
-                    _result := THIS.AxoWriteParameter(ParameterNumber := 147, Value := _HommingMode ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,ErrorID =>_ErrorID);
-                    IF _result.IsDone() THEN
-                        MC_HomeState_ := MC_HomeState_ + UINT#10;	
-                    END_IF;
-                    IF _result.HasError() THEN
-                        MC_HomeError_ := TRUE;
-                        MC_HomeErrorID_ := _ErrorID;
-                    END_IF;
-                END_IF;
-                IF MC_HomeState_ = UINT#30 THEN
-                    AxoWriteParameter_Task.Restore();
-                    IF(AxoWriteParameter_Task.IsReady()) THEN
-                        MC_HomeState_ := MC_HomeState_ + UINT#10;
-                        RETURN;
-                    END_IF;	
-                END_IF;
-                IF MC_HomeState_ = UINT#40 THEN
-                    //S-0-0041, Homing velocity
-                    _result := THIS.AxoWriteParameter(ParameterNumber := 41, Value := TO_DINT(Velocity * EXP(LN(10)*VelocityExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
-                    IF _result.IsDone() THEN
-                        MC_HomeState_ := MC_HomeState_ + UINT#10;	
-                    END_IF;
-                    IF _result.HasError() THEN
-                        MC_HomeError_ := TRUE;
-                        MC_HomeErrorID_ := _ErrorID;
-                    END_IF;
-                END_IF;
-                IF MC_HomeState_ = UINT#50 THEN
-                    AxoWriteParameter_Task.Restore();
-                    IF(AxoWriteParameter_Task.IsReady()) THEN
-                        MC_HomeState_ := MC_HomeState_ + UINT#10;
-                        RETURN;
-                    END_IF;	
-                END_IF;
-                IF MC_HomeState_ = UINT#60 THEN
-                    //S-0-0042, Homing acceleration
-                    _result := THIS.AxoWriteParameter(ParameterNumber := 42, Value := TO_DINT(Acceleration * EXP(LN(10)*AccelerationExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
-                    IF _result.IsDone() THEN
-                        MC_HomeState_ := MC_HomeState_ + UINT#10;	
-                    END_IF;
-                    IF _result.HasError() THEN
-                        MC_HomeError_ := TRUE;
-                        MC_HomeErrorID_ := _ErrorID;
-                    END_IF;
-                END_IF;
-                IF MC_HomeState_ = UINT#70 THEN
-                    AxoWriteParameter_Task.Restore();
-                    IF(AxoWriteParameter_Task.IsReady()) THEN
-                        MC_HomeState_ := MC_HomeState_ + UINT#10;
-                        RETURN;
-                    END_IF;	
+                IF _result.HasError() THEN
+                    MC_HomeError_ := TRUE;
+                    MC_HomeErrorID_ := _ErrorID;
                 END_IF;
             END_IF;
-            
-            IF Execute AND MC_HomeState_ < UINT#80 THEN
+            IF MC_HomeState_ = UINT#20 THEN
+                AxoWriteParameter_Task.Restore();
+                IF(AxoWriteParameter_Task.IsReady()) THEN
+                    MC_HomeState_ :=UINT#30;	
+                    RETURN;
+                END_IF;	
+            END_IF;
+            IF MC_HomeState_ = UINT#30 THEN
+                IF HommingMode = 0 THEN
+                    _HommingMode := 551;
+                ELSE
+                    _HommingMode := HommingMode;
+                END_IF;
+                //S-0-0147, Homing parameter
+                _result := THIS.AxoWriteParameter(ParameterNumber := 147, Value := _HommingMode ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately,ErrorID =>_ErrorID);
+                IF _result.IsDone() THEN
+                    MC_HomeState_ := UINT#40;		
+                END_IF;
+                IF _result.HasError() THEN
+                    MC_HomeError_ := TRUE;
+                    MC_HomeErrorID_ := _ErrorID;
+                END_IF;
+            END_IF;
+            IF MC_HomeState_ = UINT#40 THEN
+                AxoWriteParameter_Task.Restore();
+                IF(AxoWriteParameter_Task.IsReady()) THEN
+                    MC_HomeState_ := UINT#50;
+                    RETURN;
+                END_IF;	
+            END_IF;
+            IF MC_HomeState_ = UINT#50 THEN
+                //S-0-0041, Homing velocity
+                _result := THIS.AxoWriteParameter(ParameterNumber := 41, Value := TO_DINT(Velocity * EXP(LN(10)*VelocityExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
+                IF _result.IsDone() THEN
+                    MC_HomeState_ :=UINT#60;	
+                END_IF;
+                IF _result.HasError() THEN
+                    MC_HomeError_ := TRUE;
+                    MC_HomeErrorID_ := _ErrorID;
+                END_IF;
+            END_IF;
+            IF MC_HomeState_ = UINT#60 THEN
+                AxoWriteParameter_Task.Restore();
+                IF(AxoWriteParameter_Task.IsReady()) THEN
+                    MC_HomeState_ :=UINT#70;
+                    RETURN;
+                END_IF;	
+            END_IF;
+            IF MC_HomeState_ = UINT#70 THEN
+                //S-0-0042, Homing acceleration
+                _result := THIS.AxoWriteParameter(ParameterNumber := 42, Value := TO_DINT(Acceleration * EXP(LN(10)*AccelerationExponent)) ,ExecutionMode := AXOpen.Components.Abstractions.Drives.eAxoExecutionMode#Immediately, ErrorID =>_ErrorID);
+                IF _result.IsDone() THEN
+                    MC_HomeState_ := UINT#80;	
+                END_IF;
+                IF _result.HasError() THEN
+                    MC_HomeError_ := TRUE;
+                    MC_HomeErrorID_ := _ErrorID;
+                END_IF;
+            END_IF;
+            IF MC_HomeState_ = UINT#80 THEN
+                AxoWriteParameter_Task.Restore();
+                IF(AxoWriteParameter_Task.IsReady()) THEN
+                    MC_HomeState_ := UINT#90;
+                    RETURN;
+                END_IF;	
+            END_IF;
+        
+            IF Execute AND MC_HomeState_ < UINT#90 THEN
                 RETURN;
             END_IF;
             
@@ -1428,13 +1429,13 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
                     MC_HomeError_ := FALSE;
                     MC_HomeErrorID_ := AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_Error;
                 END_IF;
-            ELSE
-                MC_HomeDone_					:= FALSE; 					
-                MC_HomeActive_					:= FALSE;					
-                MC_HomeCommandAborted_ 			:= FALSE;					
-                MC_HomeError_					:= FALSE;					
-                MC_HomeErrorID_ 				:= AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_Error;
-                MC_HomeState_ 					:= UINT#0;
+            // ELSE
+            //     MC_HomeDone_					:= FALSE; 					
+            //     MC_HomeActive_					:= FALSE;					
+            //     MC_HomeCommandAborted_ 			:= FALSE;					
+            //     MC_HomeError_					:= FALSE;					
+            //     MC_HomeErrorID_ 				:= AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorCode#NONE_Error;
+            //     MC_HomeState_ 					:= UINT#0;
             END_IF;
             (*************** detection of command finished *******************)
             IF MC_HomeFirstCall THEN
@@ -1485,11 +1486,11 @@ NAMESPACE AXOpen.Components.Rexroth.Drives
             
             MC_HomeExecute_PV 	:=	Execute;
             Done				:=	MC_HomeDone_;		
-            Busy				:=	Execute AND NOT Done AND NOT Error;	
             Active 				:=	MC_HomeActive_;		
             CommandAborted 		:=	MC_HomeCommandAborted_;
             Error 				:=	MC_HomeError_;				
             ErrorID 			:=	MC_HomeErrorID_;
+            Busy				:=	MC_HomeActive_ AND NOT Done AND NOT Error;	
             
         END_METHOD
 

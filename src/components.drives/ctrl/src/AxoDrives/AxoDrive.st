@@ -1410,6 +1410,10 @@ NAMESPACE AXOpen.Components.Drives
                         AxoStop_CommandAborted,          
                         AxoStop_Error,
                         AxoStop_ErrorID);
+            IF AxoStop_Task.IsFirstExecutionCycle() THEN
+                AxoStop_Deceleration    :=  _AxoStop_Deceleration;
+                AxoStop_Jerk            :=  _AxoStop_Jerk;
+            END_IF;
             //******************************************
             _movementDisabled := _movementDisabled OR AxoStop_Active OR AxoStop_Task.IsDone() AND AxoStop_Task.IsBusy();
             //*************AXO_HALT*********************
@@ -1425,31 +1429,33 @@ NAMESPACE AXOpen.Components.Drives
                         AxoHalt_Error,
                         AxoHalt_ErrorID);            
 
-            IF AxoHalt_Task.Execute() THEN
+            IF AxoHalt_Task.IsBusy() THEN
                 AxoHalt_Task.DoneWhen(AxoHalt_Done);
                 AxoHalt_Task.ThrowWhen(AxoHalt_Error,CONCAT('MC_Halt has thrown an error: ', ToString(AxoHalt_ErrorID)));
-                //TODO execute this part just once on first run of the Halt Task method, when the method IsFirstRun has been added into AxoTask class
-                IF AxoHome_Task.IsBusy() THEN
-                    AxoHome_Task.Restore();
-                END_IF;
-                IF AxoMoveAbsolute_Task.IsBusy() THEN
-                    AxoMoveAbsolute_Task.Restore();
-                END_IF;
-                IF AxoMoveRelative_Task.IsBusy() THEN
-                    AxoMoveRelative_Task.Restore();
-                END_IF;
-                IF AxoMoveAdditive_Task.IsBusy() THEN
-                    AxoMoveAdditive_Task.Restore();
-                END_IF;
-                IF AxoMoveVelocity_Task.IsBusy() THEN
-                    AxoMoveVelocity_Task.Restore();
-                END_IF;
-                IF AxoTorqueControl_Task.IsBusy() THEN
-                    AxoTorqueControl_Task.Restore();
-                END_IF;
-                //TODO
                 IF AxoHalt_CommandAborted THEN
                     AxoHalt_Task.Abort();
+                END_IF;
+                IF AxoHalt_Task.IsFirstExecutionCycle() THEN
+                    AxoHalt_Deceleration    :=  _AxoHalt_Deceleration;
+                    AxoHalt_Jerk            :=  _AxoHalt_Jerk;
+                    IF AxoHome_Task.IsBusy() THEN
+                        AxoHome_Task.Restore();
+                    END_IF;
+                    IF AxoMoveAbsolute_Task.IsBusy() THEN
+                        AxoMoveAbsolute_Task.Restore();
+                    END_IF;
+                    IF AxoMoveRelative_Task.IsBusy() THEN
+                        AxoMoveRelative_Task.Restore();
+                    END_IF;
+                    IF AxoMoveAdditive_Task.IsBusy() THEN
+                        AxoMoveAdditive_Task.Restore();
+                    END_IF;
+                    IF AxoMoveVelocity_Task.IsBusy() THEN
+                        AxoMoveVelocity_Task.Restore();
+                    END_IF;
+                    IF AxoTorqueControl_Task.IsBusy() THEN
+                        AxoTorqueControl_Task.Restore();
+                    END_IF;
                 END_IF;
             END_IF;
             //******************************************
@@ -1471,14 +1477,21 @@ NAMESPACE AXOpen.Components.Drives
                         AxoHome_Error,
                         AxoHome_ErrorID);
 
-            IF AxoHome_Task.Execute() THEN
+            IF AxoHome_Task.IsBusy() THEN
+                IF AxoHome_Task.IsFirstExecutionCycle() THEN
+                    AxoHome_Position        :=  _AxoHome_Position;
+                    AxoHome_HommingMode     :=  _AxoHome_HommingMode;
+                    AxoHome_Velocity        :=  _AxoHome_Velocity;
+                    AxoHome_Acceleration    :=  _AxoHome_Acceleration;
+                    AxoHome_Deceleration    :=  _AxoHome_Deceleration;
+                END_IF;
                 AxoHome_Task.DoneWhen(AxoHome_Done);
                 AxoHome_Task.ThrowWhen(AxoHome_Error,CONCAT('MC_Home has thrown an error: ', ToString(AxoHome_ErrorID)));
                 IF AxoHome_CommandAborted THEN
                     AxoHome_Task.Abort();
                 END_IF;
             END_IF;
-            IF AxoHome_Busy THEN
+            IF AxoHome_Active OR DriveState = eAxoDriveState#Homing THEN
                 IF (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
                     _disabledDuringMovement := TRUE;
                     AxoHome_Task.Restore();
@@ -1506,14 +1519,23 @@ NAMESPACE AXOpen.Components.Drives
                         AxoMoveAbsolute_Error,
                         AxoMoveAbsolute_ErrorID);
 
-            IF AxoMoveAbsolute_Task.Execute() THEN
+            IF AxoMoveAbsolute_Task.IsBusy() THEN
+                IF AxoMoveAbsolute_Task.IsFirstExecutionCycle() THEN
+                    AxoMoveAbsolute_ContinuousUpdate    :=  _AxoMoveAbsolute_ContinuousUpdate;
+                    AxoMoveAbsolute_Position            :=  _AxoMoveAbsolute_Position;
+                    AxoMoveAbsolute_Velocity            :=  _AxoMoveAbsolute_Velocity;
+                    AxoMoveAbsolute_Acceleration        :=  _AxoMoveAbsolute_Acceleration;
+                    AxoMoveAbsolute_Deceleration        :=  _AxoMoveAbsolute_Deceleration;
+                    AxoMoveAbsolute_Jerk                :=  _AxoMoveAbsolute_Jerk;
+                    AxoMoveAbsolute_Direction           :=  _AxoMoveAbsolute_Direction;
+                END_IF;
                 AxoMoveAbsolute_Task.DoneWhen(AxoMoveAbsolute_Done);
                 AxoMoveAbsolute_Task.ThrowWhen(AxoMoveAbsolute_Error,CONCAT('MC_MoveAbsolute has thrown an error: ', ToString(AxoMoveAbsolute_ErrorID)));
                 IF AxoMoveAbsolute_CommandAborted THEN
                     AxoMoveAbsolute_Task.Abort();
                 END_IF;
             END_IF;
-            IF AxoMoveAbsolute_Busy THEN
+            IF AxoMoveAbsolute_Active THEN
                 IF (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
                     _disabledDuringMovement := TRUE;
                     AxoMoveAbsolute_Task.Restore();
@@ -1540,14 +1562,22 @@ NAMESPACE AXOpen.Components.Drives
                         AxoMoveRelative_Error,
                         AxoMoveRelative_ErrorID);
 
-            IF AxoMoveRelative_Task.Execute() THEN
+            IF AxoMoveRelative_Task.IsBusy() THEN
+                IF AxoMoveRelative_Task.IsFirstExecutionCycle() THEN
+                    AxoMoveRelative_ContinuousUpdate    :=  _AxoMoveRelative_ContinuousUpdate;
+                    AxoMoveRelative_Distance            :=  _AxoMoveRelative_Distance;
+                    AxoMoveRelative_Velocity            :=  _AxoMoveRelative_Velocity;
+                    AxoMoveRelative_Acceleration        :=  _AxoMoveRelative_Acceleration;
+                    AxoMoveRelative_Deceleration        :=  _AxoMoveRelative_Deceleration;
+                    AxoMoveRelative_Jerk                :=  _AxoMoveRelative_Jerk;
+                END_IF;
                 AxoMoveRelative_Task.DoneWhen(AxoMoveRelative_Done);
                 AxoMoveRelative_Task.ThrowWhen(AxoMoveRelative_Error,CONCAT('MC_MoveRelative has thrown an error: ', ToString(AxoMoveRelative_ErrorID)));
                 IF AxoMoveRelative_CommandAborted THEN
                     AxoMoveRelative_Task.Abort();
                 END_IF;
             END_IF;
-            IF AxoMoveRelative_Busy THEN
+            IF AxoMoveRelative_Active THEN
                 IF (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
                     _disabledDuringMovement := TRUE;
                     AxoMoveRelative_Task.Restore();
@@ -1574,14 +1604,22 @@ NAMESPACE AXOpen.Components.Drives
                         AxoMoveAdditive_Error,
                         AxoMoveAdditive_ErrorID);
 
-            IF AxoMoveAdditive_Task.Execute() THEN
+            IF AxoMoveAdditive_Task.IsBusy() THEN
+                IF AxoMoveAdditive_Task.IsFirstExecutionCycle() THEN
+                    AxoMoveAdditive_ContinuousUpdate    :=  _AxoMoveAdditive_ContinuousUpdate;
+                    AxoMoveAdditive_Distance            :=  _AxoMoveAdditive_Distance;
+                    AxoMoveAdditive_Velocity            :=  _AxoMoveAdditive_Velocity;
+                    AxoMoveAdditive_Acceleration        :=  _AxoMoveAdditive_Acceleration;
+                    AxoMoveAdditive_Deceleration        :=  _AxoMoveAdditive_Deceleration;
+                    AxoMoveAdditive_Jerk                :=  _AxoMoveAdditive_Jerk;
+                END_IF;
                 AxoMoveAdditive_Task.DoneWhen(AxoMoveAdditive_Done);
                 AxoMoveAdditive_Task.ThrowWhen(AxoMoveAdditive_Error,CONCAT('MC_MoveAdditive has thrown an error: ', ToString(AxoMoveAdditive_ErrorID)));
                 IF AxoMoveAdditive_CommandAborted THEN
                     AxoMoveAdditive_Task.Abort();
                 END_IF;
             END_IF;
-            IF AxoMoveAdditive_Busy THEN
+            IF AxoMoveAdditive_Active THEN
                 IF (ActualVelocity > 0.5 AND NOT EnablePositive OR ActualVelocity < -0.5 AND NOT EnableNegative) THEN
                     _disabledDuringMovement := TRUE;
                     AxoMoveAdditive_Task.Restore();
@@ -1610,7 +1648,15 @@ NAMESPACE AXOpen.Components.Drives
                         AxoMoveVelocity_Error,
                         AxoMoveVelocity_ErrorID);
 
-            IF AxoMoveVelocity_Task.Execute() THEN
+            IF AxoMoveVelocity_Task.IsBusy() THEN
+                IF AxoMoveVelocity_Task.IsFirstExecutionCycle() THEN
+                    AxoMoveVelocity_ContinuousUpdate    :=  _AxoMoveVelocity_ContinuousUpdate;
+                    AxoMoveVelocity_Velocity            :=  _AxoMoveVelocity_Velocity;
+                    AxoMoveVelocity_Acceleration        :=  _AxoMoveVelocity_Acceleration;
+                    AxoMoveVelocity_Deceleration        :=  _AxoMoveVelocity_Deceleration;
+                    AxoMoveVelocity_Jerk                :=  _AxoMoveVelocity_Jerk;
+                    AxoMoveVelocity_Direction           :=  _AxoMoveVelocity_Direction;
+                END_IF;
                 AxoMoveVelocity_Task.DoneWhen(AxoMoveVelocity_InVelocity AND NOT _AxoMoveVelocity_ContinuousUpdate);
                 AxoMoveVelocity_Task.ThrowWhen(AxoMoveVelocity_Error,CONCAT('MC_MoveVelocity has thrown an error: ', ToString(AxoMoveVelocity_ErrorID)));
                 IF AxoMoveVelocity_CommandAborted THEN
@@ -1642,7 +1688,17 @@ NAMESPACE AXOpen.Components.Drives
                         AxoTorqueControl_Error,
                         AxoTorqueControl_ErrorID);
 
-            IF AxoTorqueControl_Task.Execute() THEN
+            IF AxoTorqueControl_Task.IsBusy() THEN
+                IF AxoTorqueControl_Task.IsFirstExecutionCycle() THEN
+                    AxoTorqueControl_ContinuousUpdate   :=  _AxoTorqueControl_ContinuousUpdate;
+                    AxoTorqueControl_Torque             :=  _AxoTorqueControl_Torque;
+                    AxoTorqueControl_TorqueRamp         :=  _AxoTorqueControl_TorqueRamp;
+                    AxoTorqueControl_Velocity           :=  _AxoTorqueControl_Velocity;
+                    AxoTorqueControl_Acceleration       :=  _AxoTorqueControl_Acceleration;
+                    AxoTorqueControl_Deceleration       :=  _AxoTorqueControl_Deceleration;
+                    AxoTorqueControl_Jerk               :=  _AxoTorqueControl_Jerk;
+                    AxoTorqueControl_Direction          :=  _AxoTorqueControl_Direction;
+                END_IF;
                 AxoTorqueControl_Task.DoneWhen(AxoTorqueControl_InTorque AND NOT _AxoTorqueControl_ContinuousUpdate);
                 AxoTorqueControl_Task.ThrowWhen(AxoTorqueControl_Error,CONCAT('MC_TorqueControl has thrown an error: ', ToString(AxoTorqueControl_ErrorID)));
                 IF AxoTorqueControl_CommandAborted THEN
@@ -2362,7 +2418,6 @@ NAMESPACE AXOpen.Components.Drives
             _AxoHome_Acceleration:=  Acceleration;
             _AxoHome_Deceleration:=  Deceleration;
 
-
             Done            :=  AxoHome_Done;
             Busy            :=  AxoHome_Busy;
             Active          :=  AxoHome_Active;
@@ -2391,6 +2446,9 @@ NAMESPACE AXOpen.Components.Drives
                 ErrorID         :   WORD;                       // Error identification           
              END_VAR
 
+            _AxoStop_Deceleration   :=  Deceleration;
+            _AxoStop_Jerk           :=  Jerk;                     
+ 
             Done            :=  AxoStop_Done;
             Busy            :=  AxoStop_Busy;
             Active          :=  AxoStop_Active;

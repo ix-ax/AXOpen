@@ -75,6 +75,7 @@ NAMESPACE AXOpen.Core
             _openCycleCountInvoke : ULINT;
             _openCycleCountExecute : ULINT;            
             _taskTimer : AXOpen.Timers.OnDelayTimer;          
+            _isFirstExecutionCycle   : BOOL;
             ///<summary>
             /// Enable error message when task is not calling cyclically .            
             ///</summary> 
@@ -199,6 +200,13 @@ NAMESPACE AXOpen.Core
             END_IF;
 
             HasError := Status = eAxoTaskState#Error; 
+        END_METHOD   
+
+        ///<summary>
+        /// Gets true when the task has error.
+        ///</summary>
+        METHOD PUBLIC IsFirstExecutionCycle : BOOL 
+            IsFirstExecutionCycle := _isFirstExecutionCycle; 
         END_METHOD   
 
         ///<summary>
@@ -388,6 +396,8 @@ NAMESPACE AXOpen.Core
             
             _stateKicking :=  Status = eAxoTaskState#Kicking;
             
+            _isFirstExecutionCycle := FALSE; 
+
             IF _stateKicking then 
                 IF  (_openCycleCountInvoke <> _openCycleCountExecute) then
                     IF  ((_openCycleCountInvoke + ULINT#1) <> _openCycleCountExecute) THEN            
@@ -409,6 +419,7 @@ NAMESPACE AXOpen.Core
                 StartSignature := _openCycleCountExecute;//_context_.OpenCycleCount();    
                 THIS.LogTask('Task started.', eLogLevel#Verbose, THIS);                       
                 THIS.OnStart();
+                _isFirstExecutionCycle := TRUE; 
             END_IF;    
 
             IF(Status = eAxoTaskState#Error) THEN

@@ -820,6 +820,40 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
         END_METHOD   
 
+        {Test}
+        METHOD PUBLIC isfirstexecutioncycle_should_return_false_if_the_task_is_only_invoked
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            Assert.Equal(FALSE, myTask.IsFirstExecutionCycle());
+        END_METHOD
 
+        {Test}
+        METHOD PUBLIC isfirstexecutioncycle_should_return_true_if_the_task_is_invoked_and_executed
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.IsFirstExecutionCycle());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC isfirstexecutioncycle_should_return_false_after_first_execution_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            myTask.Execute();
+            _context.Close();
+
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(FALSE, myTask.IsFirstExecutionCycle());
+        END_METHOD        
     END_CLASS
 END_NAMESPACE

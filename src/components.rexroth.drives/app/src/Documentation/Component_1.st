@@ -64,7 +64,8 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         _i := 0;
         IF(Steps[_i].Execute(Sequencer, 'Restore')) THEN
-             IF(AxoIndraDrive_.RestoreTask.Invoke().IsDone()) THEN                
+            manualControl := FALSE;
+            IF(AxoIndraDrive_.RestoreTask.Invoke().IsDone()) THEN                
                 Sequencer.MoveNext();                
             END_IF;    
         END_IF;
@@ -327,11 +328,33 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
                                                 Deceleration    :=  LREAL#50.0,
                                                 Jerk            :=  LREAL#50.0
                                                 ).IsDone()) THEN                
-                Sequencer.CompleteSequence();     
+                Sequencer.MoveNext();     
             END_IF;    
         END_IF; 
 
+        _i := _i + 1;
+        IF(Steps[_i].Execute(Sequencer, 'Disable drive')) THEN
+            Enable := FALSE;
+            EnablePositive := FALSE;
+            EnableNegative := FALSE;
+            IF(NOT AxoIndraDrive_.AxoPower_Status) THEN                
+                Sequencer.CompleteSequence();                
+            END_IF;    
+        END_IF;
+
+        _i := _i + 1;
+        IF(Steps[_i].Execute(Sequencer, 'Reset drive')) THEN
+            IF(AxoIndraDrive_.AxoReset().IsDone()) THEN                
+                Sequencer.MoveNext();                
+            END_IF;    
+        END_IF;
+
+        _i := _i + 1;
+        IF(Steps[_i].Execute(Sequencer, 'Restore')) THEN
+            IF(AxoIndraDrive_.RestoreTask.Invoke().IsDone()) THEN                
+                Sequencer.MoveNext();                
+            END_IF;    
+        END_IF;
     END_METHOD
-    
     //</Usage>
 END_CLASS
