@@ -9,10 +9,24 @@ Persistent data exchange allows the grouping of multiple primitive variables or 
 
 ### Label the requested variable as Persistent
 
-Anywhere in the structured code, use the persistent attribute `Persistent("PersistentGroupName")` to mark a variable as persistent.
+Anywhere in the structured code, use the persistent attribute `AXOpen.Data.PersistentAttribute("PersistentGroupName")` to mark a variable as persistent.
 
 [!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=PersistentAttribute)]
 
+### AX Snippet for attribute
+
+```
+ "attritubePersistentProperty":
+    {
+        "prefix": ["attPersistent","persistent"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[AXOpen.Data.PersistentAttribute(\"\")]}",
+        "$0"
+        ],
+    "description": "The variable will be flagged as persistent, and the persistent data exchange will handle CRUD operations."
+    }
+```
 ### Create an instance of the exchange manager
 
 Create an instance of the manager and call it in the Context.
