@@ -487,10 +487,12 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         {Test}
         METHOD PUBLIC execution_of_the_invoked_task_should_start_when_execute_is_called_after_invoke_in_the_same_PLC_cycle
             THIS.Initialize();
+            _context.Open();
             myTask.Invoke();
             Assert.Equal(TRUE,THIS.Equal(eAxoTaskState#Kicking,myTask.GetState()));
             Assert.Equal(TRUE ,myTask.Execute());
             Assert.Equal(TRUE,THIS.Equal(eAxoTaskState#Busy,myTask.GetState()));
+            _context.Close();
         END_METHOD        
 
         {Test}
@@ -869,6 +871,31 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             myTask.Execute();
             Assert.Equal(FALSE, myTask.IsBusy());
             Assert.Equal(TRUE, myTask.HasError());
-        END_METHOD        
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC task_should_continue_after_multiple_execute_method_call_in_one_plc_cycle_when_the_control_is_suspended
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            myTask.Execute();
+            myTask.SetSuspendMultipleExecuteCallCheck(TRUE);
+            Assert.Equal(TRUE, myTask.IsBusy());
+            Assert.Equal(FALSE, myTask.HasError());
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.IsBusy());
+            Assert.Equal(FALSE, myTask.HasError());
+        END_METHOD    
+        
+        {Test}
+        METHOD PUBLIC control_of_the_multiple_execute_call_should_not_be_suspended_by_default
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            Assert.Equal(FALSE, myTask.GetSuspendMultipleExecuteCallCheckState());
+        END_METHOD   
     END_CLASS
 END_NAMESPACE

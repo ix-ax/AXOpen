@@ -85,6 +85,7 @@ NAMESPACE AXOpen.Core
             {#ix-set:MessageText = "<#Execute method is called more then once inside one PLC cycle.#>"}
             {#ix-set:Help = "<#Check task calling in the code, task is called more then once.#>"}
             _MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger;  
+            _SuspendMultipleExecuteCallCheck : BOOL :=  FALSE;
         END_VAR 
         
         ///<summary>
@@ -211,6 +212,36 @@ NAMESPACE AXOpen.Core
         METHOD PUBLIC IsFirstExecutionCycle : BOOL 
             IsFirstExecutionCycle := _isFirstExecutionCycle; 
         END_METHOD   
+
+        ///<summary>
+        /// Sets the flag to suspend or resume multiple execute check operations.
+        ///</summary>
+        ///<param name="Suspend">A boolean value indicating whether multiple execute check operations should be suspended (TRUE) or resumed (FALSE).</param>
+        ///<remarks>
+        /// This method allows dynamic control over the multiple execute check operations.
+        /// When suspended (TRUE), the system stops processing multiple execute check operations.
+        /// When resumed (FALSE), the system resumes processing multiple execute check operations.
+        ///</remarks>
+        METHOD PUBLIC SetSuspendMultipleExecuteCallCheck
+            VAR_INPUT
+                Suspend : BOOL; // Input parameter to suspend or resume multiple execute check operations.
+            END_VAR
+            _SuspendMultipleExecuteCallCheck := Suspend; // Assign the input value to the variable.
+        END_METHOD
+
+        ///<summary>
+        /// Retrieves the current state of the flag indicating whether multiple execute check operations are suspended or resumed.
+        ///</summary>
+        ///<returns>A boolean value indicating whether multiple execute check operations are suspended (TRUE) or resumed (FALSE).</returns>
+        ///<remarks>
+        /// This method provides the current state of the flag controlling multiple execute check operations.
+        /// It returns TRUE if multiple execute check operations are suspended, indicating that processing is halted.
+        /// It returns FALSE if multiple execute check operations are resumed, allowing normal processing to occur.
+        ///</remarks>
+        METHOD PUBLIC GetSuspendMultipleExecuteCallCheckState : BOOL
+            GetSuspendMultipleExecuteCallCheckState := _SuspendMultipleExecuteCallCheck; // Returns the current state of the flag.
+        END_METHOD
+
 
         ///<summary>
         /// Returns true when the `Invoke() method of the task is called in this PLC cycle
@@ -393,11 +424,13 @@ NAMESPACE AXOpen.Core
             _MultipleExecuteIsCalled.Serve(THIS);
 
             _openCycleCount :=  _context_.OpenCycleCount();
-            IF _openCycleCountExecute = _openCycleCount THEN
-                _MultipleExecuteIsCalled.Activate(eAxoMessageCategory#ProgrammingError);
-                Status := eAxoTaskState#Error;
+            IF NOT _SuspendMultipleExecuteCallCheck THEN
+                IF _openCycleCountExecute = _openCycleCount THEN
+                    _MultipleExecuteIsCalled.Activate(eAxoMessageCategory#ProgrammingError);
+                    Status := eAxoTaskState#Error;
+                END_IF;
             END_IF;
-            _openCycleCountExecute := _openCycleCount;
+        _openCycleCountExecute := _openCycleCount;
                 
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,
