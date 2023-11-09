@@ -1,0 +1,22 @@
+﻿@page "/TestingPersistentData"
+@using AXOpen.Base.Dialogs;
+@using AXOpen.Data;
+@using librarytemplate
+@inject AuthenticationStateProvider _authenticationProvider
+@inject IAlertDialogService _alertDialogService
+
+<PageTitle>TestingPersistentData</PageTitle>
+
+<h2>Command</h2>
+<ul class="list-group">
+    <li class="list-group-item">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.ManagerUsage" Presentation="Command-Control" />
+    </li> 
+    <li class="list-group-item">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation" Presentation="Command" />
+    </li>
+</ul>
+
+<h2>Persistent root object</h2>
+<RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.PersistentRootObject" Presentation="Control" />
+

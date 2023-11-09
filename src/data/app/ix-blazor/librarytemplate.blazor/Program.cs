@@ -45,7 +45,10 @@ AxoApplication.CreateBuilder().ConfigureLogger(new SerilogLogger(new LoggerConfi
 
 //<SetUpAxoDataPersistentExchange>
 var persistentRepository = new InMemoryRepositorySettings<AXOpen.Data.PersistentRecord>().Factory();
-Entry.Plc.AxoDataPersistentExchangeManager.InitializeRemoteDataExchange( Entry.Plc.Connector, persistentRepository);
+Entry.Plc.AxoDataPersistentContext.DataManager.InitializeRemoteDataExchange( 
+        Entry.Plc.AxoDataPersistentContext.PersistentRootObject, 
+        persistentRepository
+        );
 //</SetUpAxoDataPersistentExchange>
 
 
