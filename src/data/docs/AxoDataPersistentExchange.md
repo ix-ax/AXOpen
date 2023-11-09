@@ -1,27 +1,33 @@
 # AxoDataPersistentExchange
 
-Persistent data exchange allows grouping of multiple primitive variables or properties assigned by an attribute into tag lists, on which repository operations can be performed.
+Persistent data exchange allows the grouping of multiple primitive variables or properties assigned by an attribute into tag lists, on which repository operations can be performed.
+
+> [!IMPORTANT]
+> The main goal is to store the values of selected variables that are not on the same level in the program structure. It is important to retain them in case of a program restart. Therefore, this storage is suitable for scenarios such as remembering "only the Identifier" of process data settings or technology data, which can be loaded from another repository or source at startup.
 
 ## Getting started
 
-### Label requested variable as a Persistent
+### Label the requested variable as Persistent
 
-Anywhere in the structured code, use the persistent attribute "Persistent("PersistentGroupName")" to mark a variable as persistent.
+Anywhere in the structured code, use the persistent attribute `Persistent("PersistentGroupName")` to mark a variable as persistent.
 
 [!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=PersistentAttribute)]
 
-### Make instance of Persistent exchange manager
+### Create an instance of the exchange manager
 
-Create instance of the manager and call it in the Context.
+Create an instance of the manager and call it in the Context.
 
 [!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=ContextDeclaration)]
 
 > [!NOTE]
-> Note that you can use multiple instance of persistent manager, that can operate on different root object that is initialized on .net side.
+> Note that you can use multiple instances of the persistent manager, which can operate on different root objects that are initialized on the .NET side.
 
 ### Usage in the controller
 
-In the case of saving, call the Update() method in the PLC, and in the case of loading, call the Read() method.
+In the case of saving, call the `Update()` method in the PLC, and in the case of loading, call the `Read()` method.
+
+> [!WARNING]
+> If the record does not exist, the loading task will end with an error. Therefore, it is necessary to ensure that the record exists, either by manual saving or by generating a new record.
 
 [!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=Usage)]
 
@@ -29,6 +35,6 @@ In the case of saving, call the Update() method in the PLC, and in the case of l
 
 At this point, we have everything ready in the PLC.
 
-An instance of Persistent Manager requires additional parameters for initialization. It needs to set up a repository where the data will be saved. The next parameter is the root object of the PLC tree, from which it starts collecting persistent variables.
+An instance of the Persistent Manager requires additional parameters for initialization. It needs to set up a repository where the data will be saved. The next parameter is the root object of the PLC tree from which it begins collecting persistent variables.
 
 [!code-csharp[](../app/ix-blazor/librarytemplate.blazor/Program.cs?name=SetUpAxoDataPersistentExchange)]

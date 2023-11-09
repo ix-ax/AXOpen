@@ -1,15 +1,12 @@
 ﻿using AXOpen.Base.Data;
 using AXSharp.Connector;
-using System;
-using System.Collections.Generic;
 
 namespace AXOpen.Data
 {
     public partial class AxoDataPersistentExchange
     {
-
         /// <summary>
-        /// ROOT OBJECT 
+        /// ROOT OBJECT
         /// </summary>
         private ITwinObject _root;
 
@@ -24,12 +21,28 @@ namespace AXOpen.Data
         private Dictionary<string, List<ITwinPrimitive>> tagsInGroups = new();
 
         /// <summary>
+        /// Gets the list of collected group names from the tags grouped by their assigned groups.
+        /// </summary>
+        public List<string> CollectedGroups
+        {
+            get
+            {
+                return tagsInGroups.Keys.ToList();
+            }
+        }
+
+        /// <summary>
         /// repository that stored tag values
         /// </summary>
         private IRepository<PersistentRecord> Repository;
 
         #region ReadWrite to/from controller/PLC
 
+        /// <summary>
+        /// Reads tags from the PLC for a given group.
+        /// </summary>
+        /// <param name="group">The name of the group to read tags for.</param>
+        /// <returns>Returns true if the read operation is successful; otherwise, false.</returns>
         private async Task<bool> ReadTagsFromPlc(string group)
         {
             var tagsToRead = tagsInGroups[group];
@@ -44,6 +57,11 @@ namespace AXOpen.Data
             }
         }
 
+        /// <summary>
+        /// Writes a batch of tag values to the PLC.
+        /// </summary>
+        /// <param name="primitives">The list of primitive tags to write.</param>
+        /// <returns>Returns true if the write operation is successful; otherwise, false.</returns>
         private async Task<bool> WriteTags(List<ITwinPrimitive> primitives)
         {
             await _root.GetConnector().WriteBatchAsync(primitives);
@@ -53,7 +71,13 @@ namespace AXOpen.Data
         #endregion ReadWrite to/from controller/PLC
 
         #region Main Handling Method - Read Write
-        private async Task<bool> WritePersistentGroupFromRepository(string group)
+
+        /// <summary>
+        /// Writes a persistent group of tags from the repository to the PLC.
+        /// </summary>
+        /// <param name="group">The group name of the tags to be written.</param>
+        /// <returns>Returns true if the write operation is successful; otherwise, false.</returns>
+        public async Task<bool> WritePersistentGroupFromRepository(string group)
         {
             var recordFromRepo = Repository.Read(group);
 
@@ -78,7 +102,12 @@ namespace AXOpen.Data
             return true;
         }
 
-        private async Task<bool> UpdatePersistentGroupToRepository(string persistentGroupName)
+        /// <summary>
+        /// Updates a persistent group of tags to the repository after reading from the PLC.
+        /// </summary>
+        /// <param name="persistentGroupName">The group name of the persistent tags to be updated.</param>
+        /// <returns>Returns true if the update operation is successful; otherwise, false.</returns>
+        public async Task<bool> UpdatePersistentGroupToRepository(string persistentGroupName)
         {
             await ReadTagsFromPlc(persistentGroupName);
 
@@ -106,7 +135,7 @@ namespace AXOpen.Data
                 {
                     var TagsFromRepository = recordFromRepository.Tags.Where(p => p.Symbol == newtagValue.Symbol);
 
-                    if (TagsFromRepository.Count() != 1)    
+                    if (TagsFromRepository.Count() != 1)
                     {
                         recordFromRepository.Tags.RemoveAll(t => t.Symbol == newtagValue.Symbol);
                         recordFromRepository.Tags.Add(newtagValue);
@@ -149,14 +178,16 @@ namespace AXOpen.Data
 
             return true;
         }
-        #endregion
+
+        #endregion Main Handling Method - Read Write
 
         #region Data Exchange Implementation
 
         /// <summary>
-        ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
+        /// Initializes the remote data exchange by setting up the persistent root object and repository.
         /// </summary>
-        /// <param name="repository">Repository to be associated with this <see cref="AxoDataExchange{TOnline,TPlain}" /></param>
+        /// <param name="persistetnRootObject">The root object for the data exchange.</param>
+        /// <param name="repository">The repository to store the persistent records.</param>
         public async Task InitializeRemoteDataExchange(ITwinObject persistetnRootObject, IRepository<PersistentRecord> repository)
         {
             this._root = persistetnRootObject;
@@ -168,7 +199,7 @@ namespace AXOpen.Data
         }
 
         /// <summary>
-        ///     Initializes data exchange between remote controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
+        /// Performs the actual initialization of the remote data exchange.
         /// </summary>
         public async Task InitializeRemoteDataExchange()
         {
@@ -177,7 +208,7 @@ namespace AXOpen.Data
         }
 
         /// <summary>
-        ///     Terminates data exchange between controller and this <see cref="AxoDataExchange{TOnline,TPlain}" />
+        /// Deinitializes the remote data exchange.
         /// </summary>
         public async Task DeInitializeRemoteDataExchange()
         {
@@ -237,7 +268,7 @@ namespace AXOpen.Data
             return Repository.Exists(identifier);
         }
 
-        #endregion dataExchangeImplementation
+        #endregion Data Exchange Implementation
 
         #region Collect persistent tags
 
