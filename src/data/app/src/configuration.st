@@ -6,5 +6,6 @@ CONFIGURATION MyConfiguration
     VAR_GLOBAL
         AxoDataExchangeManager : AxoDataExchangeExample.AxoProcessDataManager;
         AxoDataFramentsExchangeManager : AxoDataFramentsExchangeExample.AxoProcessDataManager;
+        AxoDataPersistentContext : AxoDataPersistentExchangeExample.Context;
     END_VAR
 END_CONFIGURATION
