@@ -55,9 +55,14 @@ NAMESPACE AXOpen.Elements
                 inoSignal: BOOL;
             END_VAR
 
-            THIS.Initialize(context);
-            _setTask.Initialize(THIS);
-            _resetTask.Initialize(THIS);
+            IF (context = NULL) THEN RETURN; END_IF;
+
+            IF THIS._context_ = NULL THEN
+                THIS.Initialize(context);
+                _setTask.Initialize(THIS);
+                _resetTask.Initialize(THIS);
+            end_if;
+
             _messengerInfoPositive.Serve(THIS); 
             _messengerInfoNegative.Serve(THIS); 
 

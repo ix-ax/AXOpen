@@ -7,6 +7,8 @@ NAMESPACE AxoIO.Tests
         VAR
             _openCounter : ULINT;
             _closeCounter : ULINT; 
+            _RtcMock : AxoRtcMock;
+            _LoggerMock : AxoLoggerMock;
         END_VAR
             
         METHOD PUBLIC Open : ULINT
@@ -26,7 +28,7 @@ NAMESPACE AxoIO.Tests
         END_METHOD
 
         METHOD PUBLIC GetRtc : AXOpen.Rtc.IAxoRtc
-            ;
+            GetRtc :=  _RtcMock;
         END_METHOD
 
         METHOD PUBLIC InjectRtc
@@ -38,7 +40,7 @@ NAMESPACE AxoIO.Tests
         END_METHOD
 
         METHOD PUBLIC GetLogger : IAxoLogger
-            ;
+            GetLogger := _LoggerMock;
         END_METHOD
 
         METHOD PUBLIC InjectLogger

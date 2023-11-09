@@ -2,12 +2,18 @@ USING AXOpen.Logging;
 USING AXOpen.Core;
 
 NAMESPACE AXOpen.Messaging.Static    
+
+    TYPE
+        eAxoMessengerState : (Idle, ActiveNoAck, ActiveAckn, NotActiveWatingAckn);
+    END_TYPE
+
     {#ix-prop: public string MessageText }
     {#ix-prop: public string Help }
     {#ix-prop: public string PlcTextList }
     CLASS AxoMessenger EXTENDS AxoObject IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties        
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[CompilerOmits()]} 
             IsActive : BOOL;
             {#ix-attr:[ReadOnly()]}
             Category : eAxoMessageCategory;           
@@ -18,14 +24,18 @@ NAMESPACE AXOpen.Messaging.Static
             {#ix-attr:[ReadOnly()]}
             Fallen : LDATE_AND_TIME;
             {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[CompilerOmits()]} 
             WaitingForAcknowledge : BOOL;
             {#ix-attr:[ReadOnly()]}
+            {#ix-attr:[CompilerOmits()]} 
             AcknowledgementRequired : BOOL;
             AcknowledgeRequest : BOOL;
             {#ix-attr:[ReadOnly()]}
             AcknowledgedBeforeFallen : BOOL;
             {#ix-attr:[ReadOnly()]}
-            Acknowledged : LDATE_AND_TIME;            
+            Acknowledged : LDATE_AND_TIME; 
+            {#ix-attr:[ReadOnly()]}
+            MessengerState : eAxoMessengerState; 
         END_VAR
 
         VAR PRIVATE
@@ -41,11 +51,20 @@ NAMESPACE AXOpen.Messaging.Static
                 _context : IAxoContext;
             END_VAR     
 
-            IF AXOpen.Core.IsNullContext(_context) THEN
-                RETURN;
+            IF  _context_ = null THEN  
+                IF _context = NULL THEN
+                    RETURN;
+                END_IF;
+
+                THIS.Initialize(_context);
+                Context := _context; // Duplicity!!!
             END_IF;
 
-            Context := _context;
+            THIS.MessengerState := eAxoMessengerState#Idle;
+            
+            IF THIS.IsActive THEN
+                THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
+            END_IF;
 
             IF MessageCode = ULINT#0 THEN
                 IF IsActive THEN
@@ -54,11 +73,17 @@ NAMESPACE AXOpen.Messaging.Static
                     END_IF;
                 ELSIF AcknowledgedBeforeFallen THEN
                     AcknowledgedBeforeFallen := FALSE;
-                END_IF;
+                    THIS.MessengerState := eAxoMessengerState#ActiveAckn;       
+                END_IF;                
                 IF AcknowledgeRequest THEN
-                    THIS.Acknowledge();
+                    THIS.Acknowledge();                    
                 END_IF;
             END_IF;
+
+            IF(THIS.WaitingForAcknowledge) THEN
+                THIS.MessengerState := eAxoMessengerState#NotActiveWatingAckn;  
+            END_IF;                     
+            
         END_METHOD
         
         ///<summary>
@@ -69,13 +94,39 @@ NAMESPACE AXOpen.Messaging.Static
                 _object : IAxoObject;
             END_VAR  
         
-            IF AXOpen.Core.IsNullContext(_object.GetContext()) THEN
-                RETURN;
+            IF  _context_ = null THEN  
+                IF _object.GetContext() = NULL THEN
+                    RETURN;
+                END_IF;
+
+                THIS.Initialize(_object);
+                Context := _context_; // Duplicity!!!
             END_IF;
 
-            THIS.Initialize(_object);
+            THIS.MessengerState := eAxoMessengerState#Idle;
+            
+            IF THIS.IsActive THEN
+                THIS.MessengerState := eAxoMessengerState#ActiveNoAck;                 
+            END_IF;
 
-            THIS.Serve(_object.GetContext());                       
+            IF MessageCode = ULINT#0 THEN
+                IF IsActive THEN
+                    IF Context.OpenCycleCount() - ActiveContextCount > UINT#1 THEN
+                        THIS.Deactivate();
+                    END_IF;
+                ELSIF AcknowledgedBeforeFallen THEN
+                    AcknowledgedBeforeFallen := FALSE;
+                    THIS.MessengerState := eAxoMessengerState#ActiveAckn;       
+                END_IF;                
+                IF AcknowledgeRequest THEN
+                    THIS.Acknowledge();                    
+                END_IF;
+            END_IF;
+
+            IF(THIS.WaitingForAcknowledge) THEN
+                THIS.MessengerState := eAxoMessengerState#NotActiveWatingAckn;  
+            END_IF; 
+            
         END_METHOD
 
         ///<summary>
@@ -88,7 +139,7 @@ NAMESPACE AXOpen.Messaging.Static
 
             Activate := THIS;
             
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
             
@@ -121,7 +172,7 @@ NAMESPACE AXOpen.Messaging.Static
 
             Activate := THIS;
             
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
             
@@ -195,35 +246,39 @@ NAMESPACE AXOpen.Messaging.Static
                 _messageCode : ULINT;
             END_VAR
 
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 
-            IF IsActive AND MessageCode = _messageCode THEN
-                IsActive := FALSE;
-                ActiveContextCount := ULINT#0;
-                Fallen := Context.GetRtc().NowUTC();                
-                Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
-                IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
-                    WaitingForAcknowledge := TRUE;
-                ELSE
-                    MessageCode := ULINT#0;
+            IF IsActive THEN 
+                IF  MessageCode = _messageCode THEN
+                    IsActive := FALSE;
+                    ActiveContextCount := ULINT#0;
+                    Fallen := Context.GetRtc().NowUTC();                
+                    Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
+                    IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
+                        WaitingForAcknowledge := TRUE;
+                    ELSE
+                        MessageCode := ULINT#0;
+                    END_IF;
                 END_IF;
             END_IF;
         END_METHOD   
 
         METHOD PRIVATE Deactivate
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 
-            IF IsActive AND MessageCode = ULINT#0 THEN
-                IsActive := FALSE;
-                ActiveContextCount := ULINT#0;
-                Fallen := Context.GetRtc().NowUTC();                
-                Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
-                IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
-                    WaitingForAcknowledge := TRUE;
+            IF IsActive THEN 
+                IF MessageCode = ULINT#0 THEN
+                    IsActive := FALSE;
+                    ActiveContextCount := ULINT#0;
+                    Fallen := Context.GetRtc().NowUTC();                
+                    Context.GetLogger().Log('Fallen', eLogLevel#Information, THIS);
+                    IF AcknowledgementRequired AND NOT AcknowledgedBeforeFallen THEN
+                        WaitingForAcknowledge := TRUE;
+                    END_IF;
                 END_IF;
             END_IF;
         END_METHOD   
@@ -232,7 +287,7 @@ NAMESPACE AXOpen.Messaging.Static
             VAR_INPUT
                 _messageCode : ULINT;
             END_VAR
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 
@@ -253,7 +308,7 @@ NAMESPACE AXOpen.Messaging.Static
         END_METHOD    
 
         METHOD PRIVATE Acknowledge
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 
@@ -275,7 +330,7 @@ NAMESPACE AXOpen.Messaging.Static
         /// Restores all members of this instance to their initial states.
         ///</summary>
         METHOD PUBLIC Restore
-            IF AXOpen.Core.IsNullContext(Context) THEN
+            IF Context = NULL THEN
                 RETURN;
             END_IF;
 

@@ -46,7 +46,7 @@ NAMESPACE AXOpen.Data
         CLASS AxoDataExchangeTask_Tests
             VAR PROTECTED
                 _context : TestContext;
-                _dataExchangeTask : AxoDataExchangeTask;
+                _dataExchangeTask : AxoDataCrudTask;
             END_VAR    
 
             {Test}

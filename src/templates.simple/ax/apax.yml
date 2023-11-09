@@ -1,0 +1,62 @@
+name: "axosimple"
+version: '0.0.0-dev.0'
+type: app
+targets:
+  - plcsim
+  # - swcpu 
+  - "1500"
+  - axunit-llvm
+registries:
+  '@ix-ax': https://npm.pkg.github.com/
+devDependencies:
+  "@ax/sdk": 4.0.12
+  "@ax/sld": ^0.15.9
+dependencies:
+  "@ix-ax/axopen.data": '0.0.0-dev.0'
+  "@ix-ax/axopen.inspectors": '0.0.0-dev.0' 
+  "@ix-ax/axopen.components.pneumatics": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.elements": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.cognex.vision": '0.0.0-dev.0'
+  "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'    
+variables:
+  APAX_BUILD_ARGS: [-d]
+  # Uncomment if you want overrite system variables
+  # AXTARGET: 10.10.10.116
+  # AXTARGETPLATFORMINPUT: './bin/plcsim/'
+scripts:
+  ixc:
+    - dotnet tool restore --no-cache
+    - dotnet ixc
+    - dotnet ixr
+  postbuild: apax ixc
+  push:
+    - apax build
+    - apax download
+  build:
+    - apax install
+    - apax build     
+  addunit : |
+    while [ -z "$unitname" ]; do
+      echo "Enter the unit name (mandatory):"
+      echo "ATTENTION: The name must start with upper-case letter, no space and no special characters. The name must comply with legal type name for AX"
+      read unitname
+    done
+   
+    dotnet new install ./src/templates/unit/ --force
+    # Execute the dotnet new command with the provided class name
+    dotnet new axosimple_unit --unitname=$unitname  -o ./src/$unitname 
+    
+    # Move twin files to twin project 
+    mkdir -p ../axpansion/twin/Context/Units/
+    mv  ./src/$unitname/twin/*.cs ../axpansion/twin/Context/Units/
+    rm -rf ./src/$unitname/twin/
+
+    # Move server files to server project 
+    mkdir -p ../axpansion/server/Pages/Context/Units/
+    mv  ./src/$unitname/server/*.* ../axpansion/server/Pages/Context/Units/
+    rm -rf ./src/$unitname/server/
+  download:
+    # Here you will need to set the argumen -t to your plc IP and -i to platfrom you are dowloading to
+    # --default-server-interface is a must if you are using WebAPI          
+    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface --log Trace
+  

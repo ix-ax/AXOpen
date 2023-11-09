@@ -13,6 +13,8 @@ namespace axopen_core_tests
     using NSubstitute;
     using AXSharp.Connector;
     using System.Threading.Tasks;
+    using Xunit.Abstractions;
+    using Microsoft.VisualStudio.TestPlatform.Utilities;
 
     public class AxoLoggerTests
     {
@@ -21,13 +23,16 @@ namespace axopen_core_tests
         private string _readableTail;
         private string _symbolTail;
 
-        public AxoLoggerTests()
+        private readonly ITestOutputHelper _output;
+
+        public AxoLoggerTests(ITestOutputHelper output)
         {
             _parent = Substitute.For<ITwinObject>();
             _parent.GetConnector().Returns(ConnectorAdapterBuilder.Build().CreateDummy().GetConnector(null));
             _readableTail = "TestValue1128568445";
             _symbolTail = "TestValue807960868";
             _testClass = new AxoLogger(_parent, _readableTail, _symbolTail);
+            _output = output;
         }
 
         [Fact]
@@ -50,8 +55,11 @@ namespace axopen_core_tests
                 await _testClass.LogEntries[0].ToDequeue.SetAsync(true);
                 await _testClass.LogEntries[0].Level.SetAsync((short)level);
                 await _testClass.LogEntries[0].Sender.SetAsync((ulong)0);
+                await _testClass.Carret.SetAsync(1);
                 // Act
                 await _testClass.Dequeue();
+
+                _output.WriteLine($"this is {level} message");
 
                 // Assert
                 var logger = AxoApplication.Current.Logger as DummyLogger;

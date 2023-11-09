@@ -30,13 +30,7 @@ namespace AXOpen.Core
                 PolledElements.Add(axoComponent._isManuallyControllable);
             }
 
-            Messengers?.Select(p => p.IsActive).ToList().ForEach(messenger =>
-            {
-                messenger.StartPolling(1500, this);
-                PolledElements.Add(messenger);
-            });
-
-            Messengers?.Select(p => p.WaitingForAcknowledge).ToList().ForEach(messenger =>
+            Messengers?.Select(p => p.MessengerState).ToList().ForEach(messenger =>
             {
                 messenger.StartPolling(1500, this);
                 PolledElements.Add(messenger);
@@ -108,7 +102,7 @@ namespace AXOpen.Core
 
         protected override async Task OnInitializedAsync()
         {
-            var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.IsActive, p.WaitingForAcknowledge });
+            var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.MessengerState });
             var connector = Messengers?.FirstOrDefault()?.GetConnector();
             if (connector != null)
             {
@@ -129,7 +123,7 @@ namespace AXOpen.Core
                 var _messengers = Messengers?.ToList();
                 if (_messengers == null) { return eAlarmLevel.NoAlarms; }
                 
-                if (_messengers.Any(p => p.IsActive.Cyclic))
+                if (_messengers.Any(p => p.State > eAxoMessengerState.Idle))
                 {
                                      
                     var seriousness = (eAxoMessageCategory)_messengers.Max(p => p.Category.LastValue);
@@ -141,7 +135,7 @@ namespace AXOpen.Core
                     else if (seriousness <= eAxoMessageCategory.Error)
                         return eAlarmLevel.ActiveErrors;
                 }
-                else if (_messengers.Any(p => p.WaitingForAcknowledge.LastValue))
+                else if (_messengers.Any(p => p.State > eAxoMessengerState.NotActiveWatingAckn))
                 {
                     return eAlarmLevel.Unacknowledged;
                 }

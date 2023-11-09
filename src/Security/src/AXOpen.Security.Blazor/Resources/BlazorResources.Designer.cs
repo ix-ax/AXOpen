@@ -205,7 +205,7 @@ namespace AXOpen.Security.Blazor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to delete group.
+        ///   Looks up a localized string similar to Do you want to delete group?.
         /// </summary>
         internal static string Do_you_want_to_delete_group {
             get {
@@ -214,7 +214,7 @@ namespace AXOpen.Security.Blazor.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to delete user.
+        ///   Looks up a localized string similar to Do you want to delete user?.
         /// </summary>
         internal static string Do_you_want_to_delete_user {
             get {

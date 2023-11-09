@@ -12,9 +12,9 @@ NAMESPACE AXOpen.Core
             Identity   : ULINT := ULINT#0;                                            
         END_VAR    
 
-        VAR PRIVATE           
+        VAR PROTECTED           
             _parent     : IAxoObject;
-            _context    : IAxoContext;
+            _context_    : IAxoContext;
         END_VAR  
         
         VAR PRIVATE  
@@ -35,18 +35,25 @@ NAMESPACE AXOpen.Core
         /// Gets context in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetContext : IAxoContext
-            IF(_context <> NULL) THEN
-                GetContext := _context;
+            IF(_context_ <> NULL) THEN
+                GetContext := _context_;
             ELSE
                 GetContext := NULL_CONTEXT;                    
             END_IF;    
         END_METHOD
 
         ///<summary>
+        /// Gets context in which this object was initialized.
+        ///</summary>
+        METHOD PUBLIC GetContextUnsafe : IAxoContext
+            GetContextUnsafe := _context_;
+        END_METHOD
+
+        ///<summary>
         /// Gets parent in which this object was initialized.
         ///</summary>
         METHOD PUBLIC GetParent : IAxoObject
-            IF(_context <> NULL) THEN
+            IF(_context_ <> NULL) THEN
                 GetParent := _parent;
             ELSE
                 GetParent := NULL_OBJECT;    
@@ -64,7 +71,7 @@ NAMESPACE AXOpen.Core
             END_VAR                           
             // CHANGE: Identity is now provided by the higher level application.
             IF(parent <> NULL) THEN
-                _context    := parent.GetContext();                 
+                _context_    := parent.GetContext();                 
                 _parent     := parent;
                 RETURN;                 
             END_IF;            
@@ -81,7 +88,7 @@ NAMESPACE AXOpen.Core
             END_VAR   
             // CHANGE: Identity is now provided by the higher level application.
             IF(context <> NULL) THEN
-                _context    := context;                 
+                _context_    := context;                 
             END_IF;
         END_METHOD       
     END_CLASS    
