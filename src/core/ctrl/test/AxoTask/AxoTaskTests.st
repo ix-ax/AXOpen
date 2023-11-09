@@ -820,6 +820,95 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
         END_METHOD   
 
+        {Test}
+        METHOD PUBLIC task_should_stay_at_busy_state_and_remote_abort_signal_should_be_reseted_as_the_abbility_to_abort_task_is_disabled_by_default
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();
+            myTask.Execute();
+            myTask.RemoteAbort := TRUE;
+            _context.Close();
 
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();
+            myTask.Execute();
+            Assert.Equal(TRUE,myTask.IsBusy());
+            Assert.Equal(FALSE,myTask.RemoteAbort);
+            Assert.Equal(FALSE,myTask.GetRemoteAbortEnabled());
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC task_should_be_aborted
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();
+            myTask.Execute();
+            myTask.SetRemoteAbortEnabled(TRUE);
+            myTask.RemoteAbort := TRUE;
+            _context.Close();
+
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();
+            myTask.Execute();
+            Assert.Equal(TRUE,myTask.IsAborted());
+            Assert.Equal(FALSE,myTask.RemoteAbort);
+            Assert.Equal(TRUE,myTask.GetRemoteAbortEnabled());
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC task_should_be_restored
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();
+            myTask.Execute();
+            myTask.RemoteRestore := TRUE;
+            _context.Close();
+
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();
+            myTask.Execute();
+            Assert.Equal(FALSE,myTask.IsBusy());
+            Assert.Equal(TRUE,myTask.IsReady());
+            Assert.Equal(FALSE,myTask.RemoteAbort);
+            Assert.Equal(TRUE,myTask.GetRemoteRestoreEnabled());
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC task_should_not_be_restored_as_the_remote_restore_is_disabled
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();
+            myTask.Execute();           
+            myTask.SetRemoteRestoreEnabled(FALSE);
+            myTask.RemoteRestore := TRUE;
+            _context.Close();
+
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();
+            myTask.Execute();
+            Assert.Equal(TRUE,myTask.IsBusy());
+            Assert.Equal(FALSE,myTask.IsReady());
+            Assert.Equal(FALSE,myTask.RemoteAbort);
+            Assert.Equal(FALSE,myTask.GetRemoteRestoreEnabled());
+        END_METHOD   
+
+        {Test}
+        METHOD PUBLIC task_should_not_be_remotely_abortable_by_default
+            THIS.Initialize();
+            _context.Open();
+            Assert.Equal(FALSE,myTask.GetRemoteAbortEnabled());
+        END_METHOD  
+
+        {Test}
+        METHOD PUBLIC task_should_be_remotely_restorable_by_default
+            THIS.Initialize();
+            _context.Open();
+            Assert.Equal(TRUE,myTask.GetRemoteRestoreEnabled());
+            // Assert.Equal(TRUE,FALSE);
+        END_METHOD  
     END_CLASS
 END_NAMESPACE
