@@ -1,0 +1,73 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoBoolArray
+  id: plc.AXOpen.Core.AxoBoolArray
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoBoolArray.DataChanged
+  - plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  name: AxoBoolArray
+  fullName: AxoBoolArray
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoBoolArray
+    path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoBoolArray
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Core.AxoBoolArray.DataChanged
+  id: plc.AXOpen.Core.AxoBoolArray.DataChanged
+  parent: AXOpen.Core
+  children: []
+  name: DataChanged
+  fullName: DataChanged
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoBoolArray.DataChanged
+    path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'DataChanged : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  id: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag()
+  parent: AXOpen.Core.AxoBoolArray
+  children: []
+  name: ToggleDataChangedFlag
+  fullName: ToggleDataChangedFlag
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoBoolArray.ToggleDataChangedFlag
+    path: .\src\core\ctrl\src\AxoArrays\AxoBoolArray.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID ToggleDataChangedFlag()
+    parameters: []
+    return:
+      type: VOID
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

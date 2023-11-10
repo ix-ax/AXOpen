@@ -1,0 +1,78 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.eAxoSequenceMode
+  id: plc.AXOpen.Core.eAxoSequenceMode
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.eAxoSequenceMode.None
+  - plc.AXOpen.Core.eAxoSequenceMode.RunOnce
+  - plc.AXOpen.Core.eAxoSequenceMode.Cyclic
+  name: eAxoSequenceMode
+  fullName: eAxoSequenceMode
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSequenceMode.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoSequenceMode
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSequenceMode.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'eAxoSequenceMode : INT'
+- uid: plc.AXOpen.Core.eAxoSequenceMode.None
+  id: plc.AXOpen.Core.eAxoSequenceMode.None
+  parent: AXOpen.Core
+  children: []
+  name: None := 0
+  fullName: None
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSequenceMode.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoSequenceMode.None
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSequenceMode.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoSequenceMode.RunOnce
+  id: plc.AXOpen.Core.eAxoSequenceMode.RunOnce
+  parent: AXOpen.Core
+  children: []
+  name: RunOnce := 1
+  fullName: RunOnce
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSequenceMode.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoSequenceMode.RunOnce
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSequenceMode.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoSequenceMode.Cyclic
+  id: plc.AXOpen.Core.eAxoSequenceMode.Cyclic
+  parent: AXOpen.Core
+  children: []
+  name: Cyclic := 2
+  fullName: Cyclic
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSequenceMode.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoSequenceMode.Cyclic
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSequenceMode.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

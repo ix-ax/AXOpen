@@ -1,0 +1,78 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoCoordinatorStates
+  id: plc.AXOpen.Core.AxoCoordinatorStates
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoCoordinatorStates.Idle
+  - plc.AXOpen.Core.AxoCoordinatorStates.Configuring
+  - plc.AXOpen.Core.AxoCoordinatorStates.Running
+  name: AxoCoordinatorStates
+  fullName: AxoCoordinatorStates
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoCoordinatorStates
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'AxoCoordinatorStates : INT'
+- uid: plc.AXOpen.Core.AxoCoordinatorStates.Idle
+  id: plc.AXOpen.Core.AxoCoordinatorStates.Idle
+  parent: AXOpen.Core
+  children: []
+  name: Idle := 0
+  fullName: Idle
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoCoordinatorStates.Idle
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.AxoCoordinatorStates.Configuring
+  id: plc.AXOpen.Core.AxoCoordinatorStates.Configuring
+  parent: AXOpen.Core
+  children: []
+  name: Configuring := 1
+  fullName: Configuring
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoCoordinatorStates.Configuring
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.AxoCoordinatorStates.Running
+  id: plc.AXOpen.Core.AxoCoordinatorStates.Running
+  parent: AXOpen.Core
+  children: []
+  name: Running := 2
+  fullName: Running
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoCoordinatorStates.Running
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoCoordinatorStates.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

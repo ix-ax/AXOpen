@@ -1,0 +1,146 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.eInspectorResult
+  id: plc.AXOpen.Inspectors.eInspectorResult
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.eInspectorResult.NoAction
+  - plc.AXOpen.Inspectors.eInspectorResult.Running
+  - plc.AXOpen.Inspectors.eInspectorResult.Passed
+  - plc.AXOpen.Inspectors.eInspectorResult.Failed
+  - plc.AXOpen.Inspectors.eInspectorResult.Inconclusive
+  - plc.AXOpen.Inspectors.eInspectorResult.Excluded
+  - plc.AXOpen.Inspectors.eInspectorResult.Bypassed
+  name: eInspectorResult
+  fullName: eInspectorResult
+  type: Enum
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.eInspectorResult
+    path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+    startLine: 2
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'eInspectorResult : INT'
+- uid: plc.AXOpen.Inspectors.eInspectorResult.NoAction
+  id: plc.AXOpen.Inspectors.eInspectorResult.NoAction
+  parent: AXOpen.Inspectors
+  children: []
+  name: NoAction := 0
+  fullName: NoAction
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.eInspectorResult.NoAction
+    path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+    startLine: 3
+  namespace: plc.AXOpen.Inspectors
+- uid: plc.AXOpen.Inspectors.eInspectorResult.Running
+  id: plc.AXOpen.Inspectors.eInspectorResult.Running
+  parent: AXOpen.Inspectors
+  children: []
+  name: Running := 10
+  fullName: Running
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.eInspectorResult.Running
+    path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+    startLine: 4
+  namespace: plc.AXOpen.Inspectors
+- uid: plc.AXOpen.Inspectors.eInspectorResult.Passed
+  id: plc.AXOpen.Inspectors.eInspectorResult.Passed
+  parent: AXOpen.Inspectors
+  children: []
+  name: Passed := 20
+  fullName: Passed
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.eInspectorResult.Passed
+    path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+    startLine: 5
+  namespace: plc.AXOpen.Inspectors
+- uid: plc.AXOpen.Inspectors.eInspectorResult.Failed
+  id: plc.AXOpen.Inspectors.eInspectorResult.Failed
+  parent: AXOpen.Inspectors
+  children: []
+  name: Failed := 30
+  fullName: Failed
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.eInspectorResult.Failed
+    path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+    startLine: 6
+  namespace: plc.AXOpen.Inspectors
+- uid: plc.AXOpen.Inspectors.eInspectorResult.Inconclusive
+  id: plc.AXOpen.Inspectors.eInspectorResult.Inconclusive
+  parent: AXOpen.Inspectors
+  children: []
+  name: Inconclusive := 35
+  fullName: Inconclusive
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.eInspectorResult.Inconclusive
+    path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+    startLine: 7
+  namespace: plc.AXOpen.Inspectors
+- uid: plc.AXOpen.Inspectors.eInspectorResult.Excluded
+  id: plc.AXOpen.Inspectors.eInspectorResult.Excluded
+  parent: AXOpen.Inspectors
+  children: []
+  name: Excluded := 40
+  fullName: Excluded
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.eInspectorResult.Excluded
+    path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+    startLine: 8
+  namespace: plc.AXOpen.Inspectors
+- uid: plc.AXOpen.Inspectors.eInspectorResult.Bypassed
+  id: plc.AXOpen.Inspectors.eInspectorResult.Bypassed
+  parent: AXOpen.Inspectors
+  children: []
+  name: Bypassed := 50
+  fullName: Bypassed
+  type: Field
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.eInspectorResult.Bypassed
+    path: .\src\inspectors\ctrl\src\enums\eInspectorResult.st
+    startLine: 9
+  namespace: plc.AXOpen.Inspectors
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

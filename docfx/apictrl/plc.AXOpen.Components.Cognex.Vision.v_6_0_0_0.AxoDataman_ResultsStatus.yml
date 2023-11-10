@@ -1,0 +1,132 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.Decoding
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.DecodeComplete
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ResultsBufferOverrun
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ResultsAvailable
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ErrorDetected
+  name: AxoDataman_ResultsStatus
+  fullName: AxoDataman_ResultsStatus
+  type: Struct
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: STRUCT AxoDataman_ResultsStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.Decoding
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.Decoding
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Decoding
+  fullName: Decoding
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.Decoding
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Decoding : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.DecodeComplete
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.DecodeComplete
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: DecodeComplete
+  fullName: DecodeComplete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.DecodeComplete
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'DecodeComplete : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ResultsBufferOverrun
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ResultsBufferOverrun
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultsBufferOverrun
+  fullName: ResultsBufferOverrun
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ResultsBufferOverrun
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultsBufferOverrun : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ResultsAvailable
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ResultsAvailable
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultsAvailable
+  fullName: ResultsAvailable
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ResultsAvailable
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultsAvailable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ErrorDetected
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ErrorDetected
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ErrorDetected
+  fullName: ErrorDetected
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus.ErrorDetected
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_ResultsStatus.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ErrorDetected : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

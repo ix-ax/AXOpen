@@ -1,0 +1,423 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Elements.AxoDo
+  id: plc.AXOpen.Elements.AxoDo
+  parent: plc.AXOpen.Elements
+  children:
+  - plc.AXOpen.Elements.AxoDo._signal
+  - plc.AXOpen.Elements.AxoDo._setTask
+  - plc.AXOpen.Elements.AxoDo._resetTask
+  - plc.AXOpen.Elements.AxoDo._messengerInfoPositive
+  - plc.AXOpen.Elements.AxoDo._messengerInfoNegative
+  - plc.AXOpen.Elements.AxoDo.Restore()
+  - plc.AXOpen.Elements.AxoDo.ManualControl()
+  - plc.AXOpen.Elements.AxoDo.Run(IAxoContext)
+  - plc.AXOpen.Elements.AxoDo.Set()
+  - plc.AXOpen.Elements.AxoDo.Reset()
+  - plc.AXOpen.Elements.AxoDo.IsTrue()
+  - plc.AXOpen.Elements.AxoDo.IsFalse()
+  name: AxoDo
+  fullName: AxoDo
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 6
+  namespace: plc.AXOpen.Elements
+  summary: Class representing Digital output
+  syntax:
+    content: CLASS AxoDo
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.Open()
+  - plc.AXOpen.Core.AxoComponent.Run()
+  - plc.AXOpen.Core.AxoComponent.Close()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Elements.AxoDo._signal
+  id: plc.AXOpen.Elements.AxoDo._signal
+  parent: AXOpen.Elements
+  children: []
+  name: _signal
+  fullName: _signal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo._signal
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 11
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: '_signal : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Elements.AxoDo._setTask
+  id: plc.AXOpen.Elements.AxoDo._setTask
+  parent: AXOpen.Elements
+  children: []
+  name: _setTask
+  fullName: _setTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo._setTask
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 15
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: '_setTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Elements.AxoDo._resetTask
+  id: plc.AXOpen.Elements.AxoDo._resetTask
+  parent: AXOpen.Elements
+  children: []
+  name: _resetTask
+  fullName: _resetTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo._resetTask
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 21
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: '_resetTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Elements.AxoDo._messengerInfoPositive
+  id: plc.AXOpen.Elements.AxoDo._messengerInfoPositive
+  parent: AXOpen.Elements
+  children: []
+  name: _messengerInfoPositive
+  fullName: _messengerInfoPositive
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo._messengerInfoPositive
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 24
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: '_messengerInfoPositive : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Elements.AxoDo._messengerInfoNegative
+  id: plc.AXOpen.Elements.AxoDo._messengerInfoNegative
+  parent: AXOpen.Elements
+  children: []
+  name: _messengerInfoNegative
+  fullName: _messengerInfoNegative
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo._messengerInfoNegative
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 28
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: '_messengerInfoNegative : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Elements.AxoDo.Restore()
+  id: plc.AXOpen.Elements.AxoDo.Restore()
+  parent: AXOpen.Elements.AxoDo
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo.Restore
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 36
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: Protected AXOpen.Core.IAxoTask Restore()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Elements.AxoDo.ManualControl()
+  id: plc.AXOpen.Elements.AxoDo.ManualControl()
+  parent: AXOpen.Elements.AxoDo
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo.ManualControl
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 41
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Elements.AxoDo.Run(IAxoContext)
+  id: plc.AXOpen.Elements.AxoDo.Run(IAxoContext)
+  parent: AXOpen.Elements.AxoDo
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo.Run
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 53
+  namespace: plc.AXOpen.Elements
+  summary: Method, which sets or reset input/output value
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoContext context)
+    parameters:
+    - id: context
+      type: plc.AXOpen.Core.IAxoContext
+    return:
+      type: VOID
+- uid: plc.AXOpen.Elements.AxoDo.Set()
+  id: plc.AXOpen.Elements.AxoDo.Set()
+  parent: AXOpen.Elements.AxoDo
+  children: []
+  name: Set
+  fullName: Set
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo.Set
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 82
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: Public BOOL Set()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Elements.AxoDo.Reset()
+  id: plc.AXOpen.Elements.AxoDo.Reset()
+  parent: AXOpen.Elements.AxoDo
+  children: []
+  name: Reset
+  fullName: Reset
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo.Reset
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 87
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: Public BOOL Reset()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Elements.AxoDo.IsTrue()
+  id: plc.AXOpen.Elements.AxoDo.IsTrue()
+  parent: AXOpen.Elements.AxoDo
+  children: []
+  name: IsTrue
+  fullName: IsTrue
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo.IsTrue
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 90
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: Public BOOL IsTrue()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Elements.AxoDo.IsFalse()
+  id: plc.AXOpen.Elements.AxoDo.IsFalse()
+  parent: AXOpen.Elements.AxoDo
+  children: []
+  name: IsFalse
+  fullName: IsFalse
+  type: Method
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoDo.IsFalse
+    path: .\src\components.elements\ctrl\src\AxoDo\AxoDo.st
+    startLine: 101
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: Public BOOL IsFalse()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  name: CheckIfManualControlIsActivated()
+  nameWithType: CheckIfManualControlIsActivated()
+  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+- uid: plc.AXOpen.Core.AxoComponent.Open()
+  commentId: plc.AXOpen.Core.AxoComponent.Open()
+  name: Open()
+  nameWithType: Open()
+  fullName: plc.AXOpen.Core.AxoComponent.Open()
+  parent: plc.AXOpen.Core.AxoComponent.Open()
+- uid: plc.AXOpen.Core.AxoComponent.Run()
+  commentId: plc.AXOpen.Core.AxoComponent.Run()
+  name: Run()
+  nameWithType: Run()
+  fullName: plc.AXOpen.Core.AxoComponent.Run()
+  parent: plc.AXOpen.Core.AxoComponent.Run()
+- uid: plc.AXOpen.Core.AxoComponent.Close()
+  commentId: plc.AXOpen.Core.AxoComponent.Close()
+  name: Close()
+  nameWithType: Close()
+  fullName: plc.AXOpen.Core.AxoComponent.Close()
+  parent: plc.AXOpen.Core.AxoComponent.Close()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.IAxoTask
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+
+

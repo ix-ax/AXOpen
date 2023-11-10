@@ -1,0 +1,278 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoTask
+  id: plc.AXOpen.Core.IAxoTask
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoTask.Execute()
+  - plc.AXOpen.Core.IAxoTask.Invoke()
+  - plc.AXOpen.Core.IAxoTask.Restore()
+  - plc.AXOpen.Core.IAxoTask.Abort()
+  - plc.AXOpen.Core.IAxoTask.Resume()
+  - plc.AXOpen.Core.IAxoTask.DoneWhen(BOOL)
+  - plc.AXOpen.Core.IAxoTask.ThrowWhen(BOOL)
+  - plc.AXOpen.Core.IAxoTask.IsReady()
+  - plc.AXOpen.Core.IAxoTask.IsDone()
+  - plc.AXOpen.Core.IAxoTask.IsBusy()
+  - plc.AXOpen.Core.IAxoTask.HasError()
+  name: IAxoTask
+  fullName: IAxoTask
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoTask
+  implements: []
+- uid: plc.AXOpen.Core.IAxoTask.Execute()
+  id: plc.AXOpen.Core.IAxoTask.Execute
+  parent: IAxoTask
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.Execute
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL Execute()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoTask.Invoke()
+  id: plc.AXOpen.Core.IAxoTask.Invoke
+  parent: IAxoTask
+  children: []
+  name: Invoke
+  fullName: Invoke
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.Invoke
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Invoke()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.IAxoTask.Restore()
+  id: plc.AXOpen.Core.IAxoTask.Restore
+  parent: IAxoTask
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.Restore
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Restore()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.IAxoTask.Abort()
+  id: plc.AXOpen.Core.IAxoTask.Abort
+  parent: IAxoTask
+  children: []
+  name: Abort
+  fullName: Abort
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.Abort
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID Abort()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoTask.Resume()
+  id: plc.AXOpen.Core.IAxoTask.Resume
+  parent: IAxoTask
+  children: []
+  name: Resume
+  fullName: Resume
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.Resume
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID Resume()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoTask.DoneWhen(BOOL)
+  id: plc.AXOpen.Core.IAxoTask.DoneWhen
+  parent: IAxoTask
+  children: []
+  name: DoneWhen
+  fullName: DoneWhen
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.DoneWhen
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID DoneWhen(in plc.BOOL Condition)
+    parameters:
+    - id: Condition
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoTask.ThrowWhen(BOOL)
+  id: plc.AXOpen.Core.IAxoTask.ThrowWhen
+  parent: IAxoTask
+  children: []
+  name: ThrowWhen
+  fullName: ThrowWhen
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.ThrowWhen
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID ThrowWhen(in plc.BOOL HasErrorState)
+    parameters:
+    - id: HasErrorState
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoTask.IsReady()
+  id: plc.AXOpen.Core.IAxoTask.IsReady
+  parent: IAxoTask
+  children: []
+  name: IsReady
+  fullName: IsReady
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.IsReady
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 9
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsReady()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoTask.IsDone()
+  id: plc.AXOpen.Core.IAxoTask.IsDone
+  parent: IAxoTask
+  children: []
+  name: IsDone
+  fullName: IsDone
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.IsDone
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 10
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsDone()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoTask.IsBusy()
+  id: plc.AXOpen.Core.IAxoTask.IsBusy
+  parent: IAxoTask
+  children: []
+  name: IsBusy
+  fullName: IsBusy
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.IsBusy
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 11
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsBusy()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoTask.HasError()
+  id: plc.AXOpen.Core.IAxoTask.HasError
+  parent: IAxoTask
+  children: []
+  name: HasError
+  fullName: HasError
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTask.HasError
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL HasError()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

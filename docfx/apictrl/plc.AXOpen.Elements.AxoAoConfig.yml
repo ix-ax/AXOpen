@@ -1,0 +1,161 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Elements.AxoAoConfig
+  id: plc.AXOpen.Elements.AxoAoConfig
+  parent: plc.AXOpen.Elements
+  children:
+  - plc.AXOpen.Elements.AxoAoConfig.RawLow
+  - plc.AXOpen.Elements.AxoAoConfig.RawHigh
+  - plc.AXOpen.Elements.AxoAoConfig.RealLow
+  - plc.AXOpen.Elements.AxoAoConfig.RealHigh
+  - plc.AXOpen.Elements.AxoAoConfig.Gain
+  - plc.AXOpen.Elements.AxoAoConfig.Offset
+  name: AxoAoConfig
+  fullName: AxoAoConfig
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoConfig
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+    startLine: 5
+  namespace: plc.AXOpen.Elements
+  summary: Configuration class for analog output
+  syntax:
+    content: CLASS AxoAoConfig
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Elements.AxoAoConfig.RawLow
+  id: plc.AXOpen.Elements.AxoAoConfig.RawLow
+  parent: AXOpen.Elements
+  children: []
+  name: RawLow
+  fullName: RawLow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoConfig.RawLow
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+    startLine: 13
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: 'RawLow : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Elements.AxoAoConfig.RawHigh
+  id: plc.AXOpen.Elements.AxoAoConfig.RawHigh
+  parent: AXOpen.Elements
+  children: []
+  name: RawHigh
+  fullName: RawHigh
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoConfig.RawHigh
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+    startLine: 18
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: 'RawHigh : DINT'
+    return:
+      type: DINT
+- uid: plc.AXOpen.Elements.AxoAoConfig.RealLow
+  id: plc.AXOpen.Elements.AxoAoConfig.RealLow
+  parent: AXOpen.Elements
+  children: []
+  name: RealLow
+  fullName: RealLow
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoConfig.RealLow
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+    startLine: 25
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: 'RealLow : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Elements.AxoAoConfig.RealHigh
+  id: plc.AXOpen.Elements.AxoAoConfig.RealHigh
+  parent: AXOpen.Elements
+  children: []
+  name: RealHigh
+  fullName: RealHigh
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoConfig.RealHigh
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+    startLine: 31
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: 'RealHigh : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Elements.AxoAoConfig.Gain
+  id: plc.AXOpen.Elements.AxoAoConfig.Gain
+  parent: AXOpen.Elements
+  children: []
+  name: Gain
+  fullName: Gain
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoConfig.Gain
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+    startLine: 36
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: 'Gain : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Elements.AxoAoConfig.Offset
+  id: plc.AXOpen.Elements.AxoAoConfig.Offset
+  parent: AXOpen.Elements
+  children: []
+  name: Offset
+  fullName: Offset
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoConfig.Offset
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoConfig.st
+    startLine: 41
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: 'Offset : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.DINT
+  name: DINT
+  nameWithType: DINT
+  fullName: DINT
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

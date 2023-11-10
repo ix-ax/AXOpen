@@ -1,0 +1,141 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.CurrentJobName
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.CurrentJobNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.ResultDataSize
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.UserDataSize
+  name: AxoInsight_Status
+  fullName: AxoInsight_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: CLASS AxoInsight_Status
+  inheritance:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  inheritedMembers:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  implements: []
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.CurrentJobName
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.CurrentJobName
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: CurrentJobName
+  fullName: CurrentJobName
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.CurrentJobName
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'CurrentJobName : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.CurrentJobNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.CurrentJobNumber
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: CurrentJobNumber
+  fullName: CurrentJobNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.CurrentJobNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'CurrentJobNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.ResultDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.ResultDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ResultDataSize
+  fullName: ResultDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.ResultDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ResultDataSize : AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.UserDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.UserDataSize
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: UserDataSize
+  fullName: UserDataSize
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status.UserDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_Status.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'UserDataSize : AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize
+references:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  name: Action
+  nameWithType: Action
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  commentId: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: Error
+  nameWithType: Error
+  fullName: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize
+  name: eAxoInsight_ResultDataSize
+  nameWithType: eAxoInsight_ResultDataSize
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize
+  name: eAxoInsight_UserDataSize
+  nameWithType: eAxoInsight_UserDataSize
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize
+
+

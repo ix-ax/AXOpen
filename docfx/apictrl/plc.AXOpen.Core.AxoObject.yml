@@ -1,0 +1,274 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoObject
+  id: plc.AXOpen.Core.AxoObject
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject._parent
+  - plc.AXOpen.Core.AxoObject._context
+  - plc.AXOpen.Core.AxoObject.NULL_CONTEXT
+  - plc.AXOpen.Core.AxoObject.NULL_OBJECT
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: AxoObject
+  fullName: AxoObject
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+  summary: Provides base class for all classes of `AXOpen`.
+  syntax:
+    content: CLASS AxoObject
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  id: plc.AXOpen.Core.AxoObject.Identity
+  parent: AXOpen.Core
+  children: []
+  name: Identity
+  fullName: Identity
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject.Identity
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'Identity : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoObject._parent
+  id: plc.AXOpen.Core.AxoObject._parent
+  parent: AXOpen.Core
+  children: []
+  name: _parent
+  fullName: _parent
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject._parent
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 16
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_parent : AXOpen.Core.IAxoObject'
+    return:
+      type: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.AxoObject._context
+  id: plc.AXOpen.Core.AxoObject._context
+  parent: AXOpen.Core
+  children: []
+  name: _context
+  fullName: _context
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject._context
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 17
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.AxoObject.NULL_CONTEXT
+  id: plc.AXOpen.Core.AxoObject.NULL_CONTEXT
+  parent: AXOpen.Core
+  children: []
+  name: NULL_CONTEXT
+  fullName: NULL_CONTEXT
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject.NULL_CONTEXT
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 21
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'NULL_CONTEXT : AXOpen.Core._NULL_CONTEXT'
+    return:
+      type: AXOpen.Core._NULL_CONTEXT
+- uid: plc.AXOpen.Core.AxoObject.NULL_OBJECT
+  id: plc.AXOpen.Core.AxoObject.NULL_OBJECT
+  parent: AXOpen.Core
+  children: []
+  name: NULL_OBJECT
+  fullName: NULL_OBJECT
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject.NULL_OBJECT
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 22
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'NULL_OBJECT : AXOpen.Core._NULL_OBJECT'
+    return:
+      type: AXOpen.Core._NULL_OBJECT
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  id: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: AXOpen.Core.AxoObject
+  children: []
+  name: GetIdentity
+  fullName: GetIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject.GetIdentity
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 28
+  namespace: plc.AXOpen.Core
+  summary: Gets unique identity of this object in given context.
+  syntax:
+    content: Public ULINT GetIdentity()
+    parameters: &o1 []
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  id: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: AXOpen.Core.AxoObject
+  children: []
+  name: GetContext
+  fullName: GetContext
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject.GetContext
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 35
+  namespace: plc.AXOpen.Core
+  summary: Gets context in which this object was initialized.
+  syntax:
+    content: Public AXOpen.Core.IAxoContext GetContext()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  id: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: AXOpen.Core.AxoObject
+  children: []
+  name: GetParent
+  fullName: GetParent
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject.GetParent
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 47
+  namespace: plc.AXOpen.Core
+  summary: Gets parent in which this object was initialized.
+  syntax:
+    content: Public AXOpen.Core.IAxoObject GetParent()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  id: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: AXOpen.Core.AxoObject
+  children: []
+  name: Initialize
+  fullName: Initialize
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject.Initialize
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 61
+  namespace: plc.AXOpen.Core
+  summary: Initializes this object associating it given parent.This method should be called only once upon the program start.Any subsequent call are ignored.
+  syntax:
+    content: Public VOID Initialize(in plc.AXOpen.Core.IAxoObject parent)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  id: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: AXOpen.Core.AxoObject
+  children: []
+  name: Initialize
+  fullName: Initialize
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoObject.Initialize
+    path: .\src\core\ctrl\src\AxoObject\AxoObject.st
+    startLine: 79
+  namespace: plc.AXOpen.Core
+  summary: Initializes this object associating it given context.This method should be called only once upon the program start.Any subsequent call are ignored.
+  syntax:
+    content: Public VOID Initialize(in plc.AXOpen.Core.IAxoContext context)
+    parameters:
+    - id: context
+      type: plc.AXOpen.Core.IAxoContext
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core._NULL_CONTEXT
+  name: _NULL_CONTEXT
+  nameWithType: _NULL_CONTEXT
+  fullName: AXOpen.Core._NULL_CONTEXT
+- uid: plc.AXOpen.Core._NULL_OBJECT
+  name: _NULL_OBJECT
+  nameWithType: _NULL_OBJECT
+  fullName: AXOpen.Core._NULL_OBJECT
+
+

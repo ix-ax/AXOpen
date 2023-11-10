@@ -487,10 +487,12 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         {Test}
         METHOD PUBLIC execution_of_the_invoked_task_should_start_when_execute_is_called_after_invoke_in_the_same_PLC_cycle
             THIS.Initialize();
+            _context.Open();
             myTask.Invoke();
             Assert.Equal(TRUE,THIS.Equal(eAxoTaskState#Kicking,myTask.GetState()));
             Assert.Equal(TRUE ,myTask.Execute());
             Assert.Equal(TRUE,THIS.Equal(eAxoTaskState#Busy,myTask.GetState()));
+            _context.Close();
         END_METHOD        
 
         {Test}
@@ -820,6 +822,81 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             _context.Close();
         END_METHOD   
 
+        {Test}
+        METHOD PUBLIC isfirstexecutioncycle_should_return_false_if_the_task_is_only_invoked
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            Assert.Equal(FALSE, myTask.IsFirstExecutionCycle());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC isfirstexecutioncycle_should_return_true_if_the_task_is_invoked_and_executed
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.IsFirstExecutionCycle());
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC isfirstexecutioncycle_should_return_false_after_second_execution_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            myTask.Execute();
+            _context.Close();
+
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(FALSE, myTask.IsFirstExecutionCycle());
+        END_METHOD        
+
+        {Test}
+        METHOD PUBLIC task_state_should_be__error_after_multiple_execute_method_call_in_one_plc_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.IsBusy());
+            Assert.Equal(FALSE, myTask.HasError());
+            myTask.Execute();
+            Assert.Equal(FALSE, myTask.IsBusy());
+            Assert.Equal(TRUE, myTask.HasError());
+        END_METHOD     
+        
+        {Test}
+        METHOD PUBLIC task_should_continue_after_multiple_execute_method_call_in_one_plc_cycle_when_the_control_is_suspended
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();      
+            myTask.Execute();
+            myTask.SetSuspendMultipleExecuteCallCheck(TRUE);
+            Assert.Equal(TRUE, myTask.IsBusy());
+            Assert.Equal(FALSE, myTask.HasError());
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.IsBusy());
+            Assert.Equal(FALSE, myTask.HasError());
+        END_METHOD    
+        
+        {Test}
+        METHOD PUBLIC control_of_the_multiple_execute_call_should_not_be_suspended_by_default
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            Assert.Equal(FALSE, myTask.GetSuspendMultipleExecuteCallCheckState());
+        END_METHOD   
         {Test}
         METHOD PUBLIC task_should_stay_at_busy_state_and_remote_abort_signal_should_be_reseted_as_the_abbility_to_abort_task_is_disabled_by_default
             THIS.Initialize();

@@ -1,0 +1,538 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoToggleTask
+  id: plc.AXOpen.Core.AxoToggleTask
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoToggleTask.State
+  - plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  - plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  - plc.AXOpen.Core.AxoToggleTask._openCycleCount
+  - plc.AXOpen.Core.AxoToggleTask.GetState()
+  - plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoToggleTask.Run()
+  - plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  - plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  - plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  - plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  - plc.AXOpen.Core.AxoToggleTask.Toggle()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  - plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  - plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  - plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  - plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  name: AxoToggleTask
+  fullName: AxoToggleTask
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+  summary: Provides basic toggling between two states. The states are triggered by calling the '''Toggle()''' method.To get the actual state of the toggle task, '''IsSwitchedOn()''',  '''IsSwitchedOff()''' AND '''GetState()''' methods are available.
+  syntax:
+    content: CLASS AxoToggleTask
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Core.AxoToggleTask.State
+  id: plc.AXOpen.Core.AxoToggleTask.State
+  parent: AXOpen.Core
+  children: []
+  name: State
+  fullName: State
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.State
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 13
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'State : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  id: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+  parent: AXOpen.Core
+  children: []
+  name: RemoteToggle
+  fullName: RemoteToggle
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.RemoteToggle
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 20
+  namespace: plc.AXOpen.Core
+  summary: Remote request to toggle the state of this task.
+  syntax:
+    content: 'RemoteToggle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  id: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+  parent: AXOpen.Core
+  children: []
+  name: IsDisabled
+  fullName: IsDisabled
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.IsDisabled
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 24
+  namespace: plc.AXOpen.Core
+  summary: Gets or sets whether this task is disabled for any manipulations.
+  syntax:
+    content: 'IsDisabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask._openCycleCount
+  id: plc.AXOpen.Core.AxoToggleTask._openCycleCount
+  parent: AXOpen.Core
+  children: []
+  name: _openCycleCount
+  fullName: _openCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask._openCycleCount
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 37
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_openCycleCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoToggleTask.GetState()
+  id: plc.AXOpen.Core.AxoToggleTask.GetState()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: GetState
+  fullName: GetState
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.GetState
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 42
+  namespace: plc.AXOpen.Core
+  summary: Gets the actual state of this task.
+  syntax:
+    content: Public BOOL GetState()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  id: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: IsRunCalledInThisPlcCycle
+  fullName: IsRunCalledInThisPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.IsRunCalledInThisPlcCycle
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 45
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL IsRunCalledInThisPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  id: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: WasRunCalledInPreviousPlcCycle
+  fullName: WasRunCalledInPreviousPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.WasRunCalledInPreviousPlcCycle
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 53
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL WasRunCalledInPreviousPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.Run()
+  id: plc.AXOpen.Core.AxoToggleTask.Run()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.Run
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 66
+  namespace: plc.AXOpen.Core
+  summary: This method needs to be called cyclically.
+  syntax:
+    content: Public BOOL Run()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  id: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled(BOOL)
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SetIsDisabled
+  fullName: SetIsDisabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SetIsDisabled
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 95
+  namespace: plc.AXOpen.Core
+  summary: Sets the value of the `IsDisabled` variable
+  syntax:
+    content: Public VOID SetIsDisabled(in plc.BOOL Disabled)
+    parameters:
+    - id: Disabled
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  id: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: GetIsDisabled
+  fullName: GetIsDisabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.GetIsDisabled
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 104
+  namespace: plc.AXOpen.Core
+  summary: Returns the value of the `IsDisabled` variable
+  syntax:
+    content: Public BOOL GetIsDisabled()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: IsSwitchedOn
+  fullName: IsSwitchedOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOn
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 111
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if task is switched on
+  syntax:
+    content: Public BOOL IsSwitchedOn()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: IsSwitchedOff
+  fullName: IsSwitchedOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.IsSwitchedOff
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 118
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if task is switched off
+  syntax:
+    content: Public BOOL IsSwitchedOff()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.Toggle()
+  id: plc.AXOpen.Core.AxoToggleTask.Toggle()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: Toggle
+  fullName: Toggle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.Toggle
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 122
+  namespace: plc.AXOpen.Core
+  summary: Use to toggle the state of the '''AxoToggleTask'''.
+  syntax:
+    content: Public BOOL Toggle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  id: plc.AXOpen.Core.AxoToggleTask.SwitchOff()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SwitchOff
+  fullName: SwitchOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SwitchOff
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 155
+  namespace: plc.AXOpen.Core
+  summary: Use to set the state of the '''AxoToggleTask''' to the value '''FALSE'''.
+  syntax:
+    content: Public BOOL SwitchOff()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  id: plc.AXOpen.Core.AxoToggleTask.SwitchOn()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SwitchOn
+  fullName: SwitchOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SwitchOn
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 178
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL SwitchOn()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: OnSwitchedOn
+  fullName: OnSwitchedOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOn
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 208
+  namespace: plc.AXOpen.Core
+  summary: Executes ones when toggle task changes its state from '''FALSE''' to '''TRUE'''.
+  syntax:
+    content: Protected VOID OnSwitchedOn()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: OnSwitchedOff
+  fullName: OnSwitchedOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.OnSwitchedOff
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 214
+  namespace: plc.AXOpen.Core
+  summary: Executes ones when toggle task changes its state from '''TRUE''' to '''FALSE'''.
+  syntax:
+    content: Protected VOID OnSwitchedOff()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  id: plc.AXOpen.Core.AxoToggleTask.OnStateChanged()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: OnStateChanged
+  fullName: OnStateChanged
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.OnStateChanged
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 219
+  namespace: plc.AXOpen.Core
+  summary: Executes ones when toggle task changes its state.
+  syntax:
+    content: Protected VOID OnStateChanged()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  id: plc.AXOpen.Core.AxoToggleTask.SwitchedOn()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SwitchedOn
+  fullName: SwitchedOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SwitchedOn
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 219
+  namespace: plc.AXOpen.Core
+  summary: Executes while the task is in `On` state.
+  syntax:
+    content: Protected VOID SwitchedOn()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  id: plc.AXOpen.Core.AxoToggleTask.SwitchedOff()
+  parent: AXOpen.Core.AxoToggleTask
+  children: []
+  name: SwitchedOff
+  fullName: SwitchedOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoToggleTask.SwitchedOff
+    path: .\src\core\ctrl\src\AxoToggleTask\AxoToggleTask.st
+    startLine: 219
+  namespace: plc.AXOpen.Core
+  summary: Executes while the task is in `Off` state.
+  syntax:
+    content: Protected VOID SwitchedOff()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Core.IAxoToggleTask
+  commentId: plc.AXOpen.Core.IAxoToggleTask
+  name: IAxoToggleTask
+  nameWithType: IAxoToggleTask
+  fullName: plc.AXOpen.Core.IAxoToggleTask
+  parent: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+
+

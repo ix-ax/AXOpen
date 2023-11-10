@@ -72,12 +72,20 @@ NAMESPACE AXOpen.Core
             _openCycleCountInvoke : ULINT;
             _openCycleCountExecute : ULINT;            
             _taskTimer : AXOpen.Timers.OnDelayTimer;          
+            _isFirstExecutionCycle   : BOOL;
             ///<summary>
             /// Enable error message when task is not calling cyclically .            
             ///</summary> 
             {#ix-set:MessageText = "<#Cyclic Execute is not called.#>"}
             {#ix-set:Help = "<#Check task calling in the code, task is not calling cyclically #>"}
             _CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger;  
+            ///<summary>
+            /// Enable error message when the `Execute()` method is called more then once inside one PLC cycle.            
+            ///</summary> 
+            {#ix-set:MessageText = "<#Execute method is called more then once inside one PLC cycle.#>"}
+            {#ix-set:Help = "<#Check task calling in the code, task is called more then once.#>"}
+            _MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger;  
+            _SuspendMultipleExecuteCallCheck : BOOL :=  FALSE;
             _RemoteRestoreEnabled   : BOOL := TRUE;
             _RemoteAbortEnabled     : BOOL := FALSE;
         END_VAR 
@@ -199,6 +207,51 @@ NAMESPACE AXOpen.Core
 
             HasError := Status = eAxoTaskState#Error; 
         END_METHOD   
+
+        ///<summary>
+        /// Gets true when the task has error.
+        ///</summary>
+        METHOD PUBLIC IsFirstExecutionCycle : BOOL 
+            IsFirstExecutionCycle := _isFirstExecutionCycle; 
+        END_METHOD   
+
+        ///<summary>
+        /// Sets the flag to suspend or resume multiple execute check operations.
+        ///</summary>
+        ///<param name="Suspend">A boolean value indicating whether multiple execute check operations should be suspended (TRUE) or resumed (FALSE).</param>
+        ///<remarks>
+        /// This method allows dynamic control over the multiple execute check operations.
+        /// When suspended (TRUE), the system stops processing multiple execute check operations.
+        /// When resumed (FALSE), the system resumes processing multiple execute check operations.
+        ///</remarks>
+        METHOD PUBLIC SetSuspendMultipleExecuteCallCheck
+            VAR_INPUT
+                Suspend : BOOL; // Input parameter to suspend or resume multiple execute check operations.
+            END_VAR
+            _SuspendMultipleExecuteCallCheck := Suspend; // Assign the input value to the variable.
+        END_METHOD
+
+        ///<summary>
+        /// Retrieves the current state of the flag indicating whether multiple execute check operations are suspended or resumed.
+        ///</summary>
+        ///<returns>A boolean value indicating whether multiple execute check operations are suspended (TRUE) or resumed (FALSE).</returns>
+        ///<remarks>
+        /// This method provides the current state of the flag controlling multiple execute check operations.
+        /// It returns TRUE if multiple execute check operations are suspended, indicating that processing is halted.
+        /// It returns FALSE if multiple execute check operations are resumed, allowing normal processing to occur.
+        ///</remarks>
+        METHOD PUBLIC GetSuspendMultipleExecuteCallCheckState : BOOL
+            GetSuspendMultipleExecuteCallCheckState := _SuspendMultipleExecuteCallCheck; // Returns the current state of the flag.
+        END_METHOD
+
+
+        ///<summary>
+        /// Returns true when the `Invoke() method of the task is called in this PLC cycle
+        /// or was called in the previous-one.
+        ///</summary>
+        // METHOD PUBLIC IsInvokeCalled : BOOL
+        //     IsInvokeCalled := THIS.IsInvokeCalledInThisPlcCycle() OR THIS.WasInvokeCalledInPreviousPlcCycle();
+        // END_METHOD 
 
         METHOD PRIVATE IsNewInvokeCall : BOOL
             IF _context_ <> NULL THEN
@@ -359,9 +412,9 @@ NAMESPACE AXOpen.Core
         ///	This method needs to be called cyclically.
         ///</summary>    
         METHOD PUBLIC Execute : BOOL            
-            
             VAR 
                 _stateKicking : BOOL;
+                _openCycleCount : ULINT;
             END_VAR
             
             IF(_context_ = NULL) THEN RETURN; END_IF;
@@ -377,8 +430,18 @@ NAMESPACE AXOpen.Core
                 RemoteAbort := FALSE;
             END_IF;
             IF( RemoteResume) THEN THIS.Resume(); RemoteResume := FALSE; END_IF;
+            
+            _MultipleExecuteIsCalled.Serve(THIS);
 
-            _openCycleCountExecute := _context_.OpenCycleCount();
+            _openCycleCount :=  _context_.OpenCycleCount();
+            IF NOT _SuspendMultipleExecuteCallCheck THEN
+                IF _openCycleCountExecute = _openCycleCount THEN
+                    _MultipleExecuteIsCalled.Activate(eAxoMessageCategory#ProgrammingError);
+                    Status := eAxoTaskState#Error;
+                END_IF;
+            END_IF;
+        _openCycleCountExecute := _openCycleCount;
+        
                 
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,
@@ -387,6 +450,8 @@ NAMESPACE AXOpen.Core
             
             _stateKicking :=  Status = eAxoTaskState#Kicking;
             
+            _isFirstExecutionCycle := FALSE; 
+
             IF _stateKicking then 
                 IF  (_openCycleCountInvoke <> _openCycleCountExecute) then
                     IF  ((_openCycleCountInvoke + ULINT#1) <> _openCycleCountExecute) THEN            
@@ -408,6 +473,7 @@ NAMESPACE AXOpen.Core
                 StartSignature := _openCycleCountExecute;//_context_.OpenCycleCount();    
                 THIS.LogTask('Task started.', eLogLevel#Verbose, THIS);                       
                 THIS.OnStart();
+                _isFirstExecutionCycle := TRUE; 
             END_IF;    
 
             IF(Status = eAxoTaskState#Error) THEN
@@ -424,6 +490,7 @@ NAMESPACE AXOpen.Core
                 END_IF;
             END_IF;
 
+            THIS.UpdateState();
             Execute := Status = eAxoTaskState#Busy;
             
             _taskTimer.OnDelay(THIS,  Execute, LT#99999D);
@@ -473,7 +540,7 @@ NAMESPACE AXOpen.Core
             END_VAR            
             IF(HasErrorState) THEN                
                 ErrorDetails :=  ErrorDescription; 
-                THIS.LogTask(ErrorDetails, eLogLevel#Verbose, THIS);  
+                THIS.LogTask(ErrorDetails, eLogLevel#Error, THIS);  
             END_IF;    
             THIS.ThrowWhen(HasErrorState);        
         END_METHOD    
