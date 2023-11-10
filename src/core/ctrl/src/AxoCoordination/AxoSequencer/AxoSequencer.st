@@ -40,6 +40,13 @@ NAMESPACE AXOpen.Core
 
 
             Open := FALSE;
+            
+            SUPER.SetSuspendMultipleExecuteCallCheck(TRUE);
+
+            StepForwardCommand.SetSuspendMultipleExecuteCallCheck(TRUE);
+            StepIn.SetSuspendMultipleExecuteCallCheck(TRUE);
+            StepBackwardCommand.SetSuspendMultipleExecuteCallCheck(TRUE);
+
             IF SUPER.Execute() THEN
                 IF _context_ = NULL THEN RETURN; END_IF;         
                 _openCycleCounter := _context_.OpenCycleCount();

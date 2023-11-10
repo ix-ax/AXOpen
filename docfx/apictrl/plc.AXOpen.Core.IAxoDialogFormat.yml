@@ -1,0 +1,174 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoDialogFormat
+  id: plc.AXOpen.Core.IAxoDialogFormat
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoDialogFormat.WithCaption(STRING)
+  - plc.AXOpen.Core.IAxoDialogFormat.WithOk()
+  - plc.AXOpen.Core.IAxoDialogFormat.WithText(STRING)
+  - plc.AXOpen.Core.IAxoDialogFormat.WithType(eDialogType)
+  - plc.AXOpen.Core.IAxoDialogFormat.WithYesNo()
+  - plc.AXOpen.Core.IAxoDialogFormat.WithYesNoCancel()
+  name: IAxoDialogFormat
+  fullName: IAxoDialogFormat
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoDialogFormat
+    path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoDialogFormat
+  implements: []
+- uid: plc.AXOpen.Core.IAxoDialogFormat.WithCaption(STRING)
+  id: plc.AXOpen.Core.IAxoDialogFormat.WithCaption
+  parent: IAxoDialogFormat
+  children: []
+  name: WithCaption
+  fullName: WithCaption
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoDialogFormat.WithCaption
+    path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithCaption(in plc.STRING inCaption)
+    parameters:
+    - id: inCaption
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.IAxoDialogFormat.WithOk()
+  id: plc.AXOpen.Core.IAxoDialogFormat.WithOk
+  parent: IAxoDialogFormat
+  children: []
+  name: WithOk
+  fullName: WithOk
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoDialogFormat.WithOk
+    path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithOk()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.IAxoDialogFormat.WithText(STRING)
+  id: plc.AXOpen.Core.IAxoDialogFormat.WithText
+  parent: IAxoDialogFormat
+  children: []
+  name: WithText
+  fullName: WithText
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoDialogFormat.WithText
+    path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+    startLine: 11
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithText(in plc.STRING inText)
+    parameters:
+    - id: inText
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.IAxoDialogFormat.WithType(eDialogType)
+  id: plc.AXOpen.Core.IAxoDialogFormat.WithType
+  parent: IAxoDialogFormat
+  children: []
+  name: WithType
+  fullName: WithType
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoDialogFormat.WithType
+    path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+    startLine: 17
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithType(in plc.AXOpen.Core.eDialogType inDialogType)
+    parameters:
+    - id: inDialogType
+      type: plc.AXOpen.Core.eDialogType
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.IAxoDialogFormat.WithYesNo()
+  id: plc.AXOpen.Core.IAxoDialogFormat.WithYesNo
+  parent: IAxoDialogFormat
+  children: []
+  name: WithYesNo
+  fullName: WithYesNo
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoDialogFormat.WithYesNo
+    path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+    startLine: 24
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithYesNo()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+- uid: plc.AXOpen.Core.IAxoDialogFormat.WithYesNoCancel()
+  id: plc.AXOpen.Core.IAxoDialogFormat.WithYesNoCancel
+  parent: IAxoDialogFormat
+  children: []
+  name: WithYesNoCancel
+  fullName: WithYesNoCancel
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoDialogFormat.WithYesNoCancel
+    path: .\src\core\ctrl\src\AxoDialog\IAxoDialogFormat.st
+    startLine: 27
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoDialogAnswer WithYesNoCancel()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoDialogAnswer
+references:
+- uid: plc.AXOpen.Core.IAxoDialogAnswer
+  name: IAxoDialogAnswer
+  nameWithType: IAxoDialogAnswer
+  fullName: AXOpen.Core.IAxoDialogAnswer
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.AXOpen.Core.eDialogType
+  name: eDialogType
+  nameWithType: eDialogType
+  fullName: AXOpen.Core.eDialogType
+
+

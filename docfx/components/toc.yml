@@ -7,5 +7,7 @@
       href: ../components.pneumatics/docs/index.html
     - name: Cognex Vision
       href: ../components.cognex.vision/docs/index.html
+    - name: Rexroth Drives
+      href: ../components.rexroth.drives/docs/index.html  
     - name: Library template
       href: ../template.axolibrary/docs/index.html

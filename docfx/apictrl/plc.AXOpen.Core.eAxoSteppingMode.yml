@@ -1,0 +1,78 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.eAxoSteppingMode
+  id: plc.AXOpen.Core.eAxoSteppingMode
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.eAxoSteppingMode.None
+  - plc.AXOpen.Core.eAxoSteppingMode.StepByStep
+  - plc.AXOpen.Core.eAxoSteppingMode.Continous
+  name: eAxoSteppingMode
+  fullName: eAxoSteppingMode
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSteppingMode.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoSteppingMode
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSteppingMode.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'eAxoSteppingMode : INT'
+- uid: plc.AXOpen.Core.eAxoSteppingMode.None
+  id: plc.AXOpen.Core.eAxoSteppingMode.None
+  parent: AXOpen.Core
+  children: []
+  name: None := 0
+  fullName: None
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSteppingMode.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoSteppingMode.None
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSteppingMode.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoSteppingMode.StepByStep
+  id: plc.AXOpen.Core.eAxoSteppingMode.StepByStep
+  parent: AXOpen.Core
+  children: []
+  name: StepByStep := 1
+  fullName: StepByStep
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSteppingMode.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoSteppingMode.StepByStep
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSteppingMode.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoSteppingMode.Continous
+  id: plc.AXOpen.Core.eAxoSteppingMode.Continous
+  parent: AXOpen.Core
+  children: []
+  name: Continous := 2
+  fullName: Continous
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSteppingMode.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoSteppingMode.Continous
+    path: .\src\core\ctrl\src\AxoCoordination\AxoSequencer\eAxoSteppingMode.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

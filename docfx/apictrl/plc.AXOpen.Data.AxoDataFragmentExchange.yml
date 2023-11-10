@@ -1,0 +1,350 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange
+  id: plc.AXOpen.Data.AxoDataFragmentExchange
+  parent: plc.AXOpen.Data
+  children:
+  - plc.AXOpen.Data.AxoDataFragmentExchange.Operation
+  - plc.AXOpen.Data.AxoDataFragmentExchange.Create(STRING[254])
+  - plc.AXOpen.Data.AxoDataFragmentExchange.Read(STRING[254])
+  - plc.AXOpen.Data.AxoDataFragmentExchange.Update(STRING[254])
+  - plc.AXOpen.Data.AxoDataFragmentExchange.Delete(STRING[254])
+  - plc.AXOpen.Data.AxoDataFragmentExchange.EntityExist(STRING[254])
+  - plc.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(STRING[254])
+  - plc.AXOpen.Data.AxoDataFragmentExchange.Restore()
+  - plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoContext)
+  - plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoObject)
+  name: AxoDataFragmentExchange
+  fullName: AxoDataFragmentExchange
+  type: Class
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 8
+  namespace: plc.AXOpen.Data
+  summary: Provides base class for any composite/fragmetes data exchange combining one or more AxoDataExchange object.
+  syntax:
+    content: CLASS AxoDataFragmentExchange
+  inheritance:
+  - plc.AXOpen.Data.AxoDataExchangeBase
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Data.IAxoDataExchange
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Operation
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.Operation
+  parent: AXOpen.Data
+  children: []
+  name: Operation
+  fullName: Operation
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.Operation
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 10
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: 'Operation : AXOpen.Data.AxoDataCrudTask'
+    return:
+      type: AXOpen.Data.AxoDataCrudTask
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Create(STRING[254])
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.Create(STRING[254])
+  parent: AXOpen.Data.AxoDataFragmentExchange
+  children: []
+  name: Create
+  fullName: Create
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.Create
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 17
+  namespace: plc.AXOpen.Data
+  summary: Creates new entry into each associated remote repository from respective data entity.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Create(in plc.STRING[254] Identifier)
+    parameters:
+    - id: Identifier
+      type: plc.STRING[254]
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Read(STRING[254])
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.Read(STRING[254])
+  parent: AXOpen.Data.AxoDataFragmentExchange
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.Read
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 30
+  namespace: plc.AXOpen.Data
+  summary: Reads data from each associated remote repository and copies it into respective data entities.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read(in plc.STRING[254] Identifier)
+    parameters:
+    - id: Identifier
+      type: plc.STRING[254]
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Update(STRING[254])
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.Update(STRING[254])
+  parent: AXOpen.Data.AxoDataFragmentExchange
+  children: []
+  name: Update
+  fullName: Update
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.Update
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 41
+  namespace: plc.AXOpen.Data
+  summary: Updates data in each associated remote repository from respective data entities.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Update(in plc.STRING[254] Identifier)
+    parameters:
+    - id: Identifier
+      type: plc.STRING[254]
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Delete(STRING[254])
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.Delete(STRING[254])
+  parent: AXOpen.Data.AxoDataFragmentExchange
+  children: []
+  name: Delete
+  fullName: Delete
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.Delete
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 53
+  namespace: plc.AXOpen.Data
+  summary: Deletes data entry from each associated remote repository with given ID.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Delete(in plc.STRING[254] Identifier)
+    parameters:
+    - id: Identifier
+      type: plc.STRING[254]
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.EntityExist(STRING[254])
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.EntityExist(STRING[254])
+  parent: AXOpen.Data.AxoDataFragmentExchange
+  children: []
+  name: EntityExist
+  fullName: EntityExist
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.EntityExist
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 64
+  namespace: plc.AXOpen.Data
+  summary: Check if data entry exists in each associated remote repository with given ID.
+  syntax:
+    content: Public AXOpen.Data.IAxoEntityExistTaskState EntityExist(in plc.STRING[254] Identifier)
+    parameters:
+    - id: Identifier
+      type: plc.STRING[254]
+    return:
+      type: plc.AXOpen.Data.IAxoEntityExistTaskState
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(STRING[254])
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate(STRING[254])
+  parent: AXOpen.Data.AxoDataFragmentExchange
+  children: []
+  name: CreateOrUpdate
+  fullName: CreateOrUpdate
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.CreateOrUpdate
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 77
+  namespace: plc.AXOpen.Data
+  summary: Creates or Updates data entry from each associated remote repository with given ID.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState CreateOrUpdate(in plc.STRING[254] Identifier)
+    parameters:
+    - id: Identifier
+      type: plc.STRING[254]
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Restore()
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.Restore()
+  parent: AXOpen.Data.AxoDataFragmentExchange
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.Restore
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 85
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: Public VOID Restore()
+    parameters: []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoContext)
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoContext)
+  parent: AXOpen.Data.AxoDataFragmentExchange
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.Run
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 94
+  namespace: plc.AXOpen.Data
+  summary: Runs intialization and cyclical handling of this AxoDataExchange.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoContext context)
+    parameters:
+    - id: context
+      type: plc.AXOpen.Core.IAxoContext
+      description: Root context of this object
+    return:
+      type: VOID
+- uid: plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoObject)
+  id: plc.AXOpen.Data.AxoDataFragmentExchange.Run(IAxoObject)
+  parent: AXOpen.Data.AxoDataFragmentExchange
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataFragmentExchange.Run
+    path: .\src\data\ctrl\src\AxoDataFragmentExchange.st
+    startLine: 108
+  namespace: plc.AXOpen.Data
+  summary: Runs intialization and cyclical handling of this AxoDataExchange.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject parent)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoObject
+      description: Parent of this object
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Data.IAxoDataExchange
+  commentId: plc.AXOpen.Data.IAxoDataExchange
+  name: IAxoDataExchange
+  nameWithType: IAxoDataExchange
+  fullName: plc.AXOpen.Data.IAxoDataExchange
+  parent: plc.AXOpen.Data.IAxoDataExchange
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Data.AxoDataCrudTask
+  name: AxoDataCrudTask
+  nameWithType: AxoDataCrudTask
+  fullName: AXOpen.Data.AxoDataCrudTask
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+- uid: plc.AXOpen.Data.IAxoEntityExistTaskState
+  name: IAxoEntityExistTaskState
+  nameWithType: IAxoEntityExistTaskState
+  fullName: AXOpen.Data.IAxoEntityExistTaskState
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+
+

@@ -1,0 +1,100 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoCoordinator
+  id: plc.AXOpen.Core.IAxoCoordinator
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoCoordinator.GetCoordinatorState()
+  - plc.AXOpen.Core.IAxoCoordinator.MoveNext()
+  - plc.AXOpen.Core.IAxoCoordinator.RequestStep(IAxoStep)
+  name: IAxoCoordinator
+  fullName: IAxoCoordinator
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\IAxoCoordinator.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoCoordinator
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\IAxoCoordinator.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoCoordinator
+  implements: []
+- uid: plc.AXOpen.Core.IAxoCoordinator.GetCoordinatorState()
+  id: plc.AXOpen.Core.IAxoCoordinator.GetCoordinatorState
+  parent: IAxoCoordinator
+  children: []
+  name: GetCoordinatorState
+  fullName: GetCoordinatorState
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\IAxoCoordinator.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoCoordinator.GetCoordinatorState
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\IAxoCoordinator.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.AxoCoordinatorStates GetCoordinatorState()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.AxoCoordinatorStates
+- uid: plc.AXOpen.Core.IAxoCoordinator.MoveNext()
+  id: plc.AXOpen.Core.IAxoCoordinator.MoveNext
+  parent: IAxoCoordinator
+  children: []
+  name: MoveNext
+  fullName: MoveNext
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\IAxoCoordinator.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoCoordinator.MoveNext
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\IAxoCoordinator.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID MoveNext()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoCoordinator.RequestStep(IAxoStep)
+  id: plc.AXOpen.Core.IAxoCoordinator.RequestStep
+  parent: IAxoCoordinator
+  children: []
+  name: RequestStep
+  fullName: RequestStep
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\IAxoCoordinator.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoCoordinator.RequestStep
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\IAxoCoordinator.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID RequestStep(in plc.AXOpen.Core.IAxoStep RequestedStep)
+    parameters:
+    - id: RequestedStep
+      type: plc.AXOpen.Core.IAxoStep
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoCoordinatorStates
+  name: AxoCoordinatorStates
+  nameWithType: AxoCoordinatorStates
+  fullName: AXOpen.Core.AxoCoordinatorStates
+- uid: plc.AXOpen.Core.IAxoStep
+  name: IAxoStep
+  nameWithType: IAxoStep
+  fullName: AXOpen.Core.IAxoStep
+
+

@@ -1,0 +1,198 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoStep
+  id: plc.AXOpen.Core.IAxoStep
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoStep.GetStepOrder()
+  - plc.AXOpen.Core.IAxoStep.SetStepOrder(IAxoCoordinator,ULINT)
+  - plc.AXOpen.Core.IAxoStep.IsCalledJustOnceInThisPlcCycle()
+  - plc.AXOpen.Core.IAxoStep.SetIsActive(BOOL)
+  - plc.AXOpen.Core.IAxoStep.GetIsActive()
+  - plc.AXOpen.Core.IAxoStep.SetIsEnabled(BOOL)
+  - plc.AXOpen.Core.IAxoStep.GetIsEnabled()
+  name: IAxoStep
+  fullName: IAxoStep
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoStep
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoStep
+  implements: []
+- uid: plc.AXOpen.Core.IAxoStep.GetStepOrder()
+  id: plc.AXOpen.Core.IAxoStep.GetStepOrder
+  parent: IAxoStep
+  children: []
+  name: GetStepOrder
+  fullName: GetStepOrder
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoStep.GetStepOrder
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT GetStepOrder()
+    parameters: &o0 []
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.IAxoStep.SetStepOrder(IAxoCoordinator,ULINT)
+  id: plc.AXOpen.Core.IAxoStep.SetStepOrder
+  parent: IAxoStep
+  children: []
+  name: SetStepOrder
+  fullName: SetStepOrder
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoStep.SetStepOrder
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID SetStepOrder(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.ULINT StepOrder)
+    parameters:
+    - id: coord
+      type: plc.AXOpen.Core.IAxoCoordinator
+    - id: StepOrder
+      type: plc.ULINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoStep.IsCalledJustOnceInThisPlcCycle()
+  id: plc.AXOpen.Core.IAxoStep.IsCalledJustOnceInThisPlcCycle
+  parent: IAxoStep
+  children: []
+  name: IsCalledJustOnceInThisPlcCycle
+  fullName: IsCalledJustOnceInThisPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoStep.IsCalledJustOnceInThisPlcCycle
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsCalledJustOnceInThisPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoStep.SetIsActive(BOOL)
+  id: plc.AXOpen.Core.IAxoStep.SetIsActive
+  parent: IAxoStep
+  children: []
+  name: SetIsActive
+  fullName: SetIsActive
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoStep.SetIsActive
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID SetIsActive(in plc.BOOL Active)
+    parameters:
+    - id: Active
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoStep.GetIsActive()
+  id: plc.AXOpen.Core.IAxoStep.GetIsActive
+  parent: IAxoStep
+  children: []
+  name: GetIsActive
+  fullName: GetIsActive
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoStep.GetIsActive
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL GetIsActive()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoStep.SetIsEnabled(BOOL)
+  id: plc.AXOpen.Core.IAxoStep.SetIsEnabled
+  parent: IAxoStep
+  children: []
+  name: SetIsEnabled
+  fullName: SetIsEnabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoStep.SetIsEnabled
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID SetIsEnabled(in plc.BOOL Enabled)
+    parameters:
+    - id: Enabled
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoStep.GetIsEnabled()
+  id: plc.AXOpen.Core.IAxoStep.GetIsEnabled
+  parent: IAxoStep
+  children: []
+  name: GetIsEnabled
+  fullName: GetIsEnabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoStep.GetIsEnabled
+    path: .\src\core\ctrl\src\abstractions\AxoCoordination\AxoStep\IAxoStep.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL GetIsEnabled()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Core.IAxoCoordinator
+  name: IAxoCoordinator
+  nameWithType: IAxoCoordinator
+  fullName: AXOpen.Core.IAxoCoordinator
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

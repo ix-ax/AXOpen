@@ -1,0 +1,93 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Logging.IAxoLogger
+  id: plc.AXOpen.Logging.IAxoLogger
+  parent: plc.AXOpen.Logging
+  children:
+  - plc.AXOpen.Logging.IAxoLogger.Log(STRING[80],eLogLevel,IAxoObject)
+  - plc.AXOpen.Logging.IAxoLogger.Log(STRING[80],eLogLevel)
+  name: IAxoLogger
+  fullName: IAxoLogger
+  type: Interface
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.IAxoLogger
+    path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+    startLine: 15
+  namespace: plc.AXOpen.Logging
+  summary: Defines the IAxoLogger interfaceThis interface extends IAxoLoggerConfig
+  syntax:
+    content: INTERFACE IAxoLogger
+  implements: []
+- uid: plc.AXOpen.Logging.IAxoLogger.Log(STRING[80],eLogLevel,IAxoObject)
+  id: plc.AXOpen.Logging.IAxoLogger.Log
+  parent: IAxoLogger
+  children: []
+  name: Log
+  fullName: Log
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.IAxoLogger.Log
+    path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+    startLine: 23
+  namespace: plc.AXOpen.Logging
+  summary: Defines the Log methodThis method takes a message, a log level, and a sender as input
+  syntax:
+    content: Public VOID Log(in plc.STRING[80] _message,in plc.AXOpen.Logging.eLogLevel _level,in plc.AXOpen.Core.IAxoObject _sender)
+    parameters:
+    - id: _message
+      type: plc.STRING[80]
+    - id: _level
+      type: plc.AXOpen.Logging.eLogLevel
+    - id: _sender
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Logging.IAxoLogger.Log(STRING[80],eLogLevel)
+  id: plc.AXOpen.Logging.IAxoLogger.Log
+  parent: IAxoLogger
+  children: []
+  name: Log
+  fullName: Log
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.IAxoLogger.Log
+    path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+    startLine: 47
+  namespace: plc.AXOpen.Logging
+  summary: Defines another Log methodThis method takes a message and a log level as input
+  syntax:
+    content: Public VOID Log(in plc.STRING[80] _message,in plc.AXOpen.Logging.eLogLevel _level)
+    parameters:
+    - id: _message
+      type: plc.STRING[80]
+    - id: _level
+      type: plc.AXOpen.Logging.eLogLevel
+    return:
+      type: VOID
+references:
+- uid: plc.STRING[80]
+  name: STRING[80]
+  nameWithType: STRING[80]
+  fullName: STRING[80]
+- uid: plc.AXOpen.Logging.eLogLevel
+  name: eLogLevel
+  nameWithType: eLogLevel
+  fullName: AXOpen.Logging.eLogLevel
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+
+

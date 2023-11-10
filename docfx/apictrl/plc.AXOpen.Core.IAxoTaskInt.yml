@@ -1,0 +1,74 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoTaskInt
+  id: plc.AXOpen.Core.IAxoTaskInt
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoTaskInt.SetIsDisabled(BOOL)
+  - plc.AXOpen.Core.IAxoTaskInt.GetIsDisabled()
+  name: IAxoTaskInt
+  fullName: IAxoTaskInt
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTaskInt
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 14
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoTaskInt
+  implements: []
+- uid: plc.AXOpen.Core.IAxoTaskInt.SetIsDisabled(BOOL)
+  id: plc.AXOpen.Core.IAxoTaskInt.SetIsDisabled
+  parent: IAxoTaskInt
+  children: []
+  name: SetIsDisabled
+  fullName: SetIsDisabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTaskInt.SetIsDisabled
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 15
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID SetIsDisabled(in plc.BOOL Disabled)
+    parameters:
+    - id: Disabled
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoTaskInt.GetIsDisabled()
+  id: plc.AXOpen.Core.IAxoTaskInt.GetIsDisabled
+  parent: IAxoTaskInt
+  children: []
+  name: GetIsDisabled
+  fullName: GetIsDisabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoTaskInt.GetIsDisabled
+    path: .\src\core\ctrl\src\abstractions\AxoTask\IAxoTask.st
+    startLine: 16
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL GetIsDisabled()
+    parameters: []
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

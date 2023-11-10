@@ -122,7 +122,10 @@ NAMESPACE AXOpen.Core
             END_IF;    
 
             Sequencer ?= coord;
-            IF(Sequencer <> NULL) THEN ExecuteInternal := Sequencer^.Execute(THIS, Enable); END_IF;
+            IF(Sequencer <> NULL) THEN 
+                // Sequencer^.SetSuspendMultipleExecuteCallCheck(TRUE);  // moved to Sequencer.Open
+                ExecuteInternal := Sequencer^.Execute(THIS, Enable);
+            END_IF;
 
                 
             // Selector ?= coord;

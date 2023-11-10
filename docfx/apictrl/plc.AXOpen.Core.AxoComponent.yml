@@ -1,0 +1,310 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoComponent
+  id: plc.AXOpen.Core.AxoComponent
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoComponent._manualControlContextCycle
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.Open()
+  - plc.AXOpen.Core.AxoComponent.Run()
+  - plc.AXOpen.Core.AxoComponent.Close()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: AxoComponent
+  fullName: AxoComponent
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoComponent
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Core.AxoComponent._manualControlContextCycle
+  id: plc.AXOpen.Core.AxoComponent._manualControlContextCycle
+  parent: AXOpen.Core
+  children: []
+  name: _manualControlContextCycle
+  fullName: _manualControlContextCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent._manualControlContextCycle
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 42
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_manualControlContextCycle : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  id: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: AXOpen.Core
+  children: []
+  name: _isManuallyControllable
+  fullName: _isManuallyControllable
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 43
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_isManuallyControllable : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  id: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: AXOpen.Core.AxoComponent
+  children: []
+  name: ActivateManualControl
+  fullName: ActivateManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent.ActivateManualControl
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+  summary: Executes the logic for manual-maintenance control.
+  syntax:
+    content: Public VOID ActivateManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  id: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: AXOpen.Core.AxoComponent
+  children: []
+  name: IsManuallyControllable
+  fullName: IsManuallyControllable
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent.IsManuallyControllable
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 19
+  namespace: plc.AXOpen.Core
+  summary: Gets whether the AxoComponent is manually controllable.To make the AxoComponent manually controllable, it is necessary to call the `ActivateManualMode()` method cyclically.
+  syntax:
+    content: Public BOOL IsManuallyControllable()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  id: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  parent: AXOpen.Core.AxoComponent
+  children: []
+  name: CheckIfManualControlIsActivated
+  fullName: CheckIfManualControlIsActivated
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 49
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private VOID CheckIfManualControlIsActivated()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoComponent.Open()
+  id: plc.AXOpen.Core.AxoComponent.Open()
+  parent: AXOpen.Core.AxoComponent
+  children: []
+  name: Open
+  fullName: Open
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent.Open
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 67
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Protected VOID Open()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoComponent.Run()
+  id: plc.AXOpen.Core.AxoComponent.Run()
+  parent: AXOpen.Core.AxoComponent
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent.Run
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 73
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID Run()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoComponent.Close()
+  id: plc.AXOpen.Core.AxoComponent.Close()
+  parent: AXOpen.Core.AxoComponent
+  children: []
+  name: Close
+  fullName: Close
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent.Close
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 79
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Protected VOID Close()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  id: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: AXOpen.Core.AxoComponent
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent.Restore
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 28
+  namespace: plc.AXOpen.Core
+  summary: Restores this instance. This method must be implemented in derived class.
+  syntax:
+    content: Protected AXOpen.Core.IAxoTask Restore()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  id: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: AXOpen.Core.AxoComponent
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoComponent.ManualControl
+    path: .\src\core\ctrl\src\AxoComponent\AxoComponent.st
+    startLine: 37
+  namespace: plc.AXOpen.Core
+  summary: Custom logic for manual control of the AxoComponent.This method must be implemented in derived class.
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Core.IAxoTask
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: AXOpen.Core.IAxoTask
+
+

@@ -1,0 +1,260 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  id: plc.AXOpen.Messaging.eAxoMessageCategory
+  parent: plc.AXOpen.Messaging
+  children:
+  - plc.AXOpen.Messaging.eAxoMessageCategory.All
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Trace
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Debug
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Info
+  - plc.AXOpen.Messaging.eAxoMessageCategory.TimedOut
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Notification
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Warning
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Error
+  - plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Critical
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Fatal
+  - plc.AXOpen.Messaging.eAxoMessageCategory.Catastrophic
+  - plc.AXOpen.Messaging.eAxoMessageCategory.None
+  name: eAxoMessageCategory
+  fullName: eAxoMessageCategory
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 6
+  namespace: plc.AXOpen.Messaging
+  summary: 'Message categories.ATTENTION: Values must be multiply of 100'
+  syntax:
+    content: 'eAxoMessageCategory : INT'
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.All
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.All
+  parent: AXOpen.Messaging
+  children: []
+  name: All := 0
+  fullName: All
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.All
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 10
+  namespace: plc.AXOpen.Messaging
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Trace
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Trace
+  parent: AXOpen.Messaging
+  children: []
+  name: Trace := 100
+  fullName: Trace
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Trace
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 10
+  namespace: plc.AXOpen.Messaging
+  summary: Trace message to be used for tracing purpose.Use when you need to track detailed information about internal states of the program for detailed visibility.This is lowest level of category that can be used in production, for detailed observation of PLC program.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Debug
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Debug
+  parent: AXOpen.Messaging
+  children: []
+  name: Debug := 200
+  fullName: Debug
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Debug
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 18
+  namespace: plc.AXOpen.Messaging
+  summary: Debug message to be used for debugging purpose only.Use when you need to report debug information for you as programmer.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Info
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Info
+  parent: AXOpen.Messaging
+  children: []
+  name: Info := 300
+  fullName: Info
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Info
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 24
+  namespace: plc.AXOpen.Messaging
+  summary: Info message.Use when you want to deliver information to the user, that has only informative character and does not adversely affect a process.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.TimedOut
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.TimedOut
+  parent: AXOpen.Messaging
+  children: []
+  name: TimedOut := 400
+  fullName: TimedOut
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.TimedOut
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 30
+  namespace: plc.AXOpen.Messaging
+  summary: Time-out message.Use this category when you want to report a timed-out information, that may eventually succed.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Notification
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Notification
+  parent: AXOpen.Messaging
+  children: []
+  name: Notification := 500
+  fullName: Notification
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Notification
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 37
+  namespace: plc.AXOpen.Messaging
+  summary: Notification message.Use this category when you want to report a notification that may be of interest to the user, but does not adversly affect a process.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Warning
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Warning
+  parent: AXOpen.Messaging
+  children: []
+  name: Warning := 600
+  fullName: Warning
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Warning
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 43
+  namespace: plc.AXOpen.Messaging
+  summary: Warning message.Use this category when you want to report to the user an information about a possible problem, that may adversly affect a process.Information in this cateogory aims to help the user to identify a problem, the cause of such problem does not necessarily stops the process.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Error
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Error
+  parent: AXOpen.Messaging
+  children: []
+  name: Error := 700
+  fullName: Error
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Error
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 50
+  namespace: plc.AXOpen.Messaging
+  summary: Error message.Use this categoty when there is a failure that cannot be immediately recovered and an intervention is needed. This is typically a situation when a device failsto deliver expected result.Do not use this category to report information about failed process like measurement or detection.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
+  parent: AXOpen.Messaging
+  children: []
+  name: ProgrammingError := 900
+  fullName: ProgrammingError
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.ProgrammingError
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 58
+  namespace: plc.AXOpen.Messaging
+  summary: Programming issue.Use this category to inform about a possible programming error, defect in settings or missing information at a level of programming or system or process settings.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Critical
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Critical
+  parent: AXOpen.Messaging
+  children: []
+  name: Critical := 1000
+  fullName: Critical
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Critical
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 64
+  namespace: plc.AXOpen.Messaging
+  summary: Critical error.Use this category when a critical error occured, that is not recoverable by the means of software (reset/restore) but device still operates under such conditions; a detailed inspection and an expert action is required.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Fatal
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Fatal
+  parent: AXOpen.Messaging
+  children: []
+  name: Fatal := 1100
+  fullName: Fatal
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Fatal
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 70
+  namespace: plc.AXOpen.Messaging
+  summary: Fatal error.Use this category when a fatal error occured, that is not recoverable by the means of software (reset/restore) and a detailed inspection is required, the device is not able to continue without special intervention,
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.Catastrophic
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.Catastrophic
+  parent: AXOpen.Messaging
+  children: []
+  name: Catastrophic := 1200
+  fullName: Catastrophic
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.Catastrophic
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 76
+  namespace: plc.AXOpen.Messaging
+  summary: Catastrophic error.Use this category when there is a situation when the device cannot continue operations due to irrecoverable failure.
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory.None
+  id: plc.AXOpen.Messaging.eAxoMessageCategory.None
+  parent: AXOpen.Messaging
+  children: []
+  name: None := 32000
+  fullName: None
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.eAxoMessageCategory.None
+    path: .\src\core\ctrl\src\AxoMessaging\Static\eAxoMessageCategory.st
+    startLine: 84
+  namespace: plc.AXOpen.Messaging
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+
