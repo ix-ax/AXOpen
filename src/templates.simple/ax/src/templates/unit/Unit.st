@@ -81,6 +81,15 @@ NAMESPACE axosimple.UnitTemplate
                 AutomatSequence.Restore();
             END_IF;
 
+            // remember last selected identifier 
+            if  (UnitObjects.LastTechnologySettings <> '') THEN
+                IF UnitObjects.LastTechnologySettings <> UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId THEN 
+                    IF UnitObjects.PersistentData^.Operation.IsReady() THEN 
+                        UnitObjects.PersistentData^.Update();
+                    END_IF;
+                END_IF;
+            END_IF;
+
         END_METHOD
     END_CLASS
      
