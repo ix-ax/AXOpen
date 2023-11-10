@@ -1,0 +1,131 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Logging.AxoLogEntry
+  id: plc.AXOpen.Logging.AxoLogEntry
+  parent: plc.AXOpen.Logging
+  children:
+  - plc.AXOpen.Logging.AxoLogEntry.Message
+  - plc.AXOpen.Logging.AxoLogEntry.Level
+  - plc.AXOpen.Logging.AxoLogEntry.Sender
+  - plc.AXOpen.Logging.AxoLogEntry.ToDequeue
+  name: AxoLogEntry
+  fullName: AxoLogEntry
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.AxoLogEntry
+    path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+    startLine: 4
+  namespace: plc.AXOpen.Logging
+  summary: AxoLogEntry class represents a single log entry.
+  syntax:
+    content: CLASS AxoLogEntry
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Logging.AxoLogEntry.Message
+  id: plc.AXOpen.Logging.AxoLogEntry.Message
+  parent: AXOpen.Logging
+  children: []
+  name: Message
+  fullName: Message
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.AxoLogEntry.Message
+    path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+    startLine: 9
+  namespace: plc.AXOpen.Logging
+  summary: The message of the log entry. The maximum length of the message is 80 characters.
+  syntax:
+    content: 'Message : STRING[80]'
+    return:
+      type: STRING[80]
+- uid: plc.AXOpen.Logging.AxoLogEntry.Level
+  id: plc.AXOpen.Logging.AxoLogEntry.Level
+  parent: AXOpen.Logging
+  children: []
+  name: Level
+  fullName: Level
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.AxoLogEntry.Level
+    path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+    startLine: 16
+  namespace: plc.AXOpen.Logging
+  summary: The severity level of the log entry.
+  syntax:
+    content: 'Level : AXOpen.Logging.eLogLevel'
+    return:
+      type: AXOpen.Logging.eLogLevel
+- uid: plc.AXOpen.Logging.AxoLogEntry.Sender
+  id: plc.AXOpen.Logging.AxoLogEntry.Sender
+  parent: AXOpen.Logging
+  children: []
+  name: Sender
+  fullName: Sender
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.AxoLogEntry.Sender
+    path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+    startLine: 21
+  namespace: plc.AXOpen.Logging
+  summary: The identifier of the sender of the log entry.
+  syntax:
+    content: 'Sender : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Logging.AxoLogEntry.ToDequeue
+  id: plc.AXOpen.Logging.AxoLogEntry.ToDequeue
+  parent: AXOpen.Logging
+  children: []
+  name: ToDequeue
+  fullName: ToDequeue
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.AxoLogEntry.ToDequeue
+    path: .\src\core\ctrl\src\AxoLogger\AxoLogEntry.st
+    startLine: 25
+  namespace: plc.AXOpen.Logging
+  summary: Indicates whether the log entry is ready to be dequeued.
+  syntax:
+    content: 'ToDequeue : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.STRING[80]
+  name: STRING[80]
+  nameWithType: STRING[80]
+  fullName: STRING[80]
+- uid: plc.AXOpen.Logging.eLogLevel
+  name: eLogLevel
+  nameWithType: eLogLevel
+  fullName: AXOpen.Logging.eLogLevel
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

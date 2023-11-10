@@ -1,0 +1,220 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.TriggerReady
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.TriggerAcknowledge
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.ExposureComplete
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.MissedAcquisition
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason0
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason1
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason2
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.Online
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.AcquisitionID
+  name: AxoInsight_AcquisitionStatus
+  fullName: AxoInsight_AcquisitionStatus
+  type: Struct
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: STRUCT AxoInsight_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.TriggerReady
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.TriggerReady
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TriggerReady
+  fullName: TriggerReady
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.TriggerReady
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TriggerReady : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.TriggerAcknowledge
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.TriggerAcknowledge
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TriggerAcknowledge
+  fullName: TriggerAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.TriggerAcknowledge
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TriggerAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.ExposureComplete
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.ExposureComplete
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ExposureComplete
+  fullName: ExposureComplete
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.ExposureComplete
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ExposureComplete : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.MissedAcquisition
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.MissedAcquisition
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: MissedAcquisition
+  fullName: MissedAcquisition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.MissedAcquisition
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'MissedAcquisition : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason0
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason0
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: OfflineReason0
+  fullName: OfflineReason0
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason0
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 13
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'OfflineReason0 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason1
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason1
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: OfflineReason1
+  fullName: OfflineReason1
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason1
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'OfflineReason1 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason2
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason2
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: OfflineReason2
+  fullName: OfflineReason2
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.OfflineReason2
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'OfflineReason2 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.Online
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.Online
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Online
+  fullName: Online
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.Online
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 19
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Online : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.AcquisitionID
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.AcquisitionID
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: AcquisitionID
+  fullName: AcquisitionID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus.AcquisitionID
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionStatus.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'AcquisitionID : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

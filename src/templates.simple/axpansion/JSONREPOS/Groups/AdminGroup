@@ -1,0 +1,18 @@
+{
+  "Changes": [],
+  "RecordId": null,
+  "DataEntityId": "AdminGroup",
+  "Name": "AdminGroup",
+  "Roles": [
+    "Administrator",
+    "process_settings_access",
+    "process_traceability_access",
+    "can_run_ground_mode",
+    "can_run_automat_mode",
+    "can_run_service_mode",
+    "can_skip_steps_in_sequence"
+  ],
+  "RolesHash": "AQAAAAIAAYagAAAAECy9AY2IET6cEZy2pJ8CIH90jDaITIRv7eOvU35PRNOeK7SaHvbTJDH60M29v7P97w==",
+  "Created": "2023-10-23T09:11:43.3438337+02:00",
+  "Modified": "2023-10-23T09:12:08.9294874+02:00"
+}

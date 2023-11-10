@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.eDialogType
+  id: plc.AXOpen.Core.eDialogType
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.eDialogType.Undefined
+  - plc.AXOpen.Core.eDialogType.Info
+  - plc.AXOpen.Core.eDialogType.Success
+  - plc.AXOpen.Core.eDialogType.Danger
+  - plc.AXOpen.Core.eDialogType.Warning
+  name: eDialogType
+  fullName: eDialogType
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogType
+    path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'eDialogType : INT'
+- uid: plc.AXOpen.Core.eDialogType.Undefined
+  id: plc.AXOpen.Core.eDialogType.Undefined
+  parent: AXOpen.Core
+  children: []
+  name: Undefined := 0
+  fullName: Undefined
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogType.Undefined
+    path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogType.Info
+  id: plc.AXOpen.Core.eDialogType.Info
+  parent: AXOpen.Core
+  children: []
+  name: Info := 10
+  fullName: Info
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogType.Info
+    path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogType.Success
+  id: plc.AXOpen.Core.eDialogType.Success
+  parent: AXOpen.Core
+  children: []
+  name: Success := 20
+  fullName: Success
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogType.Success
+    path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogType.Danger
+  id: plc.AXOpen.Core.eDialogType.Danger
+  parent: AXOpen.Core
+  children: []
+  name: Danger := 30
+  fullName: Danger
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogType.Danger
+    path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogType.Warning
+  id: plc.AXOpen.Core.eDialogType.Warning
+  parent: AXOpen.Core
+  children: []
+  name: Warning := 40
+  fullName: Warning
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogType.Warning
+    path: .\src\core\ctrl\src\AxoDialog\eDialogType.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

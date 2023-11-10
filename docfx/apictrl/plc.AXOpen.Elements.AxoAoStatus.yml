@@ -1,0 +1,94 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Elements.AxoAoStatus
+  id: plc.AXOpen.Elements.AxoAoStatus
+  parent: plc.AXOpen.Elements
+  children:
+  - plc.AXOpen.Elements.AxoAoStatus.RawRange
+  - plc.AXOpen.Elements.AxoAoStatus.RealRange
+  - plc.AXOpen.Elements.AxoAoStatus.Unscaled
+  name: AxoAoStatus
+  fullName: AxoAoStatus
+  type: Class
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoStatus
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoStatus.st
+    startLine: 4
+  namespace: plc.AXOpen.Elements
+  summary: Class representing current status of analog output
+  syntax:
+    content: CLASS AxoAoStatus
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Elements.AxoAoStatus.RawRange
+  id: plc.AXOpen.Elements.AxoAoStatus.RawRange
+  parent: AXOpen.Elements
+  children: []
+  name: RawRange
+  fullName: RawRange
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoStatus.RawRange
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoStatus.st
+    startLine: 9
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: 'RawRange : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Elements.AxoAoStatus.RealRange
+  id: plc.AXOpen.Elements.AxoAoStatus.RealRange
+  parent: AXOpen.Elements
+  children: []
+  name: RealRange
+  fullName: RealRange
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoStatus.RealRange
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoStatus.st
+    startLine: 15
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: 'RealRange : REAL'
+    return:
+      type: REAL
+- uid: plc.AXOpen.Elements.AxoAoStatus.Unscaled
+  id: plc.AXOpen.Elements.AxoAoStatus.Unscaled
+  parent: AXOpen.Elements
+  children: []
+  name: Unscaled
+  fullName: Unscaled
+  type: Property
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAo\AxoAoStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements.AxoAoStatus.Unscaled
+    path: .\src\components.elements\ctrl\src\AxoAo\AxoAoStatus.st
+    startLine: 20
+  namespace: plc.AXOpen.Elements
+  syntax:
+    content: 'Unscaled : REAL'
+    return:
+      type: REAL
+references:
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+
+

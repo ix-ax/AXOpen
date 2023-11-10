@@ -1,0 +1,24 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Data.IAxoDataEntity
+  id: plc.AXOpen.Data.IAxoDataEntity
+  parent: plc.AXOpen.Data
+  children: []
+  name: IAxoDataEntity
+  fullName: IAxoDataEntity
+  type: Interface
+  source:
+    remote:
+      path: .\src\data\ctrl\src\IAxoDataEntity.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.IAxoDataEntity
+    path: .\src\data\ctrl\src\IAxoDataEntity.st
+    startLine: 1
+  namespace: plc.AXOpen.Data
+  syntax:
+    content: INTERFACE IAxoDataEntity
+  implements: []
+references: []
+
+

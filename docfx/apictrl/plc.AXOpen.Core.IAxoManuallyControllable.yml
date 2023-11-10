@@ -1,0 +1,72 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoManuallyControllable
+  id: plc.AXOpen.Core.IAxoManuallyControllable
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoManuallyControllable.ActivateManualControl()
+  - plc.AXOpen.Core.IAxoManuallyControllable.IsManuallyControllable()
+  name: IAxoManuallyControllable
+  fullName: IAxoManuallyControllable
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoManuallyControllable
+    path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoManuallyControllable
+  implements: []
+- uid: plc.AXOpen.Core.IAxoManuallyControllable.ActivateManualControl()
+  id: plc.AXOpen.Core.IAxoManuallyControllable.ActivateManualControl
+  parent: IAxoManuallyControllable
+  children: []
+  name: ActivateManualControl
+  fullName: ActivateManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoManuallyControllable.ActivateManualControl
+    path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID ActivateManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.IAxoManuallyControllable.IsManuallyControllable()
+  id: plc.AXOpen.Core.IAxoManuallyControllable.IsManuallyControllable
+  parent: IAxoManuallyControllable
+  children: []
+  name: IsManuallyControllable
+  fullName: IsManuallyControllable
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoManuallyControllable.IsManuallyControllable
+    path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoManuallyControllable.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsManuallyControllable()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

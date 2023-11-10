@@ -30,7 +30,7 @@ if (Test-Path $OutputDirectory) {
 }
 
 Set-Location app
-apax install -L
+apax install
 apax build
 dotnet ixc
 

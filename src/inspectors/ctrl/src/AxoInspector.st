@@ -7,14 +7,13 @@ NAMESPACE AXOpen.Inspectors
     /// Evaluation methods need IAxoCoordinator instance
     ///</summary>
     CLASS AxoInspector EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IInspector, IOnFail
-        VAR
+        VAR PROTECTED
             _inspectorTask: AxoInspectorTask;
             _coordinator: IAxoCoordinator;
             _isOverInspected: BOOL;
             _busy : BOOL;
             _commonData: REF_TO AxoInspectorData;
-            _originalOverallResult : IAxoComprehensiveResult;
-   
+            _originalOverallResult : IAxoComprehensiveResult;   
         END_VAR
     
       

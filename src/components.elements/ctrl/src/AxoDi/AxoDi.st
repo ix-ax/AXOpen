@@ -55,10 +55,14 @@ NAMESPACE AXOpen.Elements
                 inSignal: BOOL;
             END_VAR
 
-            THIS.Initialize(context);
-            _isTrueTask.Initialize(THIS);
-            _isFalseTask.Initialize(THIS);
+            IF (context = NULL) THEN RETURN; END_IF;
 
+            IF THIS._context_ = NULL THEN
+                THIS.Initialize(context);
+                _isTrueTask.Initialize(THIS);
+                _isFalseTask.Initialize(THIS);
+            end_if;
+          
             _messengerInfoPositive.Serve(THIS); 
             _messengerInfoNegative.Serve(THIS); 
 

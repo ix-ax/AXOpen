@@ -1,11 +1,13 @@
 ﻿using AXOpen.Messaging;
 using AXOpen.Messaging.Static;
 using AXSharp.Connector;
+using AXOpen.Core;
 using AXSharp.Connector.ValueTypes;
 using Microsoft.AspNetCore.Components;
 using Pocos.AXOpen.Core;
 using Serilog;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
+using System.Collections.Generic;
 
 namespace AXOpen.Core
 {
@@ -30,13 +32,7 @@ namespace AXOpen.Core
                 PolledElements.Add(axoComponent._isManuallyControllable);
             }
 
-            Messengers?.Select(p => p.IsActive).ToList().ForEach(messenger =>
-            {
-                messenger.StartPolling(1500, this);
-                PolledElements.Add(messenger);
-            });
-
-            Messengers?.Select(p => p.WaitingForAcknowledge).ToList().ForEach(messenger =>
+            Messengers?.Select(p => p.MessengerState).ToList().ForEach(messenger =>
             {
                 messenger.StartPolling(1500, this);
                 PolledElements.Add(messenger);
@@ -108,7 +104,7 @@ namespace AXOpen.Core
 
         protected override async Task OnInitializedAsync()
         {
-            var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.IsActive, p.WaitingForAcknowledge });
+            var a = Messengers?.SelectMany(p => new ITwinPrimitive[] { p.Category, p.MessengerState });
             var connector = Messengers?.FirstOrDefault()?.GetConnector();
             if (connector != null)
             {
@@ -118,9 +114,9 @@ namespace AXOpen.Core
             await base.OnInitializedAsync();
         }
 
-        private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().OfType<AxoMessenger>();
+        private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
-       
+
         private eAlarmLevel AlarmLevel
         {
             get
@@ -129,19 +125,35 @@ namespace AXOpen.Core
                 var _messengers = Messengers?.ToList();
                 if (_messengers == null) { return eAlarmLevel.NoAlarms; }
                 
-                if (_messengers.Any(p => p.IsActive.Cyclic))
+                if (_messengers.Any(p => p.State > eAxoMessengerState.Idle))
                 {
                                      
                     var seriousness = (eAxoMessageCategory)_messengers.Max(p => p.Category.LastValue);
 
-                    if(seriousness <= eAxoMessageCategory.Info)
-                        return eAlarmLevel.ActiveInfo;
-                    else if (seriousness <= eAxoMessageCategory.Warning)
-                        return eAlarmLevel.ActiveWarnings;
-                    else if (seriousness <= eAxoMessageCategory.Error)
-                        return eAlarmLevel.ActiveErrors;
+                    switch (seriousness)
+                    {
+                        case eAxoMessageCategory.All:                            
+                        case eAxoMessageCategory.Trace:                            
+                        case eAxoMessageCategory.Debug:                            
+                        case eAxoMessageCategory.Info:
+                            return eAlarmLevel.ActiveInfo;
+                        case eAxoMessageCategory.TimedOut:                        
+                        case eAxoMessageCategory.Notification:                            
+                        case eAxoMessageCategory.Warning:
+                            return eAlarmLevel.ActiveWarnings;
+                        case eAxoMessageCategory.Error:                           
+                        case eAxoMessageCategory.ProgrammingError:                            
+                        case eAxoMessageCategory.Critical:                            
+                        case eAxoMessageCategory.Fatal:                            
+                        case eAxoMessageCategory.Catastrophic:
+                            return eAlarmLevel.ActiveErrors;
+                        case eAxoMessageCategory.None:
+                            break;
+                        default:
+                            break;
+                    }                   
                 }
-                else if (_messengers.Any(p => p.WaitingForAcknowledge.LastValue))
+                else if (_messengers.Any(p => p.State > eAxoMessengerState.NotActiveWatingAckn))
                 {
                     return eAlarmLevel.Unacknowledged;
                 }
@@ -184,6 +196,6 @@ namespace AXOpen.Core
         {
             IsControllable = false;
         }
-    }   
+    }
 }
 

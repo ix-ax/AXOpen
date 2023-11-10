@@ -1,0 +1,901 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoStep
+  id: plc.AXOpen.Core.AxoStep
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoStep.Order
+  - plc.AXOpen.Core.AxoStep.StepDescription
+  - plc.AXOpen.Core.AxoStep.IsActive
+  - plc.AXOpen.Core.AxoStep.IsEnabled
+  - plc.AXOpen.Core.AxoStep._openCycleCount
+  - plc.AXOpen.Core.AxoStep._isCalledJustOnceInThisPlcCycle
+  - plc.AXOpen.Core.AxoStep._multipleStepCallInThisPlcCycle
+  - plc.AXOpen.Core.AxoStep._noStepCallInPreviousPlcCycle
+  - plc.AXOpen.Core.AxoStep.GetStepOrder()
+  - plc.AXOpen.Core.AxoStep.SetStepOrder(IAxoCoordinator,ULINT)
+  - plc.AXOpen.Core.AxoStep.IsCalledJustOnceInThisPlcCycle()
+  - plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator)
+  - plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,BOOL)
+  - plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,BOOL,STRING[120])
+  - plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,STRING[120])
+  - plc.AXOpen.Core.AxoStep.CountCallsOfTheExecuteMethod()
+  - plc.AXOpen.Core.AxoStep.ExecuteInternal(IAxoCoordinator,BOOL)
+  - plc.AXOpen.Core.AxoStep.SetIsActive(BOOL)
+  - plc.AXOpen.Core.AxoStep.GetIsActive()
+  - plc.AXOpen.Core.AxoStep.SetIsEnabled(BOOL)
+  - plc.AXOpen.Core.AxoStep.GetIsEnabled()
+  name: AxoStep
+  fullName: AxoStep
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoStep
+  inheritance:
+  - plc.AXOpen.Core.AxoTask
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoTask.Status
+  - plc.AXOpen.Core.AxoTask.IsDisabled
+  - plc.AXOpen.Core.AxoTask.RemoteInvoke
+  - plc.AXOpen.Core.AxoTask.RemoteRestore
+  - plc.AXOpen.Core.AxoTask.RemoteAbort
+  - plc.AXOpen.Core.AxoTask.RemoteResume
+  - plc.AXOpen.Core.AxoTask.StartSignature
+  - plc.AXOpen.Core.AxoTask.Duration
+  - plc.AXOpen.Core.AxoTask.StartTimeStamp
+  - plc.AXOpen.Core.AxoTask.ErrorDetails
+  - plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoTask.GetState()
+  - plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  - plc.AXOpen.Core.AxoTask.IsReady()
+  - plc.AXOpen.Core.AxoTask.IsDone()
+  - plc.AXOpen.Core.AxoTask.IsBusy()
+  - plc.AXOpen.Core.AxoTask.IsAborted()
+  - plc.AXOpen.Core.AxoTask.HasError()
+  - plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  - plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  - plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  - plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoTask.UpdateState()
+  - plc.AXOpen.Core.AxoTask.Invoke()
+  - plc.AXOpen.Core.AxoTask.Restore()
+  - plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  - plc.AXOpen.Core.AxoTask.Execute()
+  - plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  - plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  - plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  - plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  - plc.AXOpen.Core.AxoTask.Abort()
+  - plc.AXOpen.Core.AxoTask.Resume()
+  - plc.AXOpen.Core.AxoTask.OnAbort()
+  - plc.AXOpen.Core.AxoTask.OnResume()
+  - plc.AXOpen.Core.AxoTask.OnDone()
+  - plc.AXOpen.Core.AxoTask.OnError()
+  - plc.AXOpen.Core.AxoTask.OnRestore()
+  - plc.AXOpen.Core.AxoTask.OnStart()
+  - plc.AXOpen.Core.AxoTask.WhileError()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Core.IAxoStep
+  - plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.AxoStep.Order
+  id: plc.AXOpen.Core.AxoStep.Order
+  parent: AXOpen.Core
+  children: []
+  name: Order
+  fullName: Order
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.Order
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'Order : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoStep.StepDescription
+  id: plc.AXOpen.Core.AxoStep.StepDescription
+  parent: AXOpen.Core
+  children: []
+  name: StepDescription
+  fullName: StepDescription
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.StepDescription
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'StepDescription : STRING[120]'
+    return:
+      type: STRING[120]
+- uid: plc.AXOpen.Core.AxoStep.IsActive
+  id: plc.AXOpen.Core.AxoStep.IsActive
+  parent: AXOpen.Core
+  children: []
+  name: IsActive
+  fullName: IsActive
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.IsActive
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'IsActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoStep.IsEnabled
+  id: plc.AXOpen.Core.AxoStep.IsEnabled
+  parent: AXOpen.Core
+  children: []
+  name: IsEnabled
+  fullName: IsEnabled
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.IsEnabled
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'IsEnabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoStep._openCycleCount
+  id: plc.AXOpen.Core.AxoStep._openCycleCount
+  parent: AXOpen.Core
+  children: []
+  name: _openCycleCount
+  fullName: _openCycleCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep._openCycleCount
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_openCycleCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoStep._isCalledJustOnceInThisPlcCycle
+  id: plc.AXOpen.Core.AxoStep._isCalledJustOnceInThisPlcCycle
+  parent: AXOpen.Core
+  children: []
+  name: _isCalledJustOnceInThisPlcCycle
+  fullName: _isCalledJustOnceInThisPlcCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep._isCalledJustOnceInThisPlcCycle
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 13
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_isCalledJustOnceInThisPlcCycle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoStep._multipleStepCallInThisPlcCycle
+  id: plc.AXOpen.Core.AxoStep._multipleStepCallInThisPlcCycle
+  parent: AXOpen.Core
+  children: []
+  name: _multipleStepCallInThisPlcCycle
+  fullName: _multipleStepCallInThisPlcCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep._multipleStepCallInThisPlcCycle
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 14
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_multipleStepCallInThisPlcCycle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoStep._noStepCallInPreviousPlcCycle
+  id: plc.AXOpen.Core.AxoStep._noStepCallInPreviousPlcCycle
+  parent: AXOpen.Core
+  children: []
+  name: _noStepCallInPreviousPlcCycle
+  fullName: _noStepCallInPreviousPlcCycle
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep._noStepCallInPreviousPlcCycle
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 15
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_noStepCallInPreviousPlcCycle : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoStep.GetStepOrder()
+  id: plc.AXOpen.Core.AxoStep.GetStepOrder()
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: GetStepOrder
+  fullName: GetStepOrder
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.GetStepOrder
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 22
+  namespace: plc.AXOpen.Core
+  summary: Returns the order of the execution.
+  syntax:
+    content: Public ULINT GetStepOrder()
+    parameters: &o0 []
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.AxoStep.SetStepOrder(IAxoCoordinator,ULINT)
+  id: plc.AXOpen.Core.AxoStep.SetStepOrder(IAxoCoordinator,ULINT)
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: SetStepOrder
+  fullName: SetStepOrder
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.SetStepOrder
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 30
+  namespace: plc.AXOpen.Core
+  summary: Sets the order of the execution, if conditions are met.
+  syntax:
+    content: Public VOID SetStepOrder(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.ULINT StepOrder)
+    parameters:
+    - id: coord
+      type: plc.AXOpen.Core.IAxoCoordinator
+    - id: StepOrder
+      type: plc.ULINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoStep.IsCalledJustOnceInThisPlcCycle()
+  id: plc.AXOpen.Core.AxoStep.IsCalledJustOnceInThisPlcCycle()
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: IsCalledJustOnceInThisPlcCycle
+  fullName: IsCalledJustOnceInThisPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.IsCalledJustOnceInThisPlcCycle
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 42
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if the execution of the step is called only once in this PLC cycle.
+  syntax:
+    content: Public BOOL IsCalledJustOnceInThisPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator)
+  id: plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator)
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.Execute
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 50
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if instance of `THIS` step is curently executing
+  syntax:
+    content: Public BOOL Execute(in plc.AXOpen.Core.IAxoCoordinator coord)
+    parameters:
+    - id: coord
+      type: plc.AXOpen.Core.IAxoCoordinator
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,BOOL)
+  id: plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,BOOL)
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.Execute
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 61
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if instance of `THIS` step is curently executing and the step is enabled
+  syntax:
+    content: Public BOOL Execute(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.BOOL Enable)
+    parameters:
+    - id: coord
+      type: plc.AXOpen.Core.IAxoCoordinator
+    - id: Enable
+      type: plc.BOOL
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,BOOL,STRING[120])
+  id: plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,BOOL,STRING[120])
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.Execute
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 74
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if instance of `THIS` step is curently executing and the step is enabledand sets the description of the step
+  syntax:
+    content: Public BOOL Execute(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.BOOL Enable,in plc.STRING[120] Description)
+    parameters:
+    - id: coord
+      type: plc.AXOpen.Core.IAxoCoordinator
+    - id: Enable
+      type: plc.BOOL
+    - id: Description
+      type: plc.STRING[120]
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,STRING[120])
+  id: plc.AXOpen.Core.AxoStep.Execute(IAxoCoordinator,STRING[120])
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.Execute
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 89
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if instance of `THIS` step is curently executingand sets the description of the step
+  syntax:
+    content: Public BOOL Execute(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.STRING[120] Description)
+    parameters:
+    - id: coord
+      type: plc.AXOpen.Core.IAxoCoordinator
+    - id: Description
+      type: plc.STRING[120]
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoStep.CountCallsOfTheExecuteMethod()
+  id: plc.AXOpen.Core.AxoStep.CountCallsOfTheExecuteMethod()
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: CountCallsOfTheExecuteMethod
+  fullName: CountCallsOfTheExecuteMethod
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.CountCallsOfTheExecuteMethod
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 98
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Protected VOID CountCallsOfTheExecuteMethod()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoStep.ExecuteInternal(IAxoCoordinator,BOOL)
+  id: plc.AXOpen.Core.AxoStep.ExecuteInternal(IAxoCoordinator,BOOL)
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: ExecuteInternal
+  fullName: ExecuteInternal
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.ExecuteInternal
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 113
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Protected BOOL ExecuteInternal(in plc.AXOpen.Core.IAxoCoordinator coord,in plc.BOOL Enable)
+    parameters:
+    - id: coord
+      type: plc.AXOpen.Core.IAxoCoordinator
+    - id: Enable
+      type: plc.BOOL
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoStep.SetIsActive(BOOL)
+  id: plc.AXOpen.Core.AxoStep.SetIsActive(BOOL)
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: SetIsActive
+  fullName: SetIsActive
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.SetIsActive
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 142
+  namespace: plc.AXOpen.Core
+  summary: Sets the value of the `IsActive` variable
+  syntax:
+    content: Public VOID SetIsActive(in plc.BOOL Active)
+    parameters:
+    - id: Active
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoStep.GetIsActive()
+  id: plc.AXOpen.Core.AxoStep.GetIsActive()
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: GetIsActive
+  fullName: GetIsActive
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.GetIsActive
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 158
+  namespace: plc.AXOpen.Core
+  summary: Returns the value of the `IsActive` variable
+  syntax:
+    content: Public BOOL GetIsActive()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoStep.SetIsEnabled(BOOL)
+  id: plc.AXOpen.Core.AxoStep.SetIsEnabled(BOOL)
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: SetIsEnabled
+  fullName: SetIsEnabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.SetIsEnabled
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 165
+  namespace: plc.AXOpen.Core
+  summary: Sets the value of the `IsEnabled` variable
+  syntax:
+    content: Public VOID SetIsEnabled(in plc.BOOL Enabled)
+    parameters:
+    - id: Enabled
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoStep.GetIsEnabled()
+  id: plc.AXOpen.Core.AxoStep.GetIsEnabled()
+  parent: AXOpen.Core.AxoStep
+  children: []
+  name: GetIsEnabled
+  fullName: GetIsEnabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoStep.GetIsEnabled
+    path: .\src\core\ctrl\src\AxoCoordination\AxoStep\AxoStep.st
+    startLine: 172
+  namespace: plc.AXOpen.Core
+  summary: Returns the value of the `IsEnabled` variable
+  syntax:
+    content: Public BOOL GetIsEnabled()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Core.AxoTask.Status
+  commentId: plc.AXOpen.Core.AxoTask.Status
+  name: Status
+  nameWithType: Status
+  fullName: plc.AXOpen.Core.AxoTask.Status
+  parent: plc.AXOpen.Core.AxoTask.Status
+- uid: plc.AXOpen.Core.AxoTask.IsDisabled
+  commentId: plc.AXOpen.Core.AxoTask.IsDisabled
+  name: IsDisabled
+  nameWithType: IsDisabled
+  fullName: plc.AXOpen.Core.AxoTask.IsDisabled
+  parent: plc.AXOpen.Core.AxoTask.IsDisabled
+- uid: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  commentId: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  name: RemoteInvoke
+  nameWithType: RemoteInvoke
+  fullName: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  parent: plc.AXOpen.Core.AxoTask.RemoteInvoke
+- uid: plc.AXOpen.Core.AxoTask.RemoteRestore
+  commentId: plc.AXOpen.Core.AxoTask.RemoteRestore
+  name: RemoteRestore
+  nameWithType: RemoteRestore
+  fullName: plc.AXOpen.Core.AxoTask.RemoteRestore
+  parent: plc.AXOpen.Core.AxoTask.RemoteRestore
+- uid: plc.AXOpen.Core.AxoTask.RemoteAbort
+  commentId: plc.AXOpen.Core.AxoTask.RemoteAbort
+  name: RemoteAbort
+  nameWithType: RemoteAbort
+  fullName: plc.AXOpen.Core.AxoTask.RemoteAbort
+  parent: plc.AXOpen.Core.AxoTask.RemoteAbort
+- uid: plc.AXOpen.Core.AxoTask.RemoteResume
+  commentId: plc.AXOpen.Core.AxoTask.RemoteResume
+  name: RemoteResume
+  nameWithType: RemoteResume
+  fullName: plc.AXOpen.Core.AxoTask.RemoteResume
+  parent: plc.AXOpen.Core.AxoTask.RemoteResume
+- uid: plc.AXOpen.Core.AxoTask.StartSignature
+  commentId: plc.AXOpen.Core.AxoTask.StartSignature
+  name: StartSignature
+  nameWithType: StartSignature
+  fullName: plc.AXOpen.Core.AxoTask.StartSignature
+  parent: plc.AXOpen.Core.AxoTask.StartSignature
+- uid: plc.AXOpen.Core.AxoTask.Duration
+  commentId: plc.AXOpen.Core.AxoTask.Duration
+  name: Duration
+  nameWithType: Duration
+  fullName: plc.AXOpen.Core.AxoTask.Duration
+  parent: plc.AXOpen.Core.AxoTask.Duration
+- uid: plc.AXOpen.Core.AxoTask.StartTimeStamp
+  commentId: plc.AXOpen.Core.AxoTask.StartTimeStamp
+  name: StartTimeStamp
+  nameWithType: StartTimeStamp
+  fullName: plc.AXOpen.Core.AxoTask.StartTimeStamp
+  parent: plc.AXOpen.Core.AxoTask.StartTimeStamp
+- uid: plc.AXOpen.Core.AxoTask.ErrorDetails
+  commentId: plc.AXOpen.Core.AxoTask.ErrorDetails
+  name: ErrorDetails
+  nameWithType: ErrorDetails
+  fullName: plc.AXOpen.Core.AxoTask.ErrorDetails
+  parent: plc.AXOpen.Core.AxoTask.ErrorDetails
+- uid: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  commentId: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  name: _CyclicExecuteIsNotCalled
+  nameWithType: _CyclicExecuteIsNotCalled
+  fullName: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  parent: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoTask.GetState()
+  commentId: plc.AXOpen.Core.AxoTask.GetState()
+  name: GetState()
+  nameWithType: GetState()
+  fullName: plc.AXOpen.Core.AxoTask.GetState()
+  parent: plc.AXOpen.Core.AxoTask.GetState()
+- uid: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  commentId: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  name: GetErrorDetails()
+  nameWithType: GetErrorDetails()
+  fullName: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  parent: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+- uid: plc.AXOpen.Core.AxoTask.IsReady()
+  commentId: plc.AXOpen.Core.AxoTask.IsReady()
+  name: IsReady()
+  nameWithType: IsReady()
+  fullName: plc.AXOpen.Core.AxoTask.IsReady()
+  parent: plc.AXOpen.Core.AxoTask.IsReady()
+- uid: plc.AXOpen.Core.AxoTask.IsDone()
+  commentId: plc.AXOpen.Core.AxoTask.IsDone()
+  name: IsDone()
+  nameWithType: IsDone()
+  fullName: plc.AXOpen.Core.AxoTask.IsDone()
+  parent: plc.AXOpen.Core.AxoTask.IsDone()
+- uid: plc.AXOpen.Core.AxoTask.IsBusy()
+  commentId: plc.AXOpen.Core.AxoTask.IsBusy()
+  name: IsBusy()
+  nameWithType: IsBusy()
+  fullName: plc.AXOpen.Core.AxoTask.IsBusy()
+  parent: plc.AXOpen.Core.AxoTask.IsBusy()
+- uid: plc.AXOpen.Core.AxoTask.IsAborted()
+  commentId: plc.AXOpen.Core.AxoTask.IsAborted()
+  name: IsAborted()
+  nameWithType: IsAborted()
+  fullName: plc.AXOpen.Core.AxoTask.IsAborted()
+  parent: plc.AXOpen.Core.AxoTask.IsAborted()
+- uid: plc.AXOpen.Core.AxoTask.HasError()
+  commentId: plc.AXOpen.Core.AxoTask.HasError()
+  name: HasError()
+  nameWithType: HasError()
+  fullName: plc.AXOpen.Core.AxoTask.HasError()
+  parent: plc.AXOpen.Core.AxoTask.HasError()
+- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  name: IsInvokeCalled()
+  nameWithType: IsInvokeCalled()
+  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+- uid: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  commentId: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  name: IsNewInvokeCall()
+  nameWithType: IsNewInvokeCall()
+  fullName: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  parent: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  name: IsInvokeCalledInThisPlcCycle()
+  nameWithType: IsInvokeCalledInThisPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+- uid: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  name: WasInvokeCalledInPreviousPlcCycle()
+  nameWithType: WasInvokeCalledInPreviousPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  parent: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+- uid: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  commentId: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  name: IsNewExecuteCall()
+  nameWithType: IsNewExecuteCall()
+  fullName: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  parent: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+- uid: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  name: IsExecuteCalledInThisPlcCycle()
+  nameWithType: IsExecuteCalledInThisPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  parent: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+- uid: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  name: WasExecuteCalledInPreviousPlcCycle()
+  nameWithType: WasExecuteCalledInPreviousPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  parent: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+- uid: plc.AXOpen.Core.AxoTask.UpdateState()
+  commentId: plc.AXOpen.Core.AxoTask.UpdateState()
+  name: UpdateState()
+  nameWithType: UpdateState()
+  fullName: plc.AXOpen.Core.AxoTask.UpdateState()
+  parent: plc.AXOpen.Core.AxoTask.UpdateState()
+- uid: plc.AXOpen.Core.AxoTask.Invoke()
+  commentId: plc.AXOpen.Core.AxoTask.Invoke()
+  name: Invoke()
+  nameWithType: Invoke()
+  fullName: plc.AXOpen.Core.AxoTask.Invoke()
+  parent: plc.AXOpen.Core.AxoTask.Invoke()
+- uid: plc.AXOpen.Core.AxoTask.Restore()
+  commentId: plc.AXOpen.Core.AxoTask.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoTask.Restore()
+  parent: plc.AXOpen.Core.AxoTask.Restore()
+- uid: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  name: DoneWhen(BOOL)
+  nameWithType: DoneWhen(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.Execute()
+  commentId: plc.AXOpen.Core.AxoTask.Execute()
+  name: Execute()
+  nameWithType: Execute()
+  fullName: plc.AXOpen.Core.AxoTask.Execute()
+  parent: plc.AXOpen.Core.AxoTask.Execute()
+- uid: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  commentId: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  name: LogTask(STRING[80],eLogLevel,IAxoObject)
+  nameWithType: LogTask(STRING[80],eLogLevel,IAxoObject)
+  fullName: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  parent: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+- uid: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  name: ThrowWhen(BOOL)
+  nameWithType: ThrowWhen(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  commentId: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  name: ThrowWhen(BOOL,STRING[254])
+  nameWithType: ThrowWhen(BOOL,STRING[254])
+  fullName: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  parent: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+- uid: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  name: SetIsDisabled(BOOL)
+  nameWithType: SetIsDisabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  name: GetIsDisabled()
+  nameWithType: GetIsDisabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  parent: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+- uid: plc.AXOpen.Core.AxoTask.Abort()
+  commentId: plc.AXOpen.Core.AxoTask.Abort()
+  name: Abort()
+  nameWithType: Abort()
+  fullName: plc.AXOpen.Core.AxoTask.Abort()
+  parent: plc.AXOpen.Core.AxoTask.Abort()
+- uid: plc.AXOpen.Core.AxoTask.Resume()
+  commentId: plc.AXOpen.Core.AxoTask.Resume()
+  name: Resume()
+  nameWithType: Resume()
+  fullName: plc.AXOpen.Core.AxoTask.Resume()
+  parent: plc.AXOpen.Core.AxoTask.Resume()
+- uid: plc.AXOpen.Core.AxoTask.OnAbort()
+  commentId: plc.AXOpen.Core.AxoTask.OnAbort()
+  name: OnAbort()
+  nameWithType: OnAbort()
+  fullName: plc.AXOpen.Core.AxoTask.OnAbort()
+  parent: plc.AXOpen.Core.AxoTask.OnAbort()
+- uid: plc.AXOpen.Core.AxoTask.OnResume()
+  commentId: plc.AXOpen.Core.AxoTask.OnResume()
+  name: OnResume()
+  nameWithType: OnResume()
+  fullName: plc.AXOpen.Core.AxoTask.OnResume()
+  parent: plc.AXOpen.Core.AxoTask.OnResume()
+- uid: plc.AXOpen.Core.AxoTask.OnDone()
+  commentId: plc.AXOpen.Core.AxoTask.OnDone()
+  name: OnDone()
+  nameWithType: OnDone()
+  fullName: plc.AXOpen.Core.AxoTask.OnDone()
+  parent: plc.AXOpen.Core.AxoTask.OnDone()
+- uid: plc.AXOpen.Core.AxoTask.OnError()
+  commentId: plc.AXOpen.Core.AxoTask.OnError()
+  name: OnError()
+  nameWithType: OnError()
+  fullName: plc.AXOpen.Core.AxoTask.OnError()
+  parent: plc.AXOpen.Core.AxoTask.OnError()
+- uid: plc.AXOpen.Core.AxoTask.OnRestore()
+  commentId: plc.AXOpen.Core.AxoTask.OnRestore()
+  name: OnRestore()
+  nameWithType: OnRestore()
+  fullName: plc.AXOpen.Core.AxoTask.OnRestore()
+  parent: plc.AXOpen.Core.AxoTask.OnRestore()
+- uid: plc.AXOpen.Core.AxoTask.OnStart()
+  commentId: plc.AXOpen.Core.AxoTask.OnStart()
+  name: OnStart()
+  nameWithType: OnStart()
+  fullName: plc.AXOpen.Core.AxoTask.OnStart()
+  parent: plc.AXOpen.Core.AxoTask.OnStart()
+- uid: plc.AXOpen.Core.AxoTask.WhileError()
+  commentId: plc.AXOpen.Core.AxoTask.WhileError()
+  name: WhileError()
+  nameWithType: WhileError()
+  fullName: plc.AXOpen.Core.AxoTask.WhileError()
+  parent: plc.AXOpen.Core.AxoTask.WhileError()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Core.IAxoStep
+  commentId: plc.AXOpen.Core.IAxoStep
+  name: IAxoStep
+  nameWithType: IAxoStep
+  fullName: plc.AXOpen.Core.IAxoStep
+  parent: plc.AXOpen.Core.IAxoStep
+- uid: plc.AXOpen.Core.IAxoTaskState
+  commentId: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: plc.AXOpen.Core.IAxoTaskState
+  parent: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.STRING[120]
+  name: STRING[120]
+  nameWithType: STRING[120]
+  fullName: STRING[120]
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Core.IAxoCoordinator
+  name: IAxoCoordinator
+  nameWithType: IAxoCoordinator
+  fullName: AXOpen.Core.IAxoCoordinator
+
+

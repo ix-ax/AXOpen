@@ -188,7 +188,7 @@
     <value>Delete user</value>
   </data>
   <data name="Do you want to delete user" xml:space="preserve">
-    <value>Do you want to delete user</value>
+    <value>Do you want to delete user?</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
@@ -248,7 +248,7 @@
     <value>Delete group</value>
   </data>
   <data name="Do you want to delete group" xml:space="preserve">
-    <value>Do you want to delete group</value>
+    <value>Do you want to delete group?</value>
   </data>
   <data name="Profile" xml:space="preserve">
     <value>Profile</value>

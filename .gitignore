@@ -405,3 +405,4 @@ artifacts/
 apax-lock.json
 
 docs-test/
+src/.application/

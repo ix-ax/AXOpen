@@ -1,13 +1,13 @@
 
 cd ctrl
 apax clean
-apax install -L
+apax install
 apax build
 apax test
 cd ..
 cd app
 apax clean
-apax install -L
+apax install
 apax build
 apax test
 cd ..

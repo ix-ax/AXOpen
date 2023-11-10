@@ -1,0 +1,472 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoContext
+  id: plc.AXOpen.Core.AxoContext
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoContext._openCounter
+  - plc.AXOpen.Core.AxoContext._closeCounter
+  - plc.AXOpen.Core.AxoContext._identityCounter
+  - plc.AXOpen.Core.AxoContext.NULL_RTC
+  - plc.AXOpen.Core.AxoContext._rtc
+  - plc.AXOpen.Core.AxoContext.NULL_LOGGER
+  - plc.AXOpen.Core.AxoContext._contextLogger
+  - plc.AXOpen.Core.AxoContext.Open()
+  - plc.AXOpen.Core.AxoContext.Close()
+  - plc.AXOpen.Core.AxoContext.Run()
+  - plc.AXOpen.Core.AxoContext.OpenCycleCount()
+  - plc.AXOpen.Core.AxoContext.ClosedCycleCount()
+  - plc.AXOpen.Core.AxoContext.CreateIdentity()
+  - plc.AXOpen.Core.AxoContext.PeekIdentity()
+  - plc.AXOpen.Core.AxoContext.GetRtc()
+  - plc.AXOpen.Core.AxoContext.InjectRtc(IAxoRtc)
+  - plc.AXOpen.Core.AxoContext.GetLogger()
+  - plc.AXOpen.Core.AxoContext.InjectLogger(IAxoLogger)
+  - plc.AXOpen.Core.AxoContext.Main()
+  name: AxoContext
+  fullName: AxoContext
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 9
+  namespace: plc.AXOpen.Core
+  summary: Provides base for contextualized entry of `AXOpen` application.This class is abstract and must be inherited.
+  syntax:
+    content: CLASS AxoContext
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.AxoContext._openCounter
+  id: plc.AXOpen.Core.AxoContext._openCounter
+  parent: AXOpen.Core
+  children: []
+  name: _openCounter
+  fullName: _openCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext._openCounter
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 12
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_openCounter : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoContext._closeCounter
+  id: plc.AXOpen.Core.AxoContext._closeCounter
+  parent: AXOpen.Core
+  children: []
+  name: _closeCounter
+  fullName: _closeCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext._closeCounter
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 13
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_closeCounter : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoContext._identityCounter
+  id: plc.AXOpen.Core.AxoContext._identityCounter
+  parent: AXOpen.Core
+  children: []
+  name: _identityCounter
+  fullName: _identityCounter
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext._identityCounter
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 13
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_identityCounter : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoContext.NULL_RTC
+  id: plc.AXOpen.Core.AxoContext.NULL_RTC
+  parent: AXOpen.Core
+  children: []
+  name: NULL_RTC
+  fullName: NULL_RTC
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.NULL_RTC
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 67
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'NULL_RTC : AXOpen.Core._NULL_RTC'
+    return:
+      type: AXOpen.Core._NULL_RTC
+- uid: plc.AXOpen.Core.AxoContext._rtc
+  id: plc.AXOpen.Core.AxoContext._rtc
+  parent: AXOpen.Core
+  children: []
+  name: _rtc
+  fullName: _rtc
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext._rtc
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 68
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_rtc : AXOpen.Rtc.IAxoRtc'
+    return:
+      type: AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core.AxoContext.NULL_LOGGER
+  id: plc.AXOpen.Core.AxoContext.NULL_LOGGER
+  parent: AXOpen.Core
+  children: []
+  name: NULL_LOGGER
+  fullName: NULL_LOGGER
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.NULL_LOGGER
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 87
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'NULL_LOGGER : AXOpen.Core._NULL_LOGGER'
+    return:
+      type: AXOpen.Core._NULL_LOGGER
+- uid: plc.AXOpen.Core.AxoContext._contextLogger
+  id: plc.AXOpen.Core.AxoContext._contextLogger
+  parent: AXOpen.Core
+  children: []
+  name: _contextLogger
+  fullName: _contextLogger
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext._contextLogger
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 88
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_contextLogger : AXOpen.Logging.IAxoLogger'
+    return:
+      type: AXOpen.Logging.IAxoLogger
+- uid: plc.AXOpen.Core.AxoContext.Open()
+  id: plc.AXOpen.Core.AxoContext.Open()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: Open
+  fullName: Open
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.Open
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 25
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private ULINT Open()
+    parameters: &o1 []
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.AxoContext.Close()
+  id: plc.AXOpen.Core.AxoContext.Close()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: Close
+  fullName: Close
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.Close
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 29
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private ULINT Close()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.AxoContext.Run()
+  id: plc.AXOpen.Core.AxoContext.Run()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.Run
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 38
+  namespace: plc.AXOpen.Core
+  summary: Runs the cycle of this context. This method must be called cyclically in a PLC task.
+  syntax:
+    content: Public VOID Run()
+    parameters: *o1
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoContext.OpenCycleCount()
+  id: plc.AXOpen.Core.AxoContext.OpenCycleCount()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: OpenCycleCount
+  fullName: OpenCycleCount
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.OpenCycleCount
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 45
+  namespace: plc.AXOpen.Core
+  summary: Gets the value of current context cycle counter.
+  syntax:
+    content: Public ULINT OpenCycleCount()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.AxoContext.ClosedCycleCount()
+  id: plc.AXOpen.Core.AxoContext.ClosedCycleCount()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: ClosedCycleCount
+  fullName: ClosedCycleCount
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.ClosedCycleCount
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 50
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT ClosedCycleCount()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.AxoContext.CreateIdentity()
+  id: plc.AXOpen.Core.AxoContext.CreateIdentity()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: CreateIdentity
+  fullName: CreateIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.CreateIdentity
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 53
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT CreateIdentity()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.AxoContext.PeekIdentity()
+  id: plc.AXOpen.Core.AxoContext.PeekIdentity()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: PeekIdentity
+  fullName: PeekIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.PeekIdentity
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 61
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT PeekIdentity()
+    parameters: *o1
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.AxoContext.GetRtc()
+  id: plc.AXOpen.Core.AxoContext.GetRtc()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: GetRtc
+  fullName: GetRtc
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.GetRtc
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 70
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Rtc.IAxoRtc GetRtc()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core.AxoContext.InjectRtc(IAxoRtc)
+  id: plc.AXOpen.Core.AxoContext.InjectRtc(IAxoRtc)
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: InjectRtc
+  fullName: InjectRtc
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.InjectRtc
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 81
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID InjectRtc(in plc.AXOpen.Rtc.IAxoRtc Rtc)
+    parameters:
+    - id: Rtc
+      type: plc.AXOpen.Rtc.IAxoRtc
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoContext.GetLogger()
+  id: plc.AXOpen.Core.AxoContext.GetLogger()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: GetLogger
+  fullName: GetLogger
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.GetLogger
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 90
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Logging.IAxoLogger GetLogger()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Logging.IAxoLogger
+- uid: plc.AXOpen.Core.AxoContext.InjectLogger(IAxoLogger)
+  id: plc.AXOpen.Core.AxoContext.InjectLogger(IAxoLogger)
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: InjectLogger
+  fullName: InjectLogger
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.InjectLogger
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 100
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public VOID InjectLogger(in plc.AXOpen.Logging.IAxoLogger _logger)
+    parameters:
+    - id: _logger
+      type: plc.AXOpen.Logging.IAxoLogger
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoContext.Main()
+  id: plc.AXOpen.Core.AxoContext.Main()
+  parent: AXOpen.Core.AxoContext
+  children: []
+  name: Main
+  fullName: Main
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoContext.Main
+    path: .\src\core\ctrl\src\AxoContext\AxoContext.st
+    startLine: 22
+  namespace: plc.AXOpen.Core
+  summary: The entry point for the context. The call tree of the context start here and all the logic of given contextmust be placed here.This method must be overridden in derived class.
+  syntax:
+    content: Protected VOID Main()
+    parameters: *o1
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.IAxoContext
+  commentId: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: plc.AXOpen.Core.IAxoContext
+  parent: plc.AXOpen.Core.IAxoContext
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Core._NULL_RTC
+  name: _NULL_RTC
+  nameWithType: _NULL_RTC
+  fullName: AXOpen.Core._NULL_RTC
+- uid: plc.AXOpen.Rtc.IAxoRtc
+  name: IAxoRtc
+  nameWithType: IAxoRtc
+  fullName: AXOpen.Rtc.IAxoRtc
+- uid: plc.AXOpen.Core._NULL_LOGGER
+  name: _NULL_LOGGER
+  nameWithType: _NULL_LOGGER
+  fullName: AXOpen.Core._NULL_LOGGER
+- uid: plc.AXOpen.Logging.IAxoLogger
+  name: IAxoLogger
+  nameWithType: IAxoLogger
+  fullName: AXOpen.Logging.IAxoLogger
+
+

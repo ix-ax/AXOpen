@@ -1,0 +1,111 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core._NULL_OBJECT
+  id: plc.AXOpen.Core._NULL_OBJECT
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
+  - plc.AXOpen.Core._NULL_OBJECT.GetIdentity()
+  - plc.AXOpen.Core._NULL_OBJECT.GetContext()
+  name: _NULL_OBJECT
+  fullName: _NULL_OBJECT
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_OBJECT
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 25
+  namespace: plc.AXOpen.Core
+  summary: Provides an empty object for uninitialized objects.
+  syntax:
+    content: CLASS _NULL_OBJECT
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
+  id: plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
+  parent: AXOpen.Core
+  children: []
+  name: NULL_CONTEXT
+  fullName: NULL_CONTEXT
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_OBJECT.NULL_CONTEXT
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 28
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'NULL_CONTEXT : AXOpen.Core._NULL_CONTEXT'
+    return:
+      type: AXOpen.Core._NULL_CONTEXT
+- uid: plc.AXOpen.Core._NULL_OBJECT.GetIdentity()
+  id: plc.AXOpen.Core._NULL_OBJECT.GetIdentity()
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: GetIdentity
+  fullName: GetIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_OBJECT.GetIdentity
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 29
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT GetIdentity()
+    parameters: &o1 []
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core._NULL_OBJECT.GetContext()
+  id: plc.AXOpen.Core._NULL_OBJECT.GetContext()
+  parent: AXOpen.Core._NULL_OBJECT
+  children: []
+  name: GetContext
+  fullName: GetContext
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\NULLs.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core._NULL_OBJECT.GetContext
+    path: .\src\core\ctrl\src\abstractions\NULLs.st
+    startLine: 32
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoContext GetContext()
+    parameters: *o1
+    return:
+      type: plc.AXOpen.Core.IAxoContext
+references:
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core._NULL_CONTEXT
+  name: _NULL_CONTEXT
+  nameWithType: _NULL_CONTEXT
+  fullName: AXOpen.Core._NULL_CONTEXT
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+
+

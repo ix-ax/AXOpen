@@ -1,0 +1,13 @@
+[
+  {
+    "Id": "Context.UnitTemplate.UnitObjects.Components",
+    "RatioImgX": 87.28136882129279,
+    "RatioImgY": 11.587301587301582,
+    "Show": true,
+    "Transform": "TopCenter",
+    "Presentation": "Status-Display",
+    "Width": -1,
+    "Height": -1,
+    "ZIndex": 0
+  }
+]

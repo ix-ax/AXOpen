@@ -1,0 +1,78 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoSource
+  id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource
+  parent: plc.AXOpen.Components.Abstractions.Drives
+  children:
+  - plc.AXOpen.Components.Abstractions.Drives.eAxoSource.CommandedValue
+  - plc.AXOpen.Components.Abstractions.Drives.eAxoSource.SetValue
+  - plc.AXOpen.Components.Abstractions.Drives.eAxoSource.ActualValue
+  name: eAxoSource
+  fullName: eAxoSource
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: eAxoSource
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.CommandedValue
+  id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.CommandedValue
+  parent: AXOpen.Components.Abstractions.Drives
+  children: []
+  name: CommandedValue
+  fullName: CommandedValue
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.CommandedValue
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.SetValue
+  id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.SetValue
+  parent: AXOpen.Components.Abstractions.Drives
+  children: []
+  name: SetValue
+  fullName: SetValue
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.SetValue
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.ActualValue
+  id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.ActualValue
+  parent: AXOpen.Components.Abstractions.Drives
+  children: []
+  name: ActualValue
+  fullName: ActualValue
+  type: Field
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.eAxoSource.ActualValue
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\eAxoSource.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+references:
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoSource
+  name: eAxoSource
+  nameWithType: eAxoSource
+  fullName: AXOpen.Components.Abstractions.Drives.eAxoSource
+
+

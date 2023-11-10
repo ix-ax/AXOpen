@@ -15,7 +15,7 @@ dependencies:
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
 scripts:
   download:
-    - apax install -L
+    - apax install
     - apax build
     - dotnet ixc
     - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET

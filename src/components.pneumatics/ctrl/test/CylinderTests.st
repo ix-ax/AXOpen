@@ -56,6 +56,7 @@ NAMESPACE Cylinder.Tests
         METHOD PUBLIC GetLogger : AXOpen.Logging.IAxoLogger GetLogger := NULL_LOGGER; END_METHOD
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD        
     END_CLASS
+
     CLASS AxoRtcMock IMPLEMENTS IAxoRtc
         VAR PRIVATE 
             _NowUTC : LDATE_AND_TIME;
@@ -78,6 +79,7 @@ NAMESPACE Cylinder.Tests
         VAR 
             context : TestContext;
             cylinder : AxoCylinder;
+            cylinderParent : AXOpen.Core.AxoObject;
             _rtc : AxoRtcMock;
             _homeSensor : BOOL;
             _workSensor : BOOL;
@@ -92,8 +94,9 @@ NAMESPACE Cylinder.Tests
             END_VAR
             _rtc.SetNowUTC(dt);
             context.InjectRtc(_rtc);
-            context.Open();                                                              
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            context.Open();   
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
             context.Close();                          
         END_METHOD
 
@@ -111,7 +114,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, cylinder._MoveWorkSignal);   
@@ -128,7 +132,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(TRUE, cylinder._MoveWorkSignal);   
@@ -145,12 +150,14 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             context.Open();                                                              
             cylinder._StopTask.Invoke();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
 
             AxUnit.Assert.Equal(FALSE, cylinder._MoveWorkSignal);   
@@ -167,12 +174,14 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             context.Open();                                                              
             cylinder._StopTask.Invoke();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, cylinder._MoveWorkSignal);   
@@ -193,7 +202,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(TRUE, cylinder._MoveWorkSignal);   
@@ -204,7 +214,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.SuspendMoveToWorkWhile(TRUE);
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, cylinder._MoveWorkSignal);   
@@ -225,7 +236,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(TRUE, _moveWorkSignal);   
@@ -235,7 +247,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             cylinder.SuspendMoveToWorkWhile(TRUE);
             context.Close();                          
                 
@@ -257,7 +270,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -268,7 +282,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -289,7 +304,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -299,7 +315,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             cylinder.SuspendMoveToHomeWhile(TRUE);
             context.Close();                          
                 
@@ -323,7 +340,8 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                              
             cylinder.SuspendMoveToWorkWhile(TRUE);
             cylinder.MoveToWork();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -346,7 +364,8 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
             cylinder.MoveToHome();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -368,7 +387,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(TRUE, cylinder._MoveWorkSignal);   
@@ -378,7 +398,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.AbortMoveToWorkWhen(TRUE);
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, cylinder._MoveWorkSignal);   
@@ -399,7 +420,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToWork();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(TRUE, _moveWorkSignal);   
@@ -409,7 +431,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             cylinder.AbortMoveToWorkWhen(TRUE);
             context.Close();                          
                 
@@ -431,7 +454,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -442,7 +466,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.AbortMoveToHomeWhen(TRUE);
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -463,7 +488,8 @@ NAMESPACE Cylinder.Tests
 
             context.Open();                                                              
             cylinder.MoveToHome();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -473,7 +499,8 @@ NAMESPACE Cylinder.Tests
             AxUnit.Assert.Equal(FALSE, cylinder._Messenger.IsActive);
 
             context.Open();                                                              
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             cylinder.AbortMoveToHomeWhen(TRUE);
             context.Close();                          
                 
@@ -497,7 +524,8 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                              
             cylinder.AbortMoveToWorkWhen(TRUE);
             cylinder.MoveToWork();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -520,7 +548,8 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                              
             cylinder.AbortMoveToHomeWhen(TRUE);
             cylinder.MoveToHome();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   
@@ -542,13 +571,15 @@ NAMESPACE Cylinder.Tests
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
             cylinder.MoveToHome();
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
                 
             context.Open();                                                              
             cylinder.SuspendMoveToHomeWhile(TRUE);
             AxUnit.Assert.Equal(TRUE, cylinder._Messenger.IsActive);
-            cylinder.Run(context, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);                
+            cylinderParent.Initialize(context);                                                        
+            cylinder.Run(cylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);  
             context.Close();                          
 
             AxUnit.Assert.Equal(FALSE, _moveWorkSignal);   

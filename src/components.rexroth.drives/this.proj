@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.Build.Traversal/4.1.0">
+	<ItemGroup>    
+    <ProjectReference Include="app\ix-blazor\AXOpen.Components.Rexroth.Drives.blazorapp.csproj" />    
+    <ProjectReference Include="app\ix\app_axopen_components_rexroth_drives.csproj" />    
+    <ProjectReference Include="src\AXOpen.Components.Rexroth.Drives.blazor\AXOpen.Components.Rexroth.Drives.blazor.csproj" />    
+    <ProjectReference Include="src\AXOpen.Components.Rexroth.Drives\ix_ax_axopen_components_rexroth_drives.csproj" />    
+    <ProjectReference Include="tests\AXOpen.Components.Rexroth.Drives.Tests\AXOpen.Components.Rexroth.Drives_tests.csproj" />     
+  </ItemGroup>
+</Project>

@@ -1,0 +1,153 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Logging.eLogLevel
+  id: plc.AXOpen.Logging.eLogLevel
+  parent: plc.AXOpen.Logging
+  children:
+  - plc.AXOpen.Logging.eLogLevel.NoCat
+  - plc.AXOpen.Logging.eLogLevel.Verbose
+  - plc.AXOpen.Logging.eLogLevel.Debug
+  - plc.AXOpen.Logging.eLogLevel.Information
+  - plc.AXOpen.Logging.eLogLevel.Warning
+  - plc.AXOpen.Logging.eLogLevel.Error
+  - plc.AXOpen.Logging.eLogLevel.Fatal
+  name: eLogLevel
+  fullName: eLogLevel
+  type: Enum
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.eLogLevel
+    path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+    startLine: 5
+  namespace: plc.AXOpen.Logging
+  syntax:
+    content: 'eLogLevel : INT'
+- uid: plc.AXOpen.Logging.eLogLevel.NoCat
+  id: plc.AXOpen.Logging.eLogLevel.NoCat
+  parent: AXOpen.Logging
+  children: []
+  name: NoCat := 0
+  fullName: NoCat
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.eLogLevel.NoCat
+    path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+    startLine: 11
+  namespace: plc.AXOpen.Logging
+  summary: No category is assigned to the log level.
+- uid: plc.AXOpen.Logging.eLogLevel.Verbose
+  id: plc.AXOpen.Logging.eLogLevel.Verbose
+  parent: AXOpen.Logging
+  children: []
+  name: Verbose := 1
+  fullName: Verbose
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.eLogLevel.Verbose
+    path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+    startLine: 11
+  namespace: plc.AXOpen.Logging
+  summary: Verbose level log is usually only enabled for debugging. Traffic is typically very high.
+- uid: plc.AXOpen.Logging.eLogLevel.Debug
+  id: plc.AXOpen.Logging.eLogLevel.Debug
+  parent: AXOpen.Logging
+  children: []
+  name: Debug := 2
+  fullName: Debug
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.eLogLevel.Debug
+    path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+    startLine: 17
+  namespace: plc.AXOpen.Logging
+  summary: Debug level log is used for internal system events that are not necessarily observable from the outside.
+- uid: plc.AXOpen.Logging.eLogLevel.Information
+  id: plc.AXOpen.Logging.eLogLevel.Information
+  parent: AXOpen.Logging
+  children: []
+  name: Information := 3
+  fullName: Information
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.eLogLevel.Information
+    path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+    startLine: 22
+  namespace: plc.AXOpen.Logging
+  summary: Information level log is used to track the general flow of the application. These logs should have long-term value.
+- uid: plc.AXOpen.Logging.eLogLevel.Warning
+  id: plc.AXOpen.Logging.eLogLevel.Warning
+  parent: AXOpen.Logging
+  children: []
+  name: Warning := 4
+  fullName: Warning
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.eLogLevel.Warning
+    path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+    startLine: 27
+  namespace: plc.AXOpen.Logging
+  summary: Warning level log is used for abnormal or unexpected events in the application flow, which does not necessarily cause the application to stop.
+- uid: plc.AXOpen.Logging.eLogLevel.Error
+  id: plc.AXOpen.Logging.eLogLevel.Error
+  parent: AXOpen.Logging
+  children: []
+  name: Error := 5
+  fullName: Error
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.eLogLevel.Error
+    path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+    startLine: 32
+  namespace: plc.AXOpen.Logging
+  summary: Error level log is used for errors and exceptions that cannot be handled. These result in a premature termination.
+- uid: plc.AXOpen.Logging.eLogLevel.Fatal
+  id: plc.AXOpen.Logging.eLogLevel.Fatal
+  parent: AXOpen.Logging
+  children: []
+  name: Fatal := 6
+  fullName: Fatal
+  type: Field
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.eLogLevel.Fatal
+    path: .\src\abstractions\ctrl\src\AxoLogger\eLogLevel.st
+    startLine: 37
+  namespace: plc.AXOpen.Logging
+  summary: Fatal level log is used to indicate a catastrophic failure that requires immediate attention.
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+
