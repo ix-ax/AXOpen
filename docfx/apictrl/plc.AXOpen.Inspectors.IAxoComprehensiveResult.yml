@@ -1,0 +1,170 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+  id: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetResult()
+  - plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetFailures()
+  - plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetErrorCodes()
+  - plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetResult(eOverallResult)
+  - plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetFailures(STRING)
+  - plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetErrorCodes(STRING)
+  name: IAxoComprehensiveResult
+  fullName: IAxoComprehensiveResult
+  type: Interface
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+    path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+    startLine: 2
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: INTERFACE IAxoComprehensiveResult
+  implements: []
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetResult()
+  id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetResult
+  parent: IAxoComprehensiveResult
+  children: []
+  name: GetResult
+  fullName: GetResult
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetResult
+    path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+    startLine: 4
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Inspectors.eOverallResult GetResult()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Inspectors.eOverallResult
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetFailures()
+  id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetFailures
+  parent: IAxoComprehensiveResult
+  children: []
+  name: GetFailures
+  fullName: GetFailures
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetFailures
+    path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+    startLine: 7
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public STRING GetFailures()
+    parameters: *o0
+    return:
+      type: plc.STRING
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetErrorCodes()
+  id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetErrorCodes
+  parent: IAxoComprehensiveResult
+  children: []
+  name: GetErrorCodes
+  fullName: GetErrorCodes
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetErrorCodes
+    path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+    startLine: 10
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public STRING GetErrorCodes()
+    parameters: *o0
+    return:
+      type: plc.STRING
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetResult(eOverallResult)
+  id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetResult
+  parent: IAxoComprehensiveResult
+  children: []
+  name: SetResult
+  fullName: SetResult
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetResult
+    path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+    startLine: 14
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public VOID SetResult(in plc.AXOpen.Inspectors.eOverallResult inResult)
+    parameters:
+    - id: inResult
+      type: plc.AXOpen.Inspectors.eOverallResult
+    return:
+      type: VOID
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetFailures(STRING)
+  id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetFailures
+  parent: IAxoComprehensiveResult
+  children: []
+  name: SetFailures
+  fullName: SetFailures
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetFailures
+    path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+    startLine: 20
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public VOID SetFailures(in plc.STRING inFailures)
+    parameters:
+    - id: inFailures
+      type: plc.STRING
+    return:
+      type: VOID
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetErrorCodes(STRING)
+  id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetErrorCodes
+  parent: IAxoComprehensiveResult
+  children: []
+  name: SetErrorCodes
+  fullName: SetErrorCodes
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetErrorCodes
+    path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
+    startLine: 27
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public VOID SetErrorCodes(in plc.STRING inErrorCodes)
+    parameters:
+    - id: inErrorCodes
+      type: plc.STRING
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Inspectors.eOverallResult
+  name: eOverallResult
+  nameWithType: eOverallResult
+  fullName: AXOpen.Inspectors.eOverallResult
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+
+

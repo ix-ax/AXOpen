@@ -1,0 +1,1777 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- =========================================================================================================================== -->
+<!-- GSDML File for Rexroth IndraDrive                                                                                           -->																
+<!-- =========================================================================================================================== -->
+<!-- Language: international                                                                                                     -->
+<!-- =========================================================================================================================== -->
+<!-- Rexroth                                                                                                                     -->
+<!-- Bosch Group                                                                                                                 -->
+<!-- Bgm.-Dr.-Nebel-Str. 2                                                                                                       -->
+<!-- D-97816 Lohr am Main                                                                                                        -->
+<!-- Germany                                                                                                                     -->
+<!-- Tel.: +49 - 9352 - 40 - 0                                                                                                   -->
+<!-- =========================================================================================================================== -->
+<!-- File Name:        GSDML-V2.1-Bosch-Rexroth-011F-Indradrive-yyyymmdd.xml                                                     -->
+<!-- File Version:     1.00                                                                                                      -->
+<!-- File Date:        2010-01-24                                                                                                -->
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- **************************** File History ********************************************************************************* -->
+<!-- Date                                                                                                                        -->
+<!-- 2009-03-09    Initial Release (GSDML-V2.0-Rexroth-Indradrive-20090309.xml)                                                  -->
+<!--               Support of only one axis with Slot 1 parameter-channel (not used), Slot 2 safety modul (not used),            -->
+<!--               Slot 3 input modul (max. 24 words) and Slot 4 output modul (max 24 words). A minimal device interval          -->
+<!--               of 2ms is supported. Parameter channel and safety (PROFIsafe) is not supported.                               -->
+<!-- 2009-04-17    DNS_CompatibleName changed from "IndraDrive" to "axis". The DNS_CompatibleName can be used by the             -->
+<!--   		   engineering tool to build a unique name of station / name of device.                                          -->
+<!--   		   New GSDML-File:    GSDML-V2.0-Rexroth-Indradrive-20090417.xml                                                 -->
+<!--               New Graphic-File:  GSDML-Rexroth-Indradrive_20090417.bmp                                                      -->
+<!-- 2009-08-26    Parameter Channel with 0 (ParamCh not used) and 5 (ParamCh 5 Words) Words is supported. 		         -->
+<!--   		   Erweiterung auf 31 Module für 9 entfernte Achsen.                                                             -->
+<!--   		   New GSDML-File:    GSDML-V2.0-Rexroth-Indradrive-20090901.xml                                                 -->
+<!-- 2010-12-01    IOConfigData auf 490 erhöht (10 Achsen mit 48 Byte und 10 Byte Parameterkanal)                                -->
+<!-- 2010-03-23    Änderungen für die neue XML-Schemaversion (GSDML-DeviceProfile-v2.1.xsd">) durchgeführt.                      -->
+<!--               Submodule für Ports angelegt. LLDP, SNMP freigeschaltet.                                                      -->
+<!-- 2010-06-29    Die flexible Parameterkanallängenkonfiguration wird nicht                                                     -->
+<!--               mehr unterstützt. Es werden nur noch 3 Längen mit bestimmter Funktionalität                                   -->
+<!--               unterstützt:                                                                                                  -->
+<!--	           - Länge 0 Byte   	Parameterkanal deaktiviert                                                               -->
+<!--               - Länge 10 Byte 	Parameterkanal für IDN Zugriffe                                                          -->
+<!--               - Länge 12 Byte 	Parameterkanal für EIDN Zugriffe                                                         -->
+<!--               Der verwendete Datentyp der Daten in den Modulen wurde von OctedString in n DataItems                         --> 
+<!--               mit dem Datentyp Unsigned16 geändert. Hintergrund: Unterstützung von Little Endian Steuerungen.               --> 
+<!--   		   New GSDML-File:    GSDML-V2.1-Bosch-Rexroth-011F-Indradrive-20100804.xml                                      -->
+<!--   		   IOConfigData auf 558 Byte erhöht (10 Achsen mit 48 Byte + 2 Byte Status pro Modul bei 31 Modulen              -->
+<!--   		    + 4 Byte beim DAP                                                                                            -->
+<!-- 2010-08-24    Der IndraDrive DAP unterstützt die IP Adressvergabe über DCP und local.                                       -->
+<!--   		   New GSDML-File:    GSDML-V2.1-Bosch-Rexroth-011F-Indradrive-20100112.xml                                      -->
+<!-- 2011-01-24    Die Unterstützung des SNMP Protokolls ("SupportedProtocols") und der MIB2 Support ("SupportedMibs")           -->
+<!--   		   aus GSDML Datei entfernt.                                                                                     -->               
+<!--   		   Der SendClock von 32 (1ms) ergänzt. NumberOfMulticastConsumerCR auf 0 gesetzt.                                -->    
+<!--   		   NetworkComponentDiagnosisSupported  auf false gesetzt bzw. Tag aus GSDML entfernt.                            -->    
+<!--   		   New GSDML-File:    GSDML-V2.1-Bosch-Rexroth-011F-Indradrive-20100114.xml                                      -->
+<!-- 2011-07-06    Software Release zum Zeitpunkt der Zertifizierung eingetragen: EPF V 11.7                                     -->
+<!--                                                                                                                             -->
+<!-- **************************** File History End ***************************************************************************** -->
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- DISCLAIMER:                                                                                                                 -->
+<!-- ===========                                                                                                                 -->
+<!--                                                                                                                             -->
+<!-- DO NOT MODIFY THIS FILE!                                                                                                    -->
+<!-- CHANGING PROFINET PROFINET PARAMETERS CAN LEAD TO UNDEFINED SYSTEM BEHAVIOR                                                 -->
+<!--                                                                                                                             -->
+<!-- =========================================================================================================================== -->
+
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\XSD\GSDML-DeviceProfile-v2.1.xsd">
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+
+
+
+	<ProfileBody>
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- Device Indentification                                                                                                      -->
+<!--                                                                                                                             -->
+<!-- DeviceID wurde gebildet entsprechend der Rexroth Bosch Group Zentralnorm "Feldgeräte-Identifikationsnummer                  -->
+<!-- PROFINET & IO-Link". Die DeviceID ist in der zentralen Rexroth Bosch Group DeviceID Verwaltung registriert                  -->
+<!-- DeviceID = Geschäftsbereich (BRC) + Gerätekennung (Actuator-Slave) + PART_ID (1) == 0x2801                                  -->
+<!--                                                                                                                             -->
+<!-- =========================================================================================================================== -->
+		<DeviceIdentity VendorID="0x011F" DeviceID="0x2801">
+			<InfoText TextId="T_DEVICE_TEXT"/>
+			<VendorName Value="Bosch Rexroth AG"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="Drives" ProductFamily="IndraDrive"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- Device Access Point - Mit PDEV Informationen                                                                                                      -->
+<!--                                                                                                                             -->
+<!-- =========================================================================================================================== -->
+				<DeviceAccessPointItem ID="DAP_IndraDrive" PhysicalSlots="0..31" ModuleIdentNumber="0x011F2801" MinDeviceInterval="64" ImplementationType="Xilinx_FPGA" DNS_CompatibleName="axis" AddressAssignment="DCP;LOCAL" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.1">
+					<ModuleInfo>
+						<Name TextId="T_DAP_IndraDrive"/>
+						<InfoText TextId="T_DAP_IndraDrive"/>
+						<VendorName Value="Bosch Rexroth AG"/>
+						<OrderNumber Value="MEP2x" /> 
+						<HardwareRelease Value="602" /> 
+						<SoftwareRelease Value="V 11.7.0" /> 
+					</ModuleInfo>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_Subslot_8000"/>
+						<SubslotItem SubslotNumber="32769" TextId="IDT_Subslot_8001"/>
+						<SubslotItem SubslotNumber="32770" TextId="IDT_Subslot_8002"/> 
+					</SubslotList>
+					<IOConfigData MaxInputLength="558" MaxOutputLength="558"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="ID_PaCh_NotUsed" AllowedInSlots="1" UsedInSlots="1"/>
+						<ModuleItemRef ModuleItemTarget="ID_PaCh_5Words" AllowedInSlots="1"/>
+  					        <ModuleItemRef ModuleItemTarget="ID_PaCh_6Words" AllowedInSlots="1"/>  
+						<ModuleItemRef ModuleItemTarget="ID_FMod_NotUsed" AllowedInSlots="2 5 8 11 14 17 20 23 26 29" UsedInSlots="2"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_NotUsed" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_1Word" AllowedInSlots="3 6 9 12 15 18 21 24 27 30" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_2Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_3Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_4Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_5Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_6Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_7Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_8Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_9Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_10Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_11Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_12Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_13Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_14Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_15Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_16Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_17Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_18Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_19Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_20Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_21Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_22Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_23Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_24Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_NotUsed" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_1Word" AllowedInSlots="4 7 10 13 16 19 22 25 28 31" UsedInSlots="4"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_2Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_3Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_4Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_5Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_6Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_7Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_8Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_9Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_10Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_11Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_12Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_13Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_14Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_15Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_16Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_17Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_18Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_19Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_20Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_21Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_22Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_23Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_24Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DAP 1" SubmoduleIdentNumber="0x00000001">
+							<IOData IOPS_Length="1" IOCS_Length="1"/>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem SubslotNumber="32768" SubmoduleIdentNumber="0x02000001" SupportedRT_Classes="RT_CLASS_1" TextId="IDT_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="LLDP" SupportedMibs="">
+							<ApplicationRelations AR_BlockVersion="1" IOCR_BlockVersion="1" AlarmCR_BlockVersion="1"  SubmoduleDataBlockVersion="1" NumberOfAdditionalInputCR="1" NumberOfAdditionalMulticastProviderCR="1" NumberOfAdditionalOutputCR="1" NumberOfMulticastConsumerCR="0">
+								<TimingProperties SendClock="32 64 128" ReductionRatio="1 2 4 8 16 32 64 128 256 512"/>
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem SubslotNumber="32769" SubmoduleIdentNumber="0x02000002" TextId="IDT_Port1" MaxPortTxDelay="10" MaxPortRxDelay="10" IsDefaultRingport="false" LinkStateDiagnosisCapability="Up+Down" PortDeactivationSupported="true"/>
+						<PortSubmoduleItem SubslotNumber="32770" SubmoduleIdentNumber="0x02000002" TextId="IDT_Port2" MaxPortTxDelay="10" MaxPortRxDelay="10" IsDefaultRingport="false" LinkStateDiagnosisCapability="Up+Down" PortDeactivationSupported="true"/>					
+					</SystemDefinedSubmoduleList>	
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_1"/>
+					</Graphics>
+				</DeviceAccessPointItem>
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- Device Access Point - Ohne PDEV Informationen (Unterstützung von "alten" Steuerungen (z.B.: CPU317FJ10) die erw. Diag.      -->
+<!-- nicht unterstützen)                                                                                                               -->
+<!--                                                                                                                             -->
+<!-- =========================================================================================================================== -->				
+        			<DeviceAccessPointItem ID="DAP2_IndraDrive" PhysicalSlots="0..31" ModuleIdentNumber="0x011F2801" MinDeviceInterval="64" ImplementationType="Xilinx_FPGA" DNS_CompatibleName="axis" AddressAssignment="DCP;LOCAL" FixedInSlots="0" ObjectUUID_LocalIndex="1" RequiredSchemaVersion="V2.0">
+          				<ModuleInfo>
+            					<Name TextId="T_DAP2_IndraDrive"/>
+            					<InfoText TextId="T_DAP2_IndraDrive"/>
+            					<VendorName Value="Bosch Rexroth AG"/>
+            					<OrderNumber Value="MEP2x" /> 
+						<HardwareRelease Value="602" /> 
+						<SoftwareRelease Value="V 11.7.0" /> 
+          				</ModuleInfo>
+          				<IOConfigData MaxInputLength="558" MaxOutputLength="558"/>
+          				<UseableModules>
+						<ModuleItemRef ModuleItemTarget="ID_PaCh_NotUsed" AllowedInSlots="1" UsedInSlots="1"/>
+						<ModuleItemRef ModuleItemTarget="ID_PaCh_5Words" AllowedInSlots="1"/>
+  					        <ModuleItemRef ModuleItemTarget="ID_PaCh_6Words" AllowedInSlots="1"/>  
+						<ModuleItemRef ModuleItemTarget="ID_FMod_NotUsed" AllowedInSlots="2 5 8 11 14 17 20 23 26 29" UsedInSlots="2"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_NotUsed" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_1Word" AllowedInSlots="3 6 9 12 15 18 21 24 27 30" UsedInSlots="3"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_2Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_3Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_4Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_5Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_6Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_7Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_8Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_9Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_10Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_11Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_12Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_13Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_14Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_15Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_16Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_17Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_18Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_19Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_20Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_21Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_22Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_23Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_InMod_24Words" AllowedInSlots="3 6 9 12 15 18 21 24 27 30"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_NotUsed" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_1Word" AllowedInSlots="4 7 10 13 16 19 22 25 28 31" UsedInSlots="4"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_2Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_3Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_4Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_5Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_6Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_7Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_8Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_9Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_10Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_11Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_12Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_13Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_14Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_15Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_16Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_17Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_18Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_19Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_20Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_21Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_22Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_23Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+						<ModuleItemRef ModuleItemTarget="ID_OutMod_24Words" AllowedInSlots="4 7 10 13 16 19 22 25 28 31"/>
+          </UseableModules>
+          <VirtualSubmoduleList>
+            <VirtualSubmoduleItem ID="DAP 2" SubmoduleIdentNumber="0x00000001">
+              <IOData IOPS_Length="1" IOCS_Length="1"/>
+            </VirtualSubmoduleItem>
+          </VirtualSubmoduleList>
+          <Graphics>
+            <GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="ID_Graph_1"/>
+          </Graphics>
+        </DeviceAccessPointItem>				
+				
+			</DeviceAccessPointList>
+			<ModuleList>
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- Parameter Channel Modules                                                                                                   -->
+<!--                                                                                                                             -->
+<!-- =========================================================================================================================== -->
+				<ModuleItem ID="ID_PaCh_NotUsed" ModuleIdentNumber="0xc0000000">
+					<ModuleInfo CategoryRef="PK Module">
+						<Name TextId="T_PaCh_NotUsed"/>
+						<InfoText TextId="T_PaCh_NotUsed"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_PaCh_NotUsed" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_PaCh_5Words" ModuleIdentNumber="0xc000a00a">
+					<ModuleInfo CategoryRef="PK Module">
+						<Name TextId="T_PaCh_5Words"/>
+						<InfoText TextId="T_PaCh_5Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_PaCh_5Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_PaCh_6Words" ModuleIdentNumber="0xc000c00c">
+					<ModuleInfo CategoryRef="PK Module">
+						<Name TextId="T_PaCh_6Words"/>
+						<InfoText TextId="T_PaCh_6Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_PaCh_6Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+								<Output Consistency="All items consistency">
+
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- Safety Modules                                                                                                              -->
+<!--                                                                                                                             -->
+<!-- =========================================================================================================================== -->
+				<ModuleItem ID="ID_FMod_NotUsed" ModuleIdentNumber="0xc1000000">
+					<ModuleInfo CategoryRef="Safety Module">
+						<Name TextId="T_FMod_NotUsed"/>
+						<InfoText TextId="T_FMod_NotUsed"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_FMod_NotUsed" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- Input Modules                                                                                                               -->
+<!--                                                                                                                             -->
+<!-- =========================================================================================================================== -->
+				<ModuleItem ID="ID_InMod_NotUsed" ModuleIdentNumber="0x01000000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_NotUsed"/>
+						<InfoText TextId="T_InMod_NotUsed"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_NotUsed" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_1Word" ModuleIdentNumber="0x01002000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_1Word"/>
+						<InfoText TextId="T_InMod_1Word"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_1Word" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_2Words" ModuleIdentNumber="0x01004000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_2Words"/>
+						<InfoText TextId="T_InMod_2Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_2Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_3Words" ModuleIdentNumber="0x01006000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_3Words"/>
+						<InfoText TextId="T_InMod_3Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_3Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_4Words" ModuleIdentNumber="0x01008000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_4Words"/>
+						<InfoText TextId="T_InMod_4Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_4Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_5Words" ModuleIdentNumber="0x0100a000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_5Words"/>
+						<InfoText TextId="T_InMod_5Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_5Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_6Words" ModuleIdentNumber="0x0100c000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_6Words"/>
+						<InfoText TextId="T_InMod_6Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_6Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_7Words" ModuleIdentNumber="0x0100e000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_7Words"/>
+						<InfoText TextId="T_InMod_7Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_7Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_8Words" ModuleIdentNumber="0x01010000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_8Words"/>
+						<InfoText TextId="T_InMod_8Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_8Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_9Words" ModuleIdentNumber="0x01012000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_9Words"/>
+						<InfoText TextId="T_InMod_9Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_9Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_10Words" ModuleIdentNumber="0x01014000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_10Words"/>
+						<InfoText TextId="T_InMod_10Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_10Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_11Words" ModuleIdentNumber="0x01016000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_11Words"/>
+						<InfoText TextId="T_InMod_11Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_11Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_12Words" ModuleIdentNumber="0x01018000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_12Words"/>
+						<InfoText TextId="T_InMod_12Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_12Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_13Words" ModuleIdentNumber="0x0101a000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_13Words"/>
+						<InfoText TextId="T_InMod_13Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_13Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_14Words" ModuleIdentNumber="0x0101c000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_14Words"/>
+						<InfoText TextId="T_InMod_14Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_14Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_15Words" ModuleIdentNumber="0x0101e000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_15Words"/>
+						<InfoText TextId="T_InMod_15Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_15Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_16Words" ModuleIdentNumber="0x01020000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_16Words"/>
+						<InfoText TextId="T_InMod_16Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_16Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_17Words" ModuleIdentNumber="0x01022000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_17Words"/>
+						<InfoText TextId="T_InMod_17Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_17Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_18Words" ModuleIdentNumber="0x01024000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_18Words"/>
+						<InfoText TextId="T_InMod_18Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_18Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_19Words" ModuleIdentNumber="0x01026000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_19Words"/>
+						<InfoText TextId="T_InMod_19Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_19Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_20Words" ModuleIdentNumber="0x01028000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_20Words"/>
+						<InfoText TextId="T_InMod_20Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_20Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_21Words" ModuleIdentNumber="0x0102a000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_21Words"/>
+						<InfoText TextId="T_InMod_21Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_21Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_22Words" ModuleIdentNumber="0x0102c000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_22Words"/>
+						<InfoText TextId="T_InMod_22Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_22Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_23Words" ModuleIdentNumber="0x0102e000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_23Words"/>
+						<InfoText TextId="T_InMod_23Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_23Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_InMod_24Words" ModuleIdentNumber="0x01030000">
+					<ModuleInfo CategoryRef="IN Module">
+						<Name TextId="T_InMod_24Words"/>
+						<InfoText TextId="T_InMod_24Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_InMod_24Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+									<DataItem DataType="Unsigned16" TextId="T_Input"/>
+								</Input>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- Output Modules                                                                                                              -->
+<!--                                                                                                                             -->
+<!-- =========================================================================================================================== -->
+				<ModuleItem ID="ID_OutMod_NotUsed" ModuleIdentNumber="0x40000000">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_NotUsed"/>
+						<InfoText TextId="T_OutMod_NotUsed"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_NotUsed" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_1Word" ModuleIdentNumber="0x40000002">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_1Word"/>
+						<InfoText TextId="T_OutMod_1Word"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_1Word" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_2Words" ModuleIdentNumber="0x40000004">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_2Words"/>
+						<InfoText TextId="T_OutMod_2Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_2Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_3Words" ModuleIdentNumber="0x40000006">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_3Words"/>
+						<InfoText TextId="T_OutMod_3Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_3Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_4Words" ModuleIdentNumber="0x40000008">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_4Words"/>
+						<InfoText TextId="T_OutMod_4Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_4Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_5Words" ModuleIdentNumber="0x4000000a">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_5Words"/>
+						<InfoText TextId="T_OutMod_5Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_5Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_6Words" ModuleIdentNumber="0x4000000c">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_6Words"/>
+						<InfoText TextId="T_OutMod_6Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_6Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_7Words" ModuleIdentNumber="0x4000000e">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_7Words"/>
+						<InfoText TextId="T_OutMod_7Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_7Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_8Words" ModuleIdentNumber="0x40000010">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_8Words"/>
+						<InfoText TextId="T_OutMod_8Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_8Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_9Words" ModuleIdentNumber="0x40000012">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_9Words"/>
+						<InfoText TextId="T_OutMod_9Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_9Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_10Words" ModuleIdentNumber="0x40000014">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_10Words"/>
+						<InfoText TextId="T_OutMod_10Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_10Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_11Words" ModuleIdentNumber="0x40000016">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_11Words"/>
+						<InfoText TextId="T_OutMod_11Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_11Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_12Words" ModuleIdentNumber="0x40000018">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_12Words"/>
+						<InfoText TextId="T_OutMod_12Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_12Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_13Words" ModuleIdentNumber="0x4000001a">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_13Words"/>
+						<InfoText TextId="T_OutMod_13Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_13Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_14Words" ModuleIdentNumber="0x4000001c">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_14Words"/>
+						<InfoText TextId="T_OutMod_14Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_14Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_15Words" ModuleIdentNumber="0x4000001e">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_15Words"/>
+						<InfoText TextId="T_OutMod_15Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_15Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_16Words" ModuleIdentNumber="0x40000020">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_16Words"/>
+						<InfoText TextId="T_OutMod_16Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_16Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_17Words" ModuleIdentNumber="0x40000022">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_17Words"/>
+						<InfoText TextId="T_OutMod_17Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_17Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_18Words" ModuleIdentNumber="0x40000024">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_18Words"/>
+						<InfoText TextId="T_OutMod_18Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_18Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_19Words" ModuleIdentNumber="0x40000026">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_19Words"/>
+						<InfoText TextId="T_OutMod_19Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_19Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_20Words" ModuleIdentNumber="0x40000028">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_20Words"/>
+						<InfoText TextId="T_OutMod_20Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_20Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_21Words" ModuleIdentNumber="0x4000002a">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_21Words"/>
+						<InfoText TextId="T_OutMod_21Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_21Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_22Words" ModuleIdentNumber="0x4000002c">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_22Words"/>
+						<InfoText TextId="T_OutMod_22Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_22Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_23Words" ModuleIdentNumber="0x4000002e">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_23Words"/>
+						<InfoText TextId="T_OutMod_23Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_23Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="ID_OutMod_24Words" ModuleIdentNumber="0x40000030">
+					<ModuleInfo CategoryRef="OUT Module">
+						<Name TextId="T_OutMod_24Words"/>
+						<InfoText TextId="T_OutMod_24Words"/>
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="ID_OutMod_24Words" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1">
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+									<DataItem DataType="Unsigned16" TextId="T_Output"/>
+								</Output>
+							</IOData>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<GraphicsList>
+				<GraphicItem ID="ID_Graph_1" GraphicFile="GSDML-011F-2801-IndraDrive"/>
+			</GraphicsList>
+			<CategoryList>
+				<CategoryItem ID="PK Module" TextId="T_PK_Module"/>
+				<CategoryItem ID="Safety Module" TextId="T_F_Module"/>
+				<CategoryItem ID="IN Module" TextId="T_In_Module"/>
+				<CategoryItem ID="OUT Module" TextId="T_Out_Module"/>
+			</CategoryList>
+<!-- =========================================================================================================================== -->
+<!--                                                                                                                             -->
+<!-- Texte in Englisch (für Module, Submodule)                                                                                   -->
+<!--                                                                                                                             -->
+<!-- =========================================================================================================================== -->
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<!--english-->
+					<Text TextId="T_DEVICE_TEXT" Value="IndraDrive"/>
+					<!--DAP-->
+					<Text TextId="T_DAP_IndraDrive" Value="IndraDrive 01V01 GSDML V2.1"/>
+          				<!--DAP2-->
+          				<Text TextId="T_DAP2_IndraDrive" Value="IndraDrive 01V01 GSDML V2.0"/>					
+					<!--DAP port name-->
+					<Text TextId="IDT_Subslot_8000" Value="X1"/>
+					<Text TextId="IDT_Subslot_8001" Value="X1 P1"/>
+					<Text TextId="IDT_Subslot_8002" Value="X1 P2"/>									
+					<Text TextId="IDT_DAP_InterfaceModule" Value="PN-IO"/>
+					<Text TextId="IDT_Port1" Value="Port 1 - RJ45"/>
+					<Text TextId="IDT_Port2" Value="Port 2 - RJ45"/>
+					<!-- module category --> 
+					<Text TextId="T_PK_Module" Value="Parameter channel modules"/>
+					<Text TextId="T_F_Module" Value="Safety modules"/>
+					<Text TextId="T_In_Module" Value="Input modules"/>
+					<Text TextId="T_Out_Module" Value="Output modules"/>
+					<!-- module name-->
+					<!-- module name: parameter channel -->
+					<Text TextId="T_PaCh_NotUsed" Value="ParamCh not used"/>
+					<Text TextId="T_PaCh_5Words" Value="ParamCh IDN"/>
+					<Text TextId="T_PaCh_6Words" Value="ParamCh EIDN"/>
+					<!-- module name: safety -->
+					<Text TextId="T_FMod_NotUsed" Value="F-Modul not used"/>
+					<!-- module name: inputs -->
+					<Text TextId="T_InMod_NotUsed" Value="Input not used"/>
+					<Text TextId="T_InMod_1Word" Value="Input 1 Word"/>
+					<Text TextId="T_InMod_2Words" Value="Input 2 Words"/>
+					<Text TextId="T_InMod_3Words" Value="Input 3 Words"/>
+					<Text TextId="T_InMod_4Words" Value="Input 4 Words"/>
+					<Text TextId="T_InMod_5Words" Value="Input 5 Words"/>
+					<Text TextId="T_InMod_6Words" Value="Input 6 Words"/>
+					<Text TextId="T_InMod_7Words" Value="Input 7 Words"/>
+					<Text TextId="T_InMod_8Words" Value="Input 8 Words"/>
+					<Text TextId="T_InMod_9Words" Value="Input 9 Words"/>
+					<Text TextId="T_InMod_10Words" Value="Input 10 Words"/>
+					<Text TextId="T_InMod_11Words" Value="Input 11 Words"/>
+					<Text TextId="T_InMod_12Words" Value="Input 12 Words"/>
+					<Text TextId="T_InMod_13Words" Value="Input 13 Words"/>
+					<Text TextId="T_InMod_14Words" Value="Input 14 Words"/>
+					<Text TextId="T_InMod_15Words" Value="Input 15 Words"/>
+					<Text TextId="T_InMod_16Words" Value="Input 16 Words"/>
+					<Text TextId="T_InMod_17Words" Value="Input 17 Words"/>
+					<Text TextId="T_InMod_18Words" Value="Input 18 Words"/>
+					<Text TextId="T_InMod_19Words" Value="Input 19 Words"/>
+					<Text TextId="T_InMod_20Words" Value="Input 20 Words"/>
+					<Text TextId="T_InMod_21Words" Value="Input 21 Words"/>
+					<Text TextId="T_InMod_22Words" Value="Input 22 Words"/>
+					<Text TextId="T_InMod_23Words" Value="Input 23 Words"/>
+					<Text TextId="T_InMod_24Words" Value="Input 24 Words"/>
+					<!-- module name: outputs -->
+					<Text TextId="T_OutMod_NotUsed" Value="Output not used"/>
+					<Text TextId="T_OutMod_1Word" Value="Output 1 Word"/>
+					<Text TextId="T_OutMod_2Words" Value="Output 2 Word"/>
+					<Text TextId="T_OutMod_3Words" Value="Output 3 Words"/>
+					<Text TextId="T_OutMod_4Words" Value="Output 4 Words"/>
+					<Text TextId="T_OutMod_5Words" Value="Output 5 Words"/>
+					<Text TextId="T_OutMod_6Words" Value="Output 6 Words"/>
+					<Text TextId="T_OutMod_7Words" Value="Output 7 Words"/>
+					<Text TextId="T_OutMod_8Words" Value="Output 8 Words"/>
+					<Text TextId="T_OutMod_9Words" Value="Output 9 Words"/>
+					<Text TextId="T_OutMod_10Words" Value="Output 10 Words"/>
+					<Text TextId="T_OutMod_11Words" Value="Output 11 Words"/>
+					<Text TextId="T_OutMod_12Words" Value="Output 12 Words"/>
+					<Text TextId="T_OutMod_13Words" Value="Output 13 Words"/>
+					<Text TextId="T_OutMod_14Words" Value="Output 14 Words"/>
+					<Text TextId="T_OutMod_15Words" Value="Output 15 Words"/>
+					<Text TextId="T_OutMod_16Words" Value="Output 16 Words"/>
+					<Text TextId="T_OutMod_17Words" Value="Output 17 Words"/>
+					<Text TextId="T_OutMod_18Words" Value="Output 18 Words"/>
+					<Text TextId="T_OutMod_19Words" Value="Output 19 Words"/>
+					<Text TextId="T_OutMod_20Words" Value="Output 20 Words"/>
+					<Text TextId="T_OutMod_21Words" Value="Output 21 Words"/>
+					<Text TextId="T_OutMod_22Words" Value="Output 22 Words"/>
+					<Text TextId="T_OutMod_23Words" Value="Output 23 Words"/>
+					<Text TextId="T_OutMod_24Words" Value="Output 24 Words"/>
+					<!--sub module name-->
+					<Text TextId="T_Input" Value="Input"/>
+					<Text TextId="T_Output" Value="Output"/>
+				</PrimaryLanguage>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>
+

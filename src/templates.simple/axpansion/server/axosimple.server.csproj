@@ -85,5 +85,6 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
+	  <ProjectReference Include="..\..\..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj" />
 	</ItemGroup>
 </Project>

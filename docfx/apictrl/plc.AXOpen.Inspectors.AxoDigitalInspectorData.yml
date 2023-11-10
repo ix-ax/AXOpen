@@ -1,0 +1,130 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.AxoDigitalInspectorData
+  id: plc.AXOpen.Inspectors.AxoDigitalInspectorData
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.AxoDigitalInspectorData.RequiredStatus
+  - plc.AXOpen.Inspectors.AxoDigitalInspectorData.DetectedStatus
+  name: AxoDigitalInspectorData
+  fullName: AxoDigitalInspectorData
+  type: Class
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDigitalInspectorData
+    path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
+    startLine: 5
+  namespace: plc.AXOpen.Inspectors
+  summary: Data subjected to each digital inspector instance.
+  syntax:
+    content: CLASS AxoDigitalInspectorData
+  inheritance:
+  - plc.AXOpen.Inspectors.AxoInspectorData
+  inheritedMembers:
+  - plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
+  - plc.AXOpen.Inspectors.AxoInspectorData.PassTime
+  - plc.AXOpen.Inspectors.AxoInspectorData.FailTime
+  - plc.AXOpen.Inspectors.AxoInspectorData.Result
+  - plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
+  - plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
+  - plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
+  - plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
+  implements: []
+- uid: plc.AXOpen.Inspectors.AxoDigitalInspectorData.RequiredStatus
+  id: plc.AXOpen.Inspectors.AxoDigitalInspectorData.RequiredStatus
+  parent: AXOpen.Inspectors
+  children: []
+  name: RequiredStatus
+  fullName: RequiredStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDigitalInspectorData.RequiredStatus
+    path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
+    startLine: 9
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'RequiredStatus : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Inspectors.AxoDigitalInspectorData.DetectedStatus
+  id: plc.AXOpen.Inspectors.AxoDigitalInspectorData.DetectedStatus
+  parent: AXOpen.Inspectors
+  children: []
+  name: DetectedStatus
+  fullName: DetectedStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDigitalInspectorData.DetectedStatus
+    path: .\src\inspectors\ctrl\src\AxoDigitalInspector\AxoDigitalInspectorData.st
+    startLine: 13
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: 'DetectedStatus : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
+  commentId: plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
+  name: Timestamp
+  nameWithType: Timestamp
+  fullName: plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
+  parent: plc.AXOpen.Inspectors.AxoInspectorData.Timestamp
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.PassTime
+  commentId: plc.AXOpen.Inspectors.AxoInspectorData.PassTime
+  name: PassTime
+  nameWithType: PassTime
+  fullName: plc.AXOpen.Inspectors.AxoInspectorData.PassTime
+  parent: plc.AXOpen.Inspectors.AxoInspectorData.PassTime
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.FailTime
+  commentId: plc.AXOpen.Inspectors.AxoInspectorData.FailTime
+  name: FailTime
+  nameWithType: FailTime
+  fullName: plc.AXOpen.Inspectors.AxoInspectorData.FailTime
+  parent: plc.AXOpen.Inspectors.AxoInspectorData.FailTime
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.Result
+  commentId: plc.AXOpen.Inspectors.AxoInspectorData.Result
+  name: Result
+  nameWithType: Result
+  fullName: plc.AXOpen.Inspectors.AxoInspectorData.Result
+  parent: plc.AXOpen.Inspectors.AxoInspectorData.Result
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
+  commentId: plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
+  name: IsExcluded
+  nameWithType: IsExcluded
+  fullName: plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
+  parent: plc.AXOpen.Inspectors.AxoInspectorData.IsExcluded
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
+  commentId: plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
+  name: IsByPassed
+  nameWithType: IsByPassed
+  fullName: plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
+  parent: plc.AXOpen.Inspectors.AxoInspectorData.IsByPassed
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
+  commentId: plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
+  name: NumberOfAllowedRetries
+  nameWithType: NumberOfAllowedRetries
+  fullName: plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
+  parent: plc.AXOpen.Inspectors.AxoInspectorData.NumberOfAllowedRetries
+- uid: plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
+  commentId: plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
+  name: RetryAttemptsCount
+  nameWithType: RetryAttemptsCount
+  fullName: plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
+  parent: plc.AXOpen.Inspectors.AxoInspectorData.RetryAttemptsCount
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

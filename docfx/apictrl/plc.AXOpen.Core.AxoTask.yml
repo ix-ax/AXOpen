@@ -1,0 +1,1198 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoTask
+  id: plc.AXOpen.Core.AxoTask
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoTask.Status
+  - plc.AXOpen.Core.AxoTask.IsDisabled
+  - plc.AXOpen.Core.AxoTask.RemoteInvoke
+  - plc.AXOpen.Core.AxoTask.RemoteRestore
+  - plc.AXOpen.Core.AxoTask.RemoteAbort
+  - plc.AXOpen.Core.AxoTask.RemoteResume
+  - plc.AXOpen.Core.AxoTask.StartSignature
+  - plc.AXOpen.Core.AxoTask.Duration
+  - plc.AXOpen.Core.AxoTask.StartTimeStamp
+  - plc.AXOpen.Core.AxoTask.ErrorDetails
+  - plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  - plc.AXOpen.Core.AxoTask._openCycleCountInvoke
+  - plc.AXOpen.Core.AxoTask._openCycleCountExecute
+  - plc.AXOpen.Core.AxoTask._taskTimer
+  - plc.AXOpen.Core.AxoTask.GetState()
+  - plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  - plc.AXOpen.Core.AxoTask.IsReady()
+  - plc.AXOpen.Core.AxoTask.IsDone()
+  - plc.AXOpen.Core.AxoTask.IsBusy()
+  - plc.AXOpen.Core.AxoTask.IsAborted()
+  - plc.AXOpen.Core.AxoTask.HasError()
+  - plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  - plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  - plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  - plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoTask.UpdateState()
+  - plc.AXOpen.Core.AxoTask.Invoke()
+  - plc.AXOpen.Core.AxoTask.Restore()
+  - plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  - plc.AXOpen.Core.AxoTask.Execute()
+  - plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  - plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  - plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  - plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  - plc.AXOpen.Core.AxoTask.Abort()
+  - plc.AXOpen.Core.AxoTask.Resume()
+  - plc.AXOpen.Core.AxoTask.OnAbort()
+  - plc.AXOpen.Core.AxoTask.OnResume()
+  - plc.AXOpen.Core.AxoTask.OnDone()
+  - plc.AXOpen.Core.AxoTask.OnError()
+  - plc.AXOpen.Core.AxoTask.OnRestore()
+  - plc.AXOpen.Core.AxoTask.OnStart()
+  - plc.AXOpen.Core.AxoTask.WhileError()
+  name: AxoTask
+  fullName: AxoTask
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoTask
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Core.IAxoTask
+  - plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.AxoTask.Status
+  id: plc.AXOpen.Core.AxoTask.Status
+  parent: AXOpen.Core
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.Status
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 14
+  namespace: plc.AXOpen.Core
+  summary: Gets the state of this task.
+  syntax:
+    content: 'Status : AXOpen.Core.eAxoTaskState'
+    return:
+      type: AXOpen.Core.eAxoTaskState
+- uid: plc.AXOpen.Core.AxoTask.IsDisabled
+  id: plc.AXOpen.Core.AxoTask.IsDisabled
+  parent: AXOpen.Core
+  children: []
+  name: IsDisabled
+  fullName: IsDisabled
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsDisabled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 23
+  namespace: plc.AXOpen.Core
+  summary: Gets or sets whether this task is disabled for execution.
+  syntax:
+    content: 'IsDisabled : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  id: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  parent: AXOpen.Core
+  children: []
+  name: RemoteInvoke
+  fullName: RemoteInvoke
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.RemoteInvoke
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 30
+  namespace: plc.AXOpen.Core
+  summary: Remote requests for invoke of this task.When 'TRUE' this task will be invoked.
+  syntax:
+    content: 'RemoteInvoke : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoTask.RemoteRestore
+  id: plc.AXOpen.Core.AxoTask.RemoteRestore
+  parent: AXOpen.Core
+  children: []
+  name: RemoteRestore
+  fullName: RemoteRestore
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.RemoteRestore
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 36
+  namespace: plc.AXOpen.Core
+  summary: Remote requests for restore of this task.When 'TRUE' this task will be restored.
+  syntax:
+    content: 'RemoteRestore : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoTask.RemoteAbort
+  id: plc.AXOpen.Core.AxoTask.RemoteAbort
+  parent: AXOpen.Core
+  children: []
+  name: RemoteAbort
+  fullName: RemoteAbort
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.RemoteAbort
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 42
+  namespace: plc.AXOpen.Core
+  summary: Remote requests for abort of this task.When 'TRUE' this task will be aborted.
+  syntax:
+    content: 'RemoteAbort : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoTask.RemoteResume
+  id: plc.AXOpen.Core.AxoTask.RemoteResume
+  parent: AXOpen.Core
+  children: []
+  name: RemoteResume
+  fullName: RemoteResume
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.RemoteResume
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 48
+  namespace: plc.AXOpen.Core
+  summary: Remote requests for resume of this task.When 'TRUE' this task will be resumed.
+  syntax:
+    content: 'RemoteResume : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Core.AxoTask.StartSignature
+  id: plc.AXOpen.Core.AxoTask.StartSignature
+  parent: AXOpen.Core
+  children: []
+  name: StartSignature
+  fullName: StartSignature
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.StartSignature
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 53
+  namespace: plc.AXOpen.Core
+  summary: Contains contex cycle number when this task started.
+  syntax:
+    content: 'StartSignature : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoTask.Duration
+  id: plc.AXOpen.Core.AxoTask.Duration
+  parent: AXOpen.Core
+  children: []
+  name: Duration
+  fullName: Duration
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.Duration
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 59
+  namespace: plc.AXOpen.Core
+  summary: Gets elapsed time of last task execution.
+  syntax:
+    content: 'Duration : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Core.AxoTask.StartTimeStamp
+  id: plc.AXOpen.Core.AxoTask.StartTimeStamp
+  parent: AXOpen.Core
+  children: []
+  name: StartTimeStamp
+  fullName: StartTimeStamp
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.StartTimeStamp
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 65
+  namespace: plc.AXOpen.Core
+  summary: Gets date and time when the task started.
+  syntax:
+    content: 'StartTimeStamp : LDATE_AND_TIME'
+    return:
+      type: LDATE_AND_TIME
+- uid: plc.AXOpen.Core.AxoTask.ErrorDetails
+  id: plc.AXOpen.Core.AxoTask.ErrorDetails
+  parent: AXOpen.Core
+  children: []
+  name: ErrorDetails
+  fullName: ErrorDetails
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.ErrorDetails
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 70
+  namespace: plc.AXOpen.Core
+  summary: Contains details about the error.
+  syntax:
+    content: 'ErrorDetails : STRING[254]'
+    return:
+      type: STRING[254]
+- uid: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  id: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  parent: AXOpen.Core
+  children: []
+  name: _CyclicExecuteIsNotCalled
+  fullName: _CyclicExecuteIsNotCalled
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 73
+  namespace: plc.AXOpen.Core
+  summary: Enable error message when task is not calling cyclically .
+  syntax:
+    content: '_CyclicExecuteIsNotCalled : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.AxoTask._openCycleCountInvoke
+  id: plc.AXOpen.Core.AxoTask._openCycleCountInvoke
+  parent: AXOpen.Core
+  children: []
+  name: _openCycleCountInvoke
+  fullName: _openCycleCountInvoke
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._openCycleCountInvoke
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 83
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_openCycleCountInvoke : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoTask._openCycleCountExecute
+  id: plc.AXOpen.Core.AxoTask._openCycleCountExecute
+  parent: AXOpen.Core
+  children: []
+  name: _openCycleCountExecute
+  fullName: _openCycleCountExecute
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._openCycleCountExecute
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 85
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_openCycleCountExecute : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Core.AxoTask._taskTimer
+  id: plc.AXOpen.Core.AxoTask._taskTimer
+  parent: AXOpen.Core
+  children: []
+  name: _taskTimer
+  fullName: _taskTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask._taskTimer
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 86
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: '_taskTimer : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Core.AxoTask.GetState()
+  id: plc.AXOpen.Core.AxoTask.GetState()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: GetState
+  fullName: GetState
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.GetState
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 92
+  namespace: plc.AXOpen.Core
+  summary: Gets the actual state of this task.
+  syntax:
+    content: Public AXOpen.Core.eAxoTaskState GetState()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.eAxoTaskState
+- uid: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  id: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: GetErrorDetails
+  fullName: GetErrorDetails
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.GetErrorDetails
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 97
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public STRING[254] GetErrorDetails()
+    parameters: *o0
+    return:
+      type: plc.STRING[254]
+- uid: plc.AXOpen.Core.AxoTask.IsReady()
+  id: plc.AXOpen.Core.AxoTask.IsReady()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: IsReady
+  fullName: IsReady
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsReady
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 105
+  namespace: plc.AXOpen.Core
+  summary: Gets true when the task is ready.
+  syntax:
+    content: Public BOOL IsReady()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.IsDone()
+  id: plc.AXOpen.Core.AxoTask.IsDone()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: IsDone
+  fullName: IsDone
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsDone
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 113
+  namespace: plc.AXOpen.Core
+  summary: Gets true when the task is done.
+  syntax:
+    content: Public BOOL IsDone()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.IsBusy()
+  id: plc.AXOpen.Core.AxoTask.IsBusy()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: IsBusy
+  fullName: IsBusy
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsBusy
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 123
+  namespace: plc.AXOpen.Core
+  summary: Gets true when the task is busy/executing.
+  syntax:
+    content: Public BOOL IsBusy()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.IsAborted()
+  id: plc.AXOpen.Core.AxoTask.IsAborted()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: IsAborted
+  fullName: IsAborted
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsAborted
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 131
+  namespace: plc.AXOpen.Core
+  summary: Gets true when the task is aborted.
+  syntax:
+    content: Public BOOL IsAborted()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.HasError()
+  id: plc.AXOpen.Core.AxoTask.HasError()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: HasError
+  fullName: HasError
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.HasError
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 138
+  namespace: plc.AXOpen.Core
+  summary: Gets true when the task has error.
+  syntax:
+    content: Public BOOL HasError()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  id: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: IsInvokeCalled
+  fullName: IsInvokeCalled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsInvokeCalled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 146
+  namespace: plc.AXOpen.Core
+  summary: Returns true when the `Invoke() method of the task is called in this PLC cycleor was called in the previous-one.
+  syntax:
+    content: Public BOOL IsInvokeCalled()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  id: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: IsNewInvokeCall
+  fullName: IsNewInvokeCall
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsNewInvokeCall
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 150
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL IsNewInvokeCall()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  id: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: IsInvokeCalledInThisPlcCycle
+  fullName: IsInvokeCalledInThisPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 157
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL IsInvokeCalledInThisPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  id: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: WasInvokeCalledInPreviousPlcCycle
+  fullName: WasInvokeCalledInPreviousPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 165
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL WasInvokeCalledInPreviousPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  id: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: IsNewExecuteCall
+  fullName: IsNewExecuteCall
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsNewExecuteCall
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 176
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL IsNewExecuteCall()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  id: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: IsExecuteCalledInThisPlcCycle
+  fullName: IsExecuteCalledInThisPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 184
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL IsExecuteCalledInThisPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  id: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: WasExecuteCalledInPreviousPlcCycle
+  fullName: WasExecuteCalledInPreviousPlcCycle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 192
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private BOOL WasExecuteCalledInPreviousPlcCycle()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.UpdateState()
+  id: plc.AXOpen.Core.AxoTask.UpdateState()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: UpdateState
+  fullName: UpdateState
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.UpdateState
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 203
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private VOID UpdateState()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.Invoke()
+  id: plc.AXOpen.Core.AxoTask.Invoke()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: Invoke
+  fullName: Invoke
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.Invoke
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 220
+  namespace: plc.AXOpen.Core
+  summary: Invokes this task.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Invoke()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.AxoTask.Restore()
+  id: plc.AXOpen.Core.AxoTask.Restore()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.Restore
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 256
+  namespace: plc.AXOpen.Core
+  summary: Restores this task.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Restore()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  id: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: DoneWhen
+  fullName: DoneWhen
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.DoneWhen
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 274
+  namespace: plc.AXOpen.Core
+  summary: Makes this task to transition in `Done` statewhen `Condition` argument is `TRUE`.
+  syntax:
+    content: Public VOID DoneWhen(in plc.BOOL Condition)
+    parameters:
+    - id: Condition
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.Execute()
+  id: plc.AXOpen.Core.AxoTask.Execute()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.Execute
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 283
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if the task is Busy, otherwise false.This method needs to be called cyclically.
+  syntax:
+    content: Public BOOL Execute()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  id: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: LogTask
+  fullName: LogTask
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.LogTask
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 331
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Private VOID LogTask(in plc.STRING[80] _message,in plc.AXOpen.Logging.eLogLevel _level,in plc.AXOpen.Core.IAxoObject _sender)
+    parameters:
+    - id: _message
+      type: plc.STRING[80]
+    - id: _level
+      type: plc.AXOpen.Logging.eLogLevel
+    - id: _sender
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  id: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: ThrowWhen
+  fullName: ThrowWhen
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.ThrowWhen
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 353
+  namespace: plc.AXOpen.Core
+  summary: Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`task in error state stops its execution.
+  syntax:
+    content: Public VOID ThrowWhen(in plc.BOOL HasErrorState)
+    parameters:
+    - id: HasErrorState
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  id: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: ThrowWhen
+  fullName: ThrowWhen
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.ThrowWhen
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 373
+  namespace: plc.AXOpen.Core
+  summary: Makes this task enter into `Error` state, when `HasErrorState` argument is `TRUE`task in error state stops its execution.
+  syntax:
+    content: Public VOID ThrowWhen(in plc.BOOL HasErrorState,in plc.STRING[254] ErrorDescription)
+    parameters:
+    - id: HasErrorState
+      type: plc.BOOL
+    - id: ErrorDescription
+      type: plc.STRING[254]
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  id: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: SetIsDisabled
+  fullName: SetIsDisabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.SetIsDisabled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 390
+  namespace: plc.AXOpen.Core
+  summary: Sets the value of the `IsDisabled` variable
+  syntax:
+    content: Public VOID SetIsDisabled(in plc.BOOL Disabled)
+    parameters:
+    - id: Disabled
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  id: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: GetIsDisabled
+  fullName: GetIsDisabled
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.GetIsDisabled
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 397
+  namespace: plc.AXOpen.Core
+  summary: Returns the value of the `IsDisabled` variable
+  syntax:
+    content: Public BOOL GetIsDisabled()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.AxoTask.Abort()
+  id: plc.AXOpen.Core.AxoTask.Abort()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: Abort
+  fullName: Abort
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.Abort
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 408
+  namespace: plc.AXOpen.Core
+  summary: Aborts the execution of the task if running and sets its state to aborted.
+  syntax:
+    content: Public VOID Abort()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.Resume()
+  id: plc.AXOpen.Core.AxoTask.Resume()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: Resume
+  fullName: Resume
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.Resume
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 422
+  namespace: plc.AXOpen.Core
+  summary: Resume the execution of the task if aborted and sets its state to busy.
+  syntax:
+    content: Public VOID Resume()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.OnAbort()
+  id: plc.AXOpen.Core.AxoTask.OnAbort()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: OnAbort
+  fullName: OnAbort
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.OnAbort
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 435
+  namespace: plc.AXOpen.Core
+  summary: Executes once when the task is aborted.
+  syntax:
+    content: Protected VOID OnAbort()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.OnResume()
+  id: plc.AXOpen.Core.AxoTask.OnResume()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: OnResume
+  fullName: OnResume
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.OnResume
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 441
+  namespace: plc.AXOpen.Core
+  summary: Executes once when the task is resumed.
+  syntax:
+    content: Protected VOID OnResume()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.OnDone()
+  id: plc.AXOpen.Core.AxoTask.OnDone()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: OnDone
+  fullName: OnDone
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.OnDone
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 446
+  namespace: plc.AXOpen.Core
+  summary: Executes once when the task reaches the `Done` state.
+  syntax:
+    content: Protected VOID OnDone()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.OnError()
+  id: plc.AXOpen.Core.AxoTask.OnError()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: OnError
+  fullName: OnError
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.OnError
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 449
+  namespace: plc.AXOpen.Core
+  summary: Executes once when the task reaches the `Error` state.
+  syntax:
+    content: Protected VOID OnError()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.OnRestore()
+  id: plc.AXOpen.Core.AxoTask.OnRestore()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: OnRestore
+  fullName: OnRestore
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.OnRestore
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 449
+  namespace: plc.AXOpen.Core
+  summary: Executes once when the task is restored.
+  syntax:
+    content: Protected VOID OnRestore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.OnStart()
+  id: plc.AXOpen.Core.AxoTask.OnStart()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: OnStart
+  fullName: OnStart
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.OnStart
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 449
+  namespace: plc.AXOpen.Core
+  summary: Executes once when the task starts (at the moment of transition from the `Kicking` state into the `Busy` state).
+  syntax:
+    content: Protected VOID OnStart()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Core.AxoTask.WhileError()
+  id: plc.AXOpen.Core.AxoTask.WhileError()
+  parent: AXOpen.Core.AxoTask
+  children: []
+  name: WhileError
+  fullName: WhileError
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTask.WhileError
+    path: .\src\core\ctrl\src\AxoTask\AxoTask.st
+    startLine: 449
+  namespace: plc.AXOpen.Core
+  summary: Executes repeatedly while the task is in `Error` state (and `Execute()` method is called).
+  syntax:
+    content: Protected VOID WhileError()
+    parameters: *o0
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Core.IAxoTask
+  commentId: plc.AXOpen.Core.IAxoTask
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: plc.AXOpen.Core.IAxoTask
+  parent: plc.AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Core.IAxoTaskState
+  commentId: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: plc.AXOpen.Core.IAxoTaskState
+  parent: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Core.eAxoTaskState
+  name: eAxoTaskState
+  nameWithType: eAxoTaskState
+  fullName: AXOpen.Core.eAxoTaskState
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.LDATE_AND_TIME
+  name: LDATE_AND_TIME
+  nameWithType: LDATE_AND_TIME
+  fullName: LDATE_AND_TIME
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.STRING[80]
+  name: STRING[80]
+  nameWithType: STRING[80]
+  fullName: STRING[80]
+- uid: plc.AXOpen.Logging.eLogLevel
+  name: eLogLevel
+  nameWithType: eLogLevel
+  fullName: AXOpen.Logging.eLogLevel
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+
+

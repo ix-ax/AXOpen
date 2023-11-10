@@ -1,0 +1,724 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  id: plc.AXOpen.Messaging.Static.AxoMessenger
+  parent: plc.AXOpen.Messaging.Static
+  children:
+  - plc.AXOpen.Messaging.Static.AxoMessenger.IsActive
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  - plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  - plc.AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge
+  - plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  - plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  - plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgedBeforeFallen
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Context
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoContext)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Activate(eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(BOOL,eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  - plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  - plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  name: AxoMessenger
+  fullName: AxoMessenger
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 4
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: CLASS AxoMessenger
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.IsActive
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.IsActive
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: IsActive
+  fullName: IsActive
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.IsActive
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 9
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'IsActive : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Category
+  fullName: Category
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Category
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 11
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Category : AXOpen.Messaging.eAxoMessageCategory'
+    return:
+      type: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: MessageCode
+  fullName: MessageCode
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.MessageCode
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 14
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'MessageCode : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Risen
+  fullName: Risen
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Risen
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 16
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Risen : LDATE_AND_TIME'
+    return:
+      type: LDATE_AND_TIME
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Fallen
+  fullName: Fallen
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Fallen
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 18
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Fallen : LDATE_AND_TIME'
+    return:
+      type: LDATE_AND_TIME
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: WaitingForAcknowledge
+  fullName: WaitingForAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.WaitingForAcknowledge
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 20
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'WaitingForAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: AcknowledgementRequired
+  fullName: AcknowledgementRequired
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgementRequired
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 22
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'AcknowledgementRequired : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: AcknowledgeRequest
+  fullName: AcknowledgeRequest
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgeRequest
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 24
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'AcknowledgeRequest : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgedBeforeFallen
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgedBeforeFallen
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: AcknowledgedBeforeFallen
+  fullName: AcknowledgedBeforeFallen
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.AcknowledgedBeforeFallen
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 25
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'AcknowledgedBeforeFallen : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Acknowledged
+  fullName: Acknowledged
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledged
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 27
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Acknowledged : LDATE_AND_TIME'
+    return:
+      type: LDATE_AND_TIME
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: ActiveContextCount
+  fullName: ActiveContextCount
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.ActiveContextCount
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 32
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'ActiveContextCount : ULINT'
+    return:
+      type: ULINT
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Context
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Context
+  parent: AXOpen.Messaging.Static
+  children: []
+  name: Context
+  fullName: Context
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Context
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 35
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: 'Context : AXOpen.Core.IAxoContext'
+    return:
+      type: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoContext)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoContext)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Serve
+  fullName: Serve
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Serve
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 40
+  namespace: plc.AXOpen.Messaging.Static
+  summary: Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
+  syntax:
+    content: Public VOID Serve(in plc.AXOpen.Core.IAxoContext _context)
+    parameters:
+    - id: _context
+      type: plc.AXOpen.Core.IAxoContext
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Serve(IAxoObject)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Serve
+  fullName: Serve
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Serve
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 71
+  namespace: plc.AXOpen.Messaging.Static
+  summary: Ensures the inicialization of the instance, so as the deactivation of the message. Must be called cyclically.
+  syntax:
+    content: Public VOID Serve(in plc.AXOpen.Core.IAxoObject _object)
+    parameters:
+    - id: _object
+      type: plc.AXOpen.Core.IAxoObject
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(eAxoMessageCategory)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Activate
+  fullName: Activate
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Activate
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 88
+  namespace: plc.AXOpen.Messaging.Static
+  summary: Activates the message of the entered category immediatelly.
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties Activate(in plc.AXOpen.Messaging.eAxoMessageCategory _category)
+    parameters:
+    - id: _category
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Activate(ULINT,eAxoMessageCategory)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Activate
+  fullName: Activate
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Activate
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 122
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Private AXOpen.Messaging.Static.IAxoMessageProperties Activate(in plc.ULINT _messageCode,in plc.AXOpen.Messaging.eAxoMessageCategory _category)
+    parameters:
+    - id: _messageCode
+      type: plc.ULINT
+    - id: _category
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(BOOL,eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(BOOL,eAxoMessageCategory)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: ActivateOnCondition
+  fullName: ActivateOnCondition
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 158
+  namespace: plc.AXOpen.Messaging.Static
+  summary: Activates the message of the entered category on the rising edge of the condition.
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties ActivateOnCondition(in plc.BOOL _condition,in plc.AXOpen.Messaging.eAxoMessageCategory _category)
+    parameters:
+    - id: _condition
+      type: plc.BOOL
+    - id: _category
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition(ULINT,BOOL,eAxoMessageCategory)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: ActivateOnCondition
+  fullName: ActivateOnCondition
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.ActivateOnCondition
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 177
+  namespace: plc.AXOpen.Messaging.Static
+  summary: Activates the message of the entered category by using the text list on the rising edge of the condition.
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties ActivateOnCondition(in plc.ULINT _messageCode,in plc.BOOL _condition,in plc.AXOpen.Messaging.eAxoMessageCategory _category)
+    parameters:
+    - id: _messageCode
+      type: plc.ULINT
+    - id: _condition
+      type: plc.BOOL
+    - id: _category
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate(ULINT)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Deactivate
+  fullName: Deactivate
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 204
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Private VOID Deactivate(in plc.ULINT _messageCode)
+    parameters:
+    - id: _messageCode
+      type: plc.ULINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Deactivate
+  fullName: Deactivate
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Deactivate
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 224
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Private VOID Deactivate()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge(ULINT)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Acknowledge
+  fullName: Acknowledge
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 246
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Private VOID Acknowledge(in plc.ULINT _messageCode)
+    parameters:
+    - id: _messageCode
+      type: plc.ULINT
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Acknowledge
+  fullName: Acknowledge
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Acknowledge
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 270
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Private VOID Acknowledge()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.Restore()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.Restore
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 290
+  namespace: plc.AXOpen.Messaging.Static
+  summary: Restores all members of this instance to their initial states.
+  syntax:
+    content: Public VOID Restore()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel(eAxoMessageCategory)
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: ToLogLevel
+  fullName: ToLogLevel
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.ToLogLevel
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 308
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Private AXOpen.Logging.eLogLevel ToLogLevel(in plc.AXOpen.Messaging.eAxoMessageCategory _messageCategory)
+    parameters:
+    - id: _messageCategory
+      type: plc.AXOpen.Messaging.eAxoMessageCategory
+    return:
+      type: plc.AXOpen.Logging.eLogLevel
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: RequireAcknowledgement
+  fullName: RequireAcknowledgement
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.RequireAcknowledgement
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 344
+  namespace: plc.AXOpen.Messaging.Static
+  summary: Forces to require the message acknowledgement, even if the message category does not require it by default.
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties RequireAcknowledgement()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: DoNotRequireAcknowledgement
+  fullName: DoNotRequireAcknowledgement
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.DoNotRequireAcknowledgement
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 350
+  namespace: plc.AXOpen.Messaging.Static
+  summary: Forces to not require the message acknowledgement, even if the message category requires it by default.
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties DoNotRequireAcknowledgement()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  id: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired()
+  parent: AXOpen.Messaging.Static.AxoMessenger
+  children: []
+  name: IsAcknowledgementRequired
+  fullName: IsAcknowledgementRequired
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.AxoMessenger.IsAcknowledgementRequired
+    path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
+    startLine: 350
+  namespace: plc.AXOpen.Messaging.Static
+  summary: Returns TRUE if requires the message acknowledgement.
+  syntax:
+    content: Public BOOL IsAcknowledgementRequired()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  commentId: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  name: IAxoMessageProperties
+  nameWithType: IAxoMessageProperties
+  fullName: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  parent: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  name: eAxoMessageCategory
+  nameWithType: eAxoMessageCategory
+  fullName: AXOpen.Messaging.eAxoMessageCategory
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.LDATE_AND_TIME
+  name: LDATE_AND_TIME
+  nameWithType: LDATE_AND_TIME
+  fullName: LDATE_AND_TIME
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Logging.eLogLevel
+  name: eLogLevel
+  nameWithType: eLogLevel
+  fullName: AXOpen.Logging.eLogLevel
+
+

@@ -1,0 +1,60 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Elements
+  id: plc.AXOpen.Elements
+  children:
+  - plc.AXOpen.Elements.AxoAi
+  - plc.AXOpen.Elements.AxoAiConfig
+  - plc.AXOpen.Elements.AxoAiStatus
+  - plc.AXOpen.Elements.AxoAo
+  - plc.AXOpen.Elements.AxoAoConfig
+  - plc.AXOpen.Elements.AxoAoStatus
+  - plc.AXOpen.Elements.AxoDi
+  - plc.AXOpen.Elements.AxoDo
+  name: plc.AXOpen.Elements
+  fullName: Elements
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Elements
+    path: .\src\components.elements\ctrl\src\AxoAi\AxoAi.st
+    startLine: 1
+  namespace: plc.AXOpen.Elements
+references:
+- uid: plc.AXOpen.Elements.AxoAi
+  name: AxoAi
+  nameWithType: AxoAi
+  fullName: AXOpen.Elements.AxoAi
+- uid: plc.AXOpen.Elements.AxoAiConfig
+  name: AxoAiConfig
+  nameWithType: AxoAiConfig
+  fullName: AXOpen.Elements.AxoAiConfig
+- uid: plc.AXOpen.Elements.AxoAiStatus
+  name: AxoAiStatus
+  nameWithType: AxoAiStatus
+  fullName: AXOpen.Elements.AxoAiStatus
+- uid: plc.AXOpen.Elements.AxoAo
+  name: AxoAo
+  nameWithType: AxoAo
+  fullName: AXOpen.Elements.AxoAo
+- uid: plc.AXOpen.Elements.AxoAoConfig
+  name: AxoAoConfig
+  nameWithType: AxoAoConfig
+  fullName: AXOpen.Elements.AxoAoConfig
+- uid: plc.AXOpen.Elements.AxoAoStatus
+  name: AxoAoStatus
+  nameWithType: AxoAoStatus
+  fullName: AXOpen.Elements.AxoAoStatus
+- uid: plc.AXOpen.Elements.AxoDi
+  name: AxoDi
+  nameWithType: AxoDi
+  fullName: AXOpen.Elements.AxoDi
+- uid: plc.AXOpen.Elements.AxoDo
+  name: AxoDo
+  nameWithType: AxoDo
+  fullName: AXOpen.Elements.AxoDo
+
+

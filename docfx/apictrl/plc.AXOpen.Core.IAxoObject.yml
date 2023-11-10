@@ -1,0 +1,76 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoObject
+  id: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoObject.GetIdentity()
+  - plc.AXOpen.Core.IAxoObject.GetContext()
+  name: IAxoObject
+  fullName: IAxoObject
+  type: Interface
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoObject
+    path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoObject
+  implements: []
+- uid: plc.AXOpen.Core.IAxoObject.GetIdentity()
+  id: plc.AXOpen.Core.IAxoObject.GetIdentity
+  parent: IAxoObject
+  children: []
+  name: GetIdentity
+  fullName: GetIdentity
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoObject.GetIdentity
+    path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public ULINT GetIdentity()
+    parameters: &o0 []
+    return:
+      type: plc.ULINT
+- uid: plc.AXOpen.Core.IAxoObject.GetContext()
+  id: plc.AXOpen.Core.IAxoObject.GetContext
+  parent: IAxoObject
+  children: []
+  name: GetContext
+  fullName: GetContext
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoObject.GetContext
+    path: .\src\abstractions\ctrl\src\AxoObject\IAxoObject.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoContext GetContext()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoContext
+references:
+- uid: plc.ULINT
+  name: ULINT
+  nameWithType: ULINT
+  fullName: ULINT
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+
+

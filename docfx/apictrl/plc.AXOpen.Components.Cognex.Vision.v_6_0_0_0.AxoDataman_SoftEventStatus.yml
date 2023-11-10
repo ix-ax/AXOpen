@@ -1,0 +1,195 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainCodeAcknowledge
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainMatchStringAcknowledge
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainFocusAcknowledge
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainBrightnessAcknowledge
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.UntrainAcknowledge
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.ExecuteDMCCAcknowledge
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.Reserved06
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.SetMatchStringAcknowledge
+  name: AxoDataman_SoftEventStatus
+  fullName: AxoDataman_SoftEventStatus
+  type: Struct
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: STRUCT AxoDataman_SoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainCodeAcknowledge
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainCodeAcknowledge
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TrainCodeAcknowledge
+  fullName: TrainCodeAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainCodeAcknowledge
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TrainCodeAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainMatchStringAcknowledge
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainMatchStringAcknowledge
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TrainMatchStringAcknowledge
+  fullName: TrainMatchStringAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainMatchStringAcknowledge
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TrainMatchStringAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainFocusAcknowledge
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainFocusAcknowledge
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TrainFocusAcknowledge
+  fullName: TrainFocusAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainFocusAcknowledge
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TrainFocusAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainBrightnessAcknowledge
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainBrightnessAcknowledge
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TrainBrightnessAcknowledge
+  fullName: TrainBrightnessAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.TrainBrightnessAcknowledge
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TrainBrightnessAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.UntrainAcknowledge
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.UntrainAcknowledge
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: UntrainAcknowledge
+  fullName: UntrainAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.UntrainAcknowledge
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'UntrainAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.ExecuteDMCCAcknowledge
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.ExecuteDMCCAcknowledge
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ExecuteDMCCAcknowledge
+  fullName: ExecuteDMCCAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.ExecuteDMCCAcknowledge
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ExecuteDMCCAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.Reserved06
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.Reserved06
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Reserved06
+  fullName: Reserved06
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.Reserved06
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Reserved06 : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.SetMatchStringAcknowledge
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.SetMatchStringAcknowledge
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: SetMatchStringAcknowledge
+  fullName: SetMatchStringAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus.SetMatchStringAcknowledge
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_SoftEventStatus.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'SetMatchStringAcknowledge : BOOL'
+    return:
+      type: BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+
