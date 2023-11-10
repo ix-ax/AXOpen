@@ -86,6 +86,8 @@ NAMESPACE AXOpen.Core
             {#ix-set:Help = "<#Check task calling in the code, task is called more then once.#>"}
             _MultipleExecuteIsCalled : AXOpen.Messaging.Static.AxoMessenger;  
             _SuspendMultipleExecuteCallCheck : BOOL :=  FALSE;
+            _RemoteRestoreEnabled   : BOOL := TRUE;
+            _RemoteAbortEnabled     : BOOL := FALSE;
         END_VAR 
         
         ///<summary>
@@ -417,8 +419,16 @@ NAMESPACE AXOpen.Core
             
             IF(_context_ = NULL) THEN RETURN; END_IF;
             IF( RemoteInvoke) THEN THIS.Invoke(); RemoteInvoke := FALSE; END_IF;
-            IF( RemoteRestore) THEN THIS.Restore(); RemoteRestore := FALSE; END_IF;
-            IF( RemoteAbort) THEN THIS.Abort(); RemoteAbort := FALSE; END_IF;
+            IF _RemoteRestoreEnabled THEN
+                IF( RemoteRestore) THEN THIS.Restore(); RemoteRestore := FALSE; END_IF;
+            ELSE
+                RemoteRestore := FALSE;
+            END_IF;
+            IF _RemoteAbortEnabled THEN
+                IF( RemoteAbort ) THEN THIS.Abort(); RemoteAbort := FALSE; END_IF;
+            ELSE
+                RemoteAbort := FALSE;
+            END_IF;
             IF( RemoteResume) THEN THIS.Resume(); RemoteResume := FALSE; END_IF;
             
             _MultipleExecuteIsCalled.Serve(THIS);
@@ -431,6 +441,7 @@ NAMESPACE AXOpen.Core
                 END_IF;
             END_IF;
         _openCycleCountExecute := _openCycleCount;
+        
                 
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
             // and the Execute() is subsequently called without calling the Invoke() method in the same PLC cycle,
@@ -479,6 +490,7 @@ NAMESPACE AXOpen.Core
                 END_IF;
             END_IF;
 
+            THIS.UpdateState();
             Execute := Status = eAxoTaskState#Busy;
             
             _taskTimer.OnDelay(THIS,  Execute, LT#99999D);
@@ -570,6 +582,66 @@ NAMESPACE AXOpen.Core
             END_IF;
         END_METHOD
     
+        ///<summary>
+        /// Sets the remote restore functionality based on the provided input.
+        /// Enables or disables remote restoration based on the value of the 'Enable' parameter.
+        ///</summary>
+        ///<param name="Enable">A boolean value indicating whether remote restore functionality should be enabled (TRUE) or disabled (FALSE).</param>
+        ///<remarks>
+        /// This method allows dynamic control over the ability to perform remote restoration tasks.
+        /// When enabled, remote restoration functionality is activated, allowing tasks to be restored remotely.
+        /// When disabled, remote restoration functionality is deactivated, preventing tasks from being restored remotely.
+        ///</remarks>
+        METHOD PUBLIC SetRemoteRestoreEnabled
+            VAR_INPUT
+                Enable : BOOL; // Input parameter to enable or disable remote restore.
+            END_VAR
+            _RemoteRestoreEnabled := Enable; // Assign the input value to the variable.
+        END_METHOD
+
+        ///<summary>
+        /// Retrieves the current status of remote restore functionality.
+        ///</summary>
+        ///<returns>A boolean value indicating whether remote restore functionality is enabled (TRUE) or disabled (FALSE).</returns>
+        ///<remarks>
+        /// This method provides the current status of remote restore functionality.
+        /// It returns TRUE if remote restoration is enabled, allowing tasks to be restored remotely.
+        /// It returns FALSE if remote restoration is disabled, preventing tasks from being restored remotely.
+        ///</remarks>
+        METHOD PUBLIC GetRemoteRestoreEnabled : BOOL
+            GetRemoteRestoreEnabled := _RemoteRestoreEnabled; // Returns the current status of remote restore functionality.
+        END_METHOD
+
+        ///<summary>
+        /// Sets the remote abort functionality based on the provided input.
+        /// Enables or disables remote abort based on the value of the 'Enable' parameter.
+        ///</summary>
+        ///<param name="Enable">A boolean value indicating whether remote abort functionality should be enabled (TRUE) or disabled (FALSE).</param>
+        ///<remarks>
+        /// This method allows dynamic control over the ability to perform remote abort tasks.
+        /// When enabled, remote abort functionality is activated, allowing tasks to be aborted remotely.
+        /// When disabled, remote abort functionality is deactivated, preventing tasks from being aborted remotely.
+        ///</remarks>
+        METHOD PUBLIC SetRemoteAbortEnabled
+            VAR_INPUT
+                Enable : BOOL; // Input parameter to enable or disable remote abort.
+            END_VAR
+            _RemoteAbortEnabled := Enable; // Assign the input value to the variable.
+        END_METHOD
+
+        ///<summary>
+        /// Retrieves the current status of remote abort functionality.
+        ///</summary>
+        ///<returns>A boolean value indicating whether remote abort functionality is enabled (TRUE) or disabled (FALSE).</returns>
+        ///<remarks>
+        /// This method provides the current status of remote abort functionality.
+        /// It returns TRUE if remote abort is enabled, allowing tasks to be aborted remotely.
+        /// It returns FALSE if remote abort is disabled, preventing tasks from being aborted remotely.
+        ///</remarks>
+        METHOD PUBLIC GetRemoteAbortEnabled : BOOL
+            GetRemoteAbortEnabled := _RemoteAbortEnabled; // Returns the current status of remote abort functionality.
+        END_METHOD
+
         ///<summary>
         /// Executes once when the task is aborted.
         ///</summary>
