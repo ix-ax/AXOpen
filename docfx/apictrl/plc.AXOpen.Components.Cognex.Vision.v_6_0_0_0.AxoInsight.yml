@@ -1,0 +1,1230 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.TriggerTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionResults
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RestoreTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResultsTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobName
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNameTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNumberTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredSoftEventNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventTask
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Config
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Status
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Results
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventControl
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UserData
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._Messenger
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._TaskMessenger
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Restore()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ManualControl()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UpdateInputs(REF_TO ARRAY [0..2] OF BYTE,REF_TO DWORD,REF_TO WORD,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UpdateOutputs(REF_TO BYTE,REF_TO BYTE,REF_TO WORD,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.IsValidReferences(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Open()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Run(IAxoObject,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Run(IAxoContext,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Execute(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Close()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResults()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Trigger()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob(UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob(STRING)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEvent(UINT)
+  name: AxoInsight
+  fullName: AxoInsight
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: CLASS AxoInsight
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.Open()
+  - plc.AXOpen.Core.AxoComponent.Run()
+  - plc.AXOpen.Core.AxoComponent.Close()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.TriggerTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.TriggerTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TriggerTask
+  fullName: TriggerTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.TriggerTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TriggerTask : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionResults
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionResults
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: InspectionResults
+  fullName: InspectionResults
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionResults
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 14
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'InspectionResults : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RestoreTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RestoreTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RestoreTask
+  fullName: RestoreTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RestoreTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'RestoreTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResultsTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResultsTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ClearInspectionResultsTask
+  fullName: ClearInspectionResultsTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResultsTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 24
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ClearInspectionResultsTask : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobName
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobName
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RequiredJobName
+  fullName: RequiredJobName
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobName
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 27
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'RequiredJobName : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNameTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNameTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ChangeJobByNameTask
+  fullName: ChangeJobByNameTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNameTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 32
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ChangeJobByNameTask : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobNumber
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RequiredJobNumber
+  fullName: RequiredJobNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredJobNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 36
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'RequiredJobNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNumberTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNumberTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: ChangeJobByNumberTask
+  fullName: ChangeJobByNumberTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJobByNumberTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 40
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'ChangeJobByNumberTask : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredSoftEventNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredSoftEventNumber
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RequiredSoftEventNumber
+  fullName: RequiredSoftEventNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.RequiredSoftEventNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'RequiredSoftEventNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventTask
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventTask
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: SoftEventTask
+  fullName: SoftEventTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventTask
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 48
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'SoftEventTask : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Config
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Config
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Config
+  fullName: Config
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Config
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 53
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Config : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Status
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Status
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Status
+  fullName: Status
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Status
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 57
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Status : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Results
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Results
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Results
+  fullName: Results
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Results
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 62
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Results : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Results'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Results
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: AcquisitionControl
+  fullName: AcquisitionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'AcquisitionControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: AcquisitionStatus
+  fullName: AcquisitionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.AcquisitionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 77
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'AcquisitionStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: InspectionControl
+  fullName: InspectionControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 84
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'InspectionControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: InspectionStatus
+  fullName: InspectionStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.InspectionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 91
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'InspectionStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: CommandControl
+  fullName: CommandControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 98
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'CommandControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: CommandStatus
+  fullName: CommandStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.CommandStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 106
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'CommandStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventControl
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventControl
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: SoftEventControl
+  fullName: SoftEventControl
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 113
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'SoftEventControl : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: SoftEventStatus
+  fullName: SoftEventStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEventStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 120
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'SoftEventStatus : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UserData
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UserData
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: UserData
+  fullName: UserData
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UserData
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 128
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'UserData : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData'
+    return:
+      type: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._Messenger
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._Messenger
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _Messenger
+  fullName: _Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._Messenger
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 137
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._TaskMessenger
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._TaskMessenger
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _TaskMessenger
+  fullName: _TaskMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight._TaskMessenger
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 139
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_TaskMessenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Restore()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Restore()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Restore
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 145
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Restores this instance .
+  syntax:
+    content: Protected AXOpen.Core.IAxoTask Restore()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ManualControl()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ManualControl()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ManualControl
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 210
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Custom logic for the manual control.
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UpdateInputs(REF_TO ARRAY [0..2] OF BYTE,REF_TO DWORD,REF_TO WORD,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UpdateInputs(REF_TO ARRAY [0..2] OF BYTE,REF_TO DWORD,REF_TO WORD,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: UpdateInputs
+  fullName: UpdateInputs
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UpdateInputs
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 215
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private BOOL UpdateInputs(in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO DWORD refInspectionStatus,in plc.REF_TO WORD refCommandStatus,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData)
+    parameters:
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refInspectionStatus
+      type: plc.REF_TO DWORD
+    - id: refCommandStatus
+      type: plc.REF_TO WORD
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UpdateOutputs(REF_TO BYTE,REF_TO BYTE,REF_TO WORD,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UpdateOutputs(REF_TO BYTE,REF_TO BYTE,REF_TO WORD,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: UpdateOutputs
+  fullName: UpdateOutputs
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.UpdateOutputs
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 302
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private BOOL UpdateOutputs(in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO BYTE refInspectionControl,in plc.REF_TO WORD refCommandControl,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refInspectionControl
+      type: plc.REF_TO BYTE
+    - id: refCommandControl
+      type: plc.REF_TO WORD
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.IsValidReferences(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.IsValidReferences(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: IsValidReferences
+  fullName: IsValidReferences
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.IsValidReferences
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 370
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private BOOL IsValidReferences(in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refInspectionControl,in plc.REF_TO DWORD refInspectionStatus,in plc.REF_TO WORD refCommandControl,in plc.REF_TO WORD refCommandStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refInspectionControl
+      type: plc.REF_TO BYTE
+    - id: refInspectionStatus
+      type: plc.REF_TO DWORD
+    - id: refCommandControl
+      type: plc.REF_TO WORD
+    - id: refCommandStatus
+      type: plc.REF_TO WORD
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Open()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Open()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: Open
+  fullName: Open
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Open
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 428
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Custom component logic running before any other component logic.
+  syntax:
+    content: Protected VOID Open()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Run(IAxoObject,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Run(IAxoObject,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Run
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 437
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Runs tasks and logic of this component.>[!IMPORTANT] This method or one of its overloads must be called cyclically.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject parent,in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refInspectionControl,in plc.REF_TO DWORD refInspectionStatus,in plc.REF_TO WORD refCommandControl,in plc.REF_TO WORD refCommandStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refInspectionControl
+      type: plc.REF_TO BYTE
+    - id: refInspectionStatus
+      type: plc.REF_TO DWORD
+    - id: refCommandControl
+      type: plc.REF_TO WORD
+    - id: refCommandStatus
+      type: plc.REF_TO WORD
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Run(IAxoContext,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Run(IAxoContext,REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Run
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 471
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Runs tasks and logic of this component.>[!IMPORTANT] This method or one of its overloads must be called cyclically.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoContext parent,in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refInspectionControl,in plc.REF_TO DWORD refInspectionStatus,in plc.REF_TO WORD refCommandControl,in plc.REF_TO WORD refCommandStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoContext
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refInspectionControl
+      type: plc.REF_TO BYTE
+    - id: refInspectionStatus
+      type: plc.REF_TO DWORD
+    - id: refCommandControl
+      type: plc.REF_TO WORD
+    - id: refCommandStatus
+      type: plc.REF_TO WORD
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Execute(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Execute(REF_TO BYTE,REF_TO ARRAY [0..2] OF BYTE,REF_TO BYTE,REF_TO DWORD,REF_TO WORD,REF_TO WORD,REF_TO BYTE,REF_TO BYTE,REF_TO ARRAY [*] OF BYTE,REF_TO ARRAY [*] OF BYTE)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: Execute
+  fullName: Execute
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Execute
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 503
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private VOID Execute(in plc.REF_TO BYTE refAcquisitionControl,in plc.REF_TO ARRAY [0..2] OF BYTE refAcquisitionStatus,in plc.REF_TO BYTE refInspectionControl,in plc.REF_TO DWORD refInspectionStatus,in plc.REF_TO WORD refCommandControl,in plc.REF_TO WORD refCommandStatus,in plc.REF_TO BYTE refSoftEventControl,in plc.REF_TO BYTE refSoftEventStatus,in plc.REF_TO ARRAY [*] OF BYTE refResultData,in plc.REF_TO ARRAY [*] OF BYTE refUserData)
+    parameters:
+    - id: refAcquisitionControl
+      type: plc.REF_TO BYTE
+    - id: refAcquisitionStatus
+      type: plc.REF_TO ARRAY [0..2] OF BYTE
+    - id: refInspectionControl
+      type: plc.REF_TO BYTE
+    - id: refInspectionStatus
+      type: plc.REF_TO DWORD
+    - id: refCommandControl
+      type: plc.REF_TO WORD
+    - id: refCommandStatus
+      type: plc.REF_TO WORD
+    - id: refSoftEventControl
+      type: plc.REF_TO BYTE
+    - id: refSoftEventStatus
+      type: plc.REF_TO BYTE
+    - id: refResultData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    - id: refUserData
+      type: plc.REF_TO ARRAY [*] OF BYTE
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Close()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Close()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: Close
+  fullName: Close
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Close
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 592
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Custom component logic running after any other component logic.
+  syntax:
+    content: Protected VOID Close()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResults()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResults()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: ClearInspectionResults
+  fullName: ClearInspectionResults
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ClearInspectionResults
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 600
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Clears the inspection results.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearInspectionResults()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Trigger()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Trigger()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: Trigger
+  fullName: Trigger
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.Trigger
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 606
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Triggers the reading sequence and waits for results.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Trigger()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob(UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob(UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: ChangeJob
+  fullName: ChangeJob
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 606
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Changes the sensor job using job number.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ChangeJob(in plc.UINT Job)
+    parameters:
+    - id: Job
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob(STRING)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob(STRING)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: ChangeJob
+  fullName: ChangeJob
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.ChangeJob
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 606
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Changes the sensor job using job name.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ChangeJob(in plc.STRING Job)
+    parameters:
+    - id: Job
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEvent(UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEvent(UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+  children: []
+  name: SoftEvent
+  fullName: SoftEvent
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight.SoftEvent
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\AxoInsight.st
+    startLine: 606
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Triggers the soft event.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState SoftEvent(in plc.UINT EventNumber)
+    parameters:
+    - id: EventNumber
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  name: CheckIfManualControlIsActivated()
+  nameWithType: CheckIfManualControlIsActivated()
+  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+- uid: plc.AXOpen.Core.AxoComponent.Open()
+  commentId: plc.AXOpen.Core.AxoComponent.Open()
+  name: Open()
+  nameWithType: Open()
+  fullName: plc.AXOpen.Core.AxoComponent.Open()
+  parent: plc.AXOpen.Core.AxoComponent.Open()
+- uid: plc.AXOpen.Core.AxoComponent.Run()
+  commentId: plc.AXOpen.Core.AxoComponent.Run()
+  name: Run()
+  nameWithType: Run()
+  fullName: plc.AXOpen.Core.AxoComponent.Run()
+  parent: plc.AXOpen.Core.AxoComponent.Run()
+- uid: plc.AXOpen.Core.AxoComponent.Close()
+  commentId: plc.AXOpen.Core.AxoComponent.Close()
+  name: Close()
+  nameWithType: Close()
+  fullName: plc.AXOpen.Core.AxoComponent.Close()
+  parent: plc.AXOpen.Core.AxoComponent.Close()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  commentId: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  name: IAxoVisionSensor
+  nameWithType: IAxoVisionSensor
+  fullName: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  parent: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger
+  name: AxoInsightTrigger
+  nameWithType: AxoInsightTrigger
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData
+  name: AxoInsight_ResultData
+  nameWithType: AxoInsight_ResultData
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults
+  name: AxoInsightClearInspectionResults
+  nameWithType: AxoInsightClearInspectionResults
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName
+  name: AxoInsightChangeJobByName
+  nameWithType: AxoInsightChangeJobByName
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber
+  name: AxoInsightChangeJobByNumber
+  nameWithType: AxoInsightChangeJobByNumber
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  name: AxoInsightSoftEvent
+  nameWithType: AxoInsightSoftEvent
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config
+  name: AxoInsight_Config
+  nameWithType: AxoInsight_Config
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+  name: AxoInsight_Status
+  nameWithType: AxoInsight_Status
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Results
+  name: AxoInsight_Results
+  nameWithType: AxoInsight_Results
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Results
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
+  name: AxoInsight_AcquisitionControl
+  nameWithType: AxoInsight_AcquisitionControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+  name: AxoInsight_AcquisitionStatus
+  nameWithType: AxoInsight_AcquisitionStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
+  name: AxoInsight_InspectionControl
+  nameWithType: AxoInsight_InspectionControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
+  name: AxoInsight_InspectionStatus
+  nameWithType: AxoInsight_InspectionStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl
+  name: AxoInsight_CommandControl
+  nameWithType: AxoInsight_CommandControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandStatus
+  name: AxoInsight_CommandStatus
+  nameWithType: AxoInsight_CommandStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl
+  name: AxoInsight_SoftEventControl
+  nameWithType: AxoInsight_SoftEventControl
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus
+  name: AxoInsight_SoftEventStatus
+  nameWithType: AxoInsight_SoftEventStatus
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData
+  name: AxoInsight_UserData
+  nameWithType: AxoInsight_UserData
+  fullName: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.IAxoTask
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: AXOpen.Core.IAxoTask
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.REF_TO ARRAY [0..2] OF BYTE
+  name: REF_TO ARRAY [0..2] OF BYTE
+  nameWithType: REF_TO ARRAY [0..2] OF BYTE
+  fullName: REF_TO ARRAY [0..2] OF BYTE
+- uid: plc.REF_TO DWORD
+  name: REF_TO DWORD
+  nameWithType: REF_TO DWORD
+  fullName: REF_TO DWORD
+- uid: plc.REF_TO WORD
+  name: REF_TO WORD
+  nameWithType: REF_TO WORD
+  fullName: REF_TO WORD
+- uid: plc.REF_TO BYTE
+  name: REF_TO BYTE
+  nameWithType: REF_TO BYTE
+  fullName: REF_TO BYTE
+- uid: plc.REF_TO ARRAY [*] OF BYTE
+  name: REF_TO ARRAY [*] OF BYTE
+  nameWithType: REF_TO ARRAY [*] OF BYTE
+  fullName: REF_TO ARRAY [*] OF BYTE
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

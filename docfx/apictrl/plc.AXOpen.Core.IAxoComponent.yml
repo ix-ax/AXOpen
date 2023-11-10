@@ -1,0 +1,24 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoComponent
+  id: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core
+  children: []
+  name: IAxoComponent
+  fullName: IAxoComponent
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoComponent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoComponent
+    path: .\src\core\ctrl\src\abstractions\AxoComponent\IAxoComponent.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoComponent
+  implements: []
+references: []
+
+

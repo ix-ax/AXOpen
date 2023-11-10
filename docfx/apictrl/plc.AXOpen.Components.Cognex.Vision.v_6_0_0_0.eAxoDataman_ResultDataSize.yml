@@ -1,0 +1,129 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_SIZE_INVALID
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_16B
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_32B
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_64B
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_128B
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_246B
+  name: eAxoDataman_ResultDataSize
+  fullName: eAxoDataman_ResultDataSize
+  type: Enum
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'eAxoDataman_ResultDataSize : INT'
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_SIZE_INVALID
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_SIZE_INVALID
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RESULT_DATA_SIZE_INVALID := 0
+  fullName: RESULT_DATA_SIZE_INVALID
+  type: Field
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_SIZE_INVALID
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_16B
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_16B
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RESULT_DATA_16B := 16
+  fullName: RESULT_DATA_16B
+  type: Field
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_16B
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_32B
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_32B
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RESULT_DATA_32B := 32
+  fullName: RESULT_DATA_32B
+  type: Field
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_32B
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_64B
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_64B
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RESULT_DATA_64B := 64
+  fullName: RESULT_DATA_64B
+  type: Field
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_64B
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_128B
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_128B
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RESULT_DATA_128B := 128
+  fullName: RESULT_DATA_128B
+  type: Field
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_128B
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_246B
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_246B
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: RESULT_DATA_246B := 246
+  fullName: RESULT_DATA_246B
+  type: Field
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize.RESULT_DATA_246B
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\eAxoDataman_ResultDataSize.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

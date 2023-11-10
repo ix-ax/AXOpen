@@ -47,7 +47,7 @@ scripts:
   postbuild:
     - apax ixc
   watch:
-    - dotnet watch --project ..\\app_src\\AXOpen.Components.Cognex.Vision.Integrations.Blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
+    - dotnet watch --project ..\\app\\ix-blazor\\axopen_components_cognex_vision_integrations_blazor.csproj
   rr:
     - apax build
     - apax download

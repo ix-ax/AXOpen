@@ -194,5 +194,15 @@
         "$0"
         ],
     "description": "structure or member will be read only"
+    } ,
+    "attritubePersistentProperty":
+    {
+        "prefix": ["attPersistent","persistent"],
+        "scope": "st",
+        "body":[
+        "{#ix-attr:[AXOpen.Data.PersistentAttribute(\"\")]}",
+        "$0"
+        ],
+    "description": "The variable will be flagged as persistent, and the persistent data exchange will handle CRUD operations."
     }
 }

@@ -1,0 +1,62 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.IAxoDigitalInspector
+  id: plc.AXOpen.Inspectors.IAxoDigitalInspector
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.IAxoDigitalInspector.Inspect(IAxoObject,BOOL)
+  name: IAxoDigitalInspector
+  fullName: IAxoDigitalInspector
+  type: Interface
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDigitalInspector\IAxoDigitalInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.IAxoDigitalInspector
+    path: .\src\inspectors\ctrl\src\AxoDigitalInspector\IAxoDigitalInspector.st
+    startLine: 2
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: INTERFACE IAxoDigitalInspector
+  implements: []
+- uid: plc.AXOpen.Inspectors.IAxoDigitalInspector.Inspect(IAxoObject,BOOL)
+  id: plc.AXOpen.Inspectors.IAxoDigitalInspector.Inspect
+  parent: IAxoDigitalInspector
+  children: []
+  name: Inspect
+  fullName: Inspect
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDigitalInspector\IAxoDigitalInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.IAxoDigitalInspector.Inspect
+    path: .\src\inspectors\ctrl\src\AxoDigitalInspector\IAxoDigitalInspector.st
+    startLine: 4
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: Public AXOpen.Inspectors.IInspector Inspect(in plc.AXOpen.Core.IAxoObject _parent,in plc.BOOL Status)
+    parameters:
+    - id: _parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: Status
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Inspectors.IInspector
+references:
+- uid: plc.AXOpen.Inspectors.IInspector
+  name: IInspector
+  nameWithType: IInspector
+  fullName: AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

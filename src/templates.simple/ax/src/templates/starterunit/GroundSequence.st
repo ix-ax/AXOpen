@@ -20,6 +20,8 @@ NAMESPACE axosimple.StarterUnitTemplate
             ProcessData : REF_TO ProcessDataManager;
             ProcessSettings : REF_TO FragmentProcessDataManger;
             TechnologySettings : REF_TO TechnologyDataManager;
+            PersistentSettings : REF_TO AxoDataPersistentExchange;
+
             _currentId : STRING;
         END_VAR
 
@@ -36,6 +38,7 @@ NAMESPACE axosimple.StarterUnitTemplate
                 ProcessData := Objs^.ProcessData;
                 ProcessSettings := Objs^.ProcessSettings;
                 TechnologySettings := Objs^.TechnologySettings;
+                PersistentSettings := Objs^.Global^.PersistentData;
             END_IF;
 
             SUPER.Run(_parent);
@@ -45,6 +48,9 @@ NAMESPACE axosimple.StarterUnitTemplate
         /// Contains logic of the steps of this sequence
         ///</summary>
         METHOD PROTECTED OVERRIDE Main
+            VAR
+                taskState :IAxoTaskState;
+            END_VAR;
             // IF (Components = NULL OR ProcessData = NULL) THEN
             //     RETURN;
             // END_IF;
@@ -57,23 +63,51 @@ NAMESPACE axosimple.StarterUnitTemplate
             // This is more verbose but also more versatile way of executing step logic.
             IF (Steps[0].Execute(THIS, TRUE, '<#RESTORE#>')) THEN
                 //------------------------------------------------------- 
-                    ProcessData^.Restore();
-                    THIS.MoveNext(); 
-
-                    ProcessData^.Shared.Entity.WasReset := true;
-                    _currentId := 'lastPartId'; // just for simulation
+                PersistentSettings^.Restore(); 
+                ProcessData^.Restore();
+                
+                ProcessData^.Shared.Entity.WasReset := true;
+                _currentId := 'lastPartId'; // just for simulation
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[1].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
+            IF (Steps[1].Execute(THIS, TRUE, '<#CHECK IF EXIST PERSISTENT SETTINGS#>')) THEN
                 //------------------------------------------------------- 
-                IF(TechnologySettings^.Read('default').IsDone()) THEN
+                IF(PersistentSettings^.EntityExist('default').IsDone()) THEN
+                    IF PersistentSettings^.Operation._exist THEN 
+                        THIS.RequestStep(Steps[3]);
+                    ELSE
+                        THIS.MoveNext(); 
+                    END_IF;
+                END_IF;    
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[2].Execute(THIS, TRUE, '<#UPDATE PERSISTENT SETTINGS#>')) THEN
+                //------------------------------------------------------- 
+                IF(PersistentSettings^.Update().IsDone()) THEN
                     THIS.MoveNext(); 
                 END_IF;    
                 //-------------------------------------------------------
             END_IF;
-                
-            IF (Steps[3].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
+
+            IF (Steps[3].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
+                //------------------------------------------------------- 
+                IF(PersistentSettings^.Read().IsDone()) THEN
+                    THIS.MoveNext(); 
+                END_IF;    
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[4].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
+                //------------------------------------------------------- 
+                IF(TechnologySettings^.Read( Objs^.LastTechnologySettings ).IsDone()) THEN
+                    THIS.MoveNext(); 
+                END_IF;    
+                //-------------------------------------------------------
+            END_IF;
+                          
+            IF (Steps[5].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
                 //-------------------------------------------------------
                 IF CurrentStep.Duration > TIME#2s THEN                         
                     THIS.MoveNext();

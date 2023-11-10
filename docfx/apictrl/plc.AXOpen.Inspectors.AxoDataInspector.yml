@@ -1,0 +1,400 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.AxoDataInspector
+  id: plc.AXOpen.Inspectors.AxoDataInspector
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.AxoDataInspector._data
+  - plc.AXOpen.Inspectors.AxoDataInspector._lastOutValue
+  - plc.AXOpen.Inspectors.AxoDataInspector.Inspect(IAxoObject,STRING)
+  - plc.AXOpen.Inspectors.AxoDataInspector.WithCoordinator(IAxoCoordinator)
+  - plc.AXOpen.Inspectors.AxoDataInspector.OnDone()
+  - plc.AXOpen.Inspectors.AxoDataInspector.IsCharNumber(CHAR)
+  - plc.AXOpen.Inspectors.AxoDataInspector.Data()
+  name: AxoDataInspector
+  fullName: AxoDataInspector
+  type: Class
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDataInspector
+    path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+    startLine: 7
+  namespace: plc.AXOpen.Inspectors
+  summary: Class representing inspection of string value with support of star notation.
+  syntax:
+    content: CLASS AxoDataInspector
+  inheritance:
+  - plc.AXOpen.Inspectors.AxoInspector
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  - plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  - plc.AXOpen.Inspectors.AxoInspector._WithCoordinator(IAxoCoordinator)
+  - plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  - plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  - plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  - plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  - plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  - plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult()
+  - plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  - plc.AXOpen.Inspectors.AxoInspector.Busy()
+  - plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  - plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  - plc.AXOpen.Inspectors.AxoInspector.Done()
+  - plc.AXOpen.Inspectors.AxoInspector.Result()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Inspectors.IAxoDataInspector
+  - plc.AXOpen.Inspectors.IInspector
+  - plc.AXOpen.Inspectors.IOnFail
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Inspectors.AxoDataInspector._data
+  id: plc.AXOpen.Inspectors.AxoDataInspector._data
+  parent: AXOpen.Inspectors
+  children: []
+  name: _data
+  fullName: _data
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDataInspector._data
+    path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+    startLine: 10
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_data : AXOpen.Inspectors.AxoDataInspectorData'
+    return:
+      type: AXOpen.Inspectors.AxoDataInspectorData
+- uid: plc.AXOpen.Inspectors.AxoDataInspector._lastOutValue
+  id: plc.AXOpen.Inspectors.AxoDataInspector._lastOutValue
+  parent: AXOpen.Inspectors
+  children: []
+  name: _lastOutValue
+  fullName: _lastOutValue
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDataInspector._lastOutValue
+    path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+    startLine: 13
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_lastOutValue : STRING'
+    return:
+      type: STRING
+- uid: plc.AXOpen.Inspectors.AxoDataInspector.Inspect(IAxoObject,STRING)
+  id: plc.AXOpen.Inspectors.AxoDataInspector.Inspect(IAxoObject,STRING)
+  parent: AXOpen.Inspectors.AxoDataInspector
+  children: []
+  name: Inspect
+  fullName: Inspect
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDataInspector.Inspect
+    path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+    startLine: 22
+  namespace: plc.AXOpen.Inspectors
+  summary: Inspection method, which contains main logic of inspection.
+  syntax:
+    content: Public AXOpen.Inspectors.IInspector Inspect(in plc.AXOpen.Core.IAxoObject _parent,in plc.STRING Status)
+    parameters:
+    - id: _parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: Status
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.AxoDataInspector.WithCoordinator(IAxoCoordinator)
+  id: plc.AXOpen.Inspectors.AxoDataInspector.WithCoordinator(IAxoCoordinator)
+  parent: AXOpen.Inspectors.AxoDataInspector
+  children: []
+  name: WithCoordinator
+  fullName: WithCoordinator
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDataInspector.WithCoordinator
+    path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+    startLine: 126
+  namespace: plc.AXOpen.Inspectors
+  summary: Set coordinator to this instance
+  syntax:
+    content: Public AXOpen.Inspectors.IAxoDataInspector WithCoordinator(in plc.AXOpen.Core.IAxoCoordinator inCoordinator)
+    parameters:
+    - id: inCoordinator
+      type: plc.AXOpen.Core.IAxoCoordinator
+    return:
+      type: plc.AXOpen.Inspectors.IAxoDataInspector
+- uid: plc.AXOpen.Inspectors.AxoDataInspector.OnDone()
+  id: plc.AXOpen.Inspectors.AxoDataInspector.OnDone()
+  parent: AXOpen.Inspectors.AxoDataInspector
+  children: []
+  name: OnDone
+  fullName: OnDone
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDataInspector.OnDone
+    path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+    startLine: 144
+  namespace: plc.AXOpen.Inspectors
+  summary: If inspection fails, set result to data
+  syntax:
+    content: Protected VOID OnDone()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Inspectors.AxoDataInspector.IsCharNumber(CHAR)
+  id: plc.AXOpen.Inspectors.AxoDataInspector.IsCharNumber(CHAR)
+  parent: AXOpen.Inspectors.AxoDataInspector
+  children: []
+  name: IsCharNumber
+  fullName: IsCharNumber
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDataInspector.IsCharNumber
+    path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+    startLine: 153
+  namespace: plc.AXOpen.Inspectors
+  summary: Check, if character is a number
+  syntax:
+    content: Protected BOOL IsCharNumber(in plc.CHAR inCharacter)
+    parameters:
+    - id: inCharacter
+      type: plc.CHAR
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoDataInspector.Data()
+  id: plc.AXOpen.Inspectors.AxoDataInspector.Data()
+  parent: AXOpen.Inspectors.AxoDataInspector
+  children: []
+  name: Data
+  fullName: Data
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoDataInspector.Data
+    path: .\src\inspectors\ctrl\src\AxoDataInspector\AxoDataInspector.st
+    startLine: 178
+  namespace: plc.AXOpen.Inspectors
+  summary: Set coordinator to this instance
+  syntax:
+    content: Public REF_TO AXOpen.Inspectors.AxoDataInspectorData Data()
+    parameters: *o0
+    return:
+      type: plc.REF_TO AXOpen.Inspectors.AxoDataInspectorData
+references:
+- uid: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
+  commentId: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
+  name: _axoInspectorDialog
+  nameWithType: _axoInspectorDialog
+  fullName: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
+  parent: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  name: CheckOverInspection()
+  nameWithType: CheckOverInspection()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  parent: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+- uid: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  name: IsOverInspected()
+  nameWithType: IsOverInspected()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  parent: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+- uid: plc.AXOpen.Inspectors.AxoInspector._WithCoordinator(IAxoCoordinator)
+  commentId: plc.AXOpen.Inspectors.AxoInspector._WithCoordinator(IAxoCoordinator)
+  name: _WithCoordinator(IAxoCoordinator)
+  nameWithType: _WithCoordinator(IAxoCoordinator)
+  fullName: plc.AXOpen.Inspectors.AxoInspector._WithCoordinator(IAxoCoordinator)
+  parent: plc.AXOpen.Inspectors.AxoInspector._WithCoordinator(IAxoCoordinator)
+- uid: plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  name: OnFail()
+  nameWithType: OnFail()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  parent: plc.AXOpen.Inspectors.AxoInspector.OnFail()
+- uid: plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  commentId: plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  name: Dialog(IAxoStep,IAxoStep)
+  nameWithType: Dialog(IAxoStep,IAxoStep)
+  fullName: plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  parent: plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+- uid: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  commentId: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  name: RetryWithStep(IAxoStep)
+  nameWithType: RetryWithStep(IAxoStep)
+  fullName: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  parent: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+- uid: plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  name: CarryOn()
+  nameWithType: CarryOn()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  parent: plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+- uid: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  commentId: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  name: TerminateWithStep(IAxoStep)
+  nameWithType: TerminateWithStep(IAxoStep)
+  fullName: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  parent: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+- uid: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult()
+  name: UpdateComprehensiveResult()
+  nameWithType: UpdateComprehensiveResult()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult()
+  parent: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult()
+- uid: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  name: RestoreInspectorTask()
+  nameWithType: RestoreInspectorTask()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  parent: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+- uid: plc.AXOpen.Inspectors.AxoInspector.Busy()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.Busy()
+  name: Busy()
+  nameWithType: Busy()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.Busy()
+  parent: plc.AXOpen.Inspectors.AxoInspector.Busy()
+- uid: plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  name: CommonData()
+  nameWithType: CommonData()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  parent: plc.AXOpen.Inspectors.AxoInspector.CommonData()
+- uid: plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  name: Coordinator()
+  nameWithType: Coordinator()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  parent: plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+- uid: plc.AXOpen.Inspectors.AxoInspector.Done()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.Done()
+  name: Done()
+  nameWithType: Done()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.Done()
+  parent: plc.AXOpen.Inspectors.AxoInspector.Done()
+- uid: plc.AXOpen.Inspectors.AxoInspector.Result()
+  commentId: plc.AXOpen.Inspectors.AxoInspector.Result()
+  name: Result()
+  nameWithType: Result()
+  fullName: plc.AXOpen.Inspectors.AxoInspector.Result()
+  parent: plc.AXOpen.Inspectors.AxoInspector.Result()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Inspectors.IAxoDataInspector
+  commentId: plc.AXOpen.Inspectors.IAxoDataInspector
+  name: IAxoDataInspector
+  nameWithType: IAxoDataInspector
+  fullName: plc.AXOpen.Inspectors.IAxoDataInspector
+  parent: plc.AXOpen.Inspectors.IAxoDataInspector
+- uid: plc.AXOpen.Inspectors.IInspector
+  commentId: plc.AXOpen.Inspectors.IInspector
+  name: IInspector
+  nameWithType: IInspector
+  fullName: plc.AXOpen.Inspectors.IInspector
+  parent: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.IOnFail
+  commentId: plc.AXOpen.Inspectors.IOnFail
+  name: IOnFail
+  nameWithType: IOnFail
+  fullName: plc.AXOpen.Inspectors.IOnFail
+  parent: plc.AXOpen.Inspectors.IOnFail
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Inspectors.AxoDataInspectorData
+  name: AxoDataInspectorData
+  nameWithType: AxoDataInspectorData
+  fullName: AXOpen.Inspectors.AxoDataInspectorData
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.AXOpen.Core.IAxoCoordinator
+  name: IAxoCoordinator
+  nameWithType: IAxoCoordinator
+  fullName: AXOpen.Core.IAxoCoordinator
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.CHAR
+  name: CHAR
+  nameWithType: CHAR
+  fullName: CHAR
+- uid: plc.REF_TO AXOpen.Inspectors.AxoDataInspectorData
+  name: REF_TO AXOpen.Inspectors.AxoDataInspectorData
+  nameWithType: REF_TO AXOpen.Inspectors.AxoDataInspectorData
+  fullName: REF_TO AXOpen.Inspectors.AxoDataInspectorData
+
+

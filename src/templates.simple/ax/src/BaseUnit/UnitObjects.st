@@ -11,6 +11,16 @@ NAMESPACE axosimple.BaseUnit
             /// Station/Unit number.
             ///</summary>
             StationNumber : INT;
+            
+            ///<summary>
+            /// Provides access to persistent data manager
+            ///</summary>
+            PersistentData : REF_TO AxoDataPersistentExchange;
+
+            {#ix-attr:[AXOpen.Data.PersistentAttribute("")]}
+            LastTechnologySettings : STRING ;
+
+            Global : REF_TO axosimple.GlobalContextObjects;
         END_VAR        
     END_CLASS
 

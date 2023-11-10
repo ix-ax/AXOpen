@@ -1,0 +1,72 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  id: plc.AXOpen.Components.Abstractions.AxoComponent_Status
+  parent: plc.AXOpen.Components.Abstractions
+  children:
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  - plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  name: AxoComponent_Status
+  fullName: AxoComponent_Status
+  type: Class
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoComponent_Status.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.AxoComponent_Status
+    path: .\src\components.abstractions\ctrl\src\AxoComponent_Status.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: CLASS AxoComponent_Status
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  id: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+  parent: AXOpen.Components.Abstractions
+  children: []
+  name: Action
+  fullName: Action
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoComponent_Status.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Action
+    path: .\src\components.abstractions\ctrl\src\AxoComponent_Status.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: 'Action : AXOpen.Core.AxoTextList'
+    return:
+      type: AXOpen.Core.AxoTextList
+- uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  id: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+  parent: AXOpen.Components.Abstractions
+  children: []
+  name: Error
+  fullName: Error
+  type: Property
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoComponent_Status.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.AxoComponent_Status.Error
+    path: .\src\components.abstractions\ctrl\src\AxoComponent_Status.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: 'Error : AXOpen.Core.AxoTextList'
+    return:
+      type: AXOpen.Core.AxoTextList
+references:
+- uid: plc.AXOpen.Core.AxoTextList
+  name: AxoTextList
+  nameWithType: AxoTextList
+  fullName: AXOpen.Core.AxoTextList
+
+

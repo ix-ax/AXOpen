@@ -2,13 +2,15 @@
 cd ctrl
 apax clean
 apax install
-apax build
+apax build --ignore-scripts
+dotnet ixc
 apax test
 cd ..
 cd app
 apax clean
 apax install
-apax build
+apax build --ignore-scripts
+dotnet ixc
 apax test
 cd ..
 dotnet clean tmp_sol_.proj

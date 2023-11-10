@@ -1,0 +1,111 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Id
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Code
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Extended
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Length
+  name: AxoDataman_Results
+  fullName: AxoDataman_Results
+  type: Struct
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: STRUCT AxoDataman_Results
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Id
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Id
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Id
+  fullName: Id
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Id
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Id : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Code
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Code
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Code
+  fullName: Code
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Code
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Code : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Extended
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Extended
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Extended
+  fullName: Extended
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Extended
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Extended : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Length
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Length
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Length
+  fullName: Length
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results.Length
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_Results.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Length : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

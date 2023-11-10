@@ -1,0 +1,112 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.eDialogAnswer
+  id: plc.AXOpen.Core.eDialogAnswer
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.eDialogAnswer.NoAnswer
+  - plc.AXOpen.Core.eDialogAnswer.OK
+  - plc.AXOpen.Core.eDialogAnswer.Yes
+  - plc.AXOpen.Core.eDialogAnswer.No
+  - plc.AXOpen.Core.eDialogAnswer.Cancel
+  name: eDialogAnswer
+  fullName: eDialogAnswer
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogAnswer
+    path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'eDialogAnswer : INT'
+- uid: plc.AXOpen.Core.eDialogAnswer.NoAnswer
+  id: plc.AXOpen.Core.eDialogAnswer.NoAnswer
+  parent: AXOpen.Core
+  children: []
+  name: NoAnswer := 0
+  fullName: NoAnswer
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogAnswer.NoAnswer
+    path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogAnswer.OK
+  id: plc.AXOpen.Core.eDialogAnswer.OK
+  parent: AXOpen.Core
+  children: []
+  name: OK := 10
+  fullName: OK
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogAnswer.OK
+    path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogAnswer.Yes
+  id: plc.AXOpen.Core.eDialogAnswer.Yes
+  parent: AXOpen.Core
+  children: []
+  name: Yes := 20
+  fullName: Yes
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogAnswer.Yes
+    path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogAnswer.No
+  id: plc.AXOpen.Core.eDialogAnswer.No
+  parent: AXOpen.Core
+  children: []
+  name: No := 30
+  fullName: No
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogAnswer.No
+    path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eDialogAnswer.Cancel
+  id: plc.AXOpen.Core.eDialogAnswer.Cancel
+  parent: AXOpen.Core
+  children: []
+  name: Cancel := 40
+  fullName: Cancel
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eDialogAnswer.Cancel
+    path: .\src\core\ctrl\src\AxoDialog\eDialogAnswer.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

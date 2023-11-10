@@ -1,0 +1,162 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoAlertDialogFormat
+  id: plc.AXOpen.Core.IAxoAlertDialogFormat
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoAlertDialogFormat.WithTitle(STRING)
+  - plc.AXOpen.Core.IAxoAlertDialogFormat.WithMessage(STRING)
+  - plc.AXOpen.Core.IAxoAlertDialogFormat.WithTimeToBurn(UINT)
+  - plc.AXOpen.Core.IAxoAlertDialogFormat.WithType(eDialogType)
+  - plc.AXOpen.Core.IAxoAlertDialogFormat.IsShown()
+  name: IAxoAlertDialogFormat
+  fullName: IAxoAlertDialogFormat
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoAlertDialogFormat
+    path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoAlertDialogFormat
+  implements: []
+- uid: plc.AXOpen.Core.IAxoAlertDialogFormat.WithTitle(STRING)
+  id: plc.AXOpen.Core.IAxoAlertDialogFormat.WithTitle
+  parent: IAxoAlertDialogFormat
+  children: []
+  name: WithTitle
+  fullName: WithTitle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoAlertDialogFormat.WithTitle
+    path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoAlertDialogFormat WithTitle(in plc.STRING inTitle)
+    parameters:
+    - id: inTitle
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoAlertDialogFormat
+- uid: plc.AXOpen.Core.IAxoAlertDialogFormat.WithMessage(STRING)
+  id: plc.AXOpen.Core.IAxoAlertDialogFormat.WithMessage
+  parent: IAxoAlertDialogFormat
+  children: []
+  name: WithMessage
+  fullName: WithMessage
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoAlertDialogFormat.WithMessage
+    path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoAlertDialogFormat WithMessage(in plc.STRING inMessage)
+    parameters:
+    - id: inMessage
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoAlertDialogFormat
+- uid: plc.AXOpen.Core.IAxoAlertDialogFormat.WithTimeToBurn(UINT)
+  id: plc.AXOpen.Core.IAxoAlertDialogFormat.WithTimeToBurn
+  parent: IAxoAlertDialogFormat
+  children: []
+  name: WithTimeToBurn
+  fullName: WithTimeToBurn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoAlertDialogFormat.WithTimeToBurn
+    path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+    startLine: 14
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoAlertDialogFormat WithTimeToBurn(in plc.UINT inSeconds)
+    parameters:
+    - id: inSeconds
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoAlertDialogFormat
+- uid: plc.AXOpen.Core.IAxoAlertDialogFormat.WithType(eDialogType)
+  id: plc.AXOpen.Core.IAxoAlertDialogFormat.WithType
+  parent: IAxoAlertDialogFormat
+  children: []
+  name: WithType
+  fullName: WithType
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoAlertDialogFormat.WithType
+    path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+    startLine: 21
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.IAxoAlertDialogFormat WithType(in plc.AXOpen.Core.eDialogType inDialogType)
+    parameters:
+    - id: inDialogType
+      type: plc.AXOpen.Core.eDialogType
+    return:
+      type: plc.AXOpen.Core.IAxoAlertDialogFormat
+- uid: plc.AXOpen.Core.IAxoAlertDialogFormat.IsShown()
+  id: plc.AXOpen.Core.IAxoAlertDialogFormat.IsShown
+  parent: IAxoAlertDialogFormat
+  children: []
+  name: IsShown
+  fullName: IsShown
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoAlertDialogFormat.IsShown
+    path: .\src\core\ctrl\src\AxoAlertDialog\IAxoAlertDialogFormat.st
+    startLine: 29
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public BOOL IsShown()
+    parameters: []
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Core.IAxoAlertDialogFormat
+  name: IAxoAlertDialogFormat
+  nameWithType: IAxoAlertDialogFormat
+  fullName: AXOpen.Core.IAxoAlertDialogFormat
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.AXOpen.Core.eDialogType
+  name: eDialogType
+  nameWithType: eDialogType
+  fullName: AXOpen.Core.eDialogType
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

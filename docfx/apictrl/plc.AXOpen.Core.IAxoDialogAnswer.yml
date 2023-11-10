@@ -1,0 +1,50 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoDialogAnswer
+  id: plc.AXOpen.Core.IAxoDialogAnswer
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoDialogAnswer.Answer()
+  name: IAxoDialogAnswer
+  fullName: IAxoDialogAnswer
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\IAxoDialogAnswer.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoDialogAnswer
+    path: .\src\core\ctrl\src\AxoDialog\IAxoDialogAnswer.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoDialogAnswer
+  implements: []
+- uid: plc.AXOpen.Core.IAxoDialogAnswer.Answer()
+  id: plc.AXOpen.Core.IAxoDialogAnswer.Answer
+  parent: IAxoDialogAnswer
+  children: []
+  name: Answer
+  fullName: Answer
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoDialog\IAxoDialogAnswer.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoDialogAnswer.Answer
+    path: .\src\core\ctrl\src\AxoDialog\IAxoDialogAnswer.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: Public AXOpen.Core.eDialogAnswer Answer()
+    parameters: []
+    return:
+      type: plc.AXOpen.Core.eDialogAnswer
+references:
+- uid: plc.AXOpen.Core.eDialogAnswer
+  name: eDialogAnswer
+  nameWithType: eDialogAnswer
+  fullName: AXOpen.Core.eDialogAnswer
+
+
