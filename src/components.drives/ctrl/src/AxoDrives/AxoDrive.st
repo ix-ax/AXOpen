@@ -1727,7 +1727,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoSetPosition_Error,
                         AxoSetPosition_ErrorID);
 
-            IF AxoSetPosition_Task.Execute() THEN
+            IF AxoSetPosition_Task.IsBusy() THEN
                 AxoSetPosition_Task.DoneWhen(AxoSetPosition_Done);
                 AxoSetPosition_Task.ThrowWhen(AxoSetPosition_Error,CONCAT('MC_SetPosition has thrown an error: ', ToString(AxoSetPosition_ErrorID)));
             END_IF;
@@ -1797,7 +1797,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteParameter_Busy,
                         AxoWriteParameter_Error,
                         AxoWriteParameter_ErrorID);
-            IF AxoWriteParameter_Task.Execute() THEN
+            IF AxoWriteParameter_Task.IsBusy() THEN
                 AxoWriteParameter_Task.DoneWhen(AxoWriteParameter_Done);
                 AxoWriteParameter_Task.ThrowWhen(AxoWriteParameter_Error,CONCAT('MC_WriteParameter has thrown an error: ', ToString(AxoWriteParameter_ErrorID)));
             END_IF;
@@ -1814,7 +1814,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteRealParameter_Busy,
                         AxoWriteRealParameter_Error,
                         AxoWriteRealParameter_ErrorID);
-            IF AxoWriteRealParameter_Task.Execute() THEN
+            IF AxoWriteRealParameter_Task.IsBusy() THEN
                 AxoWriteRealParameter_Task.DoneWhen(AxoWriteRealParameter_Done);
                 AxoWriteRealParameter_Task.ThrowWhen(AxoWriteRealParameter_Error,CONCAT('MC_WriteRealParameter has thrown an error: ', ToString(AxoWriteRealParameter_ErrorID)));
             END_IF;
@@ -1831,7 +1831,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteBoolParameter_Busy,
                         AxoWriteBoolParameter_Error,
                         AxoWriteBoolParameter_ErrorID);
-            IF AxoWriteBoolParameter_Task.Execute() THEN
+            IF AxoWriteBoolParameter_Task.IsBusy() THEN
                 AxoWriteBoolParameter_Task.DoneWhen(AxoWriteBoolParameter_Done);
                 AxoWriteBoolParameter_Task.ThrowWhen(AxoWriteBoolParameter_Error,CONCAT('MC_WriteBoolParameter has thrown an error: ', ToString(AxoWriteBoolParameter_ErrorID)));
             END_IF;
@@ -1874,7 +1874,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoWriteDigitalOutput_Busy,
                         AxoWriteDigitalOutput_Error,
                         AxoWriteDigitalOutput_ErrorID);
-            IF AxoWriteDigitalOutput_Task.Execute() THEN
+            IF AxoWriteDigitalOutput_Task.IsBusy() THEN
                 AxoWriteDigitalOutput_Task.DoneWhen(AxoWriteDigitalOutput_Done);
                 AxoWriteDigitalOutput_Task.ThrowWhen(AxoWriteDigitalOutput_Error,CONCAT('MC_WriteDigitalOutput has thrown an error: ', ToString(AxoWriteDigitalOutput_ErrorID)));
             END_IF;
@@ -1992,7 +1992,7 @@ NAMESPACE AXOpen.Components.Drives
                         AxoReset_Busy,
                         AxoReset_Error,
                         AxoReset_ErrorID);
-            IF AxoReset_Task.Execute() THEN
+            IF AxoReset_Task.IsBusy() THEN
                 AxoReset_Task.DoneWhen(AxoReset_Done);
                 AxoReset_Task.ThrowWhen(AxoReset_Error,CONCAT('MC_Reset has thrown an error: ', ToString(AxoReset_ErrorID)));
             END_IF;
