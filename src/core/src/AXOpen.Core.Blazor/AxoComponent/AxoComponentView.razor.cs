@@ -8,6 +8,7 @@ using Pocos.AXOpen.Core;
 using Serilog;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using System.Collections.Generic;
+using AXOpen.ToolBox.Extensions;
 
 namespace AXOpen.Core
 {
