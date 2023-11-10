@@ -10,7 +10,7 @@ NAMESPACE AXOpen.Data
         END_VAR
 
         ///<summary>
-        /// Runs intialization and cyclical handling of this AxoDataExchange.        
+        /// Runs intialization and cyclical handling of this AxoDataPersistentExchange.        
         /// </summary>                 
         /// <param name="parent">Parent of this object</param>
         METHOD PUBLIC Run 
@@ -23,7 +23,7 @@ NAMESPACE AXOpen.Data
         END_METHOD
 
         ///<summary>
-        /// Runs intialization and cyclical handling of this AxoDataExchange.
+        /// Runs intialization and cyclical handling of this AxoDataPersistentExchange.
         /// </summary> 
         /// <param name="context">Root context of this object</param>
         METHOD PUBLIC Run 
@@ -36,9 +36,16 @@ NAMESPACE AXOpen.Data
         END_METHOD
 
         ///<summary>
-        /// Reads data from remote repository and copies them into data entity of this AxoDataExchange.
+        /// Executes the restore Operation for the AxoDataPersistentExchange component.
+        /// </summary>
+        METHOD PUBLIC Restore  
+            Operation.Restore(); 
+        END_METHOD 
+        
+        /// <summary>
+        /// Reads the values of collected tags from the remote repository for a specified persistent group.
         /// </summary> 
-        /// <param name="identifier">Data identifier.</param>  
+        /// <param name="identifier">The data identifier for the persistent group.</param>
         METHOD PUBLIC Read : IAxoTaskState
             VAR_INPUT
                 identifier : STRING[254];
@@ -47,9 +54,9 @@ NAMESPACE AXOpen.Data
         END_METHOD 
 
         ///<summary>
-        /// Updates data in remote repository from data entiry of this AxoDataExchange.
+        /// Updates the values of collected tags to the remote repository for a specified persistent group.
         /// </summary> 
-        /// <param name="identifier">Data identifier.</param> 
+        /// <param name="identifier">The data identifier for the persistent group.</param>
         METHOD PUBLIC Update : IAxoTaskState
             VAR_INPUT
                 identifier : STRING[254];
@@ -57,10 +64,24 @@ NAMESPACE AXOpen.Data
             Update := Operation.Invoke(identifier, ePersistentOperation#Update);
         END_METHOD 
 
-          ///<summary>
-        /// Check if data entry exists with given ID in remote repository.
+         /// <summary>
+        /// Reads the values of collected tags from the remote repository for a specified persistent group.
         /// </summary> 
-        /// <param name="identifier">Data identifier.</param> 
+        METHOD PUBLIC Read : IAxoTaskState
+            Read := Operation.Invoke('', ePersistentOperation#Read);
+        END_METHOD 
+
+        ///<summary>
+        /// Updates the values of collected tags to the remote repository for a specified persistent group.
+        /// </summary> 
+        METHOD PUBLIC Update : IAxoTaskState
+            Update := Operation.Invoke('', ePersistentOperation#Update);
+        END_METHOD 
+
+        /// <summary>
+        /// Checks if a persistent group exists in the remote repository.
+        /// </summary> 
+        /// <param name="identifier">The data identifier for the persistent group.</param>
         METHOD PUBLIC EntityExist : IAxoEntityExistTaskState
             VAR_INPUT
                 identifier : STRING[254];
