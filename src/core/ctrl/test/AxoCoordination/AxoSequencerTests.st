@@ -1754,6 +1754,47 @@ NAMESPACE AXOpen.Core.AxoSequencer_Tests
             Assert.Equal(ULINT#1, count);
         END_METHOD
  
+        {Test}        
+        METHOD PUBLIC microstep_should_be_reset_to_zero_when_entering_to_step
+            THIS.PrepareSequence();
+
+            _context.Open();
+            _sequencer.Open();
+
+            _sequencer.SetMicroStepValue(UINT#10);
+            Assert.Equal(FALSE, _step_1.IsBusy());
+
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+
+            Assert.Equal(TRUE , _step_1.IsBusy());
+            Assert.Equal(UINT#0,_sequencer.GetMicroStepValue());
+        END_METHOD
+
+        {Test}        
+        METHOD PUBLIC microstep_should_not_be_changed_by_sequencer_except_the_first_entry_to_step
+            THIS.PrepareSequence();
+
+            //First sequence cycle
+            _context.Open();
+            _sequencer.Open();
+
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+            _context.Close();
+            
+            //Second sequence cycle
+            _context.Open();
+            _sequencer.Open();
+            _sequencer.SetMicroStepValue(UINT#10);
+            _step_1.Execute(_sequencer);
+            _step_2.Execute(_sequencer);
+            _step_3.Execute(_sequencer);
+            _context.Close();
+            Assert.Equal(UINT#10,_sequencer.GetMicroStepValue());
+        END_METHOD
     END_CLASS  
 END_NAMESPACE
 

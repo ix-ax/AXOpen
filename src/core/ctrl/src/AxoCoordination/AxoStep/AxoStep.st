@@ -103,13 +103,13 @@ NAMESPACE AXOpen.Core
                 // Selector : REF_TO Selector;
             END_VAR    
 
-            if _context_ <> null then 
+            IF _context_ <> NULL THEN 
                 _currentlyOpenCycleCount := _context_.OpenCycleCount();
                 _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
                 _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
                 _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
                 _openCycleCount := _currentlyOpenCycleCount;
-            else 
+            ELSE 
                 coordAsAxoObject ?= coord;
                IF(coordAsAxoObject <> NULL) THEN
                     THIS.Initialize(coordAsAxoObject); 
@@ -118,7 +118,7 @@ NAMESPACE AXOpen.Core
                     _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
                     _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
                     _openCycleCount := _currentlyOpenCycleCount;
-                end_if;
+                END_IF;
             END_IF;    
 
             Sequencer ?= coord;
@@ -166,6 +166,19 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC GetIsEnabled : BOOL
             GetIsEnabled := IsEnabled;
+        END_METHOD
+
+        ///<summary>
+        /// Checks if the current entry to a step is the first occurrence in the execution cycle.
+        ///</summary>
+        ///<returns>A boolean value indicating whether the current entry to a step is the first in the execution cycle (TRUE) or not (FALSE).</returns>
+        ///<remarks>
+        /// This method utilizes the IsFirstExecutionCycle method to determine if the current entry to a step is the first occurrence in the execution cycle.
+        /// It returns TRUE if the code is being executed for the first time in the current step within the execution cycle.
+        /// It returns FALSE if the code has already entered the current step in the current execution cycle.
+        ///</remarks>
+        METHOD PUBLIC IsFirstEntryToStep : BOOL 
+            IsFirstEntryToStep := THIS.IsFirstExecutionCycle(); // Utilizes IsFirstExecutionCycle method.
         END_METHOD
     END_CLASS    
 END_NAMESPACE
