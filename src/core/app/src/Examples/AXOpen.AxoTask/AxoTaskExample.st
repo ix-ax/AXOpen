@@ -19,12 +19,24 @@ NAMESPACE AxoTaskExamples
             _commandTask : MyCommandTask;
             {#ix-set:AttributeName = "If true the command will end in failure."}
             _commandEndsInFailure : BOOL;
+            {#ix-set:AttributeName = "If true remote abort is enabled"}
+            _enableRemoteAbort : BOOL := FALSE;
+            {#ix-set:AttributeName = "If true remote restore is enabled"}
+            _enableRemoteRestore : BOOL := TRUE;
+            {#ix-set:AttributeName = "First entry counter"}
+            _firstEntryCounter :ULINT;
         END_VAR    
     
         METHOD PROTECTED OVERRIDE Main
             _commandTask.Initialize(THIS);    
 
-            IF(_commandTask.Execute()) THEN        
+            _commandTask.SetRemoteAbortEnabled(_enableRemoteAbort);
+            _commandTask.SetRemoteRestoreEnabled(_enableRemoteRestore);
+
+            IF(_commandTask.Execute()) THEN     
+                IF _commandTask.IsFirstExecutionCycle() THEN
+                    _firstEntryCounter := _firstEntryCounter + ULINT#1;
+                END_IF;
                 _commandTask._counter := _commandTask._counter + ULINT#1;        
                 IF (_commandTask._counter MOD ULINT#250) = ULINT#0 THEN
                     IF(_commandEndsInFailure) THEN

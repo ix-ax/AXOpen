@@ -26,6 +26,7 @@ NAMESPACE AXOpen.Core
             _refBeforeStep : REF_TO AxoStep;
             _refCurrentStep : REF_TO AxoStep;
             _refAfterStep : REF_TO AxoStep;
+            _microStep : UINT;   
         END_VAR     
 
         ///<summary>
@@ -34,11 +35,9 @@ NAMESPACE AXOpen.Core
         /// sequencer.
         ///</summary>
         METHOD PUBLIC Open : BOOL
-        VAR
-            tContext : IAxoContext;
-        end_var
-
-
+            VAR
+                tContext : IAxoContext;
+            END_VAR
             Open := FALSE;
             
             SUPER.SetSuspendMultipleExecuteCallCheck(TRUE);
@@ -56,14 +55,13 @@ NAMESPACE AXOpen.Core
                         _numberOfConfiguredSteps := ULINT#0;
                         _coordinatorState := AxoCoordinatorStates#Configuring;
 
-
                         tContext := StepForwardCommand.GetContextUnsafe();
                         
-                        if  tContext = NULL then
+                        IF  tContext = NULL THEN
                             StepForwardCommand.Initialize(_context_);
                             StepIn.Initialize(_context_);
                             StepBackwardCommand.Initialize(_context_);
-                        end_if;
+                        END_IF;
 
                         // IF(StepForwardCommand.GetContext() = NULL) THEN // asi to robi problem
                         //     StepForwardCommand.Initialize(_context_);
@@ -164,7 +162,10 @@ NAMESPACE AXOpen.Core
                     END_IF;
                 END_IF;
 
-                Execute := step.Execute();                                                              
+                Execute := step.Execute();    
+                IF step.IsFirstEntryToStep() THEN
+                    _microStep := UINT#0;
+                END_IF;
             END_IF;
 
             IF(THIS.CurrentOrder = step.GetStepOrder()) THEN
@@ -199,8 +200,6 @@ NAMESPACE AXOpen.Core
                 END_IF;
             END_IF;
         END_METHOD
-
-      
   
         ///<summary>
         /// Terminates the currently executed step and initiates the RequestedStep to be executed
@@ -248,13 +247,13 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PROTECTED OnBeforeSequenceStart
             ;
-            END_METHOD    
+        END_METHOD    
                         
         ///<summary>
         /// Executes once when the sequence is completed.
         ///</summary>
         METHOD PROTECTED OnCompleteSequence
-        ;
+            ;
         END_METHOD    
             
         ///<summary>
@@ -342,7 +341,34 @@ NAMESPACE AXOpen.Core
             _coordinatorState := AxoCoordinatorStates#Idle;
         END_METHOD
 
-        
+        ///<summary>
+        /// Retrieves the current micro-step value.
+        ///</summary>
+        ///<returns>An unsigned integer representing the current micro-step value.</returns>
+        ///<remarks>
+        /// This method provides the current micro-step value, which indicates the granularity of the step in the execution cycle.
+        /// The micro-step value is useful for fine-grained control or monitoring of the execution cycle progress.
+        ///</remarks>
+        METHOD PUBLIC GetMicroStepValue : UINT 
+            GetMicroStepValue := _microStep; // Returns the current micro-step value.
+        END_METHOD
+
+        ///<summary>
+        /// Sets the micro-step value to control the granularity of the execution cycle.
+        ///</summary>
+        ///<param name="MicroStep">An unsigned integer representing the desired micro-step value.</param>
+        ///<remarks>
+        /// This method allows dynamic control over the granularity of the execution cycle.
+        /// The micro-step value determines the fine-grained progress within the execution cycle.
+        /// Higher values result in more frequent updates or smaller steps, while lower values indicate larger steps.
+        ///</remarks>
+        METHOD PUBLIC SetMicroStepValue : UINT 
+            VAR_INPUT
+                MicroStep : UINT; // Input parameter representing the desired micro-step value.
+            END_VAR
+            _microStep := MicroStep; // Sets the micro-step value to the specified input.
+        END_METHOD
+
         METHOD PUBLIC AndThen
             VAR_IN_OUT
                 step : AxoStep;

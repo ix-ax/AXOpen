@@ -7,6 +7,8 @@ NAMESPACE AxoSequencerExamples
             {#ix-set:AttributeName = "<#Sequencer example#>"}
             coord : AxoSequencer;  
             Counter : ULINT;
+            {#ix-set:AttributeName = "<#MicroStep-should be set to zero when entering new step#>"}
+            MicroStep : UINT;
         END_VAR    
             
         VAR PUBLIC 
@@ -119,6 +121,8 @@ NAMESPACE AxoSequencerExamples
                         coord.CompleteSequence();
                     END_IF;    
                 END_IF; 
+                coord.SetMicroStepValue(coord.GetMicroStepValue() + UINT#2);
+                MicroStep := coord.GetMicroStepValue();
             END_IF; 
         END_METHOD
     END_CLASS    
