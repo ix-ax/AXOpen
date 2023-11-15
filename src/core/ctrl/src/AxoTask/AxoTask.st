@@ -209,11 +209,17 @@ NAMESPACE AXOpen.Core
         END_METHOD   
 
         ///<summary>
-        /// Gets true when the task has error.
+        /// Checks if the current execution cycle is the first cycle.
         ///</summary>
+        ///<returns>A boolean value indicating whether the current execution cycle is the first cycle (TRUE) or not (FALSE).</returns>
+        ///<remarks>
+        /// This method provides information about whether the current execution cycle is the initial cycle.
+        /// It returns TRUE if the code is being executed for the first time in the cycle.
+        /// It returns FALSE if the code is not in the first execution cycle.
+        ///</remarks>
         METHOD PUBLIC IsFirstExecutionCycle : BOOL 
-            IsFirstExecutionCycle := _isFirstExecutionCycle; 
-        END_METHOD   
+            IsFirstExecutionCycle := _isFirstExecutionCycle; // Returns the status of the first execution cycle flag.
+        END_METHOD
 
         ///<summary>
         /// Sets the flag to suspend or resume multiple execute check operations.
@@ -440,7 +446,7 @@ NAMESPACE AXOpen.Core
                     Status := eAxoTaskState#Error;
                 END_IF;
             END_IF;
-        _openCycleCountExecute := _openCycleCount;
+            _openCycleCountExecute := _openCycleCount;
         
                 
             // If the Invoke() method was called in more then one PLC cycle back without calling the Execute() method
