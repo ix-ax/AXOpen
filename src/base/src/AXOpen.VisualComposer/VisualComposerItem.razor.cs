@@ -27,15 +27,12 @@ namespace AXOpen.VisualComposer
         [CascadingParameter(Name = "ImgId")]
         private Guid _imgId { get; set; }
 
-        public ITwinElement? TwinElement { get; set; }
-        public string Id { get; set; }
-        public Guid UniqueGuid { get; set; } = Guid.NewGuid();
-
         [Parameter]
         public VisualComposerItem? Origin
         {
             set
             {
+                UniqueGuid = value.UniqueGuid;
                 TwinElement = value.TwinElement;
                 ratioImgX = value.ratioImgX;
                 ratioImgY = value.ratioImgY;
@@ -45,7 +42,7 @@ namespace AXOpen.VisualComposer
                 Height = value.Height;
                 ZIndex = value.ZIndex;
 
-                Id = value.TwinElement.HumanReadable;
+                Id = value.TwinElement.HumanReadable.Replace(".", "_").Replace(" ", "_");
             }
         }
 
@@ -53,8 +50,16 @@ namespace AXOpen.VisualComposer
         protected IJSRuntime js { get; set; }
         private IJSObjectReference? jsModule;
 
-        private double startX, startY, offsetX, offsetY;
-        public double ratioImgX = 10, ratioImgY = 10;
+        public ITwinElement? TwinElement { get; set; }
+        public string Id { get; set; }
+        public Guid? UniqueGuid { get; set; } = null;
+
+        private double startX;
+        private double startY;
+
+        public double ratioImgX = 10;
+        public double ratioImgY = 10;
+
         public TransformType Transform { get; set; } = TransformType.TopCenter;
         private string _presentation = PresentationType.StatusDisplay.Value;
         public string Presentation
@@ -68,7 +73,8 @@ namespace AXOpen.VisualComposer
         }
         public bool CustomPresentation { get; set; } = false;
 
-        public double Width = -1, Height = -1;
+        public double Width = -1;
+        public double Height = -1;
         public int ZIndex = 0;
 
         private void OnDragStart(DragEventArgs args)
@@ -83,8 +89,8 @@ namespace AXOpen.VisualComposer
             //var windowSize = await jsObject.InvokeAsync<WindowSize>("getWindowSize");
             var imageSize = await jsObject.InvokeAsync<WindowSize>("getImageSize", _imgId);
 
-            offsetX = startX - (ratioImgX / 100 * imageSize.Width);
-            offsetY = startY - (ratioImgY / 100 * imageSize.Height);
+            double offsetX = startX - (ratioImgX / 100 * imageSize.Width);
+            double offsetY = startY - (ratioImgY / 100 * imageSize.Height);
 
             ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100);
             ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);

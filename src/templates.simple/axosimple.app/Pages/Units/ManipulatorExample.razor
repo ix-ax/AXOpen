@@ -8,7 +8,7 @@
 
 <Unit Component="Entry.Plc.Context.PneumaticManipulator" Data="Entry.Plc.Context.ProcessDataPneumaticManipulator">
     <ChildContent>
-        <VisualComposerContainer AxoObject="@(Entry.Plc.Context.PneumaticManipulator)" ImgSrc="logo-header.svg" Id="@Entry.Plc.Context.PneumaticManipulator.HumanReadable">
+        <VisualComposerContainer AxoObject="@(Entry.Plc.Context.PneumaticManipulator)" ImgSrc="logo-header.svg">
             @*@foreach (var axoObject in Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AXOpen.Core.AxoObject>())
             {
                 <VisualComposerItem AxoObject="axoObject" />

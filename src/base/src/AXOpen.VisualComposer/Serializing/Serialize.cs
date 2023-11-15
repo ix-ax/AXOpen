@@ -2,9 +2,9 @@
 
 namespace AXOpen.VisualComposer.Serializing
 {
-    internal static class Serializing
+    internal static class Serializing<T>
     {
-        internal static void Serialize(string filePath, List<SerializableVisualComposerItem> serialize)
+        internal static void Serialize(string filePath, List<T> serialize)
         {
             try
             {
@@ -19,17 +19,17 @@ namespace AXOpen.VisualComposer.Serializing
             }
         }
 
-        internal static List<SerializableVisualComposerItem>? Deserialize(string filePath)
+        internal static List<T>? Deserialize(string filePath)
         {
             if (!File.Exists(filePath))
                 return null;
 
-            List<SerializableVisualComposerItem>? deserialize = null;
+            List<T>? deserialize = null;
             try
             {
                 using (FileStream fs = File.OpenRead(filePath))
                 {
-                    deserialize = JsonSerializer.Deserialize<List<SerializableVisualComposerItem>>(fs);
+                    deserialize = JsonSerializer.Deserialize<List<T>>(fs);
                 }
             }
             catch (Exception ex)
