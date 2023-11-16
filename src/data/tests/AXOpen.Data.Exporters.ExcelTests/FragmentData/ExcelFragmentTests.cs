@@ -40,7 +40,7 @@ namespace AXOpen.Data.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(20);
             await sut.Manip.Set.CounterDelay.SetAsync(20);
-            sut.RemoteCreate("hey remote create");
+            await sut.RemoteCreate("hey remote create");
 
             var shared = sut.Set.DataRepository.Read("hey remote create");
             Assert.Equal(10, shared.ComesFrom);
@@ -80,12 +80,12 @@ namespace AXOpen.Data.Tests
             await sut.Set.Set.ComesFrom.SetAsync(10);
             await sut.Set.Set.GoesTo.SetAsync(11);
             await sut.Manip.Set.CounterDelay.SetAsync(12);
-            sut.RemoteCreate("first");
+            await sut.RemoteCreate("first");
 
             await sut.Set.Set.ComesFrom.SetAsync(20);
             await sut.Set.Set.GoesTo.SetAsync(21);
             await sut.Manip.Set.CounterDelay.SetAsync(22);
-            sut.RemoteCreate("second");
+            await sut.RemoteCreate("second");
 
             var shared = sut.Set.DataRepository.Read("first");
             Assert.Equal(10, shared.ComesFrom);

@@ -1,0 +1,25 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Rtc
+  id: plc.AXOpen.Rtc
+  children:
+  - plc.AXOpen.Rtc.IAxoRtc
+  name: plc.AXOpen.Rtc
+  fullName: Rtc
+  type: Namespace
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Rtc
+    path: .\src\abstractions\ctrl\src\Rtc\IAxoRtc.st
+    startLine: 0
+  namespace: plc.AXOpen.Rtc
+references:
+- uid: plc.AXOpen.Rtc.IAxoRtc
+  name: IAxoRtc
+  nameWithType: IAxoRtc
+  fullName: AXOpen.Rtc.IAxoRtc
+
+

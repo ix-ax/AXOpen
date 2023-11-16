@@ -121,7 +121,7 @@
     <value>Vytvoriť</value>
   </data>
   <data name="Load from PLC" xml:space="preserve">
-    <value>Načítať z PLC!</value>
+    <value>Načítať z PLC</value>
   </data>
   <data name="Export" xml:space="preserve">
     <value>Export</value>
@@ -130,13 +130,13 @@
     <value>Importovať</value>
   </data>
   <data name="Exact" xml:space="preserve">
-    <value>Presne tak!</value>
+    <value>Presne</value>
   </data>
   <data name="Contains" xml:space="preserve">
     <value>Obsahuje</value>
   </data>
   <data name="StartsWith" xml:space="preserve">
-    <value>StartsWith!</value>
+    <value>Začína s</value>
   </data>
   <data name="Actions" xml:space="preserve">
     <value>Akcie</value>
@@ -160,10 +160,10 @@
     <value>Vytvorte nové</value>
   </data>
   <data name="Copy item" xml:space="preserve">
-    <value>Kopírovať položku!</value>
+    <value>Kopírovať položku</value>
   </data>
   <data name="Load item from PLC" xml:space="preserve">
-    <value>Načítať položku z PLC!</value>
+    <value>Načítať položku z PLC</value>
   </data>
   <data name="Close" xml:space="preserve">
     <value>Zatvoriť</value>
@@ -172,10 +172,10 @@
     <value>Uložiť</value>
   </data>
   <data name="Export data" xml:space="preserve">
-    <value>údaje o exporte</value>
+    <value>Export dát</value>
   </data>
   <data name="Download" xml:space="preserve">
-    <value>Stiahnuť!</value>
+    <value>Stiahnuť</value>
   </data>
   <data name="Customize" xml:space="preserve">
     <value>prispôsobiť</value>
@@ -196,7 +196,7 @@
     <value>Posledný</value>
   </data>
   <data name="This file may not be able to be imported!" xml:space="preserve">
-    <value>Tento súbor nemusí byť možné importovať!!</value>
+    <value>Tento súbor nemusí byť možné importovať!</value>
   </data>
   <data name="Back" xml:space="preserve">
     <value>Späť</value>

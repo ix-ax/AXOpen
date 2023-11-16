@@ -1,0 +1,65 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "AddUnit",
+  "steps": [
+    {
+      "file": "src/Context.st",
+      "description": "## Call following command to scaffold the unit\r\n>> apax addunit\r\n",
+      "pattern": "CLASS PUBLIC Context"
+    },
+    {
+      "file": "src/Context.st",
+      "pattern": "// Units - You can use snippet unitDeclaration",
+      "description": "## Add unit declaration\r\nPress `ctrl+space` and select `unitDeclaration` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example: \r\n```cs\r\nCu1 : axosimple.Cu1.Unit;\r\nCu1ProcessData : axosimple.Cu1.ProcessDataManager;\r\nCu1TechnologySettings : axosimple.Cu1.TechnologyDataManager;\r\n```",
+      "line": 16
+    },
+    {
+      "file": "src/CommonData/eStations.st",
+      "description": "## Add station/unit number.\r\n\r\nExample:\r\n```\r\nCu1 := 01,\r\n```",
+      "line": 10
+    },
+    {
+      "file": "src/Context.st",
+      "description": "## Add unit root calls\r\nPress `ctrl+space` and select `unitRootCall` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:\r\n```\r\nCu1.UnitObjects.StationNumber := eStations#Cu1;\r\nCu1.UnitObjects.TechnologySettings := REF(Cu1TechnologySettings);\r\nCu1.UnitObjects.ProcessSettings := REF(ProcessSettings.Cu1);\r\nCu1.UnitObjects.ProcessData := REF(Cu1ProcessData);\r\nCu1.Run(THIS, Inputs^, Outputs^);\r\n```",
+      "line": 51
+    },
+    {
+      "file": "src/Context.st",
+      "description": "## Add unit process data\r\nPress `ctrl+space` and select `unitAddProcessData` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:         \r\n```\r\n{#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}\r\nCu1 : axosimple.Cu1.FragmentProcessDataManger;\r\n```             ",
+      "line": 89
+    },
+    {
+      "file": "src/Context.st",
+      "description": "## Add unit technology data\r\nPress `ctrl+space` and select `unitAddTechnologyData` snippet.\r\nReplace name with your unit name and press `tab`\r\n___\r\n#### Example:         \r\n```\r\n{#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}\r\nCu1 : axosimple.Cu1.FragmentTechnologyDataManger;\r\n```\r\n             ",
+      "line": 105
+    },
+    {
+      "title": "Initialize Unit repository - Server project",
+      "file": "../axpansion/server/Program.cs",
+      "line": 85,
+      "description": "### Create repositories :\r\n\r\n```cs\r\nvar Cu1_TechSettings    = Repository.Factory<Pocos.axosimple.Cu1.TechnologyData>(\"Cu1_TechnologySettings\");\r\nvar Cu1_ProcessSettings = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>(\"Cu1_ProcessSettings\");\r\nvar Cu1_ProcessData     = Repository.Factory<Pocos.axosimple.Cu1.ProcessData>(\"Cu1_ProcessData\");\r\n```",
+      "selection": {
+        "start": {
+          "line": 4,
+          "character": 101
+        },
+        "end": {
+          "line": 4,
+          "character": 102
+        }
+      }
+    },
+    {
+      "title": "Connect PLC data with Server - Server project",
+      "file": "../axpansion/server/Program.cs",
+      "line": 114,
+      "description": "### Initialize Remote Data Exchange - Create connection between PLC and Repository\r\n\r\n```cs\r\nvar axoappContext_Cu1 = axosimple.server.Units.Cu1Services.Create(axoappContext);\r\naxoappContext_Cu1.SetUnitsData(\r\n   TechnologySettingsRepository  : Cu1_TechSettings,\r\n   ProcessSettingsRepository     : Cu1_ProcessSettings,\r\n   ProcessDataRepository         : Cu1_ProcessData);\r\n```"
+    },
+    {
+      "title": "Add Unit to Units View - Server project",
+      "file": "../axpansion/server/Pages/Context/UnitsOverview.razor",
+      "line": 110,
+      "description": "### Add Unit View to \\\"Units Page\\\"\r\n\r\n```cs\r\n(new StandardUnit(Entry.Plc.Context.Cu1),\"Context/Units/Cu1\", \"logo-header.svg\"),\r\n```"
+    }
+  ]
+}

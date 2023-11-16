@@ -362,13 +362,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
         END_METHOD
 
         ///<summary>
-		/// Custom component logic running before any other component logic.
-        ///</summary>   
-        METHOD PROTECTED OVERRIDE Open
-            SUPER.Open();
-        END_METHOD  
-
-        ///<summary>
         /// Runs tasks and logic of this component.
         /// >[!IMPORTANT] This method or one of its overloads must be called cyclically.
         ///</summary>
@@ -384,22 +377,28 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 refResultData           :   REF_TO  ARRAY[*] OF BYTE;
                 refUserData             :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
-            IF parent = NULL THEN
-                Status.Error.Id := UINT#700;
-                RETURN;
-            END_IF;
 
-            _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+            if _context_ = null then 
+                _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+                IF parent = NULL THEN
+                    Status.Error.Id := UINT#700;
+                    RETURN;
+                END_IF;
+
+                THIS.Initialize(parent);
+                RestoreTask.Initialize(THIS);
+                ClearResultDataTask.Initialize(THIS);
+                ReadTask.Initialize(THIS);
+            end_if;
 
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
             END_IF;
-            THIS.Initialize(parent);
+            
             THIS.Open();
             THIS.Execute(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
             THIS.Close();            
         END_METHOD
-
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -417,17 +416,24 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 refResultData           :   REF_TO  ARRAY[*] OF BYTE;
                 refUserData             :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
-            IF parent = NULL THEN
-                Status.Error.Id := UINT#700;
-                RETURN;
-            END_IF;
+           
+            if _context_ = null then 
+                _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+                IF parent = NULL THEN
+                    Status.Error.Id := UINT#700;
+                    RETURN;
+                END_IF;
 
-            _Messenger.ActivateOnCondition(ULINT#700,parent = NULL, eAxoMessageCategory#ProgrammingError);
+                THIS.Initialize(parent);
+                RestoreTask.Initialize(THIS);
+                ClearResultDataTask.Initialize(THIS);
+                ReadTask.Initialize(THIS);
+            end_if;
 
             IF NOT THIS.IsValidReferences(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData) THEN
                 RETURN;
             END_IF;
-            THIS.Initialize(parent);
+            
             THIS.Open();
             THIS.Execute(refAcquisitionControl,refAcquisitionStatus,refResultsControl,refResultsStatus,refSoftEventControl,refSoftEventStatus,refResultData,refUserData);
             THIS.Close();          
@@ -445,9 +451,6 @@ NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
                 refUserData            :   REF_TO  ARRAY[*] OF BYTE;
             END_VAR
 
-            RestoreTask.Initialize(THIS);
-            ClearResultDataTask.Initialize(THIS);
-            ReadTask.Initialize(THIS);
 
             _Messenger.Serve(THIS);
  

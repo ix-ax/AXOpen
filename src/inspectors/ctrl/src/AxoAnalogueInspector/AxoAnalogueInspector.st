@@ -42,6 +42,12 @@ NAMESPACE AXOpen.Inspectors
         //return this instance
         Inspect := THIS;
 
+        // Temporary BYPASS 
+        // TODO should be removed and check the dialog behavior
+        // Issue #269 created
+        _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
+        //
+
         // pass address of data to set an inspection data
         _inspectorTask.SetInspectionData(REF(_data));
         

@@ -1,0 +1,845 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._progress
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._infoTimer
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._errorTimer
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._infoTime
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._errorTime
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refStatus
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refMessenger
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._softEventNumber
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Run(REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus,REF_TO AXOpen.Messaging.Static.AxoMessenger)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.CallTimers(BOOL)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnRestore()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnAbort()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnDone()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnError()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnStart()
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.InvokeWithParameters(UINT)
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Manual(UINT)
+  name: AxoInsightSoftEvent
+  fullName: AxoInsightSoftEvent
+  type: Class
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 7
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: CLASS AxoInsightSoftEvent
+  inheritance:
+  - plc.AXOpen.Core.AxoTask
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoTask.Status
+  - plc.AXOpen.Core.AxoTask.IsDisabled
+  - plc.AXOpen.Core.AxoTask.RemoteInvoke
+  - plc.AXOpen.Core.AxoTask.RemoteRestore
+  - plc.AXOpen.Core.AxoTask.RemoteAbort
+  - plc.AXOpen.Core.AxoTask.RemoteResume
+  - plc.AXOpen.Core.AxoTask.StartSignature
+  - plc.AXOpen.Core.AxoTask.Duration
+  - plc.AXOpen.Core.AxoTask.StartTimeStamp
+  - plc.AXOpen.Core.AxoTask.ErrorDetails
+  - plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoTask.GetState()
+  - plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  - plc.AXOpen.Core.AxoTask.IsReady()
+  - plc.AXOpen.Core.AxoTask.IsDone()
+  - plc.AXOpen.Core.AxoTask.IsBusy()
+  - plc.AXOpen.Core.AxoTask.IsAborted()
+  - plc.AXOpen.Core.AxoTask.HasError()
+  - plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  - plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  - plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  - plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  - plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  - plc.AXOpen.Core.AxoTask.UpdateState()
+  - plc.AXOpen.Core.AxoTask.Invoke()
+  - plc.AXOpen.Core.AxoTask.Restore()
+  - plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  - plc.AXOpen.Core.AxoTask.Execute()
+  - plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  - plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  - plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  - plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  - plc.AXOpen.Core.AxoTask.Abort()
+  - plc.AXOpen.Core.AxoTask.Resume()
+  - plc.AXOpen.Core.AxoTask.OnAbort()
+  - plc.AXOpen.Core.AxoTask.OnResume()
+  - plc.AXOpen.Core.AxoTask.OnDone()
+  - plc.AXOpen.Core.AxoTask.OnError()
+  - plc.AXOpen.Core.AxoTask.OnRestore()
+  - plc.AXOpen.Core.AxoTask.OnStart()
+  - plc.AXOpen.Core.AxoTask.WhileError()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Core.IAxoTask
+  - plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._progress
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._progress
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _progress
+  fullName: _progress
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._progress
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 9
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_progress : INT'
+    return:
+      type: INT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._infoTimer
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._infoTimer
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _infoTimer
+  fullName: _infoTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._infoTimer
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_infoTimer : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._errorTimer
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._errorTimer
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _errorTimer
+  fullName: _errorTimer
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._errorTimer
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 11
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_errorTimer : UNDEFINED'
+    return:
+      type: UNDEFINED
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._infoTime
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._infoTime
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _infoTime
+  fullName: _infoTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._infoTime
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 15
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_infoTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._errorTime
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._errorTime
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _errorTime
+  fullName: _errorTime
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._errorTime
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_errorTime : LTIME'
+    return:
+      type: LTIME
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refStatus
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _refStatus
+  fullName: _refStatus
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 17
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_refStatus : REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status'
+    return:
+      type: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refMessenger
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refMessenger
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _refMessenger
+  fullName: _refMessenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._refMessenger
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 18
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_refMessenger : REF_TO AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: REF_TO AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._softEventNumber
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._softEventNumber
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: _softEventNumber
+  fullName: _softEventNumber
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent._softEventNumber
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 20
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: '_softEventNumber : UINT'
+    return:
+      type: UINT
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Run(REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus,REF_TO AXOpen.Messaging.Static.AxoMessenger)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Run(REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl,REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus,REF_TO AXOpen.Messaging.Static.AxoMessenger)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Run
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 28
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  summary: Runs the logic of this tasks.>[!IMPORTANT] This method must be called cyclically.
+  syntax:
+    content: Public VOID Run(in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl refAcquisitionControl,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus refAcquisitionStatus,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl refInspectionControl,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus refInspectionStatus,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl refCommandControl,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config refConfig,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status refStatus,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl refTriggerSoftEvent,in plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus refTriggerSoftEventAcknowledge,in plc.REF_TO AXOpen.Messaging.Static.AxoMessenger refMessenger)
+    parameters:
+    - id: refAcquisitionControl
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
+    - id: refAcquisitionStatus
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+    - id: refInspectionControl
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
+    - id: refInspectionStatus
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
+    - id: refCommandControl
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl
+    - id: refConfig
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config
+    - id: refStatus
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+    - id: refTriggerSoftEvent
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl
+    - id: refTriggerSoftEventAcknowledge
+      type: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus
+    - id: refMessenger
+      type: plc.REF_TO AXOpen.Messaging.Static.AxoMessenger
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.CallTimers(BOOL)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.CallTimers(BOOL)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  children: []
+  name: CallTimers
+  fullName: CallTimers
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.CallTimers
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 123
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Private VOID CallTimers(in plc.BOOL signal)
+    parameters:
+    - id: signal
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnRestore()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnRestore()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  children: []
+  name: OnRestore
+  fullName: OnRestore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnRestore
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 131
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Protected VOID OnRestore()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnAbort()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnAbort()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  children: []
+  name: OnAbort
+  fullName: OnAbort
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnAbort
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 142
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Protected VOID OnAbort()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnDone()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnDone()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  children: []
+  name: OnDone
+  fullName: OnDone
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnDone
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 148
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Protected VOID OnDone()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnError()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnError()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  children: []
+  name: OnError
+  fullName: OnError
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnError
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 154
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Protected VOID OnError()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnStart()
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnStart()
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  children: []
+  name: OnStart
+  fullName: OnStart
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.OnStart
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 161
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Protected VOID OnStart()
+    parameters: *o0
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.InvokeWithParameters(UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.InvokeWithParameters(UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  children: []
+  name: InvokeWithParameters
+  fullName: InvokeWithParameters
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.InvokeWithParameters
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 168
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Internal AXOpen.Core.IAxoTaskState InvokeWithParameters(in plc.UINT inSoftEventNumber)
+    parameters:
+    - id: inSoftEventNumber
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Manual(UINT)
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Manual(UINT)
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+  children: []
+  name: Manual
+  fullName: Manual
+  type: Method
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent.Manual
+    path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\Tasks\AxoInsightSoftEvent.st
+    startLine: 174
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: Public VOID Manual(in plc.UINT RequiredSoftEventNumber)
+    parameters:
+    - id: RequiredSoftEventNumber
+      type: plc.UINT
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoTask.Status
+  commentId: plc.AXOpen.Core.AxoTask.Status
+  name: Status
+  nameWithType: Status
+  fullName: plc.AXOpen.Core.AxoTask.Status
+  parent: plc.AXOpen.Core.AxoTask.Status
+- uid: plc.AXOpen.Core.AxoTask.IsDisabled
+  commentId: plc.AXOpen.Core.AxoTask.IsDisabled
+  name: IsDisabled
+  nameWithType: IsDisabled
+  fullName: plc.AXOpen.Core.AxoTask.IsDisabled
+  parent: plc.AXOpen.Core.AxoTask.IsDisabled
+- uid: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  commentId: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  name: RemoteInvoke
+  nameWithType: RemoteInvoke
+  fullName: plc.AXOpen.Core.AxoTask.RemoteInvoke
+  parent: plc.AXOpen.Core.AxoTask.RemoteInvoke
+- uid: plc.AXOpen.Core.AxoTask.RemoteRestore
+  commentId: plc.AXOpen.Core.AxoTask.RemoteRestore
+  name: RemoteRestore
+  nameWithType: RemoteRestore
+  fullName: plc.AXOpen.Core.AxoTask.RemoteRestore
+  parent: plc.AXOpen.Core.AxoTask.RemoteRestore
+- uid: plc.AXOpen.Core.AxoTask.RemoteAbort
+  commentId: plc.AXOpen.Core.AxoTask.RemoteAbort
+  name: RemoteAbort
+  nameWithType: RemoteAbort
+  fullName: plc.AXOpen.Core.AxoTask.RemoteAbort
+  parent: plc.AXOpen.Core.AxoTask.RemoteAbort
+- uid: plc.AXOpen.Core.AxoTask.RemoteResume
+  commentId: plc.AXOpen.Core.AxoTask.RemoteResume
+  name: RemoteResume
+  nameWithType: RemoteResume
+  fullName: plc.AXOpen.Core.AxoTask.RemoteResume
+  parent: plc.AXOpen.Core.AxoTask.RemoteResume
+- uid: plc.AXOpen.Core.AxoTask.StartSignature
+  commentId: plc.AXOpen.Core.AxoTask.StartSignature
+  name: StartSignature
+  nameWithType: StartSignature
+  fullName: plc.AXOpen.Core.AxoTask.StartSignature
+  parent: plc.AXOpen.Core.AxoTask.StartSignature
+- uid: plc.AXOpen.Core.AxoTask.Duration
+  commentId: plc.AXOpen.Core.AxoTask.Duration
+  name: Duration
+  nameWithType: Duration
+  fullName: plc.AXOpen.Core.AxoTask.Duration
+  parent: plc.AXOpen.Core.AxoTask.Duration
+- uid: plc.AXOpen.Core.AxoTask.StartTimeStamp
+  commentId: plc.AXOpen.Core.AxoTask.StartTimeStamp
+  name: StartTimeStamp
+  nameWithType: StartTimeStamp
+  fullName: plc.AXOpen.Core.AxoTask.StartTimeStamp
+  parent: plc.AXOpen.Core.AxoTask.StartTimeStamp
+- uid: plc.AXOpen.Core.AxoTask.ErrorDetails
+  commentId: plc.AXOpen.Core.AxoTask.ErrorDetails
+  name: ErrorDetails
+  nameWithType: ErrorDetails
+  fullName: plc.AXOpen.Core.AxoTask.ErrorDetails
+  parent: plc.AXOpen.Core.AxoTask.ErrorDetails
+- uid: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  commentId: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  name: _CyclicExecuteIsNotCalled
+  nameWithType: _CyclicExecuteIsNotCalled
+  fullName: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+  parent: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoTask.GetState()
+  commentId: plc.AXOpen.Core.AxoTask.GetState()
+  name: GetState()
+  nameWithType: GetState()
+  fullName: plc.AXOpen.Core.AxoTask.GetState()
+  parent: plc.AXOpen.Core.AxoTask.GetState()
+- uid: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  commentId: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  name: GetErrorDetails()
+  nameWithType: GetErrorDetails()
+  fullName: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+  parent: plc.AXOpen.Core.AxoTask.GetErrorDetails()
+- uid: plc.AXOpen.Core.AxoTask.IsReady()
+  commentId: plc.AXOpen.Core.AxoTask.IsReady()
+  name: IsReady()
+  nameWithType: IsReady()
+  fullName: plc.AXOpen.Core.AxoTask.IsReady()
+  parent: plc.AXOpen.Core.AxoTask.IsReady()
+- uid: plc.AXOpen.Core.AxoTask.IsDone()
+  commentId: plc.AXOpen.Core.AxoTask.IsDone()
+  name: IsDone()
+  nameWithType: IsDone()
+  fullName: plc.AXOpen.Core.AxoTask.IsDone()
+  parent: plc.AXOpen.Core.AxoTask.IsDone()
+- uid: plc.AXOpen.Core.AxoTask.IsBusy()
+  commentId: plc.AXOpen.Core.AxoTask.IsBusy()
+  name: IsBusy()
+  nameWithType: IsBusy()
+  fullName: plc.AXOpen.Core.AxoTask.IsBusy()
+  parent: plc.AXOpen.Core.AxoTask.IsBusy()
+- uid: plc.AXOpen.Core.AxoTask.IsAborted()
+  commentId: plc.AXOpen.Core.AxoTask.IsAborted()
+  name: IsAborted()
+  nameWithType: IsAborted()
+  fullName: plc.AXOpen.Core.AxoTask.IsAborted()
+  parent: plc.AXOpen.Core.AxoTask.IsAborted()
+- uid: plc.AXOpen.Core.AxoTask.HasError()
+  commentId: plc.AXOpen.Core.AxoTask.HasError()
+  name: HasError()
+  nameWithType: HasError()
+  fullName: plc.AXOpen.Core.AxoTask.HasError()
+  parent: plc.AXOpen.Core.AxoTask.HasError()
+- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  name: IsInvokeCalled()
+  nameWithType: IsInvokeCalled()
+  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+- uid: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  commentId: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  name: IsNewInvokeCall()
+  nameWithType: IsNewInvokeCall()
+  fullName: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+  parent: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
+- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  name: IsInvokeCalledInThisPlcCycle()
+  nameWithType: IsInvokeCalledInThisPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
+- uid: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  name: WasInvokeCalledInPreviousPlcCycle()
+  nameWithType: WasInvokeCalledInPreviousPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+  parent: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
+- uid: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  commentId: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  name: IsNewExecuteCall()
+  nameWithType: IsNewExecuteCall()
+  fullName: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+  parent: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
+- uid: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  name: IsExecuteCalledInThisPlcCycle()
+  nameWithType: IsExecuteCalledInThisPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+  parent: plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
+- uid: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  commentId: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  name: WasExecuteCalledInPreviousPlcCycle()
+  nameWithType: WasExecuteCalledInPreviousPlcCycle()
+  fullName: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+  parent: plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
+- uid: plc.AXOpen.Core.AxoTask.UpdateState()
+  commentId: plc.AXOpen.Core.AxoTask.UpdateState()
+  name: UpdateState()
+  nameWithType: UpdateState()
+  fullName: plc.AXOpen.Core.AxoTask.UpdateState()
+  parent: plc.AXOpen.Core.AxoTask.UpdateState()
+- uid: plc.AXOpen.Core.AxoTask.Invoke()
+  commentId: plc.AXOpen.Core.AxoTask.Invoke()
+  name: Invoke()
+  nameWithType: Invoke()
+  fullName: plc.AXOpen.Core.AxoTask.Invoke()
+  parent: plc.AXOpen.Core.AxoTask.Invoke()
+- uid: plc.AXOpen.Core.AxoTask.Restore()
+  commentId: plc.AXOpen.Core.AxoTask.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoTask.Restore()
+  parent: plc.AXOpen.Core.AxoTask.Restore()
+- uid: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  name: DoneWhen(BOOL)
+  nameWithType: DoneWhen(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.DoneWhen(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.Execute()
+  commentId: plc.AXOpen.Core.AxoTask.Execute()
+  name: Execute()
+  nameWithType: Execute()
+  fullName: plc.AXOpen.Core.AxoTask.Execute()
+  parent: plc.AXOpen.Core.AxoTask.Execute()
+- uid: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  commentId: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  name: LogTask(STRING[80],eLogLevel,IAxoObject)
+  nameWithType: LogTask(STRING[80],eLogLevel,IAxoObject)
+  fullName: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+  parent: plc.AXOpen.Core.AxoTask.LogTask(STRING[80],eLogLevel,IAxoObject)
+- uid: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  name: ThrowWhen(BOOL)
+  nameWithType: ThrowWhen(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  commentId: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  name: ThrowWhen(BOOL,STRING[254])
+  nameWithType: ThrowWhen(BOOL,STRING[254])
+  fullName: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+  parent: plc.AXOpen.Core.AxoTask.ThrowWhen(BOOL,STRING[254])
+- uid: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  name: SetIsDisabled(BOOL)
+  nameWithType: SetIsDisabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetIsDisabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  name: GetIsDisabled()
+  nameWithType: GetIsDisabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+  parent: plc.AXOpen.Core.AxoTask.GetIsDisabled()
+- uid: plc.AXOpen.Core.AxoTask.Abort()
+  commentId: plc.AXOpen.Core.AxoTask.Abort()
+  name: Abort()
+  nameWithType: Abort()
+  fullName: plc.AXOpen.Core.AxoTask.Abort()
+  parent: plc.AXOpen.Core.AxoTask.Abort()
+- uid: plc.AXOpen.Core.AxoTask.Resume()
+  commentId: plc.AXOpen.Core.AxoTask.Resume()
+  name: Resume()
+  nameWithType: Resume()
+  fullName: plc.AXOpen.Core.AxoTask.Resume()
+  parent: plc.AXOpen.Core.AxoTask.Resume()
+- uid: plc.AXOpen.Core.AxoTask.OnAbort()
+  commentId: plc.AXOpen.Core.AxoTask.OnAbort()
+  name: OnAbort()
+  nameWithType: OnAbort()
+  fullName: plc.AXOpen.Core.AxoTask.OnAbort()
+  parent: plc.AXOpen.Core.AxoTask.OnAbort()
+- uid: plc.AXOpen.Core.AxoTask.OnResume()
+  commentId: plc.AXOpen.Core.AxoTask.OnResume()
+  name: OnResume()
+  nameWithType: OnResume()
+  fullName: plc.AXOpen.Core.AxoTask.OnResume()
+  parent: plc.AXOpen.Core.AxoTask.OnResume()
+- uid: plc.AXOpen.Core.AxoTask.OnDone()
+  commentId: plc.AXOpen.Core.AxoTask.OnDone()
+  name: OnDone()
+  nameWithType: OnDone()
+  fullName: plc.AXOpen.Core.AxoTask.OnDone()
+  parent: plc.AXOpen.Core.AxoTask.OnDone()
+- uid: plc.AXOpen.Core.AxoTask.OnError()
+  commentId: plc.AXOpen.Core.AxoTask.OnError()
+  name: OnError()
+  nameWithType: OnError()
+  fullName: plc.AXOpen.Core.AxoTask.OnError()
+  parent: plc.AXOpen.Core.AxoTask.OnError()
+- uid: plc.AXOpen.Core.AxoTask.OnRestore()
+  commentId: plc.AXOpen.Core.AxoTask.OnRestore()
+  name: OnRestore()
+  nameWithType: OnRestore()
+  fullName: plc.AXOpen.Core.AxoTask.OnRestore()
+  parent: plc.AXOpen.Core.AxoTask.OnRestore()
+- uid: plc.AXOpen.Core.AxoTask.OnStart()
+  commentId: plc.AXOpen.Core.AxoTask.OnStart()
+  name: OnStart()
+  nameWithType: OnStart()
+  fullName: plc.AXOpen.Core.AxoTask.OnStart()
+  parent: plc.AXOpen.Core.AxoTask.OnStart()
+- uid: plc.AXOpen.Core.AxoTask.WhileError()
+  commentId: plc.AXOpen.Core.AxoTask.WhileError()
+  name: WhileError()
+  nameWithType: WhileError()
+  fullName: plc.AXOpen.Core.AxoTask.WhileError()
+  parent: plc.AXOpen.Core.AxoTask.WhileError()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Core.IAxoTask
+  commentId: plc.AXOpen.Core.IAxoTask
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: plc.AXOpen.Core.IAxoTask
+  parent: plc.AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Core.IAxoTaskState
+  commentId: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: plc.AXOpen.Core.IAxoTaskState
+  parent: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.UNDEFINED
+  name: UNDEFINED
+  nameWithType: UNDEFINED
+  fullName: UNDEFINED
+- uid: plc.LTIME
+  name: LTIME
+  nameWithType: LTIME
+  fullName: LTIME
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+- uid: plc.REF_TO AXOpen.Messaging.Static.AxoMessenger
+  name: REF_TO AXOpen.Messaging.Static.AxoMessenger
+  nameWithType: REF_TO AXOpen.Messaging.Static.AxoMessenger
+  fullName: REF_TO AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl
+- uid: plc.REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus
+  name: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus
+  nameWithType: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus
+  fullName: REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

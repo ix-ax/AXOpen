@@ -1,12 +1,9 @@
 USING AXOpen.Core;
-USING AXOpen.Core;
-USING AXOpen.Core;
-
 NAMESPACE AXOpen.Data
     ///<summary>
     /// Provides base class for any composite/fragmetes data exchange combining one or more AxoDataExchange object.    
     /// </summary>       
-    CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoDataExchangeBase IMPLEMENTS IAxoDataExchange               
+    CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoObject IMPLEMENTS IAxoDataExchange, AxoDataExchangeBase             
         VAR PUBLIC           
             Operation : AxoDataCrudTask;
         END_VAR   

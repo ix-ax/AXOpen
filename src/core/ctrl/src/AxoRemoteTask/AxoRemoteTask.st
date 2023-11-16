@@ -27,7 +27,7 @@ NAMESPACE AXOpen.Core
             {#ix-set:Help = "<#Make sure the remote application that should handle this remote request is running and is available in the network.#>"}
             TaskNotInitialized : AXOpen.Messaging.Static.AxoMessenger;
 
-            {#ix-set:MessageText = "<#During the execution or remote task an error occured. |[RemoteExceptionDetails]|#>"}
+            {#ix-set:MessageText = "<#During the execution or remote task an error occured.#> |[[1]RemoteExceptionDetails]|"}
             {#ix-set:Help = "<#Check detail of this remote task for more information about the problem.#>"}
             TaskHasRemoteException : AXOpen.Messaging.Static.AxoMessenger;
         END_VAR

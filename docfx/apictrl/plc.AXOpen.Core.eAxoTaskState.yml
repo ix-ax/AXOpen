@@ -1,0 +1,146 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.eAxoTaskState
+  id: plc.AXOpen.Core.eAxoTaskState
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.eAxoTaskState.Disabled
+  - plc.AXOpen.Core.eAxoTaskState.Ready
+  - plc.AXOpen.Core.eAxoTaskState.Kicking
+  - plc.AXOpen.Core.eAxoTaskState.Busy
+  - plc.AXOpen.Core.eAxoTaskState.Done
+  - plc.AXOpen.Core.eAxoTaskState.Aborted
+  - plc.AXOpen.Core.eAxoTaskState.Error
+  name: eAxoTaskState
+  fullName: eAxoTaskState
+  type: Enum
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoTaskState
+    path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+    startLine: 2
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'eAxoTaskState : INT'
+- uid: plc.AXOpen.Core.eAxoTaskState.Disabled
+  id: plc.AXOpen.Core.eAxoTaskState.Disabled
+  parent: AXOpen.Core
+  children: []
+  name: Disabled := 0
+  fullName: Disabled
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoTaskState.Disabled
+    path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+    startLine: 4
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoTaskState.Ready
+  id: plc.AXOpen.Core.eAxoTaskState.Ready
+  parent: AXOpen.Core
+  children: []
+  name: Ready := 1
+  fullName: Ready
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoTaskState.Ready
+    path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoTaskState.Kicking
+  id: plc.AXOpen.Core.eAxoTaskState.Kicking
+  parent: AXOpen.Core
+  children: []
+  name: Kicking := 2
+  fullName: Kicking
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoTaskState.Kicking
+    path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+    startLine: 6
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoTaskState.Busy
+  id: plc.AXOpen.Core.eAxoTaskState.Busy
+  parent: AXOpen.Core
+  children: []
+  name: Busy := 3
+  fullName: Busy
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoTaskState.Busy
+    path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+    startLine: 7
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoTaskState.Done
+  id: plc.AXOpen.Core.eAxoTaskState.Done
+  parent: AXOpen.Core
+  children: []
+  name: Done := 4
+  fullName: Done
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoTaskState.Done
+    path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+    startLine: 8
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoTaskState.Aborted
+  id: plc.AXOpen.Core.eAxoTaskState.Aborted
+  parent: AXOpen.Core
+  children: []
+  name: Aborted := 5
+  fullName: Aborted
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoTaskState.Aborted
+    path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+    startLine: 9
+  namespace: plc.AXOpen.Core
+- uid: plc.AXOpen.Core.eAxoTaskState.Error
+  id: plc.AXOpen.Core.eAxoTaskState.Error
+  parent: AXOpen.Core
+  children: []
+  name: Error := 10
+  fullName: Error
+  type: Field
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.eAxoTaskState.Error
+    path: .\src\core\ctrl\src\AxoTask\eAxoTaskState.st
+    startLine: 10
+  namespace: plc.AXOpen.Core
+references:
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+
+

@@ -1,0 +1,98 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  id: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  parent: plc.AXOpen.Messaging.Static
+  children:
+  - plc.AXOpen.Messaging.Static.IAxoMessageProperties.RequireAcknowledgement()
+  - plc.AXOpen.Messaging.Static.IAxoMessageProperties.DoNotRequireAcknowledgement()
+  - plc.AXOpen.Messaging.Static.IAxoMessageProperties.IsAcknowledgementRequired()
+  name: IAxoMessageProperties
+  fullName: IAxoMessageProperties
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+    path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
+    startLine: 1
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: INTERFACE IAxoMessageProperties
+  implements: []
+- uid: plc.AXOpen.Messaging.Static.IAxoMessageProperties.RequireAcknowledgement()
+  id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.RequireAcknowledgement
+  parent: IAxoMessageProperties
+  children: []
+  name: RequireAcknowledgement
+  fullName: RequireAcknowledgement
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.RequireAcknowledgement
+    path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
+    startLine: 2
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties RequireAcknowledgement()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.IAxoMessageProperties.DoNotRequireAcknowledgement()
+  id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.DoNotRequireAcknowledgement
+  parent: IAxoMessageProperties
+  children: []
+  name: DoNotRequireAcknowledgement
+  fullName: DoNotRequireAcknowledgement
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.DoNotRequireAcknowledgement
+    path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
+    startLine: 3
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public AXOpen.Messaging.Static.IAxoMessageProperties DoNotRequireAcknowledgement()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.AXOpen.Messaging.Static.IAxoMessageProperties.IsAcknowledgementRequired()
+  id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.IsAcknowledgementRequired
+  parent: IAxoMessageProperties
+  children: []
+  name: IsAcknowledgementRequired
+  fullName: IsAcknowledgementRequired
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Messaging.Static.IAxoMessageProperties.IsAcknowledgementRequired
+    path: .\src\core\ctrl\src\AxoMessaging\Static\IAxoMessageProperties.st
+    startLine: 4
+  namespace: plc.AXOpen.Messaging.Static
+  syntax:
+    content: Public BOOL IsAcknowledgementRequired()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+  name: IAxoMessageProperties
+  nameWithType: IAxoMessageProperties
+  fullName: AXOpen.Messaging.Static.IAxoMessageProperties
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

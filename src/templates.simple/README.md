@@ -14,6 +14,64 @@ If you use TIA portal for you hardware configuration you must enable WebAPI comm
 <iframe width="560" height="315" src="https://www.youtube.com/embed/d9EX2FixY1A?start=151" frameborder="0" allowfullscreen></iframe>
 
 
+## Template directory scructure
+```
+your.project/
+│
+├── .config       [dotnet config]
+├── .runtime      [contains kiosk client configuration]
+├── .tests        [should contain tests of the application]
+├── ax            [SIMATIC-AX application]
+│
+├── axpansion/
+│   ├── server    [HMI server]
+│   └── twin      [AX twin]
+│ 
+├── .gitignore    
+│
+├── README.md     [THIS README]
+│
+├── slngen.ps1          [Run to regenerate visual studio solution file]
+├── axosimple.sln       [VS2022 solution file open to work with server, hmi, etc]
+└── this.proj           [traversal project for this directory]
+```
+
+**Opening template from within the AXOpen repository**
+
+When creating the template from within AXOpen repository the solution structure will look something like the schema below. You application template is in `.application` solution folder. Remember to set the the project contained in `server` folder to `Set as start-up project`:
+
+- In the Solution Explorer, find the project you want to set as the startup project. The Solution Explorer is usually located on the right side of the Visual Studio interface, but its location may vary depending on your layout settings.
+
+- Right-click on the desired project.
+
+- From the context menu that appears, select "Set as StartUp Project".
+
+- The project's name will now appear in bold in the Solution Explorer, indicating that it's the startup project. When you press F5 or click on the "Start Debugging" button, this project will be the one that runs.
+
+
+```
+Solution 'axiosimple' (25 of 25 projects)
+├── **.application**
+│   │
+│   ├── **axpansion**
+│   │   ├── **server**
+│   │   └── **twin**
+├── abstractions
+├── base
+├── components.abstractions
+├── components.cognex.vision
+├── components.elements
+├── components.pneumatics
+├── core
+├── data
+├── inspectors
+├── security
+├── simatic1500
+├── timers
+├── toolbox
+└── utils
+
+```
 
 ## Setting up the connection
 
@@ -34,7 +92,9 @@ You will need to use TIA Portal to enable WebAPI interface [see here](https://co
 
 ### AX
 
-Go to [apax.yml](app/apax.yml) file and adjust the parameters
+#### Connection parameters
+
+Go to [apax.yml](app/apax.yml) file and adjust the connection parameters
 
 ~~~yml
 .
@@ -51,8 +111,23 @@ scripts:
 .
 ~~~
 
+#### Target platform
 
+Add or comment/uncomment your target system.
 
+~~~yml
+.
+.
+.
+targets:
+  - plcsim
+  # - "1500"
+  # - swcpu
+  - axunit-llvm
+.
+.
+.
+~~~
 
 ## Download the project to the PLC
 
@@ -65,7 +140,7 @@ PS [your_root_folder]\>apax download
 ## To quickly run the hmi
 
 ~~~
-PS [your_root_folder]\>dotnet run --project ..\axosimple.app\axosimple.hmi.csproj
+PS [your_root_folder]\>dotnet run --project ..\axosimple.app\axosimple.server.csproj
 ~~~
 
 ~~~
@@ -106,13 +181,20 @@ Downloads current build into the controller.
 apax download
 ```
 
-Build the both AX and AX# part of the project.
+Build the both SIMATIC-AX and AXOpen projects.
 ```
 apax build
 ```
 
+Running ixc
+```
+dotnet ixc
+```
+
+
 ## Resources
 
 Documentation sources: 
+- `docs` in this folder
 - [AXOpen]https://ix-ax.github.io/AXOpen/
 - [AX#]https://ix-ax.github.io/axsharp/

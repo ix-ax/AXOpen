@@ -1,0 +1,451 @@
+### YamlMime:TableOfContent
+items:
+- uid: plc.AXOpen.Core
+  name: plc.AXOpen.Core
+  items:
+  - uid: plc.AXOpen.Core.IAxoContext
+    name: IAxoContext
+    items: []
+  - uid: plc.AXOpen.Core.IAxoObject
+    name: IAxoObject
+    items: []
+  - uid: plc.AXOpen.Core.IsNullContext(IAxoContext)
+    name: IsNullContext
+    items: []
+  - uid: plc.AXOpen.Core._NULL_CONTEXT
+    name: _NULL_CONTEXT
+    items: []
+  - uid: plc.AXOpen.Core._NULL_OBJECT
+    name: _NULL_OBJECT
+    items: []
+  - uid: plc.AXOpen.Core._NULL_RTC
+    name: _NULL_RTC
+    items: []
+  - uid: plc.AXOpen.Core._NULL_LOGGER
+    name: _NULL_LOGGER
+    items: []
+  - uid: plc.AXOpen.Core.AxoAlertDialog
+    name: AxoAlertDialog
+    items: []
+  - uid: plc.AXOpen.Core.IAxoAlertDialogFormat
+    name: IAxoAlertDialogFormat
+    items: []
+  - uid: plc.AXOpen.Core.AxoBoolArray
+    name: AxoBoolArray
+    items: []
+  - uid: plc.AXOpen.Core.AxoByteArray
+    name: AxoByteArray
+    items: []
+  - uid: plc.AXOpen.Core.AxoComponent
+    name: AxoComponent
+    items: []
+  - uid: plc.AXOpen.Core.AxoContext
+    name: AxoContext
+    items: []
+  - uid: plc.AXOpen.Core.AxoDialog
+    name: AxoDialog
+    items: []
+  - uid: plc.AXOpen.Core.AxoDialogBase
+    name: AxoDialogBase
+    items: []
+  - uid: plc.AXOpen.Core.eDialogAnswer
+    name: eDialogAnswer
+    items: []
+  - uid: plc.AXOpen.Core.eDialogType
+    name: eDialogType
+    items: []
+  - uid: plc.AXOpen.Core.IAxoDialogAnswer
+    name: IAxoDialogAnswer
+    items: []
+  - uid: plc.AXOpen.Core.IAxoDialogFormat
+    name: IAxoDialogFormat
+    items: []
+  - uid: plc.AXOpen.Core.AxoMomentaryTask
+    name: AxoMomentaryTask
+    items: []
+  - uid: plc.AXOpen.Core.AxoObject
+    name: AxoObject
+    items: []
+  - uid: plc.AXOpen.Core.AxoRemoteTask
+    name: AxoRemoteTask
+    items: []
+  - uid: plc.AXOpen.Core.AxoTask
+    name: AxoTask
+    items: []
+  - uid: plc.AXOpen.Core.eAxoTaskState
+    name: eAxoTaskState
+    items: []
+  - uid: plc.AXOpen.Core.AxoTextList
+    name: AxoTextList
+    items: []
+  - uid: plc.AXOpen.Core.AxoToggleTask
+    name: AxoToggleTask
+    items: []
+  - uid: plc.AXOpen.Core.IAxoComponent
+    name: IAxoComponent
+    items: []
+  - uid: plc.AXOpen.Core.IAxoManuallyControllable
+    name: IAxoManuallyControllable
+    items: []
+  - uid: plc.AXOpen.Core.AxoCoordinatorStates
+    name: AxoCoordinatorStates
+    items: []
+  - uid: plc.AXOpen.Core.IAxoCoordinator
+    name: IAxoCoordinator
+    items: []
+  - uid: plc.AXOpen.Core.IAxoMomentaryTask
+    name: IAxoMomentaryTask
+    items: []
+  - uid: plc.AXOpen.Core.IAxoTask
+    name: IAxoTask
+    items: []
+  - uid: plc.AXOpen.Core.IAxoTaskInt
+    name: IAxoTaskInt
+    items: []
+  - uid: plc.AXOpen.Core.IAxoTaskState
+    name: IAxoTaskState
+    items: []
+  - uid: plc.AXOpen.Core.IAxoToggleTask
+    name: IAxoToggleTask
+    items: []
+  - uid: plc.AXOpen.Core.AxoSequencer
+    name: AxoSequencer
+    items: []
+  - uid: plc.AXOpen.Core.AxoSequencerContainer
+    name: AxoSequencerContainer
+    items: []
+  - uid: plc.AXOpen.Core.eAxoSequenceMode
+    name: eAxoSequenceMode
+    items: []
+  - uid: plc.AXOpen.Core.eAxoSteppingMode
+    name: eAxoSteppingMode
+    items: []
+  - uid: plc.AXOpen.Core.AxoStep
+    name: AxoStep
+    items: []
+  - uid: plc.AXOpen.Core.IAxoSequencer
+    name: IAxoSequencer
+    items: []
+  - uid: plc.AXOpen.Core.IAxoStep
+    name: IAxoStep
+    items: []
+- uid: plc.AXOpen.Logging.eLogLevel
+  name: eLogLevel
+  items: []
+- uid: plc.AXOpen.Logging
+  name: plc.AXOpen.Logging
+  items:
+  - uid: plc.AXOpen.Logging.IAxoLogger
+    name: IAxoLogger
+    items: []
+  - uid: plc.AXOpen.Logging.IAxoLoggerConfig
+    name: IAxoLoggerConfig
+    items: []
+  - uid: plc.AXOpen.Logging.AxoLogEntry
+    name: AxoLogEntry
+    items: []
+  - uid: plc.AXOpen.Logging.AxoLogger
+    name: AxoLogger
+    items: []
+- uid: plc.AXOpen.Rtc
+  name: plc.AXOpen.Rtc
+  items:
+  - uid: plc.AXOpen.Rtc.IAxoRtc
+    name: IAxoRtc
+    items: []
+- uid: plc.AXOpen.Messaging.Static
+  name: plc.AXOpen.Messaging.Static
+  items:
+  - uid: plc.AXOpen.Messaging.Static.AxoMessenger
+    name: AxoMessenger
+    items: []
+  - uid: plc.AXOpen.Messaging.Static.IAxoMessageProperties
+    name: IAxoMessageProperties
+    items: []
+- uid: plc.AXOpen.Messaging.eAxoMessageCategory
+  name: eAxoMessageCategory
+  items: []
+- uid: plc.AXOpen.Data
+  name: plc.AXOpen.Data
+  items:
+  - uid: plc.AXOpen.Data.AxoDataCrudTask
+    name: AxoDataCrudTask
+    items: []
+  - uid: plc.AXOpen.Data.eCrudOperation
+    name: eCrudOperation
+    items: []
+  - uid: plc.AXOpen.Data.AxoDataEntity
+    name: AxoDataEntity
+    items: []
+  - uid: plc.AXOpen.Data.AxoDataExchange
+    name: AxoDataExchange
+    items: []
+  - uid: plc.AXOpen.Data.AxoDataExchangeBase
+    name: AxoDataExchangeBase
+    items: []
+  - uid: plc.AXOpen.Data.AxoDataExchangeTask
+    name: AxoDataExchangeTask
+    items: []
+  - uid: plc.AXOpen.Data.IAxoEntityExistTaskState
+    name: IAxoEntityExistTaskState
+    items: []
+  - uid: plc.AXOpen.Data.AxoDataFragmentExchange
+    name: AxoDataFragmentExchange
+    items: []
+  - uid: plc.AXOpen.Data.IAxoDataEntity
+    name: IAxoDataEntity
+    items: []
+  - uid: plc.AXOpen.Data.IAxoDataExchange
+    name: IAxoDataExchange
+    items: []
+- uid: plc.AXOpen.Inspectors
+  name: plc.AXOpen.Inspectors
+  items:
+  - uid: plc.AXOpen.Inspectors.AxoComprehensiveResult
+    name: AxoComprehensiveResult
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoInspector
+    name: AxoInspector
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoInspectorData
+    name: AxoInspectorData
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoInspectorDialog
+    name: AxoInspectorDialog
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoInspectorTask
+    name: AxoInspectorTask
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoAnalogueInspector
+    name: AxoAnalogueInspector
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoAnalogueInspectorData
+    name: AxoAnalogueInspectorData
+    items: []
+  - uid: plc.AXOpen.Inspectors.IAxoAnalogueInspector
+    name: IAxoAnalogueInspector
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoDataInspector
+    name: AxoDataInspector
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoDataInspectorData
+    name: AxoDataInspectorData
+    items: []
+  - uid: plc.AXOpen.Inspectors.IAxoDataInspector
+    name: IAxoDataInspector
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoDigitalInspector
+    name: AxoDigitalInspector
+    items: []
+  - uid: plc.AXOpen.Inspectors.AxoDigitalInspectorData
+    name: AxoDigitalInspectorData
+    items: []
+  - uid: plc.AXOpen.Inspectors.IAxoDigitalInspector
+    name: IAxoDigitalInspector
+    items: []
+  - uid: plc.AXOpen.Inspectors.eInspectorResult
+    name: eInspectorResult
+    items: []
+  - uid: plc.AXOpen.Inspectors.eOverallResult
+    name: eOverallResult
+    items: []
+  - uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+    name: IAxoComprehensiveResult
+    items: []
+  - uid: plc.AXOpen.Inspectors.IInspector
+    name: IInspector
+    items: []
+  - uid: plc.AXOpen.Inspectors.IOnFail
+    name: IOnFail
+    items: []
+- uid: plc.AXOpen.Components.Abstractions
+  name: plc.AXOpen.Components.Abstractions
+  items:
+  - uid: plc.AXOpen.Components.Abstractions.AxoComponent_Status
+    name: AxoComponent_Status
+    items: []
+  - uid: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+    name: IAxoCodeReader
+    items: []
+  - uid: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+    name: IAxoVisionSensor
+    items: []
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
+  name: eAxoDriveDirection
+  items: []
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
+  name: eAxoExecutionMode
+  items: []
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoSource
+  name: eAxoSource
+  items: []
+- uid: plc.AXOpen.Components.Abstractions.Drives
+  name: plc.AXOpen.Components.Abstractions.Drives
+  items:
+  - uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive
+    name: IAxoDrive
+    items: []
+  - uid: plc.AXOpen.Components.Abstractions.Drives.IAxo_Power
+    name: IAxo_Power
+    items: []
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  name: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  items:
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman
+    name: AxoDataman
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight
+    name: AxoInsight
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData
+    name: AxoDatamanClearResultData
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanRead
+    name: AxoDatamanRead
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionControl
+    name: AxoDataman_AcquisitionControl
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+    name: AxoDataman_AcquisitionStatus
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Config
+    name: AxoDataman_Config
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultData
+    name: AxoDataman_ResultData
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Results
+    name: AxoDataman_Results
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsControl
+    name: AxoDataman_ResultsControl
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_ResultsStatus
+    name: AxoDataman_ResultsStatus
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventControl
+    name: AxoDataman_SoftEventControl
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_SoftEventStatus
+    name: AxoDataman_SoftEventStatus
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status
+    name: AxoDataman_Status
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_User
+    name: AxoDataman_User
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_UserData
+    name: AxoDataman_UserData
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_ResultDataSize
+    name: eAxoDataman_ResultDataSize
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoDataman_UserDataSize
+    name: eAxoDataman_UserDataSize
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByName
+    name: AxoInsightChangeJobByName
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightChangeJobByNumber
+    name: AxoInsightChangeJobByNumber
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightClearInspectionResults
+    name: AxoInsightClearInspectionResults
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightSoftEvent
+    name: AxoInsightSoftEvent
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsightTrigger
+    name: AxoInsightTrigger
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoBoolArray8
+    name: AxoBoolArray8
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
+    name: AxoInsight_AcquisitionControl
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionStatus
+    name: AxoInsight_AcquisitionStatus
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandControl
+    name: AxoInsight_CommandControl
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_CommandStatus
+    name: AxoInsight_CommandStatus
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Config
+    name: AxoInsight_Config
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionControl
+    name: AxoInsight_InspectionControl
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_InspectionStatus
+    name: AxoInsight_InspectionStatus
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_ResultData
+    name: AxoInsight_ResultData
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Results
+    name: AxoInsight_Results
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventControl
+    name: AxoInsight_SoftEventControl
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_SoftEventStatus
+    name: AxoInsight_SoftEventStatus
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_Status
+    name: AxoInsight_Status
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_UserData
+    name: AxoInsight_UserData
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_ResultDataSize
+    name: eAxoInsight_ResultDataSize
+    items: []
+  - uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.eAxoInsight_UserDataSize
+    name: eAxoInsight_UserDataSize
+    items: []
+- uid: plc.AXOpen.Components.Pneumatics
+  name: plc.AXOpen.Components.Pneumatics
+  items:
+  - uid: plc.AXOpen.Components.Pneumatics.AxoCylinder
+    name: AxoCylinder
+    items: []
+- uid: plc.AXOpen.Elements
+  name: plc.AXOpen.Elements
+  items:
+  - uid: plc.AXOpen.Elements.AxoAi
+    name: AxoAi
+    items: []
+  - uid: plc.AXOpen.Elements.AxoAiConfig
+    name: AxoAiConfig
+    items: []
+  - uid: plc.AXOpen.Elements.AxoAiStatus
+    name: AxoAiStatus
+    items: []
+  - uid: plc.AXOpen.Elements.AxoAo
+    name: AxoAo
+    items: []
+  - uid: plc.AXOpen.Elements.AxoAoConfig
+    name: AxoAoConfig
+    items: []
+  - uid: plc.AXOpen.Elements.AxoAoStatus
+    name: AxoAoStatus
+    items: []
+  - uid: plc.AXOpen.Elements.AxoDi
+    name: AxoDi
+    items: []
+  - uid: plc.AXOpen.Elements.AxoDo
+    name: AxoDo
+    items: []
+- uid: plc.AXOpen.Components.Example
+  name: plc.AXOpen.Components.Example
+  items:
+  - uid: plc.AXOpen.Components.Example.ExampleCylinder
+    name: ExampleCylinder
+    items: []
+
+
