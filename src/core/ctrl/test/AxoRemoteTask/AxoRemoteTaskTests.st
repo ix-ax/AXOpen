@@ -100,18 +100,23 @@ NAMESPACE AXOpen.Core
             END_VAR;    
             // Arrange
             THIS.Initialize();
+            myTask.IsInitialized := TRUE; //initialization from .net side
             _context.Open();
             _contexCounter := _context.OpenCycleCount();
             //Act/Assert
-            myTask.Invoke();          
-            Assert.Equal(TRUE, myTask.Execute());                                          
-            _context.Close();
+            myTask.Invoke();   //to kicking state       
+            Assert.Equal(TRUE, myTask.Execute());  //to busy state 
+            Assert.Equal(TRUE, myTask.IsBusy());             
 
+            _context.Close();
             _context.Open();
+
             myTask.SetDoneSignature();
             myTask.Execute();
-            THIS.Equal(eAxoTaskState#Done, myTask.Status);
-            Assert.Equal(FALSE, myTask.Execute());        
+            Assert.Equal(TRUE, THIS.Equal(eAxoTaskState#Done, myTask.Status));
+
+            Assert.Equal(FALSE, myTask.Execute());     
+
             _context.Close();
         END_METHOD
 
