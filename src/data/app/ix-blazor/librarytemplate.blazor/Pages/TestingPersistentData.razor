@@ -7,16 +7,56 @@
 
 <PageTitle>TestingPersistentData</PageTitle>
 
-<h2>Command</h2>
-<ul class="list-group">
-    <li class="list-group-item">
-        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.ManagerUsage" Presentation="Command-Control" />
-    </li> 
-    <li class="list-group-item">
+<h4>Persistent Manager task status </h4>
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px;">
+
+    <div class="list-group-item">
         <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation" Presentation="Command" />
-    </li>
-</ul>
+    </div>
+    
+    <div class="list-group-item">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.Duration" Presentation="Display" />
+    </div>
+
+    <div class="list-group-item">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.HasRemoteException" Presentation="Display" />
+    </div>
+
+    <div class="list-group-item">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.ErrorDetails" Presentation="Display" />
+    </div>
+</div>
+
+
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+    <div>
+        <h2>Commands</h2>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.ManagerUsage" Presentation="Command-Control" />
+            </li>
+            <li class="list-group-item">
+                <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation" Presentation="Command" />
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Concurrent Commnads</h2>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.ConcurrentMangerUsage" Presentation="Command-Control" />
+            </li>
+            <li class="list-group-item">
+                <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation" Presentation="Command" />
+            </li>
+        </ul>
+    </div>
+</div>
 
 <h2>Persistent root object</h2>
 <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.PersistentRootObject" Presentation="Control" />
+
+
 
