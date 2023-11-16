@@ -38,7 +38,7 @@ NAMESPACE AXOpen.Data
     END_CLASS
 
     TYPE
-        ePersistentOperation : (Read, Update, EntityExist);
+        ePersistentOperation : (Read, Update, EntityExist, UpdateAll, ReadAll);
     END_TYPE
 
 END_NAMESPACE

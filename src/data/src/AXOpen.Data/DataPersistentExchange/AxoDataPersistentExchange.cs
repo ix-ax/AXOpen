@@ -103,13 +103,54 @@ namespace AXOpen.Data
         }
 
         /// <summary>
+        /// Writes all persistent tags from the repository to the PLC.
+        /// </summary>
+        /// <param name="group">The group name of the tags to be written.</param>
+        /// <returns>Returns true if the write operation is successful; otherwise, false.</returns>
+        public async Task<bool> WriteAllPersistentGroupsFromRepositoryToPlc()
+        {
+            List<ITwinPrimitive> tagsToWrite = new List<ITwinPrimitive>();
+            foreach (var groupName in this.CollectedGroups)
+            {
+                var recordFromRepo = Repository.Read(groupName);
+                AddTagsFromRecordToWrittenList(tagsToWrite, recordFromRepo);
+            }
+            await WriteTags(tagsToWrite);
+            return true;
+        }
+
+        private void AddTagsFromRecordToWrittenList(List<ITwinPrimitive> tagsToWrite, PersistentRecord recordFromRepo)
+        {
+            foreach (var tagFromRepo in recordFromRepo.Tags)
+            {
+                var ConnectedTags = allTags.Where(p => p.Symbol == tagFromRepo.Symbol);
+
+                if (!ConnectedTags.Any()) continue;
+
+                var ConnectedTag = ConnectedTags.First();
+
+                if (ConnectedTag == null) continue;
+
+                ConnectedTag.SetTagCyclicValue(tagFromRepo);
+
+                tagsToWrite.Add(ConnectedTag);
+            }
+        }
+
+
+        /// <summary>
         /// Updates a persistent group of tags to the repository after reading from the PLC.
         /// </summary>
         /// <param name="persistentGroupName">The group name of the persistent tags to be updated.</param>
         /// <returns>Returns true if the update operation is successful; otherwise, false.</returns>
-        public async Task<bool> UpdatePersistentGroupToRepository(string persistentGroupName)
+        public async Task<bool> UpdatePersistentGroupFromPlcToRepository(string persistentGroupName)
         {
             await ReadTagsFromPlc(persistentGroupName);
+            return UpdateReadedTagsToRepository(persistentGroupName);
+        }
+
+        private bool UpdateReadedTagsToRepository(string persistentGroupName)
+        {
 
             var primitivesTagsInGroup = tagsInGroups[persistentGroupName];
 
@@ -175,9 +216,27 @@ namespace AXOpen.Data
                     Tags = NewTagValues
                 });
             }
+            return true;
+        }
+
+
+        /// <summary>
+        /// Updates a persistent group of tags to the repository after reading from the PLC.
+        /// </summary>
+        /// <param name="persistentGroupName">The group name of the persistent tags to be updated.</param>
+        /// <returns>Returns true if the update operation is successful; otherwise, false.</returns>
+        public async Task<bool> UpdateAllPersistentGroupsToRepository()
+        {
+            await _root.GetConnector().ReadBatchAsync(allTags); // read all tags from PLC
+
+            foreach (var groupName in this.CollectedGroups)
+            {
+                UpdateReadedTagsToRepository(groupName);
+            }
 
             return true;
         }
+
 
         #endregion Main Handling Method - Read Write
 
@@ -233,7 +292,15 @@ namespace AXOpen.Data
                     break;
 
                 case ePersistentOperation.Update:
-                    await this.UpdatePersistentGroupToRepository(identifier);
+                    await this.UpdatePersistentGroupFromPlcToRepository(identifier);
+                    break;
+
+                case ePersistentOperation.ReadAll:
+                    await this.WriteAllPersistentGroupsFromRepositoryToPlc();
+                    break;
+
+                case ePersistentOperation.UpdateAll:
+                    await this.UpdateAllPersistentGroupsToRepository();
                     break;
 
                 case ePersistentOperation.EntityExist:

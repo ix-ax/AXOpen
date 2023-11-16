@@ -138,7 +138,7 @@ namespace AXOpen.Data.Persistent.Tests
             data.PersistentVariable_2.Cyclic = 20;
             await data.WriteAsync();
 
-            await sut.UpdatePersistentGroupToRepository(PersistentGroupName);
+            await sut.UpdatePersistentGroupFromPlcToRepository(PersistentGroupName);
 
             PersistentRecord pr = repo.Read(PersistentGroupName);
 
@@ -176,7 +176,7 @@ namespace AXOpen.Data.Persistent.Tests
 
             foreach (var group in groups)
             {
-                await sut.UpdatePersistentGroupToRepository(group);
+                await sut.UpdatePersistentGroupFromPlcToRepository(group);
             }
 
             var group_default = repo.Read(groups[0]);

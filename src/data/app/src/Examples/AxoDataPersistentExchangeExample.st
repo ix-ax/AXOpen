@@ -8,12 +8,14 @@ NAMESPACE AxoDataPersistentExchangeExample
         VAR PUBLIC
             DataManager : AXOpen.Data.AxoDataPersistentExchange;
             ManagerUsage : ManagerUsage;
+            ConcurrentMangerUsage : ConcurrentMangerUsage;
             PersistentRootObject : PersistentRootObject;
         END_VAR
         
         METHOD OVERRIDE Main
             DataManager.Run(THIS);
             ManagerUsage.Use(DataManager);
+            ConcurrentMangerUsage.Use(DataManager);
         END_METHOD
     END_CLASS
     //</ContextDeclaration>
@@ -24,6 +26,8 @@ NAMESPACE AxoDataPersistentExchangeExample
             _persistentGroupId : STRING;
             _update : BOOL;
             _read : BOOL;
+            _exist : BOOL;
+            _recordExist : BOOL;
         END_VAR  
     
         METHOD PUBLIC Use
@@ -42,9 +46,86 @@ NAMESPACE AxoDataPersistentExchangeExample
                     _update := FALSE;
                 END_IF;
             END_IF;
+
+            IF(_exist) THEN
+                IF(DataManager.EntityExist(_persistentGroupId).IsDone()) THEN
+                    _exist := FALSE;
+                    _recordExist := DataManager.Operation._exist;
+                END_IF;
+            END_IF;
         END_METHOD        
     END_CLASS
     //</Usage>
+
+    //<ConcurrentUsage>
+    CLASS PUBLIC ConcurrentMangerUsage EXTENDS AxOpen.Core.AxoObject
+        VAR PUBLIC
+            _persistentGroupId : STRING;
+            _update : BOOL;
+            _read : BOOL;
+            _updateAll : BOOL;
+            _readAll : BOOL;
+            _exist : BOOL;
+            _recordExist : BOOL;
+        END_VAR  
+    
+        METHOD PUBLIC Use
+            VAR_IN_OUT
+                DataManager : AXOpen.Data.AxoDataPersistentExchange;
+            END_VAR  
+
+            IF(_read) THEN
+                IF(DataManager.TryInvokeRead(THIS,_persistentGroupId)) THEN
+                    ;
+                END_IF;
+
+                IF(DataManager.IsReadDone(THIS)) THEN
+                    _read := FALSE;
+                END_IF;
+            END_IF;
+            
+            IF(_update) THEN
+                IF(DataManager.TryInvokeUpdate(THIS,_persistentGroupId)) THEN
+                   ;
+                END_IF;
+
+                IF(DataManager.IsUpdateDone(THIS)) THEN
+                    _update := FALSE;
+                END_IF;
+            END_IF;
+
+            IF(_readAll) THEN
+                IF(DataManager.TryInvokeReadAll(THIS)) THEN
+                   ;
+                END_IF;
+                IF(DataManager.IsReadAllDone(THIS)) THEN
+                    _readAll := FALSE;
+                END_IF;
+            END_IF;
+            
+            IF(_updateAll) THEN
+                IF(DataManager.TryInvokeUpdateAll(THIS)) THEN
+                    ;
+                END_IF;
+
+                IF(DataManager.IsUpdateAllDone(THIS)) THEN
+                    _updateAll := FALSE;
+                END_IF;
+            END_IF;
+
+            IF(_exist) THEN
+                IF(DataManager.TryInvokeEntityExist(THIS, _persistentGroupId)) THEN
+                    ;
+                END_IF;
+
+                IF(DataManager.IsEntityExistDone(THIS)) THEN
+                    _exist := FALSE;
+                    _recordExist := DataManager.Operation._exist;
+                END_IF;
+            END_IF;
+        END_METHOD        
+    END_CLASS
+    //</ConcurrentUsage>
 
     //<PersistentAttribute>
     CLASS PUBLIC PersistentRootObject
@@ -52,11 +133,11 @@ NAMESPACE AxoDataPersistentExchangeExample
             NotPersistentVariable : BOOL; 
             
             {#ix-attr:[Persistent()]}
-            {#ix-set:AttributeName = "PersistentVariable_1 (default pg.))"} 
+            {#ix-set:AttributeName = "PersistentVariable_1 (in default pg.))"} 
             PersistentVariable_1 : INT; // will be saved to 'default' persistent group
             
             {#ix-attr:[Persistent("default","1")]} // will be saved to 'default' and '1' persistent group
-            {#ix-set:AttributeName = "PersistentVariable_2 (default & 1 pg.)"} 
+            {#ix-set:AttributeName = "PersistentVariable_2 (in default & 1 pg.)"} 
             PersistentVariable_2 : INT;
             
             {#ix-attr:[Container(Layout.Stack)]}
@@ -73,7 +154,7 @@ NAMESPACE AxoDataPersistentExchangeExample
             {#ix-attr:[Persistent("2")]}
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "InitializedPrimitives (2 pg.)"} 
+            {#ix-set:AttributeName = "InitializedPrimitives (in 2 pg.)"} 
             InitializedPrimitives : InitializedPrimitives; 
         END_VAR
     END_CLASS
