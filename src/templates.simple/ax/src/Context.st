@@ -25,7 +25,8 @@ NAMESPACE axosimple
          
         END_VAR      
         
-        METHOD PROTECTED OVERRIDE Main     
+        METHOD PROTECTED OVERRIDE Main    
+                        
             TechnologySettings.Run(THIS);
             ProcessSettings.Run(THIS);
             ProcessData.Run(THIS);
@@ -38,14 +39,13 @@ NAMESPACE axosimple
             GlobalObjects.ProcessData    := REF(ProcessData);
                         
             // remember last selected identifier 
-            if  (GlobalObjects.LastTechnologySettings <> '') THEN
-                IF GlobalObjects.LastTechnologySettings <> TechnologySettings.Common.Entity.DataEntityId THEN 
-                    IF PersistentData.Operation.IsReady() THEN 
-                        PersistentData.Update();
-                        GlobalObjects.LastTechnologySettings := TechnologySettings.Common.Entity.DataEntityId;
-                    END_IF;
-                END_IF;
-            END_IF;
+            // if  (GlobalObjects.LastTechnologySettings <> '') THEN
+            //     IF GlobalObjects.LastTechnologySettings <> TechnologySettings.Common.Entity.DataEntityId THEN 
+            //         IF PersistentData.InvokeUpdate(TechnologySettings, '') THEN 
+            //             GlobalObjects.LastTechnologySettings := TechnologySettings.Common.Entity.DataEntityId;
+            //        END_IF;
+            //     END_IF;
+            // END_IF;
 
            IF(Inputs <> NULL AND Outputs <> NULL) THEN
                ;//Units entry calls - You can use snippet unitRootCall
@@ -62,7 +62,7 @@ NAMESPACE axosimple
                 UnitTemplate.UnitObjects.TechnologySettings := REF(UnitTemplateTechnologySettings);
                 UnitTemplate.UnitObjects.ProcessSettings := REF(ProcessSettings.UnitTemplate);
                 UnitTemplate.UnitObjects.ProcessData := REF(UnitTemplateProcessData);
-                StarterUnitTemplate.UnitObjects.Global := REF(GlobalObjects);
+                UnitTemplate.UnitObjects.Global := REF(GlobalObjects);
                 UnitTemplate.Run(THIS, Inputs^, Outputs^);
            END_IF;                           
         END_METHOD        

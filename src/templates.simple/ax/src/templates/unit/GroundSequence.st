@@ -20,7 +20,11 @@ NAMESPACE axosimple.UnitTemplate
             ProcessData : REF_TO ProcessDataManager;
             ProcessSettings : REF_TO FragmentProcessDataManger;
             TechnologySettings : REF_TO TechnologyDataManager;
+            PersistentSettings : REF_TO AxoDataPersistentExchange;
+
             _currentId : STRING;
+
+            techSetttingsId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
@@ -36,9 +40,11 @@ NAMESPACE axosimple.UnitTemplate
                 ProcessData := Objs^.ProcessData;
                 ProcessSettings := Objs^.ProcessSettings;
                 TechnologySettings := Objs^.TechnologySettings;
+                PersistentSettings := Objs^.Global^.PersistentData;
             END_IF;
 
             SUPER.Run(_parent);
+
         END_METHOD
         ///<summary>
         /// Contains logic of the steps of this sequence
@@ -56,19 +62,44 @@ NAMESPACE axosimple.UnitTemplate
             
             IF (Steps[0].Execute(THIS, TRUE, '<#RESTORE#>')) THEN
                 //------------------------------------------------------- 
+                    TechnologySettings^.Restore(); 
+                    ProcessSettings^.Restore(); 
                     ProcessData^.Restore();
-                    THIS.MoveNext(); 
 
-                    ProcessData^.Shared.Entity.WasReset := true;
-                    _currentId := 'lastPartId'; // just for simulation
+                    THIS.MoveNext();  
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[1].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
+            IF (Steps[4].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
                 //------------------------------------------------------- 
-                IF(TechnologySettings^.Read('default').IsDone()) THEN
+                CASE TO_INT( THIS.GetMicroStepValue()) OF
+                    0 : 
+            
+                        IF PersistentSettings^.InvokeRead(THIS,'UnitTemplate') THEN 
+                            THIS.SetMicroStepValue(UINT#10);
+                        END_IF;
+                    10 : 
+                        IF PersistentSettings^.IsReadDone(THIS) THEN 
+                                THIS.MoveNext(); // exist
+                        END_IF;  
+                    ELSE
+                        THIS.SetMicroStepValue(UINT#0);
+                END_CASE;
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[2].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
+                //------------------------------------------------------- 
+                IF CurrentStep.IsFirstEntryToStep() THEN 
+                    IF Objs^.LastTechnologySettings = '' THEN 
+                        Objs^.LastTechnologySettings := 'default';
+                    END_IF;
+                    techSetttingsId := Objs^.LastTechnologySettings;
+                END_IF;
+
+                IF(TechnologySettings^.Read( techSetttingsId ).IsDone()) THEN
                     THIS.MoveNext(); 
-                END_IF;    
+                END_IF;   
                 //-------------------------------------------------------
             END_IF;
                 
@@ -82,9 +113,24 @@ NAMESPACE axosimple.UnitTemplate
 
             IF (Steps[19].Execute(THIS, TRUE, '<#SAVE DATA#>')) THEN
                 //-------------------------------------------------------
-                    IF(ProcessData^.Update(_currentId).IsDone()) THEN
-                        THIS.MoveNext();                                   
-                    END_IF;    
+                CASE TO_INT( THIS.GetMicroStepValue()) OF
+                    0 : 
+                        IF ProcessData^.Shared.Entity.DataEntityId <> '' THEN 
+                            _currentId := ProcessData^.Shared.Entity.DataEntityId;
+                            THIS.SetMicroStepValue(UINT#10);
+
+                        ELSE // FIST RUN OR WITHOUT DATA
+                            THIS.MoveNext();
+                        END_IF;
+
+                    10 : // update part as a corrupted a interrupted
+                        ProcessData^.Shared.Entity.WasReset := true;
+                        IF ProcessData^.Update(_currentId).IsDone() THEN 
+                                THIS.MoveNext(); 
+                        END_IF;  
+                    ELSE
+                        THIS.SetMicroStepValue(UINT#0);
+                END_CASE;
                 //-------------------------------------------------------
             END_IF;
            

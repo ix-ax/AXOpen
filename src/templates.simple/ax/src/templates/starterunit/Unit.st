@@ -57,7 +57,8 @@ NAMESPACE axosimple.StarterUnitTemplate
                 Inputs : axosimple.Inputs;
                 Outputs : axosimple.Outputs;
             END_VAR
-             // Component I/O immange and management handling.
+           
+            // Component I/O immange and management handling.
              UnitObjects.Components.Update(THIS, Inputs, Outputs);
              // Process data manager
              UnitObjects.ProcessData^.Run(THIS);
@@ -70,6 +71,7 @@ NAMESPACE axosimple.StarterUnitTemplate
                  AutomatSequence.Restore();
                  ServiceMode.Restore();
              END_IF;
+
              // Handles automatic sequence (ground must be previously done)           
              AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
              AutomatSequence.Run(THIS, REF(UnitObjects));
@@ -81,14 +83,15 @@ NAMESPACE axosimple.StarterUnitTemplate
                  AutomatSequence.Restore();
              END_IF;
 
-             // remember last selected identifier 
-            if  (UnitObjects.LastTechnologySettings <> '') THEN
-                IF UnitObjects.LastTechnologySettings <> UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId THEN 
-                    IF UnitObjects.PersistentData^.Operation.IsReady() THEN 
-                        UnitObjects.PersistentData^.Update();
-                    END_IF;
-                END_IF;
-            END_IF;
+            // remember last selected technolgy identifier 
+            // if  (UnitObjects.LastTechnologySettings <> '') THEN
+            //     IF UnitObjects.LastTechnologySettings <> UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId THEN 
+
+            //        IF UnitObjects.PersistentData^.InvokeUpdate(THIS, '') THEN 
+            //             UnitObjects.LastTechnologySettings :=  UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId;
+            //        END_IF;
+            //     END_IF;
+            // END_IF;
         END_METHOD
     END_CLASS
      

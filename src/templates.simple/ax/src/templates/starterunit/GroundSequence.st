@@ -15,7 +15,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             MoveToWork : AxoTask;
         END_VAR
         VAR PRIVATE
-            Objs : REF_TO UnitObjects;
+            Objs : REF_TO axosimple.StarterUnitTemplate.UnitObjects;
             Components : REF_TO Components;
             ProcessData : REF_TO ProcessDataManager;
             ProcessSettings : REF_TO FragmentProcessDataManger;
@@ -23,12 +23,13 @@ NAMESPACE axosimple.StarterUnitTemplate
             PersistentSettings : REF_TO AxoDataPersistentExchange;
 
             _currentId : STRING;
+            techSetttingsId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
                 _parent : IAxoObject;
-                _unitObjects : REF_TO UnitObjects;
+                _unitObjects : REF_TO axosimple.StarterUnitTemplate.UnitObjects;
             END_VAR     
 
             IF Objs = NULL THEN 
@@ -63,51 +64,87 @@ NAMESPACE axosimple.StarterUnitTemplate
             // This is more verbose but also more versatile way of executing step logic.
             IF (Steps[0].Execute(THIS, TRUE, '<#RESTORE#>')) THEN
                 //------------------------------------------------------- 
-                PersistentSettings^.Restore(); 
+                TechnologySettings^.Restore(); 
+                ProcessSettings^.Restore(); 
                 ProcessData^.Restore();
                 
-                ProcessData^.Shared.Entity.WasReset := true;
-                _currentId := 'lastPartId'; // just for simulation
+                THIS.MoveNext();
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[1].Execute(THIS, TRUE, '<#CHECK IF EXIST PERSISTENT SETTINGS#>')) THEN
+            IF (Steps[1].Execute(THIS, TRUE, '<#CHECK PERSISTENT SETTINGS#>')) THEN
                 //------------------------------------------------------- 
-                IF(PersistentSettings^.EntityExist('default').IsDone()) THEN
-                    IF PersistentSettings^.Operation._exist THEN 
-                        THIS.RequestStep(Steps[3]);
+                IF CurrentStep.IsFirstEntryToStep() THEN 
+                    ;
+                END_IF;
+
+                CASE TO_INT( THIS.GetMicroStepValue()) OF
+                    0 : 
+                        IF PersistentSettings^.InvokeEntityExist(THIS ,'') THEN 
+                            THIS.SetMicroStepValue(UINT#10);
+                        END_IF;
+
+                    10 : 
+                        IF PersistentSettings^.IsEntityExistDone(THIS) THEN 
+                           
+                            IF PersistentSettings^.EntityExistResult() THEN 
+                                THIS.MoveNext(); // exist
+                            ELSE
+                                THIS.SetMicroStepValue(UINT#20);
+                            END_IF;
+
+                        END_IF;
+
+                    20 :  
+                        IF PersistentSettings^.InvokeUpdateAll(THIS) THEN
+                            THIS.SetMicroStepValue(UINT#30);
+                        END_IF;
+
+                    30:    
+                        IF PersistentSettings^.IsUpdateAllDone(THIS) THEN
+                            THIS.MoveNext(); 
+                        END_IF;
+
                     ELSE
-                        THIS.MoveNext(); 
+                        THIS.SetMicroStepValue(UINT#0);
+                END_CASE;
+   
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[4].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
+                //------------------------------------------------------- 
+                CASE TO_INT( THIS.GetMicroStepValue()) OF
+                    0 : 
+                        IF PersistentSettings^.InvokeRead(THIS, '') THEN 
+                            THIS.SetMicroStepValue(UINT#10);
+                        END_IF;
+                    10 : 
+                        IF PersistentSettings^.IsReadDone(THIS) THEN 
+                                THIS.MoveNext(); // exist
+                        END_IF;  
+                    ELSE
+                        THIS.SetMicroStepValue(UINT#0);
+                END_CASE;
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[5].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
+                //------------------------------------------------------- 
+                IF CurrentStep.IsFirstEntryToStep() THEN 
+                    IF Objs^.LastTechnologySettings = '' THEN 
+                        Objs^.LastTechnologySettings := 'default';
                     END_IF;
-                END_IF;    
-                //-------------------------------------------------------
-            END_IF;
+                    techSetttingsId := Objs^.LastTechnologySettings;
+                END_IF;
 
-            IF (Steps[2].Execute(THIS, TRUE, '<#UPDATE PERSISTENT SETTINGS#>')) THEN
-                //------------------------------------------------------- 
-                IF(PersistentSettings^.Update().IsDone()) THEN
-                    THIS.MoveNext(); 
-                END_IF;    
-                //-------------------------------------------------------
-            END_IF;
-
-            IF (Steps[3].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
-                //------------------------------------------------------- 
-                IF(PersistentSettings^.Read().IsDone()) THEN
-                    THIS.MoveNext(); 
-                END_IF;    
-                //-------------------------------------------------------
-            END_IF;
-
-            IF (Steps[4].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
-                //------------------------------------------------------- 
-                IF(TechnologySettings^.Read( Objs^.LastTechnologySettings ).IsDone()) THEN
+                IF(TechnologySettings^.Read( techSetttingsId ).IsDone()) THEN
                     THIS.MoveNext(); 
                 END_IF;    
                 //-------------------------------------------------------
             END_IF;
                           
-            IF (Steps[5].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
+            IF (Steps[6].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
                 //-------------------------------------------------------
                 IF CurrentStep.Duration > TIME#2s THEN                         
                     THIS.MoveNext();
@@ -117,9 +154,24 @@ NAMESPACE axosimple.StarterUnitTemplate
 
             IF (Steps[19].Execute(THIS, TRUE, '<#SAVE DATA#>')) THEN
                 //-------------------------------------------------------
-                    IF(ProcessData^.Update(_currentId).IsDone()) THEN
-                        THIS.MoveNext();                                   
-                    END_IF;    
+                CASE TO_INT( THIS.GetMicroStepValue()) OF
+                    0 : 
+                        IF ProcessData^.Shared.Entity.DataEntityId <> '' THEN 
+                            _currentId := ProcessData^.Shared.Entity.DataEntityId;
+                            THIS.SetMicroStepValue(UINT#10);
+
+                        ELSE // FIST RUN OR WITHOUT DATA
+                            THIS.MoveNext();
+                        END_IF;
+
+                    10 : // update part as a corrupted a interrupted
+                        ProcessData^.Shared.Entity.WasReset := true;
+                        IF ProcessData^.Update(_currentId).IsDone() THEN 
+                                THIS.MoveNext(); 
+                        END_IF;  
+                    ELSE
+                        THIS.SetMicroStepValue(UINT#0);
+                END_CASE;
                 //-------------------------------------------------------
             END_IF;
            

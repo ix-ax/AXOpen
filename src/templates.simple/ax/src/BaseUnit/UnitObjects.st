@@ -17,10 +17,11 @@ NAMESPACE axosimple.BaseUnit
             ///</summary>
             PersistentData : REF_TO AxoDataPersistentExchange;
 
-            {#ix-attr:[AXOpen.Data.PersistentAttribute("")]}
-            LastTechnologySettings : STRING ;
-
             Global : REF_TO axosimple.GlobalContextObjects;
+
+            {#ix-attr:[AXOpen.Data.PersistentAttribute("")]}
+            LastTechnologySettings : STRING[64] ;
+
         END_VAR        
     END_CLASS
 
