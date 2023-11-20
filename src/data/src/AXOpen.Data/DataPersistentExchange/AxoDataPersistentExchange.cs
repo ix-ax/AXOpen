@@ -10,6 +10,8 @@ namespace AXOpen.Data
         /// </summary>
         private ITwinObject _root;
 
+        private const string DEFAULT_IDENTIFIER = "default";
+
         /// <summary>
         /// tracked all persistent tagss
         /// </summary>
@@ -282,7 +284,7 @@ namespace AXOpen.Data
             var identifier = Operation.DataEntityIdentifier.LastValue;
             if (string.IsNullOrEmpty(identifier))
             {
-                identifier = "default"; // default persistent group
+                identifier = DEFAULT_IDENTIFIER; // default persistent group
             }
 
             switch (operation)
@@ -296,7 +298,14 @@ namespace AXOpen.Data
                     break;
 
                 case ePersistentOperation.ReadAll:
+
+                    if (!Repository.Exists(DEFAULT_IDENTIFIER)) // repo is empty
+                    {
+                        await this.UpdateAllPersistentGroupsToRepository(); // create records from online
+                    }
+
                     await this.WriteAllPersistentGroupsFromRepositoryToPlc();
+
                     break;
 
                 case ePersistentOperation.UpdateAll:

@@ -7,55 +7,17 @@ NAMESPACE AxoDataPersistentExchangeExample
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             DataManager : AXOpen.Data.AxoDataPersistentExchange;
-            ManagerUsage : ManagerUsage;
             ConcurrentMangerUsage : ConcurrentMangerUsage;
             PersistentRootObject : PersistentRootObject;
         END_VAR
         
         METHOD OVERRIDE Main
             DataManager.Run(THIS);
-            ManagerUsage.Use(DataManager);
             ConcurrentMangerUsage.Use(DataManager);
         END_METHOD
     END_CLASS
     //</ContextDeclaration>
-
-    //<Usage>
-    CLASS PUBLIC ManagerUsage
-        VAR PUBLIC
-            _persistentGroupId : STRING;
-            _update : BOOL;
-            _read : BOOL;
-            _exist : BOOL;
-            _recordExist : BOOL;
-        END_VAR  
     
-        METHOD PUBLIC Use
-            VAR_IN_OUT
-                DataManager : AXOpen.Data.AxoDataPersistentExchange;
-            END_VAR  
-
-            IF(_read) THEN
-                IF(DataManager.Read(_persistentGroupId).IsDone()) THEN
-                    _read := FALSE;
-                END_IF;
-            END_IF;
-            
-            IF(_update) THEN
-                IF(DataManager.Update(_persistentGroupId).IsDone()) THEN
-                    _update := FALSE;
-                END_IF;
-            END_IF;
-
-            IF(_exist) THEN
-                IF(DataManager.EntityExist(_persistentGroupId).IsDone()) THEN
-                    _exist := FALSE;
-                    _recordExist := DataManager.Operation._exist;
-                END_IF;
-            END_IF;
-        END_METHOD        
-    END_CLASS
-    //</Usage>
 
     //<ConcurrentUsage>
     CLASS PUBLIC ConcurrentMangerUsage EXTENDS AxOpen.Core.AxoObject
@@ -75,7 +37,7 @@ NAMESPACE AxoDataPersistentExchangeExample
             END_VAR  
 
             IF(_read) THEN
-                IF(DataManager.TryInvokeRead(THIS,_persistentGroupId)) THEN
+                IF(DataManager.InvokeRead(THIS,_persistentGroupId)) THEN
                     ;
                 END_IF;
 
@@ -85,7 +47,7 @@ NAMESPACE AxoDataPersistentExchangeExample
             END_IF;
             
             IF(_update) THEN
-                IF(DataManager.TryInvokeUpdate(THIS,_persistentGroupId)) THEN
+                IF(DataManager.InvokeUpdate(THIS,_persistentGroupId)) THEN
                    ;
                 END_IF;
 
@@ -95,7 +57,7 @@ NAMESPACE AxoDataPersistentExchangeExample
             END_IF;
 
             IF(_readAll) THEN
-                IF(DataManager.TryInvokeReadAll(THIS)) THEN
+                IF(DataManager.InvokeReadAll(THIS)) THEN
                    ;
                 END_IF;
                 IF(DataManager.IsReadAllDone(THIS)) THEN
@@ -104,7 +66,7 @@ NAMESPACE AxoDataPersistentExchangeExample
             END_IF;
             
             IF(_updateAll) THEN
-                IF(DataManager.TryInvokeUpdateAll(THIS)) THEN
+                IF(DataManager.InvokeUpdateAll(THIS)) THEN
                     ;
                 END_IF;
 
@@ -114,7 +76,7 @@ NAMESPACE AxoDataPersistentExchangeExample
             END_IF;
 
             IF(_exist) THEN
-                IF(DataManager.TryInvokeEntityExist(THIS, _persistentGroupId)) THEN
+                IF(DataManager.InvokeEntityExist(THIS, _persistentGroupId)) THEN
                     ;
                 END_IF;
 

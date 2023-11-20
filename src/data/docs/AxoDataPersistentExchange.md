@@ -38,17 +38,13 @@ Create an instance of the manager and call it in the Context.
 
 ### Usage in the controller
 
-In the case of saving variables to repository, call the `Update('requestedPersistentGroupName')` method in the PLC, and in the case of reading  from repository to Controller, call the `Read('requestedPersistentGroupName')` method. Or if you use defaut persistent group name Use `UpdateDefault()` or `ReadDefault()` method.
+In the case of saving variables to a repository, call the `InvokeUpdate()` method, which returns `true` if the invocation is successful. To monitor the completion status, use the `IsUpdateDone()` method.
+
+Other operations like `InvokeRead`, `InvokeUpdateAll`, `InvokeReadAll`, and `InvokeEntityExist` follow the same principle. These methods accept an `IAxoObject`, which uses the identity of the object to prevent concurrent calls. The object executing the first call is prioritized, and subsequent calls with a different caller will wait until the first caller has finished.
+
 
 > [!WARNING]
 > If the record does not exist, the loading task will end with an error. Therefore, it is necessary to ensure that the record exists, either by manual saving or by generating a new record.
-
-
-[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=Usage)]
-
-> [!WARNING]
-> For concurrent access to the manager, use the following concurrent methods: `TryInvokeRead`, `TryInvokeUpdate`, `TryInvokeReadAll`, `TryInvokeUpdateAll`, and `TryInvokeEntityExist`. These methods accept an `IAxoObject` which uses the identity of the object to prevent concurrent calls. The object that executes the first call is prioritized. Subsequent calls with a different caller will wait until the first caller has finished.
-
 
 [!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=ConcurrentUsage)]
 

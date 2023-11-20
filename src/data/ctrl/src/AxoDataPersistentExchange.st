@@ -10,14 +10,13 @@ NAMESPACE AXOpen.Data
         END_VAR
 
         VAR
-            _IsFirstReadOperationDone  : BOOL;
-            _FirstReadedOperationIdentifier : STRING[254];
+            _IsFirstReadAllDone  : BOOL := FALSE;
 
             // concurrent invoke handling...
             LastCallerIdentity : ULINT;
-            LastOperation : ePersistentOperation;
-
             LastCycleCount : ULINT;
+            LastOperation : ePersistentOperation;
+            
         END_VAR
 
         ///<summary>
@@ -40,6 +39,10 @@ NAMESPACE AXOpen.Data
             IsNotConcurrentCall := false;
             newCallerIdentity := caller.GetIdentity();
             newCycleCount := THIS.GetContext().OpenCycleCount();
+
+            IF newCallerIdentity = ULINT#0 THEN // IF IDENTITY IS NOT SET DO NOT ALLOW CALL
+                RETURN;
+            END_IF;
 
             IF  newCallerIdentity = LastCallerIdentity THEN 
                 IsNotConcurrentCall := true;
@@ -81,11 +84,16 @@ NAMESPACE AXOpen.Data
 
             Operation.Execute();
             
-            IF NOT _IsFirstReadOperationDone then 
-               IF Operation.IsDone() AND (LastOperation = ePersistentOperation#Read) THEN 
-                    _IsFirstReadOperationDone := TRUE;
-                    _FirstReadedOperationIdentifier := Operation.DataEntityIdentifier;
-               END_IF;
+            IF NOT _IsFirstReadAllDone THEN 
+                IF Operation.IsInitialized AND (Operation.Identity <> ULINT#0) THEN // MUST BE INITIALIZED AND WITH IDENTITY
+                    IF Operation.IsReady() THEN // read all after startup
+                        Operation.Invoke('', ePersistentOperation#ReadAll);
+                        LastOperation := ePersistentOperation#ReadAll;
+
+                    ELSIF Operation.IsDone() AND (LastOperation = ePersistentOperation#ReadAll) THEN 
+                         _IsFirstReadAllDone := TRUE;
+                    END_IF;
+                END_IF;
             END_IF;
         END_METHOD
 
@@ -97,9 +105,25 @@ NAMESPACE AXOpen.Data
             VAR_INPUT            
                 context : IAxoContext;
             END_VAR    
-            THIS.Initialize(context);
-            Operation.Initialize(THIS);
+            
+            IF _context_ = NULL THEN 
+                THIS.Initialize(context);
+                Operation.Initialize(THIS);
+            END_IF;
+
             Operation.Execute();
+            
+            IF NOT _IsFirstReadAllDone THEN 
+                IF Operation.IsInitialized AND (Operation.Identity <> ULINT#0) THEN // MUST BE INITIALIZED AND WITH IDENTITY
+                    IF Operation.IsReady() THEN // read all after startup
+                        Operation.Invoke('', ePersistentOperation#ReadAll);
+                        LastOperation := ePersistentOperation#ReadAll;
+
+                    ELSIF Operation.IsDone() AND (LastOperation = ePersistentOperation#ReadAll) THEN 
+                         _IsFirstReadAllDone := TRUE;
+                    END_IF;
+                END_IF;
+            END_IF;
         END_METHOD
 
         ///<summary>
@@ -109,92 +133,6 @@ NAMESPACE AXOpen.Data
             Operation.Restore(); 
         END_METHOD 
         
-
-        /// <summary>
-        /// Reads the values of collected tags from the remote repository for a default persistent group.
-        /// </summary> 
-        METHOD PUBLIC ReadDefault : IAxoTaskState
-            VAR_INPUT
-                Caller : IAxoObject;
-            END_VAR
-
-            ReadDefault := Operation.Invoke(DEFAULT_ID, ePersistentOperation#Read);
-
-            IF Operation.IsDone() THEN
-                LastOperation := ePersistentOperation#Read;
-            END_IF;
-        END_METHOD 
-
-        ///<summary>
-        /// Updates the values of collected tags to the remote repository for a default persistent group.
-        /// </summary> 
-        METHOD PUBLIC UpdateDefault : IAxoTaskState
-            UpdateDefault := Operation.Invoke(DEFAULT_ID, ePersistentOperation#Update);
-
-         IF Operation.IsDone() THEN
-                LastOperation := ePersistentOperation#Update;
-            END_IF;
-        END_METHOD 
-
-
-        /// <summary>
-        /// Checks if a default persistent group exists in the remote repository.
-        /// </summary> 
-        METHOD PUBLIC ExistDefault : IAxoEntityExistTaskState
-            Operation.Invoke(DEFAULT_ID, ePersistentOperation#EntityExist);
-            ExistDefault := Operation;
-
-            IF Operation.IsDone() THEN
-                LastOperation := ePersistentOperation#EntityExist;
-            END_IF;
-        END_METHOD 
-
-        /// <summary>
-        /// Reads the values of collected tags from the remote repository for a specified persistent group.
-        /// </summary> 
-        /// <param name="identifier">The data identifier for the persistent group.</param>
-        METHOD PUBLIC Read : IAxoTaskState
-            VAR_INPUT
-                identifier : STRING[254];
-            END_VAR
-            Read := Operation.Invoke(identifier, ePersistentOperation#Read);
-
-            IF Operation.IsDone() THEN
-                LastOperation := ePersistentOperation#Read;
-            END_IF;
-        END_METHOD 
-
-        ///<summary>
-        /// Updates the values of collected tags to the remote repository for a specified persistent group.
-        /// </summary> 
-        /// <param name="identifier">The data identifier for the persistent group.</param>
-        METHOD PUBLIC Update : IAxoTaskState
-            VAR_INPUT
-                identifier : STRING[254];
-            END_VAR
-            Update := Operation.Invoke(identifier, ePersistentOperation#Update);
-
-            IF Operation.IsDone() THEN
-                LastOperation := ePersistentOperation#Update;
-            END_IF;
-        END_METHOD  
-
-        /// <summary>
-        /// Checks if a persistent group exists in the remote repository.
-        /// </summary> 
-        /// <param name="identifier">The data identifier for the persistent group.</param>
-        METHOD PUBLIC EntityExist : IAxoEntityExistTaskState
-            VAR_INPUT
-                identifier : STRING[254];
-            END_VAR
-            Operation.Invoke(identifier, ePersistentOperation#EntityExist);
-            EntityExist := Operation;
-
-            IF Operation.IsDone() THEN
-                LastOperation := ePersistentOperation#EntityExist;
-            END_IF;
-        END_METHOD  
-
         /// <summary>
         /// Return last result of EntitiyExist Operation. True = Record Exist.
         /// </summary> 
@@ -210,16 +148,38 @@ NAMESPACE AXOpen.Data
         /// </summary> 
         /// <param name="caller">IAxoObject for identifying the caller in the context of concurrent calls</param>
         /// <param name="identifier">The data identifier for the persistent group.</param>
-        METHOD PUBLIC TryInvokeRead : BOOL
+        METHOD PUBLIC InvokeRead : BOOL
             VAR_INPUT
                 caller : IAxoObject;
                 identifier : STRING[254];
             END_VAR
             
-            TryInvokeRead := false;
-            IF THIS.IsNotConcurrentCall(caller) THEN
-                TryInvokeRead := Operation.Invoke(identifier, ePersistentOperation#Read).IsBusy();
-                LastOperation := ePersistentOperation#Read;
+            InvokeRead := false;
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(caller) THEN
+                    InvokeRead := Operation.Invoke(identifier, ePersistentOperation#Read).IsBusy();
+                    LastOperation := ePersistentOperation#Read;
+                END_IF;
+            END_IF;
+        END_METHOD 
+
+        /// <summary>
+        /// This method attempts to invoke a read operation. 
+        /// It checks if the call is concurrent and, if not,
+        /// invokes the read operation on the Operation object.
+        /// </summary> 
+        /// <param name="caller">IAxoObject for identifying the caller in the context of concurrent calls</param>
+        METHOD PUBLIC InvokeReadDefault : BOOL
+            VAR_INPUT
+                caller : IAxoObject;
+            END_VAR
+            InvokeReadDefault := false;
+
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(caller) THEN
+                    InvokeReadDefault := Operation.Invoke(DEFAULT_ID, ePersistentOperation#Read).IsBusy();
+                    LastOperation := ePersistentOperation#Read;
+                END_IF;
             END_IF;
         END_METHOD 
 
@@ -230,16 +190,38 @@ NAMESPACE AXOpen.Data
         /// </summary> 
         /// <param name="caller">IAxoObject for identifying the caller in the context of concurrent calls</param>
         /// <param name="identifier">The data identifier for the persistent group.</param>
-        METHOD PUBLIC TryInvokeUpdate : BOOL
+        METHOD PUBLIC InvokeUpdate : BOOL
             VAR_INPUT
                 Caller : IAxoObject;
                 identifier : STRING[254];
             END_VAR
+            InvokeUpdate := false;
 
-            TryInvokeUpdate := false;
-            IF THIS.IsNotConcurrentCall(Caller) THEN
-                TryInvokeUpdate := Operation.Invoke(identifier, ePersistentOperation#Update).IsBusy();
-                LastOperation := ePersistentOperation#Update;
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(Caller) THEN
+                    InvokeUpdate := Operation.Invoke(identifier, ePersistentOperation#Update).IsBusy();
+                    LastOperation := ePersistentOperation#Update;
+                END_IF;
+            END_IF;
+        END_METHOD 
+
+        /// <summary>
+        /// This method attempts to invoke a update operation. 
+        /// It checks if the call is concurrent and, if not,
+        /// invokes the update operation on the Operation object.
+        /// </summary> 
+        /// <param name="caller">IAxoObject for identifying the caller in the context of concurrent calls</param>
+        METHOD PUBLIC InvokeUpdateDefault : BOOL
+            VAR_INPUT
+                Caller : IAxoObject;
+            END_VAR
+            InvokeUpdateDefault := false;
+          
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(Caller) THEN
+                    InvokeUpdateDefault := Operation.Invoke(DEFAULT_ID, ePersistentOperation#Update).IsBusy();
+                    LastOperation := ePersistentOperation#Update;
+                END_IF;
             END_IF;
         END_METHOD 
 
@@ -250,15 +232,17 @@ NAMESPACE AXOpen.Data
         /// </summary> 
         /// <param name="caller">IAxoObject for identifying the caller in the context of concurrent calls</param>
         /// <param name="identifier">The data identifier for the persistent group.</param>
-        METHOD PUBLIC TryInvokeUpdateAll : BOOL
+        METHOD PUBLIC InvokeUpdateAll : BOOL
             VAR_INPUT
                 Caller : IAxoObject;
             END_VAR
-
-            TryInvokeUpdateAll := false;
-            IF THIS.IsNotConcurrentCall(Caller) THEN
-                TryInvokeUpdateAll := Operation.Invoke('', ePersistentOperation#UpdateAll).IsBusy();
-                LastOperation := ePersistentOperation#UpdateAll;
+            InvokeUpdateAll := false;
+            
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(Caller) THEN
+                    InvokeUpdateAll := Operation.Invoke('', ePersistentOperation#UpdateAll).IsBusy();
+                    LastOperation := ePersistentOperation#UpdateAll;
+                END_IF;
             END_IF;
         END_METHOD 
 
@@ -269,15 +253,17 @@ NAMESPACE AXOpen.Data
         /// </summary> 
         /// <param name="caller">IAxoObject for identifying the caller in the context of concurrent calls</param>
         /// <param name="identifier">The data identifier for the persistent group.</param>
-        METHOD PUBLIC TryInvokeReadAll : BOOL
+        METHOD PUBLIC InvokeReadAll : BOOL
             VAR_INPUT
                 Caller : IAxoObject;
             END_VAR
+            InvokeReadAll := false;
 
-            TryInvokeReadAll := false;
-            IF THIS.IsNotConcurrentCall(Caller) THEN
-                TryInvokeReadAll := Operation.Invoke('', ePersistentOperation#ReadAll).IsBusy();
-                LastOperation := ePersistentOperation#ReadAll;
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(Caller) THEN
+                    InvokeReadAll := Operation.Invoke('', ePersistentOperation#ReadAll).IsBusy();
+                    LastOperation := ePersistentOperation#ReadAll;
+                END_IF;
             END_IF;
         END_METHOD 
 
@@ -288,16 +274,18 @@ NAMESPACE AXOpen.Data
         /// </summary> 
         /// <param name="caller">IAxoObject for identifying the caller in the context of concurrent calls</param>
         /// <param name="identifier">The data identifier for the persistent group.</param>
-        METHOD PUBLIC TryInvokeEntityExist : BOOL
+        METHOD PUBLIC InvokeEntityExist : BOOL
             VAR_INPUT
                 Caller : IAxoObject;
                 identifier : STRING[254];
             END_VAR
 
-            TryInvokeEntityExist := false;
-            IF THIS.IsNotConcurrentCall(Caller) THEN
-                TryInvokeEntityExist := Operation.Invoke(identifier, ePersistentOperation#EntityExist).IsBusy();
-                LastOperation := ePersistentOperation#EntityExist;
+            InvokeEntityExist := false;
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(Caller) THEN
+                    InvokeEntityExist := Operation.Invoke(identifier, ePersistentOperation#EntityExist).IsBusy();
+                    LastOperation := ePersistentOperation#EntityExist;
+                END_IF;
             END_IF;
         END_METHOD 
 
@@ -312,9 +300,12 @@ NAMESPACE AXOpen.Data
                 caller : IAxoObject;
             END_VAR
             IsReadDone := false;
-            IF THIS.IsNotConcurrentCall(caller) THEN
-                IF LastOperation = ePersistentOperation#Read THEN
-                    IsReadDone := Operation.IsDone();
+
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(caller) THEN
+                    IF LastOperation = ePersistentOperation#Read THEN
+                        IsReadDone := Operation.IsDone();
+                    END_IF;
                 END_IF;
             END_IF;
         END_METHOD 
@@ -329,9 +320,12 @@ NAMESPACE AXOpen.Data
                 caller : IAxoObject;
             END_VAR
             IsUpdateDone := false;
-            IF THIS.IsNotConcurrentCall(caller) THEN
-                IF LastOperation = ePersistentOperation#Update THEN
-                    IsUpdateDone := Operation.IsDone();
+
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(caller) THEN
+                    IF LastOperation = ePersistentOperation#Update THEN
+                        IsUpdateDone := Operation.IsDone();
+                    END_IF;
                 END_IF;
             END_IF;
         END_METHOD 
@@ -346,9 +340,12 @@ NAMESPACE AXOpen.Data
                 caller : IAxoObject;
             END_VAR
             IsUpdateAllDone := false;
-            IF THIS.IsNotConcurrentCall(caller) THEN
-                IF LastOperation = ePersistentOperation#UpdateAll THEN
-                    IsUpdateAllDone := Operation.IsDone();
+
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(caller) THEN
+                    IF LastOperation = ePersistentOperation#UpdateAll THEN
+                        IsUpdateAllDone := Operation.IsDone();
+                    END_IF;
                 END_IF;
             END_IF;
         END_METHOD 
@@ -363,9 +360,12 @@ NAMESPACE AXOpen.Data
                 caller : IAxoObject;
             END_VAR
             IsReadAllDone := false;
-            IF THIS.IsNotConcurrentCall(caller) THEN
-                IF LastOperation = ePersistentOperation#ReadAll THEN
-                    IsReadAllDone := Operation.IsDone();
+
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(caller) THEN
+                    IF LastOperation = ePersistentOperation#ReadAll THEN
+                        IsReadAllDone := Operation.IsDone();
+                    END_IF;
                 END_IF;
             END_IF;
         END_METHOD 
@@ -380,27 +380,27 @@ NAMESPACE AXOpen.Data
                 caller : IAxoObject;
             END_VAR
             IsEntityExistDone := false;
-            IF THIS.IsNotConcurrentCall(caller) THEN
-                IF LastOperation = ePersistentOperation#EntityExist THEN
-                    IsEntityExistDone := Operation.IsDone();
+
+            IF _IsFirstReadAllDone THEN
+                IF THIS.IsNotConcurrentCall(caller) THEN
+                    IF LastOperation = ePersistentOperation#EntityExist THEN
+                        IsEntityExistDone := Operation.IsDone();
+                    END_IF;
                 END_IF;
             END_IF;
         END_METHOD 
 
-       /// <summary>
-       /// Checks if the first read operation has been completed.
-       /// </summary>
-       /// <returns>Boolean indicating whether the first read operation is done.</returns>
-       METHOD PUBLIC IsFirstReadDone : BOOL
-            IsFirstReadDone  := _IsFirstReadOperationDone;
+        /// <summary>
+        /// Checks if the first read operation has been completed.
+        /// </summary>
+        /// <returns>Boolean indicating whether the first read operation is done.</returns>
+        METHOD PUBLIC IsFirstReadDone : BOOL
+            IsFirstReadDone  := _IsFirstReadAllDone;
         END_METHOD 
 
-        /// <summary>
-        /// Retrieves the identifier of the first read operation.
-        /// </summary>
-        /// <returns>String representing the identifier of the first read operation.</returns>
-        METHOD PUBLIC FirstReadedEntityId : STRING
-            FirstReadedEntityId := _FirstReadedOperationIdentifier;
+        //!!! INTERNAL USAGE ONLY !!!
+        METHOD INTERNAL SetFirstReadDone : BOOL
+            _IsFirstReadAllDone  := TRUE;
         END_METHOD 
 
     END_CLASS
