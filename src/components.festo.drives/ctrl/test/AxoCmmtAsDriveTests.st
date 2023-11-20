@@ -3,7 +3,7 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
-NAMESPACE AxoIndraDriveTests.Tests
+NAMESPACE AxoCmmtAsDriveTests.Tests
     CLASS TestContext IMPLEMENTS AXOpen.Core.IAxoContext
         VAR
             _openCounter : ULINT;
@@ -51,10 +51,10 @@ NAMESPACE AxoIndraDriveTests.Tests
         END_METHOD
     END_CLASS
     {TestFixture}
-    CLASS AxoIndraDriveTests
+    CLASS AxoCmmtAsDriveTests
         VAR 
             context : TestContext;
-            drive   : AXOpen.Components.Rexroth.Drives.AxoIndraDrive;
+            drive   : AXOpen.Components.Festo.Drives.AxoCmmtAsDrive;
             _AxisIn          :   ARRAY[0..10] OF BYTE;       //  Input data of the axis
             _AxisOut         :   ARRAY[0..10] OF BYTE;       //  Output data of the axis
             _Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
