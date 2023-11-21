@@ -70,17 +70,16 @@ NAMESPACE axosimple.UnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[4].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
+            IF (Steps[1].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
                 //------------------------------------------------------- 
                 CASE TO_INT( THIS.GetMicroStepValue()) OF
                     0 : 
-            
                         IF PersistentSettings^.InvokeRead(THIS,'UnitTemplate') THEN 
                             THIS.SetMicroStepValue(UINT#10);
                         END_IF;
                     10 : 
                         IF PersistentSettings^.IsReadDone(THIS) THEN 
-                                THIS.MoveNext(); // exist
+                                THIS.MoveNext(); 
                         END_IF;  
                     ELSE
                         THIS.SetMicroStepValue(UINT#0);
@@ -88,18 +87,33 @@ NAMESPACE axosimple.UnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[2].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
+            IF (Steps[5].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
                 //------------------------------------------------------- 
                 IF CurrentStep.IsFirstEntryToStep() THEN 
-                    IF Objs^.LastTechnologySettings = '' THEN 
-                        Objs^.LastTechnologySettings := 'default';
-                    END_IF;
-                    techSetttingsId := Objs^.LastTechnologySettings;
-                END_IF;
 
-                IF(TechnologySettings^.Read( techSetttingsId ).IsDone()) THEN
-                    THIS.MoveNext(); 
-                END_IF;   
+                    IF Objs^.Global^.TechnologySettings^.Common.Entity.DataEntityId <> '' THEN
+                       techSetttingsId := Objs^.Global^.TechnologySettings^.Common.Entity.DataEntityId; // TAKE GLOGAL TECHNOLOGY SETTINGS ID
+
+                    ELSIF Objs^.TechnologySettings^.Shared.Entity.DataEntityId <> '' THEN // TAKE LAST LOADED FOR STATION
+                        techSetttingsId := Objs^.TechnologySettings^.Shared.Entity.DataEntityId;
+
+                    ELSIF Objs^.LastTechnologySettings <> '' THEN // TAKE LAST LOADED FROM PERSISTENT
+                        techSetttingsId := Objs^.LastTechnologySettings;
+                    ELSE
+                        Objs^.LastTechnologySettings := 'default'; // FORCE DEFAULT VALUE 
+                        techSetttingsId := Objs^.LastTechnologySettings;
+                    END_IF;
+                    
+                    IF Objs^.Global^.TechnologySettings^.Common.Entity.DataEntityId = Objs^.TechnologySettings^.Shared.Entity.DataEntityId then 
+                        //THIS.MoveNext(); // you can skip loading...
+                        ;
+                    end_if;
+
+                else
+                    IF(TechnologySettings^.Read( techSetttingsId ).IsDone()) THEN
+                        THIS.MoveNext(); 
+                    END_IF; 
+                END_IF;
                 //-------------------------------------------------------
             END_IF;
                 

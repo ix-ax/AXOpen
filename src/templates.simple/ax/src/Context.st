@@ -39,13 +39,13 @@ NAMESPACE axosimple
             GlobalObjects.ProcessData    := REF(ProcessData);
                         
             // remember last selected identifier 
-            // if  (GlobalObjects.LastTechnologySettings <> '') THEN
-            //     IF GlobalObjects.LastTechnologySettings <> TechnologySettings.Common.Entity.DataEntityId THEN 
-            //         IF PersistentData.InvokeUpdate(TechnologySettings, '') THEN 
-            //             GlobalObjects.LastTechnologySettings := TechnologySettings.Common.Entity.DataEntityId;
-            //        END_IF;
-            //     END_IF;
-            // END_IF;
+            if TechnologySettings.Common.Entity.DataEntityId <> '' THEN
+                IF GlobalObjects.LastTechnologySettings <> TechnologySettings.Common.Entity.DataEntityId THEN 
+                    IF PersistentData.InvokeUpdate(TechnologySettings, '') THEN 
+                        GlobalObjects.LastTechnologySettings := TechnologySettings.Common.Entity.DataEntityId;
+                   END_IF;
+                END_IF;
+            END_IF;
 
            IF(Inputs <> NULL AND Outputs <> NULL) THEN
                ;//Units entry calls - You can use snippet unitRootCall
