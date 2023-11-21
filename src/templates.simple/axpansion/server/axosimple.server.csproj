@@ -80,8 +80,8 @@
 		<Folder Include="wwwroot\js\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Content Include="..\..\ax\src\templates\starterunit\server\StarterUnitTemplate.razor" Link="Pages\Context\Units\StarterUnitTemplate.razor" />
-	  <Content Include="..\..\ax\src\templates\unit\server\UnitTemplate.razor" Link="Pages\Context\Units\UnitTemplate.razor" />
+		<Content Include="..\..\ax\src\templates\starterunit\server\StarterUnitTemplate.razor" Link="Pages\Context\Units\StarterUnitTemplate.razor" />
+		<Content Include="..\..\ax\src\templates\unit\server\UnitTemplate.razor" Link="Pages\Context\Units\UnitTemplate.razor" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
