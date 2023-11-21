@@ -1,4 +1,4 @@
-﻿using AXOpen.Core;
+using AXOpen.Core;
 using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;

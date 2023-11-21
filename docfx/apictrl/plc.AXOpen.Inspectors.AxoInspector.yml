@@ -1,0 +1,625 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Inspectors.AxoInspector
+  id: plc.AXOpen.Inspectors.AxoInspector
+  parent: plc.AXOpen.Inspectors
+  children:
+  - plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
+  - plc.AXOpen.Inspectors.AxoInspector._inspectorTask
+  - plc.AXOpen.Inspectors.AxoInspector._coordinator
+  - plc.AXOpen.Inspectors.AxoInspector._isOverInspected
+  - plc.AXOpen.Inspectors.AxoInspector._busy
+  - plc.AXOpen.Inspectors.AxoInspector._commonData
+  - plc.AXOpen.Inspectors.AxoInspector._originalOverallResult
+  - plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  - plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  - plc.AXOpen.Inspectors.AxoInspector._WithCoordinator(IAxoCoordinator)
+  - plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  - plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  - plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  - plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  - plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  - plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult()
+  - plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  - plc.AXOpen.Inspectors.AxoInspector.Busy()
+  - plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  - plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  - plc.AXOpen.Inspectors.AxoInspector.Done()
+  - plc.AXOpen.Inspectors.AxoInspector.Result()
+  name: AxoInspector
+  fullName: AxoInspector
+  type: Class
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 8
+  namespace: plc.AXOpen.Inspectors
+  summary: AxoInspector base class with implemented evaluation methodsEvaluation methods need IAxoCoordinator instance
+  syntax:
+    content: CLASS AxoInspector
+  inheritance:
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Inspectors.IInspector
+  - plc.AXOpen.Inspectors.IOnFail
+  - plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
+  id: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
+  parent: AXOpen.Inspectors
+  children: []
+  name: _axoInspectorDialog
+  fullName: _axoInspectorDialog
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector._axoInspectorDialog
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 12
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_axoInspectorDialog : AXOpen.Inspectors.AxoInspectorDialog'
+    return:
+      type: AXOpen.Inspectors.AxoInspectorDialog
+- uid: plc.AXOpen.Inspectors.AxoInspector._inspectorTask
+  id: plc.AXOpen.Inspectors.AxoInspector._inspectorTask
+  parent: AXOpen.Inspectors
+  children: []
+  name: _inspectorTask
+  fullName: _inspectorTask
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector._inspectorTask
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 19
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_inspectorTask : AXOpen.Inspectors.AxoInspectorTask'
+    return:
+      type: AXOpen.Inspectors.AxoInspectorTask
+- uid: plc.AXOpen.Inspectors.AxoInspector._coordinator
+  id: plc.AXOpen.Inspectors.AxoInspector._coordinator
+  parent: AXOpen.Inspectors
+  children: []
+  name: _coordinator
+  fullName: _coordinator
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector._coordinator
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 20
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_coordinator : AXOpen.Core.IAxoCoordinator'
+    return:
+      type: AXOpen.Core.IAxoCoordinator
+- uid: plc.AXOpen.Inspectors.AxoInspector._isOverInspected
+  id: plc.AXOpen.Inspectors.AxoInspector._isOverInspected
+  parent: AXOpen.Inspectors
+  children: []
+  name: _isOverInspected
+  fullName: _isOverInspected
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector._isOverInspected
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 21
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_isOverInspected : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector._busy
+  id: plc.AXOpen.Inspectors.AxoInspector._busy
+  parent: AXOpen.Inspectors
+  children: []
+  name: _busy
+  fullName: _busy
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector._busy
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 22
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_busy : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector._commonData
+  id: plc.AXOpen.Inspectors.AxoInspector._commonData
+  parent: AXOpen.Inspectors
+  children: []
+  name: _commonData
+  fullName: _commonData
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector._commonData
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 23
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_commonData : REF_TO AXOpen.Inspectors.AxoInspectorData'
+    return:
+      type: REF_TO AXOpen.Inspectors.AxoInspectorData
+- uid: plc.AXOpen.Inspectors.AxoInspector._originalOverallResult
+  id: plc.AXOpen.Inspectors.AxoInspector._originalOverallResult
+  parent: AXOpen.Inspectors
+  children: []
+  name: _originalOverallResult
+  fullName: _originalOverallResult
+  type: Property
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector._originalOverallResult
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 23
+  namespace: plc.AXOpen.Inspectors
+  syntax:
+    content: '_originalOverallResult : AXOpen.Inspectors.IAxoComprehensiveResult'
+    return:
+      type: AXOpen.Inspectors.IAxoComprehensiveResult
+- uid: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  id: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: CheckOverInspection
+  fullName: CheckOverInspection
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.CheckOverInspection
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 32
+  namespace: plc.AXOpen.Inspectors
+  summary: Check, if data are overinspected (attempts of inspections is larger than maximum number of allowed retries)
+  syntax:
+    content: Public BOOL CheckOverInspection()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  id: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: IsOverInspected
+  fullName: IsOverInspected
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.IsOverInspected
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 45
+  namespace: plc.AXOpen.Inspectors
+  summary: Gets `true` when this inspection overruns max number of inspections.
+  syntax:
+    content: Protected BOOL IsOverInspected()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector._WithCoordinator(IAxoCoordinator)
+  id: plc.AXOpen.Inspectors.AxoInspector._WithCoordinator(IAxoCoordinator)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: _WithCoordinator
+  fullName: _WithCoordinator
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector._WithCoordinator
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 65
+  namespace: plc.AXOpen.Inspectors
+  summary: Set passed instance of iAxoCoordinator to this inspector.This method can be called only in derived classes.
+  syntax:
+    content: Protected AXOpen.Inspectors.IInspector _WithCoordinator(in plc.AXOpen.Core.IAxoCoordinator inCoordinator)
+    parameters:
+    - id: inCoordinator
+      type: plc.AXOpen.Core.IAxoCoordinator
+    return:
+      type: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  id: plc.AXOpen.Inspectors.AxoInspector.OnFail()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: OnFail
+  fullName: OnFail
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.OnFail
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 78
+  namespace: plc.AXOpen.Inspectors
+  summary: Returns this object defined by IOnFail interface
+  syntax:
+    content: Public AXOpen.Inspectors.IOnFail OnFail()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Inspectors.IOnFail
+- uid: plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  id: plc.AXOpen.Inspectors.AxoInspector.Dialog(IAxoStep,IAxoStep)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Dialog
+  fullName: Dialog
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Dialog
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 90
+  namespace: plc.AXOpen.Inspectors
+  summary: Calls inspector dialog with required input
+  syntax:
+    content: Public BOOL Dialog(in plc.AXOpen.Core.IAxoStep inRetryStep,in plc.AXOpen.Core.IAxoStep inTerminateStep)
+    parameters:
+    - id: inRetryStep
+      type: plc.AXOpen.Core.IAxoStep
+    - id: inTerminateStep
+      type: plc.AXOpen.Core.IAxoStep
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  id: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep(IAxoStep)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: RetryWithStep
+  fullName: RetryWithStep
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.RetryWithStep
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 106
+  namespace: plc.AXOpen.Inspectors
+  summary: When inspection is done, retry provided step
+  syntax:
+    content: Public BOOL RetryWithStep(in plc.AXOpen.Core.IAxoStep inRetryStep)
+    parameters:
+    - id: inRetryStep
+      type: plc.AXOpen.Core.IAxoStep
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  id: plc.AXOpen.Inspectors.AxoInspector.CarryOn()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: CarryOn
+  fullName: CarryOn
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.CarryOn
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 142
+  namespace: plc.AXOpen.Inspectors
+  summary: When inspection is done, continue to next step.
+  syntax:
+    content: Public BOOL CarryOn()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  id: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep(IAxoStep)
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: TerminateWithStep
+  fullName: TerminateWithStep
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.TerminateWithStep
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 158
+  namespace: plc.AXOpen.Inspectors
+  summary: When inspection is done, terminate provided step
+  syntax:
+    content: Public BOOL TerminateWithStep(in plc.AXOpen.Core.IAxoStep inTerminateStep)
+    parameters:
+    - id: inTerminateStep
+      type: plc.AXOpen.Core.IAxoStep
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult()
+  id: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: UpdateComprehensiveResult
+  fullName: UpdateComprehensiveResult
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.UpdateComprehensiveResult
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 192
+  namespace: plc.AXOpen.Inspectors
+  summary: Update commmon comprehensive result, which can be used across multiple inspectorsUpdates comprehensive result. The comprehensive result is set to `Failed` when any inspection fails or is inconclusive.Any bypassed or excluded inspections are not taken into account.
+  syntax:
+    content: Public AXOpen.Inspectors.IInspector UpdateComprehensiveResult()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  id: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: RestoreInspectorTask
+  fullName: RestoreInspectorTask
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.RestoreInspectorTask
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 232
+  namespace: plc.AXOpen.Inspectors
+  summary: Restores inspector task
+  syntax:
+    content: Public BOOL RestoreInspectorTask()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.Busy()
+  id: plc.AXOpen.Inspectors.AxoInspector.Busy()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Busy
+  fullName: Busy
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Busy
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 239
+  namespace: plc.AXOpen.Inspectors
+  summary: Check, if inspector task is busy
+  syntax:
+    content: Public BOOL Busy()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  id: plc.AXOpen.Inspectors.AxoInspector.CommonData()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: CommonData
+  fullName: CommonData
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.CommonData
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 246
+  namespace: plc.AXOpen.Inspectors
+  summary: Returns AxoInspectorData
+  syntax:
+    content: Public REF_TO AXOpen.Inspectors.AxoInspectorData CommonData()
+    parameters: *o0
+    return:
+      type: plc.REF_TO AXOpen.Inspectors.AxoInspectorData
+- uid: plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  id: plc.AXOpen.Inspectors.AxoInspector.Coordinator()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Coordinator
+  fullName: Coordinator
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Coordinator
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 254
+  namespace: plc.AXOpen.Inspectors
+  summary: Returns current coordinator
+  syntax:
+    content: Public AXOpen.Core.IAxoCoordinator Coordinator()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoCoordinator
+- uid: plc.AXOpen.Inspectors.AxoInspector.Done()
+  id: plc.AXOpen.Inspectors.AxoInspector.Done()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Done
+  fullName: Done
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Done
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 259
+  namespace: plc.AXOpen.Inspectors
+  summary: Check, if inspection task is done
+  syntax:
+    content: Public BOOL Done()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Inspectors.AxoInspector.Result()
+  id: plc.AXOpen.Inspectors.AxoInspector.Result()
+  parent: AXOpen.Inspectors.AxoInspector
+  children: []
+  name: Result
+  fullName: Result
+  type: Method
+  source:
+    remote:
+      path: .\src\inspectors\ctrl\src\AxoInspector.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Inspectors.AxoInspector.Result
+    path: .\src\inspectors\ctrl\src\AxoInspector.st
+    startLine: 259
+  namespace: plc.AXOpen.Inspectors
+  summary: Returns inspection result
+  syntax:
+    content: Public AXOpen.Inspectors.eInspectorResult Result()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Inspectors.eInspectorResult
+references:
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Inspectors.IInspector
+  commentId: plc.AXOpen.Inspectors.IInspector
+  name: IInspector
+  nameWithType: IInspector
+  fullName: plc.AXOpen.Inspectors.IInspector
+  parent: plc.AXOpen.Inspectors.IInspector
+- uid: plc.AXOpen.Inspectors.IOnFail
+  commentId: plc.AXOpen.Inspectors.IOnFail
+  name: IOnFail
+  nameWithType: IOnFail
+  fullName: plc.AXOpen.Inspectors.IOnFail
+  parent: plc.AXOpen.Inspectors.IOnFail
+- uid: plc.AXOpen.Core.IAxoObject
+  commentId: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: plc.AXOpen.Core.IAxoObject
+  parent: plc.AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Inspectors.AxoInspectorDialog
+  name: AxoInspectorDialog
+  nameWithType: AxoInspectorDialog
+  fullName: AXOpen.Inspectors.AxoInspectorDialog
+- uid: plc.AXOpen.Inspectors.AxoInspectorTask
+  name: AxoInspectorTask
+  nameWithType: AxoInspectorTask
+  fullName: AXOpen.Inspectors.AxoInspectorTask
+- uid: plc.AXOpen.Core.IAxoCoordinator
+  name: IAxoCoordinator
+  nameWithType: IAxoCoordinator
+  fullName: AXOpen.Core.IAxoCoordinator
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.REF_TO AXOpen.Inspectors.AxoInspectorData
+  name: REF_TO AXOpen.Inspectors.AxoInspectorData
+  nameWithType: REF_TO AXOpen.Inspectors.AxoInspectorData
+  fullName: REF_TO AXOpen.Inspectors.AxoInspectorData
+- uid: plc.AXOpen.Inspectors.IAxoComprehensiveResult
+  name: IAxoComprehensiveResult
+  nameWithType: IAxoComprehensiveResult
+  fullName: AXOpen.Inspectors.IAxoComprehensiveResult
+- uid: plc.AXOpen.Core.IAxoStep
+  name: IAxoStep
+  nameWithType: IAxoStep
+  fullName: AXOpen.Core.IAxoStep
+- uid: plc.AXOpen.Inspectors.eInspectorResult
+  name: eInspectorResult
+  nameWithType: eInspectorResult
+  fullName: AXOpen.Inspectors.eInspectorResult
+
+

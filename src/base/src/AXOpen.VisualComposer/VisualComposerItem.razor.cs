@@ -2,13 +2,14 @@
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
-using AXSharp.Connector;
-using Newtonsoft.Json.Linq;
 
 namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerItem
     {
+        [Parameter]
+        public RenderFragment? ChildContent { get; set; }
+
         private VisualComposerContainer? _parent;
 
         [CascadingParameter(Name = "Parent")]
@@ -19,8 +20,9 @@ namespace AXOpen.VisualComposer
             {
                 _parent = value;
 
-                if (value != null)
-                    value.AddChildren(this);
+                Id = AxoObject.HumanReadable;
+
+                _parent?.AddChild(this);
             }
         }
 
@@ -28,38 +30,16 @@ namespace AXOpen.VisualComposer
         private Guid _imgId { get; set; }
 
         [Parameter]
-        public VisualComposerItem? Origin
-        {
-            set
-            {
-                UniqueGuid = value.UniqueGuid;
-                TwinElement = value.TwinElement;
-                ratioImgX = value.ratioImgX;
-                ratioImgY = value.ratioImgY;
-                Transform = value.Transform;
-                Presentation = value.Presentation;
-                Width = value.Width;
-                Height = value.Height;
-                ZIndex = value.ZIndex;
-
-                Id = value.TwinElement.HumanReadable.Replace(".", "_").Replace(" ", "_");
-            }
-        }
+        public AXOpen.Core.AxoObject? AxoObject { get; set; }
+        public string Id { get; set; }
 
         [Inject]
         protected IJSRuntime js { get; set; }
         private IJSObjectReference? jsModule;
 
-        public ITwinElement? TwinElement { get; set; }
-        public string Id { get; set; }
-        public Guid? UniqueGuid { get; set; } = null;
-
-        private double startX;
-        private double startY;
-
-        public double ratioImgX = 10;
-        public double ratioImgY = 10;
-
+        private double startX, startY, offsetX, offsetY;
+        public double ratioImgX = 10, ratioImgY = 10;
+        public bool Show { get; set; } = false;
         public TransformType Transform { get; set; } = TransformType.TopCenter;
         private string _presentation = PresentationType.StatusDisplay.Value;
         public string Presentation
@@ -73,8 +53,7 @@ namespace AXOpen.VisualComposer
         }
         public bool CustomPresentation { get; set; } = false;
 
-        public double Width = -1;
-        public double Height = -1;
+        public double Width = -1, Height = -1;
         public int ZIndex = 0;
 
         private void OnDragStart(DragEventArgs args)
@@ -89,18 +68,13 @@ namespace AXOpen.VisualComposer
             //var windowSize = await jsObject.InvokeAsync<WindowSize>("getWindowSize");
             var imageSize = await jsObject.InvokeAsync<WindowSize>("getImageSize", _imgId);
 
-            double offsetX = startX - (ratioImgX / 100 * imageSize.Width);
-            double offsetY = startY - (ratioImgY / 100 * imageSize.Height);
+            offsetX = startX - (ratioImgX / 100 * imageSize.Width);
+            offsetY = startY - (ratioImgY / 100 * imageSize.Height);
 
             ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100);
             ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);
 
             StateHasChanged();
-        }
-
-        public void Remove()
-        {
-            Parent.RemoveChildren(this);
         }
     }
 }

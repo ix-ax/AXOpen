@@ -51,12 +51,13 @@ namespace AXOpen.Messaging.Static
         protected override void OnInitialized()
         {
             base.OnInitialized();
-            UpdateValuesOnChange(Component.IsActive);
+            UpdateValuesOnChange(Component.MessengerState);
         }
 
-        public void Dispose()
+        public override void Dispose()
         {
             Component.StopPolling(this);
+            base.Dispose();
         }
 
         private string BackgroundColor
@@ -151,11 +152,11 @@ namespace AXOpen.Messaging.Static
         private string Risen => !(string.IsNullOrEmpty(Component.Risen.Cyclic.ToString())) ? Component.Risen.Cyclic.ToString() : "";
         private string Fallen => !(string.IsNullOrEmpty(Component.Fallen.Cyclic.ToString())) ? Component.Fallen.Cyclic.ToString() : "";
         private string Acknowledged => !(string.IsNullOrEmpty(Component.Acknowledged.Cyclic.ToString())) ? Component.Acknowledged.Cyclic.ToString() : "";
-        private bool IsActive => Component.IsActive.Cyclic;
-        private bool AcknowledgementRequired => Component.AcknowledgementRequired.Cyclic;
+        private bool IsActive => Component.State > eAxoMessengerState.Idle;
+        private bool AcknowledgementRequired => true; //Component.State >= eAxoMessengerState.ActiveAckn;
         private bool AcknowledgedBeforeFallen => Component.AcknowledgedBeforeFallen.Cyclic;
         private bool AcknowledgementDoesNotRequired => !AcknowledgementRequired;
-        private bool WaitingForAcknowledge => Component.WaitingForAcknowledge.Cyclic;
+        private bool WaitingForAcknowledge => Component.State >= eAxoMessengerState.NotActiveWatingAckn;
         private bool HideAckowledgeButton => !AcknowledgementRequired || AcknowledgedBeforeFallen || (!IsActive && !WaitingForAcknowledge);
 
         private string GetMessageText()

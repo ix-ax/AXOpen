@@ -1,0 +1,25 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Pneumatics
+  id: plc.AXOpen.Components.Pneumatics
+  children:
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder
+  name: plc.AXOpen.Components.Pneumatics
+  fullName: Pneumatics
+  type: Namespace
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Pneumatics
+references:
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder
+  name: AxoCylinder
+  nameWithType: AxoCylinder
+  fullName: AXOpen.Components.Pneumatics.AxoCylinder
+
+

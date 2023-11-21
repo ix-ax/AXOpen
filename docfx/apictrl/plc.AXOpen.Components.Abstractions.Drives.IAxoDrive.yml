@@ -1,0 +1,762 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive
+  parent: plc.AXOpen.Components.Abstractions.Drives
+  children:
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoStop(LREAL,LREAL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHalt(LREAL,LREAL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHome(LREAL,INT,LREAL,LREAL,LREAL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAbsolute(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveVelocity(BOOL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoTorqueControl(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition(REAL,BOOL,eAxoExecutionMode)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetOverride(BOOL,LREAL,LREAL,LREAL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter(BOOL,INT)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter(BOOL,INT)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter(INT,REAL,eAxoExecutionMode)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter(INT,BOOL,eAxoExecutionMode)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalInput(BOOL,INT)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalOutput(BOOL,INT)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteDigitalOutput(INT,BOOL,eAxoExecutionMode)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualPosition(BOOL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualVelocity(BOOL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualTorque(BOOL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadStatus(BOOL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadMotionState(BOOL,eAxoSource)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisInfo(BOOL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisError(BOOL)
+  - plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReset()
+  name: IAxoDrive
+  fullName: IAxoDrive
+  type: Interface
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: INTERFACE IAxoDrive
+  implements: []
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoStop(LREAL,LREAL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoStop
+  parent: IAxoDrive
+  children: []
+  name: AxoStop
+  fullName: AxoStop
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoStop
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 502
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoStop(in plc.LREAL Deceleration,in plc.LREAL Jerk)
+    parameters:
+    - id: Deceleration
+      type: plc.LREAL
+    - id: Jerk
+      type: plc.LREAL
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHalt(LREAL,LREAL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHalt
+  parent: IAxoDrive
+  children: []
+  name: AxoHalt
+  fullName: AxoHalt
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHalt
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 516
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoHalt(in plc.LREAL Deceleration,in plc.LREAL Jerk)
+    parameters:
+    - id: Deceleration
+      type: plc.LREAL
+    - id: Jerk
+      type: plc.LREAL
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHome(LREAL,INT,LREAL,LREAL,LREAL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHome
+  parent: IAxoDrive
+  children: []
+  name: AxoHome
+  fullName: AxoHome
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoHome
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 530
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoHome(in plc.LREAL Position,in plc.INT HommingMode,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration)
+    parameters:
+    - id: Position
+      type: plc.LREAL
+    - id: HommingMode
+      type: plc.INT
+    - id: Velocity
+      type: plc.LREAL
+    - id: Acceleration
+      type: plc.LREAL
+    - id: Deceleration
+      type: plc.LREAL
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAbsolute(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAbsolute
+  parent: IAxoDrive
+  children: []
+  name: AxoMoveAbsolute
+  fullName: AxoMoveAbsolute
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAbsolute
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 544
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoMoveAbsolute(in plc.BOOL ContinuousUpdate,in plc.LREAL Position,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
+    parameters:
+    - id: ContinuousUpdate
+      type: plc.BOOL
+    - id: Position
+      type: plc.LREAL
+    - id: Velocity
+      type: plc.LREAL
+    - id: Acceleration
+      type: plc.LREAL
+    - id: Deceleration
+      type: plc.LREAL
+    - id: Jerk
+      type: plc.LREAL
+    - id: Direction
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative
+  parent: IAxoDrive
+  children: []
+  name: AxoMoveRelative
+  fullName: AxoMoveRelative
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveRelative
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 565
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoMoveRelative(in plc.BOOL ContinuousUpdate,in plc.LREAL Distance,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
+    parameters:
+    - id: ContinuousUpdate
+      type: plc.BOOL
+    - id: Distance
+      type: plc.LREAL
+    - id: Velocity
+      type: plc.LREAL
+    - id: Acceleration
+      type: plc.LREAL
+    - id: Deceleration
+      type: plc.LREAL
+    - id: Jerk
+      type: plc.LREAL
+    - id: Direction
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive
+  parent: IAxoDrive
+  children: []
+  name: AxoMoveAdditive
+  fullName: AxoMoveAdditive
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveAdditive
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 585
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoMoveAdditive(in plc.BOOL ContinuousUpdate,in plc.LREAL Distance,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
+    parameters:
+    - id: ContinuousUpdate
+      type: plc.BOOL
+    - id: Distance
+      type: plc.LREAL
+    - id: Velocity
+      type: plc.LREAL
+    - id: Acceleration
+      type: plc.LREAL
+    - id: Deceleration
+      type: plc.LREAL
+    - id: Jerk
+      type: plc.LREAL
+    - id: Direction
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveVelocity(BOOL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveVelocity
+  parent: IAxoDrive
+  children: []
+  name: AxoMoveVelocity
+  fullName: AxoMoveVelocity
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoMoveVelocity
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 604
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoMoveVelocity(in plc.BOOL ContinuousUpdate,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
+    parameters:
+    - id: ContinuousUpdate
+      type: plc.BOOL
+    - id: Velocity
+      type: plc.LREAL
+    - id: Acceleration
+      type: plc.LREAL
+    - id: Deceleration
+      type: plc.LREAL
+    - id: Jerk
+      type: plc.LREAL
+    - id: Direction
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoTorqueControl(BOOL,LREAL,LREAL,LREAL,LREAL,LREAL,LREAL,eAxoDriveDirection)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoTorqueControl
+  parent: IAxoDrive
+  children: []
+  name: AxoTorqueControl
+  fullName: AxoTorqueControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoTorqueControl
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 620
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoTorqueControl(in plc.BOOL ContinuousUpdate,in plc.LREAL Torque,in plc.LREAL TorqueRamp,in plc.LREAL Velocity,in plc.LREAL Acceleration,in plc.LREAL Deceleration,in plc.LREAL Jerk,in plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection Direction)
+    parameters:
+    - id: ContinuousUpdate
+      type: plc.BOOL
+    - id: Torque
+      type: plc.LREAL
+    - id: TorqueRamp
+      type: plc.LREAL
+    - id: Velocity
+      type: plc.LREAL
+    - id: Acceleration
+      type: plc.LREAL
+    - id: Deceleration
+      type: plc.LREAL
+    - id: Jerk
+      type: plc.LREAL
+    - id: Direction
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition(REAL,BOOL,eAxoExecutionMode)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition
+  parent: IAxoDrive
+  children: []
+  name: AxoSetPosition
+  fullName: AxoSetPosition
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetPosition
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 647
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoSetPosition(in plc.REAL Position,in plc.BOOL Relative,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
+    parameters:
+    - id: Position
+      type: plc.REAL
+    - id: Relative
+      type: plc.BOOL
+    - id: ExecutionMode
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetOverride(BOOL,LREAL,LREAL,LREAL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetOverride
+  parent: IAxoDrive
+  children: []
+  name: AxoSetOverride
+  fullName: AxoSetOverride
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoSetOverride
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 659
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoSetOverride(in plc.BOOL Enable,in plc.LREAL VelFactor,in plc.LREAL AccFactor,in plc.LREAL JerkFactor)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    - id: VelFactor
+      type: plc.LREAL
+    - id: AccFactor
+      type: plc.LREAL
+    - id: JerkFactor
+      type: plc.LREAL
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter(BOOL,INT)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter
+  parent: IAxoDrive
+  children: []
+  name: AxoReadParameter
+  fullName: AxoReadParameter
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadParameter
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 673
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadParameter(in plc.BOOL Enable,in plc.INT ParameterNumber)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    - id: ParameterNumber
+      type: plc.INT
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter(BOOL,INT)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter
+  parent: IAxoDrive
+  children: []
+  name: AxoReadBoolParameter
+  fullName: AxoReadBoolParameter
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadBoolParameter
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 686
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadBoolParameter(in plc.BOOL Enable,in plc.INT ParameterNumber)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    - id: ParameterNumber
+      type: plc.INT
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter(INT,REAL,eAxoExecutionMode)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter
+  parent: IAxoDrive
+  children: []
+  name: AxoWriteParameter
+  fullName: AxoWriteParameter
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteParameter
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 700
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoWriteParameter(in plc.INT ParameterNumber,in plc.REAL Value,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
+    parameters:
+    - id: ParameterNumber
+      type: plc.INT
+    - id: Value
+      type: plc.REAL
+    - id: ExecutionMode
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter(INT,BOOL,eAxoExecutionMode)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter
+  parent: IAxoDrive
+  children: []
+  name: AxoWriteBoolParameter
+  fullName: AxoWriteBoolParameter
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteBoolParameter
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 712
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoWriteBoolParameter(in plc.INT ParameterNumber,in plc.BOOL Value,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
+    parameters:
+    - id: ParameterNumber
+      type: plc.INT
+    - id: Value
+      type: plc.BOOL
+    - id: ExecutionMode
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalInput(BOOL,INT)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalInput
+  parent: IAxoDrive
+  children: []
+  name: AxoReadDigitalInput
+  fullName: AxoReadDigitalInput
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalInput
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 726
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadDigitalInput(in plc.BOOL Enable,in plc.INT InputNumber)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    - id: InputNumber
+      type: plc.INT
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalOutput(BOOL,INT)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalOutput
+  parent: IAxoDrive
+  children: []
+  name: AxoReadDigitalOutput
+  fullName: AxoReadDigitalOutput
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadDigitalOutput
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 739
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadDigitalOutput(in plc.BOOL Enable,in plc.INT OutputNumber)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    - id: OutputNumber
+      type: plc.INT
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteDigitalOutput(INT,BOOL,eAxoExecutionMode)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteDigitalOutput
+  parent: IAxoDrive
+  children: []
+  name: AxoWriteDigitalOutput
+  fullName: AxoWriteDigitalOutput
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoWriteDigitalOutput
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 754
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoWriteDigitalOutput(in plc.INT OutputNumber,in plc.BOOL Value,in plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode ExecutionMode)
+    parameters:
+    - id: OutputNumber
+      type: plc.INT
+    - id: Value
+      type: plc.BOOL
+    - id: ExecutionMode
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualPosition(BOOL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualPosition
+  parent: IAxoDrive
+  children: []
+  name: AxoReadActualPosition
+  fullName: AxoReadActualPosition
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualPosition
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 768
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadActualPosition(in plc.BOOL Enable)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualVelocity(BOOL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualVelocity
+  parent: IAxoDrive
+  children: []
+  name: AxoReadActualVelocity
+  fullName: AxoReadActualVelocity
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualVelocity
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 780
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadActualVelocity(in plc.BOOL Enable)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualTorque(BOOL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualTorque
+  parent: IAxoDrive
+  children: []
+  name: AxoReadActualTorque
+  fullName: AxoReadActualTorque
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadActualTorque
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 792
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadActualTorque(in plc.BOOL Enable)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadStatus(BOOL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadStatus
+  parent: IAxoDrive
+  children: []
+  name: AxoReadStatus
+  fullName: AxoReadStatus
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadStatus
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 805
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadStatus(in plc.BOOL Enable)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadMotionState(BOOL,eAxoSource)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadMotionState
+  parent: IAxoDrive
+  children: []
+  name: AxoReadMotionState
+  fullName: AxoReadMotionState
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadMotionState
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 822
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadMotionState(in plc.BOOL Enable,in plc.AXOpen.Components.Abstractions.Drives.eAxoSource Source)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    - id: Source
+      type: plc.AXOpen.Components.Abstractions.Drives.eAxoSource
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisInfo(BOOL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisInfo
+  parent: IAxoDrive
+  children: []
+  name: AxoReadAxisInfo
+  fullName: AxoReadAxisInfo
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisInfo
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 837
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadAxisInfo(in plc.BOOL Enable)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisError(BOOL)
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisError
+  parent: IAxoDrive
+  children: []
+  name: AxoReadAxisError
+  fullName: AxoReadAxisError
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReadAxisError
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 863
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoToggleTask AxoReadAxisError(in plc.BOOL Enable)
+    parameters:
+    - id: Enable
+      type: plc.BOOL
+    return:
+      type: plc.AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReset()
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReset
+  parent: IAxoDrive
+  children: []
+  name: AxoReset
+  fullName: AxoReset
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoDrive.AxoReset
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoDrive.st
+    startLine: 863
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState AxoReset()
+    parameters: []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+references:
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.LREAL
+  name: LREAL
+  nameWithType: LREAL
+  fullName: LREAL
+- uid: plc.INT
+  name: INT
+  nameWithType: INT
+  fullName: INT
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
+  name: eAxoDriveDirection
+  nameWithType: eAxoDriveDirection
+  fullName: AXOpen.Components.Abstractions.Drives.eAxoDriveDirection
+- uid: plc.REAL
+  name: REAL
+  nameWithType: REAL
+  fullName: REAL
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
+  name: eAxoExecutionMode
+  nameWithType: eAxoExecutionMode
+  fullName: AXOpen.Components.Abstractions.Drives.eAxoExecutionMode
+- uid: plc.AXOpen.Core.IAxoToggleTask
+  name: IAxoToggleTask
+  nameWithType: IAxoToggleTask
+  fullName: AXOpen.Core.IAxoToggleTask
+- uid: plc.AXOpen.Components.Abstractions.Drives.eAxoSource
+  name: eAxoSource
+  nameWithType: eAxoSource
+  fullName: AXOpen.Components.Abstractions.Drives.eAxoSource
+
+

@@ -1,0 +1,74 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoMomentaryTask
+  id: plc.AXOpen.Core.IAxoMomentaryTask
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoMomentaryTask.IsSwitchedOn()
+  - plc.AXOpen.Core.IAxoMomentaryTask.IsSwitchedOff()
+  name: IAxoMomentaryTask
+  fullName: IAxoMomentaryTask
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoMomentaryTask\IAxoMomentaryTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMomentaryTask
+    path: .\src\core\ctrl\src\abstractions\AxoMomentaryTask\IAxoMomentaryTask.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoMomentaryTask
+  implements: []
+- uid: plc.AXOpen.Core.IAxoMomentaryTask.IsSwitchedOn()
+  id: plc.AXOpen.Core.IAxoMomentaryTask.IsSwitchedOn
+  parent: IAxoMomentaryTask
+  children: []
+  name: IsSwitchedOn
+  fullName: IsSwitchedOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoMomentaryTask\IAxoMomentaryTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMomentaryTask.IsSwitchedOn
+    path: .\src\core\ctrl\src\abstractions\AxoMomentaryTask\IAxoMomentaryTask.st
+    startLine: 15
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if task is switched on
+  syntax:
+    content: Public BOOL IsSwitchedOn()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoMomentaryTask.IsSwitchedOff()
+  id: plc.AXOpen.Core.IAxoMomentaryTask.IsSwitchedOff
+  parent: IAxoMomentaryTask
+  children: []
+  name: IsSwitchedOff
+  fullName: IsSwitchedOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoMomentaryTask\IAxoMomentaryTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoMomentaryTask.IsSwitchedOff
+    path: .\src\core\ctrl\src\abstractions\AxoMomentaryTask\IAxoMomentaryTask.st
+    startLine: 20
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if task is switched off
+  syntax:
+    content: Public BOOL IsSwitchedOff()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

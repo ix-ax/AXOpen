@@ -25,7 +25,6 @@ CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
         //return this instance
         Inspect := THIS;
 
-       
         // set task inspection data, pass a reference (an address)
         // REF(_data) will get a reference of _data variable (like & in C)
         _inspectorTask.SetInspectionData(REF(_data));

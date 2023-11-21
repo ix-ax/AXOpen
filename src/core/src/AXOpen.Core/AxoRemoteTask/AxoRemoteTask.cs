@@ -206,7 +206,7 @@ namespace AXOpen.Core
                     await this.HasRemoteException.SetAsync(true);
                     await this.ErrorDetails.SetAsync(ex.Message);
                     RemoteExecutionException = ex;
-                    RemoteExceptionDetails = ex.ToString();
+                    RemoteExceptionDetails = ex.Message;
                     AxoApplication.Current.Logger.Error(ex.ToString(), this, new GenericIdentity("Controller"));
                     return;
                 }

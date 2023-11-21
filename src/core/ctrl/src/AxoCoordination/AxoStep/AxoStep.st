@@ -91,20 +91,6 @@ NAMESPACE AXOpen.Core
             Execute := THIS.ExecuteInternal(coord,TRUE);
         END_METHOD
 
-        METHOD PROTECTED CountCallsOfTheExecuteMethod
-            VAR    
-                _currentlyOpenCycleCount : ULINT;
-            END_VAR
-
-            IF NOT IsNullContext(THIS.GetContext()) THEN
-                _currentlyOpenCycleCount := THIS.GetContext().OpenCycleCount();
-                _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
-                _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
-                _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
-                _openCycleCount := _currentlyOpenCycleCount;
-            END_IF;
-        END_METHOD
-
         METHOD PROTECTED ExecuteInternal : BOOL
             VAR_INPUT
                 coord : IAxoCoordinator;                
@@ -113,17 +99,33 @@ NAMESPACE AXOpen.Core
             VAR                
                 Sequencer : REF_TO AxoSequencer;
                 coordAsAxoObject : IAxoObject;
+                _currentlyOpenCycleCount : ULINT;
                 // Selector : REF_TO Selector;
             END_VAR    
 
-            // Initializes with the coordinator if not previously intialized.
-            coordAsAxoObject ?= coord;
-            IF(coordAsAxoObject <> NULL) THEN THIS.Initialize(coordAsAxoObject); END_IF;
-            
-            THIS.CountCallsOfTheExecuteMethod();
+            IF _context_ <> NULL THEN 
+                _currentlyOpenCycleCount := _context_.OpenCycleCount();
+                _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
+                _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
+                _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
+                _openCycleCount := _currentlyOpenCycleCount;
+            ELSE 
+                coordAsAxoObject ?= coord;
+               IF(coordAsAxoObject <> NULL) THEN
+                    THIS.Initialize(coordAsAxoObject); 
+                    _currentlyOpenCycleCount := _context_.OpenCycleCount();
+                    _isCalledJustOnceInThisPlcCycle:= _openCycleCount = _currentlyOpenCycleCount - ULINT#1;
+                    _multipleStepCallInThisPlcCycle := _openCycleCount >= _currentlyOpenCycleCount; // TODO: We will need to message this, when messaging ready.            
+                    _noStepCallInPreviousPlcCycle := _openCycleCount < _currentlyOpenCycleCount - ULINT#1; // TODO: We will need to message this, when messaging ready.            
+                    _openCycleCount := _currentlyOpenCycleCount;
+                END_IF;
+            END_IF;    
 
             Sequencer ?= coord;
-            IF(coord <> NULL) THEN ExecuteInternal := Sequencer^.Execute(THIS, Enable); END_IF;
+            IF(Sequencer <> NULL) THEN 
+                // Sequencer^.SetSuspendMultipleExecuteCallCheck(TRUE);  // moved to Sequencer.Open
+                ExecuteInternal := Sequencer^.Execute(THIS, Enable);
+            END_IF;
 
                 
             // Selector ?= coord;
@@ -138,7 +140,7 @@ NAMESPACE AXOpen.Core
             VAR_INPUT
                 Active : BOOL;
             END_VAR
-            IF(NOT THIS.IsActive AND Active) THEN THIS.GetContext().GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); END_IF;
+            IF(NOT THIS.IsActive AND Active) THEN _context_.GetLogger().Log('At step:', AXOpen.Logging.eLogLevel#Verbose, THIS); END_IF;
             IsActive := Active;
         END_METHOD
 
@@ -164,6 +166,19 @@ NAMESPACE AXOpen.Core
         ///</summary>
         METHOD PUBLIC GetIsEnabled : BOOL
             GetIsEnabled := IsEnabled;
+        END_METHOD
+
+        ///<summary>
+        /// Checks if the current entry to a step is the first occurrence in the execution cycle.
+        ///</summary>
+        ///<returns>A boolean value indicating whether the current entry to a step is the first in the execution cycle (TRUE) or not (FALSE).</returns>
+        ///<remarks>
+        /// This method utilizes the IsFirstExecutionCycle method to determine if the current entry to a step is the first occurrence in the execution cycle.
+        /// It returns TRUE if the code is being executed for the first time in the current step within the execution cycle.
+        /// It returns FALSE if the code has already entered the current step in the current execution cycle.
+        ///</remarks>
+        METHOD PUBLIC IsFirstEntryToStep : BOOL 
+            IsFirstEntryToStep := THIS.IsFirstExecutionCycle(); // Utilizes IsFirstExecutionCycle method.
         END_METHOD
     END_CLASS    
 END_NAMESPACE

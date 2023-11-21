@@ -1,0 +1,128 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+  parent: plc.AXOpen.Components.Abstractions
+  children:
+  - plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ClearInspectionResults()
+  - plc.AXOpen.Components.Abstractions.IAxoVisionSensor.Trigger()
+  - plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ChangeJob(UINT)
+  - plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ChangeJob(STRING)
+  name: IAxoVisionSensor
+  fullName: IAxoVisionSensor
+  type: Interface
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor
+    path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: INTERFACE IAxoVisionSensor
+  implements: []
+- uid: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ClearInspectionResults()
+  id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ClearInspectionResults
+  parent: IAxoVisionSensor
+  children: []
+  name: ClearInspectionResults
+  fullName: ClearInspectionResults
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ClearInspectionResults
+    path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearInspectionResults()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.Trigger()
+  id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.Trigger
+  parent: IAxoVisionSensor
+  children: []
+  name: Trigger
+  fullName: Trigger
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.Trigger
+    path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Trigger()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ChangeJob(UINT)
+  id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ChangeJob
+  parent: IAxoVisionSensor
+  children: []
+  name: ChangeJob
+  fullName: ChangeJob
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ChangeJob
+    path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+    startLine: 5
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ChangeJob(in plc.UINT Job)
+    parameters:
+    - id: Job
+      type: plc.UINT
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ChangeJob(STRING)
+  id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ChangeJob
+  parent: IAxoVisionSensor
+  children: []
+  name: ChangeJob
+  fullName: ChangeJob
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.IAxoVisionSensor.ChangeJob
+    path: .\src\components.abstractions\ctrl\src\IAxoVisionSensor.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ChangeJob(in plc.STRING Job)
+    parameters:
+    - id: Job
+      type: plc.STRING
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+references:
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+- uid: plc.STRING
+  name: STRING
+  nameWithType: STRING
+  fullName: STRING
+
+

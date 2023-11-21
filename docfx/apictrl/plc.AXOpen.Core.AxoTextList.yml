@@ -1,0 +1,51 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.AxoTextList
+  id: plc.AXOpen.Core.AxoTextList
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.AxoTextList.Id
+  name: AxoTextList
+  fullName: AxoTextList
+  type: Class
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTextList
+    path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: CLASS AxoTextList
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements: *o0
+- uid: plc.AXOpen.Core.AxoTextList.Id
+  id: plc.AXOpen.Core.AxoTextList.Id
+  parent: AXOpen.Core
+  children: []
+  name: Id
+  fullName: Id
+  type: Property
+  source:
+    remote:
+      path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.AxoTextList.Id
+    path: .\src\core\ctrl\src\AxoTextList\AxoTextList.st
+    startLine: 3
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: 'Id : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+

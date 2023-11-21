@@ -1,0 +1,60 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Data.AxoDataEntity
+  id: plc.AXOpen.Data.AxoDataEntity
+  parent: plc.AXOpen.Data
+  children:
+  - plc.AXOpen.Data.AxoDataEntity.DataEntityId
+  name: AxoDataEntity
+  fullName: AxoDataEntity
+  type: Class
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataEntity.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataEntity
+    path: .\src\data\ctrl\src\AxoDataEntity.st
+    startLine: 4
+  namespace: plc.AXOpen.Data
+  summary: Base class for any exchangable data in <xref href="AxoDataExchange" data-throw-if-not-resolved="false"></xref>.
+  syntax:
+    content: CLASS AxoDataEntity
+  inheritance: &o0 []
+  inheritedMembers: *o0
+  implements:
+  - plc.AXOpen.Data.IAxoDataEntity
+- uid: plc.AXOpen.Data.AxoDataEntity.DataEntityId
+  id: plc.AXOpen.Data.AxoDataEntity.DataEntityId
+  parent: AXOpen.Data
+  children: []
+  name: DataEntityId
+  fullName: DataEntityId
+  type: Property
+  source:
+    remote:
+      path: .\src\data\ctrl\src\AxoDataEntity.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Data.AxoDataEntity.DataEntityId
+    path: .\src\data\ctrl\src\AxoDataEntity.st
+    startLine: 9
+  namespace: plc.AXOpen.Data
+  summary: Gets or sets data entity identifier.
+  syntax:
+    content: 'DataEntityId : STRING[254]'
+    return:
+      type: STRING[254]
+references:
+- uid: plc.AXOpen.Data.IAxoDataEntity
+  commentId: plc.AXOpen.Data.IAxoDataEntity
+  name: IAxoDataEntity
+  nameWithType: IAxoDataEntity
+  fullName: plc.AXOpen.Data.IAxoDataEntity
+  parent: plc.AXOpen.Data.IAxoDataEntity
+- uid: plc.STRING[254]
+  name: STRING[254]
+  nameWithType: STRING[254]
+  fullName: STRING[254]
+
+

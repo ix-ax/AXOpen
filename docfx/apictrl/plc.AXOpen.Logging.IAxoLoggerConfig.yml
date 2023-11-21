@@ -1,0 +1,58 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Logging.IAxoLoggerConfig
+  id: plc.AXOpen.Logging.IAxoLoggerConfig
+  parent: plc.AXOpen.Logging
+  children:
+  - plc.AXOpen.Logging.IAxoLoggerConfig.SetMinimumLevel(eLogLevel)
+  name: IAxoLoggerConfig
+  fullName: IAxoLoggerConfig
+  type: Interface
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.IAxoLoggerConfig
+    path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+    startLine: 66
+  namespace: plc.AXOpen.Logging
+  summary: Defines the IAxoLoggerConfig interface
+  syntax:
+    content: INTERFACE IAxoLoggerConfig
+  implements: []
+- uid: plc.AXOpen.Logging.IAxoLoggerConfig.SetMinimumLevel(eLogLevel)
+  id: plc.AXOpen.Logging.IAxoLoggerConfig.SetMinimumLevel
+  parent: IAxoLoggerConfig
+  children: []
+  name: SetMinimumLevel
+  fullName: SetMinimumLevel
+  type: Method
+  source:
+    remote:
+      path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Logging.IAxoLoggerConfig.SetMinimumLevel
+    path: .\src\abstractions\ctrl\src\AxoLogger\IAxoLogger.st
+    startLine: 71
+  namespace: plc.AXOpen.Logging
+  summary: Defines the SetMinimumLevel methodThis method takes a log level as input and returns an instance of IAxoLoggerConfig
+  syntax:
+    content: Public AXOpen.Logging.IAxoLoggerConfig SetMinimumLevel(in plc.AXOpen.Logging.eLogLevel _level)
+    parameters:
+    - id: _level
+      type: plc.AXOpen.Logging.eLogLevel
+    return:
+      type: plc.AXOpen.Logging.IAxoLoggerConfig
+references:
+- uid: plc.AXOpen.Logging.IAxoLoggerConfig
+  name: IAxoLoggerConfig
+  nameWithType: IAxoLoggerConfig
+  fullName: AXOpen.Logging.IAxoLoggerConfig
+- uid: plc.AXOpen.Logging.eLogLevel
+  name: eLogLevel
+  nameWithType: eLogLevel
+  fullName: AXOpen.Logging.eLogLevel
+
+

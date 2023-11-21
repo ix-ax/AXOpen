@@ -1,0 +1,165 @@
+﻿@using AXOpen.Base.Dialogs;
+@using AXOpen.Core.Blazor.AxoDialogs;
+@using AXOpen.Core.Blazor.Dialogs
+@using axosimple.server.Components;
+@using AXOpen.Data;
+@using AXOpen.Messaging.Static
+@using AXSharp.Connector;
+@using AXOpen.Core;
+
+
+@inject IAlertDialogService _alerts
+@inherits RenderableComplexComponentBase<axosimple.IUnit>
+@using AXOpen.VisualComposer;
+
+<body>
+    <div class="content-wrapper">
+        <UnitsSequences Component="@this.Component"></UnitsSequences>
+        <UnitsService ServiceTask="((dynamic)this.Component).ServiceMode" Components="((dynamic)this.Component).UnitObjects.Components"></UnitsService>
+    </div>
+</body>
+
+
+<!-- Modal data alarms -->
+<div class="modal fade" id="alarmsviewmodal" tabindex="-1" aria-labelledby="alarmsviewTitle" aria-hidden="true">
+    <AlarmsView Component="this.Component" MessageProvider="AxoMessageProvider"></AlarmsView>
+</div>
+
+
+<!-- Modal technology window -->
+<div class="modal fade" id="technologysettingsviewmodal" tabindex="-1" aria-labelledby="technologysettingsviewmodalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container">
+                    <div class="row">
+                        <h1 class="modal-title fs-5" id="technologysettingsviewmodalTitle">@Component?.HumanReadable</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row p-2">
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary"
+                        @onclick="async () => {await TechnologySettings.OnlineToShadowAsync();
+                                               await SharedTechnologySettings.OnlineToShadowAsync();
+                                    }">
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <RenderableContentControl Context="@SharedTechnologySettings" Presentation="Display" />
+                        <RenderableContentControl Context="@TechnologySettings" Presentation="Display" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal data window -->
+<div class="modal fade" id="dataviewmodal" tabindex="-1" aria-labelledby="dataviewmodalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container">
+                    <div class="row">
+                        <h1 class="modal-title fs-5" id="dataviewmodalTitle">@Component?.HumanReadable</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row p-2">
+                    </div>
+                    <div class="row">
+                        <button type="button" class="btn btn-primary"
+                        @onclick="async () => {await DataHeader.OnlineToShadowAsync();
+                                               await Data.OnlineToShadowAsync();
+                                    }">
+                            Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <RenderableContentControl Context="@DataHeader" Presentation="Display" />
+                        <RenderableContentControl Context="@Data" Presentation="Display" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal data components -->
+<div class="modal fade" id="componentsviewmodal" tabindex="-1" aria-labelledby="componentsviewTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="container">
+                    <div class="row">
+                        <h1 class="modal-title fs-5" id="componentsTitle">Components</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <RenderableContentControl Context="((dynamic)this.Component)?.UnitObjects.Components" Presentation="Command-Control" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-white p-2 fixed-bottom" style="z-index: 0;">
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#technologysettingsviewmodal">
+        Technology Settings
+    </button>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataviewmodal">
+        Process Data
+    </button>
+    
+    <AlarmsButton Component="this.Component" MessageProvider="AxoMessageProvider"></AlarmsButton>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#componentsviewmodal">
+        Components
+    </button>
+</div>
+
+<AxoDialogLocator DialogId="@this.Component?.Symbol" ObservedObjects="new[] {this.Component}"></AxoDialogLocator>
+<AxoAlertDialogLocator ObservedObjects="new[] {this.Component}" />
+
+@code
+{
+    private AxoMessageProvider AxoMessageProvider => 
+        AxoMessageProvider.Create(new ITwinObject[] { this.Component, this.DataManger });
+    
+    [Parameter]
+    public AXOpen.Data.AxoDataEntity? Data { get; set; }
+
+    [Parameter]
+    public AXOpen.Data.AxoDataEntity? DataHeader { get; set; }
+
+
+    [Parameter]
+    public AXOpen.Data.AxoDataExchangeBase? DataManger { get; set; }
+
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public AXOpen.Data.AxoDataEntity? TechnologySettings { get; set; }
+
+    [Parameter]
+    public AXOpen.Data.AxoDataEntity? SharedTechnologySettings { get; set; }
+}
+

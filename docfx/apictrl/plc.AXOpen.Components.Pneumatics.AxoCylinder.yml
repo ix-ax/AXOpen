@@ -1,0 +1,649 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder
+  parent: plc.AXOpen.Components.Pneumatics
+  children:
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkTask
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeTask
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._StopTask
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._HomeSensor
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._WorkSensor
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveHomeSignal
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveWorkSignal
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._Messenger
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkIsSuspended
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeIsSuspended
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.Run(IAxoObject,BOOL,BOOL)
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.Run(IAxoContext,BOOL,BOOL)
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.ManualControl()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.Restore()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveToWork()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveToHome()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.Stop()
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToWorkWhile(BOOL)
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToHomeWhile(BOOL)
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToWorkWhen(BOOL)
+  - plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToHomeWhen(BOOL)
+  name: AxoCylinder
+  fullName: AxoCylinder
+  type: Class
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: CLASS AxoCylinder
+  inheritance:
+  - plc.AXOpen.Core.AxoComponent
+  - plc.AXOpen.Core.AxoObject
+  inheritedMembers:
+  - plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  - plc.AXOpen.Core.AxoObject.Identity
+  - plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  - plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  - plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  - plc.AXOpen.Core.AxoComponent.Open()
+  - plc.AXOpen.Core.AxoComponent.Run()
+  - plc.AXOpen.Core.AxoComponent.Close()
+  - plc.AXOpen.Core.AxoComponent.Restore()
+  - plc.AXOpen.Core.AxoComponent.ManualControl()
+  - plc.AXOpen.Core.AxoObject.GetIdentity()
+  - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetParent()
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  implements:
+  - plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkTask
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkTask
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveToWorkTask
+  fullName: _MoveToWorkTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkTask
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveToWorkTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeTask
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeTask
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveToHomeTask
+  fullName: _MoveToHomeTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeTask
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveToHomeTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._StopTask
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._StopTask
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _StopTask
+  fullName: _StopTask
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._StopTask
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 16
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_StopTask : AXOpen.Core.AxoTask'
+    return:
+      type: AXOpen.Core.AxoTask
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._HomeSensor
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._HomeSensor
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _HomeSensor
+  fullName: _HomeSensor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._HomeSensor
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 21
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_HomeSensor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._WorkSensor
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._WorkSensor
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _WorkSensor
+  fullName: _WorkSensor
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._WorkSensor
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 26
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_WorkSensor : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveHomeSignal
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveHomeSignal
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveHomeSignal
+  fullName: _MoveHomeSignal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveHomeSignal
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 30
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveHomeSignal : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveWorkSignal
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveWorkSignal
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveWorkSignal
+  fullName: _MoveWorkSignal
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveWorkSignal
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 35
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveWorkSignal : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._Messenger
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._Messenger
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _Messenger
+  fullName: _Messenger
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._Messenger
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 41
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_Messenger : AXOpen.Messaging.Static.AxoMessenger'
+    return:
+      type: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkIsSuspended
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkIsSuspended
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveToWorkIsSuspended
+  fullName: _MoveToWorkIsSuspended
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToWorkIsSuspended
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 44
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveToWorkIsSuspended : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeIsSuspended
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeIsSuspended
+  parent: AXOpen.Components.Pneumatics
+  children: []
+  name: _MoveToHomeIsSuspended
+  fullName: _MoveToHomeIsSuspended
+  type: Property
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder._MoveToHomeIsSuspended
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 47
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: '_MoveToHomeIsSuspended : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run(IAxoObject,BOOL,BOOL)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run(IAxoObject,BOOL,BOOL)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 49
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoObject parent,in plc.BOOL homeSensor,in plc.BOOL workSensor)
+    parameters:
+    - id: parent
+      type: plc.AXOpen.Core.IAxoObject
+    - id: homeSensor
+      type: plc.BOOL
+    - id: workSensor
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run(IAxoContext,BOOL,BOOL)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run(IAxoContext,BOOL,BOOL)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: Run
+  fullName: Run
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Run
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 69
+  namespace: plc.AXOpen.Components.Pneumatics
+  summary: Runs tasks and logic of this component.>[!IMPORTANT] This method or one of its overloads must be called cyclically.
+  syntax:
+    content: Public VOID Run(in plc.AXOpen.Core.IAxoContext context,in plc.BOOL homeSensor,in plc.BOOL workSensor)
+    parameters:
+    - id: context
+      type: plc.AXOpen.Core.IAxoContext
+    - id: homeSensor
+      type: plc.BOOL
+    - id: workSensor
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.ManualControl()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.ManualControl()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: ManualControl
+  fullName: ManualControl
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.ManualControl
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 140
+  namespace: plc.AXOpen.Components.Pneumatics
+  syntax:
+    content: Protected VOID ManualControl()
+    parameters: &o0 []
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.Restore()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Restore()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: Restore
+  fullName: Restore
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Restore
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 148
+  namespace: plc.AXOpen.Components.Pneumatics
+  summary: Restores this component into intial state.
+  syntax:
+    content: Protected AXOpen.Core.IAxoTask Restore()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveToWork()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveToWork()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: MoveToWork
+  fullName: MoveToWork
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveToWork
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 157
+  namespace: plc.AXOpen.Components.Pneumatics
+  summary: Invokes the movement to the work position and returns the task state.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState MoveToWork()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveToHome()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveToHome()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: MoveToHome
+  fullName: MoveToHome
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.MoveToHome
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 168
+  namespace: plc.AXOpen.Components.Pneumatics
+  summary: Invokes the movement to the home position and returns the task state.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState MoveToHome()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.Stop()
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Stop()
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: Stop
+  fullName: Stop
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.Stop
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 172
+  namespace: plc.AXOpen.Components.Pneumatics
+  summary: Stops any movement.
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Stop()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToWorkWhile(BOOL)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToWorkWhile(BOOL)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: SuspendMoveToWorkWhile
+  fullName: SuspendMoveToWorkWhile
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToWorkWhile
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 178
+  namespace: plc.AXOpen.Components.Pneumatics
+  summary: Suspends the movement to the work position while the condition is 'true'. Task remains still executing.
+  syntax:
+    content: Public VOID SuspendMoveToWorkWhile(in plc.BOOL Condition)
+    parameters:
+    - id: Condition
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToHomeWhile(BOOL)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToHomeWhile(BOOL)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: SuspendMoveToHomeWhile
+  fullName: SuspendMoveToHomeWhile
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.SuspendMoveToHomeWhile
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 194
+  namespace: plc.AXOpen.Components.Pneumatics
+  summary: Suspends the movement to the home position while the condition is 'true'. Task remains still executing.
+  syntax:
+    content: Public VOID SuspendMoveToHomeWhile(in plc.BOOL Condition)
+    parameters:
+    - id: Condition
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToWorkWhen(BOOL)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToWorkWhen(BOOL)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: AbortMoveToWorkWhen
+  fullName: AbortMoveToWorkWhen
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToWorkWhen
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 212
+  namespace: plc.AXOpen.Components.Pneumatics
+  summary: Aborts the movement to the work position when the condition is 'true' and restores the respective task.
+  syntax:
+    content: Public VOID AbortMoveToWorkWhen(in plc.BOOL Condition)
+    parameters:
+    - id: Condition
+      type: plc.BOOL
+    return:
+      type: VOID
+- uid: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToHomeWhen(BOOL)
+  id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToHomeWhen(BOOL)
+  parent: AXOpen.Components.Pneumatics.AxoCylinder
+  children: []
+  name: AbortMoveToHomeWhen
+  fullName: AbortMoveToHomeWhen
+  type: Method
+  source:
+    remote:
+      path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Pneumatics.AxoCylinder.AbortMoveToHomeWhen
+    path: .\src\components.pneumatics\ctrl\src\AxoCylinder.st
+    startLine: 228
+  namespace: plc.AXOpen.Components.Pneumatics
+  summary: Aborts the movement to the home position when the condition is 'true' and restores the respective task.
+  syntax:
+    content: Public VOID AbortMoveToHomeWhen(in plc.BOOL Condition)
+    parameters:
+    - id: Condition
+      type: plc.BOOL
+    return:
+      type: VOID
+references:
+- uid: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  commentId: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  name: _isManuallyControllable
+  nameWithType: _isManuallyControllable
+  fullName: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+  parent: plc.AXOpen.Core.AxoComponent._isManuallyControllable
+- uid: plc.AXOpen.Core.AxoObject.Identity
+  commentId: plc.AXOpen.Core.AxoObject.Identity
+  name: Identity
+  nameWithType: Identity
+  fullName: plc.AXOpen.Core.AxoObject.Identity
+  parent: plc.AXOpen.Core.AxoObject.Identity
+- uid: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  name: ActivateManualControl()
+  nameWithType: ActivateManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ActivateManualControl()
+- uid: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  commentId: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  name: IsManuallyControllable()
+  nameWithType: IsManuallyControllable()
+  fullName: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+  parent: plc.AXOpen.Core.AxoComponent.IsManuallyControllable()
+- uid: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  commentId: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  name: CheckIfManualControlIsActivated()
+  nameWithType: CheckIfManualControlIsActivated()
+  fullName: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+  parent: plc.AXOpen.Core.AxoComponent.CheckIfManualControlIsActivated()
+- uid: plc.AXOpen.Core.AxoComponent.Open()
+  commentId: plc.AXOpen.Core.AxoComponent.Open()
+  name: Open()
+  nameWithType: Open()
+  fullName: plc.AXOpen.Core.AxoComponent.Open()
+  parent: plc.AXOpen.Core.AxoComponent.Open()
+- uid: plc.AXOpen.Core.AxoComponent.Run()
+  commentId: plc.AXOpen.Core.AxoComponent.Run()
+  name: Run()
+  nameWithType: Run()
+  fullName: plc.AXOpen.Core.AxoComponent.Run()
+  parent: plc.AXOpen.Core.AxoComponent.Run()
+- uid: plc.AXOpen.Core.AxoComponent.Close()
+  commentId: plc.AXOpen.Core.AxoComponent.Close()
+  name: Close()
+  nameWithType: Close()
+  fullName: plc.AXOpen.Core.AxoComponent.Close()
+  parent: plc.AXOpen.Core.AxoComponent.Close()
+- uid: plc.AXOpen.Core.AxoComponent.Restore()
+  commentId: plc.AXOpen.Core.AxoComponent.Restore()
+  name: Restore()
+  nameWithType: Restore()
+  fullName: plc.AXOpen.Core.AxoComponent.Restore()
+  parent: plc.AXOpen.Core.AxoComponent.Restore()
+- uid: plc.AXOpen.Core.AxoComponent.ManualControl()
+  commentId: plc.AXOpen.Core.AxoComponent.ManualControl()
+  name: ManualControl()
+  nameWithType: ManualControl()
+  fullName: plc.AXOpen.Core.AxoComponent.ManualControl()
+  parent: plc.AXOpen.Core.AxoComponent.ManualControl()
+- uid: plc.AXOpen.Core.AxoObject.GetIdentity()
+  commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
+  name: GetIdentity()
+  nameWithType: GetIdentity()
+  fullName: plc.AXOpen.Core.AxoObject.GetIdentity()
+  parent: plc.AXOpen.Core.AxoObject.GetIdentity()
+- uid: plc.AXOpen.Core.AxoObject.GetContext()
+  commentId: plc.AXOpen.Core.AxoObject.GetContext()
+  name: GetContext()
+  nameWithType: GetContext()
+  fullName: plc.AXOpen.Core.AxoObject.GetContext()
+  parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetParent()
+  commentId: plc.AXOpen.Core.AxoObject.GetParent()
+  name: GetParent()
+  nameWithType: GetParent()
+  fullName: plc.AXOpen.Core.AxoObject.GetParent()
+  parent: plc.AXOpen.Core.AxoObject.GetParent()
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  name: Initialize(IAxoObject)
+  nameWithType: Initialize(IAxoObject)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
+- uid: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  commentId: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  name: Initialize(IAxoContext)
+  nameWithType: Initialize(IAxoContext)
+  fullName: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+  parent: plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
+- uid: plc.AXOpen.Core.IAxoComponent
+  commentId: plc.AXOpen.Core.IAxoComponent
+  name: IAxoComponent
+  nameWithType: IAxoComponent
+  fullName: plc.AXOpen.Core.IAxoComponent
+  parent: plc.AXOpen.Core.IAxoComponent
+- uid: plc.AXOpen.Core.AxoTask
+  name: AxoTask
+  nameWithType: AxoTask
+  fullName: AXOpen.Core.AxoTask
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.AXOpen.Messaging.Static.AxoMessenger
+  name: AxoMessenger
+  nameWithType: AxoMessenger
+  fullName: AXOpen.Messaging.Static.AxoMessenger
+- uid: plc.AXOpen.Core.IAxoObject
+  name: IAxoObject
+  nameWithType: IAxoObject
+  fullName: AXOpen.Core.IAxoObject
+- uid: plc.AXOpen.Core.IAxoContext
+  name: IAxoContext
+  nameWithType: IAxoContext
+  fullName: AXOpen.Core.IAxoContext
+- uid: plc.AXOpen.Core.IAxoTask
+  name: IAxoTask
+  nameWithType: IAxoTask
+  fullName: AXOpen.Core.IAxoTask
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

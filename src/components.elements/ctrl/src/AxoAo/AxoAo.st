@@ -62,7 +62,12 @@ NAMESPACE AXOpen.Elements
                 inoSignal: DINT;
             END_VAR
     
-            THIS.Initialize(context);
+            IF (context = NULL) THEN RETURN; END_IF;
+
+            IF THIS._context_ = NULL THEN
+                THIS.Initialize(context);
+            end_if;
+
             _messengerDivisionByZero.Serve(THIS); 
             _messengerGainNotDefined.Serve(THIS); 
             _messengerOutOfBoundaries.Serve(THIS);

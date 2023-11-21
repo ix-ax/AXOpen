@@ -1,0 +1,84 @@
+﻿@namespace AXOpen.Core
+@using AXOpen.Messaging.Static
+@using AXSharp.Connector
+@inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
+@inject AuthenticationStateProvider AuthenticationStateProvider;
+
+<div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="container">
+                <div class="row">
+                    <h1 class="modal-title fs-5" id="alarmsviewTitle">Alarms</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="StateHasChanged"></button>
+                </div>
+                <div class="row p-3">
+                    <button type="button" class="btn btn-primary m-3" @onclick="AcknowledgeAll">@Localizer["ACKNOWLEDGE ALL"]</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row">
+                    @if (MessageProvider != null)
+                    {
+                        if (MessageProvider.Messengers != null)
+                        {
+                            foreach (var message in MessageProvider.Messengers)
+                            {
+                                if (message.State > eAxoMessengerState.Idle)
+                                {
+                                    <RenderableContentControl Context="@message" Presentation="Detailed"></RenderableContentControl>
+                                }
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+
+    [Parameter]
+    public AxoMessageProvider? MessageProvider { get; set; }
+    public override void AddToPolling(ITwinElement element, int pollingInterval = 250)
+    {
+        if (MessageProvider?.Observables != null)
+            foreach (var axoMessenger in MessageProvider.Observables)
+            {
+                axoMessenger.StartPolling(2500, this);
+                PolledElements.Add(axoMessenger);
+            }
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await base.OnAfterRenderAsync(firstRender);
+        this.StateHasChanged();
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        if (MessageProvider?.Observables != null)
+            foreach (var axoMessenger in MessageProvider.Observables)
+            {
+                this.UpdateValuesOnChange(axoMessenger);
+            }
+    }
+
+    private async Task AcknowledgeAll()
+    {
+        var ast = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        if (MessageProvider is {Messengers: not null })
+        {
+            foreach (var messenger in MessageProvider.Messengers)
+            {
+                messenger.Acknowledge(ast.User.Identity);
+            }
+        }
+    }
+}

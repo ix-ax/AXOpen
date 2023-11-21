@@ -191,7 +191,7 @@ dotnet new axolibrary -o components.elements -p AXOpen.Components.Elements
 ```
 
 > [!NOTE]
-> Make sure you run `apax install -L` and `apax build` after new library is created.
+> Make sure you run `apax install` and `apax build` after new library is created.
 
 > [!IMPORTANT]
 > Ensure you run all commands from the `src` folder of the repository. The `-o OutputFolder` parameter must be within the `src` folder.

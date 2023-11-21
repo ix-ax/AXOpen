@@ -1,0 +1,72 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  id: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+  parent: plc.AXOpen.Components.Abstractions
+  children:
+  - plc.AXOpen.Components.Abstractions.IAxoCodeReader.ClearResultData()
+  - plc.AXOpen.Components.Abstractions.IAxoCodeReader.Read()
+  name: IAxoCodeReader
+  fullName: IAxoCodeReader
+  type: Interface
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.IAxoCodeReader
+    path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: INTERFACE IAxoCodeReader
+  implements: []
+- uid: plc.AXOpen.Components.Abstractions.IAxoCodeReader.ClearResultData()
+  id: plc.AXOpen.Components.Abstractions.IAxoCodeReader.ClearResultData
+  parent: IAxoCodeReader
+  children: []
+  name: ClearResultData
+  fullName: ClearResultData
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.IAxoCodeReader.ClearResultData
+    path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
+    startLine: 3
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState ClearResultData()
+    parameters: &o0 []
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+- uid: plc.AXOpen.Components.Abstractions.IAxoCodeReader.Read()
+  id: plc.AXOpen.Components.Abstractions.IAxoCodeReader.Read
+  parent: IAxoCodeReader
+  children: []
+  name: Read
+  fullName: Read
+  type: Method
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.IAxoCodeReader.Read
+    path: .\src\components.abstractions\ctrl\src\IAxoCodeReader.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Abstractions
+  syntax:
+    content: Public AXOpen.Core.IAxoTaskState Read()
+    parameters: *o0
+    return:
+      type: plc.AXOpen.Core.IAxoTaskState
+references:
+- uid: plc.AXOpen.Core.IAxoTaskState
+  name: IAxoTaskState
+  nameWithType: IAxoTaskState
+  fullName: AXOpen.Core.IAxoTaskState
+
+

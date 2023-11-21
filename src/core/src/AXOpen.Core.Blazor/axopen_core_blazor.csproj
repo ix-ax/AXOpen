@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0</TargetFrameworks>
+    
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <PackageId>AXOpen.Core.Blazor</PackageId>
@@ -18,20 +18,16 @@
 
   <ItemGroup>
 	  <FrameworkReference Include="Microsoft.AspNetCore.App" />   
-	  <PackageReference Include="AXSharp.Presentation.Blazor"/>
-    <PackageReference Include="AXSharp.Presentation.Blazor.Controls"/>
-    <PackageReference Include="Humanizer"/>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web"/>
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client"/>
+	  <PackageReference Include="AXSharp.Presentation.Blazor" />
+    <PackageReference Include="AXSharp.Presentation.Blazor.Controls" />
+    <PackageReference Include="Humanizer" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
 	  
   </ItemGroup>
 
   <ItemGroup>
 	  <ProjectReference Include="..\AXOpen.Core\ix_ax_axopen_core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="AxoMessenger\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -22,7 +22,9 @@ CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
         {#ix-set:AttributeName = "<#Test cylinder#>"}
         _testCylinder : AXOpen.Components.Pneumatics.AxoCylinder;        
         PlcInputs : REF_TO PlcInputs;
-        PlcOutputs : REF_TO PlcOutputs;          
+        PlcOutputs : REF_TO PlcOutputs;       
+        
+        CylinderParent : AXOpen.Core.AxoObject;
     END_VAR
 
     VAR PRIVATE
@@ -31,11 +33,12 @@ CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
     END_VAR    
 
     METHOD PROTECTED OVERRIDE Main
+        CylinderParent.Initialize(THIS);
         _testCylinder.SuspendMoveToWorkWhile(_suspendMoveToWork);
         _testCylinder.SuspendMoveToHomeWhile(_suspendMoveToHome);
         _testCylinder.AbortMoveToWorkWhen(_abortMoveToWork);
         _testCylinder.AbortMoveToHomeWhen(_abortMoveToHome);
-        _testCylinder.Run(THIS, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);
+        _testCylinder.Run(CylinderParent, _homeSensor, _workSensor, _moveHomeSignal, _moveWorkSignal);
         IF(_manualControl) THEN
             _testCylinder.ActivateManualControl();
         END_IF;    

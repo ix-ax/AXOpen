@@ -1,0 +1,143 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Core.IAxoToggleTask
+  id: plc.AXOpen.Core.IAxoToggleTask
+  parent: plc.AXOpen.Core
+  children:
+  - plc.AXOpen.Core.IAxoToggleTask.Toggle()
+  - plc.AXOpen.Core.IAxoToggleTask.SwitchOff()
+  - plc.AXOpen.Core.IAxoToggleTask.SwitchOn()
+  - plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOn()
+  - plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOff()
+  name: IAxoToggleTask
+  fullName: IAxoToggleTask
+  type: Interface
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoToggleTask
+    path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+    startLine: 1
+  namespace: plc.AXOpen.Core
+  syntax:
+    content: INTERFACE IAxoToggleTask
+  implements: []
+- uid: plc.AXOpen.Core.IAxoToggleTask.Toggle()
+  id: plc.AXOpen.Core.IAxoToggleTask.Toggle
+  parent: IAxoToggleTask
+  children: []
+  name: Toggle
+  fullName: Toggle
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoToggleTask.Toggle
+    path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+    startLine: 5
+  namespace: plc.AXOpen.Core
+  summary: Use to toggle the state of the '''AxoToggleTask'''.
+  syntax:
+    content: Public BOOL Toggle()
+    parameters: &o0 []
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoToggleTask.SwitchOff()
+  id: plc.AXOpen.Core.IAxoToggleTask.SwitchOff
+  parent: IAxoToggleTask
+  children: []
+  name: SwitchOff
+  fullName: SwitchOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoToggleTask.SwitchOff
+    path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+    startLine: 10
+  namespace: plc.AXOpen.Core
+  summary: Use to set the state of the '''AxoToggleTask''' to the value '''FALSE'''.
+  syntax:
+    content: Public BOOL SwitchOff()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoToggleTask.SwitchOn()
+  id: plc.AXOpen.Core.IAxoToggleTask.SwitchOn
+  parent: IAxoToggleTask
+  children: []
+  name: SwitchOn
+  fullName: SwitchOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoToggleTask.SwitchOn
+    path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+    startLine: 15
+  namespace: plc.AXOpen.Core
+  summary: Use to set the state of the '''AxoToggleTask''' to the value '''TRUE'''.
+  syntax:
+    content: Public BOOL SwitchOn()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOn()
+  id: plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOn
+  parent: IAxoToggleTask
+  children: []
+  name: IsSwitchedOn
+  fullName: IsSwitchedOn
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOn
+    path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+    startLine: 22
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if task is switched on
+  syntax:
+    content: Public BOOL IsSwitchedOn()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+- uid: plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOff()
+  id: plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOff
+  parent: IAxoToggleTask
+  children: []
+  name: IsSwitchedOff
+  fullName: IsSwitchedOff
+  type: Method
+  source:
+    remote:
+      path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Core.IAxoToggleTask.IsSwitchedOff
+    path: .\src\core\ctrl\src\abstractions\AxoToggleTask\IAxoToggleTask.st
+    startLine: 25
+  namespace: plc.AXOpen.Core
+  summary: Returns `TRUE` if task is switched off
+  syntax:
+    content: Public BOOL IsSwitchedOff()
+    parameters: *o0
+    return:
+      type: plc.BOOL
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+
+

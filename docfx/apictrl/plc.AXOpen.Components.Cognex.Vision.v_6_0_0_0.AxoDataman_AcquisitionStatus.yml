@@ -1,0 +1,136 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+  parent: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children:
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerReady
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerAcknowledge
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.Acquiring
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.MissedAcquisition
+  - plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerID
+  name: AxoDataman_AcquisitionStatus
+  fullName: AxoDataman_AcquisitionStatus
+  type: Struct
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: STRUCT AxoDataman_AcquisitionStatus
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerReady
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerReady
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TriggerReady
+  fullName: TriggerReady
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerReady
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+    startLine: 4
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TriggerReady : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerAcknowledge
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerAcknowledge
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TriggerAcknowledge
+  fullName: TriggerAcknowledge
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerAcknowledge
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+    startLine: 6
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TriggerAcknowledge : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.Acquiring
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.Acquiring
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: Acquiring
+  fullName: Acquiring
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.Acquiring
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+    startLine: 8
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'Acquiring : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.MissedAcquisition
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.MissedAcquisition
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: MissedAcquisition
+  fullName: MissedAcquisition
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.MissedAcquisition
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+    startLine: 10
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'MissedAcquisition : BOOL'
+    return:
+      type: BOOL
+- uid: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerID
+  id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerID
+  parent: AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  children: []
+  name: TriggerID
+  fullName: TriggerID
+  type: Property
+  source:
+    remote:
+      path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_AcquisitionStatus.TriggerID
+    path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\TypeStructuresAndEnums\AxoDataman_AcquisitionStatus.st
+    startLine: 12
+  namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
+  syntax:
+    content: 'TriggerID : UINT'
+    return:
+      type: UINT
+references:
+- uid: plc.BOOL
+  name: BOOL
+  nameWithType: BOOL
+  fullName: BOOL
+- uid: plc.UINT
+  name: UINT
+  nameWithType: UINT
+  fullName: UINT
+
+
