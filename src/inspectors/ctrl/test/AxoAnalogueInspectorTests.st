@@ -41,11 +41,15 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //Act & Assert
 
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
+            _context.Close();
             //+1s
+            _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
             Assert.Equal(eInspectorResult#Running, _analogueInspector.Result());
+            _context.Close();
             //+3s.
+            _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:33.0);
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
             Assert.Equal(eInspectorResult#Passed, _analogueInspector.Result());
@@ -66,19 +70,20 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
             //Act & Assert
 
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
+            _context.Close();
             //+1s
+            _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:31.0);
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
             Assert.Equal(eInspectorResult#Running, _analogueInspector.Result());
+            _context.Close();
             //+11s
+            _context.Open();
             _rtcMock.SetNowUTC(LDT#1980-01-23-13:14:41.0);
             _analogueInspector.Inspect(_sequencer,_inspectedINT);
             Assert.Equal(eInspectorResult#Failed, _analogueInspector.Result());
             
             _context.Close();
         END_METHOD
-
-        
-      
-       END_CLASS
+    END_CLASS
 END_NAMESPACE
