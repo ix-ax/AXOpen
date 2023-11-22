@@ -5,6 +5,7 @@
 // https://github.com/ix-ax/axsharp/blob/dev/LICENSE
 // Third party licenses: https://github.com/ix-ax/axsharp/blob/dev/notices.md
 
+using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
 using System.Linq.Expressions;
@@ -530,7 +531,37 @@ public partial class AxoDataExchange<TOnline, TPlain> where TOnline : IAxoDataEn
 
         List<Type> types = new List<Type>();
 
-        LoadAssemblies().ForEach(assembly => types.AddRange(assembly.GetTypes().Where(type => type.GetInterfaces().Where(i => i.Name.Contains(typeof(IDataExporter<TPlain, TOnline>).Name)).Any())));
+        // Some reflection on some assemblies may produce
+        foreach (var assembly in LoadAssemblies())
+        {
+            try
+            {
+                foreach (var tp in assembly.GetTypes())
+                {
+                    try
+                    {
+                        if (tp.GetInterfaces().Where(i => i.Name.Contains(typeof(IDataExporter<TPlain, TOnline>).Name)).Any())
+                        {
+                            types.Add(tp);
+                        }
+                    }
+                    catch (ReflectionTypeLoadException ex)
+                    {
+                       // Swallow
+                    }
+
+                }
+            }
+            catch(ReflectionTypeLoadException ex)
+            {
+                //Swallow
+            }
+
+        }
+
+        //LoadAssemblies().ForEach(assembly => 
+        //    types.AddRange(assembly.GetTypes()
+        //        .Where(type => type.GetInterfaces().Where(i => i.Name.Contains(typeof(IDataExporter<TPlain, TOnline>).Name)).Any())));
 
         foreach (var type in types)
         {

@@ -16,9 +16,4 @@
       DataHeader="Entry.Plc.Context.UnitTemplateProcessData.Shared.Entity">
 </Unit>
 
-<VisualComposerContainer ImgSrc="logo-header.svg" Id="@Entry.Plc.Context.UnitTemplate.HumanReadable">
-    @foreach (var axoObject in Entry.Plc.Context.UnitTemplate.GetChildren().Flatten(p => p.GetChildren()).OfType<AXOpen.Core.AxoObject>())
-    {
-        <VisualComposerItem AxoObject="axoObject" />
-    }
-</VisualComposerContainer>
+<VisualComposerContainer ImgSrc="logo-header.svg" AxoObject="Entry.Plc.Context.UnitTemplate"/>

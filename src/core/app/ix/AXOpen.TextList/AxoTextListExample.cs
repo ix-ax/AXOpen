@@ -21,12 +21,11 @@ namespace AxoTextListExample
                     {
                         textList.Add((uint)i, "Text list item : " + i.ToString());
                     }
-
                 }
                 //</FillingTheItemsOfTheDictionary>
                 //<ReturningTheItemBasedOnId>
                 string _textItem = "   ";
-                if (textList.TryGetValue(_myTextList1.Id.LastValue, out _textItem))
+                if (_myTextList1 != null && _myTextList1.Id != null && textList.TryGetValue(_myTextList1.Id.LastValue, out _textItem))
                 {
                     return _textItem;
                 }
@@ -54,7 +53,7 @@ namespace AxoTextListExample
 
                 }
                 string differentTextItem = "   ";
-                if (differentTextList.TryGetValue(_myTextList3.Id.LastValue, out differentTextItem))
+                if (_myTextList3 != null && _myTextList3.Id != null && differentTextList.TryGetValue(_myTextList3.Id.LastValue, out differentTextItem))
                 {
                     return differentTextItem;
                 }

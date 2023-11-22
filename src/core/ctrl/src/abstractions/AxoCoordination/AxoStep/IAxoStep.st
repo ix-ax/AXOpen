@@ -7,5 +7,6 @@ NAMESPACE AXOpen.Core
         METHOD GetIsActive : BOOL END_METHOD
         METHOD SetIsEnabled  VAR_INPUT Enabled : BOOL; END_VAR END_METHOD
         METHOD GetIsEnabled : BOOL END_METHOD
+        METHOD IsFirstEntryToStep : BOOL END_METHOD   
     END_INTERFACE
 END_NAMESPACE

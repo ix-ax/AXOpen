@@ -4,13 +4,17 @@
 $dotnetSDKs = (dotnet --list-sdks 2>$null)
 $dotnet6Installed = $false
 $dotnet7Installed = $false
+$dotnet8Installed = $false
 
 foreach ($sdk in $dotnetSDKs) {
     if ($sdk -like "6.*") {
         $dotnet6Installed = $true
     }
-    if ($sdk -like "7.0.402*") {
+    if ($sdk -like "7.0.404*") {
         $dotnet7Installed = $true
+    }
+    if ($sdk -like "8.0.100*") {
+        $dotnet8Installed = $true
     }
 }
 
@@ -26,10 +30,16 @@ if (-not $dotnet7Installed) {
     Write-Host ".NET 7.0.402 SDK detected." -ForegroundColor Green
 }
 
+if (-not $dotnet8Installed) {
+    Write-Host ".NET 8.0.100 SDK is not installed." -ForegroundColor Red
+} else {
+    Write-Host ".NET 8.0.100 SDK detected." -ForegroundColor Green
+}
+
 # Check for Visual Studio 2022
 $vsWhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
 if (Test-Path $vsWhere) {
-    $requiredVersionRange = "[17.7.5,18.0)";
+    $requiredVersionRange = "[17.8.0,18.0)";
     $vsVersion = & $vsWhere -version $requiredVersionRange -products * -property catalog_productDisplayVersion
     if (-not $vsVersion) {
         Write-Host "Visual Studio 2022 is not detected in required version or update. Required version range is $requiredVersionRange" -ForegroundColor Yellow
@@ -98,6 +108,10 @@ if (-not $dotnet6Installed) {
 }
 if (-not $dotnet7Installed) {
     PromptAndDownload ".NET 7.0 SDK is not installed." "https://dotnet.microsoft.com/download/dotnet/7.0"
+}
+
+if (-not $dotnet8Installed) {
+    PromptAndDownload ".NET 8.0 SDK is not installed." "https://dotnet.microsoft.com/download/dotnet/8.0"
 }
 
 # Check for Visual Studio 2022
