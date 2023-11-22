@@ -6,21 +6,24 @@ NAMESPACE AxoDataPersistentExchangeExample
     //<ContextDeclaration>
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
+            //persistent manager instance
             DataManager : AXOpen.Data.AxoDataPersistentExchange;
-            ConcurrentMangerUsage : ConcurrentMangerUsage;
-            PersistentRootObject : PersistentRootObject;
+            //Testing usage of the manager
+            ManagerUsage : ManagerUsage; 
+            // Object that propertie will be tracked by persistent manager
+            PersistentRootObject : PersistentRootObject; 
         END_VAR
         
         METHOD OVERRIDE Main
             DataManager.Run(THIS);
-            ConcurrentMangerUsage.Use(DataManager);
+            ManagerUsage.Use(DataManager);
         END_METHOD
     END_CLASS
     //</ContextDeclaration>
     
 
-    //<ConcurrentUsage>
-    CLASS PUBLIC ConcurrentMangerUsage EXTENDS AxOpen.Core.AxoObject
+    //<Usage>
+    CLASS PUBLIC ManagerUsage EXTENDS AxOpen.Core.AxoObject
         VAR PUBLIC
             _persistentGroupId : STRING;
             _update : BOOL;
@@ -36,7 +39,7 @@ NAMESPACE AxoDataPersistentExchangeExample
                 DataManager : AXOpen.Data.AxoDataPersistentExchange;
             END_VAR  
 
-            IF(_read) THEN
+            IF(_read) THEN 
                 IF(DataManager.InvokeRead(THIS,_persistentGroupId)) THEN
                     ;
                 END_IF;
@@ -87,7 +90,7 @@ NAMESPACE AxoDataPersistentExchangeExample
             END_IF;
         END_METHOD        
     END_CLASS
-    //</ConcurrentUsage>
+    //</Usage>
 
     //<PersistentAttribute>
     CLASS PUBLIC PersistentRootObject

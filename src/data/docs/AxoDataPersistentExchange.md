@@ -46,7 +46,7 @@ Other operations like `InvokeRead`, `InvokeUpdateAll`, `InvokeReadAll`, and `Inv
 > [!WARNING]
 > If the record does not exist, the loading task will end with an error. Therefore, it is necessary to ensure that the record exists, either by manual saving or by generating a new record.
 
-[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=ConcurrentUsage)]
+[!code-smalltalk[](../app/src/Examples/AxoDataPersistentExchangeExample.st?name=Usage)]
 
 ### Data exchange initialization in .NET
 

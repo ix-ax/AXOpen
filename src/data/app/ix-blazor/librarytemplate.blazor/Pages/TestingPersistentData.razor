@@ -1,4 +1,4 @@
-﻿@page "/TestingPersistentData"
+﻿    @page "/TestingPersistentData"
 @using AXOpen.Base.Dialogs;
 @using AXOpen.Data;
 @using librarytemplate
@@ -7,56 +7,37 @@
 
 <PageTitle>TestingPersistentData</PageTitle>
 
-<h4>Persistent Manager task status </h4>
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 5px;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
 
-    <div class="list-group-item">
-        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation" Presentation="Command" />
-    </div>
-    
-    <div class="list-group-item">
-        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.Duration" Presentation="Display" />
-    </div>
-
-    <div class="list-group-item">
-        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.HasRemoteException" Presentation="Display" />
+    <div class="card">
+        <div class="card-header">
+            <h2>Commands</h2>
+        </div>
+        <div class="card-body">
+            <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.ManagerUsage" Presentation="Command-Control" />
+        </div>
     </div>
 
-    <div class="list-group-item">
-        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.ErrorDetails" Presentation="Display" />
+    <div class="card">
+        <div class="card-header">
+            <h2>Manager Operation status</h2>
+        </div>
+        <div class="card-body">
+            <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation" Presentation="Command" />
+            <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.HasRemoteException" Presentation="Display" />
+            <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.ErrorDetails" Presentation="Display" />
+        </div>
     </div>
+
 </div>
 
-
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-   @*  <div>
-        <h2>Commands</h2>
-        <ul class="list-group">
-            <li class="list-group-item">
-              <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.ConcurrentMangerUsage" Presentation="Command-Control" />
-            </li>
-            <li class="list-group-item">
-                <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation" Presentation="Command" />
-            </li>
-        </ul>
-    </div> *@
-
-    <div>
-        <h2>Concurrent Commnads</h2>
-        <ul class="list-group">
-            <li class="list-group-item">
-                <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.ConcurrentMangerUsage" Presentation="Command-Control" />
-            </li>
-            <li class="list-group-item">
-                <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation" Presentation="Command" />
-            </li>
-        </ul>
+<div class="card">
+    <div class="card-header">
+        <h2>Persistent root object</h2>
+    </div>
+    <div class="card-body">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.PersistentRootObject" Presentation="Control" />
     </div>
 </div>
-
-<h2>Persistent root object</h2>
-<RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.PersistentRootObject" Presentation="Control" />
-
 
 

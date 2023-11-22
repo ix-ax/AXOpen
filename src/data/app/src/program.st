@@ -1,8 +1,12 @@
 PROGRAM MyProgram
     VAR_EXTERNAL
-        AxoDataExchangeManager : AxoDataExchangeExample.AxoProcessDataManager;
-        AxoDataFramentsExchangeManager : AxoDataFramentsExchangeExample.AxoProcessDataManager;
+        AxoDataExchangeContext : AxoDataExchangeExample.Context;
+        AxoDataFragmentsExchangeContext : AxoDataFramentsExchangeExample.Context;
         AxoDataPersistentContext : AxoDataPersistentExchangeExample.Context;
     END_VAR
+    
     AxoDataPersistentContext.Run();   
+    AxoDataFragmentsExchangeContext.Run();   
+    AxoDataExchangeContext.Run();   
+
 END_PROGRAM

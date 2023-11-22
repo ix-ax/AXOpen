@@ -1,0 +1,42 @@
+﻿@page "/TestingDataExchange"
+@using AXOpen.Base.Dialogs;
+@using AXOpen.Data;
+@using librarytemplate
+@inject AuthenticationStateProvider _authenticationProvider
+@inject IAlertDialogService _alertDialogService
+
+<PageTitle>Testing Data Exchange</PageTitle>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Commands</h2>
+        </div>
+        <div class="card-body">
+            <RenderableContentControl Context="@Entry.Plc.AxoDataExchangeContext.ManagerUsage" Presentation="Command-Control" />
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Manager Operation status</h2>
+        </div>
+        <div class="card-body">
+            <RenderableContentControl Context="@Entry.Plc.AxoDataExchangeContext.DataManager.Operation" Presentation="Command" />
+            <RenderableContentControl Context="@Entry.Plc.AxoDataExchangeContext.DataManager.Operation.HasRemoteException" Presentation="Display" />
+            <RenderableContentControl Context="@Entry.Plc.AxoDataExchangeContext.DataManager.Operation.ErrorDetails" Presentation="Display" />
+        </div>
+    </div>
+
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Data</h2>
+    </div>
+    <div class="card-body">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataExchangeContext.DataManager.Set" Presentation="Control" />
+    </div>
+</div>
+

@@ -15,6 +15,7 @@
     <ProjectReference Include="..\..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
     <ProjectReference Include="..\..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
     <ProjectReference Include="..\..\..\src\repositories\InMemory\AXOpen.Data.InMemory.csproj" />
+    <ProjectReference Include="..\..\..\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />
     <ProjectReference Include="..\..\ix\axopen_data_app.csproj" />   
   </ItemGroup>
 

@@ -1,0 +1,86 @@
+﻿@page "/Rendering"
+@using AXOpen.Base.Dialogs;
+@using AXOpen.Data;
+@using librarytemplate
+@inject AuthenticationStateProvider _authenticationProvider
+@inject IAlertDialogService _alertDialogService
+<div class="card">
+    <div class="card-header">
+        <h2>DataExchange PresentationType="Command"</h2>
+    </div>
+    <div class="card-body">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataExchangeContext.DataManager" Presentation="Command" />
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>DataFragmentExchange PresentationType="Command"</h2>
+    </div>
+    <div class="card-body">
+        //<CommandView>
+        <RenderableContentControl Context="@Entry.Plc.AxoDataFragmentsExchangeContext.DataManager" Presentation="Command" />
+        //</CommandView>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>DataFragmentExchange PresentationType="Status"</h2>
+    </div>
+    <div class="card-body">
+        //<StatusView>
+        <RenderableContentControl Context="@Entry.Plc.AxoDataFragmentsExchangeContext.DataManager" Presentation="Status" />
+        //</StatusView>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Custom columns</h2>
+    </div>
+    <div class="card-body">
+        //<CustomColumns>
+        <DataExchangeView Vm="@_vm" Presentation="Command">
+            <ColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
+            <ColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
+            <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
+        </DataExchangeView>
+        //</CustomColumns>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Enable Export</h2>
+    </div>
+    <div class="card-body">
+        //<Export>
+        <DataExchangeView Vm="@_vm" Presentation="Command" CanExport="true" />
+        //</Export>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Disable Modal view</h2>
+    </div>
+    <div class="card-body">
+        //<Modal>
+        <DataExchangeView Vm="@_vm" Presentation="Command" ModalDataView="false" />
+        //</Modal>
+    </div>
+</div>
+
+
+
+//<CustomColumnsCode>
+@code {
+    private DataExchangeViewModel _vm;
+
+    protected override void OnInitialized()
+    {
+        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager, AlertDialogService = _alertDialogService, AuthenticationProvider = _authenticationProvider };
+    }
+}
+//</CustomColumnsCode>
