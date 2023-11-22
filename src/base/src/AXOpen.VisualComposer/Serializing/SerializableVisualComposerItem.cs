@@ -2,12 +2,11 @@
 {
     internal class SerializableVisualComposerItem
     {
-        public SerializableVisualComposerItem(string id, double ratioImgX, double ratioImgY, bool show, string transform, string presentation, double width, double height, int zIndex)
+        public SerializableVisualComposerItem(string id, double ratioImgX, double ratioImgY, string transform, string presentation, double width, double height, int zIndex)
         {
             Id = id;
             RatioImgX = ratioImgX;
             RatioImgY = ratioImgY;
-            Show = show;
             Transform = transform;
             Presentation = presentation;
             Width = width;
@@ -18,7 +17,6 @@
         public string Id { get; set; }
         public double RatioImgX { get; set; } = 10;
         public double RatioImgY { get; set; } = 10;
-        public bool Show { get; set; } = false;
         public string Transform { get; set; } = "TopCenter";
         public string Presentation { get; set; } = "Status-Display";
         public double Width { get; set; } = -1;
