@@ -1,8 +1,9 @@
-using AXOpen.Core;
+﻿using AXOpen.Core;
 using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using System.Xml.Linq;
+using AXOpen.ToolBox.Extensions;
 
 namespace AXOpen.VisualComposer
 {

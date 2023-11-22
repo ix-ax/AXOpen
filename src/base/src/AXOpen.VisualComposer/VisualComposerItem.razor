@@ -1,4 +1,4 @@
-<AuthorizeView Roles="Administrator">
+﻿<AuthorizeView Roles="Administrator">
     <Authorized>
         <div draggable="true" @ondragend="OnDragEnd" @ondragstart="OnDragStart" style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
             <RenderableContentControl Context="@TwinElement" Presentation="@Presentation.ToString()" />

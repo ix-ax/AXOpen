@@ -16,6 +16,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
+	  <ProjectReference Include="..\..\..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj" />
 	</ItemGroup>
 
 </Project>
