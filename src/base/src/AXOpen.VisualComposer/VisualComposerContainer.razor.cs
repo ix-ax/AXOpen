@@ -1,5 +1,4 @@
-﻿using AXOpen.Core;
-using AXOpen.VisualComposer.Serializing;
+﻿using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using System.Xml.Linq;
@@ -9,7 +8,7 @@ namespace AXOpen.VisualComposer
     public partial class VisualComposerContainer
     {
         [Parameter]
-        public AxoObject AxoObject { get; set; }
+        public ITwinObject AxoObject { get; set; } // enumerator ITwinObject instead of AxoObject
 
         [Parameter]
         public string? ImgSrc { get; set; }
