@@ -25,12 +25,6 @@ CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
         //return this instance
         Inspect := THIS;
 
-        // Temporary BYPASS 
-        // TODO should be removed and check the dialog behavior
-        // Issue #269 created
-        _inspectorTask.SetSuspendMultipleExecuteCallCheck(TRUE);
-        //
-
         // set task inspection data, pass a reference (an address)
         // REF(_data) will get a reference of _data variable (like & in C)
         _inspectorTask.SetInspectionData(REF(_data));

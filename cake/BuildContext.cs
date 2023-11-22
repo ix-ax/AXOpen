@@ -135,7 +135,7 @@ public class BuildContext : FrostingContext
         DotNetRunSettings = new DotNetRunSettings()
         {
             Verbosity = buildParameters.Verbosity,
-            Framework = "net6.0",
+            Framework = "net8.0",
             Configuration = buildParameters.Configuration,
             NoBuild = true,
             NoRestore = true,

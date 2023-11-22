@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+  <PropertyGroup> 
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <Packable>false</Packable>
@@ -15,5 +14,4 @@
     <ProjectReference Include="..\..\src\AXOpen.Components.Festo.Drives.blazor\AXOpen.Components.Festo.Drives.blazor.csproj" />
     <ProjectReference Include="..\ix\app_axopen_components_festo_drives.csproj" />
   </ItemGroup>
-
 </Project>
