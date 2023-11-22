@@ -3,7 +3,6 @@ using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
 using System.Xml.Linq;
->>>>>>>>> Temporary merge branch 2
 
 namespace AXOpen.VisualComposer
 {
