@@ -8,7 +8,7 @@ namespace AXOpen.VisualComposer
     public partial class VisualComposerContainer
     {
         [Parameter]
-        public ITwinObject AxoObject { get; set; } // enumerator ITwinObject instead of AxoObject
+        public ITwinObject[] Objects { get; set; }
 
         [Parameter]
         public string? ImgSrc { get; set; }
@@ -25,15 +25,23 @@ namespace AXOpen.VisualComposer
 
         protected override void OnInitialized()
         {
-            Id = AxoObject.HumanReadable.Replace(".", "_").Replace(" ", "_");
+            Id = "";
+            foreach(ITwinObject obj in Objects)
+            {
+                Id += obj.Symbol.ModalIdHelper();
+            }
         }
 
         protected override void OnAfterRender(bool firstRender)
         {
             if (firstRender)
             {
-                _childrenOfAxoObject = AxoObject.GetChildren().Flatten(p => p.GetChildren()).ToList();
-                _childrenOfAxoObject = _childrenOfAxoObject.Concat(AxoObject.RetrievePrimitives());
+                _childrenOfAxoObject = Enumerable.Empty<ITwinElement>();
+                foreach (ITwinObject obj in Objects)
+                {
+                    _childrenOfAxoObject = _childrenOfAxoObject.Concat(obj.GetChildren().Flatten(p => p.GetChildren()));
+                    _childrenOfAxoObject = _childrenOfAxoObject.Concat(obj.RetrievePrimitives());
+                }
 
                 Load();
             }
@@ -79,7 +87,7 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Roles));
             }
 
             if (!Directory.Exists("VisualComposerSerialize/" + Id))
@@ -100,18 +108,19 @@ namespace AXOpen.VisualComposer
 
                 foreach (var item in deserialize)
                 {
-                    var a = _childrenOfAxoObject.FirstOrDefault(p => p.HumanReadable.Replace(".", "_").Replace(" ", "_") == item.Id);
+                    var a = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id);
                     _children.Add(new VisualComposerItem()
                     {
                         UniqueGuid = Guid.NewGuid(),
-                        TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.HumanReadable.Replace(".", "_").Replace(" ", "_") == item.Id),
+                        TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id),
                         ratioImgX = item.RatioImgX,
                         ratioImgY = item.RatioImgY,
                         Transform = Types.TransformType.FromString(item.Transform),
                         Presentation = item.Presentation,
                         Width = item.Width,
                         Height = item.Height,
-                        ZIndex = item.ZIndex
+                        ZIndex = item.ZIndex,
+                        Roles = item.Roles
                     });
                 }
             }
@@ -162,7 +171,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResult = AxoObject.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.HumanReadable.Contains(SearchValue, StringComparison.OrdinalIgnoreCase));
+                SearchResult.Clear();
+                foreach (ITwinObject obj in Objects)
+                {
+                    SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
+                }
             }
         }
 
@@ -172,11 +185,15 @@ namespace AXOpen.VisualComposer
         {
             if (SearchValuePrimitive is null || SearchValuePrimitive == "")
             {
-                SearchResult = null;
+                SearchResultPrimitive = null;
             }
             else
             {
-                SearchResultPrimitive = AxoObject.RetrievePrimitives().ToList().FindAll(p => p.HumanReadable.Contains(SearchValuePrimitive));
+                SearchResultPrimitive.Clear();
+                foreach (ITwinObject obj in Objects)
+                {
+                    SearchResultPrimitive.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValuePrimitive, StringComparison.OrdinalIgnoreCase)));
+                }
             }
         }
     }

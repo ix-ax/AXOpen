@@ -41,8 +41,9 @@ namespace AXOpen.VisualComposer
                 Width = value.Width;
                 Height = value.Height;
                 ZIndex = value.ZIndex;
+                Roles = value.Roles;
 
-                Id = value.TwinElement.HumanReadable.Replace(".", "_").Replace(" ", "_");
+                Id = value.TwinElement.Symbol.ModalIdHelper();
             }
         }
 
@@ -76,6 +77,8 @@ namespace AXOpen.VisualComposer
         public double Width = -1;
         public double Height = -1;
         public int ZIndex = 0;
+
+        public string Roles = "";
 
         private void OnDragStart(DragEventArgs args)
         {

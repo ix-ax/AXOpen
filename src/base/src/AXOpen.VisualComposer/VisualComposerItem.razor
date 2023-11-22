@@ -11,7 +11,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="alarmsviewTitle">@Id</h1>
+                        <h1 class="modal-title fs-5" id="alarmsviewTitle" style="width: 90%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">@Id</h1>
                         <a class="text-decoration-none text-black ms-auto" style="cursor: pointer;" data-bs-dismiss="modal" @onclick="Remove"><span class="bi bi-trash fs-5" aria-hidden="true" /></a>
                         <button type="button" class="btn-close ms-3" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -67,14 +67,22 @@
                                 <input type="text" class="form-control" placeholder="ZIndex" @bind="ZIndex">
                             </div>
                         </div>
+                        <div class="mb-1 row">
+                            <label class="col-sm-2 col-form-label">Roles</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="Roles" @bind="Roles">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </Authorized>
     <NotAuthorized>
-        <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
-            <RenderableContentControl Context="@TwinElement" Presentation="@Presentation.ToString()" />
-        </div>
+        <AuthorizeView Roles="@Roles" Context="SecondAuthorizeView">
+            <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
+                <RenderableContentControl Context="@TwinElement" Presentation="@Presentation.ToString()" />
+            </div>
+        </AuthorizeView>
     </NotAuthorized>
 </AuthorizeView>

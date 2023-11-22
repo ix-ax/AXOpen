@@ -54,7 +54,7 @@
                         @if (SearchValue is null || SearchResult is null)
                         {
                             <div class="accordion" id="accordionExample">
-                                @foreach (var item in AxoObject.GetChildren())
+                                @foreach (var item in Objects.SelectMany(p => p.GetChildren()))
                                 {
                                     <AccordionComponent AccordionContent="@item" Parent="@this" />
                                 }
@@ -66,7 +66,7 @@
                                 @foreach (var item in SearchResult)
                                 {
                                     <li class="list-group-item d-flex">
-                                        <p class="mb-0">@item.HumanReadable</p>
+                                        <p class="mb-0">@item.Symbol</p>
                                         <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
                                     </li>
                                 }
@@ -95,10 +95,10 @@
                         @if (SearchValuePrimitive is null || SearchResultPrimitive is null)
                         {
                             <ul class="list-group">
-                                @foreach (var item in AxoObject.RetrievePrimitives())
+                                @foreach (var item in Objects.SelectMany(p => p.RetrievePrimitives()))
                                 {
                                     <li class="list-group-item d-flex">
-                                        <p class="mb-0">@item.HumanReadable</p>
+                                        <p class="mb-0">@item.Symbol</p>
                                         <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
                                     </li>
                                 }
@@ -110,7 +110,7 @@
                                 @foreach (var item in SearchResultPrimitive)
                                 {
                                     <li class="list-group-item d-flex">
-                                        <p class="mb-0">@item.HumanReadable</p>
+                                        <p class="mb-0">@item.Symbol</p>
                                         <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
                                     </li>
                                 }
