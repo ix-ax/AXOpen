@@ -85,13 +85,13 @@ NAMESPACE axosimple.UnitTemplate
             END_IF;
 
             // remember last selected technolgy identifier 
-            // if  (UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId <> '') THEN
-            //     IF UnitObjects.LastTechnologySettings <> UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId THEN 
-            //         IF UnitObjects.PersistentData^.InvokeUpdate(THIS, '') THEN 
-            //             UnitObjects.LastTechnologySettings :=  UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId;
-            //         END_IF;
-            //     END_IF;
-            // END_IF;
+            if  (UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId <> '') THEN
+                IF UnitObjects.LastTechnologySettings <> UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId THEN 
+                    IF UnitObjects.Global^.PersistentData^.InvokeUpdate(THIS, '') THEN 
+                        UnitObjects.LastTechnologySettings :=  UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId;
+                    END_IF;
+                END_IF;
+            END_IF;
 
         END_METHOD
     END_CLASS
