@@ -95,7 +95,9 @@ namespace AXOpen.Data
 
                 if (ConnectedTag == null) continue;
 
-                ConnectedTag.SetTagCyclicValue(tagFromRepo);
+                #pragma warning disable CS0612
+                ConnectedTag.SetTagCyclicValueUsingLethargicWrite(tagFromRepo);
+                #pragma warning restore CS0612
 
                 tagsToWrite.Add(ConnectedTag);
             }
@@ -133,7 +135,7 @@ namespace AXOpen.Data
 
                 if (ConnectedTag == null) continue;
 
-                ConnectedTag.SetTagCyclicValue(tagFromRepo);
+                ConnectedTag.SetTagCyclicValueUsingLethargicWrite(tagFromRepo);
 
                 tagsToWrite.Add(ConnectedTag);
             }
