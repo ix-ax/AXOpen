@@ -27,6 +27,9 @@ NAMESPACE axosimple.StarterUnitTemplate
             ///</summary>
             TechnologySettings : REF_TO TechnologyDataManager;
                         
+            {#ix-attr:[AXOpen.Data.PersistentAttribute("StarterUnitTemplate")]}
+            SpecialSettings :STRING[64] ;
+
         END_VAR        
     END_CLASS
 

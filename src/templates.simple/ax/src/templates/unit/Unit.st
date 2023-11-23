@@ -57,6 +57,7 @@ NAMESPACE axosimple.UnitTemplate
                 Inputs : axosimple.Inputs;
                 Outputs : axosimple.Outputs;
             END_VAR
+          
             // Component I/O immange and management handling.
             UnitObjects.Components.Update(THIS, Inputs, Outputs);
             // Process data manager
@@ -65,11 +66,13 @@ NAMESPACE axosimple.UnitTemplate
             UnitObjects.TechnologySettings^.Run(THIS);
             // Handles ground sequence
             GroundSequence.Run(THIS, REF(UnitObjects));
+                       
             // Restores other states when Ground executes
             IF (GroundSequence.IsBusy()) THEN
                 AutomatSequence.Restore();
                 ServiceMode.Restore();
             END_IF;
+            
             // Handles automatic sequence (ground must be previously done)           
             AutomatSequence.IsDisabled := GroundSequence.Status <> eAxoTaskState#Done;
             AutomatSequence.Run(THIS, REF(UnitObjects));
@@ -79,6 +82,15 @@ NAMESPACE axosimple.UnitTemplate
             IF ServiceMode.IsBusy() THEN
                 GroundSequence.Restore();
                 AutomatSequence.Restore();
+            END_IF;
+
+            // remember last selected technolgy identifier 
+            if  (UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId <> '') THEN
+                IF UnitObjects.LastTechnologySettings <> UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId THEN 
+                    IF UnitObjects.Global^.PersistentData^.InvokeUpdate(THIS, '') THEN 
+                        UnitObjects.LastTechnologySettings :=  UnitObjects.TechnologySettings^.DataManger.Payload.DataEntityId;
+                    END_IF;
+                END_IF;
             END_IF;
 
         END_METHOD

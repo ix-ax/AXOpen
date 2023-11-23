@@ -1,0 +1,41 @@
+﻿@using AXSharp.Connector;
+
+<div class="accordion-item">
+    <div class="accordion-header">
+        <div class="input-group flex-nowrap">
+            <button class="accordion-button collapsed py-2" type="button" data-bs-toggle="collapse" data-bs-target="#@AccordionContent.HumanReadable.Replace('.', '_')" aria-expanded="false" aria-controls="@AccordionContent.HumanReadable.Replace('.', '_')">
+                @AccordionContent.HumanReadable
+            </button>
+            <a class="text-decoration-none text-black p-2 align-self-center" style="cursor: pointer;" @onclick="() => Parent.AddChildren(AccordionContent)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
+        </div>
+    </div>
+    <div id="@AccordionContent.HumanReadable.Replace('.', '_')" class="accordion-collapse collapse">
+        <div class="accordion-body">
+            <ul class="list-group">
+                @foreach (var item in AccordionContent.GetChildren())
+                {
+                    @if (!item.GetChildren().Any())
+                    {
+                        <li class="list-group-item d-flex">
+                            <p class="mb-0">@item.HumanReadable</p>
+                            <a class="ms-auto text-decoration-none text-black" style="cursor: pointer;" @onclick="() => Parent.AddChildren(item)"><span class="bi bi-plus-lg" aria-hidden="true" /></a>
+                        </li>
+                    }
+                    else
+                    {
+                        <AccordionComponent AccordionContent="item" Parent="@Parent" />
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    [Parameter]
+    public ITwinObject AccordionContent { get; set; }
+
+    [Parameter]
+    public VisualComposerContainer Parent { get; set; }
+}

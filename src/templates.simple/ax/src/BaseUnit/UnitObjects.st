@@ -11,6 +11,15 @@ NAMESPACE axosimple.BaseUnit
             /// Station/Unit number.
             ///</summary>
             StationNumber : INT;
+            
+            ///<summary>
+            /// Reference global objects in technology.
+            ///</summary>
+            Global : REF_TO axosimple.GlobalContextObjects;
+
+            {#ix-attr:[AXOpen.Data.PersistentAttribute("")]}
+            LastTechnologySettings : STRING[64] ;
+
         END_VAR        
     END_CLASS
 
