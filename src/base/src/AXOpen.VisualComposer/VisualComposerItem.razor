@@ -79,10 +79,19 @@
         </div>
     </Authorized>
     <NotAuthorized>
-        <AuthorizeView Roles="@Roles" Context="SecondAuthorizeView">
+        @if (Roles != null && Roles != "")
+        {
+            <AuthorizeView Roles="@Roles" Context="SecondAuthorizeView">
+                <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
+                    <RenderableContentControl Context="@TwinElement" Presentation="@Presentation.ToString()" />
+                </div>
+            </AuthorizeView>
+        }
+        else
+        {
             <div style="position: absolute; left: @(ratioImgX.ToString().Replace(',', '.'))%; top: @(ratioImgY.ToString().Replace(',', '.'))%; translate: @(Transform.X)% @(Transform.Y)%; @(Width != -1 ? "width: " + Width + "rem" : null); @(Height != -1 ? "height: " + Height + "rem" : null); z-index: @ZIndex;">
                 <RenderableContentControl Context="@TwinElement" Presentation="@Presentation.ToString()" />
             </div>
-        </AuthorizeView>
+        }
     </NotAuthorized>
 </AuthorizeView>

@@ -5,53 +5,42 @@ VisualComposer library is for creating draggable elements in AXOpen applications
 ## Usage
 
 ~~~ HTML
-<VisualComposerContainer ImgSrc="logo-header.svg" Id="@Entry.Plc.Context.PneumaticManipulator.HumanReadable">
-    @foreach (var axoObject in Entry.Plc.Context.PneumaticManipulator.GetChildren().Flatten(p => p.GetChildren()).OfType<AXOpen.Core.AxoObject>())
-    {
-        <VisualComposerItem AxoObject="axoObject" />
-    }
-</VisualComposerContainer>
+<VisualComposerContainer ImgSrc="logo-header.svg" Objects="@(new [] { Entry.Plc.Context.StarterUnitTemplate })"/>
 ~~~
 
 ## VisualComposerContainer
 
-The `VisualComposerContainer` component is a container for `VisualComposerItem`. It is used to define the area where the items can be dragged.
+The `VisualComposerContainer` is default component that is used to generate customizable view.
 
 ### Attributes
 
 ImgSrc - The path to the image that will be used as the background of the container.
-Id - The id of the container. It is used to identify the container for saving current state into json.
+Objects - The list of ITwinObject from which is been claim all children and all primitives.
 
-## VisualComposerItem
+## Customizing
 
-The `VisualComposerItem` component is a draggable item. It is used to define the draggable items.
+All option that is bellow is only available with role Administrator.
 
-It can be used with or without a child component. If it is used without a child component, the default presentation will be used:
+## Adding items
 
-~~~ HTML
-<VisualComposerItem AxoObject="axoObject" />
-~~~
+- `Show all` button you can show all children that is available from objects. And you can add them into view.
+- `Show all primitives` button you can show all primitives that is available from objects. And you can add them into view.
 
-or with a child component, where you must define presentation:
+### Customizable option
 
-~~~ HTML
-<VisualComposerItem AxoObject="axoObject">
-    <RenderableContentControl Context="AxoObject" Presentation="Command" />
-</VisualComposerItem>
-~~~
+With drag-and-drop you can move every item on site.
 
-### Attributes
+You can every item customizing with these options:
 
-AxoObject - The axo object that will be used as the draggable item. It will be show in `RenderableContentControl`.
-
-## Customizable option
-
-If you have role Administrator you can every `VisualComposerItem` customizing with these options:
-
-- position - can be moved on site
-- show - show or hide
+- Presentation (Status-Display or Command-Control) - can be checked `Custom` and write your own name of presentation
 - Transform (combination of left, center, right, top, center, bottom)
-- Presentation (Status-Display or Command-Control)
 - Width - double value in rem, or -1 for auto
 - Height - double value in rem, or -1 for auto
 - ZIndex - int value, default is 0
+- Roles - list of roles, that can see this item (`process_settings_access` or `process_settings_access, process_traceability_access`)
+
+### Layout
+
+- `Save as default` - save current layout as default layout. Default layout is loaded when application is started. Its available for every user.
+- `Save as` - save current layout as new layout. Only administrator can change to this layout. (from name of new file is removed all special characters, that is not supported in file name)
+- `Remove` - show all layouts with remove button,
