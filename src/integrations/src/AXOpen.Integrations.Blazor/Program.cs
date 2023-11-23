@@ -56,8 +56,8 @@ namespace axopen_integrations_blazor
 
             await Entry.Plc.Connector.IdentityProvider.ConstructIdentitiesAsync();
 
-            var repository = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
-            var repository2 = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
+            var repository = AXOpen.Data.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionData>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
+            var repository2 = AXOpen.Data.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoTestData>(Path.Combine(Environment.CurrentDirectory, "data", "testdata")));
             //inherited IxProductionData
             //var repository = Ix.Repository.Json.Repository.Factory(new AXOpen.Data.Json.JsonRepositorySettings<Pocos.AxoDataExamples.AxoProductionDataInherited>(Path.Combine(Environment.CurrentDirectory, "data", "processdata")));
 
@@ -69,7 +69,7 @@ namespace axopen_integrations_blazor
 
             Entry.Plc.Integrations.DM
                 .InitializeRemoteDataExchange(
-                    Ix.Repository.Json.
+                   AXOpen.Data.Json.
                         Repository.Factory
                             (new AXOpen.Data.Json.JsonRepositorySettings<Pocos.IntegrationLightDirect.DataSet>(Path.Combine(Environment.CurrentDirectory, "data", "processdata1"))));
 
@@ -88,7 +88,7 @@ namespace axopen_integrations_blazor
                     Path.Combine(Environment.CurrentDirectory, "exampledata"));
 
             var exampleRepository =
-                Ix.Repository.Json.Repository.Factory(exampleRepositorySettings);
+                AXOpen.Data.Json.Repository.Factory(exampleRepositorySettings);
 
             Entry.Plc.AxoDataExamplesDocu.DataManager.InitializeRemoteDataExchange(exampleRepository);
             //</AxoDataExampleDocuIntialization>
