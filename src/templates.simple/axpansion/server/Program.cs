@@ -6,7 +6,6 @@ using AXOpen.Base.Data;
 using AXOpen.Core;
 using AXOpen.Core.Blazor.AxoDialogs.Hubs;
 using AXOpen.Data;
-using AXOpen.Data.Json;
 using AXOpen.Logging;
 using axosimple;
 using AXOpen.Data.MongoDb;
@@ -63,8 +62,8 @@ Entry.Plc.ContextLogger.StartDequeuing(AxoApplication.Current.Logger, 250);
 var MongoConnectionString = "mongodb://localhost:27017";
 var MongoDatabaseName = "axosimple";
 
-// initialize factory - store connection and credentials ...
-Repository.InitialzeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
+// initialize factory - store connection and credentials
+Repository.InitializeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
 
 //  repository - data connected with technology (not with production process)
 var TechnologyCommonRepository = Repository.Factory<Pocos.axosimple.TechnologyCommonData>("TechnologyCommon_Settings");
@@ -171,8 +170,8 @@ static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\
         Directory.CreateDirectory(repositoryDirectory);
     }
 
-    IRepository<User> userRepo = new JsonRepository<User>(new JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
-    IRepository<Group> groupRepo = new JsonRepository<Group>(new JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
+    IRepository<User> userRepo = new AXOpen.Data.Json.JsonRepository<User>(new AXOpen.Data.Json.JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
+    IRepository<Group> groupRepo = new AXOpen.Data.Json.JsonRepository<Group>(new AXOpen.Data.Json.JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
 
     return (userRepo, groupRepo);
 }
