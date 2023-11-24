@@ -41,7 +41,7 @@
     </div>
     <div class="card-body">
         //<CustomColumns>
-        <DataExchangeView Vm="@_vm" Presentation="Command">
+            <DataExchangeView Vm="@_vm_columndata" Presentation="Command">
             <ColumnData HeaderName="Some data" BindingValue="SomeData" Clickable="false" />
             <ColumnData HeaderName="A number" BindingValue="SomeNumber" Clickable="false" />
             <ColumnData HeaderName="Yes/No" BindingValue="SomeBool" Clickable="false" />
@@ -56,7 +56,7 @@
     </div>
     <div class="card-body">
         //<Export>
-        <DataExchangeView Vm="@_vm" Presentation="Command" CanExport="true" />
+            <DataExchangeView Vm="@_vm_export" Presentation="Command" CanExport="true" />
         //</Export>
     </div>
 </div>
@@ -67,7 +67,7 @@
     </div>
     <div class="card-body">
         //<Modal>
-        <DataExchangeView Vm="@_vm" Presentation="Command" ModalDataView="false" />
+            <DataExchangeView Vm="@_vm_modal" Presentation="Command" ModalDataView="false" />
         //</Modal>
     </div>
 </div>
@@ -76,11 +76,30 @@
 
 //<CustomColumnsCode>
 @code {
-    private DataExchangeViewModel _vm;
+    private DataExchangeViewModel _vm_columndata;
+    private DataExchangeViewModel _vm_modal;
+    private DataExchangeViewModel _vm_export;
 
     protected override void OnInitialized()
     {
-        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager, AlertDialogService = _alertDialogService, AuthenticationProvider = _authenticationProvider };
+        _vm_columndata = new DataExchangeViewModel { 
+            Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager, 
+            AlertDialogService = _alertDialogService, 
+            AuthenticationProvider = _authenticationProvider };
+
+        _vm_modal = new DataExchangeViewModel
+        {
+            Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager,
+            AlertDialogService = _alertDialogService,
+            AuthenticationProvider = _authenticationProvider
+        };
+
+        _vm_export = new DataExchangeViewModel
+        {
+            Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager,
+            AlertDialogService = _alertDialogService,
+            AuthenticationProvider = _authenticationProvider
+        };
     }
 }
 //</CustomColumnsCode>

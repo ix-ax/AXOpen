@@ -230,7 +230,7 @@ else
                     <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#createModal-@ViewGuid" @onclick='() => { Create = "Copy"; Vm.Locked();}'>@Localizer["Copy"]</button>
                     <button type="button" class="btn btn-primary mx-1" data-bs-toggle="modal" data-bs-target="#editModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Edit"]</button>
                     <button type="button" class="btn btn-primary mx-1" data-bs-dismiss="modal" @onclick="() => Vm.SendToPlc()">@Localizer["Send to PLC"]</button>
-                    <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onlick="() => { Vm.Locked(); }">@Localizer["Delete"]</button>
+                    <button type="button" class="btn btn-danger mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal-@ViewGuid" @onclick="() => { Vm.Locked(); }">@Localizer["Delete"]</button>
                 </div>
             }
         </div>
