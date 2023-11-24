@@ -76,11 +76,30 @@
 
 //<CustomColumnsCode>
 @code {
-    private DataExchangeViewModel _vm;
+    private DataExchangeViewModel _vm_columndata;
+    private DataExchangeViewModel _vm_modal;
+    private DataExchangeViewModel _vm_export;
 
     protected override void OnInitialized()
     {
-        _vm = new DataExchangeViewModel { Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager, AlertDialogService = _alertDialogService, AuthenticationProvider = _authenticationProvider };
+        _vm_columndata = new DataExchangeViewModel { 
+            Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager, 
+            AlertDialogService = _alertDialogService, 
+            AuthenticationProvider = _authenticationProvider };
+
+        _vm_modal = new DataExchangeViewModel
+        {
+            Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager,
+            AlertDialogService = _alertDialogService,
+            AuthenticationProvider = _authenticationProvider
+        };
+
+        _vm_export = new DataExchangeViewModel
+        {
+            Model = Entry.Plc.AxoDataFragmentsExchangeContext.DataManager,
+            AlertDialogService = _alertDialogService,
+            AuthenticationProvider = _authenticationProvider
+        };
     }
 }
 //</CustomColumnsCode>
