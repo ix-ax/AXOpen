@@ -4,6 +4,7 @@ type: app
 targets:
   - plcsim
   - axunit-llvm
+  - "1500"
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
@@ -13,6 +14,7 @@ devDependencies:
 dependencies:
   "@ix-ax/axopen.components.festo.drives": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
+  "@ax/simatic-1500-distributedio": ^5.0.20
 scripts:
   download:
     - apax install

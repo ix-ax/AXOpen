@@ -10,6 +10,9 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         PlcInputs : REF_TO PlcInputs;
         PlcOutputs : REF_TO PlcOutputs;          
         {#ix-attr:[Container(Layout.Stack)]}
+        _parameter  : INT;
+        _testRead  : MC_ReadParameterTest;
+        {#ix-attr:[Container(Layout.Stack)]}
         _testDrive  : AXOpen.Components.Festo.Drives.AxoCmmtAsDrive;
     END_VAR
     
@@ -26,6 +29,9 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
                         Enable              :=  _enable,
                         EnablePositive      :=  _enablePositive,
                         EnableNegative      :=  _enableNegative);
+
+        _testRead.Run(parent:=THIS);
+        
     END_METHOD
 END_CLASS
           
