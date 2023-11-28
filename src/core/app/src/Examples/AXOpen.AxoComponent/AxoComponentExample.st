@@ -4,6 +4,7 @@ NAMESPACE AxoComponentExamples
     //<Implementation>
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-set:AttributeName = "AxoComponent example name"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoComponentExample EXTENDS AXOpen.Core.AxoComponent  
         METHOD PROTECTED OVERRIDE Restore: IAxoTask 
             ;
@@ -106,6 +107,7 @@ NAMESPACE AxoComponentExamples
    //</Implementation>
 
    //<ClassDefinitions>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Header_ComponentExample
         VAR PUBLIC
             {#ix-set:AttributeName = "Start"}
@@ -119,6 +121,7 @@ NAMESPACE AxoComponentExamples
 
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-attr:[ComponentDetails("Tasks")]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Tasks_ComponentExample
         VAR PUBLIC
             {#ix-set:AttributeName = "Some status value 1"}
@@ -138,6 +141,7 @@ NAMESPACE AxoComponentExamples
 
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-attr:[ComponentDetails("Status")]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Status_ComponentExample
         VAR PUBLIC
             {#ix-set:AttributeName = "Some status value 1"}
@@ -151,6 +155,7 @@ NAMESPACE AxoComponentExamples
 
     {#ix-attr:[ComponentDetails("Settings")]}
     {#ix-attr:[Container(Layout.Stack)]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Settings_ComponentExample
         VAR PUBLIC
             {#ix-set:AttributeName = "Some setting value 1"}
@@ -164,6 +169,7 @@ NAMESPACE AxoComponentExamples
 
     {#ix-attr:[ComponentDetails("Diagnostics")]}
     {#ix-attr:[Container(Layout.Stack)]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Diagnostics_ComponentExample
         VAR PUBLIC
             {#ix-set:AttributeName = "Some diagnostic message"}
@@ -173,6 +179,7 @@ NAMESPACE AxoComponentExamples
 
     {#ix-attr:[ComponentDetails("Help")]}
     {#ix-attr:[Container(Layout.Stack)]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Help_ComponentExample
         VAR PUBLIC
             {#ix-set:AttributeName = "Some help"}
@@ -182,6 +189,7 @@ NAMESPACE AxoComponentExamples
    //</ClassDefinitions>
 
    //<Using>
+    {S7.extern=ReadWrite}
     CLASS ComponentExampleContext EXTENDS AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Component example name"}

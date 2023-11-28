@@ -1,5 +1,6 @@
 NAMESPACE AXOpen.Core
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ABSTRACT AxoComponent EXTENDS AxoObject IMPLEMENTS IAxoComponent     
         ///<summary>
 		/// Executes the logic for manual-maintenance control.   

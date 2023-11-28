@@ -4,6 +4,7 @@ using AXOpen.Data;
 NAMESPACE AxoDataPersistentExchangeExample
     
     //<ContextDeclaration>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             //persistent manager instance
@@ -23,6 +24,7 @@ NAMESPACE AxoDataPersistentExchangeExample
     
 
     //<Usage>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ManagerUsage EXTENDS AxOpen.Core.AxoObject
         VAR PUBLIC
             _persistentGroupId : STRING;
@@ -93,6 +95,7 @@ NAMESPACE AxoDataPersistentExchangeExample
     //</Usage>
 
     //<PersistentAttribute>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC PersistentRootObject
         VAR PUBLIC 
             NotPersistentVariable : BOOL; 
@@ -112,6 +115,7 @@ NAMESPACE AxoDataPersistentExchangeExample
         END_VAR
     END_CLASS
         
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ObjectWithPersistentMember
         VAR PUBLIC 
             NotPersistentVariable : INT; 
@@ -124,6 +128,7 @@ NAMESPACE AxoDataPersistentExchangeExample
         END_VAR
     END_CLASS
     
+    {S7.extern=ReadWrite}
     CLASS PUBLIC InitializedPrimitives
         VAR PUBLIC
             myBOOL          :       BOOL	      := true;

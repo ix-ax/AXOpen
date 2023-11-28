@@ -3,6 +3,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Core.AxoContext_Tests
 
+    {S7.extern=ReadWrite}
     CLASS TestContext EXTENDS AxoContext         
             METHOD PROTECTED OVERRIDE Main
                 ;
@@ -10,6 +11,7 @@ NAMESPACE AXOpen.Core.AxoContext_Tests
     END_CLASS  
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoContextUnitTests
         VAR PROTECTED
             _context : TestContext;

@@ -2,6 +2,7 @@ NAMESPACE AXOpen.Data
     ///<summary>
     /// Base class for any exchangable data in <see cref="AxoDataExchange"/>.  
     /// </summary>
+    {S7.extern=ReadWrite}
     CLASS AxoDataEntity IMPLEMENTS IAxoDataEntity
         VAR PUBLIC
             ///<summary>

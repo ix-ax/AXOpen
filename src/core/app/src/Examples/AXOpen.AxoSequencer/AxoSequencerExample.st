@@ -2,6 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AxoSequencerExamples
  
+    {S7.extern=ReadWrite}
     CLASS SequencerExample EXTENDS  AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Sequencer example#>"}

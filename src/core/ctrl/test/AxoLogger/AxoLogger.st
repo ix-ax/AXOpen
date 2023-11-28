@@ -3,6 +3,7 @@ USING AxUnit;
 
 NAMESPACE AXOpen.MessagingTests
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoLoggerTest
         VAR
             _sut : AxoLogger;

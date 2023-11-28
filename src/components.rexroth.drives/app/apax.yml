@@ -11,7 +11,7 @@ variables:
 devDependencies:
   "@ax/sdk": ^4.0.12
   "@ax/stc": ^5.4.98
-  "@ax/sld": 0.15.9
+  "@ax/sld": 2.0.5
 dependencies:
   "@ix-ax/axopen.components.rexroth.drives": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
@@ -20,8 +20,7 @@ scripts:
     - apax install
     - apax build
     - dotnet ixc
-    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
-      --accept-security-disclaimer --default-server-interface -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
   ixc:
     - START=$(date +%s)
     - dotnet tool restore
@@ -29,8 +28,7 @@ scripts:
     - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download_only:
     - START=$(date +%s)
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r --default-server-interface -l Debug
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then

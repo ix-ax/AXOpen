@@ -2,6 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AxoTaskExamples
 
+    {S7.extern=ReadWrite}
     CLASS MyCommandTask EXTENDS AXOpen.Core.AxoTask
         VAR PUBLIC
         {#ix-set:AttributeName = "<#Counter#>"}
@@ -13,6 +14,7 @@ NAMESPACE AxoTaskExamples
         END_METHOD
     END_CLASS    
 
+    {S7.extern=ReadWrite}
     CLASS Tasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to execute this command"}

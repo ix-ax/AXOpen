@@ -7,6 +7,7 @@ NAMESPACE axosimple.UnitTemplate
     ///<summary>
     /// Represents controlled units and high level task coordination.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS Unit
         EXTENDS axosimple.BaseUnit.Unit
         VAR PUBLIC

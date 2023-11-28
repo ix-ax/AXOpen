@@ -1,5 +1,6 @@
 NAMESPACE AXOpen.Components.Drives
     {#ix-attr:[Container(Layout.Wrap)]}
+    {S7.extern=ReadWrite}
     CLASS AxoDrive_Config 
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Info time#>"}

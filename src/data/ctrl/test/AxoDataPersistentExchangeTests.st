@@ -4,6 +4,7 @@ USING AxUnit;
 
 NAMESPACE AXOpen.Data 
     NAMESPACE AxoDataPersistentExchangeTests
+        {S7.extern=ReadWrite}
         CLASS TestContext IMPLEMENTS IAxoContext         
             VAR PROTECTED                        
                 _openCounter : ULINT;
@@ -57,6 +58,7 @@ NAMESPACE AXOpen.Data
             METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD                        
         END_CLASS
 
+        {S7.extern=ReadWrite}
         CLASS AxoRtcMock IMPLEMENTS IAxoRtc
             VAR PRIVATE 
                 _NowUTC : LDATE_AND_TIME;
@@ -76,6 +78,7 @@ NAMESPACE AXOpen.Data
 
 
         {TestFixture}
+        {S7.extern=ReadWrite}
         CLASS AxoDataExchange_Tests
             VAR PROTECTED
                 _context : TestContext;

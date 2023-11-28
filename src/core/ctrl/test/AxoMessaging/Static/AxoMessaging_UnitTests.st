@@ -8,6 +8,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
+    {S7.extern=ReadWrite}
     CLASS TestContextI IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
@@ -66,6 +67,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : IAxoLogger; END_VAR ; END_METHOD     
     END_CLASS  
 
+    {S7.extern=ReadWrite}
     CLASS TestContextE EXTENDS MockAxoContext
   
         METHOD PROTECTED OVERRIDE Main
@@ -73,12 +75,14 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
         END_METHOD
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS TestObject EXTENDS MockAxoObject
         VAR PUBLIC 
             _messenger : AxoMessenger;
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS AxoRtcMock IMPLEMENTS IAxoRtc
         VAR PRIVATE 
             _NowUTC : LDATE_AND_TIME;
@@ -91,7 +95,7 @@ NAMESPACE AXOpen.AxoMessagingStatic_UnitTests
             _NowUTC := Set;
         END_METHOD
 
-        METHOD PUBLIC NowUTC : LDATE_AND_TIME
+        METHOD PUBLIC NowUTC : LDATE_AND_TIME    
             NowUTC := _NowUTC;
         END_METHOD        
     END_CLASS

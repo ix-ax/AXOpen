@@ -5,6 +5,7 @@ NAMESPACE AXOpen.Utils.Unit_Tests
 
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoCRCs_UnitTests 
         {Test}
         METHOD PUBLIC should_be_40_decimal

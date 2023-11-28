@@ -104,7 +104,7 @@ scripts:
   download :   
      # Here you will need to set the argumen -t to your plc IP and -i to platfrom you are dowloading to
      # --default-server-interface is a must if you are using WebAPI      
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
 .
 .
 .

@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Core
+    {S7.extern=ReadWrite}
     CLASS ABSTRACT AxoSequencerContainer EXTENDS AxoSequencer
         METHOD PUBLIC FINAL Run 
             VAR_INPUT

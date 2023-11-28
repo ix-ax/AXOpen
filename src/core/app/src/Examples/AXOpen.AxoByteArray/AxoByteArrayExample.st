@@ -4,6 +4,7 @@ NAMESPACE AxoByteArrayExample
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-set:AttributeName = "Byte array type with 10 items"}
     {#ix-set:DisplayFormat = "hexadecimal"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoByteArray10 EXTENDS AXOpen.Core.AxoByteArray  
         VAR PUBLIC 
             Data : ARRAY [0..9] OF BYTE;
@@ -13,6 +14,7 @@ NAMESPACE AxoByteArrayExample
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-set:AttributeName = "Byte array type with 20 items"}
     {#ix-set:DisplayFormat = "string"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoByteArray20 EXTENDS AXOpen.Core.AxoByteArray  
         VAR PUBLIC 
             Data : ARRAY [0..19] OF BYTE;
@@ -20,6 +22,7 @@ NAMESPACE AxoByteArrayExample
     END_CLASS
 
 
+    {S7.extern=ReadWrite}
     CLASS AxoByteArrayExampleContext EXTENDS AxoContext
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}

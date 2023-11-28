@@ -3,6 +3,7 @@ USING AXOpen.Components.Cognex.Vision.v_6_0_0_0;
 
 NAMESPACE AxoCognexVisionInsightExamples
 
+    {S7.extern=ReadWrite}
     CLASS AxoCognexVisionInsightExampleContext EXTENDS AXOpen.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "someInsight"}

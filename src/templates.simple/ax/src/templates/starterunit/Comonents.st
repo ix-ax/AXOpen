@@ -7,6 +7,7 @@ NAMESPACE axosimple.StarterUnitTemplate
     ///<summary>
     /// Groups components of this controller unit.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS Components
         EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC

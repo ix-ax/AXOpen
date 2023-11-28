@@ -9,6 +9,7 @@ NAMESPACE axosimple.StarterUnitTemplate
     /// Provides logic for service/manual/maintenance mode.
     ///</summary>
     {#ix-set:AttributeName = "<#SERVICE#>"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ServiceMode
         EXTENDS AXOpen.Core.AxoTask
         ///<summary>

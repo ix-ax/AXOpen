@@ -4,6 +4,7 @@ USING AXOpen.Core;
 NAMESPACE AXOpen.Inspectors.AxoInspector_Tests  
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoDataInspectorTests
         VAR PROTECTED
             _context : TestContext;

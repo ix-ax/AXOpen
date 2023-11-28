@@ -9,6 +9,7 @@ USING AXOpen.Components.Abstractions.Drives;
 NAMESPACE AXOpen.Components.Drives
     
     {#ix-attr:[Container(Layout.Wrap)]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoDriveExample EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
         ///<summary>
         /// Ensures swapping the hardware input data structure into the AxisRef data structure  

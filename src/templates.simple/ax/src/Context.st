@@ -2,6 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Data;
 
 NAMESPACE axosimple
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Context EXTENDS AxoContext                   
         VAR PUBLIC
             TechnologySettings : TechnologyData;
@@ -68,6 +69,7 @@ NAMESPACE axosimple
         END_METHOD        
     END_CLASS   
              
+    {S7.extern=ReadWrite}
     CLASS PUBLIC GlobalContextObjects
         VAR PUBLIC
             {#ix-attr:[AXOpen.Data.PersistentAttribute("")]}
@@ -80,6 +82,7 @@ NAMESPACE axosimple
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS ProcessData EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
@@ -96,6 +99,7 @@ NAMESPACE axosimple
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS TechnologyData EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}

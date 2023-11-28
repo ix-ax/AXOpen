@@ -1,5 +1,6 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Probers   
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ABSTRACT AxoProberWithCounterBase EXTENDS AXOpen.Core.AxoTask
         VAR PUBLIC                    
             RequredNumberOfCycles : ULINT;
@@ -40,6 +41,7 @@ NAMESPACE AXOpen.Probers
         END_METHOD  
     END_CLASS
    
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ABSTRACT AxoProberWithCompletedCondition EXTENDS AXOpen.Core.AxoTask                
         METHOD PRIVATE Run
             IF(THIS.Execute()) THEN                                                         

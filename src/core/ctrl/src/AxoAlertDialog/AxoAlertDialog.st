@@ -1,5 +1,6 @@
 NAMESPACE AXOpen.Core
     
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoAlertDialog EXTENDS AxoRemoteTask IMPLEMENTS IAxoAlertDialogFormat
 
         VAR PUBLIC      

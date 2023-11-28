@@ -1,4 +1,5 @@
 NAMESPACE AxoRtc
+    {S7.extern=ReadWrite}
     CLASS AxoS71500Rtc IMPLEMENTS AXOpen.Rtc.IAxoRtc
         VAR
             _rtc : AXOpen.S71500.Rtc;

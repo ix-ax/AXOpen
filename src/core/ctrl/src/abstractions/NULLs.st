@@ -4,10 +4,12 @@ USING AXOpen.Rtc;
 NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides an empty context for uninitialized objects.
-    ///</summary>
+    ///</summary>    
     CLASS PUBLIC _NULL_CONTEXT IMPLEMENTS IAxoContext
-        VAR PRIVATE            
+        VAR PRIVATE
+            {S7.extern=Hidden}            
             NULL_RTC : _NULL_RTC;
+            {S7.extern=Hidden}
             NULL_LOGGER : _NULL_LOGGER;
         END_VAR
 
@@ -21,9 +23,10 @@ NAMESPACE AXOpen.Core
 
     ///<summary>
     /// Provides an empty object for uninitialized objects.
-    ///</summary>
+    ///</summary>    
     CLASS PUBLIC _NULL_OBJECT IMPLEMENTS IAxoObject
         VAR PRIVATE
+            {S7.extern=Hidden}
             NULL_CONTEXT : _NULL_CONTEXT;
         END_VAR    
         METHOD PUBLIC GetIdentity : ULINT 
@@ -40,6 +43,7 @@ NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides an empty RTC object for uninitialized RTC.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC _NULL_RTC IMPLEMENTS IAxoRtc
         VAR PRIVATE
             _null_time : LDATE_AND_TIME := LDATE_AND_TIME#1970-01-01-00:00:00.000;
@@ -52,6 +56,7 @@ NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides an empty logger object for uninitialized context logger.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC _NULL_LOGGER IMPLEMENTS IAxoLogger                   
         METHOD PUBLIC Log 
             VAR_INPUT

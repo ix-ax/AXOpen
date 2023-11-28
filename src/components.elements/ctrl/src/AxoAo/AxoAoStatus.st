@@ -2,6 +2,7 @@ NAMESPACE AXOpen.Elements
     /// <summary>
     /// 	Class representing current status of analog output							
     /// </summary>
+    {S7.extern=ReadWrite}
     CLASS AxoAoStatus
         VAR PUBLIC
         // <summary>

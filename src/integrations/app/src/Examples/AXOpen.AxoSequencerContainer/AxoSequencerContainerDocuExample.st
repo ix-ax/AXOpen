@@ -1,6 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE AxoSequencerContainerExamples
+    {S7.extern=ReadWrite}
     CLASS AxoSequencerContainerDocuExample EXTENDS  AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
             _step_1 : AxoStep;
@@ -41,6 +42,7 @@ NAMESPACE AxoSequencerContainerExamples
         //</MAIN>
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS AxoSequencerContainerContext EXTENDS  AXOpen.Core.AxoContext
         //<InstanceDeclaration>
         VAR PUBLIC

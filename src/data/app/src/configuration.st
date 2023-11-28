@@ -4,8 +4,11 @@ CONFIGURATION MyConfiguration
     PROGRAM P1 WITH Main: MyProgram;
 
     VAR_GLOBAL
+        {S7.extern=ReadWrite}
         AxoDataExchangeContext : AxoDataExchangeExample.Context;
+        {S7.extern=ReadWrite}
         AxoDataFragmentsExchangeContext : AxoDataFramentsExchangeExample.Context;
+        {S7.extern=ReadWrite}
         AxoDataPersistentContext : AxoDataPersistentExchangeExample.Context;
     END_VAR
 END_CONFIGURATION

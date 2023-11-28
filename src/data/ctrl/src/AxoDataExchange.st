@@ -5,6 +5,7 @@ NAMESPACE AXOpen.Data
     /// Provides base class for any data exchange with an arbitrary remote repository.      
     /// </summary>      
     {#ix-generic:<TOnline, TPlain>}
+    {S7.extern=ReadWrite}
     CLASS AxoDataExchange EXTENDS AxoObject IMPLEMENTS IAxoDataExchange, AxoDataExchangeBase
         VAR PUBLIC
             Operation : AxoDataCrudTask;

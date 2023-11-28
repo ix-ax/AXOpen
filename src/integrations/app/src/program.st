@@ -94,6 +94,7 @@ PROGRAM MyProgram
 END_PROGRAM
 
 
+{S7.extern=ReadWrite}
 CLASS MyContext EXTENDS AxoContext    
     VAR PUBLIC         
         process_data_manager: AxoDataExamples.AxoProcessDataManager;

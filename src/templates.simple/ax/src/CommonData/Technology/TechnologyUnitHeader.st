@@ -1,5 +1,7 @@
-NAMESPACE axosimple
-    TYPE TechnologyUnitHeader :
+NAMESPACE axosimple    
+    TYPE
+         {S7.extern=ReadWrite} 
+        TechnologyUnitHeader :       
         STRUCT
             {#ix-set:AttributeName = "<#Cycle time#> - <#Nominal#>"}
             IdealCycleTime   : TIME;

@@ -5,6 +5,7 @@ NAMESPACE AXOpen.Components.Drives
         
     END_INTERFACE
 
+    {S7.extern=ReadWrite}
     CLASS RexrothAxisReference IMPLEMENTS IAxisReference
         VAR PUBLIC
             In          :   AxoAxisRefIn;
@@ -15,6 +16,7 @@ NAMESPACE AXOpen.Components.Drives
         
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS AxoAxisRef IMPLEMENTS IAxisReference
         // VAR PUBLIC
         //     In          :   AxoAxisRefIn;
@@ -34,6 +36,7 @@ NAMESPACE AXOpen.Components.Drives
         END_METHOD
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS AxoAxisRefIn 
         VAR PUBLIC
             ParameterChannel    :   AxoDriveParameterChannelIdnIn;
@@ -48,6 +51,7 @@ NAMESPACE AXOpen.Components.Drives
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS AxoAxisRefOut 
         VAR PUBLIC
             ParameterChannel    :   AxoDriveParameterChannelIdnOut;

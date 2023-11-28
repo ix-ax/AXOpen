@@ -1,6 +1,7 @@
 {#ix-attr:[Container(Layout.Tabs)]}
 {#ix-attr:[Group(GroupLayout.GroupBox)]}
 {#ix-set:AttributeName = "This is some structure"}
+{S7.extern=ReadWrite}
 CLASS PUBLIC Recipe
     VAR PUBLIC            
         Header : ReciepeHeader;       
@@ -14,6 +15,7 @@ TYPE
 END_TYPE
 
 {#ix-attr:[Container(Layout.Stack)]}
+{S7.extern=ReadWrite}
 CLASS PUBLIC ReciepeHeader
     VAR PUBLIC
         Name : STRING;        	
@@ -21,6 +23,7 @@ CLASS PUBLIC ReciepeHeader
 END_CLASS 
 
 {#ix-attr:[Container(Layout.Tabs)]}
+{S7.extern=ReadWrite}
 CLASS PUBLIC Measurements
     VAR PUBLIC
         {#ix-set:AttributeName = "Dimension X"}
@@ -38,6 +41,7 @@ END_CLASS
 
 {#ix-attr:[Container(Layout.Wrap)]}
 {#ix-attr:[Group(GroupLayout.GroupBox)]}
+{S7.extern=ReadWrite}
 CLASS PUBLIC ContinuesValueCheckData
     VAR PUBLIC        
         Min : REAL;

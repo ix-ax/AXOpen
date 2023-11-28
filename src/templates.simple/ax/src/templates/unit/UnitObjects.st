@@ -5,6 +5,7 @@ NAMESPACE axosimple.UnitTemplate
     USING AXOpen.Core;
     USING System.Strings;
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC UnitObjects EXTENDS axosimple.BaseUnit.UnitObjects
         VAR PUBLIC
             ///<summary>

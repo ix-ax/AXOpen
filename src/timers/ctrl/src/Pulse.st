@@ -6,6 +6,7 @@ NAMESPACE AXOpen.Timers
     /// PulseTimer class, which contains Pulse method representing timer.
     /// Counting of timer start on RISING edge.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS PulseTimer
         VAR PUBLIC
             output : BOOL;

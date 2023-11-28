@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Components.Rexroth.Drives
+    {S7.extern=ReadWrite}
     CLASS AxoIndraDriveFieldBusIn
         (******************* Drive configuration  ***********************
         Master communication; Fieldbus settings:

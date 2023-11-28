@@ -3,6 +3,7 @@ NAMESPACE AXOpen.Inspectors
     ///<summary>
     /// Data subjected to each analogue inspector instance.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS AxoAnalogueInspectorData EXTENDS AxoInspectorData
 
         VAR PUBLIC

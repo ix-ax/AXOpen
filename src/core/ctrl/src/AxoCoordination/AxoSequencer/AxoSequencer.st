@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Core
+    {S7.extern=ReadWrite}
     CLASS AxoSequencer EXTENDS AxoTask IMPLEMENTS IAxoSequencer
         VAR PUBLIC                  
             {#ix-set:AttributeName = "<#Stepping mode#>"}

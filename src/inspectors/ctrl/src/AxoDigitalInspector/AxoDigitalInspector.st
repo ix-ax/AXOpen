@@ -3,6 +3,7 @@ NAMESPACE AXOpen.Inspectors
 /// <summary>
 /// Class representing inspection of bool value.
 /// </summary>
+{S7.extern=ReadWrite}
 CLASS AxoDigitalInspector EXTENDS AxoInspector IMPLEMENTS IAxoDigitalInspector
 
     VAR PUBLIC

@@ -12,6 +12,7 @@ USING AXOpen.Core;
 //</Implementation>
 
 //<Declaration>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoContextExample EXTENDS  AXOpen.Core.AxoContext
         METHOD PROTECTED OVERRIDE Main 
             // Here goes all your logic for given AxoContext.

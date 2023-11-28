@@ -1,4 +1,5 @@
 NAMESPACE Layouts.Tabbed
+    {S7.extern=ReadWrite}
     CLASS PUBLIC weather  EXTENDS weatherBase 
         VAR PUBLIC
             Latitude : REAL;       
@@ -10,6 +11,7 @@ NAMESPACE Layouts.Tabbed
     END_CLASS    
 END_NAMESPACE 
 
+{S7.extern=ReadWrite}
 CLASS PUBLIC weatherBase
     VAR PUBLIC
       baseLatitude : REAL;       

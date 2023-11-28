@@ -4,6 +4,7 @@ USING AxUnit;
 
 NAMESPACE AXOpen.Data 
     NAMESPACE AxoDataExchangeTests
+        {S7.extern=ReadWrite}
         CLASS TestContext IMPLEMENTS IAxoContext         
             VAR PROTECTED                        
                 _openCounter : ULINT;
@@ -42,6 +43,7 @@ NAMESPACE AXOpen.Data
         END_CLASS
 
         {TestFixture}
+        {S7.extern=ReadWrite}
         CLASS AxoDataExchange_Tests
             VAR PROTECTED
                 _context : TestContext;

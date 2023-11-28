@@ -1,6 +1,7 @@
 // USING AXOpen.Components.Drives;
 
 NAMESPACE AXOpen.Components.Rexroth.Drives
+    {S7.extern=ReadWrite}
     CLASS AxoIndraDriveAxisReference IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoAxisReference
         VAR PUBLIC
             FieldBus_In     :   AXOpen.Components.Rexroth.Drives.AxoIndraDriveFieldBusIn;

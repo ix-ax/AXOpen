@@ -7,6 +7,7 @@ USING AXOpen.Logging;
 NAMESPACE AxoIO.Tests
    
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoAoTests 
         VAR 
             context : TestContext;

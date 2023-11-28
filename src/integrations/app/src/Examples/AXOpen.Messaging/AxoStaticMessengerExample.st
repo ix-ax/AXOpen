@@ -3,6 +3,7 @@ USING AXOpen.Messaging.Static;
 
 NAMESPACE AxoStaticMessengerExample
 
+    {S7.extern=ReadWrite}
     CLASS Messengers EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Messenger 1#>"}

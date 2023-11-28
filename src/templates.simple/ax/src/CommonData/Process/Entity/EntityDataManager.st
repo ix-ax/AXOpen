@@ -1,4 +1,5 @@
 NAMESPACE axosimple
+    {S7.extern=ReadWrite}
     CLASS EntityHeaderDataManager EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-generic:TOnline}

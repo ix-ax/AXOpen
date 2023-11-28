@@ -4,6 +4,7 @@ USING AXOpen.Data;
 NAMESPACE AxoDataFramentsExchangeExample  
 
     //<ContextDeclaration>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             //Controlled unit that needs to manipulate with data
@@ -27,6 +28,7 @@ NAMESPACE AxoDataFramentsExchangeExample
     //</ContextDeclaration>
 
     //<AxoProcessDataManagerDeclaration>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoProcessDataManager
         EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
@@ -38,6 +40,7 @@ NAMESPACE AxoDataFramentsExchangeExample
     END_CLASS
     //</AxoProcessDataManagerDeclaration>
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC SharedDataHeaderManager
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
@@ -50,6 +53,7 @@ NAMESPACE AxoDataFramentsExchangeExample
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC SharedDataHeaderData
         EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
@@ -60,6 +64,7 @@ NAMESPACE AxoDataFramentsExchangeExample
         END_VAR      
     END_CLASS
         
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Station_1_ProcessDataManager
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
@@ -72,6 +77,7 @@ NAMESPACE AxoDataFramentsExchangeExample
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Station_1_Data EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             {#ix-set:AttributeName = "Some string"}
@@ -82,6 +88,7 @@ NAMESPACE AxoDataFramentsExchangeExample
     END_CLASS
 
      //<Usage>
+     {S7.extern=ReadWrite}
      CLASS PUBLIC ManagerUsage
         VAR PUBLIC
             _id : STRING;
@@ -125,6 +132,7 @@ NAMESPACE AxoDataFramentsExchangeExample
 
     
     //<Execute>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             //Reference to ProcessDataManager
@@ -149,6 +157,7 @@ NAMESPACE AxoDataFramentsExchangeExample
     //</Execute>
 
     //<Run>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PRIVATE
             // private reference is used in Main()

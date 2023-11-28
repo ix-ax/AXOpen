@@ -3,6 +3,7 @@ USING AXOpen.Logging;
 USING AXOpen.Core;
 NAMESPACE AXOpen.Inspectors.AxoInspector_Tests  
 
+    {S7.extern=ReadWrite}
     CLASS AxoRtcMock IMPLEMENTS IAxoRtc
         VAR PRIVATE 
             _NowUTC : LDATE_AND_TIME;
@@ -20,6 +21,7 @@ NAMESPACE AXOpen.Inspectors.AxoInspector_Tests
         END_METHOD        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;

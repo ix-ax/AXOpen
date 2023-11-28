@@ -3,7 +3,9 @@ CONFIGURATION MyConfiguration
     PROGRAM P1 WITH Main: MyProgram;
 
     VAR_GLOBAL
+        {S7.extern=ReadWrite}
         sandbox : SandboContext;
+        {S7.extern=ReadWrite}
         documentation : DocumentationContext;
     END_VAR            
 END_CONFIGURATION

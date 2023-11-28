@@ -3,6 +3,7 @@ USING AXOpen.Data;
 USING AXOpen.Probers;
 
 NAMESPACE IntegrationLightDirect    
+    {S7.extern=ReadWrite}
     CLASS DataExchangeLightTestsContext EXTENDS AxoContext
         VAR PUBLIC
             DM : IAxoDataExchange;
@@ -37,6 +38,7 @@ NAMESPACE IntegrationLightDirect
 
     
 
+    {S7.extern=ReadWrite}
     CLASS DataCreateTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
@@ -68,6 +70,7 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
     END_CLASS
    
+    {S7.extern=ReadWrite}
     CLASS DataReadTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
@@ -99,6 +102,7 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS DataUpdateTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
@@ -130,6 +134,7 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS DataDeleteTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
@@ -161,6 +166,7 @@ NAMESPACE IntegrationLightDirect
         END_METHOD    
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS DataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC     
             {#ix-generic:TOnline}              
@@ -170,6 +176,7 @@ NAMESPACE IntegrationLightDirect
         END_VAR          
     END_CLASS    
     
+    {S7.extern=ReadWrite}
     CLASS DataSet EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             SomeData : STRING;
