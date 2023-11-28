@@ -41,9 +41,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Inspectors_tests_L1", "inspectors\tests\AXOpen.Inspectors.Tests\AXOpen.Inspectors_tests_L1.csproj", "{FFDE7621-B3BE-4D02-A23A-6845350B6E83}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "security\src\AXOpen.Security\AXOpen.Security.csproj", "{D961817D-4B18-4E0E-84DB-32258250CC88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "Security\src\AXOpen.Security\AXOpen.Security.csproj", "{D961817D-4B18-4E0E-84DB-32258250CC88}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.SecurityTests_L1", "security\tests\axopen_security_tests\AXOpen.SecurityTests_L1.csproj", "{AF374A2D-7889-46F1-94A3-19B7985EBF5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.SecurityTests_L1", "Security\tests\axopen_security_tests\AXOpen.SecurityTests_L1.csproj", "{AF374A2D-7889-46F1-94A3-19B7985EBF5D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", "timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj", "{F8E30228-0B22-4377-86DF-E28D12451310}"
 EndProject
@@ -145,15 +145,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "inspectors\tests",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "inspectors", "inspectors", "{9B5279D1-A194-47B1-8BA9-270EA5CBFEAC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "security\src\AXOpen.Security", "{939773AB-7090-4704-9CD4-2CE359D4EA7C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "Security\src\AXOpen.Security", "{939773AB-7090-4704-9CD4-2CE359D4EA7C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "security\src", "{445A46AD-C093-431E-BB74-EE350F30B9A3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "Security\src", "{445A46AD-C093-431E-BB74-EE350F30B9A3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_security_tests", "security\tests\axopen_security_tests", "{44F1F413-CC9A-469D-A73B-AD73C0896E11}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "axopen_security_tests", "Security\tests\axopen_security_tests", "{44F1F413-CC9A-469D-A73B-AD73C0896E11}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "security\tests", "{CCFADB68-2D5D-43CB-AD05-88C4F20B4D71}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "Security\tests", "{CCFADB68-2D5D-43CB-AD05-88C4F20B4D71}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "security", "{F67A3687-4110-427F-A52F-D10BAA774D84}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{F67A3687-4110-427F-A52F-D10BAA774D84}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Timers", "timers\src\AXOpen.Timers", "{B7EE0A61-298C-4EF4-A715-90092B99A7A8}"
 EndProject

@@ -6,6 +6,9 @@
 	  <ProjectReference Include="components.elements\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
 	  <ProjectReference Include="components.pneumatics\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
 	  <ProjectReference Include="components.cognex.vision\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="components.drives\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="components.rexroth.drives\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	  <ProjectReference Include="components.festo.drives\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
 	  <ProjectReference Include="core\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
 	  <ProjectReference Include="data\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
 	  <ProjectReference Include="inspectors\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
