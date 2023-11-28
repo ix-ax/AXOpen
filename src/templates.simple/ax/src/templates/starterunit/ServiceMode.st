@@ -21,7 +21,7 @@ NAMESPACE axosimple.StarterUnitTemplate
                 parent : IAxoObject;
             END_VAR
             VAR_IN_OUT
-                components : Components;
+                components : axosimple.StarterUnitTemplate.Components;
             END_VAR
             THIS.Initialize(parent);
             IF THIS.Execute() THEN
@@ -31,7 +31,7 @@ NAMESPACE axosimple.StarterUnitTemplate
 
         METHOD PRIVATE Handle
             VAR_IN_OUT
-                components : Components;
+                components : axosimple.StarterUnitTemplate.Components;
             END_VAR
             ;
             // HERE CALL LOGIC FOR MANUAL/SERICE OPERATIONS

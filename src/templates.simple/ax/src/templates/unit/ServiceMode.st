@@ -18,10 +18,10 @@ NAMESPACE axosimple.UnitTemplate
 
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : IAxoObject;
+                parent : AXOpen.Core.IAxoObject;
             END_VAR
             VAR_IN_OUT
-                components : Components;
+                components : axosimple.UnitTemplate.Components;
             END_VAR
             THIS.Initialize(parent);
             IF THIS.Execute() THEN
@@ -31,7 +31,7 @@ NAMESPACE axosimple.UnitTemplate
 
         METHOD PRIVATE Handle
             VAR_IN_OUT
-                components : Components;
+                components : axosimple.UnitTemplate.Components;
             END_VAR
             ;
             // HERE CALL LOGIC FOR MANUAL/SERICE OPERATIONS

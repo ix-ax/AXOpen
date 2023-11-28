@@ -3,12 +3,12 @@ USING AXOpen.Data;
 
 NAMESPACE axosimple
     {S7.extern=ReadWrite}
-    CLASS PUBLIC Context EXTENDS AxoContext                   
+    CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext                   
         VAR PUBLIC
-            TechnologySettings : TechnologyData;
-            ProcessSettings : ProcessData;
-            ProcessData : ProcessData;                        
-            PersistentData : AxoDataPersistentExchange;
+            TechnologySettings : axosimple.TechnologyData;
+            ProcessSettings : axosimple.ProcessData;
+            ProcessData : axosimple.ProcessData;                        
+            PersistentData : AXOpen.Data.AxoDataPersistentExchange;
             GlobalObjects : GlobalContextObjects;
             
             Inputs : REF_TO axosimple.Inputs;
