@@ -10,7 +10,7 @@ variables:
 devDependencies:
   "@ax/sdk": ^4.0.12
   "@ax/stc": ^5.4.98
-  "@ax/sld": 0.15.9
+  "@ax/sld": 2.0.5
 dependencies:
   "@ix-ax/axopen.components.drives": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
@@ -19,5 +19,4 @@ scripts:
     - apax install
     - apax build
     - dotnet ixc
-    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
-      --accept-security-disclaimer --default-server-interface -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r

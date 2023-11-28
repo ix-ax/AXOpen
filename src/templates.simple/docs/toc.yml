@@ -1,0 +1,18 @@
+- name: AXOpen.SimpleTemplate
+  href: index.md
+  items:
+  - name: Technology
+    href: Technology.md
+    
+  - name: Controlled Unit Modes
+    href: ControlledUnitModes.md
+
+  - name: Data Used In Technology
+    href: DataUsedInTechnology.md
+
+  - name: Adding Controlled Unit
+    href: ScaffoldNewControlledUnit.md
+
+  - name: Alarms
+    href: Alarms.md
+

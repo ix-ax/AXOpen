@@ -16,5 +16,4 @@ scripts:
   download:
     - apax install
     - apax build
-    - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
-      --accept-security-disclaimer --default-server-interface -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r

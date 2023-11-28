@@ -1,5 +1,6 @@
 NAMESPACE AXOpen.Core
     {#ix-prop: public string Description}
+    {S7.extern=ReadWrite}
     CLASS AxoStep EXTENDS AxoTask IMPLEMENTS IAxoStep       
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}

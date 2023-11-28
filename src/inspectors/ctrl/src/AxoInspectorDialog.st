@@ -6,6 +6,7 @@ NAMESPACE AXOpen.Inspectors
     /// AxoInspector base class with implemented evaluation methods
     /// Evaluation methods need IAxoCoordinator instance
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS AxoInspectorDialog EXTENDS AXOpen.Core.AxoDialogBase
 
         VAR PUBLIC

@@ -219,7 +219,7 @@ public static class ApaxCmd
     {
         var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments = $" sld -t {app.targetIp} -i {app.targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+            Arguments = $" sld load -t {app.targetIp} -i {app.targetPlatform} --accept-security-disclaimer -r",
             WorkingDirectory = context.GetAppFolder(app),
             RedirectStandardOutput = false,
             RedirectStandardError = false,
@@ -236,7 +236,7 @@ public static class ApaxCmd
         var targetPlatform = System.Environment.GetEnvironmentVariable("AXTARGETPLATFORMINPUT");
         var process = context.ProcessRunner.Start(Helpers.GetApaxCommand(), new ProcessSettings()
         {
-            Arguments = $" sld -t {targetIp} -i {targetPlatform} --accept-security-disclaimer --default-server-interface -r",
+            Arguments = $" sld load -t {targetIp} -i {targetPlatform} --accept-security-disclaimer -r",
             WorkingDirectory = folder,
             RedirectStandardOutput = false,
             RedirectStandardError = false,

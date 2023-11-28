@@ -4,6 +4,7 @@ NAMESPACE nmspcDummy
 
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS clssDummy
         {Test}
         METHOD PUBLIC Dummy

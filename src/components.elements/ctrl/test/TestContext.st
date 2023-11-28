@@ -3,6 +3,7 @@ USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
 NAMESPACE AxoIO.Tests
+    {S7.extern=ReadWrite}
     CLASS TestContext IMPLEMENTS AXOpen.Core.IAxoContext
         VAR
             _openCounter : ULINT;

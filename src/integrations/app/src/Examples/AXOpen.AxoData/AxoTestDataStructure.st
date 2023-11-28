@@ -2,6 +2,7 @@ using AXOpen.Data;
 
 NAMESPACE AxoDataExamples
 
+    {S7.extern=ReadWrite}
     CLASS AxoTestDataStructure
         VAR PUBLIC
             RecipeName : STRING;

@@ -6,4 +6,7 @@ items:
   - name: Inspectors
     href: ../inspectors/docs/index.html
   - name: Timers
-    href: ../timers/docs/index.html
+    href: ../timers/docs/index.html  
+  - name: Application Template
+    href: ../templates.simple/docs/index.html
+    

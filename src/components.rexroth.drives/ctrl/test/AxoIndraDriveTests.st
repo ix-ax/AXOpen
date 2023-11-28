@@ -4,6 +4,7 @@ USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
 NAMESPACE AxoIndraDriveTests.Tests
+    {S7.extern=ReadWrite}
     CLASS TestContext IMPLEMENTS AXOpen.Core.IAxoContext
         VAR
             _openCounter : ULINT;
@@ -51,6 +52,7 @@ NAMESPACE AxoIndraDriveTests.Tests
         END_METHOD
     END_CLASS
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoIndraDriveTests
         VAR 
             context : TestContext;

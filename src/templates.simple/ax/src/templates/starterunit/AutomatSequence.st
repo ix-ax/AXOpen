@@ -9,6 +9,7 @@ NAMESPACE axosimple.StarterUnitTemplate
     /// Provides automatic mode sequence.
     ///</summary>
     {#ix-set:AttributeName = "<#AUTOMAT#>"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AutomatSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC

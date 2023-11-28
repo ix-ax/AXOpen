@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Core
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoBoolArray 
         VAR PUBLIC
             DataChanged : BOOL;

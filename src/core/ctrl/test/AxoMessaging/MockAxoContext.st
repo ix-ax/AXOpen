@@ -7,6 +7,7 @@ NAMESPACE AXOpen.Core
     /// Provides base for contextualized entry of `AXOpen` application.
     /// This class is abstract and must be inherited.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ABSTRACT MockAxoContext IMPLEMENTS IAxoContext        
         VAR PRIVATE                        
             _openCounter : ULINT;

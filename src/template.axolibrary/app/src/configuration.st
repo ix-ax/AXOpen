@@ -3,8 +3,11 @@ CONFIGURATION MyConfiguration
     PROGRAM P1 WITH Main: MyProgram;
 
     VAR_GLOBAL
+        {S7.extern=ReadWrite}
         sandbox : SandboxContext;
+        {S7.extern=ReadWrite}
         documentation : DocumentationContext;
+        {S7.extern=ReadWrite}
         _rtc : AXOpen.S71500.Rtc;
     END_VAR            
 END_CONFIGURATION

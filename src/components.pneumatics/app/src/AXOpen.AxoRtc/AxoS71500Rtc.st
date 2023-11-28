@@ -1,4 +1,5 @@
 NAMESPACE AxoRtc
+    {S7.extern=ReadWrite}
     CLASS AxoS71500Rtc IMPLEMENTS AXOpen.Rtc.IAxoRtc
         METHOD PUBLIC NowUTC : LDATE_AND_TIME
             Siemens.Simatic.S71500.Clocks.GetSystemDateTime(value => NowUTC);

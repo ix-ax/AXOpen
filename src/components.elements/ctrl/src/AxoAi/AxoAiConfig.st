@@ -3,6 +3,7 @@ NAMESPACE AXOpen.Elements
     // <summary>
     // Configuration class for analog input							
     // </summary>	
+    {S7.extern=ReadWrite}
     CLASS AxoAiConfig
         VAR PUBLIC
 

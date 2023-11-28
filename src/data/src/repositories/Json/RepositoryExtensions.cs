@@ -3,11 +3,11 @@ using AXOpen.Base.Data;
 using AXOpen.Data;
 using AXOpen.Data.Json;
 
-namespace Ix.Repository.Json
+namespace AXOpen.Data.Json
 {
     public static class Repository
     {
-        public static IRepository<T> Factory<T>(JsonRepositorySettings<T> parameters) where T : IBrowsableDataObject
+        public static IRepository<T> Factory<T>(this JsonRepositorySettings<T> parameters) where T : IBrowsableDataObject
         {
             try
             {

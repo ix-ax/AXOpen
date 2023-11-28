@@ -10,7 +10,7 @@ registries:
   '@ix-ax': https://npm.pkg.github.com/
 devDependencies:
   "@ax/sdk": 4.0.12
-  "@ax/sld": ^0.15.9
+  "@ax/sld": 2.0.5
 dependencies:
   "@ix-ax/axopen.data": '0.0.0-dev.0'
   "@ix-ax/axopen.inspectors": '0.0.0-dev.0' 
@@ -58,5 +58,4 @@ scripts:
   download:
     # Here you will need to set the argumen -t to your plc IP and -i to platfrom you are dowloading to
     # --default-server-interface is a must if you are using WebAPI          
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface --log Trace
-  
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r  

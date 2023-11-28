@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Components.Rexroth.Drives
+    {S7.extern=ReadWrite}
     CLASS AxoIndraDriveParameterOut
         (******************* IndraDrive configuration  ***********************
         Master communication; Fieldbus settings:

@@ -4,6 +4,7 @@ USING AXOpen.Rtc;
 USING AxUnit;
 
 NAMESPACE AXOpen.Core.AxoStep_Tests        
+    {S7.extern=ReadWrite}
     CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
@@ -47,6 +48,7 @@ NAMESPACE AXOpen.Core.AxoStep_Tests
     END_CLASS      
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS StepTests
         VAR PROTECTED
             _context : TestContext;

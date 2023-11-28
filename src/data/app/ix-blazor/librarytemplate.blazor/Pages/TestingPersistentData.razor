@@ -1,0 +1,43 @@
+﻿    @page "/TestingPersistentData"
+@using AXOpen.Base.Dialogs;
+@using AXOpen.Data;
+@using librarytemplate
+@inject AuthenticationStateProvider _authenticationProvider
+@inject IAlertDialogService _alertDialogService
+
+<PageTitle>TestingPersistentData</PageTitle>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Commands</h2>
+        </div>
+        <div class="card-body">
+            <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.ManagerUsage" Presentation="Command-Control" />
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Manager Operation status</h2>
+        </div>
+        <div class="card-body">
+            <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation" Presentation="Command" />
+            <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.HasRemoteException" Presentation="Display" />
+            <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.DataManager.Operation.ErrorDetails" Presentation="Display" />
+        </div>
+    </div>
+
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Persistent root object</h2>
+    </div>
+    <div class="card-body">
+        <RenderableContentControl Context="@Entry.Plc.AxoDataPersistentContext.PersistentRootObject" Presentation="Control" />
+    </div>
+</div>
+
+

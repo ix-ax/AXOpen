@@ -3,6 +3,7 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 
 NAMESPACE AXOpen.Core.AxoTask_Tests
+     {S7.extern=ReadWrite}
      CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
@@ -43,6 +44,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD         
     END_CLASS      
 
+    {S7.extern=ReadWrite}
     CLASS MyTask Extends AxoTask
         VAR
             OnAbortCounter : ULINT;
@@ -111,6 +113,7 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
     END_CLASS
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoTaskUnitTests 
         VAR PROTECTED
            _context : TestContext;

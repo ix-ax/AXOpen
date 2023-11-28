@@ -2,6 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Abstractions    
     {#ix-attr:[Container(Layout.Stack)]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoComponent_Status
         VAR PUBLIC
             {#ix-set:AttributeName = "ActionDescription: |[[1]ActionDescription]|"}

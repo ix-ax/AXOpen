@@ -4,6 +4,7 @@ NAMESPACE AXOpen.Elements
     /// <summary>
     /// Class representing Digital input
     /// </summary>
+    {S7.extern=ReadWrite}
     CLASS AxoDi EXTENDS AXOpen.Core.AxoComponent
 
         VAR

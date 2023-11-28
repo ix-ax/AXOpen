@@ -3,6 +3,7 @@ NAMESPACE AXOpen.Elements
     /// <summary>
     /// Class representing Analog input
     /// </summary>
+    {S7.extern=ReadWrite}
     CLASS AxoAi EXTENDS AXOpen.Core.AxoComponent
 
     VAR PUBLIC

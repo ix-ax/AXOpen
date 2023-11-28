@@ -1,5 +1,6 @@
 USING Siemens.Simatic.S71500.Clocks;
 NAMESPACE AXOpen.S71500
+    {S7.extern=ReadWrite}
     CLASS Rtc IMPLEMENTS AXOpen.Rtc.IAxoRtc        
         METHOD PUBLIC NowUTC : LDATE_AND_TIME
             VAR_TEMP

@@ -2,6 +2,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
 NAMESPACE AxoStaticMessengerDocuExample
+    {S7.extern=ReadWrite}
     CLASS MessengersExamples EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             //<MessageTextHelpDeclaration>
@@ -72,6 +73,7 @@ NAMESPACE AxoStaticMessengerDocuExample
     END_CLASS    
 
     //<MessengerCompleteExample
+    {S7.extern=ReadWrite}
     CLASS Messengers EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:MessageText = "<#Static message text for messenger 1 declared in the PLC code#>"}

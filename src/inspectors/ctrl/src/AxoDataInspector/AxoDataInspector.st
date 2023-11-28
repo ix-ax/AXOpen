@@ -5,6 +5,7 @@ NAMESPACE AXOpen.Inspectors
     /// <summary>
     /// Class representing inspection of string value with support of star notation.
     /// </summary>
+    {S7.extern=ReadWrite}
     CLASS AxoDataInspector EXTENDS AxoInspector IMPLEMENTS IAxoDataInspector
     
         VAR PUBLIC

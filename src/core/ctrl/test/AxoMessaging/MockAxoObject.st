@@ -4,6 +4,7 @@ NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides base class for all classes of `AXOpen`.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC MockAxoObject IMPLEMENTS IAxoObject
         VAR PUBLIC
             {#ix-attr:[CompilerOmits("POCO")]}
@@ -17,8 +18,10 @@ NAMESPACE AXOpen.Core
             _context    : IAxoContext;
         END_VAR  
         
-        VAR PRIVATE            
+        VAR PRIVATE           
+            {S7.extern=Hidden} 
             NULL_CONTEXT : _NULL_CONTEXT;
+            {S7.extern=Hidden}
             NULL_OBJECT : _NULL_OBJECT;
         END_VAR
 

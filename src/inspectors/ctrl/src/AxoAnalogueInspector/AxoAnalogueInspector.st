@@ -5,6 +5,7 @@ NAMESPACE AXOpen.Inspectors
     /// <summary>
     /// Class representing inspection of value within an interval.
     /// </summary>
+    {S7.extern=ReadWrite}
     CLASS AxoAnalogueInspector EXTENDS AxoInspector IMPLEMENTS IAxoAnalogueInspector
     
         VAR PUBLIC

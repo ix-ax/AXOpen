@@ -28,4 +28,20 @@ namespace AXOpen.Data.MongoDb
                 context.Writer.WriteDouble(Math.Round(value,10));
         }
     }
+
+
+    public class DateOnlySerializer : SerializerBase<DateOnly>
+    {
+        public override DateOnly Deserialize(BsonDeserializationContext context, BsonDeserializationArgs args)
+        {
+            var date = BsonSerializer.Deserialize<DateTime>(context.Reader);
+            return DateOnly.FromDateTime(date);
+        }
+
+        public override void Serialize(BsonSerializationContext context, BsonSerializationArgs args, DateOnly value)
+        {
+            BsonSerializer.Serialize(context.Writer, value.ToDateTime(new TimeOnly(0, 0)));
+        }
+    }
+
 }

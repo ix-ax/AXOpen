@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         _manualControl : BOOL;          

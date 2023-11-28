@@ -3,6 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AxoTextListExample
 
 
+    {S7.extern=ReadWrite}
     CLASS AxoTextListExampleContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to increment text list Id"}

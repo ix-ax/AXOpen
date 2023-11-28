@@ -7,7 +7,7 @@ targets:
   #- "1500" 
 devDependencies:
   "@ax/sdk": 4.0.12
-  "@ax/sld": 0.15.9
+  "@ax/sld": 2.0.5
   "@ax/stc": ^5.4.89
 dependencies:
   "@ix-ax/axopen.components.cognex.vision": '0.0.0-dev.0'
@@ -23,7 +23,7 @@ scripts:
     - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download:
     - START=$(date +%s)
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
     - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
   check+download: |
     if [ $AXTARGET ]; then

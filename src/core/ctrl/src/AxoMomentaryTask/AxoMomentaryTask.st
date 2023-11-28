@@ -8,6 +8,7 @@ NAMESPACE AXOpen.Core
     {#ix-set: AttributeStateOnDesc = "<#On#>"}
     {#ix-prop: public string AttributeStateOffDesc}
     {#ix-set:AttributeStateOffDesc = "<#Off#>"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoMomentaryTask EXTENDS AxoObject IMPLEMENTS IAxoMomentaryTask
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}

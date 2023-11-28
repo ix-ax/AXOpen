@@ -16,6 +16,7 @@ NAMESPACE AXOpen.Utils
 	/// </code>
 	/// Inspired by Gerhard Barteling blogpost at https://www.plccoder.com/fluent-code/
 	/// </summary>			
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoStringBuilder IMPLEMENTS IAxoStringBuilder
 		VAR
             _workString: STRING[254];

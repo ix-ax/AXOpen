@@ -1,5 +1,6 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Components.Drives
+    {S7.extern=ReadWrite}
     CLASS AxoDriveParameterChannelIdnIn
         VAR PUBLIC
             StatusWord  :   WORD;
@@ -9,6 +10,7 @@ NAMESPACE AXOpen.Components.Drives
             ValueLow    :   WORD;
         END_VAR
     END_CLASS
+    {S7.extern=ReadWrite}
     CLASS AxoDriveParameterChannelIdnOut
         VAR PUBLIC
             ControlWord :   WORD;

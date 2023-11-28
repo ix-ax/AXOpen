@@ -6,6 +6,7 @@ NAMESPACE AXOpen.Core
     ///> The deferred execution in .NET envornment is not hard-real time nor deterministic.
     ///</remarks>    
     ///</summary>            
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoRemoteTask EXTENDS AxoTask
         VAR PUBLIC
             ///<summary>

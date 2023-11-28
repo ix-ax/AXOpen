@@ -2,6 +2,7 @@ NAMESPACE AXOpen.Core
     ///<summary>
     /// AxoDialog class, which represents structure of base dialog.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoDialog EXTENDS AxoDialogBase IMPLEMENTS IAxoDialogFormat, IAxoDialogAnswer
 
         VAR PUBLIC      

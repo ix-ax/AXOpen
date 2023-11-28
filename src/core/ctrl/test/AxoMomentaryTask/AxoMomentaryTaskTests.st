@@ -4,6 +4,7 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 
 NAMESPACE AXOpen.Core.AxoMomentaryTask_Tests
+     {S7.extern=ReadWrite}
      CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
@@ -41,6 +42,7 @@ NAMESPACE AXOpen.Core.AxoMomentaryTask_Tests
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD            
     END_CLASS      
 
+    {S7.extern=ReadWrite}
     CLASS MyTask Extends AxoMomentaryTask
         VAR
             OnSwitchedOnCounter : ULINT;
@@ -93,6 +95,7 @@ NAMESPACE AXOpen.Core.AxoMomentaryTask_Tests
     END_CLASS
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoMomentaryTaskUnitTests 
         VAR PROTECTED
            _context : TestContext;

@@ -1,4 +1,5 @@
 TYPE
+	{S7.extern=ReadWrite}
 	PlcInputs : STRUCT
 		ET200SP_DI_8x24VDC_ST_V1_1_1 : BYTE;
 	END_STRUCT;

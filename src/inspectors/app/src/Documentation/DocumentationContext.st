@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
 
@@ -26,6 +27,7 @@ END_CLASS
 
 
 {#ix-set:AttributeName = "<#AUTOMAT#>"}
+{S7.extern=ReadWrite}
 CLASS PUBLIC AutomatSequence
     EXTENDS AXOpen.Core.AxoSequencerContainer
     VAR PUBLIC

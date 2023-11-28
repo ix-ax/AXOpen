@@ -4,6 +4,7 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 
 NAMESPACE AXOpen.Core.AxoToggleTask_Tests
+     {S7.extern=ReadWrite}
      CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
@@ -46,6 +47,7 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
 
     END_CLASS      
 
+    {S7.extern=ReadWrite}
     CLASS MyTask Extends AxoToggleTask
         VAR
             OnSwitchedOnCounter : ULINT;
@@ -97,6 +99,7 @@ NAMESPACE AXOpen.Core.AxoToggleTask_Tests
     END_CLASS
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoToggleTaskUnitTests 
         VAR PROTECTED
            _context : TestContext;
