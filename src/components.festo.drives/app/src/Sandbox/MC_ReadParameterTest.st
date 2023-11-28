@@ -2,6 +2,7 @@ USING AXOpen.Core;
 USING Siemens.Simatic.S71500.DistributedIO;
 
 // CLASS MC_ReadParameterTest EXTENDS AXOpen.Core.AxoTask
+{S7.extern=ReadWrite}
 CLASS MC_ReadParameterTest EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC
         Enable          :   BOOL;

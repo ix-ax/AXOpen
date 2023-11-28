@@ -1,5 +1,7 @@
 NAMESPACE AXOpen.Components.Festo.Drives
-    TYPE AxoCmmtAsDriveErrorStruct :
+    TYPE
+        {S7.extern=ReadWrite} 
+        AxoCmmtAsDriveErrorStruct :
         STRUCT
             Table       : AXOpen.Components.Festo.Drives.eAxoCmmtAsDriveErrorTable;          (* Additional diagnosis table           *)
             Additional1 : DWORD;                (* Additional diagnosis number1         *)

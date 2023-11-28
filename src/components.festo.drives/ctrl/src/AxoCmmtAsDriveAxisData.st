@@ -1,5 +1,6 @@
 
 NAMESPACE AXOpen.Components.Festo.Drives
+    {S7.extern=ReadWrite}
     CLASS AxoCmmtAsDriveAxisData
         VAR PUBLIC
             (* Commands *)

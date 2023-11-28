@@ -1,6 +1,7 @@
 USING AXOpen.Components.Abstractions.Drives;
 USING AXOpen.Core;
 
+{S7.extern=ReadWrite}
 CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
     //<ComponentDeclaration>
     VAR PUBLIC                

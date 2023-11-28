@@ -1,6 +1,7 @@
 // USING AXOpen.Components.Drives;
 
 NAMESPACE AXOpen.Components.Festo.Drives
+    {S7.extern=ReadWrite}
     CLASS AxoCmmtAsDriveAxisReference IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoAxisReference
         VAR PUBLIC
             FieldBus_In     :   AXOpen.Components.Festo.Drives.AxoCmmtAsDriveFieldBusIn;

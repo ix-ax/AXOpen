@@ -10,6 +10,7 @@ USING System.Math;
 NAMESPACE AXOpen.Components.Festo.Drives
     
     {#ix-attr:[Container(Layout.Wrap)]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoCmmtAsDrive EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
         
         VAR CONSTANT

@@ -1,5 +1,6 @@
 USING AXOpen.Components.Festo.Drives;
 
+{S7.extern=ReadWrite}
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         {#ix-attr:[Container(Layout.Wrap)]}

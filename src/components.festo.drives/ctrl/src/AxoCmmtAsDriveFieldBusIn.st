@@ -1,4 +1,5 @@
 NAMESPACE AXOpen.Components.Festo.Drives
+    {S7.extern=ReadWrite}
     CLASS AxoCmmtAsDriveFieldBusIn
         (******************* Drive configuration  ***********************
         Master communication; Fieldbus settings:
