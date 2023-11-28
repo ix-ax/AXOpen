@@ -1,35 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 	<PropertyGroup>
-		
+		<!--<TargetFramework>net8.0</TargetFramework>-->
+
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<UserSecretsId>aspnet-ixsharpblazor-hmi-ee3150da-5237-49bc-b265-f512331ded6c</UserSecretsId>
 		<RootNamespace>axosimple.server</RootNamespace>
 		<UseRazorSourceGenerator>true</UseRazorSourceGenerator>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
-		<UseProjectReference>true</UseProjectReference>
+		<UseProjectReference>false</UseProjectReference>
 	</PropertyGroup>
+
 	<ItemGroup>
 		<None Update="wwwroot\**" CopyToPublishDirectory="PreserveNewest" />
 	</ItemGroup>
+
 	<ItemGroup>
 		<None Remove="Pages\Index.razor.css" />
-		<None Remove="Shared\Menu\ExpandableMenuItem.razor.css" />
 		<None Remove="Shared\Menu\MenuItem.razor.css" />
+		<None Remove="Shared\Menu\ExpandableMenuItem.razor.css" />
 	</ItemGroup>
+
 	<ItemGroup>
 		<Content Include="Pages\Index.razor.css" />
 		<Content Include="Shared\Menu\MenuItem.razor.css" />
 		<Content Include="Shared\Menu\ExpandableMenuItem.razor.css" />
 	</ItemGroup>
 
-	<!--<ItemGroup>
-		<FrameworkReference Include="Microsoft.AspNetCore.App" />
-	</ItemGroup>-->
+	<ItemGroup>
+		<Folder Include="wwwroot\js\" />
+	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.Localization" />
-		<PackageReference Include="Serilog.Sinks.Console" />
+		<Content Include="..\..\ax\src\templates\starterunit\server\StarterUnitTemplate.razor" Link="Pages\Context\Units\StarterUnitTemplate.razor" />
+		<Content Include="..\..\ax\src\templates\unit\server\UnitTemplate.razor" Link="Pages\Context\Units\UnitTemplate.razor" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(UseProjectReference)' == 'false'">
@@ -43,9 +47,14 @@
 		<PackageReference Include="AXOpen.Components.Pneumatics.Blazor" Version="0.4.1-alpha.211" />
 		<PackageReference Include="AXOpen.Data.Blazor" Version="0.4.1-alpha.211" />
 		<PackageReference Include="AXOpen.Inspectors.Blazor" Version="0.4.1-alpha.211" />
+
+		<ProjectReference Include="..\twin\axosimple.csproj" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
+		<PackageReference Include="Microsoft.Extensions.Localization" />
+		<PackageReference Include="Serilog.Sinks.Console" />
+
 		<ProjectReference Include="..\..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
 		<ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
 		<ProjectReference Include="..\..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
@@ -54,8 +63,12 @@
 		<ProjectReference Include="..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
 		<ProjectReference Include="..\..\..\inspectors\src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj" />
 		<ProjectReference Include="..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
+		<ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
+		<ProjectReference Include="..\..\..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj" />
+		
 		<ProjectReference Include="..\twin\axosimple.csproj" />
 	</ItemGroup>
+	
 	<ItemGroup>
 		<Compile Update="Resources\BlazorResources.Designer.cs">
 			<DesignTime>True</DesignTime>
@@ -63,9 +76,10 @@
 			<DependentUpon>BlazorResources.resx</DependentUpon>
 		</Compile>
 	</ItemGroup>
+	
 	<ItemGroup>
 		<EmbeddedResource Update="Resources\BlazorResources.es.resx">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\BlazorResources.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
@@ -73,18 +87,8 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</EmbeddedResource>
 		<EmbeddedResource Update="Resources\BlazorResources.sk.resx">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="wwwroot\js\" />
-	</ItemGroup>
-	<ItemGroup>
-		<Content Include="..\..\ax\src\templates\starterunit\server\StarterUnitTemplate.razor" Link="Pages\Context\Units\StarterUnitTemplate.razor" />
-		<Content Include="..\..\ax\src\templates\unit\server\UnitTemplate.razor" Link="Pages\Context\Units\UnitTemplate.razor" />
-	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
-	  <ProjectReference Include="..\..\..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj" />
-	</ItemGroup>
+	
 </Project>
