@@ -1,6 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE AxoSequencerExamples
+    {S7.extern=ReadWrite}
     CLASS AxoSequencerDocuExample EXTENDS  AXOpen.Core.AxoContext
         VAR PUBLIC
             _mySequencer : AXOpen.Core.AxoSequencer;

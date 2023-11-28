@@ -4,6 +4,7 @@ NAMESPACE AXOpen.Core
     ///<summary>
     /// Provides base class for all classes of `AXOpen`.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoObject IMPLEMENTS IAxoObject
         VAR PUBLIC
             {#ix-attr:[CompilerOmits("POCO")]}     
@@ -18,9 +19,11 @@ NAMESPACE AXOpen.Core
         END_VAR  
         
         VAR PRIVATE  
-            {#ix-attr:[CompilerOmits()]}           
+            {#ix-attr:[CompilerOmits()]}  
+            {S7.extern=Hidden}         
             NULL_CONTEXT : _NULL_CONTEXT;
             {#ix-attr:[CompilerOmits()]}  
+            {S7.extern=Hidden}
             NULL_OBJECT : _NULL_OBJECT;
         END_VAR
 

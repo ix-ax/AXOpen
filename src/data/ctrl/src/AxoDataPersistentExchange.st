@@ -1,5 +1,6 @@
 USING AXOpen.Core;
 NAMESPACE AXOpen.Data
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoDataPersistentExchange EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             Operation : AxoDataPersistentCurdTask;

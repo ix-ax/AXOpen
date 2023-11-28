@@ -1,6 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE AxoTaskExamples
+    {S7.extern=ReadWrite}
     CLASS AxoTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Task name#>"}
@@ -60,6 +61,7 @@ NAMESPACE AxoTaskExamples
     END_CLASS  
 
     //<AxoTaskEventLikeMethods>
+    {S7.extern=ReadWrite}
     CLASS MyTaskExample EXTENDS AXOpen.Core.AxoTask
         VAR
             OnAbortCounter : ULINT;

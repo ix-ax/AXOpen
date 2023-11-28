@@ -1,4 +1,5 @@
 NAMESPACE IntegrationTests
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Integrations
         VAR PUBLIC
              Probers : ProbersTestContext;             

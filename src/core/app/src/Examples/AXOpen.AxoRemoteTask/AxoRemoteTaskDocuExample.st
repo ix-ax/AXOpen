@@ -2,6 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AxoRemoteTaskDocuExamples
     //<AxoRemoteTaskExample>    
+    {S7.extern=ReadWrite}
     CLASS MyRemoteTask EXTENDS AXOpen.Core.AxoRemoteTask
         VAR PUBLIC        
             Message : STRING[254];
@@ -17,6 +18,7 @@ NAMESPACE AxoRemoteTaskDocuExamples
 
     END_CLASS 
     //</AxoRemoteTaskExample>
+    {S7.extern=ReadWrite}
     CLASS RemoteTasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC            
             _remoteTask : MyRemoteTask;  

@@ -6,6 +6,7 @@ NAMESPACE AXOpen.Inspectors
     /// AxoInspector base class with implemented evaluation methods
     /// Evaluation methods need IAxoCoordinator instance
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS AxoInspector EXTENDS AXOpen.Core.AxoObject IMPLEMENTS IInspector, IOnFail
         VAR PROTECTED
             _inspectorTask: AxoInspectorTask;

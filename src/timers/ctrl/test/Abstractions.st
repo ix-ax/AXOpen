@@ -8,6 +8,7 @@ USING AXOpen.Rtc;
 NAMESPACE AXOpen.Timers_tests
 
 
+    {S7.extern=ReadWrite}
     CLASS INTERNAL _NULL_LOGGER IMPLEMENTS IAxoLogger                   
         METHOD PUBLIC Log 
             VAR_INPUT
@@ -34,6 +35,7 @@ NAMESPACE AXOpen.Timers_tests
         END_METHOD
     END_CLASS    
 
+    {S7.extern=ReadWrite}
     CLASS INTERNAL AxoRtcMock IMPLEMENTS IAxoRtc
         VAR PRIVATE 
             _NowUTC : LDATE_AND_TIME;
@@ -51,6 +53,7 @@ NAMESPACE AXOpen.Timers_tests
         END_METHOD        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS INTERNAL TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;

@@ -3,6 +3,7 @@ NAMESPACE AXOpen.Data
     ///<summary>
     /// Provides base class for any composite/fragmetes data exchange combining one or more AxoDataExchange object.    
     /// </summary>       
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoDataFragmentExchange EXTENDS AxoObject IMPLEMENTS IAxoDataExchange, AxoDataExchangeBase             
         VAR PUBLIC           
             Operation : AxoDataCrudTask;

@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         componentOne : Component_1;

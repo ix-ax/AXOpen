@@ -4,6 +4,7 @@ USING System.SerDe;
 
 NAMESPACE AXOpen.Utils.Unit_Tests
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoConversions_UnitTests 
         {Test}
         METHOD PUBLIC should_be_305419896_decimal

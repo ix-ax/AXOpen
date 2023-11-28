@@ -1,6 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE AxoToggleTaskExamples
+    {S7.extern=ReadWrite}
     CLASS AxoToggleTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Toggle task example#>"}
@@ -56,6 +57,7 @@ NAMESPACE AxoToggleTaskExamples
     END_CLASS  
 
     //<AxoToggleTaskEventLikeMethods>
+    {S7.extern=ReadWrite}
     CLASS MyToogleTaskExample Extends AxoToggleTask
         VAR
             OnSwitchedOnCounter : ULINT;

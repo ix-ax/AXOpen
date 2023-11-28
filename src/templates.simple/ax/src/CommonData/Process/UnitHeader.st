@@ -1,5 +1,6 @@
-NAMESPACE axosimple
+NAMESPACE axosimple    
     TYPE PUBLIC 
+        {S7.extern=ReadWrite}
         UnitHeader : STRUCT
 
             {#ix-set:AttributeName = "<#Next on Passed#>"}

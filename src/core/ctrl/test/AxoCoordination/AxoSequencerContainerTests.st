@@ -17,6 +17,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         ) := None;
     END_TYPE
 
+    {S7.extern=ReadWrite}
     CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
@@ -58,6 +59,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD    
     END_CLASS  
 
+    {S7.extern=ReadWrite}
     CLASS MySequencer EXTENDS AxoSequencerContainer
         VAR PUBLIC
             _step_1    : AxoStep;
@@ -188,6 +190,7 @@ NAMESPACE AXOpen.Core.AxoSequencerContainer_Tests
 
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS SequencerContainerTests
         VAR PROTECTED        
             _context   : TestContext;

@@ -4,6 +4,7 @@ USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
 NAMESPACE Cylinder.Tests
+    {S7.extern=ReadWrite}
     CLASS TestContext IMPLEMENTS AXOpen.Core.IAxoContext
         VAR PROTECTED                        
             _openCounter : ULINT;
@@ -57,6 +58,7 @@ NAMESPACE Cylinder.Tests
         METHOD PUBLIC InjectLogger VAR_INPUT _logger : AXOpen.Logging.IAxoLogger; END_VAR ; END_METHOD        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS AxoRtcMock IMPLEMENTS IAxoRtc
         VAR PRIVATE 
             _NowUTC : LDATE_AND_TIME;
@@ -75,6 +77,7 @@ NAMESPACE Cylinder.Tests
     END_CLASS
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS CylinderTests 
         VAR 
             context : TestContext;

@@ -8,6 +8,7 @@ NAMESPACE axosimple.StarterUnitTemplate
     /// Provides ground mode sequence.
     ///</summary>
     {#ix-set:AttributeName = "<#GROUND#>"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC GroundSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC

@@ -1,4 +1,5 @@
 
+{S7.extern=ReadWrite}
 CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
 //<DeclarationAndHWIO_Assignement>
     VAR PUBLIC        
@@ -21,6 +22,7 @@ CLASS DocumentationContext EXTENDS AXOpen.Core.AxoContext
 END_CLASS
 
 
+{S7.extern=ReadWrite}
 CLASS AnotherDocumentationContext EXTENDS DocumentationContext
     VAR 
         _suspendHomeCondition : BOOL;

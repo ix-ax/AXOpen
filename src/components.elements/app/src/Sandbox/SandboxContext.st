@@ -1,4 +1,5 @@
 USING AXOpen;
+{S7.extern=ReadWrite}
 CLASS SandboContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
         _manualControl : BOOL;

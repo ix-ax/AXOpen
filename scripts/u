@@ -1,0 +1,60 @@
+static void ModifyFilesInDirectory(string directoryPath)
+{
+    var files = Directory.GetFiles(directoryPath, "*.st", SearchOption.AllDirectories);
+
+    foreach (var file in files)
+    {
+        var lines = File.ReadAllLines(file).ToList();
+        var modifiedLines = new List<string>();
+
+        for (int i = 0; i < lines.Count; i++)
+        {
+            string trimmedLine = lines[i].Trim();
+
+            // Handle 'CLASS' lines
+            if (trimmedLine.StartsWith("CLASS"))
+            {
+                string indent = GetIndentation(lines[i]);
+                modifiedLines.Add(indent + "{S7.extern=ReadWrite}");
+                modifiedLines.Add(lines[i]);
+            }
+            // Handle 'STRUCT' lines
+            else if (trimmedLine.Contains("STRUCT"))
+            {
+                int j = i - 1;
+                // Traverse back to find the line with the identifier, skipping any existing pragmas
+                while (j >= 0 && (lines[j].Trim().StartsWith("{") && lines[j].Trim().EndsWith("}")))
+                {
+                    j--;
+                }
+
+                if (j >= 0)
+                {
+                    string indent = GetIndentation(lines[j]);
+                    modifiedLines.Insert(j, indent + "{S7.extern=ReadWrite}");
+                }
+
+                // Continue adding the rest of the lines
+                while (i < lines.Count)
+                {
+                    modifiedLines.Add(lines[i]);
+                    i++;
+                }
+            }
+            else
+            {
+                modifiedLines.Add(lines[i]);
+            }
+        }
+
+        // Write the modified lines back to the file
+        File.WriteAllLines(file, modifiedLines);
+    }
+}
+
+// Helper method to get the indentation of a line
+static string GetIndentation(string line)
+{
+    var indentation = line.Length - line.TrimStart().Length;
+    return new string(' ', indentation); // Assumes spaces for indentation
+}

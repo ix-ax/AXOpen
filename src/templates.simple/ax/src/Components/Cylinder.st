@@ -4,6 +4,7 @@ USING AXOpen.Messaging.Static;
 
 
 NAMESPACE AXOpen.Pneumatics
+    {S7.extern=ReadWrite}
     CLASS Cylinder EXTENDS AXOpen.Core.AxoComponent
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}

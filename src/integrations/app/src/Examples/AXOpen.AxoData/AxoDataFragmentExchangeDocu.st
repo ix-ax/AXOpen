@@ -5,6 +5,7 @@ USING AXOpen.Probers;
 NAMESPACE AxoDataFramentsExchangeDocuExample  
     
     //<ContextDeclaration>
+    {S7.extern=ReadWrite}
     CLASS AxoDataFragmentExchangeContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             ProcessData : ProcessDataManager;           
@@ -18,6 +19,7 @@ NAMESPACE AxoDataFramentsExchangeDocuExample
     //</ContextDeclaration>
 
     //<ProcessDataMangerDeclaration>
+    {S7.extern=ReadWrite}
     CLASS ProcessDataManager EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
@@ -29,6 +31,7 @@ NAMESPACE AxoDataFramentsExchangeDocuExample
     //</ProcessDataMangerDeclaration>
 
      //<UseManager>
+     {S7.extern=ReadWrite}
      CLASS UseManager
         VAR
             _create : BOOL;
@@ -69,6 +72,7 @@ NAMESPACE AxoDataFramentsExchangeDocuExample
     END_CLASS
     //</UseManager>
 
+    {S7.extern=ReadWrite}
     CLASS SharedDataHeaderData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC                        
             {#ix-set:AttributeName = "Some string data"}
@@ -80,6 +84,7 @@ NAMESPACE AxoDataFramentsExchangeDocuExample
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS SharedDataHeaderManger EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-generic:TOnline}
@@ -91,6 +96,7 @@ NAMESPACE AxoDataFramentsExchangeDocuExample
         END_VAR        
     END_CLASS
         
+    {S7.extern=ReadWrite}
     CLASS Station_1_ProcessDataManger
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
@@ -103,6 +109,7 @@ NAMESPACE AxoDataFramentsExchangeDocuExample
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS Station_1_Data
         EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC

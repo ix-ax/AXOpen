@@ -2,6 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Rtc;
 USING AXOpen.Logging;
 NAMESPACE AxoIO.Tests
+    {S7.extern=ReadWrite}
     CLASS INTERNAL AxoRtcMock IMPLEMENTS IAxoRtc
         VAR PRIVATE 
             _NowUTC : LDATE_AND_TIME;
@@ -19,6 +20,7 @@ NAMESPACE AxoIO.Tests
         END_METHOD        
     END_CLASS  
     
+    {S7.extern=ReadWrite}
     CLASS INTERNAL AxoLoggerMock IMPLEMENTS AXOpen.Logging.IAxoLogger
         VAR PUBLIC
            

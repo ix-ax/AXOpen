@@ -3,6 +3,7 @@ USING AXOpen.Core;
 NAMESPACE AxoBoolArrayExample
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-set:AttributeName = "Bool array type with 8 items"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoBoolArray8 EXTENDS AXOpen.Core.AxoBoolArray  
         VAR PUBLIC 
             Data : ARRAY [0..7] OF BOOL;
@@ -11,6 +12,7 @@ NAMESPACE AxoBoolArrayExample
 
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-set:AttributeName = "Byte array type with 16 items"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoBoolArray16 EXTENDS AXOpen.Core.AxoBoolArray  
         VAR PUBLIC 
             Data : ARRAY [0..15] OF BOOL;
@@ -18,6 +20,7 @@ NAMESPACE AxoBoolArrayExample
     END_CLASS
 
 
+    {S7.extern=ReadWrite}
     CLASS AxoBoolArrayExampleContext EXTENDS AxoContext
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}

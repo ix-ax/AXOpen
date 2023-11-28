@@ -5,6 +5,7 @@ NAMESPACE AXOpen.Inspectors
     /// Only fail results are automatically written to comprehensive result
     /// Application programmer must specify, what is a correct result
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS AxoComprehensiveResult IMPLEMENTS IAxoComprehensiveResult
         VAR PUBLIC
 

@@ -3,6 +3,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoDatamanClearResultData EXTENDS AXOpen.Core.AxoTask
         VAR PROTECTED
             _progress : INT := 0;

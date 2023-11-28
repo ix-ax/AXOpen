@@ -4,6 +4,7 @@ USING AXOpen.Probers;
 
 NAMESPACE IntegrationAxoDataFramentsExchange  
     
+    {S7.extern=ReadWrite}
     CLASS AxoDataFragmentExchangeContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             PD : ProcessData;
@@ -33,6 +34,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
 
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS ProcessData EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
@@ -42,6 +44,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS SharedProductionData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             ComesFrom : INT;
@@ -49,6 +52,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS SharedProductionDataManager EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-generic:TOnline}
@@ -59,6 +63,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
         END_VAR        
     END_CLASS
         
+    {S7.extern=ReadWrite}
     CLASS FragmentProcessDataManger
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
@@ -70,6 +75,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS FragmentProcessData
         EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
@@ -77,6 +83,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS DataCreateTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
@@ -108,6 +115,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
         END_METHOD    
     END_CLASS
    
+    {S7.extern=ReadWrite}
     CLASS DataReadTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
@@ -139,6 +147,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
         END_METHOD    
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS DataUpdateTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         
@@ -170,6 +179,7 @@ NAMESPACE IntegrationAxoDataFramentsExchange
         END_METHOD    
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS DataDeleteTest EXTENDS AxoProberWithCompletedCondition
         VAR PUBLIC   
             Manager : IAxoDataExchange;         

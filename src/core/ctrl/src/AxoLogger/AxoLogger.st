@@ -6,6 +6,7 @@ NAMESPACE AXOpen.Logging
     /// AxoLogger class for logging purposes.
     /// This class implements IAxoLogger and IAxoLoggerConfig interfaces.
     /// </summary>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoLogger IMPLEMENTS IAxoLogger, IAxoLoggerConfig
         VAR PUBLIC
             /// <summary>

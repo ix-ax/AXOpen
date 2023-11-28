@@ -1,6 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE AxoMomentaryTaskExamples
+    {S7.extern=ReadWrite}
     CLASS AxoMomentaryTaskDocuExample EXTENDS  AXOpen.Core.AxoContext         
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Momentary task example#>"}
@@ -38,6 +39,7 @@ NAMESPACE AxoMomentaryTaskExamples
     END_CLASS  
 
     //<AxoMomentaryTaskEventLikeMethods>
+    {S7.extern=ReadWrite}
     CLASS MyMomentaryTaskExample Extends AxoMomentaryTask
         VAR
             OnSwitchedOnCounter : ULINT;

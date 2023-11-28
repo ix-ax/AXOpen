@@ -6,6 +6,7 @@ USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Core
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoTask EXTENDS AxoObject IMPLEMENTS IAxoTask, IAxoTaskState
 
         VAR PUBLIC

@@ -3,17 +3,20 @@ USING AxUnit;
 
 NAMESPACE AXOpen.Core.AxoObject_Tests
 
+    {S7.extern=ReadWrite}
     CLASS TestObjContext EXTENDS AxoContext         
         METHOD PROTECTED OVERRIDE Main
             ;
         END_METHOD
     END_CLASS  
 
+    {S7.extern=ReadWrite}
     CLASS TestObject EXTENDS AxoObject         
          
     END_CLASS  
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoObjectUnitTests EXTENDS AxoObject
         VAR PRIVATE
             _context : TestObjContext;

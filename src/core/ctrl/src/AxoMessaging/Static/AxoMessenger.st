@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Messaging.Static
     {#ix-prop: public string MessageText }
     {#ix-prop: public string Help }
     {#ix-prop: public string PlcTextList }
+    {S7.extern=ReadWrite}
     CLASS AxoMessenger EXTENDS AxoObject IMPLEMENTS AXOpen.Messaging.Static.IAxoMessageProperties        
         VAR PUBLIC
             {#ix-attr:[ReadOnly()]}

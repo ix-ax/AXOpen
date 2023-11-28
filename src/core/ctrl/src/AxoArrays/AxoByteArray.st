@@ -1,5 +1,6 @@
 NAMESPACE AXOpen.Core
     {#ix-prop: public string DisplayFormat}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoByteArray 
         VAR PUBLIC
             DataChanged : BOOL;

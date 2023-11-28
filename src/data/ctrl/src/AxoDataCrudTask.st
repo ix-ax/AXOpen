@@ -8,6 +8,7 @@ NAMESPACE AXOpen.Data
     /// > This is an extension of <see cref="AxoTask"/>task see the documentatio for details about implementation in .NET.
     /// </summary>
     {#ix-set:AttributeName = "<#Data operation#>"}     
+    {S7.extern=ReadWrite}
     CLASS AxoDataCrudTask EXTENDS AxoRemoteTask IMPLEMENTS IAxoEntityExistTaskState      
         VAR PUBLIC
             ///<summary>

@@ -10,6 +10,7 @@ NAMESPACE AXOpen.Timers_tests
 
    
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoOnDelayTimersTests
         VAR PROTECTED
             _context : TestContext;

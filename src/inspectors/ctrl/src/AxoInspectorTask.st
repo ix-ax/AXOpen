@@ -6,6 +6,7 @@ USING AXOpen.Core;
 
 NAMESPACE AXOpen.Inspectors
 
+    {S7.extern=ReadWrite}
     CLASS AxoInspectorTask EXTENDS AxoTask
         VAR
             _onDoneFlag: BOOL;

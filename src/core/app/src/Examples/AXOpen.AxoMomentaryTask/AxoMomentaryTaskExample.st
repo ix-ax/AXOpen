@@ -2,6 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AxoMomentaryTaskExamples
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoMomentaryTaskExample EXTENDS AXOpen.Core.AxoMomentaryTask
         VAR PUBLIC
             {#ix-set: AttributeName = "<#Disable#>"}
@@ -39,6 +40,7 @@ NAMESPACE AxoMomentaryTaskExamples
         END_METHOD
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS Tasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Momentary task example"}

@@ -3,6 +3,7 @@ USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
 NAMESPACE AxoDriveTests.Tests
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoTestDrive EXTENDS AXOpen.Components.Drives.AxoDrive IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
         VAR PUBLIC
         END_VAR

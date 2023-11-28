@@ -1,3 +1,4 @@
+{S7.extern=ReadWrite}
 CLASS InspectorsDoc EXTENDS AXOpen.Core.AxoObject
     //<AxoInspectorDeclaration>
     VAR PUBLIC

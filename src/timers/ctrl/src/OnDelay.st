@@ -6,6 +6,7 @@ NAMESPACE AXOpen.Timers
     /// OnDelayTimer class, which contains OnDelay method representing timer.
     /// Counting of timer start on RISING edge.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS OnDelayTimer
         VAR PUBLIC
             output : BOOL;

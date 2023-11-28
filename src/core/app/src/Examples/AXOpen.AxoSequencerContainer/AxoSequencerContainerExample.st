@@ -2,6 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AxoSequencerContainerExamples
 
+    {S7.extern=ReadWrite}
     CLASS AxoSequencerContainerExample EXTENDS AXOpen.Core.AxoSequencerContainer
 
         VAR PUBLIC
@@ -115,6 +116,7 @@ NAMESPACE AxoSequencerContainerExamples
         END_METHOD
     END_CLASS
  
+    {S7.extern=ReadWrite}
     CLASS SequencerContainerExample EXTENDS  AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Sequencer container example#>"}

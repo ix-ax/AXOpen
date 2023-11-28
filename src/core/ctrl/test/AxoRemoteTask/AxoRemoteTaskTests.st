@@ -5,6 +5,7 @@ USING AXOpen.Rtc;
 NAMESPACE AXOpen.Core
     NAMESPACE AxoRemoteTasksTests        
     
+     {S7.extern=ReadWrite}
      CLASS TestContext IMPLEMENTS IAxoContext         
         VAR PROTECTED                        
             _openCounter : ULINT;
@@ -45,6 +46,7 @@ NAMESPACE AXOpen.Core
     END_CLASS      
    
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS IxRemoteTaskTests 
         VAR PROTECTED
            _context : TestContext;

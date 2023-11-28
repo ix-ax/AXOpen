@@ -5,6 +5,7 @@ using AXOpen.Data;
 NAMESPACE AxoDataExchangeExample
     
     //<ContextDeclaration>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             //Controlled unit that needs to manipulate with data
@@ -28,6 +29,7 @@ NAMESPACE AxoDataExchangeExample
     //</ContextDeclaration>
 
     //<AxoProcessDataManagerDeclaration>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-generic:TOnline}
@@ -39,6 +41,7 @@ NAMESPACE AxoDataExchangeExample
     //</AxoProcessDataManagerDeclaration>
     
     //<AxoProcessDataDeclaration>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoProcessData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             {#ix-set:AttributeName = "Some string"}
@@ -50,6 +53,7 @@ NAMESPACE AxoDataExchangeExample
     //</AxoProcessDataDeclaration>
 
     //<Usage>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ManagerUsage
         VAR PUBLIC
             _id : STRING;
@@ -91,6 +95,7 @@ NAMESPACE AxoDataExchangeExample
     //</Usage>
 
     //<Execute>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
             //Reference to ProcessDataManager
@@ -115,6 +120,7 @@ NAMESPACE AxoDataExchangeExample
     //</Execute>
 
     //<Run>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PRIVATE
             // private reference is used in Main()
