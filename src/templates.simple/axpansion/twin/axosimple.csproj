@@ -15,7 +15,8 @@
 		<PackageReference Include="AXOpen.Cognex.Vision" Version="0.4.3-alpha.229" />
 		<PackageReference Include="AXOpen.Components.Elements" Version="0.4.3-alpha.229" />
 		<PackageReference Include="AXOpen.Components.Pneumatics" Version="0.4.3-alpha.229" />
-
+		<PackageReference Include="AXOpen.S71500" Version="0.4.3-alpha.229" />
+		
 		<PackageReference Include="AXOpen.Logging.Serilog" Version="0.4.3-alpha.229" />
 
 		<PackageReference Include="AXSharp.Abstractions" Version="0.18.0-alpha.177" />
