@@ -8,7 +8,7 @@
 		<RootNamespace>axosimple.server</RootNamespace>
 		<UseRazorSourceGenerator>true</UseRazorSourceGenerator>
 		<BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
-		<UseProjectReference>false</UseProjectReference>
+		<UseProjectReference>true</UseProjectReference>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -37,11 +37,12 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(UseProjectReference)' == 'false'">
+		<PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.11" />
+
 		<PackageReference Include="AXOpen.Data.InMemory" Version="0.4.1-alpha.211" />
 		<PackageReference Include="AXOpen.Data.Json" Version="0.4.1-alpha.211" />
 		<PackageReference Include="AXOpen.Security.Blazor" Version="0.4.1-alpha.211" />
-		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.11" />
-		<PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
 		<PackageReference Include="AXOpen.Cognex.Vision.Blazor" Version="0.4.1-alpha.211" />
 		<PackageReference Include="AXOpen.Components.Elements.Blazor" Version="0.4.1-alpha.211" />
 		<PackageReference Include="AXOpen.Components.Pneumatics.Blazor" Version="0.4.1-alpha.211" />
@@ -54,21 +55,21 @@
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
 		<PackageReference Include="Microsoft.Extensions.Localization" />
 		<PackageReference Include="Serilog.Sinks.Console" />
-
+		
 		<ProjectReference Include="..\..\..\base\src\AXOpen.Logging\AXOpen.Logging.Serilog.csproj" />
 		<ProjectReference Include="..\..\..\core\src\AXOpen.Core.Blazor\axopen_core_blazor.csproj" />
 		<ProjectReference Include="..\..\..\data\src\AXOpen.Data.Blazor\axopen_data_blazor.csproj" />
-		<ProjectReference Include="..\..\..\data\src\exporters\AXOpen.Data.Exporters.Excel\AXOpen.Data.Exporters.Excel.csproj" />
 		<ProjectReference Include="..\..\..\data\src\repositories\MongoDb\AXOpen.Data.MongoDb.csproj" />
 		<ProjectReference Include="..\..\..\data\src\repositories\Json\AXOpen.Data.Json.csproj" />
+		<ProjectReference Include="..\..\..\data\src\exporters\AXOpen.Data.Exporters.Excel\AXOpen.Data.Exporters.Excel.csproj" />
 		<ProjectReference Include="..\..\..\inspectors\src\AxOpen.Inspectors.Blazor\AxOpen.Inspectors.Blazor.csproj" />
 		<ProjectReference Include="..\..\..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj" />
-		<ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
 		<ProjectReference Include="..\..\..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj" />
-		
+		<ProjectReference Include="..\..\..\base\src\AXOpen.VisualComposer\AXOpen.VisualComposer.csproj" />
+
 		<ProjectReference Include="..\twin\axosimple.csproj" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<Compile Update="Resources\BlazorResources.Designer.cs">
 			<DesignTime>True</DesignTime>
@@ -76,7 +77,7 @@
 			<DependentUpon>BlazorResources.resx</DependentUpon>
 		</Compile>
 	</ItemGroup>
-	
+
 	<ItemGroup>
 		<EmbeddedResource Update="Resources\BlazorResources.es.resx">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -90,5 +91,5 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</EmbeddedResource>
 	</ItemGroup>
-	
+
 </Project>

@@ -5,7 +5,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>true</ImplicitUsings>
-		<UseProjectReference>false</UseProjectReference>
+		<UseProjectReference>true</UseProjectReference>
 	</PropertyGroup>
 
 	<ItemGroup Condition="'$(UseProjectReference)' == 'false'">
