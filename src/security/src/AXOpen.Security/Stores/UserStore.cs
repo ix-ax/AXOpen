@@ -64,7 +64,6 @@ namespace AxOpen.Security.Stores
                 user.PasswordHash = new PasswordHasher<User>().HashPassword(user, "admin");
                 user.Group = "AdminGroup";
                 user.GroupHash = new PasswordHasher<User>().HashPassword(user, "AdminGroup");
-                user.Created = DateTime.Now.ToString();
 
                 _unitOfWork.UserRepository.Create(user.NormalizedUserName, user);
             }
@@ -207,7 +206,7 @@ namespace AxOpen.Security.Stores
                 throw new ArgumentNullException(nameof(user));
             try
             {
-                var userData = _unitOfWork.UserRepository.Read(user.UserName);
+                var userData = _unitOfWork.UserRepository.Read(user.NormalizedUserName);
                 if (userData != null)
                 {
                     userData.UserName = user.UserName;

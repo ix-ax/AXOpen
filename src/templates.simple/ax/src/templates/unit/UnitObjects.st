@@ -11,22 +11,22 @@ NAMESPACE axosimple.UnitTemplate
             ///<summary>
             /// Handles and intializes components used by this unit.
             ///</summary>
-            Components : Components;
+            Components : axosimple.UnitTemplate.Components;
 
             ///<summary>
             /// Provides access to process data manager of this unit
             ///</summary>
-            ProcessSettings : REF_TO FragmentProcessDataManger;
+            ProcessSettings : REF_TO axosimple.UnitTemplate.FragmentProcessDataManger;
 
             ///<summary>
             /// Provides access to process data manager of this unit
             ///</summary>
-            ProcessData : REF_TO ProcessDataManager;
+            ProcessData : REF_TO axosimple.UnitTemplate.ProcessDataManager;
 
             ///<summary>
             /// Provides access to process data manager of this unit
             ///</summary>
-            TechnologySettings : REF_TO TechnologyDataManager;
+            TechnologySettings : REF_TO axosimple.UnitTemplate.TechnologyDataManager;
                      
             {#ix-attr:[AXOpen.Data.PersistentAttribute("UnitTemplate")]}
             SpecialSettings : STRING[64] ;

@@ -12,6 +12,11 @@ namespace AxOpen.Security.Tests
             Hasher = _hasher;
             SeedData();
         }
+
+
+        /// <summary>
+        ///User name must be in CAPITAL letters because MS user manager stores all users with CAPITAL Ids in the database.
+        /// </summary>
         public void SeedData()
         {
             ExistUser = new User("EXIST", "exist@exist.com", "", false)

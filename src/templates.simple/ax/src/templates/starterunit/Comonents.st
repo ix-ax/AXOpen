@@ -21,7 +21,7 @@ NAMESPACE axosimple.StarterUnitTemplate
         
         METHOD PUBLIC Update
             VAR_INPUT
-                parent : IAxoObject;
+                parent : AXOpen.Core.IAxoObject;
             END_VAR
             VAR_IN_OUT
                 Inputs : axosimple.Inputs;

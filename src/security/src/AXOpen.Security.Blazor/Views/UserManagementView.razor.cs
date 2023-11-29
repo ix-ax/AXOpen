@@ -72,7 +72,7 @@ namespace AxOpen.Security.Views
             SelectedUser.CanUserChangePassword = _model.CanUserChangePassword;
             SelectedUser.Email = _model.Email;
             SelectedUser.Group = _model.Group;
-            SelectedUser.Modified = DateTime.Now.ToString();
+            SelectedUser.Modified = DateTime.Now;
             if (_model.Password != null && _model.Password != "" && _model.ConfirmPassword != null && _model.ConfirmPassword == _model.Password)
             {
                 SelectedUser.PasswordHash = _userManager.PasswordHasher.HashPassword(SelectedUser, _model.Password);

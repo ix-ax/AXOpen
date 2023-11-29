@@ -12,16 +12,17 @@ NAMESPACE axosimple.UnitTemplate
     CLASS PUBLIC GroundSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
-            Steps : ARRAY[0..20] OF AxoStep;      
-            MoveToWork : AxoTask;
+            Steps : ARRAY[0..20] OF AXOpen.Core.AxoStep;      
+            MoveToWork : AXOpen.Core.AxoTask;
         END_VAR
         VAR PRIVATE
-            Objs : REF_TO UnitObjects;
-            Components : REF_TO Components;
-            ProcessData : REF_TO ProcessDataManager;
-            ProcessSettings : REF_TO FragmentProcessDataManger;
-            TechnologySettings : REF_TO TechnologyDataManager;
-            PersistentSettings : REF_TO AxoDataPersistentExchange;
+            Objs : REF_TO axosimple.UnitTemplate.UnitObjects;
+            Components : REF_TO axosimple.UnitTemplate.Components;
+            ProcessData : REF_TO axosimple.UnitTemplate.ProcessDataManager;
+            ProcessSettings : REF_TO axosimple.UnitTemplate.FragmentProcessDataManger;
+            TechnologySettings : REF_TO axosimple.UnitTemplate.TechnologyDataManager;
+            
+            PersistentSettings : REF_TO AXOpen.Data.AxoDataPersistentExchange;
 
             _currentId : STRING;
 
@@ -30,8 +31,8 @@ NAMESPACE axosimple.UnitTemplate
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _parent : IAxoObject;
-                _unitObjects : REF_TO UnitObjects;
+                _parent : AXOpen.Core.IAxoObject;
+                _unitObjects : REF_TO axosimple.UnitTemplate.UnitObjects;
             END_VAR     
 
             IF Objs = NULL THEN 

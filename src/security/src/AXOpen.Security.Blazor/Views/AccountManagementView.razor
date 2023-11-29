@@ -86,13 +86,15 @@
 
     private async void OnValidUpdate()
     {
-        User _user = await _userManager.FindByIdAsync(_model.Username);
+        User _user = await _userManager.FindByNameAsync(_model.Username);
 
         if (_model.CanUserChangePassword && _model.OldPassword != null && _model.OldPassword != "" && _model.Password != null && _model.Password != "" && _model.ConfirmPassword != null && _model.ConfirmPassword == _model.Password)
         {
             await _userManager.ChangePasswordAsync(_user, _model.OldPassword, _model.Password);
         }
         _user.Email = _model.Email;
+        _user.Modified = DateTime.Now;
+
         var result = await _userManager.UpdateAsync(_user);
         if (result.Succeeded)
         {
@@ -110,7 +112,7 @@
     {
         _model = new ManageUserModel();
 
-        User _user = await _userManager.FindByIdAsync(_authenticationStateProvider.GetAuthenticationStateAsync().Result.User.Identity.Name);
+        User _user = await _userManager.FindByNameAsync(_authenticationStateProvider.GetAuthenticationStateAsync().Result.User.Identity.Name);
 
         _model.Username = _user.UserName;
         _model.Group = _user.Group;
