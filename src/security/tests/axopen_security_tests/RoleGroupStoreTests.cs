@@ -9,11 +9,12 @@ using Xunit;
 
 namespace AxOpen.Security.Tests
 {
+
     public class RoleGroupStoreTests : IClassFixture<BlazorSecurityTestsFixture>
     {
         private readonly BlazorSecurityTestsFixture _fixture;
 
-        public RoleGroupStoreTests(BlazorSecurityTestsFixture fixture)
+        public RoleGroupStoreTests( BlazorSecurityTestsFixture fixture)
         {
             this._fixture = fixture;
         }
