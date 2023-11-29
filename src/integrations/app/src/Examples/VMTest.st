@@ -1,4 +1,5 @@
 NAMESPACE VmT
+    {S7.extern=ReadWrite}
     CLASS VmTest
         VAR PUBLIC
             {#ix-set:AttributeName = "My integer"}

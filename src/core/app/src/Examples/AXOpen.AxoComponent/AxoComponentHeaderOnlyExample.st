@@ -4,6 +4,7 @@ NAMESPACE AxoComponentExamples
 //<Implementation>
     {#ix-attr:[Container(Layout.Stack)]}
     {#ix-set:AttributeName = "AxoComponent with header only example"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoComponentHeaderOnlyExample EXTENDS AXOpen.Core.AxoComponent 
         METHOD PROTECTED OVERRIDE Restore: IAxoTask 
             // Some logic for Restore could be placed here. For Example:
@@ -55,6 +56,7 @@ NAMESPACE AxoComponentExamples
 //</Implementation>
 
 //<Using>
+   {S7.extern=ReadWrite}
    CLASS ComponentHeaderOnlyExampleContext EXTENDS AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Very simple component example with header only defined"}

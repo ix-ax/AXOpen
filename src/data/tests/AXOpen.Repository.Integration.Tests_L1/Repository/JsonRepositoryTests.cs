@@ -5,7 +5,6 @@ using System.Reflection;
 using AXOpen.Base.Data;
 using AXOpen.Data;
 using AXOpen.Data.Json;
-using Ix.Repository.Json;
 
 namespace AXOpen.Repository.Integration.Tests
 {

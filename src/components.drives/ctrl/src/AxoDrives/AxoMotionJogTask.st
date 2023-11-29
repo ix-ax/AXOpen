@@ -1,6 +1,7 @@
 USING AXOpen.Core;
 
 NAMESPACE AXOpen.Components.Drives
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoMotionJogTask EXTENDS AXOpen.Core.AxoMomentaryTask
         VAR PUBLIC
             StartMotion :   BOOL;

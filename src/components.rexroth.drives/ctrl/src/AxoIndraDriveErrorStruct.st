@@ -1,5 +1,7 @@
-NAMESPACE AXOpen.Components.Rexroth.Drives
-    TYPE AxoIndraDriveErrorStruct :
+NAMESPACE AXOpen.Components.Rexroth.Drives    
+    TYPE
+        {S7.extern=ReadWrite} 
+        AxoIndraDriveErrorStruct :
         STRUCT
             Table       : AXOpen.Components.Rexroth.Drives.eAxoIndraDriveErrorTable;          (* Additional diagnosis table           *)
             Additional1 : DWORD;                (* Additional diagnosis number1         *)

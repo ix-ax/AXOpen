@@ -5,6 +5,7 @@ USING System.Strings;
 
 NAMESPACE AXOpen.Components.Drives
     {#ix-attr:[Container(Layout.Wrap)]}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC ABSTRACT AxoDrive EXTENDS AXOpen.Core.AxoComponent IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxoDrive
         VAR PUBLIC  //HEADER
             {#ix-attr:[Container(Layout.Wrap)]}

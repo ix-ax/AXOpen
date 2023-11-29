@@ -5,6 +5,7 @@ NAMESPACE axosimple.StarterUnitTemplate
     USING AXOpen.Core;
     USING System.Strings;
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC UnitObjects EXTENDS axosimple.BaseUnit.UnitObjects
         VAR PUBLIC
             ///<summary>
@@ -27,6 +28,9 @@ NAMESPACE axosimple.StarterUnitTemplate
             ///</summary>
             TechnologySettings : REF_TO TechnologyDataManager;
                         
+            {#ix-attr:[AXOpen.Data.PersistentAttribute("StarterUnitTemplate")]}
+            SpecialSettings :STRING[64] ;
+
         END_VAR        
     END_CLASS
 

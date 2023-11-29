@@ -2,6 +2,7 @@ using AXOpen.Data;
 
 NAMESPACE AxoDataExamples
     
+    {S7.extern=ReadWrite}
     CLASS AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC   
             _identifier : STRING;

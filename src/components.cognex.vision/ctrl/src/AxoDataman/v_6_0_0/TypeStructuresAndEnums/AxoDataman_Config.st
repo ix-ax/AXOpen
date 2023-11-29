@@ -1,6 +1,7 @@
 NAMESPACE AXOpen.Components.Cognex.Vision.v_6_0_0_0
     TYPE
         {#ix-attr:[Container(Layout.Stack)]}
+        {S7.extern=ReadWrite}
         AxoDataman_Config : 
         STRUCT
             {#ix-set:AttributeName = "<#Continous reading#>"}

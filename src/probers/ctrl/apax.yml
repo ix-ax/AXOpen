@@ -18,8 +18,7 @@ scripts:
     - dotnet tool restore
     - dotnet ixc
   download:
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r --default-server-interface
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then

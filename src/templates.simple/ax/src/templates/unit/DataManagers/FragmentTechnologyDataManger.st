@@ -4,6 +4,7 @@ NAMESPACE axosimple.UnitTemplate
     USING AXOpen.Core;
     USING System.Strings;
     
+    {S7.extern=ReadWrite}
     CLASS FragmentTechnologyDataManger
         EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC

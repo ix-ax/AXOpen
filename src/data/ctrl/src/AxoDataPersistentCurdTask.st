@@ -6,6 +6,7 @@ NAMESPACE AXOpen.Data
     /// > This is an extension of <see cref="AxoTask"/>task see the documentation for details about implementation in .NET.
     /// </summary>
     {#ix-set:AttributeName = "<#Data operation#>"}     
+    {S7.extern=ReadWrite}
     CLASS AxoDataPersistentCurdTask EXTENDS AxOpen.Core.AxoRemoteTask IMPLEMENTS  IAxoEntityExistTaskState      
         VAR PUBLIC
             ///<summary>
@@ -38,7 +39,7 @@ NAMESPACE AXOpen.Data
     END_CLASS
 
     TYPE
-        ePersistentOperation : (Read, Update, EntityExist);
+        ePersistentOperation : (Read, Update, EntityExist, UpdateAll, ReadAll);
     END_TYPE
 
 END_NAMESPACE

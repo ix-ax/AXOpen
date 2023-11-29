@@ -5,6 +5,7 @@ NAMESPACE axosimple.UnitTemplate
     USING AXOpen.Core;
     USING System.Strings;
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC UnitObjects EXTENDS axosimple.BaseUnit.UnitObjects
         VAR PUBLIC
             ///<summary>
@@ -26,7 +27,10 @@ NAMESPACE axosimple.UnitTemplate
             /// Provides access to process data manager of this unit
             ///</summary>
             TechnologySettings : REF_TO TechnologyDataManager;
-                        
+                     
+            {#ix-attr:[AXOpen.Data.PersistentAttribute("UnitTemplate")]}
+            SpecialSettings : STRING[64] ;
+
         END_VAR        
     END_CLASS
 

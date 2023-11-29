@@ -2,6 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Logging;
 
 NAMESPACE AxoLoggerExamples
+    {S7.extern=ReadWrite}
     CLASS Loggers EXTENDS AXOpen.Core.AxoContext
         //<DeclareLoggers>  
         VAR PUBLIC
@@ -36,6 +37,7 @@ NAMESPACE AxoLoggerExamples
     
 
     //<UseLoggerFromInnerObject>
+    {S7.extern=ReadWrite}
     CLASS ContextLoggerInNestedObject EXTENDS AxoObject        
         METHOD PUBLIC Foo
             THIS.GetContext().GetLogger().Log('Loggin on context logger', eLogLevel#Error, THIS);

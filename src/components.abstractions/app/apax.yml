@@ -9,7 +9,7 @@ variables:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
   "@ax/sdk": 4.0.12
-  "@ax/sld": 0.15.9
+  "@ax/sld": 2.0.5
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.core": '0.0.0-dev.0'

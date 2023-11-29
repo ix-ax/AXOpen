@@ -2,6 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AxoRemoteTaskExamples
 
+    {S7.extern=ReadWrite}
     CLASS MyRemoteTask EXTENDS AXOpen.Core.AxoRemoteTask
         VAR PUBLIC        
             Message : STRING[254];
@@ -21,6 +22,7 @@ NAMESPACE AxoRemoteTaskExamples
 
     END_CLASS    
 
+    {S7.extern=ReadWrite}
     CLASS RemoteTasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "Click to execute this command"}

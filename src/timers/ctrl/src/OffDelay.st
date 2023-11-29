@@ -6,6 +6,7 @@ NAMESPACE AXOpen.Timers
     /// OffDelayTimer class, which contains OffDelay method representing timer.
     /// Counting of timer start on FALLING edge.
     ///</summary>
+    {S7.extern=ReadWrite}
     CLASS OffDelayTimer
         VAR PUBLIC
             output : BOOL;

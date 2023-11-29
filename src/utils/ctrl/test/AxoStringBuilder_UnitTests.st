@@ -6,6 +6,7 @@ NAMESPACE AXOpen.Utils.Unit_Tests
 
 
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS AxoStringBuilder_UnitTests 
         VAR PROTECTED
             _sb : AxoStringBuilder;

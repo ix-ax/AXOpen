@@ -4,6 +4,7 @@ USING AXOpen.Rtc;
 USING AXOpen.Logging;
 
 NAMESPACE Cylinder.Tests
+    {S7.extern=ReadWrite}
     CLASS TestContext IMPLEMENTS AXOpen.Core.IAxoContext
         VAR
             _openCounter : ULINT;
@@ -51,6 +52,7 @@ NAMESPACE Cylinder.Tests
         END_METHOD
     END_CLASS
     {TestFixture}
+    {S7.extern=ReadWrite}
     CLASS CylinderTests 
         VAR 
             context : TestContext;

@@ -8,6 +8,7 @@ NAMESPACE axosimple.StarterUnitTemplate
     /// Provides ground mode sequence.
     ///</summary>
     {#ix-set:AttributeName = "<#GROUND#>"}
+    {S7.extern=ReadWrite}
     CLASS PUBLIC GroundSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
@@ -15,7 +16,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             MoveToWork : AxoTask;
         END_VAR
         VAR PRIVATE
-            Objs : REF_TO UnitObjects;
+            Objs : REF_TO axosimple.StarterUnitTemplate.UnitObjects;
             Components : REF_TO Components;
             ProcessData : REF_TO ProcessDataManager;
             ProcessSettings : REF_TO FragmentProcessDataManger;
@@ -23,12 +24,13 @@ NAMESPACE axosimple.StarterUnitTemplate
             PersistentSettings : REF_TO AxoDataPersistentExchange;
 
             _currentId : STRING;
+            techSetttingsId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
                 _parent : IAxoObject;
-                _unitObjects : REF_TO UnitObjects;
+                _unitObjects : REF_TO axosimple.StarterUnitTemplate.UnitObjects;
             END_VAR     
 
             IF Objs = NULL THEN 
@@ -63,11 +65,57 @@ NAMESPACE axosimple.StarterUnitTemplate
             // This is more verbose but also more versatile way of executing step logic.
             IF (Steps[0].Execute(THIS, TRUE, '<#RESTORE#>')) THEN
                 //------------------------------------------------------- 
-                PersistentSettings^.Restore(); 
+                TechnologySettings^.Restore(); 
+                ProcessSettings^.Restore(); 
                 ProcessData^.Restore();
                 
-                ProcessData^.Shared.Entity.WasReset := true;
-                _currentId := 'lastPartId'; // just for simulation
+                THIS.MoveNext();
+                //-------------------------------------------------------
+            END_IF;
+
+            IF (Steps[1].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
+                //------------------------------------------------------- 
+                IF CurrentStep.IsFirstEntryToStep() THEN 
+                    ;// some special initialization 
+                END_IF;
+
+                CASE TO_INT( THIS.GetMicroStepValue()) OF
+                    0 : 
+                        IF PersistentSettings^.InvokeEntityExist(THIS ,'') THEN 
+                            THIS.SetMicroStepValue(UINT#10);
+                        END_IF;
+
+                    10 : 
+                        IF PersistentSettings^.IsEntityExistDone(THIS) THEN 
+                            IF PersistentSettings^.EntityExistResult() THEN 
+                                THIS.SetMicroStepValue(UINT#40); // default data exist
+                            ELSE
+                                THIS.SetMicroStepValue(UINT#20); // no data exist
+                            END_IF;
+                        END_IF;
+
+                    20 :  
+                        IF PersistentSettings^.InvokeUpdateAll(THIS) THEN // data not exist -> udate all to DB
+                            THIS.SetMicroStepValue(UINT#30);
+                        END_IF;
+
+                    30:    
+                        IF PersistentSettings^.IsUpdateAllDone(THIS) THEN
+                            THIS.SetMicroStepValue(UINT#40); // all was updated to DB
+                        END_IF;
+
+                    40 : 
+                        IF PersistentSettings^.InvokeRead(THIS, '') THEN // read default group
+                            THIS.SetMicroStepValue(UINT#50);
+                        END_IF;
+                    50 : 
+                        IF PersistentSettings^.IsReadDone(THIS) THEN 
+                                THIS.MoveNext(); // just default group was readed
+                        END_IF;  
+                    ELSE
+                        THIS.SetMicroStepValue(UINT#0);
+                END_CASE;
+   
                 //-------------------------------------------------------
             END_IF;
 
@@ -91,23 +139,37 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[3].Execute(THIS, TRUE, '<#READ PERSISTENT SETTINGS#>')) THEN
+            IF (Steps[5].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
                 //------------------------------------------------------- 
-                IF(PersistentSettings^.Read().IsDone()) THEN
-                    THIS.MoveNext(); 
-                END_IF;    
-                //-------------------------------------------------------
-            END_IF;
+                IF CurrentStep.IsFirstEntryToStep() THEN 
 
-            IF (Steps[4].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
-                //------------------------------------------------------- 
-                IF(TechnologySettings^.Read( Objs^.LastTechnologySettings ).IsDone()) THEN
-                    THIS.MoveNext(); 
-                END_IF;    
+                    IF Objs^.Global^.TechnologySettings^.Common.Entity.DataEntityId <> '' THEN
+                       techSetttingsId := Objs^.Global^.TechnologySettings^.Common.Entity.DataEntityId; // TAKE GLOGAL TECHNOLOGY SETTINGS ID
+
+                    ELSIF Objs^.TechnologySettings^.Shared.Entity.DataEntityId <> '' THEN // TAKE LAST LOADED FOR STATION
+                        techSetttingsId := Objs^.TechnologySettings^.Shared.Entity.DataEntityId;
+
+                    ELSIF Objs^.LastTechnologySettings <> '' THEN // TAKE LAST LOADED FROM PERSISTENT
+                        techSetttingsId := Objs^.LastTechnologySettings;
+                    ELSE
+                        Objs^.LastTechnologySettings := 'default'; // FORCE DEFAULT VALUE 
+                        techSetttingsId := Objs^.LastTechnologySettings;
+                    END_IF;
+                    
+                    IF Objs^.Global^.TechnologySettings^.Common.Entity.DataEntityId = Objs^.TechnologySettings^.Shared.Entity.DataEntityId then 
+                        //THIS.MoveNext(); // you can skip loading...
+                        ;
+                    end_if;
+
+                else
+                    IF(TechnologySettings^.Read( techSetttingsId ).IsDone()) THEN
+                        THIS.MoveNext(); 
+                    END_IF; 
+                END_IF;
                 //-------------------------------------------------------
             END_IF;
                           
-            IF (Steps[5].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
+            IF (Steps[6].Execute(THIS, TRUE, '<#DO SOMETHING#>')) THEN
                 //-------------------------------------------------------
                 IF CurrentStep.Duration > TIME#2s THEN                         
                     THIS.MoveNext();
@@ -117,9 +179,24 @@ NAMESPACE axosimple.StarterUnitTemplate
 
             IF (Steps[19].Execute(THIS, TRUE, '<#SAVE DATA#>')) THEN
                 //-------------------------------------------------------
-                    IF(ProcessData^.Update(_currentId).IsDone()) THEN
-                        THIS.MoveNext();                                   
-                    END_IF;    
+                CASE TO_INT( THIS.GetMicroStepValue()) OF
+                    0 : 
+                        IF ProcessData^.Shared.Entity.DataEntityId <> '' THEN 
+                            _currentId := ProcessData^.Shared.Entity.DataEntityId;
+                            THIS.SetMicroStepValue(UINT#10);
+
+                        ELSE // FIST RUN OR WITHOUT DATA
+                            THIS.MoveNext();
+                        END_IF;
+
+                    10 : // update part as a corrupted a interrupted
+                        ProcessData^.Shared.Entity.WasReset := true;
+                        IF ProcessData^.Update(_currentId).IsDone() THEN 
+                                THIS.MoveNext(); 
+                        END_IF;  
+                    ELSE
+                        THIS.SetMicroStepValue(UINT#0);
+                END_CASE;
                 //-------------------------------------------------------
             END_IF;
            

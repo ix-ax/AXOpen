@@ -4,6 +4,7 @@ NAMESPACE AXOpen.Elements
     /// <summary>
     /// Class representing Analog output
     /// </summary>
+    {S7.extern=ReadWrite}
     CLASS AxoAo EXTENDS AXOpen.Core.AxoComponent
         
         VAR PUBLIC

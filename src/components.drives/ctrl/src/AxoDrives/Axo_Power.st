@@ -3,6 +3,7 @@ USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 
 NAMESPACE AXOpen.Components.Drives
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Axo_Power EXTENDS AXOpen.Core.AxoToggleTask IMPLEMENTS AXOpen.Components.Abstractions.Drives.IAxo_Power
         VAR PRIVATE 
             _motionTaskId    :  AXOpen.Components.Drives.eAxoMotionTaskId := AXOpen.Components.Drives.eAxoMotionTaskId#Axo_Power;      

@@ -5,6 +5,7 @@ NAMESPACE axosimple.BaseUnit
     USING AXOpen.Core;
     USING System.Strings;
 
+    {S7.extern=ReadWrite}
     CLASS PUBLIC UnitObjects
         VAR PUBLIC
             ///<summary>
@@ -13,14 +14,13 @@ NAMESPACE axosimple.BaseUnit
             StationNumber : INT;
             
             ///<summary>
-            /// Provides access to persistent data manager
+            /// Reference global objects in technology.
             ///</summary>
-            PersistentData : REF_TO AxoDataPersistentExchange;
+            Global : REF_TO axosimple.GlobalContextObjects;
 
             {#ix-attr:[AXOpen.Data.PersistentAttribute("")]}
-            LastTechnologySettings : STRING ;
+            LastTechnologySettings : STRING[64] ;
 
-            Global : REF_TO axosimple.GlobalContextObjects;
         END_VAR        
     END_CLASS
 

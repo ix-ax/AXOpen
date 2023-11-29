@@ -4,12 +4,12 @@
 
 With `Command` presentation type, options exist for adding, editing, and deleting records.
 
-[!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/Testing.razor?name=CommandView)]
+[!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/Rendering.razor?name=CommandView)]
 
 ![Command](assets/Command.png)
 
 If you use `Status` presentation type, data will be only displayed and cannot be manipulated.
 
-[!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/Testing.razor?name=StatusView)]
+[!code-smalltalk[](../app/ix-blazor/librarytemplate.blazor/Pages/Rendering.razor?name=StatusView)]
 
 ![Status](assets/Status.png)

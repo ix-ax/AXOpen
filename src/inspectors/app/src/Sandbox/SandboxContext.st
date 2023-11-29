@@ -1,4 +1,5 @@
 USING AXOpen.Core;
+{S7.extern=ReadWrite}
 CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     VAR PUBLIC
 
@@ -20,6 +21,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
     END_METHOD
 END_CLASS
 
+{S7.extern=ReadWrite}
 CLASS Inspectors EXTENDS AXOpen.Core.AxoObject
     VAR PUBLIC
         _digitalInspector: AXOpen.Inspectors.AxoDigitalInspector;

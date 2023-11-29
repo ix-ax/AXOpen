@@ -2,6 +2,7 @@ USING AXOpen.Core;
 
 NAMESPACE AxoToggleTaskExamples
 
+    {S7.extern=ReadWrite}
     CLASS Tasks EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "<#Toggle task 1#>"}

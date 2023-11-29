@@ -1,5 +1,7 @@
 ﻿namespace AXOpen.Data
 {
+    using System.Linq;
+
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class PersistentAttribute
     : Attribute
@@ -9,17 +11,19 @@
         /// </summary>
         public PersistentAttribute(params string[] groups)
         {
-            if (groups == null)
+            var filterGroup = groups.Where(x => !string.IsNullOrEmpty(x) ).ToArray();
+
+            if (filterGroup == null)
                 Groups = new string[1] { "default" };
             else
             {
-                if (groups.Length == 0)
+                if (filterGroup.Length == 0)
                 {
                     Groups = new string[1] { "default" };
                 }
                 else
                 {
-                    Groups = groups;
+                    Groups = filterGroup;
 
                 }
             }

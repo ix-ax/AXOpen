@@ -60,87 +60,87 @@
   </resheader>
   <data name="Home_sensor" xml:space="preserve">
     <value>Home sensor</value>
-    <comment>src\Components\Cylinder.st,19</comment>
+    <comment>src\Components\Cylinder.st,20</comment>
   </data>
   <data name="Work_sensor" xml:space="preserve">
     <value>Work sensor</value>
-    <comment>src\Components\Cylinder.st,23</comment>
+    <comment>src\Components\Cylinder.st,24</comment>
   </data>
   <data name="Move_home_signal" xml:space="preserve">
     <value>Move home signal</value>
-    <comment>src\Components\Cylinder.st,28</comment>
+    <comment>src\Components\Cylinder.st,29</comment>
   </data>
   <data name="Move_work_signal" xml:space="preserve">
     <value>Move work signal</value>
-    <comment>src\Components\Cylinder.st,32</comment>
+    <comment>src\Components\Cylinder.st,33</comment>
   </data>
   <data name="Next_on_Passed" xml:space="preserve">
     <value>Next on Passed</value>
-    <comment>src\CommonData\Process\UnitHeader.st,4</comment>
+    <comment>src\CommonData\Process\UnitHeader.st,5</comment>
   </data>
   <data name="Next_on_Failed" xml:space="preserve">
     <value>Next on Failed</value>
-    <comment>src\CommonData\Process\UnitHeader.st,7</comment>
+    <comment>src\CommonData\Process\UnitHeader.st,8</comment>
   </data>
   <data name="Cycle_time" xml:space="preserve">
     <value>Cycle time</value>
-    <comment>src\CommonData\Process\UnitHeader.st,11</comment>
+    <comment>src\CommonData\Process\UnitHeader.st,12</comment>
   </data>
   <data name="Clean_loop_time" xml:space="preserve">
     <value>Clean loop time</value>
-    <comment>src\CommonData\Process\UnitHeader.st,15</comment>
+    <comment>src\CommonData\Process\UnitHeader.st,16</comment>
   </data>
   <data name="Operation_started" xml:space="preserve">
     <value>Operation started</value>
-    <comment>src\CommonData\Process\UnitHeader.st,19</comment>
+    <comment>src\CommonData\Process\UnitHeader.st,20</comment>
   </data>
   <data name="Operation_end" xml:space="preserve">
     <value>Operation end</value>
-    <comment>src\CommonData\Process\UnitHeader.st,23</comment>
+    <comment>src\CommonData\Process\UnitHeader.st,24</comment>
   </data>
   <data name="Operatod_id" xml:space="preserve">
     <value>Operatod id</value>
-    <comment>src\CommonData\Process\UnitHeader.st,27</comment>
+    <comment>src\CommonData\Process\UnitHeader.st,28</comment>
   </data>
   <data name="Nominal" xml:space="preserve">
     <value>Nominal</value>
-    <comment>src\CommonData\Technology\TechnologyCommonData.st,4</comment>
+    <comment>src\CommonData\Technology\TechnologyCommonData.st,5</comment>
   </data>
   <data name="Warning" xml:space="preserve">
     <value>Warning</value>
-    <comment>src\CommonData\Technology\TechnologyCommonData.st,7</comment>
+    <comment>src\CommonData\Technology\TechnologyCommonData.st,8</comment>
   </data>
   <data name="Error" xml:space="preserve">
     <value>Error</value>
-    <comment>src\CommonData\Technology\TechnologyCommonData.st,10</comment>
+    <comment>src\CommonData\Technology\TechnologyCommonData.st,11</comment>
   </data>
   <data name="Energy_saving_mode__DASH__Inactivity_time" xml:space="preserve">
     <value>Energy saving mode - Inactivity time</value>
-    <comment>src\CommonData\Technology\TechnologyCommonData.st,13</comment>
+    <comment>src\CommonData\Technology\TechnologyCommonData.st,14</comment>
   </data>
   <data name="Step_time" xml:space="preserve">
     <value>Step time</value>
-    <comment>src\CommonData\Technology\TechnologyUnitHeader.st,12</comment>
+    <comment>src\CommonData\Technology\TechnologyUnitHeader.st,14</comment>
   </data>
   <data name="Consecutive_Error_count_" xml:space="preserve">
     <value>Consecutive Error count </value>
-    <comment>src\CommonData\Technology\TechnologyUnitHeader.st,21</comment>
+    <comment>src\CommonData\Technology\TechnologyUnitHeader.st,23</comment>
   </data>
   <data name="GET_ID" xml:space="preserve">
     <value>GET ID</value>
-    <comment>src\templates\starterunit\AutomatSequence.st,57</comment>
+    <comment>src\templates\starterunit\AutomatSequence.st,58</comment>
   </data>
   <data name="GET_DATA" xml:space="preserve">
     <value>GET DATA</value>
-    <comment>src\templates\starterunit\AutomatSequence.st,64</comment>
+    <comment>src\templates\starterunit\AutomatSequence.st,65</comment>
   </data>
   <data name="DO_SOMETHING" xml:space="preserve">
     <value>DO SOMETHING</value>
-    <comment>src\templates\starterunit\AutomatSequence.st,72</comment>
+    <comment>src\templates\starterunit\AutomatSequence.st,73</comment>
   </data>
   <data name="UPDATE_DATA" xml:space="preserve">
     <value>UPDATE DATA</value>
-    <comment>src\templates\starterunit\AutomatSequence.st,80</comment>
+    <comment>src\templates\starterunit\AutomatSequence.st,81</comment>
   </data>
   <data name="AUTOMAT" xml:space="preserve">
     <value>AUTOMAT</value>
@@ -148,15 +148,19 @@
   </data>
   <data name="RESTORE" xml:space="preserve">
     <value>RESTORE</value>
-    <comment>src\templates\starterunit\GroundSequence.st,57</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,65</comment>
+  </data>
+  <data name="READ_PERSISTENT_SETTINGS" xml:space="preserve">
+    <value>READ PERSISTENT SETTINGS</value>
+    <comment>src\templates\starterunit\GroundSequence.st,75</comment>
   </data>
   <data name="READ_TECHNOLOGY_SETTINS" xml:space="preserve">
     <value>READ TECHNOLOGY SETTINS</value>
-    <comment>src\templates\starterunit\GroundSequence.st,67</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,121</comment>
   </data>
   <data name="SAVE_DATA" xml:space="preserve">
     <value>SAVE DATA</value>
-    <comment>src\templates\starterunit\GroundSequence.st,83</comment>
+    <comment>src\templates\starterunit\GroundSequence.st,159</comment>
   </data>
   <data name="GROUND" xml:space="preserve">
     <value>GROUND</value>
@@ -168,42 +172,42 @@
   </data>
   <data name="Last_station" xml:space="preserve">
     <value>Last station</value>
-    <comment>src\CommonData\Process\Entity\EntityData.st,4</comment>
+    <comment>src\CommonData\Process\Entity\EntityData.st,5</comment>
   </data>
   <data name="Next_station" xml:space="preserve">
     <value>Next station</value>
-    <comment>src\CommonData\Process\Entity\EntityData.st,7</comment>
+    <comment>src\CommonData\Process\Entity\EntityData.st,8</comment>
   </data>
   <data name="Operations_Opened" xml:space="preserve">
     <value>Operations Opened</value>
-    <comment>src\CommonData\Process\Entity\EntityData.st,10</comment>
+    <comment>src\CommonData\Process\Entity\EntityData.st,11</comment>
   </data>
   <data name="Results" xml:space="preserve">
     <value>Results</value>
-    <comment>src\CommonData\Process\Entity\EntityData.st,13</comment>
+    <comment>src\CommonData\Process\Entity\EntityData.st,14</comment>
   </data>
   <data name="Carrier" xml:space="preserve">
     <value>Carrier</value>
-    <comment>src\CommonData\Process\Entity\EntityData.st,16</comment>
+    <comment>src\CommonData\Process\Entity\EntityData.st,17</comment>
   </data>
   <data name="Is_empty" xml:space="preserve">
     <value>Is empty</value>
-    <comment>src\CommonData\Process\Entity\EntityData.st,20</comment>
+    <comment>src\CommonData\Process\Entity\EntityData.st,21</comment>
   </data>
   <data name="Is_Master" xml:space="preserve">
     <value>Is Master</value>
-    <comment>src\CommonData\Process\Entity\EntityData.st,24</comment>
+    <comment>src\CommonData\Process\Entity\EntityData.st,25</comment>
   </data>
   <data name="Reset_or_ground_position_performed" xml:space="preserve">
     <value>Reset or ground position performed</value>
-    <comment>src\CommonData\Process\Entity\EntityData.st,28</comment>
+    <comment>src\CommonData\Process\Entity\EntityData.st,29</comment>
   </data>
   <data name="StarterUnitTemplate" xml:space="preserve">
     <value>StarterUnitTemplate</value>
-    <comment>src\templates\starterunit\DataManagers\FragmentsProcessDataManager.st,13</comment>
+    <comment>src\templates\starterunit\DataManagers\FragmentsProcessDataManager.st,14</comment>
   </data>
   <data name="UnitTemplate" xml:space="preserve">
     <value>UnitTemplate</value>
-    <comment>src\templates\starterunit\DataManagers\FragmentTechnologyDataManger.st,13</comment>
+    <comment>src\templates\starterunit\DataManagers\FragmentTechnologyDataManger.st,14</comment>
   </data>
 </root>

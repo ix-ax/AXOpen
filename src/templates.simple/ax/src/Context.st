@@ -2,6 +2,7 @@ USING AXOpen.Core;
 USING AXOpen.Data;
 
 NAMESPACE axosimple
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Context EXTENDS AxoContext                   
         VAR PUBLIC
             TechnologySettings : TechnologyData;
@@ -25,7 +26,8 @@ NAMESPACE axosimple
          
         END_VAR      
         
-        METHOD PROTECTED OVERRIDE Main     
+        METHOD PROTECTED OVERRIDE Main    
+                        
             TechnologySettings.Run(THIS);
             ProcessSettings.Run(THIS);
             ProcessData.Run(THIS);
@@ -38,12 +40,11 @@ NAMESPACE axosimple
             GlobalObjects.ProcessData    := REF(ProcessData);
                         
             // remember last selected identifier 
-            if  (GlobalObjects.LastTechnologySettings <> '') THEN
+            if TechnologySettings.Common.Entity.DataEntityId <> '' THEN
                 IF GlobalObjects.LastTechnologySettings <> TechnologySettings.Common.Entity.DataEntityId THEN 
-                    IF PersistentData.Operation.IsReady() THEN 
-                        PersistentData.Update();
+                    IF PersistentData.InvokeUpdate(TechnologySettings, '') THEN 
                         GlobalObjects.LastTechnologySettings := TechnologySettings.Common.Entity.DataEntityId;
-                    END_IF;
+                   END_IF;
                 END_IF;
             END_IF;
 
@@ -62,12 +63,13 @@ NAMESPACE axosimple
                 UnitTemplate.UnitObjects.TechnologySettings := REF(UnitTemplateTechnologySettings);
                 UnitTemplate.UnitObjects.ProcessSettings := REF(ProcessSettings.UnitTemplate);
                 UnitTemplate.UnitObjects.ProcessData := REF(UnitTemplateProcessData);
-                StarterUnitTemplate.UnitObjects.Global := REF(GlobalObjects);
+                UnitTemplate.UnitObjects.Global := REF(GlobalObjects);
                 UnitTemplate.Run(THIS, Inputs^, Outputs^);
            END_IF;                           
         END_METHOD        
     END_CLASS   
              
+    {S7.extern=ReadWrite}
     CLASS PUBLIC GlobalContextObjects
         VAR PUBLIC
             {#ix-attr:[AXOpen.Data.PersistentAttribute("")]}
@@ -80,6 +82,7 @@ NAMESPACE axosimple
         END_VAR
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS ProcessData EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}
@@ -96,6 +99,7 @@ NAMESPACE axosimple
         END_VAR        
     END_CLASS
 
+    {S7.extern=ReadWrite}
     CLASS TechnologyData EXTENDS AXOpen.Data.AxoDataFragmentExchange
         VAR PUBLIC                    
             {#ix-attr:[AXOpen.Data.AxoDataFragmentAttribute]}

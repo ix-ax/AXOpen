@@ -1,0 +1,45 @@
+﻿@page "/TestingDataFragmentExchange"
+@using AXOpen.Base.Dialogs;
+@using AXOpen.Data;
+@using librarytemplate
+@inject AuthenticationStateProvider _authenticationProvider
+@inject IAlertDialogService _alertDialogService
+
+
+<PageTitle>Testing Data Fragment Exchange</PageTitle>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Commands</h2>
+        </div>
+        <div class="card-body">
+            <RenderableContentControl Context="@Entry.Plc.AxoDataFragmentsExchangeContext.ManagerUsage" Presentation="Command-Control" />
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h2>Manager Operation status</h2>
+        </div>
+        <div class="card-body">
+            <RenderableContentControl Context="@Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.Operation" Presentation="Command" />
+            <RenderableContentControl Context="@Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.Operation.HasRemoteException" Presentation="Display" />
+            <RenderableContentControl Context="@Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.Operation.ErrorDetails" Presentation="Display" />
+        </div>
+    </div>
+
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Data</h2>
+    </div>
+    <div class="card-body">
+        <h2>Data Header</h2>
+        <RenderableContentControl Context="@Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.SharedHeader.Set" Presentation="Control" />
+        <h2>Station 1</h2>
+        <RenderableContentControl Context="@Entry.Plc.AxoDataFragmentsExchangeContext.DataManager.Station_1.Set" Presentation="Control" />
+    </div>
+</div>

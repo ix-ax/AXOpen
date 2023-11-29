@@ -4,6 +4,7 @@ USING AXOpen.Probers;
 NAMESPACE IntegrationTests
 
     
+{S7.extern=ReadWrite}
 CLASS ProbersTestContext EXTENDS AxoContext
     VAR PUBLIC
         ProbeWithCounterTests : ProbeWithCounterTests;
@@ -15,6 +16,7 @@ CLASS ProbersTestContext EXTENDS AxoContext
     END_METHOD
 END_CLASS
 
+{S7.extern=ReadWrite}
 CLASS ProbeWithCounterTests EXTENDS AxoProberWithCounterBase    
     VAR PUBLIC
         _didExecuteTestMethod : BOOL;
@@ -27,6 +29,7 @@ CLASS ProbeWithCounterTests EXTENDS AxoProberWithCounterBase
     END_METHOD    
 END_CLASS
 
+{S7.extern=ReadWrite}
 CLASS ProberWithCompletedConditionTests EXTENDS AxoProberWithCompletedCondition    
     VAR PUBLIC
         _didExecuteTestMethod : BOOL;

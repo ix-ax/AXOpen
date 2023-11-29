@@ -3,6 +3,7 @@ using AXOpen.Data;
 NAMESPACE AxoDataExamplesDocu
     
     //<ProcessDataMangerDeclaration>
+    {S7.extern=ReadWrite}
     CLASS AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange 
         VAR PUBLIC             
             {#ix-generic:TOnline}              
@@ -14,6 +15,7 @@ NAMESPACE AxoDataExamplesDocu
     //</ProcessDataMangerDeclaration>
     
     //<ProcessDataDeclaration>
+    {S7.extern=ReadWrite}
     CLASS AxoProductionData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             {#ix-set:AttributeName = "Some string data"}
@@ -27,6 +29,7 @@ NAMESPACE AxoDataExamplesDocu
     //</ProcessDataDeclaration>
     
     //<ContextDeclaration>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             DataManager : AxoProcessDataManager;
@@ -39,6 +42,7 @@ NAMESPACE AxoDataExamplesDocu
     //</ContextDeclaration>
 
     //<UseManager>
+    {S7.extern=ReadWrite}
     CLASS UseManager
         VAR
             _create : BOOL;

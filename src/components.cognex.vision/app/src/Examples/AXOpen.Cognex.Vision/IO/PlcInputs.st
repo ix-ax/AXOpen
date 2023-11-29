@@ -1,4 +1,5 @@
 TYPE
+	{S7.extern=ReadWrite}
 	PlcInputs : STRUCT
 		_10a1_Acquisition_Status_1 : ARRAY[0..2] OF BYTE;
 		_10a1_Results_Status_1 : BYTE;

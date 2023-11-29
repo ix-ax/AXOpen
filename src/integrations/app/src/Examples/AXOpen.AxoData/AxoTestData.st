@@ -3,6 +3,7 @@ using AXOpen.Data;
 NAMESPACE AxoDataExamples
 
     {#ix-attr:[Container(Layout.Tabs)]}
+    {S7.extern=ReadWrite}
     CLASS AxoTestData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             RecipeName : STRING;

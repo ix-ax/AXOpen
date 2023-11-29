@@ -2,6 +2,7 @@ NAMESPACE AXOpen.Logging
     /// <summary>
     /// AxoLogEntry class represents a single log entry.
     /// </summary>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AxoLogEntry
         VAR PUBLIC
             /// <summary>

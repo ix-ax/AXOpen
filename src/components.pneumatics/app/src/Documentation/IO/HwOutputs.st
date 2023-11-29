@@ -1,4 +1,5 @@
 TYPE
+	{S7.extern=ReadWrite}
 	HwOutputs : STRUCT
 		ET200SP_DQ_8x24VDC_0_5A_ST_V1_1_1 AT %B0 : BYTE;
 	END_STRUCT;

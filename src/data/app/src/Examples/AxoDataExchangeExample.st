@@ -1,22 +1,36 @@
+USING AXOpen.Core;
 USING AXOpen;
 using AXOpen.Data;
 
 NAMESPACE AxoDataExchangeExample
     
     //<ContextDeclaration>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
-            DataManager : AxoProcessDataManager;
+            //Controlled unit that needs to manipulate with data
+            ControlledUnit : ControlledUnit;
+            //DataManager instance
+            DataManager  : AxoProcessDataManager;
+
+            //Testing usage of the manager
+            ManagerUsage : ManagerUsage;
         END_VAR
         
         METHOD OVERRIDE Main
-            DataManager.Run(THIS);
+            
+            // DataManager.Run(THIS); - is called iside of controlle unit
+            ControlledUnit.ProcessData := REF(DataManager);//Set REF to DataManager (reason depth of data structure)
+            ControlledUnit.Run(THIS);// run logic of controlled unit 
+
+            ManagerUsage.Use(DataManager);
         END_METHOD
     END_CLASS
     //</ContextDeclaration>
 
     //<AxoProcessDataManagerDeclaration>
-    CLASS AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC AxoProcessDataManager EXTENDS AXOpen.Data.AxoDataExchange
         VAR PUBLIC
             {#ix-generic:TOnline}
             {#ix-generic:TPlain as POCO}
@@ -27,7 +41,8 @@ NAMESPACE AxoDataExchangeExample
     //</AxoProcessDataManagerDeclaration>
     
     //<AxoProcessDataDeclaration>
-    CLASS AxoProcessData EXTENDS AXOpen.Data.AxoDataEntity
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC AxoProcessData EXTENDS AXOpen.Data.AxoDataEntity
         VAR PUBLIC
             {#ix-set:AttributeName = "Some string"}
             SomeString : STRING;
@@ -38,16 +53,17 @@ NAMESPACE AxoDataExchangeExample
     //</AxoProcessDataDeclaration>
 
     //<Usage>
-    CLASS UseManager
-        VAR
-            _create : BOOL;
-            _read : BOOL;
-            _update : BOOL;
-            _delete : BOOL;
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC ManagerUsage
+        VAR PUBLIC
             _id : STRING;
+            _create : BOOL;
+            _update : BOOL;
+            _read : BOOL;
+            _delete : BOOL;
         END_VAR   
 
-        METHOD Use
+        METHOD PUBLIC Use
             VAR_IN_OUT
                 DataManager : AxoProcessDataManager;
             END_VAR    
@@ -79,32 +95,49 @@ NAMESPACE AxoDataExchangeExample
     //</Usage>
 
     //<Execute>
-    CLASS CU EXTENDS AXOpen.Core.AxoObject
+    {S7.extern=ReadWrite}
+    CLASS PUBLIC ControlledUnit EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
+            //Reference to ProcessDataManager
             ProcessData : REF_TO AxoProcessDataManager;
+            //Automatic sequence. Contains logic for automatic operations of this unit.
+            AutomatSequence : AutomatSequence;
         END_VAR
 
+        METHOD PUBLIC Run
+            VAR_INPUT
+                _parent : IAxoContext;
+            END_VAR
+            THIS.Initialize(_parent);
+            THIS.Execute();
+        END_METHOD
+
         METHOD PRIVATE Execute
-            ProcessData^.Run(THIS);
+            ProcessData^.Run(THIS); // cyclic call of AxoProcessDataManager
+            AutomatSequence.Run(THIS, ProcessData);
         END_METHOD
     END_CLASS
     //</Execute>
 
     //<Run>
+    {S7.extern=ReadWrite}
     CLASS PUBLIC AutomatSequence EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PRIVATE
+            // private reference is used in Main()
             ProcessData : REF_TO AxoProcessDataManager;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
+                _parent : IAxoObject;
                 _processData : REF_TO AxoProcessDataManager;
             END_VAR
+
             ProcessData := _processData;
         END_METHOD
 
         METHOD OVERRIDE Main
-            ;
+            ;//cyclic logic
         END_METHOD
     END_CLASS
     //</Run>
