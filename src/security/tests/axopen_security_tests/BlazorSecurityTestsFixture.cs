@@ -16,28 +16,33 @@ namespace AxOpen.Security.Tests
     {
         private IRepository<User> _RepoUser;
         private IRepository<Group> _RepoGroup;
-
-        private AXOpen.Data.InMemory.InMemoryRepository<User> _inMemoryRepoUser;
-        private AXOpen.Data.InMemory.InMemoryRepository<Group> _inMemoryRepoGroup;
-
-        private AXOpen.Data.Json.JsonRepository<User> _inJsonRepoUser;
-        private AXOpen.Data.Json.JsonRepository<Group> _inJsonRepoGroup;
-
-        private AXOpen.Data.MongoDb.MongoDbRepository<User> _inMongoRepoUser;
-        private AXOpen.Data.MongoDb.MongoDbRepository<Group> _inMongRepoGroup;
-
+       
         private RoleGroupManager _roleGroupManager;
+
+        /// <summary>
+        ///User name must be in CAPITAL letters because MS user manager stores all users with CAPITAL Ids in the database.
+        /// </summary>
         public BlazorSecurityTestsFixture()
         {
-            var MongoConnectionString = "mongodb://localhost:27017";
-            var MongoDatabaseName = "TestingSeurity";
+            #region mongoDB
+            //var MongoConnectionString = "mongodb://localhost:27017";
+            //var MongoDatabaseName = "TestingSeurity";
 
-            // initialize factory - store connection and credentials
-            AXOpen.Data.MongoDb.Repository.InitializeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
+            //// initialize factory - store connection and credentials
+            //AXOpen.Data.MongoDb.Repository.InitializeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
 
-            _RepoUser = AXOpen.Data.MongoDb.Repository.Factory<User>("Users", t => t.Id);
-            _RepoGroup = AXOpen.Data.MongoDb.Repository.Factory<Group>("UsersGroups");
+            //_RepoUser = AXOpen.Data.MongoDb.Repository.Factory<User>("Users", t => t.Id);
+            //_RepoGroup = AXOpen.Data.MongoDb.Repository.Factory<Group>("UsersGroups");
 
+
+            //_RepoUser = AXOpen.Data.MongoDb.Repository.Factory<User>("Users", t => t.Id);
+            //_RepoGroup = AXOpen.Data.MongoDb.Repository.Factory<Group>("UsersGroups");
+            #endregion
+       
+            #region InMemory
+            _RepoUser = new AXOpen.Data.InMemory.InMemoryRepository<User>();
+            _RepoGroup = new AXOpen.Data.InMemory.InMemoryRepository<Group>();
+            #endregion
 
             _roleGroupManager = new RoleGroupManager(_RepoGroup);
             //Repository = new RepositoryService(_inMemoryRepoUser, _roleGroupManager);
