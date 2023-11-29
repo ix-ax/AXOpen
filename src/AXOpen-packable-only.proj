@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.Build.Traversal/4.1.0">
 	<ItemGroup>    
-	<ProjectReference Include="**\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
+	<ProjectReference Include="**\src\**\*.csproj"  Exclude="**\.apax\**\*.*;templates.simple\**;template.axolibrary\**;integrations\**;clientchat\**;tools\**"/>  
 	<ProjectReference Include="**\ctrl\ix\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
 	  <!-- <ProjectReference Include="base\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>  
 	  <ProjectReference Include="abstractions\src\**\*.csproj"  Exclude="**\.apax\**\*.*"/>
