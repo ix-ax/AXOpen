@@ -13,21 +13,21 @@ NAMESPACE axosimple.UnitTemplate
     CLASS PUBLIC AutomatSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
-            Steps : ARRAY[0..150] OF AxoStep;            
+            Steps : ARRAY[0..150] OF AXOpen.Core.AxoStep;            
         END_VAR
         VAR PRIVATE
-            Objs : REF_TO UnitObjects;
-            Components : REF_TO Components;
-            ProcessData : REF_TO ProcessDataManager;
-            ProcessSettings : REF_TO FragmentProcessDataManger;
-            TechnologySettings : REF_TO TechnologyDataManager;
+            Objs : REF_TO axosimple.UnitTemplate.UnitObjects;
+            Components : REF_TO axosimple.UnitTemplate.Components;
+            ProcessData : REF_TO axosimple.UnitTemplate.ProcessDataManager;
+            ProcessSettings : REF_TO axosimple.UnitTemplate.FragmentProcessDataManger;
+            TechnologySettings : REF_TO axosimple.UnitTemplate.TechnologyDataManager;
             _currentId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _parent : IAxoObject;
-                _unitObjects : REF_TO UnitObjects;
+                _parent :  AXOpen.Core.IAxoObject;
+                _unitObjects : REF_TO axosimple.UnitTemplate.UnitObjects;
             END_VAR     
 
             IF Objs = NULL THEN 

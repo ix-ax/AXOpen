@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net.Sockets;
 using AXOpen.Base.Data;
 using AXOpen.Data;
+using System.Linq.Expressions;
 
 
 namespace AXOpen.Data.MongoDb
@@ -17,7 +18,7 @@ namespace AXOpen.Data.MongoDb
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class MongoDbRepositorySettings<T> : RepositorySettings  where T : IBrowsableDataObject 
+    public class MongoDbRepositorySettings<T> : RepositorySettings where T : IBrowsableDataObject
     {
         private string _databaseName;
         private string _collectionName;
@@ -30,7 +31,7 @@ namespace AXOpen.Data.MongoDb
         /// <param name="collectionName">Collection name</param>
         /// <param name="credentials">Credentials</param>
         public MongoDbRepositorySettings(string connectionString, string databaseName, string collectionName)
-        {            
+        {
             SetupSerialisationAndMapping();
             Client = GetClient(connectionString);
             Database = GetDatabase(databaseName);
@@ -54,10 +55,35 @@ namespace AXOpen.Data.MongoDb
             Collection = GetCollection(collectionName);
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MongoDbRepositorySettings{T}"/> class for a 
+        /// <see cref="MongoDbRepository{T}"/> with secured access. This constructor sets up the MongoDB 
+        /// connection with the specified parameters and configures the BSON serialization mapping for the 
+        /// generic type <typeparamref name="T"/>, including the specification of a member to be used as 
+        /// the MongoDB '_id' field.
+        /// </summary>
+        /// <param name="connectionString">The MongoDB connection string used to establish a connection 
+        /// to the database.</param>
+        /// <param name="databaseName">The name of the MongoDB database to be used.</param>
+        /// <param name="collectionName">The name of the collection within the MongoDB database where the 
+        /// data of type <typeparamref name="T"/> will be stored.</param>
+        /// <param name="credentials">The credentials used for authenticated access to the MongoDB  database.</param>
+        /// <param name="idExpression">An expression that defines the property of the generic type 
+        /// <typeparamref name="T"/> which should be mapped to the MongoDB '_id' field. This expression 
+        /// allows for flexibility in choosing which property of the class <typeparamref name="T"/> serves 
+        /// as the unique identifier in the database.</param>
+        public MongoDbRepositorySettings(string connectionString, string databaseName, string collectionName, MongoDbCredentials credentials, Expression<Func<T, object>> idExpression)
+        {
+            SetupSerialisationAndMapping(idExpression);
+            //Client = GetClient(connectionString, credentials);
+            Client = GetClient(connectionString);
+            Database = GetDatabase(databaseName);
+            Collection = GetCollection(collectionName);
+        }
         private IMongoClient GetClient(string connectionString)
         {
             var existingClient = Clients.Where(p => p.Key == connectionString).Select(p => p.Value);
-            if(existingClient.Count() >= 1)
+            if (existingClient.Count() >= 1)
             {
                 return existingClient.ElementAt(0);
             }
@@ -142,7 +168,7 @@ namespace AXOpen.Data.MongoDb
             return types;
         }
 
-        private static void SetupSerialisationAndMapping()
+        private static void SetupSerialisationAndMapping(Expression<Func<T, object>> idExpression = null)
         {
             if (BsonClassMap.GetRegisteredClassMaps().FirstOrDefault(p => p.ClassType == typeof(T)) == null)
             {
@@ -150,9 +176,30 @@ namespace AXOpen.Data.MongoDb
                 {
                     cm.AutoMap();
                     cm.SetIgnoreExtraElements(true);
-                    cm.SetIdMember(cm.GetMemberMap(c => c.RecordId));
+
+                    if (idExpression == null)
+                    {
+                        cm.SetIdMember(cm.GetMemberMap(c => c.RecordId));
+                    }
+                    else
+                    {
+                        cm.SetIdMember(cm.GetMemberMap(idExpression));
+                    }
+
+
                 });
             }
+
+            //if (BsonClassMap.GetRegisteredClassMaps().FirstOrDefault(p => p.ClassType == typeof(T)) == null)
+            //{
+            //    BsonClassMap.RegisterClassMap<T>(cm =>
+            //    {
+            //        cm.AutoMap();
+            //        cm.SetIgnoreExtraElements(true);
+            //        cm.SetIdMember(cm.GetMemberMap(c => c.RecordId));
+            //    });
+            //}
+
 
             var usedTypes = GetContainingTypes(typeof(T));
 
@@ -197,7 +244,7 @@ namespace AXOpen.Data.MongoDb
         }
 
         public void WaitForMongoServerAvailability()
-        {                     
+        {
             Console.WriteLine($"Checking that mognodb server at '{Client.Settings.Server.ToString()}' is running.");
 
             while (true)

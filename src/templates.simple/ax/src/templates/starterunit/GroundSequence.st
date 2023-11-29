@@ -12,16 +12,17 @@ NAMESPACE axosimple.StarterUnitTemplate
     CLASS PUBLIC GroundSequence
         EXTENDS AXOpen.Core.AxoSequencerContainer
         VAR PUBLIC
-            Steps : ARRAY[0..20] OF AxoStep;      
-            MoveToWork : AxoTask;
+            Steps : ARRAY[0..20] OF AXOpen.Core.AxoStep;      
+            MoveToWork : AXOpen.Core.AxoTask;
         END_VAR
         VAR PRIVATE
             Objs : REF_TO axosimple.StarterUnitTemplate.UnitObjects;
-            Components : REF_TO Components;
-            ProcessData : REF_TO ProcessDataManager;
-            ProcessSettings : REF_TO FragmentProcessDataManger;
-            TechnologySettings : REF_TO TechnologyDataManager;
-            PersistentSettings : REF_TO AxoDataPersistentExchange;
+            Components : REF_TO axosimple.StarterUnitTemplate.Components;
+            ProcessData : REF_TO axosimple.StarterUnitTemplate.ProcessDataManager;
+            ProcessSettings : REF_TO axosimple.StarterUnitTemplate.FragmentProcessDataManger;
+            TechnologySettings : REF_TO axosimple.StarterUnitTemplate.TechnologyDataManager;
+
+            PersistentSettings : REF_TO AXOpen.Data.AxoDataPersistentExchange;
 
             _currentId : STRING;
             techSetttingsId : STRING;
@@ -29,7 +30,7 @@ NAMESPACE axosimple.StarterUnitTemplate
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _parent : IAxoObject;
+                _parent : AXOpen.Core.IAxoObject;
                 _unitObjects : REF_TO axosimple.StarterUnitTemplate.UnitObjects;
             END_VAR     
 
@@ -51,7 +52,7 @@ NAMESPACE axosimple.StarterUnitTemplate
         ///</summary>
         METHOD PROTECTED OVERRIDE Main
             VAR
-                taskState :IAxoTaskState;
+                taskState : AXOpen.Core.IAxoTaskState;
             END_VAR;
             // IF (Components = NULL OR ProcessData = NULL) THEN
             //     RETURN;
