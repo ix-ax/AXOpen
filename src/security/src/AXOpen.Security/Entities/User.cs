@@ -10,8 +10,8 @@ namespace AxOpen.Security.Entities
         public bool CanUserChangePassword { get; set; }
         public dynamic RecordId { get; set; }
         public string DataEntityId { get; set; }
-        public string Created { get; set; }
-        public string Modified { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Modified { get; set; }
 
         public User(string username, string email, string group, bool canUserChangePassword)
         {
@@ -23,6 +23,8 @@ namespace AxOpen.Security.Entities
             Group = group;
             CanUserChangePassword = canUserChangePassword;
             Id = Guid.NewGuid().ToString();
+            Created = DateTime.Now;
+            Modified = DateTime.Now;
         }
 
     }
