@@ -36,21 +36,23 @@
 		<Content Include="..\..\ax\src\templates\unit\server\UnitTemplate.razor" Link="Pages\Context\Units\UnitTemplate.razor" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(UseProjectReference)' == 'false'">
+	<!--<ItemGroup Condition="'$(UseProjectReference)' == 'false'">
 		<PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
 		<PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.11" />
 
-		<PackageReference Include="AXOpen.Data.InMemory" Version="0.4.1-alpha.211" />
-		<PackageReference Include="AXOpen.Data.Json" Version="0.4.1-alpha.211" />
-		<PackageReference Include="AXOpen.Security.Blazor" Version="0.4.1-alpha.211" />
-		<PackageReference Include="AXOpen.Cognex.Vision.Blazor" Version="0.4.1-alpha.211" />
-		<PackageReference Include="AXOpen.Components.Elements.Blazor" Version="0.4.1-alpha.211" />
-		<PackageReference Include="AXOpen.Components.Pneumatics.Blazor" Version="0.4.1-alpha.211" />
-		<PackageReference Include="AXOpen.Data.Blazor" Version="0.4.1-alpha.211" />
-		<PackageReference Include="AXOpen.Inspectors.Blazor" Version="0.4.1-alpha.211" />
+		<PackageReference Include="AXOpen.Data.InMemory" Version="0.4.3-alpha.229" />
+		<PackageReference Include="AXOpen.Data.Json" Version="0.4.3-alpha.229" />
+		<PackageReference Include="AXOpen.Data.MongoDB" Version="0.4.3-alpha.229" />
+		<PackageReference Include="AXOpen.Security.Blazor" Version="0.4.3-alpha.229" />
+		<PackageReference Include="AXOpen.Cognex.Vision.Blazor" Version="0.4.3-alpha.229" />
+		<PackageReference Include="AXOpen.Components.Elements.Blazor" Version="0.4.3-alpha.229" />
+		<PackageReference Include="AXOpen.Components.Pneumatics.Blazor" Version="0.4.3-alpha.229" />
+		<PackageReference Include="AXOpen.Data.Blazor" Version="0.4.3-alpha.229" />
+		<PackageReference Include="AXOpen.Inspectors.Blazor" Version="0.4.3-alpha.229" />
+		<PackageReference Include="AXOpen.VisualComposer" Version="0.4.3-alpha.229" />
 
 		<ProjectReference Include="..\twin\axosimple.csproj" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 	<ItemGroup Condition="'$(UseProjectReference)' == 'true'">
 		<PackageReference Include="Microsoft.Extensions.Localization" />
