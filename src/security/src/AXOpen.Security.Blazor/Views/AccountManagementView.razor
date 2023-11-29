@@ -93,6 +93,8 @@
             await _userManager.ChangePasswordAsync(_user, _model.OldPassword, _model.Password);
         }
         _user.Email = _model.Email;
+        _user.Modified = DateTime.Now;
+
         var result = await _userManager.UpdateAsync(_user);
         if (result.Succeeded)
         {

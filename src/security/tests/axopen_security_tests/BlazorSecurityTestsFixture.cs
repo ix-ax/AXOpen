@@ -26,7 +26,7 @@ namespace AxOpen.Security.Tests
         {
             #region mongoDB
             //var MongoConnectionString = "mongodb://localhost:27017";
-            //var MongoDatabaseName = "TestingSeurity";
+            //var MongoDatabaseName = "TestingSecurity";
 
             //// initialize factory - store connection and credentials
             //AXOpen.Data.MongoDb.Repository.InitializeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
@@ -38,7 +38,7 @@ namespace AxOpen.Security.Tests
             //_RepoUser = AXOpen.Data.MongoDb.Repository.Factory<User>("Users", t => t.Id);
             //_RepoGroup = AXOpen.Data.MongoDb.Repository.Factory<Group>("UsersGroups");
             #endregion
-       
+
             #region InMemory
             _RepoUser = new AXOpen.Data.InMemory.InMemoryRepository<User>();
             _RepoGroup = new AXOpen.Data.InMemory.InMemoryRepository<Group>();
