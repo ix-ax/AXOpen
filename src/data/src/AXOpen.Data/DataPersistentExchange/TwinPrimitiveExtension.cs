@@ -1,12 +1,9 @@
 ﻿using AXSharp.Connector;
-using Microsoft.AspNetCore.Components;
-using System;
 
 namespace AXOpen.Data
 {
     public static class TwinPrimitiveExtension
     {
-
         public const string CyclicPropertyName = "Cyclic";
         public const string LethargicWriteMethodName = "LethargicWrite";
 
@@ -18,7 +15,6 @@ namespace AXOpen.Data
         public static TagObject AsNewTagObject(this ITwinPrimitive primitive)
         {
             var tagObject = new TagObject();
-
             var onlinerType = primitive.GetType();
             var propertyInfo = onlinerType.GetProperty(CyclicPropertyName);
 

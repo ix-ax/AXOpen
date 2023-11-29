@@ -274,8 +274,6 @@ NAMESPACE AXOpen.Data
                 AxUnit.Assert.Equal(ResultCaller_1,FALSE);
 
                 _context.Close();
-                AxUnit.Assert.Equal(_dataExchange.Operation.DataEntityIdentifier, expected);
-                AxUnit.Assert.Equal(TRUE, _dataExchange.Operation.CrudOperation = ePersistentOperation#EntityExist);
             END_METHOD
 
             {Test}

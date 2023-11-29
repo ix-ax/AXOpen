@@ -119,26 +119,6 @@ NAMESPACE axosimple.StarterUnitTemplate
                 //-------------------------------------------------------
             END_IF;
 
-            IF (Steps[1].Execute(THIS, TRUE, '<#CHECK IF EXIST PERSISTENT SETTINGS#>')) THEN
-                //------------------------------------------------------- 
-                IF(PersistentSettings^.EntityExist('default').IsDone()) THEN
-                    IF PersistentSettings^.Operation._exist THEN 
-                        THIS.RequestStep(Steps[3]);
-                    ELSE
-                        THIS.MoveNext(); 
-                    END_IF;
-                END_IF;    
-                //-------------------------------------------------------
-            END_IF;
-
-            IF (Steps[2].Execute(THIS, TRUE, '<#UPDATE PERSISTENT SETTINGS#>')) THEN
-                //------------------------------------------------------- 
-                IF(PersistentSettings^.Update().IsDone()) THEN
-                    THIS.MoveNext(); 
-                END_IF;    
-                //-------------------------------------------------------
-            END_IF;
-
             IF (Steps[5].Execute(THIS, TRUE, '<#READ TECHNOLOGY SETTINS#>')) THEN
                 //------------------------------------------------------- 
                 IF CurrentStep.IsFirstEntryToStep() THEN 
