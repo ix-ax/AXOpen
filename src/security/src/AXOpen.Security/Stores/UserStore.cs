@@ -207,7 +207,7 @@ namespace AxOpen.Security.Stores
                 throw new ArgumentNullException(nameof(user));
             try
             {
-                var userData = _unitOfWork.UserRepository.Read(user.UserName);
+                var userData = _unitOfWork.UserRepository.Read(user.NormalizedUserName);
                 if (userData != null)
                 {
                     userData.UserName = user.UserName;
