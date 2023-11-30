@@ -1,6 +1,7 @@
 ﻿using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System.Xml.Linq;
 
 namespace AXOpen.VisualComposer
@@ -10,7 +11,6 @@ namespace AXOpen.VisualComposer
         [Parameter]
         public ITwinObject[] Objects { get; set; }
 
-        [Parameter]
         public string? ImgSrc { get; set; }
 
         public string Id { get; set; }
@@ -95,18 +95,19 @@ namespace AXOpen.VisualComposer
                 Directory.CreateDirectory("VisualComposerSerialize/" + Id);
             }
 
-            Serializing.Serializing<SerializableVisualComposerItem>.Serialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json", serializableChildren);
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json", new SerializableObject(ImgSrc, serializableChildren));
         }
 
         public void Load(string? fileName = "Default")
         {
-            List<SerializableVisualComposerItem>? deserialize = Serializing.Serializing<SerializableVisualComposerItem>.Deserialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json");
+            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json");
 
             if (deserialize != null)
             {
+                ImgSrc = deserialize.ImgSrc;
                 _children.Clear();
 
-                foreach (var item in deserialize)
+                foreach (var item in deserialize.Items)
                 {
                     var a = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id);
                     _children.Add(new VisualComposerItem()
@@ -195,6 +196,36 @@ namespace AXOpen.VisualComposer
                     SearchResultPrimitive.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValuePrimitive, StringComparison.OrdinalIgnoreCase)));
                 }
             }
+        }
+
+        private bool isFileImported { get; set; } = false;
+        private bool isFileImporting { get; set; } = false;
+
+        private async Task UploadFile(InputFileChangeEventArgs e)
+        {
+            isFileImported = false;
+            isFileImporting = true;
+
+            try
+            {
+                if(!Directory.Exists("wwwroot/Images/"))
+                    Directory.CreateDirectory("wwwroot/Images/");
+
+                string newName = Guid.NewGuid().ToString() + Path.GetExtension(e.File.Name);
+
+                await using FileStream fs = new("wwwroot/Images/" + newName, FileMode.Create);
+                await e.File.OpenReadStream().CopyToAsync(fs);
+
+                ImgSrc = "Images/" + newName;
+
+                isFileImported = true;
+            }
+            catch (Exception ex)
+            {
+                ImgSrc = null;
+            }
+
+            isFileImporting = false;
         }
     }
 }

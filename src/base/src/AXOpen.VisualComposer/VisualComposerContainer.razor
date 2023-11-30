@@ -1,9 +1,13 @@
 ﻿@using AXSharp.Connector;
+@using Microsoft.AspNetCore.Components.Forms;
 
 <AuthorizeView Roles="Administrator">
     <Authorized>
         <div style="position: relative; width: 100%; height: 100%;" ondragover="event.preventDefault();">
-            <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+            @if(_imgId != null)
+            {
+                <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
+            }
             <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                 <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
                     @foreach (VisualComposerItem child in _children)
@@ -23,6 +27,7 @@
                     <li><a class="dropdown-item" @onclick="() => Save()">Save as default</a></li>
                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#saveAsModal-@Id">Save as</a></li>
                     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#removeModal-@Id">Remove</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal-@Id">Image</a></li>
                 </ul>
             </div>
 
@@ -161,6 +166,30 @@
                                 </li>
                             }
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="imageModal-@Id" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Background image</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body justify-content-center">
+                        <label for="inputFile" class="form-label">Upload image</label>
+                        <InputFile class="form-control col-10" id="inputFile" accept=".png, .jpg, .jpeg, .svg" OnChange="@UploadFile" />
+                    </div>
+                    <div class="modal-footer">
+                        @if (!isFileImported && isFileImporting)
+                        {
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        }
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
