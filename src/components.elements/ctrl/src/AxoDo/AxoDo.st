@@ -49,17 +49,17 @@ NAMESPACE AXOpen.Elements
         /// </summary>
         METHOD PUBLIC Run
             VAR_INPUT
-                context : IAxoContext;
+                parent : Axopen.Core.IAxoObject;
             END_VAR
 
             VAR_IN_OUT
                 inoSignal: BOOL;
             END_VAR
 
-            IF (context = NULL) THEN RETURN; END_IF;
+            IF (parent = NULL) THEN RETURN; END_IF;
 
             IF THIS._context_ = NULL THEN
-                THIS.Initialize(context);
+                THIS.Initialize(parent);
                 _setTask.Initialize(THIS);
                 _resetTask.Initialize(THIS);
             end_if;
