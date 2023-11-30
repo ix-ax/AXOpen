@@ -14,22 +14,22 @@ NAMESPACE axosimple.StarterUnitTemplate
                         ///<summary>
             /// Provide access to unit objets, that are used into sequnces.
             ///</summary>
-            UnitObjects  : UnitObjects;
+            UnitObjects  : axosimple.StarterUnitTemplate.UnitObjects;
             
             ///<summary>
             /// Ground sequence. Contains logic that brings the unit into initial state.
             ///</summary>
-            GroundSequence : GroundSequence;
+            GroundSequence : axosimple.StarterUnitTemplate.GroundSequence;
 
             ///<summary>
             /// Automatic sequence. Contains logic for automatic operations of this unit.
             ///</summary>
-            AutomatSequence : AutomatSequence;
+            AutomatSequence : axosimple.StarterUnitTemplate.AutomatSequence;
             
             ///<summary>
             /// Service mode contains logic for service/manual operations.
             ///</summary>
-            ServiceMode : ServiceMode;
+            ServiceMode : axosimple.StarterUnitTemplate.ServiceMode;
         END_VAR
         ///<summary>
         /// Runs this unit.

@@ -16,17 +16,17 @@ NAMESPACE axosimple.StarterUnitTemplate
             Steps : ARRAY[0..25] OF AxoStep;           
         END_VAR
         VAR PRIVATE
-            Objs : REF_TO UnitObjects;
-            Components : REF_TO Components;
-            ProcessData : REF_TO ProcessDataManager;
-            ProcessSettings : REF_TO FragmentProcessDataManger;
-            TechnologySettings : REF_TO TechnologyDataManager;
+            Objs : REF_TO axosimple.StarterUnitTemplate.UnitObjects;
+            Components : REF_TO axosimple.StarterUnitTemplate.Components;
+            ProcessData : REF_TO axosimple.StarterUnitTemplate.ProcessDataManager;
+            ProcessSettings : REF_TO axosimple.StarterUnitTemplate.FragmentProcessDataManger;
+            TechnologySettings : REF_TO axosimple.StarterUnitTemplate.TechnologyDataManager;
             _currentId : STRING;
         END_VAR
 
         METHOD INTERNAL Run
             VAR_INPUT
-                _parent : IAxoObject;
+                _parent : AXOpen.Core.IAxoObject;
                 _unitObjects : REF_TO UnitObjects;
             END_VAR     
 

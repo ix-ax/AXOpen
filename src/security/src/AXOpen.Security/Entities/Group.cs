@@ -18,6 +18,8 @@ namespace AxOpen.Security
         {
             Name = name;
             Roles = new ObservableCollection<string>();
+            Created = DateTime.Now;
+            Modified = DateTime.Now;
         }
     }
 }

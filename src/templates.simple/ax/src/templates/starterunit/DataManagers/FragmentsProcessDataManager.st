@@ -13,7 +13,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}        
             {#ix-attr:[Container(Layout.Stack)]}  
             {#ix-set:AttributeName = "<#StarterUnitTemplate#>"}   
-            Payload : ProcessData;
+            Payload : axosimple.StarterUnitTemplate.ProcessData;
         END_VAR
     END_CLASS
 END_NAMESPACE    

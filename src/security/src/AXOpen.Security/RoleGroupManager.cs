@@ -60,7 +60,6 @@ namespace AxOpen.Security
             {
                 var data = new Group(name);
                 data.RolesHash = new PasswordHasher<Group>().HashPassword(data, "");
-                data.Created = DateTime.Now;
                 groupRepo.Create(name, data);
             }
             catch (DuplicateIdException)
