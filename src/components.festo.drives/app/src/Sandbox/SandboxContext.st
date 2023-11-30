@@ -6,15 +6,11 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         {#ix-attr:[Container(Layout.Wrap)]}
         _manualControl  : BOOL := TRUE;          
         _enable         : BOOL := TRUE;          
-        _enablePositive : BOOL := TRUE;          
-        _enableNegative : BOOL := TRUE;          
         PlcInputs : REF_TO PlcInputs;
         PlcOutputs : REF_TO PlcOutputs;          
+
         {#ix-attr:[Container(Layout.Stack)]}
-        _parameter  : INT;
-        _testRead  : MC_ReadParameterTest;
-        {#ix-attr:[Container(Layout.Stack)]}
-        _testDrive  : AXOpen.Components.Festo.Drives.AxoCmmtAsDrive;
+        _testDrive  : AXOpen.Components.Festo.Drives.AxoCmmtAsPtP;
     END_VAR
     
 
@@ -22,24 +18,16 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         IF(_manualControl) THEN            
             _testDrive.ActivateManualControl();
         END_IF;   
-        _testDrive.Run(parent:=THIS,
-                        refParameter_In     :=  REF(PlcInputs^.ST3_indradrive_ParamCh_IDN_1),
-                        refFieldbus_In      :=  REF(PlcInputs^.ST3_indradrive_Input_9_Words_1),
-                        refParameter_Out    :=  REF(PlcOutputs^.ST3_indradrive_ParamCh_IDN_1),
-                        refFieldbus_Out     :=  REF(PlcOutputs^.ST3_indradrive_Output_13_Words_1),
-                        Enable              :=  _enable,
-                        EnablePositive      :=  _enablePositive,
-                        EnableNegative      :=  _enableNegative);
-
-        _testRead.Run(parent:=THIS);
+        _testDrive.Run(parent               :=  THIS,
+                        refTelegram111_In   :=  REF(PlcInputs^.Tel111In),
+                        refTelegram750_In   :=  REF(PlcInputs^.Tel750In),
+                        refTelegram111_Out  :=  REF(PlcOutputs^.Tel750Out),
+                        refTelegram750_Out  :=  REF(PlcOutputs^.Tel750Out),
+                        MAP_HW_ID           :=  264,
+                        Enable              :=  _enable);
         
     END_METHOD
 END_CLASS
           
 
-  
-
- 
-          
-  
   

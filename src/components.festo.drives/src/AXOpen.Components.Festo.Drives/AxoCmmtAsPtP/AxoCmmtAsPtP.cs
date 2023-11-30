@@ -10,7 +10,7 @@ using AXSharp.Connector;
 
 namespace AXOpen.Components.Festo.Drives
 {
-    public partial class AxoCmmtAsDrive : AXOpen.Components.Drives.AxoDrive, AXOpen.Components.Abstractions.Drives.IAxoDrive
+    public partial class AxoCmmtAsPtP : AXOpen.Core.AxoComponent
     {
         public async Task WriteTaskDurationToConsole()
         {
