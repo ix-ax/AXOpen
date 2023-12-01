@@ -44,15 +44,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Positioning")]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<#Inputs#>"}
-            Inputs         :   AxoCmmtAsPtP_In;
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Positioning")]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<#Outputs#>"}
-            {#ix-attr:[ReadOnly()]}
-            Outputs         :   AxoCmmtAsPtP_Out;
+            Positioning         :   AxoCmmtAsPtP_Positioning;
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Parametrization")]}
@@ -219,11 +211,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //POS_ZSW1
             AxisRef^.Telegram111_In.POS_ZSW1.%B1                               := refTelegram111_In^[2];
             AxisRef^.Telegram111_In.POS_ZSW1.%B0                               := refTelegram111_In^[3];
-            Outputs.EPosZSW1 := axisref^.telegram111_In.POS_ZSW1;
+            Positioning.Outputs.EPosZSW1 := axisref^.telegram111_In.POS_ZSW1;
             //POS_ZSW2
             AxisRef^.Telegram111_In.POS_ZSW2.%B1                               := refTelegram111_In^[4];
             AxisRef^.Telegram111_In.POS_ZSW2.%B0                               := refTelegram111_In^[5];
-            Outputs.EPosZSW2 := axisref^.telegram111_In.POS_ZSW2;
+            Positioning.Outputs.EPosZSW2 := axisref^.telegram111_In.POS_ZSW2;
             // ZSW2
             AxisRef^.Telegram111_In.ZSW2.deviceSpecificBit8                    := refTelegram111_In^[6].%X0;
             AxisRef^.Telegram111_In.ZSW2.deviceSpecificBit9                    := refTelegram111_In^[6].%X1;
@@ -393,183 +385,183 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
         METHOD PRIVATE Execute
             Parametrization.Run(THIS);
-            Parametrization.HardwareId := TO_WORD(_AxisRef.Data.MAP_HW_ID);
+            Parametrization.Inputs.HardwareId := TO_WORD(_AxisRef.Data.MAP_HW_ID);
 
             // Check the Mode of Operation
-            IF Inputs.ModePos > MAXMODE THEN
-                Outputs.Error := TRUE;
+            IF Positioning.Inputs.ModePos > MAXMODE THEN
+                Positioning.Outputs.Error := TRUE;
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_INVALID_MODE;
                 stat_ExecuteIntern := FALSE;
-            ELSIF Inputs.ModePos < 1 THEN
-                Outputs.Error := TRUE;
+            ELSIF Positioning.Inputs.ModePos < 1 THEN
+                Positioning.Outputs.Error := TRUE;
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_INVALID_MODE;
                 stat_ExecuteIntern := FALSE;
             ELSE
                 IF stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_INVALID_MODE THEN
                     stat_Status := eAxoCmmtAsPtPErrorCode#STATUS_IN_OPERATION;
-                    Outputs.Error := FALSE;
+                    Positioning.Outputs.Error := FALSE;
                 END_IF;
             END_IF;
             
             //Check the Velocity Override 
-            IF (Inputs.OverV < 0) OR (Inputs.OverV > 199) THEN
+            IF (Positioning.Inputs.OverV < 0) OR (Positioning.Inputs.OverV > 199) THEN
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_OVERRIDE;
-                Outputs.Error := TRUE;
+                Positioning.Outputs.Error := TRUE;
             ELSE
                 // Write Velocity Override into Send Buffer
-                _AxisRef.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0 * (TO_REAL(Inputs.OverV) / 100.0)));
+                _AxisRef.Telegram111_Out.Override_ := TO_WORD(TO_INT(16384.0 * (TO_REAL(Positioning.Inputs.OverV) / 100.0)));
                 IF stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_OVERRIDE THEN
                     stat_Status := eAxoCmmtAsPtPErrorCode#STATUS_IN_OPERATION;
-                    Outputs.Error := FALSE;
+                    Positioning.Outputs.Error := FALSE;
                 END_IF;
             END_IF;
             
             //Check the Acceleration Override  (0% - 100%, 100% => WORD#16#4000)
-            IF (Inputs.OverAcc < 0) OR (Inputs.OverAcc > 100) THEN
+            IF (Positioning.Inputs.OverAcc < 0) OR (Positioning.Inputs.OverAcc > 100) THEN
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_OVERRIDE;
-                Outputs.Error := TRUE;
+                Positioning.Outputs.Error := TRUE;
             ELSE
                 // Write Acceleration Override into Send Buffer
-                _AxisRef.Telegram111_Out.MDI_ACC := TO_UINT(16384.0 * (TO_REAL(Inputs.OverAcc) / 100.0));
+                _AxisRef.Telegram111_Out.MDI_ACC := TO_UINT(16384.0 * (TO_REAL(Positioning.Inputs.OverAcc) / 100.0));
                 IF stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_OVERRIDE THEN
                     stat_Status := eAxoCmmtAsPtPErrorCode#STATUS_IN_OPERATION;
-                    Outputs.Error := FALSE;
+                    Positioning.Outputs.Error := FALSE;
                 END_IF;
             END_IF;
             
             //Check the Deceleration Override  (0% - 100%, 100% => WORD#16#4000)
-            IF (Inputs.OverDec < 0) OR (Inputs.OverDec > 100) THEN
+            IF (Positioning.Inputs.OverDec < 0) OR (Positioning.Inputs.OverDec > 100) THEN
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_OVERRIDE;
-                Outputs.Error := TRUE;
+                Positioning.Outputs.Error := TRUE;
             ELSE
                 // Write Deceleration Override into Send Buffer
-                _AxisRef.Telegram111_Out.MDI_DEC := TO_UINT(16384.0 * (TO_REAL(Inputs.OverDec) / 100.0));
+                _AxisRef.Telegram111_Out.MDI_DEC := TO_UINT(16384.0 * (TO_REAL(Positioning.Inputs.OverDec) / 100.0));
                 IF stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_OVERRIDE THEN
                     stat_Status := eAxoCmmtAsPtPErrorCode#STATUS_IN_OPERATION;
-                    Outputs.Error := FALSE;
+                    Positioning.Outputs.Error := FALSE;
                 END_IF;
             END_IF;
             
             //Check the AdditionalTorque  (0% - 100%, 100% => WORD#16#4000)
-            IF (Inputs.AdditionalTorque < 0) OR (Inputs.AdditionalTorque > 100) THEN
+            IF (Positioning.Inputs.AdditionalTorque < 0) OR (Positioning.Inputs.AdditionalTorque > 100) THEN
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_ADD_TORQUE;
-                Outputs.Error := TRUE;
+                Positioning.Outputs.Error := TRUE;
             ELSE
                 // Write Deceleration Override into Send Buffer
-                _AxisRef.Telegram750_Out.M_ADD1 := TO_INT(16384.0 * (Inputs.AdditionalTorque / 100.0));
+                _AxisRef.Telegram750_Out.M_ADD1 := TO_INT(16384.0 * (Positioning.Inputs.AdditionalTorque / 100.0));
                 IF stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_ADD_TORQUE THEN
                     stat_Status := eAxoCmmtAsPtPErrorCode#STATUS_IN_OPERATION;
-                    Outputs.Error := FALSE;
+                    Positioning.Outputs.Error := FALSE;
                 END_IF;
             END_IF;
             
             //Check the PositiveTorqueLimit  (0% - 100%, 100% => WORD#16#4000)
-            IF (Inputs.PositiveTorqueLimit < 0) OR (Inputs.PositiveTorqueLimit > 100) THEN
+            IF (Positioning.Inputs.PositiveTorqueLimit < 0) OR (Positioning.Inputs.PositiveTorqueLimit > 100) THEN
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_ADD_TORQUE_LIMIT_POS;
-                Outputs.Error := TRUE;
+                Positioning.Outputs.Error := TRUE;
             ELSE
                 // Write Deceleration Override into Send Buffer
-                _AxisRef.Telegram750_Out.M_LIMIT_POS := TO_INT(16384.0 * (Inputs.PositiveTorqueLimit / 100.0));
+                _AxisRef.Telegram750_Out.M_LIMIT_POS := TO_INT(16384.0 * (Positioning.Inputs.PositiveTorqueLimit / 100.0));
                 IF stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_ADD_TORQUE_LIMIT_POS THEN
                     stat_Status := eAxoCmmtAsPtPErrorCode#STATUS_IN_OPERATION;
-                    Outputs.Error := FALSE;
+                    Positioning.Outputs.Error := FALSE;
                 END_IF;
             END_IF;
             
             //Check the NegativeTorqueLimit  (0% - 100%, 100% => WORD#16#4000)
-            IF (Inputs.NegativeTorqueLimit < 0) OR (Inputs.NegativeTorqueLimit > 100) THEN
+            IF (Positioning.Inputs.NegativeTorqueLimit < 0) OR (Positioning.Inputs.NegativeTorqueLimit > 100) THEN
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_ADD_TORQUE_LIMIT_NEG;
-                Outputs.Error := TRUE;
+                Positioning.Outputs.Error := TRUE;
             ELSE
                 // Write Deceleration Override into Send Buffer
-                _AxisRef.Telegram750_Out.M_LIMIT_NEG := TO_INT(-16384.0 * (Inputs.NegativeTorqueLimit / 100.0));
+                _AxisRef.Telegram750_Out.M_LIMIT_NEG := TO_INT(-16384.0 * (Positioning.Inputs.NegativeTorqueLimit / 100.0));
                 IF stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_ADD_TORQUE_LIMIT_NEG THEN
                     stat_Status := eAxoCmmtAsPtPErrorCode#STATUS_IN_OPERATION;
-                    Outputs.Error := FALSE;
+                    Positioning.Outputs.Error := FALSE;
                 END_IF;
             END_IF;
 
             // Mapping of the Outputs
-            Outputs.AxisEnabled := _AxisRef.Telegram111_In.ZSW1.operationEnabled;
-            Outputs.AxisError := _AxisRef.Telegram111_In.ZSW1.faultPresent;
-            Outputs.AxisWarn := _AxisRef.Telegram111_In.ZSW1.warningActive;
-            Outputs.AxisPosOk := _AxisRef.Telegram111_In.ZSW1.targetPosReached;
-            Outputs.AxisRef := _AxisRef.Telegram111_In.ZSW1.homePosSet;
-            Outputs.AxisAckSetpoint := _AxisRef.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated;
-            Outputs.ClampTorqueReached := _AxisRef.Telegram111_In.POS_ZSW2.%X13;
-            Outputs.AxisSpFixed := _AxisRef.Telegram111_In.ZSW1.driveStopped;
-            Outputs.ActVelocity := TO_REAL(_AxisRef.Telegram111_In.NIST_B);
-            Outputs.ActTorque := _AxisRef.Telegram750_In.M_Actual;
+            Positioning.Outputs.AxisEnabled := _AxisRef.Telegram111_In.ZSW1.operationEnabled;
+            Positioning.Outputs.AxisError := _AxisRef.Telegram111_In.ZSW1.faultPresent;
+            Positioning.Outputs.AxisWarn := _AxisRef.Telegram111_In.ZSW1.warningActive;
+            Positioning.Outputs.AxisPosOk := _AxisRef.Telegram111_In.ZSW1.targetPosReached;
+            Positioning.Outputs.AxisRef := _AxisRef.Telegram111_In.ZSW1.homePosSet;
+            Positioning.Outputs.AxisAckSetpoint := _AxisRef.Telegram111_In.ZSW1.acknowledgeTraversingBlockActivated;
+            Positioning.Outputs.ClampTorqueReached := _AxisRef.Telegram111_In.POS_ZSW2.%X13;
+            Positioning.Outputs.AxisSpFixed := _AxisRef.Telegram111_In.ZSW1.driveStopped;
+            Positioning.Outputs.ActVelocity := TO_REAL(_AxisRef.Telegram111_In.NIST_B);
+            Positioning.Outputs.ActTorque := _AxisRef.Telegram750_In.M_Actual;
 
             //scaling the ActVelocity output
-            IF Inputs.BaseSpeedValue <> 0 THEN
-                Outputs.ActVelocity := Outputs.ActVelocity * ((Inputs.BaseSpeedValue / REAL#1073741824.0));
+            IF Positioning.Inputs.BaseSpeedValue <> 0 THEN
+                Positioning.Outputs.ActVelocity := Positioning.Outputs.ActVelocity * ((Positioning.Inputs.BaseSpeedValue / REAL#1073741824.0));
             END_IF;
 
-            Outputs.ActPosition := _AxisRef.Telegram111_In.XIST_A;
-            Outputs.ActWarn := TO_WORD(_AxisRef.Telegram111_In.Warn_Code);
-            Outputs.ActFault := TO_WORD(_AxisRef.Telegram111_In.Fault_Code);
-            Outputs.Lockout := _AxisRef.Telegram111_In.ZSW1.switchingOnInhibitedActive;
+            Positioning.Outputs.ActPosition := _AxisRef.Telegram111_In.XIST_A;
+            Positioning.Outputs.ActWarn := TO_WORD(_AxisRef.Telegram111_In.Warn_Code);
+            Positioning.Outputs.ActFault := TO_WORD(_AxisRef.Telegram111_In.Fault_Code);
+            Positioning.Outputs.Lockout := _AxisRef.Telegram111_In.ZSW1.switchingOnInhibitedActive;
 
             //Check the drive error and Lockout status
-            IF Outputs.AxisError THEN
+            IF Positioning.Outputs.AxisError THEN
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_DRIVE_ERROR;
-                Outputs.Error := TRUE;
-            ELSIF Outputs.Lockout THEN
+                Positioning.Outputs.Error := TRUE;
+            ELSIF Positioning.Outputs.Lockout THEN
                 stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_SWITCH_ON_INHIBITED;
-                Outputs.Error := TRUE;
+                Positioning.Outputs.Error := TRUE;
             ELSE
                 // error is gone -> set status in operational
                 IF stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_DRIVE_ERROR OR stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_SWITCH_ON_INHIBITED THEN
                     stat_Status := eAxoCmmtAsPtPErrorCode#STATUS_IN_OPERATION;
-                    Outputs.Error := FALSE;
+                    Positioning.Outputs.Error := FALSE;
                 END_IF;
             END_IF;
 
             //Enable the Axis
-            _AxisRef.Telegram111_Out.STW1.on_ := Inputs.EnableAxis;                        //STW1.0
+            _AxisRef.Telegram111_Out.STW1.on_ := Positioning.Inputs.EnableAxis;                        //STW1.0
 
             //fix values for STW1 data
-            _AxisRef.Telegram111_Out.STW1.cancelTraversing := Inputs.CancelTraversing;     //STW1.4
-            _AxisRef.Telegram111_Out.STW1.intermediateStop := Inputs.IntermediateStop;     //STW1.5
-            _AxisRef.Telegram111_Out.STW1.acknowledgeFault := Inputs.AckError;             //STW1.7
+            _AxisRef.Telegram111_Out.STW1.cancelTraversing := Positioning.Inputs.CancelTraversing;     //STW1.4
+            _AxisRef.Telegram111_Out.STW1.intermediateStop := Positioning.Inputs.IntermediateStop;     //STW1.5
+            _AxisRef.Telegram111_Out.STW1.acknowledgeFault := Positioning.Inputs.AckError;             //STW1.7
             _AxisRef.Telegram111_Out.STW1.controlByPlc := TRUE;                            //STW1.10
             _AxisRef.Telegram111_Out.STW1.enableOperation := TRUE;                         //STW1.3
 
             // copy the position set value into the send struct
-            IF Inputs.ModePos <> 4 OR Inputs.ModePos <> 5 OR Inputs.ModePos <> 6 OR Inputs.ModePos <> 7 OR Inputs.ModePos <> 8 THEN
-                _AxisRef.Telegram111_Out.MDI_TARPOS := Inputs.Position;
+            IF Positioning.Inputs.ModePos <> 4 OR Positioning.Inputs.ModePos <> 5 OR Positioning.Inputs.ModePos <> 6 OR Positioning.Inputs.ModePos <> 7 OR Positioning.Inputs.ModePos <> 8 THEN
+                _AxisRef.Telegram111_Out.MDI_TARPOS := Positioning.Inputs.Position;
             ELSE
                 _AxisRef.Telegram111_Out.MDI_TARPOS := 0;
             END_IF;
 
             //copy the velocity set value into the send struct
-            _AxisRef.Telegram111_Out.MDI_VELOCITY := Inputs.Velocity;
+            _AxisRef.Telegram111_Out.MDI_VELOCITY := Positioning.Inputs.Velocity;
 
             //Jog bits
             // Mode 7
             //Generate the Jog1 Edge
-            stat_Jog1PR_trig := Inputs.Jog1 AND NOT stat_Jog1PAux;
+            stat_Jog1PR_trig := Positioning.Inputs.Jog1 AND NOT stat_Jog1PAux;
             //Reset the Auxiliary flag 
-            stat_Jog1PAux := Inputs.Jog1;
+            stat_Jog1PAux := Positioning.Inputs.Jog1;
 
             //Generate the Jog2 Edge
-            stat_Jog2PR_trig := Inputs.Jog2 AND NOT stat_Jog2PAux;
+            stat_Jog2PR_trig := Positioning.Inputs.Jog2 AND NOT stat_Jog2PAux;
             //Reset the Auxiliary flag 
-            stat_Jog2PAux := Inputs.Jog2;
+            stat_Jog2PAux := Positioning.Inputs.Jog2;
 
             //Mode 8
             //Generate the Jog1 Edge
-            stat_Jog1PMode8R_trig := Inputs.Jog1 AND NOT stat_Jog1PMode8Aux;
+            stat_Jog1PMode8R_trig := Positioning.Inputs.Jog1 AND NOT stat_Jog1PMode8Aux;
             //Reset the Auxiliary flag 
-            stat_Jog1PMode8Aux := Inputs.Jog1;
+            stat_Jog1PMode8Aux := Positioning.Inputs.Jog1;
 
             //Generate the Jog2 Edge
-            stat_Jog2PMode8R_trig := Inputs.Jog2 AND NOT stat_Jog2PMode8Aux;
+            stat_Jog2PMode8R_trig := Positioning.Inputs.Jog2 AND NOT stat_Jog2PMode8Aux;
             //Reset the Auxiliary flag 
-            stat_Jog2PMode8Aux := Inputs.Jog2;
+            stat_Jog2PMode8Aux := Positioning.Inputs.Jog2;
 
-            IF Inputs.ModePos <> 4 THEN
+            IF Positioning.Inputs.ModePos <> 4 THEN
                 //Start homing
                 _AxisRef.Telegram111_Out.STW1.StartHoming := FALSE;
             END_IF;
@@ -610,64 +602,64 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_IF;
 
             //Generate the Execute Edge for Mode = 4 and 5
-            stat_ExecR_Trig := Inputs.ExecuteMode AND NOT stat_ExecAux;
+            stat_ExecR_Trig := Positioning.Inputs.ExecuteMode AND NOT stat_ExecAux;
             //Reset the Auxiliary flag 
-            stat_ExecAux := Inputs.ExecuteMode;
+            stat_ExecAux := Positioning.Inputs.ExecuteMode;
 
             // Set the Execute command according to the ModePos
-            IF NOT Inputs.ExecuteMode THEN
+            IF NOT Positioning.Inputs.ExecuteMode THEN
                 stat_ExecuteIntern := FALSE;
                 stat_StepHome := UINT#0;
-            ELSIF Inputs.ExecuteMode AND stat_Ready4Motion AND NOT (Inputs.ModePos = 4 OR Inputs.ModePos = 5 OR Inputs.ModePos = 7 OR Inputs.ModePos = 8) THEN
+            ELSIF Positioning.Inputs.ExecuteMode AND stat_Ready4Motion AND NOT (Positioning.Inputs.ModePos = 4 OR Positioning.Inputs.ModePos = 5 OR Positioning.Inputs.ModePos = 7 OR Positioning.Inputs.ModePos = 8) THEN
                 stat_ExecuteIntern := TRUE;
-                stat_ActMode := Inputs.ModePos;
+                stat_ActMode := Positioning.Inputs.ModePos;
                 stat_StepHome := UINT#0;
-            ELSIF stat_ExecR_Trig AND (Inputs.ModePos = 4 OR Inputs.ModePos = 5) THEN
-                stat_ActMode := Inputs.ModePos;
+            ELSIF stat_ExecR_Trig AND (Positioning.Inputs.ModePos = 4 OR Positioning.Inputs.ModePos = 5) THEN
+                stat_ActMode := Positioning.Inputs.ModePos;
                 stat_StepHome := UINT#0;
-            ELSIF Inputs.ExecuteMode AND (stat_ActMode = 7 OR stat_ActMode = 8) THEN
+            ELSIF Positioning.Inputs.ExecuteMode AND (stat_ActMode = 7 OR stat_ActMode = 8) THEN
                 stat_ExecuteIntern := FALSE;
                 stat_StepHome := UINT#0;
-            ELSIF Inputs.ExecuteMode AND Inputs.ModePos = 4 THEN
+            ELSIF Positioning.Inputs.ExecuteMode AND Positioning.Inputs.ModePos = 4 THEN
                 
                 CASE stat_StepHome OF
                         
                     UINT#0: // homing is active
-                        IF NOT Outputs.AxisRef THEN
+                        IF NOT Positioning.Outputs.AxisRef THEN
                             stat_StepHome := UINT#10;
-                        ELSIF Outputs.AxisError OR (NOT Outputs.AxisSpFixed AND Inputs.ModePos = 4) THEN
+                        ELSIF Positioning.Outputs.AxisError OR (NOT Positioning.Outputs.AxisSpFixed AND Positioning.Inputs.ModePos = 4) THEN
                             stat_ExecuteIntern := FALSE;
                         END_IF;
                         
                         UINT#10: // wait for homing done
-                        IF Outputs.AxisRef OR Outputs.AxisError OR (NOT stat_Ready4Motion AND Inputs.ModePos = 4) OR Inputs.ModePos <> stat_ActMode OR NOT Inputs.ExecuteMode THEN
+                        IF Positioning.Outputs.AxisRef OR Positioning.Outputs.AxisError OR (NOT stat_Ready4Motion AND Positioning.Inputs.ModePos = 4) OR Positioning.Inputs.ModePos <> stat_ActMode OR NOT Positioning.Inputs.ExecuteMode THEN
                             stat_ExecuteIntern := FALSE;
                             stat_StepHome := UINT#0;
                         END_IF;
                 END_CASE;
-            ELSIF stat_ExecuteIntern AND Inputs.ModePos <> stat_ActMode THEN
+            ELSIF stat_ExecuteIntern AND Positioning.Inputs.ModePos <> stat_ActMode THEN
                 stat_ExecuteIntern := FALSE;
                 stat_StepHome := UINT#0;
             END_IF;
 
             //Reset the jog bits if the ModePos has changed
-            IF (_AxisRef.Telegram111_Out.STW1.jog1 OR _AxisRef.Telegram111_Out.STW1.jog2) AND Inputs.ModePos <> stat_ActMode THEN
+            IF (_AxisRef.Telegram111_Out.STW1.jog1 OR _AxisRef.Telegram111_Out.STW1.jog2) AND Positioning.Inputs.ModePos <> stat_ActMode THEN
                 //Set the jog bits to zero
                 _AxisRef.Telegram111_Out.STW1.jog1 := FALSE;
                 _AxisRef.Telegram111_Out.STW1.jog2 := FALSE;
             END_IF;
 
             // Positionig mode with relative movement (MDI)
-            IF Inputs.ModePos = 1 THEN
+            IF Positioning.Inputs.ModePos = 1 THEN
                 
                 // Set the MDI bit
                 _AxisRef.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
                 
                 // positive direction
-                _AxisRef.Telegram111_Out.POS_STW1.PosModulo := Inputs.Positive;
+                _AxisRef.Telegram111_Out.POS_STW1.PosModulo := Positioning.Inputs.Positive;
                 
-                // inputs.negative direction
-                _AxisRef.Telegram111_Out.POS_STW1.NegModulo := Inputs.Negative;
+                // positioning.inputs.negative direction
+                _AxisRef.Telegram111_Out.POS_STW1.NegModulo := Positioning.Inputs.Negative;
                 
                 // Check if the drive is enabled for a new motion command
                 IF stat_Ready4Motion THEN
@@ -682,7 +674,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 
                 // Positionig mode with absolute movement (MDI)
-            ELSIF Inputs.ModePos = 2 THEN
+            ELSIF Positioning.Inputs.ModePos = 2 THEN
                 
                 // Set the MDI bit
                 _AxisRef.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
@@ -691,10 +683,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _AxisRef.Telegram111_Out.POS_STW1.MDI_MOD := TRUE;
                 
                 // positive direction
-                _AxisRef.Telegram111_Out.POS_STW1.PosModulo := Inputs.Positive;
+                _AxisRef.Telegram111_Out.POS_STW1.PosModulo := Positioning.Inputs.Positive;
                 
-                // inputs.negative direction
-                _AxisRef.Telegram111_Out.POS_STW1.NegModulo := Inputs.Negative;
+                // positioning.inputs.negative direction
+                _AxisRef.Telegram111_Out.POS_STW1.NegModulo := Positioning.Inputs.Negative;
                 
                 // Check if the drive is enabled for a new motion command
                 IF stat_Ready4Motion THEN
@@ -709,7 +701,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 
                 // Positioning with setup mode for endless motion
-            ELSIF Inputs.ModePos = 3 THEN
+            ELSIF Positioning.Inputs.ModePos = 3 THEN
                 // Set the MDI bit
                 _AxisRef.Telegram111_Out.POS_STW1.MDI_Activate := TRUE;
                 
@@ -720,10 +712,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 _AxisRef.Telegram111_Out.POS_STW1.SetupMode := TRUE;
                 
                 // positive direction
-                _AxisRef.Telegram111_Out.POS_STW1.PosModulo := Inputs.Positive;
+                _AxisRef.Telegram111_Out.POS_STW1.PosModulo := Positioning.Inputs.Positive;
                 
-                // inputs.negative direction
-                _AxisRef.Telegram111_Out.POS_STW1.NegModulo := Inputs.Negative;
+                // positioning.inputs.negative direction
+                _AxisRef.Telegram111_Out.POS_STW1.NegModulo := Positioning.Inputs.Negative;
                 
                 // Check if the drive is enabled for a new motion command
                 IF stat_Ready4Motion THEN
@@ -738,12 +730,12 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 
                 //Homing mode done by the drive due to the parametrized homing method
-            ELSIF Inputs.ModePos = 4 THEN
+            ELSIF Positioning.Inputs.ModePos = 4 THEN
                 // positive direction
-                _AxisRef.Telegram111_Out.POS_STW1.PosModulo := Inputs.Positive;
+                _AxisRef.Telegram111_Out.POS_STW1.PosModulo := Positioning.Inputs.Positive;
                 
-                // inputs.negative direction
-                _AxisRef.Telegram111_Out.POS_STW1.NegModulo := Inputs.Negative;
+                // positioning.inputs.negative direction
+                _AxisRef.Telegram111_Out.POS_STW1.NegModulo := Positioning.Inputs.Negative;
                 
                 // Check if the drive is enabled for a new motion command
                 IF stat_Ready4Motion THEN
@@ -757,10 +749,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 
                 //set the reference point (actual position)
-            ELSIF Inputs.ModePos = 5 THEN
+            ELSIF Positioning.Inputs.ModePos = 5 THEN
                 
                 // check if there is no error in the drive - this function works also when drive is not enabled
-                IF NOT Outputs.AxisError THEN
+                IF NOT Positioning.Outputs.AxisError THEN
                     
                     //Start homing
                     IF NOT _AxisRef.Telegram111_Out.POS_STW2.SetReferencePoint THEN
@@ -772,52 +764,52 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 
                 //Record mode - parametrized records in the drive can be used
-            ELSIF Inputs.ModePos = 6 THEN
+            ELSIF Positioning.Inputs.ModePos = 6 THEN
                 
                 //set the position number into the record bits 
-                IF (TO_INT(Inputs.Position) < 0) OR (TO_INT(Inputs.Position) > 127) THEN
+                IF (TO_INT(Positioning.Inputs.Position) < 0) OR (TO_INT(Positioning.Inputs.Position) > 127) THEN
                     // Error, wrong record number
                     stat_Status := eAxoCmmtAsPtPErrorCode#ERROR_INVALID_TRV_BLOCK;
-                    Outputs.Error := TRUE;
+                    Positioning.Outputs.Error := TRUE;
                 ELSE
                     // error is gone -> set status in operational
                     IF stat_Status = eAxoCmmtAsPtPErrorCode#ERROR_INVALID_TRV_BLOCK THEN
                         stat_Status := eAxoCmmtAsPtPErrorCode#STATUS_IN_OPERATION;
-                        Outputs.Error := FALSE;
+                        Positioning.Outputs.Error := FALSE;
                     END_IF;
                     
                     // Record bit 0
-                    IF (TO_WORD(Inputs.Position) AND WORD#16#01) = WORD#16#01 THEN
+                    IF (TO_WORD(Positioning.Inputs.Position) AND WORD#16#01) = WORD#16#01 THEN
                         _AxisRef.Telegram111_Out.POS_STW1.travBlockBit0 := TRUE;
                     END_IF;
                     
                     // Record bit 1
-                    IF (TO_WORD(Inputs.Position) AND WORD#16#02) = WORD#16#02 THEN
+                    IF (TO_WORD(Positioning.Inputs.Position) AND WORD#16#02) = WORD#16#02 THEN
                         _AxisRef.Telegram111_Out.POS_STW1.travBlockBit1 := TRUE;
                     END_IF;
                     
                     // Record bit 2
-                    IF (TO_WORD(Inputs.Position) AND WORD#16#04) = WORD#16#04 THEN
+                    IF (TO_WORD(Positioning.Inputs.Position) AND WORD#16#04) = WORD#16#04 THEN
                         _AxisRef.Telegram111_Out.POS_STW1.travBlockBit2 := TRUE;
                     END_IF;
                     
                     // Record bit 3
-                    IF (TO_WORD(Inputs.Position) AND WORD#16#08) = WORD#16#08 THEN
+                    IF (TO_WORD(Positioning.Inputs.Position) AND WORD#16#08) = WORD#16#08 THEN
                         _AxisRef.Telegram111_Out.POS_STW1.travBlockBit3 := TRUE;
                     END_IF;
                     
                     // Record bit 4
-                    IF (TO_WORD(Inputs.Position) AND WORD#16#10) = WORD#16#10 THEN
+                    IF (TO_WORD(Positioning.Inputs.Position) AND WORD#16#10) = WORD#16#10 THEN
                         _AxisRef.Telegram111_Out.POS_STW1.travBlockBit4 := TRUE;
                     END_IF;
                     
                     // Record bit 5
-                    IF (TO_WORD(Inputs.Position) AND WORD#16#20) = WORD#16#20 THEN
+                    IF (TO_WORD(Positioning.Inputs.Position) AND WORD#16#20) = WORD#16#20 THEN
                         _AxisRef.Telegram111_Out.POS_STW1.travBlockBit5 := TRUE;
                     END_IF;
                     
                     // Record bit 6
-                    IF (TO_WORD(Inputs.Position) AND WORD#16#40) = WORD#16#40 THEN
+                    IF (TO_WORD(Positioning.Inputs.Position) AND WORD#16#40) = WORD#16#40 THEN
                         _AxisRef.Telegram111_Out.POS_STW1.travBlockBit6 := TRUE;
                     END_IF;
                     
@@ -835,22 +827,22 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 
                 //Jog mode - positive or negative
-            ELSIF Inputs.ModePos = 7 THEN
+            ELSIF Positioning.Inputs.ModePos = 7 THEN
                 
                 // Check if the drive is enabled for a new motion command
                 IF stat_Ready4Motion THEN
                     
-                    IF stat_Jog1PR_trig AND NOT Inputs.Jog2 THEN
+                    IF stat_Jog1PR_trig AND NOT Positioning.Inputs.Jog2 THEN
                         _AxisRef.Telegram111_Out.STW1.jog1 := TRUE;
-                        stat_ActMode := Inputs.ModePos;
-                    ELSIF NOT Inputs.Jog1 THEN
+                        stat_ActMode := Positioning.Inputs.ModePos;
+                    ELSIF NOT Positioning.Inputs.Jog1 THEN
                         _AxisRef.Telegram111_Out.STW1.jog1 := FALSE;
                     END_IF;
                     
-                    IF stat_Jog2PR_trig AND NOT Inputs.Jog1 THEN
+                    IF stat_Jog2PR_trig AND NOT Positioning.Inputs.Jog1 THEN
                         _AxisRef.Telegram111_Out.STW1.jog2 := TRUE;
-                        stat_ActMode := Inputs.ModePos;
-                    ELSIF NOT Inputs.Jog2 THEN
+                        stat_ActMode := Positioning.Inputs.ModePos;
+                    ELSIF NOT Positioning.Inputs.Jog2 THEN
                         _AxisRef.Telegram111_Out.STW1.jog2 := FALSE;
                     END_IF;
                 ELSE
@@ -860,7 +852,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
                 
                 // jog incremental mode
-            ELSIF Inputs.ModePos = 8 THEN
+            ELSIF Positioning.Inputs.ModePos = 8 THEN
                 
                 // Check if the drive is enabled for a new motion command
                 IF stat_Ready4Motion THEN
@@ -870,15 +862,15 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     
                     IF stat_Jog1PMode8R_trig THEN
                         _AxisRef.Telegram111_Out.STW1.jog1 := TRUE;
-                        stat_ActMode := Inputs.ModePos;
-                    ELSIF NOT Inputs.Jog1 THEN
+                        stat_ActMode := Positioning.Inputs.ModePos;
+                    ELSIF NOT Positioning.Inputs.Jog1 THEN
                         _AxisRef.Telegram111_Out.STW1.jog1 := FALSE;
                     END_IF;
                     
                     IF stat_Jog2PMode8R_trig THEN
                         _AxisRef.Telegram111_Out.STW1.jog2 := TRUE;
-                        stat_ActMode := Inputs.ModePos;
-                    ELSIF NOT Inputs.Jog2 THEN
+                        stat_ActMode := Positioning.Inputs.ModePos;
+                    ELSIF NOT Positioning.Inputs.Jog2 THEN
                         _AxisRef.Telegram111_Out.STW1.jog2 := FALSE;
                     END_IF;
                     
@@ -902,42 +894,42 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 statStartCounter := 0;
             END_IF;
 
-            //Maping of the Inputs.ConfigEPos to the Telegram
-            _AxisRef.Telegram111_Out.STW1.noCoastStop := Inputs.ConfigEPos.%X0;         //STW1.1
-            _AxisRef.Telegram111_Out.STW1.noQuickStop := Inputs.ConfigEPos.%X1;         //STW1.2
-            _AxisRef.Telegram111_Out.POS_STW2.SW_Limit := Inputs.ConfigEPos.%X2;
-            _AxisRef.Telegram111_Out.POS_STW2.HW_Limit := Inputs.ConfigEPos.%X3;
-            _AxisRef.Telegram111_Out.POS_STW2.ProbeEdgeEval := Inputs.ConfigEPos.%X4;
-            _AxisRef.Telegram111_Out.POS_STW2.SelectProbe := Inputs.ConfigEPos.%X5;
-            _AxisRef.Telegram111_Out.STW1.ExternalBlockChange := Inputs.ConfigEPos.%X6;
-            _AxisRef.Telegram111_Out.POS_STW2.reserved2 := Inputs.ConfigEPos.%X7;
-            _AxisRef.Telegram111_Out.POS_STW1.reserved12 := Inputs.ConfigEPos.%X8;
-            _AxisRef.Telegram111_Out.STW2.reserved0 := Inputs.ConfigEPos.%X9;
-            _AxisRef.Telegram111_Out.STW2.reserved1 := Inputs.ConfigEPos.%X10;
-            _AxisRef.Telegram111_Out.STW2.reserved2 := Inputs.ConfigEPos.%X11;
-            _AxisRef.Telegram111_Out.STW2.reserved3 := Inputs.ConfigEPos.%X12;
-            _AxisRef.Telegram111_Out.STW2.reserved4 := Inputs.ConfigEPos.%X13;
-            _AxisRef.Telegram111_Out.STW2.reserved7 := Inputs.ConfigEPos.%X14;
-            _AxisRef.Telegram111_Out.STW1.ReleaseBrake := Inputs.ReleaseBrake;           //STW1.12
-            _AxisRef.Telegram111_Out.STW1.reserved14 := Inputs.ConfigEPos.%X16;
-            _AxisRef.Telegram111_Out.STW1.reserved15 := Inputs.ConfigEPos.%X17;
-            _AxisRef.Telegram111_Out.POS_STW2.Trackingmode := Inputs.ConfigEPos.%X18;    // different mapping to SINA_POS
-            _AxisRef.Telegram111_Out.POS_STW1.reserved7 := Inputs.ConfigEPos.%X19;                // reserved
-            _AxisRef.Telegram111_Out.POS_STW1.reserved11 := Inputs.ConfigEPos.%X20;               // reserved
-            _AxisRef.Telegram111_Out.POS_STW1.reserved13 := Inputs.ConfigEPos.%X21;               // reserved
-            _AxisRef.Telegram111_Out.POS_STW2.reserved13 := Inputs.ConfigEPos.%X22;
-            _AxisRef.Telegram111_Out.POS_STW2.reserved4 := Inputs.ConfigEPos.%X23;
-            _AxisRef.Telegram111_Out.POS_STW2.reserved6 := Inputs.ConfigEPos.%X24;
-            _AxisRef.Telegram111_Out.POS_STW2.reserved7 := Inputs.ConfigEPos.%X25;
-            _AxisRef.Telegram111_Out.POS_STW2.reserved12 := Inputs.ConfigEPos.%X26;
-            _AxisRef.Telegram111_Out.POS_STW2.reserved13 := Inputs.ConfigEPos.%X27;
-            _AxisRef.Telegram111_Out.STW2.reserved5 := Inputs.ConfigEPos.%X28;
-            _AxisRef.Telegram111_Out.STW2.reserved6 := Inputs.ConfigEPos.%X29;
-            _AxisRef.Telegram111_Out.STW2.TravelToFixStop := Inputs.TravelToFixStop;     //STW2.8
-            _AxisRef.Telegram111_Out.STW2.reserved9 := Inputs.ConfigEPos.%X31;
+            //Maping of the Positioning.Inputs.ConfigEPos to the Telegram
+            _AxisRef.Telegram111_Out.STW1.noCoastStop := Positioning.Inputs.ConfigEPos.%X0;         //STW1.1
+            _AxisRef.Telegram111_Out.STW1.noQuickStop := Positioning.Inputs.ConfigEPos.%X1;         //STW1.2
+            _AxisRef.Telegram111_Out.POS_STW2.SW_Limit := Positioning.Inputs.ConfigEPos.%X2;
+            _AxisRef.Telegram111_Out.POS_STW2.HW_Limit := Positioning.Inputs.ConfigEPos.%X3;
+            _AxisRef.Telegram111_Out.POS_STW2.ProbeEdgeEval := Positioning.Inputs.ConfigEPos.%X4;
+            _AxisRef.Telegram111_Out.POS_STW2.SelectProbe := Positioning.Inputs.ConfigEPos.%X5;
+            _AxisRef.Telegram111_Out.STW1.ExternalBlockChange := Positioning.Inputs.ConfigEPos.%X6;
+            _AxisRef.Telegram111_Out.POS_STW2.reserved2 := Positioning.Inputs.ConfigEPos.%X7;
+            _AxisRef.Telegram111_Out.POS_STW1.reserved12 := Positioning.Inputs.ConfigEPos.%X8;
+            _AxisRef.Telegram111_Out.STW2.reserved0 := Positioning.Inputs.ConfigEPos.%X9;
+            _AxisRef.Telegram111_Out.STW2.reserved1 := Positioning.Inputs.ConfigEPos.%X10;
+            _AxisRef.Telegram111_Out.STW2.reserved2 := Positioning.Inputs.ConfigEPos.%X11;
+            _AxisRef.Telegram111_Out.STW2.reserved3 := Positioning.Inputs.ConfigEPos.%X12;
+            _AxisRef.Telegram111_Out.STW2.reserved4 := Positioning.Inputs.ConfigEPos.%X13;
+            _AxisRef.Telegram111_Out.STW2.reserved7 := Positioning.Inputs.ConfigEPos.%X14;
+            _AxisRef.Telegram111_Out.STW1.ReleaseBrake := Positioning.Inputs.ReleaseBrake;           //STW1.12
+            _AxisRef.Telegram111_Out.STW1.reserved14 := Positioning.Inputs.ConfigEPos.%X16;
+            _AxisRef.Telegram111_Out.STW1.reserved15 := Positioning.Inputs.ConfigEPos.%X17;
+            _AxisRef.Telegram111_Out.POS_STW2.Trackingmode := Positioning.Inputs.ConfigEPos.%X18;    // different mapping to SINA_POS
+            _AxisRef.Telegram111_Out.POS_STW1.reserved7 := Positioning.Inputs.ConfigEPos.%X19;                // reserved
+            _AxisRef.Telegram111_Out.POS_STW1.reserved11 := Positioning.Inputs.ConfigEPos.%X20;               // reserved
+            _AxisRef.Telegram111_Out.POS_STW1.reserved13 := Positioning.Inputs.ConfigEPos.%X21;               // reserved
+            _AxisRef.Telegram111_Out.POS_STW2.reserved13 := Positioning.Inputs.ConfigEPos.%X22;
+            _AxisRef.Telegram111_Out.POS_STW2.reserved4 := Positioning.Inputs.ConfigEPos.%X23;
+            _AxisRef.Telegram111_Out.POS_STW2.reserved6 := Positioning.Inputs.ConfigEPos.%X24;
+            _AxisRef.Telegram111_Out.POS_STW2.reserved7 := Positioning.Inputs.ConfigEPos.%X25;
+            _AxisRef.Telegram111_Out.POS_STW2.reserved12 := Positioning.Inputs.ConfigEPos.%X26;
+            _AxisRef.Telegram111_Out.POS_STW2.reserved13 := Positioning.Inputs.ConfigEPos.%X27;
+            _AxisRef.Telegram111_Out.STW2.reserved5 := Positioning.Inputs.ConfigEPos.%X28;
+            _AxisRef.Telegram111_Out.STW2.reserved6 := Positioning.Inputs.ConfigEPos.%X29;
+            _AxisRef.Telegram111_Out.STW2.TravelToFixStop := Positioning.Inputs.TravelToFixStop;     //STW2.8
+            _AxisRef.Telegram111_Out.STW2.reserved9 := Positioning.Inputs.ConfigEPos.%X31;
             //Set the Status Output
-            Outputs.Status := stat_Status;
-            Outputs.ActMode := stat_ActMode;
+            Positioning.Outputs.Status := stat_Status;
+            Positioning.Outputs.ActMode := stat_ActMode;
         END_METHOD
 
         // METHOD PRIVATE UpdateStatus 
@@ -1300,11 +1292,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
         //         RETURN;
         //     END_IF;
 
-        //     Messenger.ActivateOnCondition(ULINT#737,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionInputs.PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionInputs.NegativeDirection, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#737,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.NegativeDirection, eAxoMessageCategory#ProgrammingError);
 
-        //     IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionInputs.PositiveDirection THEN
+        //     IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.PositiveDirection THEN
         //         Velocity_ := Velocity;
-        //     ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionInputs.NegativeDirection THEN
+        //     ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.NegativeDirection THEN
         //         Velocity_ := -1 * Velocity;
         //     ELSE
         //         RETURN;
@@ -1356,11 +1348,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
         //         RETURN;
         //     END_IF;
 
-        //     Messenger.ActivateOnCondition(ULINT#739,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionInputs.PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionInputs.NegativeDirection, eAxoMessageCategory#ProgrammingError);
+        //     Messenger.ActivateOnCondition(ULINT#739,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.NegativeDirection, eAxoMessageCategory#ProgrammingError);
 
-        //     IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionInputs.PositiveDirection THEN
+        //     IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.PositiveDirection THEN
         //         Torque_ := Torque;
-        //     ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionInputs.NegativeDirection THEN
+        //     ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.NegativeDirection THEN
         //         Torque_ := -1 * Torque;
         //     ELSE
         //         RETURN;

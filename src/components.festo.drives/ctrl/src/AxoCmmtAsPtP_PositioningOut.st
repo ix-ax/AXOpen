@@ -1,6 +1,6 @@
 NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}
-    CLASS AxoCmmtAsPtP_Out
+    CLASS AxoCmmtAsPtP_PositioningOut
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "<#AxisEnabled#>"}

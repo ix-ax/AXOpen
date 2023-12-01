@@ -5,34 +5,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}
     CLASS AxoReadWritePROFIdriveParameter EXTENDS AXOpen.Core.AxoObject
         VAR PUBLIC
-            Enable          :   BOOL;
-            ReadWrite       :   BOOL;
-            ParameterNo     :   INT;
-            Subindex        :   INT;
-            AxisNo	        :   BYTE;
-            HardwareId	    :   WORD;    
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
+            {#ix-set:AttributeName = "<#Inputs#>"}
+            Inputs				:	AxoPROFIdriveParametrizationIn;
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
+            {#ix-set:AttributeName = "<#Outputs#>"}
+            {#ix-attr:[ReadOnly()]}
+            Outputs				:	AxoPROFIdriveParametrizationOut;
         END_VAR
-
-        VAR PUBLIC
-            ValueReadREAL  :   REAL;
-            ValueReadLINT  :   LINT;
-            ValueReadBOOL  :   BOOL;
-        END_VAR
-
-        VAR PUBLIC
-            ValueWriteREAL  :   REAL;
-            ValueWriteLINT  :   LINT;
-            ValueWriteBOOL  :   BOOL;
-        END_VAR
-        
-
-        VAR PUBLIC
-            Busy	:   BOOL;
-            Done	:   BOOL;
-            Error	:   BOOL;
-            ErrorId :	DWORD;
-        END_VAR
-
 
         VAR PRIVATE
             Enable_PV   :   BOOL;
@@ -107,9 +89,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
             END_VAR
 
                 //Check the Inputs
-                IF HardwareId = WORD#0 THEN
+                IF Inputs.HardwareId = WORD#0 THEN
                     Error_ := TRUE;
-                    ErrorId_ := DWORD#16#00001010;    //HardwareID = 0
+                    ErrorId_ := DWORD#16#00001010;    //Inputs.HardwareId = 0
                     RETURN;
                 END_IF;
 
@@ -122,10 +104,10 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 END_IF;
 
                 IF State = 0 THEN //Wait for start trigger
-                    IF Enable AND NOT Enable_PV THEN
+                    IF Inputs.Enable AND NOT Enable_PV THEN
                         StartRW := TRUE;
                         State := 10;
-                        Busy := TRUE;
+                        Outputs.Busy := TRUE;
                     END_IF;
                 END_IF;
 
@@ -136,7 +118,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     // Requst ID = 1 (Request Parameter)
                     RW_Data[1] := BYTE#1;
                     //Fill the Axis number
-                    RW_Data[2] := AxisNo;
+                    RW_Data[2] := Inputs.AxisNo;
                     // Single parameter access
                     RW_Data[3] := BYTE#1;
                     (* ------------------ Parameter address ------------*)
@@ -145,17 +127,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     //ElemNo.
                     RW_Data[5] := BYTE#1;
                     // Assign PNU
-                    RW_Data[6] := ParameterNo.%B1;
-                    RW_Data[7] := ParameterNo.%B0;
+                    RW_Data[6] := Inputs.ParameterNo.%B1;
+                    RW_Data[7] := Inputs.ParameterNo.%B0;
                     // Assign Subindex
-                    RW_Data[8] := Subindex.%B1;
-                    RW_Data[9] := Subindex.%B0;
+                    RW_Data[8] := Inputs.Subindex.%B1;
+                    RW_Data[9] := Inputs.Subindex.%B0;
 
                     // Lenght of the telegramm to be send
                     _lenght := LenHeader + LenRequest;
                     
                     WriteRecord_(request    :=  StartRW,
-                                id          :=  HardwareId,
+                                id          :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 length      :=  _lenght,
                                 record      :=  RW_Data,      
@@ -169,7 +151,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             RD_Data[i] := BYTE#0;
                         END_FOR;
                         
-                        IF NOT ReadWrite THEN
+                        IF NOT Inputs.ReadWrite THEN
                             //Read parameter
                             State := 20;
                         ELSE
@@ -197,7 +179,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRead;
                     
                     ReadRecord_(request     :=  StartRW,
-                                id          :=  HardwareId,
+                                id          :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 maxLength   :=  _lenght,
                                 record      :=  RD_Data,      
@@ -226,19 +208,19 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
                     CASE TO_INT(RD_Data[4]) OF //Format
                         0:  //reserved
-                            ValueReadREAL := REAL#0.0;
-                            ValueReadLINT := LINT#0;
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := REAL#0.0;
+                            Outputs.ValueReadLINT := LINT#0;
+                            Outputs.ValueReadBOOL := FALSE;
                             
-                            ErrorId := DWORD#16#1001;    //reserved DataType
+                            Outputs.ErrorId := DWORD#16#1001;    //reserved DataType
                             // #Error
                             State := 200;
                             
                         1:  // BOOLEAN 
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := 0;
-                            ValueReadBOOL := TO_BOOL(RD_Data[6]);
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := 0;
+                            Outputs.ValueReadBOOL := TO_BOOL(RD_Data[6]);
                             
                             // no error
                             State := 100;
@@ -246,9 +228,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         2:  //SINT8
                             tmpSINT := TO_SINT(RD_Data[6]);
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := (TO_LINT(tmpSINT));
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := (TO_LINT(tmpSINT));
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // no error
                             State := 100;
@@ -258,9 +240,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             tmpINT.%B1 := RD_Data[6];
                             
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := TO_LINT(tmpINT);
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := TO_LINT(tmpINT);
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // no #Error
                             State := 100;
@@ -272,18 +254,18 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             tmpDINT.%B3 := RD_Data[6];
                             
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := TO_LINT(tmpDINT);
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := TO_LINT(tmpDINT);
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // no #Error
                             State := 100;
                             
                         5, 65: //USINT8(5) or BYTE(65)
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := (TO_LINT(RD_Data[6]));
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := (TO_LINT(RD_Data[6]));
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // no error
                             State := 100;
@@ -293,9 +275,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             tmpWord.%B1 := RD_Data[6];
                             
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := TO_LINT(tmpWord);
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := TO_LINT(tmpWord);
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // no #Error
                             State := 100;
@@ -307,9 +289,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             tmpDWord.%B3 := RD_Data[6];
                             
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := TO_LINT(tmpDWord);
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := TO_LINT(tmpDWord);
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // no #Error
                             State := 100;
@@ -321,9 +303,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             tmpDWord.%B3 := RD_Data[6];
                             
                             //copy the value to the output
-                            ValueReadREAL := TO_REAL(tmpDWord);
-                            ValueReadLINT := 0;
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := TO_REAL(tmpDWord);
+                            Outputs.ValueReadLINT := 0;
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // no #Error
                             State := 100;
@@ -333,9 +315,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             tmpINT.%B1 := RD_Data[7];
                             
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := TO_LINT(tmpINT);
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := TO_LINT(tmpINT);
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // no #Error
                             State := 100;
@@ -352,9 +334,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             tmpLINT.%B7 :=RD_Data[6];
                             
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := tmpLINT;
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := tmpLINT;
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // no #Error
                             State := 100;
@@ -362,22 +344,22 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         68:  //Error
                             tmpDWord.%B0 := RD_Data[7];
                             tmpDWord.%B1 := RD_Data[6];
-                            ErrorId := tmpDWord OR PD_Error;
+                            Outputs.ErrorId := tmpDWord OR PD_Error;
                             
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := 0;
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := 0;
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // #Error
                             State := 200;
                             
                         ELSE
-                            ValueReadREAL := 0;
-                            ValueReadLINT := 0;
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := 0;
+                            Outputs.ValueReadBOOL := FALSE;
                             
-                            ErrorId := DWORD#16#1000;    //unknown DataType
+                            Outputs.ErrorId := DWORD#16#1000;    //unknown DataType
                             // #Error
                             State := 200;
                     END_CASE;
@@ -388,7 +370,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRead;
 
                     ReadRecord_(request     :=  StartRW,
-                                id          :=  HardwareId,
+                                id          :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 maxLength   :=  _lenght,
                                 record      :=  RD_Data,      
@@ -416,11 +398,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
                 IF State = 55 THEN //Reading finished
                     CASE TO_INT(RD_Data[4]) OF // Format
                         0:  //reserved
-                            ValueReadREAL := 0;
-                            ValueReadLINT := 0;
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := 0;
+                            Outputs.ValueReadBOOL := FALSE;
 
-                            ErrorId := DWORD#16#1001;    //reserved DataType
+                            Outputs.ErrorId := DWORD#16#1001;    //reserved DataType
                             // #Error
                             State := 200;
                             
@@ -430,22 +412,22 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         68:  //Error
                             tmpDWord.%B0 := RD_Data[7];
                             tmpDWord.%B1 := RD_Data[6];
-                            ErrorId := tmpDWord OR PD_Error;
+                            Outputs.ErrorId := tmpDWord OR PD_Error;
                             
                             //copy the value to the output
-                            ValueReadREAL := 0;
-                            ValueReadLINT := 0;
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := 0;
+                            Outputs.ValueReadBOOL := FALSE;
                             
                             // #Error
                             State := 200;
                             
                         ELSE
-                            ValueReadREAL := 0;
-                            ValueReadLINT := 0;
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := 0;
+                            Outputs.ValueReadBOOL := FALSE;
                             
-                            ErrorId := DWORD#16#1000;    //unknown DataType
+                            Outputs.ErrorId := DWORD#16#1000;    //unknown DataType
                             // #Error
                             State := 200;
                     END_CASE;
@@ -458,7 +440,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     // Requst ID = 2 (Change Parameter)
                     WR_Data[1] := BYTE#2;
                     //Fill the Axis number
-                    WR_Data[2] := AxisNo;
+                    WR_Data[2] := Inputs.AxisNo;
                     // Single parameter access
                     WR_Data[3] := BYTE#1;
                     (* ------------------ DATA --------------------*)
@@ -467,11 +449,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     // Single Access
                     WR_Data[5] := BYTE#1;
                     // PNU
-                    WR_Data[6] := ParameterNo.%B1;
-                    WR_Data[7] := ParameterNo.%B0;
+                    WR_Data[6] := Inputs.ParameterNo.%B1;
+                    WR_Data[7] := Inputs.ParameterNo.%B0;
                     // Subindex
-                    WR_Data[8] := Subindex.%B1;
-                    WR_Data[9] := Subindex.%B0;
+                    WR_Data[8] := Inputs.Subindex.%B1;
+                    WR_Data[9] := Inputs.Subindex.%B0;
                     //Format
                     WR_Data[10] := RD_Data[4];
                     //No. Values
@@ -483,46 +465,46 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     
                     CASE TO_INT(RD_Data[4]) OF //Format
                         0:  //reserved
-                            ValueReadREAL := 0;
-                            ValueReadLINT := 0;
-                            ValueReadBOOL := FALSE;
+                            Outputs.ValueReadREAL := 0;
+                            Outputs.ValueReadLINT := 0;
+                            Outputs.ValueReadBOOL := FALSE;
                             
-                            ErrorId := DWORD#16#1001;    //reserved DataType
+                            Outputs.ErrorId := DWORD#16#1001;    //reserved DataType
                             // #Error
                             State := 200;
                             
                         1:  //BOOL
-                            WR_Data[12] := TO_BYTE(ValueWriteBOOL);
+                            WR_Data[12] := TO_BYTE(Inputs.ValueWriteBOOL);
                             
                         2, 5, 65:  //SINT8, USINT8, BYTE
-                            WR_Data[12] := TO_BYTE(ValueWriteLINT);
+                            WR_Data[12] := TO_BYTE(Inputs.ValueWriteLINT);
                             
                         3, 6, 66:  //SINT16, UINT16, WORD
-                            WR_Data[12] := ValueWriteLINT.%B1;
-                            WR_Data[13] := ValueWriteLINT.%B0;
+                            WR_Data[12] := Inputs.ValueWriteLINT.%B1;
+                            WR_Data[13] := Inputs.ValueWriteLINT.%B0;
                             
                         4, 7, 67: //SINT32, UDINT32, DWORD
-                            WR_Data[12] := ValueWriteLINT.%B3;
-                            WR_Data[13] := ValueWriteLINT.%B2;
-                            WR_Data[14] := ValueWriteLINT.%B1;
-                            WR_Data[15] := ValueWriteLINT.%B0;
+                            WR_Data[12] := Inputs.ValueWriteLINT.%B3;
+                            WR_Data[13] := Inputs.ValueWriteLINT.%B2;
+                            WR_Data[14] := Inputs.ValueWriteLINT.%B1;
+                            WR_Data[15] := Inputs.ValueWriteLINT.%B0;
                             
                         8:  //FLOAT32
-                            tmpDWORD    :=  TO_DWORD(ValueWriteREAL);
+                            tmpDWORD    :=  TO_DWORD(Inputs.ValueWriteREAL);
                             WR_Data[12] := tmpDWORD.%B3;
                             WR_Data[13] := tmpDWORD.%B2;
                             WR_Data[14] := tmpDWORD.%B1;
                             WR_Data[15] := tmpDWORD.%B0;
                             
                         55, 56:  //SINT64
-                            WR_Data[12] := ValueWriteLINT.%B7;
-                            WR_Data[13] := ValueWriteLINT.%B6;
-                            WR_Data[14] := ValueWriteLINT.%B5;
-                            WR_Data[15] := ValueWriteLINT.%B4;
-                            WR_Data[16] := ValueWriteLINT.%B3;
-                            WR_Data[17] := ValueWriteLINT.%B2;
-                            WR_Data[18] := ValueWriteLINT.%B1;
-                            WR_Data[19] := ValueWriteLINT.%B0;
+                            WR_Data[12] := Inputs.ValueWriteLINT.%B7;
+                            WR_Data[13] := Inputs.ValueWriteLINT.%B6;
+                            WR_Data[14] := Inputs.ValueWriteLINT.%B5;
+                            WR_Data[15] := Inputs.ValueWriteLINT.%B4;
+                            WR_Data[16] := Inputs.ValueWriteLINT.%B3;
+                            WR_Data[17] := Inputs.ValueWriteLINT.%B2;
+                            WR_Data[18] := Inputs.ValueWriteLINT.%B1;
+                            WR_Data[19] := Inputs.ValueWriteLINT.%B0;
                             
                     END_CASE;
                     
@@ -535,7 +517,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenWrite;
 
                     WriteRecord_(request    :=  StartRW,
-                                id          :=  HardwareId,
+                                id          :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 length      :=  _lenght,
                                 record      :=  WR_Data,      
@@ -569,7 +551,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     _lenght := LenHeader + LenRead;
 
                     ReadRecord_(request     :=  StartRW,
-                                id          :=  HardwareId,
+                                id          :=  Inputs.HardwareId,
                                 index       :=  16#b02e,
                                 maxLength   :=  _lenght,
                                 record      :=  RD_Data,      
@@ -605,81 +587,81 @@ NAMESPACE AXOpen.Components.Festo.Drives
                             IF RD_Data[4] = BYTE#68 THEN //Format
                                 tmpDWord.%B0 := RD_Data[7];
                                 tmpDWord.%B1 := RD_Data[6];
-                                ErrorId := tmpDWord OR PD_Error;
+                                Outputs.ErrorId := tmpDWord OR PD_Error;
                                 
                                 // #Error
                                 State := 200;
                             ELSE
-                                ErrorId := DWORD#16#1003; //negative response without error code
+                                Outputs.ErrorId := DWORD#16#1003; //negative response without error code
                                 State := 300;
                             END_IF;
                         ELSE  //undefined response ID
-                            ErrorId := DWORD#16#1002;
+                            Outputs.ErrorId := DWORD#16#1002;
                             State := 300;
                     END_CASE;
                 END_IF;
 
                 IF State = 70 THEN // Error while ReadWrite Access
-                    Done := TRUE;
-                    Busy := FALSE;
-                    Error := TRUE;
-                    ErrorId := WR_Status;
+                    Outputs.Done := TRUE;
+                    Outputs.Busy := FALSE;
+                    Outputs.Error := TRUE;
+                    Outputs.ErrorId := WR_Status;
                 END_IF;
 
                 IF State = 80 THEN //Error Reading Access
-                    Done := TRUE;
-                    Busy := FALSE;
-                    Error := TRUE;
-                    ErrorId := RD_Status;
+                    Outputs.Done := TRUE;
+                    Outputs.Busy := FALSE;
+                    Outputs.Error := TRUE;
+                    Outputs.ErrorId := RD_Status;
                 END_IF;
 
                 IF State = 90 THEN // Error while Write Access
-                    Done := TRUE;
-                    Busy := FALSE;
-                    Error := TRUE;
-                    ErrorId := RW_Status;
+                    Outputs.Done := TRUE;
+                    Outputs.Busy := FALSE;
+                    Outputs.Error := TRUE;
+                    Outputs.ErrorId := RW_Status;
                 END_IF;
 
 
                 IF State = 100 THEN // read successfully
-                    Done := TRUE;
-                    Busy := FALSE;
-                    Error := FALSE;
+                    Outputs.Done := TRUE;
+                    Outputs.Busy := FALSE;
+                    Outputs.Error := FALSE;
                 END_IF;
 
                 IF State = 150 THEN // write successfully
-                    Done := TRUE;
-                    Busy := FALSE;
-                    Error := FALSE;
+                    Outputs.Done := TRUE;
+                    Outputs.Busy := FALSE;
+                    Outputs.Error := FALSE;
                 END_IF;
 
                 IF State = 200 THEN //Error while reading
-                    Done := TRUE;
-                    Busy := FALSE;
-                    Error := TRUE;
+                    Outputs.Done := TRUE;
+                    Outputs.Busy := FALSE;
+                    Outputs.Error := TRUE;
                     
                     IF State = 300 THEN //Error while writing
-                        Done := TRUE;
-                        Busy := FALSE;
-                        Error := TRUE;
+                        Outputs.Done := TRUE;
+                        Outputs.Busy := FALSE;
+                        Outputs.Error := TRUE;
                     END_IF;
                 END_IF;
 
-                IF NOT Enable THEN
+                IF NOT Inputs.Enable THEN
                     State := 0;
                     ReqRef := BYTE#1;
-                    Done := FALSE;
-                    Busy := FALSE;
-                    Error := FALSE;
-                    ErrorId := DWORD#16#00000000;
-                    ValueReadBOOL := FALSE;
-                    ValueReadLINT := 0;
-                    ValueReadREAL := 0;
+                    Outputs.Done := FALSE;
+                    Outputs.Busy := FALSE;
+                    Outputs.Error := FALSE;
+                    Outputs.ErrorId := DWORD#16#00000000;
+                    Outputs.ValueReadBOOL := FALSE;
+                    Outputs.ValueReadLINT := 0;
+                    Outputs.ValueReadREAL := 0;
                     RD_Status := DWORD#0;
                     ErrorCounter := UINT#0;
                 END_IF;
 
-                Enable_PV := Enable;
+                Enable_PV := Inputs.Enable;
 
         END_METHOD
     END_CLASS

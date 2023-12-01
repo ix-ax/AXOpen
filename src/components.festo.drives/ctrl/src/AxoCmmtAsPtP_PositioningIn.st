@@ -1,10 +1,10 @@
 NAMESPACE AXOpen.Components.Festo.Drives
     {S7.extern=ReadWrite}
-    CLASS AxoCmmtAsPtP_In
+    CLASS AxoCmmtAsPtP_PositioningIn
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "<#ModePos#>"}
-            ModePos				:	INT		:=	INT#0;
+            ModePos				:	INT		:=	INT#2;
             {#ix-set:AttributeName = "<#EnableAxis#>"}
             EnableAxis			:	BOOL	:=	FALSE;
             {#ix-set:AttributeName = "<#CancelTraversing#>"}
