@@ -32,7 +32,7 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         AxoCmmtAsPtP_.Run(parent:=THIS,
                             refTelegram111_In   :=  REF(PlcInputs^.Tel111In),
                             refTelegram750_In   :=  REF(PlcInputs^.Tel750In),
-                            refTelegram111_Out  :=  REF(PlcOutputs^.Tel750Out),
+                            refTelegram111_Out  :=  REF(PlcOutputs^.Tel111Out),
                             refTelegram750_Out  :=  REF(PlcOutputs^.Tel750Out),
                             Enable              :=  Enable);
         //</Initialization>

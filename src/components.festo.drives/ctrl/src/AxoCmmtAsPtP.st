@@ -114,7 +114,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             THIS.Execute();
             // THIS.UpdateStatus(_AxisRefExt);
             THIS.UpdateOutputs(AxisRef := REF(_AxisRef), refTelegram111_Out := refTelegram111_Out, refTelegram750_Out := refTelegram750_Out);
-            THIS.Close();          
+            THIS.Close();    
         END_METHOD   
 
         ///<summary>

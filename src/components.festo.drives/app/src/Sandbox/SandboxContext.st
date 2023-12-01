@@ -21,7 +21,7 @@ CLASS SandboxContext EXTENDS AXOpen.Core.AxoContext
         _testDrive.Run(parent               :=  THIS,
                         refTelegram111_In   :=  REF(PlcInputs^.Tel111In),
                         refTelegram750_In   :=  REF(PlcInputs^.Tel750In),
-                        refTelegram111_Out  :=  REF(PlcOutputs^.Tel750Out),
+                        refTelegram111_Out  :=  REF(PlcOutputs^.Tel111Out),
                         refTelegram750_Out  :=  REF(PlcOutputs^.Tel750Out),
                         MAP_HW_ID           :=  264,
                         Enable              :=  _enable);
