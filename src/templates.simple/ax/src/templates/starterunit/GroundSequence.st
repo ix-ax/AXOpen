@@ -22,7 +22,7 @@ NAMESPACE axosimple.StarterUnitTemplate
             ProcessSettings : REF_TO axosimple.StarterUnitTemplate.FragmentProcessDataManger;
             TechnologySettings : REF_TO axosimple.StarterUnitTemplate.TechnologyDataManager;
 
-            PersistentSettings : REF_TO AXOpen.Data.AxoDataPersistentExchange;
+            PersistentSettings : REF_TO AxoDataPersistentExchange;
 
             _currentId : STRING;
             techSetttingsId : STRING;

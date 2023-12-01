@@ -4,13 +4,12 @@ type: app
 targets:
   - plcsim
   # - swcpu 
-  - "1500"
-  - axunit-llvm
+  # - "1500"
+  # - llvm
 registries:
   '@ix-ax': https://npm.pkg.github.com/
 devDependencies:
-  "@ax/sdk": 4.0.12
-  "@ax/sld": 2.0.5
+  "@ix-ax/ax-sdk": '0.0.0-dev.0' 
 dependencies:
   "@ix-ax/axopen.core": '0.0.0-dev.0'
   "@ix-ax/axopen.data": '0.0.0-dev.0'
@@ -60,3 +59,5 @@ scripts:
     # Here you will need to set the argumen -t to your plc IP and -i to platfrom you are dowloading to
     # --default-server-interface is a must if you are using WebAPI          
     - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r  
+publicKeys:
+  "@ix-ax" :  30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17     

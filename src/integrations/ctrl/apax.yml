@@ -2,11 +2,10 @@ name: "axopen.integrations-ctrl"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - axunit-llvm
+  - llvm
   - plcsim
 devDependencies:
-  "@ax/sdk": 4.0.12
-  "@ax/sld": 2.0.5
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'  
 dependencies:
   "@ix-ax/axopen.data": '0.0.0-dev.0'
   "@ix-ax/axopen.probers": '0.0.0-dev.0'

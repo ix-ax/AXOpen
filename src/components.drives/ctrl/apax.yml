@@ -2,11 +2,11 @@ name: "@ix-ax/axopen.components.drives"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - axunit-llvm
+  - llvm
 files:
   - src
 devDependencies:
-  "@ax/sdk": ^4.0.12
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 scripts:
   postbuild:
     - dotnet ixc

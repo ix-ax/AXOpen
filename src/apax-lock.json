@@ -11,7 +11,7 @@
     "dependencies": {
       "@ax/axunit-docs": "4.0.6",
       "@ax/axunit-library": "4.0.6",
-      "@ax/axunit-llvm-runner-gen": "4.0.6",
+      "@ax/llvm-runner-gen": "4.0.6",
       "@ax/axunit-runner-llvm": "4.0.6",
       "@ax/axunit-runner-mc7plus": "4.0.6",
       "@ax/build-native": "10.1.1",
@@ -28,9 +28,9 @@
     "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-library/-/axunit-library-4.0.6.tgz",
     "integrity": "sha512-sgg1SNngQ9lTP/v8e+AyZq6hCf+563P3S4xep6uCdHIZMmW9GYkvKTjh56+ZKQMpGFrcr9Sn0Aw6dE7mbINwXg=="
   },
-  "@ax/axunit-llvm-runner-gen": {
+  "@ax/llvm-runner-gen": {
     "version": "4.0.6",
-    "resolved": "https://registry.simatic-ax.siemens.io/@ax/axunit-llvm-runner-gen/-/axunit-llvm-runner-gen-4.0.6.tgz",
+    "resolved": "https://registry.simatic-ax.siemens.io/@ax/llvm-runner-gen/-/llvm-runner-gen-4.0.6.tgz",
     "integrity": "sha512-yL9TSEvBX1Wu5ohFAm07XRQfOHPUmHm6D17CB09mVssYec2VcBl1ORmqomVxTQhGVO4Zxsv5t+qgtBMx+/aytQ=="
   },
   "@ax/axunit-ls-contrib": {

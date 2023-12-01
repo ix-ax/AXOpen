@@ -2,15 +2,15 @@ name: "@ix-ax/axopen.simatic1500"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - axunit-llvm
+  - llvm
 files:
   - src
   - axsharp.companion.json
 dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
-  "@ax/simatic-1500-clocks": ^4.0.1
+  "@ax/simatic-1500-clocks": ^6.0.37
 devDependencies:
-  "@ax/sdk": 4.0.12
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 scripts:
   postbuild:
     - dotnet ixc

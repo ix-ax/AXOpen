@@ -2,12 +2,12 @@ name: "@ix-ax/axopen.components.abstractions"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - axunit-llvm
+  - llvm
 files:
   - src
   - axsharp.companion.json
 devDependencies:
-  "@ax/sdk": 4.0.12
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 scripts:
   postbuild:
     - dotnet ixc

@@ -1,6 +1,6 @@
 USING AXOpen.Core;
 USING System.Strings;
-USING System.SerDe;
+USING System.Serialization;
 USING AXOpen.Messaging;
 USING AXOpen.Messaging.Static;
 

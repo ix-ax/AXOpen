@@ -3,12 +3,10 @@ version: '0.0.0-dev.0'
 type: app
 targets:
   - plcsim
-  - axunit-llvm
+  - llvm
   #- "1500" 
 devDependencies:
-  "@ax/sdk": 4.0.12
-  "@ax/sld": 2.0.5
-  "@ax/stc": ^5.4.89
+  "@ix-ax/ax-sdk": '0.0.0-dev.0' 
 dependencies:
   "@ix-ax/axopen.components.cognex.vision": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'

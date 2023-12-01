@@ -2,7 +2,7 @@ name: "@ix-ax/axopen.components.pneumatics"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - axunit-llvm
+  - llvm
 files:
   - src
   - axsharp.companion.json
@@ -12,7 +12,7 @@ variables:
   AXUNIT_TARGET_IP: "172.20.30.110"
   SIM_ENABLED: "true"
 devDependencies:
-  "@ax/sdk": 4.0.12
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.core": '0.0.0-dev.0'

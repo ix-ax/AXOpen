@@ -2,17 +2,17 @@ name: "@ix-ax/axopen.utils"
 version: '0.0.0-dev.0'
 type: lib
 targets:
-  - axunit-llvm
+  - llvm
 files:
   - src
   - axsharp.companion.json
 devDependencies:
-  "@ax/sdk": 4.0.12
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 scripts:
   postbuild:
     - dotnet ixc
 dependencies:
-  "@ax/system-serde": ^5.0.60
-  "@ax/system-strings": ^5.0.60
+  "@ax/system-serde": ^6.0.94
+  "@ax/system-strings": ^6.0.94
 publicKeys:
-  "@ix-ax" :  30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17  
+  "@ix-ax": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17

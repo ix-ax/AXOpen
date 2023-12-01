@@ -4,12 +4,12 @@ type: app
 targets:
   - "1500"
   - plcsim
-  - axunit-llvm
+  - llvm
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ax/sdk": 4.0.12
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@ix-ax/axopen.components.elements" : '0.0.0-dev.0'
 scripts:

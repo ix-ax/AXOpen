@@ -2,10 +2,10 @@ name: "pneumaticcomponents"
 version: '0.0.0-dev.0'
 type: app
 targets:
-  - axunit-llvm
+  - llvm
   - plcsim
 devDependencies:
-  "@ax/sdk": 4.0.12
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
   "@ax/sld": 2.0.5
 dependencies:
   "@ix-ax/axopen.components.pneumatics": '0.0.0-dev.0'

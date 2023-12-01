@@ -1,4 +1,4 @@
-USING System.SerDe;
+USING System.Serialization;
 
 NAMESPACE AXOpen.Utils
     FUNCTION AxoBytesToDint : DINT

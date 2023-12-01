@@ -123,7 +123,7 @@ targets:
   - plcsim
   # - "1500"
   # - swcpu
-  - axunit-llvm
+  - llvm
 .
 .
 .
