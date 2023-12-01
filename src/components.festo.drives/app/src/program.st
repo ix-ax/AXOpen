@@ -6,7 +6,7 @@ PROGRAM MyProgram
         PlcInputs : PlcInputs;
 		PlcOutputs : PlcOutputs;
     END_VAR
-
+    
     CopyInputs();
 
     sandbox.PlcInputs := REF(PlcInputs); 

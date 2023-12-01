@@ -16,8 +16,6 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         manualControl   :   BOOL;
         Enable          :   BOOL;                       //  As long as ‘Enable’ is true, power is being enabled.
-        EnablePositive  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in positive direction
-        EnableNegative  :   BOOL;                       //  As long as ‘Enable’ is true, this permits motion in negative direction
     END_VAR
     //</InitializationArgumentsDeclaration>            
 
@@ -29,12 +27,14 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
         THIS.Initialize(parent);
 
         //<Initialization>        
-        AxoCmmtAsPtP_.Run(parent:=THIS,
-                            refTelegram111_In   :=  REF(PlcInputs^.Tel111In),
-                            refTelegram750_In   :=  REF(PlcInputs^.Tel750In),
-                            refTelegram111_Out  :=  REF(PlcOutputs^.Tel111Out),
-                            refTelegram750_Out  :=  REF(PlcOutputs^.Tel750Out),
-                            Enable              :=  Enable);
+        AxoCmmtAsPtP_.Run(parent                :=  THIS,
+                          refTelegram111_In     :=  REF(PlcInputs^.cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
+                          refTelegram750_In     :=  REF(PlcInputs^.cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
+                          refTelegram111_Out    :=  REF(PlcOutputs^.cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
+                          refTelegram750_Out    :=  REF(PlcOutputs^.cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
+                          MAP_HW_ID             :=  HwIdentifiers#cmmtas_Module_Access_Point,
+                          Enable                :=  Enable);
+
         //</Initialization>
 
     //    THIS.UseInSequencer();

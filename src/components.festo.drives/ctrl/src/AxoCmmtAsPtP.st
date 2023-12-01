@@ -78,10 +78,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
             VAR_INPUT
                 parent              :   IAxoObject; 
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
-                refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
+                // refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
+                refTelegram750_In   :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
                 refTelegram750_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 750 of this axis
-                MAP_HW_ID           :   INT;                        //  Hardware identifier of the module acces point submodule 
+                MAP_HW_ID           :   ULINT;                      //  Hardware identifier of the module acces point submodule 
                 Enable              :   BOOL;                       //  As long as ‘Enable’ is TRUE, power is being enabled.
             END_VAR
 
@@ -117,10 +118,11 @@ NAMESPACE AXOpen.Components.Festo.Drives
             VAR_INPUT
                 parent              :   IAxoContext; 
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
-                refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
+                // refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
+                refTelegram750_In   :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
                 refTelegram750_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 750 of this axis
-                MAP_HW_ID           :   INT;                        //  Hardware identifier of the module acces point submodule 
+                MAP_HW_ID           :   ULINT;                      //  Hardware identifier of the module acces point submodule 
                 Enable              :   BOOL;                       //  As long as ‘Enable’ is TRUE, power is being enabled.
             END_VAR
            
@@ -150,7 +152,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PRIVATE AreValidReferences: BOOL
             VAR_INPUT
                 refTelegram111_In       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter input data of the axis
-                refTelegram750_In       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the axis
+                // refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
+                refTelegram750_In   :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter output data of the axis
                 refTelegram750_Out      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
             END_VAR
@@ -180,8 +183,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PRIVATE UpdateInputs : BOOL
             VAR_INPUT
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
-                refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
-                MAP_HW_ID           :   INT;                        //  Hardware identifier of the module acces point submodule 
+                // refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
+                refTelegram750_In   :   REF_TO WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
+                MAP_HW_ID           :   ULINT;                      //  Hardware identifier of the module acces point submodule 
                 AxisRef             :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
             END_VAR
 
@@ -256,8 +260,9 @@ NAMESPACE AXOpen.Components.Festo.Drives
             AxisRef^.Telegram111_In.Reserved.%B1                               := refTelegram111_In^[22];
             AxisRef^.Telegram111_In.Reserved.%B0                               := refTelegram111_In^[23];
             //M_Actual 
-            AxisRef^.Telegram750_In.M_Actual.%B1                               := refTelegram750_In^[0];
-            AxisRef^.Telegram750_In.M_Actual.%B0                               := refTelegram750_In^[1];
+            // AxisRef^.Telegram750_In.M_Actual.%B1                               := refTelegram750_In^[0];
+            // AxisRef^.Telegram750_In.M_Actual.%B0                               := refTelegram750_In^[1];
+            AxisRef^.Telegram750_In.M_Actual                                   := TO_INT(refTelegram750_In^);
             //MAP_HW_ID
             AxisRef^.Data.MAP_HW_ID := MAP_HW_ID;
         END_METHOD   
