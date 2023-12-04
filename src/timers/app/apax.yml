@@ -16,4 +16,7 @@ scripts:
   download:
     - apax install
     - apax build
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r
+installStrategy: strict
+apaxVersion: 3.0.0

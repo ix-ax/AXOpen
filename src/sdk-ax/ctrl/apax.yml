@@ -1,4 +1,4 @@
-name: "@ix-ax/ax-sdk"
+name: "ax-sdk"
 version: '0.0.0-dev.0'
 type: generic
 # targets:
@@ -18,3 +18,5 @@ dependencies:
   "@ax/target-llvm": 6.0.146
   "@ax/target-mc7plus": 6.0.146
   "@ax/simatic-pragma-stc-plugin": 2.0.12
+installStrategy: strict
+apaxVersion: 3.0.0

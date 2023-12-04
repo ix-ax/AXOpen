@@ -57,17 +57,37 @@ if (Test-Path $vsWhere) {
 $isApaxInstalled = $false
 try {
     $apaxVersion = (apax --version).Trim()
-    if ($apaxVersion -eq "2.0.0") {
-        Write-Host "Apax 2.0.0 detected." -ForegroundColor Green
+    if ($apaxVersion -eq "3.0.0") {
+        Write-Host "Apax 3.0.0 detected." -ForegroundColor Green
         $isApaxInstalled = $true;
     } else {
-        Write-Host "Apax version mismatch. Expected 2.0.0 but found $apaxVersion." -ForegroundColor Red
+        Write-Host "Apax version mismatch. Expected 3.0.0 but found $apaxVersion." -ForegroundColor Red
         Write-Host "Run apax self-update $apaxVersion." -ForegroundColor Red
     }
 } catch {
     Write-Host "Apax is not installed or not found in PATH. You need to have valid SIMATIC-AX license." -ForegroundColor Red
 }
 
+
+# Define the command to get the version
+$command = "axcode --version"
+
+# Define the expected version
+$expectedVersion = "1.79.2"
+
+# Execute the command and capture the output
+try {
+    $version = Invoke-Expression $command
+    
+    # Compare the retrieved version with the expected version
+    if ($version -eq $expectedVersion) {
+        Write-Host "The AXCode version matches the expected version: $expectedVersion" -ForegroundColor Green
+    } else {
+        Write-Host "The AXCode version does not match the expected version: $expectedVersion" -ForegroundColor Red
+    }
+} catch {
+    Write-Host "Error: Unable to determine the AXCode version. Ensure AXCode is correctly installed and accessible from the command line."
+}
 
 $feedUrl = "https://nuget.pkg.github.com/ix-ax/index.json"
 
