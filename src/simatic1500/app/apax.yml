@@ -13,8 +13,14 @@ devDependencies:
 dependencies:
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
   "@ix-ax/axopen.core": '0.0.0-dev.0'
+  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
+  "@ix-ax/axopen.timers": '0.0.0-dev.0'
+  "@ax/simatic-1500-clocks": ^6.0.37
 scripts:
   download:
     - apax install
     - apax build
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r
+installStrategy: strict
+apaxVersion: 3.0.0

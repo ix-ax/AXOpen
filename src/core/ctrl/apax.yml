@@ -7,7 +7,7 @@ files:
   - src
   - axsharp.companion.json
 devDependencies:
-   "ax-sdk": '0.0.0-dev.0'
+  "@ix-ax/ax-sdk": 0.0.0-dev.0
 scripts:
   postbuild:
     - dotnet ixc
@@ -16,5 +16,5 @@ dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
 publicKeys:
   "@ix-ax": 30c06ef7830b4dfd8f16e003508da1ac2d187714d0e1f38279a9332cbe4e4e17
-installStrategy: strict
+installStrategy: overridable
 apaxVersion: 3.0.0

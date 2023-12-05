@@ -14,5 +14,11 @@ scripts:
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.components.drives": '0.0.0-dev.0'
+  "@ix-ax/axopen.timers": '0.0.0-dev.0'
+  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.core": '0.0.0-dev.0'
   "@ax/system-bitaccess": ^6.0.94
+  "@ax/system-math": ^6.0.94
+  "@ax/system-strings": ^6.0.94
+installStrategy: strict
+apaxVersion: 3.0.0

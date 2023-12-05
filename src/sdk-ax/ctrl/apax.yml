@@ -1,22 +1,24 @@
-name: "ax-sdk"
-version: '0.0.0-dev.0'
+name: "@ix-ax/ax-sdk"
+version: 0.0.0-dev.0
 type: generic
 # targets:
 #   - '1500'
 files:
   - apax.yml
 dependencies:
-  "@ax/axunitst": 4.1.8
-  "@ax/mod": 1.0.4
-  "@ax/mon": 1.0.4
-  "@ax/sdb": 1.0.4
-  "@ax/sld": 2.0.5
-  #<- "@ax/st": 4.0.12
-  "@ax/stc": 6.0.146
-  "@ax/apax-build": 0.7.0
-  #-> "@ax/st": 4.0.12
-  "@ax/target-llvm": 6.0.146
-  "@ax/target-mc7plus": 6.0.146
-  "@ax/simatic-pragma-stc-plugin": 2.0.12
+  "@ax/sdk": ^2311.0.1
+  # "@ax/axunitst": 4.1.8
+  # "@ax/mod": 1.0.4
+  # "@ax/mon": 1.0.4
+  # "@ax/sdb": 1.0.4
+  # "@ax/sld": 2.0.5
+  # #<- "@ax/st": 4.0.12
+  # "@ax/stc": 6.0.146
+  # #"@ax/stc": 5.4.98
+  # "@ax/apax-build": 0.7.0
+  # #-> "@ax/st": 4.0.12
+  # "@ax/target-llvm": 6.0.146
+  # "@ax/target-mc7plus": 6.0.146
+  # "@ax/simatic-pragma-stc-plugin": 2.0.12
 installStrategy: strict
 apaxVersion: 3.0.0

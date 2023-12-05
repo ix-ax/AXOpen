@@ -11,12 +11,17 @@ variables:
 devDependencies:
   "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
-  "@ix-ax/axopen.components.elements" : '0.0.0-dev.0'
+  "@ix-ax/axopen.components.elements": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
+  "@ix-ax/axopen.core": '0.0.0-dev.0'
+  "@ix-ax/axopen.timers": '0.0.0-dev.0'
+  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
 scripts:
   download:
     - apax install -L
     - apax build
     - dotnet ixc
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
-  
-
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r
+installStrategy: strict
+apaxVersion: 3.0.0

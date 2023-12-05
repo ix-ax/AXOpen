@@ -12,6 +12,8 @@ devDependencies:
   "@ax/sld": 2.0.5
 dependencies:
   "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
+  "@ix-ax/axopen.timers": '0.0.0-dev.0'
+  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.core": '0.0.0-dev.0'
 scripts:
   download:
@@ -20,3 +22,5 @@ scripts:
     - dotnet ixc
     - apax sld -i $AXTARGETPLATFORMINPUT -t $AXTARGET
       --accept-security-disclaimer --default-server-interface -r
+installStrategy: strict
+apaxVersion: 3.0.0

@@ -22,5 +22,7 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\..\src\AXOpen.Utils\ix_ax_axopen_utils.csproj" />
 	  <ProjectReference Include="..\..\..\core\src\AXOpen.Core\ix_ax_axopen_core.csproj" />
+	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
+	  <ProjectReference Include="..\..\..\abstractions\src\AXOpen.Abstractions\ix_ax_axopen_abstractions.csproj" />
 	</ItemGroup>
 </Project>
