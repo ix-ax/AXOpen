@@ -94,6 +94,7 @@ public static class Roles
             new Role(can_run_automat_mode),
             new Role(can_run_service_mode),
             new Role(can_skip_steps_in_sequence),
+            new Role(can_debug_components),
         };
 
         return roles;
@@ -105,4 +106,5 @@ public static class Roles
     public const string process_settings_access = nameof(process_settings_access);
     public const string process_traceability_access = nameof(process_traceability_access);
     public const string can_skip_steps_in_sequence = nameof(can_skip_steps_in_sequence);
+    public const string can_debug_components = nameof(can_debug_components);
 }

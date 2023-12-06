@@ -2,35 +2,49 @@ name: "app_axopen.components.festo.drives"
 version: 0.0.0
 type: app
 targets:
-  - plcsim
-  - axunit-llvm
+  #- plcsim
+  #- llvm
   - "1500"
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ax/sdk": 4.0.12
-  "@ax/sld": 0.15.9
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
+  "@ix-ax/axopen.core": '0.0.0-dev.0'
+  "@ix-ax/axopen.timers": '0.0.0-dev.0'
+  "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
   "@ix-ax/axopen.components.festo.drives": '0.0.0-dev.0'
   "@ix-ax/axopen.simatic1500": '0.0.0-dev.0'
-  "@ax/simatic-1500-distributedio": ^5.0.20
+  "@ix-ax/axopen.components.abstractions": '0.0.0-dev.0'
+  "@ix-ax/axopen.components.drives": '0.0.0-dev.0'
+  "@ax/system-bitaccess": ^6.0.94
+  "@ax/simatic-1500-clocks": ^6.0.37
+  "@ax/simatic-1500-distributedio": ^6.0.3
+  "@ax/system-strings": ^6.0.94
 scripts:
+  delta:
+    - START=$(date +%s)
+    - apax build --ignore-scripts
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT --mode delta
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
   download:
-    - apax install
-    - apax build
+    - START=$(date +%s)
+    - apax build --ignore-scripts
     - dotnet ixc
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
+    - apax download_only
+    - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
+      :" $(expr $(date +%s) - $START) "s"
   ixc:
     - START=$(date +%s)
     - dotnet tool restore
     - dotnet ixc
     - echo "Built by ixc in :" $(expr $(date +%s) - $START) "s"
   download_only:
-    - START=$(date +%s)
-    - apax sld --accept-security-disclaimer -t $AXTARGET -i
-      $AXTARGETPLATFORMINPUT -r --default-server-interface -l Debug
-    - echo "Downloaded in :" $(expr $(date +%s) - $START) "s"
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r
   check+download: |
     if [ $AXTARGET ]; then
       if [ $AXTARGETPLATFORMINPUT ]; then
@@ -60,9 +74,7 @@ scripts:
   rr:
     - START=$(date +%s)
     - apax install
-    - apax build
-    - apax ixc
-    - apax download_only
+    - apax download
     - echo $(date +%D)"-"$(date +%H)":"$(date +%M)":"$(date +%S) " - Finished in
       :" $(expr $(date +%s) - $START) "s"
   rrw:
@@ -71,3 +83,5 @@ scripts:
   r:
     - apax plc-mode set stop -t $AXTARGET -y
     - apax plc-mode set run -t $AXTARGET -y
+installStrategy: strict
+apaxVersion: 3.0.0

@@ -4,9 +4,10 @@
   "DataEntityId": "AdminGroup",
   "Name": "AdminGroup",
   "Roles": [
-    "Administrator"
+    "Administrator",
+    "can_debug_components"
   ],
-  "RolesHash": "AQAAAAIAAYagAAAAEFMQB6OKJ9h2absnop3/241eQ1r0ZKSeKhZ+bKAj028Jt2GjYGXLJF/j94ExpkZt1Q==",
+  "RolesHash": "AQAAAAIAAYagAAAAEPaLCIulyHeEnWkzTpIx9cyQDD5MmYbJKbrH6E5HXOAcBPmEMChTA6gZiWs0wPwZSw==",
   "Created": "2023-10-03T11:15:37.5601334+02:00",
-  "Modified": "2023-10-03T11:15:37.7766974+02:00"
+  "Modified": "2023-12-06T19:21:17.1406424+01:00"
 }

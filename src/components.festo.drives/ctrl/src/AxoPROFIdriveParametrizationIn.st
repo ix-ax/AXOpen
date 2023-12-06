@@ -15,7 +15,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             {#ix-set:AttributeName = "<#Subindex#>"}
             Subindex        :   INT;
             {#ix-set:AttributeName = "<#AxisNo#>"}
-            AxisNo	        :   BYTE;
+            AxisNo	        :   BYTE := BYTE#1;
             {#ix-set:AttributeName = "<#HardwareId#>"}
             HardwareId	    :   WORD;    
             {#ix-set:AttributeName = "<#ValueWriteREAL#>"}

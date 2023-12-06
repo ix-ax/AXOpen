@@ -260,14 +260,16 @@ NAMESPACE AXOpen.Components.Festo.Drives
         VAR PUBLIC
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Positioning-Experts only")]}
+            {#ix-attr:[DisplayRole("can_debug_components")]}
             Positioning         :   AxoCmmtAsPtP_Positioning;
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Positioning-Experts only")]}
+            {#ix-attr:[DisplayRole("can_debug_components")]}
             State           :   UINT; 
-
 
             {#ix-attr:[Container(Layout.Wrap)]}
             {#ix-attr:[ComponentDetails("Parametrization-Experts only")]}
+            {#ix-attr:[DisplayRole("can_debug_components")]}
             {#ix-attr:[Group(GroupLayout.GroupBox)]}
             {#ix-set:AttributeName = "<#Parametrization#>"}
             Parametrization : AxoReadWritePROFIdriveParameter;
@@ -589,7 +591,8 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
 
         METHOD PRIVATE Execute
-            //********************INITIALIZATION**************//          
+            //********************INITIALIZATION**************//        
+            RestoreTask.Initialize(THIS);
             Stop_Task.Initialize(THIS);
             Home_Task.Initialize(THIS);
             MoveAbsolute_Task.Initialize(THIS);
@@ -599,7 +602,13 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Reset_Task.Initialize(THIS);
             JogPositive_Task.Initialize(THIS);
             JogNegative_Task.Initialize(THIS);
-            //*************************************************//          
+            //*************************************************//       
+            //********************RESTORE**********************//          
+            IF RestoreTask.Execute() THEN
+                THIS.Restore();
+                RestoreTask.DoneWhen(TRUE);
+            END_IF;
+            //*************************************************//                 
             //********************STOP*************************//          
             IF Stop_Task.Execute() THEN
                 Positioning.Inputs.Jog1 := FALSE;
@@ -615,85 +624,104 @@ NAMESPACE AXOpen.Components.Festo.Drives
             Stop_Error := Stop_Task.HasError();
             //*************************************************//         
             //********************HOME*************************//          
+            Home_Task.SetIsDisabled(Stop_Busy OR MoveAbsolute_Busy OR MoveRelative_Busy OR TravelToFixStop_Busy);
             IF Home_Task.Execute() THEN
                 IF State = UINT#0 THEN
                     Positioning.Inputs.EnableAxis := TRUE;
-                    Positioning.Inputs.ModePos := 4;
-                    Positioning.Inputs.IntermediateStop := TRUE;
-                    Positioning.Inputs.ExecuteMode := TRUE;
                     Positioning.Inputs.TravelToFixStop := FALSE;
-                    IF Positioning.Outputs.AxisAckSetpoint THEN    
+                    IF Positioning.Outputs.AxisEnabled AND NOT Positioning.Outputs.ClampTorqueReached THEN
                         State := UINT#10;
                     END_IF;
                 END_IF;
                 IF State = UINT#10 THEN
-                    Positioning.Inputs.ExecuteMode := FALSE;
-                    Home_Task.DoneWhen(Positioning.Outputs.AxisRef);
-                    Home_Task.ThrowWhen(Positioning.Outputs.AxisError);
-                    IF Home_Task.IsDone() OR Home_Task.HasError() THEN
-                        State := UINT#0;
+                    Positioning.Inputs.ModePos := 4;
+                    Positioning.Inputs.IntermediateStop := TRUE;
+                    Positioning.Inputs.ExecuteMode := TRUE;
+                    IF NOT Positioning.Outputs.AxisSpFixed THEN    
+                        State := UINT#20;
                     END_IF;
                 END_IF;
+                IF State = UINT#20 THEN
+                    Home_Task.DoneWhen(Positioning.Outputs.AxisRef);
+                END_IF;
+                Home_Task.ThrowWhen(Positioning.Outputs.AxisError);
+            END_IF;
+            IF Home_Task.DoneReached() OR Home_Task.RestoreTriggered() THEN
+                Positioning.Inputs.ExecuteMode := FALSE;
+                State := UINT#0;
             END_IF;
             Home_Done  := Home_Task.IsDone();
             Home_Busy  := Home_Task.IsBusy();
             Home_Error := Home_Task.HasError();
             //*************************************************//         
             //********************MOVE ABSOLUTE****************//          
+            MoveAbsolute_Task.SetIsDisabled(Stop_Busy OR Home_Busy OR MoveRelative_Busy OR TravelToFixStop_Busy OR NOT Positioning.Outputs.AxisRef);
             IF MoveAbsolute_Task.Execute() THEN
                 IF State = UINT#0 THEN
                     Positioning.Inputs.EnableAxis := TRUE;
+                    Positioning.Inputs.TravelToFixStop := FALSE;
+                    IF Positioning.Outputs.AxisEnabled AND NOT Positioning.Outputs.ClampTorqueReached THEN
+                        State := UINT#10;
+                    END_IF;
+                END_IF;
+                IF State = UINT#10 THEN
                     Positioning.Inputs.ModePos := 2;
                     Positioning.Inputs.Position := TO_DINT(MoveAbsolute_Position * PositionScaling);
                     Positioning.Inputs.Velocity := TO_DINT(MoveAbsolute_Velocity);
                     Positioning.Inputs.IntermediateStop := TRUE;
                     Positioning.Inputs.ExecuteMode := TRUE;
-                    Positioning.Inputs.TravelToFixStop := FALSE;
                     IF Positioning.Outputs.AxisAckSetpoint THEN    
-                        State := UINT#10;
+                        State := UINT#20;
                     END_IF;
                 END_IF;
-                IF State = UINT#10 THEN
-                    Positioning.Inputs.ExecuteMode := FALSE;
+                IF State = UINT#20 THEN
                     MoveAbsolute_Task.DoneWhen(Positioning.Outputs.AxisPosOk);
-                    MoveAbsolute_Task.ThrowWhen(Positioning.Outputs.AxisError);
-                    IF MoveAbsolute_Task.IsDone() OR MoveAbsolute_Task.HasError() THEN
-                        State := UINT#0;
-                    END_IF;
                 END_IF;
+                MoveAbsolute_Task.ThrowWhen(Positioning.Outputs.AxisError);
+            END_IF;
+            IF MoveAbsolute_Task.DoneReached() OR MoveAbsolute_Task.RestoreTriggered() THEN
+                Positioning.Inputs.ExecuteMode := FALSE;
+                State := UINT#0;
             END_IF;
             MoveAbsolute_Done  := MoveAbsolute_Task.IsDone();
             MoveAbsolute_Busy  := MoveAbsolute_Task.IsBusy();
             MoveAbsolute_Error := MoveAbsolute_Task.HasError();
             //*************************************************//         
             //********************MOVE RELATIVE****************//          
+            MoveRelative_Task.SetIsDisabled(Stop_Busy OR Home_Busy OR MoveAbsolute_Busy OR TravelToFixStop_Busy);
             IF MoveRelative_Task.Execute() THEN
                 IF State = UINT#0 THEN
                     Positioning.Inputs.EnableAxis := TRUE;
+                    Positioning.Inputs.TravelToFixStop := FALSE;
+                    IF Positioning.Outputs.AxisEnabled AND NOT Positioning.Outputs.ClampTorqueReached THEN
+                        State := UINT#10;
+                    END_IF;
+                END_IF;
+                IF State = UINT#10 THEN
                     Positioning.Inputs.ModePos := 1;
                     Positioning.Inputs.Position := TO_DINT(MoveRelative_Distance * PositionScaling);
                     Positioning.Inputs.Velocity := TO_DINT(MoveRelative_Velocity);
                     Positioning.Inputs.IntermediateStop := TRUE;
                     Positioning.Inputs.ExecuteMode := TRUE;
-                    Positioning.Inputs.TravelToFixStop := FALSE;
                     IF Positioning.Outputs.AxisAckSetpoint THEN    
-                        State := UINT#10;
+                        State := UINT#20;
                     END_IF;
                 END_IF;
-                IF State = UINT#10 THEN
-                    Positioning.Inputs.ExecuteMode := FALSE;
+                IF State = UINT#20 THEN
                     MoveRelative_Task.DoneWhen(Positioning.Outputs.AxisPosOk);
-                    MoveRelative_Task.ThrowWhen(Positioning.Outputs.AxisError);
-                    IF MoveRelative_Task.IsDone() OR MoveRelative_Task.HasError() THEN
-                        State := UINT#0;
-                    END_IF;
                 END_IF;
+                MoveRelative_Task.ThrowWhen(Positioning.Outputs.AxisError);
+            END_IF;
+            IF MoveRelative_Task.DoneReached() OR MoveRelative_Task.RestoreTriggered() THEN
+                Positioning.Inputs.ExecuteMode := FALSE;
+                State := UINT#0;
             END_IF;
             MoveRelative_Done  := MoveRelative_Task.IsDone();
             MoveRelative_Busy  := MoveRelative_Task.IsBusy();
             MoveRelative_Error := MoveRelative_Task.HasError();
             //*************************************************//         
             //********************TravelToFixStop**************//          
+            TravelToFixStop_Task.SetIsDisabled(Stop_Busy OR Home_Busy OR MoveAbsolute_Busy OR MoveRelative_Busy OR NOT Positioning.Outputs.AxisRef);
             IF TravelToFixStop_Task.Execute() THEN
                 //Set torque
                 IF State = UINT#0 THEN
@@ -714,9 +742,14 @@ NAMESPACE AXOpen.Components.Festo.Drives
                         State := UINT#20;
                     END_IF;
                     TravelToFixStop_Task.ThrowWhen(Parametrization.Outputs.Error);
-                //Start movement
+                //Enable axis
                 ELSIF State = UINT#20 THEN
                     Positioning.Inputs.EnableAxis := TRUE;
+                    IF Positioning.Outputs.AxisEnabled THEN
+                        State := UINT#30;
+                    END_IF;
+                //Start movement
+                ELSIF State = UINT#30 THEN
                     Positioning.Inputs.ModePos := 2;
                     Positioning.Inputs.Position := TO_DINT(TravelToFixStop_Position * PositionScaling);
                     Positioning.Inputs.Velocity := TO_DINT(TravelToFixStop_Velocity );
@@ -724,17 +757,17 @@ NAMESPACE AXOpen.Components.Festo.Drives
                     Positioning.Inputs.ExecuteMode := TRUE;
                     Positioning.Inputs.TravelToFixStop := TRUE;
                     IF Positioning.Outputs.AxisAckSetpoint THEN    
-                        State := UINT#30;
+                        State := UINT#40;
                     END_IF;
                 //Waiting for torque reached
-                ELSIF State = UINT#30 THEN
+                ELSIF State = UINT#40 THEN
                     TravelToFixStop_Task.DoneWhen(Positioning.Outputs.ClampTorqueReached);
-                    TravelToFixStop_Task.ThrowWhen(Positioning.Outputs.AxisError OR Positioning.Outputs.AxisPosOk AND  TravelToFixStop_Task.Duration >= T#1s);
-                    Positioning.Inputs.ExecuteMode := FALSE;
-                    IF TravelToFixStop_Task.IsDone() OR TravelToFixStop_Task.HasError() THEN
-                        State := UINT#0;
-                    END_IF;
                 END_IF;
+                TravelToFixStop_Task.ThrowWhen(Positioning.Outputs.AxisError OR Positioning.Outputs.AxisPosOk AND  TravelToFixStop_Task.Duration >= T#1s);
+            END_IF;
+            IF TravelToFixStop_Task.DoneReached() OR TravelToFixStop_Task.RestoreTriggered() THEN
+                Positioning.Inputs.ExecuteMode := FALSE;
+                State := UINT#0;
             END_IF;
             TravelToFixStop_Done  := TravelToFixStop_Task.IsDone();
             TravelToFixStop_Busy  := TravelToFixStop_Task.IsBusy();
