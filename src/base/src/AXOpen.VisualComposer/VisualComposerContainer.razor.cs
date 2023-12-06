@@ -13,7 +13,8 @@ namespace AXOpen.VisualComposer
 
         public string? ImgSrc { get; set; }
 
-        public string Id { get; set; }
+        [Parameter]
+        public string? Id { get; set; }
 
         private Guid _imgId = Guid.NewGuid();
 
@@ -23,12 +24,17 @@ namespace AXOpen.VisualComposer
 
         public string FileName { get; set; } = "";
 
+        public string? CurrentTemplate { get; set; } = null;
+
         protected override void OnInitialized()
         {
-            Id = "";
-            foreach(ITwinObject obj in Objects)
+            if(Id is null || Id == "")
             {
-                Id += obj.Symbol.ModalIdHelper();
+                Id = "";
+                foreach (ITwinObject obj in Objects)
+                {
+                    Id += obj.Symbol.ModalIdHelper();
+                }
             }
         }
 
@@ -77,8 +83,16 @@ namespace AXOpen.VisualComposer
             StateHasChanged();
         }
 
-        public void Save(string fileName = "Default")
+        public void Save(string? fileName = null)
         {
+            if (fileName is null || fileName == "")
+            {
+                if(CurrentTemplate is null || CurrentTemplate == "")
+                    fileName = "Default";
+                else
+                    fileName = CurrentTemplate;
+            }
+
             foreach (char c in Path.GetInvalidFileNameChars().Concat(Path.GetInvalidPathChars()))
             {
                 fileName = fileName.Replace(c, '_');
@@ -125,6 +139,9 @@ namespace AXOpen.VisualComposer
                     });
                 }
             }
+
+            CurrentTemplate = fileName;
+
             StateHasChanged();
         }
 
@@ -211,12 +228,15 @@ namespace AXOpen.VisualComposer
                 if(!Directory.Exists("wwwroot/Images/"))
                     Directory.CreateDirectory("wwwroot/Images/");
 
-                string newName = Guid.NewGuid().ToString() + Path.GetExtension(e.File.Name);
+                string newName = CurrentTemplate + Path.GetExtension(e.File.Name);
 
-                await using FileStream fs = new("wwwroot/Images/" + newName, FileMode.Create);
+                if (!Directory.Exists("wwwroot/Images/VisualComposerSerialize/" + Id))
+                    Directory.CreateDirectory("wwwroot/Images/VisualComposerSerialize/" + Id);
+
+                await using FileStream fs = new("wwwroot/Images/VisualComposerSerialize/" + Id + "/" + newName, FileMode.Create);
                 await e.File.OpenReadStream().CopyToAsync(fs);
 
-                ImgSrc = "Images/" + newName;
+                ImgSrc = "Images/VisualComposerSerialize/" + Id + "/" + newName;
 
                 isFileImported = true;
             }

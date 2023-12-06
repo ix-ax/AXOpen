@@ -8,6 +8,31 @@
             {
                 <img id="@_imgId" src="@ImgSrc" style="width: 100%; height: 100%; object-fit: cover;" />
             }
+
+            <div class="dropdown position-absolute" style="left: 97%; top: 0%; translate: -100% -50%;">
+                <a class="dropdown-toggle text-decoration-none text-black" style="cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id">Show all</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllPrimitivesModal-@Id">Show all primitives</a></li>
+                    <li><a class="dropdown-item" @onclick="() => Save()">Save</a></li>
+                    <li><a class="dropdown-item" @onclick='() => Save("Default")'>Save as default</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#saveAsModal-@Id">Save as</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#templatesModal-@Id">Templates</a></li>
+                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#setImageModal-@Id">Set image</a></li>
+                </ul>
+            </div>
+
+            <div class="position-absolute" style="left: 90%; top: 0%; translate: -100% -50%;">
+                <select class="form-select w-auto" @onchange="(ChangeEventArgs args) => Load(args.Value.ToString())">
+                    @foreach (var item in GetAllFiles())
+                    {
+                        <option value="@item" selected="@((item == "Default") ? "selected" : null)">@item</option>
+                    }
+                </select>
+            </div>
+
             <CascadingValue Value="@this" Name="Parent" IsFixed="true">
                 <CascadingValue Value="@_imgId" Name="ImgId" IsFixed="true">
                     @foreach (VisualComposerItem child in _children)
@@ -16,29 +41,6 @@
                     }
                 </CascadingValue>
             </CascadingValue>
-
-            <div class="dropdown">
-                <a class="position-absolute dropdown-toggle text-decoration-none text-black" style="left: 97%; top: 100%; translate: -100% -50%; cursor: pointer;" data-bs-toggle="dropdown" aria-expanded="false">
-                    <span class="bi bi-pencil-square fs-4" aria-hidden="true" />
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllModal-@Id">Show all</a></li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#showAllPrimitivesModal-@Id">Show all primitives</a></li>
-                    <li><a class="dropdown-item" @onclick="() => Save()">Save as default</a></li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#saveAsModal-@Id">Save as</a></li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#removeModal-@Id">Remove</a></li>
-                    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#imageModal-@Id">Image</a></li>
-                </ul>
-            </div>
-
-            <div class="position-absolute" style="left: 90%; top: 100%; translate: -100% -50%;">
-                <select class="form-select w-auto" @onchange="(ChangeEventArgs args) => Load(args.Value.ToString())">
-                    @foreach (var item in GetAllFiles())
-                    {
-                        <option value="@item" selected="@((item == "Default") ? "selected" : null)">@item</option>
-                    }
-                </select>
-            </div>
         </div>
 
         <div class="modal fade" id="showAllModal-@Id" tabindex="-1" aria-hidden="true">
@@ -149,11 +151,11 @@
             </div>
         </div>
 
-        <div class="modal fade" id="removeModal-@Id" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="templatesModal-@Id" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Remove template</h1>
+                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Templates</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body justify-content-center">
@@ -171,11 +173,11 @@
             </div>
         </div>
 
-        <div class="modal fade" id="imageModal-@Id" tabindex="-1" aria-hidden="true">
+        <div class="modal fade" id="setImageModal-@Id" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Background image</h1>
+                        <h1 class="modal-title fs-5" id="alarmsviewTitle">Set background image</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body justify-content-center">
