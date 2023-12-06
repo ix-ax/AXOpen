@@ -95,8 +95,15 @@ namespace AXOpen.VisualComposer
             double offsetX = startX - (ratioImgX / 100 * imageSize.Width);
             double offsetY = startY - (ratioImgY / 100 * imageSize.Height);
 
-            ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100);
-            ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);
+            if (imageSize.Width == 0)
+                ratioImgX = (args.ClientX - offsetX);
+            else
+                ratioImgX = ((args.ClientX - offsetX) / imageSize.Width * 100);
+
+            if (imageSize.Height == 0)
+                ratioImgY = (args.ClientY - offsetY);
+            else
+                ratioImgY = ((args.ClientY - offsetY) / imageSize.Height * 100);
 
             StateHasChanged();
         }
