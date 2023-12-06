@@ -38,26 +38,214 @@ NAMESPACE AXOpen.Components.Festo.Drives
             statStartCounter	    :   INT;
             stat_ActMode	        :   INT;
             stat_MaxCounterRetries	:   INT;
-            
+            // State           :   UINT; 
         END_VAR
     
-        VAR PUBLIC
+        VAR PUBLIC  //HEADER
             {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Positioning")]}
-            Positioning         :   AxoCmmtAsPtP_Positioning;
-
-            {#ix-attr:[Container(Layout.Wrap)]}
-            {#ix-attr:[ComponentDetails("Parametrization")]}
-            {#ix-attr:[Group(GroupLayout.GroupBox)]}
-            {#ix-set:AttributeName = "<#Parametrization#>"}
-            Parametrization : AxoReadWritePROFIdriveParameter;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Position#>"}
+            ActualPosition          :   LREAL;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Velocity#>"}
+            ActualVelocity          :   LREAL;
+            {#ix-attr:[ComponentHeader()]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#Torque#>"}
+            ActualTorque          :   LREAL;
         END_VAR
+        VAR PUBLIC //TASKS
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Restore#>"}
+            RestoreTask : AXOpen.Core.AxoTask;
+            //***********Stop*********************************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Stop task#>"}
+            Stop_Task                            :   AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Stop done#>"}
+            {#ix-attr:[ReadOnly()]}
+            Stop_Done                            :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Stop busy#>"}
+            {#ix-attr:[ReadOnly()]}
+            Stop_Busy                            :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Stop error#>"}
+            {#ix-attr:[ReadOnly()]}
+            Stop_Error                           :   BOOL;                   
+            //***********Home*********************************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Homming task#>"}
+            Home_Task                            :   AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Home done#>"}
+            {#ix-attr:[ReadOnly()]}
+            Home_Done                            :   BOOL;
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Home busy#>"}
+            {#ix-attr:[ReadOnly()]}
+            Home_Busy                            :   BOOL;
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Home error#>"}
+            {#ix-attr:[ReadOnly()]}
+            Home_Error                          :   BOOL;
+            //***********MoveAbsolute*************************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move absolute task#>"}
+            MoveAbsolute_Task                    :   AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move absolute position#>"}
+            MoveAbsolute_Position                :   LREAL   :=  0.0;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move absolute velocity#>"}
+            MoveAbsolute_Velocity                :   LREAL   :=  1.0;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move absolute done#>"}
+            {#ix-attr:[ReadOnly()]}
+            MoveAbsolute_Done                    :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move absolute busy#>"}
+            {#ix-attr:[ReadOnly()]}
+            MoveAbsolute_Busy                    :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move absolute error#>"}
+            {#ix-attr:[ReadOnly()]}
+            MoveAbsolute_Error                   :   BOOL;                   
+            //***********MoveRelative*************************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move relative task#>"}
+            MoveRelative_Task                    :   AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move relative distance#>"}
+            MoveRelative_Distance                :   LREAL   :=  0.0;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move relative velocity#>"}
+            MoveRelative_Velocity                :   LREAL   :=  1.0;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move relative done#>"}
+            {#ix-attr:[ReadOnly()]}
+            MoveRelative_Done                    :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move relative busy#>"}
+            {#ix-attr:[ReadOnly()]}
+            MoveRelative_Busy                    :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Move relative error#>"}
+            {#ix-attr:[ReadOnly()]}
+            MoveRelative_Error                   :   BOOL;    
+            //***********TravelToFixStop*************************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Travel to fix stop task#>"}
+            TravelToFixStop_Task                    :   AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Travel to fix stop position#>"}
+            TravelToFixStop_Position                :   LREAL   :=  0.0;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Travel to fix stop velocity#>"}
+            TravelToFixStop_Velocity                :   LREAL   :=  1.0;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Travel to fix stop torque#>"}
+            TravelToFixStop_Torque                :   LREAL   :=  0.0;
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Travel to fix stop done#>"}
+            {#ix-attr:[ReadOnly()]}
+            TravelToFixStop_Done                    :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Travel to fix stop busy#>"}
+            {#ix-attr:[ReadOnly()]}
+            TravelToFixStop_Busy                    :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Discrete motion")]}
+            {#ix-set:AttributeName = "<#Travel to fix stop error#>"}
+            {#ix-attr:[ReadOnly()]}
+            TravelToFixStop_Error                   :   BOOL;    
+            //***********SetOverride**************************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Set override task#>"}
+            SetOverride_Task                     :   AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Set override velocity factor#>"}
+            SetOverride_VelFactor                :   LREAL   :=  100.0;                     
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Set override acceleration factor#>"}
+            SetOverride_AccFactor                :   LREAL   :=  100.0;                     
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Set override deceleration factor#>"}
+            SetOverride_DecFactor               :   LREAL   :=  100.0;        
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Set override done#>"}
+            {#ix-attr:[ReadOnly()]}
+            SetOverride_Done                  :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Set override busy#>"}
+            {#ix-attr:[ReadOnly()]}
+            SetOverride_Busy                     :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Set override error#>"}
+            {#ix-attr:[ReadOnly()]}
+            SetOverride_Error                    :   BOOL;                   
+            //***********Reset********************************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Reset task#>"}
+            Reset_Task                           :   AXOpen.Core.AxoTask;
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Reset done#>"}
+            {#ix-attr:[ReadOnly()]}
+            Reset_Done                           :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Reset busy#>"}
+            {#ix-attr:[ReadOnly()]}
+            Reset_Busy                           :   BOOL;                   
+            {#ix-attr:[ComponentDetails("Administrative")]}
+            {#ix-set:AttributeName = "<#Reset error#>"}
+            {#ix-attr:[ReadOnly()]}
+            Reset_Error                          :   BOOL;                   
+            //***********Jog**********************************
+            {#ix-attr:[Container(Layout.UniformGrid)]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]} 
+            {#ix-attr:[ComponentDetails("Jog")]}
+            {#ix-set:AttributeName = "<#Jog positive#>"}
+            JogPositive_Task                          :   AXOpen.Core.AxoMomentaryTask;
+            {#ix-attr:[ComponentDetails("Jog")]}
+            {#ix-set:AttributeName = "<#Jog negative#>"}
+            JogNegative_Task                          :   AXOpen.Core.AxoMomentaryTask;
+        END_VAR
+
 
         VAR PUBLIC //CONFIG
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-attr:[ComponentDetails("Config")]}
             {#ix-attr:[ReadOnly()]}
-            DriveConfig         :   AxoDrive_Config;
+            {#ix-set:AttributeName = "<#PositionScaling#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite#>"}
+            PositionScaling         :   LREAL   :=  1000;
+            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-attr:[ReadOnly()]}
+            {#ix-set:AttributeName = "<#VelocityScaling#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite 1073741824.0/Base speed (P1.11280701.0.0)#>"}
+            VelocityScaling         :   LREAL   :=  1073741824.0;
+            {#ix-attr:[ComponentDetails("Config")]}
+            {#ix-set:AttributeName = "<#TorqueScaling#>"}
+            {#ix-set:AttributeToolTip = "<#Depends on the actual settings in the Festo Automation Suite (not yet discovered the proper formula :-) )#>"}
+            {#ix-attr:[ReadOnly()]}
+            TorqueScaling         :   LREAL   :=  1000;
         END_VAR
 
         VAR PUBLIC //STATUS
@@ -69,6 +257,22 @@ NAMESPACE AXOpen.Components.Festo.Drives
             TaskMessenger       :   AXOpen.Messaging.Static.AxoMessenger;
         END_VAR
         
+        VAR PUBLIC
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Positioning-Experts only")]}
+            Positioning         :   AxoCmmtAsPtP_Positioning;
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Positioning-Experts only")]}
+            State           :   UINT; 
+
+
+            {#ix-attr:[Container(Layout.Wrap)]}
+            {#ix-attr:[ComponentDetails("Parametrization-Experts only")]}
+            {#ix-attr:[Group(GroupLayout.GroupBox)]}
+            {#ix-set:AttributeName = "<#Parametrization#>"}
+            Parametrization : AxoReadWritePROFIdriveParameter;
+        END_VAR
+
 
         ///<summary>
         /// Runs tasks and logic of this component.
@@ -78,7 +282,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             VAR_INPUT
                 parent              :   IAxoObject; 
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
-                // refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram750_In   :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
                 refTelegram750_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 750 of this axis
@@ -105,7 +308,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             THIS.Open();
             THIS.UpdateInputs(refTelegram111_In := refTelegram111_In, refTelegram750_In := refTelegram750_In,MAP_HW_ID := MAP_HW_ID, AxisRef := REF(_AxisRef));
             THIS.Execute();
-            // THIS.UpdateStatus(_AxisRefExt);
+            THIS.UpdateStatus(REF(_AxisRef));
             THIS.UpdateOutputs(AxisRef := REF(_AxisRef), refTelegram111_Out := refTelegram111_Out, refTelegram750_Out := refTelegram750_Out);
             THIS.Close();    
         END_METHOD   
@@ -118,7 +321,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
             VAR_INPUT
                 parent              :   IAxoContext; 
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
-                // refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram750_In   :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 111 of this axis
                 refTelegram750_Out  :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the Profidrive telegram 750 of this axis
@@ -144,7 +346,7 @@ NAMESPACE AXOpen.Components.Festo.Drives
             THIS.Open();
             THIS.UpdateInputs(refTelegram111_In := refTelegram111_In, refTelegram750_In := refTelegram750_In,MAP_HW_ID := MAP_HW_ID, AxisRef := REF(_AxisRef));
             THIS.Execute();
-            // THIS.UpdateStatus(_AxisRefExt);
+            THIS.UpdateStatus(REF(_AxisRef));
             THIS.UpdateOutputs(AxisRef := REF(_AxisRef), refTelegram111_Out := refTelegram111_Out, refTelegram750_Out := refTelegram750_Out);
             THIS.Close();          
         END_METHOD   
@@ -152,7 +354,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PRIVATE AreValidReferences: BOOL
             VAR_INPUT
                 refTelegram111_In       :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter input data of the axis
-                // refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram750_In   :   REF_TO  WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram111_Out      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the parameter output data of the axis
                 refTelegram750_Out      :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the output data of the axis
@@ -183,7 +384,6 @@ NAMESPACE AXOpen.Components.Festo.Drives
         METHOD PRIVATE UpdateInputs : BOOL
             VAR_INPUT
                 refTelegram111_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 111 of this axis
-                // refTelegram750_In   :   REF_TO  ARRAY[*] OF BYTE;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 refTelegram750_In   :   REF_TO WORD;   //  Reference to the input data of the Profidrive telegram 750 of this axis
                 MAP_HW_ID           :   ULINT;                      //  Hardware identifier of the module acces point submodule 
                 AxisRef             :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
@@ -389,9 +589,189 @@ NAMESPACE AXOpen.Components.Festo.Drives
 
 
         METHOD PRIVATE Execute
+            //********************INITIALIZATION**************//          
+            Stop_Task.Initialize(THIS);
+            Home_Task.Initialize(THIS);
+            MoveAbsolute_Task.Initialize(THIS);
+            MoveRelative_Task.Initialize(THIS);
+            TravelToFixStop_Task.Initialize(THIS);
+            SetOverride_Task.Initialize(THIS);
+            Reset_Task.Initialize(THIS);
+            JogPositive_Task.Initialize(THIS);
+            JogNegative_Task.Initialize(THIS);
+            //*************************************************//          
+            //********************STOP*************************//          
+            IF Stop_Task.Execute() THEN
+                Positioning.Inputs.Jog1 := FALSE;
+                Positioning.Inputs.Jog2 := FALSE;
+                Positioning.Inputs.IntermediateStop := FALSE;
+                Positioning.Inputs.ExecuteMode := FALSE;
+                Positioning.Inputs.TravelToFixStop := FALSE;
+                Stop_Task.DoneWhen(_AxisRef.Telegram111_In.ZSW1.driveStopped);
+                Stop_Task.ThrowWhen(_AxisRef.Telegram111_In.ZSW1.faultPresent);
+            END_IF;
+            Stop_Done  := Stop_Task.IsDone();
+            Stop_Busy  := Stop_Task.IsBusy();
+            Stop_Error := Stop_Task.HasError();
+            //*************************************************//         
+            //********************HOME*************************//          
+            IF Home_Task.Execute() THEN
+                IF State = UINT#0 THEN
+                    Positioning.Inputs.EnableAxis := TRUE;
+                    Positioning.Inputs.ModePos := 4;
+                    Positioning.Inputs.IntermediateStop := TRUE;
+                    Positioning.Inputs.ExecuteMode := TRUE;
+                    Positioning.Inputs.TravelToFixStop := FALSE;
+                    IF Positioning.Outputs.AxisAckSetpoint THEN    
+                        State := UINT#10;
+                    END_IF;
+                END_IF;
+                IF State = UINT#10 THEN
+                    Positioning.Inputs.ExecuteMode := FALSE;
+                    Home_Task.DoneWhen(Positioning.Outputs.AxisRef);
+                    Home_Task.ThrowWhen(Positioning.Outputs.AxisError);
+                    IF Home_Task.IsDone() OR Home_Task.HasError() THEN
+                        State := UINT#0;
+                    END_IF;
+                END_IF;
+            END_IF;
+            Home_Done  := Home_Task.IsDone();
+            Home_Busy  := Home_Task.IsBusy();
+            Home_Error := Home_Task.HasError();
+            //*************************************************//         
+            //********************MOVE ABSOLUTE****************//          
+            IF MoveAbsolute_Task.Execute() THEN
+                IF State = UINT#0 THEN
+                    Positioning.Inputs.EnableAxis := TRUE;
+                    Positioning.Inputs.ModePos := 2;
+                    Positioning.Inputs.Position := TO_DINT(MoveAbsolute_Position * PositionScaling);
+                    Positioning.Inputs.Velocity := TO_DINT(MoveAbsolute_Velocity);
+                    Positioning.Inputs.IntermediateStop := TRUE;
+                    Positioning.Inputs.ExecuteMode := TRUE;
+                    Positioning.Inputs.TravelToFixStop := FALSE;
+                    IF Positioning.Outputs.AxisAckSetpoint THEN    
+                        State := UINT#10;
+                    END_IF;
+                END_IF;
+                IF State = UINT#10 THEN
+                    Positioning.Inputs.ExecuteMode := FALSE;
+                    MoveAbsolute_Task.DoneWhen(Positioning.Outputs.AxisPosOk);
+                    MoveAbsolute_Task.ThrowWhen(Positioning.Outputs.AxisError);
+                    IF MoveAbsolute_Task.IsDone() OR MoveAbsolute_Task.HasError() THEN
+                        State := UINT#0;
+                    END_IF;
+                END_IF;
+            END_IF;
+            MoveAbsolute_Done  := MoveAbsolute_Task.IsDone();
+            MoveAbsolute_Busy  := MoveAbsolute_Task.IsBusy();
+            MoveAbsolute_Error := MoveAbsolute_Task.HasError();
+            //*************************************************//         
+            //********************MOVE RELATIVE****************//          
+            IF MoveRelative_Task.Execute() THEN
+                IF State = UINT#0 THEN
+                    Positioning.Inputs.EnableAxis := TRUE;
+                    Positioning.Inputs.ModePos := 1;
+                    Positioning.Inputs.Position := TO_DINT(MoveRelative_Distance * PositionScaling);
+                    Positioning.Inputs.Velocity := TO_DINT(MoveRelative_Velocity);
+                    Positioning.Inputs.IntermediateStop := TRUE;
+                    Positioning.Inputs.ExecuteMode := TRUE;
+                    Positioning.Inputs.TravelToFixStop := FALSE;
+                    IF Positioning.Outputs.AxisAckSetpoint THEN    
+                        State := UINT#10;
+                    END_IF;
+                END_IF;
+                IF State = UINT#10 THEN
+                    Positioning.Inputs.ExecuteMode := FALSE;
+                    MoveRelative_Task.DoneWhen(Positioning.Outputs.AxisPosOk);
+                    MoveRelative_Task.ThrowWhen(Positioning.Outputs.AxisError);
+                    IF MoveRelative_Task.IsDone() OR MoveRelative_Task.HasError() THEN
+                        State := UINT#0;
+                    END_IF;
+                END_IF;
+            END_IF;
+            MoveRelative_Done  := MoveRelative_Task.IsDone();
+            MoveRelative_Busy  := MoveRelative_Task.IsBusy();
+            MoveRelative_Error := MoveRelative_Task.HasError();
+            //*************************************************//         
+            //********************TravelToFixStop**************//          
+            IF TravelToFixStop_Task.Execute() THEN
+                //Set torque
+                IF State = UINT#0 THEN
+                    Parametrization.Inputs.Enable := TRUE;
+                    Parametrization.Inputs.ReadWrite   := TRUE;
+                    Parametrization.Inputs.ParameterNo := 12168;
+                    Parametrization.Inputs.Subindex    := 0;
+                    Parametrization.Inputs.AxisNo  := BYTE#1;
+                    Parametrization.Inputs.ValueWriteREAL := TO_REAL(TravelToFixStop_Torque);
+                    Parametrization.Inputs.ValueWriteLINT := 0;
+                    Parametrization.Inputs.ValueWriteBOOL := FALSE;
+                    State := UINT#10;
+                //Set torque done
+                ELSIF State = UINT#10 THEN
+                    IF Parametrization.Outputs.Done AND NOT Parametrization.Outputs.Error THEN
+                        Parametrization.Inputs.Enable := FALSE;
+                        Parametrization.Inputs.ReadWrite := FALSE;
+                        State := UINT#20;
+                    END_IF;
+                    TravelToFixStop_Task.ThrowWhen(Parametrization.Outputs.Error);
+                //Start movement
+                ELSIF State = UINT#20 THEN
+                    Positioning.Inputs.EnableAxis := TRUE;
+                    Positioning.Inputs.ModePos := 2;
+                    Positioning.Inputs.Position := TO_DINT(TravelToFixStop_Position * PositionScaling);
+                    Positioning.Inputs.Velocity := TO_DINT(TravelToFixStop_Velocity );
+                    Positioning.Inputs.IntermediateStop := TRUE;
+                    Positioning.Inputs.ExecuteMode := TRUE;
+                    Positioning.Inputs.TravelToFixStop := TRUE;
+                    IF Positioning.Outputs.AxisAckSetpoint THEN    
+                        State := UINT#30;
+                    END_IF;
+                //Waiting for torque reached
+                ELSIF State = UINT#30 THEN
+                    TravelToFixStop_Task.DoneWhen(Positioning.Outputs.ClampTorqueReached);
+                    TravelToFixStop_Task.ThrowWhen(Positioning.Outputs.AxisError OR Positioning.Outputs.AxisPosOk AND  TravelToFixStop_Task.Duration >= T#1s);
+                    Positioning.Inputs.ExecuteMode := FALSE;
+                    IF TravelToFixStop_Task.IsDone() OR TravelToFixStop_Task.HasError() THEN
+                        State := UINT#0;
+                    END_IF;
+                END_IF;
+            END_IF;
+            TravelToFixStop_Done  := TravelToFixStop_Task.IsDone();
+            TravelToFixStop_Busy  := TravelToFixStop_Task.IsBusy();
+            TravelToFixStop_Error := TravelToFixStop_Task.HasError();
+            //*************************************************//         
+            //********************SET OVERRIDE*****************//          
+            IF SetOverride_Task.Execute() THEN
+                Positioning.Inputs.OverV := TO_INT(SetOverride_VelFactor);
+                Positioning.Inputs.OverAcc := TO_INT(SetOverride_AccFactor);
+                Positioning.Inputs.OverDec := TO_INT(SetOverride_DecFactor);
+                SetOverride_Task.DoneWhen(NOT Positioning.Outputs.AxisError);
+                SetOverride_Task.ThrowWhen(Positioning.Outputs.AxisError);
+            END_IF;
+            SetOverride_Done  := SetOverride_Task.IsDone();
+            SetOverride_Busy  := SetOverride_Task.IsBusy();
+            SetOverride_Error := SetOverride_Task.HasError();
+            //*************************************************//            
+            //********************RESET************************//          
+            IF Reset_Task.Execute() THEN
+                Positioning.Inputs.EnableAxis := FALSE;
+                Positioning.Inputs.AckError :=TRUE;
+                Reset_Task.DoneWhen(NOT Positioning.Outputs.AxisError);
+                Reset_Task.ThrowWhen(Positioning.Outputs.AxisError AND Reset_Task.Duration > T#1s);
+                IF Reset_Task.IsDone() THEN
+                    Positioning.Inputs.AckError := FALSE;
+                END_IF;
+            END_IF;
+            Reset_Done  := Reset_Task.IsDone();
+            Reset_Busy  := Reset_Task.IsBusy();
+            Reset_Error := Reset_Task.HasError();
+            //*************************************************//          
+            //********************PARAMETRIZAION***************//          
             Parametrization.Run(THIS);
             Parametrization.Inputs.HardwareId := TO_WORD(_AxisRef.Data.MAP_HW_ID);
+            //*************************************************//          
 
+            //********************POSITIONING******************//          
             // Check the Mode of Operation
             IF Positioning.Inputs.ModePos > MAXMODE THEN
                 Positioning.Outputs.Error := TRUE;
@@ -935,1107 +1315,147 @@ NAMESPACE AXOpen.Components.Festo.Drives
             //Set the Status Output
             Positioning.Outputs.Status := stat_Status;
             Positioning.Outputs.ActMode := stat_ActMode;
+            //*************************************************//          
         END_METHOD
 
-        // METHOD PRIVATE UpdateStatus 
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //     END_VAR
-
-        //     _AxisReference ?= AxisRef;
-
-        //     IF(_AxisReference <> NULL) THEN
-
-        //         THIS.ActualPosition := _AxisReference^.Data.ActualPosition;
-        //         THIS.ActualVelocity := _AxisReference^.Data.ActualVelocity;
-        //         THIS.ActualTorque := _AxisReference^.Data.ActualTorque;
-
-        //         IF NOT _AxisReference^.Data.PowerOK THEN
-        //             DriveState := AXOpen.Components.Drives.eAxoDriveState#Disabled;
-        //         ELSIF _AxisReference^.Data.HomingRunning THEN
-        //             DriveState := AXOpen.Components.Drives.eAxoDriveState#Homing;
-        //         ELSIF _AxisReference^.Data.DiscreteMotion THEN
-        //             DriveState := AXOpen.Components.Drives.eAxoDriveState#DiscreteMotion;
-        //         ELSIF _AxisReference^.Data.ContinuousMotion THEN
-        //             DriveState := AXOpen.Components.Drives.eAxoDriveState#ContinousMotion;
-        //         ELSIF _AxisReference^.Data.SynchronizedMotion THEN
-        //             DriveState := AXOpen.Components.Drives.eAxoDriveState#SynchronizedMotion;
-        //         ELSIF _AxisReference^.Data.DriveStopReq THEN
-        //             DriveState := AXOpen.Components.Drives.eAxoDriveState#Stopping;
-        //         ELSIF _AxisReference^.Data.StoppedDueError THEN
-        //             DriveState := AXOpen.Components.Drives.eAxoDriveState#Errorstop;
-        //         ELSIF _AxisReference^.Data.Standstill THEN
-        //             DriveState := AXOpen.Components.Drives.eAxoDriveState#Standstill;
-        //         END_IF;
-        //     ELSE
-        //         DriveStatus.Error.Id := UINT#707;
-        //     END_IF;
-        //     Messenger.ActivateOnCondition(ULINT#707,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-        // END_METHOD  
-
-        // ///<summary>
-        // /// This method controls the power stage (On or Off).
-        // ///</summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_Power 
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  As long as ‘Enable’ is TRUE, power is being enabled.
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Status          :   BOOL;                       //  Effective state of the power stage
-        //         Valid           :   BOOL;                       //  If TRUE, a valid set of outputs is available at the method
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification            
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#709,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        //     Status := FALSE;
-        //     Error	:= FALSE;
-        //     ErrorID :=	WORD#0;
-        //     Valid := FALSE;
-        // END_METHOD 
-
-        // ///<summary>
-        // /// This method commands the axis to perform the «search home» sequence. The details of this sequence are
-        // /// manufacturer dependent and can be set by the axis’ parameters. The ‘Position’ input is used to set the absolute 
-        // /// position when reference signal is detected. This method completes at ‘Standstill’ if it was started in ‘Standstill’.
-        // ///</summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_Home
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Start the motion at rising edge
-        //         Position        :   LREAL;                      //  Absolute position when the reference signal is detected             
-        //         HommingMode     :   INT;                        //  Required homming mode           
-        //         Velocity        :   LREAL;                      //  Value of the maximum ‘Velocity’ (not necessarily reached) [u/s].
-        //         Acceleration    :   LREAL;                      //  Value of the ‘Acceleration’ (always positive) (increasing energy of the motor) [u/s2]
-        //         Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ (always positive) (decreasing energy of the motor) [u/s2]                
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       // Reference known and set sucessfully
-        //         Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
-        //         Active          :   BOOL;                       // Indicates that the method has control on the axis
-        //         CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-        //         Error           :   BOOL;                       // Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       // Error identification           
-        //      END_VAR
-        //      VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-
-        //         _ErrorID : WORD;
-        //         _HommingMode: DINT;
-        //         Dummy : BOOL;
-        //         _result : IAxoTaskState;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#710,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-            
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method commands a controlled motion stop and transfers the axis to the state ‘Stopping’. It aborts any
-        // /// ongoing method execution. While the axis is in state ‘Stopping’, no other method can perform any motion on the
-        // /// same axis. 
-        // ///</summary>
-        // VAR INTERNAL
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_Stop 
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Start the action at rising edge
-        //         Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ [u/s2]
-        //         Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       // Zero velocity reached
-        //         Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
-        //         Active          :   BOOL;                       // Indicates that the method has control on the axis
-        //         CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
-        //         Error           :   BOOL;                       // Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       // Error identification           
-        //      END_VAR
-        //      VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#711,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        //     Done := FALSE;
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method commands a controlled motion stop. The axis is moved to the state ‘DiscreteMotion’, until the
-        // /// velocity is zero. With the ‘Done’ output set, the state is transferred to ‘Standstill’.
-        // ///</summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_Halt 
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Start the action at rising edge
-        //         Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ [u/s2]
-        //         Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       // Zero velocity reached
-        //         Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
-        //         Active          :   BOOL;                       // Indicates that the method has control on the axis
-        //         CommandAborted  :   BOOL;                       // ‘Command’ is aborted by switching off power (only possibility to abort)                
-        //         Error           :   BOOL;                       // Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       // Error identification           
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#712,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-            
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method commands a controlled motion to a specified absolute position.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_MoveAbsolute
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Start the motion at rising edge
-        //         ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
-        //         Position        :   LREAL;                      //  Commanded ‘Position’ for the motion (in technical unit [u]) (negative or positive)                             
-        //         Velocity        :   LREAL;                      //  Value of the maximum ‘Velocity’ (not necessarily reached) [u/s].
-        //         Acceleration    :   LREAL;                      //  Value of the ‘Acceleration’ (always positive) (increasing energy of the motor) [u/s2]
-        //         Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ (always positive) (decreasing energy of the motor) [u/s2]                
-        //         Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
-        //         Direction       :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;         //  Enum type (1-of-4 values: PositiveDirection, ShortestWay, NegativeDirection, CurrentDirection)
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       // Commanded position finally reached
-        //         Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
-        //         Active          :   BOOL;                       // Indicates that the method has control on the axis
-        //         CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-        //         Error           :   BOOL;                       // Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       // Error identification           
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-                        
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#713,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method  commands a controlled motion of a specified distance relative to the set position at the time of the execution.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_MoveRelative 
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Start the motion at rising edge
-        //         ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
-        //         Distance        :   LREAL;                      //  Relative distance for the motion (in technical unit [u]                             
-        //         Velocity        :   LREAL;                      //  Value of the maximum ‘Velocity’ (not necessarily reached) [u/s].
-        //         Acceleration    :   LREAL;                      //  Value of the ‘Acceleration’ (always positive) (increasing energy of the motor) [u/s2]
-        //         Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ (always positive) (decreasing energy of the motor) [u/s2]                
-        //         Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       // Commanded distance reached
-        //         Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
-        //         Active          :   BOOL;                       // Indicates that the method has control on the axis
-        //         CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-        //         Error           :   BOOL;                       // Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       // Error identification           
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#714,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method commands a controlled motion of a specified relative distance additional to the most recent 
-        // /// commanded position in the axis state ‘DiscreteMotion’. The most recent commanded position may be the result of a 
-        // /// previous MC_MoveAdditive motion which was aborted. If the method is activated in the axis state ‘ContinuousMotion’, the
-        // /// specified relative distance is added to the set position at the time of the execution.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_MoveAdditive
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Start the motion at rising edge
-        //         ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
-        //         Distance        :   LREAL;                      //  Relative distance for the motion (in technical unit [u]                             
-        //         Velocity        :   LREAL;                      //  Value of the maximum ‘Velocity’ (not necessarily reached) [u/s].
-        //         Acceleration    :   LREAL;                      //  Value of the ‘Acceleration’ (always positive) (increasing energy of the motor) [u/s2]
-        //         Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ (always positive) (decreasing energy of the motor) [u/s2]                
-        //         Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       // Commanded distance reached
-        //         Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
-        //         Active          :   BOOL;                       // Indicates that the method has control on the axis
-        //         CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-        //         Error           :   BOOL;                       // Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       // Error identification           
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-                        
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#715,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method commands a never ending controlled motion at a specified velocity.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_MoveVelocity
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Start the motion at rising edge
-        //         ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
-        //         Velocity        :   LREAL;                      //  Value of the maximum velocity [u/s]. Can be a signed value.
-        //         Acceleration    :   LREAL;                      //  Value of the ‘Acceleration’ (always positive) (increasing energy of the motor) [u/s2]
-        //         Deceleration    :   LREAL;                      //  Value of the ‘Deceleration’ (always positive) (decreasing energy of the motor) [u/s2]                
-        //         Jerk            :   LREAL;                      //  Value of the ‘Jerk’ [u/s3]
-        //         Direction       :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;         //  Enum type (1-of-3 values: PositiveDirection, NegativeDirection, and CurrentDirection. Note: shortest way not applicable)
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         InVelocity      :   BOOL;                       // Commanded velocity reached
-        //         Busy            :   BOOL;                       // The method is not finished and new output values are to be expected
-        //         Active          :   BOOL;                       // Indicates that the method has control on the axis
-        //         CommandAborted  :   BOOL;                       // ‘Command’ is aborted by another command
-        //         Error           :   BOOL;                       // Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       // Error identification           
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //         Velocity_        :   LREAL;                     
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#716,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        //     Messenger.ActivateOnCondition(ULINT#737,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.NegativeDirection, eAxoMessageCategory#ProgrammingError);
-
-        //     IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.PositiveDirection THEN
-        //         Velocity_ := Velocity;
-        //     ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.NegativeDirection THEN
-        //         Velocity_ := -1 * Velocity;
-        //     ELSE
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method continuously exerts a torque or force of the specified magnitude. This magnitude is 
-        // /// approached using a defined ramp (‘TorqueRamp’), and the method sets the ‘InTorque’ output if the 
-        // /// commanded torque level is reached. This method is applicable for force and torque. When there is no external
-        // /// load, force is applicable. Positive torque is in the positive direction of velocity.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_TorqueControl
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Start the motion at rising edge
-        //         ContinuousUpdate:   BOOL;                       //  Activate ‘ContinuousUpdate’ - target parameters should be changed during movement
-        //         Torque          :   LREAL;                      //  Value of the torque (Torque or force in technical unit [u])
-        //         TorqueRamp      :   LREAL;                      //  The maximum time derivative of the set value of the torque or force (in technical unit per sec. [u/s]) 
-        //         Velocity        :   LREAL;                      //  Absolute value of the maximum velocity.
-        //         Acceleration    :   LREAL;                      //  Value of the maximum acceleration (acceleration is applicable with same sign of torque and velocity)
-        //         Deceleration    :   LREAL;                      //  Value of the maximum deceleration (deceleration is applicable with opposite signs of torque and velocity)
-        //         Jerk            :   LREAL;                      //  Value of the maximum jerk
-        //         Direction       :   AXOpen.Components.Abstractions.Drives.eAxoDriveDirection;         //  Enum type (1 of 2 values: PositiveDirection, NegativeDirection or CurrentDirection). Specifies the direction of the torque. (Note: Torque input can be signed value).            
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         InTorque        :   BOOL;                       //  Setpoint value of torque or force equals the commandedvalue
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Active          :   BOOL;                       //  Indicates that the method has control on the axis
-        //         CommandAborted  :   BOOL;                       //  ‘Command’ is aborted by another command
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification             
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //         Torque_          :   LREAL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#717,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        //     Messenger.ActivateOnCondition(ULINT#739,Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.PositiveDirection AND Direction <> AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.NegativeDirection, eAxoMessageCategory#ProgrammingError);
-
-        //     IF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.PositiveDirection THEN
-        //         Torque_ := Torque;
-        //     ELSIF Direction = AXOpen.Components.Abstractions.Drives.eAxoDriveDirectionPositioning.Inputs.NegativeDirection THEN
-        //         Torque_ := -1 * Torque;
-        //     ELSE
-        //         RETURN;
-        //     END_IF; 
-
-                        
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method shifts the coordinate system of an axis by manipulating both the set-point position as well as the
-        // /// actual position of an axis with the same value without any movement caused. (Re-calibration with same following error). 
-        // /// This can be used for instance for a reference situation. This method can also be used during motion without changing 
-        // /// the commanded position, which is now positioned in the shifted coordinate system.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR  
-        // METHOD PUBLIC OVERRIDE MC_SetPosition
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Start setting position in axis
-        //         Position        :   LREAL;                       //  Position unit [u] (Means ‘Distance’ if ‘Relative’= TRUE)
-        //         Relative        :   BOOL;                       //  ‘Relative’ distance if TRUE, ‘Absolute’ position if FALSE (= Default)
-        //         ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       //  ‘Position’ has new value
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification             
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //         _result : AXOpen.Core.IAxoTaskState;
-        //         _ErrorID    :   eAxoCmmtAsDriveErrorCode;
-        //         _Valid  :   BOOL;
-        //         _Error  :   BOOL;
-        //         _Position   :   LREAL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#718,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method sets the values of override for the whole axis, and all functions that are working on that axis. The override
-        // /// parameters contribute as a factor to the calculation of the commanded velocity, acceleration and jerk of the motion.
-        // ///<summary>
-        // METHOD PUBLIC OVERRIDE MC_SetOverride
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  If SET, it writes the value of the override factor continuously. If RESET it should keep the last value.
-        //         VelocityFactor  :   LREAL;                      //  New override factor for the velocity
-        //         AccelerationFactor:   LREAL;                    //  New override factor for the acceleration/deceleration
-        //         JerkFactor      :   LREAL;                      //  New override factor for the jer            
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Enabled         :   BOOL;                       //  Signals that the override factor(s) is (are) set successfully
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification             
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#719,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method returns the value of a vendor specific parameter. The returned Value has to be converted to Real
-        // /// if necessary. If not possible, the vendor has to supply a vendor specific method to read the parameter.
-        // ///<summary>
-        // VAR INTERNAL 
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_ReadParameter
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //         ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         Value           :   DINT;                       //  Value of the specified parameter in the datatype, as specified by the vendor
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#720,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method returns the value of a vendor specific parameter with datatype REAL.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_ReadRealParameter
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //         ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         Value           :   REAL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#721,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method returns the value of a vendor specific parameter with datatype BOOL.
-        // ///<summary>
-        // METHOD PUBLIC OVERRIDE MC_ReadBoolParameter
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //         ParameterNumber :   DINT;                       //  Number of the parameter. One can also use symbolic parameter names which are declared as VAR CONST.
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         Value           :   BOOL;                       //  Value of the specified parameter in the datatype, as specified by the vendor
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-        //     RETURN;
-
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#722,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method modifies the value of a vendor specific parameter.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_WriteParameter
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
-        //         ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-        //         Value           :   DINT;                       //  New value of the specified parameter
-        //         ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       //  Parameter successfully written
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#723,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method modifies the value of a vendor specific parameter of type Real.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_WriteRealParameter
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
-        //         ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-        //         Value           :   REAL;                       //  New value of the specified parameter
-        //         ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       //  Parameter successfully written
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#724,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method modifies the value of a vendor specific parameter of type BOOL.
-        // ///<summary>
-        // METHOD PUBLIC OVERRIDE MC_WriteBoolParameter
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Write the value of the parameter at rising edge
-        //         ParameterNumber :   DINT;                       //  Number of the parameter (correspondence between number andparameter is specified in the table above)
-        //         Value           :   BOOL;                       //  New value of the specified parameter
-        //         ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       //  Parameter successfully written
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#725,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method gives access to the value of the input, referenced by the datatype MC_INPUT_REF. 
-        // /// It provides the value of the referenced input (BOOL).
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_ReadDigitalInput
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the selected input signal continuously while enabled
-        //         InputNumber     :   INT;                        //  Selects the input. Can be part of MC_INPUT_REF, if only one single input is referenced.                
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         Value           :   BOOL;                       //  The value of the selected input signal
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#726,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method provides access to the value of a digital output, referenced by the datatype MC_OUTPUT_REF. 
-        // /// It provides the value of the referenced output (BOOL).
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_ReadDigitalOutput
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the selected output signal continuously while enabled
-        //         OutputNumber    :   INT;                        //  Selects the output. Can be part of MC_OUTPUT_REF, if only one single output is referenced.                
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         Value           :   BOOL;                       //  The value of the selected output signal
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#727,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method writes a value to the output referenced by the argument ‘Output’ once (with rising edge of Execute)
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_WriteDigitalOutput
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Write the value of the selected output
-        //         OutputNumber    :   INT;                        //  Selects the output. Can be part of MC_OUTPUT_REF, if only one single output is referenced.                
-        //         Value           :   BOOL;                       //  The value of the selected output signal
-        //         ExecutionMode   :   AXOpen.Components.Abstractions.Drives.eAxoExecutionMode;          //  Defines the chronological sequence of the method.              
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       //  Writing of the output signal value is done
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected.
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //         Valid_          :   BOOL;
-        //         Error_          :   BOOL;
-        //         ErrorID_        :   WORD; 
-        //     END_VAR
-
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#728,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method returns the actual position.
-        // ///<summary>
-        // METHOD PUBLIC OVERRIDE MC_ReadActualPosition 
-        //      VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         Position        :   LREAL;                       //  New absolute position (in axis’ unit [u])
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#729,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method returns the value of the actual velocity as long as ‘Enable’ is set. ‘Valid’ is TRUE when the 
-        // /// dataoutput ‘Velocity’ is valid. If ‘Enable’ is Reset, the data loses its validity, and all outputs are reset,
-        // /// no matter if new data is available.
-        // ///<summary>
-        // METHOD PUBLIC OVERRIDE MC_ReadActualVelocity
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         Velocity        :   LREAL;                       //  The value of the actual velocity (in axis’ unit [u/s])
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#730,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method returns the value of the actual torque or force as long as ‘Enable’ is set. ‘Valid’ is TRUE when the
-        // /// data-output ‘Torque’ is valid. If ‘Enable’ is Reset, the data loses its validity, and ‘Valid’ is also reset, 
-        // /// no matter if new data is available.        
-        // ///<summary>
-        // METHOD PUBLIC OVERRIDE MC_ReadActualTorque
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         Torque          :   LREAL;                       //  The value of the actual torque or force (in technical units)
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#731,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method returns in detail the status of the state diagram of the axis
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_ReadStatus
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         ErrorStop       :   BOOL;                       //  See state diagram
-        //         Disabled        :   BOOL;                       //  See state diagram
-        //         Stopping        :   BOOL;                       //  See state diagram
-        //         Homing          :   BOOL;                       //  See state diagram
-        //         Standstill      :   BOOL;                       //  See state diagram
-        //         DiscreteMotion  :   BOOL;                       //  See state diagram
-        //         ContinuousMotion:   BOOL;                       //  See state diagram
-        //         SynchronizedMotion: BOOL;                       //  See state diagram
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#732,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method returns in detail the status of the axis with respect to the motion currently in progress. 
-        // ///<summary>
-        // METHOD PUBLIC OVERRIDE MC_ReadMotionState
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //         Source          :   AXOpen.Components.Abstractions.Drives.eAxoSource;                 //  Defines the source of the relevant data: CommandedValue;SetValue, ActualValue.
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         ConstantVelocity:   BOOL;                       //  Velocity is constant. Velocity may be 0. For the actual value a window is applicable (window is vendor specific)
-        //         Accelerating    :   BOOL;                       //  Increasing the absolute value of the velocity
-        //         Decelerating    :   BOOL;                       //  Decreasing the absolute value of the velocity
-        //         DirectionPositive:  BOOL;                       //  Signals that the position is increasing
-        //         DirectionNegative:  BOOL;                       //  Signals that the position is decreasing
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#733,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method reads information concerning an axis, like modes, inputs directly related to the axis, 
-        // /// and certain status information.
-        // ///<summary>
-        // METHOD PUBLIC OVERRIDE MC_ReadAxisInfo
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         HomeAbsSwitch   :   BOOL;                       //  Digital home switch input is active
-        //         LimitSwitchPos  :   BOOL;                       //  Positive hardware end switch is active
-        //         LimitSwitchNeg  :   BOOL;                       //  Negative hardware end switch is active
-        //         Simulation      :   BOOL;                       //  Axis is in simulation mode (e.g. motor is simulated)
-        //         CommunicationReady: BOOL;                       //  “Network” is initialized and ready for communication
-        //         ReadyForPowerOn :   BOOL;                       //  Drive is ready to be enabled (power on)
-        //         PowerOn         :   BOOL;                       //  If TRUE shows that the power stage is switched ON
-        //         IsHomed         :   BOOL;                       //  The absolute reference position is known for the axis (axis is homed)
-        //         AxisWarning     :   BOOL;                       //  Warning(s) on the axis is present
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#734,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method presents general axis errors not relating to the methods. 
-        // /// (for instance axis errors, drive errors, communication errors)
-        // ///<summary>
-        // VAR INTERNAL
-        // END_VAR
-        // METHOD PUBLIC OVERRIDE MC_ReadAxisError
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Enable          :   BOOL;                       //  Get the value of the parameter continuously while enabled
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Valid           :   BOOL;                       //  A valid output is available at the method
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //         AxisErrorID     :   DWORD;                      //  The value of the axis error. These values are vendor specific
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //         _category  :   AXOpen.Messaging.eAxoMessageCategory;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#735,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-        // END_METHOD
-
-        // ///<summary>
-        // /// This method makes the transition from the state ‘ErrorStop’ to ‘Standstill’ or ‘Disabled’ by resetting all 
-        // /// internal axis-related errors – it does not affect the output of the other methods.
-        // ///<summary>
-        // VAR INTERNAL
-
-        // END_VAR    
-        // METHOD PUBLIC OVERRIDE MC_Reset
-        //     VAR_INPUT
-        //         AxisRef         :   AXOpen.Components.Abstractions.Drives.IAxoAxisReference;
-        //         Execute         :   BOOL;                       //  Resets all internal axis-related error
-        //     END_VAR
-        //     VAR_OUTPUT
-        //         Done            :   BOOL;                       //  ‘Standstill’ or ‘Disabled’ state is reached
-        //         Busy            :   BOOL;                       //  The method is not finished and new output values are to be expected
-        //         Error           :   BOOL;                       //  Signals that an error has occurred within the method
-        //         ErrorID         :   WORD;                       //  Error identification
-        //     END_VAR
-        //     VAR 
-        //         _AxisReference :  REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsDriveAxisReference;
-        //         Dummy : BOOL;
-        //     END_VAR
-            
-        //     _AxisReference ?= AxisRef;
-
-        //     Messenger.ActivateOnCondition(ULINT#736,_AxisReference = NULL, eAxoMessageCategory#ProgrammingError);
-
-        //     IF(_AxisReference = NULL) THEN
-        //         RETURN;
-        //     END_IF;
-
-
-            
-        // END_METHOD
+        METHOD PRIVATE UpdateStatus 
+            VAR_INPUT
+                AxisRef :   REF_TO AXOpen.Components.Festo.Drives.AxoCmmtAsPtPAxisReference;
+            END_VAR
+
+            IF(AxisRef <> NULL) THEN
+                THIS.ActualPosition := TO_LREAL(AxisRef^.Telegram111_In.XIST_A) / PositionScaling;
+                THIS.ActualVelocity := TO_LREAL(AxisRef^.Telegram111_In.NIST_B) / VelocityScaling;
+                THIS.ActualTorque := TO_LREAL(AxisRef^.Telegram750_In.M_Actual) / TorqueScaling;
+            ELSE
+                DriveStatus.Error.Id := UINT#707;
+            END_IF;
+            Messenger.ActivateOnCondition(ULINT#707,AxisRef = NULL, eAxoMessageCategory#ProgrammingError);
+        END_METHOD  
+
+        ///<summary>
+        /// This method commands the axis to perform the «search home» sequence. 
+        ///</summary>
+        METHOD PUBLIC Home   : IAxoTaskState
+            Home := Home_Task.Invoke();
+        END_METHOD
     
-    METHOD PROTECTED OVERRIDE Restore : IAxoTask
-        ;
-    END_METHOD
+        ///<summary>
+        /// This method commands a controlled motion stop and transfers the axis to the state ‘Stopping’. It aborts any
+        /// ongoing method execution. While the axis is in state ‘Stopping’, no other method can perform any motion on this axis. 
+        ///</summary>       
+        METHOD PUBLIC Stop   : IAxoTaskState
+            Stop := Stop_Task.Invoke();
+        END_METHOD
 
-    METHOD PROTECTED OVERRIDE ManualControl
-        ;
-    END_METHOD
-END_CLASS
+        ///<summary>
+        /// This method commands a controlled motion to a specified absolute position.
+        ///<summary>
+        METHOD PUBLIC MoveAbsolute : IAxoTaskState
+            VAR_INPUT
+                Position        :   LREAL;                                                
+                Velocity        :   LREAL;                      
+            END_VAR
+            MoveAbsolute_Position           := Position;
+            MoveAbsolute_Velocity           := Velocity;
+
+            MoveAbsolute := MoveAbsolute_Task.Invoke();
+        END_METHOD
+
+        ///<summary>
+        /// This method  commands a controlled motion of a specified distance relative to the set position at the time of the execution.
+        ///<summary>
+        METHOD PUBLIC MoveRelative : IAxoTaskState
+            VAR_INPUT
+                Distance        :   LREAL;                                        
+                Velocity        :   LREAL;                      
+            END_VAR
+            MoveRelative_Distance           :=  Distance;
+            MoveRelative_Velocity           :=  Velocity;
+
+            MoveRelative :=  MoveRelative_Task.Invoke();
+        END_METHOD
+
+        ///<summary>
+        /// This method commands a controlled motion to a maximal absolute position with specified torque defined.
+        /// Returns TRUE if reaches torque specified before maximal position reached, otherwise FALSE.
+        ///<summary>
+        METHOD PUBLIC TravelToFixStop : IAxoTaskState
+            VAR_INPUT
+                Position        :   LREAL;                      
+                Velocity        :   LREAL;                      
+                Torque          :   LREAL;                      
+            END_VAR
+
+            TravelToFixStop_Position          :=  Position;
+            TravelToFixStop_Velocity          :=  Velocity;
+            TravelToFixStop_Torque            :=  Torque;
+
+            TravelToFixStop    := TravelToFixStop_Task.Invoke();
+        END_METHOD
+
+        ///<summary>
+        /// This method sets the values of override for the whole axis, and all functions that are working on that axis. The override
+        /// parameters contribute as a factor to the calculation of the commanded velocity, acceleration and deceleration of the motion.
+        ///<summary>
+        METHOD PUBLIC SetOverride   : IAxoTaskState
+            VAR_INPUT
+                VelFactor       :   LREAL;                      //  Override factor for the velocity
+                AccFactor       :   LREAL;                      //  Override factor for the acceleration
+                DecFactor      :   LREAL;                       //  Override factor for the deceleration            
+            END_VAR
+
+            SetOverride_VelFactor   :=  VelFactor;
+            SetOverride_AccFactor   :=  AccFactor;
+            SetOverride_DecFactor  :=  DecFactor;
+
+            SetOverride  := SetOverride_Task.Invoke();
+        END_METHOD
+
+
+
+        ///<summary>
+        /// This method makes the transition from the state ‘ErrorStop’ to ‘Standstill’ or ‘Disabled’ by resetting all 
+        /// internal axis-related errors – it does not affect the output of the other methods.
+        ///<summary>
+        METHOD PUBLIC Reset : IAxoTaskState
+            Reset    := Reset_Task.Invoke();
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE Restore : IAxoTask
+            Stop_Task.Restore();
+            Home_Task.Restore();
+            MoveAbsolute_Task.Restore();
+            MoveRelative_Task.Restore();
+            TravelToFixStop_Task.Restore();
+            SetOverride_Task.Restore();
+            Reset_Task.Restore();
+            State := UINT#0;
+        END_METHOD
+
+        METHOD PROTECTED OVERRIDE ManualControl
+            JogPositive_Task.Run();
+            JogNegative_Task.Run();
+            //********************JOG POSITIVE*****************//          
+            IF JogPositive_Task.IsSwitchedOn() THEN
+                Positioning.Inputs.EnableAxis := TRUE;
+                Positioning.Inputs.ModePos := 7;
+                Positioning.Inputs.jog1 := TRUE;
+                Positioning.Inputs.jog2 := FALSE;
+            ELSE
+                Positioning.Inputs.jog1 := FALSE;
+            END_IF;
+            //*************************************************//   
+            //********************JOG NEGATIVE*****************//          
+            IF JogNegative_Task.IsSwitchedOn() THEN
+                Positioning.Inputs.EnableAxis := TRUE;
+                Positioning.Inputs.ModePos := 7;
+                Positioning.Inputs.jog2 := TRUE;
+                Positioning.Inputs.jog1 := FALSE;
+            ELSE
+                Positioning.Inputs.jog2 := FALSE;
+            END_IF;
+            //*************************************************//      
+        END_METHOD
+    END_CLASS
 END_NAMESPACE

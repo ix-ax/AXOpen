@@ -28,11 +28,11 @@ CLASS Component_1 EXTENDS AXOpen.Core.AxoObject
 
         //<Initialization>        
         AxoCmmtAsPtP_.Run(parent                :=  THIS,
-                          refTelegram111_In     :=  REF(PlcInputs^.cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
-                          refTelegram750_In     :=  REF(PlcInputs^.cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
-                          refTelegram111_Out    :=  REF(PlcOutputs^.cmmtas_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
-                          refTelegram750_Out    :=  REF(PlcOutputs^.cmmtas_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
-                          MAP_HW_ID             :=  HwIdentifiers#cmmtas_Module_Access_Point,
+                          refTelegram111_In     :=  REF(PlcInputs^.cmmtas_docu_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
+                          refTelegram750_In     :=  REF(PlcInputs^.cmmtas_docu_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
+                          refTelegram111_Out    :=  REF(PlcOutputs^.cmmtas_docu_DO_SERVO_1_Siemens_telegram_111_PZD_12_12),
+                          refTelegram750_Out    :=  REF(PlcOutputs^.cmmtas_docu_DO_SERVO_1_Siemens_telegram_750_PZD_4_1),
+                          MAP_HW_ID             :=  HwIdentifiers#cmmtas_docu_Module_Access_Point,
                           Enable                :=  Enable);
 
         //</Initialization>
