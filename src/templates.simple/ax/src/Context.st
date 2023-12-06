@@ -3,11 +3,11 @@ USING AXOpen.Data;
 
 NAMESPACE axosimple
     {S7.extern=ReadWrite}
-    CLASS PUBLIC Context EXTENDS AxoContext                   
+    CLASS PUBLIC Context EXTENDS AXOpen.Core.AxoContext                   
         VAR PUBLIC
-            TechnologySettings : TechnologyData;
-            ProcessSettings : ProcessData;
-            ProcessData : ProcessData;                        
+            TechnologySettings : axosimple.TechnologyData;
+            ProcessSettings : axosimple.ProcessData;
+            ProcessData : axosimple.ProcessData;                        
             PersistentData : AxoDataPersistentExchange;
             GlobalObjects : GlobalContextObjects;
             
@@ -75,7 +75,7 @@ NAMESPACE axosimple
             {#ix-attr:[AXOpen.Data.PersistentAttribute("")]}
             LastTechnologySettings : STRING ;
 
-            PersistentData      : REF_TO axosimple.AxoDataPersistentExchange;
+            PersistentData      : REF_TO AxoDataPersistentExchange;
             ProcessSettings     : REF_TO axosimple.ProcessData;
             TechnologySettings  : REF_TO axosimple.TechnologyData;
             ProcessData         : REF_TO axosimple.ProcessData;

@@ -14,6 +14,7 @@ using AXSharp.Connector;
 using AXSharp.Presentation.Blazor.Services;
 using Serilog;
 using System.Reflection;
+using MongoDB.Bson.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -170,8 +171,18 @@ static (IRepository<User>, IRepository<Group>) SetUpJSon(string path = "..\\..\\
         Directory.CreateDirectory(repositoryDirectory);
     }
 
-    IRepository<User> userRepo = new AXOpen.Data.Json.JsonRepository<User>(new AXOpen.Data.Json.JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
-    IRepository<Group> groupRepo = new AXOpen.Data.Json.JsonRepository<Group>(new AXOpen.Data.Json.JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
+    var MongoConnectionString = "mongodb://localhost:27017";
+    var MongoDatabaseName = "axosimple";
+
+    // initialize factory - store connection and credentials
+    Repository.InitializeFactory(MongoConnectionString, MongoDatabaseName, "user", "userpwd");
+
+    IRepository<User> userRepo      = Repository.Factory<User>("Users", t => t.Id );
+
+    IRepository<Group> groupRepo    = Repository.Factory<Group>( "Groups");
+
+    //IRepository<User> userRepo = new AXOpen.Data.Json.JsonRepository<User>(new AXOpen.Data.Json.JsonRepositorySettings<User>(Path.Combine(repositoryDirectory, "Users")));
+    //IRepository<Group> groupRepo = new AXOpen.Data.Json.JsonRepository<Group>(new AXOpen.Data.Json.JsonRepositorySettings<Group>(Path.Combine(repositoryDirectory, "Groups")));
 
     return (userRepo, groupRepo);
 }

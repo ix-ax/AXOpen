@@ -147,6 +147,7 @@ public class BuildContext : FrostingContext
     #region Libraries
     public IEnumerable<(string folder, string name, bool pack)> Libraries { get; } = new[]
     {
+        ("sdk-ax", "ax-sdk", true),
         ("abstractions", "axopen.abstractions", true),
         ("timers", "axopen.timers", true),
         ("simatic1500", "axopen.simatic1500", true),

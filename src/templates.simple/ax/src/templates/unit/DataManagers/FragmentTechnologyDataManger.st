@@ -13,7 +13,7 @@ NAMESPACE axosimple.UnitTemplate
             {#ix-attr:[AXOpen.Data.AxoDataEntityAttribute]}        
             {#ix-attr:[Container(Layout.Stack)]}
             {#ix-set:AttributeName = "<#UnitTemplate#>"}         
-            Payload : TechnologyData;
+            Payload : axosimple.UnitTemplate.TechnologyData;
         END_VAR
     END_CLASS
 END_NAMESPACE    

@@ -14,22 +14,22 @@ NAMESPACE axosimple.UnitTemplate
             ///<summary>
             /// Provide access to unit objets, that are used into sequnces.
             ///</summary>
-            UnitObjects  : UnitObjects;
+            UnitObjects  : axosimple.UnitTemplate.UnitObjects;
             
             ///<summary>
             /// Ground sequence. Contains logic that brings the unit into initial state.
             ///</summary>
-            GroundSequence : GroundSequence;
+            GroundSequence : axosimple.UnitTemplate.GroundSequence;
 
             ///<summary>
             /// Automatic sequence. Contains logic for automatic operations of this unit.
             ///</summary>
-            AutomatSequence : AutomatSequence;
+            AutomatSequence : axosimple.UnitTemplate.AutomatSequence;
             
             ///<summary>
             /// Service mode contains logic for service/manual operations.
             ///</summary>
-            ServiceMode : ServiceMode;
+            ServiceMode : axosimple.UnitTemplate.ServiceMode;
         END_VAR
         ///<summary>
         /// Runs this unit.
@@ -37,7 +37,7 @@ NAMESPACE axosimple.UnitTemplate
 
         METHOD PUBLIC Run
             VAR_INPUT
-                parent : IAxoContext;
+                parent : AXOpen.Core.IAxoContext;
             END_VAR
             VAR_IN_OUT
                 ///<summary>
