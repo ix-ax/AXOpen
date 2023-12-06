@@ -1,18 +1,16 @@
-﻿using AXOpen.Core;
-using AXOpen.VisualComposer.Serializing;
+﻿using AXOpen.VisualComposer.Serializing;
 using AXSharp.Connector;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Forms;
 using System.Xml.Linq;
-using AXOpen.ToolBox.Extensions;
 
 namespace AXOpen.VisualComposer
 {
     public partial class VisualComposerContainer
     {
         [Parameter]
-        public AxoObject AxoObject { get; set; }
+        public ITwinObject[] Objects { get; set; }
 
-        [Parameter]
         public string? ImgSrc { get; set; }
 
         public string Id { get; set; }
@@ -27,15 +25,23 @@ namespace AXOpen.VisualComposer
 
         protected override void OnInitialized()
         {
-            Id = AxoObject.HumanReadable.Replace(".", "_").Replace(" ", "_");
+            Id = "";
+            foreach(ITwinObject obj in Objects)
+            {
+                Id += obj.Symbol.ModalIdHelper();
+            }
         }
 
         protected override void OnAfterRender(bool firstRender)
         {
             if (firstRender)
             {
-                _childrenOfAxoObject = AxoObject.GetChildren().Flatten(p => p.GetChildren()).ToList();
-                _childrenOfAxoObject = _childrenOfAxoObject.Concat(AxoObject.RetrievePrimitives());
+                _childrenOfAxoObject = Enumerable.Empty<ITwinElement>();
+                foreach (ITwinObject obj in Objects)
+                {
+                    _childrenOfAxoObject = _childrenOfAxoObject.Concat(obj.GetChildren().Flatten(p => p.GetChildren()));
+                    _childrenOfAxoObject = _childrenOfAxoObject.Concat(obj.RetrievePrimitives());
+                }
 
                 Load();
             }
@@ -81,7 +87,7 @@ namespace AXOpen.VisualComposer
             List<SerializableVisualComposerItem> serializableChildren = new List<SerializableVisualComposerItem>();
             foreach (var child in _children)
             {
-                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex));
+                serializableChildren.Add(new SerializableVisualComposerItem(child.Id, child.ratioImgX, child.ratioImgY, child.Transform.ToString(), child.Presentation, child.Width, child.Height, child.ZIndex, child.Roles));
             }
 
             if (!Directory.Exists("VisualComposerSerialize/" + Id))
@@ -89,31 +95,33 @@ namespace AXOpen.VisualComposer
                 Directory.CreateDirectory("VisualComposerSerialize/" + Id);
             }
 
-            Serializing.Serializing<SerializableVisualComposerItem>.Serialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json", serializableChildren);
+            Serializing.Serializing<SerializableObject>.Serialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json", new SerializableObject(ImgSrc, serializableChildren));
         }
 
         public void Load(string? fileName = "Default")
         {
-            List<SerializableVisualComposerItem>? deserialize = Serializing.Serializing<SerializableVisualComposerItem>.Deserialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json");
+            SerializableObject? deserialize = Serializing.Serializing<SerializableObject>.Deserialize("VisualComposerSerialize/" + Id + "/" + fileName + ".json");
 
             if (deserialize != null)
             {
+                ImgSrc = deserialize.ImgSrc;
                 _children.Clear();
 
-                foreach (var item in deserialize)
+                foreach (var item in deserialize.Items)
                 {
-                    var a = _childrenOfAxoObject.FirstOrDefault(p => p.HumanReadable.Replace(".", "_").Replace(" ", "_") == item.Id);
+                    var a = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id);
                     _children.Add(new VisualComposerItem()
                     {
                         UniqueGuid = Guid.NewGuid(),
-                        TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.HumanReadable.Replace(".", "_").Replace(" ", "_") == item.Id),
+                        TwinElement = _childrenOfAxoObject.FirstOrDefault(p => p.Symbol.ModalIdHelper() == item.Id),
                         ratioImgX = item.RatioImgX,
                         ratioImgY = item.RatioImgY,
                         Transform = Types.TransformType.FromString(item.Transform),
                         Presentation = item.Presentation,
                         Width = item.Width,
                         Height = item.Height,
-                        ZIndex = item.ZIndex
+                        ZIndex = item.ZIndex,
+                        Roles = item.Roles
                     });
                 }
             }
@@ -164,7 +172,11 @@ namespace AXOpen.VisualComposer
             }
             else
             {
-                SearchResult = AxoObject.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.HumanReadable.Contains(SearchValue, StringComparison.OrdinalIgnoreCase));
+                SearchResult.Clear();
+                foreach (ITwinObject obj in Objects)
+                {
+                    SearchResult.AddRange(obj.GetChildren().Flatten(p => p.GetChildren()).ToList().FindAll(p => p.Symbol.Contains(SearchValue, StringComparison.OrdinalIgnoreCase)));
+                }
             }
         }
 
@@ -174,12 +186,46 @@ namespace AXOpen.VisualComposer
         {
             if (SearchValuePrimitive is null || SearchValuePrimitive == "")
             {
-                SearchResult = null;
+                SearchResultPrimitive = null;
             }
             else
             {
-                SearchResultPrimitive = AxoObject.RetrievePrimitives().ToList().FindAll(p => p.HumanReadable.Contains(SearchValuePrimitive));
+                SearchResultPrimitive.Clear();
+                foreach (ITwinObject obj in Objects)
+                {
+                    SearchResultPrimitive.AddRange(obj.RetrievePrimitives().ToList().FindAll(p => p.Symbol.Contains(SearchValuePrimitive, StringComparison.OrdinalIgnoreCase)));
+                }
             }
+        }
+
+        private bool isFileImported { get; set; } = false;
+        private bool isFileImporting { get; set; } = false;
+
+        private async Task UploadFile(InputFileChangeEventArgs e)
+        {
+            isFileImported = false;
+            isFileImporting = true;
+
+            try
+            {
+                if(!Directory.Exists("wwwroot/Images/"))
+                    Directory.CreateDirectory("wwwroot/Images/");
+
+                string newName = Guid.NewGuid().ToString() + Path.GetExtension(e.File.Name);
+
+                await using FileStream fs = new("wwwroot/Images/" + newName, FileMode.Create);
+                await e.File.OpenReadStream().CopyToAsync(fs);
+
+                ImgSrc = "Images/" + newName;
+
+                isFileImported = true;
+            }
+            catch (Exception ex)
+            {
+                ImgSrc = null;
+            }
+
+            isFileImporting = false;
         }
     }
 }
