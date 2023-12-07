@@ -24,7 +24,7 @@ namespace AXOpen.VisualComposer
 
         public string FileName { get; set; } = "";
 
-        public string? CurrentTemplate { get; set; } = null;
+        public string? CurrentTemplate { get; set; } = "Default";
 
         protected override void OnInitialized()
         {
@@ -91,6 +91,10 @@ namespace AXOpen.VisualComposer
                     fileName = "Default";
                 else
                     fileName = CurrentTemplate;
+            }
+            else
+            {
+                CurrentTemplate = fileName;
             }
 
             foreach (char c in Path.GetInvalidFileNameChars().Concat(Path.GetInvalidPathChars()))
