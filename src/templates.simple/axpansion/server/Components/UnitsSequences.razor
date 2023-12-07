@@ -1,4 +1,6 @@
 ﻿@using AXOpen.Core;
+@using AXOpen.VisualComposer;
+@using AXSharp.Connector
 @inherits RenderableComplexComponentBase<AXSharp.Connector.ITwinObject>
 
 <div class="container">
@@ -43,6 +45,9 @@
                 <div class="@(_isCollapsed ? "collapse" : null)">
                     <AxoSequencerView Component="@axoSequencer" HasTaskControlButton="false"></AxoSequencerView>
                 </div>
+                <div class="m-5">
+                    <VisualComposerContainer Objects="@ObjectCollection" />
+                </div>
             }
         }
     </div>
@@ -50,6 +55,10 @@
 
 @code
 {
+
+    [Parameter]
+    public ITwinObject[] ObjectCollection { get; set; }
+    
     private bool _isCollapsed = true;
 
     protected override void OnInitialized()

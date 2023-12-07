@@ -10,7 +10,7 @@
 
             if (step.IsActive.Cyclic)
             {
-                return $">> {text} <<";
+                return $"{text}";
             }
 
             return text;
