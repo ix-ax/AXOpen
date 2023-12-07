@@ -28,7 +28,7 @@
                 <select class="form-select w-auto" @onchange="(ChangeEventArgs args) => Load(args.Value.ToString())">
                     @foreach (var item in GetAllFiles())
                     {
-                        <option value="@item" selected="@((item == "Default") ? "selected" : null)">@item</option>
+                        <option value="@item" selected="@(CurrentTemplate is null || CurrentTemplate == "" ? item == "Default" ? "selected" : null : item == CurrentTemplate ? "selected" : null)">@item</option>
                     }
                 </select>
             </div>
