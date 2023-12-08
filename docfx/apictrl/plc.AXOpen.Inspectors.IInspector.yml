@@ -20,7 +20,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
@@ -39,7 +39,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Busy
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
@@ -60,7 +60,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.CommonData
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
@@ -81,7 +81,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Coordinator
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
@@ -102,7 +102,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Done
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
@@ -123,7 +123,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.CheckOverInspection
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
@@ -144,7 +144,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Result
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
@@ -165,7 +165,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.Dialog
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
@@ -190,11 +190,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.RestoreInspectorTask
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-    startLine: 35
+    startLine: 38
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: Public BOOL RestoreInspectorTask()
@@ -211,11 +211,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.OnFail
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-    startLine: 38
+    startLine: 41
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: Public AXOpen.Inspectors.IOnFail OnFail()
@@ -232,11 +232,11 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IInspector.UpdateComprehensiveResult
     path: .\src\inspectors\ctrl\src\interfaces\IInspector.st
-    startLine: 41
+    startLine: 44
   namespace: plc.AXOpen.Inspectors
   syntax:
     content: Public AXOpen.Inspectors.IInspector UpdateComprehensiveResult()

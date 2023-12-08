@@ -27,7 +27,8 @@
 	  <ProjectReference Include="..\..\..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj" />
 	  <ProjectReference Include="..\..\..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj">
 	    <IncludeAssets>all</IncludeAssets>
-	  </ProjectReference>	  
+	  </ProjectReference>
+	  <ProjectReference Include="..\..\..\sdk-ax\ctrl\ix\ix_ax_ax_sdk.csproj" />	  
 	</ItemGroup>
 
 	<ItemGroup>

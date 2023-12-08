@@ -31,7 +31,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
@@ -62,7 +62,6 @@ items:
   - plc.AXOpen.Core.AxoTask.Duration
   - plc.AXOpen.Core.AxoTask.StartTimeStamp
   - plc.AXOpen.Core.AxoTask.ErrorDetails
-  - plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoRemoteTask.Execute()
   - plc.AXOpen.Core.AxoRemoteTask.GetStartSignature()
@@ -74,10 +73,10 @@ items:
   - plc.AXOpen.Core.AxoTask.IsBusy()
   - plc.AXOpen.Core.AxoTask.IsAborted()
   - plc.AXOpen.Core.AxoTask.HasError()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  - plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  - plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
   - plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  - plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
   - plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   - plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
   - plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
@@ -93,6 +92,10 @@ items:
   - plc.AXOpen.Core.AxoTask.GetIsDisabled()
   - plc.AXOpen.Core.AxoTask.Abort()
   - plc.AXOpen.Core.AxoTask.Resume()
+  - plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  - plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
   - plc.AXOpen.Core.AxoTask.OnAbort()
   - plc.AXOpen.Core.AxoTask.OnResume()
   - plc.AXOpen.Core.AxoTask.OnDone()
@@ -100,8 +103,15 @@ items:
   - plc.AXOpen.Core.AxoTask.OnRestore()
   - plc.AXOpen.Core.AxoTask.OnStart()
   - plc.AXOpen.Core.AxoTask.WhileError()
+  - plc.AXOpen.Core.AxoTask.AbortTriggered()
+  - plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  - plc.AXOpen.Core.AxoTask.DoneReached()
+  - plc.AXOpen.Core.AxoTask.ErrorOccured()
+  - plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  - plc.AXOpen.Core.AxoTask.StartTriggered()
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -119,11 +129,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._text
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 7
+    startLine: 9
   namespace: plc.AXOpen.Core
   syntax:
     content: '_text : STRING'
@@ -139,11 +149,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._caption
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 8
+    startLine: 9
   namespace: plc.AXOpen.Core
   syntax:
     content: '_caption : STRING'
@@ -159,11 +169,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._hasOK
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 10
+    startLine: 11
   namespace: plc.AXOpen.Core
   syntax:
     content: '_hasOK : BOOL'
@@ -179,11 +189,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._hasYes
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 11
+    startLine: 12
   namespace: plc.AXOpen.Core
   syntax:
     content: '_hasYes : BOOL'
@@ -199,11 +209,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._hasNo
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 12
+    startLine: 13
   namespace: plc.AXOpen.Core
   syntax:
     content: '_hasNo : BOOL'
@@ -219,11 +229,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._hasCancel
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Core
   syntax:
     content: '_hasCancel : BOOL'
@@ -239,11 +249,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._answer
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 14
+    startLine: 15
   namespace: plc.AXOpen.Core
   syntax:
     content: '_answer : AXOpen.Core.eDialogAnswer'
@@ -259,11 +269,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._dialogType
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 15
+    startLine: 16
   namespace: plc.AXOpen.Core
   syntax:
     content: '_dialogType : AXOpen.Core.eDialogType'
@@ -279,11 +289,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._externalCloseReq
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 16
+    startLine: 17
   namespace: plc.AXOpen.Core
   syntax:
     content: '_externalCloseReq : BOOL'
@@ -299,11 +309,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._closeSignal
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 17
+    startLine: 18
   namespace: plc.AXOpen.Core
   syntax:
     content: '_closeSignal : BOOL'
@@ -319,11 +329,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._risingEdge
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 18
+    startLine: 19
   namespace: plc.AXOpen.Core
   syntax:
     content: '_risingEdge : BOOL'
@@ -339,11 +349,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog._lastCall
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 24
+    startLine: 25
   namespace: plc.AXOpen.Core
   syntax:
     content: '_lastCall : ULINT'
@@ -359,11 +369,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.Show
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 28
+    startLine: 29
   namespace: plc.AXOpen.Core
   summary: Show method, which serves for initializing remote task and invoking dialog from PLC.
   syntax:
@@ -383,11 +393,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.ShowWithExternalClose
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 77
+    startLine: 78
   namespace: plc.AXOpen.Core
   summary: 'Show method with a possibility to close dialog externally by setting a signal.WARNING: This is experimental implementation of possibility to close dialogs externally. More testing need to be done.'
   syntax:
@@ -415,11 +425,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithCaption
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 152
+    startLine: 153
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Core.IAxoDialogAnswer WithCaption(in plc.STRING inCaption)
@@ -438,11 +448,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithOk
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 163
+    startLine: 164
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Core.IAxoDialogAnswer WithOk()
@@ -459,11 +469,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithText
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 168
+    startLine: 169
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Core.IAxoDialogAnswer WithText(in plc.STRING inText)
@@ -482,11 +492,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithType
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 178
+    startLine: 179
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Core.IAxoDialogAnswer WithType(in plc.AXOpen.Core.eDialogType inDialogType)
@@ -505,11 +515,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithYesNo
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 187
+    startLine: 188
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Core.IAxoDialogAnswer WithYesNo()
@@ -526,11 +536,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.WithYesNoCancel
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 192
+    startLine: 194
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Core.IAxoDialogAnswer WithYesNoCancel()
@@ -547,11 +557,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoDialog.Answer
     path: .\src\core\ctrl\src\AxoDialog\AxoDialog.st
-    startLine: 192
+    startLine: 194
   namespace: plc.AXOpen.Core
   syntax:
     content: Public AXOpen.Core.eDialogAnswer Answer()
@@ -655,12 +665,6 @@ references:
   nameWithType: ErrorDetails
   fullName: plc.AXOpen.Core.AxoTask.ErrorDetails
   parent: plc.AXOpen.Core.AxoTask.ErrorDetails
-- uid: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  commentId: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  name: _CyclicExecuteIsNotCalled
-  nameWithType: _CyclicExecuteIsNotCalled
-  fullName: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  parent: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
 - uid: plc.AXOpen.Core.AxoObject.Identity
   commentId: plc.AXOpen.Core.AxoObject.Identity
   name: Identity
@@ -727,30 +731,30 @@ references:
   nameWithType: HasError()
   fullName: plc.AXOpen.Core.AxoTask.HasError()
   parent: plc.AXOpen.Core.AxoTask.HasError()
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  name: IsInvokeCalled()
-  nameWithType: IsInvokeCalled()
-  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+- uid: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  commentId: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  name: IsFirstExecutionCycle()
+  nameWithType: IsFirstExecutionCycle()
+  fullName: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  parent: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+- uid: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  name: SetSuspendMultipleExecuteCallCheck(BOOL)
+  nameWithType: SetSuspendMultipleExecuteCallCheck(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  commentId: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  name: GetSuspendMultipleExecuteCallCheckState()
+  nameWithType: GetSuspendMultipleExecuteCallCheckState()
+  fullName: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  parent: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
 - uid: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   commentId: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   name: IsNewInvokeCall()
   nameWithType: IsNewInvokeCall()
   fullName: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   parent: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  name: IsInvokeCalledInThisPlcCycle()
-  nameWithType: IsInvokeCalledInThisPlcCycle()
-  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-- uid: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  commentId: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  name: WasInvokeCalledInPreviousPlcCycle()
-  nameWithType: WasInvokeCalledInPreviousPlcCycle()
-  fullName: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  parent: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
 - uid: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   commentId: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   name: IsNewExecuteCall()
@@ -841,6 +845,30 @@ references:
   nameWithType: Resume()
   fullName: plc.AXOpen.Core.AxoTask.Resume()
   parent: plc.AXOpen.Core.AxoTask.Resume()
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  name: SetRemoteRestoreEnabled(BOOL)
+  nameWithType: SetRemoteRestoreEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  name: GetRemoteRestoreEnabled()
+  nameWithType: GetRemoteRestoreEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  name: SetRemoteAbortEnabled(BOOL)
+  nameWithType: SetRemoteAbortEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  name: GetRemoteAbortEnabled()
+  nameWithType: GetRemoteAbortEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
 - uid: plc.AXOpen.Core.AxoTask.OnAbort()
   commentId: plc.AXOpen.Core.AxoTask.OnAbort()
   name: OnAbort()
@@ -883,6 +911,42 @@ references:
   nameWithType: WhileError()
   fullName: plc.AXOpen.Core.AxoTask.WhileError()
   parent: plc.AXOpen.Core.AxoTask.WhileError()
+- uid: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  name: AbortTriggered()
+  nameWithType: AbortTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  parent: plc.AXOpen.Core.AxoTask.AbortTriggered()
+- uid: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  name: ResumeTriggered()
+  nameWithType: ResumeTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  parent: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+- uid: plc.AXOpen.Core.AxoTask.DoneReached()
+  commentId: plc.AXOpen.Core.AxoTask.DoneReached()
+  name: DoneReached()
+  nameWithType: DoneReached()
+  fullName: plc.AXOpen.Core.AxoTask.DoneReached()
+  parent: plc.AXOpen.Core.AxoTask.DoneReached()
+- uid: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  commentId: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  name: ErrorOccured()
+  nameWithType: ErrorOccured()
+  fullName: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  parent: plc.AXOpen.Core.AxoTask.ErrorOccured()
+- uid: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  name: RestoreTriggered()
+  nameWithType: RestoreTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  parent: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+- uid: plc.AXOpen.Core.AxoTask.StartTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.StartTriggered()
+  name: StartTriggered()
+  nameWithType: StartTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.StartTriggered()
+  parent: plc.AXOpen.Core.AxoTask.StartTriggered()
 - uid: plc.AXOpen.Core.AxoObject.GetIdentity()
   commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
   name: GetIdentity()
@@ -895,6 +959,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()

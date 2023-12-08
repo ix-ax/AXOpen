@@ -147,6 +147,7 @@ public class BuildContext : FrostingContext
     #region Libraries
     public IEnumerable<(string folder, string name, bool pack)> Libraries { get; } = new[]
     {
+        ("sdk-ax", "ax-sdk", true),
         ("abstractions", "axopen.abstractions", true),
         ("timers", "axopen.timers", true),
         ("simatic1500", "axopen.simatic1500", true),
@@ -161,6 +162,7 @@ public class BuildContext : FrostingContext
         ("components.pneumatics", "axopen.components.pneumatics", true),
         ("components.drives", "axopen.components.drives", true),
         ("components.rexroth.drives", "axopen.components.rexroth.drives", true),
+        ("components.festo.drives", "axopen.components.festo.drives", true),
         ("integrations", "ix.integrations", false),
         ("templates.simple", "templates.simple", false),
         ("template.axolibrary", "template.axolibrary", false)

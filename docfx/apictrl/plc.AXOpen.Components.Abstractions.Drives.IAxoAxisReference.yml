@@ -1,0 +1,24 @@
+## YamlMime:ManagedReference
+items:
+- uid: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  id: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+  parent: plc.AXOpen.Components.Abstractions.Drives
+  children: []
+  name: IAxoAxisReference
+  fullName: IAxoAxisReference
+  type: Interface
+  source:
+    remote:
+      path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoAxisReference.st
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
+      repo: https://github.com/ix-ax/AXOpen.git
+    id: plc.AXOpen.Components.Abstractions.Drives.IAxoAxisReference
+    path: .\src\components.abstractions\ctrl\src\AxoDrives\IAxoAxisReference.st
+    startLine: 2
+  namespace: plc.AXOpen.Components.Abstractions.Drives
+  syntax:
+    content: INTERFACE IAxoAxisReference
+  implements: []
+references: []
+
+

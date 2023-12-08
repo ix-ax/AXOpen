@@ -14,7 +14,7 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
@@ -32,11 +32,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl.TriggerEnable
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
-    startLine: 5
+    startLine: 6
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'TriggerEnable : BOOL'
@@ -52,11 +52,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl.Trigger
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
-    startLine: 7
+    startLine: 8
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'Trigger : BOOL'
@@ -72,11 +72,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl.ClearExposureComplete
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
-    startLine: 9
+    startLine: 10
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'ClearExposureComplete : BOOL'
@@ -92,11 +92,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoInsight_AcquisitionControl.SetOffline
     path: .\src\components.cognex.vision\ctrl\src\AxoInsight\v_6_0_0\TypeStructuresAndEnums\AxoInsight_AcquisitionControl.st
-    startLine: 11
+    startLine: 12
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: 'SetOffline : BOOL'

@@ -4,7 +4,7 @@ USING AXOpen.Components.Cognex.Vision.v_6_0_0_0;
 NAMESPACE AxoCognexVisionDatamanExamples
 
     {S7.extern=ReadWrite}
-    CLASS AxoCognexVisionDatamanExampleContext EXTENDS AXOpen.AxoContext
+    CLASS AxoCognexVisionDatamanExampleContext EXTENDS AXOpen.Core.AxoContext
         VAR PUBLIC
             {#ix-set:AttributeName = "10A1"}
             MyDataman1 : AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman;  

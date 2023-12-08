@@ -24,7 +24,7 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
@@ -46,7 +46,6 @@ items:
   - plc.AXOpen.Core.AxoTask.Duration
   - plc.AXOpen.Core.AxoTask.StartTimeStamp
   - plc.AXOpen.Core.AxoTask.ErrorDetails
-  - plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
   - plc.AXOpen.Core.AxoObject.Identity
   - plc.AXOpen.Core.AxoTask.GetState()
   - plc.AXOpen.Core.AxoTask.GetErrorDetails()
@@ -55,10 +54,10 @@ items:
   - plc.AXOpen.Core.AxoTask.IsBusy()
   - plc.AXOpen.Core.AxoTask.IsAborted()
   - plc.AXOpen.Core.AxoTask.HasError()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+  - plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  - plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
   - plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
-  - plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  - plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
   - plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   - plc.AXOpen.Core.AxoTask.IsExecuteCalledInThisPlcCycle()
   - plc.AXOpen.Core.AxoTask.WasExecuteCalledInPreviousPlcCycle()
@@ -74,6 +73,10 @@ items:
   - plc.AXOpen.Core.AxoTask.GetIsDisabled()
   - plc.AXOpen.Core.AxoTask.Abort()
   - plc.AXOpen.Core.AxoTask.Resume()
+  - plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  - plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  - plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
   - plc.AXOpen.Core.AxoTask.OnAbort()
   - plc.AXOpen.Core.AxoTask.OnResume()
   - plc.AXOpen.Core.AxoTask.OnDone()
@@ -81,8 +84,15 @@ items:
   - plc.AXOpen.Core.AxoTask.OnRestore()
   - plc.AXOpen.Core.AxoTask.OnStart()
   - plc.AXOpen.Core.AxoTask.WhileError()
+  - plc.AXOpen.Core.AxoTask.AbortTriggered()
+  - plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  - plc.AXOpen.Core.AxoTask.DoneReached()
+  - plc.AXOpen.Core.AxoTask.ErrorOccured()
+  - plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  - plc.AXOpen.Core.AxoTask.StartTriggered()
   - plc.AXOpen.Core.AxoObject.GetIdentity()
   - plc.AXOpen.Core.AxoObject.GetContext()
+  - plc.AXOpen.Core.AxoObject.GetContextUnsafe()
   - plc.AXOpen.Core.AxoObject.GetParent()
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoObject)
   - plc.AXOpen.Core.AxoObject.Initialize(IAxoContext)
@@ -99,11 +109,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._progress
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 7
+    startLine: 8
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: '_progress : INT'
@@ -119,11 +129,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._infoTimer
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 8
+    startLine: 9
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: '_infoTimer : UNDEFINED'
@@ -139,11 +149,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._errorTimer
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 9
+    startLine: 10
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: '_errorTimer : UNDEFINED'
@@ -159,11 +169,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._infoTime
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 13
+    startLine: 14
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: '_infoTime : LTIME'
@@ -179,11 +189,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._errorTime
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 14
+    startLine: 15
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: '_errorTime : LTIME'
@@ -199,11 +209,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._refStatus
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 15
+    startLine: 16
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: '_refStatus : REF_TO AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDataman_Status'
@@ -219,11 +229,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData._refMessenger
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 16
+    startLine: 17
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: '_refMessenger : REF_TO AXOpen.Messaging.Static.AxoMessenger'
@@ -239,11 +249,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.Run
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 25
+    startLine: 26
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   summary: Runs the logic of this tasks.>[!IMPORTANT] This method must be called cyclically.
   syntax:
@@ -279,11 +289,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.CallTimers
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 102
+    startLine: 103
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Private VOID CallTimers(in plc.BOOL signal)
@@ -302,11 +312,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.OnRestore
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 110
+    startLine: 111
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Protected VOID OnRestore()
@@ -323,11 +333,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.OnAbort
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 120
+    startLine: 121
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Protected VOID OnAbort()
@@ -344,11 +354,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.OnDone
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 126
+    startLine: 127
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Protected VOID OnDone()
@@ -365,11 +375,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.OnError
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 133
+    startLine: 134
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Protected VOID OnError()
@@ -386,11 +396,11 @@ items:
   source:
     remote:
       path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0.AxoDatamanClearResultData.OnStart
     path: .\src\components.cognex.vision\ctrl\src\AxoDataman\v_6_0_0\Tasks\AxoDatamanClearResultData.st
-    startLine: 138
+    startLine: 140
   namespace: plc.AXOpen.Components.Cognex.Vision.v_6_0_0_0
   syntax:
     content: Protected VOID OnStart()
@@ -458,12 +468,6 @@ references:
   nameWithType: ErrorDetails
   fullName: plc.AXOpen.Core.AxoTask.ErrorDetails
   parent: plc.AXOpen.Core.AxoTask.ErrorDetails
-- uid: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  commentId: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  name: _CyclicExecuteIsNotCalled
-  nameWithType: _CyclicExecuteIsNotCalled
-  fullName: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
-  parent: plc.AXOpen.Core.AxoTask._CyclicExecuteIsNotCalled
 - uid: plc.AXOpen.Core.AxoObject.Identity
   commentId: plc.AXOpen.Core.AxoObject.Identity
   name: Identity
@@ -512,30 +516,30 @@ references:
   nameWithType: HasError()
   fullName: plc.AXOpen.Core.AxoTask.HasError()
   parent: plc.AXOpen.Core.AxoTask.HasError()
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  name: IsInvokeCalled()
-  nameWithType: IsInvokeCalled()
-  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
-  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalled()
+- uid: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  commentId: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  name: IsFirstExecutionCycle()
+  nameWithType: IsFirstExecutionCycle()
+  fullName: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+  parent: plc.AXOpen.Core.AxoTask.IsFirstExecutionCycle()
+- uid: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  name: SetSuspendMultipleExecuteCallCheck(BOOL)
+  nameWithType: SetSuspendMultipleExecuteCallCheck(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetSuspendMultipleExecuteCallCheck(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  commentId: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  name: GetSuspendMultipleExecuteCallCheckState()
+  nameWithType: GetSuspendMultipleExecuteCallCheckState()
+  fullName: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
+  parent: plc.AXOpen.Core.AxoTask.GetSuspendMultipleExecuteCallCheckState()
 - uid: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   commentId: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   name: IsNewInvokeCall()
   nameWithType: IsNewInvokeCall()
   fullName: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
   parent: plc.AXOpen.Core.AxoTask.IsNewInvokeCall()
-- uid: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  commentId: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  name: IsInvokeCalledInThisPlcCycle()
-  nameWithType: IsInvokeCalledInThisPlcCycle()
-  fullName: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-  parent: plc.AXOpen.Core.AxoTask.IsInvokeCalledInThisPlcCycle()
-- uid: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  commentId: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  name: WasInvokeCalledInPreviousPlcCycle()
-  nameWithType: WasInvokeCalledInPreviousPlcCycle()
-  fullName: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
-  parent: plc.AXOpen.Core.AxoTask.WasInvokeCalledInPreviousPlcCycle()
 - uid: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   commentId: plc.AXOpen.Core.AxoTask.IsNewExecuteCall()
   name: IsNewExecuteCall()
@@ -626,6 +630,30 @@ references:
   nameWithType: Resume()
   fullName: plc.AXOpen.Core.AxoTask.Resume()
   parent: plc.AXOpen.Core.AxoTask.Resume()
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  name: SetRemoteRestoreEnabled(BOOL)
+  nameWithType: SetRemoteRestoreEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteRestoreEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  name: GetRemoteRestoreEnabled()
+  nameWithType: GetRemoteRestoreEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteRestoreEnabled()
+- uid: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  commentId: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  name: SetRemoteAbortEnabled(BOOL)
+  nameWithType: SetRemoteAbortEnabled(BOOL)
+  fullName: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+  parent: plc.AXOpen.Core.AxoTask.SetRemoteAbortEnabled(BOOL)
+- uid: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  commentId: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  name: GetRemoteAbortEnabled()
+  nameWithType: GetRemoteAbortEnabled()
+  fullName: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
+  parent: plc.AXOpen.Core.AxoTask.GetRemoteAbortEnabled()
 - uid: plc.AXOpen.Core.AxoTask.OnAbort()
   commentId: plc.AXOpen.Core.AxoTask.OnAbort()
   name: OnAbort()
@@ -668,6 +696,42 @@ references:
   nameWithType: WhileError()
   fullName: plc.AXOpen.Core.AxoTask.WhileError()
   parent: plc.AXOpen.Core.AxoTask.WhileError()
+- uid: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  name: AbortTriggered()
+  nameWithType: AbortTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.AbortTriggered()
+  parent: plc.AXOpen.Core.AxoTask.AbortTriggered()
+- uid: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  name: ResumeTriggered()
+  nameWithType: ResumeTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+  parent: plc.AXOpen.Core.AxoTask.ResumeTriggered()
+- uid: plc.AXOpen.Core.AxoTask.DoneReached()
+  commentId: plc.AXOpen.Core.AxoTask.DoneReached()
+  name: DoneReached()
+  nameWithType: DoneReached()
+  fullName: plc.AXOpen.Core.AxoTask.DoneReached()
+  parent: plc.AXOpen.Core.AxoTask.DoneReached()
+- uid: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  commentId: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  name: ErrorOccured()
+  nameWithType: ErrorOccured()
+  fullName: plc.AXOpen.Core.AxoTask.ErrorOccured()
+  parent: plc.AXOpen.Core.AxoTask.ErrorOccured()
+- uid: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  name: RestoreTriggered()
+  nameWithType: RestoreTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+  parent: plc.AXOpen.Core.AxoTask.RestoreTriggered()
+- uid: plc.AXOpen.Core.AxoTask.StartTriggered()
+  commentId: plc.AXOpen.Core.AxoTask.StartTriggered()
+  name: StartTriggered()
+  nameWithType: StartTriggered()
+  fullName: plc.AXOpen.Core.AxoTask.StartTriggered()
+  parent: plc.AXOpen.Core.AxoTask.StartTriggered()
 - uid: plc.AXOpen.Core.AxoObject.GetIdentity()
   commentId: plc.AXOpen.Core.AxoObject.GetIdentity()
   name: GetIdentity()
@@ -680,6 +744,12 @@ references:
   nameWithType: GetContext()
   fullName: plc.AXOpen.Core.AxoObject.GetContext()
   parent: plc.AXOpen.Core.AxoObject.GetContext()
+- uid: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  commentId: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  name: GetContextUnsafe()
+  nameWithType: GetContextUnsafe()
+  fullName: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
+  parent: plc.AXOpen.Core.AxoObject.GetContextUnsafe()
 - uid: plc.AXOpen.Core.AxoObject.GetParent()
   commentId: plc.AXOpen.Core.AxoObject.GetParent()
   name: GetParent()

@@ -12,7 +12,7 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoByteArray
     path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
@@ -33,11 +33,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoByteArray.DataChanged
     path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-    startLine: 4
+    startLine: 5
   namespace: plc.AXOpen.Core
   syntax:
     content: 'DataChanged : BOOL'
@@ -53,11 +53,11 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Core.AxoByteArray.ToggleDataChangedFlag
     path: .\src\core\ctrl\src\AxoArrays\AxoByteArray.st
-    startLine: 7
+    startLine: 8
   namespace: plc.AXOpen.Core
   syntax:
     content: Public VOID ToggleDataChangedFlag()

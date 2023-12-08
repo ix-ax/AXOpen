@@ -290,11 +290,11 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             END_IF;
             actState := myTask.GetState();
             Assert.Equal(TRUE,THIS.Equal(expState, actState));     
-            Assert.Equal('this is the reson of failure...', myTask.ErrorDetails);         
-            Assert.Equal('this is the reson of failure...', myTask.GetErrorDetails());    
+            AxOpenCoreAssert.Equal('this is the reson of failure...', myTask.ErrorDetails);         
+            AxOpenCoreAssert.Equal('this is the reson of failure...', myTask.GetErrorDetails());    
             myTask.Restore();
-            Assert.Equal('', myTask.ErrorDetails);         
-            Assert.Equal('', myTask.GetErrorDetails());    
+            AxOpenCoreAssert.Equal('', myTask.ErrorDetails);         
+            AxOpenCoreAssert.Equal('', myTask.GetErrorDetails());    
         END_METHOD
 
 
@@ -990,5 +990,311 @@ NAMESPACE AXOpen.Core.AxoTask_Tests
             Assert.Equal(TRUE,myTask.GetRemoteRestoreEnabled());
             // Assert.Equal(TRUE,FALSE);
         END_METHOD  
+
+        {Test}
+        METHOD PUBLIC start_triggered_method_should_return_true_in_the_same_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            // Act/Assert 
+            myTask.Invoke();          
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.StartTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC start_triggered_method_should_return_true_in_the_next_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            _context.Close();
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.StartTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC start_triggered_method_should_return_false_in_the_n_plus_2_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            _context.Close();
+
+            _context.Open();
+            myTask.Execute();
+            _context.Close();
+
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(FALSE, myTask.StartTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC restore_triggered_method_should_return_true_in_the_same_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            // Act/Assert 
+            myTask.Restore();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.RestoreTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC restore_triggered_method_should_return_true_in_the_next_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.Restore();
+            _context.Close();
+
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.RestoreTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC restore_triggered_method_should_return_false_in_the_n_plus_2_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.Restore();
+            _context.Close();
+
+            _context.Open();
+            myTask.Execute();
+            _context.Close();
+
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(FALSE, myTask.RestoreTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC done_reached_method_should_return_true_in_the_same_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            // Act/Assert 
+            myTask.DoneWhen(TRUE);
+            Assert.Equal(TRUE, myTask.DoneReached());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC done_reached_method_should_return_true_in_the_next_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.DoneWhen(TRUE);
+            _context.Close();
+
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.DoneReached());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC done_reached_method_should_return_false_in_the_n_plus_2_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.DoneWhen(TRUE);
+            _context.Close();
+
+            _context.Open();
+            myTask.Execute();
+            _context.Close();
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.DoneReached());            
+        END_METHOD
+        {Test}
+        METHOD PUBLIC error_occured_method_should_return_true_in_the_same_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            // Act/Assert 
+            myTask.ThrowWhen(TRUE);
+            Assert.Equal(TRUE, myTask.ErrorOccured());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC error_occured_method_should_return_true_in_the_next_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.ThrowWhen(TRUE);
+            _context.Close();
+
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.ErrorOccured());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC error_occured_method_should_return_false_in_the_n_plus_2_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.ThrowWhen(TRUE);
+            _context.Close();
+
+            _context.Open();
+            myTask.Execute();
+            _context.Close();
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.ErrorOccured());            
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC abort_triggered_method_should_return_true_in_the_same_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            // Act/Assert 
+            myTask.Abort();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.AbortTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC abort_triggered_method_should_return_true_in_the_next_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.Abort();
+            _context.Close();
+
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.AbortTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC abort_triggered_method_should_return_false_in_the_n_plus_2_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.Abort();
+            _context.Close();
+
+            _context.Open();
+            myTask.Execute();
+            _context.Close();
+
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(FALSE, myTask.AbortTriggered());           
+        END_METHOD
+        {Test}
+        METHOD PUBLIC error_occured_method_should_return_false_in_the_n_plus_2_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.ThrowWhen(TRUE);
+            _context.Close();
+
+            _context.Open();
+            myTask.Execute();
+            _context.Close();
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.ErrorOccured());            
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC resume_triggered_method_should_return_true_in_the_same_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.Abort();
+            // Act/Assert 
+            myTask.Resume();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.ResumeTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC resume_triggered_method_should_return_true_in_the_next_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.Abort();
+            myTask.Resume();
+            _context.Close();
+
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(TRUE, myTask.ResumeTriggered());           
+        END_METHOD
+
+        {Test}
+        METHOD PUBLIC resume_triggered_method_should_return_false_in_the_n_plus_2_PLC_cycle
+            // Arrange
+            THIS.Initialize();
+            _context.Open();
+            myTask.Invoke();          
+            myTask.Execute();
+            myTask.Abort();
+            myTask.Resume();
+            _context.Close();
+
+            _context.Open();
+            myTask.Execute();
+            _context.Close();
+
+            // Act/Assert 
+            _context.Open();
+            myTask.Execute();
+            Assert.Equal(FALSE, myTask.ResumeTriggered());           
+        END_METHOD
     END_CLASS
 END_NAMESPACE

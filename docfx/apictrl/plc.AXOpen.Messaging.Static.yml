@@ -3,6 +3,7 @@ items:
 - uid: plc.AXOpen.Messaging.Static
   id: plc.AXOpen.Messaging.Static
   children:
+  - plc.AXOpen.Messaging.Static.eAxoMessengerState
   - plc.AXOpen.Messaging.Static.AxoMessenger
   - plc.AXOpen.Messaging.Static.IAxoMessageProperties
   name: plc.AXOpen.Messaging.Static
@@ -11,13 +12,17 @@ items:
   source:
     remote:
       path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Messaging.Static
     path: .\src\core\ctrl\src\AxoMessaging\Static\AxoMessenger.st
     startLine: 3
   namespace: plc.AXOpen.Messaging.Static
 references:
+- uid: plc.AXOpen.Messaging.Static.eAxoMessengerState
+  name: eAxoMessengerState
+  nameWithType: eAxoMessengerState
+  fullName: AXOpen.Messaging.Static.eAxoMessengerState
 - uid: plc.AXOpen.Messaging.Static.AxoMessenger
   name: AxoMessenger
   nameWithType: AxoMessenger

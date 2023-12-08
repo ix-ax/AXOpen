@@ -11,7 +11,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\IAxoAnalogueInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoAnalogueInspector
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\IAxoAnalogueInspector.st
@@ -30,7 +30,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\IAxoAnalogueInspector.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoAnalogueInspector.Inspect
     path: .\src\inspectors\ctrl\src\AxoAnalogueInspector\IAxoAnalogueInspector.st

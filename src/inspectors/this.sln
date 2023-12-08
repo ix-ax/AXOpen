@@ -23,13 +23,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_inspectors", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Inspectors_tests_L1", "tests\AXOpen.Inspectors.Tests\AXOpen.Inspectors_tests_L1.csproj", "{ADE8A51E-5492-4C07-9DC9-5CCBC9E5BD34}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "..\security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{217ED9BA-1937-4121-944A-A8DDB591D6E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor\AXOpen.Security.Blazor.csproj", "{217ED9BA-1937-4121-944A-A8DDB591D6E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "..\security\src\AXOpen.Security\AXOpen.Security.csproj", "{8B3ADF4E-DF4E-4393-AE94-927CB086492E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.Security", "..\Security\src\AXOpen.Security\AXOpen.Security.csproj", "{8B3ADF4E-DF4E-4393-AE94-927CB086492E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_simatic1500", "..\simatic1500\ctrl\ix\ix_ax_axopen_simatic1500.csproj", "{B6FA008A-00D4-49F0-9343-97079898473D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ix_ax_axopen_timers", "..\timers\src\AXOpen.Timers\ix_ax_axopen_timers.csproj", "{553061E7-9153-437E-BBEF-857F6410E65D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AXOpen.ToolBox", "..\toolbox\src\AXOpen.ToolBox\AXOpen.ToolBox.csproj", "{ECD0FD1B-C5AE-4728-967E-687C41B9084B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Abstractions", "..\abstractions\src\AXOpen.Abstractions", "{8FFB747C-B645-4EEA-9160-7B2DAAA244E3}"
 EndProject
@@ -81,13 +83,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{E0208F3E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "inspectors", "..\inspectors", "{96FE5F90-35D9-48BA-8E7D-0C58D416A492}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "..\security\src\AXOpen.Security.Blazor", "{C7AD366A-99D3-4088-BD13-53A6A4393D7D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security.Blazor", "..\Security\src\AXOpen.Security.Blazor", "{C7AD366A-99D3-4088-BD13-53A6A4393D7D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "..\security\src\AXOpen.Security", "{C411CFE2-7B05-49EA-91AC-1B90ED1AF9FC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.Security", "..\Security\src\AXOpen.Security", "{C411CFE2-7B05-49EA-91AC-1B90ED1AF9FC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\security\src", "{180C1CE6-448B-4368-B470-452A8B092C13}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\Security\src", "{180C1CE6-448B-4368-B470-452A8B092C13}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "security", "..\security", "{6059A91F-A7B6-4735-8750-736F578F4239}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "..\Security", "{6059A91F-A7B6-4735-8750-736F578F4239}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ix", "..\simatic1500\ctrl\ix", "{AEADC4DD-15B4-44F4-8DA5-FA394A7C28FA}"
 EndProject
@@ -100,6 +102,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\timers\src", "{55235171-5208-4409-A732-85881BB4FBCA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "timers", "..\timers", "{4A108C99-F67E-4B09-849D-B089F095E92A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AXOpen.ToolBox", "..\toolbox\src\AXOpen.ToolBox", "{D6A2F679-7460-4E15-B70F-4527C48312A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "..\toolbox\src", "{F111DBFC-F73E-4225-841C-988836359EA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "toolbox", "..\toolbox", "{90F9CD92-31A5-4E97-A144-95F6B7A69EA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +179,10 @@ Global
 		{553061E7-9153-437E-BBEF-857F6410E65D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{553061E7-9153-437E-BBEF-857F6410E65D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{553061E7-9153-437E-BBEF-857F6410E65D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECD0FD1B-C5AE-4728-967E-687C41B9084B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECD0FD1B-C5AE-4728-967E-687C41B9084B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECD0FD1B-C5AE-4728-967E-687C41B9084B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECD0FD1B-C5AE-4728-967E-687C41B9084B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -218,6 +230,9 @@ Global
 		{553061E7-9153-437E-BBEF-857F6410E65D} = {9058EBB5-F049-4D91-B823-F5774268BC02}
 		{9058EBB5-F049-4D91-B823-F5774268BC02} = {55235171-5208-4409-A732-85881BB4FBCA}
 		{55235171-5208-4409-A732-85881BB4FBCA} = {4A108C99-F67E-4B09-849D-B089F095E92A}
+		{ECD0FD1B-C5AE-4728-967E-687C41B9084B} = {D6A2F679-7460-4E15-B70F-4527C48312A2}
+		{D6A2F679-7460-4E15-B70F-4527C48312A2} = {F111DBFC-F73E-4225-841C-988836359EA4}
+		{F111DBFC-F73E-4225-841C-988836359EA4} = {90F9CD92-31A5-4E97-A144-95F6B7A69EA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AB9EC468-5C9F-4141-BC9E-76D0FC6B86D3}

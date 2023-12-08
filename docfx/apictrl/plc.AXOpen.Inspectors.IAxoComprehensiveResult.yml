@@ -16,7 +16,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
@@ -35,7 +35,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetResult
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
@@ -56,7 +56,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetFailures
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
@@ -77,7 +77,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.GetErrorCodes
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
@@ -98,7 +98,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetResult
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
@@ -121,7 +121,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetFailures
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
@@ -144,7 +144,7 @@ items:
   source:
     remote:
       path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st
-      branch: 209-_NEW-FEATURE_Create_library_for_Rexroth_drives
+      branch: 293-Festo_CMMT-AS_class_not_derived_from_AxoDrive_just_point_to_point_movements
       repo: https://github.com/ix-ax/AXOpen.git
     id: plc.AXOpen.Inspectors.IAxoComprehensiveResult.SetErrorCodes
     path: .\src\inspectors\ctrl\src\interfaces\IAxoComprehensiveResult.st

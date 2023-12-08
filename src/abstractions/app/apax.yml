@@ -3,19 +3,22 @@ version: 0.0.0
 type: app
 targets:
   - plcsim
-  - axunit-llvm
+  - llvm
 variables:
   APAX_BUILD_ARGS:
     - "--debug" # Generate debug information for target "1500"
 devDependencies:
-  "@ax/sdk": 4.0.12
-  "@ax/sld": 2.0.5
+  "@ix-ax/ax-sdk": '0.0.0-dev.0'
 dependencies:
   "@ix-ax/axopen.abstractions": '0.0.0-dev.0'
+  "@ix-ax/axopen.timers": '0.0.0-dev.0'
   "@ix-ax/axopen.core": '0.0.0-dev.0'
 scripts:
   download:
     - apax install
     - apax build
     - dotnet ixc
-    - apax sld load --accept-security-disclaimer -t $AXTARGET -i $AXTARGETPLATFORMINPUT -r
+    - apax sld load --accept-security-disclaimer -t $AXTARGET -i
+      $AXTARGETPLATFORMINPUT -r
+installStrategy: strict
+apaxVersion: 3.0.0

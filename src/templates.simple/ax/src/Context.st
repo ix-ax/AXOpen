@@ -8,7 +8,7 @@ NAMESPACE axosimple
             TechnologySettings : axosimple.TechnologyData;
             ProcessSettings : axosimple.ProcessData;
             ProcessData : axosimple.ProcessData;                        
-            PersistentData : AXOpen.Data.AxoDataPersistentExchange;
+            PersistentData : AxoDataPersistentExchange;
             GlobalObjects : GlobalContextObjects;
             
             Inputs : REF_TO axosimple.Inputs;
@@ -75,7 +75,7 @@ NAMESPACE axosimple
             {#ix-attr:[AXOpen.Data.PersistentAttribute("")]}
             LastTechnologySettings : STRING ;
 
-            PersistentData      : REF_TO axosimple.AxoDataPersistentExchange;
+            PersistentData      : REF_TO AxoDataPersistentExchange;
             ProcessSettings     : REF_TO axosimple.ProcessData;
             TechnologySettings  : REF_TO axosimple.TechnologyData;
             ProcessData         : REF_TO axosimple.ProcessData;

@@ -9,6 +9,11 @@ using Serilog;
 using AXSharp.Presentation.Blazor.Controls.RenderableContent;
 using System.Collections.Generic;
 using AXOpen.ToolBox.Extensions;
+using Polly;
+using Microsoft.AspNetCore.Components.Authorization;
+using System.Security.Claims;
+using System.Security.Principal;
+using System.Linq;
 
 namespace AXOpen.Core
 {
@@ -21,6 +26,7 @@ namespace AXOpen.Core
         private bool containsHeaderAttribute;
         private bool containsDetailsAttribute;
         private IEnumerable<string> tabNames = new List<string>();
+        private IEnumerable<ClaimsIdentity> identities;
 
         [Parameter]
         public bool IsControllable { get; set; }
@@ -69,11 +75,14 @@ namespace AXOpen.Core
             foreach (string tabName in tabNames)
             {
                 List<ITwinElement> currentTabElements = this.Component.GetKids()
-                    .Where(p =>
-                    {
-                        var attr = p.GetAttribute<ComponentDetailsAttribute>();
-                        return attr != null && !string.IsNullOrEmpty(attr.TabName) && attr.TabName.Equals(tabName);
-                    }).ToList();
+                .Where(p =>
+                {
+                    var tabNameAttr = p.GetAttribute<ComponentDetailsAttribute>();
+                    var displayRoleAttr = p.GetAttribute<DisplayRoleAttribute>();
+                    string displayRoleName = displayRoleAttr == null ? "" : displayRoleAttr.RoleName == null ? "" : displayRoleAttr.RoleName;
+                    bool isToBeDisplayed = String.IsNullOrEmpty(displayRoleName) || DisplayByTheRole(displayRoleName);
+                    return tabNameAttr != null && !string.IsNullOrEmpty(tabNameAttr.TabName) && tabNameAttr.TabName.Equals(tabName) && isToBeDisplayed;
+                }).ToList();
 
                 ITwinObject _detailsTab = new ComponentGroupContext(this.Component, currentTabElements, tabName);
                 _detailsTabs.Add(_detailsTab);
@@ -111,10 +120,39 @@ namespace AXOpen.Core
             {
                 await connector?.ReadBatchAsync(a);
             }
-
+            identities = await GetClaimsIdentitiesAsync();
             await base.OnInitializedAsync();
         }
 
+
+        private bool DisplayByTheRole(string role)
+        {
+            if (identities != null && role != null)
+            {
+                List<ClaimsIdentity> _identities = identities.ToList();
+
+                for (int i = 0; i < _identities.Count; i++)
+                {
+                    if (_identities[i] != null)
+                    {
+                        if (_identities[i].HasClaim(_identities[i].RoleClaimType, role))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+
+        [Inject]
+        private AuthenticationStateProvider? AuthenticationStateProvider { get; set; }
+        private async Task<IEnumerable<ClaimsIdentity>?> GetClaimsIdentitiesAsync()
+        {
+            var authenticationState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            return authenticationState?.User?.Identities;
+        }
         private IEnumerable<AxoMessenger>? Messengers => this.Component?.GetChildren().Flatten(p => p.GetChildren()).OfType<AxoMessenger>();
 
 
